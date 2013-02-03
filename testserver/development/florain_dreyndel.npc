@@ -3,7 +3,7 @@
 -- NPC Job:  Helper                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  787, 823, 0            --
--- NPC Sex:  male                       NPC Direction: west                   --
+-- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Lillian                                                          --
 --                                                       easyNPC Parser v1.23 --
@@ -13,7 +13,7 @@ name = "Florain Dreyndel"
 race = human
 sex = male
 position = 787, 823, 0
-direction = west
+direction = north
 affiliation = "Runewick"
 job = "Helper"
 
@@ -45,25 +45,25 @@ itemTrousers = 461
 itemShoes = 53
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Florain Dreyndel the helper. Keywords: quest, information, job")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Florain Dreyndel der Helfer. Schlüsselwörter: Quest, Information, Beruf")
+"Help" -> inform("[Game Help] This NPC is Florain Dreyndel the helper. Keywords: quest, job")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Florain Dreyndel der Helfer. Schlüsselwörter: Quest, Beruf")
 queststatus(820) = 0, english, ".+" -> queststatus(820) = 1, "Welcome to Runewick. I heard that my friend Zassaria Riverbank needs help. You can find her on the marketplace, just go over the bridge and trough the blue portal on its end to reach it."
-queststatus(820) = 0, ".+" -> queststatus(820) = 1, "Willkommen in Runewick. Ich habe gehört das meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an dessen Ende um dorthin zu gelangen."
+queststatus(820) = 0, ".+" -> queststatus(820) = 1, "Willkommen in Runewick. Ich habe gehört, dass meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an dessen Ende um dorthin zu gelangen."
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, would you like some help with getting to know the place?", "Nice to meet you, I'm Florain Dreyndel, would you like to know who needs help in this realm?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, braucht Ihr vielleicht Hilfe euch in diesem Reich zurechtzufinden?", "Freut mich euch zu treffen. Ich bin Florain Dreyndel, möchtet ihr vielleicht wissen wer in diesem Reich Hilfe benötigt?"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, would you like some help with getting to know the place?", "Nice to meet you, I'm Florain Dreyndel, would you like to know who needs help in this realm?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, braucht Ihr vielleicht Hilfe euch in diesem Reich zurechtzufinden?", "Freut mich euch zu treffen. Ich bin Florain Dreyndel, möchtet ihr vielleicht wissen wer in diesem Reich Hilfe benötigt?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, I can tell you who in Runewick has tasks for you to do.", "Nice to meet you, I'm Florain Dreyndel, I can tell you who in Runewick has tasks for you to do."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, ich kann euch sagen wer in Runewick Aufgaben für euch hat.", "Freut mich euch zu treffen. Ich bin Florain Dreyndel, ich kann euch sagen wer in Runewick Aufgaben für euch hat."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, I can tell you who in Runewick has tasks for you to do.", "Nice to meet you, I'm Florain Dreyndel, I can tell you who in Runewick has tasks for you to do."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, ich kann euch sagen wer in Runewick Aufgaben für euch hat.", "Freut mich euch zu treffen. Ich bin Florain Dreyndel, ich kann euch sagen wer in Runewick Aufgaben für euch hat."
 "Farewell", "Bye", "Fare well", "See you" -> "Thank you so, so much for talking to me. If you need help finding something to do, just come back.", "Please have a good day. If you need help finding something to do, just come back."
-"Tschüß", "Tschüss", "Wiedersehen" -> "Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr hilfe braucht etwas zu tun zu finden, kommt einfach zurück.", "Ich wünsche Euch einen schönen Tag. Wenn Ihr hilfe braucht etwas zu tun zu finden, kommt einfach zurück."
+"Tschüß", "Tschüss", "Wiedersehen" -> "Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr Hilfe braucht etwas zu tun zu finden, kommt einfach zurück.", "Ich wünsche Euch einen schönen Tag. Wenn Ihr Hilfe braucht etwas zu tun zu finden, kommt einfach zurück."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Thank you so, so much for talking to me. If you need help finding something to do, just come back.", "Please have a good day. If you need help finding something to do, just come back."
 "Farewell", "Bye", "Fare well", "See you" -> "Thank you so, so much for talking to me. If you need help finding something to do, just come back.", "Please have a good day. If you need help finding something to do, just come back."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Werde ich Euch wiedersehen?", "Vielen, vielen, vielen Dank, dass Ihr mit mir gesprochen habt.", "Ich wünsche Euch einen schönen Tag. Bitte kommt mal wieder vorbei."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr Hilfe braucht etwas zu tun zu finden, kommt einfach zurück.", "Ich wünsche Euch einen schönen Tag. Wenn Ihr Hilfe braucht etwas zu tun zu finden, kommt einfach zurück."
 "How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke für die Nachfrage."
 "your name", "who are you", "who art thou" -> "I'm Florain Dreyndel. I'm here to help."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Florain Dreyndel. Ich bin hier zum helfen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Florain Dreyndel. Ich bin hier zum Helfen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "My job is to help. So if you need something to do, just ask."
@@ -88,10 +88,18 @@ queststatus(820) = 4, english, "quest", "mission" -> queststatus(820) = 5, "A bi
 queststatus(820) = 4, "quest", "mission" -> queststatus(820) = 5, "Ein Vogel hat mir erzählt das die Anwärterin Madeline Clarbelis hilfe benötigt. Es ist einfach sie zu finden. Geht einfach zurück zum Marktplatz, durch das Gebäude im Westen und verlasst es über die Brücke im Norden."
 queststatus(820) = 4, "task", "adventure", "order" -> queststatus(820) = 5, "A bird told me that the apprentice Madeline Clarbelis could need some help. You can find her easily. Just go back to the marketplace through the building to the west and leave it over the bridge to the north."
 queststatus(820) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 5, "Ein Vogel hat mir erzählt das die Anwärterin Madeline Clarbelis hilfe benötigt. Es ist einfach sie zu finden. Geht einfach zurück zum Marktplatz, durch das Gebäude im Westen und verlasst es über die Brücke im Norden."
-queststatus(820) = 5, english, "quest", "mission" -> "I'm sure you find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
-queststatus(820) = 5, "quest", "mission" -> "Ich bin sicher ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die ihr trefft ob sie Aufgaben für euch haben und ihr werdet zurechtkommen."
-queststatus(820) = 5, "task", "adventure", "order" -> "I'm sure you find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
-queststatus(820) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die ihr trefft ob sie Aufgaben für euch haben und ihr werdet zurechtkommen."
+queststatus(820) = 5, english, "quest", "mission" -> queststatus(820) = 6, "Uriel Urch, a retired soldies could need someone to keep him company and listen to his story. I'm sure he will reward you for your time. You can find him when you go in the western building on the marketplace and down the flight of stairs."
+queststatus(820) = 5, "quest", "mission" -> queststatus(820) = 6, "Uriel Urch könnte jemanden gebrauchen der Zeit mit ihm verbringt und seiner Geschichte lauscht. Er wird euch sicher für eure Zeit belohnen. Ihr könnt ihn finden, wenn ihr in dem Gebäude westlich vom Marktplatz die Treppe nach unten geht."
+queststatus(820) = 5, "task", "adventure", "order" -> queststatus(820) = 6, "Uriel Urch, a retired soldies could need someone to keep him company and listen to his story. I'm sure he will reward you for your time. You can find him when you go in the western building on the marketplace and down the flight of stairs."
+queststatus(820) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 6, "Uriel Urch könnte jemanden gebrauchen der Zeit mit ihm verbringt und seiner Geschichte lauscht. Er wird euch sicher für eure Zeit belohnen. Ihr könnt ihn finden, wenn ihr in dem Gebäude westlich vom Marktplatz die Treppe nach unten geht."
+queststatus(820) = 6, english, "quest", "mission" -> queststatus(820) = 7, "Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel. Down the stairs in the building west of the marketplace."
+queststatus(820) = 6, "quest", "mission" -> queststatus(820) = 7, "Lilith Needlehand sucht jemanden der ihr behilflich ist. Ihr könnt sie in der Nähe von Uriel finden. Die Treppe runter in dem Gebäude westlich vom Marktplatz."
+queststatus(820) = 6, "task", "adventure", "order" -> queststatus(820) = 7, "Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel. Down the stairs in the building west of the marketplace."
+queststatus(820) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 7, "Lilith Needlehand sucht jemanden der ihr behilflich ist. Ihr könnt sie in der Nähe von Uriel finden. Die Treppe runter in dem Gebäude westlich vom Marktplatz."
+queststatus(820) = 7, english, "quest", "mission" -> "I'm sure you find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
+queststatus(820) = 7, "quest", "mission" -> "Ich bin sicher ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die ihr trefft ob sie Aufgaben für euch haben und ihr werdet zurechtkommen."
+queststatus(820) = 7, "task", "adventure", "order" -> "I'm sure you find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
+queststatus(820) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die ihr trefft ob sie Aufgaben für euch haben und ihr werdet zurechtkommen."
 
 -- Catching typical NPC phrases
 "tell something" -> "If you need help, just ask."
