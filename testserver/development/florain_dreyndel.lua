@@ -217,6 +217,50 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Elesil");
+talkEntry:addTrigger("Dealwon");
+talkEntry:addResponse("She is right over there, just go over and talk to her. She knows alot about Runewick.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elesil");
+talkEntry:addTrigger("Dealwon");
+talkEntry:addResponse("Sie ist gleich dort drüben, geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Runewick.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("food");
+talkEntry:addTrigger("eat");
+talkEntry:addResponse("You can find food all around you. There are fruits on the trees and bushes or you ask other people for something to eat.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("essen");
+talkEntry:addTrigger("nahrung");
+talkEntry:addResponse("Ihr könnt überall etwas zu essen finden. Früchte wachsen an Bäumen und Büschen oder Ihr fragt andere Leute nach etwas zu essen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("fighting");
+talkEntry:addTrigger("monster");
+talkEntry:addResponse("There are a few wild animals in the wilderness so be careful. If you want to train ask around for a sparring partner.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("kämpfen");
+talkEntry:addTrigger("monster");
+talkEntry:addResponse("Es gibt einige wilde Tiere in der Wildness, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt herum nach einem Trainingspartner.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -797,21 +841,6 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Elesil");
-talkEntry:addTrigger("Dealwon");
-talkEntry:addResponse("She is right over there, just go over and talk to her. She knows alot about Runewick.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elesil");
-talkEntry:addTrigger("Dealwon");
-talkEntry:addResponse("Sie ist gleich dort drüben, geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

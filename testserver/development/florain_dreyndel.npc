@@ -69,8 +69,18 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Thank you so, so much for t
 "beruf" -> "Meine Berufung ist zu helfen. Also wenn Ihr etwas zu tun sucht, fragt einfach."
 english, "job" -> "My mission is to help, so if you need something to do, just ask."
 "job" -> "Meine Berufung ist zu helfen. Also wenn Ihr etwas zu tun sucht, fragt einfach."
+
+-- help triggers
 "market" -> "Just follow the bridge and go through the blue portal at the end. Ask Elesil Dealwon over there if you want to know more about the places around Runewick."
 "markt" -> "Folgt einfach der Brücke bis zum Ende und geht durch das blaue Portal. Fragt Elesil Dealwon dort drüben, wenn Ihr mehr über die Orte um Runewick herum wissen wollt."
+english, "Elesil", "Dealwon" -> "She is right over there, just go over and talk to her. She knows alot about Runewick."
+"Elesil", "Dealwon" -> "Sie ist gleich dort drüben, geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Runewick."
+"food", "eat" -> "You can find food all around you. There are fruits on the trees and bushes or you ask other people for something to eat."
+"essen", "nahrung" -> "Ihr könnt überall etwas zu essen finden. Früchte wachsen an Bäumen und Büschen oder Ihr fragt andere Leute nach etwas zu essen."
+english, "fighting", "monster" -> "There are a few wild animals in the wilderness so be careful. If you want to train ask around for a sparring partner."
+"kämpfen", "monster" -> "Es gibt einige wilde Tiere in der Wildness, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt herum nach einem Trainingspartner."
+
+-- Quests
 queststatus(820) = 1, queststatus(701) = 0, english, "quest", "mission" -> "Welcome to Runewick. I heard that my friend Zassaria Riverbank needs help. You can find her at the marketplace, just go over the bridge and through the blue portal at the end to reach it."
 queststatus(820) = 1, queststatus(701) = 0, "quest", "mission" -> "Willkommen in Runewick. Ich habe gehört, dass meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an dessen Ende, um dorthin zu gelangen."
 queststatus(820) = 1, queststatus(701) = 0, "task", "adventure", "order" -> "Welcome to Runewick. I heard that my friend Zassaria Riverbank needs help. You can find her at the marketplace, just go over the bridge and through the blue portal at the end to reach it."
@@ -127,8 +137,6 @@ queststatus(820) = 7, queststatus(73) > 1, english, "quest", "mission" -> "I'm s
 queststatus(820) = 7, queststatus(73) > 1, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
 queststatus(820) = 7, queststatus(73) > 1, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
 queststatus(820) = 7, queststatus(73) > 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
-english, "Elesil", "Dealwon" -> "She is right over there, just go over and talk to her. She knows alot about Runewick."
-"Elesil", "Dealwon" -> "Sie ist gleich dort drüben, geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Runewick."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, ".*" -> "I cannot help you with that. Why not ask Elesil Dealwon over there, I'm sure she has the answer."
