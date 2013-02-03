@@ -21,7 +21,7 @@ require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.florain_dreyndel", package.seeall)
+module("npc.florain_dreyndel", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -44,7 +44,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 1));
-talkEntry:addResponse("Welcome to Runewick. I heard that my friend Zassaria Riverbank needs help. You can find her on the marketplace, just go over the bridge and trough the blue portal on its end to reach it.");
+talkEntry:addResponse("Welcome to Runewick. I heard that my friend Zassaria Riverbank needs help. You can find her at the marketplace, just go over the bridge and through the blue portal at the end to reach it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -136,16 +136,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare well");
-talkEntry:addTrigger("See you");
-talkEntry:addResponse("Thank you so, so much for talking to me. If you need help finding something to do, just come back.");
-talkEntry:addResponse("Please have a good day. If you need help finding something to do, just come back.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
@@ -192,7 +182,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("My job is to help. So if you need something to do, just ask.");
+talkEntry:addResponse("My job is to help, so if you need something to do, just ask.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -205,7 +195,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("My job is to help. So if you need something to do, just ask.");
+talkEntry:addResponse("My job is to help, so if you need something to do, just ask.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -217,7 +207,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("market");
-talkEntry:addResponse("Just follow the bridge to its end and go trough the blue portal. Ask Elesil Dealwon if you want to know more about the places around Runewick.");
+talkEntry:addResponse("Just follow the bridge and go through the blue portal at the end. Ask Elesil Dealwon if you want to know more about the places around Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -233,7 +223,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
-talkEntry:addResponse("So I suppose you already visited my friend Zassaria Riverbank and helped her. I heard Neiran El Nayale can teach you something.");
+talkEntry:addResponse("So I suppose you have already visited my friend Zassaria Riverbank and helped her? I heard Neiran El Nayale can teach you something.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -252,7 +242,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
-talkEntry:addResponse("So I suppose you already visited my friend Zassaria Riverbank and helped her. I heard Neiran El Nayale can teach you something.");
+talkEntry:addResponse("So I suppose you have already visited my friend Zassaria Riverbank and helped her? I heard Neiran El Nayale can teach you something.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -273,7 +263,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 3));
-talkEntry:addResponse("My friend Baldo Proudtoe can also always need some help. You can find him in the gardens. Just go back to the marketplace and go throgh the red portal.");
+talkEntry:addResponse("My friend Baldo Proudtoe always needs some help. You can find him in the gardens. Just go back to the marketplace and then through the red portal.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -292,7 +282,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 3));
-talkEntry:addResponse("My friend Baldo Proudtoe can also always need some help. You can find him in the gardens. Just go back to the marketplace and go throgh the red portal.");
+talkEntry:addResponse("My friend Baldo Proudtoe always needs some help. You can find him in the gardens. Just go back to the marketplace and then through the red portal.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -313,7 +303,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Nana Winterbutter, a great cook If I might add, is also always looking for someone to help. You can find her just west of here on the other side of the hedge.");
+talkEntry:addResponse("Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just west of here on the other side of the hedge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -332,7 +322,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Nana Winterbutter, a great cook If I might add, is also always looking for someone to help. You can find her just west of here on the other side of the hedge.");
+talkEntry:addResponse("Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just west of here on the other side of the hedge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -353,7 +343,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 5));
-talkEntry:addResponse("A bird told me that the apprentice Madeline Clarbelis could need some help. You can find her easily. Just go back to the marketplace, through the building to the west and leave it over the bridge to the north.");
+talkEntry:addResponse("A little bird told me that the apprentice Madeline Clarbelis could use some help. You can find her easily. Just go back to the marketplace, through the building to the west and leave it over the bridge to the north.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -372,7 +362,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 5));
-talkEntry:addResponse("A bird told me that the apprentice Madeline Clarbelis could need some help. You can find her easily. Just go back to the marketplace through the building to the west and leave it over the bridge to the north.");
+talkEntry:addResponse("A little bird told me that the apprentice Madeline Clarbelis could use some help. You can find her easily. Just go back to the marketplace through the building to the west and leave it over the bridge to the north.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -393,7 +383,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 6));
-talkEntry:addResponse("Uriel Urch, a retired soldies could need someone to keep him company and listen to his story. I'm sure he will reward you for your time. You can find him when you go in the western building on the marketplace and down the flight of stairs.");
+talkEntry:addResponse("Uriel Urch, a retired soldier needs someone to keep him company and listen to his story. I'm sure he will reward you for your time. You can find him when you go into the western building from the marketplace and down the flight of stairs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -412,7 +402,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 6));
-talkEntry:addResponse("Uriel Urch, a retired soldies could need someone to keep him company and listen to his story. I'm sure he will reward you for your time. You can find him when you go in the western building on the marketplace and down the flight of stairs.");
+talkEntry:addResponse("Uriel Urch, a retired soldier needs someone to keep him company and listen to his story. I'm sure he will reward you for your time. You can find him when you go into the western building from the marketplace and down the flight of stairs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -433,7 +423,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 7));
-talkEntry:addResponse("Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel. Down the stairs in the building west of the marketplace.");
+talkEntry:addResponse("Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel, downstairs in the building west of the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -452,7 +442,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 7));
-talkEntry:addResponse("Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel. Down the stairs in the building west of the marketplace.");
+talkEntry:addResponse("Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel, downstairs in the building west of the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -472,7 +462,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I'm sure you find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine.");
+talkEntry:addResponse("I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,7 +479,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 7));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I'm sure you find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine.");
+talkEntry:addResponse("I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -531,9 +521,9 @@ talkEntry:addTrigger(".*");
 talkEntry:addResponse("Das hat nichts mit mir zu tun, entschuldigt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Willkommen in Runewick!", "Welcome in Runewick!");
+talkingNPC:addCycleText("Willkommen in Runewick!", "Welcome to Runewick!");
 talkingNPC:addCycleText("Wenn ihr Hilfe benötigt, sprecht mich einfach an.", "If you need help, just speak to me.");
-talkingNPC:addCycleText("Ich kann euch sagen wer in diesem Reich eure Hilfe benötigt.", "I can tell you who in this realms needs your help.");
+talkingNPC:addCycleText("Ich kann euch sagen wer in diesem Reich eure Hilfe benötigt.", "I can tell you who in this realm needs your help.");
 talkingNPC:addCycleText("Wenn ihr Neu hier seid, bin ich euer Mann.", "If you're new to this realm, I'm your man.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
