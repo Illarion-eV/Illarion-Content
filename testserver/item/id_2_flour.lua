@@ -15,7 +15,9 @@ function UseItem(User, SourceItem, ltstate)
 		for k, gemRecipient in ipairs(players) do
 		User:inform("drin: "..gemRecipient.name)
 			local town = base.factions.getMembershipByName(gemRecipient)
+			User:inform("drin: "..town)
 			server.login.PayOutWage(gemRecipient,town)
+			User:inform("draussen")
 		end
 	end
 
