@@ -12,7 +12,7 @@ function UseItem(User, SourceItem, ltstate)
 		
 		for k, gemRecipient in ipairs(players) do
 			local town = base.factions.getMembershipByName(gemRecipient)
-			PayOutWage(gemRecipient,town)
+			server.login.PayOutWage(gemRecipient,town)
 		end
 	end
 
