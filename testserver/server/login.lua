@@ -26,17 +26,18 @@ function onLogin( player )
 	end
 	
 	--Taxes (has to be redone by "someone")
-    if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes. Not on Noobia!
+    if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
 	    -- So let there be taxes!
 		payTaxes(player);
-				
+		receiveGems(player);				
 	end
 		
-	receiveGems(player);
+
 		
 	if isTestserver() then
 		if player.name == "Alsaya" then
 			payNow(player)
+			PayOutWage(player, base.factions.getMembershipByName(player))
 		end
 	end
 
@@ -256,11 +257,11 @@ end
 
 
 function payTaxes(taxPayer)
-	yr=world:getTime("year");
-	mon=world:getTime("month");
-	timeStmp=yr*1000+mon;
-	lastTax=taxPayer:getQuestProgress(123);
-	if (lastTax~=nil) then
+	local yr=world:getTime("year");
+	local mon=world:getTime("month");
+	local timeStmp=yr*1000+mon;
+	local lastTax=taxPayer:getQuestProgress(123);
+	if (lastTax~=0) then
 		if lastTax<timeStmp then
 			taxPayer:setQuestProgress(123,timeStmp);
 			payNow(taxPayer)
@@ -276,7 +277,7 @@ function receiveGems(gemRecipient)
 	local mon=world:getTime("month"); --- TODO
 	local timeStmp=yr*1000+mon;
 	local town = base.factions.getMembershipByName(gemRecipient)
-	if town == "" then
+	if town == "None" then
 		return;
 	end	
 	-- first check if there was a switch from collecting taxes to pay out gems already: 
@@ -294,7 +295,7 @@ function receiveGems(gemRecipient)
 	end
 	-- now check if last payment was before actual month and actual month is the one to pay out.
 	lastGem=gemRecipient:getQuestProgress(124);
-	if (lastGem~=nil) then
+	if (lastGem~=0) then
 		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
 			gemRecipient:setQuestProgress(124,timeStmp);
 			PayOutWage(gemRecipient,town)
@@ -354,7 +355,7 @@ function PayOutWage(Recipient,town)
 			local infText = base.common.GetNLS(Recipient, 
 	                                   "Deine loyalen Dienste für "..town.." werden mit den folgenden magischen Edelsteinen belohnt:"..endname, 
 	                                   "Your loyal service to "..town.." is awarded with the following magical gems:"..endname)
-			local title = base.common.GetNLS(Recipient,"Lohn","Wage")
+			local title = base.common.GetNLS(Recipient,"Belohnung","Gratification")
 	
 			local dialog=MessageDialog(title,infText,closeTrib);
 			
