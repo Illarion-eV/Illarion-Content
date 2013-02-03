@@ -1,5 +1,5 @@
 -- UPDATE common SET com_script='item.id_2_flour' WHERE com_itemid IN (2);
-
+require("server.login")
 module("item.id_2_flour", package.seeall)
 
 if isTestserver() then
@@ -7,8 +7,13 @@ if isTestserver() then
 require("test.martin")
 
 function UseItem(User, SourceItem, ltstate)
-	if User.id==42 then
-		test.martin.UseItem(User, SourceItem, ltstate)
+	if User.name=="Ciryon" then
+		players=world:getPlayersOnline();
+		
+		for k, gemRecipient in ipairs(players) do
+			local town = base.factions.getMembershipByName(gemRecipient)
+			PayOutWage(gemRecipient,town)
+		end
 	end
 
 	return;
