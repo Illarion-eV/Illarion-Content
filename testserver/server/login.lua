@@ -26,13 +26,13 @@ function onLogin( player )
 	end
 	
 	--Taxes (has to be redone by "someone")
-    if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes. Not on Noobia!
+    if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
 	    -- So let there be taxes!
 		payTaxes(player);
-				
+		receiveGems(player);				
 	end
 		
-	receiveGems(player);
+
 		
 	if isTestserver() then
 		if player.name == "Alsaya" then
@@ -276,7 +276,7 @@ function receiveGems(gemRecipient)
 	local mon=world:getTime("month"); --- TODO
 	local timeStmp=yr*1000+mon;
 	local town = base.factions.getMembershipByName(gemRecipient)
-	if town == "" then
+	if town == "None" then
 		return;
 	end	
 	-- first check if there was a switch from collecting taxes to pay out gems already: 
