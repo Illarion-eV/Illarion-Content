@@ -37,7 +37,7 @@ end
 
 function removeEffect(dietEffect,Character)
   -- inform the player that the buff ends
-  base.common.HighInformNLS(Character,
+  base.common.InformNLS(Character,
   "[Ernährung] Die Wirkung des guten Essens vergeht.",
   "[Diet] The effect of the good food vanishes.");
   local foundBuff, buffType = dietEffect:findValue("buffType");
@@ -103,7 +103,7 @@ function InformPlayer(dietEffect, Character)
         gText = gText .. attrib;
       end
       local eText = "[Diet] Due to your good food, the following attribute is temporarily increased by 1: " .. attrib;
-      base.common.HighInformNLS(Character,gText,eText);
+      base.common.InformNLS(Character,gText,eText);
     else
       local attrib = item.food.BUFFS[buffType];
       local gText = "[Ernährung] Durch das gute Essen erhöhen sich vorübergehend folgende Attribute um 1: ";
@@ -122,7 +122,7 @@ function InformPlayer(dietEffect, Character)
       else
         gText = gText .. " und " .. attrib;
       end
-      base.common.HighInformNLS(Character,gText,eText);
+      base.common.InformNLS(Character,gText,eText);
     end
   end
 end

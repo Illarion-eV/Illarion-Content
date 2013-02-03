@@ -43,15 +43,14 @@ end
 -- get the amount of taxespayers last month to determine the amount of gems to pay out
 -- @town Town which treasure we want to get as a string: "Cadomyr"|"Runewick"|"Galmair"
 function GetTaxpayerNumber(town)
-debug("in gtpn");
-	--local foundPayers, currentNoPayer = ScriptVars:find("OldPayers"..town)
-	--if not foundPayers then
+	--debug("in gtpn");
+	local foundPayers, currentNoPayer = ScriptVars:find("OldPayers"..town)
+	if not foundPayers then
 	--debug("TAXPAYERS RETURN 0")
---		currentNoPayer = 0
---	end
+		currentNoPayer = 0
+	end
 --	debug("TAXPAERS RETURN "..currentNoPayer);
---	return currentNoPayer
-return 1
+	return currentNoPayer
 end
 
 -- change treasure of a town
@@ -69,12 +68,13 @@ end
 function IncreaseTaxpayerNumber(town)
 	local foundPayers, currentNoPayer = ScriptVars:find("Payers"..town)
 	if foundPayers then
-		debug("found payers: "..currentNoPayer)
+		--debug("found payers: "..currentNoPayer)
 		ScriptVars:set("Payers"..town, currentNoPayer+1)
 	else
 		ScriptVars:set("Payers"..town, 1)
-		debug("found payers: 1")
+		--debug("found payers: 1")
 	end
+	ScriptVars:save()
 end
 
 
@@ -86,10 +86,10 @@ end
 --@town Town
 --@timeStmp Timestamp of the new month
 function NewMonthSwitch(town,timeStmp)
-debug("NewMonthSwitch with "..town.." and "..timeStmp);
+	--debug("NewMonthSwitch with "..town.." and "..timeStmp);
 	local foundTreasure, currentTreasure = ScriptVars:find("Treasure"..town)
 	if foundTreasure then
-		debug("found treasure"..currentTreasure);
+		--debug("found treasure"..currentTreasure);
 		ScriptVars:set("OldTreasure"..town, currentTreasure)
 		ScriptVars:set("SwitchedToPayment"..town, timeStmp)
 		ScriptVars:set("Treasure"..town, 0)
@@ -101,11 +101,12 @@ debug("NewMonthSwitch with "..town.." and "..timeStmp);
 	
 	local foundPayers, currentPayers = ScriptVars:find("Payers"..town)
 	if foundPayers then
-		debug("found treasure"..currentTreasure);
+		--debug("found treasure"..currentTreasure);
 		ScriptVars:set("OldPayers"..town, currentPayers)
 		ScriptVars:set("Payers"..town, 0)
 	else
 		ScriptVars:set("OldPayers"..town, 0)
 		ScriptVars:set("Payers"..town, 0)
 	end
+	ScriptVars:save()
 end

@@ -94,7 +94,7 @@ function onDeath(Monster)
         local done=monster.base.drop.AddDropItem(63,1,50,(100*math.random(1,2)+math.random(11,22)),0,1); --entrails
 		
         --Category 2: Perma Loot
-        monster.base.drop.AddDropItem(2856,math.random(1,3),100,333,0,2); --fur
+        monster.base.drop.AddDropItem(2586,math.random(1,3),100,333,0,2); --fur
 		
 	elseif (MonID==512) then --Young Grizzly Bear, Level: 4, Armourtype: heavy, Weapontype: wrestling
 
@@ -103,7 +103,7 @@ function onDeath(Monster)
         local done=monster.base.drop.AddDropItem(63,1,50,(100*math.random(1,2)+math.random(11,22)),0,1); --entrails
 		
         --Category 2: Perma Loot
-        monster.base.drop.AddDropItem(2856,math.random(1,3),100,333,0,2); --fur	
+        monster.base.drop.AddDropItem(2586,math.random(1,3),100,333,0,2); --fur	
 	end
     monster.base.drop.Dropping(Monster);
 end

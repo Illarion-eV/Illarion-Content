@@ -5,15 +5,14 @@
 
 module("item.spidernet", package.seeall)
 
+LastWarp={};
+
 function CharacterOnField(User)
     --User:inform("Los");
     --Variables 'LastChar' and 'Last Warp' have to be remanent.
     --Variables 'AktTime' and 'Ensnarl' are defined as local.
     local AktTime = {world:getTime("day"),world:getTime("hour"),world:getTime("minute")};
     local Ensnarl = true;
-    if (LastWarp==nil) then
-        LastWarp={};
-    end
     --User:inform("Grundwerte");
     --if (LastChar == User.id) then Ensnarl = false end
     local PosVal=User.pos.x+User.pos.y+User.pos.z

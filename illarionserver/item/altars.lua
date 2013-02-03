@@ -46,6 +46,7 @@ Oldra: 799, 757 0]]
 
 require("base.common")
 require("content.gods")
+require("base.lookat")
 
 module("item.altars", package.seeall)
 
@@ -322,7 +323,7 @@ function checkAudience(god, position)
   local theCandidates=world:getPlayersInRangeOf(position,10);
   local counter=0; 
   for i=1,table.getn(theCandidates) do
-    candidate=theCandidate[i];
+    candidate=theCandidates[i];
     if candidate:getQuestProgress(401) == god then
       counter=counter+1;
     end

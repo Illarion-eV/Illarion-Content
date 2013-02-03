@@ -5,6 +5,7 @@
 -- UPDATE common SET com_script='item.id_44_squeezer' WHERE com_itemid IN (44);
 
 require("base.common")
+require("content.gathering")
 
 module("item.id_44_squeezer", package.seeall)
 

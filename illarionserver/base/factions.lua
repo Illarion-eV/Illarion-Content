@@ -23,8 +23,8 @@ function InitFactionLists()
 	TownMainKey={};
 	TownJailKey={};
 
-	--A list with the Ranks, Rank 8 and Rank 9 can not be reached with faction points(e.g. npc quests), only with GM help, don't give any normal player rank 9!
-	CadomyrRankListMale = { {gRank = "Bürger", eRank = "Commoner"},        	--rank 1
+	--A list with the ranks
+	CadomyrRankListMale = { {gRank = "Höriger", eRank = "Serf"},        	--rank 1
 					 {gRank = "Rekrut", eRank = "Recruit"},           	--rank 2	
 					 {gRank = "Page", eRank = "Page"},           	--rank 3					 
 					 {gRank = "Knappe", eRank = "Squire"},           	--rank 4
@@ -36,10 +36,10 @@ function InitFactionLists()
 					 {gRank = "Herzog", eRank = "Duke"},				--rank 10
 					 {gRank = "König", eRank = "King"}};				--rank leader
 	
-	CadomyrRankListFemale = { {gRank = "Bürgerin", eRank = "Commoner"},        	--rank 1
-					 {gRank = "Rekrutin", eRank = "Recruit"},           	--rank 2	
-					 {gRank = "Magd", eRank = "Maiden"},           	--rank 3
-					 {gRank = "Zofe", eRank = "Maid"},       --rank 4			 
+	CadomyrRankListFemale = { {gRank = "Hörige", eRank = "Serf"},        	--rank 1
+					 {gRank = "Dienerin", eRank = "Servant"},           	--rank 2	
+					 {gRank = "Magd", eRank = "Maid"},           	--rank 3
+					 {gRank = "Zofe", eRank = "Abigail"},       --rank 4			 
 					 {gRank = "Hofdame", eRank = "Dame"},         --rank 5
 					 {gRank = "Freifrau", eRank = "Lady"},        		--rank 6					 
 					 {gRank = "Baronin", eRank = "Baroness"},        		--rank 7
