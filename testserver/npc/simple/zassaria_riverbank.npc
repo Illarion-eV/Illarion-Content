@@ -170,10 +170,10 @@ queststatus(701) = 14, english, town = Runewick, ".+" -> inform("[Quest solved] 
 queststatus(701) = 14, town = Runewick, ".+" -> inform("[Quest gelößt] Du hast das Quest gelöst. Du wirst mit einem versilberten Langschwert und ein paar Silbermünzen belohnt."), money + 500, item(98, 1, 222, "descriptionEn" = "This wand was a present from Zassaria Riverbank", "rareness" = "1", "descriptionDe" = "Dieses Schwert war ein Geschenk von Zassaria Riverbank."), queststatus(701) = 15, rankpoints + 12, "Esss issst nicht ihre Krone? Dann behaltet sssie und nehmt diess als Belohung."
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(701) = 15, english, "quest", "mission" -> "Thank you. Zss."
-queststatus(701) = 15, "quest", "mission" -> "Danke ssschön. Zss."
-queststatus(701) = 15, "task", "adventure", "order" -> "Thank you. Zss."
-queststatus(701) = 15, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke ssschön. Zss."
+queststatus(701) = 15, english, "quest", "mission" -> "Thank you. Zss. I have nothing elssse for you to do."
+queststatus(701) = 15, "quest", "mission" -> "Danke ssschön. Zss. Ich habe nichtsss mehr für dich zzzu tun."
+queststatus(701) = 15, "task", "adventure", "order" -> "Thank you. Zss. I have nothing elssse for you to do."
+queststatus(701) = 15, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke ssschön. Zss. Ich habe nichtsss mehr für dich zzzu tun."
 
 -- No quests for non runewickians
 english, "quest", "mission" -> "I have no tasssk for people who do not belong to Runewick. You can go to Torina to become a citizzzen. Zss."

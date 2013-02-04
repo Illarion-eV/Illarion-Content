@@ -773,7 +773,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 15));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Thank you. Zss.");
+talkEntry:addResponse("Thank you. Zss. I have nothing elssse for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -781,7 +781,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 15));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Danke ssschön. Zss.");
+talkEntry:addResponse("Danke ssschön. Zss. Ich habe nichtsss mehr für dich zzzu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -790,7 +790,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 15));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Thank you. Zss.");
+talkEntry:addResponse("Thank you. Zss. I have nothing elssse for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -800,7 +800,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Danke ssschön. Zss.");
+talkEntry:addResponse("Danke ssschön. Zss. Ich habe nichtsss mehr für dich zzzu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
