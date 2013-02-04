@@ -7,7 +7,7 @@ dyemaking = item.base.crafts.Craft:new{
                     craftDE = "Schneidern",
                     handTool = 58,
                     leadSkill = Character.tailoring,
-                    defaultFoodConsumption = 300,
+                    defaultFoodConsumption = 100,
                   }
 
 dyemaking:addTool(12) -- camp fire
