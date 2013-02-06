@@ -210,8 +210,8 @@ english, "Cadomyr" -> "Cadomyr is in the southwest. If you are stupid enough and
 "Cadomyr" -> "Cadomyr ist im Südwesten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "If you want to know something about gods, than look for priests or ask in one of the factions."
-"Gott", "Götter" -> "Wenn du etwas über die Götter wissen möchtest, dann suche einen Priester oder frage jemanden in den Fraktionen."
+"god" -> "If you want to know something about gods, than look for priests or ask in one of the towns."
+"Gott", "Götter" -> "Wenn du etwas über die Götter wissen möchtest, dann suche einen Priester oder frage jemanden in den Städten."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Hmm... you want some information? But about what?"

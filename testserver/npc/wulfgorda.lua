@@ -939,14 +939,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("If you want to know something about gods, than look for priests or ask in one of the factions.");
+talkEntry:addResponse("If you want to know something about gods, than look for priests or ask in one of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Wenn du etwas über die Götter wissen möchtest, dann suche einen Priester oder frage jemanden in den Fraktionen.");
+talkEntry:addResponse("Wenn du etwas über die Götter wissen möchtest, dann suche einen Priester oder frage jemanden in den Städten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.22 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1091,13 +1091,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Chapel");
-talkEntry:addResponse("Chapel of the Five? The name of this place. It has been built after one of the many wars between the factions to praise the Five for the pease. But don't ask after which war. I don't know.");
+talkEntry:addResponse("Chapel of the Five? The name of this place. It has been built after one of the many wars between the towns to praise the Five for the pease. But don't ask after which war. I don't know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kapelle");
-talkEntry:addResponse("Kapelle der Fünf? Der Name dieses Orts. Sie wurde nach einem der vielen Kriege zwischen den Fraktionen erbaut um die Fünf für den Frieden zu huldigen. Aber ich habe keine Ahung nach welchem Krieg.");
+talkEntry:addResponse("Kapelle der Fünf? Der Name dieses Orts. Sie wurde nach einem der vielen Kriege zwischen den Städten erbaut um die Fünf für den Frieden zu huldigen. Aber ich habe keine Ahung nach welchem Krieg.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

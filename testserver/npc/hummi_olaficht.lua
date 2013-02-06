@@ -30,13 +30,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keywords: faction, gods, race, craft, motive, landscape, leader, law, explorer, empire, stones of power, quest. You will find more of these keywords during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keywords: towns, gods, race, craft, motive, landscape, leader, law, explorer, empire, stones of power, quest. You will find more of these keywords during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Erkunder, Reiche, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Stadt, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Erkunder, Reiche, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -168,10 +168,10 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'factions' if you want to know more. You can also ask for 'help' to get other hints for questions."));
-talkEntry:addResponse("Hiho, if you'd like to know something about the factions here, just ask me!");
-talkEntry:addResponse("Hiya, have we met before? There are so many new faces... my apologies if we have, otherwise let me tell about the factions!");
-talkEntry:addResponse("Good day, if you'd like to know something about the factions here, let me know!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'towns' if you want to know more. You can also ask for 'help' to get other hints for questions."));
+talkEntry:addResponse("Hiho, if you'd like to know something about the towns here, just ask me!");
+talkEntry:addResponse("Hiya, have we met before? There are so many new faces... my apologies if we have, otherwise let me tell about the towns!");
+talkEntry:addResponse("Good day, if you'd like to know something about the towns here, let me know!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -186,10 +186,10 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Fraktionen' wenn du mehr wissen möchtest. Du kannst aber auch nach 'Hilfe fragen um weitere Hinweise für Fragen zu bekommen."));
-talkEntry:addResponse("Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
-talkEntry:addResponse("Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
-talkEntry:addResponse("Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Städte' wenn du mehr wissen möchtest. Du kannst aber auch nach 'Hilfe fragen um weitere Hinweise für Fragen zu bekommen."));
+talkEntry:addResponse("Hiho, wenn du etwas über die Städte hier wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Hallo, wenn du etwas über die Städte hier wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Guten Tag, wenn du etwas über die Städte hier wissen möchtest, frag mich einfach danach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -199,10 +199,10 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'factions' if you want to know more. You can also ask for 'help' to get other hints for questions."));
-talkEntry:addResponse("Hiho to you, if you'd like to know something about the factions here, just ask me.");
-talkEntry:addResponse("Hiya, have we met before? There are so many new faces... my apologies if we have, otherwise let me tell about the factions!");
-talkEntry:addResponse("Good day, if you'd like to know something about the factions here, let me know!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'towns' if you want to know more. You can also ask for 'help' to get other hints for questions."));
+talkEntry:addResponse("Hiho to you, if you'd like to know something about the towns here, just ask me.");
+talkEntry:addResponse("Hiya, have we met before? There are so many new faces... my apologies if we have, otherwise let me tell about the towns!");
+talkEntry:addResponse("Good day, if you'd like to know something about the towns here, let me know!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -211,10 +211,10 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Fraktionen' wenn du mehr wissen möchtest. Du kannst aber auch nach 'Hilfe fragen um weitere Hinweise für Fragen zu bekommen."));
-talkEntry:addResponse("Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
-talkEntry:addResponse("Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
-talkEntry:addResponse("Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Städte' wenn du mehr wissen möchtest. Du kannst aber auch nach 'Hilfe fragen um weitere Hinweise für Fragen zu bekommen."));
+talkEntry:addResponse("Hiho, wenn du etwas über die Städte hier wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Hallo, wenn du etwas über die Städte hier wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Guten Tag, wenn du etwas über die Städte hier wissen möchtest, frag mich einfach danach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -354,7 +354,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Siegername' beginnt] Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Siegername' gestartet] Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 1));
 talkEntry:addResponse("Ich habe etwas schwierigeres nun. Finde den Ork Tronuk. Er kann vor einer Mine gefunden werden. Ich sage dir aber nicht welcher. Er erzählt zwei Geschichten. Eine handelt von einem Turnier. Komm zurück wenn du weißt wer der Gewinner ist und nenne mir seinen Namen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -409,7 +409,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Elesil', 'Frizza', 'Iradona' or 'Explorer' if you want to know more."));
-talkEntry:addResponse("Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage you. The factions are always on the look out for adventurers and workers alike! For example, Elesil Daelwon in Runewick, Frizza in Cadomyr, and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them.");
+talkEntry:addResponse("Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage you. The towns are always on the look out for adventurers and workers alike! For example, Elesil Daelwon in Runewick, Frizza in Cadomyr, and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -417,7 +417,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Elesil', 'Frizza', 'Iradona' oder 'Erkunder' wenn du mehr wissen möchtest."));
-talkEntry:addResponse("Hoi, ein anderer taferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Fraktionen immer nach Abenteuerer und Arbeitern suchen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
+talkEntry:addResponse("Hoi, ein anderer taferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Städte immer nach Abenteuerer und Arbeitern suchen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -426,7 +426,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Elesil', 'Frizza', 'Iradona' or 'Explorer' if you want to know more."));
-talkEntry:addResponse("Ahh, gotta case of idle hands I see. Be assured traveller if you're willing to seek there are folk out there that could use a hand or two. Best start with one of the factions! For example, Elesil Daelwon in Runewick, Frizza in Cadomyr, and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them.");
+talkEntry:addResponse("Ahh, gotta case of idle hands I see. Be assured traveller if you're willing to seek there are folk out there that could use a hand or two. Best start with one of the towns! For example, Elesil Daelwon in Runewick, Frizza in Cadomyr, and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -436,7 +436,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Elesil', 'Frizza', 'Iradona' oder 'Erkunder' wenn du mehr wissen möchtest."));
-talkEntry:addResponse("Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startet bei einer der Fraktionen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
+talkEntry:addResponse("Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startest du bei einer der Städte! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -455,7 +455,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(604, "<", 1));
 talkEntry:addTrigger("Elesil");
 talkEntry:addTrigger("Daelwon");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Elesil' beginnt] Finde Elesil beim Teleporter in Runewick and sprich mit ihr."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Elesil' gestartet] Finde Elesil beim Teleporter in Runewick and sprich mit ihr."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 1));
 talkEntry:addResponse("Du findest sie beim Teleporter in Runewick. Sie kennt jeden Platz in Runewick und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -474,7 +474,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(605, "<", 1));
 talkEntry:addTrigger("Frizza");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Frizza' beginnt] Finde Frizza beim Teleporter in Cadomyr and sprich mit ihr."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Frizza' gestartet] Finde Frizza beim Teleporter in Cadomyr and sprich mit ihr."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 1));
 talkEntry:addResponse("Du findest sie beim Teleporter in Cadomyr. Sie kennt jeden Platz in Cadomyr und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -495,7 +495,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(606, "<", 1));
 talkEntry:addTrigger("Iradona");
 talkEntry:addTrigger("Goldschein");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Iradona' beginnt] Finde Iradona beim Teleporter in Galmair and sprich mit ihr."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Iradona' gestartet] Finde Iradona beim Teleporter in Galmair and sprich mit ihr."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 1));
 talkEntry:addResponse("Du findest sie beim Teleporter in Galmair. Sie kennt jeden Platz in Galmair und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -609,16 +609,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("faction");
+talkEntry:addTrigger("town");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Runewick', 'Galmair' or 'Cadomyr' if you want to know more."));
-talkEntry:addResponse("We have three factions here: Runewick, Cadomyr and Galmair. You will have to choose one. Otherwise you will have quite a low chance of survival. *Giggles* Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word.");
+talkEntry:addResponse("We have three towns here: Runewick, Cadomyr and Galmair. You will have to choose one. Otherwise you will have quite a low chance of survival. *Giggles* Each of which are home to certain races and craftsmen. If you'd like to know more about towns, races, or crafting in this area just say the word.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("race");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'elf', 'human', 'dwarf', 'orc', 'lizard' or 'halfling' if you want to know more. You can also ask about 'Runewick', 'Galmair' or 'Cadomyr'."));
-talkEntry:addResponse("In every faction there are particular races you will find. In Runewick, you'll mainly find Elves and Halflings; in Galmair, Dwarves; and in Cadomyr, Lizards and Orcs. As far as humans, well just about anywhere really.");
+talkEntry:addResponse("In every town there are particular races you will find. In Runewick, you'll mainly find Elves and Halflings; in Galmair, Dwarves; and in Cadomyr, Lizards and Orcs. As far as humans, well just about anywhere really.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -626,7 +626,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("craft");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Alchemist', 'Candle maker', 'Carpenter', 'Lumberjack', 'Cook', 'Baker', 'Farmer', 'Herb gatherer', 'Tailor', 'Tanner', 'Dyer', 'Blacksmith', 'Brick maker', 'Mason', 'Miner', 'Brewer', 'Fisher', 'Glass blower', 'Digger', 'Finesmith' or 'Gem grinder' if you want to know more. You can also ask about 'Runewick', 'Galmair' or 'Cadomyr'."));
 talkEntry:addResponse("Which one do you mean? Alchemist, Candle maker, Carpenter, Lumberjack, Cook, Baker, Farmer, Herb gatherer, Tailor, Tanner, Dyer, Blacksmith, Brick maker, Mason, Miner, Brewer, Fisher, Glass blower, Digger, Finesmith or Gem grinder?");
-talkEntry:addResponse("Every faction has specialists in certain crafts. Mention a specific craft and I will tell you which faction you will find it in.");
+talkEntry:addResponse("Every town has specialists in certain crafts. Mention a specific craft and I will tell you which town you will find it in.");
 talkEntry:addResponse("The main crafts you'll find in Runewick are Alchemists, Candle makers, Carpenters/Lumberjacks, Cooks/Bakers, Farmers, Herb gatherers, and Tailors/Tanners/Dyers. In Galmair you'll find Blacksmiths, Masons, Miners, and Brewers. Finally, in Cadomyr you'll get Fishers, Glass blowers, Diggers, Finesmiths, and Gem grinders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -687,16 +687,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Fraktion");
+talkEntry:addTrigger("Städte");
+talkEntry:addTrigger("Stadt");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Runewick', 'Galmair' oder 'Cadomyr' wenn du mehr wissen möchtest."));
-talkEntry:addResponse("Wir haben hier drei Fraktionen: Runewick, Cadomyr und Galmair. Du wirst eine für dich wählen müssen. Ansonsten wirst du nur geringe Überlebenschancen haben. *Kichert* Jede mit bestimmten Rassen und Berufen. Wenn du mehr darüber wissen möchtest, dann sag den jeweiligen Namen.");
+talkEntry:addResponse("Wir haben hier drei Städte: Runewick, Cadomyr und Galmair. Du wirst eine für dich wählen müssen. Ansonsten wirst du nur geringe Überlebenschancen haben. *Kichert* Jede mit bestimmten Rassen und Berufen. Wenn du mehr darüber wissen möchtest, dann sag den jeweiligen Namen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rasse");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Elf', 'Mensch', 'Zwerg', 'Ork', 'Echse' oder 'Halbling' wenn du mehr wissen möchtest. Du kannst aber auch nach 'Runewick', 'Galmair' oder 'Cadomyr' fragen."));
-talkEntry:addResponse("In jeder Fraktion kannst du spezifische Rassen finden. In Runewick vorallem Elfen und Halblinge; in Galmair Zwerge; und in Cadomyr Orks und Echsenmenschen. Menschen sind überall zufinden.");
+talkEntry:addResponse("In jeder Stadt kannst du spezifische Rassen finden. In Runewick vorallem Elfen und Halblinge; in Galmair Zwerge; und in Cadomyr Orks und Echsenmenschen. Menschen sind überall zufinden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -704,7 +705,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Handwerk");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Gräber, Goldschmied oder Edelsteinschleifer wenn du mehr wissen möchtest. Du kannst aber auch nach 'Runewick', 'Galmair' oder 'Cadomyr' fragen."));
 talkEntry:addResponse("Welches meinst du? Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Gräber, Goldschmied oder Edelsteinschleifer?");
-talkEntry:addResponse("Jede Fraktion ist auf bestimmte Handwerke spezialisiert. Nenn mir dein Handwerk und ich sag in welcher Fraktion du es finden wirst.");
+talkEntry:addResponse("Jede Stadt ist auf bestimmte Handwerke spezialisiert. Nenn mir dein Handwerk und ich sage dir in welcher Stadt du es finden wirst.");
 talkEntry:addResponse("Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber können vorallem in Runewick gefundne werden. Schmied, Ziegelmacher, Steinmetz, Schürfer und Brauer vora allem in Galmair. Und Fischer, Glasbläser, Gräber, Goldschmied oder Edelsteinschleifer in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1264,7 +1265,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("stones");
 talkEntry:addTrigger("power");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for Emerald, Ruby, Topaz, Amethyst, Sapphire, Obsidian or Diamond if you want to know more."));
-talkEntry:addResponse("The stones of power each offer their own tremendous power. The sorcerer Mordak al Kharud once owned three of them and could thus conquer almost all of Illarion, but this was some decades ago. Nowadays the faction leaders own them. Since each faction leader has two of them, the balance between them is guaranteed. There, however, exists seven stones. These are Emerald, Ruby, Topaz, Amethyst, Sapphire, Obsidian and Diamond.");
+talkEntry:addResponse("The stones of power each offer their own tremendous power. The sorcerer Mordak al Kharud once owned three of them and could thus conquer almost all of Illarion, but this was some decades ago. Nowadays the town leaders own them. Since each town leader has two of them, the balance between them is guaranteed. There, however, exists seven stones. These are Emerald, Ruby, Topaz, Amethyst, Sapphire, Obsidian and Diamond.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1272,92 +1273,92 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Steine");
 talkEntry:addTrigger("Macht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach Smaragd, Rubin, Topas, Amethyst, Saphir, Obsidian oder Diamant wenn du mehr wissen möchtest."));
-talkEntry:addResponse("Die Steine der Macht verleihen ihren Besitzern enorme Macht. Der Zauberer Mordak al Kharud besaß einst drei von ihnen und konnte deshalb beinahe ganz Illarion erobern. Aber das ist einge Jahrzehnte her. Nun besitzen die Herrscher der Fraktionen diese. Dadurch dass jeder zwei besitzt ist das Gleichgewicht zwischen ihnen garantiert. Wie dem auch sei, es gibt sieben Steine. Diese sind Smaragd, Rubin, Topas, Amethyst, Saphir, Obsidian und Diamant.");
+talkEntry:addResponse("Die Steine der Macht verleihen ihren Besitzern enorme Macht. Der Zauberer Mordak al Kharud besaß einst drei von ihnen und konnte deshalb beinahe ganz Illarion erobern. Aber das ist einige Jahrzehnte her. Nun besitzen die Herrscher der Städte diese. Dadurch dass jeder zwei besitzt ist das Gleichgewicht zwischen ihnen garantiert. Wie dem auch sei, es gibt sieben Steine. Diese sind Smaragd, Rubin, Topas, Amethyst, Saphir, Obsidian und Diamant.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Emerald");
-talkEntry:addResponse("The Emerald belongs to Runewick and is part of the collection of Archmage Elvaine Morgan. You can find further information about it in each of the factions.");
+talkEntry:addResponse("The Emerald belongs to Runewick and is part of the collection of Archmage Elvaine Morgan. You can find further information about it in each of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Smaragd");
-talkEntry:addResponse("Der Smaragd gehört zu Runewick und ist Teil der Sammlung von Erzmagier Elvaine Morgan. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkEntry:addResponse("Der Smaragd gehört zu Runewick und ist Teil der Sammlung von Erzmagier Elvaine Morgan. Du findest weitere Informationen über den Stein in jeder Stadt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ruby");
-talkEntry:addResponse("The Ruby belongs to Runewick and is part of the collection of Archmage Elvaine Morgan. You can find further information about it in each of the factions.");
+talkEntry:addResponse("The Ruby belongs to Runewick and is part of the collection of Archmage Elvaine Morgan. You can find further information about it in each of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rubin");
-talkEntry:addResponse("Der Rubin gehört zu Runewick und ist Teil der Sammlung von Erzmagier Elvaine Morgan. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkEntry:addResponse("Der Rubin gehört zu Runewick und ist Teil der Sammlung von Erzmagier Elvaine Morgan. Du findest weitere Informationen über den Stein in jeder Stadt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Topaz");
-talkEntry:addResponse("The Topaz belongs to Cadomyr and is part of the collection of Queen Rosaline Edwards. You can find further information about it in each of the factions.");
+talkEntry:addResponse("The Topaz belongs to Cadomyr and is part of the collection of Queen Rosaline Edwards. You can find further information about it in each of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Topas");
-talkEntry:addResponse("Der Topas gehört zu Cadomyr und ist Teil der Sammlung von Königin Rosaline Edwards. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkEntry:addResponse("Der Topas gehört zu Cadomyr und ist Teil der Sammlung von Königin Rosaline Edwards. Du findest weitere Informationen über den Stein in jeder Stadt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Amethyst");
-talkEntry:addResponse("The Amethyst belongs to Cadomyr and is part of the collection of Queen Rosaline Edwards. You can find further information about it in each of the factions.");
+talkEntry:addResponse("The Amethyst belongs to Cadomyr and is part of the collection of Queen Rosaline Edwards. You can find further information about it in each of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Amethyst");
-talkEntry:addResponse("Der Amethyst gehört zu Cadomyr und ist Teil der Sammlung von Königin Rosaline Edwards. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkEntry:addResponse("Der Amethyst gehört zu Cadomyr und ist Teil der Sammlung von Königin Rosaline Edwards. Du findest weitere Informationen über den Stein in jeder Stadt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sapphire");
-talkEntry:addResponse("The Sapphire belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the factions.");
+talkEntry:addResponse("The Sapphire belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Saphir");
-talkEntry:addResponse("Der Saphir gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkEntry:addResponse("Der Saphir gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Stadt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Obsidian");
-talkEntry:addResponse("The Obsidian belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the factions.");
+talkEntry:addResponse("The Obsidian belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Obsidian");
-talkEntry:addResponse("Der Obsidian gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkEntry:addResponse("Der Obsidian gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Stadt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Diamond");
-talkEntry:addResponse("The Diamond is missing. Nobody knows where it is but rumours say that it must be somewhere here. If you can find it for your chosen faction you will definitely be highly rewarded.");
+talkEntry:addResponse("The Diamond is missing. Nobody knows where it is but rumours say that it must be somewhere here. If you can find it for your chosen town you will definitely be highly rewarded.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Diamant");
-talkEntry:addResponse("Der Diamant wird vermisst. Niemand weiß wo er ist aber Gerüchten zufolge muss er irgendwo hier sein. Wenn du ihn für die Fraktion deiner Wahl finden kannst wirst du bestimmt hoch belohnt.");
+talkEntry:addResponse("Der Diamant wird vermisst. Niemand weiß wo er ist aber Gerüchten zufolge muss er irgendwo hier sein. Wenn du ihn für die Stadt deiner Wahl finden kannst wirst du bestimmt hoch belohnt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1365,14 +1366,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("Mordak al Kharud was once a powerful mage who wanted to have everything. He was beaten with the help of the rulers of the factions. You can find more information in each of the factions.");
+talkEntry:addResponse("Mordak al Kharud was once a powerful mage who wanted to have everything. He was beaten with the help of the rulers of the towns. You can find more information in each of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("Mordak al Kharud war einst ein mächtiger Zauberer der alles an sich reißen wollte. Er wurde mit Hilfe der Herrscher der Fraktionen besiegt. Mehr Informationen über ihn findest du in den Fraktionen.");
+talkEntry:addResponse("Mordak al Kharud war einst ein mächtiger Zauberer der alles an sich reißen wollte. Er wurde mit Hilfe der Herrscher der Städte besiegt. Mehr Informationen über ihn findest du in den Städten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1459,8 +1460,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for the 'elder' Brágon, Eldan, Findari, Tanora, and Ushara like or the 'younger' like Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan, and Moshran if you want to know more."));
-talkEntry:addResponse("Inhabitants of every faction prefer specific Younger Gods for the most part. In Runewick they pray to Elara, Oldra, and Adron; in Galmair they pray to Irmorom, Ronagan, and Nargun; and in Cadomyr they honour Malachin, Zhambra and Sirani.");
-talkEntry:addResponse("Most inhabitants vary between the Younger and Elder Gods. You will find that almost everyone worships one of the Younger Gods within their preferred faction, but rarely does anyone still worship the Elder Gods. I can't understand why anyone would worship someone who has left us. Where would your prayers go? *Giggles*");
+talkEntry:addResponse("Inhabitants of every town prefer specific Younger Gods for the most part. In Runewick they pray to Elara, Oldra, and Adron; in Galmair they pray to Irmorom, Ronagan, and Nargun; and in Cadomyr they honour Malachin, Zhambra and Sirani.");
+talkEntry:addResponse("Most inhabitants vary between the Younger and Elder Gods. You will find that almost everyone worships one of the Younger Gods within their preferred town, but rarely does anyone still worship the Elder Gods. I can't understand why anyone would worship someone who has left us. Where would your prayers go? *Giggles*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1487,7 +1488,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("younger");
-talkEntry:addResponse("The Younger Gods are Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan, and Moshran. Most factions are shaped and moulded by the Gods they follow. I follow Elara! *Smiles*");
+talkEntry:addResponse("The Younger Gods are Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan, and Moshran. Most towns are shaped and moulded by the Gods they follow. I follow Elara! *Smiles*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1813,21 +1814,21 @@ talkEntry:addResponse("Duddli, duddla, frag mich nach Hilfe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Frag mich nach 'Hilfe', wenn du 'Hilfe' brauchst.", "Ask me for 'help', if you need help.");
-talkingNPC:addCycleText("Frag mich wenn du was über Fraktionen wissen möchtest.", "Ask me if you'd like to know something about factions.");
+talkingNPC:addCycleText("Frag mich wenn du was über Stadten wissen möchtest.", "Ask me if you'd like to know something about the towns here.");
 talkingNPC:addCycleText("Runewick, Galmair, Cadomyr...ich weiß alles...fast alles. *kichert*", "Runewick, Galmair, Cadomyr... I know everything...almost. *Giggles*");
 talkingNPC:addCycleText("Frage immer nach Aufgaben, vielleicht hat einer eine für dich und es gibt etwas für dich zu verdienen.", "Hiho, traveler! Keep on the lookout if you're in search of tasks or grand quests! All across the land many are in need, don't be afraid ask!");
 talkingNPC:addCycleText("Ob Königin Rosaline Edwards, Don Valerio Guilianni, oder Erzmagier Elvaine Morgan... ich weiß alles über sie... fast alles.*kichert*", "Queen Rosaline Edwards, Don Valerio Guilianni, or Archmage Elvaine Morgan...learn all you need to know right here! Well, just about everything. *Giggles*");
 talkingNPC:addCycleText("Wenn du nicht weißt wohin du gehen sollst, frag mich nach hilfe.", "Don't get lost! I'm Hummi, the local area guide, ask me for help and I won't let you down!");
-talkingNPC:addCycleText("Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach hilfe.", "If you'd like to know where you and your faith are welcome, tell me your God and I'll tell you the best faction to join!");
+talkingNPC:addCycleText("Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach hilfe.", "If you'd like to know where you and your faith are welcome, tell me your God and I'll tell you the best town to join!");
 talkingNPC:addCycleText("Ich bin Hummi und weiß viele Sachen", "I'm Hummi and I know many things.");
 talkingNPC:addCycleText("Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbing, ich weiß für jeden den richtigen Platz.", "Whether your an elf, dwarf, human, orc, lizardman, or halfling I know the right place for everyone!");
 talkingNPC:addCycleText("Lebwohl Gobaith, willkommen östlich des Siebenhügel Gebirge.", "Farewell to Gobaith and welcome to the east known as Sevenhill Mountains!");
-talkingNPC:addCycleText("Wähle eine der Fraktionen: Runewick, Galmair, Cadomyr. Sag ihren Name während du im Teleporter stehst um dorthin zu gelangen.", "Choose one of the three factions: Runewick, Galmair, Cadomyr. Say the name you want in the teleporter to get there.");
+talkingNPC:addCycleText("Wähle eine der Städte: Runewick, Galmair, Cadomyr. Sag ihren Namen während du im Teleporter stehst um dorthin zu gelangen.", "Choose one of the three towns: Runewick, Galmair, Cadomyr. Say the name you want in the teleporter to get there.");
 talkingNPC:addCycleText("Ich kann nur empfehlen: Sobald du in Runewick, Galmair oder Cadomyr ankommen bist, dich im Zensusbüro anzumelden. Die Überlebenschancen steigen gewaltig! *kichert*", "I highly recommend: As soon as you got to Runewick, Galmair or Cadomyr to register there in the respective census office. *giggles*");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("A NPC who has brief and important information about factions.", "Ein NPC der kurze und wichtige Informationen über die Fraktionen hat.");
+mainNPC:setLookat("A NPC who has brief and important information about Runewick, Galmair and Cadomyr.", "Ein NPC der kurze und wichtige Informationen über Runewick, Galmair und Cadomyr.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache.", "You have to talk to me in a language which I understand. Either the common or the race specific language.");
 mainNPC:setEquipment(1, 0);
