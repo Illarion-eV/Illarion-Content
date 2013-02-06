@@ -459,7 +459,7 @@ talkEntry:addTrigger("recyclemechanismus");
 talkEntry:addTrigger("Recyclemechanismus");
 talkEntry:addTrigger("recycle mechanismus");
 talkEntry:addResponse("Der Erzmagier erfand den Recyclemechanismus.");
-talkEntry:addResponse("Mit Hilfe des Recyclemechanismus halten wir Runewick sauer. Der Erzmagier freut sich immer, wenn jemand ihn benutzt.");
+talkEntry:addResponse("Mit Hilfe des Recyclemechanismus halten wir Runewick sauber. Der Erzmagier freut sich immer, wenn jemand ihn benutzt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -809,7 +809,7 @@ talkEntry:addResponse("Ah... verzeiht. Was sagtet Ihr?");
 talkEntry:addResponse("#me hebt eine Augenbraue.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Wir in Runewick wollen unsere Straßen sauer halten. Hilf auch du mit!", "Let's keep Runewicks streets clean!");
+talkingNPC:addCycleText("Wir in Runewick wollen unsere Straßen sauber halten. Hilf auch du mit!", "Let's keep Runewicks streets clean!");
 talkingNPC:addCycleText("#me schaut sich um.", "#me lookes around.");
 talkingNPC:addCycleText("#me lächelt und  lässt einige Münzen auf die magische Oberfläche fallen.", "#me smiles and drops some coins into the magical surface.");
 talkingNPC:addCycleText("Was ist wahrer Reichtum? Wissen oder Münzen?", "What is more of more value? Knowledge or coins?");

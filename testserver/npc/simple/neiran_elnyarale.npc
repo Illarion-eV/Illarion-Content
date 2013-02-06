@@ -135,7 +135,7 @@ english, "job" -> "I am the guard here. I guard the magical surface.", "I tell n
 "garbage bin", "rubbish", "garbadge", "trash" -> "There is no real rubbish, we reuse the most things.", "This is no garbadge bin! It's a most magical recycle mechanism!"
 "Müllkippe", "Müll", "Schrott" -> "Es gibt eigentlich keinen Abfall. Wir verwerten das meiste weiter.", "Das ist keine Müllkippe! Das ist ein höchst magischer Recylemechanismus!"
 "recycle mechanism" -> "The Archmage invented the recycle mechanism. It is a wounderfull thing.", "By using the recycle mechanism we keep this place clean. The arch mage is always happy when someone uses it."
-"recyclemechanismus", "Recyclemechanismus", "recycle mechanismus" -> "Der Erzmagier erfand den Recyclemechanismus.", "Mit Hilfe des Recyclemechanismus halten wir Runewick sauer. Der Erzmagier freut sich immer, wenn jemand ihn benutzt."
+"recyclemechanismus", "Recyclemechanismus", "recycle mechanismus" -> "Der Erzmagier erfand den Recyclemechanismus.", "Mit Hilfe des Recyclemechanismus halten wir Runewick sauber. Der Erzmagier freut sich immer, wenn jemand ihn benutzt."
 "magical", "surface" -> "If you drop things on the magical surface they will disppear, and magically regain their value and then be teleportet to Runewicks treasury."
 "magische", "Fläche", "Oberfläche" -> "Wenn Ihr Gegenstände auf die magische Oberfläche legt, werden sie durch Magie ihren Wert zurück erhalten und in die Satzkammer von Runewick transferiert."
 english, "recycling" -> "The archmage invented the word 'recycling'."
@@ -198,7 +198,7 @@ german, chance(20.0), ".*" -> "Ah... verzeiht. Was sagtet Ihr?", "#me hebt eine 
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Wir in Runewick wollen unsere Straßen sauer halten. Hilf auch du mit!", "Let's keep Runewicks streets clean!"
+cycletext "Wir in Runewick wollen unsere Straßen sauber halten. Hilf auch du mit!", "Let's keep Runewicks streets clean!"
 cycletext "#me schaut sich um.", "#me lookes around."
 cycletext "#me lächelt und  lässt einige Münzen auf die magische Oberfläche fallen.", "#me smiles and drops some coins into the magical surface."
 cycletext "Was ist wahrer Reichtum? Wissen oder Münzen?", "What is more of more value? Knowledge or coins?"
