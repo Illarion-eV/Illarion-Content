@@ -205,7 +205,7 @@ product = carpentry:addProduct(catId, 96, 80, 100, 325, 650)
 product:addIngredient(2543, 6) -- Conifer Wooden Boards: 6x1
 product:addIngredient(2547, 3) -- Leather: 3x1
 product:addIngredient(2535, 2) -- Iron Ingots: 2x1
-product:addIngredient(2552) -- Pure Earth: 1x1
+product:addIngredient(2554) -- Pure Water: 1x1
 product:addIngredient(2571) -- Merinium Ingot
 
 --Ornate Tower Shield
@@ -213,14 +213,14 @@ product = carpentry:addProduct(catId, 916, 87, 100, 351, 702)
 product:addIngredient(2543, 6) -- Conifer Wooden Boards: 6x1
 product:addIngredient(2547, 3) -- Leather: 3x1
 product:addIngredient(2535, 2) -- Iron Ingots: 2x1
-product:addIngredient(2552) -- Pure Earth: 1x1
+product:addIngredient(2554) -- Pure Water: 1x1
 product:addIngredient(2571) -- Merinium Ingot
 
 --Shield of the sky
 product = carpentry:addProduct(catId, 2284, 90, 100, 378, 756)
 product:addIngredient(2543, 6) -- Conifer Wooden Boards: 6x1
 product:addIngredient(2547, 3) -- Leather: 3x1
-product:addIngredient(2552) -- Pure Earth: 1x1
+product:addIngredient(2554) -- Pure Water: 1x1
 product:addIngredient(284, 3) -- Sapphire: 3x1
 product:addIngredient(2571) -- Merinium Ingot
 
@@ -228,7 +228,7 @@ product:addIngredient(2571) -- Merinium Ingot
 product = carpentry:addProduct(catId, 2439, 100, 100, 480, 960)
 product:addIngredient(2543, 6) -- Conifer Wooden Boards: 6x1
 product:addIngredient(2547, 3) -- Leather: 3x1
-product:addIngredient(2552) -- Pure Earth: 1x1
+product:addIngredient(2554) -- Pure Water: 1x1
 product:addIngredient(284, 5) -- Sapphire: 5x1
 product:addIngredient(2571) -- Merinium Ingot
 
