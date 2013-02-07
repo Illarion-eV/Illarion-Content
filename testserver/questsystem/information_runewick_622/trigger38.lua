@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nun zur Bärenhöhle. Bedenke, dass dies kein ungefährlicher Ort ist. Sei daher vorbereitet durch etwas Training mit Mitspielern oder deren Unterstützung.", "[Quest Hint] Go to the Bear cave now. Keep in mind this is not an undangerous place. You should practice before or look for support from other players."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nun zur Bärenhöhle. Bedenke, dass dies kein ungefährlicher Ort ist. Sei daher vorbereitet durch etwas Training mit Mitspielern oder deren Unterstützung.", "[Quest Hint] Go to the Bear cave now. Keep in mind this is not a save place. You should practice before or look for support from other players."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -55,3 +55,9 @@ triggerfield,906,772,5,MoveToField,trigger54
 triggerfield,905,773,5,MoveToField,trigger55
 triggerfield,907,773,5,MoveToField,trigger56
 triggerfield,906,773,5,MoveToField,trigger57
+monster,392,onDeath,trigger58
+monster,393,onDeath,trigger59
+monster,394,onDeath,trigger60
+monster,395,onDeath,trigger61
+monster,396,onDeath,trigger62
+monster,397,onDeath,trigger63
