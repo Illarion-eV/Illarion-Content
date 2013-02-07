@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_622.trigger9", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 132
-local POSTCONDITION_QUESTSTATE = 137
+local PRECONDITION_QUESTSTATE = 137
+local POSTCONDITION_QUESTSTATE = 142
 
-local NPC_TRIGGER_DE = "[Ee]ibental"
-local NPC_TRIGGER_EN = "[Yy]ewdale"
-local NPC_REPLY_DE = "Richtig! Und meine neue Tinte scheint gut zu funktionieren mit dem Licht der Säule des Feuers. Hier habt ihr eure Belohnung und eine weitere Aufgabe. Geht eben nach Eibental, klettert auf den Leuchtturm, und zählt die Reiterstatuen auf dem Dach."
-local NPC_REPLY_EN = "Very good! Andmy new ink seems good to work with the light of the Column of Fire. Here your reward and a new task. Go to Yewdale, climb up the lighttower and count the riderstatues on the top."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_REPLY_DE = "Ihr sollt nach Eibental zum Leuchturm die Reiterstatuen zählen gehen."
+local NPC_REPLY_EN = "You have to go to Yewdale to count the riderstatues on the top of the lighttower there."
 
 function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,7 +53,6 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 2658, 999, 1):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nach Eibental und zähle die Reiterstatuen an der Spitze des Leuchturms am Hafen.", "[Quest Hint] Go to Yewdale and count the riderstatues on the top of the lighttower at the harbour."):execute()
 end
 

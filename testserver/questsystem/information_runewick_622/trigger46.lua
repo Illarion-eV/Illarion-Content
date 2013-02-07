@@ -1,14 +1,15 @@
+require("handler.sendmessagetoplayer")
 require("questsystem.base")
 module("questsystem.information_runewick_622.trigger46", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 305
-local POSTCONDITION_QUESTSTATE = 305
+local PRECONDITION_QUESTSTATE = 250
+local POSTCONDITION_QUESTSTATE = 307
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Wie gesagt, ich habe nun keine Aufgaben mehr für euch, aber wenn ihr Informationen bezüglich Plätze benötigt, so stellt eure Fragen."
-local NPC_REPLY_EN = "As I said, I do not have any further rewards for you, but if you want to have more information about places, please ask. "
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Gut, ihr habt gezeigt, dass ihr ein gewisses Maß an Gefahr bestehen könnt. Bevor die letzte Mission begonnen werden kann, habe ich noch eine Bitte. Und zwar bringt mir bitte eine Pfeife und zehn Sibanac Blätter!"
+local NPC_REPLY_EN = "Well, you have shown that you can manage some danger. But before you can start your final misison, I have a request. Please, bring me a pipe and ten sibanac leaves."
 
 function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -52,6 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Finde einen Schreiner oder Händler über die du die gewünschten Dinge besorgen kannst, wenn du sie nicht selber erzeugen kannst.", "[Quest Hint] Look for a carpenter or merchant who can supply you with the requested goods, if you cannot produce them by yourself."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

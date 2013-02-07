@@ -4,17 +4,17 @@ require("questsystem.base")
 module("questsystem.information_runewick_622.trigger49", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 307
-local POSTCONDITION_QUESTSTATE = 310
+local PRECONDITION_QUESTSTATE = 310
+local POSTCONDITION_QUESTSTATE = 314
 
-local ITEM_ID = 2744
-local ITEM_AMNT = 1
+local ITEM_ID = 155
+local ITEM_AMNT = 10
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Gut, und nun noch das Sibanac."
-local NPC_REPLY_EN = "Alright, and now the sibanac."
-local NPC_NOITEM_DE = "Ohne Pfeife braucht ihr gar nicht mehr zu kommen."
-local NPC_NOITEM_EN = "You do not have to show up without a pipe."
+local NPC_REPLY_DE = "Sehr gut! *stopft das Sibanac in die Pfeife und nimmt einen Zug* Bereit? "
+local NPC_REPLY_EN = "Alright! *puts some sibanac into the pipe and takes a drag* Ready?"
+local NPC_NOITEM_DE = "Ohne Sibanac braucht ihr gar nicht zu kommen."
+local NPC_NOITEM_EN = "You do not have to show up without sibanac."
 
 function receiveText(npc, type, text, PLAYER)
     if PLAYER:getType() == Character.player
@@ -66,8 +66,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Und nun beliefere sie mit zehn Sibanac Blättern.", "[Quest Hint] And now supply her with ten sibanac leaves."):execute()
-    handler.eraseplayeritem.erasePlayerItem(PLAYER, 2744, 1):execute()
+    handler.eraseplayeritem.erasePlayerItem(PLAYER, 155, 10):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Sage \"Bereit\" wenn du für die letzte Aufgabe bereit bist.", "[Quest Hint] Say \"ready\" if you are ready for your last task."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

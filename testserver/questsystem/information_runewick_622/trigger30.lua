@@ -1,19 +1,20 @@
 require("handler.sendmessagetoplayer")
+require("handler.eraseplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_622.trigger30", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 196
-local POSTCONDITION_QUESTSTATE = 207
+local PRECONDITION_QUESTSTATE = 207
+local POSTCONDITION_QUESTSTATE = 208
 
 local ITEM_ID = 388
 local ITEM_AMNT = 1
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Gut, aber eigentlich will ich sie gar nicht, daher bringt sie lieber Zaida. Ihr findet sie in der Werktstatt unten."
-local NPC_REPLY_EN = "Good, but actually I do not want them. Please bring them to Zaida. You can find her in the workshop downstairs."
-local NPC_NOITEM_DE = "Wo sind die Trauben? Ohne Trauben gibt es keine Belohung!"
-local NPC_NOITEM_EN = "Where are the grapes? You do not get your reward without them!"
+local NPC_REPLY_DE = "Bist du das Traubenkind? Schön, gib sie mir. Zur Belohnung bekommst du eine gelbe Robe. Geh nach hinten zu Lilith. Sie soll dich ordentlich einkleiden."
+local NPC_REPLY_EN = "Are you the grapes-child? Nice, give them to me. You shall have a yellow robe as reward. Go behind to Lilith. She shall help you to get proper dressed."
+local NPC_NOITEM_DE = "Bist du das Traubenkind? Wie dem auch sei, ohne Trauben gibt es keine Belohnung."
+local NPC_NOITEM_EN = "Are you the grapes-child? Anyway, if you do not have the grapes you do not get your reward."
 
 function receiveText(npc, type, text, PLAYER)
     if PLAYER:getType() == Character.player
@@ -65,7 +66,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe zu Zaida und bringe ihr die Trauben. Du findest Zaida in der Werkstatt. Wenn du nicht weißt wo dieser ist frage Elesil.", "[Quest Hint] Go to Zaida and bring her the grapes. You can find her in the workshop. If you do not know where the workshop is, ask Elesil."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe in den anderen Raum wo Lilith zu finden ist.", "[Quest Hint] Go to the other room where Lilith can be found."):execute()
+    handler.eraseplayeritem.erasePlayerItem(PLAYER, 388, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

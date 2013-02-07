@@ -3,13 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_622.trigger47", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 250
+local PRECONDITION_QUESTSTATE = 307
 local POSTCONDITION_QUESTSTATE = 307
 
-local NPC_TRIGGER_DE = "."
-local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Gut, ihr habt gezeigt, dass ihr ein gewisses Maß an Gefahr bestehen könnt. Bevor die letzte Mission begonnen werden kann, habe ich noch eine Bitte. Und zwar bringt mir bitte eine Pfeife und zehn Sibanac Blätter!"
-local NPC_REPLY_EN = "Well, you have shown that you can manage some danger. But before you can start your final misison, I have a request. Please, bring me a pipe and ten sibanac leaves."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_REPLY_DE = "Bitte bringt mir eine Pfeife und zehn Sibanac Blätter!"
+local NPC_REPLY_EN = "Please, bring me a pipe and ten sibanac leaves."
 
 function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

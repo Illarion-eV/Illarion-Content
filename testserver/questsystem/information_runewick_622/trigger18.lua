@@ -3,34 +3,57 @@ require("questsystem.base")
 module("questsystem.information_runewick_622.trigger18", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 123
-local POSTCONDITION_QUESTSTATE = 132
+local PRECONDITION_QUESTSTATE = 142
+local POSTCONDITION_QUESTSTATE = 142
 
-local POSITION = position(904, 773, 5)
-local RADIUS = 2
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_REPLY_DE = "Ihr sollt nach Eibental zum Leuchturm die Reiterstatuen zählen gehen."
+local NPC_REPLY_EN = "You have to go to Yewdale to count the riderstatues on the top of the lighttower there."
 
-function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
-  if PLAYER:isInRangeToPosition(POSITION,RADIUS)
-      and ADDITIONALCONDITIONS(PLAYER)
-      and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-    PLAYER:inform(TEXT_DE, TEXT_EN)
-    
-    HANDLER(PLAYER)
-    
-    questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
-    return true
+function receiveText(npc, type, text, PLAYER)
+    if ADDITIONALCONDITIONS(PLAYER)
+    and PLAYER:getType() == Character.player
+    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+        if PLAYER:getPlayerLanguage() == Player.german then
+            NPC_TRIGGER=string.gsub(NPC_TRIGGER_DE,'([ ]+)',' .*');
+        else
+            NPC_TRIGGER=string.gsub(NPC_TRIGGER_EN,'([ ]+)',' .*');
+        end
+
+        foundTrig=false
+        
+        for word in string.gmatch(NPC_TRIGGER, "[^|]+") do 
+            if string.find(text,word)~=nil then
+                foundTrig=true
+            end
+        end
+
+        if foundTrig then
+      
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            
+            HANDLER(PLAYER)
+            
+            questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+        
+            return true
+        end
+    end
+    return false
+end
+
+function getNLS(player, textDe, textEn)
+  if player:getPlayerLanguage() == Player.german then
+    return textDe
+  else
+    return textEn
   end
-
-  return false
 end
 
 
--- local TEXT_DE = TEXT -- German Use Text -- Deutscher Text beim Benutzen
--- local TEXT_EN = TEXT -- English Use Text -- Englischer Text beim Benutzen
-
-
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Auf der Pergamentrolle ist das Wort 'Eibental' zulesen. Es scheint nun Zeit zurück zu Numila zu gehen und ihr das genannte Wort zu nennen.", "The word 'Yewdale' appears on the pell. It seems to be time to go back to Numila now and to tell her the noted word."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nach Eibental und zähle die Reiterstatuen an der Spitze des Leuchturms am Hafen.", "[Quest Hint] Go to Yewdale and count the riderstatues on the top of the lighttower at the harbour."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -3,13 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_622.trigger42", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 257
-local POSTCONDITION_QUESTSTATE = 287
+local PRECONDITION_QUESTSTATE = 184
+local POSTCONDITION_QUESTSTATE = 185
 
-local NPC_TRIGGER_DE = "."
-local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Ich kann mich nicht beschweren, sehr gut! Ich habe nun keine Aufgaben mehr für euch, aber wenn ihr Informationen bezüglich Plätze benötigt, so stellt eure Fragen. Für eure Belohnung geht zum Erzmagier und sagt ihm folgenden Namen."
-local NPC_REPLY_EN = "I cannot complain, very good! I do not have any further rewards for you, but if you want to have more information about places, please ask. To get your reward go to the Archmage and tell him following name."
+local NPC_TRIGGER_DE = "Cheat"
+local NPC_TRIGGER_EN = "Cheat"
+local NPC_REPLY_DE = "lalal"
+local NPC_REPLY_EN = "allalal"
 
 function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Numila steckt dir noch ein Papier zu auf welchem du 'Mordak al Kharud' lesen kannst. Sekunden später löst sich das Stück in Staub auf.", "Numila hands you a piece of paper. You read 'Mordak al Kharud' and seconds later the paper turns to dust."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Numila wird dir dankbar für diesen Akt sein. Gehe nun zurück zu ihr.", "[Quest Hint] Numila will be thankful for this act. Go back to her now."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

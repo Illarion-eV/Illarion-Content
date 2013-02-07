@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_622.trigger32", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 208
-local POSTCONDITION_QUESTSTATE = 211
+local PRECONDITION_QUESTSTATE = 211
+local POSTCONDITION_QUESTSTATE = 233
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Ich hab schon gehört was Zaida sagte. Lass mich sehen was du für eine Grüße hast. Hmm... die hier sollte passen. *reicht eine gelbe Robe*"
-local NPC_REPLY_EN = "I heared what Zaida said. Let me see what size you have. Hmm...this one should fit. *hands a yellow robe* "
+local NPC_REPLY_DE = "Hübsch, hübsch. *schmunzelt* Sehr gut! Nun könnt ihr euch eure Belohnung abholen. Ich war so gemein und hab sie für euch verstecken lassen. Geht zur Fröhlichen Lichtung und blickt dort unter einem der Getreidebündel nach. *schmunzelt*"
+local NPC_REPLY_EN = "Handsome, handsome. *smiles* Very good. Now, you can pick up your reward. I was mean and let it hide for you. Go to Merryglade and look in one of the bundles of grain. *grins*"
 
 function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nun zurück zu Numila.", "[Quest Hint] Go back to Numila now."):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 195, 999, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nun zur Frählichen Lichtung und suche in den Getreidebündeln in der Scheune nach deiner Belohung.", "[Quest Hint] Go to Merryglade and search in one of the bundles of grain in the barn there for your reward."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

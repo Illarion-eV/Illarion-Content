@@ -3,13 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_622.trigger19", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 142
-local POSTCONDITION_QUESTSTATE = 142
+local PRECONDITION_QUESTSTATE = 154
+local POSTCONDITION_QUESTSTATE = 154
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_REPLY_DE = "Ihr sollt nach Eibental zum Leuchturm die Reiterstatuen zählen gehen."
-local NPC_REPLY_EN = "You have to go to Yewdale to count the riderstatues on the top of the lighttower there."
+local NPC_REPLY_DE = "Geht mit dem Horn zur Feurstelle am Nördlichen Außenposten und bläst mal ordentlich rein dort. Ich will etwas hören!"
+local NPC_REPLY_EN = "Go with the horn to the campfire at the Northern Outpost and blow into the horn there. I want to hear some noise!"
 
 function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nach Eibental und zähle die Reiterstatuen an der Spitze des Leuchturms am Hafen.", "[Quest Hint] Go to Yewdale and count the riderstatues on the top of the lighttower at the harbour."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe zur Feuerstelle am Nördlichen Außenposten und verwende das erhaltene Horn dort.", "[Quest Hint] Go the campfire at the Northern Outpost and use the horn there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

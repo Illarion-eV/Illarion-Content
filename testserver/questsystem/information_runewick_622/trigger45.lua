@@ -2,12 +2,12 @@ require("questsystem.base")
 module("questsystem.information_runewick_622.trigger45", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 287
+local PRECONDITION_QUESTSTATE = 305
 local POSTCONDITION_QUESTSTATE = 305
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_REPLY_DE = "Wie gesagt, ich habe nun keine Aufgaben mehr für euch, aber wenn ihr Informationen bezöglich Plätze benötigt, so stellt eure Fragen."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Wie gesagt, ich habe nun keine Aufgaben mehr für euch, aber wenn ihr Informationen bezüglich Plätze benötigt, so stellt eure Fragen."
 local NPC_REPLY_EN = "As I said, I do not have any further rewards for you, but if you want to have more information about places, please ask. "
 
 function receiveText(npc, type, text, PLAYER)

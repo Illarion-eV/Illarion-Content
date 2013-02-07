@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_622.trigger41", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 314
-local POSTCONDITION_QUESTSTATE = 257
+local PRECONDITION_QUESTSTATE = 257
+local POSTCONDITION_QUESTSTATE = 287
 
-local NPC_TRIGGER_DE = "[Bb]ereit"
-local NPC_TRIGGER_EN = "[Rr]eady"
-local NPC_REPLY_DE = "Gut, damit könnt ihr nun auch folgende Personen aufsuchen und eure letzte Mission bestreiten: Ruzusss, Lotta Medborgar und Wulfgorda. Ein jeder hat einen Stein für euch, wie ich ihn auch habe. Sammelt sie und kommt dann wieder."
-local NPC_REPLY_EN = "Good, you are ready to search for following people for your last mission:  Ruzusss, Lotta Medborgar und Wulfgorda. Each of them has a stone for you as I do. Collect them and come back."
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Ich kann mich nicht beschweren, sehr gut! Ich habe nun keine Aufgaben mehr für euch, aber wenn ihr Informationen bezüglich Plätze benötigt, so stellt eure Fragen. Für eure Belohnung geht zum Erzmagier und sagt ihm folgenden Namen."
+local NPC_REPLY_EN = "I cannot complain, very good! I do not have any further rewards for you, but if you want to have more information about places, please ask. To get your reward go to the Archmage and tell him following name."
 
 function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nun mit dem erhaltenen Smaragd nach Galmair, Cadomyr und zum Gasthof Hanfschlinge und suche die genannten Personen. ", "[Quest Hint] Go with the received emerald to Galmair, Cadomyr and the Hemp Necktie Inn and look for these mentioned persons there."):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 45, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Numila steckt dir noch ein Papier zu auf welchem du 'Mordak al Kharud' lesen kannst. Sekunden später löst sich das Stück in Staub auf.", "Numila hands you a piece of paper. You read 'Mordak al Kharud' and seconds later the paper turns to dust."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

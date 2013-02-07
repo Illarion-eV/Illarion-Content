@@ -1,19 +1,24 @@
 require("handler.sendmessagetoplayer")
+require("handler.eraseplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_622.trigger48", package.seeall)
 
 local QUEST_NUMBER = 622
 local PRECONDITION_QUESTSTATE = 307
-local POSTCONDITION_QUESTSTATE = 307
+local POSTCONDITION_QUESTSTATE = 310
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_REPLY_DE = "Bitte bringt mir eine Pfeife und zehn Sibanac Blätter!"
-local NPC_REPLY_EN = "Please, bring me a pipe and ten sibanac leaves."
+local ITEM_ID = 2744
+local ITEM_AMNT = 1
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Gut, und nun noch das Sibanac."
+local NPC_REPLY_EN = "Alright, and now the sibanac."
+local NPC_NOITEM_DE = "Ohne Pfeife braucht ihr gar nicht mehr zu kommen."
+local NPC_NOITEM_EN = "You do not have to show up without a pipe."
 
 function receiveText(npc, type, text, PLAYER)
-    if ADDITIONALCONDITIONS(PLAYER)
-    and PLAYER:getType() == Character.player
+    if PLAYER:getType() == Character.player
+    and ADDITIONALCONDITIONS(PLAYER)
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
         if PLAYER:getPlayerLanguage() == Player.german then
             NPC_TRIGGER=string.gsub(NPC_TRIGGER_DE,'([ ]+)',' .*');
@@ -30,30 +35,39 @@ function receiveText(npc, type, text, PLAYER)
         end
 
         if foundTrig then
-      
-            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            if PLAYER:countItem(ITEM_ID)>=ITEM_AMNT then
+                npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
-            HANDLER(PLAYER)
+                HANDLER(PLAYER)
             
-            questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+                questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
         
-            return true
+                return true
+            elseif (NPC_NOITEM_DE~="") then
+                npc:talk(Character.say, getNLS(PLAYER, NPC_NOITEM_DE, NPC_NOITEM_EN))
+          
+                return true
+            else
+                return false
+            end
         end
     end
+
     return false
 end
 
 function getNLS(player, textDe, textEn)
-  if player:getPlayerLanguage() == Player.german then
-    return textDe
-  else
-    return textEn
-  end
+    if player:getPlayerLanguage() == Player.german then
+        return textDe
+    else
+        return textEn
+    end
 end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Finde einen Schreiner oder Händler über die du die gewünschten Dinge besorgen kannst, wenn du sie nicht selber erzeugen kannst.", "[Quest Hint] Look for a carpenter or merchant who can supply you with the requested goods, if you cannot produce them by yourself."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Und nun beliefere sie mit zehn Sibanac Blättern.", "[Quest Hint] And now supply her with ten sibanac leaves."):execute()
+    handler.eraseplayeritem.erasePlayerItem(PLAYER, 2744, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

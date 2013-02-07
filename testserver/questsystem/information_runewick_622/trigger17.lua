@@ -3,26 +3,34 @@ require("questsystem.base")
 module("questsystem.information_runewick_622.trigger17", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 142
-local POSTCONDITION_QUESTSTATE = 143
+local PRECONDITION_QUESTSTATE = 123
+local POSTCONDITION_QUESTSTATE = 132
 
+local POSITION = position(904, 773, 5)
+local RADIUS = 2
 
-function MoveToField( PLAYER )
-    if ADDITIONALCONDITIONS(PLAYER)
-    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
+  if PLAYER:isInRangeToPosition(POSITION,RADIUS)
+      and ADDITIONALCONDITIONS(PLAYER)
+      and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+    PLAYER:inform(TEXT_DE, TEXT_EN)
     
-        HANDLER(PLAYER)
+    HANDLER(PLAYER)
     
-        questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
-        return true
-    end
-    
-    return false
+    questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+    return true
+  end
+
+  return false
 end
 
 
+-- local TEXT_DE = TEXT -- German Use Text -- Deutscher Text beim Benutzen
+-- local TEXT_EN = TEXT -- English Use Text -- Englischer Text beim Benutzen
+
+
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Zähle schnell durch, und geh zurück zu Numila um ihr die Anzahl zu sagen und deine Belohnung zu erhalten.", "[Quest Hint] Count these riderstatues and go back to Numila to tell her the number of them and to get your reward."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Auf der Pergamentrolle ist das Wort 'Eibental' zulesen. Es scheint nun Zeit zurück zu Numila zu gehen und ihr das genannte Wort zu nennen.", "The word 'Yewdale' appears on the pell. It seems to be time to go back to Numila now and to tell her the noted word."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

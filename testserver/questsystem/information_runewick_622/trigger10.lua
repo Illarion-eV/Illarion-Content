@@ -3,13 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_622.trigger10", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 137
-local POSTCONDITION_QUESTSTATE = 142
+local PRECONDITION_QUESTSTATE = 118
+local POSTCONDITION_QUESTSTATE = 118
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_REPLY_DE = "Ihr sollt nach Eibental zum Leuchturm die Reiterstatuen zählen gehen."
-local NPC_REPLY_EN = "You have to go to Yewdale to count the riderstatues on the top of the lighttower there."
+local NPC_REPLY_DE = "Auf das Dach des Turm des Feuers mit euch!"
+local NPC_REPLY_EN = "Go to the top of the Tower of Fire!"
 
 function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nach Eibental und zähle die Reiterstatuen an der Spitze des Leuchturms am Hafen.", "[Quest Hint] Go to Yewdale and count the riderstatues on the top of the lighttower at the harbour."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Auf der Pergamentrolle steht geschrieben: \"Geht hoch an die Spitze des Turm des Feuers, stellt euch zwischen der Säule des Feuers und dem Altar, und blickt in die Rolle. Die Rolle wird euch ein Zeichen geben sobald ihr richtig steht.\"", "Following is written on the pell: \"Go to the top of the Tower of Fire, stay between the column of fire and altar, and read the pell. The pell will tell you the right spot as soon as you stay there.\""):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

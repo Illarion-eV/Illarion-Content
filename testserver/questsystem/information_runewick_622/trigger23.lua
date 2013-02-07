@@ -1,15 +1,16 @@
 require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_622.trigger23", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 189
-local POSTCONDITION_QUESTSTATE = 189
+local PRECONDITION_QUESTSTATE = 148
+local POSTCONDITION_QUESTSTATE = 184
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_REPLY_DE = "Eure momentante Aufgabe ist eine Firnisblüte an dem Grab auf der zweiten der  beiden Zwillingsaugen Inseln für mich ablegen."
-local NPC_REPLY_EN = "Your current task is to bring a firnis blossom to a grave on the second of the two Twin Eyes Islands for me."
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Ja, das konnte man deutlich hören. Nun zu eurer nächsten Aufgabe. Hier habt ihr eine Firnisblüte. Wenn ihr die bitte an dem Grab auf der zweiten der  beiden Zwillingsaugen Inseln ablegen würdet für mich."
+local NPC_REPLY_EN = "Yes, I could hear it. Now, your next task. Here you have a firnis blossom. Please, bring it to a grave on the second of the two Twin Eyes Islands."
 
 function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,6 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
+    handler.createplayeritem.createPlayerItem(PLAYER, 148, 999, 1):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nun zur zweiten Zwillingaugen Insel und lege die erhaltene Blume dort auf das Blumenfeld vor dem Grabstein im Süden ab.", "[Quest Hint] Go to the second Twin Eyes Island now and lay down the flower on the flower field in front of the grave in the south then."):execute()
 end
 

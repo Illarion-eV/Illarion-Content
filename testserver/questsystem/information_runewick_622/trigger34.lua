@@ -1,15 +1,16 @@
 require("handler.sendmessagetoplayer")
+require("handler.eraseplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_622.trigger34", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 207
-local POSTCONDITION_QUESTSTATE = 207
+local PRECONDITION_QUESTSTATE = 208
+local POSTCONDITION_QUESTSTATE = 208
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_REPLY_DE = "Wie ich sagte, ich will sie eigentlich gar nicht, daher bringt sie lieber Zaida. Ihr findet sie in der Werktstatt unten."
-local NPC_REPLY_EN = "As I said I do not want them. Please bring them to Zaida. You can find her in the workshop downstairs."
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Ab zu Lilith erstmals!"
+local NPC_REPLY_EN = "Go to Lilith now!"
 
 function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe zu Zaida und bringe ihr die Trauben. Du findest Zaida in der Werkstatt. Wenn du nicht weißt wo dieser ist frage Elesil.", "[Quest Hint] Go to Zaida and bring her the grapes. You can find her in the workshop. If you do not know where the workshop is, ask Elesil."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe in den anderen Raum wo Lilith zu finden ist.", "[Quest Hint] Go to the other room where Lilith can be found."):execute()
+    handler.eraseplayeritem.erasePlayerItem(PLAYER, 388, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

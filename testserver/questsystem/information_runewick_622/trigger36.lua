@@ -1,59 +1,45 @@
 require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
+require("base.lookat")
+require("base.common")
 module("questsystem.information_runewick_622.trigger36", package.seeall)
 
 local QUEST_NUMBER = 622
 local PRECONDITION_QUESTSTATE = 233
-local POSTCONDITION_QUESTSTATE = 233
+local POSTCONDITION_QUESTSTATE = 243
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_REPLY_DE = "Ihr sollt euch eure Belohnung abholen. Ich war so gemein und hab sie für euch verstecken lassen. Geht zur Fröhlichen Lichtung und blickt dort unter einem der Getreidebündel nach. *schmunzelt*"
-local NPC_REPLY_EN = "You should go for your reward. I was mean and let it hide for you. Go to Merryglade and look in one of the bundles of grain. *grins*"
+local POSITION = position(848, 705, 0)
+local RADIUS = 1
+local LOOKAT_TEXT_DE = "Hier scheint etwas versteckt zu sein. Nach einer kurzen Suche entdeckst du eine Rüstung die nun dir gehört."
+local LOOKAT_TEXT_EN = "There seems something hidden. After a short search you find an armour which belongs to you now."
 
-function receiveText(npc, type, text, PLAYER)
-    if ADDITIONALCONDITIONS(PLAYER)
-    and PLAYER:getType() == Character.player
-    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-        if PLAYER:getPlayerLanguage() == Player.german then
-            NPC_TRIGGER=string.gsub(NPC_TRIGGER_DE,'([ ]+)',' .*');
-        else
-            NPC_TRIGGER=string.gsub(NPC_TRIGGER_EN,'([ ]+)',' .*');
-        end
+function LookAtItem(PLAYER, item)
+  if PLAYER:isInRangeToPosition(POSITION,RADIUS)
+      and ADDITIONALCONDITIONS(PLAYER)
+      and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
 
-        foundTrig=false
-        
-        for word in string.gmatch(NPC_TRIGGER, "[^|]+") do 
-            if string.find(text,word)~=nil then
-                foundTrig=true
-            end
-        end
+    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
 
-        if foundTrig then
-      
-            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
-            
-            HANDLER(PLAYER)
-            
-            questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
-        
-            return true
-        end
-    end
-    return false
+    HANDLER(PLAYER)
+
+    questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+    return true
+  end
+
+  return false
 end
 
-function getNLS(player, textDe, textEn)
-  if player:getPlayerLanguage() == Player.german then
-    return textDe
-  else
-    return textEn
-  end
+function itemInformNLS(player, item, textDe, textEn)
+  local lookAt = base.lookat.GenerateLookAt(player, item)
+  lookAt.description = base.common.GetNLS(player, textDe, textEn)
+  world:itemInform(player, item, lookAt)
 end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nun zur Frählichen Lichtung und suche in den Getreidebündeln in der Scheune nach deiner Belohung.", "[Quest Hint] Go to Merryglade and search in one of the bundles of grain in the barn there for your reward."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 101, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nun zurück zu Numila um einen weiteren Auftrag zu erhalten.", "[Quest Hint] Go back to Numila to get a further task."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

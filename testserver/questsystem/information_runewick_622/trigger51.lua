@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.eraseplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_622.trigger51", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 310
-local POSTCONDITION_QUESTSTATE = 310
+local PRECONDITION_QUESTSTATE = 10
+local POSTCONDITION_QUESTSTATE = 10
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_REPLY_DE = "Bitte bringt mir zehn Sibanac Blätter!"
-local NPC_REPLY_EN = "Please, bring me ten sibanac leaves."
+local NPC_REPLY_DE = "Auf das Dach des Turm des Feuers mit euch!"
+local NPC_REPLY_EN = "Go to the top of the Tower of Fire!"
 
 function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Und nun beliefere sie mit zehn Sibanac Blättern.", "[Quest Hint] And now supply her with ten sibanac leaves."):execute()
-    handler.eraseplayeritem.erasePlayerItem(PLAYER, 2744, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Bringe eine Pergamentrolle. Frage einen Schreiner oder Händler deiner Wahl um Hilfe.", "[Quest Hint] Bring a pell. Ask a carpenter or trader of choice for help."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
