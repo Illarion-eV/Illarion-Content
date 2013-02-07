@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Someone                                                          --
 --           & Rincewind                                                      --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -187,9 +187,9 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal as well as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 1));
+talkEntry:addResponse("I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal as well as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -198,9 +198,9 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich kann dir helfen falls du Schmied werden willst, hol mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz und nen Hammer nich zu vergessen. Hier noch die Spitzhacke zum abbauen des Erzes.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 1));
+talkEntry:addResponse("Ich kann dir helfen falls du Schmied werden willst, hol mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz und nen Hammer nich zu vergessen. Hier noch die Spitzhacke zum abbauen des Erzes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -209,9 +209,9 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 
 talkEntry:addTrigger("smith");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal as well as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 1));
+talkEntry:addResponse("I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal as well as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -221,9 +221,9 @@ talkEntry:addTrigger("Schmied");
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Ich kann dir helfen, falls du Schmied werden willst, dafür solltest du mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz bringen. Und hier eine Hacke um das Erz abzubauen.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 1));
+talkEntry:addResponse("Ich kann dir helfen, falls du Schmied werden willst, dafür solltest du mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz bringen. Und hier eine Hacke um das Erz abzubauen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -241,7 +241,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("10 Brocken Kohle und 10 Klumpen Eisenerz will ich das du holst, vergiss aber auch nicht den Hammer");
+talkEntry:addResponse("10 Brocken Kohle und 10 Klumpen Eisenerz will ich das du holst, vergiss aber auch nicht den Hammer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -270,12 +270,12 @@ talkEntry:addCondition(npc.base.condition.item.item(23, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."));
-talkEntry:addResponse("Arr, gut gemacht. Jetzt schau mir gut zu, damit du auch wat lernst!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(23, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 2));
+talkEntry:addResponse("Arr, gut gemacht. Jetzt schau mir gut zu, damit du auch wat lernst!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -287,12 +287,12 @@ talkEntry:addCondition(npc.base.condition.item.item(23, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learned something."));
-talkEntry:addResponse("Arr, good job. Now watch me, so that you actually learn something!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(23, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 2));
+talkEntry:addResponse("Arr, good job. Now watch me, so that you actually learn something!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -324,8 +324,8 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Aye, I have another task for ya. I need 15 copper ore, new crucible-pincers, a fine smith hammer and 5 iron ingots!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 3));
+talkEntry:addResponse("Aye, I have a task for ya if you are interested. I need 15 copper ore, new crucible-pincers, a fine smith hammer and 5 iron ingots!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -334,8 +334,8 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, ">", 2
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 40));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
-talkEntry:addResponse("Aye, hab wieder wat für dich zu tun. 15 Kupfererz, eine neue Tiegelzange, einen Feinschmiedehammer und 5 Eisenbarren brauch ich!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 3));
+talkEntry:addResponse("Aye, hab wat für dich zu tun wenn du willst. 15 Kupfererz, eine neue Tiegelzange, einen Feinschmiedehammer und 5 Eisenbarren brauch ich!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -344,8 +344,8 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, ">", 2
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 40));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Aye, I have another task for ya. I need 15 copper ore, new crucible-pincers, a fine smith hammer and 5 iron ingots!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 3));
+talkEntry:addResponse("Aye, I have a task for ya if you are interested. I need 15 copper ore, new crucible-pincers, a fine smith hammer and 5 iron ingots!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -355,8 +355,8 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Aye, hab wieder wat für dich zu tun. 15 Kupfererz, eine neue Tiegelzange, einen Feinschmiedehammer und 5 Eisenbarren brauch ich!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 3));
+talkEntry:addResponse("Aye, hab wat für dich zu tun wenn du willst. 15 Kupfererz, eine neue Tiegelzange, einen Feinschmiedehammer und 5 Eisenbarren brauch ich!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -366,7 +366,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Leave me be for now, I wanna do my own smithing for a change. Come back later, alright?");
+talkEntry:addResponse("Leave me alone, I don't have anything to do for you right now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -376,7 +376,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Lass mich mal in Ruhe, will auch selber mal wat schmieden. Kannst ja später wieder kommen, nich?");
+talkEntry:addResponse("Lass mich mal in Ruhe, ick hab gerade nichts für dich zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -385,7 +385,7 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Leave me be for now, I wanna do my own smithing for a change. Come back later, alright?");
+talkEntry:addResponse("Leave me alone, I don't have anything to do for you right now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -395,7 +395,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Lass mich mal in Ruhe, will auch selber mal wat schmieden. Kannst ja später wieder kommen, nich?");
+talkEntry:addResponse("Lass mich mal in Ruhe, ick hab gerade nichts für dich zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -443,13 +443,13 @@ talkEntry:addCondition(npc.base.condition.item.item(122, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."));
-talkEntry:addResponse("Sieht gut aus, alles da wat ich von dir verlangt hab, scheint als könnt aus dir doch nen richtiger Schmied werden.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2535, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2751, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(122, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 4));
+talkEntry:addResponse("Sieht gut aus, alles da wat ich von dir verlangt hab, scheint als könnt aus dir nen richtiger Schmied werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,13 +462,13 @@ talkEntry:addCondition(npc.base.condition.item.item(122, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You have feel like you really learned something."));
-talkEntry:addResponse("Looks good and it's even everything that I wanted ya to bring. Looks as if you could become a real smith after all.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2535, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2751, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(122, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 4));
+talkEntry:addResponse("Looks good and it's even everything that I wanted ya to bring. Looks as if you could become a real smith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -480,7 +480,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2751, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.item.item(122, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Wie mir scheint, kann man sich nich auf dich verlassen. Oder du bist dümmer als du aussiehst, denn es is nich besonders schwer 15 Kupfererz, 5 Eisenbarren, eine Tiegelzange und einen Feinschmiedehammer zu besorgen!");
+talkEntry:addResponse("Wie mir scheint, kann man sich nich auf dich verlassen. Du musst mir nur folgende Dinge bringen, 15 Kupfererz, 5 Eisenbarren, eine Tiegelzange und einen Feinschmiedehammer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,7 +492,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2751, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.item.item(122, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("It seems you're not trustworthy after all, or maybe you're just dumber that ya look, because you didn't bring me the 15 copper ore, 5 iron ingots, crucible-pincers and a fine smith hammer.");
+talkEntry:addResponse("It seems you're not trustworthy after all, you just have to bring me the following things, 15 copper ore, 5 iron ingots, crucible-pincers and a fine smith hammer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -502,8 +502,8 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr! You're quite good now. It's time to teach ya something real. Bring me 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes, then I'll show ya what a smith can do.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 5));
+talkEntry:addResponse("Aye, I have a task for ya if you are interested. Bring me 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes, then I'll show ya what a smith can do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -513,8 +513,8 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Du machst dich ganz gut. Nun wird es aber an der Zeit dir wat richtiges beizubringen. Bring mir zehn Eisenbarren, zehn Kupferbarren, fünf Stahlbeinschienen und vier Spitzhacken, dann siehst du selbst was ein Schmied so alles kann.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 5));
+talkEntry:addResponse("Aye, hab wat für dich zu tun wenn du willst. Bring mir zehn Eisenbarren, zehn Kupferbarren, fünf Stahlbeinschienen und vier Spitzhacken, dann siehst du selbst was ein Schmied so alles kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -523,8 +523,8 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, ">", 4
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 60));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr! You're quite good now. It's time to teach ya something real. Bring me 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes, then I'll show ya what a smith can do.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 5));
+talkEntry:addResponse("Aye, I have a task for ya if you are interested. Bring me 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes, then I'll show ya what a smith can do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -534,8 +534,8 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Du machst dich ganz gut. Nun wird es aber an der Zeit dir wat richtiges beizubringen. Bring mir zehn Eisenbarren, zehn Goldbarren, fünf Kupferbarren und vier große Schwertgriffe, dann siehst du selbst was ein Schmied so alles kann.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 5));
+talkEntry:addResponse("Aye, hab wat für dich zu tun wenn du willst. Bring mir zehn Eisenbarren, zehn Goldbarren, fünf Kupferbarren und vier große Schwertgriffe, dann siehst du selbst was ein Schmied so alles kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -545,7 +545,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Be gone, I have no time for ya right now since you didn't make any progress! Practice some more, then I'll show you how to smith some nice weapons.");
+talkEntry:addResponse("Be gone, I have no time for ya right now! Practice some more, then I'll show you how to smith some nice weapons.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -555,7 +555,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Verschwinde, ich hab grad keine Zeit und so wie du aussiehst, hast du eh keine Fortschritte gemacht! Übe mehr, dann zeig ich dir auch wie man ne nette Waffe schmiedet.");
+talkEntry:addResponse("Verschwinde, ich hab grad keine Zeit für dich! Übe mehr, dann zeig ick dir vielleicht auch wie man ne nette Waffe schmiedet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -564,7 +564,7 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 4));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Be gone, I have no time for ya right now since you didn't make any progress! Practice some more, then I'll show you how to smith some nice weapons.");
+talkEntry:addResponse("Be gone, I have no time for ya right now! Practice some more, then I'll show you how to smith some nice weapons.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -574,7 +574,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 4));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Verschwinde, ich hab grad keine Zeit und so wie du aussiehst, hast du eh keine Fortschritte gemacht! Übe mehr, dann zeig ich dir auch wie man ne nette Waffe schmiedet.");
+talkEntry:addResponse("Verschwinde, ich hab grad keine Zeit für dich! Übe mehr, dann zeig ick dir vielleicht auch wie man ne nette Waffe schmiedet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -622,13 +622,13 @@ talkEntry:addCondition(npc.base.condition.item.item(2172, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."));
-talkEntry:addResponse("Endlich biste wieder zurück, ich hatte mir schon Sorgen gemacht. Nun pass aber auf wie ich die Erze kombiniere.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2763, 4, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2535, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2172, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 6));
+talkEntry:addResponse("Endlich biste wieder zurück, ich hatte mir schon Sorgen gemacht. Nun pass aber auf wie ich die Erze kombiniere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -641,13 +641,13 @@ talkEntry:addCondition(npc.base.condition.item.item(2172, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learned something."));
-talkEntry:addResponse("Finally, you're back, I started to worry about ya. Now watch how I combine these materials.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2763, 4, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2535, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2172, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 6));
+talkEntry:addResponse("Finally, you're back, I started to worry about ya. Now watch how I combine these materials.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -681,8 +681,8 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Never thought I'd see your face again. But glad that you ask. I need 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 7));
+talkEntry:addResponse("Arr, you are looking for some work? Aye, I can help you with that! I need 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -692,8 +692,8 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Das ich dich mal wieder zu Gesicht bekomme hätte ich nich gedacht. Aber jut das du fragst. 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische bräuchte ich von dir.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 7));
+talkEntry:addResponse("Arr, du willst ne Aufgabe? Aye, damit kann ich helfen! Ick brauche 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -702,8 +702,8 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, ">", 6
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Never thought I'd see your face again. But glad that you ask. I need 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 7));
+talkEntry:addResponse("Arr, you are looking for some work? Aye, I can help you with that! I need 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -712,8 +712,8 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, ">", 6
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
-talkEntry:addResponse("Das ich dich mal wieder zu Gesicht bekomme hätte ich nich gedacht. Aber jut das du fragst. 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische bräuchte ich von dir.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 7));
+talkEntry:addResponse("Arr, du willst ne Aufgabe? Aye, damit kann ick helfen! Ick brauche 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -800,13 +800,13 @@ talkEntry:addCondition(npc.base.condition.item.item(2364, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."));
-talkEntry:addResponse("Sehr gut gemacht, ich wusste man kann sich auf dich verlassen. Nun sperr die Augen weit auf und beobachte wie ich dat Schwert schmiede!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2675, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(226, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2364, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
+talkEntry:addResponse("Sehr gut gemacht, ich wusste man kann sich auf dich verlassen. Nun sperr die Augen weit auf und beobachte wie ich dat Schwert schmiede!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -819,13 +819,13 @@ talkEntry:addCondition(npc.base.condition.item.item(2364, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learned something."));
-talkEntry:addResponse("Good job. Now that I know I can count on you, watch closely here and see how this sword is made.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2675, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(226, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2364, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
+talkEntry:addResponse("Good job. Now that I know I can count on you, watch closely here and see how this sword is made.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1009,7 +1009,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Spitzhacke");
-talkEntry:addResponse("Damit kannst du das Erz abbauen, ein Händler kann dir sicher eine verkaufen wenn du deine verlierst");
+talkEntry:addResponse("Damit kannst du das Erz abbauen, ein Händler kann dir sicher eine verkaufen wenn du deine verlierst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1291,7 +1291,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Saren");
 talkEntry:addTrigger("Eisenfaust");
-talkEntry:addResponse("What's up`?");
+talkEntry:addResponse("What's up?");
 talkEntry:addResponse("Aye?");
 talkEntry:addResponse("#me nods once and rises an eyebrow.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1301,7 +1301,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Saren");
 talkEntry:addTrigger("Eisenfaust");
 talkEntry:addResponse("Aye?");
-talkEntry:addResponse("Was, gibt's?");
+talkEntry:addResponse("Wat gibt's?");
 talkEntry:addResponse("#me nickt dir zun und zieht eine Braue hoch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1389,7 +1389,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
