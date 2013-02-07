@@ -1,8 +1,14 @@
 npc,348,receiveText,trigger1
-npc,348,receiveText,trigger2
 npc,348,receiveText,trigger3
+npc,348,receiveText,trigger2
 triggerfield,904,772,5,MoveToField,trigger4
 triggerfield,904,773,5,MoveToField,trigger5
+triggerfield,905,772,5,MoveToField,trigger4
+triggerfield,905,773,5,MoveToField,trigger5
+triggerfield,906,772,5,MoveToField,trigger4
+triggerfield,906,773,5,MoveToField,trigger5
+triggerfield,907,772,5,MoveToField,trigger4
+triggerfield,907,773,5,MoveToField,trigger5
 item,3109,UseItem,trigger6
 item,3109,UseItem,trigger7
 item,3109,UseItem,trigger8
