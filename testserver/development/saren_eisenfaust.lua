@@ -27,7 +27,7 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.skill")
 require("npc.base.talk")
-module("npc.saren_eisenfaust", package.seeall)
+module("development.saren_eisenfaust", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
