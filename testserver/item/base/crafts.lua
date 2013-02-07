@@ -453,7 +453,7 @@ function Craft:generateQuality(user, productId, toolItem)
     local product = self.products[productId]
     local scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
      
-    local quality = base.common.Scale(5, 7, scalar)
+    local quality = base.common.Scale(5, 8, scalar)
     local toolQuality = math.floor(toolItem.quality/100)
     
     quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2))); -- +2 for a perfect tool, -2 for a crappy tool
