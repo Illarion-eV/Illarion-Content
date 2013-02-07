@@ -225,7 +225,7 @@ product:addIngredient(284, 3) -- Sapphire: 3x1
 product:addIngredient(2571) -- Merinium Ingot
 
 --Cloud Shield
-product = carpentry:addProduct(catId, 2439, 100, 100, 480, 960)
+product = carpentry:addProduct(catId, 2439, 99, 100, 480, 960)
 product:addIngredient(2543, 6) -- Conifer Wooden Boards: 6x1
 product:addIngredient(2547, 3) -- Leather: 3x1
 product:addIngredient(2554) -- Pure Water: 1x1

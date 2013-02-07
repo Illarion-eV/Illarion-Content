@@ -573,7 +573,7 @@ product:addIngredient(2551) -- Pure Air: 1x1
 product:addIngredient(2571) -- Merinium Ingot
 
 --Magical Dwarven Axe
-product = smithing:addProduct(catId, 2662, 100, 100, 300, 600)
+product = smithing:addProduct(catId, 2662, 99, 100, 300, 600)
 product:addIngredient(2535, 7) -- Iron Ingot: 7x1
 product:addIngredient(2525) -- Axe Handle: 1x1
 product:addIngredient(2551) -- Pure Air: 1x1
@@ -653,7 +653,7 @@ product:addIngredient(2553) -- Pure Fire: 1x1
 product:addIngredient(2571) -- Merinium Ingot
 
 --Magical Dagger
-product = smithing:addProduct(catId, 2671, 100, 100, 300, 600)
+product = smithing:addProduct(catId, 2671, 99, 100, 300, 600)
 product:addIngredient(2535) -- Iron Ingot: 1x1
 product:addIngredient(2530) -- Dagger Handle: 1x1
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
@@ -724,7 +724,7 @@ product:addIngredient(2553) -- Pure Fire: 1x1
 product:addIngredient(2571) -- Merinium: 1x1
 
 --Magical Waraxe
-product = smithing:addProduct(catId, 2626, 100, 100, 420, 840)
+product = smithing:addProduct(catId, 2626, 99, 100, 420, 840)
 product:addIngredient(2535, 5) -- Iron Ingot: 5x1
 product:addIngredient(2525) -- AxeHandle: 1x1
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
