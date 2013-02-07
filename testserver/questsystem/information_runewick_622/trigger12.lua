@@ -22,7 +22,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Zähle schnell durch, und geh zurück zu Numila um ihr die Anzahl zu sagen und deine Belohnung zu erhalten.", "Count these riderstatues and go back to Numila to tell her the number of them and to get your reward."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Zähle schnell durch, und geh zurück zu Numila um ihr die Anzahl zu sagen und deine Belohnung zu erhalten.", "[Quest Hint] Count these riderstatues and go back to Numila to tell her the number of them and to get your reward."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

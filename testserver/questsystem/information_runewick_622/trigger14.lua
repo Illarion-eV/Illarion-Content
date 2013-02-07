@@ -30,7 +30,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du wirst zwar noch ein wenig üben müssen, aber man konnte dich gut hören. Geh nun zu Numila zurück.", "You will have to practice more, but there was some noise at least. Go back to Numila now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Du wirst zwar noch ein wenig üben müssen, aber man konnte dich gut hören. Gehe nun zu Numila zurück.", "[Quest Hint] You will have to practice more, but there was some noise at least. Go back to Numila now."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

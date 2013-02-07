@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur zweiten Zwillingaugen Insel und lege die erhaltene Blume dort auf das Blumenfeld vor dem Grabstein im Süden ab.", "Go to the second Twin Eyes Island now and lay down the flower on the flower field in front of the grave in the south then."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nun zur zweiten Zwillingaugen Insel und lege die erhaltene Blume dort auf das Blumenfeld vor dem Grabstein im Süden ab.", "[Quest Hint] Go to the second Twin Eyes Island now and lay down the flower on the flower field in front of the grave in the south then."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

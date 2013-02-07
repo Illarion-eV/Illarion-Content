@@ -31,7 +31,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Bring die Traube zu Numila nun.", "Bring the grapes to Numila now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Bring die Traube zu Numila nun.", "[Quest Hint] Bring the grapes to Numila now."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 388, 999, 1):execute()
 end
 

@@ -34,7 +34,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Genug gejagt. Geh nun zurück zu Numila", "Enough hunted. Go back to Numila now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Genug gejagt. Gehe nun zurück zu Numila", "[Quest Hint] Enough hunted. Go back to Numila now."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

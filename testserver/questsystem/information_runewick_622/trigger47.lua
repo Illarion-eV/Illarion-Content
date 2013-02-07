@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde einen Schreiner oder Händler über die du die gewünschten Dinge besorgen kannst, wenn du sie nicht selber erzeugen kannst.", "Look for a carpenter or merchant who can supply you with the requested goods, if you cannot produce them by yourself."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Finde einen Schreiner oder Händler über die du die gewünschten Dinge besorgen kannst, wenn du sie nicht selber erzeugen kannst.", "[Quest Hint] Look for a carpenter or merchant who can supply you with the requested goods, if you cannot produce them by yourself."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

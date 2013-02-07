@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Numila wird dir dankbar für diesen Akt sein. Geh nun zurück zu ihr.", "Numila will be thankful for this act. Go back to her now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Numila wird dir dankbar für diesen Akt sein. Gehe nun zurück zu ihr.", "[Quest Hint] Numila will be thankful for this act. Go back to her now."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

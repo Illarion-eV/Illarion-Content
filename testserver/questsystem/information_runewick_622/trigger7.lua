@@ -7,7 +7,7 @@ local PRECONDITION_QUESTSTATE = 132
 local POSTCONDITION_QUESTSTATE = 132
 
 local POSITION = position(904, 773, 5)
-local RADIUS = 0
+local RADIUS = 2
 
 function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)

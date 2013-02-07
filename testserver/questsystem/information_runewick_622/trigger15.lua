@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zur Feuerstelle am Nördlichen Außenposten und verwende das erhaltene Horn dort.", "Go the campfire at the Northern Outpost and use the horn there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe zur Feuerstelle am Nördlichen Außenposten und verwende das erhaltene Horn dort.", "[Quest Hint] Go the campfire at the Northern Outpost and use the horn there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

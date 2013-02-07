@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur Frählichen Lichtung und suche in den Getreidebündeln in der Scheune nach deiner Belohung.", "Go to Merryglade and search in one of the bundles of grain in the barn there for your reward."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nun zur Frählichen Lichtung und suche in den Getreidebündeln in der Scheune nach deiner Belohung.", "[Quest Hint] Go to Merryglade and search in one of the bundles of grain in the barn there for your reward."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 2658, 999, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nach Eibental und zähle die Reiterstatuen an der Spitze des Leuchturms am Hafen.", "Go to Yewdale and count the riderstatues on the top of the lighttower at the harbour."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nach Eibental und zähle die Reiterstatuen an der Spitze des Leuchturms am Hafen.", "[Quest Hint] Go to Yewdale and count the riderstatues on the top of the lighttower at the harbour."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

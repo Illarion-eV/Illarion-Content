@@ -66,7 +66,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh in den anderen Raum wo Lilith zu finden ist.", "Go to the other room where Lilith can be found."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe in den anderen Raum wo Lilith zu finden ist.", "[Quest Hint] Go to the other room where Lilith can be found."):execute()
     handler.eraseplayeritem.erasePlayerItem(PLAYER, 388, 1):execute()
 end
 
