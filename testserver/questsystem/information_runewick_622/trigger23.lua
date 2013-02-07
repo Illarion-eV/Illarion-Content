@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 148, 999, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nun zur zweiten Zwillingaugen Insel und lege die erhaltene Blume dort auf das Blumenfeld vor dem Grabstein im Süden ab.", "[Quest Hint] Go to the second Twin Eyes Island now and lay down the flower on the flower field in front of the grave in the south then."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Du hast eine Blume erhalten. Gehe nun zur zweiten Zwillingaugen Insel und lege die erhaltene Blume dort auf das Blumenfeld vor dem Grabstein im Süden ab.", "[Quest Hint] You have received a flower. Go to the second Twin Eyes Island now and lay down the flower on the flower field in front of the grave in the south then."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

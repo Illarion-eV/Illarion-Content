@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 333, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe zur Feuerstelle am Nördlichen Außenposten und verwende das erhaltene Horn dort. Frage sie nach dem Nördlichen Außenposten wenn du nicht weißt wo er ist!", "[Quest Hint] Go the campfire at the Northern Outpost and use the horn there. Ask her vor the Northern Outpost if you do not know where it is."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Du hast ein Horn erhalten. Gehe zur Feuerstelle am Nördlichen Außenposten und verwende das erhaltene Horn dort. Frage sie nach dem Nördlichen Außenposten wenn du nicht weißt wo er ist!", "[Quest Hint] You have received a horn. Go the campfire at the Northern Outpost and use the horn there. Ask her vor the Northern Outpost if you do not know where it is."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -13,8 +13,8 @@ local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
 local NPC_REPLY_DE = "Sehr gut! *stopft das Sibanac in die Pfeife und nimmt einen Zug* Bereit? "
 local NPC_REPLY_EN = "Alright! *puts some sibanac into the pipe and takes a drag* Ready?"
-local NPC_NOITEM_DE = "Ohne Sibanac braucht ihr gar nicht zu kommen."
-local NPC_NOITEM_EN = "You do not have to show up without sibanac."
+local NPC_NOITEM_DE = "Ohne die 10 Blätter Sibanac braucht ihr gar nicht zu kommen."
+local NPC_NOITEM_EN = "You do not have to show up without 10 leaves sibanac."
 
 function receiveText(npc, type, text, PLAYER)
     if PLAYER:getType() == Character.player

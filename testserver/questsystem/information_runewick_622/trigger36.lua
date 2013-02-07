@@ -39,7 +39,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 101, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nun zurück zu Numila um einen weiteren Auftrag zu erhalten.", "[Quest Hint] Go back to Numila to get a further task."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Du hast eine Rüstung gefunden. Gehe nun zurück zu Numila um einen weiteren Auftrag zu erhalten.", "[Quest Hint] You have received an armour. Go back to Numila to get a further task."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

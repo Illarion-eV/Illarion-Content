@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nun mit dem erhaltenen Smaragd nach Galmair, Cadomyr und zum Gasthof Hanfschlinge und suche die genannten Personen. ", "[Quest Hint] Go with the received emerald to Galmair, Cadomyr and the Hemp Necktie Inn and look for these mentioned persons there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Du hast einen Smaragd erhalten. Gehe nun mit dem erhaltenen Smaragd nach Galmair, Cadomyr und zum Gasthof Hanfschlinge und suche die genannten Personen. ", "[Quest Hint] You have received an emerald. Go with the received emerald to Galmair, Cadomyr and the Hemp Necktie Inn and look for these mentioned persons there."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 45, 333, 1):execute()
 end
 

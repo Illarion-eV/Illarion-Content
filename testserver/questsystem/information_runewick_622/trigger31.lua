@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Gehe nun zurück zu Numila.", "[Quest Hint] Go back to Numila now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "[Quest Hinweis] Du hast eine Robe erhalten. Gehe nun zurück zu Numila.", "[Quest Hint] You have received a robe. Go back to Numila now."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 195, 999, 1):execute()
 end
 
