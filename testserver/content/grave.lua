@@ -189,8 +189,11 @@ function InitGrave()
     AddGrave({665,293,0},"","", 1,0);
     AddGrave({690,341,0},"","", 2,0);
     AddGrave({725,369,0},"","", 1,0);
-    AddGrave({665,293,0},"","", 1,0);
-    --The Swamp
+    AddGrave({665,293,0},"","", 1,0);]]--
+	--Sunken Temple
+    AddGrave({751,284,0},"Erinnert, erinnert, den Versunkenen.","Remember, remember, the sunken one!", 3,0);
+    AddGrave({762,291,0},"Hier ruht Karolina, letzte Priesterin.","Here rests Karolina, last priest.", 2,0);
+    --[[--The Swamp
     AddGrave({485,146,0},"","", 1,0);
     AddGrave({494,105,0},"","", 3,0);
     AddGrave({508,102,0},"","", 3,0);
