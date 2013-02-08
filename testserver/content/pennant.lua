@@ -135,6 +135,9 @@ function InitPennant()
 	--Lumpskrums Band
 	AddPennant({361,752,0},"Tritt ein, bring Geld herein! Lumpskrum wird es dir danken.","Please enter and leave your coins! Lumpskrum will be grateful.", 1,0);
     AddPennant({357,752,0},"Tritt ein, bring Geld herein! Lumpskrum wird es dir danken.","Please enter and leave your coins! Lumpskrum will be grateful.", 1,0);
+    --Raban's Grove
+	AddPennant({828,109,0},"Rabans Hain","Raban's Grove", 5,0);
+	AddPennant({828,113,0},"Rabans Hain","Raban's Grove", 5,0);
     --[[--Royal Slave Market
 	AddPennant({325,627,0},"","", 5,5);
 	AddPennant({325,629,0},"","", 5,5);
