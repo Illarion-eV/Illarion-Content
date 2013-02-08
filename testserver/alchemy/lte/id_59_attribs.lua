@@ -15,7 +15,7 @@ end
 
 function callEffect(Effect,User)
     -- callEffect is only called once; we just need to return false
-	base.common.InformNLS( User, "Du fühlst, dass der Stärkungsrank seine Wirkung verliert.", "You feel that the strengthening potion looses its effect.")
+	base.common.InformNLS( User, "Du fühlst, dass der Stärkungstrank seine Wirkung verliert.", "You feel that the strengthening potion looses its effect.")
 	return false
 
 end

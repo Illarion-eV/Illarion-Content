@@ -14,6 +14,8 @@ monster.base.quests.iniQuests();
 killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
+msgs = base.messages.Messages();
+msgs:addMessage("#me hat Schaum vor dem Mund.", "#me foams at the mouth.");
 
 end
 
@@ -109,7 +111,7 @@ if (MonID==541) then --Crippled Deamonbeast, Level: 6, Armourtype: heavy, Weapon
         if not done then done=monster.base.drop.AddDropItem(762,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --sulfur weed
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(2586,math.random(1,1),100,773,0,4); --fur
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==542) then --Deamonbeast, Level: 7, Armourtype: midium, Weapontype: puncture
@@ -139,7 +141,7 @@ if (MonID==541) then --Crippled Deamonbeast, Level: 6, Armourtype: heavy, Weapon
         if not done then done=monster.base.drop.AddDropItem(762,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --sulfur weed
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(2586,math.random(1,1),100,773,0,4); --fur
+        monster.base.drop.AddDropItem(3077,math.random(10,30),100,333,0,4); --silver coins
 
 
     elseif (MonID==543) then --Giant Deamonbeast, Level: 7, Armourtype: medium, Weapontype: concussion
@@ -169,7 +171,7 @@ if (MonID==541) then --Crippled Deamonbeast, Level: 6, Armourtype: heavy, Weapon
         if not done then done=monster.base.drop.AddDropItem(762,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --sulfur weed
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(2586,math.random(1,1),100,773,0,4); --fur
+        monster.base.drop.AddDropItem(3077,math.random(10,30),100,333,0,4); --silver coins
 
     end
     monster.base.drop.Dropping(Monster);

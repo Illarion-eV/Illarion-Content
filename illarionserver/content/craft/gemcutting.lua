@@ -7,7 +7,7 @@ gemcutting = item.base.crafts.Craft:new{
                           craftDE = "Edelsteine schleifen",
                           handTool = 2140,
                           leadSkill = Character.gemcutting,
-                          DefaultFoodConsumption = 200,
+                          DefaultFoodConsumption = 100,
                         };
 
 gemcutting:addTool(270)  -- cutting stone

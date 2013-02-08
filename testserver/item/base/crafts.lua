@@ -456,10 +456,8 @@ function Craft:generateQuality(user, productId, toolItem)
     local quality = base.common.Scale(5, 8, scalar)
     local toolQuality = math.floor(toolItem.quality/100)
     
-    quality = quality * (math.random() * 0.2 + 0.9)
-    quality = quality * (math.random() * 0.2 + 0.9)
-    
-    quality = quality * base.common.Scale(4, 11, math.floor(toolQuality*11)) / 10 -- Changing lower bounds will make tools matter less
+    quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2))); -- +2 for a perfect tool, -2 for a crappy tool
+	quality = quality + math.random(-1,1); -- Final scatter!
     
     quality = math.floor(quality)
 	quality = base.common.Limit(quality, 5, 9)
@@ -544,7 +542,7 @@ function Craft:craftItem(user, productId)
         "Du bist nicht fähig genug um das zu tun.",
         "You are not skilled enough to do this.")
         self:swapToInactiveItem(user)
-        return
+        return false
     end
     
     local neededFood = 0
@@ -553,7 +551,7 @@ function Craft:craftItem(user, productId)
         foodOK, neededFood = self:checkRequiredFood(user, product.foodConsumption, product.difficulty)
         if not foodOK then
             self:swapToInactiveItem(user)
-            return
+            return false
         end
     end
 

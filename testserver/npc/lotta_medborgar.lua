@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -51,11 +51,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(630, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End] You received 10 silvercoins and 5 rankpoints."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End 'Find Lotta'] You received 10 silver coins and 5 rank points."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Good day. Finally you found me! Iradona has already informed me about your visit. There you have some silvercoins for that you found me.");
+talkEntry:addResponse("Good day. Finally you found me! Iradona has already informed me about your visit. There, you have some silver coins for finding me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -63,7 +63,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(630, "=", 1));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende] Du hast 10 Silberstücke und 5 Rangpunkte erhalten."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 'Finde Lotta'] Du hast 10 Silberstücke und 5 Rangpunkte erhalten."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
@@ -75,20 +75,20 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(630, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End] You received 10 silvercoins."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End 'Find Lotta'] You received 10 silver coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 2));
-talkEntry:addResponse("Good day. Finally you found me! Iradona has already informed me about your visit. There you have a silvercoin for that you found me.");
+talkEntry:addResponse("Good day. Finally you found me! Iradona has already informed me about your visit. There, you have some silver coins for finding me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(630, "=", 1));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende] Du hast 10 Silberstücke erhalten."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 'Finde Lotta'] Du hast 10 Silberstücke erhalten."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 2));
-talkEntry:addResponse("Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze.");
+talkEntry:addResponse("Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -179,7 +179,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("My head hurts, because of these thousand of questions of the people of Galmair here.");
+talkEntry:addResponse("My head hurts, because of these thousands of questions from the people of Galmair here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -196,7 +196,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Lotta Medborgar the hunter.");
+talkEntry:addResponse("Lotta Medborgar, the hunter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -214,7 +214,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("inform");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"));
-talkEntry:addResponse("I can give you information about places near of Galmair. Just ask me!");
+talkEntry:addResponse("I can give you information about places near Galmair. Just ask me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -228,7 +228,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("question");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"));
-talkEntry:addResponse("I can give you information about places near of Galmair. Just ask me!");
+talkEntry:addResponse("I can give you information about places near Galmair. Just ask me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -258,7 +258,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Iradona");
 talkEntry:addTrigger("Goldschein");
-talkEntry:addResponse("You can find her outside of the town close to the teleporter. She has a lot of information and some tasks for you.");
+talkEntry:addResponse("You can find her outside the town, close to the teleporter. She has a lot of information and some tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -273,7 +273,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Nothing to do for you yet but soon.");
+talkEntry:addResponse("Nothing to do for you yet, but soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -287,7 +287,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Nothing to do for you yet but soon.");
+talkEntry:addResponse("Nothing to do for you yet, but soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -318,7 +318,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("northeast");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, Insurmountable Limes, Evilrock, Three Fingertips, Wulfgorda."));
-talkEntry:addResponse("I know following places: Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock, Three Fingertips. But for more detailed information ask Wulfgorda at the Hemp Necktie Inn.");
+talkEntry:addResponse("I know following places: Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock, Three Fingertips, but for more detailed information ask Wulfgorda at the Hemp Necktie Inn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -346,7 +346,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("southwest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Shadowland, Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert, Ruzuss."));
-talkEntry:addResponse("I know following places: Shadowland, Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert. But for more detailed information ask Ruzuss in Cadomyr.");
+talkEntry:addResponse("I know following places: Shadowland, Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert, but for more detailed information ask Ruzuss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -360,7 +360,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("southeast");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Snakehead Bay, Lonely Islands, Death's Stench, Dragon's Lair, Dewy Swamps, Yewdale, Numila Irunnleh."));
-talkEntry:addResponse("I know following places: Snakehead Bay, Lonely Islands, Death's Stench, Dragon's Lair, Dewy Swamps, Yewdale. But for more detailed information ask Numila Irunnleh in Runewick.");
+talkEntry:addResponse("I know following places: Snakehead Bay, Lonely Islands, Death's Stench, Dragon's Lair, Dewy Swamps, Yewdale, but for more detailed information ask Numila Irunnleh in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -373,7 +373,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elstree Forest");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -385,7 +385,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elstree Plain");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -397,7 +397,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eastland");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -409,7 +409,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Pauldron");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -421,7 +421,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Dead Marsh");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -434,7 +434,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Spider's Mouth");
 talkEntry:addTrigger("spiders mouth");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -446,7 +446,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hemp Necktie Inn");
-talkEntry:addResponse("The Hemp Necktie Inn is a neutral tavern in the Spider's Mouth and many adventurers are resting there. Among others Wulfgorda. You can use the teleporter to get there.");
+talkEntry:addResponse("The Hemp Necktie Inn is a neutral tavern in the Spider's Mouth and many adventurers are resting there, among others Wulfgorda. You can use the teleporter to get there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -460,17 +460,17 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(650, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Wulfgorda");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Wulfgorda and bring her the sibanac leafs to get your reward."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Wulfgorda' started] Try to find Wulfgorda and take her the sibanac leafs to get your reward."));
 talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 1));
-talkEntry:addResponse("Wulfgorda is a hunter who knows almost each place in the northeast. You can find her infront of the Hemp Necktie Inn. Furthermore, you should bring her these leafs here. *hands some sibanac leafs*");
+talkEntry:addResponse("Wulfgorda is a hunter who knows almost every place in the northeast. You can find her in front of the Hemp Necktie Inn. Furthermore, you should take her these leaves here. *hands over some sibanac leafs*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(650, "<", 1));
 talkEntry:addTrigger("Wulfgorda");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Wulfgorda und bringe ihr die Sibanacblätter um deine Belohnung zur erhalten."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Wulfgorda' gestartet] Finde Wulfgorda und bringe ihr die Sibanacblätter um deine Belohnung zur erhalten."));
 talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 1));
 talkEntry:addResponse("Wulfgorda ist eine Jägerin, welche beinahe jeden Platz im Nordosten kennt. Du findest sie vor dem Gasthaus zur Hanfschlinge. Des weiteren kannst du ihr auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*");
@@ -480,7 +480,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Wulfgorda");
-talkEntry:addResponse("Wulfgorda is a hunter who knows almost each place in the northeast. You can find her infront of the Hemp Necktie Inn.");
+talkEntry:addResponse("Wulfgorda is a hunter who knows almost every place in the northeast. You can find her in front of the Hemp Necktie Inn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,7 +492,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bounding Stream");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -504,7 +504,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glowing River");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -516,7 +516,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Plains Silence");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -528,7 +528,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Northern Woods");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -541,7 +541,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("The Insurmountable Limes");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -554,7 +554,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Evilrock");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -567,7 +567,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Three Fingertips");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -579,7 +579,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Snakehead Bay");
-talkEntry:addResponse("Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick.");
+talkEntry:addResponse("Well, as I said, it is in the southeast and you would be better asking someone who lives there, for example Numila Irunnleh in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -591,7 +591,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lonely Islands");
-talkEntry:addResponse("Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick.");
+talkEntry:addResponse("Well, as I said, it is in the southeast and you would be better asking someone who lives there, for example Numila Irunnleh in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -604,7 +604,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Death's Stench");
 talkEntry:addTrigger("Deaths stench");
-talkEntry:addResponse("Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick.");
+talkEntry:addResponse("Well, as I said, it is in the southeast and you would be better asking someone who lives there, for example Numila Irunnleh in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -617,7 +617,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Dragon's Lair");
 talkEntry:addTrigger("dragons lair");
-talkEntry:addResponse("Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick.");
+talkEntry:addResponse("Well, as I said, it is in the southeast and you would be better asking someone who lives there, for example Numila Irunnleh in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,7 +629,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Dewy Swamps");
-talkEntry:addResponse("Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick.");
+talkEntry:addResponse("Well, as I said, it is in the southeast and you would be better asking someone who lives there, for example Numila Irunnleh in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -641,7 +641,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yewdale");
-talkEntry:addResponse("Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick.");
+talkEntry:addResponse("Well, as I said, it is in the southeast and you would be better asking someone who lives there, for example Numila Irunnleh in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -668,7 +668,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lake Syrita");
-talkEntry:addResponse("Lake Syrita is north from here where you can find the harbour of Galmair.");
+talkEntry:addResponse("Lake Syrita is north from here, where you can find the harbour of Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -706,7 +706,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Swamp");
-talkEntry:addResponse("This is the area north from here after the Blackbridge over the Bounding Stream, where you can also find the harbour of Galmair.");
+talkEntry:addResponse("This is the area north from here, after the Blackbridge over the Bounding Stream, where you can also find the harbour of Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -778,7 +778,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Golden Rumil");
-talkEntry:addResponse("The Golden Rumil found a bad end once. The bandits of Fort Schnellbeil threw the good old Rumil into liquid gold. You can find him on the way to Fort Schnellbeil.");
+talkEntry:addResponse("The Golden Rumil met a bad end once. The bandits of Fort Schnellbeil threw the good old Rumil into liquid gold. You can find him on the way to Fort Schnellbeil.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -815,7 +815,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Shadowland");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you would be better asking someone who lives there, for example Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -827,7 +827,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wight Canal");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you would be better asking someone who lives there, for example Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -839,7 +839,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sentry Forest");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you would be better asking someone who lives there, for example Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -851,7 +851,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Great Ocean");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you would be better asking someone who lives there, for example Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -863,7 +863,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Border Mountains");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you would be better asking someone who lives there, for example Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -875,7 +875,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Western Katanbi Desert");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you would be better asking someone who lives there, for example Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -887,7 +887,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi Desert");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you would be better asking someone who lives there, for example Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -900,7 +900,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Katanbi Delta");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you would be better asking someone who lives there, for example Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -925,7 +925,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Chapel Five");
-talkEntry:addResponse("The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert. Ask Ruzuss in Cadomyr if you cannot find it.");
+talkEntry:addResponse("The Chapel of the Five is at the southern end of the Border Mountains and at the eastern border of Katanbi Desert. Ask Ruzuss in Cadomyr if you cannot find it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -937,7 +937,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Chapel");
-talkEntry:addResponse("The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert. Ask Ruzuss in Cadomyr if you cannot find it.");
+talkEntry:addResponse("The Chapel of the Five is at the southern end of the Border Mountains and at the eastern border of Katanbi Desert. Ask Ruzuss in Cadomyr if you cannot find it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -951,7 +951,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Nothing to do for you yet but soon.");
+talkEntry:addResponse("Nothing to do for you yet, but soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -965,7 +965,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Nothing to do for you yet but soon.");
+talkEntry:addResponse("Nothing to do for you yet, but soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -980,7 +980,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("The archmage owns two stones of power. These are an Emerald and a Ruby. They protect Runewick against being beaten by our forces.");
+talkEntry:addResponse("The Archmage owns two stones of power, these are an emerald and a ruby. They protect Runewick against being beaten by our forces.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -994,7 +994,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("The archmage owns two stones of power. These are an Emerald and a Ruby. They protect Runewick against being beaten by our forces.");
+talkEntry:addResponse("The Archmage owns two stones of power, these are an emerald and a ruby. They protect Runewick against being beaten by our forces.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1008,7 +1008,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("That's is the southeast. Follow the road through Nargun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further southeast. Look for signposts. But be careful. Dangerous way, use better the teleporter outside the town.");
+talkEntry:addResponse("That's is the southeast. Follow the road through Nargun's Plain to the Hemp Necktie Inn at the Spider's Mouth, and then head further southeast. Look for the signposts, but be careful. It's a dangerous way, better use the teleporter outside town to be safe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1023,7 +1023,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("The Don owns two stones of power. These are a Sapphire and a Obsidian. They protect us against Runewick and Cadomyr.");
+talkEntry:addResponse("The Don owns two stones of power, these are a sapphire and an obsidian. They protect us against Runewick and Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1050,7 +1050,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("The Queen owns two stones of power. These are a Topaz and an Amethyst. They protect Cadomyr against being beaten by our forces.");
+talkEntry:addResponse("The Queen owns two stones of power, these are a topaz and an amethyst. They protect Cadomyr against being beaten by our forces.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1064,7 +1064,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("The Queen owns two stones of power. These are a Topaz and an Amethyst. They protect Cadomyr against being beaten by our forces.");
+talkEntry:addResponse("The Queen owns two stones of power, these are a topaz and an amethyst. They protect Cadomyr against being beaten by our forces.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1078,7 +1078,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("That's is the southwest. Follow the road trough Nargun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further southwest. Look for signposts. But be careful. Dangerous way, use better Or use the teleporter outside the town.");
+talkEntry:addResponse("That's is the southwest. Follow the road through Nargun's Plain to the Hemp Necktie Inn at the Spider's Mouth, and then head further southwest. Look for the signposts, but be careful. It's a dangerous way, better use the teleporter outside the town to be safe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1090,7 +1090,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Primarly, we pray to three gods in Galmair. They are Irmorom, Nargun and Ronagan of course, my favorite god.");
+talkEntry:addResponse("Primarily, we pray to three gods here in Galmair. They are Irmorom, Nargun, and Ronagan of course, my favorite god.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1104,7 +1104,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("If you like to know more about this god ask somone else. For example Iradona Goldschein outside at the teleporter.");
+talkEntry:addResponse("If you would like to know more about this god ask someone else, for example Iradona Goldschein outside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1118,7 +1118,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("If you like to know more about this god ask somone else. For example Iradona Goldschein outside at the teleporter.");
+talkEntry:addResponse("If you would like to know more about this god ask someone else, for example Iradona Goldschein outside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1132,7 +1132,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("If you like to know more about this god ask somone else. For example Iradona Goldschein outside at the teleporter.");
+talkEntry:addResponse("If you would like to know more about this god ask someone else, for example Iradona Goldschein outside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1145,7 +1145,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("If you like to know more about this god ask somone else. For example Iradona Goldschein outside at the teleporter.");
+talkEntry:addResponse("If you would like to know more about this god ask someone else, for example Iradona Goldschein outside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1158,7 +1158,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("If you like to know more about this god ask somone else. For example Iradona Goldschein outside at the teleporter.");
+talkEntry:addResponse("If you would like to know more about this god ask someone else, for example Iradona Goldschein outside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1171,7 +1171,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("If you like to know more about this god ask somone else. For example Iradona Goldschein outside at the teleporter.");
+talkEntry:addResponse("If you would like to know more about this god ask someone else, for example Iradona Goldschein outside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1184,7 +1184,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("You can find a Temple of him at the west side of Galmair. Just go through Galmair to the Well of Dreams and shortly before Villa Goldvein you will find it in the North. You will find a signpost there.");
+talkEntry:addResponse("You can find a Temple for him at the west side of Galmair. Just go through Galmair towards the Well of Dreams and shortly before Villa Goldvein you will find it to the North. You will find a signpost there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1198,7 +1198,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("If you like to know more about this god ask somone else. For example Iradona Goldschein outside at the teleporter.");
+talkEntry:addResponse("If you would like to know more about this god ask someone else, for example Iradona Goldschein outside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1215,7 +1215,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 9999));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
-talkEntry:addResponse("#me shoots with her bow and says: 'I warned you, but you did not listen. Face the consequences now!'");
+talkEntry:addResponse("#me shoots with her bow and says, 'I warned you, but you did not listen. Face the consequences now!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1248,7 +1248,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("You can find a Temple of him down here at the Scoria Mine. You have to walk through the Flicker Swale and the very end you will find a room with a ladder, climb up and there you are. You will find also signposts to your orientation. And be careful!");
+talkEntry:addResponse("You can find a Temple for him down here at the Scoria Mine. You have to walk through Flicker Swale and at the very end you will find a room with a ladder, climb up and there you are. You will also find signposts to help you on your way but be careful!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1263,7 +1263,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("If you like to know more about this god ask somone else. For example Iradona Goldschein outside at the teleporter.");
+talkEntry:addResponse("If you would like to know more about this god ask someone else, for example Iradona Goldschein outside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1276,7 +1276,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("You can find a Temple of him down here at the Scoria Mine. Usually, just follow the signpost there, but unfortunately the corridor is flooded.");
+talkEntry:addResponse("You can find a Temple for him down here at the Scoria Mine. Usually, you would just follow the signpost there, but unfortunately the corridor is flooded.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1289,7 +1289,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("If you like to know more about this god ask somone else. For example Iradona Goldschein outside at the teleporter.");
+talkEntry:addResponse("If you would like to know more about this god ask someone else, for example Iradona Goldschein outside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1303,7 +1303,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("If you like to know more about this god ask somone else. For example Iradona Goldschein outside at the teleporter.");
+talkEntry:addResponse("If you would like to know more about this god ask someone else, for example Iradona Goldschein outside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1317,7 +1317,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("If you like to know more about this god ask somone else. For example Iradona Goldschein outside at the teleporter.");
+talkEntry:addResponse("If you would like to know more about this god ask someone else, for example Iradona Goldschein outside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1330,7 +1330,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("If you like to know more about this god ask somone else. For example Iradona Goldschein outside at the teleporter.");
+talkEntry:addResponse("If you would like to know more about this god ask someone else, for example Iradona Goldschein outside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1356,7 +1356,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Lotta");
 talkEntry:addTrigger("Medborgar");
-talkEntry:addResponse("Yes, that is my name. Über welche Orte places do you want information?");
+talkEntry:addResponse("Yes, that is my name. What places do you want information about?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1395,7 +1395,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Huh, about what places shall I give you information? Do you mind just to ask for help as a first step?");
+talkEntry:addResponse("Huh, what places should I give you information about? Do you mind just asking for help as a first step?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1410,7 +1410,7 @@ talkingNPC:addCycleText("Wer etwas über die Orte hier in der Umgebung wissen wil
 talkingNPC:addCycleText("#me kratzt sich im Gesicht.", "#me paddles her face.");
 talkingNPC:addCycleText("#me blickt herum mit ihren weit geöffneten Augen.", "#me looks around with wide opened eyes.");
 talkingNPC:addCycleText("#me untersucht ihre Rüstung.", "#me examines her armour.");
-talkingNPC:addCycleText("#me streichelt ihren Bauch.", "#me pets her belly.");
+talkingNPC:addCycleText("#me streichelt ihren Bauch.", "#me pats her belly.");
 talkingNPC:addCycleText("#me isst eine Wurst.", "#me eats a sausage.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);

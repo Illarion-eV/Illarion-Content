@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -528,14 +528,15 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 13));
 talkEntry:addCondition(npc.base.condition.item.item(225, "all", ">", 0, {["descriptionEn"] = "This crown belongs to Rosaline Edwarts."}));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zassaria");
-talkEntry:addTrigger("lizzard");
+talkEntry:addTrigger("lizard");
 talkEntry:addTrigger("crown");
 talkEntry:addTrigger("missing");
 talkEntry:addTrigger("belong");
 talkEntry:addTrigger("porperty");
 talkEntry:addTrigger("riverbank");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 13));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 14));
 talkEntry:addResponse("What? This is not my crown! Can't you read? It says Rosaline Edwarts spelled with t. This is not my name! This was not a good joke, and I am not in the mood for jokes. You may leave. Now!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -550,7 +551,7 @@ talkEntry:addTrigger("verloren");
 talkEntry:addTrigger("gehören");
 talkEntry:addTrigger("Eigentum");
 talkEntry:addTrigger("riverbank");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 13));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 14));
 talkEntry:addResponse("Was? Dies ist nicht meine Krone! Kannst du nicht lesen? Da steht Rosaline Edwarts mit t. Das ist nicht mein Name! Dies ist ein schlechter Scherz, und mir ist nicht zum Schrzen zu mute. Ihr könnt gehen. Jetzt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1526,7 +1527,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

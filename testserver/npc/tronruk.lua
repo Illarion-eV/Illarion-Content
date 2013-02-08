@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -46,7 +46,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(607, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("You found Tronuk. Now, ask him for his story in order to get the name of the winner. Listen the whole story."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Winner's name'] You found Tronuk. Now, ask him for his story in order to get the name of the winner. Listen the whole story."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 2));
 talkEntry:addResponse("Grebbas! How can Tronuk help?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -55,7 +55,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(607, "=", 1));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Du hast Tronuk gefunden. Nun frage ihn nach seiner Geschichte um den Namen des Gewinner zu erfahren. Höre dir die ganze Geschichte an."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Siegername'] Du hast Tronuk gefunden. Nun frage ihn nach seiner Geschichte um den Namen des Gewinner zu erfahren. Höre dir die ganze Geschichte an."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 2));
 talkEntry:addResponse("Grebbha! Wie kann Tronuk helfen?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1973,7 +1973,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkEntry:addResponse("Dese Orcs ob da Horde wus dere: Silver Skull Murgo,Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.");
+talkEntry:addResponse("Dese Orcs ob da Horde wus dere: Silver Skull Murgo, Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2868,7 +2868,7 @@ talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("You know the name now. When you are back at Hummi, tell him the name of the ork who one. The name starts with a 'J'. ;) If you like to listen to the rest of the story, use 'yubba' or 'more'. Use 'stop' in order to break up the story."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Winner's name'] You know the name now. When you are back at Hummi, tell him the name of the ork who won. The name starts with a 'J'. ;) If you like to listen to the rest of the story, use 'yubba' or 'more'. Use 'stop' in order to break up the story."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 3));
 talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear da rest ob da glory day now?");
@@ -2883,7 +2883,7 @@ talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Du weißt nun den Namen. Wenn du zurück bei Hummi bist, nenne ihm den Namen des Orks der gewonnen hat. Der Name beginnt mit einem 'J'. ;) Den Rest der Geschichte kannst du dir mit 'Yubba' oder 'Weiter' anhören, oder eben mit 'Stop' die Geschichte abbrechen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Siegername'] Du weißt nun den Namen. Wenn du zurück bei Hummi bist, nenne ihm den Namen des Orks der gewonnen hat. Der Name beginnt mit einem 'J'. ;) Den Rest der Geschichte kannst du dir mit 'Yubba' oder 'Weiter' anhören, oder eben mit 'Stop' die Geschichte abbrechen."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 3));
 talkEntry:addResponse("Orks wurden glorreich Sieger von Turnier!...du wollen hören Rest von glorreich Tag nun?");
@@ -2896,7 +2896,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 30));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("You know the name now. When you are back at Hummi, tell him the name of the ork who one. The name starts with a 'J'. ;) If you like to listen to the rest of the story, use 'yubba' or 'more'. Use 'stop' in order to break up the story."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Winner's name'] You know the name now. When you are back at Hummi, tell him the name of the ork who won. The name starts with a 'J'. ;) If you like to listen to the rest of the story, use 'yubba' or 'more'. Use 'stop' in order to break up the story."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 3));
 talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear da rest ob da glory day now?");
@@ -2908,7 +2908,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(607, "=", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 30));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Du weißt nun den Namen. Wenn du zurück bei Hummi bist, nenne ihm den Namen des Orks der gewonnen hat. Der Name beginnt mit einem 'J'. ;) Den Rest der Geschichte kannst du dir mit 'Yubba' oder 'Weiter' anhören, oder eben mit 'Stop' die Geschichte abbrechen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Siegername'] Du weißt nun den Namen. Wenn du zurück bei Hummi bist, nenne ihm den Namen des Orks der gewonnen hat. Der Name beginnt mit einem 'J'. ;) Den Rest der Geschichte kannst du dir mit 'Yubba' oder 'Weiter' anhören, oder eben mit 'Stop' die Geschichte abbrechen."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 3));
 talkEntry:addResponse("Orks wurden glorreich Sieger von Turnier!...du wollen hören Rest von glorreich Tag nun?");

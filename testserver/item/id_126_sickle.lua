@@ -4,13 +4,14 @@
 
 require("item.general.metal")
 require("base.common")
+require("content.gathering")
+
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 LookAtItem = item.general.metal.LookAtItem
 
 function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
-	InitHarvestItems();
   -- if we're gathering herbs or harvesting crops is determined below
 
 	base.common.ResetInterruption( User, ltstate );
@@ -330,10 +331,7 @@ function CreateHarvestProduct(ProductId, GroundType, GrowFactors, IsFarmingItem)
     return retValue;
 end
 
-function InitHarvestItems() 
-    if (HarvestItems ~= nil) then
-        return;
-    end
+function InitHarvestItems()
     HarvestItems = {};
 	-- some definitions
 	MaxAmount = 10;
@@ -489,8 +487,9 @@ function InitHarvestItems()
 	HarvestItems[ 1809 ] = {								-- eldan oak
 	CreateHarvestProduct(759, nil, {0.5,0.5,0.5,0.5})			-- nuts (was actually in harvest.lua with 20 MaxAmount, so just let it regrow twice as fast)
 	}
-	
 end
+
+InitHarvestItems();
 
 --[[ old list
 function InitHerblore()

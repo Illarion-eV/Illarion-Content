@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 name = "Rosaline Edwards"
@@ -71,10 +71,10 @@ english, "Ciao", "Adieu", "Au revoir" -> "#me waves: 'Begone.'", "Go with Malach
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Wer ich bin? Ihr habt die Kühnheit zuzugeben, dass ihr nicht wisst, wer ich bin? Aus meinen Augen!", "Wenn ihr wirklich nicht wisst, wer ich bin, dann fragt einen meiner Diener.", "Schämt ihr euch nicht, eine Königin albarischen Geblüts nach ihrem Namen zu fragen?"
 
 -- Quest 107: A message from Groktan Flintsplit
-queststatus(107) = 12, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and crumples the letter in her firm grasp: 'Tell that filthy bastard he'll get my throne over my dead body!", queststatus(107) = 13
-queststatus(107) = 12, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
-queststatus(107) = 12, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and crumples the letter in her firm grasp: 'Tell that filthy bastard he'll get my throne over my dead body!", queststatus(107) = 13
-queststatus(107) = 12, "Groktan", "Flintsplit" -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
+queststatus(107) = 12, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), queststatus(107) = 13, "#me shouts in fury and crumples the letter in her firm grasp: 'Tell that filthy bastard he'll get my throne over my dead body!"
+queststatus(107) = 12, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), queststatus(107) = 13, "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!"
+queststatus(107) = 12, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), queststatus(107) = 13, "#me shouts in fury and crumples the letter in her firm grasp: 'Tell that filthy bastard he'll get my throne over my dead body!"
+queststatus(107) = 12, "Groktan", "Flintsplit" -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), queststatus(107) = 13, "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!"
 
 -- Catching quest triggers
 english, "quest", "mission" -> "Ah, a loyal subject. Very well, ask one of my servants what you can do for me today, I cannot be bothered such details; I have to rule an entire kingdom."
@@ -83,30 +83,30 @@ english, "quest", "mission" -> "Ah, a loyal subject. Very well, ask one of my se
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ah, ein loyaler Diener, wie fein. Bitte fragt einen meiner Diener, was ihr heute für mich tun könnt. Ich kann mich nicht mit Details aufhalten, ich muss ein ganzes Königreich regieren, nicht nur euch."
 
 -- Reward for quest 622
-queststatus(642) > 0, queststatus(643) = 0, english, chance(10.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(1)
-queststatus(642) > 0, queststatus(643) = 0, german, chance(10.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(1)
-queststatus(642) > 0, queststatus(643) = 0, english, chance(11.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(2)
-queststatus(642) > 0, queststatus(643) = 0, german, chance(11.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(2)
-queststatus(642) > 0, queststatus(643) = 0, english, chance(13.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(3)
-queststatus(642) > 0, queststatus(643) = 0, german, chance(13.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(3)
-queststatus(642) > 0, queststatus(643) = 0, english, chance(14.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(4)
-queststatus(642) > 0, queststatus(643) = 0, german, chance(14.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(4)
-queststatus(642) > 0, queststatus(643) = 0, english, chance(17.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(5)
-queststatus(642) > 0, queststatus(643) = 0, german, chance(17.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(5)
-queststatus(642) > 0, queststatus(643) = 0, english, chance(20.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(6)
-queststatus(642) > 0, queststatus(643) = 0, german, chance(20.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(6)
-queststatus(642) > 0, queststatus(643) = 0, english, chance(25.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(7)
-queststatus(642) > 0, queststatus(643) = 0, german, chance(25.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(7)
-queststatus(642) > 0, queststatus(643) = 0, english, chance(34.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(8)
-queststatus(642) > 0, queststatus(643) = 0, german, chance(34.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(8)
-queststatus(642) > 0, queststatus(643) = 0, english, chance(51.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(198, 1, 999, "gemLevel" = "1"), queststatus(643) = 1
-queststatus(642) > 0, queststatus(643) = 0, german, chance(51.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(198, 1, 999, "gemLevel" = "1"), queststatus(643) = 1
-queststatus(642) > 0, queststatus(643) = 0, english, chance(100.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(197, 1, 999, "gemLevel" = "1"), queststatus(643) = 1
-queststatus(642) > 0, queststatus(643) = 0, german, chance(100.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(197, 1, 999, "gemLevel" = "1"), queststatus(643) = 1
+queststatus(642) > 0, queststatus(643) = 0, english, chance(10.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(1), "#me nods and hands you an item silently."
+queststatus(642) > 0, queststatus(643) = 0, german, chance(10.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(1), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(642) > 0, queststatus(643) = 0, english, chance(11.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(2), "#me nods and hands you an item silently."
+queststatus(642) > 0, queststatus(643) = 0, german, chance(11.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(2), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(642) > 0, queststatus(643) = 0, english, chance(13.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(3), "#me nods and hands you an item silently."
+queststatus(642) > 0, queststatus(643) = 0, german, chance(13.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(3), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(642) > 0, queststatus(643) = 0, english, chance(14.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(4), "#me nods and hands you an item silently."
+queststatus(642) > 0, queststatus(643) = 0, german, chance(14.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(4), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(642) > 0, queststatus(643) = 0, english, chance(17.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(5), "#me nods and hands you an item silently."
+queststatus(642) > 0, queststatus(643) = 0, german, chance(17.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(5), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(642) > 0, queststatus(643) = 0, english, chance(20.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(6), "#me nods and hands you an item silently."
+queststatus(642) > 0, queststatus(643) = 0, german, chance(20.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(6), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(642) > 0, queststatus(643) = 0, english, chance(25.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(7), "#me nods and hands you an item silently."
+queststatus(642) > 0, queststatus(643) = 0, german, chance(25.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(7), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(642) > 0, queststatus(643) = 0, english, chance(34.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(8), "#me nods and hands you an item silently."
+queststatus(642) > 0, queststatus(643) = 0, german, chance(34.0), "Mordak", "Kharud" -> queststatus(643) = 1, treasure(8), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(642) > 0, queststatus(643) = 0, english, chance(51.0), "Mordak", "Kharud" -> item(198, 1, 999, "gemLevel" = "1"), queststatus(643) = 1, "#me nods and hands you an item silently."
+queststatus(642) > 0, queststatus(643) = 0, german, chance(51.0), "Mordak", "Kharud" -> item(198, 1, 999, "gemLevel" = "1"), queststatus(643) = 1, "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(642) > 0, queststatus(643) = 0, english, chance(100.0), "Mordak", "Kharud" -> item(197, 1, 999, "gemLevel" = "1"), queststatus(643) = 1, "#me nods and hands you an item silently."
+queststatus(642) > 0, queststatus(643) = 0, german, chance(100.0), "Mordak", "Kharud" -> item(197, 1, 999, "gemLevel" = "1"), queststatus(643) = 1, "#me nickt und reicht dir leise einen Gegenstand."
 
----- Quest by Zassaria Riverbank (Ask for me II)
-queststatus(701) = 13, item(225,all,"descriptionDe"="Diese Krone gehört Rosaline Edwarts.","descriptionEn"="This crown belongs to Rosaline Edwarts.")>0, "Zassaria", "lizzard", "crown","missing", "belong", "porperty", "riverbank" -> "What? This is not my crown! Can't you read? It says Rosaline Edwarts spelled with t. This is not my name! This was not a good joke, and I am not in the mood for jokes. You may leave. Now!", queststatus (701) = 13
-queststatus(701) = 13, item(225,all,"descriptionDe"="Diese Krone gehört Rosaline Edwarts.","descriptionEn"="This crown belongs to Rosaline Edwarts.")>0, "Zassaria", "Echsenmensch", "Krone","verloren", "gehören", "Eigentum", "riverbank" -> "Was? Dies ist nicht meine Krone! Kannst du nicht lesen? Da steht Rosaline Edwarts mit t. Das ist nicht mein Name! Dies ist ein schlechter Scherz, und mir ist nicht zum Schrzen zu mute. Ihr könnt gehen. Jetzt!", queststatus (701) = 13
+-- -- Quest by Zassaria Riverbank (Ask for me II)
+queststatus(701) = 13, item(225, all, "descriptionEn" = "This crown belongs to Rosaline Edwarts.") > 0, english, "Zassaria", "lizard", "crown", "missing", "belong", "porperty", "riverbank" -> queststatus(701) = 14, "What? This is not my crown! Can't you read? It says Rosaline Edwarts spelled with t. This is not my name! This was not a good joke, and I am not in the mood for jokes. You may leave. Now!"
+queststatus(701) = 13, item(225, all, "descriptionEn" = "This crown belongs to Rosaline Edwarts.") > 0, "Zassaria", "Echsenmensch", "Krone", "verloren", "gehören", "Eigentum", "riverbank" -> queststatus(701) = 14, "Was? Dies ist nicht meine Krone! Kannst du nicht lesen? Da steht Rosaline Edwarts mit t. Das ist nicht mein Name! Dies ist ein schlechter Scherz, und mir ist nicht zum Schrzen zu mute. Ihr könnt gehen. Jetzt!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Profession? Foolish traveler, I am the Queen, my profession is to rule this kingdom!"

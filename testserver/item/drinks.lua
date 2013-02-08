@@ -69,79 +69,14 @@ function UseItem(User, SourceItem)
     else
         world:swap( SourceItem,food[2],333);
     end
-    if ( food[3] == 0 ) then -- kein Alkohol
-        if ( foodLevel > 40000 ) then 
-            base.common.InformNLS( User, "Du hast genug getrunken.", "You have drunk enough.");
-        elseif ( foodLevel > 40000 ) then 
-            base.common.InformNLS( User, "Du schaffst es nicht noch mehr zu trinken.", "You don't manage it to drink more.");
-            foodLevel = foodLevel - food[1];
-        end
-    else -- Alkohol
-        -- Edit by abcfantasy: Wine brewing contest
-        if ( food[3] == 15 ) then -- wine
-            local perc = User:increaseAttrib("perception",0);
-            if perc>19 then
-                perc=19;
-            end
-            local itemData = tonumber(SourceItem:getData("wineData")) + math.random( -40 + (perc*2), 40 - (perc*2) );
-            local wineQual = 0;
-            local modv = itemData - math.floor(itemData/10)*10;
-            local result = itemData / 10;
-            if ( modv >= 5 ) then
-                wineQual = math.ceil( result )
-            else
-                wineQual = math.floor( result )
-            end;
-            
-
-            if ( wineQual < 1 ) then
-                base.common.InformNLS( User, "", "The wine tastes plainly horrible. You won't even dare another sip." );
-            elseif ( wineQual < 3 ) then
-                base.common.InformNLS( User, "", "It's not wine that you would spit out, but a bad taste nonetheles." );
-            elseif ( wineQual < 5 ) then
-                base.common.InformNLS( User, "", "The taste leaves you just a bit discontent." );
-            elseif ( wineQual < 7 ) then
-                base.common.InformNLS( User, "", "The taste is so and so, leaving you a bit unsure." );
-            elseif ( wineQual < 9 ) then
-                base.common.InformNLS( User, "", "That's a promising wine, not quite good, but not bad at all." );
-            elseif ( wineQual < 11 ) then
-                base.common.InformNLS( User, "", "You can state that that wine is good wine, but not the best." );
-            elseif ( wineQual < 13 ) then
-                base.common.InformNLS( User, "", "The taste of this wine on your lips makes you content, definitely good and fine wine." );
-            elseif ( wineQual < 15 ) then
-                base.common.InformNLS( User, "", "Elven wine perhaps? This one tastes fantastic and makes you crave more." );
-            elseif ( wineQual >= 15 ) then
-                base.common.InformNLS( User, "", "Perfect wine! You have never tasted wine as good as this before." );
-            end;
-        end
-        -- end edit
-        
-        -- Abhandlung Foodlevel
-        if ( foodLevel > 40000 ) then 
-            base.common.InformNLS( User, "Du hast genug getrunken.", "You have drunk enough.");
-        elseif ( foodLevel > 40000 ) then 
-            base.common.InformNLS( User, "Du schaffst es nicht noch mehr zu trinken.", "You don't manage it to drink more.");
-            foodLevel = foodLevel - food[1];
-        end
-        -- Abhandlung Foodlevel fertig
-       
-	    --[[-- LTE 1 crasht den Server -> raus damit
-        -- Alkohol Effekt
-        -- Arbeitet mit LTE ID 1 - "alcohol"
-        foundalc,alcEffect = User.effects:find(1); -- LTE 1 "alcohol" suchen
-        if not foundalc then -- Spieler hat den Effekt nicht
-            oldAlcValue = 0; -- daher auch keinen alten Alkoholwert
-        else -- Spieler hat den Effekt
-            found,value = alcEffect:findValue("alcohol"); -- alten Alkoholwert suchen
-            oldAlcValue = ( found and value or 0 ); -- und uebertragen
-            User.alcEffect:removeEffect(1); -- alten Effekt entfernen
-        end
-        alcEffect = LongTimeEffect( 1, 300 ); -- Effektstruktur erstellen
-        alcEffect:addValue("alcohol",oldAlcValue + math.floor(food[1]*(food[3]/100))); -- neuen Alkoholwert hinzufuegen
-        User.effects:addEffect(alcEffect); -- Effekt an User senden
-        -- Alkoholabhandlung fertig]]
-		
+    
+    if ( foodLevel > 40000 ) then 
+        base.common.InformNLS( User, "Du hast genug getrunken.", "You have had enough to drink.");
+    elseif ( foodLevel > 40000 ) then 
+        base.common.InformNLS( User, "Du schaffst es nicht noch mehr zu trinken.", "You cannot drink anything else.");
+        foodLevel = foodLevel - food[1];
     end
+    
     if ( User:increaseAttrib("foodlevel",0) ~= foodLevel ) then -- Prüfen ob Nahrungspunkte geändert wurden
         User:increaseAttrib("foodlevel",-(User:increaseAttrib("foodlevel",0)-foodLevel)); -- Änderung durchführen
     end

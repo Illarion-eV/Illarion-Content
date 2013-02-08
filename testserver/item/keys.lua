@@ -1,5 +1,6 @@
 require("base.keys")
 require("base.common")
+require("base.lookat")
 
 module("item.keys", package.seeall)
 
@@ -115,44 +116,7 @@ end
 
 
 function LookAtItem(User,Item)
-   --[[ local DataVal=Item.data;
-    if (specialnames==nil) then
-        specialnames={};
-        specialnames[3001]={"Zwergenschlüssel","dwarven key"};
-        specialnames[3002]={"Zwergenschlüssel","dwarven key"};
-        specialnames[4080]={"Garons Schmieden Schlüssel","Garons goldsmith workshop key"};
-        specialnames[4036]={"Gefängnissschlüssel #1","Prisonkey #1"};
-        specialnames[4037]={"Gefängnissschlüssel #2","Prisonkey #2"};
-        specialnames[4001]={"Stadttor Schlüssel","Towngate key"};
-        specialnames[4031]={"Schlüssel zur Arena","Key to the Arena"};
-        specialnames[4050]={"Schlüssel zum Seahorse","Key to the Sea Horse"};
-        specialnames[4051]={"Schlüssel zum Seahorse #1","Key to the Sea Horse #1"};
-        specialnames[4052]={"Schlüssel zum Seahorse #2","Key to the Sea Horse #2"};
-        specialnames[4053]={"Schlüssel zum Badezimmer","Key to the Bathroom"};
-        specialnames[4054]={"Schlüssel zum Seahorse #3","Key to the Sea Horse #3"};
-		specialnames[666]={"Schlüssel der Erde","Key of earth"};
-		specialnames[667]={"Schlüssel des Feuers","Key of fire"};
-		specialnames[668]={"Schlüssel des Windes","Key of air"};
-		specialnames[669]={"Schlüssel des Wassers","Key of water"};
-		
-		specialnames[1]={"Gefängnisschlüssel von Cadomyr","Prison key of Cadomyr"};
-		specialnames[2]={"Gefängnisschlüssel von Runewick","Prison key of Runewick"};
-		specialnames[3]={"Gefängnisschlüssel von Galmair","Prison key of Galmair"};
-    end
-    local lang=User:getPlayerLanguage();
-    if (specialnames[DataVal]~=nil) then
-        if (lang==0) then
-            world:itemInform(User,Item,specialnames[DataVal][1]);
-        else
-            world:itemInform(User,Item,specialnames[DataVal][2]);
-        end
-    else
-        if (lang==0) then
-            world:itemInform(User,Item,world:getItemName(Item.id,0));
-        else
-            world:itemInform(User,Item,world:getItemName(Item.id,1));
-        end
-    end]]
+   world:itemInform( User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE) )
 end
 
 function MoveItemBeforeMove(User, SourceItem, TargetItem)

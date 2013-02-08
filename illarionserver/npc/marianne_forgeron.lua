@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -79,7 +79,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Greetings. Ya want something magical made from gemstones?");
-talkEntry:addResponse("Be greeted. Shall I combine magical gemstones for you? That is my job, ya konw?");
+talkEntry:addResponse("Be greeted. Shall I combine magical gemstones for you? That is my job, ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -223,7 +223,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
-talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 0, {["nameDe"] = "Echt großer Fisch"}));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 0, {["nameEn"] = "Really big fish"}));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zassaria");
 talkEntry:addTrigger("lizzard");
@@ -232,14 +232,13 @@ talkEntry:addTrigger("trout");
 talkEntry:addTrigger("salmon");
 talkEntry:addTrigger("riverbank");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 11));
-talkEntry:addResponse("Unbelivable! This tout is as large as a slamon! Please, tell Miss Riverbank I'm soory, I called her a liar.");
+talkEntry:addResponse("Unbelivable! This trout really is as large as a salmon! Please, tell Miss Riverbank I'm sorry I called her a liar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 0, {["nameDe"] = "Echt großer Fisch"}));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zassaria");
 talkEntry:addTrigger("lizzard");
 talkEntry:addTrigger("fisch");
@@ -254,7 +253,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I am a magical Blacksmith. How one becomes a magical blacksmith is none of your business.");
-talkEntry:addResponse("I am a magical Blacksmith. The rest is a professional secret.");
+talkEntry:addResponse("I am a magical Blacksmith, the rest is a professional secret.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -269,7 +268,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addResponse("I am a magical blacksmith. How one becomes a magical blacksmith is none of your business.");
-talkEntry:addResponse("I am a magical Blacksmith. The rest is a professional secret.");
+talkEntry:addResponse("I am a magical Blacksmith, the rest is a professional secret.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -282,7 +281,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("There are thing ya dont wish to know. Got it?");
+talkEntry:addResponse("There are things ya dont wish to know. Got it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -315,7 +314,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("We dwarfes pray to Irmorom.");
+talkEntry:addResponse("We dwarves pray to Irmorom.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -329,7 +328,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("religion");
-talkEntry:addResponse("We dwarfes pray to Irmorom.");
+talkEntry:addResponse("We dwarves pray to Irmorom.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -354,7 +353,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -368,7 +367,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -382,7 +381,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -395,7 +394,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Ich bete nich' zu dem. Weiß' du datt etwa nich'?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -408,7 +407,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("Ich bete nich' zu dem. Weiß' du datt etwa nich'?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -421,7 +420,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -434,7 +433,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("I do only pray to this god. Didn't ya know?");
+talkEntry:addResponse("I only pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -448,7 +447,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,7 +461,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -477,7 +476,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,7 +491,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -505,7 +504,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -518,7 +517,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -532,7 +531,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -546,7 +545,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -559,7 +558,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("I do not pray to this God, didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -585,7 +584,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("I heard he lives in Runewick, this so called arch mage does, too.");
+talkEntry:addResponse("I heard he lives in Runewick, like the so called Archmage does, as well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -599,7 +598,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Mages live there.They do not know about smithing, I tell ya!");
+talkEntry:addResponse("Mages live there. They do not know about smithing, I tell ya!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -641,7 +640,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("I can't understand why they call her queen. Dwarven queens are way diffent.");
+talkEntry:addResponse("I can't understand why they call her Queen. Dwarven queens are way different.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -655,7 +654,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("I can't understand why they call her queen. Dwarven queens are way diffent.");
+talkEntry:addResponse("I can't understand why they call her Queen. Dwarven queens are way different.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -669,7 +668,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("If I hear ya say Cadomyar, then I think of sun burnd skin... Juck!");
+talkEntry:addResponse("If I hear ya say Cadomyar, then I think of sun burnt skin... yuck!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -769,7 +768,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("That's what I told ya!");
-talkEntry:addResponse("Exactelly!");
+talkEntry:addResponse("Exactly!");
 talkEntry:addResponse("#me nods eagerly.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -815,20 +814,17 @@ talkEntry:addResponse("Watt meinste damit?");
 talkEntry:addResponse("Datt versteh' ich nich'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me streicht sich eine Haarsträhne aus dem Gesicht.", "#me wipes some hair off her face.");
-talkingNPC:addCycleText("#me schaut in den Himmel.", "#me lookes into the sky.");
+talkingNPC:addCycleText("#me streicht sich eine Haarsträhne aus dem Gesicht.", "#me wipes some hair from her face.");
+talkingNPC:addCycleText("#me schaut in den Himmel.", "#me looks into the sky.");
 talkingNPC:addCycleText("Magischer Schmied, Marianne Forgeron!", "Magical Blacksmith, Marianne Forgeron!");
 talkingNPC:addCycleText("#me winkt, einen Hammer in der Hand haltend.", "#me waves with the hammer in her hand.");
 talkingNPC:addCycleText("Magische Edelseine sind janz nett. Aber ich kann se noch mehr veredeln!", "Magical gems are nice. I can make yours even nicer!");
-talkingNPC:addCycleText("#me summt eine rhytmische Melodie.", "#me humms a rhytmic melodie.");
-talkingNPC:addCycleText("#me schaut sich um.", "#me lookes abound.");
+talkingNPC:addCycleText("#me summt eine rhytmische Melodie.", "#me hums a rhythmic melody.");
+talkingNPC:addCycleText("#me schaut sich um.", "#me looks around.");
 talkingNPC:addCycleText("Schönes Wetter heute.", "Nice weather today!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
@@ -851,7 +847,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

@@ -1,5 +1,6 @@
 require("base.common")
 require("base.treasure")
+require("base.lookat")
 
 -- UPDATE common SET com_script='item.id_505_treasuremap' WHERE com_itemid IN (505);
 

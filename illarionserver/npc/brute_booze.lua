@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -943,7 +943,7 @@ end;
 talkingNPC:addCycleText("#me grunzt vergnügt und nimmt einen Schluck aus seinem Tonkrug.", "#me grunts cheerfully and takes a swig from his jug.");
 talkingNPC:addCycleText("#me nickt sich selbst zu und wirft einen Blick in seine Tasche. Dann holt er eine halbe Wurst hervor und beißt davon ab.", "#me nods to himself and takes a look inside his bag, then he takes out half a sausage and takes a bite from it.");
 talkingNPC:addCycleText("#me kratzt sich an der Nase.", "#me scratches his nose.");
-talkingNPC:addCycleText("#me streckt seine Zunge heraus und grinst.", "#me stretches out his tounge and grins.");
+talkingNPC:addCycleText("#me streckt seine Zunge heraus und grinst.", "#me stretches out his tongue and grins.");
 talkingNPC:addCycleText("#me spannt seine muskulösen Arme an und streckt sich demonstrativ.", "#me flexes his muscular arms and stretches demonstratively.");
 talkingNPC:addCycleText("#me lächelt und lässt dabei abwechselnd seinene Brustmuskeln hüpfen.", "#me smiles and twitches his chest muscles alternately.");
 talkingNPC:addCycleText("#me nimmt seinen Trinkschlauch vom Gürtel und nimmt einen Schluck daraus.", "#me takes a waterskin from his belt and takes a sip from it.");
@@ -972,7 +972,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

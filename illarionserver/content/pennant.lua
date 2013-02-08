@@ -217,3 +217,5 @@ function DirToItemID(Value)
         return 2927
 	end
 end
+
+InitPennant();

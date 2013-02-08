@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: southeast              --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.22 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -22,7 +22,6 @@ require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
 module("npc.neiran_el_nyarale", package.seeall)
@@ -191,8 +190,7 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Me? I am not ar. I am a treasurer. Or, rather the guard of the garbage bin.");
+talkEntry:addResponse("Me? I am not a trader. I am a treasurer. Or, rather the guard of the garbage bin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -361,10 +359,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 8));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zassaria");
-talkEntry:addTrigger("lizzard");
+talkEntry:addTrigger("lizard");
 talkEntry:addTrigger("lamp");
 talkEntry:addTrigger("collection");
 talkEntry:addTrigger("riverbank");
@@ -374,10 +372,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 8));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 7));
 talkEntry:addTrigger("Zassaria");
-talkEntry:addTrigger("lizzard");
+talkEntry:addTrigger("echse");
 talkEntry:addTrigger("Lampe");
 talkEntry:addTrigger("Sammlung");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 8));
@@ -462,7 +459,7 @@ talkEntry:addTrigger("recyclemechanismus");
 talkEntry:addTrigger("Recyclemechanismus");
 talkEntry:addTrigger("recycle mechanismus");
 talkEntry:addResponse("Der Erzmagier erfand den Recyclemechanismus.");
-talkEntry:addResponse("Mit Hilfe des Recyclemechanismus halten wir Runewick sauer. Der Erzmagier freut sich immer, wenn jemand ihn benutzt.");
+talkEntry:addResponse("Mit Hilfe des Recyclemechanismus halten wir Runewick sauber. Der Erzmagier freut sich immer, wenn jemand ihn benutzt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -812,7 +809,7 @@ talkEntry:addResponse("Ah... verzeiht. Was sagtet Ihr?");
 talkEntry:addResponse("#me hebt eine Augenbraue.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Wir in Runewick wollen unsere Straßen sauer halten. Hilf auch du mit!", "Let's keep Runewicks streets clean!");
+talkingNPC:addCycleText("Wir in Runewick wollen unsere Straßen sauber halten. Hilf auch du mit!", "Let's keep Runewicks streets clean!");
 talkingNPC:addCycleText("#me schaut sich um.", "#me lookes around.");
 talkingNPC:addCycleText("#me lächelt und  lässt einige Münzen auf die magische Oberfläche fallen.", "#me smiles and drops some coins into the magical surface.");
 talkingNPC:addCycleText("Was ist wahrer Reichtum? Wissen oder Münzen?", "What is more of more value? Knowledge or coins?");
@@ -824,11 +821,8 @@ talkingNPC:addCycleText("Ich werde von eurem Einsatz für unsere schöne Stadt bei
 talkingNPC:addCycleText("#me sieht glücklich aus.", "#me seems to be happy.");
 talkingNPC:addCycleText("#me schreibt eine Liste.", "#me writes a list.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(3);
 mainNPC:setDefaultLanguage(0);

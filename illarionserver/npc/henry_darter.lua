@@ -303,7 +303,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(307, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five coins and your cooking skill increases."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded silver five coins and your cooking skill increases."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.cookingAndBaking, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(307, 10, nil));

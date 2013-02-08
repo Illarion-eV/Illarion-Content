@@ -55,22 +55,27 @@ function InitPennant()
     AddPennant({130,530,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 2,0); --palace
     AddPennant({109,551,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --registration
     AddPennant({104,552,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --registration
-    --[[--Cherass Citadel
-    AddPennant({596,383,2},"","", 7,5); --outpost
-    AddPennant({601,383,2},"","", 7,5); --outpost
-    --Craven cave
+    --Carnivore's House
+	AddPennant({847,312,0},"Falls du auch Menschenfleisch magst bist du herzlich zum Abendbrot eingeladen! HA! HA!","If you also like human meet, you are very welcome to stay for dinner! HA! HA!", 6,0);
+	AddPennant({847,311,0},"Falls du auch Menschenfleisch magst bist du herzlich zum Abendbrot eingeladen! HA! HA!","If you also like human meet, you are very welcome to stay for dinner! HA! HA!", 6,0);
+    --Cherass Citadel
+    AddPennant({596,383,2},"Cherass heißt euch willkommen in seiner Zitadelle!","Cherass welcomes you in his citadel!", 7,0); --outpost
+    AddPennant({601,383,2},"Cherass heißt euch willkommen in seiner Zitadelle!","Cherass welcomes you in his citadel!", 7,0); --outpost
+     --[[--Craven cave/Igruk's Cave
     AddPennant({674,389,2},"","", 6,5);
 	AddPennant({674,392,2},"","", 6,5);
 	AddPennant({670,389,2},"","", 6,5);
-	AddPennant({670,392,2},"","", 6,5);
-	AddPennant({666,448,0},"","", 7,5);
-	AddPennant({670,448,0},"","", 7,5);
-	--Death Marsh
-	AddPennant({795,361,0},"","", 7,5);--Witch's Cottage
-    AddPennant({797,361,0},"","", 7,5);--Witch's Cottage
-	AddPennant({795,356,0},"","", 7,5);--Witch's Cottage
-    AddPennant({797,356,0},"","", 7,5);--Witch's Cottage
-    --Dragon lair
+	AddPennant({670,392,2},"","", 6,5);]]--
+	AddPennant({666,448,0},"Hoheitsgebiet des Igruk","Igruk's territory", 7,0);
+	AddPennant({670,448,0},"Hoheitsgebiet des Igruk","Igruk's territory", 7,0);
+    AddPennant({627,415,0},"Hoheitsgebiet des Igruk","Igruk's territory", 6,0);
+    AddPennant({678,346,0},"Hoheitsgebiet des Igruk","Igruk's territory", 6,0);
+   	--Death Marsh
+	AddPennant({795,361,0},"Hexen Hütte","Witch's Cottage", 7,5);--Witch's Cottage
+    AddPennant({797,361,0},"Hexen Hütte","Witch's Cottage", 7,5);--Witch's Cottage
+	AddPennant({795,356,0},"Hexen Hütte","Witch's Cottage", 7,5);--Witch's Cottage
+    AddPennant({797,356,0},"Hexen Hütte","Witch's Cottage", 7,5);--Witch's Cottage
+  --[[   --Dragon lair
 	AddPennant({837,677,1},"","", 7, 5);
 	AddPennant({837,677,1},"","", 7, 5);
 	AddPennant({742,667,0},"","", 7, 5);
@@ -90,17 +95,14 @@ function InitPennant()
 	--Firelimes
     AddPennant({528,587,1},"","", 3,5);
     AddPennant({525,587,1},"","", 3,5);
-    --Galmair
-    AddPennant({383,194,-6},"","", 7,5);--Hog Dens
-    AddPennant({386,194,-6},"","", 7,5);--Hog Dens
     --Galmair Hinterland
     AddPennant({410,350,0},"","", 3,5); --Miners club
     AddPennant({401,270,1},"","", 1,5); --Miners club
-    AddPennant({446,118,0},"","", 3,5); --Harbour
+    AddPennant({446,118,0},"","", 3,5); --Harbour ]]--
 	--Galmair Plateau
-    AddPennant({358,378,1},"","", 4,5);
-    AddPennant({356,378,1},"","", 4,5);
-    --Glowing Forest
+    AddPennant({358,378,1},"Fort Schnellbeil - Wir zahlen dem Don keine Steuern!","Fort Schnellbeil - We do not pay taxes to the Don!", 4,0);
+    AddPennant({356,378,1},"Fort Schnellbeil - Wir zahlen dem Don keine Steuern!","Fort Schnellbeil - We do not pay taxes to the Don!", 4,0);
+    --[[--Glowing Forest
     AddPennant({483,561,0},"","", 5,5);
     AddPennant({483,563,0},"","", 5,5);
     AddPennant({487,520,0},"","", 7,5);
@@ -116,9 +118,9 @@ function InitPennant()
     AddPennant({260,419,0},"","", 3,5);
 	AddPennant({261,419,0},"","", 1,5);]]--
 	--Moshran's Brood
-    AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,5);
-    AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,5);
-    AddPennant({398,743,0},"Lauf, so lange du noch Beine hast!","Run, as long you still have your legs!", 7,5);
+    AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
+    AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
+    AddPennant({398,743,0},"Lauf, so lange du noch Beine hast!","Run, as long you still have your legs!", 7,0);
     --Mount Zotmore
     AddPennant({365,497,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 6,0);
     AddPennant({359,506,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 6,0);
@@ -131,8 +133,11 @@ function InitPennant()
     AddPennant({290,474,0},"","", 5,5);
     AddPennant({262,488,0},"","", 6,5);]]--
 	--Lumpskrums Band
-	AddPennant({361,752,0},"Tritt ein, bring Geld herein! Lumpskrum wird es dir danken.","Please enter and leave your coins! Lumpskrum will be grateful.", 1,5);
-    AddPennant({357,752,0},"Tritt ein, bring Geld herein! Lumpskrum wird es dir danken.","Please enter and leave your coins! Lumpskrum will be grateful.", 1,5);
+	AddPennant({361,752,0},"Tritt ein, bring Geld herein! Lumpskrum wird es dir danken.","Please enter and leave your coins! Lumpskrum will be grateful.", 1,0);
+    AddPennant({357,752,0},"Tritt ein, bring Geld herein! Lumpskrum wird es dir danken.","Please enter and leave your coins! Lumpskrum will be grateful.", 1,0);
+    --Raban's Grove
+	AddPennant({828,109,0},"Rabans Hain","Raban's Grove", 5,0);
+	AddPennant({828,113,0},"Rabans Hain","Raban's Grove", 5,0);
     --[[--Royal Slave Market
 	AddPennant({325,627,0},"","", 5,5);
 	AddPennant({325,629,0},"","", 5,5);
@@ -144,12 +149,12 @@ function InitPennant()
 	AddPennant({323,634,0},"","", 6,5);]]--
 	--Sentry Outpost
 	AddPennant({641,706,2},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 3,0);
-	--[[--Snakehead Coast
-    AddPennant({609,462,2},"","", 7,5); --Mt. Snakehead
+	--Snakehead Coast
+    AddPennant({609,462,2},"Schlangenkopfberg","Mount Snakehead", 7,5); --Mt. Snakehead
     --Spider's Mouth
-    AddPennant({675,346,0},"","", 4,5);
-    AddPennant({678,346,0},"","", 4,5);
-	--The Royal Academy of Gladiators
+    AddPennant({675,346,0},"Der Todes Sumpf - Trette den Toten bei!","The Death Marsh - Join the dead!", 4,0);
+    AddPennant({678,346,0},"Der Todes Sumpf - Trette den Toten bei!","The Death Marsh - Join the dead!", 4,0);
+--[[	--The Royal Academy of Gladiators
 	AddPennant({210,701,0},"","", 7,5);
     AddPennant({215,701,0},"","", 7,5);
     --The Blood Circle Arena
@@ -217,3 +222,5 @@ function DirToItemID(Value)
         return 2927
 	end
 end
+
+InitPennant();

@@ -92,8 +92,9 @@ function InitPaintings()
 	AddPicture({423,289,1},"","", 3,5); --Sleepy Bujhaar Inn
 	--Galmair Plateau
     AddPicture({318,357,1},"","", 1,5);
-    AddPicture({318,359,1},"","", 2,5);
-    --Runewick Harbour/Farm
+    AddPicture({318,359,1},"","", 2,5);  ]]--
+    AddPicture({308,351,1},"Zwei Zwerge schütten eine goldene Flüssigkeit über einen anderen schreienden Zwerg. Eine Notiz besagt: 'Hier hast du dein Gold, Rumil'.","Two dwarves spill a golden liquid over another screaming dwarf. A note says: 'There you have your gold, Rumil'.", 3,5);
+ --[[   --Runewick Harbour/Farm
 	AddPicture({756,797,0},"","", 4,5); --Taverne "Quadruped Red Bird"
     --Runewick - Tower of Air
     AddPicture({910,833,4},"","", 2,5)
@@ -220,3 +221,5 @@ function DirToItemID(Value)
         return 751
 	end
 end
+
+InitPaintings();

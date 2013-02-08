@@ -97,14 +97,14 @@ function InitWegweiser()
     AddWeg({376,274,0},"Werkstatt","Workshop",2,0);
     AddWeg({398,292,0},"Werkstatt","Workshop",6,0);
     AddWeg({397,253,0},"Galmairs Krone, Guilianni-Residenz, Markt, Werkstatt, Schlackengrube, Tempel des Irmorom, Villa 'Goldader', Quelle der Träume","Galmair's Crest, Guilianni-Residence, Market, Workshop, Scoria Mine, Temple of Irmorom, Villa 'Goldvein', Well of Dreams",6,0);
-    AddWeg({398,254,0},"Zensusbüro, Gasthof zum schläfrigen Bujhaar, Werkstatt, Tollloch, Schürfer Club, Malachitmine, Galmair Hochebene, Cadomyr, Katanbi Wüste, Schattenland","Census office, Sleepy Bujhaar Inn, Workshop, Sporthole, Miners Club, Malachite Mine, Galmair Plateau, Cadomyr, Katanbi Desert, Shadowland",4,0);
+    AddWeg({398,254,0},"Zensusbüro, Gasthof zum schläfrigen Bujhaar, Werkstatt, Tollloch, Schürfers Club, Malachitmine, Galmair Hochebene, Cadomyr, Katanbi Wüste, Schattenland","Census office, Sleepy Bujhaar Inn, Workshop, Sporthole, Miners Club, Malachite Mine, Galmair Plateau, Cadomyr, Katanbi Desert, Shadowland",4,0);
     AddWeg({394,273,0},"Zensusbüro","Census office",2,0);
     AddWeg({401,293,0},"Gasthof zum schläfrigen Bujhaar","Sleepy Bujhaar Inn",2,0);
     AddWeg({398,305,0},"Tollloch","Sporthole",2,0);
     AddWeg({387,346,0},"Galmair","Galmair",0,0);
-    AddWeg({387,347,0},"Schürferclub, Schürfer Quelle, Malachitmine, Cadomyr, Katanbi Wüste, Schattenland","Miners' Club, Miner's Spring, Malachite Mine, Cadomyr, Katanbi Desert, Shadowland",2,0);
+    AddWeg({387,347,0},"Schürfers Club, Schürfers Quelle, Malachitmine, Cadomyr, Katanbi Wüste, Schattenland","Miners' Club, Miner's Spring, Malachite Mine, Cadomyr, Katanbi Desert, Shadowland",2,0);
     AddWeg({386,346,0},"Galmair Hochebene mit Fort Schnellbeil und Goldener Rumil","Galmair Plateau with Fort Schnellbeil and Golden Rumil",6,0);
-    AddWeg({417,357,0},"Schürferclub","Miners' Club",0,0);
+    AddWeg({417,357,0},"Schürfers Club","Miners' Club",0,0);
     AddWeg({418,357,0},"Malachitmine, Cadomyr, Katanbi Wüste, Schattenland","Malachite Mine, Cadomyr, Katanbi Desert, Shadowland",2,0);
     AddWeg({418,371,0},"Cadomyr, Katanbi Wüste, Schattenland - Gefahr!","Cadomyr, Katanbi Desert, Shadowland - Danger!",4,0);
     AddWeg({417,385,0},"Galmair","Galmair",0,0);
@@ -124,8 +124,8 @@ function InitWegweiser()
     AddWeg({473,248,0},"Narguns Ebene, Hafen, Dunkellochmine, Spinnen Maul, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Nargun's Plain, Harbour, Dark Hole Mine, Spider's Mouth, Hemp Necktie Inn, Cadomyr, Runewick",2,0);
     AddWeg({485,248,0},"Galmair","Galmair",6,0);
     AddWeg({501,218,0},"Galmair","Galmair",4,0);
-    AddWeg({500,210,0},"Hafen, Dunkellochmine, Nördliche Inseln, Der Sumpf, Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes","Harbour, Dark Hole Mine, Northern Islands, The Swamp, Temple of the Five, Plains of Silence, Northern Woods, Insurmountable Limes",0,0);
-    AddWeg({499,189,0},"Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes","Temple of the Five, Plains of Silence, Northern Woods, The Insurmountable Limes",2,0);
+    AddWeg({500,210,0},"Hafen, Dunkellochmine, Nördliche Inseln, Der Sumpf, Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Schulterplatte Insel","Harbour, Dark Hole Mine, Northern Islands, The Swamp, Temple of the Five, Plains of Silence, Northern Woods, Insurmountable Limes, Pauldron Isle",0,0);
+    AddWeg({499,189,0},"Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Schulterplatte Insel","Temple of the Five, Plains of Silence, Northern Woods, The Insurmountable Limes, Pauldron Isle",2,0);
     AddWeg({496,191,0},"Hafen, Dunkellochmine, Nördliche Inseln","Harbour, Dark Hole Mine, Northern Islands",6,0);
     AddWeg({446,138,0},"Hafen, Nördliche Inseln","Harbour, Northern Islands",0,0);
     AddWeg({452,109,0},"Nördliche Inseln","Northern Islands",0,0);
@@ -179,19 +179,21 @@ function InitWegweiser()
     AddWeg({856,819,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
     
     --NE/Neutral-map
-    AddWeg({680,311,0},"Galmair","Galmair",6,0);
+    AddWeg({680,311,0},"Narguns Ebene, Galmair, Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Schulterplatte Insel","Nargun's Plain, Galmair, Temple of the Five, Plains of Silence, Northern Woods, The Insurmountable Limes, Pauldron Isle",6,0);
     AddWeg({685,317,0},"Gasthof zur Hanfschlinge","The Hemp Necktie Inn",2,0);
-    AddWeg({676,326,0},"Cadomyr","Cadomyr",6,0);
-    AddWeg({682,328,0},"Runewick","Runewick",4,0);
-    AddWeg({723,385,0},"Gasthof zur Hanfschlinge; Galmair","The Hemp Necktie Inn; Galmair",6,0);
-    AddWeg({730,391,0},"Runewick","Runewick",4,0);
-	AddWeg({714,488,0},"Cadomyr","Cadomyr",6,0);
-    AddWeg({718,488,0},"Gasthof zur Hanfschlinge; Galmair","The Hemp Necktie Inn; Galmair",0,0);
-    AddWeg({717,455,0},"Cadomyr","Cadomyr",6,0);
-    AddWeg({729,459,0},"Runewick","Runewick",4,0);
-    AddWeg({729,448,0},"Gasthof zur Hanfschlinge; Galmair","The Hemp Necktie Inn; Galmair",0,0);
-    AddWeg({564,394,0},"Funkelhöhle","Glittering Cave",0,0);
+    AddWeg({676,326,0},"Funkelhöhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Glittering Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
+    AddWeg({682,330,0},"Der Todes Sumpf, Igruks Höhle, Elstree Ebene, Elstree Wald, Ostland, Todes Gestank, Frische Sümpfe, Runewick","The Death Marsh, Igruk's Cave, Elstree Plain, Elstree Forest, Eastland, Death's Stench, Dewy Swamps, Runewick",4,0);
+    AddWeg({723,385,0},"Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",6,0);
+    AddWeg({730,391,0},"Elstree Wald, Ostland, Frische Sümpfe, Runewick","Elstree Forest, Eastland, Dewy Swamps, Runewick",2,0);
+    AddWeg({730,391,0},"Elstree Ebene, Igruks Höhle, Todes Gestank, Runewick","Elstree Plain, Igruk's Cave, Death's Stench, Runewick",4,0);
 
+    AddWeg({714,488,0},"Igruks Höhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Igruk's Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
+    AddWeg({718,488,0},"Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({717,455,0},"Igruks Höhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Igruk's Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
+    AddWeg({729,459,0},"Todes Gestank, Runewick","Death's Stench, Runewick",4,0);
+    AddWeg({729,448,0},"Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({564,394,0},"Funkelhöhle","Glittering Cave",0,0);
+    AddWeg({871,321,0},"Schulterplatte Insel mit Tanora Ruinen, Epphurds Häuser, Friedhof, Spießstollen und ehemalige Schulterplattesiedlung","Pauldron Isle with Tanora Ruins, Epphurd's Houses, Graveyard, Skewer Drift and former Pauldron Settlement",4,0);
 	
 end
 
@@ -238,3 +240,5 @@ function DirToItemID(Value)
         return 3083
     end
 end
+
+InitWegweiser();

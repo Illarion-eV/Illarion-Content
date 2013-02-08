@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Grokk                                                            --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -578,7 +578,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("druid");
 talkEntry:addResponse("Yes, one day I shall be a druid! I cannot wait for that day to come!");
-talkEntry:addResponse("I am only learning the ways of the druids at the moment. But soon I hope to be one myself!");
+talkEntry:addResponse("I am only learning the ways of the druids at the moment, but soon I hope to be one myself!");
 talkEntry:addResponse("#me sighs faintly, 'It takes a long time to learn the true ways of nature.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -609,7 +609,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Mistress Aurora says that he is missing something. I wonder what she means.");
+talkEntry:addResponse("Mistress Aurora says that he is missing something. I wonder what she means?");
 talkEntry:addResponse("I hear that the Archmage is the most powerful mage to ever step foot on these lands.");
 talkEntry:addResponse("I wonder if he takes as long to teach magic as Mistress Aurora does to teach me the ways of a druid.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -627,7 +627,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Mistress Aurora says that he is missing something. I wonder what she means.");
+talkEntry:addResponse("Mistress Aurora says that he is missing something. I wonder what she means?");
 talkEntry:addResponse("I hear that the Archmage is the most powerful mage to ever step foot on these lands.");
 talkEntry:addResponse("I wonder if he takes as long to teach magic as Mistress Aurora does to teach me the ways of a druid.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -737,7 +737,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("I think the people who live in Cadomyr are very nice.");
 talkEntry:addResponse("Mistress Aurora says that very good lessons can be learned from the people of Cadomyr. She won't tell me what the lessons are, though.");
-talkEntry:addResponse("The town of Cadomyr is ruled by the Queen Rosaline.");
+talkEntry:addResponse("The town of Cadomyr is ruled by Queen Rosaline.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

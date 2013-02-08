@@ -1249,6 +1249,18 @@ function split(str, pat)
    return t;
 end
 
+--[[
+Joins a table with a given pattern into a string.
+
+Usage: result = join({"Hans", "Dampf"},";") -> result = "Hans;Dampf"
+]]
+function join(joinTable, pattern)
+	local joinString = joinTable[1];
+	for i=2, #(joinTable) do
+		joinString = joinString..pattern..joinTable[i];
+	end	
+	return joinString;
+end
 
 --[[
     Split_number

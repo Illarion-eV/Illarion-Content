@@ -1,5 +1,6 @@
 require("base.common")
 require("content.chardescription")
+require("base.lookat")
 
 module("item.id_2874_mirror", package.seeall)
 -- belongs also to item id 2873

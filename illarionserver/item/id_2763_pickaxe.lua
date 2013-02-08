@@ -87,21 +87,21 @@ function Init()
 	
 --[[
 For coals mines:
-1245: 60% Coal + 7% Obsidian + 3% Ruby
-1246: 40% Coal + 7% Amethyst + 3% Emerald
+1245: 60% Coal + 3% Obsidian + 1% Ruby
+1246: 40% Coal + 3% Amethyst + 1% Emerald
 
 For iron mines:
-914: 60% Iron + 7% Ruby + 3% Topaz
-1273: 40% Iron + 7% Sapphire + 3% Obsidian
+914: 60% Iron + 3% Ruby + 1% Topaz
+1273: 40% Iron + 3% Sapphire + 1% Obsidian
 
 For copper mines:
-1276: 60% Copper + 7% Emerald + 3% Sapphire
+1276: 60% Copper + 3% Emerald + 1% Sapphire
 
 For gold and copper mines:
-232: 40% Copper + 10% Gold + 7% Diamond 3% Amethyst
+232: 40% Copper + 5% Gold + 3% Diamond 1% Amethyst
 
 For gold and merinium mines:
-1250: 10% Gold + 5% Merinium + 7% Topaz + 3% Diamond
+1250: 10% Gold + 5% Merinium + 3% Topaz + 1% Diamond
 
 Coalmine: Galmair "Dark Hole Mine"
 Coordinates: 406,159,-3
@@ -132,174 +132,174 @@ Radius 15
     AddArea( 1, position(406,159,-3), 20 );
     AddStone( 1, 1245 );
     SetResource( 1, 1245,  21, 60); -- coal
-	SetResource( 1, 1245,  252, 7); -- obsidian
-    SetResource( 1, 1245,  255, 3); -- rubys
+	SetResource( 1, 1245,  252, 3); -- obsidian
+    SetResource( 1, 1245,  255, 1); -- rubys
     AddStone( 1, 1246 );
     SetResource( 1, 1246, 21,  40); -- coal
-    SetResource( 1, 1246, 251,  7); -- amethysts
-    SetResource( 1, 1246,  256,  3); -- emerald
+    SetResource( 1, 1246, 251,  3); -- amethysts
+    SetResource( 1, 1246,  256,  1); -- emerald
 
 	--Galmair "Malachite Mine"
     AddArea( 2, position(420,371,0), 30 );
     AddStone( 2, 232 );
     SetResource( 2, 232, 2536, 40); -- copper
-    SetResource( 2, 232, 234,  10); -- gold nuggets
-	SetResource( 2, 232, 254,  7); -- diamonds
-	SetResource( 2, 232, 251,  3); -- amethysts
+    SetResource( 2, 232, 234,  5); -- gold nuggets
+	SetResource( 2, 232, 254,  3); -- diamonds
+	SetResource( 2, 232, 251,  1); -- amethysts
     AddStone( 2, 914 );
     SetResource( 2, 914,  22, 60); -- iron ore
-	SetResource( 2, 914,  255, 7); -- rubys
-	SetResource( 2, 914,  257, 3); -- topas
+	SetResource( 2, 914,  255, 3); -- rubys
+	SetResource( 2, 914,  257, 1); -- topas
     AddStone( 2, 1273 );
     SetResource( 2, 1273,  22, 40); -- iron ore
-	SetResource( 2, 1273,  253, 7); -- sapphire
-	SetResource( 2, 1273,  252, 3); -- obsidian
+	SetResource( 2, 1273,  253, 3); -- sapphire
+	SetResource( 2, 1273,  252, 1); -- obsidian
     AddStone( 2, 1276 );
     SetResource( 2, 1276,  2536, 40); -- copper ore
-	SetResource( 2, 1276,  256, 7); -- emerald
-	SetResource( 2, 1276,  253, 3); -- sapphire
+	SetResource( 2, 1276,  256, 3); -- emerald
+	SetResource( 2, 1276,  253, 1); -- sapphire
 	
 	--Cadomyr "Cornerstone of Candour"
 	AddArea( 3, position(142,686,0), 15 );
     AddStone( 3, 1245 );
     SetResource( 3, 1245,  21, 60); -- coal
-	SetResource( 3, 1245,  252, 7); -- obsidian
-    SetResource( 3, 1245,  255, 3); -- rubys
+	SetResource( 3, 1245,  252, 3); -- obsidian
+    SetResource( 3, 1245,  255, 1); -- rubys
     AddStone( 3, 1246 );
     SetResource( 3, 1246, 21,  40); -- coal
-    SetResource( 3, 1246, 251,  7); -- amethysts
-    SetResource( 3, 1246,  256,  3); -- emerald
+    SetResource( 3, 1246, 251,  3); -- amethysts
+    SetResource( 3, 1246,  256,  1); -- emerald
 	
 	--Cadomyr "Liberty Quarry"
 	AddArea( 4, position(165,603,0), 15 );
     AddStone( 4, 232 );
     SetResource( 4, 232, 2536, 40); -- copper
-    SetResource( 4, 232, 234,  10); -- gold nuggets
-	SetResource( 4, 232, 254,  7); -- diamonds
-	SetResource( 4, 232, 251,  3); -- amethysts
+    SetResource( 4, 232, 234,  5); -- gold nuggets
+	SetResource( 4, 232, 254,  3); -- diamonds
+	SetResource( 4, 232, 251,  1); -- amethysts
     AddStone( 4, 914 );
     SetResource( 4, 914,  22, 60); -- iron ore
-	SetResource( 4, 914,  255, 7); -- rubys
-	SetResource( 4, 914,  257, 3); -- topas
+	SetResource( 4, 914,  255, 3); -- rubys
+	SetResource( 4, 914,  257, 1); -- topas
     AddStone( 4, 1273 );
     SetResource( 4, 1273,  22, 40); -- iron ore
-	SetResource( 4, 1273,  253, 7); -- sapphire
-	SetResource( 4, 1273,  252, 3); -- obsidian
+	SetResource( 4, 1273,  253, 3); -- sapphire
+	SetResource( 4, 1273,  252, 1); -- obsidian
 	AddStone( 4, 1276 );
     SetResource( 4, 1276,  2536, 40); -- copper ore
-	SetResource( 4, 1276,  256, 7); -- emerald
-	SetResource( 4, 1276,  253, 3); -- sapphire
+	SetResource( 4, 1276,  256, 3); -- emerald
+	SetResource( 4, 1276,  253, 1); -- sapphire
 	
 	--Wilderness "Glittering Cave"
 	AddArea( 5, position(548,371,0), 15 );
     AddStone( 5, 1245 );
     SetResource( 5, 1245,  21, 60); -- coal
-	SetResource( 5, 1245,  252, 7); -- obsidian
-    SetResource( 5, 1245,  255, 3); -- rubys
+	SetResource( 5, 1245,  252, 3); -- obsidian
+    SetResource( 5, 1245,  255, 1); -- rubys
     AddStone( 5, 1246 );
     SetResource( 5, 1246, 21,  40); -- coal
-    SetResource( 5, 1246, 251,  7); -- amethysts
-    SetResource( 5, 1246, 256,  3); -- emerald
+    SetResource( 5, 1246, 251,  3); -- amethysts
+    SetResource( 5, 1246, 256,  1); -- emerald
     AddStone( 5, 1250 );
     SetResource( 5, 1250, 234,  10); -- gold nuggets
     SetResource( 5, 1250, 2534,  5); -- merinium ore
-    SetResource( 5, 1250,  254,  7); -- diamonds
-	SetResource( 5, 1250,  257,  3); -- topas
+    SetResource( 5, 1250,  254,  3); -- diamonds
+	SetResource( 5, 1250,  257,  1); -- topas
 		
 	--Wilderness "Skewer Drift"
 	AddArea( 6, position(942,444,0), 15 );
     AddStone( 6, 232 );
     SetResource( 6, 232, 2536, 40); -- copper
-    SetResource( 6, 232, 234,  10); -- gold nuggets
-	SetResource( 6, 232, 254,  7); -- diamonds
-	SetResource( 6, 232, 251,  3); -- amethysts
+    SetResource( 6, 232, 234,  5); -- gold nuggets
+	SetResource( 6, 232, 254,  3); -- diamonds
+	SetResource( 6, 232, 251,  1); -- amethysts
     AddStone( 6, 914 );
     SetResource( 6, 914,  22, 60); -- iron ore
-	SetResource( 6, 914,  255, 7); -- rubys
-	SetResource( 6, 914,  257, 3); -- topas
+	SetResource( 6, 914,  255, 3); -- rubys
+	SetResource( 6, 914,  257, 1); -- topas
     AddStone( 6, 1273 );
     SetResource( 6, 1273,  22, 40); -- iron ore
-	SetResource( 6, 1273,  253, 7); -- sapphire
-	SetResource( 6, 1273,  252, 3); -- obsidian
+	SetResource( 6, 1273,  253, 3); -- sapphire
+	SetResource( 6, 1273,  252, 1); -- obsidian
 	AddStone( 6, 1245 );
     SetResource( 6, 1245,  21, 60); -- coal
-	SetResource( 6, 1245,  252, 7); -- obsidian
-    SetResource( 6, 1245,  255, 3); -- rubys
+	SetResource( 6, 1245,  252, 3); -- obsidian
+    SetResource( 6, 1245,  255, 1); -- rubys
     AddStone( 6, 1246 );
     SetResource( 6, 1246, 21,  40); -- coal
-    SetResource( 6, 1246, 251,  7); -- amethysts
-    SetResource( 6, 1246,  256,  3); -- emerald
+    SetResource( 6, 1246, 251,  3); -- amethysts
+    SetResource( 6, 1246,  256,  1); -- emerald
 	AddStone( 6, 1276 );
     SetResource( 6, 1276,  2536, 40); -- copper ore
-	SetResource( 6, 1276,  256, 7); -- emerald
-	SetResource( 6, 1276,  253, 3); -- sapphire
+	SetResource( 6, 1276,  256, 3); -- emerald
+	SetResource( 6, 1276,  253, 1); -- sapphire
 	    	
 	----------- Noobia Mine -----------
 	AddArea( 7, position(59,49,100), 15 );
     AddStone( 7, 232 );
     SetResource( 7, 232, 2536, 40); -- copper
-    SetResource( 7, 232, 234,  10); -- gold nuggets
-	SetResource( 7, 232, 254,  7); -- diamonds
-	SetResource( 7, 232, 251,  3); -- amethysts
+    SetResource( 7, 232, 234,  5); -- gold nuggets
+	SetResource( 7, 232, 254,  3); -- diamonds
+	SetResource( 7, 232, 251,  1); -- amethysts
     AddStone( 7, 914 );
     SetResource( 7, 914,  22, 60); -- iron ore
-	SetResource( 7, 914,  255, 7); -- rubys
-	SetResource( 7, 914,  257, 3); -- topas
+	SetResource( 7, 914,  255, 3); -- rubys
+	SetResource( 7, 914,  257, 1); -- topas
     AddStone( 7, 1273 );
     SetResource( 7, 1273,  22, 40); -- iron ore
-	SetResource( 7, 1273,  253, 7); -- sapphire
-	SetResource( 7, 1273,  252, 3); -- obsidian
+	SetResource( 7, 1273,  253, 3); -- sapphire
+	SetResource( 7, 1273,  252, 1); -- obsidian
 	AddStone( 7, 1245 );
     SetResource( 7, 1245,  21, 60); -- coal
-	SetResource( 7, 1245,  252, 7); -- obsidian
-    SetResource( 7, 1245,  255, 3); -- rubys
+	SetResource( 7, 1245,  252, 3); -- obsidian
+    SetResource( 7, 1245,  255, 1); -- rubys
     AddStone( 7, 1246 );
     SetResource( 7, 1246, 21,  40); -- coal
-    SetResource( 7, 1246, 251,  7); -- amethysts
-    SetResource( 7, 1246,  256,  3); -- emerald
+    SetResource( 7, 1246, 251,  3); -- amethysts
+    SetResource( 7, 1246,  256,  1); -- emerald
 	AddStone( 7, 1276 );
     SetResource( 7, 1276,  2536, 40); -- copper ore
-	SetResource( 7, 1276,  256, 7); -- emerald
-	SetResource( 7, 1276,  253, 3); -- sapphire
+	SetResource( 7, 1276,  256, 3); -- emerald
+	SetResource( 7, 1276,  253, 1); -- sapphire
 	AddStone( 7, 1250 );
     SetResource( 7, 1250, 234,  10); -- gold nuggets
     SetResource( 7, 1250, 2534,  5); -- merinium ore
-    SetResource( 7, 1250,  254,  7); -- diamonds
-	SetResource( 7, 1250,  257,  3); -- topas
+    SetResource( 7, 1250,  254,  3); -- diamonds
+	SetResource( 7, 1250,  257,  1); -- topas
 	------- Noobia Mine - FERTIG ------
 
 	----------- Prison Mine -----------
 	AddArea( 8, position(-480,-480,-40), 30 );
     AddStone( 8, 232 );
     SetResource( 8, 232, 2536, 40); -- copper
-    SetResource( 8, 232, 234,  10); -- gold nuggets
-	SetResource( 8, 232, 254,  7); -- diamonds
-	SetResource( 8, 232, 251,  3); -- amethysts
+    SetResource( 8, 232, 234,  5); -- gold nuggets
+	SetResource( 8, 232, 254,  3); -- diamonds
+	SetResource( 8, 232, 251,  1); -- amethysts
     AddStone( 8, 914 );
     SetResource( 8, 914,  22, 60); -- iron ore
-	SetResource( 8, 914,  255, 7); -- rubys
-	SetResource( 8, 914,  257, 3); -- topas
+	SetResource( 8, 914,  255, 3); -- rubys
+	SetResource( 8, 914,  257, 1); -- topas
     AddStone( 8, 1273 );
     SetResource( 8, 1273,  22, 40); -- iron ore
-	SetResource( 8, 1273,  253, 7); -- sapphire
-	SetResource( 8, 1273,  252, 3); -- obsidian
+	SetResource( 8, 1273,  253, 3); -- sapphire
+	SetResource( 8, 1273,  252, 1); -- obsidian
 	AddStone( 8, 1245 );
     SetResource( 8, 1245,  21, 60); -- coal
-	SetResource( 8, 1245,  252, 7); -- obsidian
-    SetResource( 8, 1245,  255, 3); -- rubys
+	SetResource( 8, 1245,  252, 3); -- obsidian
+    SetResource( 8, 1245,  255, 1); -- rubys
     AddStone( 8, 1246 );
     SetResource( 8, 1246, 21,  40); -- coal
-    SetResource( 8, 1246, 251,  7); -- amethysts
-    SetResource( 8, 1246,  256,  3); -- emerald
+    SetResource( 8, 1246, 251,  3); -- amethysts
+    SetResource( 8, 1246,  256,  1); -- emerald
 	AddStone( 8, 1276 );
     SetResource( 8, 1276,  2536, 40); -- copper ore
-	SetResource( 8, 1276,  256, 7); -- emerald
-	SetResource( 8, 1276,  253, 3); -- sapphire
+	SetResource( 8, 1276,  256, 3); -- emerald
+	SetResource( 8, 1276,  253, 1); -- sapphire
 	AddStone( 8, 1250 );
     SetResource( 8, 1250, 234,  10); -- gold nuggets
     SetResource( 8, 1250, 2534,  5); -- merinium ore
-    SetResource( 8, 1250,  254,  7); -- diamonds
-	SetResource( 8, 1250,  257,  3); -- topas
+    SetResource( 8, 1250,  254,  3); -- diamonds
+	SetResource( 8, 1250,  257,  1); -- topas
 	------- Prison Mine - FERTIG ------
 	
     InitDone = true;

@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -51,7 +51,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("G'day, did the Don send you?");
-talkEntry:addResponse("So, you are the next bigshot of Galmair? Something makes me doubt that.");
+talkEntry:addResponse("So, you are the next big shot of Galmair? Something makes me doubt that.");
 talkEntry:addResponse("What?! Make it quick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -80,7 +80,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("G'day, did the Don send you?");
-talkEntry:addResponse("So, you are the next bigshot of Galmair? Something makes me doubt that.");
+talkEntry:addResponse("So, you are the next big shot of Galmair? Something makes me doubt that.");
 talkEntry:addResponse("What?! Make it quick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -101,7 +101,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Go and come back. But not too soon.");
+talkEntry:addResponse("Go and come back, but not too soon.");
 talkEntry:addResponse("Off!");
 talkEntry:addResponse("Get lost.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -123,7 +123,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addResponse("Go and come back. But not too soon.");
+talkEntry:addResponse("Go and come back, but not too soon.");
 talkEntry:addResponse("Off!");
 talkEntry:addResponse("Get lost.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -143,7 +143,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I feel like beating up somebody. Just give me a reason.");
+talkEntry:addResponse("I feel like beating somebody up. Just give me a reason.");
 talkEntry:addResponse("Four words: None of your business.");
 talkEntry:addResponse("My fist itches.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -164,7 +164,7 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("Miggs!");
-talkEntry:addResponse("I am Miggs. And this is my fist. Me and her are looking forward to make your acquaintance.");
+talkEntry:addResponse("I am Miggs, and this is my fist. Me and her are looking forward to make your acquaintance.");
 talkEntry:addResponse("I am Miggs, the right hand... no, the right fist of Don Valerio.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -190,7 +190,7 @@ talkEntry:addTrigger("scroll");
 talkEntry:addTrigger("parchment");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 4));
-talkEntry:addResponse("Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... When I'm done with 'em.");
+talkEntry:addResponse("Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... when I'm done with 'em.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -214,7 +214,7 @@ talkEntry:addTrigger("Groktan");
 talkEntry:addTrigger("Flintsplit");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 4));
-talkEntry:addResponse("Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... When I'm done with 'em.");
+talkEntry:addResponse("Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... when I'm done with 'em.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -283,7 +283,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("#me hands over a small purse: 'Good job. Now I owe you one. But those slimes were only the beginning of tasks I have for you.");
+talkEntry:addResponse("#me hands over a small purse, 'Good job. Now I owe you one, but those slimes were only the beginning of the tasks I have for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -365,7 +365,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair Sewers II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 13));
-talkEntry:addResponse("Did you ever notice this... moaning in the night? I don't know why, but smelly sewer mummies haunt the sewers. Smite at least five of them for a small reward.");
+talkEntry:addResponse("Did you ever notice this... moaning in the night? I don't know why, but smelly mummies haunt the sewers. Smite at least five of them for a small reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -385,7 +385,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair Sewers II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 13));
-talkEntry:addResponse("Did you ever notice this... moaning in the night? I don't know why, but smelly sewer mummies haunt the sewers. Smite at least five of them for a small reward.");
+talkEntry:addResponse("Did you ever notice this... moaning in the night? I don't know why, but smelly mummies haunt the sewers. Smite at least five of them for a small reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -405,7 +405,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 18));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and a ornate dagger. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and an ornate dagger. You advance in Don Valerio Guilianni's favour."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.item.item(190, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 19));
@@ -418,7 +418,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 18));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and a ornate dagger."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and an ornate dagger."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.item.item(190, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 19));
@@ -456,7 +456,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 18));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and its traders, slay as many as possible.");
+talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and our traders, slay as many as possible.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -474,7 +474,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 12));
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 18));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and its traders, slay as many as possible.");
+talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and our traders, slay as many as possible.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -650,7 +650,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("Some call me a henchman. I work for the Don; and I am good in what I do.");
+talkEntry:addResponse("Some call me a henchman. I work for the Don, and I am good at what I do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -663,7 +663,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Some call me a henchman. I work for the Don; and I am good in what I do.");
+talkEntry:addResponse("Some call me a henchman. I work for the Don, and I am good at what I do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -691,7 +691,7 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-talkEntry:addResponse("In Galmair, you may trade whatever you want with whoever you want whenever you want.");
+talkEntry:addResponse("In Galmair, you may trade whatever you want, with whoever you want, whenever you want.");
 talkEntry:addResponse("The market place is a good place to trade. It is outside. So... get out!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -737,7 +737,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("henchman");
 talkEntry:addTrigger("henchman");
 talkEntry:addTrigger("thug");
-talkEntry:addResponse("I'm not a simple henchman. I'm a convincer. With irresistible arguments.");
+talkEntry:addResponse("I'm not a simple henchman. I'm a convincer, with irresistible arguments.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -757,14 +757,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ratmen");
 talkEntry:addTrigger("rat");
-talkEntry:addResponse("Blasted ratmen! They squeak all day long. Nothing wrong with that, but they should know who they may annoy.");
+talkEntry:addResponse("Blasted ratmen! They squeak all day long. Nothing wrong with that, but they should know who they annoy.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mummy");
 talkEntry:addTrigger("mummies");
-talkEntry:addResponse("Blasted mummies! They moan all day long. Nothing wrong with that, but they should know about they should not moan about.");
+talkEntry:addResponse("Blasted mummies! They moan all day long. Nothing wrong with that, but they should know who not to moan about.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -778,14 +778,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("protection");
 talkEntry:addTrigger("fee");
-talkEntry:addResponse("Protection can be paid with money. The more money, the more protection. No money... bad idea.");
+talkEntry:addResponse("Protection can be paid for with money. The more money, the more protection. No money... bad idea.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("favour");
 talkEntry:addTrigger("favor");
-talkEntry:addResponse("Everyone in Galmair owes the Don a favour; some more than one. For the Don helps everyone, he is our godfather.");
+talkEntry:addResponse("Everyone in Galmair owes the Don a favour, some more than one. The Don helps everyone, he is our godfather.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -843,7 +843,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rules");
-talkEntry:addResponse("1. The Don protects you if you pay the fee. - 2. Pay the toll and the interest and no harm will be done. - 3. Trade freely, stay and depart as you wish. - 4. Come to the Don if you need help. He is your godfather. - 5. A deal with the Don is a deal with your fate. - If you did harm, compensate generously twice the damage.");
+talkEntry:addResponse("1. The Don protects you if you pay the fee. - 2. Pay the toll and the interest and no harm will be done. - 3. Trade freely, stay and depart as you wish. - 4. Come to the Don if you need help. He is your godfather. - 5. A deal with the Don is a deal with your fate. - 6. If you did harm, compensate generously twice the damage.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -855,7 +855,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Hiding behind books, fighting with words; that is not the way of a man. The archmage of Runewick can't be a true man!");
+talkEntry:addResponse("Hiding behind books, fighting with words; that is not the way of a man. The Archmage of Runewick can't be a true man!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -869,7 +869,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Hiding behind books, fighting with words; that is not the way of a man. The archmage of Runewick can't be a true man!");
+talkEntry:addResponse("Hiding behind books, fighting with words; that is not the way of a man. The Archmage of Runewick can't be a true man!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -883,7 +883,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick is ruled by a man... by Elvaine Morgan. I'd never follow such a weak person. I have no explaination how he gathered so many followers.");
+talkEntry:addResponse("Runewick is ruled by an elf... by Elvaine Morgan. I'd never follow such a weak person. I have no explanation of how he gathered so many followers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -919,7 +919,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Galmair is the only town in this region where the word 'freedom' still has meaning.");
 talkEntry:addResponse("When I first came to Galmair, I was a poor dwarf with no hope. The Don gave me hope and I pay back all the favours he granted.");
-talkEntry:addResponse("If you like good beer, a good tavern brawl and good business, Galmair is your place to be.");
+talkEntry:addResponse("If you like good beer, a good tavern brawl and good business, Galmair is the place to you should be.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -934,8 +934,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
 talkEntry:addResponse("Rosaline Guilianni; sounds good, eh?");
-talkEntry:addResponse("The Don once proposed marriage to the Queen of Cadomyr. She refused; she'd better begs that he does a second time!");
-talkEntry:addResponse("I somehow adore queen Rosaline; she knows how to rule a kingdom. As queen. A queendom, har, har.");
+talkEntry:addResponse("The Don once proposed marriage to the Queen of Cadomyr. She refused; she'd better beg that he asks a second time!");
+talkEntry:addResponse("I somehow adore Queen Rosaline; she knows how to rule a kingdom. As Queen... a Queendom, har, har.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -952,8 +952,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addResponse("Rosaline Guilianni; sounds good, eh?");
-talkEntry:addResponse("The Don once proposed marriage to the Queen of Cadomyr. She refused; she'd better begs that he does a second time!");
-talkEntry:addResponse("I somehow adore queen Rosaline; she knows how to rule a kingdom. As queen. A queendom, har, har.");
+talkEntry:addResponse("The Don once proposed marriage to the Queen of Cadomyr. She refused; she'd better beg that he asks a second time!");
+talkEntry:addResponse("I somehow adore Queen Rosaline; she knows how to rule a kingdom. As Queen... A Queendom, har, har.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -997,7 +997,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addResponse("Honestly, I've never been to Gynk, but I was told it is like Galmair... just bigger.");
-talkEntry:addResponse("Gynk is the home of Don Valerio. So, you should better not say it is filthy!");
+talkEntry:addResponse("Gynk is the home of Don Valerio, so, you had better not say it is filthy!");
 talkEntry:addResponse("If I ever depart from Galmair, I'd move to Gynk.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1014,7 +1014,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Oh, Salk... what was that? I never heard of that place.");
+talkEntry:addResponse("Oh, Salk... what was that? I've never heard of that place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1026,7 +1026,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Ha! Then tell me all the names of the gods! At once! Quick!");
+talkEntry:addResponse("Ha! Then tell me all the names of the Gods! At once! Quick!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1085,7 +1085,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I'm not a trader. You may give me your money, though.");
+talkEntry:addResponse("I'm not a trader. You can give me your money, though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1178,9 +1178,9 @@ end;
 talkingNPC:addCycleText("Knochen, Knochen, Knochen. Ich weiß schon gar nicht mehr, wie viele ich gebrochen habe.", "Bones, bones, bones. Can't count how many I broke.");
 talkingNPC:addCycleText("Ihr wollt nicht mit mir reden, denn ich will nicht mit euch reden.", "You don't wanna talk to me, 'cause I don't wanna talk to you.");
 talkingNPC:addCycleText("Wollt ihr, dass ich euch rausschleppe und euch beibringe, wie man ins Gras beißt?", "You want me to take you outside and teach you how to eat grass?");
-talkingNPC:addCycleText("Schonmal eure Zähne gesehen? Naseweißen zeige ich sie gerne, von ganz nahem.", "Ever seen your teeth? Keep crackin' wise, I'll show them to ya... up-close, like.");
-talkingNPC:addCycleText("Wenn euch der Don eine Gefälligkeit getan hat, seid besser dankbar, solange ihr noch laufen könnt.", "If the Don did you a favour, better get grateful quick-like... while you can still walk.");
-talkingNPC:addCycleText("Der Don möchte, dass ich den Leuten einfache Dinge erkläre. Ich bringe sie dazu, zuzuhören und zu verstehen.", "The Don usually wants me to explain simple things to persons. I make them listen and understand.");
+talkingNPC:addCycleText("Schonmal eure Zähne gesehen? Naseweißen zeige ich sie gerne, von ganz nahem.", "Ever seen your teeth? Keep wise crackin' and I'll show them to ya... up-close, like.");
+talkingNPC:addCycleText("Wenn euch der Don eine Gefälligkeit getan hat, seid besser dankbar, solange ihr noch laufen könnt.", "If the Don did you a favour, better get grateful quick like... while you can still walk.");
+talkingNPC:addCycleText("Der Don möchte, dass ich den Leuten einfache Dinge erkläre. Ich bringe sie dazu, zuzuhören und zu verstehen.", "The Don usually wants me to explain simple things to people. I make them listen and understand.");
 talkingNPC:addCycleText("#me spielt mit seinem Goldkettchen.", "#me plays with a golden chain around his neck.");
 talkingNPC:addCycleText("Verdammt!", "Blast!");
 talkingNPC:addCycleText("Ich halte die Straßen sauber... von den falschen Leuten.", "I keep the town clean... of the wrong people.");

@@ -2,6 +2,8 @@
 
 -- UPDATE common SET com_script='item.id_290_cabbage' WHERE com_itemid IN (290);
 
+require("base.common")
+
 module("item.id_290_cabbage", package.seeall)
 
 function MoveItemBeforeMove(User, SourceItem, TargetItem)

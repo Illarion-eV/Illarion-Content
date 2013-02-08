@@ -89,13 +89,6 @@ function UseItem(User, SourceItem)
     User:inform("Bag:countItem("..countID..") = "..Bag:countItem(countID));
     User:inform("Bag:countItem("..countID..", 0) = "..Bag:countItem(countID, 0));
   end
-  if (string.find(User.lastSpokenText,"setdata (%d+)")==nil and string.find(User.lastSpokenText,"setqual (%d)(%d)(%d)")==nil) then
-    a,b,spoken = string.find(User.lastSpokenText,"(.+)");
-    if User:increaseAttrib(spoken,0)~=0 then
-      User:setAttrib(spoken,Counter);
-      User:inform(spoken.." set to "..User:increaseAttrib(spoken,0));
-    end
-  end
   if ((string.find(User.lastSpokenText,"show map")~=nil)) then
     User:inform("Okay, now showing map");
     for i=1, 200 do

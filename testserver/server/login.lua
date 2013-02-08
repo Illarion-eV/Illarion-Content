@@ -26,18 +26,10 @@ function onLogin( player )
 	end
 	
 	--Taxes (has to be redone by "someone")
-    if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes. Not on Noobia!
+    if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
 	    -- So let there be taxes!
 		payTaxes(player);
-				
-	end
-		
-	receiveGems(player);
-		
-	if isTestserver() then
-		if player.name == "Alsaya" then
-			payNow(player)
-		end
+		receiveGems(player);				
 	end
 
 	--Noobia handling
@@ -256,11 +248,11 @@ end
 
 
 function payTaxes(taxPayer)
-	yr=world:getTime("year");
-	mon=world:getTime("month");
-	timeStmp=yr*1000+mon;
-	lastTax=taxPayer:getQuestProgress(123);
-	if (lastTax~=nil) then
+	local yr=world:getTime("year");
+	local mon=world:getTime("month");
+	local timeStmp=yr*1000+mon;
+	local lastTax=taxPayer:getQuestProgress(123);
+	if (lastTax~=0) then
 		if lastTax<timeStmp then
 			taxPayer:setQuestProgress(123,timeStmp);
 			payNow(taxPayer)
@@ -276,7 +268,7 @@ function receiveGems(gemRecipient)
 	local mon=world:getTime("month"); --- TODO
 	local timeStmp=yr*1000+mon;
 	local town = base.factions.getMembershipByName(gemRecipient)
-	if town == "" then
+	if town == "None" then
 		return;
 	end	
 	-- first check if there was a switch from collecting taxes to pay out gems already: 
@@ -285,7 +277,7 @@ function receiveGems(gemRecipient)
 	--lastSwitch=1
 	if not fnd then	-- first payout ever:
 		base.townTreasure.NewMonthSwitch(town,timeStmp)
-		local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
+		fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	end
 	
 	if fnd and tonumber(lastSwitch)~=timeStmp then
@@ -294,13 +286,14 @@ function receiveGems(gemRecipient)
 	end
 	-- now check if last payment was before actual month and actual month is the one to pay out.
 	lastGem=gemRecipient:getQuestProgress(124);
-	if (lastGem~=nil) then
+	if (lastGem~=0) then
 		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
 			gemRecipient:setQuestProgress(124,timeStmp);
 			PayOutWage(gemRecipient,town)
 		end
 	else
 		gemRecipient:setQuestProgress(124,timeStmp);
+		PayOutWage(gemRecipient,town)
 	end
 end
 
@@ -309,13 +302,6 @@ function PayOutWage(Recipient,town)
 	local totalTaxes=base.townTreasure.GetPaymentAmount(town)
 	local totalPayers=base.townTreasure.GetTaxpayerNumber(town)
 	
-	if tonumber(totalPayers)==0 then	-- just for starters
-		totalPayers=150
-	end
-	
-	if tonumber(totalTaxes)==0 then	-- just for starters
-		totalTaxes=420000
-	end
 	--Recipient:inform("in payoutwage "..totalPayers)
 	--Recipient:inform("totaltaxes "..totalTaxes)
 	
@@ -347,7 +333,7 @@ function PayOutWage(Recipient,town)
 					basename = item.gems.gemPrefixEN[gemLevel] .. " magical " .. basename
 				end
 				
-				endname=endname.."\n* "..basename;
+				endname=endname.."\n"..basename;
 				--Recipient:inform("endname= "..endname);
 				local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
 				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -359,9 +345,9 @@ function PayOutWage(Recipient,town)
 				RankedWage=RankedWage-gemLevel^3;
 			end
 			local infText = base.common.GetNLS(Recipient, 
-	                                   "Du erhältst als Monatlichen Lohn von "..town..":"..endname, 
-	                                   "You receive as a monthly wage from"..town..":"..endname)
-			local title = base.common.GetNLS(Recipient,"Lohn","Wage")
+	                                   "Deine loyalen Dienste für "..town.." werden mit den folgenden magischen Edelsteinen belohnt:"..endname, 
+	                                   "Your loyal service to "..town.." is awarded with the following magical gems:"..endname)
+			local title = base.common.GetNLS(Recipient,"Belohnung","Gratification")
 	
 			local dialog=MessageDialog(title,infText,closeTrib);
 			

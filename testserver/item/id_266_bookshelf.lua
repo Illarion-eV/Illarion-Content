@@ -77,9 +77,10 @@ GAL_MERCHANT = 514
 GAL_PRIEST = 515
 GAL_TRANSL = 516
 
-function addBook(id, germanTitle, englishTitle, bookItemId)
+
+function addBook(id, germanTitle, englishTitle)
     books = books or {}
-    books[id] = {["german"] = germanTitle, ["english"] = englishTitle, ["itemId"] = ((bookItemId~=nil) and bookItemId or 116) }
+    books[id] = {german = germanTitle, english = englishTitle}
 end
 
 function addBookshelf(pos, containedBooks)
@@ -146,7 +147,7 @@ addBook(DEMONOLOGIST, "Der Dämonologe", "The Demonologist", 110)
 addBook(DWARVEN_POEMS, "Zwergisches Liedgut", "Dwarven Poems", 2604)
 addBook(FAIRY, "Feen", "Fairies", 2602)
 addBook(GLORI_IRMOROM, "Lobpreis an Irmorom", "Glorification to Irmorom", 3115)
-addBook(LOR_ANGUR, "Lor Angur", "Lor Angur", 127)
+addBook(LOR_ANGUR, "Lor-Angur", "Lor-Angur", 127)
 addBook(PETITION_ZELPHIA, "Gebet für Zelphia", "Petition for Zelphia", 3115)
 addBook(TALES_TRAVELLER, "Geschichten eines Reisenden", "Tales of a traveller", 2610)
 addBook(TIHGARACS_COMBAT, "Buch der Kampfeskunst", "Book of Combat", 110)
@@ -169,11 +170,16 @@ addBook(GAL_ADJUTANT, "Gesucht! Adjutant", "Wanted! Adjutant", 3110)
 
 addBookshelf(position(390, 185, -6), {CALENDAR, C_ORC, ORCMAGES, MONROK_CHRONIC, ONE})
 addBookshelf(position(548, 547, -6), {ORCMAGES, ONE, DEMONOLOGIST})
+addBookshelf(position(423, 296, -3), {C_HALFLING})
+addBookshelf(position(131, 549, 0), {C_HUMAN})
+addBookshelf(position(131, 551, 0), {C_ELVES})
+addBookshelf(position(131, 553, 0), {C_LIZARDMEN, PETITION_ZELPHIA})
+addBookshelf(position(131, 555, 0), {TIHGARACS_COMBAT})
 addBookshelf(position(136, 548, 0), {C_ORDER_1, C_SPEECH_321105})
 addBookshelf(position(138, 548, 0), {CODOMYR_ON_C, CODOMYR_ON_G, CODOMYR_ON_R})
 addBookshelf(position(140, 548, 0), {CALENDAR, ZODIC_SIGN, CANDLES})
 addBookshelf(position(140, 623, 0), {TIHGARACS_COMBAT, CALENDAR, PETITION_ZELPHIA})
-addBookshelf(position(141, 550, 0), {GODS3, GOD_MALACHIN, GOD_SIRANI, GOD_ZHAMBRA, C_HUMAN, C_ELVES, C_LIZARDMEN})
+addBookshelf(position(141, 550, 0), {GODS3, GOD_MALACHIN, GOD_SIRANI, GOD_ZHAMBRA,})
 addBookshelf(position(141, 552, 0), {TALE_OF_BROTHERS, TALES_TRAVELLER})
 addBookshelf(position(357, 224, 0), {QUESTION_HONOUR})
 addBookshelf(position(359, 221, 0), {GODS2, GLORI_IRMOROM})
@@ -187,9 +193,13 @@ addBookshelf(position(365, 224, 0), {ZODIC_SIGN, CALENDAR})
 addBookshelf(position(375, 215, 0), {GAL_ADJUTANT, GAL_DIPLO, GAL_FORCES, GAL_CIA, GAL_CHARGE, GAL_ENTERT, GAL_HANGMAN, GAL_MERCHANT, GAL_PRIEST, GAL_TRANSL})
 addBookshelf(position(375, 217, 0), {GALMAIR_ON_C, GALMAIR_ON_G})
 addBookshelf(position(375, 219, 0), {GALMAIR_ON_R, CHRONICLES_GALMAIR})
-addBookshelf(position(404, 258, 0), {GODS2, CHRONICLES_GALMAIR})
-addBookshelf(position(404, 259, 0), {ALCHEMY, GLORI_IRMOROM})
+addBookshelf(position(388, 235, 0), {GALMAIR_ON_C})
+addBookshelf(position(390, 238, 0), {GALMAIR_ON_G})
+addBookshelf(position(390, 236, 0), {GALMAIR_ON_R})
+addBookshelf(position(403, 259, 0), {GODS2, CHRONICLES_GALMAIR})
+addBookshelf(position(405, 259, 0), {ALCHEMY, GLORI_IRMOROM})
 addBookshelf(position(407, 259, 0), {GALMAIR_ON_C, GALMAIR_ON_G, GALMAIR_ON_R, C_DWARF})
+addBookshelf(position(412, 289, 0), {GALMAIR_ON_G, GALMAIR_ON_C})
 addBookshelf(position(698, 311, 0), {CALENDAR, BLUMFUSSENS})
 addBookshelf(position(698, 319, 0), {JOKES, ALCHEMY, WALLERY_BANK})
 addBookshelf(position(698, 323, 0), {PARCH_LONGO})
@@ -198,6 +208,11 @@ addBookshelf(position(949, 752, 0), {BLUMFUSSENS, HUMANS_BERRYARD, BRIAR})
 addBookshelf(position(952, 756, 0), {ALCHEMY, C_HALFLING})
 addBookshelf(position(140, 620, 1), {FAIRY, GOD_SIRANI})
 addBookshelf(position(146, 620, 1), {CODOMYR_ON_C, CRAFTMAN_STORY})
+addBookshelf(position(406, 258, 1), {GALMAIR_ON_G})
+addBookshelf(position(406, 260, 1), {CHRONICLES_GALMAIR})
+addBookshelf(position(402, 260, 1), {GALMAIR_ON_G})
+addBookshelf(position(402, 258, 1), {GALMAIR_ON_C})
+addBookshelf(position(404, 258, 1), {GALMAIR_ON_R})
 addBookshelf(position(889, 835, 1), {NOIRA_LIV, CALENDAR})
 addBookshelf(position(889, 754, 1), {DEMONOLOGIST})
 addBookshelf(position(889, 838, 1), {ELDAN_PARCHMENT, ELDAN_HERMIT})
@@ -236,6 +251,7 @@ addBookshelf(position(901, 773, 4), {MONROK_CHRONIC})
 addBookshelf(position(949, 757, 4), {BREWYN})
 
 
+
 function LookAtItem(user, item)
     local lookAt = base.lookat.GenerateLookAt(user, item)
     
@@ -266,7 +282,7 @@ function LookAtItem(user, item)
     world:itemInform(user, item, lookAt)
 end
 
-function UseItem(user, item, ltstate)
+function UseItem(user, item, target, counter, param, ltstate)
     if item:getType() ~= scriptItem.field then
         return
     end
@@ -294,8 +310,7 @@ function UseItem(user, item, ltstate)
             local dialog = SelectionDialog(title, description, callback)
             
             for i=1, bookCount do
-				local book = books[bookshelf[i]];
-                dialog:addOption(book.itemId, base.common.GetNLS(user, book.german, book.english))
+                dialog:addOption(116, base.common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english))
             end
             
             user:requestSelectionDialog(dialog)

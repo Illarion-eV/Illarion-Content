@@ -6,12 +6,12 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 381, 280, 0, 4, 'Marcel Metalfeet', 'npc.marcel_metalfeet', 0, 2, 0, 68, 62, 0, 245, 211, 179);
+VALUES (2, 382, 278, 0, 4, 'Marcel Metalfeet', 'npc.marcel_metalfeet', 0, 2, 0, 68, 62, 0, 245, 211, 179);
 ---]]
 
 require("npc.base.basic")
@@ -31,13 +31,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Marcel Metalfeet the craftsman. Keywords: repair, work, Greetings, religion."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Marcel Metalfeet the craftsman. Keywords: repair, work, greetings, religion."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Marcel Metalfeet der Handwerker. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion,."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Marcel Metalfeet der Handwerker. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -100,7 +100,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Save journy. And don't forget to take enough food with you!");
+talkEntry:addResponse("Safe journey, and don't forget to take enough food with you!");
 talkEntry:addResponse("#me waves goodbye.");
 talkEntry:addResponse("Please come again!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -123,7 +123,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Save journy. And don't forget to take enough food with you!");
+talkEntry:addResponse("Safe journey, and don't forget to take enough food with you!");
 talkEntry:addResponse("#me waves goodbye.");
 talkEntry:addResponse("Please come again!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -144,9 +144,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I am fine. I just ate my cake.");
-talkEntry:addResponse("I am fine. I'll soon eat my cake.");
-talkEntry:addResponse("I am sad. I ate all my cake.");
+talkEntry:addResponse("I am fine, I just ate my cake.");
+talkEntry:addResponse("I am fine, I'll soon eat my cake.");
+talkEntry:addResponse("I am sad, I ate all my cake.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -186,7 +186,7 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("I do not sell anything. But I can repair all kind of things for you.");
+talkEntry:addResponse("I do not sell anything, but I can repair all kinds of things for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -236,7 +236,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addTrigger("work");
-talkEntry:addResponse("I can repair all kind of things for you.");
+talkEntry:addResponse("I can repair all kinds of things for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -249,7 +249,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I can repair all kind of things for you.");
+talkEntry:addResponse("I can repair all kinds of things for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -261,7 +261,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I like cake! Everyonelse also likes cake! Nice,eh?");
+talkEntry:addResponse("I like cake! Everyone else also likes cake! Nice,eh?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -274,9 +274,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("We were created by the gods to collect and eat the fruits in Illarion.");
-talkEntry:addResponse("The gods were created out of cherry seeds.");
-talkEntry:addResponse("One of the gods, the Milkspiller is evil. He ate a bad cake.");
+talkEntry:addResponse("We were created by the Gods to collect and eat the fruits of Illarion.");
+talkEntry:addResponse("The Gods were created from cherry seeds.");
+talkEntry:addResponse("One of the Gods, the Milkspiller, is evil. He ate a bad cake.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,21 +375,18 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me summt eine Melodie.", "#me hums a melody.");
 talkingNPC:addCycleText("#me grinst.", "#me grins.");
-talkingNPC:addCycleText("#me isst ein Stück Kuchen, welchen er grade aus seiner Tasche hervorholte.", "#me eats a piece of cake, he just took out for his bag.");
+talkingNPC:addCycleText("#me isst ein Stück Kuchen, welchen er grade aus seiner Tasche hervorholte.", "#me eats a piece of cake that he just took out from his bag.");
 talkingNPC:addCycleText("Marcel Metalfeet! Ich repariere alles und jeden!", "Marcel Metalfeet! I repair everything and everyone!");
 talkingNPC:addCycleText("#me pfeift eine Melodie.", "#me whistles.");
-talkingNPC:addCycleText("#me schaut sich um.", "#me lookes around.");
+talkingNPC:addCycleText("#me schaut sich um.", "#me looks around.");
 talkingNPC:addCycleText("#me leckt sich über die Lippen.", "#me licks his lips.");
 talkingNPC:addCycleText("#me leckt seine Finger ab.", "#me licks his fingers.");
 talkingNPC:addCycleText("#w Ich möchte Kuchen essen... Ich möchte nicht arbeiten.", "#w I want to eat a cake... I do not want to work.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(5);
+mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Marcel Metalfeet der Handwerker.", "This NPC is Marcel Metalfeet the craftsman.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
@@ -410,7 +407,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 

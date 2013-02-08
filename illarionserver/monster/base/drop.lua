@@ -155,6 +155,10 @@ end
 	CastingTry = {minSkill, maxSkill} Skillbounds for Monster Casting, influence Damage Output, Sucess against Mag Resi of player etc.]]
 	
 function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlight,CastingTry)
+-- Disabled this shit with it's 1000 parameters where all sorts of junk is passed in.
+-- Unless someone rewrites it in a clean way, I _will_ soon delete this for good! -- vilarion
+
+--[[
     if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then
         local EffectTry=math.random(1,table.getn(Effect)+table.getn(Item));
         if ( EffectTry > table.getn(Effect) ) then
@@ -214,6 +218,7 @@ function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlig
             return true;
         end
     end
+--]]
     return false;
 end
 
@@ -254,30 +259,30 @@ function CastHealing( Caster, rndTry, HealAmmount, Range, Effect, AP )
 
     other_monsters[ selected_monster ].movepoints = other_monsters[ selected_monster ].movepoints - AP;
 
-    base.common.TalkNLS( Monster, Character.say,
+    base.common.TalkNLS(Caster, Character.say,
     "#me murmelt eine mystische Formel und wird von einem warmen Leuchten umgeben.",
     "#me mumbles a mystical formula and gets surrounded by a warm glowing.");
     return true;
 end
 
 function CastParalyze( Caster, Enemy, rndTry, APPunishment, Range, Effect, AP ,CastingTry )
-    if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then
+    if (math.random(1,rndTry)==1) and (Caster.pos.z==Enemy.pos.z) then
         local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( Enemy );
         CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
         local Damage = base.common.ScaleUnlimited( APPunishment[1], APPunishment[2], CastTry );
         if Damage > 0 then
             Enemy.movepoints = Enemy.movepoints - Damage;
             LearnMagicResistance( Enemy );
-            if ( Effect[EffectTry][1] > 0 ) then
-                world:gfx(Effect[EffectTry][1],targetPos);
+            if ( Effect[1] > 0 ) then
+                world:gfx(Effect[1][1],Enemy.pos);
             end
         else
-            if ( Effect[EffectTry][1] > 0 ) then
-                world:gfx(12,targetPos);
+            if ( Effect[1] > 0 ) then
+                world:gfx(12,Enemy.pos);
             end
         end
-        if ( Effect[EffectTry][2] > 0 ) then
-            world:makeSound(Effect[EffectTry][2],targetPos);
+        if ( Effect[2] > 0 ) then
+            world:makeSound(Effect[2],Enemy.pos);
         end
         return true;
     end
@@ -285,39 +290,43 @@ function CastParalyze( Caster, Enemy, rndTry, APPunishment, Range, Effect, AP ,C
 end
 
 function CastMonster(Monster,Enemy,rndTry,monsters,AP)
-    if (math.random(1,rndTry)==1) then
-		
-	
-		local XPos=math.random(-2,2);
-		local YPos=math.random(-2,2);
+    if math.random(1, rndTry) == 1 then	
+		local SpawnPos
 
-		if (XPos==0 and YPos==0) then YPos=-1 end
-		local SpawnPos=position(Monster.pos.x+XPos,Monster.pos.y+YPos,Monster.pos.z);
+		local selectedMonsterIndex = math.random(1, table.getn(monsters))
+		local selectedMonsterId = monsters[selectedMonsterIndex]
 
-		if (world:isCharacterOnField(SpawnPos)) then
-			return false;
-		end
+        local i = 0
+        
+        while i < 20 do
+            local XPos = math.random(-2, 2)
+            local YPos = math.random(-2, 2)
 
-		local selectedMonsterIndex = math.random(1,table.getn(monsters));
-		local selectedMonsterId = monsters[selectedMonsterIndex];
+            if XPos == 0 and YPos == 0 then
+                YPos = -1
+            end
+            
+            local SpawnPos = position(Monster.pos.x + XPos, Monster.pos.y + YPos, Monster.pos.z)
 
-		world:createMonster(selectedMonsterId,SpawnPos,-15);
+            if world:isCharacterOnField(SpawnPos) then
+                return false
+            end
 
-		--if (world:isCharacterOnField(SpawnPos)) then
-		--	SpawnMonster = world:getCharacterOnField(SpawnPos);
-		--	world:gfx(41,SpawnMonster.pos);
-		--end
-
-		world:gfx(41,SpawnPos);
-		Monster.movepoints=Monster.movepoints-AP;
-		base.common.TalkNLS( Monster, Character.say,
-		"#me murmelt eine mystische Formel.",
-		"#me mumbles a mystical formula.");
-		
-		return true;	
-	else
-	return false;
+            if world:getField(SpawnPos) then
+		        world:createMonster(selectedMonsterId, SpawnPos, -15)
+                world:gfx(41, SpawnPos)
+                Monster.movepoints = Monster.movepoints - AP
+                base.common.TalkNLS(Monster, Character.say,
+                "#me murmelt eine mystische Formel.",
+                "#me mumbles a mystical formula.")
+                return true
+            else
+                i = i + 1
+            end
+        end
 	end
+
+	return false
 end
 
 

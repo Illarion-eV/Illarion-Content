@@ -34,18 +34,17 @@ function CreateOre(oreItem, productItem, additionalRequiredItems)
   return {ore = oreItem, product = productItem};
 end
 
+OreList = {
+  CreateOre(CreateItem(22), CreateItem(2535)),                              -- iron
+  CreateOre(CreateItem(2536), CreateItem(2550)),                            -- copper
+  CreateOre(CreateItem(234), CreateItem(236)),                              -- gold
+  CreateOre(CreateItem(2534), CreateItem(2571))                             -- merinium (pure fire required)
+};
+CoalItem = CreateItem(21);
+
 function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local oremelting = content.gathering.oremelting;
-  if ( oreList == nil) then
-    oreList = {
-      CreateOre(CreateItem(22), CreateItem(2535)),                              -- iron
-      CreateOre(CreateItem(2536), CreateItem(2550)),                            -- copper
-      CreateOre(CreateItem(234), CreateItem(236)),                              -- gold
-      CreateOre(CreateItem(2534), CreateItem(2571))                             -- merinium (pure fire required)
-    };
-    coalItem = CreateItem(21);
-  end
 	
 	-- is the target position needed?
 	local TargetPos = base.common.GetFrontPosition(User);
@@ -111,7 +110,7 @@ function UseItem(User, SourceItem, ltstate)
 	
 	-- any other checks?
 
-	if (User:countItemAt("all",coalItem.id)<coalItem.amount) then -- check for items to work on
+	if (User:countItemAt("all",CoalItem.id)<CoalItem.amount) then -- check for items to work on
 		base.common.HighInformNLS( User, 
 		"Du brauchst Kohle um an der Esse zu arbeiten.", 
 		"You need coal for working at the forge." );
@@ -121,7 +120,7 @@ function UseItem(User, SourceItem, ltstate)
   -- NOTE: we assume here that the user's items do not change while working.
   -- => the ore that we found at the beginning is the same as in the end.
   local oreItem = nil;
-  for _,i in pairs(oreList) do
+  for _,i in pairs(OreList) do
     if (User:countItemAt("all",i.ore.id)>=i.ore.amount) then
       if (i.ore.id == 2534) then
         -- that's merinium (should be the last in the list), we need pure fire
@@ -204,7 +203,7 @@ function UseItem(User, SourceItem, ltstate)
 
 	User:learn( oremelting.LeadSkill, oremelting.SavedWorkTime[User.id], oremelting.LearnLimit);
 	User:eraseItem( oreItem.ore.id, oreItem.ore.amount ); -- erase the item we're working on
-  User:eraseItem( coalItem.id, coalItem.amount ); 
+  User:eraseItem( CoalItem.id, CoalItem.amount ); 
   if (oreItem.ore.id == 2534) then
     -- merinium, erase pure fire too.
     User:eraseItem(2553, 1);
@@ -218,7 +217,7 @@ function UseItem(User, SourceItem, ltstate)
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-    if (User:countItemAt("all",coalItem.id)>=coalItem.amount) then  -- there are still items we can work on
+    if (User:countItemAt("all",CoalItem.id)>=CoalItem.amount) then  -- there are still items we can work on
       if (User:countItemAt("all",oreItem.ore.id)>=oreItem.ore.amount) then
         if (oreItem.ore.id == 2534 and User:countItemAt("all",2553) == 0) then
         -- merinium requires pure fire

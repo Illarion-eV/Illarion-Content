@@ -2,6 +2,7 @@
 -- Envi
 require("base.common")
 require("content.pillar")
+require("base.lookat")
 
 module("item.pillar", package.seeall)
 
@@ -20,52 +21,41 @@ PillarListEnglish =
 "PLACEHOLDER.",
 };
 
+messageE={}; --the inscription arrays (english/german)
+messageG={};
+messageE[0]="This monument shows Sir Reginald Edwards, the departed king of Cadomyr and father of Queen Rosaline. The customs of Cadomyr are engraved upon a brass plate at the bottom of the pedestal."
+messageG[0]="Dieses Monument zeigt Sir Reginald Edwards, den verstorbenen König Cadomyrs und Vater von Königin Rosaline. Die Sitten Cadomyrs sind auf einer Messingtafel am Sockel den Monuments zu lesen.";
+messageE[1]="I. Faith: Worship the Gods, they alone are true and almighty."
+messageG[1]="I. Glaube: Ehre die Götter. Nur sie alleine sind wahrhaftig allmächtig.";
+messageE[2]="II. Obedience: Be loyal and obedient, your monarch represents the will of the gods."
+messageG[2]="II. Gehorsam: Sei loyal und folgsam. Dein Monarch verkörpert den Willen der Götter.";
+messageE[3]="III. Honour: In all things act with honour. Defending it is your right and duty."
+messageG[3]="III. Ehre: Handle stets ehrenhaft. Deine Ehre zu verteidigen ist dein Recht und deine Pflicht.";
+messageE[4]="IV. Lineage: Know your place. Your birth matters more than your life or death."
+messageG[4]="IV. Abstammung: Kenne deinen Platz. Deine Geburt zählt mehr als dein Leben oder dein Tod.";
+messageE[5]="V. Truth: Keep your word and give no false testimony. The strength of your word measures your worth."
+messageG[5]="V. Ehrlichkeit: Halte dein Wort und gib kein falsches Zeugnis ab. Du wirst an deinen Worten gemessen.";
+messageE[6]="VI. Justice: In all things be fair and just; never steal, offer your friendship freely, but do not spare your enemy the sword."
+messageG[6]="VI. Gerechtigkeit: Sei gerecht zu jedem. Stehle nicht, gib deine Freundschaft dem Freund und dein Schwert dem Feind.";
+messageE[7]="VII. Courage: Fear is not permissible. Stand in for your honour and sovereign. Never retreat, never surrender."
+messageG[7]="VII. Courage: Fürchte nicht. Stehe für deinen Herrscher und dein Ehre ein. Kein Rückzug, niemals aufgeben.";
+messageE[8]="VIII. Patriarchy: Obey your father, obey your husband, but never your son."
+messageG[8]="VIII. Patriarchat: Gehorche dem Vater. Gehorche dem Ehemann. Aber gehorche nicht dem Sohn.";
+messageE[9]="IX. Property: What is yours will remain yours, be it crop, dog, or man."
+messageG[9]="IX. Besitz: Was dein ist, soll auch dein bleiben, sei es Getreide, Hund oder Mann.";
+messageE[10]="X. Responsibility: In all things you are bound to your deeds. You are their origin."
+messageG[10]="X. Verantwortung: Deine Taten hängen dir nach. Nur du bist ihr Ursprung.";
 
-function Init()
-
-    if InitDone then
-        return
-    end
-   
-    messageE={}; --the inscription arrays (english/german)
-    messageG={};
-   messageE[0]="This monument shows Sir Reginald Edwards, the departed king of Cadomyr and father of Queen Rosaline. The customs of Cadomyr are engraved upon a brass plate at the bottom of the pedestal."
-   messageG[0]="Dieses Monument zeigt Sir Reginald Edwards, den verstorbenen König Cadomyrs und Vater von Königin Rosaline. Die Sitten Cadomyrs sind auf einer Messingtafel am Sockel den Monuments zu lesen.";
-    messageE[1]="I. Faith: Worship the Gods, they alone are true and almighty."
-   messageG[1]="I. Glaube: Ehre die Götter. Nur sie alleine sind wahrhaftig allmächtig.";
-    messageE[2]="II. Obedience: Be loyal and obedient, your monarch represents the will of the gods."
-   messageG[2]="II. Gehorsam: Sei loyal und folgsam. Dein Monarch verkörpert den Willen der Götter.";
-   messageE[3]="III. Honour: In all things act with honour. Defending it is your right and duty."
-   messageG[3]="III. Ehre: Handle stets ehrenhaft. Deine Ehre zu verteidigen ist dein Recht und deine Pflicht.";
-   messageE[4]="IV. Lineage: Know your place. Your birth matters more than your life or death."
-   messageG[4]="IV. Abstammung: Kenne deinen Platz. Deine Geburt zählt mehr als dein Leben oder dein Tod.";
-   messageE[5]="V. Truth: Keep your word and give no false testimony. The strength of your word measures your worth."
-   messageG[5]="V. Ehrlichkeit: Halte dein Wort und gib kein falsches Zeugnis ab. Du wirst an deinen Worten gemessen.";
-    messageE[6]="VI. Justice: In all things be fair and just; never steal, offer your friendship freely, but do not spare your enemy the sword."
-   messageG[6]="VI. Gerechtigkeit: Sei gerecht zu jedem. Stehle nicht, gib deine Freundschaft dem Freund und dein Schwert dem Feind.";
-   messageE[7]="VII. Courage: Fear is not permissible. Stand in for your honour and sovereign. Never retreat, never surrender."
-   messageG[7]="VII. Courage: Fürchte nicht. Stehe für deinen Herrscher und dein Ehre ein. Kein Rückzug, niemals aufgeben.";
-   messageE[8]="VIII. Patriarchy: Obey your father, obey your husband, but never your son."
-   messageG[8]="VIII. Patriarchat: Gehorche dem Vater. Gehorche dem Ehemann. Aber gehorche nicht dem Sohn.";
-   messageE[9]="IX. Property: What is yours will remain yours, be it crop, dog, or man."
-   messageG[9]="IX. Besitz: Was dein ist, soll auch dein bleiben, sei es Getreide, Hund oder Mann.";
-   messageE[10]="X. Responsibility: In all things you are bound to your deeds. You are their origin."
-   messageG[10]="X. Verantwortung: Deine Taten hängen dir nach. Nur du bist ihr Ursprung.";
-   
-	messageE1={}; --the inscription arrays (english/german)
-    messageG1={};
-	messageE1[0]="This monument shows young Queen Rosaline. A register of the rulers of Cadomyr is engraved upon a brass plate at the bottom of the pedestal."
-	messageG1[0]="Dieses Monument zeigt die junge Königin Rosaline. Eine Auflistung der Herrscher von Cadomyr ist auf einer Messingtafel am Sockel den Monuments zu lesen.";
-	messageE1[1]="1. Sir Edward - 16 BS"
-	messageG1[1]="1. König Edward - 16 BS";
-	messageE1[2]="2. Sir Reginald - 0 AS"
-	messageG1[2]="2. König Reginald - 0 AS";
-    messageE1[3]="3. Queen Rosaline Edwards - 22 AS"
-	messageG1[3]="3. Königin Rosaline Edwards - 22 AS";
-
-   
-   InitDone=true; --Script wants to read all that crap only once
-end
+messageE1={}; --the inscription arrays (english/german)
+messageG1={};
+messageE1[0]="This monument shows young Queen Rosaline. A register of the rulers of Cadomyr is engraved upon a brass plate at the bottom of the pedestal."
+messageG1[0]="Dieses Monument zeigt die junge Königin Rosaline. Eine Auflistung der Herrscher von Cadomyr ist auf einer Messingtafel am Sockel den Monuments zu lesen.";
+messageE1[1]="1. Sir Edward - 16 BS"
+messageG1[1]="1. König Edward - 16 BS";
+messageE1[2]="2. Sir Reginald - 0 AS"
+messageG1[2]="2. König Reginald - 0 AS";
+messageE1[3]="3. Queen Rosaline Edwards - 22 AS"
+messageG1[3]="3. Königin Rosaline Edwards - 22 AS";
 
 function LookAtItem(User,Item)
 	-------------------------------- ENDURANCE CAVE QUEST LOOKAT -----------------------------------------
@@ -88,7 +78,6 @@ function LookAtItem(User,Item)
 		return;								    --stage to the player
 	end
 	-------------------------------- ENDURANCE CAVE QUEST LOOKAT DONE -----------------------------------------
-    Init();
     queststatus=User:getQuestProgress(110); --This queststatus counts the read laws
 
    	if Item.pos == position (125,566,0) then --Sir Reginald's statue
@@ -134,10 +123,6 @@ function LookAtItem(User,Item)
     else
 	       --[[base.common.InformNLS(User,"Reiterstatue","statue of a rider"); --default ]]--
 	local test = "no value";
-	if (first==nil) then
-        content.pillar.InitPillar()
-        first=1;
-    end
 
     -- fetching local references
     local signTextDe     = content.pillar.signTextDe;
