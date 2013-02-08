@@ -31,16 +31,6 @@ function onLogin( player )
 		payTaxes(player);
 		receiveGems(player);				
 	end
-		
-
-		
-	if isTestserver() then
-		if player:isAdmin() then
-			if player.name == "Alsaya" then
-				player:inform("Hello Alsaya");
-			end
-		end
-	end
 
 	--Noobia handling
 	if (base.common.IsOnNoobia(player.pos)) then --On Noobia
