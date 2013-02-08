@@ -27,7 +27,7 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.skill")
 require("npc.base.talk")
-module("development.saren_eisenfaust", package.seeall)
+module("npc.saren_eisenfaust", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -267,9 +267,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=<", 9, nil));
-talkEntry:addCondition(npc.base.condition.item.item(22, "all", "=<", 9, nil));
-talkEntry:addCondition(npc.base.condition.item.item(23, "all", "=", 0, nil));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 10, nil));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 10, nil));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Arr, wenn du dir mit mir einen Spaß erlauben willst, werd ich dir nich helfen. Ich wollte 10 Brocken Kohle, 10 Klumpen Eisenerz und einen Hammer!");
@@ -278,9 +278,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=<", 9, nil));
-talkEntry:addCondition(npc.base.condition.item.item(22, "all", "=<", 9, nil));
-talkEntry:addCondition(npc.base.condition.item.item(23, "all", "=", 0, nil));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 10, nil));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 10, nil));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Arr, if you try to trick me, I won't help you. I want 10 lumps of coal, 10 chunks of iron ore and a hammer!");
