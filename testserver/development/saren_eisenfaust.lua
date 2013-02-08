@@ -238,6 +238,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 20));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 9, nil));
@@ -256,6 +257,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 20));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 9, nil));
@@ -274,7 +276,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 20));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 20));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 9, nil));
@@ -294,7 +296,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 20));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 20));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 9, nil));
