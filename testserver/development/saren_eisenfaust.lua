@@ -267,23 +267,23 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 10, nil));
-talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 10, nil));
-talkEntry:addCondition(npc.base.condition.item.item(23, "all", "<", 1, nil));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=<", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", "=<", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr, wenn du dir mit mir einen Spaß erlauben willst, werd ich dir nich helfen, ich sehe genau das du nich alles da hast wat ich haben wollte!");
+talkEntry:addResponse("Arr, wenn du dir mit mir einen Spaß erlauben willst, werd ich dir nich helfen. Ich wollte 10 Brocken Kohle, 10 Klumpen Eisenerz und einen Hammer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 10, nil));
-talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 10, nil));
-talkEntry:addCondition(npc.base.condition.item.item(23, "all", "<", 1, nil));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=<", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", "=<", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr, if you try to trick me, I won't help you. I see that this is not everything that I wanted.");
+talkEntry:addResponse("Arr, if you try to trick me, I won't help you. I want 10 lumps of coal, 10 chunks of iron ore and a hammer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -373,41 +373,6 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addResponse("Lass mich mal in Ruhe, ick hab gerade nichts für dich zu tun.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr! You're supposed to bring me 15 copper ore, crucible-pincers, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Du sollst mir 15 Kupfererz, eine neue Tiegelzange, einen Feinschmiedehammer und 5 Eisenbarren bringen, is das so schwer zu merken,eh?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr! You're supposed to bring me 15 copper ore, crucible-pincers, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Du sollst mir 15 Kupfererz, eine neue Tiegelzange, einen Feinschmiedehammer und 5 Eisenbarren bringen, is das so schwer zu merken,eh?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -457,7 +422,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2751, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.item.item(122, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Wie mir scheint, kann man sich nich auf dich verlassen. Du musst mir nur folgende Dinge bringen, 15 Kupfererz, 5 Eisenbarren, eine Tiegelzange und einen Feinschmiedehammer!");
+talkEntry:addResponse("Du sollst mir 15 Kupfererz, eine neue Tiegelzange, einen Feinschmiedehammer und 5 Eisenbarren bringen, is das so schwer zu merken,eh?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -469,7 +434,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2751, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.item.item(122, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("It seems you're not trustworthy after all, you just have to bring me the following things, 15 copper ore, 5 iron ingots, crucible-pincers and a fine smith hammer.");
+talkEntry:addResponse("Arr! You're supposed to bring me 15 copper ore, crucible-pincers, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
