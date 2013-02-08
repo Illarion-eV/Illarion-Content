@@ -184,6 +184,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 20));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -195,6 +196,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 20));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -206,6 +208,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 20));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addTrigger("smith");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -217,6 +220,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 20));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addTrigger("Schmied");
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
