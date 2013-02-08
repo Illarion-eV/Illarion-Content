@@ -183,15 +183,15 @@ function InitWegweiser()
     AddWeg({685,317,0},"Gasthof zur Hanfschlinge","The Hemp Necktie Inn",2,0);
     AddWeg({676,326,0},"Funkelhöhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Glittering Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
     AddWeg({682,330,0},"Der Todes Sumpf, Igruks Höhle, Elstree Ebene, Elstree Wald, Ostland, Todes Gestank, Frische Sümpfe, Runewick","The Death Marsh, Igruk's Cave, Elstree Plain, Elstree Forest, Eastland, Death's Stench, Dewy Swamps, Runewick",4,0);
-    AddWeg({723,385,0},"Gasthof zur Hanfschlinge, Galmair, Norden, Westen","The Hemp Necktie Inn, Galmair, North, West",6,0);
+    AddWeg({723,385,0},"Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",6,0);
     AddWeg({730,391,0},"Elstree Wald, Ostland, Frische Sümpfe, Runewick","Elstree Forest, Eastland, Dewy Swamps, Runewick",2,0);
     AddWeg({730,391,0},"Elstree Ebene, Igruks Höhle, Todes Gestank, Runewick","Elstree Plain, Igruk's Cave, Death's Stench, Runewick",4,0);
 
     AddWeg({714,488,0},"Igruks Höhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Igruk's Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
-    AddWeg({718,488,0},"Gasthof zur Hanfschlinge, Galmair, Norden","The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({718,488,0},"Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
     AddWeg({717,455,0},"Igruks Höhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Igruk's Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
     AddWeg({729,459,0},"Todes Gestank, Runewick","Death's Stench, Runewick",4,0);
-    AddWeg({729,448,0},"Gasthof zur Hanfschlinge, Galmair, Norden","The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({729,448,0},"Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
     AddWeg({564,394,0},"Funkelhöhle","Glittering Cave",0,0);
 
 	

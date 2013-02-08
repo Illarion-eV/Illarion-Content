@@ -77,9 +77,9 @@ function InitGrave()
     AddGrave({717,354,0},"","", 3,0);
     AddGrave({725,369,0},"","", 1,0);
     AddGrave({745,369,0},"","", 3,0);
-    AddGrave({773,369,0},"","", 2,0);
-    AddGrave({791,353,0},"","", 2,0);--Witch's Cottage
-    AddGrave({712,371,0},"","", 1,0);
+    AddGrave({773,369,0},"","", 2,0);]]--
+    AddGrave({791,353,0},"Das letzte Gift war für sie reserviert.","The last poison was saved for her.", 2,0);--Witch's Cottage
+   --[[ AddGrave({712,371,0},"","", 1,0);
     --Death's Stench
     AddGrave({805,586,0},"","", 3,0);
     --Death Swath

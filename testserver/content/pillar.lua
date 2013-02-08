@@ -330,6 +330,11 @@ function InitPillar()
     AddPillar({661,388,2},"Auf der Säule steht mit Blut geschrieben 'Furcht'.","The word 'fear' is written with blood on the column.", 1,5);
     AddPillar({661,393,2},"Auf der Säule steht mit Blut geschrieben 'Stärke'.","The word 'strength' is written with blood on the column.", 1,5);
     AddPillar({656,393,2},"Auf der Säule steht mit Blut geschrieben 'Blut'.","The word 'blood' is written with blood on the column.", 1,5);
+	--Insurmountable Limes
+	AddPillar({674,13,0},"Eine Notiz an der Statue besagt: 'Westtor-Wache des Unüberwindbaren Limes'.","A note on the figure says: 'Westgate-Guard of the Insurmountable Limes'.", 3,0);
+	AddPillar({677,13,0},"Eine Notiz an der Statue besagt: 'Westtor-Wache des Unüberwindbaren Limes'.","A note on the figure says: 'Westgate-Guard of the Insurmountable Limes'.", 3,0);
+	AddPillar({931,136,0},"Eine Notiz an der Statue besagt: 'Osttor-Wache des Unüberwindbaren Limes'.","A note on the figure says: 'Eastgate-Guard of the Insurmountable Limes'.", 4,0);
+	AddPillar({931,139,0},"Eine Notiz an der Statue besagt: 'Osttor-Wache des Unüberwindbaren Limes'.","A note on the figure says: 'Eastgate-Guard of the Insurmountable Limes'.", 4,0);
 	--Kata Island
 	--[[AddPillar({169,834,0},"","", 2,5);
     --Lighthouse

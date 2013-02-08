@@ -55,16 +55,19 @@ function InitPennant()
     AddPennant({130,530,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 2,0); --palace
     AddPennant({109,551,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --registration
     AddPennant({104,552,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --registration
-   --Cherass Citadel
-    AddPennant({596,383,2},"Cherass heiﬂt euch willkommen in seiner Zitadelle!","Cherass welcomes you in his citadel!", 7,5); --outpost
-    AddPennant({601,383,2},"Cherass heiﬂt euch willkommen in seiner Zitadelle!","Cherass welcomes you in his citadel!", 7,5); --outpost
+    --Carnivore's House
+	AddPennant({847,312,0},"Falls du auch Menschenfleisch magst bist du herzlich zum Abendbrot eingeladen! HA! HA!","If you also like human meet, you are very welcome to stay for dinner! HA! HA!", 6,0);
+	AddPennant({847,311,0},"Falls du auch Menschenfleisch magst bist du herzlich zum Abendbrot eingeladen! HA! HA!","If you also like human meet, you are very welcome to stay for dinner! HA! HA!", 6,0);
+    --Cherass Citadel
+    AddPennant({596,383,2},"Cherass heiﬂt euch willkommen in seiner Zitadelle!","Cherass welcomes you in his citadel!", 7,0); --outpost
+    AddPennant({601,383,2},"Cherass heiﬂt euch willkommen in seiner Zitadelle!","Cherass welcomes you in his citadel!", 7,0); --outpost
      --[[--Craven cave/Igruk's Cave
     AddPennant({674,389,2},"","", 6,5);
 	AddPennant({674,392,2},"","", 6,5);
 	AddPennant({670,389,2},"","", 6,5);
 	AddPennant({670,392,2},"","", 6,5);]]--
-	AddPennant({666,448,0},"Hoheitsgebiet des Igruk","Igruk's territory", 7,5);
-	AddPennant({670,448,0},"Hoheitsgebiet des Igruk","Igruk's territory", 7,5);
+	AddPennant({666,448,0},"Hoheitsgebiet des Igruk","Igruk's territory", 7,0);
+	AddPennant({670,448,0},"Hoheitsgebiet des Igruk","Igruk's territory", 7,0);
     AddPennant({627,415,0},"Hoheitsgebiet des Igruk","Igruk's territory", 6,0);
     AddPennant({678,346,0},"Hoheitsgebiet des Igruk","Igruk's territory", 6,0);
    	--Death Marsh
@@ -92,16 +95,13 @@ function InitPennant()
 	--Firelimes
     AddPennant({528,587,1},"","", 3,5);
     AddPennant({525,587,1},"","", 3,5);
-    --Galmair
-    AddPennant({383,194,-6},"","", 7,5);--Hog Dens
-    AddPennant({386,194,-6},"","", 7,5);--Hog Dens
     --Galmair Hinterland
     AddPennant({410,350,0},"","", 3,5); --Miners club
     AddPennant({401,270,1},"","", 1,5); --Miners club
     AddPennant({446,118,0},"","", 3,5); --Harbour ]]--
 	--Galmair Plateau
-    AddPennant({358,378,1},"Fort Schnellbeil - Wir zahlen dem Don keine Steuern!","Fort Schnellbeil - We do not pay taxes to the Don!", 4,5);
-    AddPennant({356,378,1},"Fort Schnellbeil - Wir zahlen dem Don keine Steuern!","Fort Schnellbeil - We do not pay taxes to the Don!", 4,5);
+    AddPennant({358,378,1},"Fort Schnellbeil - Wir zahlen dem Don keine Steuern!","Fort Schnellbeil - We do not pay taxes to the Don!", 4,0);
+    AddPennant({356,378,1},"Fort Schnellbeil - Wir zahlen dem Don keine Steuern!","Fort Schnellbeil - We do not pay taxes to the Don!", 4,0);
     --[[--Glowing Forest
     AddPennant({483,561,0},"","", 5,5);
     AddPennant({483,563,0},"","", 5,5);
