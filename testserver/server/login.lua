@@ -35,9 +35,10 @@ function onLogin( player )
 
 		
 	if isTestserver() then
-		if player.name == "Alsaya" then
-			payNow(player)
-			PayOutWage(player, base.factions.getMembershipByName(player))
+		if player:isAdmin() then
+			if player.name == "Alsaya" then
+				player:inform("Hello Alsaya");
+			end
 		end
 	end
 
