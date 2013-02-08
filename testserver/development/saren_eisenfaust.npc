@@ -154,10 +154,10 @@ queststatus(81) = 7, item(2389, all) < 2, german, ".+" -> "You were supposed to 
 queststatus(81) = 7, item(2389, all) < 2, english, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 vergoldete Kriegsäxte und 2 salkamaerische Rüstungen."
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(81) = 8, english, "quest", "mission" -> "Nah, I don't have anything else to do for you. Leave me alone now!"
-queststatus(81) = 8, german, "quest", "mission" -> "Nay, Ick hab nix mehr für dich zu tun. Lass mich nun in Ruhe!"
-queststatus(81) = 8, "task", "adventure" -> "Nah, I don't have anything else to do for you. Leave me alone now!"
-queststatus(81) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> "Nay, Ick hab nix mehr für dich zu tun. Lass mich nun in Ruhe!"
+queststatus(81) = 8, english, town = Galmair, "quest", "mission" -> "Nah, I don't have anything else to do for you. Leave me alone now!"
+queststatus(81) = 8, german, town = Galmair, "quest", "mission" -> "Nay, Ick hab nix mehr für dich zu tun. Lass mich nun in Ruhe!"
+queststatus(81) = 8, town = Galmair, "task", "adventure" -> "Nah, I don't have anything else to do for you. Leave me alone now!"
+queststatus(81) = 8, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Nay, Ick hab nix mehr für dich zu tun. Lass mich nun in Ruhe!"
 queststatus(81) = 0, skill(smithing) >= 80, english, town = Galmair, "quest", "mission" -> "Arr? I don't have anything to do for you!"
 queststatus(81) = 0, skill(smithing) >= 80, german, town = Galmair, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun!"
 queststatus(81) = 0, skill(smithing) >= 80, town = Galmair, "task", "adventure" -> "Arr? I don't have anything to do for you!"
@@ -170,6 +170,10 @@ queststatus(81) = 0, skill(smithing) >= 80, english, town = Cadomyr, "quest", "m
 queststatus(81) = 0, skill(smithing) >= 80, german, town = Cadomyr, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun!"
 queststatus(81) = 0, skill(smithing) >= 80, town = Cadomyr, "task", "adventure" -> "Arr? I don't have anything to do for you!"
 queststatus(81) = 0, skill(smithing) >= 80, town = Cadomyr, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun!"
+queststatus(81) = 0, skill(smithing) >= 80, english, town = none, "quest", "mission" -> "Arr? I don't have anything to do for you!"
+queststatus(81) = 0, skill(smithing) >= 80, german, town = none, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun!"
+queststatus(81) = 0, skill(smithing) >= 80, town = none, "task", "adventure" -> "Arr? I don't have anything to do for you!"
+queststatus(81) = 0, skill(smithing) >= 80, town = none, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun!"
 queststatus(81) = 0, skill(smithing) =< 80, english, town = Runewick, "quest", "mission" -> "Arr? I don't have anything to do for you!"
 queststatus(81) = 0, skill(smithing) =< 80, german, town = Runewick, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun!"
 queststatus(81) = 0, skill(smithing) =< 80, town = Runewick, "task", "adventure" -> "Arr? I don't have anything to do for you!"
@@ -178,6 +182,10 @@ queststatus(81) = 0, skill(smithing) =< 80, english, town = Cadomyr, "quest", "m
 queststatus(81) = 0, skill(smithing) =< 80, german, town = Cadomyr, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun!"
 queststatus(81) = 0, skill(smithing) =< 80, town = Cadomyr, "task", "adventure" -> "Arr? I don't have anything to do for you!"
 queststatus(81) = 0, skill(smithing) =< 80, town = Cadomyr, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun!"
+queststatus(81) = 0, skill(smithing) =< 80, english, town = none, "quest", "mission" -> "Arr? I don't have anything to do for you!"
+queststatus(81) = 0, skill(smithing) =< 80, german, town = none, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun!"
+queststatus(81) = 0, skill(smithing) =< 80, town = none, "task", "adventure" -> "Arr? I don't have anything to do for you!"
+queststatus(81) = 0, skill(smithing) =< 80, town = none, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "You ask what my profession is? I'm a smith, the best even.", "I'm a smith and you?"

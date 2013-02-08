@@ -29,7 +29,7 @@ require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.skill")
 require("npc.base.talk")
-module("development.saren_eisenfaust", package.seeall)
+module("npc.saren_eisenfaust", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -82,7 +82,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Silverbrand? There's not much I know about. But my cousin lived ther' a while.");
+talkEntry:addResponse("What do ya want, eh? We say greetings around here.");
+talkEntry:addResponse("Aye, whatever.");
+talkEntry:addResponse("You won't go far with that greeting around here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -152,7 +154,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("archmage");
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addTrigger("Wie Befind");
 talkEntry:addResponse("Ich kann nich klagen und du?");
 talkEntry:addResponse("Ganz gut und selbst?");
 talkEntry:addResponse("Mal so, mal so, aber gerade geht es mir ganz gut.");
@@ -201,7 +206,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 1));
-talkEntry:addResponse("Don't know her personally but wouldn't mind if she really is as good looking as they say. Hear she's a harsh leader though.");
+talkEntry:addResponse("Ich kann dir helfen falls du Schmied werden willst, hol mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz und nen Hammer nich zu vergessen. Hier noch die Spitzhacke zum abbauen des Erzes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -228,7 +233,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 1));
-talkEntry:addResponse("Well, a little hot there but the queen is supposed to be good looking, wouldn't mind if she came here.");
+talkEntry:addResponse("Ich kann dir helfen, falls du Schmied werden willst, dafür solltest du mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz bringen. Und hier eine Hacke um das Erz abzubauen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -542,7 +547,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2751, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Irmorom.  Ich huldige dem Vater der Zwerge und Heiligem der Handwerker. Sowie Brágon, dessen Flammen die Metalle zum schmelzen bringen.");
+talkEntry:addResponse("Arr! You're supposed to bring me 15 copper ore, crucible-pincers, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -753,9 +758,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Aye, then go and collect those things I asked you for.");
-talkEntry:addResponse("If ya say so.");
-talkEntry:addResponse("Alright, have fun!");
+talkEntry:addResponse(" Arr, da fehlt aber noch was. Ick wollte 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metallhandschuhe und 4 Schwertgriffe, aye!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -800,9 +803,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(529, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Eh..what did you just say about my mother?");
-talkEntry:addResponse("What are you jabbering about?");
-talkEntry:addResponse("Nah, I don't wanna buy that!");
+talkEntry:addResponse("Arr, there are still some things missing. You are supposed to bring me 10 iron ingots, 10 gold ingots, 5 dwarven metal gloves and 4 sword handles, aye!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1011,6 +1012,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Nah, I don't have anything else to do for you. Leave me alone now!");
@@ -1020,6 +1022,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Nay, Ick hab nix mehr für dich zu tun. Lass mich nun in Ruhe!");
@@ -1028,6 +1031,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 8));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("Nah, I don't have anything else to do for you. Leave me alone now!");
@@ -1036,6 +1040,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 8));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -1170,6 +1175,48 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(0));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(0));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -1247,6 +1294,48 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(0));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
