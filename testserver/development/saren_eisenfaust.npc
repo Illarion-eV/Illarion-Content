@@ -148,10 +148,6 @@ queststatus(81) = 8, english, "quest", "mission" -> "Nah, you learned enough fro
 queststatus(81) = 8, german, "quest", "mission" -> "Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!"
 queststatus(81) = 8, "task", "adventure" -> "Nah, you learned enough from me. You have to figure out everything else for yourself. That's what a good smith is all about."
 queststatus(81) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> "Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!"
-english, "quest", "mission" -> "Sorry, I only issue tasks to unexperienced smiths"
-"quest", "mission" -> "Tut mir Leid, Kumpel. Aber ich geb nur unerfahrenen Schmieden Aufgaben auf."
-"smith", "task", "adventure", "order" -> "Sorry, I only issue tasks to unexperienced smithes."
-"Schmied", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Tut mir Leid, Kumpel. Aber ich geb nur unerfahrenen Schmieden Aufgaben auf."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "You ask what my profession is? I'm a smith, the best even.", "I'm a smith and you?"
