@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Marianne Forgeron"
@@ -89,8 +89,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Irmorom be with ya!", "
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> " Marianne Forgeron, so heiße ich.", " Marianne Forgeron."
 
 -- TRIGGERS for Gemcraft
-"gem", "smithing" -> gemcraft, "Did I hear ya say work?", "Let's start!"
-"Edelstein", "Schmieden" -> gemcraft, "Dann woll'n wir ma!", "Auf ans Werk!"
+"gem", "smithing" -> "Did I hear ya say work?", "Let's start!", gemcraft
+"Edelstein", "Schmieden" -> "Dann woll'n wir ma!", "Auf ans Werk!", gemcraft
 
 -- OPTIONAL TRIGGERS
 

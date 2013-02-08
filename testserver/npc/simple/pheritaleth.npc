@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Pheritaleth"
@@ -73,7 +73,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Happy mining.", "Farewell."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Viel Spaß in der Mine.", "Gehabt euch wohl."
 "How are you", "How feel", "How do you do" -> "Fine! Let's talk about gems."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Nun lasst uns über Edelsteine reden."
-"your name", "who are you", "who art thou" -> "They call me Pheritaleth and I am skilled in gemcraft."
+"your name", "who are you", "who art thou" -> "They call me Pheritaleth and I am skilled in.", gemcraft
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich werde Pheritaleth genannt und bin eine Edelsteinkünstlerin."
 
 -- OPTIONAL TRIGGERS

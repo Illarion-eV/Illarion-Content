@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                       easyNPC Parser v1.22 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Krudash"
@@ -65,8 +65,8 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Metal body armour: 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407
 -- Metal ingots: 104, 236, 2550, 2535, 2571
 -- Swords: 1, 25, 78, 84, 85, 98, 123, 204, 445 (Holzschert), 2658, 2701, 2731, 2757, 2775, 2778
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Gâsh! I sell everything made in the forge. Sharpest axes! Mightiest armours! Best tools. Uh!"
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Gâsh! I sell everything made in the forge. Sharpest axes! Mightiest armours! Best tools. Uh!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: buy, sell, trade, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"), "Me, Krudash sell and buy lots of stuff! Taghta?"

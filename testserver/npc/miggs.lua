@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -23,7 +23,6 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.miggs", package.seeall)
 
@@ -457,8 +456,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 18));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and itsrs, slay as many as possible.");
+talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and its traders, slay as many as possible.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -476,8 +474,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 12));
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 18));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and itsrs, slay as many as possible.");
+talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and its traders, slay as many as possible.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,10 +691,8 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("In Galmair, you maywhatever you want with whoever you want whenever you want.");
-talkEntry:addResponse("The market place is a good place to. It is outside. So... get out!");
+talkEntry:addResponse("In Galmair, you may trade whatever you want with whoever you want whenever you want.");
+talkEntry:addResponse("The market place is a good place to trade. It is outside. So... get out!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -848,8 +843,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rules");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("1. The Don protects you if you pay the fee. - 2. Pay the toll and the interest and no harm will be done. - 3.freely, stay and depart as you wish. - 4. Come to the Don if you need help. He is your godfather. - 5. A deal with the Don is a deal with your fate. - If you did harm, compensate generously twice the damage.");
+talkEntry:addResponse("1. The Don protects you if you pay the fee. - 2. Pay the toll and the interest and no harm will be done. - 3. Trade freely, stay and depart as you wish. - 4. Come to the Don if you need help. He is your godfather. - 5. A deal with the Don is a deal with your fate. - If you did harm, compensate generously twice the damage.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1091,8 +1085,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("I'm not ar. You may give me your money, though.");
+talkEntry:addResponse("I'm not a trader. You may give me your money, though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1216,7 +1209,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -25,6 +25,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.talkstate")
 require("npc.base.talk")
 module("npc.madoquar", package.seeall)
 
@@ -163,7 +164,9 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("Gestern habe ich einen Sonnenuntergang gesehen, der mir die Sprache verschlagen hat. Ich habe die Sonne schon tausend, zehntausend, vielleicht einhundertausend mal schon versinken gesehen, aber noch nie so.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Gestern habe ich einen Sonnenuntergang gesehen, der mir die Sprache verschlagen hat. Ich habe die Sonne schon tauszehntausvielleicht einhundertausend mal schon versinken gesehen, aber noch nie so.");
 talkEntry:addResponse("Jedesmal, wenn ich das letzte Licht des Morgensterns zwischen die Finger der Welt verblassen sehe, lerne ich etwas neues über Illarion und mich selbst.");
 talkEntry:addResponse("Ich fühle mich großartig, danke.");
 talkEntry:addResponse("Mir geht es wie immer. Mir geht nun schon seit wie vielen Jahren so? Ich denke, es ist ganz normal.");
@@ -198,8 +201,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak I"));
-talkEntry:addResponse("I can't tell you what is wrong with the world, but I feel a dark presence not far to the east. Be a dear and go explore it for me please.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 1));
+talkEntry:addResponse("I can't tell you what is wrong with the world, but I feel a dark presence not far to the east. Be a dear and go explore it for me please.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -208,8 +211,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addResponse("Ich kann euch nicht sagen, was mit der Welt nicht stimmt, aber ich spüre eine dunkle Präsenz nicht weit von hier im Osten. Seid so nett und erkundet den Ursprung für mich.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 1));
+talkEntry:addResponse("Ich kann euch nicht sagen, was mit der Welt nicht stimmt, aber ich spüre eine dunkle Präsenz nicht weit von hier im Osten. Seid so nett und erkundet den Ursprung für mich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -218,8 +221,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak I"));
-talkEntry:addResponse("I can't tell you what is wrong with the world, but I feel a dark presence not far to the east. Be a dear and go explore it for me please.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 1));
+talkEntry:addResponse("I can't tell you what is wrong with the world, but I feel a dark presence not far to the east. Be a dear and go explore it for me please.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -229,8 +232,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addResponse("Ich kann euch nicht sagen, was mit der Welt nicht stimmt, aber ich spüre eine dunkle Präsenz nicht weit von hier im Osten. Seid so nett und erkundet den Ursprung für mich.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 1));
+talkEntry:addResponse("Ich kann euch nicht sagen, was mit der Welt nicht stimmt, aber ich spüre eine dunkle Präsenz nicht weit von hier im Osten. Seid so nett und erkundet den Ursprung für mich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -273,9 +276,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded six silver coins."));
-talkEntry:addResponse("So, the origin of the evil presence is an oak? Let me think about this for a minute or a year and come back to me.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 3));
+talkEntry:addResponse("So, the origin of the evil presence is an oak? Let me think about this for a minute or a year and come back to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -283,9 +286,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst sechs Silberstücke."));
-talkEntry:addResponse("Also der Ursprung der dunklen Präsenz ist eine Eiche? Lasst mich eine Minute oder auch ein Jahr darüber nachdenken und kommt dann zu mir zurück.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 3));
+talkEntry:addResponse("Also der Ursprung der dunklen Präsenz ist eine Eiche? Lasst mich eine Minute oder auch ein Jahr darüber nachdenken und kommt dann zu mir zurück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -295,8 +298,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak II"));
-talkEntry:addResponse("The oak cannot simply be cut down... I should have expected that much. The spirit of the tree is too strong. There is a way to solve this; Bring me a battle axe, a bar of silver and one more thing. I will tell you the last thing after you bring me these.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 4));
+talkEntry:addResponse("The oak cannot simply be cut down... I should have expected that much. The spirit of the tree is too strong. There is a way to solve this; Bring me a battle axe, a bar of silver and one more thing. I will tell you the last thing after you bring me these.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -305,8 +308,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addResponse("Diese Eiche kann man nicht einfach fällen... Ich hätte es wissen müssen. Der Geist in ihr ist zu stark. Aber es gibt einen Weg; bringt mir eine Kriegsaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 4));
+talkEntry:addResponse("Diese Eiche kann man nicht einfach fällen... Ich hätte es wissen müssen. Der Geist in ihr ist zu stark. Aber es gibt einen Weg; bringt mir eine Kriegsaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -315,8 +318,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak II"));
-talkEntry:addResponse("The oak cannot simply be cut down... I should have expected that much. The spirit of the tree is too strong. There is a way to solve this; Bring me a battle axe, a bar of silver and one more thing. I will tell you the last thing after you bring me these.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 4));
+talkEntry:addResponse("The oak cannot simply be cut down... I should have expected that much. The spirit of the tree is too strong. There is a way to solve this; Bring me a battle axe, a bar of silver and one more thing. I will tell you the last thing after you bring me these.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -326,8 +329,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addResponse("Diese Eiche kann man nicht einfach fällen... Ich hätte es wissen müssen. Der Geist in ihr ist zu stark. Aber es gibt einen Weg; bringt mir eine Kriegsaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 4));
+talkEntry:addResponse("Diese Eiche kann man nicht einfach fällen... Ich hätte es wissen müssen. Der Geist in ihr ist zu stark. Aber es gibt einen Weg; bringt mir eine Kriegsaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,12 +341,12 @@ talkEntry:addCondition(npc.base.condition.item.item(104, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 12 silver coins and a ruby amulet."));
-talkEntry:addResponse("You warriors are a gift. That's all the items except for one. Let me meditate for a moment and then come back to me.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2946, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(104, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 5));
+talkEntry:addResponse("You warriors are a gift. That's all the items except for one. Let me meditate for a moment and then come back to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -353,12 +356,12 @@ talkEntry:addCondition(npc.base.condition.item.item(2946, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.item.item(104, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 12 Silberstücke und ein Rubinamulett."));
-talkEntry:addResponse("Ihr Krieger seid eine Segen. Das sind alle Dinge, die ich brauche, außer eines. Lasst mich kurz meditieren und kommt dann zurück zu mir.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2946, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(104, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 5));
+talkEntry:addResponse("Ihr Krieger seid eine Segen. Das sind alle Dinge, die ich brauche, außer eines. Lasst mich kurz meditieren und kommt dann zurück zu mir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -402,8 +405,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak III"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 6));
 talkEntry:addResponse("Before you make any judgements please listen. This next part is not onerous, yet it will take an open mind. South of the oak is the remnants of a house. I need you to search in that house for a piece of a dead body and bring it back here.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -412,8 +415,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 5));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
-talkEntry:addResponse("Hört bitte erstmal zu. Worum ich euch bitten werde ist nicht sonderlich schwierig, aber eventuell abstoßend. Südlich der Eiche sind die Überreste eines Hauses. Sucht bitte in dem Haus nach Leichenteilen und bringt sie her.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 6));
+talkEntry:addResponse("Hört bitte erstmal zu. Worum ich euch bitten werde ist nicht sonderlich schwierig, aber eventuell abstoßend. Südlich der Eiche sind die Überreste eines Hauses. Sucht bitte in dem Haus nach Leichenteilen und bringt sie her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -423,8 +426,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak III"));
-talkEntry:addResponse("Before you make any judgments please listen. This next part is not onerous, yet it will take an open mind. South of the oak is the remnants of a house. I need you to search in that house for a piece of a dead body and bring it back here.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 6));
+talkEntry:addResponse("Before you make any judgments please listen. This next part is not onerous, yet it will take an open mind. South of the oak is the remnants of a house. I need you to search in that house for a piece of a dead body and bring it back here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -434,8 +437,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
-talkEntry:addResponse("Hört bitte erstmal zu. Worum ich euch bitten werde ist nicht sonderlich schwierig, aber eventuell abstoßend. Südlich der Eiche sind die Überreste eines Hauses. Sucht bitte in dem Haus nach Leichenteilen und bringt sie her.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 6));
+talkEntry:addResponse("Hört bitte erstmal zu. Worum ich euch bitten werde ist nicht sonderlich schwierig, aber eventuell abstoßend. Südlich der Eiche sind die Überreste eines Hauses. Sucht bitte in dem Haus nach Leichenteilen und bringt sie her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -478,9 +481,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a bottle of elven wine."));
-talkEntry:addResponse("Very well, thank you for the bone. Now we have all we need to banish that ghost of the oak. Have this bottle of wine, it might help you recover from this horrible deed. Come back to me when sober again.");
 talkEntry:addConsequence(npc.base.consequence.item.item(1318, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 8));
+talkEntry:addResponse("Very well, thank you for the bone. Now we have all we need to banish that ghost of the oak. Have this bottle of wine, it might help you recover from this horrible deed. Come back to me when sober again.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -488,9 +491,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 7));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Flasche Elfenwein."));
-talkEntry:addResponse("Wunderbar, danke für den Knochen. Jetzt haben wir alles beisammen, um den Geist der Eiche auszutreiben. Nehmt diese Flasche Wein, sie mag euch helfen, über die Dinge hinwegzukommen, die ihr gerade getan habt. Kommt zu mir zurück, wenn ihr wieder nüchtern seid.");
 talkEntry:addConsequence(npc.base.consequence.item.item(1318, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 8));
+talkEntry:addResponse("Wunderbar, danke für den Knochen. Jetzt haben wir alles beisammen, um den Geist der Eiche auszutreiben. Nehmt diese Flasche Wein, sie mag euch helfen, über die Dinge hinwegzukommen, die ihr gerade getan habt. Kommt zu mir zurück, wenn ihr wieder nüchtern seid.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -500,9 +503,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak IV"));
-talkEntry:addResponse("Here is the an axe. It's silver so it can hurt the undead. The spirit of the oak is special. Nothing short of a specific weapon can kill it. Please fix this disturbance for me, so that I can live the rest of my life in peace.");
 talkEntry:addConsequence(npc.base.consequence.item.item(229, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 9));
+talkEntry:addResponse("Here is the an axe. It's silver so it can hurt the undead. The spirit of the oak is special. Nothing short of a specific weapon can kill it. Please fix this disturbance for me, so that I can live the rest of my life in peace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -511,9 +514,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 8));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche IV"));
-talkEntry:addResponse("Hier, nehmt diese Axt. Sie ist aus Silber, also kann sie Untote verletzen. Der Geist der Eiche ist etwas Besonderes, nur eine spezielle Waffe kann ihn töten. Bitte erledigt diese Unannehmlichkeit so dass ich den Rest meines Lebens in Frieden leben kann.");
 talkEntry:addConsequence(npc.base.consequence.item.item(229, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 9));
+talkEntry:addResponse("Hier, nehmt diese Axt. Sie ist aus Silber, also kann sie Untote verletzen. Der Geist der Eiche ist etwas Besonderes, nur eine spezielle Waffe kann ihn töten. Bitte erledigt diese Unannehmlichkeit so dass ich den Rest meines Lebens in Frieden leben kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -522,9 +525,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 8));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak IV"));
-talkEntry:addResponse("Here is the an axe. It's silver so it can hurt the undead. The spirit of the tree is special. Nothing short of a specific weapon can kill it. Please fix this disturbance for me, so that I can live the rest of my life in peace.");
 talkEntry:addConsequence(npc.base.consequence.item.item(229, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 9));
+talkEntry:addResponse("Here is the an axe. It's silver so it can hurt the undead. The spirit of the tree is special. Nothing short of a specific weapon can kill it. Please fix this disturbance for me, so that I can live the rest of my life in peace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -534,9 +537,9 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche IV"));
-talkEntry:addResponse("Hier, nehmt diese Axt. Sie ist aus Silber, also kann sie Untote verletzen. Der Geist der Eiche ist etwas Besonderes, nur eine spezielle Waffe kann ihn töten. Bitte erledigt diese Unannehmlichkeit so dass ich den Rest meines Lebens in Frieden leben kann.");
 talkEntry:addConsequence(npc.base.consequence.item.item(229, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 9));
+talkEntry:addResponse("Hier, nehmt diese Axt. Sie ist aus Silber, also kann sie Untote verletzen. Der Geist der Eiche ist etwas Besonderes, nur eine spezielle Waffe kann ihn töten. Bitte erledigt diese Unannehmlichkeit so dass ich den Rest meines Lebens in Frieden leben kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -579,10 +582,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded an amethyst ring and a magical amethyst."));
-talkEntry:addResponse("I'll give you a ring and a secret. I killed that wraith while it was alive. Don't tell a soul, but my real name is Quantisha and that wraith was once the real Madoquar. Don't look at me with such condescending eyes, this happened 400 years ago and I have already learned my lesson.");
 talkEntry:addConsequence(npc.base.consequence.item.item(277, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(197, 1, 333, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 11));
+talkEntry:addResponse("I'll give you a ring and a secret. I killed that wraith while it was alive. Don't tell a soul, but my real name is Quantisha and that wraith was once the real Madoquar. Don't look at me with such condescending eyes, this happened 400 years ago and I have already learned my lesson.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -590,10 +593,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 10));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Amethystring und einen magischen Amethysten."));
-talkEntry:addResponse("Ich gebe euch diesen Ring und ein Geheimnis. Ich tötete einst diesen Geist, als sie noch unter den Lebenden war. Sagt es niemanden, aber mein echter Name ist Quantisha und dieser Geist war einst die echte Madoquar. Schaut mich nicht so vorwurfsvoll an, all dies geschah vor vierhundert Jahren und ich habe bereits genug gebüßt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(277, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(197, 1, 333, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 11));
+talkEntry:addResponse("Ich gebe euch diesen Ring und ein Geheimnis. Ich tötete einst diesen Geist, als sie noch unter den Lebenden war. Sagt es niemanden, aber mein echter Name ist Quantisha und dieser Geist war einst die echte Madoquar. Schaut mich nicht so vorwurfsvoll an, all dies geschah vor vierhundert Jahren und ich habe bereits genug gebüßt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1485,7 +1488,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

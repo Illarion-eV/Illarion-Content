@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------
+------------------------------------------------------------------------------AC
 -- NPC Name: Joseph Quatrilla                                         Cadomyr --
 -- NPC Job:  Alchemist                                                        --
 --                                                                            --
@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   merung                                                           --
---                                                       easyNPC Parser v1.22 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Joseph Quatrilla"
@@ -50,21 +50,31 @@ itemShoes = 53
 -- the merchant dialog.
 
 sellItem = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000), stack(1), quality(333)
-
--- help
-"Help" -> inform("[Game Help] This NPC is Joseph Quatrilla the master of alchemy. Keywords: recipes, alchemy, book")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie. Schlüsselwörter: Rezepte, Alchemie, Buch")
-"handel", "kauf", "Buch" -> trade, "Bei mir könnt Ihr das Standardwerk der Alchemie erwerben."
-"buy", "sell,", "trade", "book" -> trade, "You can buy the standard work of alchemy from me."
-
-------------------------------------------------------------------------------
--- help
-"Help" -> inform("[Game Help] This NPC is Joseph Quatrilla the master of alchemy. Keywords: recipes, alchemy, book")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie. Schlüsselwörter: Rezepte, Alchemie, Buch")
-
 sellItem = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000), stack(1), quality(333)
-"handel","kauf","Buch" -> "Bei mir könnt Ihr das Standardwerk der Alchemie erwerben.",trade
-"buy","sell,","trade","book" -> "You can buy the standard work of alchemy from me.",trade
+
+-- ----------------------------------------------------------------------------
+-- NPC Name: Joseph Quatrilla                                         Cadomyr --
+-- NPC Job:  Alchemist                                                        --
+-- --
+-- NPC Race: human                      NPC Position:  138, 543, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
+-- --
+-- Author:   merung                                                           --
+-- easyNPC Parser v1.22 --
+-- ------------------------------------------------------------------------------
+
+-- help
+"Help" -> inform("[Game Help] This NPC is Joseph Quatrilla the master of alchemy. Keywords: recipes, alchemy, book")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie. Schlüsselwörter: Rezepte, Alchemie, Buch")
+"handel", "kauf", "Buch" -> "Bei mir könnt Ihr das Standardwerk der Alchemie erwerben.", trade
+"buy", "sell,", "trade", "book" -> "You can buy the standard work of alchemy from me.", trade
+
+-- ----------------------------------------------------------------------------
+-- help
+"Help" -> inform("[Game Help] This NPC is Joseph Quatrilla the master of alchemy. Keywords: recipes, alchemy, book")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie. Schlüsselwörter: Rezepte, Alchemie, Buch")
+"handel", "kauf", "Buch" -> "Bei mir könnt Ihr das Standardwerk der Alchemie erwerben.", trade
+"buy", "sell,", "trade", "book" -> "You can buy the standard work of alchemy from me.", trade
 
 -- general speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!", "Hello.", "Be greeted!"
@@ -120,7 +130,7 @@ english, "adrazin", "echolon", "hyperborelium", "dracolin", "orcanol", "fenolin"
 english, "Joseph", "Quatrilla" -> "That's me. Correct."
 "Joseph", "Quatrilla" -> "Das bin ich. Richtig erkannt."
 
-------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- cycle Texts
 
 ------------------------------------------------------------------------------AC

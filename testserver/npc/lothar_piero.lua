@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -795,7 +795,7 @@ tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank yo
 tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
 tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(5);
+mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Lothar Piero der Holzhändler.", "This NPC is Lothar Piero the timber merchant.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
@@ -816,7 +816,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

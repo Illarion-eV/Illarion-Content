@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Grokk                                                            --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -205,9 +205,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Update] Aurora's Staff: Part I"));
-talkEntry:addResponse("#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it.");
 talkEntry:addConsequence(npc.base.consequence.item.item(401, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 3));
+talkEntry:addResponse("#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -216,9 +216,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Auroras Stab: Teil  I"));
-talkEntry:addResponse("#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit.");
 talkEntry:addConsequence(npc.base.consequence.item.item(40, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 3));
+talkEntry:addResponse("#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -227,9 +227,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Aurora's Staff: Part I"));
-talkEntry:addResponse("#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it.");
 talkEntry:addConsequence(npc.base.consequence.item.item(40, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 3));
+talkEntry:addResponse("#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -239,9 +239,9 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest]Auroras Stab: Teil  I"));
-talkEntry:addResponse("#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit.");
 talkEntry:addConsequence(npc.base.consequence.item.item(40, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 3));
+talkEntry:addResponse("#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -251,8 +251,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Update] Aurora's Staff: Part II"));
-talkEntry:addResponse("I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 6));
+talkEntry:addResponse("I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -261,8 +261,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 5));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Auroras Stab: Teil  II"));
-talkEntry:addResponse("Es tut mir wirklich leid. Ich hätte nicht lügen sollen. Ein Halbling, Fosco Goodbarrel hat mich rein gelegt, so dass ich ihm den Stab gegeben habe. Er sagte, er könne mich zu einem mächtigeren Druiden machen. Ich wollte nicht das man mich für dumm hält. Ihr findet ihn im Wald westlich von hier.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 6));
+talkEntry:addResponse("Es tut mir wirklich leid. Ich hätte nicht lügen sollen. Ein Halbling, Fosco Goodbarrel hat mich rein gelegt, so dass ich ihm den Stab gegeben habe. Er sagte, er könne mich zu einem mächtigeren Druiden machen. Ich wollte nicht das man mich für dumm hält. Ihr findet ihn im Wald westlich von hier.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -272,8 +272,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("staff");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Update] Aurora's Staff: Part II"));
-talkEntry:addResponse("I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 6));
+talkEntry:addResponse("I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -284,8 +284,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Stab");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest]Auroras Stab: Teil  II"));
-talkEntry:addResponse("Es tut mir wirklich leid. Ich hätte nicht lügen sollen. Ein Halbling, Fosco Goodbarrel hat mich rein gelegt, so dass ich ihm den Stab gegeben habe. Er sagte, er könne mich zu einem mächtigeren Druiden machen. Ich wollte nicht das man mich für dumm hält. Ihr findet ihn im Wald westlich von hier.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 6));
+talkEntry:addResponse("Es tut mir wirklich leid. Ich hätte nicht lügen sollen. Ein Halbling, Fosco Goodbarrel hat mich rein gelegt, so dass ich ihm den Stab gegeben habe. Er sagte, er könne mich zu einem mächtigeren Druiden machen. Ich wollte nicht das man mich für dumm hält. Ihr findet ihn im Wald westlich von hier.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -331,8 +331,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Apprentice"));
-talkEntry:addResponse("Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
+talkEntry:addResponse("Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -341,8 +341,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der faule Lehrling"));
-talkEntry:addResponse("Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
+talkEntry:addResponse("Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -351,8 +351,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Apprentice"));
-talkEntry:addResponse("Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
+talkEntry:addResponse("Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -362,8 +362,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der faule Lehrling"));
-talkEntry:addResponse("Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
+talkEntry:addResponse("Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -450,11 +450,11 @@ talkEntry:addCondition(npc.base.condition.item.item(148, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins."));
-talkEntry:addResponse("Oh wonderful, thank you! Mistress Snow shall be so pleased with me! Here, take this as payment.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(153, 4, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(148, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 2));
+talkEntry:addResponse("Oh wonderful, thank you! Mistress Snow shall be so pleased with me! Here, take this as payment.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -464,11 +464,11 @@ talkEntry:addCondition(npc.base.condition.item.item(153, "all", ">", 3, nil));
 talkEntry:addCondition(npc.base.condition.item.item(148, "all", ">", 1, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke."));
-talkEntry:addResponse("Oh, wunderbar, vielen Dank! Meine Lehrerin Frau Shnow wird so stolz auf mich sein! Hier, nehmt dies zu Dank.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(153, 4, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(148, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 2));
+talkEntry:addResponse("Oh, wunderbar, vielen Dank! Meine Lehrerin Frau Shnow wird so stolz auf mich sein! Hier, nehmt dies zu Dank.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1242,7 +1242,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

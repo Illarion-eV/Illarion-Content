@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   merung                                                           --
---                                                       easyNPC Parser v1.22 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -43,8 +43,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("handel");
 talkEntry:addTrigger("kauf");
 talkEntry:addTrigger("Buch");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Bei mir könnt Ihr das Standardwerk der Alchemie erwerben.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -53,8 +53,8 @@ talkEntry:addTrigger("buy");
 talkEntry:addTrigger("sell,");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("book");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("You can buy the standard work of alchemy from me.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -74,8 +74,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("handel");
 talkEntry:addTrigger("kauf");
 talkEntry:addTrigger("Buch");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Bei mir könnt Ihr das Standardwerk der Alchemie erwerben.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -84,8 +84,8 @@ talkEntry:addTrigger("buy");
 talkEntry:addTrigger("sell,");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("book");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("You can buy the standard work of alchemy from me.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

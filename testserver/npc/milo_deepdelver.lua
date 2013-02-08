@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Nanuk                                                            --
 --           Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -166,8 +166,8 @@ talkEntry:addTrigger("problem");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Milo's ox"));
-talkEntry:addResponse("This stupid ox of mine doesn't move a single step and I am late returning to my family. My ox is doing anything for carrots, but a few miles ago they ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 1));
+talkEntry:addResponse("This stupid ox of mine doesn't move a single step and I am late returning to my family. My ox is doing anything for carrots, but a few miles ago they ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -177,8 +177,8 @@ talkEntry:addTrigger("Problem");
 talkEntry:addTrigger("Mission");
 talkEntry:addTrigger("Quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Milos Ochse"));
-talkEntry:addResponse("Mein dummer Ochse bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Mein Ochse würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 1));
+talkEntry:addResponse("Mein dummer Ochse bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Mein Ochse würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -190,8 +190,8 @@ talkEntry:addTrigger("order");
 talkEntry:addTrigger("yes");
 talkEntry:addTrigger("ox");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Milo's ox"));
-talkEntry:addResponse("This stupid ox of mine doesn't move a single step and I am late returning to my family. My ox is doing anything for carrots, but a few miles ago they ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 1));
+talkEntry:addResponse("This stupid ox of mine doesn't move a single step and I am late returning to my family. My ox is doing anything for carrots, but a few miles ago they ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -205,8 +205,8 @@ talkEntry:addTrigger("ja");
 talkEntry:addTrigger("helfe");
 talkEntry:addTrigger("Ochse");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Milos Ochse"));
-talkEntry:addResponse("Mein dummer Ochse bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Mein Ochse würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 1));
+talkEntry:addResponse("Mein dummer Ochse bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Mein Ochse würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -219,11 +219,11 @@ talkEntry:addTrigger("problem");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You received ten mandrakes and one bottle of elven wine."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. But I can't teach you anything anymore. You are already surpassing my skills. Here let me give you some of my provisions in exchange, especially this nice wine from the elven domain!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(1318, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(752, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. But I can't teach you anything anymore. You are already surpassing my skills. Here let me give you some of my provisions in exchange, especially this nice wine from the elven domain!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -235,11 +235,11 @@ talkEntry:addTrigger("Problem");
 talkEntry:addTrigger("Mission");
 talkEntry:addTrigger("Quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhälst zehn Alraunen und eine Flasche Elfenwein."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr übertrefft meine Fähigkeiten bereits. Lasst mich euch im Austausch ein paar meiner Vorräte geben, insbesondere dieser exzellente Elfenwein!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(1318, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(752, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr übertrefft meine Fähigkeiten bereits. Lasst mich euch im Austausch ein paar meiner Vorräte geben, insbesondere dieser exzellente Elfenwein!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -253,11 +253,11 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addTrigger("ox");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You received ten mandrakes and one bottle of elven wine."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. But I can't teach you anything anymore. You are already surpassing my skills. Here let me give you some of my provisions in exchange, especially this nice wine from the elven domain!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(1318, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(752, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. But I can't teach you anything anymore. You are already surpassing my skills. Here let me give you some of my provisions in exchange, especially this nice wine from the elven domain!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -274,11 +274,11 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addTrigger("Ochse");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhälst zehn Alraunen und eine Flasche Elfenwein."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr übertrefft meine Fähigkeiten bereits. Lasst mich euch im Austausch ein paar meiner Vorräte geben, insbesondere dieser exzellente Elfenwein!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(1318, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(752, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr übertrefft meine Fähigkeiten bereits. Lasst mich euch im Austausch ein paar meiner Vorräte geben, insbesondere dieser exzellente Elfenwein!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -291,10 +291,10 @@ talkEntry:addTrigger("problem");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -306,10 +306,10 @@ talkEntry:addTrigger("Problem");
 talkEntry:addTrigger("Mission");
 talkEntry:addTrigger("Quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Geheimnisse der Kräuterkunde zeigen!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Geheimnisse der Kräuterkunde zeigen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -323,10 +323,10 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addTrigger("ox");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -343,10 +343,10 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("befehl");
 talkEntry:addTrigger("Ochse");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Geheimnisse der Kräuterkunde zeigen!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Geheimnisse der Kräuterkunde zeigen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -359,10 +359,10 @@ talkEntry:addTrigger("problem");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -374,10 +374,10 @@ talkEntry:addTrigger("Problem");
 talkEntry:addTrigger("Mission");
 talkEntry:addTrigger("Quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -391,10 +391,10 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addTrigger("ox");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -411,10 +411,10 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("befehl");
 talkEntry:addTrigger("Ochse");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -427,10 +427,10 @@ talkEntry:addTrigger("problem");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 10));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -442,10 +442,10 @@ talkEntry:addTrigger("Problem");
 talkEntry:addTrigger("Mission");
 talkEntry:addTrigger("Quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 10));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -459,10 +459,10 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addTrigger("ox");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 10));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -479,10 +479,10 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addTrigger("Ochse");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 10));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1519,7 +1519,7 @@ talkingNPC:addCycleText("In Galmair wüßte man mit einem Ochse wie dir umzugehen!
 talkingNPC:addCycleText("Bei den Haaren meiner Füße, ich trete dir gleich in den Hintern!", "By the hairs on my feet, I will kick you in the butt!");
 talkingNPC:addCycleText("Wegen dir kommen wir zu spät zum Essen, du dickköpfige Kreatur!", "Because of you we will be late for dinner, you bullheaded creature!");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(5);
+mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist der Kräuterkundige Milo Deepdelver.", "This NPC is the herbalist Milo Deepdelver.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
@@ -1540,7 +1540,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
