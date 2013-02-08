@@ -308,8 +308,8 @@ function InitPillar()
     AddPillar({496,193,0},"Eine Notiz an der Eisenstatue besagt: 'Beschützer der Schwarzbrücke'.","A note on the iron figure says: 'Protector of the Blackbridge'.", 5,0); --Blackbridge
     AddPillar({499,193,0},"Eine Notiz an der Eisenstatue besagt: 'Beschützer der Schwarzbrücke'.","A note on the iron figure says 'Protector of the Blackbridge'.", 5,0); --Blackbridge
 	--Galmair Plateau
-	--[[	AddPillar({357,365,1},"","", 4,5);
-	--Grugmutz's cave
+AddPillar({357,365,1},"Er begehrte Gold, er bekam Gold. Goldener Rumil.","He desired gold, he got gold. Golden Rumil.", 4,0);
+		--[[	--Grugmutz's cave
     AddPillar({169,558,0},"","", 1,5);
     AddPillar({169,561,0},"","", 1,5);
     --Harp of Pain
