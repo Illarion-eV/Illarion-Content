@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Wulfgorda"
@@ -59,8 +59,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Wulfgorda die Jägerin. Schlüsselwörter: Auskunft, Information, Orte.")
 
 -- Mandatory: General speech
-queststatus(650) = 1, english, ".*" -> inform("[Quest End  'Find Wulfgorda'] You received 10 silvercoins and 5 rankpoints."), "#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have some silvercoins for that you found me.", money + 1000, deleteitem(155,10), queststatus(650) = 2, rankpoints+5
-queststatus(650) = 1, ".*" -> inform("[Quest Ende 'Find Wulfgorda'] Du hast 10 Silberstücke und 5 Rangpunkte erhalten."), "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen.", money + 1000, deleteitem(155,10), queststatus(650) = 2, rankpoints+5
+queststatus(650) = 1, english, ".*" -> inform("[Quest End  'Find Wulfgorda'] You received 10 silvercoins and 5 rankpoints."), money + 1000, deleteItem(155, 10), queststatus(650) = 2, rankpoints + 5, "#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have some silvercoins for that you found me."
+queststatus(650) = 1, ".*" -> inform("[Quest Ende 'Find Wulfgorda'] Du hast 10 Silberstücke und 5 Rangpunkte erhalten."), money + 1000, deleteItem(155, 10), queststatus(650) = 2, rankpoints + 5, "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen."
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me tips her helmet."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me tippt auf ihren Helm."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me tips her helmet."
@@ -107,7 +107,7 @@ english, "Illarion" -> inform("[Keywords] Northeast, northwest, southwest, south
 "Schulterplatte" -> "Die Schulterplatte Insel ist östlich vom Ostland. Du findest die Tanora Ruinen, Epphurds Häuser, den Friedhof, den Spießstollen und die ehemalige Schulterplattesiedlung."
 "Dead Marsh" -> "The Dead Marsh is just south from here over the right arm of the Gloving River. You find the Altar of Hatred, Witch's Cottage, and Bramus Rest there."
 "Todes Sumpf" -> "Der Todes Sumpf ist gleich südlich von hier auf der anderen Seite des rechten Arms des Glühenden Fluss. Du findest dort den Altar der Gehaßten, die Hexen Hüte und Bramus Ruhe."
-"Spider's Mouth","Spiders Mouth" -> "This island here is the so called Spider's Mouth. It is very famous for the Hemp Necktie Inn or also known as the neutral tavern. On the eastside you can find a temple of Adron, on the westside the Tears of Lost Love."
+"Spider's Mouth", "Spiders Mouth" -> "This island here is the so called Spider's Mouth. It is very famous for the Hemp Necktie Inn or also known as the neutral tavern. On the eastside you can find a temple of Adron, on the westside the Tears of Lost Love."
 "Spinnen Mund" -> "Diese Insel hier wird das Spinnen Maul genannt. Sie ist berümt für ihr Gasthof zur Hanfschlinge oder auch bekannt als die neutral Taverne. Am östlichen Ende findest du einen Tempel für Adron, am westlichen Ende die Tränen der Verlorenen Liebe."
 "Hemp Necktie Inn" -> "The Hemp Necktie Inn *points backwards* is a neutral tavern where travelers take a rest, meet to drink from Bogarte or to spread news and rumors."
 "Gasthof Hanfschlinge" -> "Der Gasthof zur Hanfschlinge *zeigt nach hinten* ist eine neutrale Taverne wo Reisende sich ausrasten, sich auf ein Bier von Borgarte treffen oder um Neuigkeiten oder Gerüchte auszutauschen."
@@ -118,11 +118,11 @@ english, "Illarion" -> inform("[Keywords] Northeast, northwest, southwest, south
 "Plains Silence" -> "The Plains of Silence are north from here and south of the Northern Woods. In the southeast you can find the Sunken Temple and the Carnivore's House there."
 "Ebenen Stille" -> "Die Ebene der Stille sind nördlich von hier und südlich der Nördlichen Wäldern. Im Südosten kannst du den Versunkenen Tempel und das Fleischfresser Haus finden."
 "Northern Wood" -> "The Northern Woods are north from here as the name suggests and in the middle you can find Raban's Grove."
-"Nördliche Wälder","Nördlichen Wälder" -> "Die Nördlichen Wälder sind wie der Name vermuten lässt nördlich von hier und in der Mitte kann Rabans Hain gefunden werden."
+"Nördliche Wälder", "Nördlichen Wälder" -> "Die Nördlichen Wälder sind wie der Name vermuten lässt nördlich von hier und in der Mitte kann Rabans Hain gefunden werden."
 "Insurmountable Limes" -> "The Insurmountable Limes is huge wall north from the Northern Woods. Noone has ever crossed them. It is said that you fall down into the nowhere at the other end."
-"Unüberwindbarer Limes","Unüberwindbare Limes" -> "Der Unüberwindbare Limes ist eine rießige Mauer nördlich von den Nördlichen Wäldern. Niemand hat sie je überwunden. Es wird gesagt, dass man ins Nirgendwo fällt wenn man sie überwindet."
+"Unüberwindbarer Limes", "Unüberwindbare Limes" -> "Der Unüberwindbare Limes ist eine rießige Mauer nördlich von den Nördlichen Wäldern. Niemand hat sie je überwunden. Es wird gesagt, dass man ins Nirgendwo fällt wenn man sie überwindet."
 "Evilrock" -> "The Evilrock is a island north of the Pauldron Isle."
-"Böse Fels","Böser Fels" -> "Der Böse Fels ist eine Insel nördlich der Schulterplatten Insel."
+"Böse Fels", "Böser Fels" -> "Der Böse Fels ist eine Insel nördlich der Schulterplatten Insel."
 "Three Fingertips" -> "The Three Fingertips are little islands in the Snakehead Bay west of the Death's Stenche. You will find the Unconstructed Lighthouse there."
 "Dreifingerspitzen" -> "Die Dreifingerspitzen sind kleine Inseln in der Schlangenkopfbucht westlich des Todes Gestank. Du findest den Unvollendeten Leuchtturm dort."
 "Snakehead Coast" -> "It is at the north of the Snakehead Bay and you will find Wilder Island, Demonspring, Cherga's Mouth, Mount Snakehead and the Shrine of Zelphia there."
