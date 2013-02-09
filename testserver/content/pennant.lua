@@ -88,9 +88,12 @@ function InitPennant()
     --Eastland
     AddPennant({834,542,0},"Linker Zwilling","Left Twin", 6,0); --Twin Mountains
     AddPennant({875,537,0},"Rechter Zwilling","Right Twin", 7,0); --Twin Mountains
-    AddPennant({885,479,0},"Osthafen","Eastport", 3,5); --Eastport
-    AddPennant({885,491,0},"Osthafen","Eastport", 2,5); --Eastport
-    AddPennant({885,494,0},"Osthafen","Eastport", 2,5); --Eastport
+    AddPennant({885,479,0},"Osthafen","Eastport", 3,0); --Eastport
+    AddPennant({885,491,0},"Osthafen","Eastport", 2,0); --Eastport
+    AddPennant({885,494,0},"Osthafen","Eastport", 2,0); --Eastport
+    AddPennant({887,563,0},"Willkommen im Wunderland","Welcome to the Wonderland", 6,0); --Wonderland
+    AddPennant({874,589,0},"Willkommen im Wunderland","Welcome to the Wonderland", 6,0); --Wonderland
+    AddPennant({892,599,0},"Willkommen im Wunderland","Welcome to the Wonderland", 7,0); --Wonderland
     --[[    AddPennant({902,622,1},"","", 6,5); --Ronagan Temple ]]--
     --Elstree Forest
     AddPennant({826,482,0},"Berg Lebenswurzel","Mount Liferoot", 6,0); --Mount Liferoot
