@@ -422,7 +422,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
-talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. Zss Zss.");
+talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. You can find him upstairs in the tower of fire, the building right there to the west. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -433,7 +433,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
-talkEntry:addResponse("Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Zss Zss.");
+talkEntry:addResponse("Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Ihr könnt ihn oben im Turm des Feuers finden, es ist das Gebäude gleich dort im Westen. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -445,7 +445,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
-talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. Zss Zss.");
+talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. You can find him upstairs in the tower of fire, the building right there to the west. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -458,7 +458,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
-talkEntry:addResponse("Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Zss Zss.");
+talkEntry:addResponse("Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug.  Ihr könnt ihn oben im Turm des Feuers finden, es ist das Gebäude gleich dort im Westen. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

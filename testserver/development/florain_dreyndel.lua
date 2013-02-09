@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Lillian                                                          --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -257,6 +257,19 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("kämpfen");
 talkEntry:addTrigger("monster");
 talkEntry:addResponse("Es gibt einige wilde Tiere in der Wildness, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt herum nach einem Trainingspartner.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("This is Runewick, my home. We are a realm of just and kind people, I'm sure you will enjoy it here.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Dies is Runewick, mein Zuhause. Wir sind ein Reich von gutmütigen und aufrichtigen Leuten, ich bin mir sicher, dass Ihr es hier mögen werdet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

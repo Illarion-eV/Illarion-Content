@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 name = "Zassaria Riverbank"
@@ -122,10 +122,10 @@ queststatus(701) = 5, town = Runewick, ".+" -> inform("[Quest gelößt] Du hast 
 
 -- 3nd quest talk to Neiran el Nyarale
 -- 3nd , talk to Neiran el Nyarale
-queststatus(701) = 6, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me III"), queststatus(701) = 7, "Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. Zss Zss."
-queststatus(701) = 6, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag für mich III"), queststatus(701) = 7, "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Zss Zss."
-queststatus(701) = 6, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Ask for me III"), queststatus(701) = 7, "Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. Zss Zss."
-queststatus(701) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich III"), queststatus(701) = 7, "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Zss Zss."
+queststatus(701) = 6, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me III"), queststatus(701) = 7, "Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. You can find him upstairs in the tower of fire, the building right there to the west. Zss Zss."
+queststatus(701) = 6, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag für mich III"), queststatus(701) = 7, "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Ihr könnt ihn oben im Turm des Feuers finden, es ist das Gebäude gleich dort im Westen. Zss Zss."
+queststatus(701) = 6, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Ask for me III"), queststatus(701) = 7, "Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. You can find him upstairs in the tower of fire, the building right there to the west. Zss Zss."
+queststatus(701) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich III"), queststatus(701) = 7, "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug.  Ihr könnt ihn oben im Turm des Feuers finden, es ist das Gebäude gleich dort im Westen. Zss Zss."
 
 -- 3dr quest not solved, repeat instruction, talk to Neiran el Nyarale
 queststatus(701) = 7, english, town = Runewick, "quest", "mission" -> "Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. Zss Zss."
