@@ -89,10 +89,10 @@ function InitPennant()
     AddPennant({885,479,0},"","", 3,5); --Eastport
     AddPennant({885,491,0},"","", 2,5); --Eastport
     AddPennant({885,494,0},"","", 2,5); --Eastport
-    AddPennant({902,622,1},"","", 6,5); --Ronagan Temple
+    AddPennant({902,622,1},"","", 6,5); --Ronagan Temple ]]--
     --Elstree Plain
-    AddPennant({721,426,0},"","", 6,5); --Lost buidling(4)
-	--Firelimes
+    AddPennant({721,426,0},"Des Jarls Langhaus - für immer verloren!","The Jarl's Longhouse - lost forever!", 6,0); --The Jarl's Longhouse
+--[[	--Firelimes
     AddPennant({528,587,1},"","", 3,5);
     AddPennant({525,587,1},"","", 3,5);
     --Galmair Hinterland

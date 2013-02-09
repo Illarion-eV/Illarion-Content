@@ -169,10 +169,10 @@ function InitPillar()
     AddPillar({376,551,0},"","", 1,5);
     --Death Marsh
     AddPillar({748,337,0},"","", 1,5);
-    AddPillar({709,378,0},"","", 1,5);
-    AddPillar({732,379,0},"","", 2,5);
+    AddPillar({709,378,0},"","", 1,5);]]--
+    AddPillar({732,379,0},"Die Schönheit, die es versuchte aber scheiterte.","The beauty, who tried but failed.", 2,0);
     --Death's Stench
-    AddPillar({804,549,0},"","", 5, 5);
+--[[    AddPillar({804,549,0},"","", 5, 5);
     AddPillar({784,581,0},"","", 2, 5);
     --Death Swath
     AddPillar({507,465,0},"","", 1, 5);

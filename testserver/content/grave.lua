@@ -97,11 +97,11 @@ function InitGrave()
     AddGrave({532,485,0},"","", 3,0);
     AddGrave({537,492,0},"","", 1,0);
     AddGrave({536,496,0},"","", 3,0);
-    AddGrave({545,501,0},"","", 3,0);
+    AddGrave({545,501,0},"","", 3,0);]]--
 	--Elstree Plain
-    AddGrave({751,378,0},"","", 1,0);
-    AddGrave({720,426,0},"","", 1,0);
-    --Elven Ruins
+    AddGrave({751,378,0},"Bramus, der Druide.","Bramus, the druid.", 1,0);
+    AddGrave({720,426,0},"Der Hunger nahm uns unseren Jarl.","Hunger took our Jarl form us.", 1,0);
+--[[    --Elven Ruins
     AddGrave({549,451,0},"","", 1,0);
     AddGrave({547,439,0},"","", 1,0);
     AddGrave({547,440,0},"","", 1,0);
