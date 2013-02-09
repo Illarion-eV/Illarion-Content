@@ -71,10 +71,10 @@ function InitPennant()
     AddPennant({627,415,0},"Hoheitsgebiet des Igruk","Igruk's territory", 6,0);
     AddPennant({678,346,0},"Hoheitsgebiet des Igruk","Igruk's territory", 6,0);
    	--Death Marsh
-	AddPennant({795,361,0},"Hexen Hütte","Witch's Cottage", 7,5);--Witch's Cottage
-    AddPennant({797,361,0},"Hexen Hütte","Witch's Cottage", 7,5);--Witch's Cottage
-	AddPennant({795,356,0},"Hexen Hütte","Witch's Cottage", 7,5);--Witch's Cottage
-    AddPennant({797,356,0},"Hexen Hütte","Witch's Cottage", 7,5);--Witch's Cottage
+	AddPennant({795,361,0},"Hexen Hütte","Witch's Cottage", 7,0);--Witch's Cottage
+    AddPennant({797,361,0},"Hexen Hütte","Witch's Cottage", 7,0);--Witch's Cottage
+	AddPennant({795,356,0},"Hexen Hütte","Witch's Cottage", 7,0);--Witch's Cottage
+    AddPennant({797,356,0},"Hexen Hütte","Witch's Cottage", 7,0);--Witch's Cottage
   --[[   --Dragon lair
 	AddPennant({837,677,1},"","", 7, 5);
 	AddPennant({837,677,1},"","", 7, 5);
@@ -84,12 +84,20 @@ function InitPennant()
 	AddPennant({751,667,0},"","", 7, 5);
 	AddPennant({754,667,0},"","", 7, 5);
 	AddPennant({757,667,0},"","", 7, 5);
-	AddPennant({760,667,0},"","", 7, 5);
+	AddPennant({760,667,0},"","", 7, 5);]]--
     --Eastland
-    AddPennant({885,479,0},"","", 3,5); --Eastport
+    AddPennant({834,542,0},"Linker Zwilling","Left Twin", 6,0); --Twin Mountains
+    AddPennant({875,537,0},"Rechter Zwilling","Right Twin", 7,0); --Twin Mountains
+  --[[    AddPennant({885,479,0},"","", 3,5); --Eastport
     AddPennant({885,491,0},"","", 2,5); --Eastport
     AddPennant({885,494,0},"","", 2,5); --Eastport
     AddPennant({902,622,1},"","", 6,5); --Ronagan Temple ]]--
+    --Elstree Forest
+    AddPennant({826,482,0},"Berg Lebenswurzel","Mount Liferoot", 6,0); --Mount Liferoot
+    AddPennant({802,462,0},"Elstree See","Elstree lake", 7,0); --Elstree lake
+    AddPennant({797,421,0},"Feen Tanz","Fairy's Dance", 6,0); --Fairy dance
+    AddPennant({797,424,0},"Feen Tanz","Fairy's Dance", 6,0); --Fairy dance
+    AddPennant({721,426,0},"Vorsicht! Oder du versinkst wie es einst der Turm geschah.","Attention! Or you might sink as the tower did once.", 6,0); --Sunken tower
     --Elstree Plain
     AddPennant({721,426,0},"Des Jarls Langhaus - für immer verloren!","The Jarl's Longhouse - lost forever!", 6,0); --The Jarl's Longhouse
 --[[	--Firelimes
