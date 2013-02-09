@@ -186,8 +186,11 @@ function InitWegweiser()
     AddWeg({723,385,0},"Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",6,0);
     AddWeg({731,391,0},"Elstree Wald, Ostland, Frische Sümpfe, Runewick","Elstree Forest, Eastland, Dewy Swamps, Runewick",2,0);
     AddWeg({730,391,0},"Elstree Ebene, Igruks Höhle, Todes Gestank, Drachenhöhle, Runewick","Elstree Plain, Igruk's Cave, Death's Stench, Dragon's Lair, Runewick",4,0);
-    AddWeg({840,383,0},"Ostland, Frische Sümpfe, Runewick","Elstree Forest, Eastland, Dewy Swamps, Runewick",4,0);
+    AddWeg({840,383,0},"Ostland, Osthafen, Wunderland, Frische Sümpfe, Runewick","Eastland, Eastport, Wonderland, Dewy Swamps, Runewick",4,0);
     AddWeg({839,383,0},"Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",6,0);
+    AddWeg({882,550,0},"Paddock Hof","Paddock Farm",2,0);
+    AddWeg({882,551,0},"Wunderland, Frische Sümpfe, Runewick","Wonderland, Dewy Swamps, Runewick",4,0);
+    AddWeg({882,549,0},"Osthafen, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","Eastport, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",0,0);
     AddWeg({714,488,0},"Igruks Höhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Igruk's Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
     AddWeg({718,488,0},"Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
     AddWeg({717,455,0},"Igruks Höhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Igruk's Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
