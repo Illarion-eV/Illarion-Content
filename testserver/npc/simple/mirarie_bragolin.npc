@@ -82,21 +82,21 @@ german, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Grüße, grüße!", "Gr�
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Auf Bald! Auf Bald!", "Adieu! Adieu!", "#me winkt dir mit einem vergnügten Grinsen."
 english, "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Farewell! Farewell!", "Adieu Adieu!", "#me waves at you with a happy grin on her face."
 "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Auf Bald! Auf Bald!", "Adieu! Adieu!", "#me winkt dir mit einem vergnügten Grinsen."
-"How are you", "How feel", "How do you do" -> "I'm fine. And you? How are you?", "I am happy. I'm always happy, except for the times then I'm sad.", "I'm have no reason to complain. I'm fine."
+"How are you", "How feel", "How do you do" -> "I'm fine. And you? How are you?", "I am happy. I'm always happy, except for the times then I'm sad.", "I have no reason to complain. I'm fine."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht es gut. Wie geht es dir?", "Ich bin immer glücklich, außer wenn ich mal traurig bin.", "Ich kann nicht klagen. Mir geht es gut."
-"your name", "who are you", "who art thou" -> "I am Mirarie Bragolin.", "Mirarie Bragolin, that's my name.", "My Name is Mirarie Bragolin.Who are you?"
+"your name", "who are you", "who art thou" -> "I am Mirarie Bragolin.", "Mirarie Bragolin, that's my name.", "My Name is Mirarie Bragolin. Who are you?"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Mirarie Bragolin.", "Mirarie Bragolin, so heiße ich.", "Mein Name ist Mirarie Bragolin. Wer bist du?"
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I'm no trader. I'm an explorer.", "I do not want to trade. But I want to learn about other cultures.", "I am not a merchant. I write books."
+"what sell", "what buy", "list wares", "price of" -> "I'm no trader. I'm an explorer.", "I do not want to trade, but I do want to learn about other cultures.", "I am not a merchant. I write books."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler. Ich bin eine Entdeckerin.", "Ich mag nicht handeln. Aber ich mag es über fremde Kulturen zu lernen.", "Ich bin keine Händlerin. Ich schreibe Bücher."
-"tell something" -> "I was invited to come here and write about Cadomyr. I feel honored. I'll do my best to write a book that makes the queen happy."
+"tell something" -> "I was invited to come here and write about Cadomyr. I feel honoured. I'll do my best to write a book that makes the Queen happy."
 "erzähl was", "erzähl etwas" -> "Ich wurde eingeladen um über Cadomyr zu schreiben. Ich fühle mich geehrt und ich werde mich anstrengen um ein Buch zu schreiben, dass der Königin gefällt."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I came to Cadomyr learn to what's life like here. Well, I do not like the sun, but it is very interesting to see how people live in this environment.", "I'll write a book about cadomyran knight hood, before I go home to my clan."
+"profession" -> "I came to Cadomyr learn to what life is like here. Well, I do not like the sun, but it is very interesting to see how people live in this environment.", "I'll write a book about the Cadomyrian knighthood, before I go home to my clan."
 "beruf" -> "Ich kam hier her um über das Leben in Cadomy zu lernen. Nun, ich mag die Sonne nicht, doch ist es sehr interessant zu sehen wie man in einer solchem Umgebung lebt.", "Ich werde ein Buch über das cadomyrische Rittertum schreiben, bevor ich wieder heimkehre zu meinem Klan."
-english, "job" -> "I came to Cadomyr to learn what's life like here. Well, I do not like the sun, but it is very interesting to see how people live in this environment.", "I'll write a book about cadomyran knight hood, before I go home to my clan."
+english, "job" -> "I came to Cadomyr to learn what life is like here. Well, I do not like the sun, but it is very interesting to see how people live in this environment.", "I'll write a book about the Cadomyrian knighthood, before I go home to my clan."
 "job" -> "Ich kam hier her um über das Leben in Cadomy zu lernen. Nun, ich mag die Sonne nicht, doch ist es sehr interessant zu sehen wie man in einer solchem Umgebung lebt.", "Ich werde ein Buch über das cadomyrische Rittertum schreiben, bevor ich wieder heimkehre zu meinem Klan."
 english, "Gobaith", "Gobiath" -> "Oh. I do not know this place. Will you tell me stories about it?"
 "Gobaith", "Gobiath" -> "Oh. Ich kenne diesen Ort nicht, wirst du mir Geschichten darüber erzählen?"
@@ -104,15 +104,15 @@ english, "Gobaith", "Gobiath" -> "Oh. I do not know this place. Will you tell me
 "Ich bin", "mein Name" -> "Freut mich. Ich bin Mirarie Bragolin.", "Ganz meinerseits. Kommst du jetzt öfters vorbei?"
 
 -- More small talk; add at least five triggers
-english, "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Galmair or Runewick. He's the ruler of one of these towns, that's all I know."
+english, "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Galmair or Runewick. He's the ruler of one of those towns, that's all I know."
 "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Galmair oder Runewick. Er herrscht über eine dieser Städte, das ist alles was ich weiß."
-english, "Runewick" -> "I came to lean about Cadomyr. Neither Runewick nor Galmair are this  fascinating."
+english, "Runewick" -> "I came to lean about Cadomyr. Neither Runewick nor Galmair are this fascinating."
 "Runewick" -> "Ich bin hierher gekommen um über Cadomyr zu lernen. Weder Runewick noch Galmair sind so spannend."
-english, "Valerio", "Guilianni", "Don" -> "He's the ruler of Runewick, rigth? Oh, wait... If I think about it he could also be the ruler of Galmair..."
+english, "Valerio", "Guilianni", "Don" -> "He's the ruler of Runewick, right? Oh, wait... now I think about it he could also be the ruler of Galmair..."
 "Valerio", "Guilianni", "Don" -> "Er ist der Herrscher von Runewick, stimmt's? Oh, halt... Wenn ich darüber nachdenke, könnte er auch der Herrscher von Galmair sein..."
-english, "Galmair" -> "Ich bin hierher gekommen um über Cadomyr zu lernen. Weder Runewick noch Galmair sind so spannend."
-"Galmair" -> "I came here to lean about Cadomyr. Not Runewick or Galmair are so fascinating."
-english, "rosaline", "königin", "queen", "edwards" -> "Honour to the queen! Do I sound like a cadomyran citizen?", "She asked me to write a book about Cadomyr."
+english, "Galmair" -> "I came here to lean about Cadomyr. Neither Runewick or Galmair are this fascinating."
+"Galmair" -> "Ich bin hierher gekommen um über Cadomyr zu lernen. Weder Runewick noch Galmair sind so spannend."
+english, "rosaline", "königin", "queen", "edwards" -> "Honour to the Queen! Do I sound like a Cadomyrian citizen?", "She asked me to write a book about Cadomyr."
 "rosaline", "königin", "queen", "edwards" -> "Ehre der Königin! Klinge ich wie ein Bürger aus Cadomyr?", "Sie beauftragte mich damit ein Buch über Cadomyr zu schreiben."
 english, "Cadomyr" -> "I love this place. I'm so happy I can live here and study the people around me."
 "Cadomyr" -> "Ich liebe diesen Ort. Ich bin so froh, dass ich hier sein kann und die Leute um mich herum studieren darf."
@@ -131,16 +131,16 @@ queststatus(317) = 1, item(2496, all) < 5, "task", "adventure", "message" -> "I'
 queststatus(317) = 1, item(2496, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Ich bin so durstig... Kannst du mir bitte fünf Flaschen voll Wasser bringen?"
 
 -- Quest 1 solved, reward: 3000cp + metall schild, +5 rankpoints
-queststatus(317) = 1, item(2496, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded thirty silver coins. You advance in Queen Rosaline's favour."), money + 3000, deleteItem(2496, 5), queststatus(317) = 2, rankpoints + 5, "Thank you. You saved me! I'll mention your name in the book. I promise."
-queststatus(317) = 1, item(2496, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded thirty silver coins."), money + 3000, deleteItem(2496, 5), queststatus(317) = 2, "Thank you. You saved me! I'll mention your name in the book. I promise."
+queststatus(317) = 1, item(2496, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded thirty silver coins. You advance in Queen Rosaline's favour."), money + 3000, deleteItem(2496, 5), queststatus(317) = 2, rankpoints + 5, "Thank you. You saved me! I'll mention your name in the book, I promise."
+queststatus(317) = 1, item(2496, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded thirty silver coins."), money + 3000, deleteItem(2496, 5), queststatus(317) = 2, "Thank you. You saved me! I'll mention your name in the book, I promise."
 queststatus(317) = 1, item(2496, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst dreißig Silberstücke. Dein Ansehen bei Königin Rosaline steigt."), money + 3000, deleteItem(2496, 5), queststatus(317) = 2, rankpoints + 5, "Danke. Du hast mich gerettet. Ich werde dich in meinem Buch erwähnen. Ich verspreche es!"
 queststatus(317) = 1, item(2496, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst dreißig Silberstücke."), money + 3000, deleteItem(2496, 5), queststatus(317) = 2, "Danke. Du hast mich gerettet. Ich werde dich in meinem Buch erwähnen. Ich verspreche es!"
 
 -- 2nd quest: Bring a message to a nearby NPC (Thomas Dalenus)
 -- Give out quest 2
-queststatus(317) = 2, english, "quest", "mission" -> inform("[New quest] Writing history II: You received a message for Thomas Dalenus."), queststatus(317) = 3, "Could you do me a favour again? Would you go and ask Thomas Dalenus, if he thinks my chapter on human fashion is correct the way I wrote it? Please give him this letter."
+queststatus(317) = 2, english, "quest", "mission" -> inform("[New quest] Writing history II: You receive a message for Thomas Dalenus."), queststatus(317) = 3, "Could you do me a favour again? Would you go and ask Thomas Dalenus if he thinks my chapter on human fashion is correct the way I wrote it? Please give him this letter."
 queststatus(317) = 2, "quest", "mission" -> inform("[Neues Quest] Geschichte schreiben II: Du hast eine Nachricht für Thomas Dalenus erhalten."), queststatus(317) = 3, "Kannst du mir einen Gefallen tun? Würdest du Thomas Dalenus fragen, ob mein Kapitel über die Mode der Menschen so in Ordnung ist? Bitte zeig ihm diesen Brief."
-queststatus(317) = 2, "Task", "Adventure", "Message" -> inform("[New quest]  Writing history II: You received a message for Thomas Dalenus."), queststatus(317) = 3, "Could you do me a favour again? Would you go and ask Thomas Dalenus,if he thinks my chapter on human fashion is correct the way I wrote it. Please give him this letter."
+queststatus(317) = 2, "Task", "Adventure", "Message" -> inform("[New quest]  Writing history II: You receive a message for Thomas Dalenus."), queststatus(317) = 3, "Could you do me a favour again? Would you go and ask Thomas Dalenus if he thinks my chapter on human fashion is correct the way I wrote it? Please give him this letter."
 queststatus(317) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Geschichte schreiben II: Du hast eine Nachricht für Thomas Dalenus erhalten."), queststatus(317) = 3, "Kannst du mir einen Gefallen tun? Würdest du Thomas Dalenus, fragen ob mein Kapitel über die Mode der Menschen so in Ordnung ist? Bitte zeig ihm diesen Brief."
 
 -- Quest 2 taken but not solved, repeat the instructions
@@ -157,15 +157,15 @@ queststatus(317) = 4, ".+" -> inform("[Quest gelöst] Du erhältst fünfzig Silb
 
 -- 3rd quest: Bring a message to a NPC somewhere inside the faction home land. (Grakamesh)
 -- Give out quest 3
-queststatus(317) = 5, english, "quest", "mission" -> inform("[New quest]  Writing history III: You received a message for Grakamesh."), queststatus(317) = 6, "You want to help me? That's good. I need someone to deliver a message for Grakamesh. He wanted to tell me about the table manners of orcs."
+queststatus(317) = 5, english, "quest", "mission" -> inform("[New quest]  Writing history III: You receive a message for Grakamesh."), queststatus(317) = 6, "You want to help me? That's good. I need someone to deliver a message to Grakamesh. He wanted to tell me about the table manners of orcs."
 queststatus(317) = 5, "quest", "mission" -> inform("[Neues Quest] Geschichte schreiben III: Du hast eine Nachricht für Grakamesh erhalten."), queststatus(317) = 6, "Du möchtest mir helfen? Das trifft sich gut. Ich brauche jemanden der eine Nachricht an Grakamesh überbringt. Er wollte mir etwas über orkische Tischsitten erzählen."
-queststatus(317) = 5, "Task", "Adventure", "Message" -> inform("[New quest]  Writing history III: You received a message for Grakamesh."), queststatus(317) = 6, "You want to help me? That's good. I need someone to deliver a message for Grakamesh. He wanted to tell me about the table manners of orcs."
+queststatus(317) = 5, "Task", "Adventure", "Message" -> inform("[New quest]  Writing history III: You receive a message for Grakamesh."), queststatus(317) = 6, "You want to help me? That's good. I need someone to deliver a message to Grakamesh. He wanted to tell me about the table manners of orcs."
 queststatus(317) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Geschichte schreiben III: Du hast eine Nachricht für Grakamesh erhalten."), queststatus(317) = 6, "Du möchtest mir helfen? Das trifft sich gut. Ich brauche jemanden der eine Nachricht an Grakamesh überbringt. Er wollte mir etwas über orkische Tischsitten erzählen."
 
 -- Quest 3 taken but not solved, repeat the instructions
-queststatus(317) = 6, english, "quest", "mission" -> "I asked you to deliver a message for Grakamesh. I really want to write about the tablemanners of orcs."
+queststatus(317) = 6, english, "quest", "mission" -> "I asked you to deliver a message to Grakamesh. I really want to write about the table manners of orcs."
 queststatus(317) = 6, "quest", "mission" -> "Ich bat dich eine Nachricht an Grakamesh zu überbringen. Ich möchte unbedingt über orkische Tischsitten schreiben."
-queststatus(317) = 6, "Task", "Adventure", "Message" -> "I asked you to deliver a message for Grakamesh. I really want to write about the tablemanners of orcs."
+queststatus(317) = 6, "Task", "Adventure", "Message" -> "I asked you to deliver a message to Grakamesh. I really want to write about the table manners of orcs."
 queststatus(317) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Ich bat dich eine Nachricht an Grakamesh zu überbringen. Ich möchte unbedingt über orkische Tischsitten schreiben."
 
 -- Quest 3 solved, reward: NICE ITEM (chain mail), +10 rankpoints
@@ -176,9 +176,9 @@ queststatus(317) = 7, ".+" -> inform("[Quest gelöst] Du erhältst ein Kettenhem
 
 -- 4th quest: Bring a message to a NPC of another faction. (William Daloire, ask about the climate)
 -- Give out quest 4
-queststatus(317) = 8, english, "quest", "mission" -> inform("[New quest]  Writing history IV: You received a message for William Daloire."), queststatus(317) = 9, "I need more information for writing my book. I heard that there is a merchant selling herbs in Runewick, who could tell me about the climate there. Would you go and ask for me, my friend?"
+queststatus(317) = 8, english, "quest", "mission" -> inform("[New quest]  Writing history IV: You receive a message for William Daloire."), queststatus(317) = 9, "I need more information for writing my book. I heard that there is a merchant selling herbs in Runewick, who could tell me about the climate there. Would you go and ask for me, my friend?"
 queststatus(317) = 8, "quest", "mission" -> inform("[Neues Quest] Writing history IV: Du hast eine Nachricht für William Daloire erhalten."), queststatus(317) = 9, "Ich brauche mehr Informationen um mein Buch zu schreiben. In Runewick lebt ein Kräuterhändler, der mir wohl etwas über das Klima sagen kann. Mein Freund, wirst du für mich dort hingehen und fragen?"
-queststatus(317) = 8, "Task", "Adventure", "Message" -> inform("[New quest] Geschichte schreiben IV: You received a message for William Daloire."), queststatus(317) = 9, "I need more information for writing my book. I heard that there is a merchant selling herbs? In Runewick, who could tell me about the climate there. Would you go and ask for me, my friend?"
+queststatus(317) = 8, "Task", "Adventure", "Message" -> inform("[New quest] Geschichte schreiben IV: You receive a message for William Daloire."), queststatus(317) = 9, "I need more information for writing my book. I heard that there is a merchant selling herbs? In Runewick, who could tell me about the climate there. Would you go and ask for me, my friend?"
 queststatus(317) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Geschichte schreiben IV: Du hast eine Nachricht für William Daloire erhalten."), queststatus(317) = 9, "Ich brauche mehr Informationen um mein Buch zu schreiben. In Runewick lebt ein Kräuterhändler, der mir wohl etwas über das Klima sagen kann. Mein Freund, wirst du für mich dort hingehen und fragen?"
 
 -- Quest 4 taken but not solved, repeat the instructions
@@ -188,28 +188,28 @@ queststatus(317) = 9, "Task", "Adventure", "Message" -> "Please go to Runewick a
 queststatus(317) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Bitte geh nach Runewick und frag' William Daloire über das Klima."
 
 -- Quest 4 solved, reward: 8000cp, +15 rankpoints
-queststatus(317) = 10, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded eighty silver coins. You advance in Queen Rosaline's favour."), money + 8000, queststatus(317) = 11, rankpoints + 15, "That's just what I needed to kown. Thank you so much! I'll give you this in return for your help. And I shall mention you in my book once more."
-queststatus(317) = 10, english, ".+" -> inform("[Quest solved] You are awarded eighty silver coins."), money + 8000, queststatus(317) = 11, "That's just what I needed to kown. Thank you so much! I'll give you this in return for your help. And I shall mention you in my book once more."
+queststatus(317) = 10, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded eighty silver coins. You advance in Queen Rosaline's favour."), money + 8000, queststatus(317) = 11, rankpoints + 15, "That's just what I needed to know. Thank you so much! I'll give you this in return for your help, and I shall mention you in my book once more."
+queststatus(317) = 10, english, ".+" -> inform("[Quest solved] You are awarded eighty silver coins."), money + 8000, queststatus(317) = 11, "That's just what I needed to know. Thank you so much! I'll give you this in return for your help, and I shall mention you in my book once more."
 queststatus(317) = 10, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst achtzig Silberstücke. Dein Ansehen bei Königin Rosaline steigt."), money + 8000, queststatus(317) = 11, rankpoints + 15, "Diese Information hat mir noch gefehlt. Vielen, vielen Dank! Bitte nimm dies hier für deine Hilfe an. Und ich werde dich nochmal im Buch erwähnen!"
 queststatus(317) = 10, ".+" -> inform("[Quest gelöst] Du erhältst achtzig Silberstücke."), money + 8000, queststatus(317) = 11, "Diese Information hat mir noch gefehlt. Vielen, vielen Dank! Bitte nimm dies hier für deine Hilfe an. Und ich werde dich nochmal im Buch erwähnen!"
 
 -- 5th quest: Bring a message to another faction's leader.
 
 -- Give out quest 5
-queststatus(317) = 11, english, "quest", "mission" -> inform("[New quest]  Writing history V: You received a message for the Don of Galmair, Valerio Guilianni."), queststatus(317) = 12, end, "Hello my frithanks for your help. This message is really important. It's for the Don of Galmair. I heard that he did propose to the Queen of Cadomyr. I need to know more about this, this is interesting stuff to write about."
+queststatus(317) = 11, english, "quest", "mission" -> inform("[New quest]  Writing history V: You receive a message for the Don of Galmair, Valerio Guilianni."), queststatus(317) = 12, end, "Hello my friend, thanks for your help. This message is really important. It's for the Don of Galmair. I heard that he proposed to the Queen of Cadomyr. I need to know more about this, it is interesting stuff to write about."
 queststatus(317) = 11, "quest", "mission" -> inform("[Neues Quest] Geschichte schreiben V: Du hast eine Nachricht für den Don von Galmair, Valerio Guilianni erhalten."), queststatus(317) = 12, "Hallo mein Freund. Diese Nachricht ist wirklich wichtig. Sie ist für den Don von Galmair bestimmt. Ich hörte er habe der Königin von Cadomyr den Hof gemacht. Darüber muss ich mehr erfahren, das ist interessanter Stoff um ein Buch zu schreiben."
-queststatus(317) = 11, "Task", "Adventure", "Message" -> inform("[New quest]  Writing history V: You received a message for the Don of Galmair, Valerio Guilianni."), queststatus(317) = 12, end, "Hello my frithanks for your help. This message is really important. It's for the Don of Galmair. I heard that he did propose to the Queen of Cadomyr. I need to know more about this, it is interesting stuff to write about."
+queststatus(317) = 11, "Task", "Adventure", "Message" -> inform("[New quest]  Writing history V: You receive a message for the Don of Galmair, Valerio Guilianni."), queststatus(317) = 12, end, "Hello my friend, thanks for your help. This message is really important. It's for the Don of Galmair. I heard that he proposed to the Queen of Cadomyr. I need to know more about this, it is interesting stuff to write about."
 queststatus(317) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Geschichte schreiben V: Du hast eine Nachricht für den Don von Galmair, Valerio Guilianni erhalten."), queststatus(317) = 12, "Hallo mein Freund. Diese Nachricht ist wirklich wichtig. Sie ist für den Don von Galmair bestimmt. Ich hörte er habe der Königin von Cadomyr den Hof gemacht. Darüber muss ich mehr erfahren, das ist interessanter Stoff um ein Buch zu schreiben."
 
 -- Quest 5 taken but not solved, repeat the instructions
-queststatus(317) = 12, english, "quest", "mission" -> "You forgot about the message? It is really imtortant. It goes to the Don of Galmair, Valerio Guilianni"
+queststatus(317) = 12, english, "quest", "mission" -> "You forgot about the message? It is really important. It goes to the Don of Galmair, Valerio Guilianni"
 queststatus(317) = 12, "quest", "mission" -> "Du hast die Nachricht vergessen? Sie ist wirklich wichtig. Sie ist an den Don von Galmair Valerio Guilianni bestimmt."
-queststatus(317) = 12, "Task", "Adventure", "Message" -> "You forgot about the message? It is really imtortant. It goes to the Don of Galmair, Valerio Guilianni."
+queststatus(317) = 12, "Task", "Adventure", "Message" -> "You forgot about the message? It is really important. It goes to the Don of Galmair, Valerio Guilianni."
 queststatus(317) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Du hast die Nachricht vergessen? Sie ist wirklich wichtig. Sie ist an den Don von Galmair Valerio Guilianni bestimmt."
 
 -- Quest 5 solved, reward: uber item, +20 rankpoints
-queststatus(317) = 13, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded a fire dagger. You advance in Queen Rosaline's favour."), item(2742, 1, 999), queststatus(317) = 14, rankpoints + 20, "So, you got an answer? I see... That's just amazing! By the gods! Your story will fill a whole chapter in the book. Oh, here, this is for you my friend and thanks again, my friend."
-queststatus(317) = 13, english, ".+" -> inform("[Quest solved] You are awarded a fire dagger."), item(2742, 1, 999), queststatus(317) = 14, "So, you got answer? I see... That's just amazing! By the gods! Your story will fill a whole chapter in the book. Oh, before I forget, here, this is for you, my friend and thanks again, my friend."
+queststatus(317) = 13, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded a fire dagger. You advance in Queen Rosaline's favour."), item(2742, 1, 999), queststatus(317) = 14, rankpoints + 20, "So, you got an answer? I see... that's just amazing! By the Gods! Your story will fill a whole chapter in the book. Oh, here, this is for you, my friend, and thanks again."
+queststatus(317) = 13, english, ".+" -> inform("[Quest solved] You are awarded a fire dagger."), item(2742, 1, 999), queststatus(317) = 14, "So, you got an answer? I see... that's just amazing! By the Gods! Your story will fill a whole chapter in the book. Oh, before I forget, here, this is for you, my friend, and thanks again."
 queststatus(317) = 13, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst einen Feuerdolch. Dein Ansehen bei Königin Rosaline steigt."), item(2742, 1, 999), queststatus(317) = 14, rankpoints + 20, "So, hast du also die Antwort? Ich verstehe... Das ist großartig! Bei den Göttern! Deine Geschichte wird ein ganze Kapitel meines Buches füllen! Oh, hier, das ist für dich, mein Freund und Danke nochmals."
 queststatus(317) = 13, ".+" -> inform("[Quest gelöst] Du erhältst einen Feuerdolch."), item(2742, 1, 999), queststatus(317) = 14, "So, hast du also die Antwort? Ich verstehe... Das ist großartig! Bei den Göttern! Deine Geschichte wird ein ganze Kapitel meines Buches füllen! Oh, hier, das ist für dich, mein Freund und Danke nochmals."
 
@@ -232,5 +232,5 @@ cycletext "Ehre der Königin!", "Honour to the Queen!"
 cycletext "#me schaut sich neugierig um.", "#me looks around curiously."
 cycletext "#me lächelt freundlich.", "#me smiles brightly."
 cycletext "Ich mag Cadomyr.", "I like Cadomyr."
-cycletext "#me wischt sich den Schweiß von der Stirn.", "#me wipes the sweat off her forehead."
-cycletext "Wenn es doch nur nicht so warm wäre...", "I wish, it wouldn't be that hot..."
+cycletext "#me wischt sich den Schweiß von der Stirn.", "#me wipes the sweat from her forehead."
+cycletext "Wenn es doch nur nicht so warm wäre...", "I wish, it wasn't quite so hot..."
