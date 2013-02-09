@@ -48,9 +48,9 @@ function InitGrave()
 	AddGrave({573,318,0},"","", 4,0);
 	AddGrave({581,315,0},"","", 1,0);
 	AddGrave({605,327,0},"","", 1,0);
-	AddGrave({605,344,0},"","", 1,0);  --used by victoria for quest: /questsystem/Gravestone
-	AddGrave({592,355,0},"","", 3,0);
-	AddGrave({585,323,0},"","", 2,0);
+	AddGrave({605,344,0},"","", 1,0);  --used by victoria for quest: /questsystem/Gravestone]]--
+	AddGrave({592,355,0},"Cherass heißt euch willkommen in seiner Zitadelle!","Cherass welcomes you in his citadel!", 3,0);
+--[[	AddGrave({585,323,0},"","", 2,0);
 	AddGrave({588,326,0},"","", 3,0);
 	AddGrave({630,355,0},"","", 1,0); --outside
 	AddGrave({650,347,0},"","", 1,0); --outside
@@ -77,9 +77,9 @@ function InitGrave()
     AddGrave({717,354,0},"","", 3,0);
     AddGrave({725,369,0},"","", 1,0);
     AddGrave({745,369,0},"","", 3,0);
-    AddGrave({773,369,0},"","", 2,0);
-    AddGrave({791,353,0},"","", 2,0);--Witch's Cottage
-    AddGrave({712,371,0},"","", 1,0);
+    AddGrave({773,369,0},"","", 2,0);]]--
+    AddGrave({791,353,0},"Das letzte Gift war für sie reserviert.","The last poison was saved for her.", 2,0);--Witch's Cottage
+   --[[ AddGrave({712,371,0},"","", 1,0);
     --Death's Stench
     AddGrave({805,586,0},"","", 3,0);
     --Death Swath
@@ -189,8 +189,11 @@ function InitGrave()
     AddGrave({665,293,0},"","", 1,0);
     AddGrave({690,341,0},"","", 2,0);
     AddGrave({725,369,0},"","", 1,0);
-    AddGrave({665,293,0},"","", 1,0);
-    --The Swamp
+    AddGrave({665,293,0},"","", 1,0);]]--
+	--Sunken Temple
+    AddGrave({751,284,0},"Erinnert, erinnert, den Versunkenen.","Remember, remember, the sunken one!", 3,0);
+    AddGrave({762,291,0},"Hier ruht Karolina, letzte Priesterin.","Here rests Karolina, last priest.", 2,0);
+    --[[--The Swamp
     AddGrave({485,146,0},"","", 1,0);
     AddGrave({494,105,0},"","", 3,0);
     AddGrave({508,102,0},"","", 3,0);

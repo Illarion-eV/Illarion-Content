@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
---                                                       easyNPC Parser v1.22 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -31,8 +31,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("handel");
 talkEntry:addTrigger("verkauf");
 talkEntry:addTrigger("portal");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Hiho, lass uns handeln!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -40,9 +40,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("sell");
 talkEntry:addTrigger("portal");
+talkEntry:addResponse("Hiho, let's trade!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Hiho, let's!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -171,10 +170,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Evera, the portal book merchant. That's me.");
 talkEntry:addResponse("I am the merchant, Evera.");
-talkEntry:addResponse("Evera is my name, Iportal books.");
+talkEntry:addResponse("Evera is my name, I trade portal books.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

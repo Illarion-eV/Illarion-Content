@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian + Miriam                                       --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -25,6 +25,7 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
+require("npc.base.consequence.talkstate")
 require("npc.base.talk")
 module("npc.mirarie_bragolin", package.seeall)
 
@@ -394,8 +395,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Writing History I"));
-talkEntry:addResponse("You want to help me? Well... Could you bring me five bottles of water, please? I lost mine.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 1));
+talkEntry:addResponse("You want to help me? Well... Could you bring me five bottles of water, please? I lost mine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -404,8 +405,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschichte schreiben I"));
-talkEntry:addResponse("Du möchtest mit helfen? Nun,... Kannst du mir bitte fünf Flaschen voll Wasser bringen? Ich habe meine verloren.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 1));
+talkEntry:addResponse("Du möchtest mit helfen? Nun,... Kannst du mir bitte fünf Flaschen voll Wasser bringen? Ich habe meine verloren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -415,8 +416,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest]  Writing history I"));
-talkEntry:addResponse("You want to help me? Well... Could you bring me five bottles of water, please? I lost mine.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 1));
+talkEntry:addResponse("You want to help me? Well... Could you bring me five bottles of water, please? I lost mine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -428,8 +429,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschichte schreiben I"));
-talkEntry:addResponse("Du möchtest mir helfen? Nun,... Kannst du mir bitte fünf Flaschen voll Wasser bringen? Ich habe meine verloren.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 1));
+talkEntry:addResponse("Du möchtest mir helfen? Nun,... Kannst du mir bitte fünf Flaschen voll Wasser bringen? Ich habe meine verloren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -481,11 +482,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded thirty silver coins. You advance in Queen Rosaline's favour."));
-talkEntry:addResponse("Thank you. You saved me! I'll mention your name in the book. I promise.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2496, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Thank you. You saved me! I'll mention your name in the book. I promise.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -495,10 +496,10 @@ talkEntry:addCondition(npc.base.condition.item.item(2496, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded thirty silver coins."));
-talkEntry:addResponse("Thank you. You saved me! I'll mention your name in the book. I promise.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2496, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 2));
+talkEntry:addResponse("Thank you. You saved me! I'll mention your name in the book. I promise.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -508,11 +509,11 @@ talkEntry:addCondition(npc.base.condition.item.item(2496, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst dreißig Silberstücke. Dein Ansehen bei Königin Rosaline steigt."));
-talkEntry:addResponse("Danke. Du hast mich gerettet. Ich werde dich in meinem Buch erwähnen. Ich verspreche es!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2496, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Danke. Du hast mich gerettet. Ich werde dich in meinem Buch erwähnen. Ich verspreche es!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -521,10 +522,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2496, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst dreißig Silberstücke."));
-talkEntry:addResponse("Danke. Du hast mich gerettet. Ich werde dich in meinem Buch erwähnen. Ich verspreche es!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2496, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 2));
+talkEntry:addResponse("Danke. Du hast mich gerettet. Ich werde dich in meinem Buch erwähnen. Ich verspreche es!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -534,8 +535,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Writing history II: You received a message for Thomas Dalenus."));
-talkEntry:addResponse("Could you do me a favour again? Would you go and ask Thomas Dalenus, if he thinks my chapter on human fashion is correct the way I wrote it? Please give him this letter.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 3));
+talkEntry:addResponse("Could you do me a favour again? Would you go and ask Thomas Dalenus, if he thinks my chapter on human fashion is correct the way I wrote it? Please give him this letter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -544,8 +545,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschichte schreiben II: Du hast eine Nachricht für Thomas Dalenus erhalten."));
-talkEntry:addResponse("Kannst du mir einen Gefallen tun? Würdest du Thomas Dalenus fragen, ob mein Kapitel über die Mode der Menschen so in Ordnung ist? Bitte zeig ihm diesen Brief.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 3));
+talkEntry:addResponse("Kannst du mir einen Gefallen tun? Würdest du Thomas Dalenus fragen, ob mein Kapitel über die Mode der Menschen so in Ordnung ist? Bitte zeig ihm diesen Brief.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -555,8 +556,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest]  Writing history II: You received a message for Thomas Dalenus."));
-talkEntry:addResponse("Could you do me a favour again? Would you go and ask Thomas Dalenus,if he thinks my chapter on human fashion is correct the way I wrote it. Please give him this letter.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 3));
+talkEntry:addResponse("Could you do me a favour again? Would you go and ask Thomas Dalenus,if he thinks my chapter on human fashion is correct the way I wrote it. Please give him this letter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -568,8 +569,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschichte schreiben II: Du hast eine Nachricht für Thomas Dalenus erhalten."));
-talkEntry:addResponse("Kannst du mir einen Gefallen tun? Würdest du Thomas Dalenus, fragen ob mein Kapitel über die Mode der Menschen so in Ordnung ist? Bitte zeig ihm diesen Brief.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 3));
+talkEntry:addResponse("Kannst du mir einen Gefallen tun? Würdest du Thomas Dalenus, fragen ob mein Kapitel über die Mode der Menschen so in Ordnung ist? Bitte zeig ihm diesen Brief.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -616,10 +617,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded fifty silver coins. You advance in Queen Rosaline's favour."));
-talkEntry:addResponse("Oh, thanks a lot! Take this as your reward.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Oh, thanks a lot! Take this as your reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -628,9 +629,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded fifty silver coins."));
-talkEntry:addResponse("Oh, thanks a lot! Take this as your reward.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 5));
+talkEntry:addResponse("Oh, thanks a lot! Take this as your reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -639,11 +640,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 4));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünfzig Silberstücke. Dein Ansehen bei Königin Rosaline steigt."));
-talkEntry:addResponse("Oh, vielen vielen Dank! Bitte nimm dies als Gegenleistung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.item.item(92, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Oh, vielen vielen Dank! Bitte nimm dies als Gegenleistung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -651,9 +652,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 4));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünfzig Silberstücke "));
-talkEntry:addResponse("Oh, vielen vielen Dank. Bitte nimm dies als Gegenleistung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 5));
+talkEntry:addResponse("Oh, vielen vielen Dank. Bitte nimm dies als Gegenleistung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -663,8 +664,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest]  Writing history III: You received a message for Grakamesh."));
-talkEntry:addResponse("You want to help me? That's good. I need someone to deliver a message for Grakamesh. He wanted to tell me about the table manners of orcs.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 6));
+talkEntry:addResponse("You want to help me? That's good. I need someone to deliver a message for Grakamesh. He wanted to tell me about the table manners of orcs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -673,8 +674,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 5));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschichte schreiben III: Du hast eine Nachricht für Grakamesh erhalten."));
-talkEntry:addResponse("Du möchtest mir helfen? Das trifft sich gut. Ich brauche jemanden der eine Nachricht an Grakamesh überbringt. Er wollte mir etwas über orkische Tischsitten erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 6));
+talkEntry:addResponse("Du möchtest mir helfen? Das trifft sich gut. Ich brauche jemanden der eine Nachricht an Grakamesh überbringt. Er wollte mir etwas über orkische Tischsitten erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -684,8 +685,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest]  Writing history III: You received a message for Grakamesh."));
-talkEntry:addResponse("You want to help me? That's good. I need someone to deliver a message for Grakamesh. He wanted to tell me about the table manners of orcs.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 6));
+talkEntry:addResponse("You want to help me? That's good. I need someone to deliver a message for Grakamesh. He wanted to tell me about the table manners of orcs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -697,8 +698,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschichte schreiben III: Du hast eine Nachricht für Grakamesh erhalten."));
-talkEntry:addResponse("Du möchtest mir helfen? Das trifft sich gut. Ich brauche jemanden der eine Nachricht an Grakamesh überbringt. Er wollte mir etwas über orkische Tischsitten erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 6));
+talkEntry:addResponse("Du möchtest mir helfen? Das trifft sich gut. Ich brauche jemanden der eine Nachricht an Grakamesh überbringt. Er wollte mir etwas über orkische Tischsitten erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -745,10 +746,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a chain mail. You advance in Queen Rosaline's favour."));
-talkEntry:addResponse("So you gave the message to Grakamesh? Thank you. What would I do without you? Here, please take this present as your reward.");
 talkEntry:addConsequence(npc.base.consequence.item.item(101, 1, 677, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("So you gave the message to Grakamesh? Thank you. What would I do without you? Here, please take this present as your reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -757,9 +758,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a chain mail."));
-talkEntry:addResponse("So you gave the message to Grakamesh? Thank you. What would I do without you? Here, please take this present as your reward.");
 talkEntry:addConsequence(npc.base.consequence.item.item(101, 1, 677, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 8));
+talkEntry:addResponse("So you gave the message to Grakamesh? Thank you. What would I do without you? Here, please take this present as your reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -768,10 +769,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 7));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Kettenhemd. Dein Ansehen bei Königin Rosaline steigt."));
-talkEntry:addResponse("So, du hast die Nachricht an Grakamesh gegeben. Danke sehr. Was würde ich ohne dich tun? Hier, bitte nimm dieses Geschenk zum Dank.");
 talkEntry:addConsequence(npc.base.consequence.item.item(101, 1, 677, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("So, du hast die Nachricht an Grakamesh gegeben. Danke sehr. Was würde ich ohne dich tun? Hier, bitte nimm dieses Geschenk zum Dank.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -779,9 +780,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 7));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Kettenhemd."));
-talkEntry:addResponse("So, du hast die Nachricht an Grakamesh gegeben. Danke sehr. Was würde ich ohne dich tun? Hier, bitte nimm dieses Geschenk zum Dank.");
 talkEntry:addConsequence(npc.base.consequence.item.item(101, 1, 677, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 8));
+talkEntry:addResponse("So, du hast die Nachricht an Grakamesh gegeben. Danke sehr. Was würde ich ohne dich tun? Hier, bitte nimm dieses Geschenk zum Dank.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -791,8 +792,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest]  Writing history IV: You received a message for William Daloire."));
-talkEntry:addResponse("I need more information for writing my book. I heard that there is a merchant selling herbs in Runewick, who could tell me about the climate there. Would you go and ask for me, my friend?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 9));
+talkEntry:addResponse("I need more information for writing my book. I heard that there is a merchant selling herbs in Runewick, who could tell me about the climate there. Would you go and ask for me, my friend?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -801,8 +802,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 8));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Writing history IV: Du hast eine Nachricht für William Daloire erhalten."));
-talkEntry:addResponse("Ich brauche mehr Informationen um mein Buch zu schreiben. In Runewick lebt ein Kräuterhändler, der mir wohl etwas über das Klima sagen kann. Mein Freund, wirst du für mich dort hingehen und fragen?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 9));
+talkEntry:addResponse("Ich brauche mehr Informationen um mein Buch zu schreiben. In Runewick lebt ein Kräuterhändler, der mir wohl etwas über das Klima sagen kann. Mein Freund, wirst du für mich dort hingehen und fragen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -812,8 +813,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Geschichte schreiben IV: You received a message for William Daloire."));
-talkEntry:addResponse("I need more information for writing my book. I heard that there is a merchant selling herbs? In Runewick, who could tell me about the climate there. Would you go and ask for me, my friend?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 9));
+talkEntry:addResponse("I need more information for writing my book. I heard that there is a merchant selling herbs? In Runewick, who could tell me about the climate there. Would you go and ask for me, my friend?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -825,8 +826,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschichte schreiben IV: Du hast eine Nachricht für William Daloire erhalten."));
-talkEntry:addResponse("Ich brauche mehr Informationen um mein Buch zu schreiben. In Runewick lebt ein Kräuterhändler, der mir wohl etwas über das Klima sagen kann. Mein Freund, wirst du für mich dort hingehen und fragen?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 9));
+talkEntry:addResponse("Ich brauche mehr Informationen um mein Buch zu schreiben. In Runewick lebt ein Kräuterhändler, der mir wohl etwas über das Klima sagen kann. Mein Freund, wirst du für mich dort hingehen und fragen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -873,10 +874,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded eighty silver coins. You advance in Queen Rosaline's favour."));
-talkEntry:addResponse("That's just what I needed to kown. Thank you so much! I'll give you this in return for your help. And I shall mention you in my book once more.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 8000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("That's just what I needed to kown. Thank you so much! I'll give you this in return for your help. And I shall mention you in my book once more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -885,9 +886,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded eighty silver coins."));
-talkEntry:addResponse("That's just what I needed to kown. Thank you so much! I'll give you this in return for your help. And I shall mention you in my book once more.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 8000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 11));
+talkEntry:addResponse("That's just what I needed to kown. Thank you so much! I'll give you this in return for your help. And I shall mention you in my book once more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -896,10 +897,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 10));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst achtzig Silberstücke. Dein Ansehen bei Königin Rosaline steigt."));
-talkEntry:addResponse("Diese Information hat mir noch gefehlt. Vielen, vielen Dank! Bitte nimm dies hier für deine Hilfe an. Und ich werde dich nochmal im Buch erwähnen!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 8000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Diese Information hat mir noch gefehlt. Vielen, vielen Dank! Bitte nimm dies hier für deine Hilfe an. Und ich werde dich nochmal im Buch erwähnen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -907,9 +908,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 10));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst achtzig Silberstücke."));
-talkEntry:addResponse("Diese Information hat mir noch gefehlt. Vielen, vielen Dank! Bitte nimm dies hier für deine Hilfe an. Und ich werde dich nochmal im Buch erwähnen!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 8000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 11));
+talkEntry:addResponse("Diese Information hat mir noch gefehlt. Vielen, vielen Dank! Bitte nimm dies hier für deine Hilfe an. Und ich werde dich nochmal im Buch erwähnen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -919,8 +920,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest]  Writing history V: You received a message for the Don of Galmair, Valerio Guilianni."));
-talkEntry:addResponse("Hello my friend, thanks for your help. This message is really important. It's for the Don of Galmair. I heard that he did propose to the Queen of Cadomyr. I need to know more about this, this is interesting stuff to write about.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Hello my frithanks for your help. This message is really important. It's for the Don of Galmair. I heard that he did propose to the Queen of Cadomyr. I need to know more about this, this is interesting stuff to write about.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -929,8 +931,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 11));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschichte schreiben V: Du hast eine Nachricht für den Don von Galmair, Valerio Guilianni erhalten."));
-talkEntry:addResponse("Hallo mein Freund. Diese Nachricht ist wirklich wichtig. Sie ist für den Don von Galmair bestimmt. Ich hörte er habe der Königin von Cadomyr den Hof gemacht. Darüber muss ich mehr erfahren, das ist interessanter Stoff um ein Buch zu schreiben.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 12));
+talkEntry:addResponse("Hallo mein Freund. Diese Nachricht ist wirklich wichtig. Sie ist für den Don von Galmair bestimmt. Ich hörte er habe der Königin von Cadomyr den Hof gemacht. Darüber muss ich mehr erfahren, das ist interessanter Stoff um ein Buch zu schreiben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -940,8 +942,9 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest]  Writing history V: You received a message for the Don of Galmair, Valerio Guilianni."));
-talkEntry:addResponse("Hello my friend, thanks for your help. This message is really important. It's for the Don of Galmair. I heard that he did propose to the Queen of Cadomyr. I need to know more about this, it is interesting stuff to write about.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Hello my frithanks for your help. This message is really important. It's for the Don of Galmair. I heard that he did propose to the Queen of Cadomyr. I need to know more about this, it is interesting stuff to write about.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -953,8 +956,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschichte schreiben V: Du hast eine Nachricht für den Don von Galmair, Valerio Guilianni erhalten."));
-talkEntry:addResponse("Hallo mein Freund. Diese Nachricht ist wirklich wichtig. Sie ist für den Don von Galmair bestimmt. Ich hörte er habe der Königin von Cadomyr den Hof gemacht. Darüber muss ich mehr erfahren, das ist interessanter Stoff um ein Buch zu schreiben.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 12));
+talkEntry:addResponse("Hallo mein Freund. Diese Nachricht ist wirklich wichtig. Sie ist für den Don von Galmair bestimmt. Ich hörte er habe der Königin von Cadomyr den Hof gemacht. Darüber muss ich mehr erfahren, das ist interessanter Stoff um ein Buch zu schreiben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1001,10 +1004,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a fire dagger. You advance in Queen Rosaline's favour."));
-talkEntry:addResponse("So, you got an answer? I see... That's just amazing! By the gods! Your story will fill a whole chapter in the book. Oh, here, this is for you my friend and thanks again, my friend.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2742, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 14));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("So, you got an answer? I see... That's just amazing! By the gods! Your story will fill a whole chapter in the book. Oh, here, this is for you my friend and thanks again, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1013,9 +1016,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a fire dagger."));
-talkEntry:addResponse("So, you got answer? I see... That's just amazing! By the gods! Your story will fill a whole chapter in the book. Oh, before I forget, here, this is for you, my friend and thanks again, my friend.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2742, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 14));
+talkEntry:addResponse("So, you got answer? I see... That's just amazing! By the gods! Your story will fill a whole chapter in the book. Oh, before I forget, here, this is for you, my friend and thanks again, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1024,10 +1027,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 13));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Feuerdolch. Dein Ansehen bei Königin Rosaline steigt."));
-talkEntry:addResponse("So, hast du also die Antwort? Ich verstehe... Das ist großartig! Bei den Göttern! Deine Geschichte wird ein ganze Kapitel meines Buches füllen! Oh, hier, das ist für dich, mein Freund und Danke nochmals.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2742, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 14));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("So, hast du also die Antwort? Ich verstehe... Das ist großartig! Bei den Göttern! Deine Geschichte wird ein ganze Kapitel meines Buches füllen! Oh, hier, das ist für dich, mein Freund und Danke nochmals.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1035,9 +1038,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 13));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Feuerdolch."));
-talkEntry:addResponse("So, hast du also die Antwort? Ich verstehe... Das ist großartig! Bei den Göttern! Deine Geschichte wird ein ganze Kapitel meines Buches füllen! Oh, hier, das ist für dich, mein Freund und Danke nochmals.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2742, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 14));
+talkEntry:addResponse("So, hast du also die Antwort? Ich verstehe... Das ist großartig! Bei den Göttern! Deine Geschichte wird ein ganze Kapitel meines Buches füllen! Oh, hier, das ist für dich, mein Freund und Danke nochmals.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1107,7 +1110,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis & Ardian                                                --
 --           Rincewind                                                        --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -64,8 +64,8 @@ talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hunger");
-talkEntry:addResponse("Here, have some moldy bread. Back to work!");
 talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
+talkEntry:addResponse("Here, have some moldy bread. Back to work!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -92,8 +92,8 @@ talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hunger");
-talkEntry:addResponse("Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
 talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
+talkEntry:addResponse("Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -120,8 +120,8 @@ talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addTrigger("hungry");
 talkEntry:addTrigger("food");
-talkEntry:addResponse("Here, have some moldy bread. Back to work!");
 talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
+talkEntry:addResponse("Here, have some moldy bread. Back to work!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -139,8 +139,8 @@ talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addTrigger("hungrig");
 talkEntry:addTrigger("essen");
-talkEntry:addResponse("Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
 talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
+talkEntry:addResponse("Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -158,8 +158,8 @@ talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addTrigger("pick axe");
 talkEntry:addTrigger("rock pick");
 talkEntry:addTrigger("pick");
-talkEntry:addResponse("So, you broke my pick? You lost it? Here, have this one, but pay more attention to it or I'll whip you.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
+talkEntry:addResponse("So, you broke my pick? You lost it? Here, have this one, but pay more attention to it or I'll whip you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -184,8 +184,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addTrigger("spitzhacke");
 talkEntry:addTrigger("hacke");
-talkEntry:addResponse("So, du hast also meine Spitzhacke kaputt gemacht? Du hast sie verloren? Hier, nimm diese, aber pass besser auf sie auf oder ich peitsche dich aus.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
+talkEntry:addResponse("So, du hast also meine Spitzhacke kaputt gemacht? Du hast sie verloren? Hier, nimm diese, aber pass besser auf sie auf oder ich peitsche dich aus.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1089,7 +1089,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

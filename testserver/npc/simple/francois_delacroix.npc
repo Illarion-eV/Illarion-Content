@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Regallo                                                          --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Francois Delacroix"
@@ -92,8 +92,8 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- As a he Francois felt a never before felt wave of confidence. When Francois arrived in Runewick he let it known that he known that he was a skilled merchant. Once his knowledge was demonstrated he had no problem starting a debt to purchase goods.
 -- Money wise Francois is doing good, but his youth is growing thin. He yearns for a mate and passively lingers the thought if she wants to be with a guy or a girl.
 -- Personality: Gentle, sweet, talented sales person, charismatic, outgoing on the outside, but lonely and self-conscious on the inside.
-"kauf", "handel" -> trade, "Lass uns handeln!"
-"buy", "sell", "trade" -> trade, trade, "Let's!"
+"kauf", "handel" -> "Lass uns handeln!", trade
+"buy", "sell", "trade" -> "Let's!", trade, trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Francois Delacroix the Trader. Keywords: Hello, Markets, Buy, Sell, Agriculture, Trade.")
@@ -114,13 +114,13 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a great day today! You
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Francois Delacroix, Produke aus der Landwirtschaft.", "My Name ist Francois. Es ist mir eine Freude Eure Bekanntschaft zu machen", "Francois Delacroix. Es klingt noch immer jedes Mal seltsam es zu sagen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> trade, "I sell goods such as milk and farmer's tools", "I sell that which you need.", "I sell homemade agricultural goods."
+"profession" -> "I sell goods such as milk and farmer's tools", "I sell that which you need.", "I sell homemade agricultural goods.", trade
 "beruf" -> "Ich verkaufe Güter wie Milch und Werkzeug für Bauern.", "Ich verkaufe was immer Ihr braucht.", "Ich verkaufe selbstgemachte Landwirtschaftswaren."
-english, "job" -> trade, "I sell goods such as milk and farmer's tools.", "I sell that which you need.", "I sell homemade agricultural goods."
+english, "job" -> "I sell goods such as milk and farmer's tools.", "I sell that which you need.", "I sell homemade agricultural goods.", trade
 "job" -> "Ich verkaufe Güter wie Milch und Werkzeug für Bauern.", "Ich verkaufe was immer Ihr braucht.", "Ich verkaufe selbstgemachte Landwirtschaftswaren."
 english, "Gobaith", "Gobiath" -> "That's like asking what the sky is, honestly, I don't think I could answer it."
 "Gobaith", "Gobiath" -> "Das ist als ob man fragt, was der Himmel sei. Ehrlich gesagt, ich habe keine Ahnung davon."
-"my name" -> trade, "Francois Delacroix, agricultural good seller.", "My name is Francois. It's beyond a pleasure to be acquainted with you", " Francois Delacroix, it still feels weird every time I say it."
+"my name" -> "Francois Delacroix, agricultural good seller.", "My name is Francois. It's beyond a pleasure to be acquainted with you", " Francois Delacroix, it still feels weird every time I say it.", trade
 "mein Name" -> "Francois Delacroix, Produke aus der Landwirtschaft.", "My Name ist Francois. Es ist mir eine Freude Eure Bekanntschaft zu machen", "Francois Delacroix. Es klingt noch immer jedes Mal seltsam es zu sagen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his environment

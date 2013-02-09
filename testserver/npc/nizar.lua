@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -176,9 +176,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gem");
 talkEntry:addTrigger("magical smithing");
 talkEntry:addTrigger("smithing");
-talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkEntry:addResponse("Ah. I'd love to work for you.");
 talkEntry:addResponse("Of course I'll help you with magical gems.");
+talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -186,9 +186,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Edelstein");
 talkEntry:addTrigger("magisches Schmieden");
 talkEntry:addTrigger("Schmieden");
-talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkEntry:addResponse("Ah. Ich arbeite gern für Euch. Nun denn ...");
 talkEntry:addResponse("Natürlich helfe ich Euch was diese magischen Edelsteinen betrifft!");
+talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
