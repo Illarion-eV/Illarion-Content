@@ -91,8 +91,10 @@ function InitPennant()
     AddPennant({885,479,0},"Osthafen","Eastport", 3,0); --Eastport
     AddPennant({885,491,0},"Osthafen","Eastport", 2,0); --Eastport
     AddPennant({885,494,0},"Osthafen","Eastport", 2,0); --Eastport
-    AddPennant({887,563,0},"Willkommen im Wunderland","Welcome to the Wonderland", 6,0); --Wonderland
+    AddPennant({877,561,0},"Willkommen im Wunderland","Welcome to the Wonderland", 6,0); --Wonderland
+    AddPennant({877,563,0},"Willkommen im Wunderland","Welcome to the Wonderland", 6,0); --Wonderland
     AddPennant({874,589,0},"Willkommen im Wunderland","Welcome to the Wonderland", 6,0); --Wonderland
+    AddPennant({874,591,0},"Willkommen im Wunderland","Welcome to the Wonderland", 6,0); --Wonderland
     AddPennant({892,599,0},"Willkommen im Wunderland","Welcome to the Wonderland", 7,0); --Wonderland
     --[[    AddPennant({902,622,1},"","", 6,5); --Ronagan Temple ]]--
     --Elstree Forest
