@@ -57,6 +57,9 @@ itemShoes = 369
 -- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
 
 -- MANDATORY TRIGGERS
+-- Quest by Charwis Irongate
+queststatus(702) = 10, item(234, all, "nameEn" = "Really big gold nugget") > 0, english, "charwis", "irongate", "gold", "nugget" -> queststatus(702) = 11, "Unbelievable! This gold nugget really is as large as an apple! Please, tell Charwis I'm sorry I called him a liar."
+queststatus(702) = 10, item(234, all, "nameDe" = "Echt großer Goldnugget") > 0, "charwis", "irongate", "gold", "nugget" -> queststatus(702) = 11, "Unglaublich! Der Goldnugget ist ja wahrlich so groß wie ein Apfel! Bitte sagt Charwis, es tut mir leid, dass ich ihn einen Lügner nannte."
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Pheritaleth the magical blacksmith. Keywords: Be greeted, gemcraft, profession, gems.")
@@ -73,14 +76,14 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Happy mining.", "Farewell."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Viel Spaß in der Mine.", "Gehabt euch wohl."
 "How are you", "How feel", "How do you do" -> "Fine! Let's talk about gems."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Nun lasst uns über Edelsteine reden."
-"your name", "who are you", "who art thou" -> "They call me Pheritaleth and I am skilled in.", gemcraft
+"your name", "who are you", "who art thou" -> gemcraft, "They call me Pheritaleth and I am skilled in."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich werde Pheritaleth genannt und bin eine Edelsteinkünstlerin."
 
 -- OPTIONAL TRIGGERS
 
 -- Gemcraft
-"gemcraft", "transmute", "combine", "enchant" -> "Let me take a look at your gems...", gemcraft
-"verwandel", "verein", "kombinier", "verzauber" -> "Dann lasst mal eure Edelsteine sehen...", gemcraft
+"gemcraft", "transmute", "combine", "enchant" -> gemcraft, "Let me take a look at your gems..."
+"verwandel", "verein", "kombinier", "verzauber" -> gemcraft, "Dann lasst mal eure Edelsteine sehen..."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "My profession is to transmute magical gems. I have several aeons of experience, so do not question my expertise."

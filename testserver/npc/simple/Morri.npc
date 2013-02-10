@@ -59,6 +59,10 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Help" -> inform("[Game Help] This NPC is Morri the cook. Keywords: buy, sell, trade, Profession.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Morri der Koch. Schlüsselwörter: kaufe, verkaufe, Handel, Beruf.")
 
+-- Quest by Charwis Irongate
+queststatus(702) = 4, english, "charwis", "irongate", "pin", "order" -> queststatus(702) = 5, "Charwis? A pin order? What, now? The pins have already started to corrode? No, thanks. I want new pins, please tell Charwis that."
+queststatus(702) = 4, "charwis", "irongate", "Bestellung", "nägel" -> queststatus(702) = 5, "Charwis?  Eine Nagelbestellung? Was höre ich da, die Nägel beginnen bereits zu rosten? Nein, danke! Ich möchte neue Nägel, bitte sagt das Charwis."
+
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hrm...Greetings. How can I help you?", "#me grumbles moodily, 'Good day'.", "Hail Irmorom. Do you want to buy something?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag.'", "Heil Irmorom. Wollt ihr was kaufen?"
