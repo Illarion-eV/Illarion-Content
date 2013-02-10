@@ -409,7 +409,7 @@ english, "salkama" -> "Why are you not going there?", "I hope they come and free
 -- Pick 1-2 gods he likes, 1 he dislikes
 -- Use ONE other response for the other gods i.e. "I don't worship that good much"
 "god" -> "Elara, who else?", "I pray to Elara.", "If you look around here, you could believe I pray to Nargun."
-"Gott", "Götter" -> "Eldra, wem sonst?", "Ich bete zu Eldra.", "Wenn man sich hier umsieht könnt man glauben Nagrun ist mein Gott."
+"Gott", "Götter" -> "Eldra, wem sonst?", "Ich bete zu Eldra.", "Wenn man sich hier umsieht könnt man glauben Nargun ist mein Gott."
 english, "Adron" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
 "Adron" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
 english, "Bragon", "Brágon" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
