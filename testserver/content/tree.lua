@@ -116,3 +116,5 @@ function DirToItemID(Value)
 	return 963
 	end
 end
+
+InitTree();
