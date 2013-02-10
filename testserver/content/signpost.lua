@@ -217,7 +217,7 @@ function InitWegweiser()
     AddWeg({685,317,0},"Gasthof zur Hanfschlinge","The Hemp Necktie Inn",2,0);
     AddWeg({676,326,0},"Funkelhöhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Glittering Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
     AddWeg({682,330,0},"Der Todes Sumpf, Igruks Höhle, Elstree Ebene, Elstree Wald, Ostland, Wunderland, Todes Gestank, Frische Sümpfe, Drachenhöhle, Runewick","The Death Marsh, Igruk's Cave, Elstree Plain, Elstree Forest, Eastland, Wonderland, Death's Stench, Dewy Swamps, Dragon's Lair, Runewick",4,0);
-    AddWeg({723,385,0},"Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",6,0);
+    AddWeg({723,385,0},"Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",6,0);
     AddWeg({731,391,0},"Elstree Wald, Ostland, Wunderland, Frische Sümpfe, Runewick","Elstree Forest, Eastland, Wonderland, Dewy Swamps, Runewick",2,0);
     AddWeg({730,391,0},"Elstree Ebene, Igruks Höhle, Todes Gestank, Drachenhöhle, Runewick","Elstree Plain, Igruk's Cave, Death's Stench, Dragon's Lair, Runewick",4,0);
     AddWeg({840,383,0},"Ostland, Osthafen, Wunderland, Frische Sümpfe, Runewick","Eastland, Eastport, Wonderland, Dewy Swamps, Runewick",4,0);
@@ -242,7 +242,7 @@ function InitWegweiser()
     AddWeg({718,488,0},"Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
     AddWeg({717,455,0},"Igruks Höhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Igruk's Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
     AddWeg({729,459,0},"Todes Gestank, Runewick","Death's Stench, Runewick",4,0);
-    AddWeg({729,448,0},"Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({729,448,0},"Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
     AddWeg({564,394,0},"Funkelhöhle","Glittering Cave",0,0);
     AddWeg({871,321,0},"Schulterplatte Insel mit Tanora Ruinen, Epphurds Häuser, Friedhof, Spießstollen und ehemalige Schulterplattesiedlung","Pauldron Isle with Tanora Ruins, Epphurd's Houses, Graveyard, Skewer Drift and former Pauldron Settlement",4,0);
 
