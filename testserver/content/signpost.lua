@@ -114,7 +114,7 @@ function InitWegweiser()
     AddWeg({338,243,-6},"Gemmenschacht","Cameo Pit",2,0);-- Scoria Mine
     AddWeg({339,248,-6},"Ronagans Tempel - Achtung, überflutet!","Temple of Ronagan - Attention, flooded!",2,0);-- Scoria Mine
     AddWeg({333,248,-6},"Abwasserschächte","Sewers",4,0);-- Scoria Mine
-    AddWeg({331,248,-6},"Schimmersenke mit dem Spielraum und dem Tempel des Nagrun.","Flicker Swale with Game Room and the Temple of Nagrun",6,0);-- Scoria Mine
+    AddWeg({331,248,-6},"Schimmersenke mit dem Spielraum und dem Tempel des Nargun.","Flicker Swale with Game Room and the Temple of Nargun",6,0);-- Scoria Mine
 
     AddWeg({423,248,0},"Galmair","Galmair",6,0);
     AddWeg({427,248,0},"Narguns Ebene, Hafen, Dunkellochmine, Spinnen Maul, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Nargun's Plain, Harbour, Dark Hole Mine, Spider's Mouth, Hemp Necktie Inn, Cadomyr, Runewick",2,0);
