@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
---                                                       easyNPC Parser v1.22 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Kaitza"
@@ -219,7 +219,7 @@ english, "Zhambra" -> "All ze Godsss are acknowledged, only Zelphia iss worshipe
 "Zhambra" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> trade, trade, trade, "Zss. I have nozing to trade.", "I do not ssseek to trade. Zss.", "Sssorry, I do not wisssh to trade."
+"what sell", "what buy", "list wares", "price of" -> "Zss. I have nozing to trade.", "I do not ssseek to trade. Zss.", "Sssorry, I do not wisssh to trade.", trade, trade, trade
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Zss. Ich habe nichtsss zum handeln.", "Ich brache nichts zzu handeln.", "Entschuldigt, ich bin nicht am Handeln interessiert. Zss."
 "tell something" -> "Zss. What do you wisssh to know?", "Perhapsss I have a tasssk for you?", "Ssservice to ze Godsss isss ze most honourable life. Zss."
 "erzähl was", "erzähl etwas" -> "Vielleicht habe ich eine Aufgabe. Zss. Eine Aufgabe für Euch.", "Der Göttin zzzu dienen issst die grösssste Aufgabe im Leben. Zss."

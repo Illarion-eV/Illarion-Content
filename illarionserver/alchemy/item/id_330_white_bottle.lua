@@ -62,7 +62,10 @@ function DrinkPotion(User,SourceItem)
   end
     
 function UseItem(User, SourceItem, ltstate)
- 
+    -- repair potion in case it's broken
+	alchemy.base.alchemy.repairPotion(SourceItem)
+	-- repair end
+	
 	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else
 	end

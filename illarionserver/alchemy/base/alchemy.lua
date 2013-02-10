@@ -792,3 +792,12 @@ function FillIntoCauldron(User,SourceItem,cauldron,ltstate)
     end
 	EmptyBottle(User,SourceItem)
 end
+
+-- a bug led to a situation that some potions missed the "filledWith"-data
+-- this function will be called whenever seomething is done to a potion and set the proper data
+function repairPotion(Item)
+    if tonumber(Item:getData("potionEffectId")) ~= nil then
+	    Item:setData("filledWith","potion")
+		world:changeItem(Item)
+	end	
+end

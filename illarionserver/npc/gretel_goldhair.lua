@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.22 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -178,6 +178,29 @@ talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Gretel Goldhair. Und Ihr seid?");
 talkEntry:addResponse("Gretel Goldhair. Ich war mal berühmt. Vielleicht habt Ihr von mir gehört?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(702, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("charwis");
+talkEntry:addTrigger("irongate");
+talkEntry:addTrigger("hammer");
+talkEntry:addTrigger("collection");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 8));
+talkEntry:addResponse("Hammer collection? I threw away some hammers a few days ago...but, they did not belong to Charwis, did they?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(702, "=", 7));
+talkEntry:addTrigger("charwis");
+talkEntry:addTrigger("irongate");
+talkEntry:addTrigger("Hämmer");
+talkEntry:addTrigger("Sammlung");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 8));
+talkEntry:addResponse("Hämmersammlung? Ich habe da eine ganze Menge Hämmer vor ein paar Tagen entsorgt...aber, das war doch nicht Charwis Hammersammlung, oder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

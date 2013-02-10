@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "William Daloire"
@@ -102,8 +102,8 @@ english, "quest", "mission" -> "Nah I don't sell quests. I mean.. sorry.. I don'
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Soetwas verkaufe ich nicht. Ähm...Ich wollte sagen, ich biete soetwas nicht an."
 
 -- Quest by NPC mirarie Bragolin (Writing history IV)
-queststatus(317) = 9, english, "Mirarie", "Bragolin", "letter", "message" -> "Oh? A letter for me? Hrm... Ah, I see. Please tell Miss Bragolin I'll send her a letter to answer her question.", queststatus(317) = 10
-queststatus(317) = 9, "Mirarie", "Bragolin", "Brief", "Nachricht" -> "Oh?... ein Brief für mich? ... Ah, ich verstehe. Bitte sagt Fräulein Bragolin ich werde ihr einen Brief schreiben um ihre Fragen zu beantworten.", queststatus(317) = 10
+queststatus(317) = 9, english, "Mirarie", "Bragolin", "letter", "message" -> queststatus(317) = 10, "Oh? A letter for me? Hrm... Ah, I see. Please tell Miss Bragolin I'll send her a letter to answer her question."
+queststatus(317) = 9, "Mirarie", "Bragolin", "Brief", "Nachricht" -> queststatus(317) = 10, "Oh?... ein Brief für mich? ... Ah, ich verstehe. Bitte sagt Fräulein Bragolin ich werde ihr einen Brief schreiben um ihre Fragen zu beantworten."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a herbalist, so as you might expect: I sell herbs. Want to take a look?", "I don't just sell herbs: I also sell useful tools. Come have a look.", "I sell herbs and tools too. Want to see?"

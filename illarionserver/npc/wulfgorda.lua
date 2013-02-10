@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -430,7 +430,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nördliche Wälder");
 talkEntry:addTrigger("Nördlichen Wälder");
-talkEntry:addResponse("Die Nördlichen Wälder sind wie der Name vermuten lässt nördlich von hier und in der Mitte kann Rabans Hain gefundne werden.");
+talkEntry:addResponse("Die Nördlichen Wälder sind wie der Name vermuten lässt nördlich von hier und in der Mitte kann Rabans Hain gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -939,14 +939,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("If you want to know something about gods, than look for priests or ask in one of the factions.");
+talkEntry:addResponse("If you want to know something about gods, than look for priests or ask in one of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Wenn du etwas über die Götter wissen möchtest, dann suche einen Priester oder frage jemanden in den Fraktionen.");
+talkEntry:addResponse("Wenn du etwas über die Götter wissen möchtest, dann suche einen Priester oder frage jemanden in den Städten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
