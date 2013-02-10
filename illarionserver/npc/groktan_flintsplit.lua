@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.22 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -26,7 +26,6 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.talkstate")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.groktan_flintsplit", package.seeall)
 
@@ -1492,9 +1491,8 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Come to me if you owe the Don money... Then, you give it to me. If you don't, I give something to you, right in your face!");
-talkEntry:addResponse("I'm not ar. The difference is, I just take money and give nothing in return. You just get something from me if you don't pay, pain!");
+talkEntry:addResponse("I'm not a trader. The difference is, I just take money and give nothing in return. You just get something from me if you don't pay, pain!");
 talkEntry:addResponse("Get lost if you want to barter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

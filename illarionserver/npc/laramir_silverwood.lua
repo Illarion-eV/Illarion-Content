@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.22 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -36,9 +36,8 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
+talkEntry:addResponse("I trade in wooden goods. Feel free to take a look, my friend.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Iin wooden goods. Feel free to take a look, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -49,8 +48,8 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I handle mit hölzernen Waren. Bitte, sieh dich ruhig um, mein Freund!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -239,8 +238,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("I'm an elvenr, my friend.");
+talkEntry:addResponse("I'm an elven trader, my friend.");
 talkEntry:addResponse("I'm an elven carpenter, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -255,8 +253,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("I'm an elvenr, my friend.");
+talkEntry:addResponse("I'm an elven trader, my friend.");
 talkEntry:addResponse("I'm an elven carpenter, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

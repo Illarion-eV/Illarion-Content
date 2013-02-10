@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -27,7 +27,6 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.skill")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.baldo_proudtoe", package.seeall)
 
@@ -896,8 +895,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("I am just the gardener here. If you want tothings, go to the market place of Runewick.");
+talkEntry:addResponse("I am just the gardener here. If you want to trade things, go to the market place of Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1001,7 +999,7 @@ talkingNPC:addCycleText("Ach meine Hecken, ihr lasst mich nicht im Stich, richti
 talkingNPC:addCycleText("Ich sollte hier noch einige Bäume pflanzen.", "I should plant some trees here... and over there.");
 talkingNPC:addCycleText("Ist mein Garten nicht wundervoll?", "Isn't my garden marvellous?");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(5);
+mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Baldo Proudtoe der Gärtner.", "This NPC is Baldo Proudtoe the gardener.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
@@ -1022,7 +1020,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

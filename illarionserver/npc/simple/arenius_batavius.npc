@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.22 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Arenius Batavius"
@@ -307,7 +307,7 @@ english, "Bragon", "Brágon" -> "Did you know that Brágon is the father of all 
 "Bragon", "Brágon" -> "Wußtet ihr, dass Brágon der Vater aller Drachen ist? Nein? Dachte ich mir."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> trade, "The code of my order forbids me from pursuing mudane wealth, thus I do notthings with you."
+"what sell", "what buy", "list wares", "price of" -> "The code of my order forbids me from pursuing mudane wealth, thus I do notthings with you.", trade
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Der Codex meines Ordens verbietet es, weltlichem Reichtum nachzustreben. Daher werde ich nicht mit euch handeln."
 "tale", "story", "tell something" -> "I have an interesting tale to tell. It is about an evil cult of blood mages. Seen my wounds? They tell the story."
 "geschichte", "erzähl was", "erzähl etwas" -> "Ich habe eine interessante Geschichte zu erzählen, sie handelt von einem bösen Kult von Blutmagiern. Seht ihr meine Wunden? Sie erzählen die Geschichte."

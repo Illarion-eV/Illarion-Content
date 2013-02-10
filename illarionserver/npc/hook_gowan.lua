@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                       easyNPC Parser v1.22 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -35,9 +35,9 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ah, so you are interested in my wares.");
 talkEntry:addResponse("Take your time to look around.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -48,9 +48,9 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ah, dann interessiert Ihr Euch also für meine Waren.");
 talkEntry:addResponse("Schaut Euch ruhig in Ruhe um.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -191,10 +191,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("#me winks and raises his hooked hand, 'They call me Hook Gowan.'");
 talkEntry:addResponse("#me's eyes twinkle, 'I'm Hook, seller of third hand equipment...'");
 talkEntry:addResponse("Gowan. May name is Gowan - Sometimes I wish everyone would just call me Gowan.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -284,10 +284,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Alright, do you wish to buy something?");
 talkEntry:addResponse("Well then, listen, if you don't ask any questions I will not lie to you. Agreed?");
 talkEntry:addResponse("Superb!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -555,14 +555,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ronagan, the God of thieves and shadows! He promises shelter to everyone who lives in the shadow of so called high society");
 talkEntry:addResponse("They say there is a shrine for the Shadow Lord somwhere in Galmair but when I went there I didn't find it.");
 talkEntry:addResponse("My Lord despises the authority of the nobility, and like Ronagan himself, it's my aim to play tricks on them.");
 talkEntry:addResponse("Sometimes he appears as a dark haired and clothed charming man, guarding those who are in need of a helping hand. He seems quite good humoured to me.");
 talkEntry:addResponse("Ronagan dislikes betrayal. To betray a partner is a terrible deed and for sure the Shadow Lord will not overlook it.");
-talkEntry:addResponse("They say there arers who sacrifice part of their earnings to Ronagan, so he will shelter their goods.");
+talkEntry:addResponse("They say there are traders who sacrifice part of their earnings to Ronagan, so he will shelter their goods.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
