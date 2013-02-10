@@ -163,8 +163,9 @@ function InitWegweiser()
     AddWeg({789,681,0},"Schlechte Wahl!","Bad choice!",6,0);
     AddWeg({790,681,0},"Sehr schlechte Wahl!","Very bad choice!",2,0);
     AddWeg({759,735,0},"Bärenhöhle, Drachenhöhle, Dreifingerspitzen, Todes Gestank, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Bear Cave, Dragon's Lair, Three Fingertips, Death's Strench, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
-    AddWeg({756,753,0},"Bärenhöhle, Drachenhöhle, Dreifingerspitzen, Todes Gestank, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Bear Cave, Dragon's Lair, Three Fingertips, Death's Strench, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
-    AddWeg({756,749,0},"Eibental, Runewick","Yewdale, Runewick",4,0);
+
+    AddWeg({754,753,0},"Bärenhöhle, Drachenhöhle, Dreifingerspitzen, Todes Gestank, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Bear Cave, Dragon's Lair, Three Fingertips, Death's Strench, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({754,749,0},"Eibental, Runewick","Yewdale, Runewick",4,0);
     AddWeg({755,781,0},"Bärenhöhle, Drachenhöhle, Dreifingerspitzen, Todes Gestank, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Bear Cave, Dragon's Lair, Three Fingertips, Death's Strench, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
     AddWeg({755,782,0},"Eibental, Runewick","Yewdale, Runewick",4,0);
     AddWeg({847,728,0},"Fröhliche Lichtung","Merryglade",0,0);
