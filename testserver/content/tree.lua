@@ -70,6 +70,7 @@ function AddTree(Posi,dText,eText,Type,Percept)
     CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Type+40));
 end
 
+
 function CheckAndPlaceItem(Posi,ItemID)
     if world:isItemOnField(Posi) then
         if ( world:getItemOnField(Posi).id ~= ItemID ) then

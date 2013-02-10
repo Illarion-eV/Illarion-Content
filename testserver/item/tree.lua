@@ -6,7 +6,7 @@ require("content.tree")
 
 module("item.tree", package.seeall)
 
--- UPDATE common SET com_script='item.tree' WHERE com_itemid IN (308, 586, 1804, 1807, 1808, 1809, 1817);
+-- UPDATE common SET com_script='item.tree' WHERE com_itemid IN (308, 586, 1804, 1807, 1808, 1809, 1817, 960, 961, 962, 963);
 
 TreeListGerman = 
 {
@@ -41,9 +41,8 @@ function LookAtItemIdent(User,Item)
 		if (signCoo[tablePosition] ~= nil) then
 			for i, signpos in pairs(signCoo[tablePosition]) do
 				if (Item.pos == signpos) then
-                    if (UserPer >= signPerception[tablePosition][i]) then
+                   			if (UserPer >= signPerception[tablePosition][i]) then
 						lookAt.description = base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name))
-						test = signTextDe[tablePosition][i];
 					else
 						lookAt.description = base.common.GetNLS(User,"Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.","You recognise something, but you cannot read it, because you are too blind.")
 					end
