@@ -176,26 +176,21 @@ function InitWegweiser()
     AddWeg({783,798,0},"Vierbeiniger Roter Vogel, Hafen, Runewick","Quadruped Red Bird, Harbour, Runewick",6,0);
     AddWeg({761,808,0},"Vierbeiniger Roter Vogel, Hafen","Quadruped Red Bird, Harbour",6,0);
     AddWeg({762,801,0},"Bauernhöfe, Anthilbach, Nördlicher Außenposten, Feiglings letztes Gefecht, Fröhliche Lichtung, Oldras Turm, Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Farmland, Anthil Brook, Northern Outpost, Coward's last stand, Merryglade, Oldra's Tower, Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",2,0);
-
     AddWeg({739,803,0},"Hafen","Harbour",6,0);
     AddWeg({739,806,0},"Hafen","Harbour",6,0);
     AddWeg({739,807,0},"Hafen","Harbour",6,0);
     AddWeg({739,810,0},"Hafen","Harbour",6,0);
     AddWeg({739,811,0},"Hafen","Harbour",6,0);
     AddWeg({739,814,0},"Hafen","Harbour",6,0);
-
-
     AddWeg({761,800,0},"Bärenhöhle, Drachenbau, Cadomyr, Galmair, Gasthof zur Hanfschlinge","Bear Cave, Dragon Lair, Cadomyr, Galmair, The Hemp Necktie Inn",0,0);
-
-
     AddWeg({758,813,0},"Runewick","Runewick",2,0);
+    AddWeg({787,819,0},"Vierbeiniger Roter Vogel, Hafen, Bauernhöfe, Anthilbach, Nördlicher Außenposten, Feiglings letztes Gefecht, Fröhliche Lichtung, Oldras Turm, Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Quadruped Red Bird, Harbour, Farmland, Anthil Brook, Northern Outpost, Coward's last stand, Merryglade, Oldra's Tower, Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",6,0);
+    AddWeg({791,819,0},"Runewick, Erzmagier Elvaine Morgan","Runewick, Archmage Elvaine Morgan",2,0);
 
-    AddWeg({791,819,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
-    AddWeg({840,824,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
-    AddWeg({853,821,0},"Hölzfällersiedlung; Zwillingsaugeninseln","Woodcutter's Hut; Twin Eyes Islands",4,0);
-    AddWeg({855,814,0},"Heilige Eiche; Triumphfeuer","Holy Oak; Fire of Triumph",0,0);
-    AddWeg({851,816,0},"Vierbeiniger Roter Vogel; Hafen; Bauernhöfe; Cadomyr; Galmair; ...","Quadruped Red Bird; Harbour; Farmland; Cadomyr; Galmair; ...",6,0);
-    AddWeg({856,819,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
+    AddWeg({855,814,0},"Runewick, Erzmagier Elvaine Morgan","Runewick, Archmage Elvaine Morgan",2,0);
+    AddWeg({853,821,0},"Hölzfällersiedlung, Zwillingsaugeninseln","Woodcutter's Hut, Twin Eyes Islands",4,0);
+    AddWeg({855,813,0},"Heilige Eiche, Triumphfeuer","Holy Oak, Fire of Triumph",0,0);
+    AddWeg({851,816,0},"Eibental, Anthilbach, Nördlicher Außenposten, Feiglings letztes Gefecht, Fröhliche Lichtung, Oldras Turm, Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Yewdale, nthil Brook, Northern Outpost, Coward's last stand, Merryglade, Oldra's Tower, Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",6,0);
     
     --NE/Neutral-map
     AddWeg({680,311,0},"Narguns Ebene, Galmair, Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Schulterplatte Insel","Nargun's Plain, Galmair, Temple of the Five, Plains of Silence, Northern Woods, The Insurmountable Limes, Pauldron Isle",6,0);
