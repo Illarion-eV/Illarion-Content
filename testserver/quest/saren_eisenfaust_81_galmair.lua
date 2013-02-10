@@ -1,7 +1,7 @@
--- UPDATE quests SET qst_script = 'quest.saren_eisenfaust' WHERE qst_id = 81;
+-- UPDATE quests SET qst_script = 'quest.saren_eisenfaust_81_galmair' WHERE qst_id = 81;
 
 require("base.common")
-module("quest.saren_eisenfaust", package.seeall)
+module("quest.saren_eisenfaust_81_galmair", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -16,10 +16,10 @@ Title[ENGLISH] = "The lazy smith"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Bring 10 Kohle, 10 Eisenerz und 1 Hammer zu Saren Eisenfaust."
-Description[ENGLISH][1] = "Bring 10 of coal, 10 iron ore and 1 hammer to Saren Eisenfaust."
-Description[GERMAN][3] = "Bring 15 Kupfererz, 1 Tiegelzange, 1 Feinschmiedehammer und 5 Eisenbarren zu Saren Eisenfaust."
-Description[ENGLISH][3] = "Bring 15 copper ore, 1 crucible-pincer, 1 finesmithing hammer and 5 iron ingots to Saren Eisenfaust."
+Description[GERMAN][1] = "Bring 10 Kohlestücke, 10 Eisenerze und 1 Hammer zu Saren Eisenfaust."
+Description[ENGLISH][1] = "Bring 10 pieces of coal, 10 pieces iron ore and 1 hammer to Saren Eisenfaust."
+Description[GERMAN][3] = "Bring 15 Kupfererze, 1 Tiegelzange, 1 Feinschmiedehammer und 5 Eisenbarren zu Saren Eisenfaust."
+Description[ENGLISH][3] = "Bring 15 pieces of copper ore, 1 crucible-pincer, 1 finesmithing hammer and 5 iron ingots to Saren Eisenfaust."
 Description[GERMAN][5] = "Bring 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metalhandschuhe und 4 Schwertgriffe zu Saren Eisenfaust."
 Description[ENGLISH][5] = "Bring 10 iron ingots, 10 gold ingots, 5 dwarven metal gloves and 4 sword handles to Saren Eisenfaust"
 Description[GERMAN][7] = "Bring 15 Kupferbarren, 10 Kriegshämmer, 10 vergoldete Kriegsäxte und 2 salkamaerische Rüstungen zu Saren Eisenfaust."
@@ -27,7 +27,10 @@ Description[ENGLISH][7] = "Bring 15 copper ingots, 10 war hammer, 10 gilded batt
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {}
+QuestTarget[1] = {333, 258, 0}
+QuestTarget[3] = {333, 258, 0}
+QuestTarget[5] = {333, 258, 0}
+QuestTarget[7] = {333, 258, 0}
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 8
