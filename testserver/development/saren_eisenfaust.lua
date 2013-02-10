@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Someone                                                          --
 --           & Rincewind                                                      --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -169,7 +169,7 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("I'm Saren and who are you?");
-talkEntry:addResponse("I'm called Saren, Saren Eisenfaust and what's your name?");
+talkEntry:addResponse("I'm called Saren, Saren Eisenfaust, and what's your name?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -193,7 +193,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 1));
-talkEntry:addResponse("I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal as well as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.");
+talkEntry:addResponse("I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal, along with 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -219,7 +219,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 1));
-talkEntry:addResponse("I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal as well as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.");
+talkEntry:addResponse("I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal, along with 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -304,7 +304,7 @@ talkEntry:addCondition(npc.base.condition.item.item(23, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learned something. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learnt something. You advance in Don Valerio Guilianni's favour."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
@@ -453,7 +453,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2751, 1, nil
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(122, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Looks good and it's even everything that I wanted ya to bring me, well done!");
+talkEntry:addResponse("Looks good, it's everything that I wanted ya to bring me, well done!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,7 +489,7 @@ talkEntry:addCondition(npc.base.condition.item.item(122, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learned something. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learnt something. You advance in Don Valerio Guilianni's favour."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2535, 5, nil));
@@ -497,7 +497,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2751, 1, nil
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(122, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Looks good and it's even everything that I wanted ya to bring. Looks as if you could become a real smith.");
+talkEntry:addResponse("Looks good, it's everything that I wanted ya to bring. Looks as if you could become a real smith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -515,7 +515,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr! You're supposed to bring me 15 copper ore, crucible-pincers, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?");
+talkEntry:addResponse("Arr! You're supposed to bring me 15 copper ore, crucible-pincers, a fine smith hammer and 5 iron ingots. Not that hard to memorise, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -533,7 +533,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr! You're supposed to bring me 15 copper ore, crucible-pincers, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?");
+talkEntry:addResponse("Arr! You're supposed to bring me 15 copper ore, crucible-pincers, a fine smith hammer and 5 iron ingots. Not that hard to memorise, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -551,7 +551,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2751, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr! You're supposed to bring me 15 copper ore, crucible-pincers, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?");
+talkEntry:addResponse("Arr! You're supposed to bring me 15 copper ore, crucible-pincers, a fine smith hammer and 5 iron ingots. Not that hard to memorise, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -569,7 +569,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(122, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr! You're supposed to bring me 15 copper ore, crucible-pincers, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?");
+talkEntry:addResponse("Arr! You're supposed to bring me 15 copper ore, crucible-pincers, a fine smith hammer and 5 iron ingots. Not that hard to memorise, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -658,7 +658,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(236, 10, nil
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(529, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Finally, you're back, I started to worry about ya. Thanks for your help!");
+talkEntry:addResponse("Finally, you're back, I was starting to worry about ya. Thanks for your help!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,7 +694,7 @@ talkEntry:addCondition(npc.base.condition.item.item(529, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learned something. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learnt something. You advance in Don Valerio Guilianni's favour."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2584, 4, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2535, 10, nil));
@@ -702,7 +702,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(236, 10, nil
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(529, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Finally, you're back, I started to worry about ya. Now watch how I combine these materials.");
+talkEntry:addResponse("Finally, you're back, I was starting to worry about ya. Now watch how I combine these materials.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -786,7 +786,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 7));
-talkEntry:addResponse("Arr, you are looking for some work? Aye, I can help you with that! I need 15 copper ingots, 10 war hammer, 10 gilded battleaxes and 2 salkamaerian armours.");
+talkEntry:addResponse("Arr, you are looking for some work? Aye, I can help you with that! I need 15 copper ingots, 10 war hammers, 10 gilded battle axes and 2 Salkamaerian armours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -809,7 +809,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 7));
-talkEntry:addResponse("Arr, you are looking for some work? Aye, I can help you with that! I need 15 copper ingots, 10 war hammer, 10 gilded battleaxes and 2 salkamaerian armours.");
+talkEntry:addResponse("Arr, you are looking for some work? Aye, I can help you with that! I need 15 copper ingots, 10 war hammers, 10 gilded battle axes and 2 Salkamaerian armours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -862,7 +862,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(226, 10, nil
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2389, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Well done, I knew that I can count on you.");
+talkEntry:addResponse("Well done, I knew that I could count on you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -898,7 +898,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learned something. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learnt something. You advance in Don Valerio Guilianni's favour."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(124, 10, nil));
@@ -915,7 +915,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammer, 10 gilded battleaxes and 2 salkamaerian armours.");
+talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammers, 10 gilded battle axes and 2 Salkamaerian armours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -933,7 +933,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(124, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammer, 10 gilded battleaxes and 2 salkamaerian armours.");
+talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammers, 10 gilded battle axes and 2 Salkamaerian armours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -951,7 +951,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(226, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammer, 10 gilded battleaxes and 2 salkamaerian armours.");
+talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammers, 10 gilded battle axes and 2 Salkamaerian armours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -969,7 +969,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2389, "all", "<", 2, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammer, 10 gilded battleaxes and 2 salkamaerian armours.");
+talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammers, 10 gilded battle axes and 2 Salkamaerian armours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -988,7 +988,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Nah, I don't have anything else to do for you. Leave me alone now!");
+talkEntry:addResponse("Nah, I don't have anything else for you to do. Leave me alone now!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1007,7 +1007,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 8));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Nah, I don't have anything else to do for you. Leave me alone now!");
+talkEntry:addResponse("Nah, I don't have anything else for you to do. Leave me alone now!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1028,7 +1028,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1049,7 +1049,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1070,7 +1070,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1091,7 +1091,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1112,7 +1112,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1133,7 +1133,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1154,7 +1154,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1175,7 +1175,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1196,7 +1196,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1217,7 +1217,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1238,7 +1238,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1259,7 +1259,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1280,7 +1280,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1301,7 +1301,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't have anything to do for you!");
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1348,7 +1348,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Gobaith! Aye. My cousin fourth grade lived there down in Silverbrand, a while. But I say, Galmair is the bether choice to gain wealth for your clan.");
+talkEntry:addResponse("Gobaith! Aye. My cousin fourth removed lived there, down in Silverbrand, for a while. I say, Galmair is the better choice to gain wealth for your clan, though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1362,8 +1362,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
 talkEntry:addResponse("Aye. It's a pleasure.");
-talkEntry:addResponse("Tehie? Well then. How may I help you?");
-talkEntry:addResponse("By Irmorom! And you like to become a smith, or what?");
+talkEntry:addResponse("So, so? Well, then. How may I help you?");
+talkEntry:addResponse("By Irmorom! So you would like to become a smith, or what?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1377,20 +1377,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("dwarf");
-talkEntry:addResponse("Dwarf's don't drink shandy. Neither shandygaff! Halflings mix beer with fruit juice. Ha'ak! A real dwarf would rather shave his beard. Arr.");
+talkEntry:addResponse("Dwarves don't drink shandy, they drink it pure! Halflings mix wine with fruit juices and call it a spritzer. Ha'ak! A real dwarf would rather shave his beard. Arr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Silverbrand");
-talkEntry:addResponse("Silverbrand? There's not much I know about. But my cousin lived ther' a while.");
+talkEntry:addResponse("Silverbrand? There's not much I know about. But my cousin lived there a while.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("smith");
-talkEntry:addResponse("A smithh needs a hammer. And ore of course. You can buy everything at the market. With coal, ore is melt to ingots. Ingots are smithable. Got it?");
-talkEntry:addResponse("Search an anvil to smith. The forge melts Ore.");
+talkEntry:addResponse("A smith needs a hammer, and ore of course. You can buy everything at the market. With coal, ore is smelted to make ingots. Ingots, you can smith with. Got it?");
+talkEntry:addResponse("Search for an anvil to smith. The furnace you need to smelt ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1485,7 +1485,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Fine town, really fine town you know. But only if ya have enough silver coins in your pocket you know what I mean?");
+talkEntry:addResponse("Fine town, really fine town you know... but only if ya have enough silver coins in your pocket, you know what I mean?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1525,7 +1525,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Well, a little hot there but the queen is supposed to be good looking, wouldn't mind if she came here.");
+talkEntry:addResponse("Well, a little hot there but the Queen is supposed to be good looking, wouldn't mind if she came here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1538,7 +1538,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Forgive me... I don't know about the human town's. But maybe you are interested to hear about the homeland of my clan, sevenhill!");
+talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1552,7 +1552,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Forgive me... I don't know about the human town's. But maybe you are interested to hear about the homeland of my clan, sevenhill!");
+talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1566,7 +1566,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Forgive me... I don't know about the human town's. But maybe you are interested to hear about the homeland of my clan, sevenhill!");
+talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1578,11 +1578,11 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sevenhill");
-talkEntry:addResponse("'Tunnel pigs' can also be found in Sevenhill. This is not an insulting term for lazy miners, but is rather a very large, fat, and nearly naked type of rodent. This animal is well known at most dwarven settlements and is considered a delicacy.");
+talkEntry:addResponse("'Tunnel pigs' can also be found in Sevenhill. This is not an insulting term for lazy miners, but rather refers to a very large, fat, and nearly naked type of rodent. This animal is well known at most dwarven settlements and is considered a delicacy.");
 talkEntry:addResponse("Sevenhill, also known as Siebenberg, is one of the greatest dwarven mines and it's halls and wealth are legendary. The town is located in deep caverns under a range of seven mountains, but only dwarves know the exact location.");
 talkEntry:addResponse(" Humans are not permitted in Sevenhill and only a few trusted lizardmen and elves have ever been welcomed into the city. Heavily armed dwarven squads guard every entrance.");
 talkEntry:addResponse("Many of the city's exits end in many mountain valleys where crops and livestock are farmed. The infamous 'dwarven cheese' is also produced here; an incredibly strong smelling kind of cheese, highly thought of by dwarves, but completely unpalatable to humans, halflings and elves.");
-talkEntry:addResponse("Sevenhill is home to seven dwarven clans. It is said that Irmorom blesses those dwarves who make a pilgramage to all of the four sanctuaries, located under Sevenhill. Many of the famous dwarves, are said to have been there as pilgrims.");
+talkEntry:addResponse("Sevenhill is home to seven dwarven clans. It is said that Irmorom blesses those dwarves who make a pilgrimage to all of the four sanctuaries, located under Sevenhill. Many famous dwarves, are said to have been there on pilgrimages.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1598,7 +1598,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("I follow Irmorom, the father of the dwarven kind and hallow of the crafters. And Brágon, whose falmes melt the ores.");
+talkEntry:addResponse("I follow Irmorom, the father of the dwarven kind and hallow of the crafters... and Brágon, whose flames melt the ores.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1613,7 +1613,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("The falme of Brágon brings dragons their fiere and warms the living. And it bends Steel, by heat it.");
+talkEntry:addResponse("The flame of Brágon brings dragons their fire and warms the living, and it bends steel, by heating it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1627,8 +1627,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Smithing is the craft of the dwarves. Irmorom teached us long time ago, that Brágons flame makes iron bendable and plastic.");
-talkEntry:addResponse("Irmorom the godly crafter, told the dwarven folk how to smith and after hundrets of years, they figured out how to put runes and gems into mighty weapons and armors.");
+talkEntry:addResponse("Smithing is the craft of the dwarves. Irmorom taught us a long time ago, that Brágons flame makes iron soft and malleable.");
+talkEntry:addResponse("Irmorom, the godly crafter, told the dwarven folk how to smith and after hundreds of years they figured out how to put runes and gems into mighty weapons and armours.");
 talkEntry:addResponse("Irmorom himself was the first smith. He liked the hardwoking dwarves most, so he gave them the ability to smith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1665,9 +1665,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Do you know, Gremle Oxenlimb, my sister's husband? He affirms that he beat up a golem with his bare hands. Is 'Ga strak ja'ada! Such a fibbed tale.");
+talkEntry:addResponse("Do you know, Gremle Oxenlimb, my sister's husband? He affirms that he beat up a golem with his bare hands. Ga strak ja'ada! Such a fibbed tale.");
 talkEntry:addResponse("They say Eygir Goldmalt brews the best beer, but I prefer Yeseult Bockbrew's.");
-talkEntry:addResponse("Rustbeard Grimhilds-Cousin is a good friend of mine. But he can't bear even a half mug of beer. When drunken he sings bawdy songs and throws hatchets trageting young womens plaits.");
+talkEntry:addResponse("Rustbeard Grimhilds cousin is a good friend of mine, but he can't bear even half a mug of beer. When drunk he sings bawdy songs and throws hatchets targeting young women's plaits.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1686,7 +1686,7 @@ talkEntry:addTrigger("Saren");
 talkEntry:addTrigger("Eisenfaust");
 talkEntry:addResponse("What's up?");
 talkEntry:addResponse("Aye?");
-talkEntry:addResponse("#me nods once and rises an eyebrow.");
+talkEntry:addResponse("#me nods once and raises an eyebrow.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1763,7 +1763,7 @@ talkingNPC:addCycleText("#me blickt mit zusammengeniffenen Augen in den Himmel."
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein in Fällen gekleideter Zwerg, stolz trägt er seinen prächtigen Bart zur Schau.", "A proud looking dwarf, dressed in fur. His beard is enormous.");
+mainNPC:setLookat("Ein in Fällen gekleideter Zwerg, stolz trägt er seinen prächtigen Bart zur Schau.", "A proud looking dwarf, dressed in fur has an enormous beard.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
