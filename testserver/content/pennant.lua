@@ -75,6 +75,8 @@ function InitPennant()
     AddPennant({797,361,0},"Hexen Hütte","Witch's Cottage", 7,0);--Witch's Cottage
 	AddPennant({795,356,0},"Hexen Hütte","Witch's Cottage", 7,0);--Witch's Cottage
     AddPennant({797,356,0},"Hexen Hütte","Witch's Cottage", 7,0);--Witch's Cottage
+	--Dewy Swamp
+    AddPennant({902,695,0},"Schattentor - Versuchsgebiet","Shadow Gate - experimental area", 6,0);--Shadow Gate
   --[[   --Dragon lair
 	AddPennant({837,677,1},"","", 7, 5);
 	AddPennant({837,677,1},"","", 7, 5);
