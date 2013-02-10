@@ -61,13 +61,13 @@ function InitTree()
 end
 
 function AddTree(Posi,dText,eText,Type,Percept)
-    local tablePos = tostring(Posi[1]).." "..tostring(Posi[2]).." "..tostring(Posi[3]);
+    local tablePos = Posi[1]..Posi[2]..Posi[3];
     PrepareTables(tablePos);
     table.insert(signCoo[tablePos],position(Posi[1],Posi[2],Posi[3]));
     table.insert(signTextDe[tablePos],dText);
     table.insert(signTextEn[tablePos],eText);
     table.insert(signPerception[tablePos],Percept);
-    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Dir));
+    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Type+40));
 end
 
 function CheckAndPlaceItem(Posi,ItemID)
