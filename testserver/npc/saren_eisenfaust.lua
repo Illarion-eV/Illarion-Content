@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Someone                                                          --
 --           & Rincewind                                                      --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -29,7 +29,7 @@ require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.skill")
 require("npc.base.talk")
-module("development.saren_eisenfaust", package.seeall)
+module("npc.saren_eisenfaust", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -185,7 +185,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
@@ -198,7 +198,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
@@ -211,7 +211,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("smith");
@@ -224,7 +224,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Schmied");
@@ -285,7 +285,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(23, 1, nil));
@@ -305,7 +305,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learnt something. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(23, 1, nil));
@@ -370,7 +370,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
@@ -382,7 +382,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
@@ -393,7 +393,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 2));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
@@ -404,7 +404,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 2));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
@@ -458,7 +458,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 40));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 40));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2536, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 4, nil));
@@ -468,7 +468,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2535, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2751, 1, nil));
@@ -480,7 +480,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 40));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 40));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2536, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 4, nil));
@@ -490,7 +490,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learnt something. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2535, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2751, 1, nil));
@@ -574,7 +574,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
@@ -586,7 +586,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
@@ -598,7 +598,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 4));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
@@ -609,7 +609,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 4));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
@@ -663,7 +663,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 60));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 60));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2584, "all", ">", 3, nil));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 9, nil));
@@ -673,7 +673,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2584, 4, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2535, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(236, 10, nil));
@@ -685,7 +685,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 60));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 60));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2584, "all", ">", 3, nil));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 9, nil));
@@ -695,7 +695,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learnt something. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2584, 4, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2535, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(236, 10, nil));
@@ -779,7 +779,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
@@ -791,7 +791,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
@@ -803,7 +803,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 6));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
@@ -814,7 +814,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 6));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
@@ -825,49 +825,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=", 80));
-talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14, nil));
-talkEntry:addCondition(npc.base.condition.item.item(124, "all", ">", 9, nil));
-talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", 9, nil));
-talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 0, nil));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.town.town(3));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 15, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(124, 10, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(226, 10, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2389, 2, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Sehr gut gemacht, ich wusste man kann sich auf dich verlassen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=", 80));
-talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14, nil));
-talkEntry:addCondition(npc.base.condition.item.item(124, "all", ">", 9, nil));
-talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", 9, nil));
-talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 0, nil));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(3));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You advance in Don Valerio Guilianni's favour."));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 15, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(124, 10, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(226, 10, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2389, 2, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Well done, I knew that I could count on you.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.item.item(124, "all", ">", 9, nil));
@@ -877,7 +835,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(124, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(226, 10, nil));
@@ -889,7 +847,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=<", 80));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.item.item(124, "all", ">", 9, nil));
@@ -899,7 +857,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learnt something. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 5));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(124, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(226, 10, nil));
@@ -1764,7 +1722,7 @@ mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein in Fällen gekleideter Zwerg, stolz trägt er seinen prächtigen Bart zur Schau.", "A proud looking dwarf, dressed in fur has an enormous beard.");
-mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
+mainNPC:setUseMessage("Fass mich nicht an!", "Don't touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 810);
