@@ -165,7 +165,10 @@ function InitWegweiser()
     AddWeg({759,735,0},"Bärenhöhle; Drachenbau; Norden","Bear Cave; Dragon Lair; North",0,0);
     AddWeg({847,728,0},"Fröhliche Lichtung","Merryglade",0,0);
     AddWeg({847,730,0},"Oldras Turm, Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Oldra's Tower, Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",2,0);
-    AddWeg({842,730,0},"Nördlicher Außenposten, Eibental, Runewick","Northern Outpost, Yewdale, Runewick",4,0);
+    AddWeg({842,730,0},"Nördlicher Außenposten, Eibental, Runewick","Northern Outpost, Yewdale, Runewick",6,0);
+    AddWeg({840,734,0},"Feiglings letztes Gefecht","Coward's last stand",4,0);
+    AddWeg({818,736,0},"Feiglings letztes Gefecht, Fröhliche Lichtung, Oldras Turm, Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Coward's last stand, Merryglade, Oldra's Tower, Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({818,751,0},"Eibental, Runewick","Yewdale, Runewick",4,0);
 
     AddWeg({786,777,0},"Anthilbach","Anthil Brook",6,0);
     AddWeg({786,777,0},"Fröhliche Lichtung; Osthafen","Merryglade; Eastport",2,0);

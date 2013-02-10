@@ -142,6 +142,8 @@ function InitPennant()
     --Mount Zotmore
     AddPennant({365,497,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 6,0);
     AddPennant({359,506,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 6,0);
+	--Northern Outpost
+    AddPennant({818,750,0},"Nördlicher Außenposten","Northern Outpost", 7,0);
 	--[[--Lost Building (2)
     AddPennant({277,605,0},"","", 5,5);
     AddPennant({277,596,0},"","", 5,5);
