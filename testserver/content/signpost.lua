@@ -191,6 +191,7 @@ function InitWegweiser()
     AddWeg({853,821,0},"Hölzfällersiedlung, Zwillingsaugeninseln","Woodcutter's Hut, Twin Eyes Islands",4,0);
     AddWeg({855,813,0},"Heilige Eiche, Triumphfeuer","Holy Oak, Fire of Triumph",0,0);
     AddWeg({851,816,0},"Eibental, Anthilbach, Nördlicher Außenposten, Feiglings letztes Gefecht, Fröhliche Lichtung, Oldras Turm, Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Yewdale, nthil Brook, Northern Outpost, Coward's last stand, Merryglade, Oldra's Tower, Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",6,0);
+    AddWeg({873,902,0},"Zwillingsaugeninseln","Twin Eyes Islands",4,0);
     
     --NE/Neutral-map
     AddWeg({680,311,0},"Narguns Ebene, Galmair, Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Schulterplatte Insel","Nargun's Plain, Galmair, Temple of the Five, Plains of Silence, Northern Woods, The Insurmountable Limes, Pauldron Isle",6,0);
