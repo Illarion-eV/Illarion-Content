@@ -168,8 +168,8 @@ function InitPennant()
 	AddPennant({323,632,0},"","", 6,5);
 	AddPennant({323,634,0},"","", 6,5);]]--
 	--Runewick
-    AddPennant({747,803,0},"Vierbeiniger Roter Vogel","Quadruped Red Bird", 7,0);
-    AddPennant({750,803,0},"Vierbeiniger Roter Vogel","Quadruped Red Bird", 7,0);
+    AddPennant({747,803,0},"Vierbeiniger Roter Vogel","Quadruped Red Bird", 1,0);
+    AddPennant({750,803,0},"Vierbeiniger Roter Vogel","Quadruped Red Bird", 1,0);
 	--Sentry Outpost
 	AddPennant({641,706,2},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 3,0);
 	--Snakehead Coast
