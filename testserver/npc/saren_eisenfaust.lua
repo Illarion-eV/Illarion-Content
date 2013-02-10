@@ -37,13 +37,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addResponse("[Game Help] This NPC is the smith Saren Eisenfaust. Keywords: pickaxe, adventure, tell something, Sevenhill.");
+talkEntry:addResponse("[Game Help] This NPC is the smith Saren Eisenfaust. Keywords: pickaxe, mine, adventure, tell something, Sevenhill.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addResponse("[Spielhilfe] Dieser NPC ist der Schmied Saren Eisenfaust. Schlüsselwörter: Aufgaben, Spitzhacke, Erzähl was, Siebenberg.");
+talkEntry:addResponse("[Spielhilfe] Dieser NPC ist der Schmied Saren Eisenfaust. Schlüsselwörter: Aufgaben, Mine, Spitzhacke, Erzähl was, Siebenberg.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -233,7 +233,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 1));
-talkEntry:addResponse("Ich kann dir helfen, falls du Schmied werden willst, dafür solltest du mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz bringen. Und hier eine Hacke um das Erz abzubauen.");
+talkEntry:addResponse("Ich kann dir helfen, falls du Schmied werden willst, dafür solltest du mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz und nen Hammer bringen. Und hier eine Hacke um das Erz abzubauen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1028,7 +1028,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? I don't have anything for you to do!");
+talkEntry:addResponse("Arr? I don't have anything for you to do, you are not from Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1039,7 +1039,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1049,7 +1049,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't have anything for you to do!");
+talkEntry:addResponse("Arr? I don't have anything for you to do, you are not from Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1059,7 +1059,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
-talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1070,7 +1070,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? I don't have anything for you to do!");
+talkEntry:addResponse("Arr? I don't have anything for you to do, you are not from Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1081,7 +1081,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1091,7 +1091,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't have anything for you to do!");
+talkEntry:addResponse("Arr? I don't have anything for you to do, you are not from Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1101,7 +1101,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
-talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1112,7 +1112,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? I don't have anything for you to do!");
+talkEntry:addResponse("Arr? I don't have anything for you to do, you are not from Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1123,7 +1123,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1133,7 +1133,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't have anything for you to do!");
+talkEntry:addResponse("Arr? I don't have anything for you to do, you are not from Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1143,7 +1143,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
-talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1154,7 +1154,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? I don't have anything for you to do!");
+talkEntry:addResponse("Arr? I don't have anything for you to do, you are not from Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1165,7 +1165,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1175,7 +1175,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't have anything for you to do!");
+talkEntry:addResponse("Arr? I don't have anything for you to do, you are not from Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1185,7 +1185,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
-talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1196,7 +1196,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? I don't have anything for you to do!");
+talkEntry:addResponse("Arr? I don't have anything for you to do, you are not from Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1207,7 +1207,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1217,7 +1217,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't have anything for you to do!");
+talkEntry:addResponse("Arr? I don't have anything for you to do, you are not from Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1227,7 +1227,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
-talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1238,7 +1238,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? I don't have anything for you to do!");
+talkEntry:addResponse("Arr? I don't have anything for you to do, you are not from Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1249,7 +1249,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1259,7 +1259,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't have anything for you to do!");
+talkEntry:addResponse("Arr? I don't have anything for you to do, you are not from Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1269,7 +1269,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
-talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1380,6 +1380,20 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zwerg");
 talkEntry:addResponse("Ein Zwerg trinkt die Mischung pur! - Bei den Halblingen mischen sie Wein mit Früchte-saft. Das nennen sie Schorle oder Spritzer. Ha'ak! Aber ein echter Zwerg trinkt nicht's Gestrecktes!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("mine");
+talkEntry:addResponse("Arr, you can find the mine if you follow the path south of the workshop. That's the house with the brown roof!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Mine");
+talkEntry:addResponse("Arr, du kannst die Mine finden wenn du der Straße südlich von der Werkstatt folgst. Dat is das Haus mit dem bräunlichen Dach!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

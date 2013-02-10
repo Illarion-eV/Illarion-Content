@@ -62,8 +62,8 @@ itemShoes = 697
 -- 8: Quest 4 solved
 
 -- Help
-"Help" -> "[Game Help] This NPC is the smith Saren Eisenfaust. Keywords: pickaxe, adventure, tell something, Sevenhill."
-"Hilfe" -> "[Spielhilfe] Dieser NPC ist der Schmied Saren Eisenfaust. Schlüsselwörter: Aufgaben, Spitzhacke, Erzähl was, Siebenberg."
+"Help" -> "[Game Help] This NPC is the smith Saren Eisenfaust. Keywords: pickaxe, mine, adventure, tell something, Sevenhill."
+"Hilfe" -> "[Spielhilfe] Dieser NPC ist der Schmied Saren Eisenfaust. Schlüsselwörter: Aufgaben, Mine, Spitzhacke, Erzähl was, Siebenberg."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day, what do ya want?", "Irmorom with ya, do ya need anything?"
@@ -83,7 +83,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Aye, take care.", "Irmorom 
 queststatus(81) = 0, skill(smithing) < 80, english, town = Galmair, "quest", "mission" -> "I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal, along with 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.", item(2763, 1, 399), queststatus(81) = 1
 queststatus(81) = 0, skill(smithing) < 80, german, town = Galmair, "quest", "mission" -> "Ich kann dir helfen falls du Schmied werden willst, hol mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz und nen Hammer nich zu vergessen. Hier noch die Spitzhacke zum abbauen des Erzes.", item(2763, 1, 399), queststatus(81) = 1
 queststatus(81) = 0, skill(smithing) < 80, town = Galmair, "smith", "task", "adventure" -> "I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal, along with 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.", item(2763, 1, 399), queststatus(81) = 1
-queststatus(81) = 0, skill(smithing) < 80, town = Galmair, "Schmied", "Auftrag", "Aufgabe", "Abenteuer" -> "Ich kann dir helfen, falls du Schmied werden willst, dafür solltest du mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz bringen. Und hier eine Hacke um das Erz abzubauen.", item(2763, 1, 399), queststatus(81) = 1
+queststatus(81) = 0, skill(smithing) < 80, town = Galmair, "Schmied", "Auftrag", "Aufgabe", "Abenteuer" -> "Ich kann dir helfen, falls du Schmied werden willst, dafür solltest du mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz und nen Hammer bringen. Und hier eine Hacke um das Erz abzubauen.", item(2763, 1, 399), queststatus(81) = 1
 queststatus(81) = 1, skill(smithing) >= 20, item(21, all) > 9, item(22, all) > 9, item(23, all) > 0, german, town = Galmair, ".+" -> inform("[Quest erfüllt!] Dein Ansehen bei Don Valerio Guilianni steigt."), "Arr, gut gemacht!", deleteItem(21, 10), deleteItem(22, 10), deleteItem(23, 1), queststatus(81) = 2, rankpoints + 5
 queststatus(81) = 1, skill(smithing) >= 20, item(21, all) > 9, item(22, all) > 9, item(23, all) > 0, english, town = Galmair, ".+" -> inform("[Quest finished!] You advance in Don Valerio Guilianni's favour."), "Arr, well done!", deleteItem(21, 10), deleteItem(22, 10), deleteItem(23, 1), queststatus(81) = 2, rankpoints + 5
 queststatus(81) = 1, skill(smithing) < 20, item(21, all) > 9, item(22, all) > 9, item(23, all) > 0, german, town = Galmair, ".+" -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Arr, gut gemacht. Jetzt schau mir gut zu, damit du auch wat lernst!", skill(smithing) + 2, deleteItem(21, 10), deleteItem(22, 10), deleteItem(23, 1), queststatus(81) = 2, rankpoints + 5
@@ -156,30 +156,30 @@ queststatus(81) = 0, skill(smithing) >= 80, english, town = Galmair, "quest", "m
 queststatus(81) = 0, skill(smithing) >= 80, german, town = Galmair, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun!"
 queststatus(81) = 0, skill(smithing) >= 80, town = Galmair, "task", "adventure" -> "Arr? I don't have anything for you to do!"
 queststatus(81) = 0, skill(smithing) >= 80, town = Galmair, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun!"
-queststatus(81) = 0, skill(smithing) >= 80, english, town = Runewick, "quest", "mission" -> "Arr? I don't have anything for you to do!"
-queststatus(81) = 0, skill(smithing) >= 80, german, town = Runewick, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun!"
-queststatus(81) = 0, skill(smithing) >= 80, town = Runewick, "task", "adventure" -> "Arr? I don't have anything for you to do!"
-queststatus(81) = 0, skill(smithing) >= 80, town = Runewick, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun!"
-queststatus(81) = 0, skill(smithing) >= 80, english, town = Cadomyr, "quest", "mission" -> "Arr? I don't have anything for you to do!"
-queststatus(81) = 0, skill(smithing) >= 80, german, town = Cadomyr, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun!"
-queststatus(81) = 0, skill(smithing) >= 80, town = Cadomyr, "task", "adventure" -> "Arr? I don't have anything for you to do!"
-queststatus(81) = 0, skill(smithing) >= 80, town = Cadomyr, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun!"
-queststatus(81) = 0, skill(smithing) >= 80, english, town = none, "quest", "mission" -> "Arr? I don't have anything for you to do!"
-queststatus(81) = 0, skill(smithing) >= 80, german, town = none, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun!"
-queststatus(81) = 0, skill(smithing) >= 80, town = none, "task", "adventure" -> "Arr? I don't have anything for you to do!"
-queststatus(81) = 0, skill(smithing) >= 80, town = none, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun!"
-queststatus(81) = 0, skill(smithing) =< 80, english, town = Runewick, "quest", "mission" -> "Arr? I don't have anything for you to do!"
-queststatus(81) = 0, skill(smithing) =< 80, german, town = Runewick, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun!"
-queststatus(81) = 0, skill(smithing) =< 80, town = Runewick, "task", "adventure" -> "Arr? I don't have anything for you to do!"
-queststatus(81) = 0, skill(smithing) =< 80, town = Runewick, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun!"
-queststatus(81) = 0, skill(smithing) =< 80, english, town = Cadomyr, "quest", "mission" -> "Arr? I don't have anything for you to do!"
-queststatus(81) = 0, skill(smithing) =< 80, german, town = Cadomyr, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun!"
-queststatus(81) = 0, skill(smithing) =< 80, town = Cadomyr, "task", "adventure" -> "Arr? I don't have anything for you to do!"
-queststatus(81) = 0, skill(smithing) =< 80, town = Cadomyr, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun!"
-queststatus(81) = 0, skill(smithing) =< 80, english, town = none, "quest", "mission" -> "Arr? I don't have anything for you to do!"
-queststatus(81) = 0, skill(smithing) =< 80, german, town = none, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun!"
-queststatus(81) = 0, skill(smithing) =< 80, town = none, "task", "adventure" -> "Arr? I don't have anything for you to do!"
-queststatus(81) = 0, skill(smithing) =< 80, town = none, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun!"
+queststatus(81) = 0, skill(smithing) >= 80, english, town = Runewick, "quest", "mission" -> "Arr? I don't have anything for you to do, you are not from Galmair!"
+queststatus(81) = 0, skill(smithing) >= 80, german, town = Runewick, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!"
+queststatus(81) = 0, skill(smithing) >= 80, town = Runewick, "task", "adventure" -> "Arr? I don't have anything for you to do, you are not from Galmair!"
+queststatus(81) = 0, skill(smithing) >= 80, town = Runewick, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!"
+queststatus(81) = 0, skill(smithing) >= 80, english, town = Cadomyr, "quest", "mission" -> "Arr? I don't have anything for you to do, you are not from Galmair!"
+queststatus(81) = 0, skill(smithing) >= 80, german, town = Cadomyr, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!"
+queststatus(81) = 0, skill(smithing) >= 80, town = Cadomyr, "task", "adventure" -> "Arr? I don't have anything for you to do, you are not from Galmair!"
+queststatus(81) = 0, skill(smithing) >= 80, town = Cadomyr, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!"
+queststatus(81) = 0, skill(smithing) >= 80, english, town = none, "quest", "mission" -> "Arr? I don't have anything for you to do, you are not from Galmair!"
+queststatus(81) = 0, skill(smithing) >= 80, german, town = none, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!"
+queststatus(81) = 0, skill(smithing) >= 80, town = none, "task", "adventure" -> "Arr? I don't have anything for you to do, you are not from Galmair!"
+queststatus(81) = 0, skill(smithing) >= 80, town = none, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!"
+queststatus(81) = 0, skill(smithing) =< 80, english, town = Runewick, "quest", "mission" -> "Arr? I don't have anything for you to do, you are not from Galmair!"
+queststatus(81) = 0, skill(smithing) =< 80, german, town = Runewick, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!"
+queststatus(81) = 0, skill(smithing) =< 80, town = Runewick, "task", "adventure" -> "Arr? I don't have anything for you to do, you are not from Galmair!"
+queststatus(81) = 0, skill(smithing) =< 80, town = Runewick, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!"
+queststatus(81) = 0, skill(smithing) =< 80, english, town = Cadomyr, "quest", "mission" -> "Arr? I don't have anything for you to do, you are not from Galmair!"
+queststatus(81) = 0, skill(smithing) =< 80, german, town = Cadomyr, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!"
+queststatus(81) = 0, skill(smithing) =< 80, town = Cadomyr, "task", "adventure" -> "Arr? I don't have anything for you to do, you are not from Galmair!"
+queststatus(81) = 0, skill(smithing) =< 80, town = Cadomyr, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!"
+queststatus(81) = 0, skill(smithing) =< 80, english, town = none, "quest", "mission" -> "Arr? I don't have anything for you to do, you are not from Galmair!"
+queststatus(81) = 0, skill(smithing) =< 80, german, town = none, "quest", "mission" -> "Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!"
+queststatus(81) = 0, skill(smithing) =< 80, town = none, "task", "adventure" -> "Arr? I don't have anything for you to do, you are not from Galmair!"
+queststatus(81) = 0, skill(smithing) =< 80, town = none, "Auftrag", "Aufgabe" -> "Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "You ask what my profession is? I'm a smith, the best even.", "I'm a smith and you?"
@@ -200,6 +200,8 @@ english, "Gobaith", "Gobiath" -> "Gobaith! Aye. My cousin fourth removed lived t
 "Schmied" -> "N' Schmied braucht nen Hammer. Und Erz natürlich. Das kannste alles am Markt kaufn. Erz schmilzst du mit Kohle zu Barren. Und die schmiedet man.", "Du musst zu einem Amboss gehn, wenn du schmieden willst. An der Esse kannst du Erz schmelzn."
 "Silberbrand" -> "Silberbrand? Weiß ich nich viel von. Aber mein Cousin hat dort ne Weile gelebt."
 "Zwerg" -> "Ein Zwerg trinkt die Mischung pur! - Bei den Halblingen mischen sie Wein mit Früchte-saft. Das nennen sie Schorle oder Spritzer. Ha'ak! Aber ein echter Zwerg trinkt nicht's Gestrecktes!"
+english, "mine" -> "Arr, you can find the mine if you follow the path south of the workshop. That's the house with the brown roof!"
+german, "Mine" -> "Arr, du kannst die Mine finden wenn du der Straße südlich von der Werkstatt folgst. Dat is das Haus mit dem bräunlichen Dach!"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Don't know him, who's that supposed to be?"
