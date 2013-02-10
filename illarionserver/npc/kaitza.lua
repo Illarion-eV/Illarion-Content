@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
---                                                       easyNPC Parser v1.22 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1104,15 +1104,12 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
+talkEntry:addResponse("Zss. I have nozing to trade.");
+talkEntry:addResponse("I do not ssseek to trade. Zss.");
+talkEntry:addResponse("Sssorry, I do not wisssh to trade.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Zss. I have nozing to.");
-talkEntry:addResponse("I do not ssseek to. Zss.");
-talkEntry:addResponse("Sssorry, I do not wisssh to.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

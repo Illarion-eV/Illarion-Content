@@ -169,10 +169,10 @@ function InitPillar()
     AddPillar({376,551,0},"","", 1,5);
     --Death Marsh
     AddPillar({748,337,0},"","", 1,5);
-    AddPillar({709,378,0},"","", 1,5);
-    AddPillar({732,379,0},"","", 2,5);
+    AddPillar({709,378,0},"","", 1,5);]]--
+    AddPillar({732,379,0},"Die Schönheit, die es versuchte aber scheiterte.","The beauty, who tried but failed.", 2,0);
     --Death's Stench
-    AddPillar({804,549,0},"","", 5, 5);
+--[[    AddPillar({804,549,0},"","", 5, 5);
     AddPillar({784,581,0},"","", 2, 5);
     --Death Swath
     AddPillar({507,465,0},"","", 1, 5);
@@ -213,10 +213,10 @@ function InitPillar()
 	AddPillar({311,235,1},"Die Statue gleicht einem reich gekleideten Zwerg mit grauer Haut und Haar, der eine Schürze trägt und einen goldenen Hammer und ein schmackhaft aussehendes Bier hält. ","The statue portrays a richly dressed dwarf with grey skin and hair, who is wearing an apron and is holds a golden hammer and tasty looking beer.", 4,0); --Irmoroms Temple
     AddPillar({310,255,1},"Die Statue gleicht einem reich gekleideten Mann mit grauer Haut und Haar, der eine Schürze trägt und seinen großen goldenen Hammer gegen einen Ambos schwingt.","The statue portrays a richly dressed man with grey skin and hair, who is wearing an apron and swings a big golden hammer at an anvil.", 4,0); --Irmoroms Temple
     AddPillar({310,256,1},"Die Statue gleicht einem reich gekleideten Mann mit grauer Haut und Haar, der eine Schürze trägt und seinen großen goldenen Hammer gegen einen Ambos schwingt.","The statue portrays a richly dressed man with grey skin and hair, who is wearing an apron and swings a big golden hammer at an anvil.", 4,0); --Irmoroms Temple
-	--[[AddPillar({340,283,1},"","", 1,5); --Nagrun Temple
-    AddPillar({340,281,1},"","", 1,5); --Nagrun Temple
-    AddPillar({334,277,0},"","", 1, 5); --Nagrun Temple
-	AddPillar({334,280,0},"","", 1, 5); --Nagrun Temple
+	--[[AddPillar({340,283,1},"","", 1,5); --Nargun Temple
+    AddPillar({340,281,1},"","", 1,5); --Nargun Temple
+    AddPillar({334,277,0},"","", 1, 5); --Nargun Temple
+	AddPillar({334,280,0},"","", 1, 5); --Nargun Temple
 	AddPillar({396,237,0},"","", 6,5); --Guard House
 	AddPillar({376,240,0},"","", 6,5); --Kiln
 	AddPillar({375,216,0},"","", 4, 5); --Council Chamber
@@ -308,8 +308,8 @@ function InitPillar()
     AddPillar({496,193,0},"Eine Notiz an der Eisenstatue besagt: 'Beschützer der Schwarzbrücke'.","A note on the iron figure says: 'Protector of the Blackbridge'.", 5,0); --Blackbridge
     AddPillar({499,193,0},"Eine Notiz an der Eisenstatue besagt: 'Beschützer der Schwarzbrücke'.","A note on the iron figure says 'Protector of the Blackbridge'.", 5,0); --Blackbridge
 	--Galmair Plateau
-	--[[	AddPillar({357,365,1},"","", 4,5);
-	--Grugmutz's cave
+AddPillar({357,365,1},"Er begehrte Gold, er bekam Gold. Goldener Rumil.","He desired gold, he got gold. Golden Rumil.", 4,0);
+		--[[	--Grugmutz's cave
     AddPillar({169,558,0},"","", 1,5);
     AddPillar({169,561,0},"","", 1,5);
     --Harp of Pain
@@ -330,6 +330,11 @@ function InitPillar()
     AddPillar({661,388,2},"Auf der Säule steht mit Blut geschrieben 'Furcht'.","The word 'fear' is written with blood on the column.", 1,5);
     AddPillar({661,393,2},"Auf der Säule steht mit Blut geschrieben 'Stärke'.","The word 'strength' is written with blood on the column.", 1,5);
     AddPillar({656,393,2},"Auf der Säule steht mit Blut geschrieben 'Blut'.","The word 'blood' is written with blood on the column.", 1,5);
+	--Insurmountable Limes
+	AddPillar({674,13,0},"Eine Notiz an der Statue besagt: 'Westtor-Wache des Unüberwindbaren Limes'.","A note on the figure says: 'Westgate-Guard of the Insurmountable Limes'.", 3,0);
+	AddPillar({677,13,0},"Eine Notiz an der Statue besagt: 'Westtor-Wache des Unüberwindbaren Limes'.","A note on the figure says: 'Westgate-Guard of the Insurmountable Limes'.", 3,0);
+	AddPillar({931,136,0},"Eine Notiz an der Statue besagt: 'Osttor-Wache des Unüberwindbaren Limes'.","A note on the figure says: 'Eastgate-Guard of the Insurmountable Limes'.", 4,0);
+	AddPillar({931,139,0},"Eine Notiz an der Statue besagt: 'Osttor-Wache des Unüberwindbaren Limes'.","A note on the figure says: 'Eastgate-Guard of the Insurmountable Limes'.", 4,0);
 	--Kata Island
 	--[[AddPillar({169,834,0},"","", 2,5);
     --Lighthouse
@@ -357,7 +362,7 @@ function InitPillar()
 	AddPillar({357,495,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","'Mount Zotmore' is written with big letters on the column.", 1,0);
 	AddPillar({366,497,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","'Mount Zotmore' is written with big letters on the column.", 1,0);
 	AddPillar({366,501,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","'Mount Zotmore' is written with big letters on the column.", 1,0);
-	--[[--Nagrun's Plain
+	--[[--Nargun's Plain
 	AddPillar({522,240,0},"","", 2,5);
 	AddPillar({534,259,0},"","", 6,5);
 	AddPillar({554,262,0},"","", 1,5);

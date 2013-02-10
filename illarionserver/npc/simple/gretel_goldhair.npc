@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.22 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Gretel Goldhair"
@@ -89,6 +89,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the Five 
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Gretel Goldhair. Und Ihr seid?", "Gretel Goldhair. Ich war mal berühmt. Vielleicht habt Ihr von mir gehört?"
 
 -- OPTIONAL TRIGGERS
+
+-- Quest by Charwis Irongate
+queststatus(702) = 7, english, "charwis", "irongate", "hammer", "collection" -> queststatus(702) = 8, "Hammer collection? I threw away some hammers a few days ago...but, they did not belong to Charwis, did they?"
+queststatus(702) = 7, "charwis", "irongate", "Hämmer", "Sammlung" -> queststatus(702) = 8, "Hämmersammlung? Ich habe da eine ganze Menge Hämmer vor ein paar Tagen entsorgt...aber, das war doch nicht Charwis Hammersammlung, oder?"
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I do not sell anything. But I take donations...or well, the Don does. Just bring the things here and place them on the field."

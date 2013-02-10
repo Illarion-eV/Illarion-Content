@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -125,13 +125,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Wilderland."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Wilderland."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Wilderland."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Galmair, Wilderland."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 mainNPC:addLanguage(0);
@@ -139,8 +139,8 @@ mainNPC:addLanguage(1);
 mainNPC:addLanguage(2);
 mainNPC:addLanguage(3);
 mainNPC:addLanguage(4);
-mainNPC:addLanguage(5);
 mainNPC:addLanguage(6);
+mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Wilderland.", "[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Wilderland.");
 mainNPC:setUseMessage("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Wilderland.", "[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Wilderland.");
@@ -153,7 +153,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

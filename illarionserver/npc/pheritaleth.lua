@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -15,15 +15,43 @@ VALUES (3, 111, 599, 0, 4, 'Pheritaleth', 'npc.pheritaleth', 1, 8, 0, 255, 236, 
 ---]]
 
 require("npc.base.basic")
+require("npc.base.condition.item")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.consequence.gemcraft")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.talk")
 module("npc.pheritaleth", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(702, "=", 10));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", ">", 0, {["nameEn"] = "Really big gold nugget"}));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("charwis");
+talkEntry:addTrigger("irongate");
+talkEntry:addTrigger("gold");
+talkEntry:addTrigger("nugget");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 11));
+talkEntry:addResponse("Unbelievable! This gold nugget really is as large as an apple! Please, tell Charwis I'm sorry I called him a liar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(702, "=", 10));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", ">", 0, {["nameDe"] = "Echt großer Goldnugget"}));
+talkEntry:addTrigger("charwis");
+talkEntry:addTrigger("irongate");
+talkEntry:addTrigger("gold");
+talkEntry:addTrigger("nugget");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 11));
+talkEntry:addResponse("Unglaublich! Der Goldnugget ist ja wahrlich so groß wie ein Apfel! Bitte sagt Charwis, es tut mir leid, dass ich ihn einen Lügner nannte.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -145,7 +173,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("They call me Pheritaleth and I am skilled in gemcraft.");
+talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
+talkEntry:addResponse("They call me Pheritaleth and I am skilled in.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -164,8 +193,8 @@ talkEntry:addTrigger("gemcraft");
 talkEntry:addTrigger("transmute");
 talkEntry:addTrigger("combine");
 talkEntry:addTrigger("enchant");
-talkEntry:addResponse("Let me take a look at your gems...");
 talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
+talkEntry:addResponse("Let me take a look at your gems...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -174,8 +203,8 @@ talkEntry:addTrigger("verwandel");
 talkEntry:addTrigger("verein");
 talkEntry:addTrigger("kombinier");
 talkEntry:addTrigger("verzauber");
-talkEntry:addResponse("Dann lasst mal eure Edelsteine sehen...");
 talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
+talkEntry:addResponse("Dann lasst mal eure Edelsteine sehen...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -442,7 +471,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

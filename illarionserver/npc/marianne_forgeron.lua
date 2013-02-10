@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -174,18 +174,18 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gem");
 talkEntry:addTrigger("smithing");
-talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkEntry:addResponse("Did I hear ya say work?");
 talkEntry:addResponse("Let's start!");
+talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Edelstein");
 talkEntry:addTrigger("Schmieden");
-talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkEntry:addResponse("Dann woll'n wir ma!");
 talkEntry:addResponse("Auf ans Werk!");
+talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
