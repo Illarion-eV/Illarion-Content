@@ -79,14 +79,14 @@ function InitPennant()
     AddPennant({902,695,0},"Schattentor - Versuchsgebiet","Shadow Gate - experimental area", 6,0);--Shadow Gate
   --[[   --Dragon lair
 	AddPennant({837,677,1},"","", 7, 5);
-	AddPennant({837,677,1},"","", 7, 5);
-	AddPennant({742,667,0},"","", 7, 5);
-	AddPennant({745,667,0},"","", 7, 5);
-	AddPennant({748,667,0},"","", 7, 5);
-	AddPennant({751,667,0},"","", 7, 5);
-	AddPennant({754,667,0},"","", 7, 5);
-	AddPennant({757,667,0},"","", 7, 5);
-	AddPennant({760,667,0},"","", 7, 5);]]--
+	AddPennant({837,677,1},"","", 7, 5);]]--
+	AddPennant({742,667,0}," Achtung heiﬂ!"," Caution hot!", 7, 5);
+	AddPennant({745,667,0}," Achtung heiﬂ!"," Caution hot!", 7, 5);
+	AddPennant({748,667,0}," Achtung heiﬂ!"," Caution hot!", 7, 5);
+	AddPennant({751,667,0}," Achtung heiﬂ!"," Caution hot!", 7, 5);
+	AddPennant({754,667,0}," Achtung heiﬂ!"," Caution hot!", 7, 5);
+	AddPennant({757,667,0}," Achtung heiﬂ!"," Caution hot!", 7, 5);
+	AddPennant({760,667,0}," Achtung heiﬂ!"," Caution hot!", 7, 5);
     --Eastland
     AddPennant({834,542,0},"Linker Zwilling","Left Twin", 6,0); --Twin Mountains
     AddPennant({875,537,0},"Rechter Zwilling","Right Twin", 7,0); --Twin Mountains
