@@ -29,7 +29,7 @@ require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.skill")
 require("npc.base.talk")
-module("development.saren_eisenfaust", package.seeall)
+module("npc.saren_eisenfaust", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -593,7 +593,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 5));
-talkEntry:addResponse("Aye, hab wat für dich zu tun wenn du willst. Bring mir 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metallhandschuhe und 4 Schwertgriffe.");
+talkEntry:addResponse("Aye, hab wat für dich zu tun wenn du willst. Bring mir 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metalhandschuhe und 4 Schwertgriffe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -616,7 +616,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 5));
-talkEntry:addResponse("Aye, hab wat für dich zu tun wenn du willst. Bring mir 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metallhandschuhe und 4 Schwertgriffe.");
+talkEntry:addResponse("Aye, hab wat für dich zu tun wenn du willst. Bring mir 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metalhandschuhe und 4 Schwertgriffe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -711,7 +711,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2584, "all", "<", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse(" Arr, da fehlt aber noch was. Ick wollte 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metallhandschuhe und 4 Schwertgriffe, aye!");
+talkEntry:addResponse(" Arr, da fehlt aber noch was. Ick wollte 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metalhandschuhe und 4 Schwertgriffe, aye!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -729,7 +729,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse(" Arr, da fehlt aber noch was. Ick wollte 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metallhandschuhe und 4 Schwertgriffe, aye!");
+talkEntry:addResponse(" Arr, da fehlt aber noch was. Ick wollte 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metalhandschuhe und 4 Schwertgriffe, aye!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -747,7 +747,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(236, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse(" Arr, da fehlt aber noch was. Ick wollte 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metallhandschuhe und 4 Schwertgriffe, aye!");
+talkEntry:addResponse(" Arr, da fehlt aber noch was. Ick wollte 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metalhandschuhe und 4 Schwertgriffe, aye!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -765,7 +765,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(529, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse(" Arr, da fehlt aber noch was. Ick wollte 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metallhandschuhe und 4 Schwertgriffe, aye!");
+talkEntry:addResponse(" Arr, da fehlt aber noch was. Ick wollte 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metalhandschuhe und 4 Schwertgriffe, aye!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
