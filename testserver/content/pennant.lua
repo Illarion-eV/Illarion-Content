@@ -56,8 +56,8 @@ function InitPennant()
     AddPennant({109,551,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --registration
     AddPennant({104,552,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --registration
     --Carnivore's House
-	AddPennant({847,312,0},"Falls du auch Menschenfleisch magst bist du herzlich zum Abendbrot eingeladen! HA! HA!","If you also like human meet, you are very welcome to stay for dinner! HA! HA!", 6,0);
-	AddPennant({847,311,0},"Falls du auch Menschenfleisch magst bist du herzlich zum Abendbrot eingeladen! HA! HA!","If you also like human meet, you are very welcome to stay for dinner! HA! HA!", 6,0);
+	AddPennant({847,312,0},"Falls du auch Menschenfleisch magst bist du herzlich zum Abendbrot eingeladen! HA! HA!","If you also like human meat, you are very welcome to stay for dinner! HA! HA!", 6,0);
+	AddPennant({847,311,0},"Falls du auch Menschenfleisch magst bist du herzlich zum Abendbrot eingeladen! HA! HA!","If you also like human meat, you are very welcome to stay for dinner! HA! HA!", 6,0);
     --Cherass Citadel
     AddPennant({596,383,2},"Cherass heiﬂt euch willkommen in seiner Zitadelle!","Cherass welcomes you in his citadel!", 7,0); --outpost
     AddPennant({601,383,2},"Cherass heiﬂt euch willkommen in seiner Zitadelle!","Cherass welcomes you in his citadel!", 7,0); --outpost
