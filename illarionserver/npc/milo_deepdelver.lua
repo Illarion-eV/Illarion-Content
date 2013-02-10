@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Nanuk                                                            --
 --           Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -52,7 +52,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("Greetings my friend and may the Gods be with you. I don't have much time, as this bullheaded ox of mine doesn't take a step forward. But if you know anything about oxes lend me a hand, will you?");
+talkEntry:addResponse("Greetings my friend and may the Gods be with you. I don't have much time, as this obstinate ox of mine won't take a step forward, but if you know anything about oxen lend me a hand, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -77,7 +77,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Greetings my friend and may the Gods be with you. I don't have much time, as this bullheaded ox of mine doesn't take a step forward. But if you know anything about oxes lent me a hand, will you?");
+talkEntry:addResponse("Greetings my friend and may the Gods be with you. I don't have much time, as this obstinate ox of mine won't take a step forward, but if you know anything about oxen lend me a hand, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -95,7 +95,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Farewell my friend. May Oldra guide your ways where ever you go.");
+talkEntry:addResponse("Farewell my friend. May Oldra guide your way wherever you go.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -113,7 +113,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addResponse("Farewell my friend. May Oldra guide your ways where ever you go.");
+talkEntry:addResponse("Farewell my friend. May Oldra guide your way wherever you go.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -129,7 +129,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("#me sighs: 'Well, you know, I was on my way back home, but the Gods blessed me with this old ox, that doesn't want to move.'");
+talkEntry:addResponse("#me sighs, 'Well, you know, I was on my way back home, but the Gods blessed me with this old ox, that doesn't want to move.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -166,8 +166,8 @@ talkEntry:addTrigger("problem");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Milo's ox"));
-talkEntry:addResponse("This stupid ox of mine doesn't move a single step and I am late returning to my family. My ox is doing anything for carrots, but a few miles ago they ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 1));
+talkEntry:addResponse("This stupid ox of mine doesn't move a single step and I am late returning to my family. My ox will do anything for carrots, but a few miles back I ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -177,8 +177,8 @@ talkEntry:addTrigger("Problem");
 talkEntry:addTrigger("Mission");
 talkEntry:addTrigger("Quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Milos Ochse"));
-talkEntry:addResponse("Mein dummer Ochse bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Mein Ochse würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 1));
+talkEntry:addResponse("Mein dummer Ochse bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Mein Ochse würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -190,8 +190,8 @@ talkEntry:addTrigger("order");
 talkEntry:addTrigger("yes");
 talkEntry:addTrigger("ox");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Milo's ox"));
-talkEntry:addResponse("This stupid ox of mine doesn't move a single step and I am late returning to my family. My ox is doing anything for carrots, but a few miles ago they ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 1));
+talkEntry:addResponse("This stupid ox of mine doesn't move a single step and I am late returning to my family. My ox will do anything for carrots, but a few miles back I ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -205,8 +205,8 @@ talkEntry:addTrigger("ja");
 talkEntry:addTrigger("helfe");
 talkEntry:addTrigger("Ochse");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Milos Ochse"));
-talkEntry:addResponse("Mein dummer Ochse bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Mein Ochse würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 1));
+talkEntry:addResponse("Mein dummer Ochse bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Mein Ochse würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -219,11 +219,11 @@ talkEntry:addTrigger("problem");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You received ten mandrakes and one bottle of elven wine."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. But I can't teach you anything anymore. You are already surpassing my skills. Here let me give you some of my provisions in exchange, especially this nice wine from the elven domain!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(1318, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(752, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard, but I can't teach you anything anymore. You already surpass my skills. Here let me give you some of my provisions in exchange, especially this nice wine from the elven domain!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -235,11 +235,11 @@ talkEntry:addTrigger("Problem");
 talkEntry:addTrigger("Mission");
 talkEntry:addTrigger("Quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhälst zehn Alraunen und eine Flasche Elfenwein."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr übertrefft meine Fähigkeiten bereits. Lasst mich euch im Austausch ein paar meiner Vorräte geben, insbesondere dieser exzellente Elfenwein!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(1318, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(752, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr übertrefft meine Fähigkeiten bereits. Lasst mich euch im Austausch ein paar meiner Vorräte geben, insbesondere dieser exzellente Elfenwein!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -253,11 +253,11 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addTrigger("ox");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You received ten mandrakes and one bottle of elven wine."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. But I can't teach you anything anymore. You are already surpassing my skills. Here let me give you some of my provisions in exchange, especially this nice wine from the elven domain!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(1318, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(752, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard, but I can't teach you anything anymore. You already surpass my skills. Here let me give you some of my provisions in exchange, especially this nice wine from the elven domain!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -274,11 +274,11 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addTrigger("Ochse");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhälst zehn Alraunen und eine Flasche Elfenwein."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr übertrefft meine Fähigkeiten bereits. Lasst mich euch im Austausch ein paar meiner Vorräte geben, insbesondere dieser exzellente Elfenwein!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(1318, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(752, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr übertrefft meine Fähigkeiten bereits. Lasst mich euch im Austausch ein paar meiner Vorräte geben, insbesondere dieser exzellente Elfenwein!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -290,11 +290,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("problem");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore is increased."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -306,10 +306,10 @@ talkEntry:addTrigger("Problem");
 talkEntry:addTrigger("Mission");
 talkEntry:addTrigger("Quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Geheimnisse der Kräuterkunde zeigen!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Geheimnisse der Kräuterkunde zeigen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -322,11 +322,11 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addTrigger("ox");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore is increased."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -343,10 +343,10 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("befehl");
 talkEntry:addTrigger("Ochse");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Geheimnisse der Kräuterkunde zeigen!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Geheimnisse der Kräuterkunde zeigen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -358,11 +358,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("problem");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore is increased."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -374,10 +374,10 @@ talkEntry:addTrigger("Problem");
 talkEntry:addTrigger("Mission");
 talkEntry:addTrigger("Quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -390,11 +390,11 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addTrigger("ox");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore is increased."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -411,10 +411,10 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("befehl");
 talkEntry:addTrigger("Ochse");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -426,11 +426,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("problem");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore is increased."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 10));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -442,10 +442,10 @@ talkEntry:addTrigger("Problem");
 talkEntry:addTrigger("Mission");
 talkEntry:addTrigger("Quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 10));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -458,11 +458,11 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addTrigger("ox");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
-talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore is increased."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 10));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -479,10 +479,10 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addTrigger("Ochse");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
-talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 10));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
+talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -493,7 +493,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("problem");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
-talkEntry:addResponse("Yes, I am still waiting for those ten carrots you wanted to bring to me. Please hurry up, my family is waiting for me.");
+talkEntry:addResponse("Yes, I am still waiting for those ten carrots you wanted to bring to me. Please hurry up, my family are waiting for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -515,7 +515,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addTrigger("ox");
-talkEntry:addResponse("Yes, I am still waiting for those ten carrots you wanted to bring to me. Please hurry up, my family is waiting for me.");
+talkEntry:addResponse("Yes, I am still waiting for those ten carrots you wanted to bring to me. Please hurry up, my family are waiting for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -542,7 +542,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("problem");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
-talkEntry:addResponse("But this is not the number of carrots I need. I would not get home with this few. Bring me at least ten carrots and please hurry up!");
+talkEntry:addResponse("Alas this is not the number of carrots I need. I would not get home with this few. Bring me at least ten carrots and please hurry up!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -564,7 +564,7 @@ talkEntry:addTrigger("order");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("ox");
-talkEntry:addResponse("But this is not the number of carrots I need. I would not get home with this few. Bring me at least ten carrots and please hurry up!");
+talkEntry:addResponse("Alas this is not the number of carrots I need. I would not get home with this few. Bring me at least ten carrots and please hurry up!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -589,7 +589,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("problem");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
-talkEntry:addResponse("With the carrots you have brought I will have no problems returning home. May Adron give you wine whenever you desire.");
+talkEntry:addResponse("With the carrots you brought I will have no problems returning home. May Adron give you wine whenever you desire.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -609,7 +609,7 @@ talkEntry:addTrigger("help");
 talkEntry:addTrigger("carrot");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("With the carrots you have brought I will have no problems returning home. May Adron give you wine whenever you desire.");
+talkEntry:addResponse("With the carrots you brought I will have no problems returning home. May Adron give you wine whenever you desire.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -654,7 +654,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elder");
-talkEntry:addResponse("The Elder Gods were first on this world. There are five of them with the name of Ushara, Brágon, Eldan, Tanora and Findari.");
+talkEntry:addResponse("The Elder Gods were first on this world. There are five of them with the names Ushara, Brágon, Eldan, Tanora and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -678,7 +678,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("God");
-talkEntry:addResponse("The Gods effect our lives in all aspects. It would be wise to give them due respect. There are the Younger and Elder Gods. Which group are you interested in?");
+talkEntry:addResponse("The Gods affect our lives in all aspects. It would be wise to give them due respect. There are the Younger and Elder Gods. Which group are you interested in?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -692,7 +692,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Oldra is the beginning of everything on earth. From her all has emerged. Well, maybe with the exception of this stubborn ox.");
+talkEntry:addResponse("Oldra is the beginning of everything on earth. From her, all has emerged. Well, maybe with the exception of this stubborn ox.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -719,7 +719,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Brágon");
 talkEntry:addTrigger("Bragon");
-talkEntry:addResponse("Now we are talking about a great God. He imprisoned Moshran a long time ago. Unfortunately he escaped.");
+talkEntry:addResponse("Now we are talking about a great God. He imprisoned Moshran a long time ago, unfortunately he escaped.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -733,7 +733,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("Eldan is one of the old Gods. The only thing I have in common with him might be the wooden staff I am carring.");
+talkEntry:addResponse("Eldan is one of the Elder Gods. The only thing I have in common with him might be the wooden staff I am carrying.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -746,7 +746,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
-talkEntry:addResponse("Tanora is the Goddess of Water. But you should go and ask a lizardman about her. They call her Zelphia.");
+talkEntry:addResponse("Tanora is the Goddess of Water, but you should go and ask a lizardman about her... they call her Zelphia.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -840,7 +840,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachín");
 talkEntry:addTrigger("Malachin");
-talkEntry:addResponse("Malachín, the God of Battle and Hunting, flourishes his swords too much. Why battle, if all problems can be discussed with a nice roast on your plate and a beaker with wine in your hand?");
+talkEntry:addResponse("Malachín, the God of Battle and Hunting, flourishes his swords too much. Why battle, if all problems can be discussed with a nice roast on your plate and a beaker of wine in your hand?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -880,7 +880,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Count yourself lucky if you have a friend who is a true follower of Zhambra. You can trust this kind of person absolutely. Not one would dare to deceive the God of Friendship and Loyalty in such a way.");
+talkEntry:addResponse("Count yourself lucky if you have a friend who is a true follower of Zhambra. You can trust this kind of person absolutely. Nobody would dare to deceive the God of Friendship and Loyalty by going behind his back.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -893,7 +893,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("#me laughs heartily. 'The rogue in our godly pantheon. Always good for a joke. But you should never ever stay on his bad side. The God of Thieves and Shadow doesn't like to be on the short end of the stick.'");
+talkEntry:addResponse("#me laughs heartily, 'The rogue in our godly pantheon. Always good for a joke, but you should never ever stray on his bad side... the God of Thieves and Shadows doesn't like to lose out.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -906,7 +906,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("If you are not tired of your life, you should stay far away from the God of Blood and Bones. I don't even dare to wisper his name, that no misfortune or evil may befall me. He lurks in the dark waiting for a weakness of your soul, to get hold of it... forever. Be on your guard!");
+talkEntry:addResponse("If you are not tired of your life, you should stay far away from the God of Blood and Bones. I don't even dare to wisper his name, so that no misfortune or evil may befall me. He lurks in the dark waiting for a weakness of your soul, to get hold of it... forever. Be on your guard!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -967,7 +967,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ingredient");
-talkEntry:addResponse("There are some kind of minerals which are used to finish a brew. In general it is gem dust.");
+talkEntry:addResponse("There are some kind of minerals which are used to finish a brew. In general, it is gem dust.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -979,7 +979,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("usage");
-talkEntry:addResponse("You will need a copper kettle, the plants and ingrediences and an empty bottle to create a potion.");
+talkEntry:addResponse("You will need a copper kettle, the plants and other ingredients, and an empty bottle to create a potion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1004,7 +1004,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nifrindarai");
-talkEntry:addResponse("He has found out that all herbs contain active substances with differnet effects. The success of a formula therefore requires a harmonic combination of the ingredients and their proportions.");
+talkEntry:addResponse("He has found out that all herbs contain active substances with different effects. The success of a formula therefore requires a harmonic combination of the ingredients in the correct proportions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1029,7 +1029,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Elvaine Morgan is the present archmage of Runewick. From far and near people flock to her just to see him in flesh.");
+talkEntry:addResponse("Elvaine Morgan is the current Archmage of Runewick. From far and near people flock to him, just to see him in flesh.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1043,7 +1043,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("He is our wise and benevolent archmage, the ruler of Runewick. Never before was there such a fair mind.");
+talkEntry:addResponse("He is our wise and benevolent Archmage, the ruler of Runewick. Never before was there such a fair mind.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1087,7 +1087,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair is no good place to be, if you ask me. They just crave for money but their character is spoiled.");
+talkEntry:addResponse("Galmair is not a good place to be, if you ask me. They just crave for money but their character is spoiled.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1099,7 +1099,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("queen");
-talkEntry:addResponse("Quite stiff they are over there in Cadomyr and their Queen Rosaline is no exception. I would expect that the back of most people in Cadomyr is hurting from all the bowing they have to perform.");
+talkEntry:addResponse("Quite stiff they are over there in Cadomyr and their Queen Rosaline is no exception. I would expect that the backs of most people in Cadomyr hurt from all the bowing they have to perform.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1113,7 +1113,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Rosaline");
 talkEntry:addTrigger("Edwards");
-talkEntry:addResponse("Quite stiff they are over there in Cadomyr and their Queen Rosaline is no exception. I would expect that the back of most people in Cadomyr is hurting from all the bowing they have to perform.");
+talkEntry:addResponse("Quite stiff they are over there in Cadomyr and their Queen Rosaline is no exception. I would expect that the backs of most people in Cadomyr hurt from all the bowing they have to perform.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1127,7 +1127,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyrs customes are strange. Rather than relying on wisdom and knowledge their rank determines status in society. It could even happen that a total retard rules the land. Crazy, isn't it?");
+talkEntry:addResponse("Cadomyrs customs are strange. Rather than relying on wisdom and knowledge, their rank determines status in society. It could even happen that a total retard rules the land. Crazy, isn't it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1140,7 +1140,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Albar");
-talkEntry:addResponse("Last I heard there was another rebellion going on in Albar. These poor peasants were forming an uprise again. But as always those so called nobles will put an end to it pretty soon.");
+talkEntry:addResponse("Last I heard there was another rebellion going on in Albar. Those poor peasants were forming an uprising again, but as always the so called nobles will put an end to it pretty soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1154,7 +1154,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gynk");
 talkEntry:addTrigger("Gync");
-talkEntry:addResponse("I tell you, you can smell a person from Gync three miles upwind. These foul people live in stinking and chaotic dungheaps, that they actually call cities.");
+talkEntry:addResponse("I tell you, you can smell a person from Gynk three miles upwind. Those foul people live in stinking and chaotic dung heaps, that they actually call cities.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1168,7 +1168,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Salkamar");
-talkEntry:addResponse("Once I have been to Salkamar. Oh, these beautiful places, these great people! You should go there yourself one day and you will not return the same as you are today.");
+talkEntry:addResponse("Once I went to Salkamar. Oh, such beautiful places, those great people! You should go there yourself one day and you will not return the same as you are today.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1181,7 +1181,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
-talkEntry:addResponse("#me laughs loudly: 'Nobody will ever stand again with his two feet on Gobaith. I expect that you knew that.'");
+talkEntry:addResponse("#me laughs loudly, 'Nobody will ever stand again with two feet on Gobaith, but I expect that you knew that.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1193,7 +1193,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Halfling");
-talkEntry:addResponse("Yes, I am a Halfling. Naturally the best people there are! Good for a nice chat and easy to have around. You only need to watch you provisions if one of us is around.");
+talkEntry:addResponse("Yes, I am a Halfling. Naturally the best people there are! Good for a nice chat and easy to have around. You only need to watch your provisions if one of us is around.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1244,7 +1244,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elves");
 talkEntry:addTrigger("Elfs");
-talkEntry:addResponse("I don't really have much to do with the Elves. They are quite snobbish if you ask my.");
+talkEntry:addResponse("I don't really have much to do with the Elves. They are quite snobbish if you ask me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1272,7 +1272,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lizard");
-talkEntry:addResponse("The Lizardmen are a very guarded community. With the exception of Zerarisa at Cape Farewell I don't really know them.");
+talkEntry:addResponse("The Lizardmen are a very guarded community. With the exception of Zerarisa at Cape Farewell, I don't really know them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1323,7 +1323,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Goblin");
-talkEntry:addResponse("In my youth my mother used to tell me lurid tales about these little creatures. I would advice to stay away from them.");
+talkEntry:addResponse("In my youth my mother used to tell me lurid tales about those little creatures. I would advise to stay away from them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1365,7 +1365,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nana");
 talkEntry:addTrigger("Winterbutter");
-talkEntry:addResponse("Nana is a good friend of mine. Normally you can find her at the fields in Yewdale.");
+talkEntry:addResponse("Nana is a good friend of mine. Normally you can find her around the fields in Yewdale.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1390,7 +1390,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("wife");
-talkEntry:addResponse("My wife is called Rose and she is the most beautiful women you will ever see!");
+talkEntry:addResponse("My wife is called Rose and she is the most beautiful woman you will ever see!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1419,7 +1419,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Sorry, I don't sell anything. I am trying to get this stupid ox to move. So, get out of my way if you don't want to help me.");
+talkEntry:addResponse("Sorry, I don't sell anything. I am trying to get this stupid ox to move... so, get out of my way if you don't want to help me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1434,7 +1434,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I could tell you a lot about herb lore - and my family, if you wish.");
+talkEntry:addResponse("I could tell you a lot about herb lore, and my family, if you wish.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1510,16 +1510,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Nun komm schon, du dickköpfiger alter Ochse!", "Come on, you stubborn old ox!");
 talkingNPC:addCycleText("#me zieht verzweifelt am Joch des Ochsens.", "#me desperately pulls at the headcollar of the ox.");
-talkingNPC:addCycleText("#me versucht dem Ochse gut zuzureden.", "#me tries to cajole the ox.");
-talkingNPC:addCycleText("Jetzt beweg dich endlich, du Mistviech von einem Ochse!", "Now move, you bastard of a ox!");
+talkingNPC:addCycleText("#me versucht dem Ochse gut zuzureden.", "#me tries to cajole the ox into moving.");
+talkingNPC:addCycleText("Jetzt beweg dich endlich, du Mistviech von einem Ochse!", "Now move, you bastard of an ox!");
 talkingNPC:addCycleText("Ich verspreche dir, ich mach aus dir Ochsenschwanzsuppe, wenn du dich nicht auf der Stelle in Bewegung setzt.", "I promise I will turn you into oxtail soup if you do not move right away.");
 talkingNPC:addCycleText("Soll dich doch Cherga ins Reich der Toten holen, du faules Stück!", "May Cherga take you into the realm of the dead, you numbskull!");
 talkingNPC:addCycleText("#me schlägt mit dem Stock nach dem Ochse.", "#me hits the ox with a stick.");
 talkingNPC:addCycleText("In Galmair wüßte man mit einem Ochse wie dir umzugehen!", "They would know how to deal with with a ox like you in Galmair!");
 talkingNPC:addCycleText("Bei den Haaren meiner Füße, ich trete dir gleich in den Hintern!", "By the hairs on my feet, I will kick you in the butt!");
-talkingNPC:addCycleText("Wegen dir kommen wir zu spät zum Essen, du dickköpfige Kreatur!", "Because of you we will be late for dinner, you bullheaded creature!");
+talkingNPC:addCycleText("Wegen dir kommen wir zu spät zum Essen, du dickköpfige Kreatur!", "Because of you we will be late for dinner, you thickheaded creature!");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(5);
+mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist der Kräuterkundige Milo Deepdelver.", "This NPC is the herbalist Milo Deepdelver.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
@@ -1540,7 +1540,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

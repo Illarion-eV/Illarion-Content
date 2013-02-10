@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Lotta Medborgar"
@@ -59,12 +59,10 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lotta Medborgar die Jägerin. Schlüsselwörter: Auskunft, Information, Galmair, Orte.")
 
 -- Mandatory: General speech
-
-queststatus(630) = 1, town = Galmair, english, ".*" -> inform("[Quest End 'Find Lotta'] You received 10 silver coins and 5 rank points."), "Good day. Finally you found me! Iradona has already informed me about your visit. There, you have some silver coins for finding me.", money + 1000, queststatus(630) = 2, rankpoints+5
-queststatus(630) = 1, town = Galmair, ".*" -> inform("[Quest Ende 'Finde Lotta'] Du hast 10 Silberstücke und 5 Rangpunkte erhalten."), "Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen.", money + 1000, queststatus(630) = 2, rankpoints+5
-queststatus(630) = 1, english, ".*" -> inform("[Quest End 'Find Lotta'] You received 10 silver coins."), "Good day. Finally you found me! Iradona has already informed me about your visit. There, you have some silver coins for finding me.", money + 1000, queststatus(630) = 2
-queststatus(630) = 1, ".*" -> inform("[Quest Ende 'Finde Lotta'] Du hast 10 Silberstücke erhalten."), "Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen.", money + 1000, queststatus(630) = 2
-
+queststatus(630) = 1, english, town = Galmair, ".*" -> inform("[Quest End 'Find Lotta'] You received 10 silver coins and 5 rank points."), money + 1000, queststatus(630) = 2, rankpoints + 5, "Good day. Finally you found me! Iradona has already informed me about your visit. There, you have some silver coins for finding me."
+queststatus(630) = 1, town = Galmair, ".*" -> inform("[Quest Ende 'Finde Lotta'] Du hast 10 Silberstücke und 5 Rangpunkte erhalten."), money + 1000, queststatus(630) = 2, rankpoints + 5, "Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen."
+queststatus(630) = 1, english, ".*" -> inform("[Quest End 'Find Lotta'] You received 10 silver coins."), money + 1000, queststatus(630) = 2, "Good day. Finally you found me! Iradona has already informed me about your visit. There, you have some silver coins for finding me."
+queststatus(630) = 1, ".*" -> inform("[Quest Ende 'Finde Lotta'] Du hast 10 Silberstücke erhalten."), money + 1000, queststatus(630) = 2, "Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen."
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day, my dear. Can I help you with some information?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day, my dear. Can I help you with some information?"
@@ -124,11 +122,9 @@ english, "Illarion" -> inform("[Keywords] Northeast, northwest, southwest, south
 "Spinnen Maul" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Hemp Necktie Inn" -> "The Hemp Necktie Inn is a neutral tavern in the Spider's Mouth and many adventurers are resting there, among others Wulfgorda. You can use the teleporter to get there."
 "Gasthof Hanfschlinge" -> "Der Gasthof zur Hanfschlinge ist eine neutrale Taverne im Spinnen Mund und viele Abenteuerer rasten dort. Unteranderem Wulfgorda. Du kannst den Teleporter verwenden um dort hinzukommen."
-
-queststatus(650) < 1, english, "Wulfgorda" -> inform("[New Quest 'Find Wulfgorda' started] Try to find Wulfgorda and take her the sibanac leafs to get your reward."), "Wulfgorda is a hunter who knows almost every place in the northeast. You can find her in front of the Hemp Necktie Inn. Furthermore, you should take her these leaves here. *hands over some sibanac leafs*", item(155, 10, 333), queststatus(650) = 1
-queststatus(650) < 1, "Wulfgorda" -> inform("[Neues Quest 'Finde Wulfgorda' gestartet] Finde Wulfgorda und bringe ihr die Sibanacblätter um deine Belohnung zur erhalten."), "Wulfgorda ist eine Jägerin, welche beinahe jeden Platz im Nordosten kennt. Du findest sie vor dem Gasthaus zur Hanfschlinge. Des weiteren kannst du ihr auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*", item(155, 10, 333), queststatus(650) = 1
+queststatus(650) < 1, english, "Wulfgorda" -> inform("[New Quest 'Find Wulfgorda' started] Try to find Wulfgorda and take her the sibanac leafs to get your reward."), item(155, 10, 333), queststatus(650) = 1, "Wulfgorda is a hunter who knows almost every place in the northeast. You can find her in front of the Hemp Necktie Inn. Furthermore, you should take her these leaves here. *hands over some sibanac leafs*"
+queststatus(650) < 1, "Wulfgorda" -> inform("[Neues Quest 'Finde Wulfgorda' gestartet] Finde Wulfgorda und bringe ihr die Sibanacblätter um deine Belohnung zur erhalten."), item(155, 10, 333), queststatus(650) = 1, "Wulfgorda ist eine Jägerin, welche beinahe jeden Platz im Nordosten kennt. Du findest sie vor dem Gasthaus zur Hanfschlinge. Des weiteren kannst du ihr auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*"
 english, "Wulfgorda" -> "Wulfgorda is a hunter who knows almost every place in the northeast. You can find her in front of the Hemp Necktie Inn."
-
 "Wulfgorda" -> "Wulfgorda ist eine Jägerin, welche beinahe jeden Platz im Nordosten kennt. Du findest sie vor dem Gasthaus zur Hanfschlinge."
 "Bounding Stream" -> "Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda."
 "Grenzstrom" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
@@ -137,11 +133,11 @@ english, "Wulfgorda" -> "Wulfgorda is a hunter who knows almost every place in t
 "Plains Silence" -> "Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda."
 "Ebenen Stille" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Northern Woods" -> "Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda."
-"Nördliche Wälder","Nördlichen Wälder" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Nördliche Wälder", "Nördlichen Wälder" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "The Insurmountable Limes" -> "Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda."
-"Unüberwindbarer Limes","Unüberwindbare Limes" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Unüberwindbarer Limes", "Unüberwindbare Limes" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Evilrock" -> "Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda."
-"Böse Fels","Böser Fels" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Böse Fels", "Böser Fels" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Three Fingertips" -> "Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example Wulfgorda."
 "Dreifingerspitzen" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 
@@ -164,7 +160,7 @@ english, "Numila", "Irunnleh" -> "You can find her in Runewick and she knows sev
 -- northwest
 "Lake Syrita" -> "Lake Syrita is north from here, where you can find the harbour of Galmair."
 "See Syrita" -> "See Syrita ist im Norden von hier, wo du den Hafen von Galmair finden kannst."
-"harbour","harbor" -> "The harbour is west of the Swamp and north of Nargun's Plain."
+"harbour", "harbor" -> "The harbour is west of the Swamp and north of Nargun's Plain."
 "Hafen" -> "Der Hafen ist westlich vom Sumpf und nördlich von der Narguns Ebene."
 "Nargun's Plain", "narguns plain" -> "This is the area east after the Copperbridge over the Malachite Creek between Galmair and Spider's Mouth."
 "Narguns Ebene" -> "Das ist das Gebiet östlich der Kupferbrücke über den Malachit Bach zwischen Galmair und dem Spinnen Mund."
@@ -255,10 +251,10 @@ english, "Irmorom" -> "You can find a Temple for him at the west side of Galmair
 "Irmorom" -> "Du kannst den Tempel von ihm auf der Westseite von Galmair finden. Gehe einfach durch Galmair zur Quelle der Träume und kurz vor der Villa Goldader findest du ihn im Norden. Du wirst es am Wegschild sehen."
 english, "Malachin", "Malachín" -> "If you would like to know more about this god ask someone else, for example Iradona Goldschein outside at the teleporter."
 "Malachin", "Malachín" -> "Wenn du mehr über diese Gottheit zu wissen möchtest, dann fragt jemand anderen. Zum Beispiel Iradona Goldschein draußen beim Teleporter."
-state = 1, english, "Moshran" -> "#me shoots with her bow and says, 'I warned you, but you did not listen. Face the consequences now!'", attrib(hitpoints) - 9999, attrib(hitpoints) + 1
-state = 1, "Moshran" -> "#me schießt mit ihren Bogen und spricht: 'Wer nicht hören will muss fühlen! *schießt mit ihrem Bogen*", attrib(hitpoints) - 9999, attrib(hitpoints) + 1
-english, "Moshran" -> "One more word about him and you will have to visit the cross! *bends her bow*", state = 1
-"Moshran" -> "Ein weiteres Wort über ihn und du wirst das Kreuz aufsuchen müssen! *spannt ihren Bogen*", state = 1
+state = 1, english, "Moshran" -> attrib(hitpoints) - 9999, attrib(hitpoints) + 1, "#me shoots with her bow and says, 'I warned you, but you did not listen. Face the consequences now!'"
+state = 1, "Moshran" -> attrib(hitpoints) - 9999, attrib(hitpoints) + 1, "#me schießt mit ihren Bogen und spricht: 'Wer nicht hören will muss fühlen! *schießt mit ihrem Bogen*"
+english, "Moshran" -> state = 1, "One more word about him and you will have to visit the cross! *bends her bow*"
+"Moshran" -> state = 1, "Ein weiteres Wort über ihn und du wirst das Kreuz aufsuchen müssen! *spannt ihren Bogen*"
 english, "Nargun", "Nargún", "Nargùn" -> "You can find a Temple for him down here at the Scoria Mine. You have to walk through Flicker Swale and at the very end you will find a room with a ladder, climb up and there you are. You will also find signposts to help you on your way but be careful!"
 "Nargun", "Nargún", "Nargùn" -> "Du kannst den Tempel von ihm hier unten in der Schlackengrube finden. Du gehst einfach durch die Schimmersenke zu einem Raum am bitteren Ende, die Leiter dort hoch und schon bist du da. Wegschilder sollten zu sehen sein. Und vorsichtig sein!"
 english, "Oldra" -> "If you would like to know more about this god ask someone else, for example Iradona Goldschein outside at the teleporter."

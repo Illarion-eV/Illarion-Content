@@ -155,10 +155,16 @@ function CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
 		AnalysisOfBrew(User, SourceItem, cauldron, ltstate)
 	else	
 	    local brew = User:getItemAt(5)
+		-- repair potion in case it's broken
+		alchemy.base.alchemy.repairPotion(brew)
+		-- repair end
 		if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") then
 	        AnalysisOfBrew(User, SourceItem, brew, ltstate)
 		else	
 	        local brew = User:getItemAt(6)
+			-- repair potion in case it's broken
+			alchemy.base.alchemy.repairPotion(brew)
+			-- repair end
 			if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") then
 				AnalysisOfBrew(User, SourceItem, brew, ltstate)
 			end

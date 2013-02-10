@@ -142,6 +142,8 @@ function InitPennant()
     --Mount Zotmore
     AddPennant({365,497,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 6,0);
     AddPennant({359,506,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 6,0);
+	--Northern Outpost
+    AddPennant({818,750,0},"Nördlicher Außenposten","Northern Outpost", 7,0);
 	--[[--Lost Building (2)
     AddPennant({277,605,0},"","", 5,5);
     AddPennant({277,596,0},"","", 5,5);
@@ -165,10 +167,13 @@ function InitPennant()
 	AddPennant({323,629,0},"","", 6,5);
 	AddPennant({323,632,0},"","", 6,5);
 	AddPennant({323,634,0},"","", 6,5);]]--
+	--Runewick
+    AddPennant({747,805,0},"Vierbeiniger Roter Vogel","Quadruped Red Bird", 1,0);
+    AddPennant({750,805,0},"Vierbeiniger Roter Vogel","Quadruped Red Bird", 1,0);
 	--Sentry Outpost
 	AddPennant({641,706,2},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 3,0);
 	--Snakehead Coast
-    AddPennant({609,462,2},"Schlangenkopfberg","Mount Snakehead", 7,5); --Mt. Snakehead
+    AddPennant({609,462,2},"Schlangenkopfberg","Mount Snakehead", 7,0); --Mt. Snakehead
     --Spider's Mouth
     AddPennant({675,346,0},"Der Todes Sumpf - Trette den Toten bei!","The Death Marsh - Join the dead!", 4,0);
     AddPennant({678,346,0},"Der Todes Sumpf - Trette den Toten bei!","The Death Marsh - Join the dead!", 4,0);

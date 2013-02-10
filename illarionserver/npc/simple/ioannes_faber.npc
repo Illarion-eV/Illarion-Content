@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian/Ardian                                         --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Ioannes Faber"
@@ -86,14 +86,14 @@ town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bewundere z
 
 -- Quest 1: Donate something to the treasury
 -- 1: Quest 1 taken, donate something to the treasury, reward: 20 rankpoints
-queststatus(151) = 0, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] Cadomyr Treasury"), "As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to Her Majesty's throne, place your donation on it, but don't you dare to donate just alms!", queststatus(151) = 1
-queststatus(151) = 0, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Die Schatzkammer Cadomyrs"), "Als loyaler Bürger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer Majestät, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!", queststatus(151) = 1
-queststatus(151) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] Cadomyr Treasury"), "As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to Her Majesty's throne, place your donation on it, but don't you dare to donate just alms!", queststatus(151) = 1
-queststatus(151) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Schatzkammer Cadomyrs"), "Als loyaler Bürger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer Majestät, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!", queststatus(151) = 1
+queststatus(151) = 0, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] Cadomyr Treasury"), queststatus(151) = 1, "As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to Her Majesty's throne, place your donation on it, but don't you dare to donate just alms!"
+queststatus(151) = 0, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Die Schatzkammer Cadomyrs"), queststatus(151) = 1, "Als loyaler Bürger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer Majestät, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!"
+queststatus(151) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] Cadomyr Treasury"), queststatus(151) = 1, "As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to Her Majesty's throne, place your donation on it, but don't you dare to donate just alms!"
+queststatus(151) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Schatzkammer Cadomyrs"), queststatus(151) = 1, "Als loyaler Bürger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer Majestät, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!"
 
 -- Quest 1 solved, reward: 20 rankpoints
-queststatus(151) = 2, english, town = Cadomyr, ".*" -> inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."), "I see that you have learnt how you can donate your wealth to the treasury. Next time, donate more! I will mention your name when talking to the Queen next time.", queststatus(151) = 3, rankpoints + 20
-queststatus(151) = 2, town = Cadomyr, ".*" -> inform("[Quest gelöst] Dein Ansehen bei Königin Rosaline Edwards steigt."), "Nun, ihr habt verstanden, wie man etwas an die Schatzkammer spendet. Das nächste Mal spendet ihr aber gefälligst mehr! Ich werde euren Namen in meinem nächsten Gespräch mit der Königin erwähnen.", queststatus(151) = 3, rankpoints + 20
+queststatus(151) = 2, english, town = Cadomyr, ".*" -> inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."), queststatus(151) = 3, rankpoints + 20, "I see that you have learnt how you can donate your wealth to the treasury. Next time, donate more! I will mention your name when talking to the Queen next time."
+queststatus(151) = 2, town = Cadomyr, ".*" -> inform("[Quest gelöst] Dein Ansehen bei Königin Rosaline Edwards steigt."), queststatus(151) = 3, rankpoints + 20, "Nun, ihr habt verstanden, wie man etwas an die Schatzkammer spendet. Das nächste Mal spendet ihr aber gefälligst mehr! Ich werde euren Namen in meinem nächsten Gespräch mit der Königin erwähnen."
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(151) = 1, english, town = Cadomyr, "quest", "mission" -> "Donating is quite easy, just drop your items on the donation place. Obey!"
