@@ -213,10 +213,10 @@ function InitPillar()
 	AddPillar({311,235,1},"Die Statue gleicht einem reich gekleideten Zwerg mit grauer Haut und Haar, der eine Schürze trägt und einen goldenen Hammer und ein schmackhaft aussehendes Bier hält. ","The statue portrays a richly dressed dwarf with grey skin and hair, who is wearing an apron and is holds a golden hammer and tasty looking beer.", 4,0); --Irmoroms Temple
     AddPillar({310,255,1},"Die Statue gleicht einem reich gekleideten Mann mit grauer Haut und Haar, der eine Schürze trägt und seinen großen goldenen Hammer gegen einen Ambos schwingt.","The statue portrays a richly dressed man with grey skin and hair, who is wearing an apron and swings a big golden hammer at an anvil.", 4,0); --Irmoroms Temple
     AddPillar({310,256,1},"Die Statue gleicht einem reich gekleideten Mann mit grauer Haut und Haar, der eine Schürze trägt und seinen großen goldenen Hammer gegen einen Ambos schwingt.","The statue portrays a richly dressed man with grey skin and hair, who is wearing an apron and swings a big golden hammer at an anvil.", 4,0); --Irmoroms Temple
-	--[[AddPillar({340,283,1},"","", 1,5); --Nagrun Temple
-    AddPillar({340,281,1},"","", 1,5); --Nagrun Temple
-    AddPillar({334,277,0},"","", 1, 5); --Nagrun Temple
-	AddPillar({334,280,0},"","", 1, 5); --Nagrun Temple
+	--[[AddPillar({340,283,1},"","", 1,5); --Nargun Temple
+    AddPillar({340,281,1},"","", 1,5); --Nargun Temple
+    AddPillar({334,277,0},"","", 1, 5); --Nargun Temple
+	AddPillar({334,280,0},"","", 1, 5); --Nargun Temple
 	AddPillar({396,237,0},"","", 6,5); --Guard House
 	AddPillar({376,240,0},"","", 6,5); --Kiln
 	AddPillar({375,216,0},"","", 4, 5); --Council Chamber
@@ -362,7 +362,7 @@ AddPillar({357,365,1},"Er begehrte Gold, er bekam Gold. Goldener Rumil.","He des
 	AddPillar({357,495,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","'Mount Zotmore' is written with big letters on the column.", 1,0);
 	AddPillar({366,497,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","'Mount Zotmore' is written with big letters on the column.", 1,0);
 	AddPillar({366,501,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","'Mount Zotmore' is written with big letters on the column.", 1,0);
-	--[[--Nagrun's Plain
+	--[[--Nargun's Plain
 	AddPillar({522,240,0},"","", 2,5);
 	AddPillar({534,259,0},"","", 6,5);
 	AddPillar({554,262,0},"","", 1,5);

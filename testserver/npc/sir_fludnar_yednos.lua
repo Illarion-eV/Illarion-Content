@@ -3430,7 +3430,7 @@ talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
 talkEntry:addResponse("Eldra, wem sonst?");
 talkEntry:addResponse("Ich bete zu Eldra.");
-talkEntry:addResponse("Wenn man sich hier umsieht könnt man glauben Nagrun ist mein Gott.");
+talkEntry:addResponse("Wenn man sich hier umsieht könnt man glauben Nargun ist mein Gott.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

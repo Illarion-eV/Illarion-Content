@@ -153,7 +153,7 @@ function InitGrave()
     --Mount Zotmore
     AddGrave({366,500,0},"Hier ruht Zots Freizeit!","Zot's spare time rests here!", 1,0);
     AddGrave({348,503,0},"Zu Ehren jenen die Zots Opfer wurden.","To honour Zot's victims.", 3,0);
-	--[[--Nagrun's Plain
+	--[[--Nargun's Plain
     AddGrave({519,207,0},"","", 1,0);
     AddGrave({538,250,0},"","", 1,0);
     AddGrave({555,262,0},"","", 4,0);

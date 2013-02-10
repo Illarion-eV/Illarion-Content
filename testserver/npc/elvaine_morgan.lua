@@ -16,8 +16,10 @@ VALUES (3, 898, 775, 2, 2, 'Elvaine Morgan', 'npc.elvaine_morgan', 0, 2, 0, 168,
 
 require("npc.base.basic")
 require("npc.base.condition.chance")
+require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
@@ -239,6 +241,37 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post V: Du überbringst Erzmagier Elvaine Morgan die Nachricht von Hector Valerion."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 13));
 talkEntry:addResponse("#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(702, "=", 13));
+talkEntry:addCondition(npc.base.condition.item.item(2785, "all", ">", 0, {["descriptionEn"] = "This wand belongs to Elvaine Morgan."}));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("charwis");
+talkEntry:addTrigger("irongate");
+talkEntry:addTrigger("wand");
+talkEntry:addTrigger("missing");
+talkEntry:addTrigger("belong");
+talkEntry:addTrigger("porperty");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2785, 1, {["descriptionEn"] = "This wand belongs to Elvaine Morgan."}));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 14));
+talkEntry:addResponse("What? Oh, you are right, this is my wand. Curious, curious how it came to Galmair. Thank you for returning it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(702, "=", 13));
+talkEntry:addCondition(npc.base.condition.item.item(2785, "all", ">", 0, {["descriptionDe"] = "Dieser Stab gehört Elvaine Morgan."}));
+talkEntry:addTrigger("charwis");
+talkEntry:addTrigger("irongate");
+talkEntry:addTrigger("stab");
+talkEntry:addTrigger("verloren");
+talkEntry:addTrigger("gehören");
+talkEntry:addTrigger("Eigentum");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2785, 1, {["descriptionDe"] = "Dieser Stab gehört Elvaine Morgan."}));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 14));
+talkEntry:addResponse("Wie bitte? Oh, Ihr habt recht, dies ist mein Stab. Erstaunlich wie er nach Galmair kam. Ich danke Euch, dass Ihr ihn zurückgebracht habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

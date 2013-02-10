@@ -17,7 +17,9 @@ VALUES (0, 366, 275, 0, 6, 'Nik Nilo', 'npc.nik_nilo', 0, 1, 1, 193, 96, 28, 217
 
 require("npc.base.basic")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -61,6 +63,29 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Werkzeug- und Rohstoffhändler 'Big Nik'. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Beruf, Gesetze."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(702, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("charwis");
+talkEntry:addTrigger("ruby");
+talkEntry:addTrigger("gem");
+talkEntry:addTrigger("irongate");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 2));
+talkEntry:addResponse("Ah yes, thank you for passing the message. Go talk to Charwis, I'm sure he will reward you for your service.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(702, "=", 1));
+talkEntry:addTrigger("charwis");
+talkEntry:addTrigger("rubin");
+talkEntry:addTrigger("edelstein");
+talkEntry:addTrigger("irongate");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 2));
+talkEntry:addResponse("Ah ja, vielen Dank dass ihr die Nachricht überbracht habt. Geht und sprecht mit Charwis, ich bin sicher er wird euch für eure Arbeit belohnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

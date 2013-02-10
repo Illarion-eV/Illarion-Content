@@ -90,6 +90,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the Five 
 
 -- OPTIONAL TRIGGERS
 
+-- Quest by Charwis Irongate
+queststatus(702) = 7, english, "charwis", "irongate", "hammer", "collection" -> queststatus(702) = 8, "Hammer collection? I threw away some hammers a few days ago...but, they did not belong to Charwis, did they?"
+queststatus(702) = 7, "charwis", "irongate", "Hämmer", "Sammlung" -> queststatus(702) = 8, "Hämmersammlung? Ich habe da eine ganze Menge Hämmer vor ein paar Tagen entsorgt...aber, das war doch nicht Charwis Hammersammlung, oder?"
+
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I do not sell anything. But I take donations...or well, the Don does. Just bring the things here and place them on the field."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich verkaufe nichts. Aber ich nehme Spenden entgegen... nun ja, eigentlich sind es Spenden für den Don. Bringt die Sachen ruhig her und legt sie auf das Feld."

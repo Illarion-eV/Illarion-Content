@@ -250,14 +250,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Temple Nargun");
 talkEntry:addTrigger("Nargun Temple");
-talkEntry:addResponse("The Temple of Nargun in the Flicker Swale is a place for all those who follow Nagrun. Obvious, isn't it?");
+talkEntry:addResponse("The Temple of Nargun in the Flicker Swale is a place for all those who follow Nargun. Obvious, isn't it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tempel Nargun");
 talkEntry:addTrigger("Nargun Tempel");
-talkEntry:addResponse("Der Temepl des Nargun in der Schimmersenke ist ein Ort für jene die Nagrun folgen. Klar, oder?");
+talkEntry:addResponse("Der Temepl des Nargun in der Schimmersenke ist ein Ort für jene die Nargun folgen. Klar, oder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,7 +338,7 @@ talkEntry:addTrigger("Lotta");
 talkEntry:addTrigger("Medborgar");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Lotta' started] Try to find Lotta Medborgar and get your reward."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 1));
-talkEntry:addResponse("Is a hunter that has explored several locations. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Illarion and many others. You can find her down at the Winged Sow Tavern.");
+talkEntry:addResponse("Is a hunter that has explored several locations. Among those are the Swamp, Northern Woods, Nargun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Illarion and many others. You can find her down at the Winged Sow Tavern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -348,7 +348,7 @@ talkEntry:addTrigger("Lotta");
 talkEntry:addTrigger("Medborgar");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Lotta' gestartet] Finde Lotta Medborgar und erhalte deine Belohnung."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 1));
-talkEntry:addResponse("Ist ne Jägerin und hat etliche Orte erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Illarion, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau finden.");
+talkEntry:addResponse("Ist ne Jägerin und hat etliche Orte erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nargun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Illarion, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -356,14 +356,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Lotta");
 talkEntry:addTrigger("Medborgar");
-talkEntry:addResponse("Is a hunter that has explored several locations. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Illarion and many others. You can find her down at the Winged Sow Tavern.");
+talkEntry:addResponse("Is a hunter that has explored several locations. Among those are the Swamp, Northern Woods, Nargun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Illarion and many others. You can find her down at the Winged Sow Tavern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lotta");
 talkEntry:addTrigger("Medborgar");
-talkEntry:addResponse("Ist ne Jägerin und hat etliche Orte erkundet. Unter anderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Illarion, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau.");
+talkEntry:addResponse("Ist ne Jägerin und hat etliche Orte erkundet. Unter anderem den Sumpf, Nördliche Wälder, Nargun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Illarion, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -658,14 +658,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Flicker Swale");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keyword]Gameroom, Temple of Nargun"));
-talkEntry:addResponse("The Flicker Swale can be found in the Scoria Mine. Just follow the signposts. There you also find the Gameroom and the Temple of Nagrun.");
+talkEntry:addResponse("The Flicker Swale can be found in the Scoria Mine. Just follow the signposts. There you also find the Gameroom and the Temple of Nargun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schimmersenke");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwort]Spielraum, Tempel des Nargun"));
-talkEntry:addResponse("Die Schimmersenke kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern. Dort findest du auch den Spielraum und den Tempel des Nagrun.");
+talkEntry:addResponse("Die Schimmersenke kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern. Dort findest du auch den Spielraum und den Tempel des Nargun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
