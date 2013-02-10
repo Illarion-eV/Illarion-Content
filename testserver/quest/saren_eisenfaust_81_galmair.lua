@@ -18,10 +18,16 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Bring 10 Kohlestücke, 10 Eisenerze und 1 Hammer zu Saren Eisenfaust."
 Description[ENGLISH][1] = "Bring 10 pieces of coal, 10 pieces iron ore and 1 hammer to Saren Eisenfaust."
+Description[GERMAN][2] = "Vielleicht solltest du Saren Eisenfaust nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
+Description[ENGLISH][2] = "Perhaps you should talk to Saren Eisenfaust again, he is sure to have more for you to do."
 Description[GERMAN][3] = "Bring 15 Kupfererze, 1 Tiegelzange, 1 Feinschmiedehammer und 5 Eisenbarren zu Saren Eisenfaust."
 Description[ENGLISH][3] = "Bring 15 pieces of copper ore, 1 crucible-pincer, 1 finesmithing hammer and 5 iron ingots to Saren Eisenfaust."
+Description[GERMAN][4] = "Vielleicht solltest du Saren Eisenfaust nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
+Description[ENGLISH][4] = "Perhaps you should talk to Saren Eisenfaust again, he is sure to have more for you to do."
 Description[GERMAN][5] = "Bring 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metalhandschuhe und 4 Schwertgriffe zu Saren Eisenfaust."
 Description[ENGLISH][5] = "Bring 10 iron ingots, 10 gold ingots, 5 dwarven metal gloves and 4 sword handles to Saren Eisenfaust"
+Description[GERMAN][6] = "Vielleicht solltest du Saren Eisenfaust nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
+Description[ENGLISH][6] = "Perhaps you should talk to Saren Eisenfaust again, he is sure to have more for you to do."
 Description[GERMAN][7] = "Bring 15 Kupferbarren, 10 Kriegshämmer, 10 vergoldete Kriegsäxte und 2 salkamaerische Rüstungen zu Saren Eisenfaust."
 Description[ENGLISH][7] = "Bring 15 copper ingots, 10 war hammer, 10 gilded battleaxes and 2 salkamaerian armours to Saren Eisenfaust"
 
