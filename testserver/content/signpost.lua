@@ -142,7 +142,10 @@ function InitWegweiser()
     AddWeg({539,530,0},"Leuchttrum; Wachstützpunkt; Cadomyr","Lighthouse; Sentry Outpost; Cadomyr",4,0);
     AddWeg({517,583,0},"Leuchttrum; Wachstützpunkt; Cadomyr","Lighthouse; Sentry Outpost; Cadomyr",4,0);
     AddWeg({887,655,0},"Wunderland, Paddock Hof, Osthafen, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","Wonderland, Paddock Farm, Eastport, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",0,0);
-    AddWeg({887,639,0},"Frische Sümpfe, Runewick","Dewy Swamps, Runewick",4,0);
+    AddWeg({887,639,0},"Frische Sümpfe, Nördlicher Außenposten, Eibental, Runewick","Dewy Swamps, Northern Outpost, Yewdale, Runewick",4,0);
+    AddWeg({885,686,0},"Schattentor","Shadow Gate",2,0);
+    AddWeg({884,686,0},"Wunderland, Paddock Hof, Osthafen, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","Wonderland, Paddock Farm, Eastport, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",0,0);
+    AddWeg({884,677,0},"Nördlicher Außenposten, Eibental, Runewick","Northern Outpost, Yewdale, Runewick",4,0);
 
     AddWeg({725,559,0},"Gasthof zur Hanfschlinge; Cadomyr; Galmair","The Hemp Necktie Inn; Cadomyr; Galmair",0,0);
     AddWeg({725,559,0},"Gasthof zur Hanfschlinge; Cadomyr; Galmair - Achtung! Diebe!","The Hemp Necktie Inn; Cadomyr; Galmair - Attention! Thieves!",2,0);
