@@ -172,6 +172,10 @@ function InitWegweiser()
     AddWeg({796,771,0},"Eibental, Runewick","Yewdale, Runewick",4,0);
     AddWeg({790,774,0},"Nördlicher Außenposten, Feiglings letztes Gefecht, Fröhliche Lichtung, Oldras Turm, Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Northern Outpost, Coward's last stand, Merryglade, Oldra's Tower, Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",2,0);
     AddWeg({789,774,0},"Anthilbach","Anthil Brook",6,0);
+    AddWeg({783,797,0},"Anthilbach, Nördlicher Außenposten, Feiglings letztes Gefecht, Fröhliche Lichtung, Oldras Turm, Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Anthil Brook, Northern Outpost, Coward's last stand, Merryglade, Oldra's Tower, Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({783,798,0},"Vierbeiniger Roter Vogel, Hafen, Runewick","Quadruped Red Bird, Harbour, Runewick",6,0);
+    AddWeg({761,808,0},"Vierbeiniger Roter Vogel, Hafen","Quadruped Red Bird, Harbour",6,0);
+    AddWeg({762,801,0},"Bauernhöfe, Anthilbach, Nördlicher Außenposten, Feiglings letztes Gefecht, Fröhliche Lichtung, Oldras Turm, Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Farmland, Anthil Brook, Northern Outpost, Coward's last stand, Merryglade, Oldra's Tower, Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",2,0);
 
     AddWeg({739,803,0},"Hafen","Harbour",6,0);
     AddWeg({739,806,0},"Hafen","Harbour",6,0);
@@ -179,12 +183,13 @@ function InitWegweiser()
     AddWeg({739,810,0},"Hafen","Harbour",6,0);
     AddWeg({739,811,0},"Hafen","Harbour",6,0);
     AddWeg({739,814,0},"Hafen","Harbour",6,0);
-    AddWeg({757,813,0},"Vierbeiniger Roter Vogel; Hafen","Quadruped Red Bird; Harbour",6,0);
-    AddWeg({762,801,0},"Bauernhöfe","Farmland",2,0);
-    AddWeg({761,800,0},"Bärenhöhle; Drachenbau; Cadomyr; Galmair; Gasthof zur Hanfschlinge","Bear Cave; Dragon Lair; Cadomyr; Galmair; The Hemp Necktie Inn",0,0);
-    AddWeg({783,798,0},"Erzmagier Elvaine Morgan; Vierbeiniger Roter Vogel; Hafen","Archmage Elvaine Morgan; Quadruped Red Bird; Harbour",6,0);
-    AddWeg({783,797,0},"Anthilbach; Fröhliche Lichtung; Osthafen","Anthil Brook; Merryglade; Eastport",0,0);
-    AddWeg({761,813,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
+
+
+    AddWeg({761,800,0},"Bärenhöhle, Drachenbau, Cadomyr, Galmair, Gasthof zur Hanfschlinge","Bear Cave, Dragon Lair, Cadomyr, Galmair, The Hemp Necktie Inn",0,0);
+
+
+    AddWeg({758,813,0},"Runewick","Runewick",2,0);
+
     AddWeg({791,819,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
     AddWeg({840,824,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
     AddWeg({853,821,0},"Hölzfällersiedlung; Zwillingsaugeninseln","Woodcutter's Hut; Twin Eyes Islands",4,0);
