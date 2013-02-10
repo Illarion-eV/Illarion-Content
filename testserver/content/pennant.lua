@@ -96,6 +96,9 @@ function InitPennant()
     AddPennant({874,589,0},"Willkommen im Wunderland","Welcome to the Wonderland", 6,0); --Wonderland
     AddPennant({874,591,0},"Willkommen im Wunderland","Welcome to the Wonderland", 6,0); --Wonderland
     AddPennant({892,599,0},"Willkommen im Wunderland","Welcome to the Wonderland", 7,0); --Wonderland
+    AddPennant({898,583,0},"Wunschbrunnen","Wishing Fountain", 6,0); --Wishing Fountain
+    AddPennant({890,626,0},"Willkommen im Schatten! - Naganorium","Welcome to the shadow! - Naganorium", 6,0); --Naganorium
+    AddPennant({890,628,0},"Willkommen im Schatten! - Naganorium","Welcome to the shadow! - Naganorium", 6,0); --Naganorium
     --[[    AddPennant({902,622,1},"","", 6,5); --Ronagan Temple ]]--
     --Elstree Forest
     AddPennant({826,482,0},"Berg Lebenswurzel","Mount Liferoot", 6,0); --Mount Liferoot

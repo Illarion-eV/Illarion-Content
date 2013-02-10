@@ -141,8 +141,9 @@ function InitWegweiser()
 	AddWeg({528,781,0},"Leuchtturm; Galmair; Runewick","Lighthouse; Galmair; Runewick",0,0);
     AddWeg({539,530,0},"Leuchttrum; Wachstützpunkt; Cadomyr","Lighthouse; Sentry Outpost; Cadomyr",4,0);
     AddWeg({517,583,0},"Leuchttrum; Wachstützpunkt; Cadomyr","Lighthouse; Sentry Outpost; Cadomyr",4,0);
-    AddWeg({887,638,0},"Eastport","Eastport",0,0);
-    AddWeg({887,639,0},"Runewick","Runewick",4,0);
+    AddWeg({887,655,0},"Wunderland, Paddock Hof, Osthafen, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","Wonderland, Paddock Farm, Eastport, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",0,0);
+    AddWeg({887,639,0},"Frische Sümpfe, Runewick","Dewy Swamps, Runewick",4,0);
+
     AddWeg({725,559,0},"Gasthof zur Hanfschlinge; Cadomyr; Galmair","The Hemp Necktie Inn; Cadomyr; Galmair",0,0);
     AddWeg({725,559,0},"Gasthof zur Hanfschlinge; Cadomyr; Galmair - Achtung! Diebe!","The Hemp Necktie Inn; Cadomyr; Galmair - Attention! Thieves!",2,0);
     AddWeg({758,669,0},"Drachenbau! Achtung heiß!","Dragon Lair! Caution hot!",0,0);
@@ -191,6 +192,12 @@ function InitWegweiser()
     AddWeg({881,550,0},"Paddock Hof","Paddock Farm",2,0);
     AddWeg({881,551,0},"Wunderland, Frische Sümpfe, Runewick","Wonderland, Dewy Swamps, Runewick",4,0);
     AddWeg({881,549,0},"Osthafen, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","Eastport, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",0,0);
+
+    AddWeg({866,588,0},"Paddock Hof, Osthafen, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","Paddock Farm, Eastport, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",0,0);
+    AddWeg({867,589,0},"Frische Sümpfe, Runewick","Dewy Swamps, Runewick",4,0);
+    AddWeg({867,588,0},"Wunderland","Wonderland",2,0);
+    AddWeg({866,589,0},"Todes Gestank, Westen, Drachenhöhle, Runewick","Death's Stench, West, Dragon's Lair, Runewick",6,0);
+
     AddWeg({714,488,0},"Igruks Höhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Igruk's Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
     AddWeg({718,488,0},"Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
     AddWeg({717,455,0},"Igruks Höhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Igruk's Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
