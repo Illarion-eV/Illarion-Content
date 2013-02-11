@@ -273,16 +273,16 @@ function CastParalyze( Caster, Enemy, rndTry, APPunishment, Range, Effect, AP ,C
         if Damage > 0 then
             Enemy.movepoints = Enemy.movepoints - Damage;
             LearnMagicResistance( Enemy );
-            if ( Effect[EffectTry][1] > 0 ) then
-                world:gfx(Effect[EffectTry][1],targetPos);
+            if ( Effect[1] > 0 ) then
+                world:gfx(Effect[1][1],Enemy.pos);
             end
         else
-            if ( Effect[EffectTry][1] > 0 ) then
-                world:gfx(12,targetPos);
+            if ( Effect[1] > 0 ) then
+                world:gfx(12,Enemy.pos);
             end
         end
-        if ( Effect[EffectTry][2] > 0 ) then
-            world:makeSound(Effect[EffectTry][2],targetPos);
+        if ( Effect[2] > 0 ) then
+            world:makeSound(Effect[2],Enemy.pos);
         end
         return true;
     end

@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Ruzusss"
@@ -59,15 +59,16 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Ruzusss der Jäger. Schlüsselwörter: Auskunft, Information, Cadomyr, Orte.")
 
 -- Mandatory: General speech
-queststatus(640) = 1, town = Cadomyr, english, ".*" -> inform("[Quest End 'Find Ruzusss'] You received 10 silvercoins and 5 rankpoints."), "Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have sssome sssilvercoinsss for that you found me.", money + 1000, queststatus(640) = 2, rankpoints+5
-queststatus(640) = 1, town = Cadomyr, ".*" -> inform("[Quest Ende 'Finde Ruzusss'] Du hast 10 Silberstücke und 5 Rangpunkte erhalten."), "Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdienten Münzen.", money + 1000, queststatus(640) = 2, rankpoints+5
-queststatus(640) = 1, english, ".*" -> inform("[Quest End 'Find Ruzusss'] You received 10 silvercoins."), "Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have sssome sssilvercoinsss for that you found me.", money + 1000, queststatus(640) = 2
-queststatus(640) = 1, ".*" -> inform("[Quest Ende 'Finde Ruzusss'] Du hast 10 Silberstücke erhalten."), "Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdienten Münzen.", money + 1000, queststatus(640) = 2
+queststatus(640) = 1, english, town = Cadomyr, ".*" -> inform("[Quest End 'Find Ruzusss'] You received 10 silvercoins."), money + 1000, queststatus(640) = 2, rankpoints + 5, "Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have sssome sssilvercoinsss for that you found me."
+queststatus(640) = 1, town = Cadomyr, ".*" -> inform("[Quest Ende 'Finde Ruzusss'] Du hast 10 Silberstücke erhalten."), money + 1000, queststatus(640) = 2, rankpoints + 5, "Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdienten Münzen."
+queststatus(640) = 1, english, ".*" -> inform("[Quest End 'Find Ruzusss'] You received 10 silvercoins."), money + 1000, queststatus(640) = 2, "Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have sssome sssilvercoinsss for that you found me."
+queststatus(640) = 1, ".*" -> inform("[Quest Ende 'Finde Ruzusss'] Du hast 10 Silberstücke erhalten."), money + 1000, queststatus(640) = 2, "Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdienten Münzen."
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss, can I help you?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüsssse, kann ich helfen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss, can I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüsssse, kann ich helfen?"
---farewell-trigger are below after the optional triggers
+
+-- farewell-trigger are below after the optional triggers
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sssee you again if you need more information."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Wir sssehen unsss wenn mehr Information benötigt wird."
 "How are you", "How feel", "How do you do" -> "Very good, jussst won another game."
@@ -87,6 +88,7 @@ english, "inform" -> inform("[Keywords] Illarion, northeast, northwest, southwes
 "inform" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Ich habe Informationen zu den Orten in der Nähe von Cadomyr geben. Frag einfach!"
 "question" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "I have information about placesss clossse to Cadomyr. Just asssk me!"
 "Frage", "Auskunft" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Ich habe Informationen zu den Orten in der Nähe von Cadomyr geben. Frag einfach!"
+
 -- places-trigger is below after the optional triggers
 english, "Frizza" -> "You can find her outssside of the town clossse to the teleporter. Sssshe hasss a lot of information and sssome tasksss for you."
 "Frizza" -> "Du findest sssie draußen vor der Stadt, nahe am Teleporter. Sssie hat eine Menge Informationen und Aufträge für dich."
@@ -118,8 +120,8 @@ english, "Illarion" -> inform("[Keywords] northeast, northwest, southwest, south
 "Spinnen Maul" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Hemp Necktie Inn" -> "The Hemp Necktie Inn is a neutral taverne in the Spider's Mouth and many adventurer are resting there. Among others Wulfgorda. You can use the teleporter to get there."
 "Gasthof Hanfschlinge" -> "Der Gasthof zur Hanfschlinge ist eine neutrale Taverne im Spinnen Mund und viele Abenteuerer rasten dort. Unteranderem Wulfgorda. Du kannst den Teleporter verwenden um dort hinzukommen."
-queststatus(650) < 1, english, "Wulfgorda" -> inform("[New Quest 'Find Wulfgorda' started] Try to find Wulfgorda and bring her the sibanac leafs to get your reward."), "Wulfgorda is a hunter who knows almost each place in the northeast. You can find her infront of the Hemp Necktie Inn. Furthermore, you should bring her these leafs here. *hands some sibanac leafs*", item(155, 10, 333), queststatus(650) = 1
-queststatus(650) < 1, "Wulfgorda" -> inform("[Neues Quest 'Finde Wulfgorda' gestartet] Finde Wulfgorda und bringe ihr die Sibanacblätter um deine Belohnung zur erhalten."), "Wulfgorda ist eine Jägerin, welche beinahe jeden Platz im Nordosten kennt. Du findest sie vor dem Gasthaus zur Hanfschlinge. Des weiteren kannst du ihr auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*", item(155, 10, 333), queststatus(650) = 1
+queststatus(650) < 1, english, "Wulfgorda" -> inform("[New Quest 'Find Wulfgorda' started] Try to find Wulfgorda and bring her the sibanac leafs to get your reward."), item(155, 10, 333), queststatus(650) = 1, "Wulfgorda is a hunter who knows almost each place in the northeast. You can find her infront of the Hemp Necktie Inn. Furthermore, you should bring her these leafs here. *hands some sibanac leafs*"
+queststatus(650) < 1, "Wulfgorda" -> inform("[Neues Quest 'Finde Wulfgorda' gestartet] Finde Wulfgorda und bringe ihr die Sibanacblätter um deine Belohnung zur erhalten."), item(155, 10, 333), queststatus(650) = 1, "Wulfgorda ist eine Jägerin, welche beinahe jeden Platz im Nordosten kennt. Du findest sie vor dem Gasthaus zur Hanfschlinge. Des weiteren kannst du ihr auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*"
 english, "Wulfgorda" -> "Wulfgorda is a hunter who knows almost each place in the northeast. You can find her infront of the Hemp Necktie Inn."
 "Wulfgorda" -> "Wulfgorda ist eine Jägerin, welche beinahe jeden Platz im Nordosten kennt. Du findest sie vor dem Gasthaus zur Hanfschlinge."
 "Bounding Stream" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
@@ -129,11 +131,11 @@ english, "Wulfgorda" -> "Wulfgorda is a hunter who knows almost each place in th
 "Plains Silence" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
 "Ebenen Stille" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Northern Woods" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
-"Nördliche Wälder","Nördlichen Wälder" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Nördliche Wälder", "Nördlichen Wälder" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Insurmountable Limes" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
-"Unüberwindbarer Limes","Unüberwindbare Limes" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Unüberwindbarer Limes", "Unüberwindbare Limes" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Evilrock" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
-"Böse Fels","Böser Fels" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Böse Fels", "Böser Fels" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Three Fingertips" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
 "Dreifingerspitzen" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 
@@ -194,7 +196,7 @@ english, "Lotta", "Medborgar" -> "You can find her in Galmair and she knows seve
 "Rosaline Würfel" -> "Der Rosaline Würfel wird das Grab unserer Königin irgendwann mal werden. Wir bauen es gerade und Robertus ist veranwortlich dafür. Der Würfel ist südlich von Berg Siba."
 "Cube Camp" -> "The Cube Camp is a place to rest for those who are working on the Rosaline Cube and therefore it is close to that."
 "Würfel Lager" -> "Das Würfel Lager ist ein Rastplatz für jene die am Rosaline Würfel arbeiten und ist daher nahe diesen."
-"Faber's Guardhouse","Fabers Guardhouse" -> "Faber's Guardhouse ist on the westcoast and was destroyed when pirates attacked us in the year 23 after the sorcerer and Faber was able to stop them."
+"Faber's Guardhouse", "Fabers Guardhouse" -> "Faber's Guardhouse ist on the westcoast and was destroyed when pirates attacked us in the year 23 after the sorcerer and Faber was able to stop them."
 "Fabers Wachhaus" -> "Fabers Wachhaus ist an der Westküste und wurde zerstört als Piraten uns attackierten im Jahre 23 nach dem Hexenmeister und Faber war es möglich sie aufzuhalten."
 "Remote Dwelling" -> "This building is the last before you might enter the pirate cove in the northwest and contains some riddels to solve."
 "Entfernte Wohnstätte" -> "Dieses Gebäude ist das letzte bevor du die Piraten Bucht im Nordwesten betreten wirst und beinhaltet einige Rätseln."
@@ -206,7 +208,7 @@ english, "Lotta", "Medborgar" -> "You can find her in Galmair and she knows seve
 "Katanbi Fluss" -> "Der Katanbi Fluss im Osten von hier hat seinen Ursprung in den Einsamen Bergen, trennt die Westliche Katanbi Wüste von der Katanbi Wüste und findet seinen Weg in den Großen Ozean am Katanbi Delta."
 "Liberty Quarry" -> "The Liberty Quarry is in the northeast on the west shore of the Katanbi River. You might find iron, gold or copper there."
 "Freiheitsbruch" -> "Der Freiheitsbruch ist im Nordosten am westlichen Ufer des Katanbi Flusses. Du kannst dort Eisen, Gold oder Kupfer finden."
-"Grugmutz's cave","Grugmutzs cave" -> "Grugmutz's cave is the north of Liberty Quarry. Grugmutz and his oger clan have tried to raid us several times. Be careful!"
+"Grugmutz's cave", "Grugmutzs cave" -> "Grugmutz's cave is the north of Liberty Quarry. Grugmutz and his oger clan have tried to raid us several times. Be careful!"
 "Grugmutz Höhle" -> "Grugmutzs Höhle ist nördlich des Freiheitsbruch. Grugmutz und sein Oger Klan haben immer wieder versucht uns zu plündern. Sei vorsicht!"
 "Creek Settlement" -> "The Creek Settlement was once on of our richest places. It was at the northern end of the Katanbi River. It was destroyed by either dwarfs from Fortress Hammerfall, Buccaneers or Grugmutz's ogers. We don't know yet."
 "Bach Siedlung" -> "Die Bach Siedlung war einst einer unserer reichsten Orte. Es war am nördlichen Ende des Katanbi Flusses. Es wurde zerstört entweder von den Zwergen der Festung Hammerfall, von Seeräubern oder von Grugmutzs Ogers zerstört. Wir wissen es nicht."
@@ -216,7 +218,7 @@ english, "Lotta", "Medborgar" -> "You can find her in Galmair and she knows seve
 "Katanbi Wüste" -> inform("[Schlüsselwörter] Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide Zwietracht, Perle Sirani, Frontus Hof, Königins Eck, Irundar, Zumbrass Grab, Berg Zotmore, Seeräuber Lauer, Neidbach, Matter Gasthof, östlichen Teile"), "Welchen Platz? Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide der Zwietracht, Perle der Sirani, Frontus Hof, Königins Eck, Irundar, Zumbrass Grab, Berg Zotmore, Seeräuber Lauer, Neidbach, Matter Gasthof oder die östlichen Teile der Katanbi Wüste?"
 "Prison" -> "The Prison can be found south of the Royal Academy of Gladiators. You do not want to end there."
 "Gefängnis" -> "Das Gefängnis kann südlich der Königlichen Akademie der Gladiatioren gefunden werden. Du möchtest dort nicht enden."
-"Druid's Tear","Druids Tear" -> "The Druid Tear can be found southeast of the Royal Academy of Gladiators. Ask a druid for further information."
+"Druid's Tear", "Druids Tear" -> "The Druid Tear can be found southeast of the Royal Academy of Gladiators. Ask a druid for further information."
 "Druiden Träne" -> "Die Druiden Träne kann südöstlich der Königlichen Akademie der Gladiatioren gefunden werden. Frage einen Druiden für weitere Information."
 "Royal places" -> inform("[Keywords] Royal Academy, Academy Gladiators, Blood Circle Arena, Royal Slave Market"), "There are the Royal Academy of Gladiators, the Blood Circle Arena and the Royal Slave Market."
 "Königliche Orte" -> inform("[Schlüsselwörter] Königliche Akademie, Akademie Gladiatoren, Blurtkreisarena, Königlicher Sklaven Markt"), "Da wären die Königliche Akademie der Gladiatoren, die Blurtkreisarena und der Königliche Sklaven Markt."
@@ -234,7 +236,7 @@ english, "Lotta", "Medborgar" -> "You can find her in Galmair and she knows seve
 "Perle Sirani" -> "Dieser Platz nördlich der Pyramide der Zwietracht wurde für Königliche Hochzeiten, aber auch von den Aristokraten verwendet."
 "Frontus Farm" -> "A Farmer called Frontus had a farm north of the Royal Slave Market until it was destroyed by worms."
 "Frontus Hof" -> "Ein Bauer mit den Namen Frontus hatte nördlich vom Königlichen Sklaven Markt einen Hof bis dieser zerstört wurde."
-"Queen's Corner","Queens Corner" -> "There are sore rumors about this place, I do not want to tell them. But you can find this place close to the Weary Inn in the north."
+"Queen's Corner", "Queens Corner" -> "There are sore rumors about this place, I do not want to tell them. But you can find this place close to the Weary Inn in the north."
 "Königins Eck" -> "Es gibt dazu einige Gerüchte, die ich nicht mit dir teilen möchte. Aber du kannst diesen Platz beim Matter Gasthof im Norden finden."
 "Zumbrass Tomb" -> "Poor Zumbrass! She died there but I have no idea who killed her. However, you can find her tomb north of Mount Zotmore."
 "Zumbrass Grab" -> "Arme Zumbrass! Sie wurde dort getötet aber ich habe keine Ahnung von wem. Wie dem auch sei, du findest ihr Grab nördlich von Berg Zotmore."
@@ -251,14 +253,14 @@ english, "Irundar" -> "Irundar? Somewhere in the desert, but where?"
 
 -- Eastern parts
 "eastern part" -> inform("[Keywords] Chapel Five, Lumpskrump's Band, Moshran's Brood, Oasis Star, Raptor Hole, Sarakas' Home, Khesra, Akaltut's Chamber, Cursed Place, Wizard Bane."), "The eastern part of the Katanbi Desert contains: Chapel of the Five, Lumpskrump's Band, Moshran's Brood, Oasis of Stars, Raptor Hole, Sarakas' Home, Khesra, Akaltut's Chamber, Cursed Place, Wizard Bane."
-"östlichen teile","östliche teile" -> inform("[Schlüsselwörter] Kapelle Fünf, Lumpskrump Band, Moshran Brut, Oasis Stern, Raptoren Loch, Sarakas Heim, Khesra, Akaltut Kammer, Verfluchte Platz, Hexer Fluch."), "Der östliche Teil der Katanbi Wüste beinhaltet: Kapelle der Fünf, Lumpskrumps Bande, Moshrans Brut, Oasis der Sterne, Raptoren Loch, Sarakas Heim, Khesra, Akaltuts Kammer, Verfluchte Platz, Hexer Fluch."
+"östlichen teile", "östliche teile" -> inform("[Schlüsselwörter] Kapelle Fünf, Lumpskrump Band, Moshran Brut, Oasis Stern, Raptoren Loch, Sarakas Heim, Khesra, Akaltut Kammer, Verfluchte Platz, Hexer Fluch."), "Der östliche Teil der Katanbi Wüste beinhaltet: Kapelle der Fünf, Lumpskrumps Bande, Moshrans Brut, Oasis der Sterne, Raptoren Loch, Sarakas Heim, Khesra, Akaltuts Kammer, Verfluchte Platz, Hexer Fluch."
 "Chapel Five" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert. Just follow the street to the southeast."
 "Kapelle Fünf" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste. Folge einfach der Straße in den Südosten."
 "Chapel" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert. Just follow the street to the southeast."
 "Kapelle" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste. Folge einfach der Straße in den Südosten."
 "Lumpskrump's Band" -> "This place of bandits on the road to the east after the Desert Hole."
-english, "Lumpskrumps Band","Lumpskrump" -> "This place of bandits on the road to the east after the Desert Hole."
-"Lumpskrumps Band","Lumpskrump" -> "Dieser Platz mit Banditen ist an der Straße in den Osten kurz nach dem Wüstenloch."
+english, "Lumpskrumps Band", "Lumpskrump" -> "This place of bandits on the road to the east after the Desert Hole."
+"Lumpskrumps Band", "Lumpskrump" -> "Dieser Platz mit Banditen ist an der Straße in den Osten kurz nach dem Wüstenloch."
 "Moshran's Brood" -> "The Moshran Brood, an orc-clan, can be found eastwards of Lumpskrump Band."
 "Moshrans Brut" -> "Die Moshran Brut, ein Orkklan, kann östlich von Lumpskrump Bande gefunden werden"
 "Oasis Star" -> "The Oasis of Stars is a place eastwards of the Blood Circle Arena. You can dig for sand there."
@@ -271,7 +273,7 @@ english, "Khesra" -> "Khesra's Dungeon can be found close to the cursed place. Y
 "Khesra" -> "Keshras Verlies kann in der Nähe des Verfluchten Platz gefunden werden. Du wirst dort nichts anderes finden als Hass."
 "Cursed Place" -> "The Cursed Place is east of Frontus Farm. Be careful that you don't get poisoned."
 "Verfluchte Platz" -> "Der Verfluchte Platz ist östlich von Frontus Hof. Sei vorsichtig, dass du dort nicht vergiftet wirst."
-"Akaltut's Chamber","Akaltuts Chamber" -> "Akaltut's Chamber can be found on the very south end of the Border Mountains. I hope you can run fast if you dare to show up there."
+"Akaltut's Chamber", "Akaltuts Chamber" -> "Akaltut's Chamber can be found on the very south end of the Border Mountains. I hope you can run fast if you dare to show up there."
 "Akaltut Kammer" -> "Akaltuts Kammer kann ganz am südlichen Ende der Grenzberge gefunden werden. Ich hoffe du kannst schnell laufen falls du tatsächlich dort hingehen möchtest."
 "Wizard Bane" -> "This place can be found in the very northeast of the desert."
 "Hexer Fluch" -> "Dieser Platz kann ganz im Nordosten der Wüste gefunden werden."
@@ -279,14 +281,14 @@ english, "Khesra" -> "Khesra's Dungeon can be found close to the cursed place. Y
 -- Katanbi Delta
 "Katanbi Delta" -> inform("[Keywords] Merchants Folly, Cadomyr Harbour, Harp Pain, Lost Harbour, Tear Sirani, Kata Island, Mount Letma"), "Which place there do you mean: Merchants' Folly, Cadomyr Harbour, Harp of Pain, Lost Harbour, Tear of Sirani, Kata Island, Mount Letma"
 "Katanbi Delta" -> inform("[Schlüsselwörter] Händlers Unsinn, Cadomyr, Hafen, Schmerzvolle Harfe, Verlorener Hafen, Träne Sirani, Kata Insel, Berg Letma"), "Welchen Platz dort meinst du? Händlers Unsinn, Cadomyr, Hafen, Schmerzvolle Harfe, Verlorener Hafen, Träne der Sirani, Kata Insel, Berg Letma?"
-"Merchants Folly","Merchants' Folly" -> "It can be found close to the Cadomyr Harbour."
+"Merchants Folly", "Merchants' Folly" -> "It can be found close to the Cadomyr Harbour."
 "Händlers Unsinn" -> "Es kann nahe des Cadomyr Hafen gefunden werden."
 "Cadomyr Harbour", "Cadomyr Harbor" -> "Our harbour is on the very south at the Great Ocean after you passed Western Katanbi Desert."
 "Cadomyr Hafen" -> "Unser Hafen ist ganz im Süden am Großen Ozean nachdem du die Westliche Katanbi Wüste durchquerrt hast."
 "Harp Pain" -> "The Harp of Pain can be found at one of the island in the Katanbi Delta. You better don't play it."
 "Schmerzvolle Harfe" -> "Die Schmerzvolle Harfe kann auf einer der Inseln im Katanbi Delta gefunden werden. Du spielst sie besser nicht."
 "Lost Harbour" -> "The Lost Harbour has been destroyed by an attack of Runewick forces once in the year 10 after the sorcerer. Some ruins are left at the southern point of Katanbi Delta."
-"Verlorener Hafen","Verlorene Hafen" -> "Der Verlorene Hafen wurde durch einen Angriff von Runewick Streitkräften im Jahre 10 nach dem Hexenmeister zerstört. Einige Ruinen können am südlichsten Punkt im Katanbi Delta gefunden werden."
+"Verlorener Hafen", "Verlorene Hafen" -> "Der Verlorene Hafen wurde durch einen Angriff von Runewick Streitkräften im Jahre 10 nach dem Hexenmeister zerstört. Einige Ruinen können am südlichsten Punkt im Katanbi Delta gefunden werden."
 "Tear Sirani" -> "This place is used for weddings for common or lower ranked people. It is at the northern part of the Katanbi Delta and accessible at the eastern shore of the Katanbi River."
 "Träne Sirani" -> "Dieser Platz wird für Hochzeiten für gewöhnliche und unangesehnere Leute verwendet. Er ist am nördlichen Teil im Katanbi Delta zu finden und über das Ostufer des Katanbi Fluss erreichbar."
 "Kata Island" -> "This island is in the southern part of the Katanbi Delta and used by Pirates."
@@ -338,10 +340,10 @@ english, "Irmorom" -> "If you like to know more about thisss god asssk sssomone 
 "Irmorom" -> "Wenn du mehr über diessse Gottheit zu wissen möchtessst, dann fragt jemand anderen. Zum Beissspiel Frizza drausssen beim Teleporter."
 english, "Malachin", "Malachín" -> "You can find a Temple of him in the South. Just go to the mine 'Cornerstone of Candour', and you will find the temple above. Just follow the signposts."
 "Malachin", "Malachín" -> "Du kannst den Tempel im Süden. Gehe einfach zur Mine 'Grundstein der Aufrichtigkeit', und du wirst den Tempel darüber finden. Folge einfach den Wegschildern."
-state = 1, english, "Moshran" -> "#me draws two swords and hisses: 'I warned you, but you did not lisssten. Face the consssequencesss now!'", attrib(hitpoints) - 9999, attrib(hitpoints) + 1
-state = 1, "Moshran" -> "#me zieht zwei Schwerter und zischt: 'Wer nicht hören will muss fühlen!'", attrib(hitpoints) - 9999, attrib(hitpoints) + 1
-english, "Moshran" -> "One more word about him and you will have to visit the cross! *hisses with his tongue*", state = 1
-"Moshran" -> "Ein weiteres Wort über ihn und du wirst das Kreuz aufsuchen müssen! *zischt mit seiner Zunge*", state = 1
+state = 1, english, "Moshran" -> attrib(hitpoints) - 9999, attrib(hitpoints) + 1, "#me draws two swords and hisses: 'I warned you, but you did not lisssten. Face the consssequencesss now!'"
+state = 1, "Moshran" -> attrib(hitpoints) - 9999, attrib(hitpoints) + 1, "#me zieht zwei Schwerter und zischt: 'Wer nicht hören will muss fühlen!'"
+english, "Moshran" -> state = 1, "One more word about him and you will have to visit the cross! *hisses with his tongue*"
+"Moshran" -> state = 1, "Ein weiteres Wort über ihn und du wirst das Kreuz aufsuchen müssen! *zischt mit seiner Zunge*"
 english, "Nargun", "Nargún", "Nargùn" -> "If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter."
 "Nargun", "Nargún", "Nargùn" -> "Wenn du mehr über diessse Gottheit zu wissen möchtessst, dann fragt jemand anderen. Zum Beissspiel Frizza drausssen beim Teleporter."
 english, "Oldra" -> "If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter."
@@ -370,7 +372,6 @@ english, "Ruzusss" -> "Yes, that isss my name. About what placesss do you want i
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "Huh, about what placesss ssshall I give you information? Do you mind just to asssk for help asss a firssst ssstep?"
 german, chance(20.0), ".*" -> "Huh, über welche Orte wünssscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
-
 "Farewell", "Bye", "Fare well", "See you" -> "Sssee you again if you need more information."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Wir sssehen unsss wenn mehr Information benötigt wird."
 "place" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Illarion?"

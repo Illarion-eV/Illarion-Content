@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -381,8 +381,11 @@ talkingNPC:addCycleText("#me leckt sich über die Lippen.", "#me licks his lips."
 talkingNPC:addCycleText("#me leckt seine Finger ab.", "#me licks his fingers.");
 talkingNPC:addCycleText("#w Ich möchte Kuchen essen... Ich möchte nicht arbeiten.", "#w I want to eat a cake... I do not want to work.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);

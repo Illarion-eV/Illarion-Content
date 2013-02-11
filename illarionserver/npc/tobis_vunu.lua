@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -34,16 +34,16 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Tobis Vunu the pirate. Keywords: Adventure, Gods."));
-talkEntry:addResponse("Help? I won't help you. Get rid, Jack!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Help? I won't help you. Get rid, Jack!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Tobis Vunu der Pirat. Schlüsselwörter: Abenteuer, Götter."));
-talkEntry:addResponse("Helfen? Ich werd dir nich helfen. Verschwinde, Leichtmatrose!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Helfen? Ich werd dir nich helfen. Verschwinde, Leichtmatrose!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -54,12 +54,12 @@ talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Tobis Vunu reicht dir ein Bündel Gewand und einen Schlapphut. Du sollst alles anziehen und das Tabakfeld suchen um es mit einer Fackel unbemerkt zu zerstören."));
-talkEntry:addResponse("Aye. Piero schickt dich? Also gut, du ziehst jetzt dieses Zeug an. Nimmst eine Fackel und brennst das Tabakfeld der Piraten ab. Lass dich aber nicht dabei beobachten!");
 talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(180, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(181, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 2));
+talkEntry:addResponse("Aye. Piero schickt dich? Also gut, du ziehst jetzt dieses Zeug an. Nimmst eine Fackel und brennst das Tabakfeld der Piraten ab. Lass dich aber nicht dabei beobachten!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -73,12 +73,12 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Tobis Vunu reicht dir ein Bündel Gewand und einen Schlapphut. Du sollst alles anziehen und das Tabakfeld suchen um es mit einer Fackel unbemerkt zu zerstören."));
-talkEntry:addResponse("Aye. Piero schickt dich? Also gut, du ziehst jetzt dieses Zeug an. Nimmst eine Fackel und brennst das Tabakfeld der Piraten ab. Lass dich aber nicht dabei beobachten!");
 talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(180, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(181, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 2));
+talkEntry:addResponse("Aye. Piero schickt dich? Also gut, du ziehst jetzt dieses Zeug an. Nimmst eine Fackel und brennst das Tabakfeld der Piraten ab. Lass dich aber nicht dabei beobachten!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -92,12 +92,12 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Tobis Vunu hands you a bunch cloth and a slouch hat. Dress up and sneak at the tobaccofield to burn it."));
-talkEntry:addResponse("Aye. Piero sends you? Allright, get dressed with this stuff. Take the toarch and burn the pirates tabacco field. And do't let you catched, by doing it!");
 talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(180, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(181, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 2));
+talkEntry:addResponse("Aye. Piero sends you? Allright, get dressed with this stuff. Take the toarch and burn the pirates tabacco field. And do't let you catched, by doing it!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -110,12 +110,12 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Tobis Vunu hands you a bunch cloth and a slouch hat. Dress up and sneak at the tobaccofield to burn it."));
-talkEntry:addResponse("Aye. Piero sends you? Allright, get dressed with this stuff. Take the toarch and burn the pirates tabacco field. And do't let you catched, by doing it!");
 talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(180, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(181, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 550, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 2));
+talkEntry:addResponse("Aye. Piero sends you? Allright, get dressed with this stuff. Take the toarch and burn the pirates tabacco field. And do't let you catched, by doing it!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -126,9 +126,9 @@ talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Du hast ein paar Münzen bekommen. Frage nun nach der geheimen Bootschaft die zu Corpotal Piero gebracht werden soll."));
-talkEntry:addResponse("#me hebt seine Nase in die Luft und schnuppert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2300));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 4));
+talkEntry:addResponse("#me hebt seine Nase in die Luft und schnuppert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -142,9 +142,9 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Du hast ein paar Münzen bekommen. Frage nun nach der geheimen Bootschaft die zu Corpotal Piero gebracht werden soll."));
-talkEntry:addResponse("#me hebt seine Nase in die Luft und schnuppert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2300));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 4));
+talkEntry:addResponse("#me hebt seine Nase in die Luft und schnuppert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -158,9 +158,9 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("You earned some coins. Ask him about the secret information you shall deliver to Corporal Piero."));
-talkEntry:addResponse("#me rises his nose and sniffles, he gives a broad grin. 'Aye, that smells like success. A-and you are still alive. Well done. Here's some coin for you. ");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2300));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 4));
+talkEntry:addResponse("#me rises his nose and sniffles, he gives a broad grin. 'Aye, that smells like success. A-and you are still alive. Well done. Here's some coin for you. ");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -173,9 +173,9 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("You earned some coins. Ask him about the secret information you shall deliver to Corporal Piero."));
-talkEntry:addResponse("#me rises his nose and sniffles, he gives a broad grin. 'Aye, that smells like success. A-and you are still alive. Well done. Here's some coin for you. ");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2300));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 4));
+talkEntry:addResponse("#me rises his nose and sniffles, he gives a broad grin. 'Aye, that smells like success. A-and you are still alive. Well done. Here's some coin for you. ");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -185,8 +185,8 @@ talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
-talkEntry:addResponse("Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-Feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 5));
+talkEntry:addResponse("Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-Feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -199,8 +199,8 @@ talkEntry:addTrigger("info");
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addResponse("Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-Feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 5));
+talkEntry:addResponse("Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-Feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -213,8 +213,8 @@ talkEntry:addTrigger("info");
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addResponse("Oh, yes, for sure. Please tell Corporal Piero the pirates are really pissed. Cause their tobacco field got destroyed. *He gives an amused laughter.* We have to await revenge now.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 5));
+talkEntry:addResponse("Oh, yes, for sure. Please tell Corporal Piero the pirates are really pissed. Cause their tobacco field got destroyed. *He gives an amused laughter.* We have to await revenge now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -226,8 +226,8 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
-talkEntry:addResponse("Oh, yes, for sure. Please tell Corporal Piero the pirates are really pissed. Cause their tobacco field got destroyed. *He gives an amused laughter.* We have to await revenge now.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 5));
+talkEntry:addResponse("Oh, yes, for sure. Please tell Corporal Piero the pirates are really pissed. Cause their tobacco field got destroyed. *He gives an amused laughter.* We have to await revenge now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1228,7 +1228,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

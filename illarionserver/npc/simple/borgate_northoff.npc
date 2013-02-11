@@ -1,3 +1,15 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Borgate Northoff                                            None --
+-- NPC Job:  Barkeeper                                                        --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  710, 313, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Authors:  Rincewind                                                        --
+--           & Someone                                                        --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
 name = "Borgate Northoff"
 race = dwarf
 sex = male

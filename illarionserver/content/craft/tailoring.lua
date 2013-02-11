@@ -608,7 +608,7 @@ product:addIngredient(50, 5*2) -- Thread: 5x2
 
 catId = tailoring:addCategory("other", "Sonstiges") --slings, and more slings + bag
 
---Sling
+--Bag
 product = tailoring:addProduct(catId, 97, 0, 20, 28, 56)
 product:addIngredient(2547, 2) -- Leather: 2x1
 product:addIngredient(50, 2*2) -- Thread: 2x2 

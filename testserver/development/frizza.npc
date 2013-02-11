@@ -66,9 +66,9 @@ queststatus(605) = 1, ".*" -> inform("[Quest 'Finde Frizza'] Da kannst nun mit F
 english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Greetingsss, can I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Grüsssse, kann ich helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Sssee you again, when you need more information."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Wir sssehen unsss wenn mehr Information benötigt wird."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Wir sssehen unsss wenn mehr Informationen benötigt werden."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sssee you again, when you need more information."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Wir sssehen unsss wenn mehr Information benötigt wird."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Wir sssehen unsss wenn mehr Informationen benötigt werden."
 "How are you", "How feel", "How do you do" -> "Very good, jussst won another game."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Sssehr gut, gerade wieder ein Ssspiel gewonnen."
 "your name", "who are you", "who art thou" -> "Frizza, the informant of Cadomyr."
@@ -79,10 +79,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sssee you again, when you n
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "what sell", "what buy", "list wares", "price of" -> "I don't sssell or buy anything. But we have a marketplace. You can try your luck there."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe oder kaufe gar nichtsss. Aber wir haben einen Marktplatz. Versuch dein Glück doch dort."
-"tell something" -> "I can tell you many things about Cadomyr. Just asssk me about buildingsss, locationsss, eventsss, people, history or gods of Cadomyr. Additionaly, I have a little tasssk."
+"tell something" -> "I can tell you many things about Cadomyr. Just asssk me about buildingsss, locationsss, eventsss, people, history or gods of Cadomyr. Additionally, I have a little tasssk."
 "erzähl was", "erzähl etwas" -> "Ich kann dir viele Dinge über Cadomyr erzählen. Frag nur nach Gebäude, Orte, Ereignissse, Leute, Gessschichte oder Götter von Cadomyr. Zusssätzlich hätte ich noch eine kleine Aufgabe."
 
-english, "teleport" -> "A possiblity to teleport to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee. *points to the teleporter*"
+english, "teleport" -> "A possibility to teleport yourself to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee. *points to the teleporter*"
 "teleport" -> "Eine Möglichkeit sich nach Runewick, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren findet man hier wie du sssehen sssolltessst. *Zeigt auf den Teleporter*"
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
@@ -90,7 +90,7 @@ english, "inform" -> inform("[Keywords] building, location, events, people, hist
 "inform" -> inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter, Herrscher, Gesetz."), "Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte, Gesetze, unsere Herrssscherin, Gesetze und die Götter von Cadomyr geben. Frag einfach!"
 "question" -> inform("[Keywords] building, location, event, people, history, god, ruler, law."), "I have information about buildings, locationsss, eventsss, people, hissstory, our ruler, lawsss and godsss of Cadomyr. Just asssk me!"
 "Frage", "Auskunft" -> inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter, Herrscher, Gesetz."), "Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte, unsere Herrssscherin, Gesetze und die Götter von Cadomyr geben. Frag einfach!"
-"building" -> inform("[Keywords] Palace, Tavern Unicorn Lion, Inn Lakeshore, Townwall, Villa, Quartermaster's Store, Flat quarter, Sir Reginald Tomb, market, library, temple, census office, teleport, donkey stable"), "We have following buildingsss: Palace, Tavern Unicorn Lion, Inn Lakeshore, Townwall, Villa, Quartermaster's Store, Flat quarter and Sir Reginald Tomb. We have alssso a market, library, temple, census office, teleport and donkey stable."
+"building" -> inform("[Keywords] Palace, Tavern Unicorn Lion, Inn Lakeshore, Townwall, Villa, Quartermaster's Store, Flat quarter, Sir Reginald Tomb, market, library, temple, census office, teleporter, donkey stable"), "We have following buildingsss: Palace, Tavern Unicorn Lion, Inn Lakeshore, Townwall, Villa, Quartermaster's Store, Flat quarter and Sir Reginald Tomb. We have alssso a market, library, temple, census office, teleporter and donkey stable."
 "Gebäude" -> inform("[Schlüsselwörter] Palast, Taverne Einhörniger Löwe, Gasthaus Seeufer, Stadtmauer, Villa, Quartiermeisters Laden, Wohnungsquartier, Sir Reginald Gruft, Markt, Bibliothek, Tempel, Zensusbüro, Teleporter, Eselstall"), "Wir haben folgende Gebäude: Palast, Taverne Einhörniger Löwe, Gasthaus Seeufer, Stadtmauer, Villa, Quartiermeisters Laden, Wohnungsquartier und Sir Reginald Gruft, sowie Markt, Bibliothek, Tempel, Zensusbüro, Teleporter und Eselstall."
 "location" -> inform("[Keywords] Ruzusss"), "If you like to know anything about locationsss outssside from Cadomyr like Katanbi Desert, Western Katanbi Desert, Katanbi Delta, Illarion or Shadowland just asssk Ruzusss behind the towngate."
 "Ort" -> inform("[Schlüsselwort] Ruzusss"), "Wenn du etwas über die Orte außerhalb von Cadomyr wie Katanbi Wüste, Westliche Katanbi Wüste, Katanbi Delta, Illarion oder Schattenland wisssen möchtessst, dann frage Ruzusss hinter dem Stadttor."
@@ -103,7 +103,7 @@ english, "Ruzusss" -> "You are looking for Ruzusss? Well, Ruzusss staysss behind
 "history" -> "We have a glory hissstory here and you can find more information about it at ssseveral picturesss in our town. These illustrationsss contain the actionsss of our rulersss."
 "Geschichte" -> "Wir haben eine glorreiche Gessschichte hier und man kann Information darüber an verssschiedenen Bildern in unssserer Ssstadt finden. Diessse Illustrationen zeigen die Handlungen unserer Herrscher."
 "event" -> "Many eventsss have happened sssince the foundation of your town. You can find more information about them at ssseveral picturesss in our town. These illustrationsss contain the actionsss of our rulersss."
-"Ereignis", "Geschehnis" -> "Viele Ereignisse haben hier standgefunden ssseit der Gründung. Man kann darüber Informationen an verssschiedenen Bildern in unssserer Ssstadt finden. Diessse Illustrationen zeigen die Handlungen unssserer Herrssscher."
+"Ereignis", "Geschehnis" -> "Viele Ereignisse haben hier stattgefunden ssseit der Gründung. Man kann darüber Informationen an verssschiedenen Bildern in unssserer Ssstadt finden. Diessse Illustrationen zeigen die Handlungen unssserer Herrssscher."
 "law" -> "We do not have really lawsss. We have rather a codex which can be found at a rider-ssstatue in front of the palace."
 "Gesetz" -> "Wir haben nicht wirklich Gesetze hier. Wir haben eher einen Kodex der an einer Reiterssstatue vor dem Palast gefunden werden kann."
 "ruler" -> "Our current ruler isss our wonderful queen Rosaline Edwards. You find her in our palace. The namesss of our former rulesss can be found at a rider-ssstatue in front of the palace."
@@ -119,9 +119,9 @@ english, "Ruzusss" -> "You are looking for Ruzusss? Well, Ruzusss staysss behind
 "Eselstall", "Stall" -> "Unser Essselssstall ist der Nähe desss Quartiermeisters Laden. Geh einfach in die Ssstadt rein."
 --"Donkey" -> "A donkey can be rent at the Donkey stable. In Galmair and Runewick are running ssseveral around and they are free for hunt. Sss!"
 --"Esel" -> "Ein Esssel kann im Eselstall geliehen werden. In Galmair und Runewick laufen viele herum und die sssind auch zur Jagd frei gegeben. Sss!"
-"Palace" -> inform("[Keywords] Queen, Royal Champer, Treasureroom, Library"), "Our palace isss on the other ssside of the town. Just go inssside and run through. You can find there the Royal Champer, our wonderful queen, her Treasureroom and the library."
+"Palace" -> inform("[Keywords] Queen, Royal Chamber, Treasureroom, Library"), "Our palace isss on the other ssside of the town. Just go inssside and run through. You can find there the Royal Chamber, our wonderful queen, her Treasureroom and the library."
 "Palast" -> inform("[Schlüsselwörter] Königin, Königliche Kammer, Schatzraum, Bibliothek"), "Unssser Palassst issst auf der anderen Ssseite der Ssstadt. Geh einfach rein und lauf durch die Ssstadt. Dort findet man die Königliche Kammer, unsssere wunderbare Königin, ihren Schatzraum und die Bibliothek."
-"Royal Champer" -> "The Royal Champer in the palace isss the private room of our queen Rosaline."
+"Royal Chamber" -> "The Royal Chamber in the palace isss the private room of our queen Rosaline."
 "Königliche Kammer" -> "Die Königliche Kammer im Palast issst der private Raum unsssserer Königin Rosaline."
 "Treasureroom" -> "The Treasureroom in the palace isss the place where all our wealth isss sssaved. We have to protect it againssst any threat. In particular from Runewick and Galmair."
 "Schatzraum" -> "Der Schatzraum in unserem Palast issst jener Ort in welchem wir unssseren Reichtum sssichern. Wir müsssen ihn ssschützen gegen jede Bedrohung. Insssbesssondere vor Runewick und Galmair."
@@ -139,7 +139,7 @@ english, "Ruzusss" -> "You are looking for Ruzusss? Well, Ruzusss staysss behind
 "Stadtsaal" -> "Unssser Stadtsaal issst über Quartiermeister Laden. Rein in die Ssstadt und die erssste Leiter hoch."
 english, "Villa Edward" -> "The Villa Edward isss the sssecond building left to the market. It isss behind Villa Rosaline. It isss an object for honourable memberss of our sssociety."
 "Villa Edward" -> "Die Villa Edward issst dasss zweite Gebäude linksss vom Markt. Esss issst hinter der Villa Rosaline. Esss issst gedacht für die ehrenhaften Mitglieder in unssserer Gesssellssschaft."
-english, "Villa Rosaline" -> "The Villa Rosaline isss the firssst buidling left to the market. It isss infront of Villa Edward. It isss an object for honourable memberss of our sssociety."
+english, "Villa Rosaline" -> "The Villa Rosaline isss the firssst building left to the market. It isss infront of Villa Edward. It isss an object for honourable memberss of our sssociety."
 "Villa Rosaline" -> "Die Villa Rosaline issst dasss erssste Gebäude linksss vom Markt. Esss issst vor der Villa Edward. Esss issst gedacht für die ehrenhaften Mitglieder in unssserer Gesssellssschaft."
 english, "Villa Reginald" -> "The Villa Reginald isss the building next to the census office. It isss an object for honourable memberss of our sssociety."
 "Villa Reginald" -> "Die Villa Reginald issst dasss Gebäude neben dem Zensusbüro. Esss issst gedacht für die ehrenhaften Mitglieder in unssserer Gesssellssschaft."
@@ -189,11 +189,11 @@ english, "Cadomyr" -> "Here at Cadomyr, we are interesssted in Fishermen, Glass 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I don't sssell or buy anything. But we have a marketplace. You can try your luck there."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe oder kaufe gar nichtsss. Aber wir haben einen Marktplatz. Versuch dein Glück doch dort."
-"tell something" -> "I can tell you many things about Galmair. Just ask me about buildingsss, locationsss, eventsss, people, hissstory or godsss of Cadomyr. Additionaly, I have a little tasssk."
+"tell something" -> "I can tell you many things about Galmair. Just ask me about buildingsss, locationsss, eventsss, people, hissstory or godsss of Cadomyr. Additionally, I have a little tasssk."
 "erzähl was", "erzähl etwas" -> "Ich kann dir viele Dinge über Galmair erzählen. Frag nur nach Gebäude, Orte, Ereignissse, Leute, Geschichte oder Götter von Cadomyr. Zusssätzlich hätte ich noch eine kleine Aufgabe."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Primarly, we pray to three godsss in Cadomyr. They are Malachin, Zhambra and Sirani. But I pray to Zelphia, mother of my race"
+"god" -> "Primarily, we pray to three godsss in Cadomyr. They are Malachin, Zhambra and Sirani. But I pray to Zelphia, mother of my race"
 "Gott", "Götter" -> "Bevorzugt betten wir drei Götter in Cadomyr an. Die wären Malachin, Zhambra und Sirani. Aber ich bette zu Zelphia, der Mutter meiner Rassse."
 english, "Adron" -> "One of the unimportant, younger godsss. You can find fellowsss in Runewick."
 "Adron" -> "Einer der unwichtigen, jüngeren Götter. Du kann Anhänger in Runewick finden."
@@ -244,7 +244,7 @@ english, "Frizza" -> "Yes, that isss my name. About what do you want information
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "Huh, about what ssshall I give you information? Do you mind just to asssk for help asss a firssst ssstep?"
-german, chance(20.0), ".*" -> "Huh, über wasss wünssscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
+german, chance(20.0), ".*" -> "Huh, über wasss wünssscht du Informationen? Vielleicht begnügssst du dich erssst mal nach Hilfe zu fragen?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

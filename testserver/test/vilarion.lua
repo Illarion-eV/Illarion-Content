@@ -63,6 +63,10 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, ltstate)
+    if (User.lastSpokenText == "stat") then
+        local stats = world:getItemStatsFromId(9)
+    end
+
     if (User.lastSpokenText == "create") then
         User:createItem(529, 1, 599, {craftedBy="Hero"})
         User:createItem(529, 1, 799, {craftedBy="Hero"})

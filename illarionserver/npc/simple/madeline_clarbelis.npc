@@ -1,12 +1,12 @@
------------------------------------------------------------------------------AC
+------------------------------------------------------------------------------AC
 -- NPC Name: Madeline Clarbelis                                      Runewick --
 -- NPC Job:  Druid Apprentice                                                 --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  951, 766, 1            --
--- NPC Sex:  female                     NPC Direction: west                  --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Grokk                                                            --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Madeline Clarbelis"
@@ -43,6 +43,17 @@ itemSecondHand = 0
 itemHands = 48
 itemTrousers = 34
 itemShoes = 53
+
+-- ---------------------------------------------------------------------------AC
+-- NPC Name: Madeline Clarbelis                                      Runewick --
+-- NPC Job:  Druid Apprentice                                                 --
+-- --
+-- NPC Race: human                      NPC Position:  951, 766, 1            --
+-- NPC Sex:  female                     NPC Direction: west                  --
+-- --
+-- Author:   Grokk                                                            --
+-- easyNPC Parser v1.21 --
+-- ------------------------------------------------------------------------------
 
 -- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -82,16 +93,16 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me purses her lips, noddin
 -- 1st quest: Deliver 'Aurora's staff': receive long staff handle
 
 -- Give out quest 1
-queststatus(333) = 2, english, "quest", "mission" -> inform("[Quest Update] Aurora's Staff: Part I"), "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it.", item(401, 1, 599), queststatus(333) = 3
-queststatus(333) = 2, "quest", "mission" -> inform("[Neues Quest] Auroras Stab: Teil  I"), "#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit.", item(40, 1, 599), queststatus(333) = 3
-queststatus(333) = 2, "task", "adventure" -> inform("[New quest] Aurora's Staff: Part I"), "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it.", item(40, 1, 599), queststatus(333) = 3
-queststatus(333) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest]Auroras Stab: Teil  I"), "#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit.", item(40, 1, 599), queststatus(333) = 3
+queststatus(333) = 2, english, "quest", "mission" -> inform("[Quest Update] Aurora's Staff: Part I"), item(401, 1, 599), queststatus(333) = 3, "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it."
+queststatus(333) = 2, "quest", "mission" -> inform("[Neues Quest] Auroras Stab: Teil  I"), item(40, 1, 599), queststatus(333) = 3, "#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit."
+queststatus(333) = 2, "task", "adventure" -> inform("[New quest] Aurora's Staff: Part I"), item(40, 1, 599), queststatus(333) = 3, "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it."
+queststatus(333) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest]Auroras Stab: Teil  I"), item(40, 1, 599), queststatus(333) = 3, "#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit."
 
 -- Give out quest 1
-queststatus(333) = 5, english, "quest", "mission" -> inform("[Quest Update] Aurora's Staff: Part II"), "I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here.", queststatus(333) = 6
-queststatus(333) = 5, "quest", "mission" -> inform("[Neues Quest] Auroras Stab: Teil  II"), "Es tut mir wirklich leid. Ich hätte nicht lügen sollen. Ein Halbling, Fosco Goodbarrel hat mich rein gelegt, so dass ich ihm den Stab gegeben habe. Er sagte, er könne mich zu einem mächtigeren Druiden machen. Ich wollte nicht das man mich für dumm hält. Ihr findet ihn im Wald westlich von hier.", queststatus(333) = 6
-queststatus(333) = 5, "task", "adventure", "staff" -> inform("[Quest Update] Aurora's Staff: Part II"), "I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here.", queststatus(333) = 6
-queststatus(333) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Stab" -> inform("[Neues Quest]Auroras Stab: Teil  II"), "Es tut mir wirklich leid. Ich hätte nicht lügen sollen. Ein Halbling, Fosco Goodbarrel hat mich rein gelegt, so dass ich ihm den Stab gegeben habe. Er sagte, er könne mich zu einem mächtigeren Druiden machen. Ich wollte nicht das man mich für dumm hält. Ihr findet ihn im Wald westlich von hier.", queststatus(333) = 6
+queststatus(333) = 5, english, "quest", "mission" -> inform("[Quest Update] Aurora's Staff: Part II"), queststatus(333) = 6, "I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here."
+queststatus(333) = 5, "quest", "mission" -> inform("[Neues Quest] Auroras Stab: Teil  II"), queststatus(333) = 6, "Es tut mir wirklich leid. Ich hätte nicht lügen sollen. Ein Halbling, Fosco Goodbarrel hat mich rein gelegt, so dass ich ihm den Stab gegeben habe. Er sagte, er könne mich zu einem mächtigeren Druiden machen. Ich wollte nicht das man mich für dumm hält. Ihr findet ihn im Wald westlich von hier."
+queststatus(333) = 5, "task", "adventure", "staff" -> inform("[Quest Update] Aurora's Staff: Part II"), queststatus(333) = 6, "I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here."
+queststatus(333) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Stab" -> inform("[Neues Quest]Auroras Stab: Teil  II"), queststatus(333) = 6, "Es tut mir wirklich leid. Ich hätte nicht lügen sollen. Ein Halbling, Fosco Goodbarrel hat mich rein gelegt, so dass ich ihm den Stab gegeben habe. Er sagte, er könne mich zu einem mächtigeren Druiden machen. Ich wollte nicht das man mich für dumm hält. Ihr findet ihn im Wald westlich von hier."
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(333) = 6, english, "quest", "mission" -> "You should go find the Halfling, Fosco Goodbarrel. He is in the forest west of here. He has Aurora's staff."
@@ -102,10 +113,10 @@ queststatus(333) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Stab" -> "Ihr sollt ge
 -- 2nd quest: Bring 10 RESOURCES
 
 -- Give out quest 2
-queststatus(334) = 0, english, "quest", "mission" -> inform("[New quest] The Lazy Apprentice"), "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.", queststatus(334) = 1
-queststatus(334) = 0, "quest", "mission" -> inform("[Neues Quest] Der faule Lehrling"), "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten", queststatus(334) = 1
-queststatus(334) = 0, "task", "adventure" -> inform("[New quest] The Lazy Apprentice"), "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.", queststatus(334) = 1
-queststatus(334) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der faule Lehrling"), "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten", queststatus(334) = 1
+queststatus(334) = 0, english, "quest", "mission" -> inform("[New quest] The Lazy Apprentice"), queststatus(334) = 1, "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms."
+queststatus(334) = 0, "quest", "mission" -> inform("[Neues Quest] Der faule Lehrling"), queststatus(334) = 1, "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten"
+queststatus(334) = 0, "task", "adventure" -> inform("[New quest] The Lazy Apprentice"), queststatus(334) = 1, "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms."
+queststatus(334) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der faule Lehrling"), queststatus(334) = 1, "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten"
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(334) = 1, item(153, all) < 4, english, "quest", "mission" -> "I really need you to bring me those four foot leaves."
@@ -118,8 +129,8 @@ queststatus(334) = 1, item(148, all) < 2, "task", "adventure" -> "You've got the
 queststatus(334) = 1, item(148, all) < 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Ihr habt mir vier Fussblatt gegeben. Jetzt sucht mir noch zwei Firnisblüten."
 
 -- Quest 2 solved, reward: 5 small healing potions
-queststatus(334) = 1, item(153, all) > 3, item(148, all) > 1, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), "Oh wonderful, thank you! Mistress Snow shall be so pleased with me! Here, take this as payment.", money + 2000, deleteItem(153, 4), deleteItem(148, 2), queststatus(334) = 2
-queststatus(334) = 1, item(153, all) > 3, item(148, all) > 1, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), "Oh, wunderbar, vielen Dank! Meine Lehrerin Frau Shnow wird so stolz auf mich sein! Hier, nehmt dies zu Dank.", money + 2000, deleteItem(153, 4), deleteItem(148, 2), queststatus(334) = 2
+queststatus(334) = 1, item(153, all) > 3, item(148, all) > 1, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(153, 4), deleteItem(148, 2), queststatus(334) = 2, "Oh wonderful, thank you! Mistress Snow shall be so pleased with me! Here, take this as payment."
+queststatus(334) = 1, item(153, all) > 3, item(148, all) > 1, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(153, 4), deleteItem(148, 2), queststatus(334) = 2, "Oh, wunderbar, vielen Dank! Meine Lehrerin Frau Shnow wird so stolz auf mich sein! Hier, nehmt dies zu Dank."
 
 -- No more quests, just nice words of gratitude
 queststatus(334) = 2, english, "quest", "mission" -> "Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora."

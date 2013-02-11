@@ -1,13 +1,12 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Vallaria Medrota                                        Runewick --
--- NPC Job:  Insert profession here                                           --
+-- NPC Job:  alchemy teacher                                                  --
 --                                                                            --
 -- NPC Race: elf                        NPC Position:  953, 766, 5            --
--- NPC Sex:  femal                      NPC Direction: west                   --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
--- Author:   merung                                            --
---                                                                            --
---                                                       easyNPC Parser v1.21 --
+-- Author:   merung                                                           --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Vallaria Medrota"
@@ -46,17 +45,19 @@ itemTrousers = 34
 itemShoes = 53
 
 ------------------------------------------------------------------------------AC
--- help
-"Help" -> inform("[Game Help] This NPC is Vallaria Medrota the healer an alchemy teacher. Keywords: recipes, alchemy, book")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Vallaria Medrota die Heilerin und Alchemielehrerin. Schlüsselwörter: Rezepte, Alchemie, Buch")
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
 
 sellItem = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000), stack(1), quality(333)
-"handel","kauf","Buch" -> "Bei mir könnt Ihr das Standardwerk der Alchemie erwerben.",trade
-"buy","sell,","trade","book" -> "You can buy the standard work of alchemy from me.",trade
+"Help" -> inform("[Game Help] This NPC is Vallaria Medrota the healer an alchemy teacher. Keywords: recipes, alchemy, book")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Vallaria Medrota die Heilerin und Alchemielehrerin. Schlüsselwörter: Rezepte, Alchemie, Buch")
+"handel", "kauf", "Buch" -> "Bei mir könnt Ihr das Standardwerk der Alchemie erwerben.", trade
+"buy", "sell,", "trade", "book" -> "You can buy the standard work of alchemy from me.", trade
 
 -- general speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!", "Hello.", "Be greeted!"
-"Grüß", "Gruß","Gruss","Grüss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße.", "Hallo.", "Seid gegrüßt!"
+"Grüß", "Gruß", "Gruss", "Grüss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße.", "Hallo.", "Seid gegrüßt!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings!", "Hello.", "Be greeted!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße.", "Hallo.", "Seid gegrüßt!"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell", "Goodbye.", "Have a nice day."
@@ -71,8 +72,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell", "Goodbye.", "Hav
 -- tasks-- leraning recipes
 english, "quest", "mission" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
 "quest", "mission" -> "Wenn Ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
-"task", "adventure", "order","recipe","leran","lesson" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl","Rezept","lernen","Unterricht" -> "Wenn Ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
+"task", "adventure", "order", "recipe", "leran", "lesson" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "lernen", "Unterricht" -> "Wenn Ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
 
 -- small talk
 "profession" -> "I am a healer and I can teach you some helpful alchemical recipes, if you are also an alchemist."
@@ -83,23 +84,23 @@ english, "job" -> "I am a healer and I can teach you some helpful alchemical rec
 "erzähl was", "erzähl etwas" -> "Erzhält Ihr mir doch was."
 english, "druid" -> "Druids are actually rather strange people. Most of them are excellent alchemists, true. But well. They indded have some mazy ideas: spirits of natur, will of nature and all those things."
 "druid" -> "Druiden sind schon ein sonderbarer Schlag. Die meisten von ihnen sind zwar exellente Alchemisten, aber nun ja. Sie haben doch schon recht wirre Ideen: Naturgeister, Wille der Natur und all sowas."
-english, "alchemy","alchemist" -> "Alchemists are masters of potions, have profound knowlegde about the herbs, and are keen observer of the world."
-"alchemie","alchimi","alchemist" -> "Alchemisten sind Meister der Tränke, Kenner der Kräuter und gute Beobachter der Welt."
-"heal","medicine","medical" -> "Medicine. If you know the arte of creating medicine very well, you can fight against all diseases."
-"heil","medizin" -> "Medizin. Wer die Kunst der Medizinherstellung wirklich beherrscht mag alle Krankheiten zu bekämpfen."
+english, "alchemy", "alchemist" -> "Alchemists are masters of potions, have profound knowlegde about the herbs, and are keen observer of the world."
+"alchemie", "alchimi", "alchemist" -> "Alchemisten sind Meister der Tränke, Kenner der Kräuter und gute Beobachter der Welt."
+"heal", "medicine", "medical" -> "Medicine. If you know the arte of creating medicine very well, you can fight against all diseases."
+"heil", "medizin" -> "Medizin. Wer die Kunst der Medizinherstellung wirklich beherrscht mag alle Krankheiten zu bekämpfen."
 "potion" -> "Potions are true wonders. They may cause great benefaction or great disaster."
-"trank","tränk" -> "Tränke sind wahre Wunderwerke. Sie gehen große Wohltaten oder großes Unheil bewirken."
+"trank", "tränk" -> "Tränke sind wahre Wunderwerke. Sie gehen große Wohltaten oder großes Unheil bewirken."
 "herb" -> "Herbs are the foundation of alchemy. More powerful than any sword or spell."
 "kraut", "kräuter" -> "Kräuter sind die Grundlage der Alchemie. Mächtiger als jedes Schwert und jeder Zauber."
 "dust" -> "O, what would be a potion without gem dust - a stock! Right!"
 "staub" -> "O, was wäre ein Trank doch ohne den Edelsteinstaub - ein Sud! Genau!"
-english,"adrazin","echolon","hyperborelium","dracolin","orcanol","fenolin","caprazin","illidrium" -> "Active ingredients! Magnificent. Fantastic."
-"adrazin","echolon","hyperborelium","dracolin","orcanol","fenolin","caprazin","illidrium" -> "Wirkstoffe! Herrlich. Fantastisch."
-"active ingredient","active agent","active substance" -> "Active ingredients! Magnificent. Fantastic."
+english, "adrazin", "echolon", "hyperborelium", "dracolin", "orcanol", "fenolin", "caprazin", "illidrium" -> "Active ingredients! Magnificent. Fantastic."
+"adrazin", "echolon", "hyperborelium", "dracolin", "orcanol", "fenolin", "caprazin", "illidrium" -> "Wirkstoffe! Herrlich. Fantastisch."
+"active ingredient", "active agent", "active substance" -> "Active ingredients! Magnificent. Fantastic."
 "wirkstoff" -> "Wirkstoffe! Herrlich. Fantastisch."
 "sickle" -> "The way you treat it, the way will the sickel treat you."
 "sichel" -> "So wie du sie behandelst, wird die Sichel dich behandeln."
-"magic","mage" -> "Mages! Always up to no good."
+"magic", "mage" -> "Mages! Always up to no good."
 "magie" -> "Magier! Nichts als Schindluder im Kopf."
 
 -- last catch
@@ -109,7 +110,10 @@ english, "Vallaria", "Medrota" -> "That's me. Correct."
 "Vallaria", "Medrota" -> "Das bin ich. Richtig erkannt."
 
 ------------------------------------------------------------------------------AC
--- cycle Texts
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
 cycletext "#me betrachtet eine Flasche.", "#me looks closely at a bottle."
 cycletext "Wo bleibt er nur mit meinem Trank?", "What takes him so long to bring me my potion?"
 cycletext "#me hackt Kräuter klein.", "#me chops some herbs."

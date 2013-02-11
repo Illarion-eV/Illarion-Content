@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Drathe                                                           --
 --           Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Nik Nilo"
@@ -88,6 +88,10 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Help
 "Help" -> inform("[Game Help] This is 'Big Nik', he is a tool and supply trader. Keywords: sell, buy, trade, Hello, profession, laws.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Werkzeug- und Rohstoffhändler 'Big Nik'. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Beruf, Gesetze.")
+
+-- OPTIONAL TRIGGERS
+queststatus(702) = 1, english, "charwis", "ruby", "gem", "irongate" -> queststatus(702) = 2, "Ah yes, thank you for passing the message. Go talk to Charwis, I'm sure he will reward you for your service."
+queststatus(702) = 1, "charwis", "rubin", "edelstein", "irongate" -> queststatus(702) = 2, "Ah ja, vielen Dank dass ihr die Nachricht überbracht habt. Geht und sprecht mit Charwis, ich bin sicher er wird euch für eure Arbeit belohnen."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me grins as he waves: 'What can I do for you?'", "#me lifts his head: 'Hello there, you here to buy or sell?'", "Hello, you look like someone who knows a good price for tools, that's why you're here, right?"

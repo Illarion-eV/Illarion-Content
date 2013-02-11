@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -17,7 +17,9 @@ VALUES (1, 353, 266, 0, 4, 'Morri', 'npc.morri', 0, 0, 2, 22, 12, 34, 217, 154, 
 require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -65,6 +67,29 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(702, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("charwis");
+talkEntry:addTrigger("irongate");
+talkEntry:addTrigger("pin");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 5));
+talkEntry:addResponse("Charwis? A pin order? What, now? The pins have already started to corrode? No, thanks. I want new pins, please tell Charwis that.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(702, "=", 4));
+talkEntry:addTrigger("charwis");
+talkEntry:addTrigger("irongate");
+talkEntry:addTrigger("Bestellung");
+talkEntry:addTrigger("nägel");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 5));
+talkEntry:addResponse("Charwis?  Eine Nagelbestellung? Was höre ich da, die Nägel beginnen bereits zu rosten? Nein, danke! Ich möchte neue Nägel, bitte sagt das Charwis.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
 talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
@@ -73,7 +98,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Hrm...Greetings. How can I help you?");
-talkEntry:addResponse("#me grumbles moodily: 'Good day'.");
+talkEntry:addResponse("#me grumbles moodily, 'Good day'.");
 talkEntry:addResponse("Hail Irmorom. Do you want to buy something?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -102,7 +127,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Hrm...Greetings. How can I help you?");
-talkEntry:addResponse("#me grumbles moodily: 'Good day'.");
+talkEntry:addResponse("#me grumbles moodily, 'Good day'.");
 talkEntry:addResponse("Hail Irmorom. Do you want to buy something?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -236,7 +261,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("Actually, I am a cook. For a few years I have cooked at my cousin's tavern. But now I am dealing with all kinds of food here in Galmair. What is your daily task?");
+talkEntry:addResponse("Actually, I am a cook. For a few years I cooked at my cousin's tavern, but now I am dealing with all kinds of food here in Galmair. What is your daily task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -249,7 +274,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Actually, I am a cook. For a few years I have cooked at my cousin's tavern. But now I am dealing with all kinds of food here in Galmair. What is your daily task?");
+talkEntry:addResponse("Actually, I am a cook. For a few years I cooked at my cousin's tavern, but now I am dealing with all kinds of food here in Galmair. What is your daily task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -290,15 +315,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("orc");
-talkEntry:addResponse("Arr. Those greennoses are annyoing. - Every last one of them. Actually, we merchants have to stick together. It is all about business!");
-talkEntry:addResponse("These orcs are smarter than you think. Particularly Krudash! But Sogg, I haven't ever seen him sober.");
-talkEntry:addResponse("Arrr.... I don't know. I think it looks like the entire orc pack here in Galmair belongs to the same clan. But on the other hand,well... I don't know whether that's important.");
+talkEntry:addResponse("Arr. Those green noses are annyoing, every last one of them. Actually, we merchants have to stick together. It is all about business!");
+talkEntry:addResponse("Those orcs are smarter than you think, particularly Krudash! Sogg, though, I haven't ever seen him sober.");
+talkEntry:addResponse("Arrr.... I don't know. I think it looks like the entire orc pack here in Galmair belongs to the same clan, but on the other hand... well, I don't know whether that's important.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("dwarf");
-talkEntry:addResponse("What is important to a dwarf? Gold, business and sin-...no. Relatives. Therefore, the clan.");
+talkEntry:addResponse("What is important to a dwarf? Gold, business and sin-... no... relatives. Therefore, the clan.");
 talkEntry:addResponse("What does a dwarf like? His craft, his wife and his beer.");
 talkEntry:addResponse("We dwarves are a proud folk. I have to warn you, never insult a dwarf! He will remember even after his sons have grown up.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -322,7 +347,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Ha-ha! I've heard that archmage wears women's clothes! Wool under the chain mail undies and so on! *laughs*");
+talkEntry:addResponse("Ha-ha! I've heard that Archmage wears women's clothes! Wool under the chain mail and so on! *laughs*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -336,7 +361,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Ha-ha! I've heard that archmage wears women's clothes! Wool under the chain mail undies and so on! *laughs*");
+talkEntry:addResponse("Ha-ha! I've heard that Archmage wears women's clothes! Wool under the chain mail undies and so on! *laughs*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -350,7 +375,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick? Aren't those the farmers who bungle with magic? They should cultivate bigger tomatoes instead. That is more useful.");
+talkEntry:addResponse("Runewick? Aren't they the farmers who fiddle around with magic? They should cultivate bigger tomatoes instead. That is more useful.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -380,7 +405,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("I want to say, my brother and I could not find a better place than this except for all the riff-raff. Well, and the buildings are falling down, but the business is great.");
+talkEntry:addResponse("I want to say, my brother and I could not find a better place than this... except for all the riff-raff. Well, and the buildings are falling down, but business is great.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -392,7 +417,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Blue blood! Pah! - Bring the human royalty under my axe and I'll show you how blue it is. I tell you, they die just like anyone else! I have seen too many fools on the throne!");
+talkEntry:addResponse("Blue blood! Pah! Bring the human royalty under my axe and I'll show you how blue it is. I tell you, they die just like anyone else! I have seen too many fools on the throne!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -406,7 +431,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Blue blood! Pah! - Bring the human royalty under my axe and I'll show you how blue it is. I tell you, they die just like anyone else! I have seen too many fools on the throne!");
+talkEntry:addResponse("Blue blood! Pah! Bring the human royalty under my axe and I'll show you how blue it is. I tell you, they die just like anyone else! I have seen too many fools on the throne!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -461,7 +486,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Salkamar? In Salkamar 4 out of 5 people claim to be smarter than everyone else. Smart, isn't it? *laughs*");
+talkEntry:addResponse("Salkamar? In Salkamar four out of five people claim to be smarter than everyone else. Smart, isn't it? *laughs*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -475,7 +500,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ironsiege");
 talkEntry:addResponse("Listen to me, Ironsiege is an impregnable fortress. Saying the gates in the mountain are 'impressive' is an understatement. They are gigantic!");
-talkEntry:addResponse("Well, you can find mainly three clans in Ironsiege. The Goldaxeclan, the Ironaxeclan, and last but not least my clan. The Flinthammer! Arr!");
+talkEntry:addResponse("Well, you can find mainly three clans in Ironsiege. The Goldaxe clan, the Ironaxe clan, and last but not least my clan. The Flinthammers! Arr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -528,7 +553,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Honor to you, mother of the rock, stone and soil.");
+talkEntry:addResponse("Honor to you, Mother of the rock, stone and soil.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -560,7 +585,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("morri");
-talkEntry:addResponse("Arr. Bura'zak-ka! - What meal would you like to buy?");
+talkEntry:addResponse("Arr. Bura'zak-ka! What meal would you like to buy?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -601,7 +626,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Arr.");
-talkEntry:addResponse("#me wrinkles his nose and shows his tongue in disgust: 'Do you smell that too?'");
+talkEntry:addResponse("#me wrinkles his nose and shows his tongue in disgust, 'Do you smell that too?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -614,13 +639,13 @@ talkEntry:addResponse("#me rümpft die Nase und streckt angewidert die Zunge hera
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me brummt schlecht gelaunt und wirft einen missmutigen Blick auf die Straße.", "#me grumbles moodily and looks at the street with a discontented glance.");
-talkingNPC:addCycleText("#me knurrt kopfschüttelnd: 'Dieser Fisch ist niemals frisch...'", "#me grumbles and shakes his head: 'This fish is not fresh...'");
+talkingNPC:addCycleText("#me knurrt kopfschüttelnd: 'Dieser Fisch ist niemals frisch...'", "#me grumbles and shakes his head, 'This fish is not fresh...'");
 talkingNPC:addCycleText("#me rümpft die Nase.", "#me wrinkles his nose.");
-talkingNPC:addCycleText("#me hält sich die Nase zu und streckt die Zunge heraus: 'Igittigitt!'", "#me covers his nose and shows his tongue: 'Igittigitt!'");
+talkingNPC:addCycleText("#me hält sich die Nase zu und streckt die Zunge heraus: 'Igittigitt!'", "#me covers his nose and shows his tongue, 'Igittigitt!'");
 talkingNPC:addCycleText("#me fasst sich mit einer verzweifelt wirkenden Geste, beidhändig in den langen schwarzen Bart und zieht daran. Dabei gibt er ein lautes Grunzen von sich.", "#me pulls his long black beard with both hands despairingly and grunts loudly.");
-talkingNPC:addCycleText("Essen! Feinste Gerichte aller Art! Tretet näher und deckt Euch ein!", "Food! Finest dishes of every kind! Come closer and buy ahead!");
-talkingNPC:addCycleText("Frisches Brot! Schmackhafte Kuchen! Unverwüstliche Kekse!", "Fresh bread! Tasty cakes! Inedible cookies!");
-talkingNPC:addCycleText("Wurst mit Zwiebeln, Kohlsuppe, Hasenbraten! Bei mir könnt ihr alles kaufen!", "Sausages with onion, cabbage soup, rabbit dishes! You find everything here!");
+talkingNPC:addCycleText("Essen! Feinste Gerichte aller Art! Tretet näher und deckt Euch ein!", "Food! Finest dishes of every kind! Come closer, go aheadtake a look and buy!");
+talkingNPC:addCycleText("Frisches Brot! Schmackhafte Kuchen! Unverwüstliche Kekse!", "Fresh bread! Tasty cakes! Inedestructible cookies!");
+talkingNPC:addCycleText("Wurst mit Zwiebeln, Kohlsuppe, Hasenbraten! Bei mir könnt ihr alles kaufen!", "Sausages with onion, cabbage soup, rabbit dishes! You can find everything here!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(51,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(118,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(121,"sell"));
@@ -702,7 +727,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
