@@ -92,7 +92,7 @@ function GatheringCraft:FindRandomItem(User)
     if(table.getn(self.InterruptMsg) > 0) then
       local m = math.random(table.getn(self.InterruptMsg));
       base.common.InformNLS(User, self.InterruptMsg[m][1], self.InterruptMsg[m][2]);
-      return false
+      return true;
     end
   end
 	base.common.GetHungry(User, self.FoodLevel);
