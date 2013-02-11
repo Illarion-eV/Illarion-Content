@@ -21,7 +21,7 @@ require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.frizza", package.seeall)
+module("npc.frizza", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -122,7 +122,7 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("Wir sssehen unsss wenn mehr Information benötigt wird.");
+talkEntry:addResponse("Wir sssehen unsss wenn mehr Informationen benötigt werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -141,7 +141,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Wir sssehen unsss wenn mehr Information benötigt wird.");
+talkEntry:addResponse("Wir sssehen unsss wenn mehr Informationen benötigt werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -185,7 +185,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I don't sssell or buy anything. But we have a marketplace. You can try your luck there.");
+talkEntry:addResponse("I don't sssell or buy anything, but we have a marketplace. You can try your luck there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -200,7 +200,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I can tell you many things about Cadomyr. Just asssk me about buildingsss, locationsss, eventsss, people, history or gods of Cadomyr. Additionaly, I have a little tasssk.");
+talkEntry:addResponse("I can tell you many things about Cadomyr. Just asssk me about buildingsss, locationsss, eventsss, people, history or gods of Cadomyr. Additionally, I have a little tasssk.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -214,7 +214,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("teleport");
-talkEntry:addResponse("A possiblity to teleport to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee. *points to the teleporter*");
+talkEntry:addResponse("A possibility to teleport yourself to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee. *points to the teleporter*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -256,8 +256,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("building");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Palace, Tavern Unicorn Lion, Inn Lakeshore, Townwall, Villa, Quartermaster's Store, Flat quarter, Sir Reginald Tomb, market, library, temple, census office, teleport, donkey stable"));
-talkEntry:addResponse("We have following buildingsss: Palace, Tavern Unicorn Lion, Inn Lakeshore, Townwall, Villa, Quartermaster's Store, Flat quarter and Sir Reginald Tomb. We have alssso a market, library, temple, census office, teleport and donkey stable.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Palace, Tavern Unicorn Lion, Inn Lakeshore, Townwall, Villa, Quartermaster's Store, Flat quarter, Sir Reginald Tomb, market, library, temple, census office, teleporter, donkey stable"));
+talkEntry:addResponse("We have following buildingsss: Palace, Tavern Unicorn Lion, Inn Lakeshore, Townwall, Villa, Quartermaster's Store, Flat quarter and Sir Reginald Tomb. We have alssso a market, library, temple, census office, teleporter and donkey stable.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,7 +271,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("location");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Ruzusss"));
-talkEntry:addResponse("If you like to know anything about locationsss outssside from Cadomyr like Katanbi Desert, Western Katanbi Desert, Katanbi Delta, Illarion or Shadowland just asssk Ruzusss behind the towngate.");
+talkEntry:addResponse("If you want to know anything about locationsss outssside Cadomyr like the Katanbi Desert, Western Katanbi Desert, Katanbi Delta, Illarion or Shadowland, just asssk Ruzusss behind the town gate.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -288,7 +288,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ruzusss");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Ruzusss' started] Try to find Ruzusss and get your reward."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
-talkEntry:addResponse("You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the north.*");
+talkEntry:addResponse("You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the town gate in the north.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -304,7 +304,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ruzusss");
-talkEntry:addResponse("You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the north.*");
+talkEntry:addResponse("You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the town gate in the north.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,7 +316,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("people");
-talkEntry:addResponse("Many people leaving here. Many people from different placesss. Most are jussst passsing me when they travel. It ssseemsss they are in thoughtsss of a god.");
+talkEntry:addResponse("Many people live here. Many people from different placesss. Most are jussst passsing me when they travel. It ssseemsss they are thinking of the Gods.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,7 +328,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("history");
-talkEntry:addResponse("We have a glory hissstory here and you can find more information about it at ssseveral picturesss in our town. These illustrationsss contain the actionsss of our rulersss.");
+talkEntry:addResponse("We have a glorious hissstory here and you can find more information about it looking at ssseveral picturesss in our town. These illustrationsss record the actionsss of our rulersss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -340,20 +340,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("event");
-talkEntry:addResponse("Many eventsss have happened sssince the foundation of your town. You can find more information about them at ssseveral picturesss in our town. These illustrationsss contain the actionsss of our rulersss.");
+talkEntry:addResponse("Many eventsss have happened sssince the foundation of our town. You can find more information about them looking at ssseveral picturesss in our town. These illustrationsss record the actionsss of our rulersss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ereignis");
 talkEntry:addTrigger("Geschehnis");
-talkEntry:addResponse("Viele Ereignisse haben hier standgefunden ssseit der Gründung. Man kann darüber Informationen an verssschiedenen Bildern in unssserer Ssstadt finden. Diessse Illustrationen zeigen die Handlungen unssserer Herrssscher.");
+talkEntry:addResponse("Viele Ereignisse haben hier stattgefunden ssseit der Gründung. Man kann darüber Informationen an verssschiedenen Bildern in unssserer Ssstadt finden. Diessse Illustrationen zeigen die Handlungen unssserer Herrssscher.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("law");
-talkEntry:addResponse("We do not have really lawsss. We have rather a codex which can be found at a rider-ssstatue in front of the palace.");
+talkEntry:addResponse("We do not really have lawsss. Rather, we have a codex which can be found at a rider-ssstatue in front of the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -365,7 +365,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ruler");
-talkEntry:addResponse("Our current ruler isss our wonderful queen Rosaline Edwards. You find her in our palace. The namesss of our former rulesss can be found at a rider-ssstatue in front of the palace.");
+talkEntry:addResponse("Our current ruler isss our wonderful Queen Rosaline Edwards. You can find her in our palace. The namesss of our former rulesss can be found at a rider-ssstatue in front of the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -377,7 +377,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("market");
-talkEntry:addResponse("The market isss behind thisss town wall. Jussst passs the towngate and the Quartermaster's store. You can buy a lot of thingsss there.");
+talkEntry:addResponse("The market isss behind thisss town wall. Jussst passs through the town gate and the Quartermaster's store. You can buy a lot of thingsss there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -389,7 +389,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("temple");
-talkEntry:addResponse("We have one temple here. The temple of Zambra. Other temples are outside of Cadomyr, but I have no idea where. However, the temple of Zambra is on the right ssside between palace and market.");
+talkEntry:addResponse("We have one temple here. The temple of Zambra. Other temples are outside of Cadomyr, but I have no idea where. However, the temple of Zambra is to the right ssside between the Palace and market.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -401,7 +401,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Census");
-talkEntry:addResponse("The Census office can be found in front of the palace on the left ssside. There you register yourssself and become one of usss.");
+talkEntry:addResponse("The Census office can be found in front of the Palace to the left ssside. There you can register yourssself and become one of usss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -427,8 +427,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Palace");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Queen, Royal Champer, Treasureroom, Library"));
-talkEntry:addResponse("Our palace isss on the other ssside of the town. Just go inssside and run through. You can find there the Royal Champer, our wonderful queen, her Treasureroom and the library.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Queen, Royal Chamber, Treasury, Library"));
+talkEntry:addResponse("Our Palace isss on the other ssside of the town. Just go inssside and run through. You can find there the Royal Chamber, our wonderful Queen, her treasury and the library.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -440,8 +440,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Royal Champer");
-talkEntry:addResponse("The Royal Champer in the palace isss the private room of our queen Rosaline.");
+talkEntry:addTrigger("Royal Chamber");
+talkEntry:addResponse("The Royal Chamber in the Palace isss the private room of our Queen Rosaline.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -452,8 +452,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Treasureroom");
-talkEntry:addResponse("The Treasureroom in the palace isss the place where all our wealth isss sssaved. We have to protect it againssst any threat. In particular from Runewick and Galmair.");
+talkEntry:addTrigger("Treasure room");
+talkEntry:addTrigger("Treasury");
+talkEntry:addResponse("The Treasury in the Palace isss the place where all our wealth isss sssaved. We have to protect it againssst any threat, in particular from Runewick and Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -465,7 +466,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Library");
-talkEntry:addResponse("Our library with all our booksss can be found in the palace.");
+talkEntry:addResponse("Our library with all our booksss can be found in the Palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -477,7 +478,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tavern Unicorn Lion");
-talkEntry:addResponse("Our tavern Unicorn Lion isss right after the market on the left side. You cannot missss it.");
+talkEntry:addResponse("Our tavern the Unicorn Lion isss right after the market on the left side. You cannot missss it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,7 +490,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Inn Lakeshore");
-talkEntry:addResponse("Our Inn Lakeshore isss in the northwest of our town, left from our tavern.");
+talkEntry:addResponse("Our Inn Lakeshore isss in the northwest of our town, left of the tavern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -500,9 +501,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Townwall");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Guardroom, Civic Hall"));
-talkEntry:addResponse("In the townwall *points to the north behind her* can be found the guardroom and the civic hall.");
+talkEntry:addTrigger("Town wall");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Guard room, Civic Hall"));
+talkEntry:addResponse("In the town wall *points to the north behind her* you can find the guard room and the civic hall.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -514,8 +515,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Guardroom");
-talkEntry:addResponse("Our Guardroom isss on the left side of the townwall. Ssso, enter the townwall and go left.");
+talkEntry:addTrigger("Guard room");
+talkEntry:addResponse("Our Guard room isss on the left side of the town wall. Ssso, enter the townwall and go left.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -540,7 +541,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Villa Edward");
-talkEntry:addResponse("The Villa Edward isss the sssecond building left to the market. It isss behind Villa Rosaline. It isss an object for honourable memberss of our sssociety.");
+talkEntry:addResponse("The Villa Edward isss the sssecond building left of the market. It isss behind the Villa Rosaline. It isss for the honourable memberss of our sssociety.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -553,7 +554,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Villa Rosaline");
-talkEntry:addResponse("The Villa Rosaline isss the firssst buidling left to the market. It isss infront of Villa Edward. It isss an object for honourable memberss of our sssociety.");
+talkEntry:addResponse("The Villa Rosaline isss the firssst building left of the market. It isss in front of the Villa Edward. It isss for the honourable memberss of our sssociety.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -566,7 +567,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Villa Reginald");
-talkEntry:addResponse("The Villa Reginald isss the building next to the census office. It isss an object for honourable memberss of our sssociety.");
+talkEntry:addResponse("The Villa Reginald isss the building next to the census office. It isss for the honourable memberss of our sssociety.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -606,7 +607,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Flat quarter");
-talkEntry:addResponse("The Flat quarter isss the eassstern part our town. It isss the home for thossse on the bottom of our sssocial hierarchy.");
+talkEntry:addResponse("The Flat quarter isss the eassstern part our town. It isss the home for thossse at the bottom of our sssocial hierarchy.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -618,7 +619,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sir Reginald Tomb");
-talkEntry:addResponse("The Sir Reginald Tomb issss right in front of the entrance to the townwall to honour one of our former kingsss. It can become quite bloody down there.");
+talkEntry:addResponse("Sir Reginald's Tomb issss right in front of the entrance to the town wall and honours one of our former kingsss. It can become quite bloody down there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -635,7 +636,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Ruzusss' started] Try to find Ruzusss and get your reward."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
-talkEntry:addResponse("I do not have a tasssk for you yet. Probably in two or three monthsss. If you like you can try to find Ruzusss. But if you desssire a real tasssk you should better asssk other people in Cadomyr *points to the gate*. Otherwissse, you are very welcome to come back in two or three monthsss when I will have definitely sssome tasks for you.");
+talkEntry:addResponse("I do not have a tasssk for you yet. Probably in two or three monthsss. If you like you can try to find Ruzusss, but if you desssire a real tasssk you would be better asssking other people in Cadomyr *points to the gate*. Otherwissse, you are very welcome to come back here in two or three monthsss when I will have definitely sssome tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -656,7 +657,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Ruzusss' started] Try to find Ruzusss and get your reward."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
-talkEntry:addResponse("I do not have a tasssk for you yet. Probably in one or two monthsss.  If you like you can try to find Ruzusss. But if you desssire a real tasssk you should asssk other people in Cadomyr *points to the gate*. Otherwissse, you are very welcome to come back in two or three monthsss when I will have definitely sssome tasks for you.");
+talkEntry:addResponse("I do not have a tasssk for you yet. Probably in two or three monthsss.  If you like you can try to find Ruzusss, but if you desssire a real tasssk you would be better asssking other people in Cadomyr *points to the gate*. Otherwissse, you are very welcome to come back here in two or three monthsss when I will have definitely sssome tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -676,7 +677,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("As I sssaid, you ssshould asssk other people in Cadomyr *points to the gate*. Or you come back in two or three monthsss when I will have definitely sssome tasksss for you.");
+talkEntry:addResponse("As I sssaid, you ssshould asssk other people in Cadomyr *points to the gate*, or you can come back in two or three monthsss when I will have definitely sssome tasksss for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -691,7 +692,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("As I sssaid, you ssshould asssk other people in Cadomyr *points to the gate*. Or you come back in two or three monthsss when I will have definitely sssome tasksss for you.");
+talkEntry:addResponse("As I sssaid, you ssshould asssk other people in Cadomyr *points to the gate*, or you come back in two or three monthsss when I will have definitely sssome tasksss for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -746,7 +747,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("That isss a wired place, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find sssome there.");
+talkEntry:addResponse("That isss a weird place, but if you look for alchemists, candle makers, carpenters, lumberjacks, cooks, bakers, farmers, herb gatherers, or tailors, tanners and dyers you will find sssome there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -776,7 +777,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("That isss a sssneaky place, but if you look for Blacksmiths, Brick makers, Masons, Miners, and Brewers you will find sssome there.");
+talkEntry:addResponse("That isss a sssneaky place, but if you look for blacksmiths, brick makers, masons, miners, and brewers you will find sssome there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -788,7 +789,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Our nice Queen Rosaline Edwards hasss been ruling for many years now. Ssshe is brave and smart and beautiful. Ssss. You find her in her palace on the other ssside of the town. Jussst go in.");
+talkEntry:addResponse("Our nice Queen Rosaline Edwards hasss been ruling for many years now. Ssshe is brave and smart and beautiful. Ssss. You can find her in her Palace on the other ssside of the town. Jussst go in.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -802,7 +803,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Our nice Queen Rosaline Edwards has been ruling for many years now. Ssshe is brave and smart and beautiful. Ssss. You find her in her palace on the other ssside of the town. Jussst go in.");
+talkEntry:addResponse("Our nice Queen Rosaline Edwards hasss been ruling for many years now. Ssshe is brave and smart and beautiful. Ssss. You can find her in her Palace on the other ssside of the town. Jussst go in.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -816,7 +817,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Here at Cadomyr, we are interesssted in Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders.");
+talkEntry:addResponse("Here at Cadomyr, we are interesssted in fishermen, glass blowers, diggers, finesmiths, and gem grinders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -831,7 +832,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I don't sssell or buy anything. But we have a marketplace. You can try your luck there.");
+talkEntry:addResponse("I don't sssell or buy anything, but we have a marketplace. You can try your luck there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -846,7 +847,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I can tell you many things about Galmair. Just ask me about buildingsss, locationsss, eventsss, people, hissstory or godsss of Cadomyr. Additionaly, I have a little tasssk.");
+talkEntry:addResponse("I can tell you many things about Cadomyr. Just ask me about the buildingsss, locationsss, eventsss, people, hissstory or godsss of Cadomyr. Additionally, I have a little tasssk.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -859,7 +860,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Primarly, we pray to three godsss in Cadomyr. They are Malachin, Zhambra and Sirani. But I pray to Zelphia, mother of my race");
+talkEntry:addResponse("Primarily, we pray to three Godsss in Cadomyr, they are Malachin, Zhambra and Sirani. I, however, pray to Zelphia, Mother of my race");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -873,7 +874,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("One of the unimportant, younger godsss. You can find fellowsss in Runewick.");
+talkEntry:addResponse("One of the unimportant, Younger Godsss. You can find followersss in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -887,7 +888,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god.");
+talkEntry:addResponse("One of the Elder Gods, but we do not care about this God here. Better you do not waste your time with this God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -901,7 +902,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("Goddess of Spirits and the Underworld. Cherga is the one who collects the dead ones, and brings them to the realms they belong to.");
+talkEntry:addResponse("Goddess of Spirits and the Underworld. Cherga is the one who collects the dead ones, and takes them to the realms they belong to.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -914,7 +915,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("One of the unimportant, younger gods. You can find fellowsss in Runewick.");
+talkEntry:addResponse("One of the unimportant, Younger Godsss. You can find followersss in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -927,7 +928,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god.");
+talkEntry:addResponse("One of the Elder Gods, but we do not care about this God here. Better you do not waste your time with this God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -940,7 +941,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god.");
+talkEntry:addResponse("One of the Elder Gods, but we do not care about this God here. Better you do not waste your time with this God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -953,7 +954,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("One of the unimportant, younger gods. You can find fellowsss in Galmair.");
+talkEntry:addResponse("One of the unimportant, Younger Godsss. You can find followersss in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -967,7 +968,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Many follow the honourable Malachín. Soldiers and knights pray for protection in battles, hunters for a good hunt and protection while hunting, paladins for protection and a powerful fist against the evil.");
+talkEntry:addResponse("Many follow the honourable Malachín. Soldiers and knights pray for protection in battles, hunters for a good hunt and protection while hunting, paladins for protection and a powerful fist against evil.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -981,8 +982,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("Sssss, I do not like thisss God. Yoo better avoid thisss name. People should kill you for usssing thisss name!");
-talkEntry:addResponse("#s Helpsss! We have potential fellow of the bloodgod here! Head up!");
+talkEntry:addResponse("Sssss, I do not like thisss God. You better avoid thisss name. People should kill you for usssing thisss name!");
+talkEntry:addResponse("#s Helpsss! We have potential fellow of the Blood God here! Head up!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -998,7 +999,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("One of the unimportant, younger gods. You can find fellowsss in Galmair.");
+talkEntry:addResponse("One of the unimportant, Younger Godsss. You can find followersss in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1013,7 +1014,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("One of the unimportant, younger gods. You can find fellows in Runewick.");
+talkEntry:addResponse("One of the unimportant, Younger Godsss. You can find followersss in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1026,7 +1027,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("One of the unimportant, younger gods. You can find fellowsss in Galmair.");
+talkEntry:addResponse("One of the unimportant, Younger Godsss. You can find followersss in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1039,7 +1040,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Many young females pray to her for advice in love or simple beauty tips. Most Sirani priests are good healers. Her followers believe in peace and harmony, and most of them don't like weapons or violence.");
+talkEntry:addResponse("Many young females pray to her for advice of love or simply beauty tips. Most Sirani priests are good healers. Her followers believe in peace and harmony, and most of them don't like weapons or violence.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1053,7 +1054,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("One of the elder gods, but except of me and my race noone cares about this god here. So, better do not waste your time with this god.");
+talkEntry:addResponse("One of the Elder Gods, but apart from me and my race nobody cares about this God here. Better you do not waste your time with this God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1067,7 +1068,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god.");
+talkEntry:addResponse("One of the Elder Gods, but we do not care about this God here. Better you do not waste your time with this God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1158,7 +1159,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Huh, about what ssshall I give you information? Do you mind just to asssk for help asss a firssst ssstep?");
+talkEntry:addResponse("Huh, what ssshall I give you information about? Do you mind just to asssk for help asss a firssst ssstep?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1166,18 +1167,18 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Huh, über wasss wünssscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?");
+talkEntry:addResponse("Huh, über wasss wünssscht du Informationen? Vielleicht begnügssst du dich erssst mal nach Hilfe zu fragen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Willkommen in Cadomyr!", "Welcome in Cadomyr!");
-talkingNPC:addCycleText("Ich bin die Auskunftsgeberin von Cadomyr. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Cadomyr. Ask me for informations if you want some.");
-talkingNPC:addCycleText("Wer etwas über die Orte hier wissen will, soll mich nur nach diesen Orten fragen.", "If someone wants to know something about the locationsss here, just ask me for these locationsss.");
-talkingNPC:addCycleText("Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If someone wants to know something about the buildings here, just ask me for these buildings.");
-talkingNPC:addCycleText("Wer etwas über die Geschichte hier wissen will, soll mich nur nach die Geschichte fragen.", "If someone wants to know something about the history of Cadomyr, just ask me for the history.");
-talkingNPC:addCycleText("Wer etwas über die Leute hier wissen will, soll mich nur nach diesen Leuten fragen.", "If someone wants to know something about the people here, just ask me for these people.");
-talkingNPC:addCycleText("Wer etwas über die Götter hier wissen will, soll mich nur nach diesen Gottheiten fragen.", "If someone wants to know something about the gods here, just ask me for these gods.");
-talkingNPC:addCycleText("Wer etwas über die Ereignisse hier wissen will, soll mich nur nach diesen Ereignissen fragen.", "If someone wants to know something about the events here, just ask me for these events.");
-talkingNPC:addCycleText("#me wedelt mit ihrem Schwanz.", "#me wages her tail.");
+talkingNPC:addCycleText("Willkommen in Cadomyr!", "Welcome to Cadomyr!");
+talkingNPC:addCycleText("Ich bin die Auskunftsgeberin von Cadomyr. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Cadomyr. Ask me for information if you want some.");
+talkingNPC:addCycleText("Wer etwas über die Orte hier wissen will, soll mich nur nach diesen Orten fragen.", "If you want to know something about the locationsss here, just ask me for these locationsss.");
+talkingNPC:addCycleText("Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If you want to know something about the buildings here, just ask me for these buildings.");
+talkingNPC:addCycleText("Wer etwas über die Geschichte hier wissen will, soll mich nur nach die Geschichte fragen.", "If you want to know something about the history of Cadomyr, just ask me for the history.");
+talkingNPC:addCycleText("Wer etwas über die Leute hier wissen will, soll mich nur nach diesen Leuten fragen.", "If you want to know something about the people here, just ask me for these people.");
+talkingNPC:addCycleText("Wer etwas über die Götter hier wissen will, soll mich nur nach diesen Gottheiten fragen.", "If you want to know something about the gods here, just ask me for these gods.");
+talkingNPC:addCycleText("Wer etwas über die Ereignisse hier wissen will, soll mich nur nach diesen Ereignissen fragen.", "If you want to know something about the events here, just ask me for these events.");
+talkingNPC:addCycleText("#me wedelt mit ihrem Schwanz.", "#me wags her tail.");
 talkingNPC:addCycleText("#me blickt herum mit ihren weit geöffneten Augen.", "#me looks around with wide opened eyes.");
 talkingNPC:addCycleText("#me untersucht ihr Kleid.", "#me examines her dress.");
 talkingNPC:addCycleText("#me streichelt ihren Schwanz.", "#me pets her tail.");

@@ -62,9 +62,10 @@ product = goldsmithing:addProduct(catId, 2647, 72, 100, 69, 138)
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 
 --Mirror
-product = goldsmithing:addProduct(catId, 336, 81, 100, 100, 200)
+product = goldsmithing:addProduct(catId, 336, 81, 100, 125, 250)
 product:addIngredient(236, 3) -- Gold Ingot: 3x1
 product:addIngredient(41) -- Glass Ingot: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 catId = goldsmithing:addCategory("amulets", "Amulette") -- amulets
 --Amulets
@@ -111,7 +112,7 @@ product:addIngredient(198) -- Topas: 1x1
 product = goldsmithing:addProduct(catId, 334, 90, 100, 135, 270)
 product:addIngredient(236, 2) -- Gold Ingot: 2x1
 product:addIngredient(285, 2) -- Diamond: 2x1
-product:addIngredient(2571) -- Mernium Ingot: 1x1
+product:addIngredient(2571) -- Merinium Ingot: 1x1
 
 catId = goldsmithing:addCategory("crowns", "Kronen") --Crowns
 
@@ -127,7 +128,8 @@ product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 product:addIngredient(236, 3) -- Gold Ingot: 3x1
 product:addIngredient(284) -- Sapphire: 1x1
 product:addIngredient(198) -- Topas: 1x1
-product:addIngredient(285, 2) -- Diamond: 2x1
+product:addIngredient(285) -- Diamond: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 catId = goldsmithing:addCategory("rings", "Ringe") --Rings
 
@@ -181,8 +183,9 @@ product:addIngredient(285) -- Diamond: 1x1
 --Ring of the Archmage
 product = goldsmithing:addProduct(catId, 2559, 90, 100, 243, 486)
 product:addIngredient(2550, 2) -- Copper Ingot: 2x1
-product:addIngredient(236, 3) -- Gold Ingot: 3x1
+product:addIngredient(236, 3) -- Gold Ingot: 2x1
 product:addIngredient(285) -- Diamond: 1x1
 product:addIngredient(2551) -- Pure Air: 1x1
 product:addIngredient(2553) -- Pure Fire: 1x1
 product:addIngredient(2554) -- Pure Water: 1x1 
+product:addIngredient(2571) -- Merinium Ingot

@@ -17,7 +17,7 @@ function MoveToField(Character)
 	
     -- we define our destination
 	
-	local destination, factionID, dialogNewbieText, dialogNewbieTaskText
+	local destination, factionID, dialogNewbieText, dialogNewbieTaskText, dialogNewbieTaskTitle
 	if Character.pos == position(56,96,100) then --Cadomyr
 	
 	    destination = position(127,647,0);
@@ -96,7 +96,12 @@ function MoveToField(Character)
         if isTestserver() then
 			callbackNewbie = function(dialogNewbie) 
 				callbackNewbieTask = function(dialogNewbieTask) end
-				dialogNewbieTask = MessageDialog("Ein guter Anfang", dialogNewbieTaskText, callbackNewbieTask)
+				if Character:getPlayerLanguage() == 0 then
+					dialogNewbieTaskTitle = "Ein guter Anfang";
+				else
+					dialogNewbieTaskTitle = "A good beginning";
+				end
+				dialogNewbieTask = MessageDialog(dialogNewbieTaskTitle, dialogNewbieTaskText, callbackNewbieTask)
 				Character:requestMessageDialog(dialogNewbieTask)
 		    end
 	    else

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
 --           Magdha Tiefenerz                                                 --
---                                                       easyNPC Parser v1.22 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -55,7 +55,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("Greetings! Maybe you could help me with a recipe.");
+talkEntry:addResponse("Greetings! Maybe you could help me with a recipe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -80,7 +80,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Greetings! Maybe you could help me with a recipe.");
+talkEntry:addResponse("Greetings! Maybe you could help me with a recipe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -161,7 +161,7 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("I am Nana Winterbutter.");
-talkEntry:addResponse("I'm a cook as you might have noticed. And a good one I might add");
+talkEntry:addResponse("I'm a cook as you might have noticed, and a good one I might add");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -212,7 +212,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale I"));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
-talkEntry:addResponse("For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the spikes myself.");
+talkEntry:addResponse("For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the ears myself.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -235,7 +235,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale I"));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
-talkEntry:addResponse("For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the spikes myself.");
+talkEntry:addResponse("For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the ears myself.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -259,7 +259,7 @@ talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins and your farming skill increases. You advance in Archmage Elvaine Morgan's favour."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
@@ -320,7 +320,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins and your peasantry skill increases."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins and your farming skill increases."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
@@ -424,7 +424,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 2));
 talkEntry:addTrigger("recipe");
 talkEntry:addTrigger("bowl");
-talkEntry:addResponse("Well, since you helped me before I might even tell you about the recipe. I think about fish in a crust with tomato sauce. But I don't have enough tomatoes and might need your help with this task again.");
+talkEntry:addResponse("Well, since you helped me before I might even tell you about the recipe. I am thinking about a fish in a crust with tomato sauce, but I don't have enough tomatoes and might need your help with this task again.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -443,7 +443,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 3));
-talkEntry:addResponse("I'd like to cook fish in a crust with tomato sauce. I need twenty tomatoes for the sauce to the fish. Care to help me?");
+talkEntry:addResponse("I'd like to cook a fish in a crust with tomato sauce. I need twenty tomatoes for the sauce though. Care to help me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -464,7 +464,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 3));
-talkEntry:addResponse("I'd like to cook fish in a crust with tomato sauce. I need twenty tomatoes for the sauce to the fish. Care to help me?");
+talkEntry:addResponse("I'd like to cook a fish in a crust with tomato sauce. I need twenty tomatoes for the sauce though. Care to help me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -487,13 +487,13 @@ talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your farming skill increases. You advance in Archmage Elvaine Morgan's favour."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
-talkEntry:addResponse("Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these silver coins. But my recipe is still not finished.");
+talkEntry:addResponse("Great! Twenty ripe tomatoes. That will make a very fine sauce indeed. Please take these silver coins, but my recipe is still not finished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -508,7 +508,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
-talkEntry:addResponse("Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these silver coins. But my recipe is still not finished.");
+talkEntry:addResponse("Great! Twenty ripe tomatoes. That will make a very fine sauce indeed. Please take these silver coins, but my recipe is still not finished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -548,12 +548,12 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your peasantry skill increases."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your farming skill increases."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
-talkEntry:addResponse("Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these silver coins. But my recipe is still not finished.");
+talkEntry:addResponse("Great! Twenty ripe tomatoes. That will make a very fine sauce indeed. Please take these silver coins, but my recipe is still not finished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -566,7 +566,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
-talkEntry:addResponse("Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these silver coins. But my recipe is still not finished.");
+talkEntry:addResponse("Great! Twenty ripe tomatoes. That will make a very fine sauce indeed. Please take these silver coins, but my recipe is still not finished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -707,13 +707,13 @@ talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your farming skill increases. You advance in Archmage Elvaine Morgan's favour."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
-talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins. But how embarrassing, I have a probem with the recipe now.");
+talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins, but how embarrassing, I have a probem with the recipe now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -728,7 +728,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
-talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins. But how embarrassing, I have a problem with the recipe now.");
+talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins, but how embarrassing, I have a problem with the recipe now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -768,12 +768,12 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your peasantry skill increases."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your farming skill increases."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
-talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins. But how embarrassing, I have a probem with the recipe now.");
+talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins, but how embarrassing, I have a probem with the recipe now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -786,7 +786,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
-talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins. But how embarrassing, I have a problem with the recipe now.");
+talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins, but how embarrassing, I have a problem with the recipe now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -864,7 +864,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("problem");
-talkEntry:addResponse("How embarrassing! I was not careful enough with storing the fish for my recipe and now it is rotten. I hope that you can help me one last time with the task to get new fish.");
+talkEntry:addResponse("How embarrassing! I was not careful enough when storing the fish for my recipe and now it is rotten. I hope that you can help me one last time with the task of getting some new fish.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -879,7 +879,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 6));
 talkEntry:addTrigger("recipe");
 talkEntry:addTrigger("bowl");
-talkEntry:addResponse("How embarrassing! I was not careful enough with storing the fish for my recipe and now it is rotten. I hope that you can help me one last time with the task to get new fish.");
+talkEntry:addResponse("How embarrassing! I was not careful enough when storing the fish for my recipe and now it is rotten. I hope that you can help me one last time with the task of getting some new fish.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -898,7 +898,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 7));
-talkEntry:addResponse("I usually buy fish from Zerarisa. I am really sorry, but I always forget what this fish is called. But I need ten of these fish again.");
+talkEntry:addResponse("I usually buy fish from Zerarisa. I am really sorry, but I always forget what the fish is called. I need ten of those fish again though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -919,7 +919,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 7));
-talkEntry:addResponse("I usually buy fish from Zerarisa. I am really sorry, but I always forget what this fish is called. But I need ten of these fish again.");
+talkEntry:addResponse("I usually buy fish from Zerarisa. I am really sorry, but I always forget what the fish is called. I need ten of those fish again though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -942,13 +942,13 @@ talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins and your farming skill increases. You advance in Archmage Elvaine Morgan's favour."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
-talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
+talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than what it is worth in silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -963,7 +963,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
-talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
+talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than what it is worth in silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1003,12 +1003,12 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins and your peasantry skill increases."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins and your farming skill increases."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
-talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
+talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than what it is worth in silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1021,7 +1021,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
-talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
+talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than what it is worth in silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1071,7 +1071,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Did you already speak to Zerarisa about the fish I usually buy from her? I really need ten of these fish to try out my recipe.");
+talkEntry:addResponse("Did you already speak to Zerarisa about the fish I usually buy from her? I really need ten of those fish to try out my recipe.");
 talkEntry:addResponse("I really need ten of the fish that Zerarisa usually sells me. Would you please get them for me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1092,7 +1092,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addTrigger("recipe");
 talkEntry:addTrigger("bowl");
-talkEntry:addResponse("Did you already speak to Zerarisa about the fish I usually buy from her? I really need ten of these fish to try out my recipe.");
+talkEntry:addResponse("Did you already speak to Zerarisa about the fish I usually buy from her? I really need ten of those fish to try out my recipe.");
 talkEntry:addResponse("I really need ten of the fish that Zerarisa usually sells me. Would you please get them for me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1114,7 +1114,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 10, nil));
 talkEntry:addTrigger("salmon");
-talkEntry:addResponse("Salmon? Yes, that could be the name of the fish. Now that you mention it. I think Zerarisa mentioned that name. But I need ten salmons for my recipe.");
+talkEntry:addResponse("Salmon? Yes, that could be the name of the fish. Now that you mention it, I think Zerarisa said that name. I need ten salmon for my recipe though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1147,7 +1147,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("You have already done way too much for me. I will always keep you in good memory. You are truly a hero to me! May Oldra bless you!");
+talkEntry:addResponse("You have already done way too much for me. I will always remember you fondly. You are truly a hero to me! May Oldra bless you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1164,7 +1164,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 8));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("You have already done way too much for me. I will always keep you in good memory. You are truly a hero to me! May Oldra bless you!");
+talkEntry:addResponse("You have already done way too much for me. I will always remember you fondly. You are truly a hero to me! May Oldra bless you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1180,7 +1180,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe.");
+talkEntry:addResponse("Yes, I'm a good cook. I just use the best ingredients for cooking. Right now I would like to try out this new recipe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1193,7 +1193,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe.");
+talkEntry:addResponse("Yes, I'm a good cook. I just use the best ingredients for cooking. Right now I would like to try out this new recipe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1232,7 +1232,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("cook");
-talkEntry:addResponse("Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe.");
+talkEntry:addResponse("Yes, I'm a good cook. I just use the best ingredients for cooking. Right now I would like to try out this new recipe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1258,7 +1258,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("grain");
-talkEntry:addResponse("Grain can be used as seed or you can grind it to flour. Put the grain on fertile land and the crop will grow.");
+talkEntry:addResponse("Grain can be used as seed or you can grind it to make flour. Put the grain on fertile land and the crop will grow.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1272,7 +1272,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tomato");
-talkEntry:addResponse("You can put tomato seeds into fertile soil. Be sure to fasten the growing plants to poles so that it grows straight up.");
+talkEntry:addResponse("You can plant tomato seeds in fertile soil. Be sure to fasten the growing plants to poles so that they grow straight up.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1297,7 +1297,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("fish");
-talkEntry:addResponse("I know how to prepare fish but it seems that I always forget how the fish are called. You better ask someone else if you want to know more about fish.");
+talkEntry:addResponse("I know how to prepare fish but it seems that I always forget what the fish are called. You better ask someone else if you want to know more about fish.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1321,7 +1321,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("scythe");
-talkEntry:addResponse("You can use the scythe to reap wheat once it has this nice golden colour.");
+talkEntry:addResponse("You can use the scythe to reap wheat once it has turned a nice golden colour.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1333,7 +1333,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sickle");
-talkEntry:addResponse("You can use a sickle to collect vegetables once they are ripe. Or you can use it to collect herbs and mushrooms");
+talkEntry:addResponse("You can use a sickle to collect vegetables once they are ready, or you can use it to collect herbs and mushrooms");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1360,7 +1360,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Mr Morgan is a very nice man. Elf. Wizard. Ruler. Anyway, he is nice!");
+talkEntry:addResponse("Mr Morgan is a very nice man, elf, wizard, ruler... anyway, he is nice!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1374,7 +1374,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Mr Morgan is a very nice man. Elf. Wizard. Ruler. Anyway, he is nice!");
+talkEntry:addResponse("Mr Morgan is a very nice man, elf, wizard, ruler... anyway, he is nice!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1388,7 +1388,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick is wonderful. And I'm one of the best cooks around here.");
+talkEntry:addResponse("Runewick is wonderful, and I'm one of the best cooks around here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1430,7 +1430,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Oh, a queen rules Cadomyr? I never knew...");
+talkEntry:addResponse("Oh, a Queen rules Cadomyr? I never knew...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1444,7 +1444,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Oh, a queen rules Cadomyr? I never knew...");
+talkEntry:addResponse("Oh, a Queen rules Cadomyr? I never knew...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1458,7 +1458,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("I have never visited Cadomyr myself so far. But I have heard that it is to the south.");
+talkEntry:addResponse("I have never visited Cadomyr myself, so far, but I have heard that it is to the south.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1471,7 +1471,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Ochje, leave me alone with abroad countries, will you?");
+talkEntry:addResponse("Oooh, leave me alone with foreign countries, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1485,7 +1485,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Ochje, leave me alone with abroad countries, will you?");
+talkEntry:addResponse("Oooh, leave me alone with foreign countries, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1499,7 +1499,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Ochje, leave me alone with abroad countries, will you?");
+talkEntry:addResponse("Oooh, leave me alone with foreign countries, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1525,7 +1525,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("Adron is the god of good dishes! So, he is my god and I am his follower.");
+talkEntry:addResponse("Adron is the God of good dishes! So, he is my God and I am his follower.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1551,7 +1551,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Why I pray to Sirani? Good friends become even better friends while dining together. And that's where a cook like me joins the scene!");
+talkEntry:addResponse("Why I pray to Sirani? Good friends become even better friends while dining together, and that's where a cook like me joins the scene!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1566,7 +1566,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Sorry, I don't sell anything. But there are other people in Runewick. Some may even sell things to you.");
+talkEntry:addResponse("Sorry, I don't sell anything, but there are other people in Runewick. Some may even sell things to you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1646,13 +1646,13 @@ talkEntry:addResponse("Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieh
 talkEntry:addResponse("Was meint Ihr mit 'Nein'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me rührt etwas Teig in einer Schüssel in ihrem linken Arm um.", "#me stirs some dough in a bowl in her left arm.");
-talkingNPC:addCycleText("#me starrt besorgt in die Schüssel in ihrem linken Arm.", "#me stares worryingly into the bowl in her left arm.");
+talkingNPC:addCycleText("#me rührt etwas Teig in einer Schüssel in ihrem linken Arm um.", "#me stirs some dough in a bowl held in her left arm.");
+talkingNPC:addCycleText("#me starrt besorgt in die Schüssel in ihrem linken Arm.", "#me stares worried into the bowl held in her left arm.");
 talkingNPC:addCycleText("Das wird nie und nimmer reichen.", "This won't never ever last.");
-talkingNPC:addCycleText("#me gießt vorsichtig etwas Wasser in Schüssel in ihrem linken Arm.", "#me pours carefully some water into the bowl in her left arm.");
+talkingNPC:addCycleText("#me gießt vorsichtig etwas Wasser in Schüssel in ihrem linken Arm.", "#me carefully pours some water into the bowl held in her left arm.");
 talkingNPC:addCycleText("Vielleicht sollte ich doch etwas anderes kochen.", "Maybe I should cook something else.");
 talkingNPC:addCycleText("Willkommen im Eibenthal!", "Welcome to Yewdale!");
-talkingNPC:addCycleText("#me nascht von einem Teig, den sie gerade anrührt.", "#me tastes a dough she's stirring.");
+talkingNPC:addCycleText("#me nascht von einem Teig, den sie gerade anrührt.", "#me tastes the dough she's stirring.");
 talkingNPC:addCycleText("Und noch etwas Knoblauch... oder besser nicht?", "And a little bit of garlic... or not?");
 talkingNPC:addCycleText("Ohje, ohje.", "O my dear.");
 talkingNPC:addCycleText("Das wird lecker!", "That's going to be tasty!");

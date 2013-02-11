@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -220,8 +220,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
-talkEntry:addResponse("Oh! Her majesty has drawn a sketch how she'd like her grave to be! What a marvellous plan! A cube in the desert!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkEntry:addResponse("Oh! Her majesty has drawn a sketch how she'd like her grave to be! What a marvellous plan! A cube in the desert!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -237,8 +237,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."));
-talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -250,8 +250,8 @@ talkEntry:addTrigger("Valerion");
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
-talkEntry:addResponse("Oh! Her majesty has drawn a sketch how she'd like her grave to be! What a marvellous plan! A cube in the desert!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkEntry:addResponse("Oh! Her majesty has drawn a sketch how she'd like her grave to be! What a marvellous plan! A cube in the desert!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -262,8 +262,8 @@ talkEntry:addTrigger("Valerion");
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."));
-talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -895,7 +895,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

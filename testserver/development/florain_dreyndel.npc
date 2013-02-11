@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Lillian                                                          --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Florain Dreyndel"
@@ -79,6 +79,8 @@ english, "Elesil", "Dealwon" -> "She is right over there, just go over and talk 
 "essen", "nahrung" -> "Ihr könnt überall etwas zu essen finden. Früchte wachsen an Bäumen und Büschen oder Ihr fragt andere Leute nach etwas zu essen."
 english, "fighting", "monster" -> "There are a few wild animals in the wilderness so be careful. If you want to train ask around for a sparring partner."
 "kämpfen", "monster" -> "Es gibt einige wilde Tiere in der Wildness, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt herum nach einem Trainingspartner."
+english, "Runewick" -> "This is Runewick, my home. We are a realm of just and kind people, I'm sure you will enjoy it here."
+"Runewick" -> "Dies is Runewick, mein Zuhause. Wir sind ein Reich von gutmütigen und aufrichtigen Leuten, ich bin mir sicher, dass Ihr es hier mögen werdet."
 
 -- Quests
 queststatus(820) = 1, queststatus(701) = 0, english, "quest", "mission" -> "Welcome to Runewick. I heard that my friend Zassaria Riverbank needs help. You can find her at the marketplace, just go over the bridge and through the blue portal at the end to reach it."

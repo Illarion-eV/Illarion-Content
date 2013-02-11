@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
 --           Martin Karing                                                    --
---                                                       easyNPC Parser v1.22 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -163,10 +163,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Fredericus. That's me.");
 talkEntry:addResponse("I am the fisherman Fredericus.");
-talkEntry:addResponse("Fredericus is my name, Ifish.");
+talkEntry:addResponse("Fredericus is my name, I trade fish.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -189,15 +188,11 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
+talkEntry:addResponse("Fish, fish, fish. I trade fish... And also herbs, if you need any to spice up your dishes.");
+talkEntry:addResponse("I trade fish, do you need any?");
+talkEntry:addResponse("I trade what you need to catch fish and I even buy the fish you caught.");
+talkEntry:addResponse("Ya want to trade? Aye, have a look!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Fish, fish, fish. Ifish... And also herbs, if you need any to spice up your dishes.");
-talkEntry:addResponse("Ifish, do you need any?");
-talkEntry:addResponse("Iwhat you need to catch fish and I even buy the fish you caught.");
-talkEntry:addResponse("Ya want to? Aye, have a look!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -208,11 +203,11 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.");
 talkEntry:addResponse("Ich handel Fische, braucht ihr welche?");
 talkEntry:addResponse("Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.");
 talkEntry:addResponse("Du willst handeln? Da schau her was ich hab!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -368,8 +363,7 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Here, at the marketplace, there are manyrs. You can buy many goods here in Cadomyr.");
+talkEntry:addResponse("Here, at the marketplace, there are many traders. You can buy many goods here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -796,7 +790,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

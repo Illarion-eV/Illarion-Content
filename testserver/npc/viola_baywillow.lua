@@ -8,7 +8,7 @@
 -- Authors:  envi                                                             --
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1266,7 +1266,7 @@ talkingNPC:addCycleText("Wenn du nicht weißt wohin du gehen sollst, frag mich na
 talkingNPC:addCycleText("Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach Hilfe.", "If you'd like to know where you and your faith are welcome, tell me your god and I'll tell you the best realm to join!");
 talkingNPC:addCycleText("Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbling, ich weiß für jeden den richtigen Platz.", "Whether you are an elf, dwarf, human, orc, lizardman, or halfling, I know the right place for everyone!");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(5);
+mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist deine Tutorin Viola Baywillow.", "This is your tutorial guide Viola Baywillow.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
@@ -1287,7 +1287,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

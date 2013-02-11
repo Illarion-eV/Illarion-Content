@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.22 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -34,10 +34,10 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I buy any kind of glass goods. You can also obtain candles from me.");
 talkEntry:addResponse("I'll gladly show you my offers of glasswares and candles.");
 talkEntry:addResponse("Here you can get anything you need for a perfect dinner.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -48,10 +48,10 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ich handel aller Art Glaswaren. Ebenso könnt ihr Kerzen bei mir erwerben.");
 talkEntry:addResponse("Gerne zeige ich euch mein Angebot an Glaswaren und Kerzen.");
 talkEntry:addResponse("Hier bekommt ihr alles, was ihr für ein perfektes Abendessen braucht.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -240,10 +240,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Iglassware.");
-talkEntry:addResponse("Icandles and glassware.");
+talkEntry:addResponse("I trade glassware.");
+talkEntry:addResponse("I trade candles and glassware.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -257,10 +255,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Iglassware.");
-talkEntry:addResponse("Icandles and glassware.");
+talkEntry:addResponse("I trade glassware.");
+talkEntry:addResponse("I trade candles and glassware.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

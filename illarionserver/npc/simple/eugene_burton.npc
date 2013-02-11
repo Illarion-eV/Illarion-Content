@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Eugene Burton"
@@ -91,10 +91,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go forth with Malachin's bl
 -- 1st quest: Kill 6 boars / Wildschweine, provide 6 pork (307)
 
 -- Give out quest 1
-queststatus(4) = 0, english, "quest", "mission" -> inform("[New quest] The Poacher I"), "My family is starving and without food, we won't survive the next winter. Please, will you head for Elstree forest, hunt half a dozen boars and bring me their pork?", queststatus(4) = 1
-queststatus(4) = 0, "quest", "mission" -> inform("[Neues Quest] Der Wilderer I"), "Meine Familie ist am verhungern und ohne etwas zu essen überleben wir den Winter nicht. Bitte, könntet ihr bitte in den Elsbaumwald gehen, ein halbes Dutzend Wildschweine jagen und mir ihr Fleisch bringen?", queststatus(4) = 1
-queststatus(4) = 0, "task", "adventure" -> inform("[New quest] The Poacher I"), "My family is starving and without food, we won't survive the next winter. Please, will you head for Elstree forest, hunt half a dozen boars and bring me their pork?", queststatus(4) = 1
-queststatus(4) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Wilderer I"), "Meine Familie ist am verhungern und ohne etwas zu essen überleben wir den Winter nicht. Bitte, könntet ihr bitte in den Elsbaumwald gehen, ein halbes Dutzend Wildschweine jagen und mir ihr Fleisch bringen?", queststatus(4) = 1
+queststatus(4) = 0, english, "quest", "mission" -> inform("[New quest] The Poacher I"), queststatus(4) = 1, "My family is starving and without food, we won't survive the next winter. Please, will you head for Elstree forest, hunt half a dozen boars and bring me their pork?"
+queststatus(4) = 0, "quest", "mission" -> inform("[Neues Quest] Der Wilderer I"), queststatus(4) = 1, "Meine Familie ist am verhungern und ohne etwas zu essen überleben wir den Winter nicht. Bitte, könntet ihr bitte in den Elsbaumwald gehen, ein halbes Dutzend Wildschweine jagen und mir ihr Fleisch bringen?"
+queststatus(4) = 0, "task", "adventure" -> inform("[New quest] The Poacher I"), queststatus(4) = 1, "My family is starving and without food, we won't survive the next winter. Please, will you head for Elstree forest, hunt half a dozen boars and bring me their pork?"
+queststatus(4) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Wilderer I"), queststatus(4) = 1, "Meine Familie ist am verhungern und ohne etwas zu essen überleben wir den Winter nicht. Bitte, könntet ihr bitte in den Elsbaumwald gehen, ein halbes Dutzend Wildschweine jagen und mir ihr Fleisch bringen?"
 
 -- Quest 1 taken but not solved, repeat the instructions
 
@@ -111,16 +111,16 @@ queststatus(4) = 7, item(307, all) < 6, "task", "adventure" -> "Did you perhaps 
 queststatus(4) = 7, item(307, all) < 6, "Auftrag", "Aufgabe", "Abenteuer" -> "Habt ihr etwa das Fleisch der Wildschweine im Wald vergessen? Bitte, lauft, und holt es! Meine Kinder werden es euch danken."
 
 -- Quest 1 solved, reward: 250 arrows
-queststatus(4) = 7, item(307, all) > 5, english, ".+" -> inform("[Quest solved] You are awarded 250 arrows."), "Thank you very, very much for the food. Pork will silence the bellies of my children, at least for some days. Take this quiver of arrows, it will help you when hunting.", deleteItem(307, 6), item(64, 250, 333), queststatus(4) = 8
-queststatus(4) = 7, item(307, all) > 5, ".+" -> inform("[Quest gelöst] Du erhältst 250 Pfeile."), "Vielen, vielen Dank. Dieses Fleisch wird das Magenknurren meiner Kinder wenigstens für ein paar Tage besänftigen. Hier, nehmt diesen Köcher voll Pfeile, sie werden euch auf der Jagd gute Dienste erweisen.", deleteItem(307, 6), item(64, 250, 333), queststatus(4) = 8
+queststatus(4) = 7, item(307, all) > 5, english, ".+" -> inform("[Quest solved] You are awarded 250 arrows."), deleteItem(307, 6), item(64, 250, 333), queststatus(4) = 8, "Thank you very, very much for the food. Pork will silence the bellies of my children, at least for some days. Take this quiver of arrows, it will help you when hunting."
+queststatus(4) = 7, item(307, all) > 5, ".+" -> inform("[Quest gelöst] Du erhältst 250 Pfeile."), deleteItem(307, 6), item(64, 250, 333), queststatus(4) = 8, "Vielen, vielen Dank. Dieses Fleisch wird das Magenknurren meiner Kinder wenigstens für ein paar Tage besänftigen. Hier, nehmt diesen Köcher voll Pfeile, sie werden euch auf der Jagd gute Dienste erweisen."
 
 -- 2nd quest: Kill 12 cows, provide 12 steaks (2940)
 
 -- Give out quest 2
-queststatus(4) = 8, english, "quest", "mission" -> inform("[New quest] The Poacher II"), "Well, to survive the winter, it takes more than a slice of pork. I assume the meat of a dozen bulls from Elstree forest will ensure my children survive. Will you save their lives?", queststatus(4) = 9
-queststatus(4) = 8, "quest", "mission" -> inform("[Neues Quest] Der Wilderer II"), "Um den Winter zu überleben braucht man mehr als ein Stück Fleisch. Ich schätze, dass das Fleisch von einem Dutzend Rindern aus dem Elsbaumwald wenigstens meine Kinder am Leben halten wird. Werdet ihr ihre Leben retten?", queststatus(4) = 9
-queststatus(4) = 8, "task", "adventure" -> inform("[New quest] The Poacher II"), "Well, to survive the winter, it takes more than a slice of pork. I assume the meat of a dozen bulls from Elstree forest will ensure my children survive. Will you save their lives?", queststatus(4) = 9
-queststatus(4) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Wilderer II"), "Um den Winter zu überleben braucht man mehr als ein Stück Fleisch. Ich schätze, dass das Fleisch von einem Dutzend Rindern aus dem Elsbaumwald wenigstens meine Kinder am Leben halten wird. Werdet ihr ihre Leben retten?", queststatus(4) = 9
+queststatus(4) = 8, english, "quest", "mission" -> inform("[New quest] The Poacher II"), queststatus(4) = 9, "Well, to survive the winter, it takes more than a slice of pork. I assume the meat of a dozen bulls from Elstree forest will ensure my children survive. Will you save their lives?"
+queststatus(4) = 8, "quest", "mission" -> inform("[Neues Quest] Der Wilderer II"), queststatus(4) = 9, "Um den Winter zu überleben braucht man mehr als ein Stück Fleisch. Ich schätze, dass das Fleisch von einem Dutzend Rindern aus dem Elsbaumwald wenigstens meine Kinder am Leben halten wird. Werdet ihr ihre Leben retten?"
+queststatus(4) = 8, "task", "adventure" -> inform("[New quest] The Poacher II"), queststatus(4) = 9, "Well, to survive the winter, it takes more than a slice of pork. I assume the meat of a dozen bulls from Elstree forest will ensure my children survive. Will you save their lives?"
+queststatus(4) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Wilderer II"), queststatus(4) = 9, "Um den Winter zu überleben braucht man mehr als ein Stück Fleisch. Ich schätze, dass das Fleisch von einem Dutzend Rindern aus dem Elsbaumwald wenigstens meine Kinder am Leben halten wird. Werdet ihr ihre Leben retten?"
 
 -- Quest 2 taken but not solved, repeat the instructions
 
@@ -137,16 +137,16 @@ queststatus(4) = 21, item(2940, all) < 12, "task", "adventure" -> "Slaying anima
 queststatus(4) = 21, item(2940, all) < 12, "Auftrag", "Aufgabe", "Abenteuer" -> "Viele Tiere getötet, aber das Fleisch den Krähen überlassen? Ist dem so! Ich flehe euch an, im Namen meiner Kinder, jeder Bissen Fleisch kann ein Menschenleben retten."
 
 -- Quest 2 solved, reward: Golden ring, copper goblet, emerald amulet, 200cp
-queststatus(4) = 21, item(2940, all) > 11, english, ".+" -> inform("[Quest solved] You are awarded a golden ring, a copper goblet, an emerald amulet and 20 silver coins."), "How great! You brought enough meat for my whole family. Here, I... found a bag with precious things. You can have it as a reward.", money + 2000, deleteItem(2940, 12), item(235, 1, 666), item(1840, 1, 666), item(62, 1, 666), queststatus(4) = 22
-queststatus(4) = 21, item(2940, all) > 11, ".+" -> inform("[Quest gelöst] Du erhältst einen goldenen Ring, einen Kupferkelch, ein Smaragdamulet und 20 Silberstücke."), "Großartig! Ihr habt genug Fleisch für meine ganze Familie mitgebracht. Hier, ich habe diesen Beutel mit kostbaren Dingen... gefunden. Nehmt ihn als Belohnung.", money + 2000, deleteItem(2940, 12), item(235, 1, 666), item(1840, 1, 666), item(62, 1, 666), queststatus(4) = 22
+queststatus(4) = 21, item(2940, all) > 11, english, ".+" -> inform("[Quest solved] You are awarded a golden ring, a copper goblet, an emerald amulet and 20 silver coins."), money + 2000, deleteItem(2940, 12), item(235, 1, 666), item(1840, 1, 666), item(62, 1, 666), queststatus(4) = 22, "How great! You brought enough meat for my whole family. Here, I... found a bag with precious things. You can have it as a reward."
+queststatus(4) = 21, item(2940, all) > 11, ".+" -> inform("[Quest gelöst] Du erhältst einen goldenen Ring, einen Kupferkelch, ein Smaragdamulet und 20 Silberstücke."), money + 2000, deleteItem(2940, 12), item(235, 1, 666), item(1840, 1, 666), item(62, 1, 666), queststatus(4) = 22, "Großartig! Ihr habt genug Fleisch für meine ganze Familie mitgebracht. Hier, ich habe diesen Beutel mit kostbaren Dingen... gefunden. Nehmt ihn als Belohnung."
 
 -- 3rd quest: Kill 6 wolves
 
 -- Give out quest 3
-queststatus(4) = 22, english, "quest", "mission" -> inform("[New quest] The Poacher III"), "Recently, a pack of wolves entered Elstree forest. They hunt all the animals I need to feed my children. Will you stop the pack? There are at least half a dozen of them.", queststatus(4) = 23
-queststatus(4) = 22, "quest", "mission" -> inform("[Neues Quest] Der Wilderer III"), "Seit kurzem treibt ein Wolfsudel sein Unwesen im Elsbaumwald. Die Wölfe reißen all die Tiere, die ich brauche, um meine Kinder zu ernähren. Werdet ihr das Rudel niederstrecken? Ich habe mindestens ein halbes Dutzend von ihnen gesehen.", queststatus(4) = 23
-queststatus(4) = 22, "task", "adventure" -> inform("[New quest] The Poacher III"), "Recently, a pack of wolves entered Elstree forest. They hunt all the animals I need to feed my children. Will you stop the pack? There are at least half a dozen of them.", queststatus(4) = 23
-queststatus(4) = 22, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Wilderer III"), "Seit kurzem treibt ein Wolfsudel sein Unwesen im Elsbaumwald. Die Wölfe reißen all die Tiere, die ich brauche, um meine Kinder zu ernähren. Werdet ihr das Rudel niederstrecken? Ich habe mindestens ein halbes Dutzend von ihnen gesehen.", queststatus(4) = 23
+queststatus(4) = 22, english, "quest", "mission" -> inform("[New quest] The Poacher III"), queststatus(4) = 23, "Recently, a pack of wolves entered Elstree forest. They hunt all the animals I need to feed my children. Will you stop the pack? There are at least half a dozen of them."
+queststatus(4) = 22, "quest", "mission" -> inform("[Neues Quest] Der Wilderer III"), queststatus(4) = 23, "Seit kurzem treibt ein Wolfsudel sein Unwesen im Elsbaumwald. Die Wölfe reißen all die Tiere, die ich brauche, um meine Kinder zu ernähren. Werdet ihr das Rudel niederstrecken? Ich habe mindestens ein halbes Dutzend von ihnen gesehen."
+queststatus(4) = 22, "task", "adventure" -> inform("[New quest] The Poacher III"), queststatus(4) = 23, "Recently, a pack of wolves entered Elstree forest. They hunt all the animals I need to feed my children. Will you stop the pack? There are at least half a dozen of them."
+queststatus(4) = 22, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Wilderer III"), queststatus(4) = 23, "Seit kurzem treibt ein Wolfsudel sein Unwesen im Elsbaumwald. Die Wölfe reißen all die Tiere, die ich brauche, um meine Kinder zu ernähren. Werdet ihr das Rudel niederstrecken? Ich habe mindestens ein halbes Dutzend von ihnen gesehen."
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(4) > 22, queststatus(4) < 29, english, "quest", "mission" -> "The wolf pack still roams the Elstree forest. Please, slay them all to safeguard the future of my children."
@@ -155,16 +155,16 @@ queststatus(4) > 22, queststatus(4) < 29, "task", "adventure" -> "The wolf pack 
 queststatus(4) > 22, queststatus(4) < 29, "Auftrag", "Aufgabe", "Abenteuer" -> "Das Wolfsrudel treibt noch immer sein Unwesen im Elsbaumwald. Bitte streckt sie alle nieder um die Zukunft meiner Kinder zu sichern."
 
 -- Quest 3 solved, reward: Longbow, 100 poisoned arrows
-queststatus(4) = 29, english, ".+" -> inform("[Quest solved] You are awarded a long bow and 100 poisoned arrows."), "Words cannot express how grateful I am. Take my very own bow, now that the wolves are gone, I can rely on my spear again.", item(2708, 1, 777), item(549, 100, 333), queststatus(4) = 30
-queststatus(4) = 29, ".+" -> inform("[Quest gelöst] Du erhältst einen Langbogen und 100 vergiftete Pfeile."), "Worte können nicht beschreiben, wie dankbar ich bin. Nehmt meine Bogen, nun, da die Wölfe fort sind, kann ich mich wieder auf meinen Speer verlassen.", item(2708, 1, 777), item(549, 100, 333), queststatus(4) = 30
+queststatus(4) = 29, english, ".+" -> inform("[Quest solved] You are awarded a long bow and 100 poisoned arrows."), item(2708, 1, 777), item(549, 100, 333), queststatus(4) = 30, "Words cannot express how grateful I am. Take my very own bow, now that the wolves are gone, I can rely on my spear again."
+queststatus(4) = 29, ".+" -> inform("[Quest gelöst] Du erhältst einen Langbogen und 100 vergiftete Pfeile."), item(2708, 1, 777), item(549, 100, 333), queststatus(4) = 30, "Worte können nicht beschreiben, wie dankbar ich bin. Nehmt meine Bogen, nun, da die Wölfe fort sind, kann ich mich wieder auf meinen Speer verlassen."
 
 -- 4th quest: Kill 1 elven hunter
 
 -- Give out quest 4
-queststatus(4) = 30, english, "quest", "mission" -> inform("[New quest] The Poacher IV"), "You may wonder why I didn't set out to hunt on my own. The self proclaimed guardians of the forest do not appreciate my deeds. I'd welcome if you'd make the elven guardian... disappear.", queststatus(4) = 31
-queststatus(4) = 30, "quest", "mission" -> inform("[Neues Quest] Der Wilderer IV"), "Ihr mögt euch fragen, warum ich noch nicht selbst zur Jagd ausgezogen bin. Die selbsternannten Wächter des Waldes heißen nicht gut, was ich tue. Ich würde es begrüßen, wenn ihr die Elfenwache... verschwinden lassen würdet.", queststatus(4) = 31
-queststatus(4) = 30, "task", "adventure" -> inform("[New quest] The Poacher IV"), "You may wonder why I didn't set out to hunt on my own. The self proclaimed guardians of the forest do not appreciate my deeds. I'd welcome if you'd make the elven guardian... disappear.", queststatus(4) = 31
-queststatus(4) = 30, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Wilderer IV"), "Ihr mögt euch fragen, warum ich noch nicht selbst zur Jagd ausgezogen bin. Die selbsternannten Wächter des Waldes heißen nicht gut, was ich tue. Ich würde es begrüßen, wenn ihr die Elfenwache... verschwinden lassen würdet.", queststatus(4) = 31
+queststatus(4) = 30, english, "quest", "mission" -> inform("[New quest] The Poacher IV"), queststatus(4) = 31, "You may wonder why I didn't set out to hunt on my own. The self proclaimed guardians of the forest do not appreciate my deeds. I'd welcome if you'd make the elven guardian... disappear."
+queststatus(4) = 30, "quest", "mission" -> inform("[Neues Quest] Der Wilderer IV"), queststatus(4) = 31, "Ihr mögt euch fragen, warum ich noch nicht selbst zur Jagd ausgezogen bin. Die selbsternannten Wächter des Waldes heißen nicht gut, was ich tue. Ich würde es begrüßen, wenn ihr die Elfenwache... verschwinden lassen würdet."
+queststatus(4) = 30, "task", "adventure" -> inform("[New quest] The Poacher IV"), queststatus(4) = 31, "You may wonder why I didn't set out to hunt on my own. The self proclaimed guardians of the forest do not appreciate my deeds. I'd welcome if you'd make the elven guardian... disappear."
+queststatus(4) = 30, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Wilderer IV"), queststatus(4) = 31, "Ihr mögt euch fragen, warum ich noch nicht selbst zur Jagd ausgezogen bin. Die selbsternannten Wächter des Waldes heißen nicht gut, was ich tue. Ich würde es begrüßen, wenn ihr die Elfenwache... verschwinden lassen würdet."
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(4) > 30, queststatus(4) < 32, english, "quest", "mission" -> "There are still a pair of keen eyes in the Elstree forest that won't let me hunt what I need. Please, could you... shut those eyes?"
@@ -173,13 +173,13 @@ queststatus(4) > 30, queststatus(4) < 32, "task", "adventure" -> "There are stil
 queststatus(4) > 30, queststatus(4) < 32, "Auftrag", "Aufgabe", "Abenteuer" -> "Es gibt immernoch ein Paar aufmerksamer Augen im Elsbaumwald, welches mich nicht das jagen lässt, was ich brauche. Könntet ihr bitte diese Augen... für immer schließen?"
 
 -- Quest 4 solved, reward: ruby ring, magical ruby
-queststatus(4) = 32, english, ".+" -> inform("[Quest solved] You are awarded ruby ring and a magical ruby."), "Hooray! No elven rapscallion will keep me from hunting anymore! Of course, just to feed my children... However, take this ring, I have had it long enough.", item(68, 1, 888), item(46, 1, 333, "gemLevel" = "1"), queststatus(4) = 33
-queststatus(4) = 32, ".+" -> inform("[Quest gelöst] Du erhältst einen Rubinring und einen magischen Rubin."), "Hurra! Kein elfischer Halunke wird sich mir nun noch in den Weg stellen, wenn ich jagen gehen... natürlich, um meine Kinder zu ernähren, versteht sich. Hier, nehmt diesen Ring, er hat mir lange genug gehört.", item(68, 1, 888), item(46, 1, 333, "gemLevel" = "1"), queststatus(4) = 33
+queststatus(4) = 32, english, ".+" -> inform("[Quest solved] You are awarded ruby ring and a magical ruby."), item(68, 1, 888), item(46, 1, 333, "gemLevel" = "1"), queststatus(4) = 33, "Hooray! No elven rapscallion will keep me from hunting anymore! Of course, just to feed my children... However, take this ring, I have had it long enough."
+queststatus(4) = 32, ".+" -> inform("[Quest gelöst] Du erhältst einen Rubinring und einen magischen Rubin."), item(68, 1, 888), item(46, 1, 333, "gemLevel" = "1"), queststatus(4) = 33, "Hurra! Kein elfischer Halunke wird sich mir nun noch in den Weg stellen, wenn ich jagen gehen... natürlich, um meine Kinder zu ernähren, versteht sich. Hier, nehmt diesen Ring, er hat mir lange genug gehört."
 
 -- No more quests, just nice words of gratitude
-queststatus(4) = 33, english, "quest", "mission" -> "My friend, you helped me and my family more than enough. Thank you and may Malachín bless you."
+queststatus(4) = 33, english, "quest", "mission" -> end, "My friyou helped me and my family more than enough. Thank you and may Malachín bless you."
 queststatus(4) = 33, "quest", "mission" -> "Mein Freund, ihr habt mir und meiner Familie mehr als genug geholfen. Habt dank und möge Malachín euch segnen."
-queststatus(4) = 33, "task", "adventure" -> "My friend, you helped me and my family more than enough. Thank you and may Malachín bless you."
+queststatus(4) = 33, "task", "adventure" -> end, "My friyou helped me and my family more than enough. Thank you and may Malachín bless you."
 queststatus(4) = 33, "Auftrag", "Aufgabe", "Abenteuer" -> "Mein Freund, ihr habt mir und meiner Familie mehr als genug geholfen. Habt dank und möge Malachín euch segnen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
