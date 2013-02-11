@@ -59,8 +59,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lotta Medborgar die Jägerin. Schlüsselwörter: Auskunft, Information, Galmair, Orte.")
 
 -- Mandatory: General speech
-queststatus(630) = 1, english, town = Galmair, ".*" -> inform("[Quest End 'Find Lotta'] You received 10 silver coins and 5 rank points."), money + 1000, queststatus(630) = 2, rankpoints + 5, "Good day. Finally you found me! Iradona has already informed me about your visit. There, you have some silver coins for finding me."
-queststatus(630) = 1, town = Galmair, ".*" -> inform("[Quest Ende 'Finde Lotta'] Du hast 10 Silberstücke und 5 Rangpunkte erhalten."), money + 1000, queststatus(630) = 2, rankpoints + 5, "Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen."
+queststatus(630) = 1, english, town = Galmair, ".*" -> inform("[Quest End 'Find Lotta'] You received 10 silver coins."), money + 1000, queststatus(630) = 2, rankpoints + 5, "Good day. Finally you found me! Iradona has already informed me about your visit. There, you have some silver coins for finding me."
+queststatus(630) = 1, town = Galmair, ".*" -> inform("[Quest Ende 'Finde Lotta'] Du hast 10 Silberstücke erhalten."), money + 1000, queststatus(630) = 2, rankpoints + 5, "Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen."
 queststatus(630) = 1, english, ".*" -> inform("[Quest End 'Find Lotta'] You received 10 silver coins."), money + 1000, queststatus(630) = 2, "Good day. Finally you found me! Iradona has already informed me about your visit. There, you have some silver coins for finding me."
 queststatus(630) = 1, ".*" -> inform("[Quest Ende 'Finde Lotta'] Du hast 10 Silberstücke erhalten."), money + 1000, queststatus(630) = 2, "Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen."
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day, my dear. Can I help you with some information?"

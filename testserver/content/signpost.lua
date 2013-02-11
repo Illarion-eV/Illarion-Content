@@ -151,18 +151,37 @@ function InitWegweiser()
     AddWeg({868,711,0},"Oldras Turm","Oldra's Tower",2,0);
     AddWeg({867,718,0},"Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
 
-    AddWeg({725,559,0},"Gasthof zur Hanfschlinge; Cadomyr; Galmair","The Hemp Necktie Inn; Cadomyr; Galmair",0,0);
-    AddWeg({725,559,0},"Gasthof zur Hanfschlinge; Cadomyr; Galmair - Achtung! Diebe!","The Hemp Necktie Inn; Cadomyr; Galmair - Attention! Thieves!",2,0);
-    AddWeg({758,669,0},"Drachenbau! Achtung heiß!","Dragon Lair! Caution hot!",0,0);
-    AddWeg({755,669,0},"Drachenbau! Achtung heiß!","Dragon Lair! Caution hot!",0,0);
-    AddWeg({749,669,0},"Drachenbau! Achtung heiß!","Dragon Lair! Caution hot!",0,0);
-    AddWeg({746,669,0},"Drachenbau! Achtung heiß!","Dragon Lair! Caution hot!",0,0);
-    AddWeg({743,669,0},"Drachenbau! Achtung heiß!","Dragon Lair! Caution hot!",0,0);
+    AddWeg({753,586,0},"Drachenhöhle, Ameisenhügelbach, Eibental, Runewick, Wunderland, Ostland","Dragon's Lair, Anthill Brook, Yewdale, Runewick, Wonderland, Eastland",2,0);
+    AddWeg({752,586,0},"Dreifingerspitzen","Three Fingertips",4,0);
+    AddWeg({751,586,0},"Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",6,0);
+    AddWeg({745,600,0},"Drachenhöhle, Ameisenhügelbach, Eibental, Runewick, Wunderland, Ostland","Dragon's Lair, Anthill Brook, Yewdale, Runewick, Wonderland, Eastland",2,0);
+    AddWeg({741,599,0},"Dreifingerspitzen, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Three Fingertips, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",6,0);
+    AddWeg({728,587,0},"Drachenhöhle, Ameisenhügelbach, Eibental, Runewick, Wunderland, Ostland","Dragon's Lair, Anthill Brook, Yewdale, Runewick, Wonderland, Eastland",4,0);
+    AddWeg({728,586,0},"Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({725,559,0},"Drachenhöhle, Ameisenhügelbach, Eibental, Runewick, Wunderland, Ostland","Dragon's Lair, Anthill Brook, Yewdale, Runewick, Wonderland, Eastland",4,0);
+    AddWeg({725,558,0},"Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({725,530,0},"Dreifingerspitzen, Drachenhöhle, Ameisenhügelbach, Eibental, Runewick, Wunderland, Ostland","Three Fingertips, Dragon's Lair, Anthill Brook, Yewdale, Runewick, Wonderland, Eastland",4,0);
+    AddWeg({726,530,0},"Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",2,0);
+    AddWeg({742,530,0},"Dreifingerspitzen","Three Fingertips",6,0);
+    AddWeg({742,531,0},"Todes Gestank, Drachenhöhle, Ameisenhügelbach, Eibental, Runewick, Wunderland, Ostland","Death's Strench, Dragon's Lair, Anthill Brook, Yewdale, Runewick, Wonderland, Eastland",4,0);
+    AddWeg({742,526,0},"Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+
+    AddWeg({757,670,0},"Drachenbau!","Dragon Lair!",0,0);
     AddWeg({760,632,0},"Drachenbau! Achtung heiß!","Dragon Lair! Caution hot!",2,0);
-    AddWeg({790,687,0},"Runewick - Viel Glück!","Runewick - Good luck!",4,0);
-    AddWeg({789,681,0},"Schlechte Wahl!","Bad choice!",6,0);
-    AddWeg({790,681,0},"Sehr schlechte Wahl!","Very bad choice!",2,0);
-    AddWeg({759,735,0},"Bärenhöhle; Drachenbau; Norden","Bear Cave; Dragon Lair; North",0,0);
+    AddWeg({789,680,0},"Drachenhöhle - Sehr schlechte Wahl!","Dragon's Lair - Very bad choice!",6,0);
+    AddWeg({790,680,0},"Eibental, Runewick - Viel Glück!","Eibental, Runewick - Good luck!",4,0);
+    AddWeg({791,680,0},"Dreifingerspitzen, Todes Gestank, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden - Schlechte Wahl!","Three Fingertips, Death's Strench, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North - Bad choice!",2,0);
+    AddWeg({793,690,0},"Drachenhöhle, Dreifingerspitzen, Todes Gestank, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Dragon's Lair, Three Fingertips, Death's Strench, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",6,0);
+    AddWeg({795,693,0},"Eibental, Runewick","Yewdale, Runewick",4,0);
+    AddWeg({794,716,0},"Drachenhöhle, Dreifingerspitzen, Todes Gestank, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Dragon's Lair, Three Fingertips, Death's Strench, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({794,717,0},"Eibental, Runewick","Yewdale, Runewick",6,0);
+    AddWeg({762,732,0},"Drachenhöhle, Dreifingerspitzen, Todes Gestank, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Dragon's Lair, Three Fingertips, Death's Strench, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",2,0);
+    AddWeg({761,733,0},"Eibental, Runewick","Yewdale, Runewick",4,0);
+    AddWeg({759,735,0},"Bärenhöhle","Bear Cave",0,0);
+    AddWeg({754,753,0},"Bärenhöhle, Drachenhöhle, Dreifingerspitzen, Todes Gestank, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Bear Cave, Dragon's Lair, Three Fingertips, Death's Strench, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({754,749,0},"Eibental, Runewick","Yewdale, Runewick",4,0);
+    AddWeg({755,781,0},"Bärenhöhle, Drachenhöhle, Dreifingerspitzen, Todes Gestank, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Bear Cave, Dragon's Lair, Three Fingertips, Death's Strench, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({755,782,0},"Eibental, Runewick","Yewdale, Runewick",4,0);
     AddWeg({847,728,0},"Fröhliche Lichtung","Merryglade",0,0);
     AddWeg({847,730,0},"Nördlicher Außenposten, Eibental, Runewick","Northern Outpost, Yewdale, Runewick",6,0);
     AddWeg({842,730,0},"Oldras Turm, Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Oldra's Tower, Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",2,0);
@@ -182,15 +201,15 @@ function InitWegweiser()
     AddWeg({739,810,0},"Hafen","Harbour",6,0);
     AddWeg({739,811,0},"Hafen","Harbour",6,0);
     AddWeg({739,814,0},"Hafen","Harbour",6,0);
-    AddWeg({761,800,0},"Bärenhöhle, Drachenbau, Cadomyr, Galmair, Gasthof zur Hanfschlinge","Bear Cave, Dragon Lair, Cadomyr, Galmair, The Hemp Necktie Inn",0,0);
+    AddWeg({761,800,0},"Bärenhöhle, Drachenhöhle, Dreifingerspitzen, Todes Gestank, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Bear Cave, Dragon's Lair, Three Fingertips, Death's Strench, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
     AddWeg({758,813,0},"Runewick","Runewick",2,0);
-    AddWeg({787,819,0},"Vierbeiniger Roter Vogel, Hafen, Bauernhöfe, Anthilbach, Nördlicher Außenposten, Feiglings letztes Gefecht, Fröhliche Lichtung, Oldras Turm, Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Quadruped Red Bird, Harbour, Farmland, Anthil Brook, Northern Outpost, Coward's last stand, Merryglade, Oldra's Tower, Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",6,0);
+    AddWeg({787,819,0},"Vierbeiniger Roter Vogel, Hafen, Bauernhöfe, Anthilbach, Nördlicher Außenposten, Feiglings letztes Gefecht, Fröhliche Lichtung, Oldras Turm, Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Bärenhöhle, Drachenhöhle, Dreifingerspitzen, Todes Gestank, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr","Quadruped Red Bird, Harbour, Farmland, Anthil Brook, Northern Outpost, Coward's last stand, Merryglade, Oldra's Tower, Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, Bear Cave, Dragon's Lair, Three Fingertips, Death's Strench, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr",6,0);
     AddWeg({791,819,0},"Runewick, Erzmagier Elvaine Morgan","Runewick, Archmage Elvaine Morgan",2,0);
 
-    AddWeg({855,814,0},"Runewick, Erzmagier Elvaine Morgan","Runewick, Archmage Elvaine Morgan",2,0);
+    AddWeg({855,815,0},"Runewick, Erzmagier Elvaine Morgan","Runewick, Archmage Elvaine Morgan",2,0);
     AddWeg({853,821,0},"Hölzfällersiedlung, Zwillingsaugeninseln","Woodcutter's Hut, Twin Eyes Islands",4,0);
     AddWeg({855,813,0},"Heilige Eiche, Triumphfeuer","Holy Oak, Fire of Triumph",0,0);
-    AddWeg({851,816,0},"Eibental, Anthilbach, Nördlicher Außenposten, Feiglings letztes Gefecht, Fröhliche Lichtung, Oldras Turm, Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Yewdale, nthil Brook, Northern Outpost, Coward's last stand, Merryglade, Oldra's Tower, Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",6,0);
+    AddWeg({851,816,0},"Eibental, Anthilbach, Nördlicher Außenposten, Feiglings letztes Gefecht, Fröhliche Lichtung, Oldras Turm, Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Bärenhöhle, Drachenhöhle, Dreifingerspitzen, Todes Gestank, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr","Yewdale, Anthil Brook, Northern Outpost, Coward's last stand, Merryglade, Oldra's Tower, Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, Bear Cave, Dragon's Lair, Three Fingertips, Death's Strench, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr",6,0);
     AddWeg({873,902,0},"Zwillingsaugeninseln","Twin Eyes Islands",4,0);
     
     --NE/Neutral-map
@@ -198,7 +217,7 @@ function InitWegweiser()
     AddWeg({685,317,0},"Gasthof zur Hanfschlinge","The Hemp Necktie Inn",2,0);
     AddWeg({676,326,0},"Funkelhöhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Glittering Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
     AddWeg({682,330,0},"Der Todes Sumpf, Igruks Höhle, Elstree Ebene, Elstree Wald, Ostland, Wunderland, Todes Gestank, Frische Sümpfe, Drachenhöhle, Runewick","The Death Marsh, Igruk's Cave, Elstree Plain, Elstree Forest, Eastland, Wonderland, Death's Stench, Dewy Swamps, Dragon's Lair, Runewick",4,0);
-    AddWeg({723,385,0},"Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",6,0);
+    AddWeg({723,385,0},"Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",6,0);
     AddWeg({731,391,0},"Elstree Wald, Ostland, Wunderland, Frische Sümpfe, Runewick","Elstree Forest, Eastland, Wonderland, Dewy Swamps, Runewick",2,0);
     AddWeg({730,391,0},"Elstree Ebene, Igruks Höhle, Todes Gestank, Drachenhöhle, Runewick","Elstree Plain, Igruk's Cave, Death's Stench, Dragon's Lair, Runewick",4,0);
     AddWeg({840,383,0},"Ostland, Osthafen, Wunderland, Frische Sümpfe, Runewick","Eastland, Eastport, Wonderland, Dewy Swamps, Runewick",4,0);
@@ -213,17 +232,34 @@ function InitWegweiser()
     AddWeg({866,589,0},"Todes Gestank, Westen, Drachenhöhle, Bärenhöhle, Ameisenhügelbach, Eibental, Runewick","Death's Stench, West, Dragon's Lair, Bear Cave, Anthill Brook, Yewdale, Runewick",6,0);
 
     AddWeg({859,611,0},"Wunderland, Paddock Hof, Osthafen, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen","Wonderland, Paddock Farm, Eastport, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West",0,0);
-    AddWeg({859,612,0},"Drachenhöhle, Bärenhöhle, Ameisenhügelbach, Eibental, Runewick","Dragon's Lair, Bear Cave, Anthill Brook, Yewdale, Runewick",6,0);
+    AddWeg({859,612,0},"Drachenhöhle, Ameisenhügelbach, Eibental, Runewick","Dragon's Lair, Anthill Brook, Yewdale, Runewick",4,0);
 
+    AddWeg({791,679,0},"Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Westen, Cadomyr","Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, West, Cadomyr",0,0);
+    AddWeg({791,680,0},"Dreifingerspitzen, Todes Gestank, Elstree Ebene, Elstree Wald, Schlangenkopfbucht, Westen, Cadomyr, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Three Fingertips, Death's Strench, Elstree PLain, Elstree Forest, Snakehead Coast, West, Cadomyr, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",6,0);
+    AddWeg({791,681,0},"Drachenhöhle, Ameisenhügelbach, Eibental, Runewick","Dragon's Lair, Anthill Brook, Yewdale, Runewick",4,0);
 
     AddWeg({714,488,0},"Igruks Höhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Igruk's Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
-    AddWeg({718,488,0},"Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({718,488,0},"Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
     AddWeg({717,455,0},"Igruks Höhle, Schlangenkopfküste, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Igruk's Cave, Snakehead Coast, Wichtkanal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
     AddWeg({729,459,0},"Todes Gestank, Runewick","Death's Stench, Runewick",4,0);
-    AddWeg({729,448,0},"Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({729,448,0},"Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
     AddWeg({564,394,0},"Funkelhöhle","Glittering Cave",0,0);
     AddWeg({871,321,0},"Schulterplatte Insel mit Tanora Ruinen, Epphurds Häuser, Friedhof, Spießstollen und ehemalige Schulterplattesiedlung","Pauldron Isle with Tanora Ruins, Epphurd's Houses, Graveyard, Skewer Drift and former Pauldron Settlement",4,0);
+
+    AddWeg({735,503,0},"Elstree Wald, Wunderland, Ostland","Elstree Forest, Wonderland, Eastland",2,0);
+    AddWeg({735,504,0},"Dreifingerspitzen, Todes Gestank, Drachenhöhle, Ameisenhügelbach, Eibental, Runewick","Three Fingertips, Death's Strench, Dragon's Lair, Anthill Brook, Yewdale, Runewick",4,0);
+    AddWeg({734,503,0},"Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({734,504,0},"Schlangenkopfbucht, Westen, Cadomyr","Snakehead Coast, West, Cadomyr",6,0);
+
+    AddWeg({753,482,0},"Dreifingerspitzen, Todes Gestank, Drachenhöhle, Ameisenhügelbach, Eibental, Runewick","Three Fingertips, Death's Strench, Dragon's Lair, Anthill Brook, Yewdale, Runewick",4,0);
+    AddWeg({753,479,0},"Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
 	
+    AddWeg({721,502,0},"Elstree Wald, Wunderland, Ostland","Elstree Forest, Wonderland, Eastland",2,0);
+    AddWeg({721,503,0},"Dreifingerspitzen, Todes Gestank, Drachenhöhle, Ameisenhügelbach, Eibental, Runewick","Three Fingertips, Death's Strench, Dragon's Lair, Anthill Brook, Yewdale, Runewick",4,0);
+    AddWeg({721,497,0},"Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({721,498,0},"Schlangenkopfbucht, Westen, Cadomyr","Snakehead Coast, West, Cadomyr",6,0);
+
+
 end
 
 function AddWeg(Posi,dText,eText,Dir,Percept)
