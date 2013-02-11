@@ -213,11 +213,9 @@ function baseNPC:receiveText(npcChar, texttype, speaker, text)
     end;
     
     --No talking if there is a GM "possessing" the NPC - Flux
-    if isTestserver() then
-      local stackedChar = world:getCharacterOnField(npcChar.pos);
-      if stackedChar:isAdmin() then
-        return false;
-      end;
+    local stackedChar = world:getCharacterOnField(npcChar.pos);
+    if stackedChar:isAdmin() then
+      return false;
     end;
     
     if not npcChar:isInRange(speaker, 2) then
