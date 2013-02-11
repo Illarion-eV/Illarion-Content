@@ -88,13 +88,13 @@ end
 -- @return If something was done
 function GatheringCraft:FindRandomItem(User)
     -- DEACTIVATED: only interrupt if something happens. Don't annoy the player...
-    -- if base.common.IsInterrupted(User) then
-		-- if(table.getn(self.InterruptMsg) > 0) then
-			-- local m = math.random(table.getn(self.InterruptMsg));
-			-- base.common.InformNLS(User, self.InterruptMsg[m][1], self.InterruptMsg[m][2]);
-			-- return false
-		-- end
-    -- end
+  if base.common.IsInterrupted(User) then
+    if(table.getn(self.InterruptMsg) > 0) then
+      local m = math.random(table.getn(self.InterruptMsg));
+      base.common.InformNLS(User, self.InterruptMsg[m][1], self.InterruptMsg[m][2]);
+      return false
+    end
+  end
 	base.common.GetHungry(User, self.FoodLevel);
   
   -- FindRandomItem is called when the User is currently working. If there was
