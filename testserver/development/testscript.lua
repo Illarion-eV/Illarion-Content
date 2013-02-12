@@ -139,7 +139,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 
 	local armourValue = 0;
 
-	local skillmod = 0;
+	local skillmod = 1;
 	local qualitymod = 0.91+0.02*math.floor(Globals.HittedItem.quality/100);
 
     if armourfound then
