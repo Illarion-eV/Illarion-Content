@@ -1,12 +1,22 @@
+-- INSERT INTO quests SET qst_script = 'quest.Wonderland_612' WHERE qst_id = 612;
+
+require("base.common")
 require("handler.sendmessagetoplayer")
 require("handler.warpplayer")
 require("questsystem.base")
-module("questsystem.Wonderland.trigger1", package.seeall)
+module("quest.Wonderland_612", package.seeall)
 
-local QUEST_NUMBER = 11112
+GERMAN = Player.german
+ENGLISH = Player.english
+
+-- Insert the quest title here, in both languages
+Title = {}
+Title[GERMAN] = "Wunderland"
+Title[ENGLISH] = "Wonderland"
+
+local QUEST_NUMBER = 612
 local PRECONDITION_QUESTSTATE = 0
 local POSTCONDITION_QUESTSTATE = 3
-
 
 function MoveToField( PLAYER )
     if ADDITIONALCONDITIONS(PLAYER)
@@ -20,7 +30,6 @@ function MoveToField( PLAYER )
     
     return false
 end
-
 
 function HANDLER(PLAYER)
     handler.warpplayer.warpPlayer(PLAYER, position(900, 580, 0)):execute()
