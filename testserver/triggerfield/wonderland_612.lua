@@ -30,7 +30,7 @@
 -- INSERT INTO triggerfields VALUES (889,560,0,'triggerfield.wonderland_612');
 -- INSERT INTO triggerfields VALUES (889,559,0,'triggerfield.wonderland_612');
 -- INSERT INTO triggerfields VALUES (889,558,0,'triggerfield.wonderland_612');
--- INSERT INTO triggerfields VALUES (880,558,0,'triggerfield.wonderland_612');
+-- INSERT INTO triggerfields VALUES (890,558,0,'triggerfield.wonderland_612');
 -- INSERT INTO triggerfields VALUES (891,558,0,'triggerfield.wonderland_612');
 -- INSERT INTO triggerfields VALUES (891,559,0,'triggerfield.wonderland_612');
 -- INSERT INTO triggerfields VALUES (886,583,0,'triggerfield.wonderland_612');
@@ -56,7 +56,7 @@ module("triggerfield.wonderland_612", package.seeall)
 
 
 function MoveToField(Character)
-if not isTestserver() then
+if not isTestserver() or Character:getType() ~= 0 then
 return
 end
 --884,594,0 correct choice #6
