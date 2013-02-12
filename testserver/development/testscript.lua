@@ -827,7 +827,7 @@ function Specials(Attacker, Defender, Globals)
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
             "#me swings "..hisher.." weapon with such force that it cannot be blocked.");
-			base.common.TalkNLS(Attacker.Char, Character.shout,
+			base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
             "UNBROCKABRUUUUUUUUUUU.");
 	elseif(Globals.criticalHit==3) then -- 1HP
