@@ -196,7 +196,7 @@ function ArmourDegrade(Defender, Globals)
 		durability = durability - 1;
 		Globals.HittedItem.quality = quality * 100 + durability;
 		--world:changeItem(Globals.HittedItem.WeaponItem);
-		world:changeItem(Globals.HittedItem.WeaponItem);
+		world:changeItem(Globals.HittedItem);
     
 		if (durability == 10) then 
 		  InformNLS(Defender.Char,
