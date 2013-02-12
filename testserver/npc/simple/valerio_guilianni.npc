@@ -58,6 +58,10 @@ itemShoes = 697
 "Help" -> inform("[Game Help] This NPC is Don Valerio Guilianni of Galmair. Keywords: Task, Gods, Realms, Galmair.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Don Valerio Guilianni von Galmair. Schlüsselwörter: Aufgabe, Götter, Reiche, Galmair.")
 
+--quest
+queststatus(632) = 1, item(61, all) > 0, english, "."  -> queststatus(632) = 2, deleteItem(61, 1), rankpoints + 5, inform("[Quest 'Find Don Valerio Guilianni' end]"), "Arrr, gold! The best gift, you could chose. I appreciate it."
+queststatus(632) = 1, item(61, all) > 0, "."  -> queststatus(632) = 2, deleteItem(61, 1), rankpoints + 5, inform("[Quest 'Finde Don Valerio Guilianni' Ende]"), "Arrr, Gold! Das beste Geschenk, dass du wählen konntet. Perfekt!"
+
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "The Don greets you.", "Greetings, greetings. The Don is busy right now but he always has an open ear for the pleas of his protégés.", "Hm? State your cause to the Don but make it brief or one of my associates might have to cut you off."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Der Don grüßt euch. Ihr seid also gekommen um euch um euer Schicksal zu kümmern?", "Grüße, Grüße. Der Don ist zwar beschäftigt aber für die Anliegen seiner Schützlinge hat er immer ein offenes Ohr.", "Hm? Tragt eure Sache dem Don vor aber fasst es kurz oder ich mache euch ein Angebot, das ihr nicht ablehnen könnt."

@@ -23,6 +23,7 @@ require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.trade")
 require("npc.base.consequence.treasure")
 require("npc.base.talk")
@@ -41,6 +42,31 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Erzmagier Elvaine Morgan, der Herrscher über Runewick. Schlüsselwörter: Runewick, Quest, Götter, Türme, Magie."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(622, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(3110, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Archmage Elvaine Morgan' end]"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3110, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(622, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Hmm, a pell. Well, I can use it. Thank you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(622, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(3110, "all", ">", 0, nil));
+talkEntry:addTrigger(".");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Erzmagier Elvaine Morgan' Ende]"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3110, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(622, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Hmm, eine Schriftrolle. Nun, ich werde sie nutzen können. Danke euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

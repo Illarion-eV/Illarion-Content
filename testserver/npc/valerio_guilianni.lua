@@ -16,11 +16,14 @@ VALUES (1, 337, 215, 0, 4, 'Valerio Guilianni', 'npc.valerio_guilianni', 0, 1, 1
 
 require("npc.base.basic")
 require("npc.base.condition.chance")
+require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.treasure")
 require("npc.base.talk")
 module("npc.valerio_guilianni", package.seeall)
@@ -38,6 +41,31 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Don Valerio Guilianni von Galmair. Schlüsselwörter: Aufgabe, Götter, Reiche, Galmair."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(632, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(61, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Don Valerio Guilianni' end]"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(61, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(632, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Arrr, gold! The best gift, you could chose. I appreciate it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(632, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(61, "all", ">", 0, nil));
+talkEntry:addTrigger(".");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Don Valerio Guilianni' Ende]"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(61, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(632, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Arrr, Gold! Das beste Geschenk, dass du wählen konntet. Perfekt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

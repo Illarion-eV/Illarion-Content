@@ -20,6 +20,7 @@ require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
@@ -796,17 +797,65 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(652, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Nothing to do for you yet but soon.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Borgate Northoff' started] Find Borgate Northoff and bring him back his mug."));
+talkEntry:addConsequence(npc.base.consequence.item.item(1908, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(652, "=", 1));
+talkEntry:addResponse("Have you already met Borgate Northoff, the barkeeper of the Hemp Necktie Inn? If not, you can do this while you bring back this mug for me. *smiles and hands over a mug.*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(652, "<", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Borgate Northoff' gestartet] Finde Borgate Northoff und bringe ihm seinen Krug zurück."));
+talkEntry:addConsequence(npc.base.consequence.item.item(1908, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(652, "=", 1));
+talkEntry:addResponse("Hast du bereits Borgate Northoff den Gastwirt des Gasthof Hanfschlinge kennengelernt? Falls nicht, dann dann kannst du das gleich dabei erledigen wenn du mir diesen Krug zurückbringst. *lächelt und überreicht einen Bierkrug*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(652, "<", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Borgate Northoff' started] Find Borgate Northoff and bring him back his mug."));
+talkEntry:addConsequence(npc.base.consequence.item.item(1908, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(652, "=", 1));
+talkEntry:addResponse("Have you already met Borgate Northoff, the barkeeper of the Hemp Necktie Inn? If not, you can do this while you bring back this mug for me. *smiles and hands over a mug.*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(652, "<", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Borgate Northoff' gestartet] Finde Borgate Northoff und bringe ihm seinen Krug zurück."));
+talkEntry:addConsequence(npc.base.consequence.item.item(1908, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(652, "=", 1));
+talkEntry:addResponse("Hast du bereits Borgate Northoff den Gastwirt des Gasthof Hanfschlinge kennengelernt? Falls nicht, dann dann kannst du das gleich dabei erledigen wenn du mir diesen Krug zurückbringst. *lächelt und überreicht einen Bierkrug*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Nothing to do for you yet but soon I have plenty of tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -814,7 +863,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Nothing to do for you yet but soon.");
+talkEntry:addResponse("Nothing to do for you yet but soon I have plenty of tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -823,7 +872,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
