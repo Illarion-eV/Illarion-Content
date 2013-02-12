@@ -24,7 +24,7 @@ end
 
 function HANDLER(PLAYER)
     handler.warpplayer.warpPlayer(PLAYER, position(905, 576, 0)):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Die krächzende Stimme meldet sich wieder: \"Keine Chance!\" Worauf die eine Stimme aus dem Süden sagt: \"Lauf weg!\"", "The scratchy voice says: \"No Chance!\". A voice from the south replies: \"Run away!\""):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Die krächzende Stimme meldet sich wieder: \"Keine Chance!\" Worauf die eine Stimme aus dem Südwesten sagt: \"Lauf weg!\"", "The scratchy voice says: \"No Chance!\". A voice from the southwest replies: \"Run away!\""):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
