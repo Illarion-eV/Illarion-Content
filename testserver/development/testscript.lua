@@ -173,7 +173,9 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     end;
 
     Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 250);
+	Attacker.Char:inform("Damage before armour skill reduction: "..Globals.Damage..".");
 	Globals.Damage = skillmod*Globals.Damage;
+	Attacker.Char:inform("Damage after armour skill reduction: "..Globals.Damage..".");
     Globals.Damage = math.max(0, Globals.Damage);
 end;
 
@@ -299,9 +301,7 @@ function CalculateDamage(Attacker, Globals)
 	end;
 
     Globals["Damage"] = BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)/100;
-    
-	Attacker.Char:inform("Damage so far is "..Globals.Damage..".");
-
+   
 end;
 
 --- Deform some final checks on the damage that would be caused and send it to
@@ -753,13 +753,13 @@ function GetArmourType(Defender, Globals)
 
 	if armourtype == 1 then
 		--Defender["DefenseSkill"] = Character.LightArmour;
-		Defender["DefenseSkillName"] = Character.tactics;
+		Defender["DefenseSkillName"] = Character.dodge;
 	elseif armourtype == 2 then
 		--Defender["DefenseSkill"] = Character.MediumArmour;
-		Defender["DefenseSkillName"] = Character.tactics;
+		Defender["DefenseSkillName"] = Character.dodge;
 	elseif armourtype == 3 then
 		--Defender["DefenseSkill"] = Character.HeavyArmour;
-		Defender["DefenseSkillName"] = Character.tactics;
+		Defender["DefenseSkillName"] = Character.dodge;
 	else
 		Defender["DefenseSkill"] = false;
 		return false;
