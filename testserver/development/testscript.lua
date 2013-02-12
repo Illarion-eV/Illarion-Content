@@ -37,7 +37,7 @@ require("lte.chr_reg");
 -- for gem bonus
 require("base.gems")
 
-module("server.standardfighting", package.seeall)
+module("development.testscript", package.seeall)
 
 --- Main Attack function. This function is called by the server to start an
 -- attack. It is called once for each hand of the attacker. Only the hand holding a
