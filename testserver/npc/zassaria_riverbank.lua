@@ -751,7 +751,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.item.item(98, 1, 222, {["descriptionEn"] = "This sword was a present from Zassaria Riverbank", ["rareness"] = "1", ["descriptionDe"] = "Dieses Schwert war ein Geschenk von Zassaria Riverbank."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 15));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 12));
-talkEntry:addResponse("It'sss not her crown? Then keep it and take thisss as a reward.");
+talkEntry:addResponse("Thank you for your ssservice. Take thisss as a reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -764,7 +764,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.item.item(98, 1, 222, {["descriptionEn"] = "This wand was a present from Zassaria Riverbank", ["rareness"] = "1", ["descriptionDe"] = "Dieses Schwert war ein Geschenk von Zassaria Riverbank."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 15));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 12));
-talkEntry:addResponse("Esss issst nicht ihre Krone? Dann behaltet sssie und nehmt diess als Belohung.");
+talkEntry:addResponse("Danke für Euer Bemühen. Nehmt diess als Belohung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
