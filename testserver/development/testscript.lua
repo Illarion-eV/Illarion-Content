@@ -188,7 +188,7 @@ function ArmourDegrade(Defender, Globals)
 		local quality = (Globals.HittedItem.quality - durability) / 100;
     
 		if (durability == 1) then
-			InformNLS(Defender.Char,
+			base.common.InformNLS(Defender.Char,
 		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
 		  "Your armour piece shatters. Thankfully, no fragments end up in your body.");
 		  world:erase(Globals.HittedItem, 1);
@@ -202,7 +202,7 @@ function ArmourDegrade(Defender, Globals)
 
     
 		if (durability == 10) then 
-		  InformNLS(Defender.Char,
+		  base.common.InformNLS(Defender.Char,
 		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
 		  "Your armour has seen better days. You may want to repair it.");
 		end;
@@ -220,7 +220,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
     
 		if (durability == 1) then
-			InformNLS(Attacker.Char,
+			base.common.InformNLS(Attacker.Char,
 		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
 		  "Your weapon shatters. You shed a single tear and bid it farewell as it moves onto its next life.");
 		  world:erase(Attacker.WeaponItem, 1);
@@ -232,7 +232,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		world:changeItem(Attacker.WeaponItem);
     
 		if (durability == 10) then 
-		  InformNLS(Attacker.Char,
+		  base.common.InformNLS(Attacker.Char,
 		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
 		  "Your weapon has seen better days. You may want to repair it.");
 		end;
@@ -243,7 +243,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		local quality = (ParryWeapon.quality - durability) / 100;
     
 		if (durability == 1) then
-			InformNLS(Defender.Char,
+			base.common.InformNLS(Defender.Char,
 		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
 		  "Your item shatters, making it more difficult for you to defend yourself.");
 		  world:erase(ParryWeapon, 1);
@@ -255,7 +255,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		world:changeItem(ParryWeapon);
 
 		if (durability == 10) then 
-		  InformNLS(Defender.Char,
+		  base.common.InformNLS(Defender.Char,
 		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
 		  "Your item has seen better days. You may want to repair it.");
 		end;
