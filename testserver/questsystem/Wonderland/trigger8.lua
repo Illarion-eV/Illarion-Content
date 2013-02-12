@@ -1,10 +1,10 @@
 require("handler.sendmessagetoplayer")
 require("handler.warpplayer")
 require("questsystem.base")
-module("questsystem.Wonderland.trigger1", package.seeall)
+module("questsystem.Wonderland.trigger8", package.seeall)
 
 local QUEST_NUMBER = 11112
-local PRECONDITION_QUESTSTATE = 0
+local PRECONDITION_QUESTSTATE = 3
 local POSTCONDITION_QUESTSTATE = 3
 
 
