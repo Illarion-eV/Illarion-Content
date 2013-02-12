@@ -94,7 +94,6 @@ function onAttack(Attacker, Defender)
     -- Calculate the chance to hit
     if not HitChanceFlux(Attacker, Defender, Globals) then
         -- Place some ammo on the ground in case ammo was used
-		Attacker.Char:inform("Failed to hit");
         DropAmmo(Attacker, Defender.Char, true);
         return;
     end;
@@ -298,6 +297,8 @@ function CalculateDamage(Attacker, Globals)
 
     Globals["Damage"] = BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)/100;
     
+	Attacker.Char:inform("Damage so far is "..Globals.Damage..".");
+
 end;
 
 --- Deform some final checks on the damage that would be caused and send it to
@@ -400,7 +401,7 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	local parryItem; -- For degradation
 
 	--Miss chance. 2% bonus to hit chance for 18 perc, 1.75% malus for 3 perc. Added onto weapon accuracy.
-	local chancetohit = math.max(math.min(Attacker.Weapon.Accuracy*(1+(Attacker.perception-10)/500),100),5)/100;
+	local chancetohit = math.max(math.min(Attacker.Weapon.Accuracy*(1+(Attacker.perception-10)/500),100),5);
 
 	--Surefire Special
 	if(Globals.criticalHit==7) then
@@ -778,7 +779,7 @@ function CheckCriticals(Attacker, Defender, Globals)
 	
 	local chance=1;
 	local weapontype = 8;
-	if Defender.IsWeapon then
+	if Attacker.IsWeapon then
 		weapontype = Attacker.Weapon.WeaponType;
 		--Special: Backstab
 		if weapontype == 3 then
@@ -835,7 +836,7 @@ function Specials(Attacker, Defender, Globals)
 	elseif(Globals.criticalHit==8) then -- Wrest
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
-            "#me moves"..hisher.."fist extremely, quickly, dealing a powerful blow to "..hisher.." opponent.");
+            "#me moves "..hisher.." fist extremely, quickly, dealing a powerful blow to "..hisher.." opponent.");
 	end;
 
 	if(Globals.criticalHit==4) then
