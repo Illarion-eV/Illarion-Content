@@ -33,7 +33,7 @@ function repairDialog(npcChar, speaker)
 	local itemPosOnChar = {};
 	for i=17,0,-1 do 
 		local item = speaker:getItemAt(i);
-		if (item.id > 0) and (item.number == 1) and (getRepairPrice(item,speaker) == 0) then --only add items which are single items and repairable
+		if (item.id > 0) and (item.number == 1) and (getRepairPrice(item,speaker) ~= 0) then --only add items which are single items and repairable
 			table.insert(itemsOnChar, item);
 			table.insert(itemPosOnChar, itemPos[i])
 		end
