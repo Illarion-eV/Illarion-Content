@@ -867,13 +867,12 @@ function Specials(Attacker, Defender, Globals)
             else
                 return false;
             end
-        end
         
         base.common.CreateLine(Defender.Char.pos, newPos, isNotBlocked);
         
         if targetPos ~= startPos then
             Defender.Char:warp(targetPos)
-        end
+        end;
 	else if(Globals.criticalHit==5) then
 		--Stun
 		local stuntime = 2;
