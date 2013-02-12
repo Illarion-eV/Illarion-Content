@@ -187,7 +187,7 @@ function ArmourDegrade(Defender, Globals)
 		local durability = math.mod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
     
-		if (durability == 1) then
+		if (durability == 0) then
 			base.common.InformNLS(Defender.Char,
 		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
 		  "Your armour piece shatters. Thankfully, no fragments end up in your body.");
@@ -219,7 +219,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		local durability = math.mod(Attacker.WeaponItem.quality, 100);
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
     
-		if (durability == 1) then
+		if (durability == 0) then
 			base.common.InformNLS(Attacker.Char,
 		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
 		  "Your weapon shatters. You shed a single tear and bid it farewell as it moves onto its next life.");
@@ -242,7 +242,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		local durability = math.mod(ParryWeapon.quality, 100);
 		local quality = (ParryWeapon.quality - durability) / 100;
     
-		if (durability == 1) then
+		if (durability == 0) then
 			base.common.InformNLS(Defender.Char,
 		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
 		  "Your item shatters, making it more difficult for you to defend yourself.");
