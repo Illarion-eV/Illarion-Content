@@ -867,6 +867,7 @@ function Specials(Attacker, Defender, Globals)
             else
                 return false;
             end
+        end;
         
         base.common.CreateLine(Defender.Char.pos, newPos, isNotBlocked);
         
