@@ -29,7 +29,7 @@ function repairDialog(npcChar, speaker)
 	--get all the items the char has on him, without the stuff in the backpack
 	local itemsOnChar = {};
 	for i=17,0,-1 do 
-		local item = User:getItemAt(i);
+		local item = speaker:getItemAt(i);
 		if (item.id > 0) then
 			table.insert(itemsOnChar, item);
 		end
@@ -54,7 +54,7 @@ function repairDialog(npcChar, speaker)
 		repairPrice = getRepairPrice(item,language)
 		sdItems:addOption(item.id,itemName .. " (" .. itemPos[item.itempos] .. ")"..repairPriceText..repairPrice);
 	end	
-	User:requestSelectionDialog(sdItems);
+	speaker:requestSelectionDialog(sdItems);
 end
 
 --returns the price as string to repair the item according to playerlanguage
