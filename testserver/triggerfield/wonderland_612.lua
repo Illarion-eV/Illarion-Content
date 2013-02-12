@@ -60,42 +60,42 @@ if not isTestserver() or Character:getType() ~= 0 then
 return
 end
 --884,594,0 correct choice #6
-	if Character.pos == position(884,594,0) then
+	if Character.pos == position(884,594,0) or Character.pos == position(884,593,0) or Character.pos == position(884,595,0) then
 	Character:warp(position(863,578,0))
 	Character:inform("Du vernimmst noch ein langezogenes 'Nein'. Danach kehrt Stille ein.", "You hear a dying 'No'. Afterwards there is silence.")  
 	return
 	end
 
 --886,584,0 correct choice #5
-	if Character.pos == position(886,584,0) then
+	if Character.pos == position(886,584,0) or Character.pos == position(886,583,0) or Character.pos == position(886,585,0) then
 	Character:warp(position(885,594,0))
 	Character:inform("Die krächzende Stimme brüllt: \"Verdammt!\" Worauf die eine Stimme aus dem Norden ruft: \"In den Baum! In den Baum!\"", "The jagged voice bellows: \"Blimey!\". A voice from the north shouts: \"Into the tree! Into the tree!\"")  
 	return
 	end
 
 --890,560,0 correct choice #4
-	if Character.pos == position(890,560,0) then
+	if Character.pos == position(890,560,0) or Character.pos == position(889,560,0) or Character.pos == position(891,560,0) then
 	Character:warp(position(885,584,0))
 	Character:inform("Die krächzende Stimme bellt: \"Narr!\" Worauf eine Stimme aus dem Süden ruft: \"Zum Meer! Zum Meer!\"", "The jagged voice barks: \"Fool!\". A voice from the south shouts: \"To the sea! To the sea!\"")  
 	return
 	end
 
 --885,573,0 correct choice #3
-	if Character.pos == position(885,573,0) then
+	if Character.pos == position(885,573,0) or Character.pos == position(884,573,0) or Character.pos == position(886,573,0) then
 	Character:warp(position(890,559,0))
 	Character:inform("Die krächzende Stimme ruft: \"Vergeblich!\" Worauf eine Stimme aus dem Süden flüstert: \"Zu mir!\"", "The jagged voice says: \"Futile!\". A voice from the south whispers: \"To me!\"")  
 	return
 	end
 
 --906,573,0 correct choice #2
-	if Character.pos == position(906,573,0) then
+	if Character.pos == position(906,573,0) or Character.pos == position(905,573,0) or Character.pos == position(906,574,0) then
 	Character:warp(position(885,574,0))
 	Character:inform("Die krächzende Stimme schreit: \"Gib auf! Du bist mein!\" Worauf eine Stimme aus dem Norden antwortet: \"Komm zu mir!\"", "The scratchy voice shouts: \"Surrender! You are mine!\". A voice from the north answers: \"Come to me!\"")  
 	return
 	end
 
 --901,581,0 correct choice #1
-	if Character.pos == position(901,581,0) then
+	if Character.pos == position(901,581,0) or Character.pos == position(900,581,0) or Character.pos == position(901,580,0) then
 	Character:warp(position(905,574,0))
 	Character:inform("Die krächzende Stimme meldet sich wieder: \"Keine Chance!\" Worauf eine Stimme aus dem Südwesten sagt: \"Lauf weg!\"", "The jagged voice says: \"No Chance!\". A voice from the southwest replies: \"Run away!\"")  
 	return
