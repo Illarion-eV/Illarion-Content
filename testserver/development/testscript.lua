@@ -182,7 +182,7 @@ end;
 
 function ArmourDegrade(Defender, Globals)
 	
-	if (base.common.Chance(Globals.Damage, 6000)) then
+	if true then
 
 		local durability = math.mod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
@@ -195,7 +195,7 @@ function ArmourDegrade(Defender, Globals)
 		  return true;
 		end;
     
-		durability = durability - 1;
+		durability = durability - 100;
 		Globals.HittedItem.quality = quality * 100 + durability;
 		--world:changeItem(Globals.HittedItem.WeaponItem);
 		world:changeItem(Globals.HittedItem);
@@ -466,8 +466,6 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	if(Globals.criticalHit==2) then
 		ParrySuccess = false;
 	end;
-
-	ParrySuccess = true;
 
 	if ParrySuccess then
 		LearnParry(Attacker, Defender, Globals.AP)
@@ -902,8 +900,7 @@ end;
 function Counter(Attacker, Defender)
 	
 	if Defender.Char.attackmode then
-		--if base.common.Chance(1,50) then
-		if true then
+		if base.common.Chance(1,50) then
 			base.common.TalkNLS(Defender.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
             "#me deftly blocks the hit and quickly readies stance for a counter attack.");
@@ -1012,7 +1009,7 @@ function HandleMovepoints(Attacker, Globals)
     end;
     
             
-    local reduceFightpoints = 3*math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
+    local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
 
 	if(Globals.criticalHit==1) then
 		reduceFightpoints = 2;
