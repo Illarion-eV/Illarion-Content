@@ -20,9 +20,11 @@ require("npc.base.condition.chance")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.treasure")
 require("npc.base.talk")
 module("npc.rosaline_edwards", package.seeall)
@@ -40,6 +42,31 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Königin Rosaline Edwards von Cadomyr. Schlüsselwörter: Es lebe die Königin, Cadomyr, Feinde, Sir Reginald, Gruft, Grab."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(642, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(144, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Queen Rosaline Edwards' end]"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(144, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(642, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Oh, flowers! However, do not think, you can win my favour but I will accept the attempt this time.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(642, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(144, "all", ">", 0, nil));
+talkEntry:addTrigger(".");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Königin Rosaline Edwards' Ende]"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(144, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(642, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Oh, flowers! Aber glaubt nicht, dass ihr damit meine Gunst gewinnen könnt, auch wenn euren Versuch dieses Mal durchgehen lassen werde.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

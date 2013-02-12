@@ -298,10 +298,14 @@ english, "Khesra" -> "Khesra's Dungeon can be found close to the cursed place. Y
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_cadomyr_2.quest belongs to this NPC: Quest-ID.: 642 - IN PROGRESS
-english, "quest", "mission" -> "Nothing to do for you yet but soon."
-"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald."
-"task", "adventure", "order" -> "Nothing to do for you yet but soon."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
+queststatus(642) < 1, town = Cadomyr, english, "quest", "mission" -> queststatus(642) = 1, item(144, 1, 777), inform("[New Quest 'Find Queen Rosaline Edwards' started] Find Queen Rosaline Edwards and bring her your gift."), "Have you already met our Queen? If not, you could introduce yourself with a gift to her. She will appreciate this gift here, since she loves beautiful things. *hands over a flower*"
+queststatus(642) < 1, town = Cadomyr, "quest", "mission" -> queststatus(642) = 1, item(144, 1, 777), inform("[Neues Quest 'Finde Königin Rosaline Edwards' gestartet] Finde Königin Rosaline Edwards und bringe ihr dein Geschenk."), "Hast du bereits die Königin kennengelernt? Falls nicht, dann solltest du dich bei ihr mit einem Geschenk vorstellen. Sie wird dieses Geschenk hier bestimmt mögen, da sie ein Auge für das Schöne hat. *überreicht eine Blume*"
+queststatus(642) < 1, town = Cadomyr, "task", "adventure", "order" -> queststatus(642) = 1, item(144, 1, 777), inform("[New Quest 'Find Queen Rosaline Edwards' started] Find Queen Rosaline Edwards and bring her your gift."), "Have you already met our Queen? If not, you could introduce yourself with a gift to her. She will appreciate this gift here, since she loves beautiful things. *hands over a flower*"
+queststatus(642) < 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(642) = 1, item(144, 1, 777), inform("[Neues Quest 'Finde Königin Rosaline Edwards' gestartet] Finde Königin Rosaline Edwards und bringe ihr dein Geschenk."), "Hast du bereits die Königin kennengelernt? Falls nicht, dann solltest du dich bei ihr mit einem Geschenk vorstellen. Sie wird dieses Geschenk hier bestimmt mögen, da sie ein Auge für das Schöne hat. *überreicht eine Blume*"
+english, "quest", "mission" -> "Nothing to do for you yet but soon I have plenty of tasks for you."
+"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich."
+"task", "adventure", "order" -> "Nothing to do for you yet but soon I have plenty of tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich."
 
 -- Faction stuff
 "archmage" -> "The archmage ownsss two ssstonesss of power. Thessse are an Emerald and a Ruby. They protect Runewick against being beaten by our forcesss."

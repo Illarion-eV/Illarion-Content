@@ -206,10 +206,14 @@ english, "Ruzusss" -> "You can find him in Cadomyr and he knows several places i
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_runewick_2.quest belongs to this NPC: Quest-ID.: 622
-english, "quest", "mission" -> "Nothing to do for you yet but soon."
-"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald."
-"task", "adventure", "order" -> "Nothing to do for you yet but soon."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
+queststatus(622) < 1, town = Runewick, english, "quest", "mission" -> queststatus(622) = 1, item(3110, 1, 777), inform("[New Quest 'Find Archmage Elvaine Morgan' started] Find Archmage Elvaine Morgan and bring him your gift."), "Have you already met our Archmage? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since he needs them for his publications. *hands over a pell*"
+queststatus(622) < 1, town = Runewick, "quest", "mission" -> queststatus(622) = 1, item(3110, 1, 777), inform("[Neues Quest 'Finde Erzmagier Elvaine Morgan' gestartet] Finde Archmage Elvaine Morgan und bringe ihm dein Geschenk."), "Habt ihr den Erzmagier bereits kennengelernt? Falls nicht, dann solltet ihr euch bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er es für seine Veröffentlichungen benötigt. *überreicht eine Schriftrolle*"
+queststatus(622) < 1, town = Runewick, "task", "adventure", "order" -> queststatus(622) = 1, item(3110, 1, 777), inform("[New Quest 'Find Archmage Elvaine Morgan' started] Find Archmage Elvaine Morgan and bring him your gift."), "Have you already met our Archmage? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since he needs them for his publications. *hands over a pell*"
+queststatus(622) < 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(622) = 1, item(3110, 1, 777), inform("[Neues Quest 'Finde Erzmagier Elvaine Morgan' gestartet] Finde Archmage Elvaine Morgan und bringe ihm dein Geschenk."), "Habt ihr den Erzmagier bereits kennengelernt? Falls nicht, dann solltet ihr euch bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er es für seine Veröffentlichungen benötigt. *überreicht eine Schriftrolle*"
+english, "quest", "mission" -> "Nothing to do for you yet but soon I have plenty of tasks for you."
+"quest", "mission" -> "Ich habe nichts für euch zu tun momentan aber bald habe ich einige Aufgaben für euch."
+"task", "adventure", "order" -> "Nothing to do for you yet but soon I have plenty of tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für euch zu tun momentan aber bald habe ich einige Aufgaben für euch."
 
 -- Faction stuff
 "archmage" -> "The archmage owns two stones of power. These are an Emerald and a Ruby. They protect us against Galmair and Cadomyr."
