@@ -754,13 +754,13 @@ function GetArmourType(Defender, Globals)
 
 	if armourtype == 1 then
 		--Defender["DefenseSkill"] = Character.LightArmour;
-		Defender["DefenseSkillName"] = Character.Tactics;
+		Defender["DefenseSkillName"] = Character.tactics;
 	elseif armourtype == 2 then
 		--Defender["DefenseSkill"] = Character.MediumArmour;
-		Defender["DefenseSkillName"] = Character.Tactics;
+		Defender["DefenseSkillName"] = Character.tactics;
 	elseif armourtype == 3 then
 		--Defender["DefenseSkill"] = Character.HeavyArmour;
-		Defender["DefenseSkillName"] = Character.Tactics;
+		Defender["DefenseSkillName"] = Character.tactics;
 	else
 		Defender["DefenseSkill"] = false;
 		return false;
