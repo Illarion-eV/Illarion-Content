@@ -57,7 +57,7 @@ function repairDialog(npcChar, speaker)
 		itemName = world:getItemName(item.id,language)
 		repairPrice = getRepairPrice(item,speaker)
 		itemPosText = base.common.GetNLS(speaker, itemPosOnChar[i].de, itemPosOnChar[i].en)
-		sdItems:addOption(item.id,itemName .. " (" .. itemPosText .. ")"..repairPriceText..repairPrice);
+		sdItems:addOption(item.id,itemName .. " (" .. itemPosText .. ")\n"..repairPriceText..repairPrice);
 	end	
 	speaker:requestSelectionDialog(sdItems);
 end
