@@ -11,6 +11,5 @@ function(self)
 end);
 
 function _repair_helper(self, npcChar, player)
-	debug("NPC: "..npcChar.name.." Char: "..player.name);
     development.repair.repairDialog(npcChar, player); 
 end;
