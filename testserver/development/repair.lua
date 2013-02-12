@@ -12,7 +12,7 @@ module("development.repair", package.seeall)
 --opens a selection dialog for the player to choose an item to repair
 function repairDialog(npcChar, speaker)
 
-	local dialogTitle, dialogInfoText, repairPriceText;
+	local dialogTitle, dialogInfoText, repairPriceText, numberMessage;
 	local language = speaker:getPlayerLanguage();
 	
 	--Set dialogmessages
@@ -20,10 +20,12 @@ function repairDialog(npcChar, speaker)
 		dialogTitle = "Reparieren";
 		dialogInfoText = "Wähle den Gegenstand aus, den du reparieren möchtest.";
 		repairPriceText = " Kosten: ";
+		numberMessage = "Du kannst nur ein Gegenstand gleichzeitig reparieren lassen."
 	else --english
 		dialogTitle = "Repair";
 		dialogInfoText = "Please choose an item, you wish to repair.";
 		repairPriceText = " Cost: ";
+		numberMessage = "You can only repair one item at a time."
 	end
 
 	--get all the items the char has on him, without the stuff in the backpack
@@ -41,9 +43,11 @@ function repairDialog(npcChar, speaker)
 		end
 		local index = dialog:getSelectedIndex()+1;
 		local chosenItem = itemsOnChar[index]
-		if chosenItem ~= nil then
+		if chosenItem ~= nil and chosenItem.number == 1 then
 			repair(npcChar, speaker, chosenItem, language); -- let's repair
-		else
+		elseif chosenItem.number ~= 1 then
+			speaker:inform(numberMessage);
+		else			
 			speaker:inform("[ERROR] Something went wrong, please inform a developer.");
 		end
 	end
@@ -54,8 +58,14 @@ function repairDialog(npcChar, speaker)
 		repairPrice = getRepairPrice(item,language, true)
 		if language == 0 then
 			itemPosText = itemPos[item.itempos].de
+			if item.number ~= 0 then
+				repairPrice = "Reperatur nicht möglch"
+			end
 		else
 			itemPosText = itemPos[item.itempos].en
+			if item.number ~= 0 then
+				repairPrice = "Repair not possible"
+			end
 		end
 		sdItems:addOption(item.id,itemName .. " (" .. itemPosText .. ")"..repairPriceText..repairPrice);
 	end	
@@ -72,8 +82,8 @@ function getRepairPrice(theItem, language, messageSwitch)
 	
 	if messageSwitch then	
 		if price == 0 then
-			gstring = "Reperatur nicht möglch."
-			estring = "Repair not possible."
+			gstring = "Reperatur nicht möglch"
+			estring = "Repair not possible"
 		else
 			gstring,estring=base.money.MoneyToString(price)
 		end
