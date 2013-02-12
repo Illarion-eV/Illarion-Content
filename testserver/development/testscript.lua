@@ -684,9 +684,9 @@ function GetArmourType(Defender, Globals)
     Globals["HittedArea"] = content.fighting.GetHitArea(Defender.Race);
     Globals["HittedItem"] = Defender.Char:getItemAt(Globals.HittedArea);
     
-    local armour;
+    local armour, armourfound;
     if (Globals.HittedItem ~= nil and Globals.HittedItem.id > 0) then
-        armour = world:getArmorStruct(Globals.HittedItem.id);
+        armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
     else
         -- No armour worn
 		Defender["DefenseSkill"] = false;
