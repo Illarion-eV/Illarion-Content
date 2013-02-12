@@ -95,16 +95,17 @@ function repair(npcChar, speaker, theItem, language)
 		local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 	    local toRepair=99-durability; --the amount of durability points that has to repaired
 	    local price=getRepairPrice(theItem, language, false);
+		local priceMessage = getRepairPrice(theItem, language, true);
 	
 	    if theItemStats.Worth == 0 or theItemStats.isStackable or durability==99 then --Cannot repair perfect, priceless or stackable items
 	        local notRepairable={"I cannot repair this, sorry.","Entschuldigt, aber das kann ich nicht reparieren."}; --Priceless, perfect or stackable item
 	        npcChar:talk(Character.say, notRepairable[language]);
 	    else -- I can repair it!			
 		    if not base.money.CharHasMoney(speaker,price) then --player is broke
-				local notEnoughMoney={"You don't have enough money I suppose. I demand"..price.." for repairing this item.","Ihr habt anscheinend nicht genug Geld. Die Reparatur würde"..price.." kosten."}; --Player is broke
+				local notEnoughMoney={"You don't have enough money I suppose. I demand"..priceMessage.." for repairing this item.","Ihr habt anscheinend nicht genug Geld. Die Reparatur würde"..priceMessage.." kosten."}; --Player is broke
 				npcChar:talk(Character.say, notEnoughMoney[language]);
 		    else --he has the money
-				local successRepair={"#me repairs the item at a cost of"..price..".","#me setzt den Gegenstand für"..price.." in Stand."};
+				local successRepair={"#me repairs the item at a cost of"..priceMessage..".","#me setzt den Gegenstand für"..priceMessage.." in Stand."};
 				npcChar:talk(Character.say, successRepair[language]);
 				base.money.TakeMoneyFromChar(speaker,price); --pay!
                 theItem.quality=theItem.quality+toRepair; --repair!
