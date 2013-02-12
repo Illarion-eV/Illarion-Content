@@ -467,6 +467,8 @@ function HitChanceFlux(Attacker, Defender, Globals)
 		ParrySuccess = false;
 	end;
 
+	ParrySuccess = true;
+
 	if ParrySuccess then
 		LearnParry(Attacker, Defender, Globals.AP)
 		PlayParrySound(Attacker, Defender)
@@ -793,15 +795,14 @@ function CheckCriticals(Attacker, Defender, Globals)
 		--Special: Backstab
 		if weapontype == 3 then
 			if (Defender.Char:getFaceTo() == Attacker.Char:getFaceTo()) then
-				chance=5;
+				chance=10;
 			else
 				chance=0;
 			end;
 		end;
 	end;
 	
-	--if not base.common.Chance(chance, 100) then
-	if false then
+	if not base.common.Chance(chance, 100) then
 		Globals["criticalHit"] = 0;
 		return false;
 	else
@@ -827,13 +828,10 @@ function Specials(Attacker, Defender, Globals)
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
             "#me swings "..hisher.." weapon with such force that it cannot be blocked.");
-			base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me stolpert zurück und geht zu Boden.",
-            "UNBROCKABRUUUUUUUUUUU.");
 	elseif(Globals.criticalHit==3) then -- 1HP
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
-            "#me slams "..hisher.." blade quickly into "..hisher.." opponent’s back.");
+            "#me slams "..hisher.." blade quickly into "..hisher.." opponent's back.");
 	elseif(Globals.criticalHit==4) then -- 2HS
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
@@ -904,7 +902,8 @@ end;
 function Counter(Attacker, Defender)
 	
 	if Defender.Char.attackmode then
-		if base.common.Chance(1,50) then
+		--if base.common.Chance(1,50) then
+		if true then
 			base.common.TalkNLS(Defender.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
             "#me deftly blocks the hit and quickly readies stance for a counter attack.");
