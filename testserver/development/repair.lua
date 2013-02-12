@@ -12,20 +12,18 @@ module("development.repair", package.seeall)
 --opens a selection dialog for the player to choose an item to repair
 function repairDialog(npcChar, speaker)
 
-	local dialogTitle, dialogInfoText, repairPriceText, numberMessage;
+	local dialogTitle, dialogInfoText, repairPriceText;
 	local language = speaker:getPlayerLanguage();
 	
 	--Set dialogmessages
 	if language == 0 then --german
 		dialogTitle = "Reparieren";
-		dialogInfoText = "Wähle den Gegenstand aus, den du reparieren möchtest.";
+		dialogInfoText = "Wähle den Gegenstand aus, den du reparieren möchtest:";
 		repairPriceText = " Kosten: ";
-		numberMessage = "Du kannst nur ein Gegenstand gleichzeitig reparieren lassen."
 	else --english
 		dialogTitle = "Repair";
-		dialogInfoText = "Please choose an item, you wish to repair.";
+		dialogInfoText = "Please choose an item, you wish to repair:";
 		repairPriceText = " Cost: ";
-		numberMessage = "You can only repair one item at a time."
 	end
 
 	--get all the items the char has on him, without the stuff in the backpack
@@ -57,7 +55,7 @@ function repairDialog(npcChar, speaker)
 		itemName = world:getItemName(item.id,language)
 		repairPrice = getRepairPrice(item,speaker)
 		itemPosText = base.common.GetNLS(speaker, itemPosOnChar[i].de, itemPosOnChar[i].en)
-		sdItems:addOption(item.id,itemName .. " (" .. itemPosText .. ")"..repairPriceText..repairPrice);
+		sdItems:addOption(item.id,itemName .. " (" .. itemPosText .. ")\n"..repairPriceText..repairPrice);
 	end	
 	speaker:requestSelectionDialog(sdItems);
 end
