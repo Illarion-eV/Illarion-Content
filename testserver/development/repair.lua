@@ -33,7 +33,7 @@ function repairDialog(npcChar, speaker)
 	local itemPosOnChar = {};
 	for i=17,0,-1 do 
 		local item = speaker:getItemAt(i);
-		if (item.id > 0 and item.number ~=1 and getRepairPrice(item,language) == 0) then
+		if (item.id > 0) and (item.number ~=1) and (getRepairPrice(item,language) == 0) then
 			table.insert(itemsOnChar, item);
 			table.insert(itemPosOnChar, itemPos[i])
 		end
@@ -63,7 +63,7 @@ function repairDialog(npcChar, speaker)
 end
 
 --returns the price as string to repair the item according to playerlanguage
-function getRepairPrice(theItem, language, messageSwitch)
+function getRepairPrice(theItem, language)
 	local theItemStats=world:getItemStats(theItem);
 	local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 	local toRepair=99-durability; --the amount of durability points that has to repaired
