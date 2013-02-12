@@ -133,8 +133,9 @@ end;
 -- @param Globals The table that stores the global values
 function ArmourAbsorption(Attacker, Defender, Globals)
 
-	armourfound = GetArmourType(Defender, Globals);
-	armour = world:getArmorStruct(Globals.HittedItem.id);
+	GetArmourType(Defender, Globals);
+	local armourfound, armour;
+	armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
 
 	local armourValue = 0;
 
@@ -194,7 +195,9 @@ function ArmourDegrade(Defender, Globals)
     
 		durability = durability - 1;
 		Globals.HittedItem.quality = quality * 100 + durability;
-		world:changeItem(Globals.HittedItem.WeaponItem);
+		--world:changeItem(Globals.HittedItem.WeaponItem);
+		world:changeItem(Globals.HittedItem);
+
     
 		if (durability == 10) then 
 		  InformNLS(Defender.Char,
@@ -248,7 +251,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		durability = durability - 1;
 		ParryWeapon.quality = quality * 100 + durability;
 		world:changeItem(ParryWeapon);
-    
+
 		if (durability == 10) then 
 		  InformNLS(Defender.Char,
 		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
@@ -409,21 +412,20 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	end;
 
 	if not base.common.Chance(chancetohit, 100) then
-		Attacker.Char:inform("Missed");
 		return false;
 	end;
 
 	--Cannot parry without a weapon
 	if not Defender.LeftIsWeapon and not Defender.RightIsWeapon then
-		Attacker.Char:inform("No weapon, cannot parry");
         canParry = false;
     end;
 
 	--Cannot parry people who aren't in the front quadrant
     if (DirectionDifference<=2) or (DirectionDifference>=6) then
-		Attacker.Char:inform("Facing the wrong way");
        canParry = false;
 	end;
+
+	local parryChance;
 
 	if canParry then
 		
@@ -443,13 +445,11 @@ function HitChanceFlux(Attacker, Defender, Globals)
 			end;
 		end;
 
-		local parryChance;
-
 		parryChance = (Defender.parry / 5); --0-20% by the skill
         parryChance = parryChance * (0.5 + (Defender.agility) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
         parryChance = parryChance + (parryWeapon.Defence) / 10; --0-20% bonus by the weapon/shield
 		parryChance = math.min(math.max(parryChance,5),95);
-
+		
 	else
 		return true; -- If they can't parry, it succeeds
 	end;
@@ -459,13 +459,10 @@ function HitChanceFlux(Attacker, Defender, Globals)
 		ParryChance = 0;
 	end;
 
-	Attacker.Char:inform("Parry chance: "..parryChance..".");
-
 	local ParrySuccess = base.common.Chance(parryChance, 100);
 
 	if ParrySuccess then
-		Attacker.Char:inform("Defender Parried");
-		LearnParry(Attacker, Defender, AP)
+		LearnParry(Attacker, Defender, Globals.AP)
 		PlayParrySound(Attacker, Defender)
 		Defender.Char:performAnimation(9);
 		WeaponDegrade(Attacker, Defender, parryItem);
@@ -686,9 +683,9 @@ function GetArmourType(Defender, Globals)
     Globals["HittedArea"] = content.fighting.GetHitArea(Defender.Race);
     Globals["HittedItem"] = Defender.Char:getItemAt(Globals.HittedArea);
     
-    local armour;
+    local armour, armourfound;
     if (Globals.HittedItem ~= nil and Globals.HittedItem.id > 0) then
-        armour = world:getArmorStruct(Globals.HittedItem.id);
+        armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
     else
         -- No armour worn
 		Defender["DefenseSkill"] = false;
@@ -756,19 +753,19 @@ function GetArmourType(Defender, Globals)
 
 	if armourtype == 1 then
 		--Defender["DefenseSkill"] = Character.LightArmour;
-		Defender["DefenseSkillName"] = Character.Tactics;
+		Defender["DefenseSkillName"] = Character.tactics;
 	elseif armourtype == 2 then
 		--Defender["DefenseSkill"] = Character.MediumArmour;
-		Defender["DefenseSkillName"] = Character.Tactics;
+		Defender["DefenseSkillName"] = Character.tactics;
 	elseif armourtype == 3 then
 		--Defender["DefenseSkill"] = Character.HeavyArmour;
-		Defender["DefenseSkillName"] = Character.Tactics;
+		Defender["DefenseSkillName"] = Character.tactics;
 	else
 		Defender["DefenseSkill"] = false;
 		return false;
 	end;
 
-	Defender["DefenseSkillName"] = NotNil(Defender.Char:getSkill(Defender.DefenseSkillName));
+	Defender["DefenseSkill"] = NotNil(Defender.Char:getSkill(Defender.DefenseSkillName));
 
 	return true;
 
@@ -1017,6 +1014,8 @@ function HandleMovepoints(Attacker, Globals)
 	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints));
     Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
 	
+	Globals["AP"] = reduceFightpoints;
+
     return reduceFightpoints;
 end;
 
