@@ -37,7 +37,7 @@ require("lte.chr_reg");
 -- for gem bonus
 require("base.gems")
 
-module("server.standardfighting", package.seeall)
+module("development.testscript", package.seeall)
 
 --- Main Attack function. This function is called by the server to start an
 -- attack. It is called once for each hand of the attacker. Only the hand holding a
@@ -297,6 +297,8 @@ function CalculateDamage(Attacker, Globals)
 
     Globals["Damage"] = BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)/100;
     
+	Attacker.Char:inform("Damage so far is "..Globals.Damage..".");
+
 end;
 
 --- Deform some final checks on the damage that would be caused and send it to
@@ -396,11 +398,10 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	local DirectionDifference = math.abs(Defender.Char:getFaceTo()-Attacker.Char:getFaceTo());
     local parryWeapon;
 	local canParry=true;
-	local chance=100;
 	local parryItem; -- For degradation
 
 	--Miss chance. 2% bonus to hit chance for 18 perc, 1.75% malus for 3 perc. Added onto weapon accuracy.
-	local chancetohit = math.max(math.min(Attacker.Weapon.Accuracy*(1+(Attacker.perception-10)/500),100),5)/100;
+	local chancetohit = math.max(math.min(Attacker.Weapon.Accuracy*(1+(Attacker.perception-10)/500),100),5);
 
 	--Surefire Special
 	if(Globals.criticalHit==7) then
@@ -408,6 +409,7 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	end;
 
 	if not base.common.Chance(chancetohit, 100) then
+		Attacker.Char:inform("Missed");
 		return false;
 	end;
 
@@ -452,12 +454,13 @@ function HitChanceFlux(Attacker, Defender, Globals)
 
 	--Unblockable Special
 	if(Globals.criticalHit==2) then
-		ParrySuccess = 0;
+		ParryChance = 0;
 	end;
 
-	local ParrySuccess = base.common.Chance(chance, 100);
+	local ParrySuccess = base.common.Chance(parryChance, 100);
 
 	if ParrySuccess then
+		Attacker.Char:inform("Defender Parried");
 		LearnParry(Attacker, Defender, AP)
 		PlayParrySound(Attacker, Defender)
 		Defender.Char:performAnimation(9);
@@ -774,9 +777,11 @@ end;
 -- @param Globals The table of the global values
 function CheckCriticals(Attacker, Defender, Globals)
 
+	
+	
 	local chance=1;
 	local weapontype = 8;
-	if CharStruct.IsWeapon then
+	if Attacker.IsWeapon then
 		weapontype = Attacker.Weapon.WeaponType;
 		--Special: Backstab
 		if weapontype == 3 then
@@ -833,7 +838,7 @@ function Specials(Attacker, Defender, Globals)
 	elseif(Globals.criticalHit==8) then -- Wrest
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
-            "#me moves"..hisher.."fist extremely, quickly, dealing a powerful blow to "..hisher.." opponent.");
+            "#me moves "..hisher.." fist extremely, quickly, dealing a powerful blow to "..hisher.." opponent.");
 	end;
 
 	if(Globals.criticalHit==4) then
