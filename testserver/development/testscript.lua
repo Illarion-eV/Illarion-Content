@@ -182,7 +182,7 @@ end;
 
 function ArmourDegrade(Defender, Globals)
 	
-	if (base.common.Chance(Globals.Damage, 6000)) then
+	if true then
 
 		local durability = math.mod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
@@ -195,7 +195,7 @@ function ArmourDegrade(Defender, Globals)
 		  return true;
 		end;
     
-		durability = durability - 1;
+		durability = durability - 100;
 		Globals.HittedItem.quality = quality * 100 + durability;
 		--world:changeItem(Globals.HittedItem.WeaponItem);
 		world:changeItem(Globals.HittedItem);
@@ -215,7 +215,7 @@ end;
 -- @param ParryWeapon The item which was used to parry
 function WeaponDegrade(Attacker, Defender, ParryWeapon)
 	
-	if true then
+	if (base.common.Chance(1, 20)) then
 		local durability = math.mod(Attacker.WeaponItem.quality, 100);
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
     
@@ -238,7 +238,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		end;
 	end;
 
-	if true then
+	if (base.common.Chance(1, 20)) then
 		local durability = math.mod(ParryWeapon.quality, 100);
 		local quality = (ParryWeapon.quality - durability) / 100;
     
@@ -466,8 +466,6 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	if(Globals.criticalHit==2) then
 		ParrySuccess = false;
 	end;
-
-	ParrySuccess = true;
 
 	if ParrySuccess then
 		LearnParry(Attacker, Defender, Globals.AP)
