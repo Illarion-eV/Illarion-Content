@@ -19,8 +19,18 @@ local PRECONDITION_QUESTSTATE = 0
 local POSTCONDITION_QUESTSTATE = 0
 local DESTINATION = position(890,596,0)
 
+function MoveToField( Character )
+    if Character.pos == position(890,596,0)
+    	then
+    destination = position(127,647,0);
+        return true
+    end
+    
+    return false
+end
+
+
 function MoveToField( PLAYER )
-    local destination, factionID, dialogNewbieText, dialogNewbieTaskText, dialogNewbieTaskTitle    
     if PLAYER.pos == position(890,596,0)
     and ADDITIONALCONDITIONS(PLAYER) 
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE, DESTINATION)
