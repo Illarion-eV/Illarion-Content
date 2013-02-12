@@ -460,12 +460,12 @@ function HitChanceFlux(Attacker, Defender, Globals)
 		return true; -- If they can't parry, it succeeds
 	end;
 
+	local ParrySuccess = base.common.Chance(parryChance, 100);
+
 	--Unblockable Special
 	if(Globals.criticalHit==2) then
-		ParryChance = 0;
+		ParrySuccess = false;
 	end;
-
-	local ParrySuccess = base.common.Chance(parryChance, 100);
 
 	if ParrySuccess then
 		LearnParry(Attacker, Defender, Globals.AP)
@@ -827,9 +827,9 @@ function Specials(Attacker, Defender, Globals)
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
             "#me swings "..hisher.." weapon with such force that it cannot be blocked.");
-			base.common.TalkNLS(Attacker.Char, Character.say,
+			base.common.TalkNLS(Attacker.Char, Character.shout,
             "#me stolpert zurück und geht zu Boden.",
-            "#s UNBROCKABRUUUUUUUUUUU.");
+            "UNBROCKABRUUUUUUUUUUU.");
 	elseif(Globals.criticalHit==3) then -- 1HP
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
