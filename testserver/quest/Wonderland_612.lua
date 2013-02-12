@@ -16,6 +16,7 @@ Title[ENGLISH] = "Wonderland"
 
 
 function MoveToField( Character )
+    local destination
     if Character.pos == position(890,596,0)
     	then
     destination = position(900,580,0)
