@@ -51,7 +51,7 @@ function repairDialog(npcChar, speaker)
 	local itemName, repairPrice, itemPosText;
 	for _,item in ipairs(itemsOnChar) do 
 		itemName = world:getItemName(item.id,language)
-		repairPrice = getRepairPrice(item,language)
+		repairPrice = getRepairPrice(item,language, true)
 		if language == 0 then
 			itemPosText = itemPos[item.itempos].de
 		else
@@ -63,25 +63,29 @@ function repairDialog(npcChar, speaker)
 end
 
 --returns the price as string to repair the item according to playerlanguage
-function getRepairPrice(theItem, language)
+function getRepairPrice(theItem, language, messageSwitch)
 	local theItemStats=world:getItemStats(theItem);
 	local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 	local toRepair=99-durability; --the amount of durability points that has to repaired
 	local price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
 	local gstring,estring;
 	
-	if price == 0 then
-		gstring = "Reperatur nicht möglch."
-		estring = "Repair not possible."
-	else
-		gstring,estring=base.money.MoneyToString(price)
+	if messageSwitch then	
+		if price == 0 then
+			gstring = "Reperatur nicht möglch."
+			estring = "Repair not possible."
+		else
+			gstring,estring=base.money.MoneyToString(price)
+		end
+			
+		if language == 0 then
+			return gstring;
+		else
+			return estring;
+		end	
+	else	
+		return price;
 	end
-		
-	if language == 0 then
-		return gstring;
-	else
-		return estring;
-	end	
 end
 
 function repair(npcChar, speaker, theItem, language)
@@ -90,7 +94,7 @@ function repair(npcChar, speaker, theItem, language)
 	if theItem then
 		local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 	    local toRepair=99-durability; --the amount of durability points that has to repaired
-	    local price=getRepairPrice(theItem, language);
+	    local price=getRepairPrice(theItem, language, false);
 	
 	    if theItemStats.Worth == 0 or theItemStats.isStackable or durability==99 then --Cannot repair perfect, priceless or stackable items
 	        local notRepairable={"I cannot repair this, sorry.","Entschuldigt, aber das kann ich nicht reparieren."}; --Priceless, perfect or stackable item
