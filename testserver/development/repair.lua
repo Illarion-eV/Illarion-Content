@@ -50,6 +50,7 @@ function repairDialog(npcChar, speaker)
 		end
 	end
 	local sdItems = SelectionDialog(dialogTitle, dialogInfoText, cbChooseItem);
+	sdItems:setCloseOnMove();
 	local itemName, repairPrice, itemPosText;
 	for i,item in ipairs(itemsOnChar) do 
 		itemName = world:getItemName(item.id,language)
