@@ -19,7 +19,8 @@ local PRECONDITION_QUESTSTATE = 0
 local POSTCONDITION_QUESTSTATE = 0
 
 function MoveToField( PLAYER )
-    if Character.pos == position(890,596,0)
+    if PLAYER.pos == position(890,596,0)
+    and ADDITIONALCONDITIONS(PLAYER) 
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE)
 	then
     
