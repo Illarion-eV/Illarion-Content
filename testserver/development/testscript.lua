@@ -779,7 +779,7 @@ function CheckCriticals(Attacker, Defender, Globals)
 	
 	local chance=1;
 	local weapontype = 8;
-	if Defender.IsWeapon then
+	if Attacker.IsWeapon then
 		weapontype = Attacker.Weapon.WeaponType;
 		--Special: Backstab
 		if weapontype == 3 then
@@ -836,7 +836,7 @@ function Specials(Attacker, Defender, Globals)
 	elseif(Globals.criticalHit==8) then -- Wrest
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
-            "#me moves"..hisher.."fist extremely, quickly, dealing a powerful blow to "..hisher.." opponent.");
+            "#me moves "..hisher.." fist extremely, quickly, dealing a powerful blow to "..hisher.." opponent.");
 	end;
 
 	if(Globals.criticalHit==4) then
