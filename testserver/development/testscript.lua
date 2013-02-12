@@ -774,7 +774,7 @@ end;
 -- @param Globals The table of the global values
 function CheckCriticals(Attacker, Defender, Globals)
 
-	Attacker:inform("Successful up to here");
+	
 	
 	local chance=1;
 	local weapontype = 8;
