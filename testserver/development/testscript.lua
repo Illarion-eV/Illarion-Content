@@ -425,6 +425,8 @@ function HitChanceFlux(Attacker, Defender, Globals)
        canParry = false;
 	end;
 
+	local parryChance;
+
 	if canParry then
 		
 		--Choose which weapon has the largest defense
@@ -442,8 +444,6 @@ function HitChanceFlux(Attacker, Defender, Globals)
 				parryWeapon = Defender.RightWeapon;
 			end;
 		end;
-
-		local parryChance;
 
 		parryChance = (Defender.parry / 5); --0-20% by the skill
         parryChance = parryChance * (0.5 + (Defender.agility) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
