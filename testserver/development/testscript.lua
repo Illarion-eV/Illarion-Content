@@ -94,7 +94,6 @@ function onAttack(Attacker, Defender)
     -- Calculate the chance to hit
     if not HitChanceFlux(Attacker, Defender, Globals) then
         -- Place some ammo on the ground in case ammo was used
-		Attacker.Char:inform("Failed to hit");
         DropAmmo(Attacker, Defender.Char, true);
         return;
     end;
@@ -298,6 +297,8 @@ function CalculateDamage(Attacker, Globals)
 
     Globals["Damage"] = BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)/100;
     
+	Attacker.Char:inform("Damage so far is "..Globals.Damage..".");
+
 end;
 
 --- Deform some final checks on the damage that would be caused and send it to
