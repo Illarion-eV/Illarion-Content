@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -52,7 +52,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Greetings to you!");
-talkEntry:addResponse("#me smiles: 'Greetings'");
+talkEntry:addResponse("#me smiles, 'Greetings'");
 talkEntry:addResponse("Good day, how can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -100,7 +100,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Fare well!");
+talkEntry:addResponse("Farewell!");
 talkEntry:addResponse("See you soon again.");
 talkEntry:addResponse("#me waves: 'Have a good day!'");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -124,9 +124,9 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Take care!");
-talkEntry:addResponse("May the five be with you!");
+talkEntry:addResponse("May the Five be with you!");
 talkEntry:addResponse("#me bows.");
-talkEntry:addResponse("#me waves: 'Have a good day!'");
+talkEntry:addResponse("#me waves, 'Have a good day!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -148,7 +148,7 @@ talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addResponse("Me? Thank you, I am fine. How are you?");
 talkEntry:addResponse("How do you do?");
-talkEntry:addResponse("#me shrugs his shoulders: 'I'm fine, how are you?'");
+talkEntry:addResponse("#me shrugs his shoulders, 'I'm fine, how are you?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,7 +169,7 @@ talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("Neiran el Nyarale, how can I help you?");
 talkEntry:addResponse("Neiran el Nyarale, at your service.");
-talkEntry:addResponse("Neiran el Nyarale from Runewick. And who are you?");
+talkEntry:addResponse("Neiran el Nyarale from Runewick, and who are you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -192,7 +192,7 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("Me? I am not a trader. I'm the guard of the treasury a very interesting profession if you ask me.");
+talkEntry:addResponse("Me? I am not a trader. I'm the guard of the treasury, a very interesting profession if you ask me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -215,7 +215,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Runewick Treasury"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
-talkEntry:addResponse("Do you want a task? Donate a part of your wealth and contribute that the city stays clean! The donation platform is right next to me.");
+talkEntry:addResponse("Do you want a task? Donate some of your wealth and contribute to ensuring the city stays clean! The donation platform is right next to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -238,7 +238,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Runewick Treasury"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
-talkEntry:addResponse("Do you want a task? Donate a part of your wealth and contribute that the city stays clean! The donation platform is right next to me.");
+talkEntry:addResponse("Do you want a task? Donate some of your wealth and contribute to ensuring the city stays clean! The donation platform is right next to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -261,7 +261,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Just drop what ever you do not need or want to donate to the treasury here on the field. It is not difficult to make Runewick a better place!");
+talkEntry:addResponse("Just drop whatever you do not need or want here on the field to donate it to the treasury . It is not difficult to make Runewick a better place!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -280,7 +280,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Just drop what ever you do not need or want to donate to the treasury here on the field. It is not difficult to keep the streets clean!");
+talkEntry:addResponse("Just drop whatever you do not need or want here on the field to donate it to the treasury . It is not difficult to make Runewick a better place!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -325,7 +325,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("#me smiles happily and writes something down in a list.");
+talkEntry:addResponse("#me smiles happily and adds something to a list.");
 talkEntry:addResponse("I'm busy right now, please come again later.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -344,7 +344,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("#me smiles happily and writes something down in a list.");
+talkEntry:addResponse("#me smiles happily and adds something to a list.");
 talkEntry:addResponse("I'm busy right now, please come again later.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -369,7 +369,7 @@ talkEntry:addTrigger("lamp");
 talkEntry:addTrigger("collection");
 talkEntry:addTrigger("riverbank");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 8));
-talkEntry:addResponse("Oil lamp collection? I threw away some oil lamps a few days ago...but, they did not belong to Lady Zassaria, did they?");
+talkEntry:addResponse("Oil lamp collection? I threw away some oil lamps a few days ago... but, they did not belong to Lady Zassaria, did they?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -387,7 +387,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I am the guard here. I guard the donation platform.");
-talkEntry:addResponse("I tell newcomers how to donate a part of their wealth to Runewick to make the city a little bit better as it is.");
+talkEntry:addResponse("I tell newcomers how to donate part of their wealth to Runewick to make the city a little bit better than it already is.");
 talkEntry:addResponse("I help to keep the steets clean. Do you want to help me with this task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -404,7 +404,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addResponse("I am the guard here. I guard the donation platform.");
-talkEntry:addResponse("I tell newcomers how to donate a part of their wealth to Runewick to make the city a little bit better as it is.");
+talkEntry:addResponse("I tell newcomers how to donate part of their wealth to Runewick to make the city a little bit better than it already is.");
 talkEntry:addResponse("I help to keep the steets clean. Do you want to help me with this task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -419,7 +419,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I do not have much to tell, if you want to hear about adventures, then better go on adventures yourself.");
+talkEntry:addResponse("I do not have much to tell, if you want to hear about adventures, then better to go on adventures yourself.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -435,7 +435,7 @@ talkEntry:addTrigger("Donation platform");
 talkEntry:addTrigger("donate");
 talkEntry:addTrigger("platform");
 talkEntry:addTrigger("trash");
-talkEntry:addResponse("This is no garbadge bin! This is a donation platform, you can donate a part of your wealth for the good of Runewick");
+talkEntry:addResponse("This is no rubbish bin! This is a donation platform, you can donate part of your wealth for the good of Runewick");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -449,7 +449,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("I follow the five elder gods, they created Illarion.");
+talkEntry:addResponse("I follow the five Elder Gods, they created Illarion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -463,7 +463,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("religion");
-talkEntry:addResponse("We elves pray to the five elder gods.");
+talkEntry:addResponse("We elves pray to the five Elder Gods.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -475,7 +475,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faith");
-talkEntry:addResponse("We elves pray to the five elder gods.");
+talkEntry:addResponse("We elves pray to the five Elder Gods.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -487,9 +487,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("The archmage is a wise man.");
-talkEntry:addResponse("The archmages name ist Elvain Morgan.");
-talkEntry:addResponse("Thanks to the archmage we have this donation platform where citizens can donate a part of their wealth.");
+talkEntry:addResponse("The Archmage is a wise man.");
+talkEntry:addResponse("The Archmage is called Elvain Morgan.");
+talkEntry:addResponse("Thanks to the Archmage we have this donation platform where citizens can donate part of their wealth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -506,8 +506,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addResponse("Elvaine Morgan is a wise man.");
-talkEntry:addResponse("Elvaine Morgan is the arch mage.");
-talkEntry:addResponse("Thanks to the archmage we have this donation platform where citizens can donate a part of their wealth.");
+talkEntry:addResponse("Elvaine Morgan is the Archmage.");
+talkEntry:addResponse("Thanks to the Archmage we have this donation platform where citizens can donate part of their wealth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -543,8 +543,8 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addResponse("No, that's not me.");
-talkEntry:addResponse("He ist not here.");
-talkEntry:addResponse("He was not here, as far as I know.");
+talkEntry:addResponse("He is not here.");
+talkEntry:addResponse("He was never here, as far as I know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -588,7 +588,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addResponse("Mh? ? Who is that?");
-talkEntry:addResponse("No, I haven't seen her. I don't even remember when she was here the last time.");
+talkEntry:addResponse("No, I haven't seen her. I don't even remember the last time she was here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -700,7 +700,7 @@ talkEntry:addTrigger("el Nyarale");
 talkEntry:addTrigger("Nyarale");
 talkEntry:addResponse("That's me. How can I help you?");
 talkEntry:addResponse("#me raises a hand and waves.");
-talkEntry:addResponse("#me lookes around: 'Who called for me?'");
+talkEntry:addResponse("#me looks around, 'Who called for me?'");
 talkEntry:addResponse("#me smiles friendly");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -736,7 +736,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("I didn't expect that answer.");
 talkEntry:addResponse("#me raises an eyebrow.");
-talkEntry:addResponse("I shall give you some more time to consider your answer. But at the moment you seem to be...still inexperieced.");
+talkEntry:addResponse("I shall give you some more time to consider your answer, but at the moment you seem to be...still inexperienced.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -765,14 +765,14 @@ talkEntry:addResponse("Ah... verzeiht. Was sagtet ihr?");
 talkEntry:addResponse("#me hebt eine Augenbraue.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Wir in Runewick wollen unsere Straßen sauber halten. Hilf auch du mit!", "Let's keep Runewicks streets clean!");
-talkingNPC:addCycleText("#me schaut sich um.", "#me lookes around.");
-talkingNPC:addCycleText("#me lächelt und lässt einige Münzen auf die magische Oberfläche fallen.", "#me smiles and drops some coins into the magical surface.");
-talkingNPC:addCycleText("Was ist wahrer Reichtum? Wissen oder Münzen?", "What is more of value? Knowledge or coins?");
-talkingNPC:addCycleText("Münzen, Waffen, Schmuck und Besteck, alles kann eingeschmolzen werden! Spendet an unsere schönen Stadt.", "Coins, weapon, juwely, cutlery - everything can be melted down!");
+talkingNPC:addCycleText("Wir in Runewick wollen unsere Straßen sauber halten. Hilf auch du mit!", "Let's keep Runewick's streets clean!");
+talkingNPC:addCycleText("#me schaut sich um.", "#me looks around.");
+talkingNPC:addCycleText("#me lächelt und lässt einige Münzen auf die magische Oberfläche fallen.", "#me smiles and drops some coins onto the magical surface.");
+talkingNPC:addCycleText("Was ist wahrer Reichtum? Wissen oder Münzen?", "What is of greater value? Knowledge or coins?");
+talkingNPC:addCycleText("Münzen, Waffen, Schmuck und Besteck, alles kann eingeschmolzen werden! Spendet an unsere schönen Stadt.", "Coins, weapons, jewellery, cutlery... everything can be melted down!");
 talkingNPC:addCycleText("Spendet Roh- und Baustoffe, wir bessern die Straßen von Runewick aus!", "Donate building material and ressouces, we repair the streets of Runewick!");
-talkingNPC:addCycleText("Spendet Papier und Tinte, die Bibliothek von Runewick wird es Euch danken!", "Donate ink and paper, for the library in Runewick!");
-talkingNPC:addCycleText("Ich werde von eurem Einsatz für unsere schöne Stadt beim Erzmagier sprechen - zögert nicht!", "I'll tell the archmage about your support for the town! Do not heasitate to donate.");
+talkingNPC:addCycleText("Spendet Papier und Tinte, die Bibliothek von Runewick wird es Euch danken!", "Donate ink and paper, for the libraries of Runewick!");
+talkingNPC:addCycleText("Ich werde von eurem Einsatz für unsere schöne Stadt beim Erzmagier sprechen - zögert nicht!", "I'll tell the Archmage about your support for the town! Do not hesitate to donate.");
 talkingNPC:addCycleText("#me sieht glücklich aus.", "#me seems to be happy.");
 talkingNPC:addCycleText("#me schreibt eine Liste.", "#me writes a list.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
