@@ -800,7 +800,8 @@ function CheckCriticals(Attacker, Defender, Globals)
 		end;
 	end;
 	
-	if not base.common.Chance(chance, 100) then
+	--if not base.common.Chance(chance, 100) then
+	if false then
 		Globals["criticalHit"] = 0;
 		return false;
 	else
@@ -826,6 +827,9 @@ function Specials(Attacker, Defender, Globals)
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
             "#me swings "..hisher.." weapon with such force that it cannot be blocked.");
+			base.common.TalkNLS(Attacker.Char, Character.say,
+            "#me stolpert zurück und geht zu Boden.",
+            "#s UNBROCKABRUUUUUUUUUUU.");
 	elseif(Globals.criticalHit==3) then -- 1HP
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
@@ -845,7 +849,7 @@ function Specials(Attacker, Defender, Globals)
 	elseif(Globals.criticalHit==8) then -- Wrest
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
-            "#me moves "..hisher.." fist extremely, quickly, dealing a powerful blow to "..hisher.." opponent.");
+            "#me moves "..hisher.." fist extremely quickly, dealing a powerful blow to "..hisher.." opponent.");
 	end;
 
 	if(Globals.criticalHit==4) then
