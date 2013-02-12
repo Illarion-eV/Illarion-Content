@@ -177,9 +177,10 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 end;
 
 
-function ArmourDegrade(Defender,Globals)
+function ArmourDegrade(Defender, Globals)
 	
-	if (base.common.Chance(Globals.Damage, 6000) then
+	if (base.common.Chance(Globals.Damage, 6000)) then
+
 		local durability = math.mod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
     
@@ -189,7 +190,7 @@ function ArmourDegrade(Defender,Globals)
 		  "Your armour piece shatters. Thankfully, no fragments end up in your body.");
 		  world:erase(Globals.HittedItem, 1);
 		  return true;
-		end
+		end;
     
 		durability = durability - 1;
 		Globals.HittedItem.quality = quality * 100 + durability;
