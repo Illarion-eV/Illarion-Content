@@ -774,6 +774,8 @@ end;
 -- @param Globals The table of the global values
 function CheckCriticals(Attacker, Defender, Globals)
 
+	debug("Successful up to here");
+	
 	local chance=1;
 	local weapontype = 8;
 	if CharStruct.IsWeapon then
