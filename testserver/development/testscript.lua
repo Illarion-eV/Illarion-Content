@@ -778,7 +778,7 @@ function CheckCriticals(Attacker, Defender, Globals)
 	
 	local chance=1;
 	local weapontype = 8;
-	if CharStruct.IsWeapon then
+	if Defender.IsWeapon then
 		weapontype = Attacker.Weapon.WeaponType;
 		--Special: Backstab
 		if weapontype == 3 then
