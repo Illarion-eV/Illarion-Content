@@ -1,10 +1,10 @@
 require("base.common")
 require("base.money")
 
-itemPosEN = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust"},{en="Both Hands", de="Beide Hände"},{en="Left Hand", de="Linke Hand"}, {en="Right Tool", de="Rechte Hand"},
+itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust"},{en="Both Hands", de="Beide Hände"},{en="Left Hand", de="Linke Hand"}, {en="Right Tool", de="Rechte Hand"},
 	{en="Left Finger", de="Linker Finger"},{en="Right Finger", de="Rechter Finger"} ,{en="Legs", de="Beine"}, {en="Feet", de="Füße"}, {en="Coat", de="Umhang"},{en="Belt 1", de="Gürtel 1"},
 	{en="Belt 2", de="Gürtel 2"},{en="Belt 3", de="Gürtel 3"},{en="Belt 4", de="Gürtel 4"},{en="Belt 5", de="Gürtel 5"},{en="Belt 6", de="Gürtel 6"}}
-itemPosEN[0] = {en="Backpack", de="Rucksacke"}
+itemPos[0] = {en="Backpack", de="Rucksacke"}
 
 
 module("development.repair", package.seeall)
@@ -12,18 +12,20 @@ module("development.repair", package.seeall)
 --opens a selection dialog for the player to choose an item to repair
 function repairDialog(npcChar, speaker)
 
-	local dialogTitle, dialogInfoText, repairPriceText;
+	local dialogTitle, dialogInfoText, repairPriceText, itemPosIndex;
 	local language = speaker:getPlayerLanguage();
 	
 	--Set dialogmessages
 	if language == 0 then --german
-		dialogTitle = "Reparieren"
-		dialogInfoText = "Wähle den Gegenstand aus, den du reparieren möchtest."
-		repairPriceText = " Kosten: "
+		dialogTitle = "Reparieren";
+		dialogInfoText = "Wähle den Gegenstand aus, den du reparieren möchtest.";
+		repairPriceText = " Kosten: ";
+		itemPosIndex = "de";
 	else --english
-		dialogTitle = "Repair"
-		dialogInfoText = "Please choose an item, you wish to repair."
-		repairPriceText = " Cost: "
+		dialogTitle = "Repair";
+		dialogInfoText = "Please choose an item, you wish to repair.";
+		repairPriceText = " Cost: ";
+		itemPosIndex = "en";
 	end
 
 	--get all the items the char has on him, without the stuff in the backpack
@@ -52,7 +54,7 @@ function repairDialog(npcChar, speaker)
 	for _,item in ipairs(itemsOnChar) do 
 		itemName = world:getItemName(item.id,language)
 		repairPrice = getRepairPrice(item,language)
-		sdItems:addOption(item.id,itemName .. " (" .. itemPos[item.itempos] .. ")"..repairPriceText..repairPrice);
+		sdItems:addOption(item.id,itemName .. " (" .. itemPos[item.itempos]..itemPosIndex .. ")"..repairPriceText..repairPrice);
 	end	
 	speaker:requestSelectionDialog(sdItems);
 end
