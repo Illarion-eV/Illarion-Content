@@ -33,7 +33,7 @@ function repairDialog(npcChar, speaker)
 	local itemPosOnChar = {};
 	for i=17,0,-1 do 
 		local item = speaker:getItemAt(i);
-		if (item.id > 0) and (item.number == 1) and (getRepairPrice(item,language) == 0) then --only add items which are single items and repairable
+		if (item.id > 0) and (item.number == 1) and (getRepairPrice(item,speaker) == 0) then --only add items which are single items and repairable
 			table.insert(itemsOnChar, item);
 			table.insert(itemPosOnChar, itemPos[i])
 		end
@@ -55,7 +55,7 @@ function repairDialog(npcChar, speaker)
 	local itemName, repairPrice, itemPosText;
 	for i,item in ipairs(itemsOnChar) do 
 		itemName = world:getItemName(item.id,language)
-		repairPrice = getRepairPrice(item,language)
+		repairPrice = getRepairPrice(item,speaker)
 		itemPosText = base.common.InformNLS(speaker, itemPosOnChar[i].de, itemPosOnChar[i].en)
 		sdItems:addOption(item.id,itemName .. " (" .. itemPosText .. ")"..repairPriceText..repairPrice);
 	end	
@@ -63,7 +63,7 @@ function repairDialog(npcChar, speaker)
 end
 
 --returns the price as string to repair the item according to playerlanguage
-function getRepairPrice(theItem, language)
+function getRepairPrice(theItem, speaker)
 	local theItemStats=world:getItemStats(theItem);
 	local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 	local toRepair=99-durability; --the amount of durability points that has to repaired
@@ -86,7 +86,7 @@ function repair(npcChar, speaker, theItem, language)
 		local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 	    local toRepair=99-durability; --the amount of durability points that has to repaired
 	    local price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10;
-		local priceMessage = getRepairPrice(theItem, language);
+		local priceMessage = getRepairPrice(theItem, speaker);
 	
 	    if theItemStats.Worth == 0 or theItemStats.isStackable or durability==99 then --Cannot repair perfect, priceless or stackable items
 	        local notRepairable={"I cannot repair this, sorry.","Entschuldigt, aber das kann ich nicht reparieren."}; --Priceless, perfect or stackable item
