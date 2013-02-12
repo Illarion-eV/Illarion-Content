@@ -75,12 +75,14 @@ function UseItem(User, SourceItem, ltstate)
 		world:erase(SourceItem,1)
 		return
 	else -- character can still carry something
-		User:inform(""..SourceItem.number)
+		if isTestserver then User:inform(""..SourceItem.number) end
 		if SourceItem.number == 1 then
 		    world:erase(SourceItem,1)
 			return
         else
 		    world:erase(SourceItem,1)
+			SourceItem.number = SourceItem.number-1
+			world:changeItem(SourceItem)
 			User:changeSource(SourceItem)
 			User:startAction( 20, 21, 5, 10, 25);
 		end	
