@@ -766,7 +766,7 @@ function GetArmourType(Defender, Globals)
 		return false;
 	end;
 
-	Defender["DefenseSkillName"] = NotNil(Defender.Char:getSkill(Defender.DefenseSkillName));
+	Defender["DefenseSkill"] = NotNil(Defender.Char:getSkill(Defender.DefenseSkillName));
 
 	return true;
 
