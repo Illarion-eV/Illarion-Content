@@ -1012,7 +1012,7 @@ function HandleMovepoints(Attacker, Globals)
     end;
     
             
-    local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
+    local reduceFightpoints = 50*math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
 
 	if(Globals.criticalHit==1) then
 		reduceFightpoints = 2;
