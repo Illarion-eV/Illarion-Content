@@ -1,9 +1,9 @@
 require("base.common")
 require("base.money")
 
-itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust"},{en="Both Hands", de="Beide HÃ¤nde"},{en="Left Hand", de="Linke Hand"}, {en="Right Tool", de="Rechte Hand"},
-	{en="Left Finger", de="Linker Finger"},{en="Right Finger", de="Rechter Finger"} ,{en="Legs", de="Beine"}, {en="Feet", de="FÃ¼ÃŸe"}, {en="Coat", de="Umhang"},{en="Belt 1", de="GÃ¼rtel 1"},
-	{en="Belt 2", de="GÃ¼rtel 2"},{en="Belt 3", de="GÃ¼rtel 3"},{en="Belt 4", de="GÃ¼rtel 4"},{en="Belt 5", de="GÃ¼rtel 5"},{en="Belt 6", de="GÃ¼rtel 6"}}
+itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust"},{en="Both Hands", de="Beide Hände"},{en="Left Hand", de="Linke Hand"}, {en="Right Tool", de="Rechte Hand"},
+	{en="Left Finger", de="Linker Finger"},{en="Right Finger", de="Rechter Finger"} ,{en="Legs", de="Beine"}, {en="Feet", de="Füße"}, {en="Coat", de="Umhang"},{en="Belt 1", de="Gürtel 1"},
+	{en="Belt 2", de="Gürtel 2"},{en="Belt 3", de="Gürtel 3"},{en="Belt 4", de="Gürtel 4"},{en="Belt 5", de="Gürtel 5"},{en="Belt 6", de="Gürtel 6"}}
 itemPos[0] = {en="Backpack", de="Rucksack"}
 
 
@@ -18,7 +18,7 @@ function repairDialog(npcChar, speaker)
 	--Set dialogmessages
 	if language == 0 then --german
 		dialogTitle = "Reparieren";
-		dialogInfoText = "WÃ¤hle den Gegenstand aus, den du reparieren mÃ¶chtest:";
+		dialogInfoText = "Wähle den Gegenstand aus, den du reparieren möchtest:";
 		repairPriceText = " Kosten: ";
 	else --english
 		dialogTitle = "Repair";
@@ -92,10 +92,10 @@ function repair(npcChar, speaker, theItem, language)
 	        npcChar:talk(Character.say, notRepairable[language+1]);
 	    else -- I can repair it!			
 		    if not base.money.CharHasMoney(speaker,price) then --player is broke
-				local notEnoughMoney={"Ihr habt anscheinend nicht genug Geld. Die Reparatur wÃ¼rde"..priceMessage.." kosten.","You don't have enough money I suppose. I demand"..priceMessage.." for repairing this item."}; --Player is broke
+				local notEnoughMoney={"Ihr habt anscheinend nicht genug Geld. Die Reparatur würde"..priceMessage.." kosten.","You don't have enough money I suppose. I demand"..priceMessage.." for repairing this item."}; --Player is broke
 				npcChar:talk(Character.say, notEnoughMoney[language+1]);
 		    else --he has the money
-				local successRepair={"#me setzt den Gegenstand fÃ¼r"..priceMessage.." in Stand.", "#me repairs the item at a cost of"..priceMessage.."."};
+				local successRepair={"#me setzt den Gegenstand für"..priceMessage.." in Stand.", "#me repairs the item at a cost of"..priceMessage.."."};
 				npcChar:talk(Character.say, successRepair[language+1]);
 				base.money.TakeMoneyFromChar(speaker,price); --pay!
                 theItem.quality=theItem.quality+toRepair; --repair!
