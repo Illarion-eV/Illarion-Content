@@ -56,6 +56,10 @@ itemShoes = 369
 "Help" -> inform("[Game Help] This NPC is Queen Rosaline Edwards of Cadomyr. Keywords: Hail my queen, Cadomyr, enemies, Sir Reginald, tomb, grave.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Königin Rosaline Edwards von Cadomyr. Schlüsselwörter: Es lebe die Königin, Cadomyr, Feinde, Sir Reginald, Gruft, Grab.")
 
+--quest
+queststatus(642) = 1, item(144, all) > 0, english, "."  -> queststatus(642) = 2, deleteItem(144, 1), rankpoints + 5, inform("[Quest 'Find Queen Rosaline Edwards' end]"), "Oh, flowers! However, do not think, you can win my favour but I will accept the attempt this time."
+queststatus(642) = 1, item(144, all) > 0, "."  -> queststatus(642) = 2, deleteItem(144, 1), rankpoints + 5, inform("[Quest 'Finde Königin Rosaline Edwards' Ende]"), "Oh, flowers! Aber glaubt nicht, dass ihr damit meine Gunst gewinnen könnt, auch wenn euren Versuch dieses Mal durchgehen lassen werde."
+
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Speak, but choose your words wisely for my time is short.", "Ah, a servant of mine, good, what news do you bear from my realm?", "You dare to disturb me? Fine, fortunately for you I needed a distraction."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Sagt, was wollt ihr von eurer Königin? Sprecht schnell oder ich werde euch Beine machen.", "Ah, einer meiner Untertanen. Gut, was für Kunde bringt ihr aus meinem Reich?", "Ihr wagt es, mich zu stören. Fein, ich kann etwas Abwechslung gut vertragen."

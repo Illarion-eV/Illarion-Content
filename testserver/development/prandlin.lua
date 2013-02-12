@@ -23,7 +23,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("npc.prandlin", package.seeall)
+module("development.prandlin", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();

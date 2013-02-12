@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
 -- Author:   Lillian                                                          --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -74,7 +74,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Greetingsss to you.");
+talkEntry:addResponse("Greetings to you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -92,7 +92,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Iromorom be with you.");
+talkEntry:addResponse("Irmorom be with you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -101,7 +101,7 @@ talkEntry:addTrigger("Tsch¸ﬂ");
 talkEntry:addTrigger("Tsch¸ss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("Iromorom sei mit Euch.");
+talkEntry:addResponse("Irmorom sei mit Euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -111,7 +111,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Iromorom be with you.");
+talkEntry:addResponse("Irmorom be with you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -120,7 +120,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Iromorom sei mit Euch.");
+talkEntry:addResponse("Irmorom sei mit Euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -188,7 +188,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Message Delivery I"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 1));
-talkEntry:addResponse("Could you help me? Nik Nilo asked me for an ruby some time ago.I found one while mining the other day. Could you tell him that he should talk to me?");
+talkEntry:addResponse("Could you help me? Nik Nilo asked me for a ruby some time ago. I found one whilst mining the other day. Could you tell him that he should talk to me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -209,9 +209,9 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Nachrichten ‹berbringen I"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Message Delivery I"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 1));
-talkEntry:addResponse("Could you help me? Nik Nilo asked me for an ruby some time ago.I found one while mining the other day. Could you tell him that he should talk to me?");
+talkEntry:addResponse("Could you help me? Nik Nilo asked me for a ruby some time ago. I found one whilst mining the other day. Could you tell him that he should talk to me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -305,7 +305,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Message Delivery II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 4));
-talkEntry:addResponse("So, you came to help me again? Thats very nice of you. I haven't seen Morri for a while. Please, ask him if he would still like to buy the pins he ordered. The pins are already starting to corrode.");
+talkEntry:addResponse("So, you came to help me again? That's very nice of you. I haven't seen Morri in a while. Please, ask him if he would still like to buy the pins he ordered, they are already starting to corrode.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,7 +328,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Message Delivery II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
-talkEntry:addResponse("So, you came to help me again? Thats very nice of you. I haven't seen Morri for a while. Please, ask him if he would still like to buy the pins he ordered. The pins are  already starting to corrode.");
+talkEntry:addResponse("So, you came to help me again? That's very nice of you. I haven't seen Morri in a while. Please, ask him if he would still like to buy the pins he ordered, they are already starting to corrode.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -395,7 +395,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 4));
-talkEntry:addResponse("Thank you. Take this as reward.");
+talkEntry:addResponse("Thank you. Take this as a reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -420,7 +420,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Message Delivery III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 7));
-talkEntry:addResponse("Please ask Gretel Goldhair what happened to my collection of hammer. I saw her carrying them away the other day. You can find her inside the palace of the Don, the building right there to the north.");
+talkEntry:addResponse("Please ask Gretel Goldhair what happened to my collection of hammers. I saw her carrying them away the other day. You can find her inside the Don's palace, the building right there to the north.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -443,7 +443,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Message Delivery III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 7));
-talkEntry:addResponse("Please ask Gretel Goldhair what happened to my collection of hammer. I saw her carrying them away the other day. You can find her inside the palace of the Don, the building right there to the north.");
+talkEntry:addResponse("Please ask Gretel Goldhair what happened to my collection of hammers. I saw her carrying them away the other day. You can find her inside the Don's palace, the building right there to the north.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -466,7 +466,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Please ask Gretel Goldhair what happened to my collection of hammer. I saw her carrying them away.");
+talkEntry:addResponse("Please ask Gretel Goldhair what happened to my collection of hammers. I saw her carrying them away.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -485,7 +485,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Please ask Gretel Goldhair what happened to my collection of hammer. I saw her carrying them away.");
+talkEntry:addResponse("Please ask Gretel Goldhair what happened to my collection of hammers. I saw her carrying them away.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -510,7 +510,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
 talkEntry:addConsequence(npc.base.consequence.item.item(195, 1, 333, {["descriptionEn"] = "This robe has the colour of the Galmairian flag.", ["descriptionDe"] = "Diese Robe hat die Farbe der Galmairischen Flagge."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 9));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("What? She sais she threw them away? First I shall thank you for asking Gretel Goldhair. Take this as a present. Then I will talk to her!");
+talkEntry:addResponse("What? She said she threw them away? First I must thank you for asking Gretel Goldhair, take this as a present. Then I will talk to her!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -534,9 +534,9 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Message Delivery IV"));
-talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 440, {["nameDe"] = "Echt groﬂer Goldnugget", ["nameEn"] = "Really big gold nugget", ["descriptionEn"] = "This gold nugget is as big as an apple.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Goldnugget ist so groﬂ wie ein Apfel."}));
+talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 440, {["nameDe"] = "Echt groﬂer Goldnugget", ["nameEn"] = "Really big gold nugget", ["descriptionEn"] = "This gold nugget is the size of an apple.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Goldnugget ist so groﬂ wie ein Apfel."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 10));
-talkEntry:addResponse("Look, I found this gold nugget. It's as large as an apple, but Pheritaleth, magical smith from Cadomyr does not believe me! Show her this gold nugget, please.");
+talkEntry:addResponse("Look, I found this gold nugget. It's as big as an apple but Pheritaleth, the magical smith from Cadomyr, does not believe me! Show her the gold nugget, please.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -546,7 +546,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Nachrichten ‹berbringen II"));
-talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 440, {["nameDe"] = "Echt groﬂer Goldnugget", ["nameEn"] = "Really big gold nugget", ["descriptionEn"] = "This gold nugget is as big as an apple.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Goldnugget ist so groﬂ wie ein Apfel."}));
+talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 440, {["nameDe"] = "Echt groﬂer Goldnugget", ["nameEn"] = "Really big gold nugget", ["descriptionEn"] = "This gold nugget is the size of an apple.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Goldnugget ist so groﬂ wie ein Apfel."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 10));
 talkEntry:addResponse("Schaut, ich habe einen Goldnugget gefangen, der ist so groﬂ wie ein Apfel. Aber Pheritaleth, magische Schmied aus Cadomyr sagt, ich l¸ge! Bitte zeigt ihr diesen Goldnugget!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -559,9 +559,9 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Message Delivery IV"));
-talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 440, {["nameDe"] = "Echt groﬂer Goldnugget", ["nameEn"] = "Really big gold nugget", ["descriptionEn"] = "This gold nugget is as big as an apple.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Goldnugget ist so groﬂ wie ein Apfel."}));
+talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 440, {["nameDe"] = "Echt groﬂer Goldnugget", ["nameEn"] = "Really big gold nugget", ["descriptionEn"] = "This gold nugget is the size of an apple.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Goldnugget ist so groﬂ wie ein Apfel."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 10));
-talkEntry:addResponse("Look, I found this gold nugget. It's as large as an apple, but Pheritaleth, magical smith from Cadomyr does not believe me! Show her this gold nugget, please.");
+talkEntry:addResponse("Look, I found this gold nugget. It's as big as an apple but Pheritaleth, the magical smith from Cadomyr, does not believe me! Show her the gold nugget, please.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -573,7 +573,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Nachrichten ‹berbringen II"));
-talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 440, {["nameDe"] = "Echt groﬂer Goldnugget", ["nameEn"] = "Really big gold nugget", ["descriptionEn"] = "This gold nugget is as big as an apple.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Goldnugget ist so groﬂ wie ein Apfel."}));
+talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 440, {["nameDe"] = "Echt groﬂer Goldnugget", ["nameEn"] = "Really big gold nugget", ["descriptionEn"] = "This gold nugget is the size of an apple.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Goldnugget ist so groﬂ wie ein Apfel."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 10));
 talkEntry:addResponse("Schaut, ich habe einen Goldnugget gefangen, der ist so groﬂ wie ein Apfel. Aber Pheritaleth, magische Schmied aus Cadomyr sagt, ich l¸ge! Bitte zeigt ihr diesen Goldnugget!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -585,7 +585,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Please, show this goldnugget to Pheritaleth in Cadomyr.");
+talkEntry:addResponse("Please, show the gold nugget to Pheritaleth in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -604,7 +604,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Please, show this goldnugget to Pheritaleth in Cadomyr..");
+talkEntry:addResponse("Please, show the gold nugget to Pheritaleth in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -625,12 +625,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You solved the quest. You are awarded with some coins and jewellery. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You solved the quest. You are rewarded with some coins and jewellery. You advance in Don Valerio Guilianni's favour."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.item.item(62, 1, 877, {["rareness"] = "1", ["craftedBy"] = "Charwis Irongate"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 9));
-talkEntry:addResponse("Thank you. Please take this as a reward, and keep the goldnugget as a souvenir, I found an even larger one than this.");
+talkEntry:addResponse("Thank you. Please take this as a reward, and keep the gold nugget as a souvenir, I found an even larger one than that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -656,7 +656,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Message Delivery V"));
 talkEntry:addConsequence(npc.base.consequence.item.item(2785, 1, 999, {["descriptionEn"] = "This wand belongs to Elvaine Morgan.", ["descriptionDe"] = "Dieser Stab gehˆrt Elvaine Morgan."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 13));
-talkEntry:addResponse("I was lucky today. I found the wand of Elvaine Morgan. He will surely misss it, please go and take his wand back.");
+talkEntry:addResponse("I was lucky today. I found the wand of Elvaine Morgan. He will surely miss it, please go and take his wand back.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -681,7 +681,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Message Delivery V"));
 talkEntry:addConsequence(npc.base.consequence.item.item(2785, 1, 999, {["descriptionEn"] = "This wand belongs to Elvaine Morgan.", ["descriptionDe"] = "Dieser Stab gehˆrt Elvaine Morgan."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 13));
-talkEntry:addResponse("I was lucky today. I found the wand of Elvaine Morgan. He will surely misss it, please go and take his wand back.");
+talkEntry:addResponse("I was lucky today. I found the wand of Elvaine Morgan. He will surely miss it, please go and take his wand back.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -705,7 +705,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Please take the wand back to Elvaine Morgan, he will misss it.");
+talkEntry:addResponse("Please take the wand back to Elvaine Morgan, he will miss it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -724,7 +724,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Please take the wand back to Elvaine Morgan, he will misss it.");
+talkEntry:addResponse("Please take the wand back to Elvaine Morgan, he will miss it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -861,7 +861,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Do you know there'sss a difference between iron, coal and gold?");
+talkEntry:addResponse("Do you know there's a difference between iron, coal and gold?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -889,8 +889,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Iromorom");
-talkEntry:addResponse("He'S the God of the crafts and the merchants.");
+talkEntry:addTrigger("Irmorom");
+talkEntry:addResponse("He's the God of crafts and merchants.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -903,7 +903,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Leave me alone with those wand-wavers.");
+talkEntry:addResponse("Leave me alone about those wand-wavers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -929,7 +929,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Leave me alone with those palm-wavers.");
+talkEntry:addResponse("Leave me alone about those palm-wavers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -981,13 +981,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich um.", "#me looks around.");
 talkingNPC:addCycleText("#me kratzt sich am Kinn.", "#me scratches his chin.");
-talkingNPC:addCycleText("#me r‰uspert sich ger‰uschvoll.", "#me clears his throut noisily.");
+talkingNPC:addCycleText("#me r‰uspert sich ger‰uschvoll.", "#me clears his throat noisily.");
 talkingNPC:addCycleText("So, so...", "There, there...");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("", "");
-mainNPC:setUseMessage("#me schaut ver‰rgert.", "#me looks angrily.");
+mainNPC:setUseMessage("#me schaut ver‰rgert.", "#me looks angry.");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 458);

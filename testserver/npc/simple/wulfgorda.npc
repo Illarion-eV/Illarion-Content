@@ -186,10 +186,14 @@ english, "Ruzusss" -> "You can find him in Cadomyr and he knows several places i
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_cadomyr_1.quest belongs to this NPC: Quest-ID.: 652 - IN PROGRESS
-english, "quest", "mission" -> "Nothing to do for you yet but soon."
-"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald."
-"task", "adventure", "order" -> "Nothing to do for you yet but soon."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
+queststatus(652) < 1, english, "quest", "mission" -> queststatus(652) = 1, item(1908, 1, 777), inform("[New Quest 'Find Borgate Northoff' started] Find Borgate Northoff and bring him back his mug."), "Have you already met Borgate Northoff, the barkeeper of the Hemp Necktie Inn? If not, you can do this while you bring back this mug for me. *smiles and hands over a mug.*"
+queststatus(652) < 1, "quest", "mission" -> queststatus(652) = 1, item(1908, 1, 777), inform("[Neues Quest 'Finde Borgate Northoff' gestartet] Finde Borgate Northoff und bringe ihm seinen Krug zurück."), "Hast du bereits Borgate Northoff den Gastwirt des Gasthof Hanfschlinge kennengelernt? Falls nicht, dann dann kannst du das gleich dabei erledigen wenn du mir diesen Krug zurückbringst. *lächelt und überreicht einen Bierkrug*"
+queststatus(652) < 1, "task", "adventure", "order" -> queststatus(652) = 1, item(1908, 1, 777), inform("[New Quest 'Find Borgate Northoff' started] Find Borgate Northoff and bring him back his mug."), "Have you already met Borgate Northoff, the barkeeper of the Hemp Necktie Inn? If not, you can do this while you bring back this mug for me. *smiles and hands over a mug.*"
+queststatus(652) < 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(652) = 1, item(1908, 1, 777), inform("[Neues Quest 'Finde Borgate Northoff' gestartet] Finde Borgate Northoff und bringe ihm seinen Krug zurück."), "Hast du bereits Borgate Northoff den Gastwirt des Gasthof Hanfschlinge kennengelernt? Falls nicht, dann dann kannst du das gleich dabei erledigen wenn du mir diesen Krug zurückbringst. *lächelt und überreicht einen Bierkrug*"
+english, "quest", "mission" -> "Nothing to do for you yet but soon I have plenty of tasks for you."
+"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich."
+"task", "adventure", "order" -> "Nothing to do for you yet but soon I have plenty of tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich."
 
 -- Faction stuff
 "archmage" -> "The archmage owns two stones of power. These are an Emerald and a Ruby. They protect Runewick against Galmair and Cadomyr."

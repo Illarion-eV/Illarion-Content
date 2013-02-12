@@ -625,7 +625,7 @@ product = smithing:addProduct(catId, 2740, 80, 100, 125, 250)
 product:addIngredient(2535, 2) -- Iron Ingot: 2x1
 product:addIngredient(2530) -- Dagger Handle: 1x1
 product:addIngredient(2571) -- Merinium Ingot
-product:addIngredient(2551) -- Pure Air: 1x1
+product:addIngredient(2553) -- Pure Fire: 1x1
 
 --Rapier
 product = smithing:addProduct(catId, 2675, 88, 100, 162, 324)

@@ -955,17 +955,69 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(622, "<", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Archmage Elvaine Morgan' started] Find Archmage Elvaine Morgan and bring him your gift."));
+talkEntry:addConsequence(npc.base.consequence.item.item(3110, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(622, "=", 1));
+talkEntry:addResponse("Have you already met our Archmage? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since he needs them for his publications. *hands over a pell*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(622, "<", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Erzmagier Elvaine Morgan' gestartet] Finde Archmage Elvaine Morgan und bringe ihm dein Geschenk."));
+talkEntry:addConsequence(npc.base.consequence.item.item(3110, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(622, "=", 1));
+talkEntry:addResponse("Habt ihr den Erzmagier bereits kennengelernt? Falls nicht, dann solltet ihr euch bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er es für seine Veröffentlichungen benötigt. *überreicht eine Schriftrolle*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(622, "<", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Archmage Elvaine Morgan' started] Find Archmage Elvaine Morgan and bring him your gift."));
+talkEntry:addConsequence(npc.base.consequence.item.item(3110, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(622, "=", 1));
+talkEntry:addResponse("Have you already met our Archmage? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since he needs them for his publications. *hands over a pell*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(622, "<", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Erzmagier Elvaine Morgan' gestartet] Finde Archmage Elvaine Morgan und bringe ihm dein Geschenk."));
+talkEntry:addConsequence(npc.base.consequence.item.item(3110, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(622, "=", 1));
+talkEntry:addResponse("Habt ihr den Erzmagier bereits kennengelernt? Falls nicht, dann solltet ihr euch bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er es für seine Veröffentlichungen benötigt. *überreicht eine Schriftrolle*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Nothing to do for you yet but soon.");
+talkEntry:addResponse("Nothing to do for you yet but soon I have plenty of tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
+talkEntry:addResponse("Ich habe nichts für euch zu tun momentan aber bald habe ich einige Aufgaben für euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -973,7 +1025,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Nothing to do for you yet but soon.");
+talkEntry:addResponse("Nothing to do for you yet but soon I have plenty of tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -982,7 +1034,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
+talkEntry:addResponse("Ich habe nichts für euch zu tun momentan aber bald habe ich einige Aufgaben für euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

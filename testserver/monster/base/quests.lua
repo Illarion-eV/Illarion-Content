@@ -339,6 +339,13 @@ function iniQuests()
     --table.insert(questList[105],id); 
     table.insert(questList[106],id);    
     table.insert(questList[107],id); 
+	table.insert(questList[151],id); 
+	table.insert(questList[152],id); 
+	table.insert(questList[171],id);
+	table.insert(questList[172],id);
+	table.insert(questList[173],id);
+	table.insert(questList[721],id); 
+	table.insert(questList[731],id); 
     minimumQueststatus[id]=13; 
     maximumQueststatus[id]=18; 
     questLocation[id]=position(298,352,-6); 

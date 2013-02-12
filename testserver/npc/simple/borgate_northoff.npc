@@ -66,6 +66,10 @@ tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you l
 "Help" -> inform("[Game Help] This NPC is Borgate Northoff the innkeeper of The Hemp Necktie Inn . Keywords: Gods, Bragon, Adron, trade")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Borgate Northoff der Wirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Götter, Bragon, Adron, Handel")
 
+--quest
+queststatus(652) = 1, item(1908, all) > 0, english, "."  -> queststatus(652) = 2, deleteItem(1908, 1), item(1909,1,777), inform("[Quest 'Find Borgate Northoff' end]"), "Aahr! Wulfgorda's mug! I wonder if she will ever bring her mug by herself. Anyway, one free beer for you!"
+queststatus(652) = 1, item(1908, all) > 0, "."  -> queststatus(652) = 2, deleteItem(1908, 1), item(1909,1,777), inform("[Quest 'Finde Borgate Northoff' Ende]"), "Aahr! Wulfgorda Krug! Ich frage mich, ob sie jemals ihren Krug selber zurück bringen wird. Egal, hier ein Freibier für dich!"
+
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?", "Hello. What can I get you?", "G'day, wanna beer?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?", "Guten Tag. Was soll ich dir machen?", "Tach, was darf's sein?"

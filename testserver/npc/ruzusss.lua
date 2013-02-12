@@ -1432,17 +1432,69 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(642, "<", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Queen Rosaline Edwards' started] Find Queen Rosaline Edwards and bring her your gift."));
+talkEntry:addConsequence(npc.base.consequence.item.item(144, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(642, "=", 1));
+talkEntry:addResponse("Have you already met our Queen? If not, you could introduce yourself with a gift to her. She will appreciate this gift here, since she loves beautiful things. *hands over a flower*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(642, "<", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Königin Rosaline Edwards' gestartet] Finde Königin Rosaline Edwards und bringe ihr dein Geschenk."));
+talkEntry:addConsequence(npc.base.consequence.item.item(144, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(642, "=", 1));
+talkEntry:addResponse("Hast du bereits die Königin kennengelernt? Falls nicht, dann solltest du dich bei ihr mit einem Geschenk vorstellen. Sie wird dieses Geschenk hier bestimmt mögen, da sie ein Auge für das Schöne hat. *überreicht eine Blume*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(642, "<", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Queen Rosaline Edwards' started] Find Queen Rosaline Edwards and bring her your gift."));
+talkEntry:addConsequence(npc.base.consequence.item.item(144, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(642, "=", 1));
+talkEntry:addResponse("Have you already met our Queen? If not, you could introduce yourself with a gift to her. She will appreciate this gift here, since she loves beautiful things. *hands over a flower*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(642, "<", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Königin Rosaline Edwards' gestartet] Finde Königin Rosaline Edwards und bringe ihr dein Geschenk."));
+talkEntry:addConsequence(npc.base.consequence.item.item(144, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(642, "=", 1));
+talkEntry:addResponse("Hast du bereits die Königin kennengelernt? Falls nicht, dann solltest du dich bei ihr mit einem Geschenk vorstellen. Sie wird dieses Geschenk hier bestimmt mögen, da sie ein Auge für das Schöne hat. *überreicht eine Blume*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Nothing to do for you yet but soon.");
+talkEntry:addResponse("Nothing to do for you yet but soon I have plenty of tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1450,7 +1502,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Nothing to do for you yet but soon.");
+talkEntry:addResponse("Nothing to do for you yet but soon I have plenty of tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1459,7 +1511,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -814,7 +814,7 @@ end;
 --[[
     IsInterrupted
     Checks if a characters action is interrupted has a minimal amount of actions that
-    will succeed all time before a interruption is possible. Wearing gloves increases this minimal amount
+    will succeed all time before a interruption is possible.
     @param CharacterStruct - The character who is checked for a interruption
     @return boolean - true in case the action is interruped, false if not
 ]]
@@ -828,10 +828,6 @@ function IsInterrupted(Character)
         return false;
     end;
     local rnd = math.random(10, 30);
-    local gloves = Character:getItemAt(4);
-    if (gloves.id == 2259) or (gloves.id == 48) then
-        rnd = rnd + 10;
-    end;
     if ( interruptTable[Character.id] > rnd ) then
         interruptTable[Character.id] = nil;
         return true;

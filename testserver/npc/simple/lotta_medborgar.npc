@@ -209,10 +209,14 @@ english, "Ruzusss" -> "You can find him in Cadomyr and he knows several places i
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_galmair_2.quest belongs to this NPC: Quest-ID.: 632 - IN PROGRESS
-english, "quest", "mission" -> "Nothing to do for you yet, but soon."
-"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald."
-"task", "adventure" -> "Nothing to do for you yet, but soon."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
+queststatus(632) < 1, town = Galmair, english, "quest", "mission" -> queststatus(632) = 1, item(61, 1, 777), inform("[New Quest 'Find Don Valerio Guilianni' started] Find Don Valerio Guilianni and bring her your gift."), "Have you already met our Don? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since she loves gold. *hands over a gold coin.*"
+queststatus(632) < 1, town = Galmair, "quest", "mission" -> queststatus(632) = 1, item(61, 1, 777), inform("[Neues Quest 'Finde Don Valerio Guilianni' gestartet] Finde Don Valerio Guilianni und bringe ihr dein Geschenk."), "Hast du bereits den Don kennengelernt? Falls nicht, dann solltest du dich bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er ein Auge auf Gold geworfen hat. *überreicht eine Goldmünze*"
+queststatus(632) < 1, town = Galmair, "task", "adventure", "order" -> queststatus(632) = 1, item(61, 1, 777), inform("[New Quest 'Find Don Valerio Guilianni' started] Find Don Valerio Guilianni and bring her your gift."), "Have you already met our Don? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since she loves gold. *hands over a gold coin.*"
+queststatus(632) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(632) = 1, item(61, 1, 777), inform("[Neues Quest 'Finde Don Valerio Guilianni' gestartet] Finde Don Valerio Guilianni und bringe ihr dein Geschenk."), "Hast du bereits den Don kennengelernt? Falls nicht, dann solltest du dich bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er ein Auge auf Gold geworfen hat. *überreicht eine Goldmünze*"
+english, "quest", "mission" -> "Nothing to do for you yet but soon I have plenty of tasks for you."
+"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich."
+"task", "adventure", "order" -> "Nothing to do for you yet but soon I have plenty of tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich."
 
 -- Faction stuff
 "archmage" -> "The Archmage owns two stones of power, these are an emerald and a ruby. They protect Runewick against being beaten by our forces."

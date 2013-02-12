@@ -80,6 +80,8 @@ function UseItem(User, SourceItem, ltstate)
 			return
         else
 		    world:erase(SourceItem,1)
+			SourceItem.number = SourceItem.number-1
+			world:changeItem(SourceItem)
 			User:changeSource(SourceItem)
 			User:startAction( 20, 21, 5, 10, 25);
 		end	

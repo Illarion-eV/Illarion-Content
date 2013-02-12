@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -68,7 +68,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which must be held in your hands. Note that not every rock will yield coal."));
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
-talkEntry:addResponse("Arr, the name be Nargon, Nargon Hammerfist. Ye want coin? Harr. Only through hard labour can ye become wealthy. Don't fear, Nargon will get ye started. Here, have this pick-axe. Head into the mine behind me and gather five lumps of coal. It won't be in vain!");
+talkEntry:addResponse("Arr, the name be Nargon, Nargon Hammerfist. Ye want coin? Harr. Only through hard labour can ye become wealthy. Never fear, Nargon will get ye started. Here, have this pick-axe. Head into the mine behind me and gather five lumps of coal. It will not be in vain!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -89,7 +89,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe, which must be held in your hands. Note that not every rock yields coal."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
-talkEntry:addResponse("Arr, the name is Nargon, Nargon Hammerfist. Ye want coin? Harr. Only through hard labour can ye become wealthy. Don't fear, Nargon will get ye started. Remember the pick-axe that wicked elfess gave you? Head into the mine behind me and gather five lumps of coal. It won't be in vain!");
+talkEntry:addResponse("Arr, the name is Nargon, Nargon Hammerfist. Ye want coin? Harr. Only through hard labour can ye become wealthy. Never fear, Nargon will get ye started. Remember the pick-axe that wicked elfess gave you? Head into the mine behind me and gather five lumps of coal. It won't be in vain!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -111,7 +111,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are 
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 3));
-talkEntry:addResponse("Oi! Ye did it, thanks for the coal! As an honest dwarvensman, I'll give you this ruby in exchange. Harr! Told ye the work wouldn't be in vain! My kinsman Nimbur, down at the brick house, can teach ye another lesson about dwarven craft.");
+talkEntry:addResponse("Oi! Ye did it, thanks for the coal! As an honest dwarven trader, I'll give you this ruby in exchange. Harr! Told ye the work wouldn't be in vain! My kinsman Nimbur, down at the brick house, can teach ye another lesson about dwarven crafting.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,7 +169,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Arr, now ye know how to mine for gems and gold. What else is there to learn!? Ye might become rich, aye. My kinsmate Nimbur, down at the brick house, can teach ye another lesson about dwarven craft.");
+talkEntry:addResponse("Arr, now ye know how to mine for gems and gold. What else is there to learn!? Ye might become rich, aye. My kinsmate Nimbur, down at the brick house, can teach ye another lesson about dwarven crafting.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -183,7 +183,7 @@ talkingNPC:addCycleText("#me streicht sich durch seinen langen Bart: 'Arr, ich z
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist dein Tutor Nargon Hammerfist der Bergarbeiter.", "This is your tutorial guide Nargon Hammerfist the miner.");
+mainNPC:setLookat("Das ist dein Tutor Nargon Hammerfist der Bergarbeiter.", "This is your tutorial guide, Nargon Hammerfist the miner.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache mit dem Befehl '!l common'.", "Please switch the language of your character to the common tongue with the command '!l common'.");
 mainNPC:setEquipment(1, 7);

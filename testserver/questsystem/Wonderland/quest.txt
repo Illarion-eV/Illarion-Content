@@ -1,0 +1,9 @@
+triggerfield,890,596,0,MoveToField,trigger1
+triggerfield,901,581,0,MoveToField,trigger2
+triggerfield,900,581,0,MoveToField,trigger3
+triggerfield,899,581,0,MoveToField,trigger4
+triggerfield,899,580,0,MoveToField,trigger5
+triggerfield,899,579,0,MoveToField,trigger6
+triggerfield,900,579,0,MoveToField,trigger7
+triggerfield,901,579,0,MoveToField,trigger8
+triggerfield,901,580,0,MoveToField,trigger9

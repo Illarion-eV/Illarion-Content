@@ -2,8 +2,8 @@
 -- NPC Name: Florain Dreyndel                                        Runewick --
 -- NPC Job:  Helper                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  787, 823, 0            --
--- NPC Sex:  male                       NPC Direction: north                  --
+-- NPC Race: human                      NPC Position:  786, 823, 0            --
+-- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
 -- Author:   Lillian                                                          --
 --                                                     easyNPC Parser v1.23.1 --
@@ -12,8 +12,8 @@
 name = "Florain Dreyndel"
 race = human
 sex = male
-position = 787, 823, 0
-direction = north
+position = 786, 823, 0
+direction = east
 affiliation = "Runewick"
 job = "Helper"
 

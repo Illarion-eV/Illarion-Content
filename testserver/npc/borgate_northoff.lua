@@ -17,8 +17,13 @@ VALUES (1, 710, 313, 0, 6, 'Borgate Northoff', 'npc.borgate_northoff', 0, 2, 3, 
 
 require("npc.base.basic")
 require("npc.base.condition.chance")
+require("npc.base.condition.item")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
+require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -54,6 +59,31 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Borgate Northoff der Wirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Götter, Bragon, Adron, Handel"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(652, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(1908, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Borgate Northoff' end]"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1908, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(1909, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(652, "=", 2));
+talkEntry:addResponse("Aahr! Wulfgorda's mug! I wonder if she will ever bring her mug by herself. Anyway, one free beer for you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(652, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(1908, "all", ">", 0, nil));
+talkEntry:addTrigger(".");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Borgate Northoff' Ende]"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1908, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(1909, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(652, "=", 2));
+talkEntry:addResponse("Aahr! Wulfgorda Krug! Ich frage mich, ob sie jemals ihren Krug selber zurück bringen wird. Egal, hier ein Freibier für dich!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
