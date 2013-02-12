@@ -59,6 +59,7 @@ end
 
 --returns the price as string to repair the item according to playerlanguage
 function getRepairPrice(theItem, language)
+	local theItemStats=world:getItemStats(theItem);
 	local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 	local toRepair=99-durability; --the amount of durability points that has to repaired
 	local price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
@@ -72,9 +73,7 @@ function getRepairPrice(theItem, language)
 end
 
 function repair(npcChar, speaker, theItem, language)
-	if theItem then
-        theItemStats=world:getItemStats(theItem); --reading its stats
-	end
+    local theItemStats=world:getItemStats(theItem);
 		
 	if theItem then
 		local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
