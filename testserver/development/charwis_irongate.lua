@@ -24,7 +24,7 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
-module("npc.charwis_irongate", package.seeall)
+module("development.charwis_irongate", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
