@@ -84,13 +84,14 @@ end
 	if Character.pos == position(885,573,0) then
 	Character:warp(position(890,559,0))
 	Character:inform("Die krächzende Stimme ruft: \"Vergeblich!\" Worauf eine Stimme aus dem Süden flüstert: \"Zu mir!\"", "The scratchy voice says: \"Futile!\". A voice from the south whispers: \"To me!\"")  
-	Character:setQuestProgress(612,1)
+	return
 	end
 
 --906,573,0 correct choice #2
 	if Character.pos == position(906,573,0) then
 	Character:warp(position(885,574,0))
 	Character:inform("Die krächzende Stimme schreit: \"Gib auf! Du bist mein!\" Worauf eine Stimme aus dem Norden antwortet: \"Komm zu mir!\"", "The scratchy voice shouts: \"Surrender! You are mine!\". A voice from the north answers: \"Come to me!\"")  
+	return
 	end
 
 --901,581,0 correct choice #1
