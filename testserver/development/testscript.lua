@@ -415,11 +415,13 @@ function HitChanceFlux(Attacker, Defender, Globals)
 
 	--Cannot parry without a weapon
 	if not Defender.LeftIsWeapon and not Defender.RightIsWeapon then
+		Attacker.Char:inform("No weapon, cannot parry");
         canParry = false;
     end;
 
 	--Cannot parry people who aren't in the front quadrant
     if (DirectionDifference<=2) or (DirectionDifference>=6) then
+		Attacker.Char:inform("Facing the wrong way");
        canParry = false;
 	end;
 
