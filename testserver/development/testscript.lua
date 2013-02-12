@@ -133,8 +133,9 @@ end;
 -- @param Globals The table that stores the global values
 function ArmourAbsorption(Attacker, Defender, Globals)
 
-	armourfound = GetArmourType(Defender, Globals);
-	armour = world:getArmorStruct(Globals.HittedItem.id);
+	GetArmourType(Defender, Globals);
+	local armourfound, armour;
+	armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
 
 	local armourValue = 0;
 
