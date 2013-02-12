@@ -58,12 +58,12 @@ function repairDialog(npcChar, speaker)
 		repairPrice = getRepairPrice(item,language, true)
 		if language == 0 then
 			itemPosText = itemPos[item.itempos].de
-			if item.number ~= 0 then
+			if item.number ~= 1 then
 				repairPrice = "Reperatur nicht möglch"
 			end
 		else
 			itemPosText = itemPos[item.itempos].en
-			if item.number ~= 0 then
+			if item.number ~= 1 then
 				repairPrice = "Repair not possible"
 			end
 		end
