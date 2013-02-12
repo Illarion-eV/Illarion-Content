@@ -210,7 +210,7 @@ end;
 -- @param ParryWeapon The item which was used to parry
 function WeaponDegrade(Attacker, Defender, ParryWeapon)
 	
-	if (base.common.Chance(1, 20) then
+	if (base.common.Chance(1, 20)) then
 		local durability = math.mod(Attacker.WeaponItem.quality, 100);
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
     
@@ -233,7 +233,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		end;
 	end;
 
-	if (base.common.Chance(1, 20) then
+	if (base.common.Chance(1, 20)) then
 		local durability = math.mod(ParryWeapon.quality, 100);
 		local quality = (ParryWeapon.quality - durability) / 100;
     
