@@ -61,7 +61,7 @@ function repairDialog(npcChar, speaker)
 	speaker:requestSelectionDialog(sdItems);
 end
 
---returns the price as string to repair the item according to playerlanguage
+--returns the price as string to repair the item according to playerlanguage or 0 if the price is 0
 function getRepairPrice(theItem, speaker)
 	local theItemStats=world:getItemStats(theItem);
 	local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
@@ -78,6 +78,7 @@ function getRepairPrice(theItem, speaker)
 	return base.common.GetNLS(speaker, gstring, estring)
 end
 
+-- Repairs theItem. The NPC speaks if the repair was successful or the char has not enough money
 function repair(npcChar, speaker, theItem, language)
     local theItemStats=world:getItemStats(theItem);
 		
