@@ -17,23 +17,19 @@ Title[ENGLISH] = "Wonderland"
 local QUEST_NUMBER = 612
 local PRECONDITION_QUESTSTATE = 0
 local POSTCONDITION_QUESTSTATE = 0
-local DESTINATION = position(890,596,0)
 
 function MoveToField( Character )
     if Character.pos == position(890,596,0)
     	then
-    destination = position(127,647,0);
-        return true
+    destination = position(900,580,0)
     end
-    
-    return false
 end
 
 
 function MoveToField( PLAYER )
     if PLAYER.pos == position(890,596,0)
     and ADDITIONALCONDITIONS(PLAYER) 
-    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE, DESTINATION)
+    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE)
 	then
     
         HANDLER(PLAYER)
