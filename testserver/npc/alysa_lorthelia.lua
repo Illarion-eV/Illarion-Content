@@ -10,7 +10,7 @@
 --------------------------------------------------------------------------------
 
 --[[SQL
-INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue")
 VALUES (0, 907, 794, 1, 4, 'Alysa Lorthelia', 'npc.alysa_lorthelia', 1, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
@@ -721,3 +721,21 @@ function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
+
+-- Testsctipt for changing skin coulor by Leomar
+function receiveText(npcChar, texttype, message, speaker)
+	if base.common.BasicNPCChecks(speaker,2,npcChar) and (string.find(message,"rot") or string.find(message,"blau") or string.find(message,"gruen")) --charakter in Reichweite
+
+		if string.find(message,"rot") --Fallabfrage
+			speaker:setSkinColor(255, 0, 0); --Änderung der Hautfarbe
+		end;
+
+		if string.find(message,"gruen")
+			speaker:setSkinColor(0, 255, 0);
+		end;
+
+		if string.find(message,"blau")
+			speaker:setSkinColor(0, 0, 255);
+		end;
+	end;
+end;
