@@ -27,6 +27,7 @@ end
 	end
 --start
 	if Character:getQuestProgress(612) == 0
+	and
         Character.pos == position(901,581,0)   
 	then
 	Character:warp(position(905,574,0))
