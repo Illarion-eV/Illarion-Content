@@ -449,7 +449,7 @@ function HitChanceFlux(Attacker, Defender, Globals)
         parryChance = parryChance * (0.5 + (Defender.agility) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
         parryChance = parryChance + (parryWeapon.Defence) / 10; --0-20% bonus by the weapon/shield
 		parryChance = math.min(math.max(parryChance,5),95);
-		Attacker.Char:inform("Parry chance: "..parryChance..".");
+		
 	else
 		return true; -- If they can't parry, it succeeds
 	end;
@@ -459,7 +459,7 @@ function HitChanceFlux(Attacker, Defender, Globals)
 		ParryChance = 0;
 	end;
 
-	
+	Attacker.Char:inform("Parry chance: "..parryChance..".");
 
 	local ParrySuccess = base.common.Chance(parryChance, 100);
 
