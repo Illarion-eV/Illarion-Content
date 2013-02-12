@@ -22,7 +22,7 @@ function repairDialog(npcChar, speaker)
 		repairPriceText = " Kosten: ";
 	else --english
 		dialogTitle = "Repair";
-		dialogInfoText = "Please choose an item, you wish to repair:";
+		dialogInfoText = "Please choose an item you wish to repair:";
 		repairPriceText = " Cost: ";
 	end
 
