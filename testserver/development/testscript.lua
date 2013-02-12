@@ -37,7 +37,7 @@ require("lte.chr_reg");
 -- for gem bonus
 require("base.gems")
 
-module("server.standardfighting", package.seeall)
+module("development.testscript", package.seeall)
 
 --- Main Attack function. This function is called by the server to start an
 -- attack. It is called once for each hand of the attacker. Only the hand holding a
@@ -774,11 +774,11 @@ end;
 -- @param Globals The table of the global values
 function CheckCriticals(Attacker, Defender, Globals)
 
-	Attacker:inform("Successful up to here");
+	
 	
 	local chance=1;
 	local weapontype = 8;
-	if CharStruct.IsWeapon then
+	if Defender.IsWeapon then
 		weapontype = Attacker.Weapon.WeaponType;
 		--Special: Backstab
 		if weapontype == 3 then
