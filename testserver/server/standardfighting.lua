@@ -50,7 +50,7 @@ module("server.standardfighting", package.seeall)
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender)
 
-	if isTestServer() then
+	if isTestserver() then
 		development.testscript.onAttack(Attacker,Defender);
 		return;
 	end;
