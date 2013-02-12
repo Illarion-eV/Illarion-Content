@@ -397,7 +397,6 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	local DirectionDifference = math.abs(Defender.Char:getFaceTo()-Attacker.Char:getFaceTo());
     local parryWeapon;
 	local canParry=true;
-	local chance=100;
 	local parryItem; -- For degradation
 
 	--Miss chance. 2% bonus to hit chance for 18 perc, 1.75% malus for 3 perc. Added onto weapon accuracy.
@@ -453,10 +452,10 @@ function HitChanceFlux(Attacker, Defender, Globals)
 
 	--Unblockable Special
 	if(Globals.criticalHit==2) then
-		ParrySuccess = 0;
+		ParryChance = 0;
 	end;
 
-	local ParrySuccess = base.common.Chance(chance, 100);
+	local ParrySuccess = base.common.Chance(parryChance, 100);
 
 	if ParrySuccess then
 		LearnParry(Attacker, Defender, AP)
