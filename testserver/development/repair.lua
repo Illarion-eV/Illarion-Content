@@ -39,7 +39,7 @@ function repairDialog(npcChar, speaker)
 		if (not dialog:getSuccess()) then
 			return;
 		end
-		local index = dialog:getSelectedIndex();
+		local index = dialog:getSelectedIndex()+1;
 		local chosenItem = itemsOnChar[index]
 		if chosenItem ~= nil then
 			repair(npcChar, speaker, chosenItem, language); -- let's repair
