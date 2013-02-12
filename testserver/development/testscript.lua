@@ -1001,7 +1001,7 @@ function HandleMovepoints(Attacker, Globals)
 
 	if(Globals.criticalHit==1) then
 		reduceFightpoints = 2;
-	else if(Globals.criticalHit>0) then
+	elseif(Globals.criticalHit>0) then
 		reduceFightpoints = reduceFightpoints*1.5;
 	end;
 
