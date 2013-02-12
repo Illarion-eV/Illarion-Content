@@ -215,7 +215,7 @@ end;
 -- @param ParryWeapon The item which was used to parry
 function WeaponDegrade(Attacker, Defender, ParryWeapon)
 	
-	if (base.common.Chance(1, 20)) then
+	if true then
 		local durability = math.mod(Attacker.WeaponItem.quality, 100);
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
     
@@ -238,7 +238,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		end;
 	end;
 
-	if (base.common.Chance(1, 20)) then
+	if true then
 		local durability = math.mod(ParryWeapon.quality, 100);
 		local quality = (ParryWeapon.quality - durability) / 100;
     
@@ -902,8 +902,7 @@ end;
 function Counter(Attacker, Defender)
 	
 	if Defender.Char.attackmode then
-		--if base.common.Chance(1,50) then
-		if true then
+		if base.common.Chance(1,50) then
 			base.common.TalkNLS(Defender.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
             "#me deftly blocks the hit and quickly readies stance for a counter attack.");
@@ -1012,7 +1011,7 @@ function HandleMovepoints(Attacker, Globals)
     end;
     
             
-    local reduceFightpoints = 3*math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
+    local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
 
 	if(Globals.criticalHit==1) then
 		reduceFightpoints = 2;
