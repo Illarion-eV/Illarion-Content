@@ -459,17 +459,15 @@ function HitChanceFlux(Attacker, Defender, Globals)
 		ParryChance = 0;
 	end;
 
-	Attacker.Char:inform("Parry chance: "..parryChance..".");
-
 	local ParrySuccess = base.common.Chance(parryChance, 100);
 
 	if ParrySuccess then
-		Attacker.Char:inform("Defender Parried");
-		LearnParry(Attacker, Defender, AP)
+		LearnParry(Attacker, Defender, Globals.AP)
 		PlayParrySound(Attacker, Defender)
 		Defender.Char:performAnimation(9);
 		WeaponDegrade(Attacker, Defender, parryItem);
 		Counter(Attacker,Defender);
+		Attacker.Char:inform("Works past extras");
 		return false;
 	else
 		return true;
@@ -1017,6 +1015,8 @@ function HandleMovepoints(Attacker, Globals)
 	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints));
     Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
 	
+	Globals["AP"] = reduceFightpoints;
+
     return reduceFightpoints;
 end;
 
