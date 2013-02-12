@@ -56,7 +56,7 @@ function repairDialog(npcChar, speaker)
 	for i,item in ipairs(itemsOnChar) do 
 		itemName = world:getItemName(item.id,language)
 		repairPrice = getRepairPrice(item,speaker)
-		itemPosText = base.common.InformNLS(speaker, itemPosOnChar[i].de, itemPosOnChar[i].en)
+		itemPosText = base.common.GetNLS(speaker, itemPosOnChar[i].de, itemPosOnChar[i].en)
 		sdItems:addOption(item.id,itemName .. " (" .. itemPosText .. ")"..repairPriceText..repairPrice);
 	end	
 	speaker:requestSelectionDialog(sdItems);
@@ -76,7 +76,7 @@ function getRepairPrice(theItem, speaker)
 		gstring,estring=base.money.MoneyToString(price)
 	end
 			
-	return base.common.InformNLS(speaker, gstring, estring)
+	return base.common.GetNLS(speaker, gstring, estring)
 end
 
 function repair(npcChar, speaker, theItem, language)
