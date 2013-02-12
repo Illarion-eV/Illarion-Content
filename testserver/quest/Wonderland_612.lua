@@ -20,7 +20,9 @@ local POSTCONDITION_QUESTSTATE = 0
 
 function MoveToField( PLAYER )
     if ADDITIONALCONDITIONS(PLAYER)
-    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+	Character.pos == position(890,596,0)
+    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE)
+	then
     
         HANDLER(PLAYER)
     
@@ -30,6 +32,7 @@ function MoveToField( PLAYER )
     
     return false
 end
+
 
 function HANDLER(PLAYER)
     handler.warpplayer.warpPlayer(PLAYER, position(900, 580, 0)):execute()
