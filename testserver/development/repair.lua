@@ -68,8 +68,15 @@ function getRepairPrice(theItem, language)
 	local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 	local toRepair=99-durability; --the amount of durability points that has to repaired
 	local price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
-	local gstring,estring=base.money.MoneyToString(price)
-
+	local gstring,estring;
+	
+	if price == 0 then
+		gstring = "Reperatur nicht möglch."
+		estring = "Repair not possible."
+	else
+		gstring,estring=base.money.MoneyToString(price)
+	end
+		
 	if language == 0 then
 		return gstring;
 	else
