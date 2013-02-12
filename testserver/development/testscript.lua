@@ -330,19 +330,24 @@ function CauseDamage(Attacker, Defender, Globals)
 
         local CharOffsetX = Attacker.Char.pos.x - Defender.Char.pos.x;
         local CharOffsetY = Attacker.Char.pos.y - Defender.Char.pos.y;
+		
+		local range = Attacker.Weapon.Range;
+		if(Attacker.AttackKind == 4) then
+			range = 1;
+		end;
 
         if (CharOffsetY > 0) then
-            CharOffsetY = (Attacker.Weapon.Range - math.abs(CharOffsetX) + 1)
+            CharOffsetY = (range - math.abs(CharOffsetX) + 1)
                 * (-1);
         elseif (CharOffsetY < 0) then
-            CharOffsetY = (Attacker.Weapon.Range - math.abs( CharOffsetX ) + 1);
+            CharOffsetY = (range - math.abs( CharOffsetX ) + 1);
         end;
 
         if (CharOffsetX > 0) then
-            CharOffsetX = (Attacker.Weapon.Range - math.abs(CharOffsetY) + 1)
+            CharOffsetX = (range - math.abs(CharOffsetY) + 1)
                 * (-1);
         elseif (CharOffsetX < 0) then
-            CharOffsetX = (Attacker.Weapon.Range - math.abs(CharOffsetY) + 1);
+            CharOffsetX = (range - math.abs(CharOffsetY) + 1);
         end;
 
         local newPos = position(Defender.Char.pos.x + CharOffsetX,
