@@ -197,6 +197,7 @@ function ArmourDegrade(Defender, Globals)
 		Globals.HittedItem.quality = quality * 100 + durability;
 		--world:changeItem(Globals.HittedItem.WeaponItem);
 		world:changeItem(Globals.HittedItem);
+
     
 		if (durability == 10) then 
 		  InformNLS(Defender.Char,
@@ -250,7 +251,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		durability = durability - 1;
 		ParryWeapon.quality = quality * 100 + durability;
 		world:changeItem(ParryWeapon);
-    
+
 		if (durability == 10) then 
 		  InformNLS(Defender.Char,
 		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
@@ -411,19 +412,16 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	end;
 
 	if not base.common.Chance(chancetohit, 100) then
-		Attacker.Char:inform("Missed");
 		return false;
 	end;
 
 	--Cannot parry without a weapon
 	if not Defender.LeftIsWeapon and not Defender.RightIsWeapon then
-		Attacker.Char:inform("No weapon, cannot parry");
         canParry = false;
     end;
 
 	--Cannot parry people who aren't in the front quadrant
     if (DirectionDifference<=2) or (DirectionDifference>=6) then
-		Attacker.Char:inform("Facing the wrong way");
        canParry = false;
 	end;
 
@@ -469,7 +467,6 @@ function HitChanceFlux(Attacker, Defender, Globals)
 		Defender.Char:performAnimation(9);
 		WeaponDegrade(Attacker, Defender, parryItem);
 		Counter(Attacker,Defender);
-		Attacker.Char:inform("Works past extras");
 		return false;
 	else
 		return true;
