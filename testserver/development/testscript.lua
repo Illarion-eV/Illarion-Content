@@ -94,6 +94,7 @@ function onAttack(Attacker, Defender)
     -- Calculate the chance to hit
     if not HitChanceFlux(Attacker, Defender, Globals) then
         -- Place some ammo on the ground in case ammo was used
+		Attacker.Char:inform("Failed to hit");
         DropAmmo(Attacker, Defender.Char, true);
         return;
     end;
