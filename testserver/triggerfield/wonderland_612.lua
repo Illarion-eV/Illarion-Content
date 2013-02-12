@@ -108,7 +108,7 @@ end
 	end
 --wrong turn
 	if Character:getQuestProgress(612) == 0 then
-	Character:warp(position(901,579,0))
+	Character:warp(position(900,580,0))
 	Character:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du enkommst mir nicht!\" Eine andere Stimme ruft dir erneut aus dem Nordwesten zu: \"Gib nicht auf! Du kannst es schaffen.\"","You hear a laughter and a scratchy voice is saying: \"HAHA! You cannot escape!\"Another voice replies again from the northwest: \"Do not give in! You can make it.\"")  
 	Character:setQuestProgress(612,0)
 	end
