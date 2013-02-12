@@ -404,7 +404,13 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	local parryItem; -- For degradation
 
 	--Miss chance. 2% bonus to hit chance for 18 perc, 1.75% malus for 3 perc. Added onto weapon accuracy.
-	local chancetohit = math.max(math.min(Attacker.Weapon.Accuracy*(1+(Attacker.perception-10)/500),100),5);
+	local chancetohit;
+	
+	if Attacker.IsWeapon then
+		chancetohit=math.max(math.min(Attacker.Weapon.Accuracy*(1+(Attacker.perception-10)/500),100),5);
+	else
+		chancetohit=math.max(math.min(90*(1+(Attacker.perception-10)/500),100),5);
+	end;
 
 	--Surefire Special
 	if(Globals.criticalHit==7) then
