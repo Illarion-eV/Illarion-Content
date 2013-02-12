@@ -30,10 +30,12 @@ function repairDialog(npcChar, speaker)
 
 	--get all the items the char has on him, without the stuff in the backpack
 	local itemsOnChar = {};
+	local itemPosOnChar = {};
 	for i=17,0,-1 do 
 		local item = speaker:getItemAt(i);
-		if (item.id > 0) then
+		if (item.id > 0) and (item.number == 1) and (getRepairPrice(item,speaker) ~= 0) then --only add items which are single items and repairable
 			table.insert(itemsOnChar, item);
+			table.insert(itemPosOnChar, itemPos[i])
 		end
 	end
 					
@@ -43,59 +45,38 @@ function repairDialog(npcChar, speaker)
 		end
 		local index = dialog:getSelectedIndex()+1;
 		local chosenItem = itemsOnChar[index]
-		if chosenItem ~= nil and chosenItem.number == 1 then
+		if chosenItem ~= nil then
 			repair(npcChar, speaker, chosenItem, language); -- let's repair
-		elseif chosenItem.number ~= 1 then
-			speaker:inform(numberMessage);
 		else			
 			speaker:inform("[ERROR] Something went wrong, please inform a developer.");
 		end
 	end
 	local sdItems = SelectionDialog(dialogTitle, dialogInfoText, cbChooseItem);
 	local itemName, repairPrice, itemPosText;
-	for _,item in ipairs(itemsOnChar) do 
+	for i,item in ipairs(itemsOnChar) do 
 		itemName = world:getItemName(item.id,language)
-		repairPrice = getRepairPrice(item,language, true)
-		if language == 0 then
-			itemPosText = itemPos[item.itempos].de
-			if item.number ~= 1 then
-				repairPrice = "Reperatur nicht möglch"
-			end
-		else
-			itemPosText = itemPos[item.itempos].en
-			if item.number ~= 1 then
-				repairPrice = "Repair not possible"
-			end
-		end
+		repairPrice = getRepairPrice(item,speaker)
+		itemPosText = base.common.GetNLS(speaker, itemPosOnChar[i].de, itemPosOnChar[i].en)
 		sdItems:addOption(item.id,itemName .. " (" .. itemPosText .. ")"..repairPriceText..repairPrice);
 	end	
 	speaker:requestSelectionDialog(sdItems);
 end
 
 --returns the price as string to repair the item according to playerlanguage
-function getRepairPrice(theItem, language, messageSwitch)
+function getRepairPrice(theItem, speaker)
 	local theItemStats=world:getItemStats(theItem);
 	local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 	local toRepair=99-durability; --the amount of durability points that has to repaired
 	local price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
 	local gstring,estring;
 	
-	if messageSwitch then	
-		if price == 0 then
-			gstring = "Reperatur nicht möglch"
-			estring = "Repair not possible"
-		else
-			gstring,estring=base.money.MoneyToString(price)
-		end
-			
-		if language == 0 then
-			return gstring;
-		else
-			return estring;
-		end	
-	else	
+	if price == 0 then
 		return price;
+	else
+		gstring,estring=base.money.MoneyToString(price)
 	end
+			
+	return base.common.GetNLS(speaker, gstring, estring)
 end
 
 function repair(npcChar, speaker, theItem, language)
@@ -104,8 +85,8 @@ function repair(npcChar, speaker, theItem, language)
 	if theItem then
 		local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 	    local toRepair=99-durability; --the amount of durability points that has to repaired
-	    local price=getRepairPrice(theItem, language, false);
-		local priceMessage = getRepairPrice(theItem, language, true);
+	    local price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10;
+		local priceMessage = getRepairPrice(theItem, speaker);
 	
 	    if theItemStats.Worth == 0 or theItemStats.isStackable or durability==99 then --Cannot repair perfect, priceless or stackable items
 	        local notRepairable={"I cannot repair this, sorry.","Entschuldigt, aber das kann ich nicht reparieren."}; --Priceless, perfect or stackable item
