@@ -75,6 +75,7 @@ function UseItem(User, SourceItem, ltstate)
 		world:erase(SourceItem,1)
 		return
 	else -- character can still carry something
+		User:inform(""..SourceItem.number)
 		if SourceItem.number == 1 then
 		    world:erase(SourceItem,1)
 			return
