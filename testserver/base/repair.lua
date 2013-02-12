@@ -7,7 +7,7 @@ itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust
 itemPos[0] = {en="Backpack", de="Rucksack"}
 
 
-module("development.repair", package.seeall)
+module("base.repair", package.seeall)
 
 --opens a selection dialog for the player to choose an item to repair
 function repairDialog(npcChar, speaker)
