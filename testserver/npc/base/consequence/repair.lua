@@ -11,5 +11,6 @@ function(self)
 end);
 
 function _trade_helper(self, npcChar, player)
+	debug("NPC: "..npcChar.name.." Char: "..player.name);
     development.repair.repairDialog(npcChar, player); 
 end;
