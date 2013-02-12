@@ -1,6 +1,6 @@
 require("base.class")
 require("npc.base.consequence.consequence")
-require("development.repair")
+require("base.repair")
 
 module("npc.base.consequence.repair", package.seeall)
 
@@ -11,5 +11,5 @@ function(self)
 end);
 
 function _repair_helper(self, npcChar, player)
-    development.repair.repairDialog(npcChar, player); 
+    base.repair.repairDialog(npcChar, player); 
 end;
