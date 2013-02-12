@@ -173,9 +173,9 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     end;
 
     Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 250);
-	Attacker.Char:inform("Damage before armour skill reduction: "..Globals.Damage..".");
+
 	Globals.Damage = skillmod*Globals.Damage;
-	Attacker.Char:inform("Damage after armour skill reduction: "..Globals.Damage..".");
+
     Globals.Damage = math.max(0, Globals.Damage);
 end;
 

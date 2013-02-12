@@ -62,28 +62,28 @@ end
 --884,594,0 correct choice #6
 	if Character.pos == position(884,594,0) then
 	Character:warp(position(863,578,0))
-	Character:inform("Du vernimmst noch ein langezogenes 'Nein'. Danach kehrt Stille ein.", "You hear an dieing 'No'. Afterwards there is silience.")  
+	Character:inform("Du vernimmst noch ein langezogenes 'Nein'. Danach kehrt Stille ein.", "You hear a dying 'No'. Afterwards there is silence.")  
 	return
 	end
 
 --886,584,0 correct choice #5
 	if Character.pos == position(886,584,0) then
 	Character:warp(position(885,594,0))
-	Character:inform("Die krächzende Stimme brüllt: \"Verdammt!\" Worauf die eine Stimme aus dem Norden ruft: \"In den Baum! In den Baum!\"", "The scratchy voice bellows: \"Blimey!\". A voice from the north shouts: \"Into the tree! Into the tree!\"")  
+	Character:inform("Die krächzende Stimme brüllt: \"Verdammt!\" Worauf die eine Stimme aus dem Norden ruft: \"In den Baum! In den Baum!\"", "The jagged voice bellows: \"Blimey!\". A voice from the north shouts: \"Into the tree! Into the tree!\"")  
 	return
 	end
 
 --890,560,0 correct choice #4
 	if Character.pos == position(890,560,0) then
 	Character:warp(position(885,584,0))
-	Character:inform("Die krächzende Stimme bellt: \"Narr!\" Worauf eine Stimme aus dem Süden ruft: \"Zum Meer! Zum Meer!\"", "The scratchy voice barks: \"Fool!\". A voice from the south shouts: \"To the sea! To the sea!\"")  
+	Character:inform("Die krächzende Stimme bellt: \"Narr!\" Worauf eine Stimme aus dem Süden ruft: \"Zum Meer! Zum Meer!\"", "The jagged voice barks: \"Fool!\". A voice from the south shouts: \"To the sea! To the sea!\"")  
 	return
 	end
 
 --885,573,0 correct choice #3
 	if Character.pos == position(885,573,0) then
 	Character:warp(position(890,559,0))
-	Character:inform("Die krächzende Stimme ruft: \"Vergeblich!\" Worauf eine Stimme aus dem Süden flüstert: \"Zu mir!\"", "The scratchy voice says: \"Futile!\". A voice from the south whispers: \"To me!\"")  
+	Character:inform("Die krächzende Stimme ruft: \"Vergeblich!\" Worauf eine Stimme aus dem Süden flüstert: \"Zu mir!\"", "The jagged voice says: \"Futile!\". A voice from the south whispers: \"To me!\"")  
 	return
 	end
 
@@ -97,19 +97,19 @@ end
 --901,581,0 correct choice #1
 	if Character.pos == position(901,581,0) then
 	Character:warp(position(905,574,0))
-	Character:inform("Die krächzende Stimme meldet sich wieder: \"Keine Chance!\" Worauf eine Stimme aus dem Südwesten sagt: \"Lauf weg!\"", "The scratchy voice says: \"No Chance!\". A voice from the southwest replies: \"Run away!\"")  
+	Character:inform("Die krächzende Stimme meldet sich wieder: \"Keine Chance!\" Worauf eine Stimme aus dem Südwesten sagt: \"Lauf weg!\"", "The jagged voice says: \"No Chance!\". A voice from the southwest replies: \"Run away!\"")  
 	return
 	end
 --start
 	if Character.pos == position(890,596,0) or Character.pos == position(876,590,0) or Character.pos == position(878,562,0) then
 	Character:warp(position(900,580,0))
-	Character:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du gehörst nun mir!\" Nach einer Weile hörst du eine andere Stimme aus dem Nordwesten: \"Geh weg von mir!\"","You hear a laughter and a scratchy voice is saying: \"HAHA! You are mine now!\" After a while you hear another voice from the northwest: \"Go away from me!\"")  
+	Character:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du gehörst nun mir!\" Nach einer Weile hörst du eine andere Stimme aus dem Nordwesten: \"Geh weg von mir!\"","You hear laughter and a croaking voice, saying: \"HAHA! You are mine now!\" After a while you hear another voice from the northwest: \"Get away from me!\"")  
 	return
 	end
 --wrong turn
 	if Character:getQuestProgress(612) == 0 then
 	Character:warp(position(900,580,0))
-	Character:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du enkommst mir nicht!\" Eine andere Stimme ruft dir erneut aus dem Nordwesten zu: \"Gib nicht auf! Du kannst es schaffen.\"","You hear a laughter and a scratchy voice is saying: \"HAHA! You cannot escape!\"Another voice replies again from the northwest: \"Do not give in! You can make it.\"")  
+	Character:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du enkommst mir nicht!\" Eine andere Stimme ruft dir erneut aus dem Nordwesten zu: \"Gib nicht auf! Du kannst es schaffen.\"","You hear laughter and a croaking voice, saying: \"HAHA! You cannot escape!\"Another voice replies again from the northwest: \"Do not give in! You can make it.\"")  
 	Character:setQuestProgress(612,0)
 	end
 end
