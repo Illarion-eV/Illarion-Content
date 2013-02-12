@@ -409,6 +409,7 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	end;
 
 	if not base.common.Chance(chancetohit, 100) then
+		Attacker.Char:inform("Missed");
 		return false;
 	end;
 
@@ -459,6 +460,7 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	local ParrySuccess = base.common.Chance(parryChance, 100);
 
 	if ParrySuccess then
+		Attacker.Char:inform("Defender Parried");
 		LearnParry(Attacker, Defender, AP)
 		PlayParrySound(Attacker, Defender)
 		Defender.Char:performAnimation(9);
