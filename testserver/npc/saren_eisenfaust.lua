@@ -246,13 +246,13 @@ talkEntry:addCondition(npc.base.condition.item.item(23, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Arr, gut gemacht!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(23, 1, nil));
 --talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 2));
-talkEntry:addResponse("Arr, gut gemacht!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
