@@ -27,7 +27,7 @@ function InitTree()
     --11 = summer tree
 
     --Adron's Covert
-    AddTree({734,764,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);
+	AddTree({734,764,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);
 	AddTree({734,770,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);
 	AddTree({754,764,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);
 	AddTree({754,770,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);
@@ -67,7 +67,7 @@ function AddTree(Posi,dText,eText,Type,Percept)
     table.insert(signTextDe[tablePos],dText);
     table.insert(signTextEn[tablePos],eText);
     table.insert(signPerception[tablePos],Percept);
-    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Type+40));
+    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Dir));
 end
 
 
