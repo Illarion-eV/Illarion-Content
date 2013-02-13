@@ -1,8 +1,8 @@
 -- Tree Script
 -- Envi
 require("base.common")
-require("base.lookat")
 require("content.tree")
+require("base.lookat")
 
 module("item.tree", package.seeall)
 
