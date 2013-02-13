@@ -67,7 +67,7 @@ function AddTree(Posi,dText,eText,Type,Percept)
     table.insert(signTextDe[tablePos],dText);
     table.insert(signTextEn[tablePos],eText);
     table.insert(signPerception[tablePos],Percept);
-    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID((Type)));
+    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID((Type+30)));
 end
 
 
