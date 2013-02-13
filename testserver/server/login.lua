@@ -313,6 +313,9 @@ function PayOutWage(Recipient,town)
 			--If the recipient is level 1 they don't get anything. Stops abuse! - Flux
 			if isTestserver() then
 				if RecipientRk <2 then
+					base.common.HighInformNLS(Recipient,
+						"Du solltest dich bemühen, dein Ansehen in "..town.." zu steigern, damit du einen Lohn für deine Abgaben erhältst.",
+						"You should earn favour in "..town.." in order to receive rewards for your tribute.");
 					return;
 				end;
 			end;
