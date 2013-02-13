@@ -74,8 +74,8 @@ function InitWegweiser()
 	AddWeg({166,758,0},"Siranitempel","Temple of Sirani",2,0);
 
 
-    AddWeg({461,796,0},"Kapelle der Fünf, Katanbi Wüste, Westliche Katanbi Wüste, Cadomyr","Chapel of the Five, Katanbi Desert, Western Katanbi Desert, Cadomyr",4,0);
-    AddWeg({463,796,0},"Wachwald, Leuchttrum, Feuerlimes, Wichtkanal, Schlangenkopfberg, Elstree Ebene, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Runewick, Südosten","Sentry Forest, Lighthouse, Firelimes, Wight Canal, Mount Snakehead, Elstree PLain, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, Three Fingertips, Runewick, Southeast",0,0);
+    AddWeg({461,796,0},"Katanbi Wüste, Westliche Katanbi Wüste, Cadomyr","Katanbi Desert, Western Katanbi Desert, Cadomyr",6,0);
+    AddWeg({463,796,0},"Wachwald, Leuchttrum, Feuerlimes, Wichtkanal, Schlangenkopfberg, Elstree Ebene, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Runewick, Südosten","Sentry Forest, Lighthouse, Firelimes, Wight Canal, Mount Snakehead, Elstree PLain, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, Three Fingertips, Runewick, Southeast",2,0);
 
 
     AddWeg({481,794,0},"Wachstützpunkt; Leuchtturm; Galmair; Runewick","Sentry Outpost; Lighthouse; Galmair; Runewick",2,0);
