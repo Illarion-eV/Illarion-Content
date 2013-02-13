@@ -250,7 +250,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] De
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(23, 1, nil));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+--talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 2));
 talkEntry:addResponse("Arr, gut gemacht!");
 talkingNPC:addTalkingEntry(talkEntry);
