@@ -114,6 +114,7 @@ end
 	end
 	if (Character:increaseAttrib("hitpoints",0)>1000) then
 	Character:increaseAttrib("hitpoints", -1000)
+	end
 end
 
 
