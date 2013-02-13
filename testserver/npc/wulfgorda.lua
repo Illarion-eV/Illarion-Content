@@ -400,7 +400,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glowing River");
-talkEntry:addResponse("The Glowing River comes from the Border Mountains. You find the Glowing Forest and Gate, Death Swath, Fisherman's Hut, Glittering Cave, Elven Ruins, Cherass Citadel, Gate and Outpost, and Imman's Last Breath on both sides of the river.");
+talkEntry:addResponse("The Glowing River comes from the Border Mountains. You find the Glowing Forest and Gate, Death Swath, Fisherman's Hut, Glittering Cave, Elven Ruins, Cherass' Citadel, Gate and Outpost, and Imman's Last Breath on both sides of the river.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
