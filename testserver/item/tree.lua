@@ -9,6 +9,15 @@ module("item.tree", package.seeall)
 
 -- UPDATE common SET com_script='item.tree' WHERE com_itemid IN (308, 586, 1804, 1807, 1808, 1809, 1817, 960, 961, 962, 963);
 
+function UseItem(User, SourceItem, ltstate)
+    -- alchemy stuff
+	if Item.pos == position(432,238,0) then
+		alchemy.base.teacher.UseItem(User, SourceItem, ltstate)
+		return
+	end
+	-- alchemy end
+end
+
 function LookAtItem(User,Item)
     -- alchemy stuff
 	if Item.pos == position(432,238,0) then
