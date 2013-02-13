@@ -309,6 +309,14 @@ function PayOutWage(Recipient,town)
 		if tonumber(totalTaxes)>0 then
 			local baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
 			local RecipientRk=base.factions.getRankAsNumber(Recipient)
+
+			--If the recipient is level 1 they don't get anything. Stops abuse! - Flux
+			if isTestserver() then
+				if RecipientRk <2 then
+					return;
+				end;
+			end;
+
 			local RankedWage=math.ceil(RecipientRk*baseWageUnit);
 			endname="";
 			while RankedWage>0 do
