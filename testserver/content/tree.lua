@@ -25,7 +25,7 @@ function InitTree()
     -- 9 = autum tree
     --10 = spring tree
     --11 = summer tree
- 	AddTree({838,844,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 11,0);
+ 
     --Adron's Covert
 	AddTree({734,764,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);
 	AddTree({734,770,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);

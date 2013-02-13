@@ -56,7 +56,7 @@ module("triggerfield.wonderland_612", package.seeall)
 
 
 function MoveToField(Character)
-if not isTestserver() or Character:getType() ~= 0 then
+if not Character:getType() ~= 0 then
 return
 end
 --884,594,0 correct choice #6
@@ -109,7 +109,7 @@ end
 --wrong turn
 	if Character:getQuestProgress(612) == 0 then
 	Character:warp(position(900,580,0))
-	Character:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du enkommst mir nicht!\" Eine andere Stimme ruft dir erneut aus dem Nordwesten zu: \"Gib nicht auf! Du kannst es schaffen.\"","You hear laughter and a croaking voice, saying: \"HAHA! You cannot escape!\"Another voice replies again from the northwest: \"Do not give in! You can make it.\"")  
+	Character:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du enkommst mir nicht!\" Eine andere Stimme ruft dir erneut aus dem Nordwesten zu: \"Gib nicht auf! Du kannst es schaffen aber geh weg von mir.\"","You hear laughter and a croaking voice, saying: \"HAHA! You cannot escape!\"Another voice replies again from the northwest: \"Do not give in! You can make it but get away from me.\"")  
 	Character:setQuestProgress(612,0)
 	end
 	if (Character:increaseAttrib("hitpoints",0)>1000) then
