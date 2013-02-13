@@ -72,7 +72,12 @@ function InitWegweiser()
     AddWeg({253,690,0},"Königlicher Sklavenmarkt; Wüstenloch; Sternenoase","Royal Slave Market; Desert Hole; Oasis of Stars",2,0); -- <Name hier> Sandcamp -- <name here> sandcamp
     AddWeg({200,757,0},"Träne der Sirani","Tear of Sirani",6,0);
 	AddWeg({166,758,0},"Siranitempel","Temple of Sirani",2,0);
-    AddWeg({468,794,0},"Katanbiwüste; dahinter Cadomyr","Katanbi Desert; behind Cadomyr",6,0);
+
+
+    AddWeg({461,796,0},"Kapelle der Fünf, Katanbi Wüste, Westliche Katanbi Wüste, Cadomyr","Chapel of the Five, Katanbi Desert, Western Katanbi Desert, Cadomyr",4,0);
+    AddWeg({463,796,0},"Wachwald, Leuchttrum, Feuerlimes, Wichtkanal, Schlangenkopfberg, Elstree Ebene, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Runewick, Südosten","Sentry Forest, Lighthouse, Firelimes, Wight Canal, Mount Snakehead, Elstree PLain, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, Three Fingertips, Runewick, Southeast",0,0);
+
+
     AddWeg({481,794,0},"Wachstützpunkt; Leuchtturm; Galmair; Runewick","Sentry Outpost; Lighthouse; Galmair; Runewick",2,0);
     AddWeg({290,673,0},"Königlicher Sklavenmarkt","Royal Slave Market",0,0);
     AddWeg({226,646,0},"Perle der Sirani","Pearl of Sirani",0,0); -- <Name hier> Oase -- <name here> oasis
@@ -135,9 +140,12 @@ function InitWegweiser()
 
 
     --SE/Runewick-map
-    AddWeg({528,739,0},"Katanbi Wüste, Cadomyr","Katanbi Desert, Cadomyr",6,0);
+    AddWeg({528,739,0},"Kapelle der Fünf, Katanbi Wüste, Westliche Katanbi Wüste, Cadomyr","Chapel of the Five, Katanbi Desert, Western Katanbi Desert, Cadomyr",4,0);
 	AddWeg({528,737,0},"Leuchttrum, Feuerlimes, Wichtkanal, Schlangenkopfberg, Elstree Ebene, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Runewick, Südosten","Lighthouse, Firelimes, Wight Canal, Mount Snakehead, Elstree PLain, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, Three Fingertips, Runewick, Southeast",0,0);
 	AddWeg({528,738,0},"Wachwald mit Ushara Schrein, Wachaußenposten, Oldras Ecke und Gnuremgrund","Sentry Forest with Ushara's Spire, Sentry Outpost, Oldra's Corner and Gnuremground",2,0);
+    AddWeg({525,782,0},"Kapelle der Fünf, Katanbi Wüste, Westliche Katanbi Wüste, Cadomyr","Chapel of the Five, Katanbi Desert, Western Katanbi Desert, Cadomyr",6,0);
+	AddWeg({528,781,0},"Leuchttrum, Feuerlimes, Wichtkanal, Schlangenkopfberg, Elstree Ebene, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Runewick, Südosten","Lighthouse, Firelimes, Wight Canal, Mount Snakehead, Elstree PLain, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, Three Fingertips, Runewick, Southeast",0,0);
+	AddWeg({528,782,0},"Wachwald mit Ushara Schrein, Wachaußenposten, Oldras Ecke und Gnuremgrund","Sentry Forest with Ushara's Spire, Sentry Outpost, Oldra's Corner and Gnuremground",2,0);
 	AddWeg({644,715,0},"Wachstützpunkt","Sentry Outpost",0,0);
 
     AddWeg({539,530,0},"Schlangenkopfberg, Elstree Ebene, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Runewick, Südosten","Mount Snakehead, Elstree PLain, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, Three Fingertips, Runewick, Southeast",2,0);
