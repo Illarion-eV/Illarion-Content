@@ -20,11 +20,11 @@ TreeListEnglish =
 
 
 function LookAtItemIdent(User,Item)
-    local test = "no value";
-	if (first==nil) then
-        content.tree.InitTree()
-        first=1;
-    end
+    --local test = "no value";
+	--if (first==nil) then
+        --content.tree.InitTree()
+        --first=1;
+    --end
 
     -- fetching local references
     local signTextDe     = content.tree.signTextDe;
