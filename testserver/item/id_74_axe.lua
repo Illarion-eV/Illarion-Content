@@ -210,7 +210,7 @@ function preventCutting(User, theAxe, theTree)
         textInDe = "Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten." 
 		textInEn = "As you strike out, you nearly drop the hatchet. You barely keep hold of it"
 	end	
-    User:inform(textInDe, textInEn, User.highPriority)
+    User:inform(textInDe, textInEn, Character.highPriority)
 
 end
 --[[ old lists
