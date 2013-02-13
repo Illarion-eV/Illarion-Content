@@ -3,30 +3,21 @@
 require("base.common")
 require("content.tree")
 require("base.lookat")
+require("alchemy.base.teacher")
 
 module("item.tree", package.seeall)
 
 -- UPDATE common SET com_script='item.tree' WHERE com_itemid IN (308, 586, 1804, 1807, 1808, 1809, 1817, 960, 961, 962, 963);
 
-TreeListGerman = 
-{
-"PLACEHOLDER.",
-};
-
-TreeListEnglish = 
-{
-"PLACEHOLDER.",
-};
-
-
-function LookAtItemIdent(User,Item)
-    --local test = "no value";
-	--if (first==nil) then
-        --content.tree.InitTree()
-        --first=1;
-    --end
-
-    -- fetching local references
+function LookAtItem(User,Item)
+    -- alchemy stuff
+	if Item.pos == position(432,238,0) then
+		alchemy.base.teacher.LookAtItem(User, Item)
+		return
+	end
+	-- alchemy end
+	
+	-- fetching local references
     local signTextDe     = content.tree.signTextDe;
     local signTextEn     = content.tree.signTextEn;
     local signCoo        = content.tree.signCoo;
@@ -36,9 +27,8 @@ function LookAtItemIdent(User,Item)
     local lookAt = base.lookat.GenerateLookAt(User, Item)
 
     UserPer = User:increaseAttrib("perception",0);
---    tablePosition = tostring(Item.pos.x).." "..tostring(Item.pos.y).." "..tostring(Item.pos.z);
-    tablePosition = Item.pos.x .. Item.pos.y .. Item.pos.z;
-	if signCoo ~= nil then
+	tablePosition = tostring(Item.pos.x).." "..tostring(Item.pos.y).." "..tostring(Item.pos.z);
+    if signCoo ~= nil then
 		if (signCoo[tablePosition] ~= nil) then
 			for i, signpos in pairs(signCoo[tablePosition]) do
 				if (Item.pos == signpos) then
@@ -52,24 +42,6 @@ function LookAtItemIdent(User,Item)
 		end
 	end
 
-	--[[local outText = checkNoobiaSigns(User,Item.pos);
-	if outText and not found then
-		world:itemInform(User,Item,outText);
-		found = true;
-	end ]]
-
-    world:itemInform(User, Item, lookAt)
+	world:itemInform(User, Item, lookAt)
     
-    --[[if not found then
-        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(TreeListGerman))+1;
-        world:itemInform( User, Item, base.common.GetNLS(User, TreeListGerman[val], TreeListEnglish[val]) );
-	end]]-- 
-	
---		User:inform("in LookAtItem of base_wegweiser.lua");
-		--User:inform(test);
 end
---[[
-	LookAtItemIdent
-	identity of LookAtItem
-  ]]
-LookAtItem = LookAtItemIdent;
