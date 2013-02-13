@@ -23,9 +23,9 @@ function LookAtItem(User,Item)
     local signCoo        = content.tree.signCoo;
     local signItemId     = content.tree.signItemId;
     local signPerception = content.tree.signPerception;
-if isTestserver() then User:inform("debug 1") end
+
     local lookAt = base.lookat.GenerateLookAt(User, Item)
-if isTestserver() then User:inform("debug 2") end
+
     local UserPer = User:increaseAttrib("perception",0);
 	local tablePosition = tostring(Item.pos.x).." "..tostring(Item.pos.y).." "..tostring(Item.pos.z);
     if signCoo ~= nil then
