@@ -26,8 +26,8 @@ function LookAtItem(User,Item)
 
     local lookAt = base.lookat.GenerateLookAt(User, Item)
 
-    UserPer = User:increaseAttrib("perception",0);
-	tablePosition = tostring(Item.pos.x).." "..tostring(Item.pos.y).." "..tostring(Item.pos.z);
+    local UserPer = User:increaseAttrib("perception",0);
+	local tablePosition = tostring(Item.pos.x).." "..tostring(Item.pos.y).." "..tostring(Item.pos.z);
     if signCoo ~= nil then
 		if (signCoo[tablePosition] ~= nil) then
 			for i, signpos in pairs(signCoo[tablePosition]) do
