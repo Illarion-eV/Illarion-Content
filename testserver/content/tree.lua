@@ -68,7 +68,7 @@ function AddTree(Posi,dText,eText,Type,Percept)
     table.insert(signTextDe[tablePos],dText);
     table.insert(signTextEn[tablePos],eText);
     table.insert(signPerception[tablePos],Percept);
-    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Dir));
+    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID((Type)+30));
 end
 
 
@@ -94,27 +94,27 @@ end
 -- DirToItemID converts item IDs into local type values for the Add functions to work with
 
 function DirToItemID(Value)
-    if (Value==1) then
+    if (Value==31) then
         return 308
-    elseif (Value==2) then
+    elseif (Value==32) then
         return 586
-    elseif (Value==3) then
+    elseif (Value==33) then
         return 1804
-    elseif (Value==4) then
+    elseif (Value==34) then
         return 1807
-    elseif (Value==5) then
+    elseif (Value==35) then
         return 1808
-    elseif (Value==6) then
+    elseif (Value==36) then
         return 1809
-    elseif (Value==7) then
+    elseif (Value==37) then
         return 1817
-    elseif (Value==8) then
+    elseif (Value==38) then
 	return 960
-    elseif (Value==9) then
+    elseif (Value==39) then
 	return 961
-    elseif (Value==10) then
+    elseif (Value==40) then
 	return 962
-    elseif (Value==11) then
+    elseif (Value==41) then
 	return 963
 	end
 end
