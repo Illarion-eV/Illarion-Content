@@ -153,6 +153,9 @@ function InitPennant()
     AddPennant({258,419,0},"","", 3,5);
     AddPennant({260,419,0},"","", 3,5);
 	AddPennant({261,419,0},"","", 1,5);]]--
+	--Katanbi Desert
+    AddPennant({194,511,0},"Südliche Bach Siedlung - verloren","Southern Creek Settlement - lost",1,0);
+    AddPennant({172,460,0},"Nördliche Bach Siedlung - auch verloren","Northern Creek Settlement - lost too",1,0);
 	--Moshran's Brood
     AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
     AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
@@ -215,10 +218,10 @@ function InitPennant()
     AddPennant({100,773,0},"Königlicher Hafen","Royal Harbour",1,0);
     AddPennant({106,773,0},"Königlicher Hafen","Royal Harbour",1,0);
     AddPennant({199,645,0},"Milchhaus","Milkhouse",1,0);
-    AddPennant({213,646,0},"Katanbi Bridge - Eigentum von Cadomyr ","Katanbi Bridge - Cadomyr property",2,0);
-    AddPennant({213,649,0},"Katanbi Bridge - Eigentum von Cadomyr ","Katanbi Bridge - Cadomyr property",2,0);
-    AddPennant({218,646,0},"Katanbi Bridge - Eigentum von Cadomyr ","Katanbi Bridge - Cadomyr property",2,0);
-    AddPennant({218,649,0},"Katanbi Bridge - Eigentum von Cadomyr ","Katanbi Bridge - Cadomyr property",2,0);
+    AddPennant({213,646,0},"Katanbi Bridge - Eigentum von Cadomyr","Katanbi Bridge - Cadomyr property",2,0);
+    AddPennant({213,649,0},"Katanbi Bridge - Eigentum von Cadomyr","Katanbi Bridge - Cadomyr property",2,0);
+    AddPennant({218,646,0},"Katanbi Bridge - Eigentum von Cadomyr","Katanbi Bridge - Cadomyr property",2,0);
+    AddPennant({218,649,0},"Katanbi Bridge - Eigentum von Cadomyr","Katanbi Bridge - Cadomyr property",2,0);
 end
 
 
