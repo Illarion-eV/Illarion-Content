@@ -220,7 +220,7 @@ function UseItem(User, SourceItem, ltstate)
       local cbTestMsg=function(dialog)
         User:inform("in callback");
       end
-      local d = MessageDialog("title", "some text", cbTestMsg);
+      local d = MessageDialog("title", "some text", nil);
       
       User:requestMessageDialog(d);
     end -- choice indices
