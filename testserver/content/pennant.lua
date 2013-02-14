@@ -158,6 +158,8 @@ function InitPennant()
     AddPennant({172,460,0},"Nördliche Bach Siedlung - auch verloren","Northern Creek Settlement - lost too",1,0);
     AddPennant({234,444,0},"Hammerfall - Herrschaft des Dwyn Axtblatt","Hammerfall - Reign of Dwyn Axtblatt",1,0);
     AddPennant({238,444,0},"Hammerfall - Herrschaft des Dwyn Axtblatt","Hammerfall - Reign of Dwyn Axtblatt",1,0);
+    AddPennant({211,444,0},"Hammerfall - Herrschaft des Dwyn Axtblatt","Hammerfall - Reign of Dwyn Axtblatt",1,0);
+    AddPennant({214,444,0},"Hammerfall - Herrschaft des Dwyn Axtblatt","Hammerfall - Reign of Dwyn Axtblatt",1,0);
 	--Moshran's Brood
     AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
     AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);

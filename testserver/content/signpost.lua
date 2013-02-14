@@ -54,6 +54,7 @@ function InitWegweiser()
     AddWeg({167,622,0},"Freiheitsbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
     AddWeg({207,561,0},"Grugmutzs Höhle","Grugmutz's cave",6,0); 
     AddWeg({193,430,0},"Festung Hammerfall","Fortress Hammerfall",0,0);
+    AddWeg({210,430,0},"Festung Hammerfall","Fortress Hammerfall",6,0);
     AddWeg({235,425,0},"Festung Hammerfall","Fortress Hammerfall",6,0);
     AddWeg({241,428,0},"Hammerfall Mine","Mine of Hammerfall",2,0);
 
