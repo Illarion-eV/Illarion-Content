@@ -58,9 +58,11 @@ function InitPennant()
     AddPennant({90,562,0},"Villa Reginald","Villa Reginald",1,0);
     AddPennant({92,606,0},"Villa Edward","Villa Edward",1,0);
     AddPennant({93,614,0},"Villa Rosaline","Villa Rosaline",2,0);
+    AddPennant({135,630,0},"Quartiermeisters Laden","Quartermaster's Store",2,0);
     AddPennant({139,631,0},"Eselstall","Donkey stable",1,0);
     AddPennant({135,636,1},"Stadtsaal","Civic Hall",1,0);
     AddPennant({129,622,1},"Stadtsaal","Civic Hall",2,0);
+    AddPennant({78,623,0},"Wachstube","Guard room",2,0);
 
     AddPennant({121,519,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
 	AddPennant({122,519,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
