@@ -53,6 +53,7 @@ function InitPennant()
     AddPennant({126,611,0},"Marktplatz","Marketplace",1,0);
     AddPennant({129,563,0},"Zhambratempel","Temple of Zhambra",2,0);
     AddPennant({114,588,0},"Taverne 'Einhörniger Löwe'","Tavern 'Unicorn Lion'",1,0);
+    AddPennant({87,586,0},"Gasthaus 'Seeufer'","Inn 'Lakeshore'",1,0);
 
     AddPennant({121,519,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
 	AddPennant({122,519,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
