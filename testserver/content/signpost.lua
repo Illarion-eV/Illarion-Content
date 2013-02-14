@@ -35,7 +35,7 @@ function InitWegweiser()
 
 
     
-AddWeg({116,589,0},"Taverne 'Einhörniger Löwe'","Tavern 'Unicorn Lion'",0,0);
+
     AddWeg({91,586,0},"Gasthaus 'Seeufer'","Inn 'Lakeshore'",0,0);
     AddWeg({123,566,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
     AddWeg({120,566,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
