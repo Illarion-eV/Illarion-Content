@@ -48,16 +48,17 @@ function InitWegweiser()
     AddWeg({119,733,0},"Händlers Unsinn","Merchants' Folly",2,0);
     AddWeg({121,750,0},"Königlicher Hafen, Westliches Ufer des Katanbi Delta","Royal Harbour, Western shore of Katanbi Delta",4,0);
 
-	AddWeg({114,659,0},"Katanbi Desert, Freiheitsbruch, Arena, Gladiatoren, Sklavenmarkt, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Liberty Quarry, Arena, Gladiatorium, Slave Market, Chapel of the Five, Galmair, North, Three Fingertips, Runewick, Southeast",2,0);
+	AddWeg({114,659,0},"Katanbi Desert, Freiheitsbruch, Arena, Gladiatoren, Sklavenmarkt, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Liberty Quarry, Arena, Gladiatorium, Slave Market, Chapel of the Five, Galmair, North, Runewick, Southeast",2,0);
 
     AddWeg({174,639,0},"Freiheitsbruch, Grugmutzs Höhle","Liberty Quarry, Grugmutz's cave",0,0); --<copper/gold/iron mine>
     AddWeg({167,622,0},"Freiheitsbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
     AddWeg({207,561,0},"Grugmutzs Höhle","Grugmutz's cave",6,0); -- <Name hier> Ogerversteck -- <name here> ogre hideout
 
-    AddWeg({174,641,0},"Freiheitsbruch, Grugmutzs Höhle","Liberty Quarry, Grugmutz's cave",2,0);
+    AddWeg({174,641,0},"Katanbi Desert, Freiheitsbruch, Arena, Gladiatoren, Sklavenmarkt, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Liberty Quarry, Arena, Gladiatorium, Slave Market, Chapel of the Five, Galmair, North, Runewick, Southeast",2,0);
+    AddWeg({219,646,0},"Cadomyr","Cadomyr",6,0);
 
 
-    AddWeg({219,646,0},"Katanbi Brücke; dahinter Cadomyr","Katanbi Bridge; behind Cadomyr",6,0);
+
     AddWeg({245,685,0},"Die Blutkreisarena","The Blood Circle Arena",0,0); -- <Name hier> Arena -- <name here> arena
     AddWeg({235,686,0},"Für Ehre kämpfen wir, in Blut sterben wir! Die Königliche Akademie der Gladiatoren","For honour we fight, in blood we die! The Royal Academy of Gladiators",4,0); -- <Name hier> Gladiatorschule -- <name here> gladiatorschool
     AddWeg({244,556,0},"Perle der Sirani","Pearl of Sirani",0,0); -- <Name hier> Oase -- <name here> oasis

@@ -215,6 +215,10 @@ function InitPennant()
     AddPennant({100,773,0},"Königlicher Hafen","Royal Harbour",1,0);
     AddPennant({106,773,0},"Königlicher Hafen","Royal Harbour",1,0);
     AddPennant({199,645,0},"Milchhaus","Milkhouse",1,0);
+    AddPennant({213,646,0},"Katanbi Bridge - Eigentum von Cadomyr ","Katanbi Bridge - Cadomyr property",2,0);
+    AddPennant({213,648,0},"Katanbi Bridge - Eigentum von Cadomyr ","Katanbi Bridge - Cadomyr property",2,0);
+    AddPennant({218,646,0},"Katanbi Bridge - Eigentum von Cadomyr ","Katanbi Bridge - Cadomyr property",2,0);
+    AddPennant({218,648,0},"Katanbi Bridge - Eigentum von Cadomyr ","Katanbi Bridge - Cadomyr property",2,0);
 end
 
 
