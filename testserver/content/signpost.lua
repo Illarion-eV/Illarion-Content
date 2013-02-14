@@ -37,11 +37,11 @@ function InitWegweiser()
 
     AddWeg({110,659,0},"Kap des Abschieds, Fabers Wache, Entfernte Wohnstätte, Piratenbucht","Cape Farewell, Faber's Guardhouse, Remote Dwelling, Pirate cove",6,0);
     AddWeg({42,634,0},"Entfernte Wohnstätte, Piratenbucht","Remote Dwelling, Pirate Cove",0,0); 
-    AddWeg({47,645},"Fabers Wache","Faber's Guardhouse",6,0);
+    AddWeg({47,645,0},"Fabers Wache","Faber's Guardhouse",6,0);
     AddWeg({81,660,0},"Kap des Abschieds","Cape Farewell",4,0);
     AddWeg({68,684,0},"Kap des Abschieds","Cape Farewell",6,0);
 
-	AddWeg({112,659,0},"Grundstein der Aufrichtigkeit, Malachíntempel, Rosaline-Kubus, Cadomyr Hafen, Katanbi Delta","Cornerstone of Candour, Temple of Malachín, Rosaline Cube, Cadomyr Harbour, Katanbi Delta",4,0);
+    AddWeg({112,659,0},"Grundstein der Aufrichtigkeit, Malachíntempel, Rosaline-Kubus, Cadomyr Hafen, Katanbi Delta","Cornerstone of Candour, Temple of Malachín, Rosaline Cube, Cadomyr Harbour, Katanbi Delta",4,0);
     AddWeg({129,699,0},"Grundstein der Aufrichtigkeit; darüber Malachintempel","Cornerstone of Candour; Temple of Malachin is above",2,0);  --<coal mine>
     AddWeg({145,694,1},"Malachíntempel","Temple of Malachín",0,0);
     AddWeg({115,715,0},"Rosaline-Kubus","Rosaline Cube",6,0); -- <Name hier> Pyramide der Königin -- <name here> pyramid of the queen
