@@ -43,7 +43,7 @@ function InitPennant()
     AddPennant({196,475,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
     AddPennant({196,479,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
     AddPennant({196,483,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
-    AddPennant({196,487,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,487,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
     AddPennant({201,483,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
     AddPennant({200,487,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
     AddPennant({204,487,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
