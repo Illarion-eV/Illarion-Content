@@ -214,7 +214,7 @@ function InitPennant()
     AddPennant({107,695,0},"Berg Siba","Mount Siba", 7,0);
     AddPennant({100,773,0},"Königlicher Hafen","Royal Harbour",1,0);
     AddPennant({106,773,0},"Königlicher Hafen","Royal Harbour",1,0);
-
+    AddPennant({199,645,0},"Milchhaus","Milkhouse",1,0);
 end
 
 

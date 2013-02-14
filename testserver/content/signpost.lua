@@ -44,17 +44,17 @@ function InitWegweiser()
     AddWeg({112,659,0},"Grundstein der Aufrichtigkeit, Malachíntempel, Rosaline-Kubus, Cadomyr Hafen, Katanbi Delta","Cornerstone of Candour, Temple of Malachín, Rosaline Cube, Cadomyr Harbour, Katanbi Delta",4,0);
     AddWeg({129,699,0},"Grundstein der Aufrichtigkeit; darüber Malachintempel","Cornerstone of Candour; Temple of Malachin is above",2,0);  --<coal mine>
     AddWeg({145,694,1},"Malachíntempel","Temple of Malachín",0,0);
-    AddWeg({115,715,0},"Rosaline-Kubus","Rosaline Cube",6,0); -- <Name hier> Pyramide der Königin -- <name here> pyramid of the queen
-
-
+    AddWeg({115,715,0},"Rosaline-Kubus, Königliche Gruft","Rosaline Cube, Royal Tomb",6,0); -- <Name hier> Pyramide der Königin -- <name here> pyramid of the queen
+    AddWeg({119,733,0},"Händlers Unsinn","Merchants' Folly",2,0);
+    AddWeg({121,750,0},"Königlicher Hafen, Westliches Ufer des Katanbi Delta","Royal Harbour, Western shore of Katanbi Delta",4,0);
 
 	AddWeg({114,659,0},"Katanbi Desert, Freiheitsbruch, Arena, Gladiatoren, Sklavenmarkt, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Liberty Quarry, Arena, Gladiatorium, Slave Market, Chapel of the Five, Galmair, North, Three Fingertips, Runewick, Southeast",2,0);
 
-    AddWeg({167,622,0},"Freiheitsbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
     AddWeg({174,639,0},"Freiheitsbruch, Grugmutzs Höhle","Liberty Quarry, Grugmutz's cave",0,0); --<copper/gold/iron mine>
+    AddWeg({167,622,0},"Freiheitsbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
     AddWeg({207,561,0},"Grugmutzs Höhle","Grugmutz's cave",6,0); -- <Name hier> Ogerversteck -- <name here> ogre hideout
 
-
+    AddWeg({174,641,0},"Freiheitsbruch, Grugmutzs Höhle","Liberty Quarry, Grugmutz's cave",2,0);
 
 
     AddWeg({219,646,0},"Katanbi Brücke; dahinter Cadomyr","Katanbi Bridge; behind Cadomyr",6,0);
