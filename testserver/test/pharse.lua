@@ -39,7 +39,8 @@ function UseItem(User, SourceItem, ltstate)
     "Get/Set skill",
     "Heal yourself",
     "Get/Set faction values for ...",
-    "Get/Set guard modes"
+    "Get/Set guard modes",
+    "Test"
   };
   local cbWhatYouWant = function (dialog)
     if (not dialog:getSuccess()) then
@@ -215,6 +216,12 @@ function UseItem(User, SourceItem, ltstate)
         sd:addOption(0,base.factions.getTownNameByID(f));
       end
       User:requestSelectionDialog(sd);
+    elseif (ind == 5) then -- test
+      local d = MessageDialog("title", "some text", cbTestMsg);
+      local cbTestMsg=function(dialog)
+        User:inform("in callback");
+      end
+      User:requestMessageDialog(d);
     end -- choice indices
   end -- what you want
   local sd = SelectionDialog("Pharse's test item", "What do you want to do?", cbWhatYouWant);
