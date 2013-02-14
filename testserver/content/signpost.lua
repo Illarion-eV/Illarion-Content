@@ -44,7 +44,7 @@ function InitWegweiser()
 	AddWeg({112,659,0},"Grundstein der Aufrichtigkeit, Malachíntempel, Rosaline-Kubus, Cadomyr Hafen, Katanbi Delta","Cornerstone of Candour, Temple of Malachín, Rosaline Cube, Cadomyr Harbour, Katanbi Delta",4,0);
     AddWeg({129,699,0},"Grundstein der Aufrichtigkeit; darüber Malachintempel","Cornerstone of Candour; Temple of Malachin is above",2,0);  --<coal mine>
     AddWeg({145,694,1},"Malachíntempel","Temple of Malachín",0,0);
-    AddWeg({115,713,0},"Rosaline-Kubus","Rosaline Cube",6,0); -- <Name hier> Pyramide der Königin -- <name here> pyramid of the queen
+    AddWeg({115,715,0},"Rosaline-Kubus","Rosaline Cube",6,0); -- <Name hier> Pyramide der Königin -- <name here> pyramid of the queen
 
 
 
