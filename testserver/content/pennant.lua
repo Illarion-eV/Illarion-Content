@@ -30,23 +30,23 @@ function InitPennant()
     AddPennant({41,634,0},"","", 7,5);
     --Antil Brook
     AddPennant({773,770,0},"","", 7,5);
-    AddPennant({775,770,0},"","", 7,5);
+    AddPennant({775,770,0},"","", 7,5);]]--
 	--Buccaneers Lurk
-    AddPennant({214,462,0},"","", 4,5);
-    AddPennant({210,462,0},"","", 4,5);
-    AddPennant({205,462,0},"","", 4,5);
-    AddPennant({200,462,0},"","", 4,5);
-    AddPennant({196,463,0},"","", 6,5);
-    AddPennant({196,467,0},"","", 6,5);
-    AddPennant({201,468,0},"","", 7,5);
-    AddPennant({196,471,0},"","", 6,5);
-    AddPennant({196,475,0},"","", 6,5);
-    AddPennant({196,479,0},"","", 6,5);
-    AddPennant({196,483,0},"","", 6,5);
-    AddPennant({196,487,0},"","", 6,5);
-    AddPennant({201,483,0},"","", 7,5);
-    AddPennant({200,487,0},"","", 7,5);
-    AddPennant({204,487,0},"","", 7,5);]]--
+    AddPennant({214,462,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 4,5);
+    AddPennant({210,462,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 4,5);
+    AddPennant({205,462,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 4,5);
+    AddPennant({200,462,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 4,5);
+    AddPennant({196,463,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,467,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({201,468,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
+    AddPennant({196,471,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,475,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,479,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,483,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,487,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({201,483,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
+    AddPennant({200,487,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
+    AddPennant({204,487,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
     --Cadomyr
     AddPennant({129,581,0},"Werkstatt","Workshop",1,0);
     AddPennant({134,585,0},"Werkstatt","Workshop",2,0);
