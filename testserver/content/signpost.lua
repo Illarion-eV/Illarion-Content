@@ -29,20 +29,23 @@ function InitWegweiser()
     AddWeg({30,102,100},"[Tutorial] Dies ist der Weg nach Runewick, dem Reich der Weisheit und Magie.","[Tutorial] This is the way to Runewick, realm of wisdom and magic.",6,0);	
 	
 	--SW/Cadomyr map
+	AddWeg({87,642,0},"Cadomyr","Cadomyr",0,0);
+    AddWeg({137,633,0},"Cadomyr","Cadomyr",0,0);
+
+
+    AddWeg({129,581,0},"Werkstatt","Workshop",0,0);
+    
+AddWeg({116,589,0},"Taverne 'Einhörniger Löwe'","Tavern 'Unicorn Lion'",0,0);
+    AddWeg({91,586,0},"Gasthaus 'Seeufer'","Inn 'Lakeshore'",0,0);
+    AddWeg({123,568,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
+    AddWeg({120,568,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
+    AddWeg({129,563,0},"Zhambratempel","Temple of Zhambra",2,0);
+
     AddWeg({42,634,0},"Piratenbucht","Pirate Cove",0,0); -- <Name hier> Piratenbucht -- <name here> pirate cove
     AddWeg({50,640,0},"Fabers Wache","Faber's Guardhouse",6,0); -- <Name hier> Zerstörter Außenposten -- <name here> ruin of a outpost
     AddWeg({110,659,0},"Kap des Abschieds; Fabers Wache","Cape Farewell; Faber's Guardhouse",6,0);
 	AddWeg({112,659,0},"Grundstein der Aufrichtigkeit; Malachíntempel; Rosaline-Kubus; Hafen","Cornerstone of Candour; Temple of Malachín; Rosaline Cube; Harbour",4,0);
 	AddWeg({114,659,0},"Katanbi Desert; Freiheitsbruch; Arena; Gladiatoren; Sklavenmarkt; Galmair; Runewick","Katanbi Desert; Liberty Quarry; Arena; Gladiatorium; Slave Market; Galmair; Runewick",2,0);
-	AddWeg({87,642,0},"Cadomyr","Cadomyr",0,0);
-    AddWeg({137,633,0},"Cadomyr","Cadomyr",0,0);
-    AddWeg({126,611,0},"Marktplatz","Marketplace",0,0);
-    AddWeg({130,583,0},"Werkstatt","Workshop",0,0);
-    AddWeg({116,589,0},"Taverne 'Einhörniger Löwe'","Tavern 'Unicorn Lion'",0,0);
-    AddWeg({91,586,0},"Gasthaus 'Seeufer'","Inn 'Lakeshore'",0,0);
-    AddWeg({123,568,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
-    AddWeg({120,568,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
-    AddWeg({129,563,0},"Zhambratempel","Temple of Zhambra",2,0);
     AddWeg({129,699,0},"Grundstein der Aufrichtigkeit; darüber Malachintempel","Cornerstone of Candour; Temple of Malachin is above",2,0);  --<coal mine>
     AddWeg({176,612,0},"Freiheitsbruch","Liberty Quarry",6,0); --<copper/gold/iron mine>
     AddWeg({174,635,0},"Freiheitsbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
