@@ -311,24 +311,22 @@ function PayOutWage(Recipient,town)
 			local RecipientRk=base.factions.getRankAsNumber(Recipient)
 
 			--If the recipient is level 1 they don't get anything. Stops abuse! - Flux
-			if isTestserver() then
-				if RecipientRk <2 then
+			if RecipientRk <2 then
 
-					local infText = base.common.GetNLS(Recipient, 
-	                    "Du solltest dich bemühen, dein Ansehen in "..town.." zu steigern, damit du einen Lohn für deine Abgaben erhältst.",
-						"You should earn favour in "..town.." in order to receive rewards for your tribute.");
-					local title = base.common.GetNLS(Recipient,"Belohnung","Gratification")
+				local infText = base.common.GetNLS(Recipient, 
+	                "Du solltest dich bemühen, dein Ansehen in "..town.." zu steigern, damit du einen Lohn für deine Abgaben erhältst.",
+					"You should earn favour in "..town.." in order to receive rewards for your tribute.");
+				local title = base.common.GetNLS(Recipient,"Belohnung","Gratification")
 	
-					local dialog=MessageDialog(title,infText,closeTrib);
+				local dialog=MessageDialog(title,infText,closeTrib);
 			
-					local closeTrib=function(onClose)
+				local closeTrib=function(onClose)
 
-					end
+				end
 
-					Recipient:requestMessageDialog(dialog);
+				Recipient:requestMessageDialog(dialog);
 
-					return;
-				end;
+				return;
 			end;
 
 			local RankedWage=math.ceil(RecipientRk*baseWageUnit);
