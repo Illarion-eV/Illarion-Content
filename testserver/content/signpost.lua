@@ -33,13 +33,13 @@ function InitWegweiser()
     AddWeg({137,633,0},"Cadomyr","Cadomyr",0,0);
 
 
-    AddWeg({129,581,0},"Werkstatt","Workshop",0,0);
+
     
 AddWeg({116,589,0},"Taverne 'Einhörniger Löwe'","Tavern 'Unicorn Lion'",0,0);
     AddWeg({91,586,0},"Gasthaus 'Seeufer'","Inn 'Lakeshore'",0,0);
-    AddWeg({123,568,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
-    AddWeg({120,568,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
-    AddWeg({129,563,0},"Zhambratempel","Temple of Zhambra",2,0);
+    AddWeg({123,566,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
+    AddWeg({120,566,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
+
 
     AddWeg({42,634,0},"Piratenbucht","Pirate Cove",0,0); -- <Name hier> Piratenbucht -- <name here> pirate cove
     AddWeg({50,640,0},"Fabers Wache","Faber's Guardhouse",6,0); -- <Name hier> Zerstörter Außenposten -- <name here> ruin of a outpost

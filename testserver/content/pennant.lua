@@ -48,7 +48,9 @@ function InitPennant()
     AddPennant({200,487,0},"","", 7,5);
     AddPennant({204,487,0},"","", 7,5);]]--
     --Cadomyr
+    AddPennant({129,581,0},"Werkstatt","Workshop",1,0);
     AddPennant({126,611,0},"Marktplatz","Marketplace",1,0);
+    AddPennant({129,563,0},"Zhambratempel","Temple of Zhambra",2,0);
     AddPennant({121,519,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
 	AddPennant({122,519,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
     AddPennant({123,519,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
