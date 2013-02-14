@@ -50,7 +50,7 @@ function InitWegweiser()
 
 	AddWeg({114,659,0},"Katanbi Desert, Freiheitsbruch, Arena, Gladiatoren, Sklavenmarkt, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Liberty Quarry, Arena, Gladiatorium, Slave Market, Chapel of the Five, Galmair, North, Runewick, Southeast",2,0);
 
-    AddWeg({174,639,0},"Freiheitsbruch, Grugmutzs Höhle, Bach Siedlung, Festung Hammerfall","Liberty Quarry, Grugmutz's cave, Creek Settlement, Fortress Hammerfall",0,0); --<copper/gold/iron mine>
+    AddWeg({174,639,0},"Freiheitsbruch, Grugmutzs Höhle, Bach Siedlung, Festung Hammerfall, Einsame Berge","Liberty Quarry, Grugmutz's cave, Creek Settlement, Fortress Hammerfall, Lonly Mountains",0,0); --<copper/gold/iron mine>
     AddWeg({167,622,0},"Freiheitsbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
     AddWeg({207,561,0},"Grugmutzs Höhle","Grugmutz's cave",6,0); 
     AddWeg({193,430,0},"Festung Hammerfall","Fortress Hammerfall",0,0);
@@ -58,9 +58,10 @@ function InitWegweiser()
     AddWeg({235,425,0},"Festung Hammerfall","Fortress Hammerfall",6,0);
     AddWeg({241,428,0},"Hammerfall Mine","Mine of Hammerfall",2,0);
 
-    AddWeg({174,641,0},"Katanbi Desert, Freiheitsbruch, Arena, Gladiatoren, Sklavenmarkt, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Liberty Quarry, Arena, Gladiatorium, Slave Market, Chapel of the Five, Galmair, North, Runewick, Southeast",2,0);
+    AddWeg({174,641,0},"Katanbi Desert, Arena, Gladiatoren, Sklavenmarkt, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Arena, Gladiatorium, Slave Market, Chapel of the Five, Galmair, North, Runewick, Southeast",2,0);
     AddWeg({219,646,0},"Cadomyr","Cadomyr",6,0);
-
+    AddWeg({224,644,0},"Pyramide der Zwietracht, Perle der Sirani, Neidbach, Königins Eck, Berg Zotmore","Pyramid of Discord, Pearl of Sirani, Envy Creek, Queen's Corner, Mount Zotmore",0,0); -- <Name hier> Oase -- <name here> oasis
+    AddWeg({226,646,0},"Arena, Gladiatoren, Sklavenmarkt, Katanbi Delta, Berg Letma, Schattenland, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Arena, Gladiatorium, Slave Market, Katanbi Delta, Mount Letma, Shadowland, Border Mountains, Chapel of the Five, Galmair, North, Runewick, Southeast",0,0); -- <Name hier> Oase -- <name here> oasis
 
 
     AddWeg({245,685,0},"Die Blutkreisarena","The Blood Circle Arena",0,0); -- <Name hier> Arena -- <name here> arena
@@ -91,8 +92,7 @@ function InitWegweiser()
 
     AddWeg({481,794,0},"Wachstützpunkt; Leuchtturm; Galmair; Runewick","Sentry Outpost; Lighthouse; Galmair; Runewick",2,0);
     AddWeg({290,673,0},"Königlicher Sklavenmarkt","Royal Slave Market",0,0);
-    AddWeg({226,646,0},"Perle der Sirani","Pearl of Sirani",0,0); -- <Name hier> Oase -- <name here> oasis
-    AddWeg({109,771,0},"Cadomyr Hafen","Cadomyr Harbour",4,0);
+
 
 
 
