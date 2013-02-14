@@ -217,10 +217,11 @@ function UseItem(User, SourceItem, ltstate)
       end
       User:requestSelectionDialog(sd);
     elseif (ind == 5) then -- test
-      local d = MessageDialog("title", "some text", cbTestMsg);
       local cbTestMsg=function(dialog)
         User:inform("in callback");
       end
+      local d = MessageDialog("title", "some text", cbTestMsg);
+      
       User:requestMessageDialog(d);
     end -- choice indices
   end -- what you want
