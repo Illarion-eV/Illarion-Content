@@ -18,12 +18,20 @@ function QuestTargets(user, status)
     if status == 1 then
         return position(5, 5, 0)
     elseif status == 2 then
-        return {position(5, 10, 0), position(3, 10, 0)}
+        return {position(5, 10, 0), position(3, 10, 0), {3, 1, 3}}
     elseif status == 3 then
         return {}
     elseif status == 4 then
         return nil
     elseif status == 5 then
+        return {1, 2, 3}
+    elseif status == 6 then
+        return "bla"
+    elseif status == 7 then
+        return {"bla"}
+    elseif status == 8 then
+        return {{3, 1, 3}, "bla", position(3, 10, 0)}
+    elseif status == 9 then
         -- ILLEGAL, do NOT set quest progress in quest entrypoints
         user:setQuestProgress(12344, 1);
     end

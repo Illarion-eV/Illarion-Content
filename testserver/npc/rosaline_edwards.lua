@@ -554,7 +554,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 13));
-talkEntry:addCondition(npc.base.condition.item.item(225, "all", ">", 0, {["descriptionEn"] = "This crown belongs to Rosaline Edwarts."}));
+talkEntry:addCondition(npc.base.condition.item.item(225, "all", ">", 0, {["descriptionEn"] = "This crown belongs to Rosaline Edwards."}));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zassaria");
 talkEntry:addTrigger("lizard");
@@ -563,14 +563,15 @@ talkEntry:addTrigger("missing");
 talkEntry:addTrigger("belong");
 talkEntry:addTrigger("porperty");
 talkEntry:addTrigger("riverbank");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(225, 1, {["descriptionEn"] = "This crown belongs to Rosaline Edwards."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 14));
-talkEntry:addResponse("What? This is not my crown! Can't you read? It says Rosaline Edwarts spelled with t. This is not my name! This was not a good joke, and I am not in the mood for jokes. You may leave. Now!");
+talkEntry:addResponse("What? Oh, thank you for returning my extra crown. I don't know how it got all the way to Runewick. You may leave now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 13));
-talkEntry:addCondition(npc.base.condition.item.item(225, "all", ">", 0, {["descriptionEn"] = "This crown belongs to Rosaline Edwarts."}));
+talkEntry:addCondition(npc.base.condition.item.item(225, "all", ">", 0, {["descriptionDe"] = "Diese Krone gehört Rosaline Edwards."}));
 talkEntry:addTrigger("Zassaria");
 talkEntry:addTrigger("Echsenmensch");
 talkEntry:addTrigger("Krone");
@@ -578,8 +579,9 @@ talkEntry:addTrigger("verloren");
 talkEntry:addTrigger("gehören");
 talkEntry:addTrigger("Eigentum");
 talkEntry:addTrigger("riverbank");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(225, 1, {["descriptionDe"] = "Diese Krone gehört Rosaline Edwards."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 14));
-talkEntry:addResponse("Was? Dies ist nicht meine Krone! Kannst du nicht lesen? Da steht Rosaline Edwarts mit t. Das ist nicht mein Name! Dies ist ein schlechter Scherz, und mir ist nicht zum Schrzen zu mute. Ihr könnt gehen. Jetzt!");
+talkEntry:addResponse("Was? Oh, danke das Ihr meine Ersatzkrone zurückbringt. Ich weiß nicht wie sie bis nach Runewick gekommen ist. Ihr könnt jetzt gehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

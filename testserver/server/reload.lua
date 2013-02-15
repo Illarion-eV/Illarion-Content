@@ -10,6 +10,7 @@ require("content.gods")
 require("item.lever")
 require("content.areas")
 require("alchemy.base.alchemy")
+require("content.tree")
 
 module("server.reload", package.seeall)
 
@@ -20,6 +21,7 @@ function onReload()
     --initExplorerStones();
     initAltars();
     content.signpost.InitWegweiser();
+	content.tree.InitTree()
 	initNoobia();
 	initTreasureChests();
     alchemy.base.alchemy.InitAlchemy();

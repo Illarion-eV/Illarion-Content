@@ -309,6 +309,26 @@ function PayOutWage(Recipient,town)
 		if tonumber(totalTaxes)>0 then
 			local baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
 			local RecipientRk=base.factions.getRankAsNumber(Recipient)
+
+			--If the recipient is level 1 they don't get anything. Stops abuse! - Flux
+			if RecipientRk <2 then
+
+				local infText = base.common.GetNLS(Recipient, 
+	                "Du solltest dich bemühen, dein Ansehen in "..town.." zu steigern, damit du einen Lohn für deine Abgaben erhältst.",
+					"You should earn favour in "..town.." in order to receive rewards for your tribute.");
+				local title = base.common.GetNLS(Recipient,"Belohnung","Gratification")
+	
+				local dialog=MessageDialog(title,infText,closeTrib);
+			
+				local closeTrib=function(onClose)
+
+				end
+
+				Recipient:requestMessageDialog(dialog);
+
+				return;
+			end;
+
 			local RankedWage=math.ceil(RecipientRk*baseWageUnit);
 			endname="";
 			while RankedWage>0 do

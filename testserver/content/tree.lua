@@ -25,9 +25,9 @@ function InitTree()
     -- 9 = autum tree
     --10 = spring tree
     --11 = summer tree
-
+ 
     --Adron's Covert
-    AddTree({734,764,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);
+	AddTree({734,764,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);
 	AddTree({734,770,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);
 	AddTree({754,764,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);
 	AddTree({754,770,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);
@@ -45,8 +45,8 @@ function InitTree()
 	AddTree({653,681,0},"Ein sehr alt wirkender Baum, welcher alle Art von Früchten trägt, und dessen Zweige bis zur Sonne reichen.","A very old looking tree carries all kinds of fruit and leaves and almost reaches the sun with it's branches.", 6,0);
 	--Runewick Hinterland
 	--AddTree({853,778,0},"","", 9,5); --Holy Oak
-    AddTree({842,850,0},"Ein sehr alt wirkender Baum, welcher alle Art von Früchten trägt, und dessen Zweige bis zur Sonne reichen.","A very old looking tree carries all kinds of fruit and leaves and almost reaches the sun with it's branches.", 6,0); --Oldra's Column
-    AddTree({840,842,0},"Der Baum trägt eine Eingravierung welche eine stärkere, ältere Frau durch einen Garten gehend zeigt, gefolgt von mehreren Tieren, verschiedenster Art.","The tree bears an engraving which shows a stout, elderly woman walking through a garden, followed by several animals of different kinds.", 6,5); --Oldra's Column
+    AddTree({842,850,0},"Ein sehr alt wirkender Baum, welcher alle Art von Früchten trägt, und dessen Zweige bis zur Sonne reichen.","A very old looking tree carries all kinds of fruit and leaves and almost reaches the sun with it's branches.", 8,0); --Oldra's Column
+    AddTree({840,842,0},"Der Baum trägt eine Eingravierung welche eine stärkere, ältere Frau durch einen Garten gehend zeigt, gefolgt von mehreren Tieren, verschiedenster Art.","The tree bears an engraving which shows a stout, elderly woman walking through a garden, followed by several animals of different kinds.", 11,5); --Oldra's Column
 	AddTree({834,843,0},"Der Baum enthält eine Gravur ~Wenn wir sterben, werden wir zu einem prachtvollen Gartentor gebracht, und wenn wir gut waren dürfen wir an diesem wunderbaren Ort leben und treffen dort all unsere Freunde wieder.~","The tree bears an engraving ~When we die, we will be brought to a big garden gate. Oldra stands at this gate, welcomes us, and if we have been good, we can enjoy the wonders of the never ending garden, meeting old and new friends in it.~", 2,5); --Oldra's Column
 	AddTree({839,850,0},"Der Baum enthält eine Gravur ~Wenn wir sterben, werden wir zu einem prachtvollen Gartentor gebracht, und wenn wir gefehlt haben, wird uns eine Rast gestattet, dann werden wir unter neuem Namen wiedergeboren, um es besser zu machen.~","The tree bears an engraving ~When we die, we will be brought to a big garden gate. Oldra stands at this gate, welcomes us, and if we have failed, we are allowed a rest before we are sent back to be reborn with a new name to make good use of our life.~", 7,5); --Oldra's Column
 	--Snakehead Coast
@@ -61,13 +61,13 @@ function InitTree()
 end
 
 function AddTree(Posi,dText,eText,Type,Percept)
-    local tablePos = Posi[1]..Posi[2]..Posi[3];
+    local tablePos = tostring(Posi[1]).." "..tostring(Posi[2]).." "..tostring(Posi[3]);
     PrepareTables(tablePos);
     table.insert(signCoo[tablePos],position(Posi[1],Posi[2],Posi[3]));
     table.insert(signTextDe[tablePos],dText);
     table.insert(signTextEn[tablePos],eText);
     table.insert(signPerception[tablePos],Percept);
-    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Type+40));
+    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID((Type+30)));
 end
 
 
@@ -93,29 +93,27 @@ end
 -- DirToItemID converts item IDs into local type values for the Add functions to work with
 
 function DirToItemID(Value)
-    if (Value==1) then
+    if (Value==31) then
         return 308
-    elseif (Value==2) then
+    elseif (Value==32) then
         return 586
-    elseif (Value==3) then
+    elseif (Value==33) then
         return 1804
-    elseif (Value==4) then
+    elseif (Value==34) then
         return 1807
-    elseif (Value==5) then
+    elseif (Value==35) then
         return 1808
-    elseif (Value==6) then
+    elseif (Value==36) then
         return 1809
-    elseif (Value==7) then
+    elseif (Value==37) then
         return 1817
-    elseif (Value==8) then
+    elseif (Value==38) then
 	return 960
-    elseif (Value==9) then
+    elseif (Value==39) then
 	return 961
-    elseif (Value==10) then
+    elseif (Value==40) then
 	return 962
-    elseif (Value==11) then
+    elseif (Value==41) then
 	return 963
 	end
 end
-
-InitTree();
