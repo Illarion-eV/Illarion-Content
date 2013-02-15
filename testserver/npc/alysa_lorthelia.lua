@@ -726,16 +726,16 @@ initNpc = nil;
 function receiveText(npcChar, texttype, message, speaker)
 	if base.common.BasicNPCChecks(speaker,2,npcChar) and (string.find(message,"rot") or string.find(message,"blau") or string.find(message,"gruen")) --charakter in Reichweite
 
-		if  string.find(message,"rot") --Fallabfrage
-		then speaker:setSkinColor(255, 0, 0); --Änderung der Hautfarbe
+		if string.find(message,"rot") then --Fallabfrage
+			speaker:setSkinColor(255, 0, 0); --Änderung der Hautfarbe
 		end;
 
-		if string.find(message,"gruen")
-		then speaker:setSkinColor(0, 255, 0);
+		if string.find(message,"gruen") then
+			speaker:setSkinColor(0, 255, 0);
 		end;
 
-		if string.find(message,"blau")
-		then speaker:setSkinColor(0, 0, 255);
+		if string.find(message,"blau") then
+			speaker:setSkinColor(0, 0, 255);
 		end;
 	end;
 end;
