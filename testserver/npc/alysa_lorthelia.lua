@@ -724,7 +724,7 @@ initNpc = nil;
 
 -- Testsctipt for changing skin coulor by Leomar
 function receiveText(npcChar, texttype, message, speaker)
-	if base.common.BasicNPCChecks(speaker,2,npcChar) and (string.find(message,"rot") or string.find(message,"blau") or string.find(message,"gruen")) --charakter in Reichweite
+	if base.common.BasicNPCChecks(speaker,2,npcChar) and (string.find(message,"rot") or string.find(message,"blau") or string.find(message,"gruen")) then --charakter in Reichweite
 
 		if string.find(message,"rot") then --Fallabfrage
 			speaker:setSkinColor(255, 0, 0); --Änderung der Hautfarbe
