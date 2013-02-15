@@ -121,7 +121,7 @@ function onDeath(Monster)
         --Category 3: Weapon
 
         local done=monster.base.drop.AddDropItem(293,10,20,(100*math.random(3,4)+math.random(33,44)),0,3); --throwing spear
-        if not done then done=monster.base.drop.AddDropItem(297,20,10,(100*math.random(3,4)+math.random(33,44)),0,3); end --throwing star
+        if not done then done=monster.base.drop.AddDropItem(294,20,10,(100*math.random(3,4)+math.random(33,44)),0,3); end --throwing star
         if not done then done=monster.base.drop.AddDropItem(322,10,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --wind arrows
         if not done then done=monster.base.drop.AddDropItem(89,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --sling
         if not done then done=monster.base.drop.AddDropItem(2714,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --hunting bow

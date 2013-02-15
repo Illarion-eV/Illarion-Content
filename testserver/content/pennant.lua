@@ -30,24 +30,42 @@ function InitPennant()
     AddPennant({41,634,0},"","", 7,5);
     --Antil Brook
     AddPennant({773,770,0},"","", 7,5);
-    AddPennant({775,770,0},"","", 7,5);
+    AddPennant({775,770,0},"","", 7,5);]]--
 	--Buccaneers Lurk
-    AddPennant({214,462,0},"","", 4,5);
-    AddPennant({210,462,0},"","", 4,5);
-    AddPennant({205,462,0},"","", 4,5);
-    AddPennant({200,462,0},"","", 4,5);
-    AddPennant({196,463,0},"","", 6,5);
-    AddPennant({196,467,0},"","", 6,5);
-    AddPennant({201,468,0},"","", 7,5);
-    AddPennant({196,471,0},"","", 6,5);
-    AddPennant({196,475,0},"","", 6,5);
-    AddPennant({196,479,0},"","", 6,5);
-    AddPennant({196,483,0},"","", 6,5);
-    AddPennant({196,487,0},"","", 6,5);
-    AddPennant({201,483,0},"","", 7,5);
-    AddPennant({200,487,0},"","", 7,5);
-    AddPennant({204,487,0},"","", 7,5);]]--
+    AddPennant({214,462,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 4,5);
+    AddPennant({210,462,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 4,5);
+    AddPennant({205,462,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 4,5);
+    AddPennant({200,462,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 4,5);
+    AddPennant({196,463,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,467,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({201,468,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
+    AddPennant({196,471,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,475,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,479,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,483,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,487,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
+    AddPennant({201,483,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
+    AddPennant({200,487,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
+    AddPennant({204,487,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
     --Cadomyr
+    AddPennant({129,581,0},"Werkstatt","Workshop",1,0);
+    AddPennant({134,585,0},"Werkstatt","Workshop",2,0);
+    AddPennant({126,611,0},"Marktplatz","Marketplace",1,0);
+    AddPennant({129,563,0},"Zhambratempel","Temple of Zhambra",2,0);
+    AddPennant({114,588,0},"Taverne 'Einhörniger Löwe'","Tavern 'Unicorn Lion'",1,0);
+    AddPennant({87,586,0},"Gasthaus 'Seeufer'","Inn 'Lakeshore'",1,0);
+    AddPennant({105,559,0},"Zensusbüro","Census office",1,0);
+    AddPennant({90,562,0},"Villa Reginald","Villa Reginald",1,0);
+    AddPennant({92,606,0},"Villa Edward","Villa Edward",1,0);
+    AddPennant({93,614,0},"Villa Rosaline","Villa Rosaline",2,0);
+    AddPennant({135,630,0},"Quartiermeisters Laden","Quartermaster's Store",2,0);
+    AddPennant({139,631,0},"Eselstall","Donkey stable",1,0);
+    AddPennant({135,636,1},"Stadtsaal","Civic Hall",1,0);
+    AddPennant({129,622,1},"Stadtsaal","Civic Hall",2,0);
+    AddPennant({78,623,0},"Wachstube","Guard room",2,0);
+    AddPennant({136,606,0},"Wohnungsquartier","Flat quarter",2,0);
+    AddPennant({132,637,0},"Sir Reginald Gruft","Sir Reginald Tomb",1,0);
+
     AddPennant({121,519,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
 	AddPennant({122,519,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
     AddPennant({123,519,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
@@ -135,6 +153,13 @@ function InitPennant()
     AddPennant({258,419,0},"","", 3,5);
     AddPennant({260,419,0},"","", 3,5);
 	AddPennant({261,419,0},"","", 1,5);]]--
+	--Katanbi Desert
+    AddPennant({194,511,0},"Südliche Bach Siedlung - verloren","Southern Creek Settlement - lost",1,0);
+    AddPennant({172,460,0},"Nördliche Bach Siedlung - auch verloren","Northern Creek Settlement - lost too",1,0);
+    AddPennant({234,444,0},"Hammerfall - Herrschaft des Dwyn Axtblatt","Hammerfall - Reign of Dwyn Axtblatt",1,0);
+    AddPennant({238,444,0},"Hammerfall - Herrschaft des Dwyn Axtblatt","Hammerfall - Reign of Dwyn Axtblatt",1,0);
+    AddPennant({211,444,0},"Hammerfall - Herrschaft des Dwyn Axtblatt","Hammerfall - Reign of Dwyn Axtblatt",1,0);
+    AddPennant({214,444,0},"Hammerfall - Herrschaft des Dwyn Axtblatt","Hammerfall - Reign of Dwyn Axtblatt",1,0);
 	--Moshran's Brood
     AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
     AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
@@ -192,8 +217,15 @@ function InitPennant()
     AddPennant({500,121,0},"","", 7,5);
     --Zumbrass Tomb
 	AddPennant({331,473,0},"","", 7,5);]]--
-
-
+	--Western Katanbi Desert
+    AddPennant({107,695,0},"Berg Siba","Mount Siba", 7,0);
+    AddPennant({100,773,0},"Königlicher Hafen","Royal Harbour",1,0);
+    AddPennant({106,773,0},"Königlicher Hafen","Royal Harbour",1,0);
+    AddPennant({199,645,0},"Milchhaus","Milkhouse",1,0);
+    AddPennant({213,646,0},"Katanbi Bridge - Eigentum von Cadomyr","Katanbi Bridge - Cadomyr property",2,0);
+    AddPennant({213,649,0},"Katanbi Bridge - Eigentum von Cadomyr","Katanbi Bridge - Cadomyr property",2,0);
+    AddPennant({218,646,0},"Katanbi Bridge - Eigentum von Cadomyr","Katanbi Bridge - Cadomyr property",2,0);
+    AddPennant({218,649,0},"Katanbi Bridge - Eigentum von Cadomyr","Katanbi Bridge - Cadomyr property",2,0);
 end
 
 

@@ -37,7 +37,7 @@ require("lte.chr_reg");
 -- for gem bonus
 require("base.gems")
 
-require("development.testscript")
+--require("development.testscript")
 
 module("server.standardfighting", package.seeall)
 
@@ -51,8 +51,9 @@ module("server.standardfighting", package.seeall)
 function onAttack(Attacker, Defender)
 
 	if isTestserver() then
-		development.testscript.onAttack(Attacker,Defender);
-		return;
+    -- Put this in when testing the new script
+		--development.testscript.onAttack(Attacker,Defender);
+		--return;
 	end;
 	
     -- Prepare the lists that store the required values for the calculation
