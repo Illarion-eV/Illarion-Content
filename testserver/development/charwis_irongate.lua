@@ -420,7 +420,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Message Delivery III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 7));
-talkEntry:addResponse("Please ask Gretel Goldhair what happened to my collection of hammers. I saw her carrying them away the other day. You can find her inside the Don's palace, the building right there to the north.");
+talkEntry:addResponse("Please ask Gretel Goldhair what happened to my collection of hammers. I saw her carrying them away the other day. You can find her inside the Don's residence, the building right there to the north.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -431,7 +431,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Nachrichten Überbringen III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 7));
-talkEntry:addResponse("Bitte fragt Gretel Goldhair was sie mit meiner Sammlung Hämmer gemacht hat. Ich sah wie sie sie neulich davon trug. Ihr könnt sie im Palast des Dons finden, es ist das Gebäude gleich dort im Norden.");
+talkEntry:addResponse("Bitte fragt Gretel Goldhair was sie mit meiner Sammlung Hämmer gemacht hat. Ich sah wie sie sie neulich davon trug. Ihr könnt sie in der Residenz des Dons finden, es ist das Gebäude gleich dort im Norden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -443,7 +443,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Message Delivery III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 7));
-talkEntry:addResponse("Please ask Gretel Goldhair what happened to my collection of hammers. I saw her carrying them away the other day. You can find her inside the Don's palace, the building right there to the north.");
+talkEntry:addResponse("Please ask Gretel Goldhair what happened to my collection of hammers. I saw her carrying them away the other day. You can find her inside the Don's residence, the building right there to the north.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -456,7 +456,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Nachrichten Überbringen III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 7));
-talkEntry:addResponse("Bitte fragt Gretel Goldhair was sie mit meiner Sammlung Hämmer gemacht hat. Ich sah wie sie sie neulich davon trug. Ihr könnt sie im Palast des Dons finden, es ist das Gebäude gleich dort im Norden.");
+talkEntry:addResponse("Bitte fragt Gretel Goldhair was sie mit meiner Sammlung Hämmer gemacht hat. Ich sah wie sie sie neulich davon trug. Ihr könnt sie in der Residenz des Dons finden, es ist das Gebäude gleich dort im Norden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
