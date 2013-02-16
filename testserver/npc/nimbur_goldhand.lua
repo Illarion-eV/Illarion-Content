@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -91,7 +91,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are 
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(223, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 3));
-talkEntry:addResponse("Aye! Ye did it! I'll give ye this cup as example of my work, and of what ye might be able to achieve one day. Don't hesitate to show it off to everyone on the main land... ye might land me some more customers. Harr! Viola Baywillow, down the road, will help ye to choose a proper home and send ye on yer way.");
+talkEntry:addResponse("Aye! Ye did it! I'll give ye this cup as example of my work, and to show ye what ye might be able to achieve one day. Don't hesitate to show it off to everyone on the mainland... ye might land me some more customers. Harr! Viola Baywillow, down the road, will help ye to choose a proper home and send ye on yer way.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -134,7 +134,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.item.item(2535, 3, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(319, "=", 1));
-talkEntry:addResponse("I see ye used up all the iron ingots I gave ye - quite a bad haul then, aye? I give ye three more ingot but ye have to promise me that ye will forge those three sets of pins right now. Get on with it!");
+talkEntry:addResponse("I see ye used up all the iron ingots I gave ye, not a good yield, aye? I give ye three more bars but ye have to promise me that ye will forge those three sets of pins right now. Get on with it!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -172,7 +172,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Harr! Now I've only gone and trained another competitor for my business - yet again. But true dwarven craft knows no competition! I can proudly say ye learned all that ye need to get started now. Viola Baywillow will help ye to choose a proper home and send ye on yer way.");
+talkEntry:addResponse("Harr! Now I've only gone and trained another competitor for my business... yet again. True dwarven craft knows no competition though! I can proudly say ye learned all that ye need to get started now. Viola Baywillow will help ye to choose a proper home and send ye on yer way.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
