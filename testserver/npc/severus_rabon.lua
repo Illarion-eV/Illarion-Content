@@ -573,6 +573,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(787,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1318,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1316,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1319,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(518,"buySecondary"));
 tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
 tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
 tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was dir gefällt?", "Don't you like my wares?");

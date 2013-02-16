@@ -693,6 +693,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(41,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(314,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(316,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(726,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(518,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(429,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(43,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(391,"buySecondary"));
