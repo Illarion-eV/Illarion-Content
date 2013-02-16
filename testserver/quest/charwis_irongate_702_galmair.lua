@@ -8,7 +8,7 @@ ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 Title = {}
-Title[GERMAN] = "Nachrichten Ãœberbringen"
+Title[GERMAN] = "Nachrichten Überbringen"
 Title[ENGLISH] = "Message Delivery"
 
 -- Insert an extensive description of each status here, in both languages
