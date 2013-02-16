@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Drathe                                                           --
 --           Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -97,8 +97,8 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("#me grins as he waves: 'What can I do for you?'");
-talkEntry:addResponse("#me lifts his head: 'Hello there, you here to buy or sell?'");
+talkEntry:addResponse("#me grins as he waves, 'What can I do for you?'");
+talkEntry:addResponse("#me lifts his head, 'Hello there, you here to buy or sell?'");
 talkEntry:addResponse("Hello, you look like someone who knows a good price for tools, that's why you're here, right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -126,8 +126,8 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Yeh, yeh you here to buy or sell?");
-talkEntry:addResponse("#me scratches his cheek as he looks over: 'Want to see my wares?'");
+talkEntry:addResponse("Yeah, yeah, you here to buy or sell?");
+talkEntry:addResponse("#me scratches his cheek as he looks over, 'Want to see my wares?'");
 talkEntry:addResponse("Hello and all that, why don't you spend some of that coin you have with me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -150,7 +150,7 @@ talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Aye... another time.");
 talkEntry:addResponse("Come back again now!");
-talkEntry:addResponse("#me chuckles: 'I'll be seeing you again I hope.'");
+talkEntry:addResponse("#me chuckles, 'I'll be seeing you again I hope.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -172,7 +172,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addResponse("Aye... another time.");
 talkEntry:addResponse("Come back again now!");
-talkEntry:addResponse("#me chuckles: 'I'll be seeing you again.'");
+talkEntry:addResponse("#me chuckles, 'I'll be seeing you again.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -210,7 +210,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("#me chuckles: 'Nik Nilo, but people call me Big Nik.");
+talkEntry:addResponse("#me chuckles, 'Nik Nilo, but people call me Big Nik.");
 talkEntry:addResponse("Big Nik and don't you forget it!");
 talkEntry:addResponse("You mean you never heard of me, I'm Big Nik Nilo!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -232,7 +232,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("#me laughs: 'What? I'm a builders merchant, I have tools not quests.");
+talkEntry:addResponse("#me laughs, 'What? I'm a builders merchant, I have tools not quests.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -247,7 +247,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("#me shakes his head as he laughs: 'Look, buy or sell or move on, I don't have time for quests.'");
+talkEntry:addResponse("#me shakes his head as he laughs, 'Look, buy or sell... or move on, I don't have time for quests.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -262,9 +262,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("#me grins: 'I buy and sell tools and building supplies.'");
+talkEntry:addResponse("#me grins, 'I buy and sell tools and building supplies.'");
 talkEntry:addResponse("I'm a builders merchant.");
-talkEntry:addResponse("#me smiles: 'Tools, building supplies, coal, ores and wares I've got it all to buy and sell.'");
+talkEntry:addResponse("#me smiles, 'Tools, building supplies, coal, ores and wares I've got it all to sell... and I buy as well.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -279,9 +279,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Well I'm a trader, can't you tell.");
-talkEntry:addResponse("I buy and sell tool, building supplies and other things.");
-talkEntry:addResponse("I do a little buying, a lot of selling, why what are you after?");
+talkEntry:addResponse("Well I'm a trader, can't you tell?");
+talkEntry:addResponse("I buy and sell tools, building supplies and other things.");
+talkEntry:addResponse("I do a little buying and a lot of selling. Why, what are you after?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -297,8 +297,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addResponse("Wasn't that a little island?");
-talkEntry:addResponse("#me looks up in thought: 'I've heard of that place, can't think where it is though.'");
-talkEntry:addResponse("Gobaith, don't know where it is, I don't care.");
+talkEntry:addResponse("#me looks up in thought, 'I've heard of that place, can't think where it is though.'");
+talkEntry:addResponse("Gobaith, don't know where it is and I don't care.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -339,7 +339,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tool");
 talkEntry:addResponse("My tools will help you build whatever you want in no time!");
-talkEntry:addResponse("Yes for this thing called 'work', have a look at my stock.");
+talkEntry:addResponse("Yes, for this thing called 'work', have a look at my stock.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -353,7 +353,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Big Nik");
-talkEntry:addResponse("#me scratches his knee casually: 'Well, Big Nik is my maiden's name. If you know what I mean.'");
+talkEntry:addResponse("#me scratches his knee casually, 'Well, Big Nik is my maiden's name, if you know what I mean?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -405,9 +405,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("All light and wisdome, load of dung. He is just like any other pompus mage at Runewick.");
-talkEntry:addResponse("The archmage of Runewick, thinks the light shines out of his bum!");
-talkEntry:addResponse("Just another mage at Runwick with a big title, thinks he is something special, pah, same as all the others.");
+talkEntry:addResponse("All light and wisdom, what a load of dung! He is just like any other pompous mage in Runewick.");
+talkEntry:addResponse("The Archmage of Runewick thinks the light shines out of his bum!");
+talkEntry:addResponse("Just another mage in Runewick with a big title that thinks he is something special. Pah! Same as all the others.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -423,9 +423,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("All light and wisdome, load of dung. He is just like any other pompus mage at Runewick.");
-talkEntry:addResponse("The archmage of Runewick, thinks the light shines out of his bum!");
-talkEntry:addResponse("Just another mage at Runwick with a big title, thinks he is something special, pah, same as all the others.");
+talkEntry:addResponse("All light and wisdom, what a load of dung. He is just like any other pompous mage in Runewick.");
+talkEntry:addResponse("The Archmage of Runewick thinks the light shines out of his bum!");
+talkEntry:addResponse("Just another mage in Runewick with a big title that thinks he is something special. Pah! Same as all the others.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -441,9 +441,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("What a horrible place, full of scribes, mages and learned. Supposed to be a place of wisdom, arrogance more like.");
-talkEntry:addResponse("Nice place to look at but wouldn't want to live there.");
-talkEntry:addResponse("#me grins, motioning a hand to the surrounding area: 'Pah! Runewick, you don't want to know about that place when you've got Galmair!'");
+talkEntry:addResponse("What a horrible place, full of scribes, mages and the learned. Supposed to be a place of wisdom, arrogance more like.");
+talkEntry:addResponse("Nice place to look at, but wouldn't want to live there.");
+talkEntry:addResponse("#me grins, motioning a hand to the surrounding area, 'Pah! Runewick, you don't want to know about that place when you've got Galmair!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -461,8 +461,8 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addResponse("Aye, he is alright as long as you stay on his good side, he runs this place.");
-talkEntry:addResponse("Some people say he killed his father to rule this place, me, I recon it's probably true.");
-talkEntry:addResponse("#me chuckles: 'He is firm but fair if you stay on his good side, he keeps this town in free order. That is just how I like it, its good for trade.'");
+talkEntry:addResponse("Some people say he killed his father to rule this place, me, I reckon it's probably true.");
+talkEntry:addResponse("#me chuckles, 'He is firm but fair if you stay on his good side, he keeps this town in free order. That is just how I like it, its good for trade.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -479,9 +479,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("#me takes in a deep breath: 'Smell that, no place smells like that. I love this town its all for the free man.'");
+talkEntry:addResponse("#me takes in a deep breath, 'Smell that, no place smells like that. I love this town, it's all for the free man.'");
 talkEntry:addResponse("It can be a little rough around here some nights, but every man and some of the women need to let off a little steam.");
-talkEntry:addResponse("If you live around here, you are a free man. Around here do as you want just don't upset anyone bigger than you. And I am pretty big.");
+talkEntry:addResponse("If you live around here, you are a free man. Around here do as you want, just don't upset anyone bigger than you... and I am pretty big.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -495,9 +495,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("queen");
-talkEntry:addResponse("Don't know much about her, ain't she the Queen at Cadomyr?");
+talkEntry:addResponse("Don't know much about her, ain't she the Queen of Cadomyr?");
 talkEntry:addResponse("I hear she is a right witch, that Queen of Cadomyr.");
-talkEntry:addResponse("From what I hear she is quite the woman, bit of a witch though but some men like that.");
+talkEntry:addResponse("From what I hear she is quite the woman, bit of a witch though, but some men like that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -513,9 +513,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Don't know much about her, ain't she the Queen at Cadomyr?");
+talkEntry:addResponse("Don't know much about her, ain't she the Queen of Cadomyr?");
 talkEntry:addResponse("I hear she is a right witch, that Queen of Cadomyr.");
-talkEntry:addResponse("From what I hear she is quite the woman, bit of a witch though but some men like that.");
+talkEntry:addResponse("From what I hear she is quite the woman, bit of a witch though, but some men like that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -532,7 +532,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("It's a nice place, but too many laws for me, I'm a free man not a slave to laws and Royals.");
-talkEntry:addResponse("#me points to the ground: 'See, here a man can be what he wants, in Cadomyr you have a place and that's it for life. You live in the gutter, you die there.");
+talkEntry:addResponse("#me points to the ground, 'See, here a man can be what he wants, in Cadomyr you have a place and that's it for life. You live in the gutter, you die there.");
 talkEntry:addResponse("Good place, if you get into trouble, you will end up dead or in jail.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -576,7 +576,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Ah the town of the sun as it is called. Used to be just a fishing village now its a place of poets, art and a world known academy.");
+talkEntry:addResponse("Ah the town of the sun as it is called. Used to be just a fishing village now its a place of poets, art and a world renowned academy.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -602,7 +602,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Irmorom be your best bet if you want good business.");
+talkEntry:addResponse("Irmorom is your best bet if you want good business.");
 talkEntry:addResponse("Aye I have trust in the gods, Irmorom has always been good to me.");
 talkEntry:addResponse("Best save a coin and offer it to Irmorom if you want to prosper in this life.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -618,7 +618,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("#me makes an inviting gesture and lowers his voice: 'I'll tell you something, buy something or go away!'");
+talkEntry:addResponse("#me makes an inviting gesture and lowers his voice, 'I'll tell you something, buy something or go away!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -693,81 +693,28 @@ talkEntry:addResponse("Well, whatever. Want to buy my wares?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Auf diese Steine können sie bauen!", "Build yourself a fortune, buy your bricks here!");
-talkingNPC:addCycleText("Auch mit wenig Schotter bekommst du deine Steine hier billig!", "My prices are cheap as rock, get your stone here!");
+talkingNPC:addCycleText("Auch mit wenig Schotter bekommst du deine Steine hier billig!", "My prices are cheap as rocks, get your stone here!");
 talkingNPC:addCycleText("Wenn ihr anderen eine Grube graben wollt, hier gibt es die Schaufeln dafür!", "Don't dig around, get your shovel here!");
 talkingNPC:addCycleText("Mein Erz ist was dein Herz begehrt!", "Need some ore? I've got it and more!");
 talkingNPC:addCycleText("Edelsteine so günstig, dass eure Augen funkeln werden.", "Raw gems at a price that will make your eyes sparkle!");
 talkingNPC:addCycleText("Meine Spitzhacken gleiten durch den Stein wie durch Butter!", "Want a pick, mine cut through stone as if it was butter!");
-talkingNPC:addCycleText("#me winkt aufgeregt mit der Hand: 'Kommt her, kommt alle, hier gibt es Werkzeuge und Baumaterial.'", "#me waves his hand up: 'Come on, come all, get your tools and trade supplies here!'");
+talkingNPC:addCycleText("#me winkt aufgeregt mit der Hand: 'Kommt her, kommt alle, hier gibt es Werkzeuge und Baumaterial.'", "#me waves his hand up, 'Come on, come all, get your tools and trade supplies here!'");
 talkingNPC:addCycleText("#me wischt sich die Stirn ab.", "#me wipes his forehead with the back of an arm.");
 talkingNPC:addCycleText("#me spielt mit einem Goldnugget, er wirft es hoch und fängt es anschließend.", "#me plays with a nugget, tossing it up then catching it");
-talkingNPC:addCycleText("#me formt mit seinen Händen einen Trichter und ruft: 'Nur keine Scheu, ich hab Geld wie Heu!'", "#me holds a hand to the side of his mouth as he calls: 'Don't be shy, come and buy!'");
+talkingNPC:addCycleText("#me formt mit seinen Händen einen Trichter und ruft: 'Nur keine Scheu, ich hab Geld wie Heu!'", "#me holds a hand to the side of his mouth as he calls, 'Don't be shy, come and buy!'");
 talkingNPC:addCycleText("Wir geben ihrer Zukunft ein Zuhause!", "We give your future a home!");
-talkingNPC:addCycleText("Wie, wo, was, weiß... Big Nik!", "How, where, what, knows... Big Nik!");
+talkingNPC:addCycleText("Wie, wo, was, weiß... Big Nik!", "How, where, what, who knows... Big Nik!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(734,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(24,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(737,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(736,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2588,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(733,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(735,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1266,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(21,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(22,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(234,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2534,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2536,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(26,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(310,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(374,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(390,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(391,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1858,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2183,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2184,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2185,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2717,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2719,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2738,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2744,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2760,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(734,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(24,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(737,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(736,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2588,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(733,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(735,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1266,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(21,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(22,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(234,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2534,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2536,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(26,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(310,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(374,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(390,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(391,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1858,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2183,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2184,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2185,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2717,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2719,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2738,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2744,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2760,"buySecondary"));
-tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you cannot afford that.");
 tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
 tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
 tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein hoch gewachsener Mensch. Seine Haare sind staubig und verschmutzt durch Kohle und Steine.", "A tall human. His hair are scummy and dusty by dust and coal.");
+mainNPC:setLookat("Ein hoch gewachsener Mensch. Seine Haare sind staubig und verschmutzt durch Kohle und Steine.", "A tall man. His hair is dusty and dirty from mining coal and stone.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
