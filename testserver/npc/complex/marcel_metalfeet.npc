@@ -72,7 +72,7 @@ buySecondaryItems = 2, 3
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Marcel Metalfeet the craftsman. Keywords: repair, work, greetings, religion.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Marcel Metalfeet der Handwerker. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion,.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Marcel Metalfeet der Handwerker. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello. You look happy today. Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
