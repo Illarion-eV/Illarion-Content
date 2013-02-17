@@ -193,10 +193,10 @@ english, "Nik", "Nilo" -> "Everyone calls me Big Nik. Well, my friends do. Every
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Auf diese Steine können sie bauen!", "Build yourself a fortune, buy your bricks here!"
-cycletext "Auch mit wenig Schotter bekommst du deine Steine hier billig!", "My prices are cheap as rocks, get your stone here!"
+cycletext "Auch mit wenig Schotter bekommst du deine Steine hier billig!", "My prices are cheap as rocks, get your stones here!"
 cycletext "Wenn ihr anderen eine Grube graben wollt, hier gibt es die Schaufeln dafür!", "Don't dig around, get your shovel here!"
 cycletext "Mein Erz ist was dein Herz begehrt!", "Need some ore? I've got it and more!"
-cycletext "Edelsteine so günstig, dass eure Augen funkeln werden.", "Raw gems at a price that will make your eyes sparkle!"
+cycletext "Steine so günstig, dass eure Augen funkeln werden.", "Stones at a price that will make your eyes sparkle!"
 cycletext "Meine Spitzhacken gleiten durch den Stein wie durch Butter!", "Want a pick, mine cut through stone as if it was butter!"
 cycletext "#me winkt aufgeregt mit der Hand: 'Kommt her, kommt alle, hier gibt es Werkzeuge und Baumaterial.'", "#me waves his hand up, 'Come on, come all, get your tools and trade supplies here!'"
 cycletext "#me wischt sich die Stirn ab.", "#me wipes his forehead with the back of an arm."
