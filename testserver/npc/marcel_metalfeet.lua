@@ -20,6 +20,7 @@ require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
 require("npc.base.trade")
+require("npc.base.consequence.repair")
 module("npc.marcel_metalfeet", package.seeall)
 
 function initNpc()

@@ -19,6 +19,7 @@ require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
+require("npc.base.consequence.repair")
 module("npc.john_smith", package.seeall)
 
 function initNpc()

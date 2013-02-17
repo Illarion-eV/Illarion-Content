@@ -18,6 +18,7 @@ require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
+require("npc.base.consequence.repair")
 module("npc.simeon_ureses", package.seeall)
 
 function initNpc()
