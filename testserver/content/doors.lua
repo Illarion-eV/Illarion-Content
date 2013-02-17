@@ -17,29 +17,36 @@ function initDoors()
     AddDoor({901, 763, 2}, 200,"Archmage Elvaine Morgan's rooms", "Die Räumlichkeiten von Erzmagier Elvaine Morgan"); -- Archmage's room
     AddDoor({901, 764, 2}, 200,"Archmage Elvaine Morgan's rooms", "Die Räumlichkeiten von Erzmagier Elvaine Morgan"); -- Archmage's room
  
-	AddDoor({902, 770, 4}, 201,"Tower of Fire Apartment 1","Turm des Feuers Appartment 1") -- 2 Persons
-    AddDoor({902, 771, 4}, 201,"Tower of Fire Apartment 1","Turm des Feuers Appartment 1") -- 2 Persons
+	AddDoor({902, 770, 4}, 201,"Tower of Fire Apartment 1","Turm des Feuers Appartement 1") -- 2 Persons
+    AddDoor({902, 771, 4}, 201,"Tower of Fire Apartment 1","Turm des Feuers Appartement 1") -- 2 Persons
 
-    AddDoor({902, 777, 4}, 202,"Tower of Fire Apartment 1","Turm des Feuers Appartment 2") -- 3 Persons	+ Balcony	
-    AddDoor({903, 777, 4}, 202,"Tower of Fire Apartment 1","Turm des Feuers Appartment 2") -- 3 Persons	+ Balcony	
+    AddDoor({902, 777, 4}, 202,"Tower of Fire Apartment 1","Turm des Feuers Appartement 2") -- 3 Persons	+ Balcony	
+    AddDoor({903, 777, 4}, 202,"Tower of Fire Apartment 1","Turm des Feuers Appartement 2") -- 3 Persons	+ Balcony	
             
     
     --Tower of Air 21x
-    AddDoor({907, 833, 4}, 210,"Tower of Air Apartment 1","Turm der Luft Appartment 1") -- 2 Persons
-    AddDoor({906, 833, 4}, 210,"Tower of Air Apartment 1","Turm der Luft Appartment 1") -- 2 Persons
+    AddDoor({907, 833, 4}, 210,"Tower of Air Apartment 1","Turm der Luft Appartement 1") -- 2 Persons
+    AddDoor({906, 833, 4}, 210,"Tower of Air Apartment 1","Turm der Luft Appartement 1") -- 2 Persons
     
-    AddDoor({898, 834, 4}, 211,"Tower of Air Apartment 2","Turm der Luft Appartment 2") -- 3 Persons
-    AddDoor({898, 835, 4}, 211,"Tower of Air Apartment 2","Turm der Luft Appartment 2") -- 3 Persons
+    AddDoor({898, 834, 4}, 211,"Tower of Air Apartment 2","Turm der Luft Appartement 2") -- 3 Persons
+    AddDoor({898, 835, 4}, 211,"Tower of Air Apartment 2","Turm der Luft Appartement 2") -- 3 Persons
     
     --Tower of Earth 22x
-    AddDoor({946, 763, 4}, 220,"Tower of Earth Apartment 1","Turm der Erde Appartment 1") -- 3 Persons
-    AddDoor({947, 763, 4}, 220,"Tower of Earth Apartment 1","Turm der Erde Appartment 1") -- 3 Persons
+    AddDoor({946, 763, 4}, 220,"Tower of Earth Apartment 1","Turm der Erde Appartement 1") -- 3 Persons
+    AddDoor({947, 763, 4}, 220,"Tower of Earth Apartment 1","Turm der Erde Appartement 1") -- 3 Persons
             
-    AddDoor({946, 759, 4}, 221,"Tower of Earth Apartment 2","Turm der Erde Appartment 2") -- 1 Person
-    AddDoor({947, 759, 4}, 221,"Tower of Earth Apartment 2","Turm der Erde Appartment 2") -- 1 Person
+    AddDoor({946, 759, 4}, 221,"Tower of Earth Apartment 2","Turm der Erde Appartement 2") -- 1 Person
+    AddDoor({947, 759, 4}, 221,"Tower of Earth Apartment 2","Turm der Erde Appartement 2") -- 1 Person
     
-    AddDoor({944, 764, 2}, 222,"Tower of Earth Apartment 3","Turm der Erde Appartment 3") -- 2 Persons + Balcony
-    AddDoor({944, 765, 2}, 222,"Tower of Earth Apartment 3","Turm der Erde Appartment 3") -- 2 Persons + Balcony
+    AddDoor({944, 764, 2}, 222,"Tower of Earth Apartment 3","Turm der Erde Appartement 3") -- 2 Persons + Balcony
+    AddDoor({944, 765, 2}, 222,"Tower of Earth Apartment 3","Turm der Erde Appartement 3") -- 2 Persons + Balcony
+	
+	--Homelands 25x
+    AddDoor({749, 802, 0}, 250,"Quadruped Red Bird","Vierbeiniger Roter Vogel")
+    AddDoor({748, 802, 0}, 250,"Quadruped Red Bird","Vierbeiniger Roter Vogel")
+          
+    AddDoor({790, 794, 0}, 251,"Cottage","Landhaus")
+    AddDoor({789, 794, 0}, 251,"Cottage","Landhaus")
 
 	-- Cadomyr 3xx
 	
