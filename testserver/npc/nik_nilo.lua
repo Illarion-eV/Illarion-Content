@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Drathe                                                           --
 --           Estralis Seborian                                                --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -693,10 +693,10 @@ talkEntry:addResponse("Well, whatever. Want to buy my wares?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Auf diese Steine können sie bauen!", "Build yourself a fortune, buy your bricks here!");
-talkingNPC:addCycleText("Auch mit wenig Schotter bekommst du deine Steine hier billig!", "My prices are cheap as rocks, get your stone here!");
+talkingNPC:addCycleText("Auch mit wenig Schotter bekommst du deine Steine hier billig!", "My prices are cheap as rocks, get your stones here!");
 talkingNPC:addCycleText("Wenn ihr anderen eine Grube graben wollt, hier gibt es die Schaufeln dafür!", "Don't dig around, get your shovel here!");
 talkingNPC:addCycleText("Mein Erz ist was dein Herz begehrt!", "Need some ore? I've got it and more!");
-talkingNPC:addCycleText("Edelsteine so günstig, dass eure Augen funkeln werden.", "Raw gems at a price that will make your eyes sparkle!");
+talkingNPC:addCycleText("Steine so günstig, dass eure Augen funkeln werden.", "Stones at a price that will make your eyes sparkle!");
 talkingNPC:addCycleText("Meine Spitzhacken gleiten durch den Stein wie durch Butter!", "Want a pick, mine cut through stone as if it was butter!");
 talkingNPC:addCycleText("#me winkt aufgeregt mit der Hand: 'Kommt her, kommt alle, hier gibt es Werkzeuge und Baumaterial.'", "#me waves his hand up, 'Come on, come all, get your tools and trade supplies here!'");
 talkingNPC:addCycleText("#me wischt sich die Stirn ab.", "#me wipes his forehead with the back of an arm.");
@@ -705,8 +705,61 @@ talkingNPC:addCycleText("#me formt mit seinen Händen einen Trichter und ruft: 'N
 talkingNPC:addCycleText("Wir geben ihrer Zukunft ein Zuhause!", "We give your future a home!");
 talkingNPC:addCycleText("Wie, wo, was, weiß... Big Nik!", "How, where, what, who knows... Big Nik!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(734,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(24,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(737,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(736,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2588,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(733,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(735,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1266,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(21,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(22,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(234,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2534,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2536,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(26,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(310,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(374,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(390,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(391,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1858,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2183,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2184,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2185,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2717,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2719,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2738,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2744,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2760,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(734,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(24,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(737,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(736,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2588,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(733,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(735,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1266,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(21,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(22,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(234,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2534,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2536,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(26,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(310,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(374,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(390,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(391,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1858,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2183,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2184,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2185,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2717,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2719,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2738,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2744,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2760,"buySecondary"));
 tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you cannot afford that.");
 tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
 tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
