@@ -48,7 +48,7 @@ function InitWegweiser()
     AddWeg({119,733,0},"Händlers Unsinn","Merchants' Folly",2,0);
     AddWeg({121,750,0},"Königlicher Hafen, Westliches Ufer des Katanbi Delta","Royal Harbour, Western shore of Katanbi Delta",4,0);
 
-	AddWeg({114,659,0},"Katanbi Desert, Freiheitsbruch, Arena, Gladiatoren, Sklavenmarkt, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Liberty Quarry, Arena, Gladiatorium, Slave Market, Chapel of the Five, Galmair, North, Runewick, Southeast",2,0);
+x	AddWeg({114,659,0},"Katanbi Desert, Freiheitsbruch, Blurtkreisarena, Königliche Akademie der Gladiatoren, Königliche Sklavenmarkt, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Liberty Quarry, Blood Circle Arena, Royal Academy of Gladiators, Royal Slave Market, Chapel of the Five, Galmair, North, Runewick, Southeast",2,0);
 
     AddWeg({174,639,0},"Freiheitsbruch, Grugmutzs Höhle, Bach Siedlung, Festung Hammerfall, Einsame Berge","Liberty Quarry, Grugmutz's cave, Creek Settlement, Fortress Hammerfall, Lonly Mountains",0,0); --<copper/gold/iron mine>
     AddWeg({167,622,0},"Freiheitsbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
@@ -58,14 +58,15 @@ function InitWegweiser()
     AddWeg({235,425,0},"Festung Hammerfall","Fortress Hammerfall",6,0);
     AddWeg({241,428,0},"Hammerfall Mine","Mine of Hammerfall",2,0);
 
-    AddWeg({174,641,0},"Katanbi Desert, Blurtkreisarena, Königliche Akademie der Gladiatoren, Königliche Sklavenmarkt, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Blood Circle Arena, Royal Academy of Gladiators, Royal Slave Market, Chapel of the Five, Galmair, North, Runewick, Southeast",2,0);
+x    AddWeg({174,641,0},"Katanbi Desert, Blurtkreisarena, Königliche Akademie der Gladiatoren, Königliche Sklavenmarkt, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Blood Circle Arena, Royal Academy of Gladiators, Royal Slave Market, Chapel of the Five, Galmair, North, Runewick, Southeast",2,0);
     AddWeg({219,646,0},"Cadomyr","Cadomyr",6,0);
-    AddWeg({224,644,0},"Pyramide der Zwietracht, Perle der Sirani, Neidbach, Königins Eck, Matter Gasthof, Berg Zotmore","Pyramid of Discord, Pearl of Sirani, Envy Creek, Queen's Corner, Weary Inn, Mount Zotmore",0,0); -- <Name hier> Oase -- <name here> oasis
-    AddWeg({226,646,0},"Blurtkreisarena, Königliche Akademie der Gladiatoren, Königliche Sklavenmarkt, Katanbi Delta, Berg Letma, Schattenland, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Blood Circle Arena, Royal Academy of Gladiators, Royal Slave Market, Katanbi Delta, Mount Letma, Shadowland, Border Mountains, Chapel of the Five, Galmair, North, Runewick, Southeast",4,0); -- <Name hier> Oase -- <name here> oasis
+    AddWeg({224,644,0},"Pyramide der Zwietracht, Perle der Sirani, Neidbach, Königins Eck, Matter Gasthof, Berg Zotmore","Pyramid of Discord, Pearl of Sirani, Envy Creek, Queen's Corner, Weary Inn, Mount Zotmore",0,0); 
 
+x    AddWeg({226,646,0},"Blurtkreisarena, Königliche Akademie der Gladiatoren, Königliche Sklavenmarkt, Katanbi Delta, Berg Letma, Schattenland, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Blood Circle Arena, Royal Academy of Gladiators, Royal Slave Market, Katanbi Delta, Mount Letma, Shadowland, Border Mountains, Chapel of the Five, Galmair, North, Runewick, Southeast",4,0); 
+    AddWeg({235,686,0},"Für Ehre kämpfen wir, in Blut sterben wir! Die Königliche Akademie der Gladiatoren","For honour we fight, in blood we die! The Royal Academy of Gladiators",4,0); 
+    AddWeg({244,685,0},"Blutkreisarena","Blood Circle Arena",0,0);
+    AddWeg({253,690,0},"Königlicher Sklavenmarkt, Wüstenloch, Sternenoase, Schattenland","Royal Slave Market, Desert Hole, Oasis of Stars, Shadowland",2,0);
 
-    AddWeg({245,685,0},"Die Blutkreisarena","The Blood Circle Arena",0,0); -- <Name hier> Arena -- <name here> arena
-    AddWeg({235,686,0},"Für Ehre kämpfen wir, in Blut sterben wir! Die Königliche Akademie der Gladiatoren","For honour we fight, in blood we die! The Royal Academy of Gladiators",4,0); -- <Name hier> Gladiatorschule -- <name here> gladiatorschool
     AddWeg({372,552,0},"Achtung! Verfluchter Ort","Attention! Cursed Place",2,0); -- <Name hier> Zerstörtes Gebäude -- <name here> destroyed building
     AddWeg({389,590,0},"Khesra","Khesra",2,0); -- <Name hier> Nekromantenhöhle -- <name here> necromancer cave
     AddWeg({399,619,0},"Schattenland! Gefahr!","Shadowland! Danger!",2,0); -- <Name hier> Moria/Vampirschloss -- <name here> moria/ vampirecastle
@@ -80,7 +81,7 @@ function InitWegweiser()
     AddWeg({294,700,0},"Wüstenloch","Desert Hole",2,0); -- <Name hier> ehemaliges Bergwerk -- <name here> former pit
     AddWeg({294,680,0},"Wüstenloch","Desert Hole",6,0); -- <Name hier> ehemaliges Bergwerk -- <name here> former pit
     AddWeg({347,692,0},"Sternenoase","Oasis of Stars",2,0); -- <Name hier> Sandcamp -- <name here> sandcamp
-    AddWeg({253,690,0},"Königlicher Sklavenmarkt; Wüstenloch; Sternenoase","Royal Slave Market; Desert Hole; Oasis of Stars",2,0); -- <Name hier> Sandcamp -- <name here> sandcamp
+
     AddWeg({200,757,0},"Träne der Sirani","Tear of Sirani",6,0);
 	AddWeg({166,758,0},"Siranitempel","Temple of Sirani",2,0);
 
