@@ -31,18 +31,18 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
-hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
-itemHead = 0
-itemChest = 181
-itemCoat = 0
-itemMainHand = 0
+hairID = 1
+beardID = 3
+colorHair = 130, 130, 130
+colorSkin = 160, 130, 100
+itemHead = 2286
+itemChest = 2367
+itemCoat = 195
+itemMainHand = 2627
 itemSecondHand = 0
-itemHands = 48
-itemTrousers = 34
-itemShoes = 53
+itemHands = 530
+itemTrousers = 2111
+itemShoes = 697
 
 ------------------------------------------------------------------------------AC
 -- Trading

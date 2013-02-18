@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 0, 0, 0, 4, 'Palis Nestros', 'npc.palis_nestros', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 0, 0, 0, 4, 'Palis Nestros', 'npc.palis_nestros', 0, 1, 3, 130, 130, 130, 160, 130, 100);
 ---]]
 
 require("npc.base.basic")
@@ -515,14 +515,14 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Palis Nestros der <Beruf/Funktion>.", "This NPC is Palis Nestros the <profession/function>.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
-mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
-mainNPC:setEquipment(11, 0);
-mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(1, 2286);
+mainNPC:setEquipment(3, 2367);
+mainNPC:setEquipment(11, 195);
+mainNPC:setEquipment(5, 2627);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 34);
-mainNPC:setEquipment(10, 53);
+mainNPC:setEquipment(4, 530);
+mainNPC:setEquipment(9, 2111);
+mainNPC:setEquipment(10, 697);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
