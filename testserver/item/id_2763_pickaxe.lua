@@ -101,7 +101,7 @@ For gold and copper mines:
 232: 40% Copper + 5% Gold + 3% Diamond 1% Amethyst
 
 For gold and merinium mines:
-1250: 10% Gold + 5% Merinium + 3% Topaz + 1% Diamond
+1250: 10% Gold + 1% Merinium + 3% Topaz + 1% Diamond
 
 Coalmine: Galmair "Dark Hole Mine"
 Coordinates: 406,159,-3
@@ -202,7 +202,7 @@ Radius 15
     SetResource( 5, 1246, 256,  1); -- emerald
     AddStone( 5, 1250 );
     SetResource( 5, 1250, 234,  10); -- gold nuggets
-    SetResource( 5, 1250, 2534,  5); -- merinium ore
+    SetResource( 5, 1250, 2534,  1); -- merinium ore
     SetResource( 5, 1250,  254,  3); -- diamonds
 	SetResource( 5, 1250,  257,  1); -- topas
 		
@@ -263,7 +263,7 @@ Radius 15
 	SetResource( 7, 1276,  253, 1); -- sapphire
 	AddStone( 7, 1250 );
     SetResource( 7, 1250, 234,  10); -- gold nuggets
-    SetResource( 7, 1250, 2534,  5); -- merinium ore
+    SetResource( 7, 1250, 2534,  1); -- merinium ore
     SetResource( 7, 1250,  254,  3); -- diamonds
 	SetResource( 7, 1250,  257,  1); -- topas
 	------- Noobia Mine - FERTIG ------
@@ -297,7 +297,7 @@ Radius 15
 	SetResource( 8, 1276,  253, 1); -- sapphire
 	AddStone( 8, 1250 );
     SetResource( 8, 1250, 234,  10); -- gold nuggets
-    SetResource( 8, 1250, 2534,  5); -- merinium ore
+    SetResource( 8, 1250, 2534,  1); -- merinium ore
     SetResource( 8, 1250,  254,  3); -- diamonds
 	SetResource( 8, 1250,  257,  1); -- topas
 	------- Prison Mine - FERTIG ------
