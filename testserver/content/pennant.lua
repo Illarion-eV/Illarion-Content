@@ -167,6 +167,8 @@ function InitPennant()
     AddPennant({262,488,0},"Matter Gasthof","Weary Inn",6,0);
     AddPennant({169,759,0},"Tempel der Sirani","Temple of Sirani",2,0);
     AddPennant({169,764,0},"Tempel der Sirani","Temple of Sirani",2,0);
+    AddPennant({112,817,0},"Verlorener Hafen","Lost Harbour",1,0); 
+
 	--Moshran's Brood
     AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
     AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
