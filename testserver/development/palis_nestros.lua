@@ -16,6 +16,8 @@ VALUES (0, 0, 0, 0, 4, 'Palis Nestros', 'npc.palis_nestros', 0, 2, 5, 123, 62, 9
 
 require("npc.base.basic")
 require("npc.base.condition.language")
+require("npc.base.condition.rank")
+require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
@@ -182,6 +184,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("sell");
 talkEntry:addTrigger("buy");
 talkEntry:addTrigger("wares");
@@ -196,6 +200,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("kauf");
 talkEntry:addTrigger("waren");
 talkEntry:addTrigger("preis");
@@ -206,6 +212,64 @@ talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("sell");
+talkEntry:addTrigger("buy");
+talkEntry:addTrigger("wares");
+talkEntry:addTrigger("price");
+talkEntry:addTrigger("trade");
+talkEntry:addTrigger("purchase");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("kauf");
+talkEntry:addTrigger("waren");
+talkEntry:addTrigger("preis");
+talkEntry:addTrigger("Handel");
+talkEntry:addTrigger("ver‰uﬂer");
+talkEntry:addTrigger("erwerb");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("sell");
+talkEntry:addTrigger("buy");
+talkEntry:addTrigger("wares");
+talkEntry:addTrigger("price");
+talkEntry:addTrigger("trade");
+talkEntry:addTrigger("purchase");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("kauf");
+talkEntry:addTrigger("waren");
+talkEntry:addTrigger("preis");
+talkEntry:addTrigger("Handel");
+talkEntry:addTrigger("ver‰uﬂer");
+talkEntry:addTrigger("erwerb");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -687,10 +751,32 @@ talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(91,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(104,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(206,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2627,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2640,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2656,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2742,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2551,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2552,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2553,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2554,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2534,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2571,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(91,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(104,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(206,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2627,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2640,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2656,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2742,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2551,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2552,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2553,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2554,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2534,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2571,"buyPrimary"));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
