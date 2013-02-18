@@ -1,11 +1,11 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Palis Nestros                                               None --
--- NPC Job:  Insert profession here                                           --
+-- NPC Name: Palis Nestros                                            Cadomyr --
+-- NPC Job:  Artifact trader                                                  --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  0, 0, 0                --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Insert your name here                                            --
+-- Author:   Estralis Seborian                                                --
 --                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
@@ -14,15 +14,15 @@ race = human
 sex = male
 position = 0, 0, 0
 direction = south
-affiliation = "None"
-job = "Insert profession here"
+affiliation = "Cadomyr"
+job = "Artifact trader"
 
 language = common
 language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "Insert your name here"
+author = "Estralis Seborian"
 
 lookatDE = "Dieser NPC ist <Name> der <Beruf/Funktion>."
 lookatUS = "This NPC is <Name> the <profession/function>."
