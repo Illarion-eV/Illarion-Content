@@ -161,14 +161,18 @@ function InitPennant()
     AddPennant({211,444,0},"Hammerfall - Herrschaft des Dwyn Axtblatt","Hammerfall - Reign of Dwyn Axtblatt",1,0);
     AddPennant({214,444,0},"Hammerfall - Herrschaft des Dwyn Axtblatt","Hammerfall - Reign of Dwyn Axtblatt",1,0);
     AddPennant({244,556,0},"Perle der Sirani","Pearl of Sirani",1,0);
-    AddPennant({246,459,0},"Matter Gasthof","Weary Inn",7,0);
+    AddPennant({285,489,0},"Matter Gasthof","Weary Inn",7,0);
+    AddPennant({290,474,0},"Matter Gasthof","Weary Inn",5,0);
+    AddPennant({279,474,0},"Matter Gasthof","Weary Inn",6,0);
+    AddPennant({262,488,0},"Matter Gasthof","Weary Inn",6,0);
+
 	--Moshran's Brood
     AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
     AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
     AddPennant({398,743,0},"Lauf, so lange du noch Beine hast!","Run, as long you still have your legs!", 7,0);
     --Mount Zotmore
     AddPennant({365,497,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 6,0);
-    AddPennant({359,506,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 6,0);
+    AddPennant({359,506,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 7,0);
 	--Northern Outpost
     AddPennant({818,750,0},"Nördlicher Außenposten","Northern Outpost", 7,0);
 	--[[--Lost Building (2)

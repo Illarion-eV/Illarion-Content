@@ -58,10 +58,10 @@ function InitWegweiser()
     AddWeg({235,425,0},"Festung Hammerfall","Fortress Hammerfall",6,0);
     AddWeg({241,428,0},"Hammerfall Mine","Mine of Hammerfall",2,0);
 
-    AddWeg({174,641,0},"Katanbi Desert, Arena, Gladiatoren, Sklavenmarkt, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Arena, Gladiatorium, Slave Market, Chapel of the Five, Galmair, North, Runewick, Southeast",2,0);
+    AddWeg({174,641,0},"Katanbi Desert, Blurtkreisarena, Königliche Akademie der Gladiatoren, Königliche Sklavenmarkt, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Blood Circle Arena, Royal Academy of Gladiators, Royal Slave Market, Chapel of the Five, Galmair, North, Runewick, Southeast",2,0);
     AddWeg({219,646,0},"Cadomyr","Cadomyr",6,0);
-    AddWeg({224,644,0},"Pyramide der Zwietracht, Perle der Sirani, Neidbach, Königins Eck, Berg Zotmore","Pyramid of Discord, Pearl of Sirani, Envy Creek, Queen's Corner, Mount Zotmore",0,0); -- <Name hier> Oase -- <name here> oasis
-    AddWeg({226,646,0},"Arena, Gladiatoren, Sklavenmarkt, Katanbi Delta, Berg Letma, Schattenland, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Arena, Gladiatorium, Slave Market, Katanbi Delta, Mount Letma, Shadowland, Border Mountains, Chapel of the Five, Galmair, North, Runewick, Southeast",4,0); -- <Name hier> Oase -- <name here> oasis
+    AddWeg({224,644,0},"Pyramide der Zwietracht, Perle der Sirani, Neidbach, Königins Eck, Matter Gasthof, Berg Zotmore","Pyramid of Discord, Pearl of Sirani, Envy Creek, Queen's Corner, Weary Inn, Mount Zotmore",0,0); -- <Name hier> Oase -- <name here> oasis
+    AddWeg({226,646,0},"Blurtkreisarena, Königliche Akademie der Gladiatoren, Königliche Sklavenmarkt, Katanbi Delta, Berg Letma, Schattenland, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Blood Circle Arena, Royal Academy of Gladiators, Royal Slave Market, Katanbi Delta, Mount Letma, Shadowland, Border Mountains, Chapel of the Five, Galmair, North, Runewick, Southeast",4,0); -- <Name hier> Oase -- <name here> oasis
 
 
     AddWeg({245,685,0},"Die Blutkreisarena","The Blood Circle Arena",0,0); -- <Name hier> Arena -- <name here> arena
