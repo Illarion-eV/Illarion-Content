@@ -73,7 +73,7 @@ function InitWegweiser()
 
     AddWeg({253,690,0},"Königlicher Sklavenmarkt, Wüstenloch, Sternenoase, Schattenland","Royal Slave Market, Desert Hole, Oasis of Stars, Shadowland",2,0);
     AddWeg({290,673,0},"Königlicher Sklavenmarkt","Royal Slave Market",0,0);
-    AddWeg({288,677,0},"Wüstenloch, Sternenoase, Schattenland","Desert Hole, Oasis of Stars, Shadowland",2,0);
+    AddWeg({287,677,0},"Wüstenloch, Sternenoase, Schattenland","Desert Hole, Oasis of Stars, Shadowland",2,0);
     AddWeg({294,680,0},"Wüstenloch","Desert Hole",4,0); 
     AddWeg({353,696,0},"Schattenland","Shadowland",2,0);
 
