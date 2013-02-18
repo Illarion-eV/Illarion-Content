@@ -209,11 +209,13 @@ function InitPennant()
     --Spider's Mouth
     AddPennant({675,346,0},"Der Todes Sumpf - Trette den Toten bei!","The Death Marsh - Join the dead!", 4,0);
     AddPennant({678,346,0},"Der Todes Sumpf - Trette den Toten bei!","The Death Marsh - Join the dead!", 4,0);
---[[	--The Royal Academy of Gladiators
-	AddPennant({210,701,0},"","", 7,5);
-    AddPennant({215,701,0},"","", 7,5);
-    --The Blood Circle Arena
-    AddPennant({248,668,1},"","", 3,5);
+    --The Royal Academy of Gladiators
+    AddPennant({210,701,0},"Königliche Akademie der Gladiatoren","Royal Academy of Gladiators", 1,5);
+    AddPennant({215,701,0},"Königliche Akademie der Gladiatoren","Royal Academy of Gladiators", 1,5);
+   --The Blood Circle Arena
+    AddPennant({259,679,0},"Blutkreisarena","Blood Circle Arena", 1,5);
+    AddPennant({264,679,0},"Blutkreisarena","Blood Circle Arena", 1,5);
+--[[     AddPennant({247,669,1},"","", 3,5);
     AddPennant({250,690,0},"","", 2,5);
     AddPennant({250,685,0},"","", 2,5);
     --The Swamp
