@@ -33,7 +33,7 @@ Description[ENGLISH][7] = "Florain Dreyndel cannot help you any further now. Jus
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(786, 823, 0), position(800, 900, 1)} -- Zassaria
+QuestTarget[1] = {position(786, 823, 0), position(900, 800, 1)} -- Zassaria
 QuestTarget[2] = {position(786, 823, 0), position(941, 790, 0)} -- Baldo
 QuestTarget[3] = {position(786, 823, 0), position(791, 798, 0)} -- Nana
 QuestTarget[4] = {position(786, 823, 0), position(951, 766, 1)} -- Madeline
