@@ -173,8 +173,12 @@ function InitPennant()
     AddPennant({362,687,0},"Sternenoase","Oasis of Stars",2,0);
     AddPennant({362,692,0},"Sternenoase","Oasis of Stars",2,0); 
     AddPennant({296,696,0},"Wüstenloch","Desert Hole",6,0);
-    AddPennant({296,700,0},"Wüstenloch","Desert Hole",6,0); 
-
+    AddPennant({296,700,0},"Wüstenloch","Desert Hole",6,0);
+    AddPennant({372,552,0},"Achtung! Verfluchter Ort","Attention! Cursed Place",6,0); 
+    AddPennant({438,741,0},"Achtung! Loch voll mit Raptoren!","Attention! Hole full of raptors!",6,0);
+    AddPennant({438,737,0},"Achtung! Loch voll mit Raptoren!","Attention! Hole full of raptors!",6,0);
+    AddPennant({502,734,0},"Achtung! Loch voll mit Raptoren!","Attention! Hole full of raptors!",7,0);
+    AddPennant({257,721,0},"Druiden Träne","Druid's Tear",4,0);
 	--Moshran's Brood
     AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
     AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
