@@ -75,22 +75,13 @@ function InitWegweiser()
     AddWeg({290,673,0},"Königlicher Sklavenmarkt","Royal Slave Market",0,0);
     AddWeg({287,677,0},"Wüstenloch, Sternenoase, Schattenland","Desert Hole, Oasis of Stars, Shadowland",2,0);
     AddWeg({294,680,0},"Wüstenloch","Desert Hole",4,0); 
-    AddWeg({353,696,0},"Schattenland","Shadowland",2,0);
-
-
-    AddWeg({372,552,0},"Achtung! Verfluchter Ort","Attention! Cursed Place",2,0); 
+    AddWeg({353,689,0},"Schattenland","Shadowland",2,0);
     AddWeg({389,590,0},"Khesra","Khesra",2,0); 
-    AddWeg({399,619,0},"Schattenland! Gefahr!","Shadowland! Danger!",2,0); 
-    AddWeg({427,676,0},"Schattenland! Gefahr!","Shadowland! Danger!",0,0); 
-	AddWeg({439,638,0},"Cadomyr","Cadomyr",0,0);
-	AddWeg({433,637,0},"Galmair","Galmair",6,0);
+    AddWeg({397,619,0},"Schattenland! Gefahr!","Shadowland! Danger!",2,0); 
+    AddWeg({427,678,0},"Schattenland! Gefahr!","Shadowland! Danger!",0,0); 
+
     AddWeg({400,739,0},"Moshrans Brut - Bleibt fern!","Moshran's Brood - Stay away!",0,0); 
     AddWeg({389,771,0},"Moshrans Brut - Bleibt fern!","Moshran's Brood - Stay away!",0,0); 
-
-
-
-
-
 
 
     AddWeg({461,796,0},"Katanbi Wüste, Westliche Katanbi Wüste, Cadomyr","Katanbi Desert, Western Katanbi Desert, Cadomyr",6,0);
@@ -189,6 +180,7 @@ function InitWegweiser()
     AddWeg({867,710,0},"Nördlicher Außenposten, Eibental, Runewick","Northern Outpost, Yewdale, Runewick",4,0);
     AddWeg({868,711,0},"Oldras Turm","Oldra's Tower",2,0);
     AddWeg({867,718,0},"Schattentor, Wunderland, Ostland, Der Todes Sumpf, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Shadow Gate, Wonderland, Eastland, The Death Marsh, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
+    AddWeg({515,735,0},"Raptoren Loch","Raptor's Hole",6,0);
 
     AddWeg({753,586,0},"Drachenhöhle, Ameisenhügelbach, Eibental, Runewick, Wunderland, Ostland","Dragon's Lair, Anthill Brook, Yewdale, Runewick, Wonderland, Eastland",2,0);
     AddWeg({752,586,0},"Dreifingerspitzen","Three Fingertips",4,0);
