@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -22,7 +22,7 @@ require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.elesil_daelwon", package.seeall)
+module("npc.elesil_daelwon", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -53,7 +53,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 1));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Elesil'] Da kannst nun mit Elesil sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst.! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Elesil'] Da kannst nun mit Elesil sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 2));
 talkEntry:addResponse("Wie kann ich euch helfen? Wünscht ihr eine Information? Oder wünscht ihr eine Aufgabe?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1517,7 +1517,7 @@ talkingNPC:addCycleText("#me isst einen Apfel.", "#me eats an apple.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(3);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Elesil Dael'won die Auskunftgeberin.", "This NPC is Elesil Daelwon the informant.");
+mainNPC:setLookat("Dieser NPC ist Elesil Daelwon die Auskunftgeberin.", "This NPC is Elesil Daelwon the informant.");
 mainNPC:setUseMessage("Ihr seid gut damit beraten mich nicht anzufassen.", "I recommend you do not touch me.");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);

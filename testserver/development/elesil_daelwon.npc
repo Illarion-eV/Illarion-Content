@@ -24,7 +24,7 @@ autointroduce = on
 
 author = "envi"
 
-lookatDE = "Dieser NPC ist Elesil Dael'won die Auskunftgeberin."
+lookatDE = "Dieser NPC ist Elesil Daelwon die Auskunftgeberin."
 lookatUS = "This NPC is Elesil Daelwon the informant."
 useMsgDE = "Ihr seid gut damit beraten mich nicht anzufassen."
 useMsgUS = "I recommend you do not touch me."
@@ -60,7 +60,7 @@ itemShoes = 369
 
 -- Mandatory: General speech
 queststatus(604) = 1, english, ".*" -> inform("[Quest 'Find Elesil'] You can talk with Elesil now. Ask for 'help' if you do not know what to say! You can also go back to Hummi to collect your reward and come back later."), "How can I help you? Do you want any information? Or would you like to have a task?", queststatus(604) = 2
-queststatus(604) = 1, ".*" -> inform("[Quest 'Finde Elesil'] Da kannst nun mit Elesil sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst.! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."), "Wie kann ich euch helfen? Wünscht ihr eine Information? Oder wünscht ihr eine Aufgabe?", queststatus(604) = 2
+queststatus(604) = 1, ".*" -> inform("[Quest 'Finde Elesil'] Da kannst nun mit Elesil sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."), "Wie kann ich euch helfen? Wünscht ihr eine Information? Oder wünscht ihr eine Aufgabe?", queststatus(604) = 2
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Hail Elara. *Closes her eyes*"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Heil Elara. *Schließt ihre Augen*"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Hail Elara. *Closes her eyes*"
