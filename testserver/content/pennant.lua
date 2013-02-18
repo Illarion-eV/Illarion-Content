@@ -165,7 +165,8 @@ function InitPennant()
     AddPennant({290,474,0},"Matter Gasthof","Weary Inn",5,0);
     AddPennant({279,474,0},"Matter Gasthof","Weary Inn",6,0);
     AddPennant({262,488,0},"Matter Gasthof","Weary Inn",6,0);
-
+    AddPennant({169,759,0},"Tempel der Sirani","Temple of Sirani",2,0);
+    AddPennant({169,764,0},"Tempel der Sirani","Temple of Sirani",2,0);
 	--Moshran's Brood
     AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
     AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
@@ -215,9 +216,10 @@ function InitPennant()
    --The Blood Circle Arena
     AddPennant({259,679,0},"Blutkreisarena","Blood Circle Arena", 1,5);
     AddPennant({264,679,0},"Blutkreisarena","Blood Circle Arena", 1,5);
+    AddPennant({250,690,0},"Der Stander trägt das Wappen von Cadomyr","The pennant bears the crest of Cadomyr", 2,5);
+    AddPennant({250,685,0},"Der Stander trägt das Wappen von Cadomyr","The pennant bears the crest of Cadomyr", 2,5);
 --[[     AddPennant({247,669,1},"","", 3,5);
-    AddPennant({250,690,0},"","", 2,5);
-    AddPennant({250,685,0},"","", 2,5);
+
     --The Swamp
     AddPennant({494,155,0},"","", 7,5);
     AddPennant({486,155,0},"","", 7,5);
