@@ -63,9 +63,15 @@ function InitWegweiser()
     AddWeg({224,644,0},"Pyramide der Zwietracht, Perle der Sirani, Neidbach, Königins Eck, Matter Gasthof, Berg Zotmore","Pyramid of Discord, Pearl of Sirani, Envy Creek, Queen's Corner, Weary Inn, Mount Zotmore",0,0); 
 
      	AddWeg({226,646,0},"Blurtkreisarena, Königliche Akademie der Gladiatoren, Königliche Sklavenmarkt, Katanbi Delta, Berg Letma, Schattenland, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Blood Circle Arena, Royal Academy of Gladiators, Royal Slave Market, Katanbi Delta, Mount Letma, Shadowland, Border Mountains, Chapel of the Five, Galmair, North, Runewick, Southeast",4,0); 
-    AddWeg({235,686,0},"Für Ehre kämpfen wir, in Blut sterben wir! Die Königliche Akademie der Gladiatoren","For honour we fight, in blood we die! The Royal Academy of Gladiators",4,0); 
-    AddWeg({244,685,0},"Blutkreisarena","Blood Circle Arena",0,0);
+    AddWeg({235,686,0},"Für Ehre kämpfen wir, in Blut sterben wir! Die Königliche Akademie der Gladiatoren - Gefängnis, Katanbi Delta, Träne der Sirani, Berg Letma","For honour we fight, in blood we die! The Royal Academy of Gladiators - Prison, Katanbi Delta, Tear of Sirani, Mount Letma",4,0); 
+    AddWeg({249,685,0},"Blutkreisarena","Blood Circle Arena",0,0);
     AddWeg({253,690,0},"Königlicher Sklavenmarkt, Wüstenloch, Sternenoase, Schattenland","Royal Slave Market, Desert Hole, Oasis of Stars, Shadowland",2,0);
+
+    AddWeg({203,724,0},"Katanbi Delta, Träne der Sirani, Berg Letma","Katanbi Delta, Tear of Sirani, Mount Letma",4,0); 
+    AddWeg({200,757,0},"Katanbi Delta, Träne der Sirani","Katanbi Delta, Tear of Sirani",6,0);
+    AddWeg({208,774,0},"Berg Letma","Mount Letma",2,0);
+
+
 
     AddWeg({372,552,0},"Achtung! Verfluchter Ort","Attention! Cursed Place",2,0); -- <Name hier> Zerstörtes Gebäude -- <name here> destroyed building
     AddWeg({389,590,0},"Khesra","Khesra",2,0); -- <Name hier> Nekromantenhöhle -- <name here> necromancer cave
@@ -75,15 +81,12 @@ function InitWegweiser()
 	AddWeg({433,637,0},"Galmair","Galmair",6,0);
     AddWeg({400,739,0},"Moshrans Brut - Bleibt fern!","Moshran's Brood - Stay away!",0,0); -- <Name hier> Oase/Ruine -- <name here> oasis/ruin
     AddWeg({389,771,0},"Moshrans Brut - Bleibt fern!","Moshran's Brood - Stay away!",0,0); -- <Name hier> Oase/Ruine -- <name here> oasis/ruin
-    AddWeg({203,724,0},"Siranitempel, Berg Letma","Mount Letma, Tear of Sirani",4,0); -- <Name hier> Küstengebirge/Gebirgskette -- <name here> mountain range
-    AddWeg({208,774,0},"Berg Letma","Mount Letma",2,0); -- <Name hier> Küstengebirge/Gebirgskette -- <name here> mountain range
-    AddWeg({112,817,0},"Verlorener Hafen","Lost Harbour",4,0); -- <Name hier> Ruinen -- <name here> ruins
+
+
     AddWeg({294,700,0},"Wüstenloch","Desert Hole",2,0); -- <Name hier> ehemaliges Bergwerk -- <name here> former pit
     AddWeg({294,680,0},"Wüstenloch","Desert Hole",6,0); -- <Name hier> ehemaliges Bergwerk -- <name here> former pit
     AddWeg({347,692,0},"Sternenoase","Oasis of Stars",2,0); -- <Name hier> Sandcamp -- <name here> sandcamp
 
-    AddWeg({200,757,0},"Träne der Sirani","Tear of Sirani",6,0);
-	AddWeg({166,758,0},"Siranitempel","Temple of Sirani",2,0);
 
 
     AddWeg({461,796,0},"Katanbi Wüste, Westliche Katanbi Wüste, Cadomyr","Katanbi Desert, Western Katanbi Desert, Cadomyr",6,0);
