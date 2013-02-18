@@ -76,7 +76,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5% Intermediate Metal products: 2537, 2696
 -- 5% Iron goods: 223, 466, 739
 -- 5% Metal body armour: 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390,2393, 2395, 2399, 2400, 2403, 2407
--- 5% Metal ingots: 104, 236, 2550, 2535, 2571
+-- 5% Metal ingots: 104, 236, 2550, 2535
 -- 5% Swords: 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778
 -- 5% Helmets: 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
