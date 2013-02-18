@@ -62,7 +62,7 @@ function InitWegweiser()
     AddWeg({219,646,0},"Cadomyr","Cadomyr",6,0);
     AddWeg({224,644,0},"Pyramide der Zwietracht, Perle der Sirani, Neidbach, Königins Eck, Matter Gasthof, Berg Zotmore","Pyramid of Discord, Pearl of Sirani, Envy Creek, Queen's Corner, Weary Inn, Mount Zotmore",0,0); 
 
-     	AddWeg({226,646,0},"Blurtkreisarena, Königliche Akademie der Gladiatoren, Königliche Sklavenmarkt, Katanbi Delta, Berg Letma, Schattenland, Kapelle der Fünf, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Blood Circle Arena, Royal Academy of Gladiators, Royal Slave Market, Katanbi Delta, Mount Letma, Shadowland, Border Mountains, Chapel of the Five, Galmair, North, Runewick, Southeast",4,0); 
+     	AddWeg({226,646,0},"Blurtkreisarena, Königliche Akademie der Gladiatoren, Königliche Sklavenmarkt, Katanbi Delta, Berg Letma, Schattenland, Grenzberge, Kapelle der Fünf, Wachwald, Wichtkanal, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Runewick, Südosten","Katanbi Desert, Blood Circle Arena, Royal Academy of Gladiators, Royal Slave Market, Katanbi Delta, Mount Letma, Shadowland, Border Mountains, Chapel of the Five, Sentry Forest, Wight Canal, Mount Snakehead, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, Runewick, Southeast",4,0); 
     AddWeg({235,686,0},"Für Ehre kämpfen wir, in Blut sterben wir! Die Königliche Akademie der Gladiatoren - Gefängnis, Katanbi Delta, Träne der Sirani, Berg Letma","For honour we fight, in blood we die! The Royal Academy of Gladiators - Prison, Katanbi Delta, Tear of Sirani, Mount Letma",4,0); 
 
     AddWeg({249,685,0},"Blutkreisarena","Blood Circle Arena",0,0);
@@ -71,15 +71,18 @@ function InitWegweiser()
     AddWeg({208,774,0},"Berg Letma","Mount Letma",2,0);
 
 
-    AddWeg({253,690,0},"Königlicher Sklavenmarkt, Wüstenloch, Sternenoase, Schattenland","Royal Slave Market, Desert Hole, Oasis of Stars, Shadowland",2,0);
+    AddWeg({245,685,0},"Westliche Katanbi Wüste, Cadomyr","Western Katanbi Desert, Cadomyr",6,0); 
+    AddWeg({253,690,0},"Königlicher Sklavenmarkt, Wüstenloch, Sternenoase, Schattenland, Grenzberge","Royal Slave Market, Desert Hole, Oasis of Stars, Shadowland, Border Mountains",2,0);
     AddWeg({290,673,0},"Königlicher Sklavenmarkt","Royal Slave Market",0,0);
-    AddWeg({287,677,0},"Wüstenloch, Sternenoase, Schattenland","Desert Hole, Oasis of Stars, Shadowland",2,0);
+    AddWeg({287,677,0},"Wüstenloch, Sternenoase, Schattenland, Grenzberge","Desert Hole, Oasis of Stars, Shadowland, Border Mountains",2,0);
     AddWeg({294,680,0},"Wüstenloch","Desert Hole",4,0); 
-    AddWeg({353,689,0},"Schattenland","Shadowland",2,0);
+    AddWeg({353,689,0},"Schattenland, Grenzberge","Shadowland, Border Mountains",2,0);
     AddWeg({389,590,0},"Khesra","Khesra",2,0); 
     AddWeg({397,619,0},"Schattenland! Gefahr!","Shadowland! Danger!",2,0); 
     AddWeg({427,678,0},"Schattenland! Gefahr!","Shadowland! Danger!",0,0); 
 
+
+     	AddWeg({251,691,0},"Kapelle der Fünf, Wachwald, Wichtkanal, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Runewick, Südosten","Chapel of the Five, Sentry Forest, Wight Canal, Mount Snakehead, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, Runewick, Southeast",4,0);
     AddWeg({400,739,0},"Moshrans Brut - Bleibt fern!","Moshran's Brood - Stay away!",0,0); 
     AddWeg({389,771,0},"Moshrans Brut - Bleibt fern!","Moshran's Brood - Stay away!",0,0); 
 
