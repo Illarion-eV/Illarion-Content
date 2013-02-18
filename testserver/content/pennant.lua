@@ -178,7 +178,7 @@ function InitPennant()
     AddPennant({438,741,0},"Achtung! Loch voll mit Raptoren!","Attention! Hole full of raptors!",6,0);
     AddPennant({438,737,0},"Achtung! Loch voll mit Raptoren!","Attention! Hole full of raptors!",6,0);
     AddPennant({502,734,0},"Achtung! Loch voll mit Raptoren!","Attention! Hole full of raptors!",7,0);
-    AddPennant({438,741,0},"Druiden Träne","Druid's Tear",4,0);
+    AddPennant({257,721,0},"Druiden Träne","Druid's Tear",4,0);
 	--Moshran's Brood
     AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
     AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
