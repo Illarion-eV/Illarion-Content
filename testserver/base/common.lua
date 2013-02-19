@@ -827,7 +827,7 @@ function IsInterrupted(Character)
         interruptTable[Character.id] = 2;
         return false;
     end;
-    local rnd = math.random(10, 30);
+    local rnd = math.random(20, 50);
     if ( interruptTable[Character.id] > rnd ) then
         interruptTable[Character.id] = nil;
         return true;
