@@ -6,10 +6,12 @@ module("content.gathering", package.seeall)
 function InitGathering()
 	if(Init == nil) then
 		-- if FastAction==true then the probabilities are again reduced in FindRandomItem, see gatheringcraft.lua
-		local prob_frequently = 0.005;
-		local prob_occasionally = 0.0025;
-		local prob_rarely = 0.0005;
-		local prob_extremely_rarely = 0.00025;
+		
+		local prob_frequently = 0.005; --0.5%
+		local prob_occasionally = 0.0025; --0.25%
+		local prob_rarely = 0.001; --0.1%
+		local prob_extremely_rarely = 0.0005; --0.05%
+		
 		woodchopping = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.woodcutting, LearnLimit = 100}; -- id_74_axe
 		honeygathering = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming}; -- id_1005_beehive
 		farming = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5, LearnLimit = 100}; -- seeds, id_126_sickle
@@ -21,8 +23,7 @@ function InitGathering()
 		fishing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.fishing, LearnLimit = 100}; -- id_72_fishingrod
 		woolcutting = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_6_scissors
 		potashproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.woodcutting}; -- item.id_12_campfire
-        
-		entrailscutting = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_6_scissors
+        entrailscutting = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_6_scissors
 		stonecutting = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_737_chisel
 		sieving = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_727_sieve
 		flailing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5, LearnLimit = 100}; -- id_258_flail
@@ -30,17 +31,17 @@ function InitGathering()
 		threadproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_171_spinningwheel
 		oilsqueezing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- id_44_squeezer
 		doughproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.cookingAndBaking}; -- id_118_rollingpin
-    weaving = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_169_loom
-    oremelting = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.smithing}; -- id_2836_forge
-    leatherproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_2052_stretcher
-    boardproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.carpentry}; -- id_724_workbench
-    candleproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- id_429_candlemold
-    waxproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- id_428_candletable
-    glassingotproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.glassBlowing}; -- id_313_glassmeltoven
-    bricksproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.firingBricks, LearnLimit = 100}; -- id_313_glassmeltoven
-    smokefood = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.cookingAndBaking}; -- id_305_smokingoven
-    graingrinding = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5, LearnLimit = 100}; -- id_250_mill
-    dyeing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_220_barrel
+        weaving = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_169_loom
+        oremelting = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.smithing}; -- id_2836_forge
+        leatherproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_2052_stretcher
+        boardproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.carpentry}; -- id_724_workbench
+        candleproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- id_429_candlemold
+        waxproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- id_428_candletable
+        glassingotproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.glassBlowing}; -- id_313_glassmeltoven
+        bricksproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.firingBricks, LearnLimit = 100}; -- id_313_glassmeltoven
+        smokefood = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.cookingAndBaking}; -- id_305_smokingoven
+        graingrinding = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5, LearnLimit = 100}; -- id_250_mill
+        dyeing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_220_barrel
 		
 		--woodchopping
 
