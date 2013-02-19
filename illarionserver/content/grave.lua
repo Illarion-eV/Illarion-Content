@@ -126,7 +126,10 @@ function InitGrave()
     AddGrave({481,513,0},"","", 1,0);
     AddGrave({520,523,0},"","", 3,0);
     --Glowing Gate
-    AddGrave({489,582,0},"","", 4,0);
+    AddGrave({489,582,0},"","", 4,0);]]--
+	--Frontus Farm
+	AddGrave({312,574,0},"Frontus und seine Familie","Frontus and his family", 1,0);
+    --[[	AddGrave({308,559,0},"","", 3,0);
     --Hammerfall Mine
     AddGrave({264,418,0},"","", 3,0);
 	--Lighthouse
@@ -200,13 +203,11 @@ function InitGrave()
     AddGrave({498,113,0},"","", 3,0);
 	AddGrave({503,99,0},"","", 1,0);
     AddGrave({506,108,0},"","", 1,0);
-    AddGrave({502,114,0},"","", 1,0);
-	--Vrondus Farm
-	AddGrave({312,574,0},"","", 1,0);
-	AddGrave({308,559,0},"","", 3,0);
+    AddGrave({502,114,0},"","", 1,0);]]--
+
  	--Zumbrass Tomb
-	AddGrave({331,471,0},"","", 1,0);
-	AddGrave({323,467,0},"","", 3,0);]]--
+	AddGrave({331,471,0},"Zumbrass","Zumbrass", 1,0);
+	--AddGrave({323,467,0},"","", 3,0);
 	 
     
 end

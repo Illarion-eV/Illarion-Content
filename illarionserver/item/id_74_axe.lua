@@ -75,10 +75,16 @@ function UseItem(User, SourceItem, ltstate)
 	
 	if tree == nil then
 		base.common.HighInformNLS( User,
-		"Du kannst diesen Baum nicht fällen.",
-		"You cannot cut down this tree." );
+		"Du kannst diese Baumart nicht fällen.",
+		"You cannot cut down this kind of tree." );
 		return;
 	end;
+	
+	-- check if it is a special and therefore uncuttable tree
+	if TargetItem:getData("uncuttableTree") ~= "" then
+	    preventCutting(User, SourceItem, TargetItem)
+		return
+	end	
 	
 	-- any other checks?
 	local changeItem = false;
@@ -183,6 +189,29 @@ function AddTree(TreeId, TrunkId, LogId, BoughId, Amount, BoughProbability)
 	treeTable.Amount = Amount;
 	treeTable.BoughProbability = BoughProbability;
 	table.insert(TreeItems, TreeId, treeTable);
+end
+
+function preventCutting(User, theAxe, theTree)
+    local effectId = tonumber(theTree:getData("uncuttableTree"))
+	
+	-- security check
+	if effectId == nil then
+	    return
+	end	
+	
+	local textInDe, textInEn
+	if effectId == 1 then
+	    world:gfx(2,User.pos)
+		world:makeSound(13,User.pos)
+		textInDe = "Aus heiterem Himmel wirst du von einem Blitz getroffen!" 
+		textInEn = "Out of the blue, you are struck by lightning!"
+		User:increaseAttrib("hitpoints",-3000)
+	else
+        textInDe = "Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten." 
+		textInEn = "As you strike out, you nearly drop the hatchet. You barely keep hold of it"
+	end	
+    User:inform(textInDe, textInEn, Character.highPriority)
+
 end
 --[[ old lists
 function initLists(  )

@@ -20,6 +20,7 @@ require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
 require("npc.base.trade")
+require("npc.base.consequence.repair")
 module("npc.marcel_metalfeet", package.seeall)
 
 function initNpc()
@@ -35,7 +36,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Marcel Metalfeet der Handwerker. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion,."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Marcel Metalfeet der Handwerker. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -174,6 +175,24 @@ talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Marcel Metalfeet, stets zu Diensten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("repair");
+talkEntry:addTrigger("fix");
+talkEntry:addResponse("Let's have a look at this.");
+talkEntry:addConsequence(npc.base.consequence.repair.repair());
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("reparieren");
+talkEntry:addTrigger("instand");
+talkEntry:addTrigger("heile");
+talkEntry:addResponse("Schauen wir nach, was wir hier haben.");
+talkEntry:addConsequence(npc.base.consequence.repair.repair());
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -56,6 +56,10 @@ itemShoes = 369
 "Help" -> inform("[Game Help] This NPC is Queen Rosaline Edwards of Cadomyr. Keywords: Hail my queen, Cadomyr, enemies, Sir Reginald, tomb, grave.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Königin Rosaline Edwards von Cadomyr. Schlüsselwörter: Es lebe die Königin, Cadomyr, Feinde, Sir Reginald, Gruft, Grab.")
 
+-- quest
+queststatus(642) = 1, item(144, all) > 0, english, "." -> inform("[Quest 'Find Queen Rosaline Edwards' end]"), deleteItem(144, 1), queststatus(642) = 2, rankpoints + 5, "Oh, flowers! However, do not think, you can win my favour but I will accept the attempt this time."
+queststatus(642) = 1, item(144, all) > 0, "." -> inform("[Quest 'Finde Königin Rosaline Edwards' Ende]"), deleteItem(144, 1), queststatus(642) = 2, rankpoints + 5, "Oh, flowers! Aber glaubt nicht, dass ihr damit meine Gunst gewinnen könnt, auch wenn euren Versuch dieses Mal durchgehen lassen werde."
+
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Speak, but choose your words wisely for my time is short.", "Ah, a servant of mine, good, what news do you bear from my realm?", "You dare to disturb me? Fine, fortunately for you I needed a distraction."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Sagt, was wollt ihr von eurer Königin? Sprecht schnell oder ich werde euch Beine machen.", "Ah, einer meiner Untertanen. Gut, was für Kunde bringt ihr aus meinem Reich?", "Ihr wagt es, mich zu stören. Fein, ich kann etwas Abwechslung gut vertragen."
@@ -105,8 +109,8 @@ queststatus(642) > 0, queststatus(643) = 0, english, chance(100.0), "Mordak", "K
 queststatus(642) > 0, queststatus(643) = 0, german, chance(100.0), "Mordak", "Kharud" -> item(197, 1, 999, "gemLevel" = "1"), queststatus(643) = 1, "#me nickt und reicht dir leise einen Gegenstand."
 
 -- -- Quest by Zassaria Riverbank (Ask for me II)
-queststatus(701) = 13, item(225, all, "descriptionEn" = "This crown belongs to Rosaline Edwarts.") > 0, english, "Zassaria", "lizard", "crown", "missing", "belong", "porperty", "riverbank" -> queststatus(701) = 14, "What? This is not my crown! Can't you read? It says Rosaline Edwarts spelled with t. This is not my name! This was not a good joke, and I am not in the mood for jokes. You may leave. Now!"
-queststatus(701) = 13, item(225, all, "descriptionEn" = "This crown belongs to Rosaline Edwarts.") > 0, "Zassaria", "Echsenmensch", "Krone", "verloren", "gehören", "Eigentum", "riverbank" -> queststatus(701) = 14, "Was? Dies ist nicht meine Krone! Kannst du nicht lesen? Da steht Rosaline Edwarts mit t. Das ist nicht mein Name! Dies ist ein schlechter Scherz, und mir ist nicht zum Schrzen zu mute. Ihr könnt gehen. Jetzt!"
+queststatus(701) = 13, item(225, all, "descriptionEn" = "This crown belongs to Rosaline Edwards.") > 0, english, "Zassaria", "lizard", "crown", "missing", "belong", "porperty", "riverbank" -> deleteItem(225, 1, "descriptionEn" = "This crown belongs to Rosaline Edwards."), queststatus(701) = 14, "What? Oh, thank you for returning my extra crown. I don't know how it got all the way to Runewick. You may leave now."
+queststatus(701) = 13, item(225, all, "descriptionDe" = "Diese Krone gehört Rosaline Edwards.") > 0, "Zassaria", "Echsenmensch", "Krone", "verloren", "gehören", "Eigentum", "riverbank" -> deleteItem(225, 1, "descriptionDe" = "Diese Krone gehört Rosaline Edwards."), queststatus(701) = 14, "Was? Oh, danke das Ihr meine Ersatzkrone zurückbringt. Ich weiß nicht wie sie bis nach Runewick gekommen ist. Ihr könnt jetzt gehen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Profession? Foolish traveler, I am the Queen, my profession is to rule this kingdom!"

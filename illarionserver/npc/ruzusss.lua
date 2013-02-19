@@ -51,7 +51,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(640, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End 'Find Ruzusss'] You received 10 silvercoins and 5 rankpoints."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End 'Find Ruzusss'] You received 10 silvercoins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
@@ -63,7 +63,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(640, "=", 1));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 'Finde Ruzusss'] Du hast 10 Silberstücke und 5 Rangpunkte erhalten."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 'Finde Ruzusss'] Du hast 10 Silberstücke erhalten."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
@@ -633,7 +633,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("See Syrita");
-talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -646,7 +646,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Narguns Ebene");
-talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -658,7 +658,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sumpf");
-talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -670,7 +670,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tempel Fünf");
-talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -682,7 +682,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Einsame Berge");
-talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,7 +694,19 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair Hochebene");
-talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Fortress Hammerfall");
+talkEntry:addResponse("Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Festung Hammerfall");
+talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1432,17 +1444,69 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(642, "<", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Queen Rosaline Edwards' started] Find Queen Rosaline Edwards and bring her your gift."));
+talkEntry:addConsequence(npc.base.consequence.item.item(144, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(642, "=", 1));
+talkEntry:addResponse("Have you already met our Queen? If not, you could introduce yourself with a gift to her. She will appreciate this gift here, since she loves beautiful things. *hands over a flower*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(642, "<", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Königin Rosaline Edwards' gestartet] Finde Königin Rosaline Edwards und bringe ihr dein Geschenk."));
+talkEntry:addConsequence(npc.base.consequence.item.item(144, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(642, "=", 1));
+talkEntry:addResponse("Hast du bereits die Königin kennengelernt? Falls nicht, dann solltest du dich bei ihr mit einem Geschenk vorstellen. Sie wird dieses Geschenk hier bestimmt mögen, da sie ein Auge für das Schöne hat. *überreicht eine Blume*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(642, "<", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Queen Rosaline Edwards' started] Find Queen Rosaline Edwards and bring her your gift."));
+talkEntry:addConsequence(npc.base.consequence.item.item(144, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(642, "=", 1));
+talkEntry:addResponse("Have you already met our Queen? If not, you could introduce yourself with a gift to her. She will appreciate this gift here, since she loves beautiful things. *hands over a flower*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(642, "<", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Königin Rosaline Edwards' gestartet] Finde Königin Rosaline Edwards und bringe ihr dein Geschenk."));
+talkEntry:addConsequence(npc.base.consequence.item.item(144, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(642, "=", 1));
+talkEntry:addResponse("Hast du bereits die Königin kennengelernt? Falls nicht, dann solltest du dich bei ihr mit einem Geschenk vorstellen. Sie wird dieses Geschenk hier bestimmt mögen, da sie ein Auge für das Schöne hat. *überreicht eine Blume*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Nothing to do for you yet but soon.");
+talkEntry:addResponse("Nothing to do for you yet but soon I have plenty of tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1450,7 +1514,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Nothing to do for you yet but soon.");
+talkEntry:addResponse("Nothing to do for you yet but soon I have plenty of tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1459,7 +1523,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

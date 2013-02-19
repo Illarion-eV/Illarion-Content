@@ -30,24 +30,42 @@ function InitPennant()
     AddPennant({41,634,0},"","", 7,5);
     --Antil Brook
     AddPennant({773,770,0},"","", 7,5);
-    AddPennant({775,770,0},"","", 7,5);
+    AddPennant({775,770,0},"","", 7,5);]]--
 	--Buccaneers Lurk
-    AddPennant({214,462,0},"","", 4,5);
-    AddPennant({210,462,0},"","", 4,5);
-    AddPennant({205,462,0},"","", 4,5);
-    AddPennant({200,462,0},"","", 4,5);
-    AddPennant({196,463,0},"","", 6,5);
-    AddPennant({196,467,0},"","", 6,5);
-    AddPennant({201,468,0},"","", 7,5);
-    AddPennant({196,471,0},"","", 6,5);
-    AddPennant({196,475,0},"","", 6,5);
-    AddPennant({196,479,0},"","", 6,5);
-    AddPennant({196,483,0},"","", 6,5);
-    AddPennant({196,487,0},"","", 6,5);
-    AddPennant({201,483,0},"","", 7,5);
-    AddPennant({200,487,0},"","", 7,5);
-    AddPennant({204,487,0},"","", 7,5);]]--
+    AddPennant({214,462,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 4,5);
+    AddPennant({210,462,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 4,5);
+    AddPennant({205,462,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 4,5);
+    AddPennant({200,462,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 4,5);
+    AddPennant({196,463,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,467,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({201,468,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
+    AddPennant({196,471,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,475,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,479,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,483,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 6,5);
+    AddPennant({196,487,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
+    AddPennant({201,483,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
+    AddPennant({200,487,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
+    AddPennant({204,487,0},"Seeräuber Lauer - Richte schon mal deine Münzen!, ","Buccaneer Lurk - Prepare your coins!", 7,5);
     --Cadomyr
+    AddPennant({129,581,0},"Werkstatt","Workshop",1,0);
+    AddPennant({134,585,0},"Werkstatt","Workshop",2,0);
+    AddPennant({126,611,0},"Marktplatz","Marketplace",1,0);
+    AddPennant({129,563,0},"Zhambratempel","Temple of Zhambra",2,0);
+    AddPennant({114,588,0},"Taverne 'Einhörniger Löwe'","Tavern 'Unicorn Lion'",1,0);
+    AddPennant({87,586,0},"Gasthaus 'Seeufer'","Inn 'Lakeshore'",1,0);
+    AddPennant({105,559,0},"Zensusbüro","Census office",1,0);
+    AddPennant({90,562,0},"Villa Reginald","Villa Reginald",1,0);
+    AddPennant({92,606,0},"Villa Edward","Villa Edward",1,0);
+    AddPennant({93,614,0},"Villa Rosaline","Villa Rosaline",2,0);
+    AddPennant({135,630,0},"Quartiermeisters Laden","Quartermaster's Store",2,0);
+    AddPennant({139,631,0},"Eselstall","Donkey stable",1,0);
+    AddPennant({135,636,1},"Stadtsaal","Civic Hall",1,0);
+    AddPennant({129,622,1},"Stadtsaal","Civic Hall",2,0);
+    AddPennant({78,623,0},"Wachstube","Guard room",2,0);
+    AddPennant({136,606,0},"Wohnungsquartier","Flat quarter",2,0);
+    AddPennant({132,637,0},"Sir Reginald Gruft","Sir Reginald Tomb",1,0);
+
     AddPennant({121,519,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
 	AddPennant({122,519,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
     AddPennant({123,519,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
@@ -56,8 +74,8 @@ function InitPennant()
     AddPennant({109,551,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --registration
     AddPennant({104,552,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --registration
     --Carnivore's House
-	AddPennant({847,312,0},"Falls du auch Menschenfleisch magst bist du herzlich zum Abendbrot eingeladen! HA! HA!","If you also like human meet, you are very welcome to stay for dinner! HA! HA!", 6,0);
-	AddPennant({847,311,0},"Falls du auch Menschenfleisch magst bist du herzlich zum Abendbrot eingeladen! HA! HA!","If you also like human meet, you are very welcome to stay for dinner! HA! HA!", 6,0);
+	AddPennant({847,312,0},"Falls du auch Menschenfleisch magst bist du herzlich zum Abendbrot eingeladen! HA! HA!","If you also like human meat, you are very welcome to stay for dinner! HA! HA!", 6,0);
+	AddPennant({847,311,0},"Falls du auch Menschenfleisch magst bist du herzlich zum Abendbrot eingeladen! HA! HA!","If you also like human meat, you are very welcome to stay for dinner! HA! HA!", 6,0);
     --Cherass Citadel
     AddPennant({596,383,2},"Cherass heißt euch willkommen in seiner Zitadelle!","Cherass welcomes you in his citadel!", 7,0); --outpost
     AddPennant({601,383,2},"Cherass heißt euch willkommen in seiner Zitadelle!","Cherass welcomes you in his citadel!", 7,0); --outpost
@@ -79,14 +97,14 @@ function InitPennant()
     AddPennant({902,695,0},"Schattentor - Versuchsgebiet","Shadow Gate - experimental area", 6,0);--Shadow Gate
   --[[   --Dragon lair
 	AddPennant({837,677,1},"","", 7, 5);
-	AddPennant({837,677,1},"","", 7, 5);
-	AddPennant({742,667,0},"","", 7, 5);
-	AddPennant({745,667,0},"","", 7, 5);
-	AddPennant({748,667,0},"","", 7, 5);
-	AddPennant({751,667,0},"","", 7, 5);
-	AddPennant({754,667,0},"","", 7, 5);
-	AddPennant({757,667,0},"","", 7, 5);
-	AddPennant({760,667,0},"","", 7, 5);]]--
+	AddPennant({837,677,1},"","", 7, 5);]]--
+	AddPennant({742,667,0}," Achtung heiß!"," Caution hot!", 7, 5);
+	AddPennant({745,667,0}," Achtung heiß!"," Caution hot!", 7, 5);
+	AddPennant({748,667,0}," Achtung heiß!"," Caution hot!", 7, 5);
+	AddPennant({751,667,0}," Achtung heiß!"," Caution hot!", 7, 5);
+	AddPennant({754,667,0}," Achtung heiß!"," Caution hot!", 7, 5);
+	AddPennant({757,667,0}," Achtung heiß!"," Caution hot!", 7, 5);
+	AddPennant({760,667,0}," Achtung heiß!"," Caution hot!", 7, 5);
     --Eastland
     AddPennant({834,542,0},"Linker Zwilling","Left Twin", 6,0); --Twin Mountains
     AddPennant({875,537,0},"Rechter Zwilling","Right Twin", 7,0); --Twin Mountains
@@ -135,13 +153,39 @@ function InitPennant()
     AddPennant({258,419,0},"","", 3,5);
     AddPennant({260,419,0},"","", 3,5);
 	AddPennant({261,419,0},"","", 1,5);]]--
+	--Katanbi Desert
+    AddPennant({194,511,0},"Südliche Bach Siedlung - verloren","Southern Creek Settlement - lost",1,0);
+    AddPennant({172,460,0},"Nördliche Bach Siedlung - auch verloren","Northern Creek Settlement - lost too",1,0);
+    AddPennant({234,444,0},"Hammerfall - Herrschaft des Dwyn Axtblatt","Hammerfall - Reign of Dwyn Axtblatt",1,0);
+    AddPennant({238,444,0},"Hammerfall - Herrschaft des Dwyn Axtblatt","Hammerfall - Reign of Dwyn Axtblatt",1,0);
+    AddPennant({211,444,0},"Hammerfall - Herrschaft des Dwyn Axtblatt","Hammerfall - Reign of Dwyn Axtblatt",1,0);
+    AddPennant({214,444,0},"Hammerfall - Herrschaft des Dwyn Axtblatt","Hammerfall - Reign of Dwyn Axtblatt",1,0);
+    AddPennant({244,556,0},"Perle der Sirani","Pearl of Sirani",1,0);
+    AddPennant({285,489,0},"Matter Gasthof","Weary Inn",7,0);
+    AddPennant({290,474,0},"Matter Gasthof","Weary Inn",5,0);
+    AddPennant({279,474,0},"Matter Gasthof","Weary Inn",6,0);
+    AddPennant({262,488,0},"Matter Gasthof","Weary Inn",6,0);
+    AddPennant({169,759,0},"Tempel der Sirani","Temple of Sirani",2,0);
+    AddPennant({169,764,0},"Tempel der Sirani","Temple of Sirani",2,0);
+    AddPennant({112,817,0},"Verlorener Hafen","Lost Harbour",1,0);
+    AddPennant({360,686,0},"Sternenoase","Oasis of Stars",1,0);
+    AddPennant({355,686,0},"Sternenoase","Oasis of Stars",1,0); 
+    AddPennant({362,687,0},"Sternenoase","Oasis of Stars",2,0);
+    AddPennant({362,692,0},"Sternenoase","Oasis of Stars",2,0); 
+    AddPennant({296,696,0},"Wüstenloch","Desert Hole",6,0);
+    AddPennant({296,700,0},"Wüstenloch","Desert Hole",6,0);
+    AddPennant({372,552,0},"Achtung! Verfluchter Ort","Attention! Cursed Place",6,0); 
+    AddPennant({438,741,0},"Achtung! Loch voll mit Raptoren!","Attention! Hole full of raptors!",6,0);
+    AddPennant({438,737,0},"Achtung! Loch voll mit Raptoren!","Attention! Hole full of raptors!",6,0);
+    AddPennant({502,734,0},"Achtung! Loch voll mit Raptoren!","Attention! Hole full of raptors!",7,0);
+    AddPennant({257,721,0},"Druiden Träne","Druid's Tear",4,0);
 	--Moshran's Brood
     AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
     AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,0);
     AddPennant({398,743,0},"Lauf, so lange du noch Beine hast!","Run, as long you still have your legs!", 7,0);
     --Mount Zotmore
     AddPennant({365,497,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 6,0);
-    AddPennant({359,506,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 6,0);
+    AddPennant({359,506,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 7,0);
 	--Northern Outpost
     AddPennant({818,750,0},"Nördlicher Außenposten","Northern Outpost", 7,0);
 	--[[--Lost Building (2)
@@ -174,16 +218,20 @@ function InitPennant()
 	AddPennant({641,706,2},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 3,0);
 	--Snakehead Coast
     AddPennant({609,462,2},"Schlangenkopfberg","Mount Snakehead", 7,0); --Mt. Snakehead
+    AddPennant({608,468,0},"Schlangenkopfberg","Mount Snakehead", 7,0); --Mt. Snakehead
     --Spider's Mouth
     AddPennant({675,346,0},"Der Todes Sumpf - Trette den Toten bei!","The Death Marsh - Join the dead!", 4,0);
     AddPennant({678,346,0},"Der Todes Sumpf - Trette den Toten bei!","The Death Marsh - Join the dead!", 4,0);
---[[	--The Royal Academy of Gladiators
-	AddPennant({210,701,0},"","", 7,5);
-    AddPennant({215,701,0},"","", 7,5);
-    --The Blood Circle Arena
-    AddPennant({248,668,1},"","", 3,5);
-    AddPennant({250,690,0},"","", 2,5);
-    AddPennant({250,685,0},"","", 2,5);
+    --The Royal Academy of Gladiators
+    AddPennant({210,701,0},"Königliche Akademie der Gladiatoren","Royal Academy of Gladiators", 1,5);
+    AddPennant({215,701,0},"Königliche Akademie der Gladiatoren","Royal Academy of Gladiators", 1,5);
+   --The Blood Circle Arena
+    AddPennant({259,679,0},"Blutkreisarena","Blood Circle Arena", 1,5);
+    AddPennant({264,679,0},"Blutkreisarena","Blood Circle Arena", 1,5);
+    AddPennant({250,690,0},"Der Stander trägt das Wappen von Cadomyr","The pennant bears the crest of Cadomyr", 2,5);
+    AddPennant({250,685,0},"Der Stander trägt das Wappen von Cadomyr","The pennant bears the crest of Cadomyr", 2,5);
+--[[     AddPennant({247,669,1},"","", 3,5);
+
     --The Swamp
     AddPennant({494,155,0},"","", 7,5);
     AddPennant({486,155,0},"","", 7,5);
@@ -191,8 +239,15 @@ function InitPennant()
     AddPennant({500,121,0},"","", 7,5);
     --Zumbrass Tomb
 	AddPennant({331,473,0},"","", 7,5);]]--
-
-
+	--Western Katanbi Desert
+    AddPennant({107,695,0},"Berg Siba","Mount Siba", 7,0);
+    AddPennant({100,773,0},"Königlicher Hafen","Royal Harbour",1,0);
+    AddPennant({106,773,0},"Königlicher Hafen","Royal Harbour",1,0);
+    AddPennant({199,645,0},"Milchhaus","Milkhouse",1,0);
+    AddPennant({213,646,0},"Katanbi Bridge - Eigentum von Cadomyr","Katanbi Bridge - Cadomyr property",2,0);
+    AddPennant({213,649,0},"Katanbi Bridge - Eigentum von Cadomyr","Katanbi Bridge - Cadomyr property",2,0);
+    AddPennant({218,646,0},"Katanbi Bridge - Eigentum von Cadomyr","Katanbi Bridge - Cadomyr property",2,0);
+    AddPennant({218,649,0},"Katanbi Bridge - Eigentum von Cadomyr","Katanbi Bridge - Cadomyr property",2,0);
 end
 
 

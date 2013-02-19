@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "John Smith"
@@ -59,8 +59,8 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is John Smith the smith. Keywords: Greetings, repair, cost.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist John Smith der Schmied. Schlüsselwörter: Grüße, kaufe, reparieren, Kosten.")
+"Help" -> inform("[Game Help] This NPC is John Smith the smith. Keywords: Greetings, repair.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist John Smith der Schmied. Schlüsselwörter: Grüße, kaufe, reparieren.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. How are you today?", "Greetings in the name of Irmorom."
@@ -75,6 +75,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a good day!", "Fare we
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Gut. Es ist ein schöner Tag.", "Mir geht es gut. Danke."
 "your name", "who are you", "who art thou" -> "John Smith. How can I help you?", "Hey, you're kidding me? You do not know my name?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Jonny Smith. Wie kann ich Euch helfen?", "Hey, scherzt Ihr? Ihr kennt mich nicht?"
+
+-- repair triggers
+english, "repair", "fix" -> "Let's have a look at this."
+"reparieren", "instand", "heile" -> "Schauen wir nach, was wir hier haben."
 
 -- OPTIONAL TRIGGERS
 

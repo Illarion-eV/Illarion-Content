@@ -11,7 +11,11 @@ require("alchemy.base.gemdust")
 module("alchemy.base.brewing", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-    local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(SourceItem.id, User)
+    -- no map items
+	if SourceItem.wear == 255 then
+	    return
+	end	
+	local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(SourceItem.id, User)
 	local isGemDust = alchemy.base.alchemy.CheckIfGemDust(SourceItem, User)
 	if isPlant  or SourceItem.id == 157 then
 	    alchemy.base.herbs.UseItem(User, SourceItem, ltstate)

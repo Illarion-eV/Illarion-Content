@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Simeon Ureses"
@@ -57,8 +57,8 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keywords: Hello, armourer, dwarves, Irmorom, repair, cost.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom, reparieren, Kosten.")
+"Help" -> inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keywords: Hello, armourer, dwarves, Irmorom, repair.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom, reparieren.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
@@ -73,6 +73,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Ich habe gerade eine neue Feile bekommen.", "Wußtet ihr, dass eine Erdbeere gar keine Beere sondern eine Nussart ist?", "Ich muss arbeiten, entschuldigt."
 "your name", "who are you", "who art thou" -> "I am Simeon Ureses, the royal armourer."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Simeon Ureses, der königliche Waffenmeister."
+
+-- repair triggers
+english, "repair", "fix" -> "Let's have a look at this."
+"reparieren", "instand", "heile" -> "Schauen wir nach, was wir hier haben."
 
 -- OPTIONAL TRIGGERS
 

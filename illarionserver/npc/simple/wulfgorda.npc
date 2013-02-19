@@ -59,8 +59,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Wulfgorda die Jägerin. Schlüsselwörter: Auskunft, Information, Orte.")
 
 -- Mandatory: General speech
-queststatus(650) = 1, english, ".*" -> inform("[Quest End  'Find Wulfgorda'] You received 10 silvercoins and 5 rankpoints."), money + 1000, deleteItem(155, 10), queststatus(650) = 2, rankpoints + 5, "#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have some silvercoins for that you found me."
-queststatus(650) = 1, ".*" -> inform("[Quest Ende 'Find Wulfgorda'] Du hast 10 Silberstücke und 5 Rangpunkte erhalten."), money + 1000, deleteItem(155, 10), queststatus(650) = 2, rankpoints + 5, "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen."
+queststatus(650) = 1, english, ".*" -> inform("[Quest End  'Find Wulfgorda'] You received 10 silvercoins."), money + 1000, deleteItem(155, 10), queststatus(650) = 2, rankpoints + 5, "#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have some silvercoins for that you found me."
+queststatus(650) = 1, ".*" -> inform("[Quest Ende 'Find Wulfgorda'] Du hast 10 Silberstücke erhalten."), money + 1000, deleteItem(155, 10), queststatus(650) = 2, rankpoints + 5, "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen."
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me tips her helmet."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me tippt auf ihren Helm."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me tips her helmet."
@@ -113,7 +113,7 @@ english, "Illarion" -> inform("[Keywords] Northeast, northwest, southwest, south
 "Gasthof Hanfschlinge" -> "Der Gasthof zur Hanfschlinge *zeigt nach hinten* ist eine neutrale Taverne wo Reisende sich ausrasten, sich auf ein Bier von Borgarte treffen oder um Neuigkeiten oder Gerüchte auszutauschen."
 "Bounding Stream" -> "The Bounding Stream is the river that seperates the northeast from the rest of Illarion and where the Glowing River finds it end."
 "Grenzstrom" -> "Der Grenzstrom ist jeder Fluss, der den Nordosten vom Rest von Illarion trennt und wo der Glühende Fluss sein Ende findet."
-"Glowing River" -> "The Glowing River comes from the Border Mountains. You find the Glowing Forest and Gate, Death Swath, Fisherman's Hut, Glittering Cave, Elven Ruins, Cherass Citadel, Gate and Outpost, and Imman's Last Breath on both sides of the river."
+"Glowing River" -> "The Glowing River comes from the Border Mountains. You find the Glowing Forest and Gate, Death Swath, Fisherman's Hut, Glittering Cave, Elven Ruins, Cherass' Citadel, Gate and Outpost, and Imman's Last Breath on both sides of the river."
 "Glühend Fluss" -> "Der Glühende Fluss kommt aus den Grenzbergen. Du findest die Glühenden Wälder und Tor, die Todes Schneise, Fischermann Hütte, Funkelhöhle, Elfenruinen, Cherass Zitadelle, Tor und Außenposten sowie Immans Letzter Athemzug an beiden Seiten des Flusses."
 "Plains Silence" -> "The Plains of Silence are north from here and south of the Northern Woods. In the southeast you can find the Sunken Temple and the Carnivore's House there."
 "Ebenen Stille" -> "Die Ebene der Stille sind nördlich von hier und südlich der Nördlichen Wäldern. Im Südosten kannst du den Versunkenen Tempel und das Fleischfresser Haus finden."
@@ -146,17 +146,17 @@ english, "Numila", "Irunnleh" -> "You can find her in Runewick and she knows sev
 
 -- northwest
 "Lake Syrita" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
-"See Syrita" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
+"See Syrita" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
 "Nargun's Plain", "narguns plain" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
-"Narguns Ebene" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
+"Narguns Ebene" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
 "Swamp" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
-"Sumpf" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
+"Sumpf" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
 "Temple five" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
-"Tempel Fünf" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
+"Tempel Fünf" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
 "Lonely Mountains" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
 "Einsame Berge" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
 "Galmair Plateau" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
-"Galmair Hochebene" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
+"Galmair Hochebene" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
 english, "Lotta", "Medborgar" -> "You can find her in Galmair and she knows several places in the northwest, thus around Galmair."
 "Lotta", "Medborgar" -> "Die findet man in Galmair und die kennt sämtliche Orte im Nordwesten, sprich um Galmair."
 
@@ -186,10 +186,14 @@ english, "Ruzusss" -> "You can find him in Cadomyr and he knows several places i
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_cadomyr_1.quest belongs to this NPC: Quest-ID.: 652 - IN PROGRESS
-english, "quest", "mission" -> "Nothing to do for you yet but soon."
-"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald."
-"task", "adventure", "order" -> "Nothing to do for you yet but soon."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
+queststatus(652) < 1, english, "quest", "mission" -> queststatus(652) = 1, item(1908, 1, 777), inform("[New Quest 'Find Borgate Northoff' started] Find Borgate Northoff and bring him back his mug."), "Have you already met Borgate Northoff, the barkeeper of the Hemp Necktie Inn? If not, you can do this while you bring back this mug for me. *smiles and hands over a mug.*"
+queststatus(652) < 1, "quest", "mission" -> queststatus(652) = 1, item(1908, 1, 777), inform("[Neues Quest 'Finde Borgate Northoff' gestartet] Finde Borgate Northoff und bringe ihm seinen Krug zurück."), "Hast du bereits Borgate Northoff den Gastwirt des Gasthof Hanfschlinge kennengelernt? Falls nicht, dann dann kannst du das gleich dabei erledigen wenn du mir diesen Krug zurückbringst. *lächelt und überreicht einen Bierkrug*"
+queststatus(652) < 1, "task", "adventure", "order" -> queststatus(652) = 1, item(1908, 1, 777), inform("[New Quest 'Find Borgate Northoff' started] Find Borgate Northoff and bring him back his mug."), "Have you already met Borgate Northoff, the barkeeper of the Hemp Necktie Inn? If not, you can do this while you bring back this mug for me. *smiles and hands over a mug.*"
+queststatus(652) < 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(652) = 1, item(1908, 1, 777), inform("[Neues Quest 'Finde Borgate Northoff' gestartet] Finde Borgate Northoff und bringe ihm seinen Krug zurück."), "Hast du bereits Borgate Northoff den Gastwirt des Gasthof Hanfschlinge kennengelernt? Falls nicht, dann dann kannst du das gleich dabei erledigen wenn du mir diesen Krug zurückbringst. *lächelt und überreicht einen Bierkrug*"
+english, "quest", "mission" -> "Nothing to do for you yet but soon I have plenty of tasks for you."
+"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich."
+"task", "adventure", "order" -> "Nothing to do for you yet but soon I have plenty of tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich."
 
 -- Faction stuff
 "archmage" -> "The archmage owns two stones of power. These are an Emerald and a Ruby. They protect Runewick against Galmair and Cadomyr."

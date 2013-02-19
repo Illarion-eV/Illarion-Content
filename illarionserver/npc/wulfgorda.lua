@@ -20,6 +20,7 @@ require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
@@ -46,7 +47,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(650, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End  'Find Wulfgorda'] You received 10 silvercoins and 5 rankpoints."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End  'Find Wulfgorda'] You received 10 silvercoins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(155, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 2));
@@ -58,7 +59,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(650, "=", 1));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 'Find Wulfgorda'] Du hast 10 Silberstücke und 5 Rangpunkte erhalten."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 'Find Wulfgorda'] Du hast 10 Silberstücke erhalten."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(155, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 2));
@@ -399,7 +400,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glowing River");
-talkEntry:addResponse("The Glowing River comes from the Border Mountains. You find the Glowing Forest and Gate, Death Swath, Fisherman's Hut, Glittering Cave, Elven Ruins, Cherass Citadel, Gate and Outpost, and Imman's Last Breath on both sides of the river.");
+talkEntry:addResponse("The Glowing River comes from the Border Mountains. You find the Glowing Forest and Gate, Death Swath, Fisherman's Hut, Glittering Cave, Elven Ruins, Cherass' Citadel, Gate and Outpost, and Imman's Last Breath on both sides of the river.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -581,7 +582,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("See Syrita");
-talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -594,7 +595,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Narguns Ebene");
-talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -606,7 +607,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sumpf");
-talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -618,7 +619,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tempel Fünf");
-talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -642,7 +643,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair Hochebene");
-talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -796,17 +797,65 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(652, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Nothing to do for you yet but soon.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Borgate Northoff' started] Find Borgate Northoff and bring him back his mug."));
+talkEntry:addConsequence(npc.base.consequence.item.item(1908, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(652, "=", 1));
+talkEntry:addResponse("Have you already met Borgate Northoff, the barkeeper of the Hemp Necktie Inn? If not, you can do this while you bring back this mug for me. *smiles and hands over a mug.*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(652, "<", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Borgate Northoff' gestartet] Finde Borgate Northoff und bringe ihm seinen Krug zurück."));
+talkEntry:addConsequence(npc.base.consequence.item.item(1908, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(652, "=", 1));
+talkEntry:addResponse("Hast du bereits Borgate Northoff den Gastwirt des Gasthof Hanfschlinge kennengelernt? Falls nicht, dann dann kannst du das gleich dabei erledigen wenn du mir diesen Krug zurückbringst. *lächelt und überreicht einen Bierkrug*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(652, "<", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Borgate Northoff' started] Find Borgate Northoff and bring him back his mug."));
+talkEntry:addConsequence(npc.base.consequence.item.item(1908, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(652, "=", 1));
+talkEntry:addResponse("Have you already met Borgate Northoff, the barkeeper of the Hemp Necktie Inn? If not, you can do this while you bring back this mug for me. *smiles and hands over a mug.*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(652, "<", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Borgate Northoff' gestartet] Finde Borgate Northoff und bringe ihm seinen Krug zurück."));
+talkEntry:addConsequence(npc.base.consequence.item.item(1908, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(652, "=", 1));
+talkEntry:addResponse("Hast du bereits Borgate Northoff den Gastwirt des Gasthof Hanfschlinge kennengelernt? Falls nicht, dann dann kannst du das gleich dabei erledigen wenn du mir diesen Krug zurückbringst. *lächelt und überreicht einen Bierkrug*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Nothing to do for you yet but soon I have plenty of tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -814,7 +863,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Nothing to do for you yet but soon.");
+talkEntry:addResponse("Nothing to do for you yet but soon I have plenty of tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -823,7 +872,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -51,7 +51,7 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("#me nods slightly and continues his prayer.");
 talkEntry:addResponse("Hmm? Yes, yes.");
-talkEntry:addResponse("Brágon with you.");
+talkEntry:addResponse("Brágon be with you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -80,7 +80,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("#me nods slightly and continues his prayer.");
 talkEntry:addResponse("Hmm? Yes, yes.");
-talkEntry:addResponse("Brágon with you.");
+talkEntry:addResponse("Brágon be with you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -102,7 +102,7 @@ talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Farewell.");
 talkEntry:addResponse("Good bye.");
-talkEntry:addResponse("Brágon with you!");
+talkEntry:addResponse("Brágon be with you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -125,7 +125,7 @@ talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Farewell.");
 talkEntry:addResponse("Good bye.");
-talkEntry:addResponse("Brágon with you!");
+talkEntry:addResponse("Brágon be with you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -207,7 +207,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("support");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos. Your keyword is 'comfort'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 22));
-talkEntry:addResponse("That is not difficult, of course. Brágon had hoped to comfort the Bloodgod in his loneliness through the creation of the orcs! ?Well, there is your answer! Farewell! *lowers his head and starts praying*");
+talkEntry:addResponse("That is not difficult, of course. Brágon had hoped to comfort the Blood God in his loneliness through the creation of the orcs! ?Well, there is your answer! Farewell! *lowers his head and starts praying*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -227,7 +227,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Purge");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos. Your keyword is 'purge'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 23));
-talkEntry:addResponse("Of course, no problem. Brágon is the lifegiver, and purged of all impurity and weakness! ?Well, that is all I have to say about that. *Lowers his head and starts praying.*");
+talkEntry:addResponse("Of course, no problem. Brágon is the lifegiver, and purged all impurity and weakness! ?Well, that is all I have to say about that. *Lowers his head and starts praying.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -289,7 +289,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("remedy");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos. Your keyword is 'Dragon'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 26));
-talkEntry:addResponse("Easy enough, he sent Dragons into the battle?well, I hope you are satisfied with my answer! Be well! *Lowers his head and starts praying.*");
+talkEntry:addResponse("Easy enough, he sent dragons into the battle?well, I hope you are satisfied with my answer! Be well! *Lowers his head and starts praying.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -310,7 +310,7 @@ talkEntry:addTrigger("relationship");
 talkEntry:addTrigger("relate");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos. Your keyword is 'fire'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 27));
-talkEntry:addResponse("The answer is simple, Fire! There is a fire in both you must feel to understand. I hope that will suffice, be well. *Lowers his head and starts praying.*");
+talkEntry:addResponse("The answer is simple, fire! There is a fire in both you must feel to understand. I hope that will suffice, be well. *Lowers his head and starts praying.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,7 +489,7 @@ talkEntry:addTrigger("question");
 talkEntry:addTrigger("fire");
 talkEntry:addTrigger("thing");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("You do not have all three requested items."));
-talkEntry:addResponse("Please, do not interrupt me until you've gotten the pure fire! As I said, I need a pure fire, a red priest robe and a golden goblet. Please bring them all together.");
+talkEntry:addResponse("Please, do not interrupt me until you've got the pure fire! As I said, I need a pure fire, a red priest robe and a golden goblet. Please bring them all together.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -514,7 +514,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("You do not have all three requested items."));
-talkEntry:addResponse("Please, do not interrupt me until you've gotten the pure fire! As I said, I need a pure fire, a red priest robe and a golden goblet. Please bring them all together.");
+talkEntry:addResponse("Please, do not interrupt me until you've got the pure fire! As I said, I need a pure fire, a red priest robe and a golden goblet. Please bring them all together.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,7 +629,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("know");
 talkEntry:addTrigger("question");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask your question from Sir Fludnar Yednos"));
-talkEntry:addResponse("Hmm, you are seeking knowledge traveler? Well, what is your question?");
+talkEntry:addResponse("Hmm, you are seeking knowledge traveller? Well, what is your question?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -654,7 +654,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("info");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask your question from Sir Fludnar Yednos"));
-talkEntry:addResponse("Hmm, you are seeking knowledge traveler? Well, what is your question?");
+talkEntry:addResponse("Hmm, you are seeking knowledge traveller? Well, what is your question?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -901,7 +901,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("goblet");
-talkEntry:addResponse("I'm sure a finesmith in Cadomyr or in Galmair can help forge you a goblet.");
+talkEntry:addResponse("I'm sure a finesmith in Cadomyr or Galmair can help forge you a goblet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -915,7 +915,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addTrigger("work");
 talkEntry:addResponse("Priest of Brágon of course.");
-talkEntry:addResponse("Priest, perhaps you are inflicted traveler?");
+talkEntry:addResponse("Priest, perhaps you are inflicted traveller?");
 talkEntry:addResponse("Brágon's devotee is my profession.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -934,7 +934,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addResponse("Priest of Brágon of course.");
-talkEntry:addResponse("Priest, perhaps you are inflicted traveler?");
+talkEntry:addResponse("Priest, perhaps you are inflicted traveller?");
 talkEntry:addResponse("Brágon's devotee is my duty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -952,7 +952,7 @@ talkEntry:addTrigger("I am");
 talkEntry:addTrigger("my name");
 talkEntry:addResponse("Do you pray to Brágon too?");
 talkEntry:addResponse("Nice name, I like it.");
-talkEntry:addResponse("Well I hope you have offered you prayers to lord Brágon this day traveler.");
+talkEntry:addResponse("Well I hope you have offered you prayers to Lord Brágon this day traveller.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1053,7 +1053,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gold");
-talkEntry:addResponse("Brágon loves gold and I give him every gold that I have ever gotten.");
+talkEntry:addResponse("Brágon loves gold and I have given him every gold that I have ever got.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1065,8 +1065,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("five");
-talkEntry:addResponse("There are five elder gods and several younger gods. The elder gods are Bragon, Ushara, Eldan, Tanora and Findari. They, past one, have left us to another realm for our protection.");
-talkEntry:addResponse("Bragon, Ushara, Eldan, Tanora and Findari are their names. We have of each of them a statue here. Only exception is Eldan... So, take a look!");
+talkEntry:addResponse("There are five Elder Gods and several Younger Gods. The Elder Gods are Bragon, Ushara, Eldan, Tanora and Findari. All but one have left us for another realm, for our protection.");
+talkEntry:addResponse("Bragon, Ushara, Eldan, Tanora and Findari are their names. We have a statue of each of them here. The only exception is Eldan... so, take a look!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1091,7 +1091,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Chapel");
-talkEntry:addResponse("Chapel of the Five? The name of this place. It has been built after one of the many wars between the towns to praise the Five for the pease. But don't ask after which war. I don't know.");
+talkEntry:addResponse("Chapel of the Five? The name of this place. It was built after one of the many wars between the towns to praise the Five for the peace, but don't ask after which war. I don't know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1165,7 +1165,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("They are looking for wisdom. But I don't know why they are always looking for it in the west.");
-talkEntry:addResponse("They think they are wise, but I don't know if I shall agree.");
+talkEntry:addResponse("They think they are wise, but I don't know if I agree.");
 talkEntry:addResponse("I can remember a blue and a red gate when you enter the town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1202,7 +1202,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("They are looking for coins and are not interested to sacrifice them to Brágon.");
+talkEntry:addResponse("They are looking for coins and are not interested in sacrificing them to Brágon.");
 talkEntry:addResponse("Take care of your belongings if you are there.");
 talkEntry:addResponse("Do not trust anyone there.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1219,7 +1219,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
 talkEntry:addResponse("Does she believe in Brágon? Then I do not care about her.");
-talkEntry:addResponse("She is on a quick road to ruin Cadomyr.");
+talkEntry:addResponse("She is on a quick road to ruining Cadomyr.");
 talkEntry:addResponse("Lovely face, but nothing more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1237,7 +1237,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addResponse("Does she believe in Brágon? Then I do not care about her.");
-talkEntry:addResponse("She is on a quick road to ruin Cadomyr.");
+talkEntry:addResponse("She is on a quick road to ruining Cadomyr.");
 talkEntry:addResponse("Lovely face, but nothing more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1323,27 +1323,27 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Bragon, Bragon and again Bragon.");
-talkEntry:addResponse("I pray to Bragon, join me.");
-talkEntry:addResponse("I believe in Bragon and his fire.");
+talkEntry:addResponse("Brágon, Brágon and again Brágon.");
+talkEntry:addResponse("I pray to Brágon, join me.");
+talkEntry:addResponse("I believe in Brágon and his fire.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Bragaon, Bragon und nochmals Bragon.");
-talkEntry:addResponse("Ich bete zu Bragon, bete mit mir.");
-talkEntry:addResponse("Ich glaube an Bragon und sein Feuer.");
+talkEntry:addResponse("Brágaon, Brágon und nochmals Brágon.");
+talkEntry:addResponse("Ich bete zu Brágon, bete mit mir.");
+talkEntry:addResponse("Ich glaube an Brágon und sein Feuer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("Yes, this god exists but is not interesting to me.");
-talkEntry:addResponse("I believe in Brágon and his fire, that it leads me not this one you speak.");
-talkEntry:addResponse("That's one of the younger gods, therefore, nothing compared to Brágon.");
+talkEntry:addResponse("Yes, this God exists but is not of interest to me.");
+talkEntry:addResponse("I believe in Brágon and his fire, that it leads me, not this one you speak of.");
+talkEntry:addResponse("That's one of the Younger Gods, therefore, nothing compared to Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1359,9 +1359,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Yes, this god exists, but he has left this level. I hope he is coming back one day.");
-talkEntry:addResponse("He is the elder god of fire and stands for a wisdom, strength, and nobility.");
-talkEntry:addResponse("One of the statues in the front of me represents him. Just take a look if you want to know how he could look like.");
+talkEntry:addResponse("Yes, this God exists, but he has left this world. I hope he is coming back one day.");
+talkEntry:addResponse("He is the Elder God of fire and stands for a wisdom, strength, and nobility.");
+talkEntry:addResponse("One of the statues in the front of me represents him. Just take a look if you want to know how he might look.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1377,9 +1377,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("Yes, this god exists but she does not interest me.");
-talkEntry:addResponse("I've heard about priests of this god, but I cannot remember their names.");
-talkEntry:addResponse("That's one of the younger gods, therefore, nothing compared to Brágon.");
+talkEntry:addResponse("Yes, this God exists but she does not interest me.");
+talkEntry:addResponse("I've heard about priests of this God, but I cannot remember their names.");
+talkEntry:addResponse("That's one of the Younger Gods, therefore, nothing compared to Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1394,9 +1394,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Yes, this god exists but is of no interest to me.");
-talkEntry:addResponse("I've heard priests of this goddess live in Runewick .");
-talkEntry:addResponse("That's one of the younger gods, therefore, beneath my lord, Brágon.");
+talkEntry:addResponse("Yes, this God exists but is of no interest to me.");
+talkEntry:addResponse("I've heard priests of this Goddess live in Runewick .");
+talkEntry:addResponse("That's one of the Younger Gods, therefore, beneath my lord, Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1411,9 +1411,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("This is not a god I take much interest in.");
+talkEntry:addResponse("This is not a God I take much interest in.");
 talkEntry:addResponse("I once knew a priest of Eldan, but cannot recall his name.");
-talkEntry:addResponse("He is an elder god like my lord, Brágon.");
+talkEntry:addResponse("He is an Elder God like my Lord, Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1428,10 +1428,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("I give little attention to this god.");
+talkEntry:addResponse("I pay little attention to this God.");
 talkEntry:addResponse("I cannot recall anyone I know worshipping her.");
-talkEntry:addResponse("Like Brágon she is an elder god.");
-talkEntry:addResponse("One of the statues behind me represents her. Just take a look if you want to know how she could look like.");
+talkEntry:addResponse("Like Brágon she is an Elder God.");
+talkEntry:addResponse("One of the statues behind me represents her. Just take a look if you want to know how she might look.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1447,9 +1447,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Best speak with someone from Galmair about such a god.");
-talkEntry:addResponse("I do not know anyone personally that honours this god.");
-talkEntry:addResponse("Just one of many younger gods that cannot compare to Lord Brágon.");
+talkEntry:addResponse("Best speak with someone from Galmair about such a God.");
+talkEntry:addResponse("I do not know anyone personally that honours this God.");
+talkEntry:addResponse("Just one of many Younger Gods that cannot compare to Lord Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1465,9 +1465,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("I've heard travelers from Cadomyr utter his name.");
-talkEntry:addResponse("A god of war but cannot purge the field of battle like Lord Brágon.");
-talkEntry:addResponse("One of the younger gods I believe, I lose track of all of them some times.");
+talkEntry:addResponse("I've heard travellers from Cadomyr utter his name.");
+talkEntry:addResponse("A God of war, yet cannot purge the field of battle like Lord Brágon.");
+talkEntry:addResponse("One of the Younger Gods I believe, I lose track of all of them some times.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1483,8 +1483,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("I don't talk about this god.");
-talkEntry:addResponse("No priest should ever openly worship such a god!");
+talkEntry:addResponse("I don't talk about this God.");
+talkEntry:addResponse("No priest should ever openly worship such a God!");
 talkEntry:addResponse("Do not utter the name of such a thief. He took some of my Lord's beloved dragons!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1502,9 +1502,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("The god of chaos they say, but he means little to me.");
-talkEntry:addResponse("How can you even consider a person who follows such a god a priest?");
-talkEntry:addResponse("Just one of the younger gods.");
+talkEntry:addResponse("The God of chaos they say, but he means little to me.");
+talkEntry:addResponse("How can you even consider a person who follows such a God a priest?");
+talkEntry:addResponse("Just one of the Younger Gods.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1523,7 +1523,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
 talkEntry:addResponse("Ask someone in Runewick about Oldra, not me.");
 talkEntry:addResponse("#me yawns, 'Another subject perhaps?'.");
-talkEntry:addResponse("A younger god living in the shadows of my Lord Brágon.");
+talkEntry:addResponse("A Younger God living in the shadows of my Lord Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1540,7 +1540,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
 talkEntry:addResponse("Go to Galmair to join his shadow.");
 talkEntry:addResponse("The only way to rid the world of his shadow is by the flame of Brágon.");
-talkEntry:addResponse("A mere younger god, ha, nothing to the Lord Brágon.");
+talkEntry:addResponse("A mere Younger God, ha, nothing to the Lord Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1555,9 +1555,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Yes, this god exists but she is not interesting to me.");
-talkEntry:addResponse("I heard about priests of this goddess, but I cannot remember their names.");
-talkEntry:addResponse("Oh, all this speak of younger gods bores me.");
+talkEntry:addResponse("Yes, this God exists but she is not of interest to me.");
+talkEntry:addResponse("I heard about priests of this Goddess, but I cannot remember their names.");
+talkEntry:addResponse("Oh, all this talk of Younger Gods bores me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1574,9 +1574,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addResponse("She is of little interest to me.");
-talkEntry:addResponse("Search yourself a lizardman if you seek answers about her");
-talkEntry:addResponse("That's one of the elder gods like Brágon.");
-talkEntry:addResponse("One of the statues behind me represents her. Just take a look if you want to know how she could look like.");
+talkEntry:addResponse("Find yourself a lizardman if you seek answers about her");
+talkEntry:addResponse("That's one of the Elder Gods, like Brágon.");
+talkEntry:addResponse("One of the statues behind me represents her. Just take a look if you want to know how she might look.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1595,8 +1595,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
 talkEntry:addResponse("She is of little concern to me.");
 talkEntry:addResponse("Never heard of a priest dedicated to Ushara.");
-talkEntry:addResponse("She is an elder god but nothing compared to Brágon.");
-talkEntry:addResponse("One of the statues in front of me me represents her. Just take a look if you want to know how she could look like.");
+talkEntry:addResponse("She is an Elder God but nothing compared to Brágon.");
+talkEntry:addResponse("One of the statues in front of me represents her. Just take a look if you want to know how she might look.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1614,7 +1614,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
 talkEntry:addResponse("#me looks disinterested, 'Perhaps another subject?'");
 talkEntry:addResponse("I don't know anyone that worships Zhambra.");
-talkEntry:addResponse("One of the many younger gods that serve Brágon.");
+talkEntry:addResponse("One of the many Younger Gods that serve Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1650,9 +1650,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("In Brágon I believe.");
-talkEntry:addResponse("Another time maybe. Now I have to pray.");
-talkEntry:addResponse("It is not the time for stories, yet.");
+talkEntry:addResponse("In Brágon, I believe.");
+talkEntry:addResponse("Another time maybe? Now I have to pray.");
+talkEntry:addResponse("It is not the time for stories.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1668,7 +1668,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nobarg");
-talkEntry:addResponse("Yes? How can I help you? Do you like to know more about gods?");
+talkEntry:addResponse("Yes? How can I help you? Do you wish to know more about gods?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1706,7 +1706,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Don't you think it is time for another pray now?");
+talkEntry:addResponse("Don't you think it is time for another prayer now?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1718,12 +1718,12 @@ talkEntry:addResponse("Denkt ihr nicht es ist an der Zeit für ein weiteres Gebet
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me kniet vor dem Altar.", "#me kneels in front of the altar.");
-talkingNPC:addCycleText("#me klopft gegen den Altar und ruft 'Heil dir Bragon!'", "#me knocks against the altar and calls 'Hail Brágon!'");
+talkingNPC:addCycleText("#me klopft gegen den Altar und ruft 'Heil dir Bragon!'", "#me knocks against the altar and calls, 'Hail Brágon!'");
 talkingNPC:addCycleText("#me poliert gedankenverloren seinen Goldring.", "#me seems to be lost in thought while polishing a gold ring.");
-talkingNPC:addCycleText("#me murmelt vor sich hin: 'Bragon, möchte uns dein Feuer leuchten.'", "#me mumbles: 'Brágon, your fire shall be a light for us.'");
+talkingNPC:addCycleText("#me murmelt vor sich hin: 'Bragon, möchte uns dein Feuer leuchten.'", "#me mumbles, 'Brágon, your fire shall be a light for us.'");
 talkingNPC:addCycleText("Bragon, er ist weise, stark, nobel, einfach wunderbar.", "Brágon, he is wise, strong, noble, and heavenly.");
 talkingNPC:addCycleText("Bragon belohnt manchmal Leute mit heilgen, wertvollen Dinge in diesem Temple.", "Brágon blesses people sometimes who sacrifice valuable things in his temple.");
-talkingNPC:addCycleText("Malachin, nicht gerade wie Bragon!", "Brágon oh how your greatness exceeds Malachin's!");
+talkingNPC:addCycleText("Malachin, nicht gerade wie Bragon!", "Brágon, oh how your greatness exceeds Malachin's!");
 talkingNPC:addCycleText("Hmm... wo kriege ich nur mehr Gold her?", "Hmm... where do I get more gold?");
 talkingNPC:addCycleText("#me hält seinen Priesterstab gehn Himmel und ruft nach Bragon", "#me holds his cleric's staff to heaven and calls for Bragon.");
 talkingNPC:addCycleText("#me betrachtet seinen Rubin mit wohlwollen.", "#me looks at his ruby with a satisfied smirk on his face.");

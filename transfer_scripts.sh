@@ -12,4 +12,4 @@ rsync -r --delete --exclude "testquest.quest" testserver/questsystem/ illarionse
 rsync -r --delete testserver/scheduled/ illarionserver/scheduled/
 rsync -r --delete testserver/server/ illarionserver/server/
 rsync -r --delete testserver/tile/ illarionserver/tile/
-rsync -r  --deletetestserver/triggerfield/ illarionserver/triggerfield/
+rsync -r --delete testserver/triggerfield/ illarionserver/triggerfield/

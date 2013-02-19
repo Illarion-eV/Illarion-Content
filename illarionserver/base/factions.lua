@@ -313,7 +313,6 @@ function setRankpoints(originator, rankpoints)
 	end
 
 	------save changes----------------
-	setFaction(originator,Faction);
 	originator:setQuestProgress(202,rankpoints);
 end
 

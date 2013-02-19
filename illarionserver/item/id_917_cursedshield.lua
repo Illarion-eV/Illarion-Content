@@ -43,10 +43,6 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
     return true;
 end;
 
---function LookAtItem(User,Item)
---    if ( Item.data == 1 ) then
---        world:itemInform( User, Item, "Heavy Metal Shield" );
---    else
---        world:itemInform( User, Item, "Cursed Shield" );
---    end;
---end
+function LookAtItem(User,Item)
+    item.general.metal.LookAtItem(User,Item)
+end
