@@ -941,6 +941,18 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("virgin");
+talkEntry:addResponse("Virgins weed only grows in rocky terrain; so you'll have to head for a the mountains if you need any.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Jungfer");
+talkEntry:addResponse("Jungfernkraut wächst nur in felsigem Gelände; ihr werdet also in die Berge gehen müssen, wenn ihr welches benötigt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
 talkEntry:addResponse("Once, I called the archmage of Runewick a friend of mine. But we disagreed in too many things, so I left Runewick for good.");
 talkingNPC:addTalkingEntry(talkEntry);

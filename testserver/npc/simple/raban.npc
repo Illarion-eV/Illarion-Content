@@ -191,6 +191,8 @@ queststatus(66) = 0, "sickle" -> "With sickles, you can cut fir tree seedlings t
 queststatus(66) = 0, "Sichel" -> "Mit einer Sichel könnt ihr Fichtensetzlinge schneiden um neue Bäume zu pflanzen. Wenn ihr mir dabei helfen wollt, fragt mich nach einem Auftrag."
 "sickle" -> "In case you need a new sickle, ask for William in Runewick. If he is still alive after all those years we didn't meet."
 "Sichel" -> "Wenn du einen neue Sichel benötigst, fragt nach William in Runewick. Ich hoffe, er ist nach all diesen Jahren, die wir uns nicht sahen, noch am Leben."
+"virgin" -> "Virgins weed only grows in rocky terrain; so you'll have to head for a the mountains if you need any."
+"Jungfer" -> "Jungfernkraut wächst nur in felsigem Gelände; ihr werdet also in die Berge gehen müssen, wenn ihr welches benötigt."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Once, I called the archmage of Runewick a friend of mine. But we disagreed in too many things, so I left Runewick for good."
