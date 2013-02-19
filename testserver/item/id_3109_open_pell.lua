@@ -179,7 +179,7 @@ function Init()
     AddPotion("Runewick",		  
 			  521,
 			  {"a shape shifter potion male halfling with at least average quality","einen Verwandlungstrank männlicher Halbling von mindestens durchschnittlicher Qualität"},
-			  {330,5,{"filledWith","potion"},{"potionEffectId","520"}}
+			  {329,5,{"filledWith","potion"},{"potionEffectId","520"}}
 			  )
     AddPotion("Runewick",		  
 			  530,
