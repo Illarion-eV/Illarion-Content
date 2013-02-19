@@ -309,7 +309,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 4));
-talkEntry:addResponse("Diese Eiche kann man nicht einfach fällen... Ich hätte es wissen müssen. Der Geist in ihr ist zu stark. Aber es gibt einen Weg; bringt mir eine Kriegsaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
+talkEntry:addResponse("Diese Eiche kann man nicht einfach fällen... Ich hätte es wissen müssen. Der Geist in ihr ist zu stark. Aber es gibt einen Weg; bringt mir eine Streitaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -378,7 +378,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 4));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Bringt mir eine Kriegsaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
+talkEntry:addResponse("Bringt mir eine Streitaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -395,7 +395,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 4));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Bringt mir eine Kriegsaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
+talkEntry:addResponse("Bringt mir eine Streitaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
