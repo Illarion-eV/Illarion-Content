@@ -60,7 +60,7 @@ itemShoes = 369
 
 -- Mandatory: General speech
 queststatus(606) = 1, english, ".*" -> inform("[Quest 'Find Iradona'] You can talk with Iradona now. Ask for 'help' if you do not know what to ask! You can also go back to Hummi to collect your reward and come back later."), "How can I help you? Do you want any information? Or would you like to do a task?", queststatus(606)=2
-queststatus(606) = 1, ".*" -> inform("[Quest 'Finde Iradona'] Da kannst nun mit Iradona sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst.! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."), "Wie kann ich der Herrschaft helfen? Wird eine Information erwünscht? Oder eine Aufgabe?", queststatus(606)=2
+queststatus(606) = 1, ".*" -> inform("[Quest 'Finde Iradona'] Da kannst nun mit Iradona sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."), "Wie kann ich der Herrschaft helfen? Wird eine Information erwünscht? Oder eine Aufgabe?", queststatus(606)=2
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Good day, my dear. Can I help you with some information?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Good day, my dear. Can I help you with some information?"
@@ -85,7 +85,7 @@ english, "job" -> "Informant. I can tell you many things about Galmair. Just ask
 english, "teleport" -> "With this teleporter here you can travel safely and quickly to Runewick, Cadomyr or the Hemp Necktie Inn."
 "teleport" -> "Mit diesen Teleporter hier kannst du sicher und schnell nach Runewick, Cadomyr oder zum Gasthof zur Hanfschlinge reisen."
 "Temple Ronagan", "Ronagan Temple" -> "The Temple of Ronagan can be found in the Scoria Mine. Just follow the signposts, but keep in mind that the temple is currently flooded."
-"Tempel Ronagan", "Ronagan Tempel" -> "Der Tempel von Ronagan kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern, aber beachte, dass der Tempel momentan überflutet ist."
+"Tempel Ronagan", "Ronagan Tempel" -> "Der Tempel von Ronagan kann in der Schlackengrube gefunden werden. Folge einfach den Wegweisern, aber beachte, dass der Tempel momentan überflutet ist."
 "Temple Irmorom", "Irmorom Temple" -> "The Temple of Irmorom is close to Villa Goldvein. You can pray to Irmorom there and hope that you become a rich person."
 "Tempel Irmorom", "Irmorom Tempel" -> "Der Tempel des Irmorom ist nahe der Villa Goldader. Du kannst dort zu Irmorom beten und hoffen, dass du reich wirst."
 "Temple Nargun", "Nargun Temple" -> "The Temple of Nargun in the Flicker Swale is a place for all those who follow Nargun. Obvious, isn't it?"

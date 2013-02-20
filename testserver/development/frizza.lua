@@ -52,7 +52,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 1));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Frizza'] Da kannst nun mit Frizza sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst.! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Frizza'] Da kannst nun mit Frizza sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 2));
 talkEntry:addResponse("Wie kann ich helfen? Wird eine Information erwünssscht? Oder eine Aufgabe?");
 talkingNPC:addTalkingEntry(talkEntry);

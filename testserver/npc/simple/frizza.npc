@@ -60,7 +60,7 @@ itemShoes = 369
 
 -- Mandatory: General speech
 queststatus(605) = 1, english, ".*" -> inform("[Quest 'Find Frizza'] You can speak with Frizza now. Ask for 'help' if you do not know what to say! You can also go back to Hummi to collect your reward and come back later."), "How can I help you? Are you looking for any information? Or would you like to be given a task?", queststatus(605)=2
-queststatus(605) = 1, ".*" -> inform("[Quest 'Finde Frizza'] Da kannst nun mit Frizza sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst.! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."), "Wie kann ich helfen? Wird eine Information erwünssscht? Oder eine Aufgabe?", queststatus(605)=2
+queststatus(605) = 1, ".*" -> inform("[Quest 'Finde Frizza'] Da kannst nun mit Frizza sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."), "Wie kann ich helfen? Wird eine Information erwünssscht? Oder eine Aufgabe?", queststatus(605)=2
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Greetingsss, can I help you?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Grüsssse, kann ich helfen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Greetingsss, can I help you?"

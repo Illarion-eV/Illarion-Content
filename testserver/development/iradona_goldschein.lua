@@ -53,7 +53,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(606, "=", 1));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Iradona'] Da kannst nun mit Iradona sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst.! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Iradona'] Da kannst nun mit Iradona sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 2));
 talkEntry:addResponse("Wie kann ich der Herrschaft helfen? Wird eine Information erwünscht? Oder eine Aufgabe?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -229,7 +229,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tempel Ronagan");
 talkEntry:addTrigger("Ronagan Tempel");
-talkEntry:addResponse("Der Tempel von Ronagan kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern, aber beachte, dass der Tempel momentan überflutet ist.");
+talkEntry:addResponse("Der Tempel von Ronagan kann in der Schlackengrube gefunden werden. Folge einfach den Wegweisern, aber beachte, dass der Tempel momentan überflutet ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
