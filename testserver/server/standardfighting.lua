@@ -54,8 +54,6 @@ function onAttack(Attacker, Defender)
     -- Put this in when testing the new script
 		--development.testscript.onAttack(Attacker,Defender);
 		--return;
-
-		quicktest();
 	end;
 	
     -- Prepare the lists that store the required values for the calculation
@@ -149,43 +147,6 @@ function onAttack(Attacker, Defender)
     
     -- Teach the attacker the skill he earned for his success
     LearnSuccess(Attacker, Defender, APreduction)
-end;
-
-
-function quicktest()
-	
-	--[[if isTestserver() then
-		
-		local displacement,xpos,ypos;
-		for displacement = 0, 27, 3 do
-			for xpos = 909, 911, 1 do
-				for ypos = 760, 765, 1 do
-					if User.pos == position(xpos+displacement,ypos,1) then
-
-						local pillar1 = world:getField(position(910+displacement, 760,1));
-						local flame1 = pillar1:getStackItem(pillar1:countItems());
-						local pillar2 = world:getField(position(910+displacement, 765,1));
-						local flame2 = pillar2:getStackItem(pillar2:countItems());
-
-						base.common.InformNLS(User,"Working:"..flame1.id.." and also"..flame2.id.." k?");
-
-						if pillar1.id == 2805 then
-							local newflame = world:createItemFromId(259,1,position(910+displacement,760,1),true,333);
-							newflame.wear = 1;
-						end;
-
-						if pillar2.id == 2805 then
-							local newflame = world:createItemFromId(259,1,position(910+displacement,765,1),true,333);
-							newflame.wear = 1;
-						end;
-
-					end;
-
-				end;
-			end;
-		end;
-	end;]]
-
 end;
 
 --------------------------------------------------------------------------------
