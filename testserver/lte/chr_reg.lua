@@ -55,11 +55,14 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
 				for xpos = 909, 911, 1 do
 					for ypos = 760, 765, 1 do
 						if Char.pos.x == xpos+displacement then
+
+							base.common.InformNLS( Char,
+										"Deine aktuelle Position ist: "..Char.pos.x..", "..Char.pos.y..", "..Char.pos.z.."",
+										"Blah.."..Char.pos.y.."vs"..ypos.." ");
+
 							if Char.pos.y == ypos then
 
-								base.common.InformNLS( Char,
-										"Deine aktuelle Position ist: "..Char.pos.x..", "..Char.pos.y..", "..Char.pos.z.."",
-										"Should be working1" );
+								
 
 								if Char.pos.z == 1 then
 
