@@ -1,4 +1,4 @@
--- UPDATE quests SET qst_script = 'quest.saren_eisenfaust_81_galmair' WHERE qst_id = 81;
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (81, 'quest.saren_eisenfaust_81_galmair');
 
 require("base.common")
 module("quest.saren_eisenfaust_81_galmair", package.seeall)
