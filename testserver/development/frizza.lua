@@ -21,7 +21,7 @@ require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("npc.frizza", package.seeall)
+module("development.frizza", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();

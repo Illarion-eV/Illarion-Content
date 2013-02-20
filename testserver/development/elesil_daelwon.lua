@@ -22,7 +22,7 @@ require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("npc.elesil_daelwon", package.seeall)
+module("development.elesil_daelwon", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
