@@ -1,4 +1,4 @@
--- INSERT INTO quests SET qst_script = 'quest.SCRIPTNAME' WHERE qst_id = QUESTID;
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (QUESTID, 'quest.SCRIPTNAME');
 
 require("base.common")
 module("quest.SCRIPTNAME", package.seeall)
