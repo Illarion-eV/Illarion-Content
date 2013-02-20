@@ -78,7 +78,7 @@ function UseItem(User, SourceItem, ltstate)
             if SourceItem.id == 395 and (SourceItem.pos == position (906, 823, -3) or SourceItem.pos == position (906, 825, -3) ) and User:getQuestProgress(105) == 1 then
                 base.common.InformNLS(User, "[Queststatus] Du entfachst die Ehrenfeuer von Runewick. Kehre zu Gregor Remethar zurück, um deine Belohnung einzufordern.", "[Quest status] You lit the lights of honour of Runewick. Return to Gregor Remethar to claim your reward.")
                 User:setQuestProgress(105,2);
-				putOn(SourceItem,20,false); --these lights burn quite long
+				putOn(SourceItem,math.random(20,60),false); --these lights burn quite long
             else
 
             --Quest end, default below
