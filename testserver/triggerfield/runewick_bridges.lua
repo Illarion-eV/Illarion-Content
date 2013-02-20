@@ -13,7 +13,7 @@ function MoveToField( User )
 			for ypos = 760, 765, 1 do
 				if User.pos == position(xpos+displacement,ypos,1) then
 
-					User.char:inform("Test");
+					User.Char:inform("Test");
 					local pillar1 = world:getField(position(910+displacement, 760,1));
 					local flame1 = pillar1:getStackItem(pillar1:countItems());
 					local pillar2 = world:getField(position(910+displacement, 765,1));
