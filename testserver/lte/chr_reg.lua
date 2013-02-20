@@ -52,11 +52,19 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
 
 			local displacement,xpos,ypos;
 			for displacement = 0, 27, 3 do
+
+				base.common.InformNLS( Char,
+										"Deine aktuelle Position ist: "..Char.pos.x..", "..Char.pos.y..", "..Char.pos.z.."",
+										"Should be working1" );
 				for xpos = 909, 911, 1 do
 					for ypos = 760, 765, 1 do
 						if Char.pos.x == xpos+displacement then
 							if Char.pos.y == ypos then
 								if Char.pos.z == 1 then
+
+									base.common.InformNLS( Char,
+										"Deine aktuelle Position ist: "..Char.pos.x..", "..Char.pos.y..", "..Char.pos.z.."",
+										"Should be working" );
 
 									local pillar1 = world:getField(position(910+displacement, 760,1));
 									local flame1 = pillar1:getStackItem(pillar1:countItems());
