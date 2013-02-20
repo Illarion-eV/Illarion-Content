@@ -31,7 +31,7 @@ function repairDialog(npcChar, speaker)
 	for i=17,0,-1 do 
 		local item = speaker:getItemAt(i);
 		if (item.id > 0) and (item.number == 1) and (getRepairPrice(item,speaker) ~= 0) then --only add items which are single items and repairable
-			if (item.id ~= base.money.GoldCoinsID or item.id ~= base.money.SilverCoinsID or item.id ~= base.money.CopperCoinsID) then --don't add money
+			if (item.id ~= base.money.GoldCoinsID and item.id ~= base.money.SilverCoinsID and item.id ~= base.money.CopperCoinsID) then --don't add money
 				debug("ItemID: "..item.id);
 				table.insert(itemsOnChar, item);
 				table.insert(itemPosOnChar, itemPos[i])
