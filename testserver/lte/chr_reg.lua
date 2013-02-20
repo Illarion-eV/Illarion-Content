@@ -54,7 +54,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
 			for displacement = 0, 27, 3 do
 				for xpos = 909, 911, 1 do
 					for ypos = 760, 765, 1 do
-						if User.pos == position(xpos+displacement,ypos,1) then
+						if Char.pos == position(xpos+displacement,ypos,1) then
 
 							local pillar1 = world:getField(position(910+displacement, 760,1));
 							local flame1 = pillar1:getStackItem(pillar1:countItems());
