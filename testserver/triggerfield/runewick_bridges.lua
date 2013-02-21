@@ -25,11 +25,13 @@ function MoveToField( User )
 					if pillar1.id == 2805 then
 						local newflame = world:createItemFromId(259,1,position(910+displacement,760,1),true,333);
 						newflame.wear = 1;
+						world:changeItem(newflame);
 					end;
 
 					if pillar2.id == 2805 then
 						local newflame = world:createItemFromId(259,1,position(910+displacement,765,1),true,333);
 						newflame.wear = 1;
+						world:changeItem(newflame);
 					end;
 
 				end;
