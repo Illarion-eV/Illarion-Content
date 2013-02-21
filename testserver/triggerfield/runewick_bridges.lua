@@ -13,24 +13,24 @@ function MoveToField( User )
 			for ypos = 760, 765, 1 do
 				if Char.pos == position(xpos+displacement,ypos,1) then
 
-							local testthing = 910+displacement;
+					local testthing = 910+displacement;
 
-							local pillar1 = world:getField(position(testthing, 760,1));
-							local flame1 = pillar1:getStackItem(pillar1:countItems()-1);
-							local pillar2 = world:getField(position(testthing, 765,1));
-							local flame2 = pillar2:getStackItem(pillar2:countItems()-1);
+					local pillar1 = world:getField(position(testthing, 760,1));
+					local flame1 = pillar1:getStackItem(pillar1:countItems()-1);
+					local pillar2 = world:getField(position(testthing, 765,1));
+					local flame2 = pillar2:getStackItem(pillar2:countItems()-1);
 
-							if flame1.id == 2805 then
-								local newflame = world:createItemFromId(359,1,position(testthing,760,1),true,333,nil);
-								newflame.wear = 2;
-								world:changeItem(newflame);
-							end;
+					if flame1.id == 2805 then
+						local newflame = world:createItemFromId(359,1,position(testthing,760,1),true,333,nil);
+						newflame.wear = 2;
+						world:changeItem(newflame);
+					end;
 
-							if flame2.id == 2805 then
-								local newflame = world:createItemFromId(359,1,position(testthing,765,1),true,333,nil);
-								newflame.wear = 1;
-								world:changeItem(newflame);
-							end;
+					if flame2.id == 2805 then
+						local newflame = world:createItemFromId(359,1,position(testthing,765,1),true,333,nil);
+						newflame.wear = 1;
+						world:changeItem(newflame);
+					end;
 
 
 				end;
