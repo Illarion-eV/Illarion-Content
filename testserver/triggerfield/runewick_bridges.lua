@@ -7,6 +7,7 @@ module("triggerfield.runewick_bridges", package.seeall)
 
 function MoveToField( User )
 	local displacement,xpos,ypos;
+	--North Bridge
 	for displacement = 1, 28, 3 do
 		for xpos = 909, 911, 1 do
 			for ypos = 760, 765, 1 do
@@ -30,8 +31,41 @@ function MoveToField( User )
 			end;
 		end;
 	end;
+
+	--East Bridge
+	for displacement = 1, 31, 3 do
+		for xpos = 943, 948, 1 do
+			for ypos = 770, 772, 1 do
+				if User.pos == position(xpos,ypos+displacement,1) then
+					local testthing = 771+displacement;
+					local pillar1 = world:getField(position(944, testthing,1));
+					local flame1 = pillar1:getStackItem(pillar1:countItems()-1);
+					local pillar2 = world:getField(position(948, testthing,1));
+					local flame2 = pillar2:getStackItem(pillar2:countItems()-1);
+					if flame1.id == 2805 then
+						local newflame = world:createItemFromId(359,1,position(944, testthing,1),true,333,nil);
+						newflame.wear = 1;
+						world:changeItem(newflame);
+					end;
+					if flame2.id == 2805 then
+						local newflame = world:createItemFromId(359,1,position(948, testthing,1),true,333,nil);
+						newflame.wear = 1;
+						world:changeItem(newflame);
+					end;
+				end;
+			end;
+		end;
+	end;
+
+
+
+
+
+
+
 end
 
+-- North Bridge Triggers
 -- INSERT INTO triggerfields VALUES (909,760,1,'triggerfield.runewick_bridges');
 -- INSERT INTO triggerfields VALUES (909,761,1,'triggerfield.runewick_bridges');
 -- INSERT INTO triggerfields VALUES (909,762,1,'triggerfield.runewick_bridges');
@@ -212,3 +246,185 @@ end
 -- INSERT INTO triggerfields VALUES (938,763,1,'triggerfield.runewick_bridges');
 -- INSERT INTO triggerfields VALUES (938,764,1,'triggerfield.runewick_bridges');
 -- INSERT INTO triggerfields VALUES (938,765,1,'triggerfield.runewick_bridges');
+
+-- East Bridge Triggers
+-- INSERT INTO triggerfields VALUES (943,770,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,770,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,770,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,770,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,770,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,770,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,771,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,771,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,771,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,771,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,771,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,771,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,772,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,772,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,772,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,772,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,772,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,772,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,773,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,773,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,773,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,773,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,773,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,773,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,774,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,774,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,774,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,774,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,774,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,774,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,775,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,775,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,775,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,775,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,775,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,775,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,776,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,776,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,776,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,776,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,776,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,776,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,777,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,777,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,777,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,777,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,777,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,777,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,778,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,778,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,778,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,778,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,778,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,778,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,779,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,779,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,779,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,779,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,779,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,779,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,780,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,780,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,780,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,780,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,780,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,780,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,781,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,781,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,781,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,781,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,781,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,781,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,782,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,782,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,782,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,782,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,782,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,782,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,783,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,783,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,783,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,783,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,783,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,783,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,784,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,784,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,784,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,784,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,784,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,784,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,785,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,785,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,785,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,785,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,785,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,785,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,786,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,786,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,786,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,786,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,786,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,786,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,787,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,787,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,787,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,787,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,787,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,787,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,788,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,788,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,788,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,788,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,788,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,788,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,789,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,789,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,789,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,789,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,789,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,789,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,790,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,790,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,790,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,790,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,790,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,790,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,791,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,791,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,791,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,791,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,791,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,791,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,792,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,792,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,792,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,792,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,792,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,792,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,793,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,793,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,793,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,793,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,793,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,793,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,794,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,794,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,794,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,794,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,794,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,794,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,795,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,795,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,795,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,795,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,795,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,795,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,796,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,796,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,796,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,796,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,796,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,796,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,797,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,797,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,797,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,797,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,797,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,797,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,798,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,798,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,798,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,798,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,798,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,798,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (943,799,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (944,799,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (945,799,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (946,799,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (947,799,1,'triggerfield.runewick_bridges');
+-- INSERT INTO triggerfields VALUES (948,799,1,'triggerfield.runewick_bridges');
