@@ -18,7 +18,7 @@ function MoveToField( User )
 					local flame2 = pillar2:getStackItem(pillar2:countItems()-1);
 					if flame1.id == 2805 then
 						local newflame = world:createItemFromId(359,1,position(testthing,760,1),true,333,nil);
-						newflame.wear = 2;
+						newflame.wear = 1;
 						world:changeItem(newflame);
 					end;
 					if flame2.id == 2805 then
