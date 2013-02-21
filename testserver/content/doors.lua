@@ -12,6 +12,55 @@ function initDoors()
 	-- Galmair 1xx
 	AddDoor({341, 207, 0}, 100,"Golden Dreams, the private chamber of the Don","Goldträume, die Privatkammer des Dons"); -- Don's private room
 
+	AddDoor({373, 222, 0}, 110,"Malachite Haus","House of Malachite"); -- guild house I
+	AddDoor({301, 280, 0}, 111,"Villa Goldader","Villa Goldvein"); -- guild house II
+	AddDoor({304, 274, 0}, 111,"Villa Goldader","Villa Goldvein"); -- guild house II
+
+	AddDoor({416, 217,-6}, 120,"Wohnung Adron","Flat Adron"); -- flat room I - 2 person
+	AddDoor({425, 222,-6}, 121,"Wohnung Elara","Flat Elara"); -- flat room II - 3 person
+	AddDoor({424, 231,-6}, 122,"Wohnung Irmorom","Flat Irmorom"); -- flat room III - 1 person
+	AddDoor({423, 241,-6}, 123,"Wohnung Malachin","Flat Malachin"); -- flat room IV - 2 person
+	AddDoor({416, 239,-6}, 124,"Wohnung Oldra","Flat Oldra"); -- flat room V - 4 person
+	AddDoor({425, 241,-5}, 125,"Wohnung Nargun","Flat Nargun"); -- flat room VI - 2 person
+	AddDoor({426, 231,-5}, 126,"Wohnung Ronagan","Flat Ronagan"); -- flat room VII - 2 person
+	AddDoor({427, 221,-5}, 127,"Wohnung Sirani","Flat Sirani"); -- flat room VIII - 3 person
+	AddDoor({416, 216,-5}, 128,"Wohnung Zhambra","Flat Zhambra"); -- flat room IX - 3 person
+
+	AddDoor({342, 238,-6}, false,"Schweinebaue","Hog Dens"); -- Scoria Mine
+	AddDoor({342, 239,-6}, false,"Schweinebaue","Hog Dens"); -- Scoria Mine
+	AddDoor({385, 193,-6}, false,"Schweinebaue","Hog Dens"); -- Scoria Mine
+	AddDoor({386, 193,-6}, false,"Schweinebaue","Hog Dens"); -- Scoria Mine
+	AddDoor({381, 208,-6}, false,"Schweinebaue","Hog Dens"); -- Scoria Mine
+	AddDoor({381, 209,-6}, false,"Schweinebaue","Hog Dens"); -- Scoria Mine
+	AddDoor({344, 244,-6}, false,"Gemmenschacht","Cameo Pit"); -- Scoria Mine
+	AddDoor({344, 245,-6}, false,"Gemmenschacht","Cameo Pit"); -- Scoria Mine
+	AddDoor({392, 220,-6}, false,"Gemmenschacht","Cameo Pit"); -- Scoria Mine
+	AddDoor({393, 220,-6}, false,"Gemmenschacht","Cameo Pit"); -- Scoria Mine
+	AddDoor({382, 241,-6}, false,"Gemmenschacht","Cameo Pit"); -- Scoria Mine
+	AddDoor({383, 241,-6}, false,"Gemmenschacht","Cameo Pit"); -- Scoria Mine
+	AddDoor({344, 250,-6}, false,"Tempel des Ronagan","Temple of Ronagan"); -- Scoria Mine
+	AddDoor({344, 251,-6}, false,"Tempel des Ronagan","Temple of Ronagan"); -- Scoria Mine
+	AddDoor({385, 279,-6}, false,"Tempel des Ronagan","Temple of Ronagan"); -- Scoria Mine
+	AddDoor({386, 279,-6}, false,"Tempel des Ronagan","Temple of Ronagan"); -- Scoria Mine
+	AddDoor({382, 260,-6}, false,"Tempel des Ronagan","Temple of Ronagan"); -- Scoria Mine
+	AddDoor({383, 260,-6}, false,"Tempel des Ronagan","Temple of Ronagan"); -- Scoria Mine
+	AddDoor({338, 254,-6}, false,"Taverne zur Geflügelten Sau","Winged Sow Taverne"); -- Scoria Mine
+	AddDoor({339, 254,-6}, false,"Taverne zur Geflügelten Sau","Winged Sow Taverne"); -- Scoria Mine
+	AddDoor({371, 292,-6}, false,"Taverne zur Geflügelten Sau","Winged Sow Taverne"); -- Scoria Mine
+	AddDoor({371, 293,-6}, false,"Taverne zur Geflügelten Sau","Winged Sow Taverne"); -- Scoria Mine
+	AddDoor({380, 352,-6}, false,"Taverne zur Geflügelten Sau","Winged Sow Taverne"); -- Scoria Mine
+	AddDoor({400, 327,-6}, false,"Taverne zur Geflügelten Sau","Winged Sow Taverne"); -- Scoria Mine
+	AddDoor({342, 252, 0}, false,"Taverne zur Geflügelten Sau","Winged Sow Taverne"); -- Scoria Mine
+	AddDoor({332, 254,-6}, false,"Abwasserschächte","Sewers"); -- Scoria Mine
+	AddDoor({333, 254,-6}, false,"Abwasserschächte","Sewers"); -- Scoria Mine
+	AddDoor({327, 251,-6}, false,"Schimmersenke","Flicker Swale"); -- Scoria Mine
+	AddDoor({327, 252,-6}, false,"Schimmersenke","Flicker Swale"); -- Scoria Mine
+	AddDoor({248, 295,-6}, false,"Spielraum","Game room"); -- Scoria Mine
+	AddDoor({249, 295,-6}, false,"Spielraum","Game room"); -- Scoria Mine
+	AddDoor({249, 298,-5}, false,"Tempel des Nargun","Temple of Nargun"); -- Scoria Mine
+	AddDoor({250, 298,-5}, false,"Tempel des Nargun","Temple of Nargun"); -- Scoria Mine
+
+
     -- Runewick 2xx
     --Tower of Fire 20x
     AddDoor({901, 763, 2}, 200,"Archmage Elvaine Morgan's rooms", "Die Räumlichkeiten von Erzmagier Elvaine Morgan"); -- Archmage's room
