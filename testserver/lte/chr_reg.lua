@@ -68,13 +68,13 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
 									base.common.InformNLS( Char,
 										"Deine aktuelle Position ist: "..Char.pos.x..", "..Char.pos.y..", "..Char.pos.z.."",
 										"Working?");
-										local newflame = world:createItemFromId(259,1,position(testthing,760,1),true,333,nil);
+										local newflame = world:createItemFromId(359,1,position(testthing,760,1),true,333,nil);
 										newflame.wear = 2;
 										world:changeItem(newflame);
 									end;
 
 									if flame2.id == 2805 then
-										local newflame = world:createItemFromId(259,1,position(testthing,765,1),true,333,nil);
+										local newflame = world:createItemFromId(359,1,position(testthing,765,1),true,333,nil);
 										newflame.wear = 1;
 										world:changeItem(newflame);
 									end;
