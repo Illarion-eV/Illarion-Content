@@ -38,7 +38,7 @@ require("lte.chr_reg");
 require("base.gems")
 
 if isTestserver() then
-	require("development.testscript")
+	require("development.testscript");
 end;
 
 module("server.standardfighting", package.seeall)
