@@ -451,58 +451,10 @@ product = smithing:addProduct(catId, 2701, 39, 59, 60, 120)
 product:addIngredient(2535, 3) -- Iron Ingot: 3x1
 product:addIngredient(2584) -- Sword Handle: 1x1
 
---Gilded Longsword
-product = smithing:addProduct(catId, 84, 43, 63, 80, 160)
-product:addIngredient(2535, 3) -- Iron Ingot: 3x1
-product:addIngredient(2584) -- Sword Handle: 1x1
-product:addIngredient(236) -- Gold Ingot: 1x1
-
---Coppered Longsword
-product = smithing:addProduct(catId, 85, 47, 67, 85, 170)
-product:addIngredient(2535, 3) -- Iron Ingot: 3x1
-product:addIngredient(2584) -- Sword Handle: 1x1
-product:addIngredient(2550) -- Copper Ingot: 1x1
-
---Silvered Longsword
-product = smithing:addProduct(catId, 98, 51, 71, 90, 180)
-product:addIngredient(2535, 3) -- Iron Ingot: 3x1
-product:addIngredient(2584) -- Sword Handle: 1x1
-product:addIngredient(104) -- Silver Ingot: 1x1
-
---Merinium Plated Longsword
-product = smithing:addProduct(catId, 123, 55, 75, 95, 190)
-product:addIngredient(2535, 3) -- Iron Ingot: 3x1
-product:addIngredient(2584) -- Sword Handle: 1x1
-product:addIngredient(2571) -- Merinium Ingot: 1x1
-
 --Heavy Battleaxe
 product = smithing:addProduct(catId, 2629, 63, 83, 105, 210)
 product:addIngredient(2535, 4) -- Iron Ingot: 4x1
 product:addIngredient(2525) -- AxeHandle: 1x1
-
---Gilded Battleaxe
-product = smithing:addProduct(catId, 124, 67, 87, 132, 264)
-product:addIngredient(2535, 4) -- Iron Ingot: 4x1
-product:addIngredient(2525) -- AxeHandle: 1x1
-product:addIngredient(236) -- Gold Ingot: 1x1
-
---Coppered Battleaxe
-product = smithing:addProduct(catId, 192, 71, 91, 138, 276)
-product:addIngredient(2535, 4) -- Iron Ingot: 4x1
-product:addIngredient(2525) -- AxeHandle: 1x1
-product:addIngredient(2550) -- Copper Ingot: 1x1
-
---Silvered Battleaxe
-product = smithing:addProduct(catId, 229, 75, 95, 144, 288)
-product:addIngredient(2535, 4) -- Iron Ingot: 4x1
-product:addIngredient(2525) -- AxeHandle: 1x1
-product:addIngredient(104) -- Silver Ingot: 1x1
-
---Merinium Plated Battleaxe
-product = smithing:addProduct(catId, 296, 79, 99, 150, 300)
-product:addIngredient(2535, 4) -- Iron Ingot: 4x1
-product:addIngredient(2525) -- AxeHandle: 1x1
-product:addIngredient(2571) -- Merinium Ingot: 1x1
 
 --Elvensword
 product = smithing:addProduct(catId, 2778, 82, 100, 175, 350)
@@ -595,30 +547,6 @@ product:addIngredient(2530) -- Dagger Handle: 1x1
 product = smithing:addProduct(catId, 190, 32, 52, 26, 52)
 product:addIngredient(2535) -- Iron Ingot: 1x1
 product:addIngredient(2530) -- Dagger Handle: 1x1
-
---Gilded Dagger
-product = smithing:addProduct(catId, 297, 40, 60, 45, 90)
-product:addIngredient(2535) -- Iron Ingot: 1x1
-product:addIngredient(2530) -- Dagger Handle: 1x1
-product:addIngredient(236) -- Gold Ingot: 1x1
-
---Silvered Dagger
-product = smithing:addProduct(catId, 389, 48, 68, 51, 102)
-product:addIngredient(2535) -- Iron Ingot: 1x1
-product:addIngredient(2530) -- Dagger Handle: 1x1
-product:addIngredient(104) -- Silver Ingot: 1x1
-
---Coppered Dagger
-product = smithing:addProduct(catId, 398, 56, 76, 57, 114)
-product:addIngredient(2535) -- Iron Ingot: 1x1
-product:addIngredient(2530) -- Dagger Handle: 1x1
-product:addIngredient(2550) -- Copper Ingot: 1x1
-
---Merinium Plated Dagger
-product = smithing:addProduct(catId, 444, 64, 84, 63, 126)
-product:addIngredient(2535) -- Iron Ingot: 1x1
-product:addIngredient(2530) -- Dagger Handle: 1x1
-product:addIngredient(2571) -- Merinium Ingot: 1x1
 
 --Red Dagger
 product = smithing:addProduct(catId, 2740, 80, 100, 125, 250)
