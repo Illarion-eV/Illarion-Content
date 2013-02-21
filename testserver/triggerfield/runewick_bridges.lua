@@ -74,7 +74,7 @@ function MoveToField( User )
 	end;
 
 	--East Bridge
-	for displacement = 1, 49, 3 do
+	for displacement = 0, 48, 3 do
 		for xpos = 943, 948, 1 do
 			for ypos = 770, 772, 1 do
 				if User.pos == position(xpos,ypos+displacement,1) then
@@ -83,7 +83,7 @@ function MoveToField( User )
 					else
 						flametype = 360;
 					end;
-					local testthing = 770+displacement;
+					local testthing = 771+displacement;
 					local pillar1 = world:getField(position(944, testthing,1));
 					local flame1 = pillar1:getStackItem(pillar1:countItems()-1);
 					local pillar2 = world:getField(position(948, testthing,1));
