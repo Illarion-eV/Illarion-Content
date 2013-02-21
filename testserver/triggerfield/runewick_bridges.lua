@@ -40,8 +40,41 @@ function MoveToField( User )
 		end;
 	end;
 
+	--South Bridge
+	for displacement = 1, 28, 3 do
+		for xpos = 913, 915, 1 do
+			for ypos = 830, 835, 1 do
+				if User.pos == position(xpos+displacement,ypos,1) then
+					local flametype;
+
+					if displacement%2 == 0 then
+						flametype = 359;
+					else
+						flametype = 360;
+					end;
+
+					local testthing = 913+displacement;
+					local pillar1 = world:getField(position(testthing, 830,1));
+					local flame1 = pillar1:getStackItem(pillar1:countItems()-1);
+					local pillar2 = world:getField(position(testthing, 834,1));
+					local flame2 = pillar2:getStackItem(pillar2:countItems()-1);
+					if flame1.id == 2805 then
+						local newflame = world:createItemFromId(flametype,1,position(testthing,830,1),true,333,nil);
+						newflame.wear = 1;
+						world:changeItem(newflame);
+					end;
+					if flame2.id == 2805 then
+						local newflame = world:createItemFromId(flametype,1,position(testthing,834,1),true,333,nil);
+						newflame.wear = 1;
+						world:changeItem(newflame);
+					end;
+				end;
+			end;
+		end;
+	end;
+
 	--East Bridge
-	for displacement = 1, 31, 3 do
+	for displacement = 1, 49, 3 do
 		for xpos = 943, 948, 1 do
 			for ypos = 770, 772, 1 do
 				if User.pos == position(xpos,ypos+displacement,1) then
