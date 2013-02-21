@@ -58,14 +58,16 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
 							if Char.pos.y == ypos then
 								if Char.pos.z == 1 then
 
-									local pillar1 = world:getField(position(909+displacement, 760,1));
+									local testthing = 910+displacement;
+
+									local pillar1 = world:getField(position(testthing, 760,1));
 									local flame1 = pillar1:getStackItem(pillar1:countItems());
-									local pillar2 = world:getField(position(909+displacement, 765,1));
+									local pillar2 = world:getField(position(testthing, 765,1));
 									local flame2 = pillar2:getStackItem(pillar2:countItems());
 
 									base.common.InformNLS( Char,
 										"Deine aktuelle Position ist: "..Char.pos.x..", "..Char.pos.y..", "..Char.pos.z.."",
-										"Blah is"..flame1.id.."and"..flame2.id..">_>"..(910+displacement)..",");
+										"Blah is"..flame1.id.."and"..flame2.id..">_>"..(testthing)..",");
 
 									--base.common.InformNLS(User,"Working:"..flame1.id.." and also"..flame2.id.." k?");
 
