@@ -83,7 +83,7 @@ function MoveToField( User )
 					else
 						flametype = 360;
 					end;
-					local testthing = 770+displacement;
+					local testthing = 771+displacement;
 					local pillar1 = world:getField(position(944, testthing,1));
 					local flame1 = pillar1:getStackItem(pillar1:countItems()-1);
 					local pillar2 = world:getField(position(948, testthing,1));
