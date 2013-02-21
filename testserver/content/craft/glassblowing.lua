@@ -45,11 +45,11 @@ product:addIngredient(41, 3) -- Glass Ingot: 3x1
 
 --Glass
 product = glassblowing:addProduct(catId, 2055, 50, 90, 17, 34)
-product:addIngredient(41) -- Glass Ingot: 1x
+product:addIngredient(41, 2) -- Glass Ingot: 2x
 
 --Glass Mug
 product = glassblowing:addProduct(catId, 1908, 60, 100, 20, 40)
-product:addIngredient(41) -- Glass Ingot: 1x
+product:addIngredient(41, 2) -- Glass Ingot: 2x
 
 --Vase
 product = glassblowing:addProduct(catId, 315, 81, 95, 135, 270)
