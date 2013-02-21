@@ -65,7 +65,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
 
 									base.common.InformNLS( Char,
 										"Deine aktuelle Position ist: "..Char.pos.x..", "..Char.pos.y..", "..Char.pos.z.."",
-										"Blah is"..pillar1.id.."and"..pillar2.id..">_>" );
+										"Blah is"..flame1.id.."and"..flame2.id..">_>" );
 
 									--base.common.InformNLS(User,"Working:"..flame1.id.." and also"..flame2.id.." k?");
 
