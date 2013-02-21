@@ -10,21 +10,24 @@ function initDoors()
 	-- if you just want lookats, but no lock: AddDoor({1, 1, 1}, false, "Door without lock", "Tür ohne Schloss")
 	
 	-- Galmair 1xx
-	AddDoor({341, 207, 0}, 100,"Golden Dreams, the private chamber of the Don","Goldträume, die Privatkammer des Dons"); -- Don's private room
+	AddDoor({341, 207, 0}, 100,"Golden Dreams, the private chamber of the Don","Goldträume, die Privatkammer des Dons"); -- Don's private room !create 2141 1 333 lockId=100
+	AddDoor({352, 213, 0}, 101,"Schatzkammer","Treasury"); -- Don's treasury !create 3055 1 333 lockId=101
+	AddDoor({352, 214, 0}, 101,"Schatzkammer","Treasury"); -- Don's treasury !create 3055 1 333 lockId=101
+	AddDoor({352, 215, 0}, 101,"Schatzkammer","Treasury"); -- Don's treasury !create 3055 1 333 lockId=101
 
-	AddDoor({373, 222, 0}, 110,"Malachite Haus","House of Malachite"); -- guild house I
-	AddDoor({301, 280, 0}, 111,"Villa Goldader","Villa Goldvein"); -- guild house II
-	AddDoor({304, 274, 0}, 111,"Villa Goldader","Villa Goldvein"); -- guild house II
+	AddDoor({373, 222, 0}, 110,"Malachite Haus","House of Malachite"); -- guild house I !create 2145 1 333 lockId=110
+	AddDoor({301, 280, 0}, 111,"Villa Goldader","Villa Goldvein"); -- guild house II !create 2145 1 333 lockId=111
+	AddDoor({304, 274, 0}, 111,"Villa Goldader","Villa Goldvein"); -- guild house II !create 2145 1 333 lockId=111
 
-	AddDoor({416, 217,-6}, 120,"Wohnung Adron","Flat Adron"); -- flat room I - 2 person
-	AddDoor({425, 222,-6}, 121,"Wohnung Elara","Flat Elara"); -- flat room II - 3 person
-	AddDoor({424, 231,-6}, 122,"Wohnung Irmorom","Flat Irmorom"); -- flat room III - 1 person
-	AddDoor({423, 241,-6}, 123,"Wohnung Malachin","Flat Malachin"); -- flat room IV - 2 person
-	AddDoor({416, 239,-6}, 124,"Wohnung Oldra","Flat Oldra"); -- flat room V - 4 person
-	AddDoor({425, 241,-5}, 125,"Wohnung Nargun","Flat Nargun"); -- flat room VI - 2 person
-	AddDoor({426, 231,-5}, 126,"Wohnung Ronagan","Flat Ronagan"); -- flat room VII - 2 person
-	AddDoor({427, 221,-5}, 127,"Wohnung Sirani","Flat Sirani"); -- flat room VIII - 3 person
-	AddDoor({416, 216,-5}, 128,"Wohnung Zhambra","Flat Zhambra"); -- flat room IX - 3 person
+	AddDoor({416, 217,-6}, 120,"Wohnung Adron","Flat Adron"); -- flat room I - 2p !create 2161 1 333 lockId=120
+	AddDoor({425, 222,-6}, 121,"Wohnung Elara","Flat Elara"); -- flat room II - 3p !create 2161 1 333 lockId=121
+	AddDoor({424, 231,-6}, 122,"Wohnung Irmorom","Flat Irmorom"); -- flat room III - 1p !create 2161 1 333 lockId=122
+	AddDoor({423, 241,-6}, 123,"Wohnung Malachin","Flat Malachin"); -- flat room IV - 2p !create 2161 1 333 lockId=123
+	AddDoor({416, 239,-6}, 124,"Wohnung Oldra","Flat Oldra"); -- flat room V - 4p !create 2161 1 333 lockId=124
+	AddDoor({425, 241,-5}, 125,"Wohnung Nargun","Flat Nargun"); -- flat room VI - 2p !create 2161 1 333 lockId=125
+	AddDoor({426, 231,-5}, 126,"Wohnung Ronagan","Flat Ronagan"); -- flat room VII - 2p !create 2161 1 333 lockId=126
+	AddDoor({427, 221,-5}, 127,"Wohnung Sirani","Flat Sirani"); -- flat room VIII - 3p !create 2161 1 333 lockId=127
+	AddDoor({416, 216,-5}, 128,"Wohnung Zhambra","Flat Zhambra"); -- flat room IX - 3p !create 2161 1 333 lockId=128
 
 	AddDoor({342, 238,-6}, false,"Schweinebaue","Hog Dens"); -- Scoria Mine
 	AddDoor({342, 239,-6}, false,"Schweinebaue","Hog Dens"); -- Scoria Mine
