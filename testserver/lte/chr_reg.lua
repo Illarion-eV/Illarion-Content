@@ -54,9 +54,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
 			for displacement = 1, 28, 3 do
 				for xpos = 909, 911, 1 do
 					for ypos = 760, 765, 1 do
-						if Char.pos.x == xpos+displacement then
-							if Char.pos.y == ypos then
-								if Char.pos.z == 1 then
+						if Char.pos == position(xpos+displacement,ypos,1) then
 
 									local testthing = 910+displacement;
 
@@ -81,8 +79,6 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
 										newflame.wear = 1;
 									end;
 
-								end;
-							end;
 
 						end;
 
