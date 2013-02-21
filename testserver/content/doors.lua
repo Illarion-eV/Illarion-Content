@@ -14,6 +14,9 @@ function initDoors()
 	AddDoor({352, 213, 0}, 101,"Schatzkammer","Treasury"); -- Don's treasury !create 3055 1 333 lockId=101
 	AddDoor({352, 214, 0}, 101,"Schatzkammer","Treasury"); -- Don's treasury !create 3055 1 333 lockId=101
 	AddDoor({352, 215, 0}, 101,"Schatzkammer","Treasury"); -- Don's treasury !create 3055 1 333 lockId=101
+	AddDoor({416, 249, 0}, false,"Galmair Stadttor","Galmair Towngate");
+	AddDoor({416, 250, 0}, false,"Galmair Stadttor","Galmair Towngate");
+
 
 	AddDoor({373, 222, 0}, 110,"Malachite Haus","House of Malachite"); -- guild house I !create 2145 1 333 lockId=110
 	AddDoor({301, 280, 0}, 111,"Villa Goldader","Villa Goldvein"); -- guild house II !create 2145 1 333 lockId=111
@@ -63,7 +66,32 @@ function initDoors()
 	AddDoor({249, 298,-5}, false,"Tempel des Nargun","Temple of Nargun"); -- Scoria Mine
 	AddDoor({250, 298,-5}, false,"Tempel des Nargun","Temple of Nargun"); -- Scoria Mine
 
+	AddDoor({367, 255, 0}, false,"Galmairs Krone","Galmair's Crest"); -- Galmair's Crest
+	AddDoor({368, 255, 0}, false,"Galmairs Krone","Galmair's Crest"); -- Galmair's Crest
+	AddDoor({367, 244, 0}, false,"Galmairs Krone","Galmair's Crest"); -- Galmair's Crest
+	AddDoor({368, 244, 0}, false,"Galmairs Krone","Galmair's Crest"); -- Galmair's Crest
+	AddDoor({355, 221, 0}, false,"Bibilothek","Library"); -- Galmair's Crest
+	AddDoor({370, 221, 0}, false,"Bibilothek","Library"); -- Galmair's Crest
+	AddDoor({370, 232, 0}, false,"Wechselstube + Küche","Exchange + Kitchen"); -- Galmair's Crest
+	AddDoor({366, 235, 0}, false,"Konzil Kammer","Council Chamber"); -- Galmair's Crest
+	AddDoor({348, 229, 0}, false,"Guilianni Residenz","Guilianni Residence"); -- Galmair's Crest
 
+	AddDoor({308, 238, 0}, false,"Tempel des Irmorom","Temple of Irmorom"); 
+	AddDoor({309, 238, 0}, false,"Tempel des Irmorom","Temple of Irmorom");
+	AddDoor({378, 272, 0}, false,"Werkstatt","Workshop"); 
+	AddDoor({383, 284, 0}, false,"Werkstatt","Workshop");
+	AddDoor({408, 295, 0}, false,"Gasthaus zum Schlafenden Bujhaar","Sleepy Bujhaar Inn"); 
+	AddDoor({414, 298, 0}, false,"Schlafraum","Bedroom"); -- Sleepy Bujhaar Inn
+	AddDoor({412, 293, 1}, false,"Schlafraum","Bedroom"); -- Sleepy Bujhaar Inn
+	AddDoor({419, 296, 1}, false,"Schlafraum","Bedroom"); -- Sleepy Bujhaar Inn 
+	AddDoor({418, 301, 1}, false,"Schlafraum","Bedroom"); -- Sleepy Bujhaar Inn
+	AddDoor({421, 290, 1}, false,"Schlafraum","Bedroom"); -- Sleepy Bujhaar Inn
+	AddDoor({404, 269, 1}, false,"Zensusbüro","Census office");
+	AddDoor({401, 262, 0}, false,"Kräuterkammer","Herbs room");
+	AddDoor({401, 263, 0}, false,"Kräuterkammer","Herbs room");
+	AddDoor({394, 247, 0}, false,"Wachstube","Guardroom");
+	AddDoor({391, 241, 0}, false,"Wachstube","Guardroom");
+	AddDoor({387, 246, 0}, false,"Schuldeneintreiber","Debt-collector");
     -- Runewick 2xx
     --Tower of Fire 20x
     AddDoor({901, 763, 2}, 200,"Archmage Elvaine Morgan's rooms", "Die Räumlichkeiten von Erzmagier Elvaine Morgan"); -- Archmage's room
