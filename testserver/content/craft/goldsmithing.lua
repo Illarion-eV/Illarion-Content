@@ -57,6 +57,7 @@ product = goldsmithing:addProduct(catId, 2647, 72, 100, 69, 138)
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 
 catId = goldsmithing:addCategory("amulets", "Amulette") -- amulets
+
 --Amulets
 product = goldsmithing:addProduct(catId, 222, 20, 40, 20, 40)
 product:addIngredient(2535, 2) -- Iron Ingot: 2x1
@@ -179,64 +180,64 @@ product:addIngredient(2553) -- Pure Fire: 1x1
 product:addIngredient(2554) -- Pure Water: 1x1 
 product:addIngredient(2571) -- Merinium Ingot
 
-catId = smithing:addCategory("weapons", "Waffen")
+catId = goldsmithing:addCategory("weapons", "Waffen")
 
 --Gilded Longsword
-product = smithing:addProduct(catId, 84, 43, 63, 80, 160)
+product = goldsmithing:addProduct(catId, 84, 43, 63, 80, 160)
 product:addIngredient(2701) -- Longsword: 1x1
 product:addIngredient(236, 3) -- Gold Ingot: 3x1
 
 --Coppered Longsword
-product = smithing:addProduct(catId, 85, 47, 67, 85, 170)
+product = goldsmithing:addProduct(catId, 85, 47, 67, 85, 170)
 product:addIngredient(2701) -- Longsword: 1x1
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 
 --Silvered Longsword
-product = smithing:addProduct(catId, 98, 51, 71, 90, 180)
+product = goldsmithing:addProduct(catId, 98, 51, 71, 90, 180)
 product:addIngredient(2701) -- Longsword: 1x1
 product:addIngredient(104, 3) -- Silver Ingot: 3x1
 
 --Merinium Plated Longsword
-product = smithing:addProduct(catId, 123, 55, 75, 95, 190)
+product = goldsmithing:addProduct(catId, 123, 55, 75, 95, 190)
 product:addIngredient(2701) -- Longsword: 1x1
 product:addIngredient(2571, 3) -- Merinium Ingot: 3x1
 
 --Gilded Battleaxe
-product = smithing:addProduct(catId, 124, 67, 87, 132, 264)
+product = goldsmithing:addProduct(catId, 124, 67, 87, 132, 264)
 product:addIngredient(2629) -- light battleaxe: 1x1
 product:addIngredient(236, 4) -- Gold Ingot: 4x1
 
 --Coppered Battleaxe
-product = smithing:addProduct(catId, 192, 71, 91, 138, 276)
+product = goldsmithing:addProduct(catId, 192, 71, 91, 138, 276)
 product:addIngredient(2629) -- light battleaxe: 1x1
 product:addIngredient(2550, 4) -- Copper Ingot: 4x1
 
 --Silvered Battleaxe
-product = smithing:addProduct(catId, 229, 75, 95, 144, 288)
+product = goldsmithing:addProduct(catId, 229, 75, 95, 144, 288)
 product:addIngredient(2629) -- light battleaxe: 1x1
 product:addIngredient(104, 4) -- Silver Ingot: 4x1
 
 --Merinium Plated Battleaxe
-product = smithing:addProduct(catId, 296, 79, 99, 150, 300)
+product = goldsmithing:addProduct(catId, 296, 79, 99, 150, 300)
 product:addIngredient(2629) -- light battleaxe: 1x1
 product:addIngredient(2571, 4) -- Merinium Ingot: 4x1
 
 --Gilded Dagger
-product = smithing:addProduct(catId, 297, 40, 60, 45, 90)
+product = goldsmithing:addProduct(catId, 297, 40, 60, 45, 90)
 product:addIngredient(190) -- ornate dagger: 1x1
 product:addIngredient(236, 2) -- Gold Ingot: 2x1
 
 --Silvered Dagger
-product = smithing:addProduct(catId, 389, 48, 68, 51, 102)
+product = goldsmithing:addProduct(catId, 389, 48, 68, 51, 102)
 product:addIngredient(190) -- ornate dagger: 1x1
 product:addIngredient(104, 2) -- Silver Ingot: 2x1
 
 --Coppered Dagger
-product = smithing:addProduct(catId, 398, 56, 76, 57, 114)
+product = goldsmithing:addProduct(catId, 398, 56, 76, 57, 114)
 product:addIngredient(190) -- ornate dagger: 1x1
 product:addIngredient(2550, 2) -- Copper Ingot: 2x1
 
 --Merinium Plated Dagger
-product = smithing:addProduct(catId, 444, 64, 84, 63, 126)
+product = goldsmithing:addProduct(catId, 444, 64, 84, 63, 126)
 product:addIngredient(190) -- ornate dagger: 1x1
 product:addIngredient(2571, 2) -- Merinium Ingot: 2x1

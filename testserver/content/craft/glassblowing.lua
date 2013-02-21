@@ -39,7 +39,7 @@ product:addIngredient(41, 3) -- Glass Ingot: 3x
 catId = glassblowing:addCategory("other", "Sonstiges")
 
 --Lantern
-product = goldsmithing:addProduct(catId, 393, 27, 67, 36, 72)
+product = glassblowing:addProduct(catId, 393, 27, 67, 36, 72)
 product:addIngredient(2550, 1) -- Copper Ingot: 1x1
 product:addIngredient(41, 3) -- Glass Ingot: 3x1
 
@@ -58,7 +58,7 @@ product:addIngredient(197) -- Amethyst: 1x
 product:addIngredient(46) -- Ruby: 1x
 
 --Mirror
-product = goldsmithing:addProduct(catId, 336, 90, 100, 125, 250)
+product = glassblowing:addProduct(catId, 336, 90, 100, 125, 250)
 product:addIngredient(236, 2) -- Gold Ingot: 2x1
 product:addIngredient(41, 2) -- Glass Ingot: 1x1
 product:addIngredient(2571) -- Merinium Ingot
