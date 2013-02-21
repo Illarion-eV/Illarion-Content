@@ -21,10 +21,6 @@ function MoveToField( User )
 							local flame2 = pillar2:getStackItem(pillar2:countItems()-1);
 
 							if flame1.id == 2805 then
-
-							base.common.InformNLS( Char,
-								"Deine aktuelle Position ist: "..Char.pos.x..", "..Char.pos.y..", "..Char.pos.z.."",
-								"Working?");
 								local newflame = world:createItemFromId(359,1,position(testthing,760,1),true,333,nil);
 								newflame.wear = 2;
 								world:changeItem(newflame);
