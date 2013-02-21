@@ -63,7 +63,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
 									local pillar2 = world:getField(position(testthing, 765,1));
 									local flame2 = pillar2:getStackItem(pillar2:countItems()-1);
 
-									if pillar1.id == 2805 then
+									if flame1.id == 2805 then
 
 									base.common.InformNLS( Char,
 										"Deine aktuelle Position ist: "..Char.pos.x..", "..Char.pos.y..", "..Char.pos.z.."",
@@ -72,7 +72,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
 										newflame.wear = 1;
 									end;
 
-									if pillar2.id == 2805 then
+									if flame2.id == 2805 then
 										local newflame = world:createItemFromId(259,1,position(910+displacement,765,1),true,333);
 										newflame.wear = 1;
 									end;
