@@ -51,7 +51,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
             "Your current position is: "..Char.pos.x..", "..Char.pos.y..", "..Char.pos.z.."" );
 
 			local displacement,xpos,ypos;
-			for displacement = 0, 27, 3 do
+			for displacement = 1, 28, 3 do
 				for xpos = 909, 911, 1 do
 					for ypos = 760, 765, 1 do
 						if Char.pos.x == xpos+displacement then
