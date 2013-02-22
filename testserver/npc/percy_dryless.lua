@@ -208,7 +208,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(25, "<", 1));
 talkEntry:addTrigger("release");
-talkEntry:addResponse("Until next time. They all come back! Why are you still here? Use the teleporter and get loest!");
+talkEntry:addResponse("Until next time. They all come back! Why are you still here? Use the teleporter and get lost!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

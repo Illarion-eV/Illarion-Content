@@ -460,7 +460,7 @@ function Craft:generateQuality(user, productId, toolItem)
 	quality = quality + math.random(-1,1); -- Final scatter!
     
     quality = math.floor(quality)
-	quality = base.common.Limit(quality, 5, 9)
+	quality = base.common.Limit(quality, 1, 9)
     
     local durability = 99
     return quality * 100 + durability

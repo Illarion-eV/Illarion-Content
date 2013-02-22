@@ -70,7 +70,7 @@ item(2763, all) ~= 0, "pick axe", "rock pick", "pick" -> "What do you want with 
 item(2763, all) ~= 0, "spitzhacke", "hacke" -> "Was willst du mit zwei Spitzhacken? Beidhändig auf die Steine eindreschen?"
 item(2763, all) = 0, "spitzhacke", "hacke" -> item(2763, 1, 333), "So, du hast also meine Spitzhacke kaputt gemacht? Du hast sie verloren? Hier, nimm diese, aber pass besser auf sie auf oder ich peitsche dich aus."
 queststatus(25) > 0, "release" -> "No way.", "You'd like that, wouldn't you?", "Sure I'll release you. In a hundred years!", "Shut up!", "Hahahahaha!", "Release you? Sure! What next, shall I wipe your boots?", "No way. Work!", "Wait, let me laugh first.", "You want me to release you? You?", "What kind of joker are you?"
-queststatus(25) < 1, "release" -> "Until next time. They all come back! Why are you still here? Use the teleporter and get loest!"
+queststatus(25) < 1, "release" -> "Until next time. They all come back! Why are you still here? Use the teleporter and get lost!"
 queststatus(25) > 0, "freilassen", "lass mich frei", "rauslassen", "lass mich raus" -> "Nichts da.", "Das hättest du wohl gerne!", "Ohja, klar lass ich dich frei... in hundert Jahren!", "Schnauze!", "Hahahahahaha!", "Freilassen? Klar! Was noch, soll ich deine Stiefel lecken?", "Nichts da. Arbeite!", "Warte, lass mich erstmal darüber lachen.", "Du willst also freigelassen werden? Du?", "Was für ein Narr bist du?"
 queststatus(25) < 1, "freilassen", "lass mich frei", "rauslassen", "lass mich raus" -> "Bis zum nächsten mal. Sie kommen alle wieder! Was tust du noch hier? Benutzt den Teleporter und geh mir aus den Augen!"
 
