@@ -17,15 +17,15 @@ local catId = glassblowing:addCategory("bottles", "Flaschen")
 -- glassblowing:addProduct(category, item, difficulty, learnLimit, minTime, maxTime, quantity=1, data={})
 
 --Empty Bottle (790) (Smoothies :p)
-local product = glassblowing:addProduct(catId, 790, 0, 40, 5, 10)
+local product = glassblowing:addProduct(catId, 790, 0, 25, 5, 10)
 product:addIngredient(41) -- Glass Ingot: 1x
 
 --Small Empty Bottle
-product = glassblowing:addProduct(catId, 1317, 10, 50, 7, 14)
+product = glassblowing:addProduct(catId, 1317, 10, 30, 7, 14)
 product:addIngredient(41) -- Glass Ingot: 1x
 
 --Large Empty Bottle
-product = glassblowing:addProduct(catId, 2498, 15, 50, 7, 14)
+product = glassblowing:addProduct(catId, 2498, 15, 40, 7, 14)
 product:addIngredient(41, 2) -- Glass Ingot: 2x
 
 --Empty Bottle(518) (Rum)
@@ -33,7 +33,7 @@ product = glassblowing:addProduct(catId, 518, 20, 50, 7, 14)
 product:addIngredient(41, 2) -- Glass Ingot: 2x
 
 --Empty Bottle
-product = glassblowing:addProduct(catId, 164, 40, 70, 12, 24)
+product = glassblowing:addProduct(catId, 164, 40, 60, 12, 24)
 product:addIngredient(41, 3) -- Glass Ingot: 3x
 
 catId = glassblowing:addCategory("other", "Sonstiges")
@@ -44,11 +44,11 @@ product:addIngredient(2550, 1) -- Copper Ingot: 1x1
 product:addIngredient(41, 3) -- Glass Ingot: 3x1
 
 --Glass
-product = glassblowing:addProduct(catId, 2055, 50, 90, 17, 34)
+product = glassblowing:addProduct(catId, 2055, 50, 80, 17, 34)
 product:addIngredient(41, 2) -- Glass Ingot: 2x
 
 --Glass Mug
-product = glassblowing:addProduct(catId, 1908, 60, 100, 20, 40)
+product = glassblowing:addProduct(catId, 1908, 60, 90, 20, 40)
 product:addIngredient(41, 2) -- Glass Ingot: 2x
 
 --Vase
