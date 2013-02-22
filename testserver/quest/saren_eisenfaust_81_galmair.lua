@@ -30,6 +30,8 @@ Description[GERMAN][6] = "Vielleicht solltest du Saren Eisenfaust nochmal anspre
 Description[ENGLISH][6] = "Perhaps you should talk to Saren Eisenfaust again, he is sure to have more for you to do."
 Description[GERMAN][7] = "Bring 15 Kupferbarren, 10 Kriegshämmer, 10 vergoldete Kriegsäxte und 2 salkamaerische Rüstungen zu Saren Eisenfaust."
 Description[ENGLISH][7] = "Bring 15 copper ingots, 10 war hammer, 10 gilded battleaxes and 2 salkamaerian armours to Saren Eisenfaust"
+Description[GERMAN][8] = "Du hast alle Aufgaben von Saren Eisenfaust erfüllt."
+Description[ENGLISH][8] = "You have fulfilled all tasks of Saren Eisenfaust."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
