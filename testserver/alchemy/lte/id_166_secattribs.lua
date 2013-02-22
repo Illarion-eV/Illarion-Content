@@ -28,6 +28,7 @@ function callEffect(Effect,User)
            end
            if findFoodlevel then
               foodlevelIncrease = base.common.Limit( (User:increaseAttrib("foodlevel",0) + foodlevelIncrease) , 0 , 60000 );
+			  if isTestserver() then User:inform(""..foodlevelIncrease) end
 			  User:setAttrib("foodlevel",foodlevelIncrease);
            end
            if findPoisonvalue then    
