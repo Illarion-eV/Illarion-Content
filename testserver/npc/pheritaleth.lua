@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -98,7 +98,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("I foretell that you did not come to me to chat about inane things. We should strictly get to business, mine is gems.");
+talkEntry:addResponse("I foretell that you did not come to me to chat about inane things. We should strictly get to business, mine transmuting is gems.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -174,7 +174,7 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
-talkEntry:addResponse("They call me Pheritaleth and I am skilled in.");
+talkEntry:addResponse("They call me Pheritaleth and I am skilled in gem transmutation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -242,7 +242,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Amethyst");
-talkEntry:addResponse("Amethysts are the the clubs among the gems. Their beauty is rather brute but true.");
+talkEntry:addResponse("Amethysts are the the clubs amongst gems. Their beauty is rather crude but natural.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -255,31 +255,31 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Obsidian");
-talkEntry:addResponse("The obsidian is known for its role in dark rituals, but keep in mind that evil deeds are done by evil men, not by gems.");
+talkEntry:addResponse("Obsidian is known to be used in dark rituals, but keep in mind that evil deeds are done by evil men, not by gems.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sapphire");
-talkEntry:addResponse("Those who don't know any better see a connection between sapphires and Tanora. How did I laught when I first heard that rumor!");
+talkEntry:addResponse("Those who don't know any better see a connection between sapphires and Tanora. How I laughed when I first heard that rumour!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Emerald");
-talkEntry:addResponse("Emeralds are the gems many people forgot about; I never heard obscure theories about their origin.");
+talkEntry:addResponse("Emeralds are the gems many people forgot about; I have never heard idiotic theories about their origin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Topaz");
-talkEntry:addResponse("I keep wondering why some people search for topazes at the shores. You could as well wait for them to drop from the sky.");
+talkEntry:addResponse("I keep wondering why some people search for topaz along the shores. You may as well wait for them to drop from the sky.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Diamond");
-talkEntry:addResponse("The diamond is the king among the gems. They are extremely rare and powerful.");
+talkEntry:addResponse("The diamond is the king amongst the gems. They are extremely rare and powerful.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -334,7 +334,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
 talkEntry:addTrigger("faith");
-talkEntry:addResponse("The Eleven are just rascals. Only the Five have true power.");
+talkEntry:addResponse("The Eleven are just rascals, only the Five have true power.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -349,7 +349,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("religion");
-talkEntry:addResponse("The Eleven are just rascals. Only the Five have true power.");
+talkEntry:addResponse("The Eleven are just rascals, only the Five have true power.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -387,7 +387,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Her majesty is the current monarch. Let us wait some decades and another short lived human will take her place.");
+talkEntry:addResponse("Her Majesty is the current monarch. Let us wait some decades and another short lived human will take her place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -401,7 +401,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Her majesty is the current monarch. Let us wait some decades and another short lived human will take her place.");
+talkEntry:addResponse("Her Majesty is the current monarch. Let us wait some decades and another short lived human will take her place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -415,7 +415,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr is quite a gemstone itself. It sparkles in the morning sun, might be because of the dew.");
+talkEntry:addResponse("Cadomyr is quite a gemstone itself. It shimmers in the morning sun... perhaps because of the dew.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -429,7 +429,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Anger.");
+talkEntry:addResponse("Fury.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -440,15 +440,15 @@ talkEntry:addResponse("Wut.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Meine Vorfahren haben schon Edelsteine geschliffen als euer Stamm noch nicht mal gegründet war.", "My ancestors cut gems back when your tribe was not even founded.");
-talkingNPC:addCycleText("Manche werden nie verstehen, welche Macht die Edelsteine haben und sie für einfache Klunker halten.", "Some people will never understand the power of gems and regard them just rocks.");
-talkingNPC:addCycleText("Wenn ihr nach Tand sucht, geht zu Jacobus, dem Juwelier.", "If you need ordinary bling-bling, go to Jacobus, the lapidary.");
+talkingNPC:addCycleText("Manche werden nie verstehen, welche Macht die Edelsteine haben und sie für einfache Klunker halten.", "Some people will never understand the power of gems and regard them as just rocks.");
+talkingNPC:addCycleText("Wenn ihr nach Tand sucht, geht zu Jacobus, dem Juwelier.", "If you need ordinary bling-bling, go to Jacobus, the jeweller.");
 talkingNPC:addCycleText("In jedem Edelstein liegt wahre Macht.", "True magic lies within every gem.");
-talkingNPC:addCycleText("Schaut, wie dieser hier funkelt.", "Look at it, it is sparkeling.");
+talkingNPC:addCycleText("Schaut, wie dieser hier funkelt.", "Look at it, it is sparkling.");
 talkingNPC:addCycleText("Funkel wie ein Diamant.", "Shine bright like a diamond.");
 talkingNPC:addCycleText("Wenn ein Mann sagt, dass die Augen einer Frau wie Edelsteine strahlen, meint er damit, dass er ihr sie rausschneiden möchte?", "If a man says that a woman's eyes look like gemstones, does he imply that he wants to cut them out of her face?");
 talkingNPC:addCycleText("Zwerge lieben Granit, Elfen lieben Edelsteine.", "Dwarves love granite, elves love gemstones.");
 talkingNPC:addCycleText("Diamanten sind die besten Freunde einer Elfin.", "Diamonds are an elf's best friend.");
-talkingNPC:addCycleText("Habt ihr Edelsteine?", "Got gems?");
+talkingNPC:addCycleText("Habt ihr Edelsteine?", "Got any gems?");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(3);
 mainNPC:setDefaultLanguage(0);

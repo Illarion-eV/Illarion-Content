@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis & Ardian                                                --
 --           Rincewind                                                        --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -65,7 +65,7 @@ talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hunger");
 talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
-talkEntry:addResponse("Here, have some moldy bread. Back to work!");
+talkEntry:addResponse("Here, have some mouldy bread. Back to work!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -90,7 +90,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("hunger");
 talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
 talkEntry:addResponse("Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
@@ -100,7 +100,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, nil));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("hunger");
 talkEntry:addResponse("Du glaubst wohl, du bekommst Brot fürs nichts tun, häh? Arbeite oder spüre meine Peitsche.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -121,7 +121,7 @@ talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addTrigger("hungry");
 talkEntry:addTrigger("food");
 talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
-talkEntry:addResponse("Here, have some moldy bread. Back to work!");
+talkEntry:addResponse("Here, have some mouldy bread. Back to work!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -168,7 +168,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "~=", 0, nil));
 talkEntry:addTrigger("pick axe");
 talkEntry:addTrigger("rock pick");
 talkEntry:addTrigger("pick");
-talkEntry:addResponse("What do you want with two picks? Two fisted stone hitting?");
+talkEntry:addResponse("What do you want with two picks? Two handed stone hitting?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -249,7 +249,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("What do you want? Ah, I know: You want to feel my whip!");
+talkEntry:addResponse("What do you want? Ah, I know, you want to feel my whip!");
 talkEntry:addResponse("Welcome to my realm, the realm of work, sweat and tears.");
 talkEntry:addResponse("Work, scum! Criminals deserve nothing more than pain.");
 talkEntry:addResponse("Tell me you are innocent and I will laugh for the rest of the day.");
@@ -280,7 +280,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("What do you want? Ah, I know: You want to feel my whip!");
+talkEntry:addResponse("What do you want? Ah, I know, you want to feel my whip!");
 talkEntry:addResponse("Welcome to my realm, the realm of work, sweat and tears.");
 talkEntry:addResponse("Work, scum! Criminals deserve nothing more than pain.");
 talkEntry:addResponse("Tell me you are innocent and I will laugh for the rest of the day.");
@@ -356,7 +356,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Mind your business.");
+talkEntry:addResponse("Mind your own business.");
 talkEntry:addResponse("I would feel way better if you'd stop talking and get back to work!");
 talkEntry:addResponse("I feel like whipping you.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -377,7 +377,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("You can call me 'master'.");
+talkEntry:addResponse("You can call me 'Master'.");
 talkEntry:addResponse("Percy Dryless. You will remember my name in your nightmares.");
 talkEntry:addResponse("At least I have a name, yours will be forgotten when you are released... one distant day.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -441,7 +441,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I take care that scum like you gets punished!");
+talkEntry:addResponse("I take care that scum like you get punished!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -454,7 +454,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I take care that scum like you, get punished!");
+talkEntry:addResponse("I take care that scum like you get punished!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -570,7 +570,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Do you come frome Runewick? Seems Archmage Morgan sent you here.");
+talkEntry:addResponse("Do you come from Runewick? Seems Archmage Morgan sent you here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -584,7 +584,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Do you come frome Runewick? Seems Archmage Morgan sent you here.");
+talkEntry:addResponse("Do you come from Runewick? Seems Archmage Morgan sent you here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -598,7 +598,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("This prison gathers the scum of three nations! And now keep up working.");
+talkEntry:addResponse("This prison gathers the scum of three nations! Now keep on working.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -628,7 +628,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("This prison gathers the scum of three nations! And now keep up working.");
+talkEntry:addResponse("This prison gathers the scum of three nations! Now keep on working.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -640,7 +640,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Do you come frome Cadomyr? Seems Queen Rosaline sent you here.");
+talkEntry:addResponse("Do you come from Cadomyr? Seems Queen Rosaline sent you here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -654,7 +654,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Do you come frome Cadomyr? Seems Queen Rosaline sent you here.");
+talkEntry:addResponse("Do you come from Cadomyr? Seems Queen Rosaline sent you here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -668,7 +668,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("This prison gathers the scum of three nations! And now keep up working.");
+talkEntry:addResponse("This prison gathers the scum of three nations! Now keep on working.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -681,7 +681,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("#me cracks his whip. 'Back to work!'");
+talkEntry:addResponse("#me cracks his whip, 'Back to work!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -695,7 +695,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("#me cracks his whip. 'Back to work!'");
+talkEntry:addResponse("#me cracks his whip, 'Back to work!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -709,7 +709,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("#me cracks his whip. 'Back to work!'");
+talkEntry:addResponse("#me cracks his whip, 'Back to work!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1007,7 +1007,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("Yes? Fine, work on.");
-talkEntry:addResponse("Yes? You wanted to say 'Yes master'!");
+talkEntry:addResponse("Yes? You wanted to say 'Yes Master'!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1021,7 +1021,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("No? You dare to disobey?");
-talkEntry:addResponse("#me barks commandingly: 'I will teach you to say 'no'!'");
+talkEntry:addResponse("#me barks commandingly, 'I will teach you to say 'no'!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1056,7 +1056,7 @@ end;
 talkingNPC:addCycleText("#me knallt mit seiner Peitsche.", "#me cracks his whip.");
 talkingNPC:addCycleText("Haut rein, alle, haut rein!", "Lets rock, everybody, lets rock.");
 talkingNPC:addCycleText("Ich hab das genau gesehen!", "I saw that!");
-talkingNPC:addCycleText("#me summt: 'Der Trauerkloß saß auf einem Felsblock, in der Ecke und weinte vor sich hin.'", "#me sings low: 'The sad sack was sittin' on a block of stone, way over in the corner weepin' all alone'.");
+talkingNPC:addCycleText("#me summt: 'Der Trauerkloß saß auf einem Felsblock, in der Ecke und weinte vor sich hin.'", "#me sings low, 'The sad sack was sittin' on a block of stone, way over in the corner weepin' all alone'.");
 talkingNPC:addCycleText("Arbeite!", "Work!");
 talkingNPC:addCycleText("Schneller!", "Faster!");
 talkingNPC:addCycleText("Where there's a whip, there's a way!", "Where there's a whip, there's a way!");
