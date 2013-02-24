@@ -1,12 +1,12 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Pipillo                                                     None --
--- NPC Job:  portalbook merchant                                              --
+-- NPC Job:  portal book merchant                                             --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  412, 291, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -170,9 +170,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Pipillo, portalbook merchant. That's me.");
+talkEntry:addResponse("Pipillo, portal book merchant. That's me.");
 talkEntry:addResponse("I am the merchant Pipillo.");
-talkEntry:addResponse("Pipillo is my name, I trade portalbooks.");
+talkEntry:addResponse("Pipillo is my name, I trade portal books.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -192,7 +192,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I do not issue any quests. But I can sell you books to go to other places.");
+talkEntry:addResponse("I do not issue quests, but I can sell you books to go to other places.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -207,7 +207,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I do not issue any quests. But I can sell you books to go to other places.");
+talkEntry:addResponse("I do not issue quests, but I can sell you books to go to other places.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -222,7 +222,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am a merchant of portalbooks.");
+talkEntry:addResponse("I am a merchant of portal books.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -235,7 +235,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am a merchant of portalbooks.");
+talkEntry:addResponse("I am a merchant of portal books.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -262,7 +262,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Nice to meet you. If you want to 'book' a travel just ask me, hihi.");
+talkEntry:addResponse("Nice to meet you. If you want to 'book' some travel just ask me, hihi.");
 talkEntry:addResponse("A nice name, indeed.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -279,7 +279,7 @@ talkEntry:addTrigger("family");
 talkEntry:addTrigger("siblings");
 talkEntry:addTrigger("sister");
 talkEntry:addTrigger("brother");
-talkEntry:addResponse("Me and my family like to hike and explore, I bet you can find my other siblings at other places if you just look closely!");
+talkEntry:addResponse("Me and my family like to hike and explore, I bet you can find my siblings at other places if you just look closely!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -295,7 +295,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -309,7 +309,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -323,7 +323,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,7 +338,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -353,7 +353,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -365,7 +365,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -379,7 +379,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -393,7 +393,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -434,7 +434,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Nice place. They got some very tasty food there too.");
+talkEntry:addResponse("Nice place. They have some very tasty food there as well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -446,7 +446,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("The gods created this world for us to discover and travel within.");
+talkEntry:addResponse("The Gods created this world for us to discover and travel within it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,7 +462,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I sell various portal books that can take you to places. Handy if you're lost in the wild.");
+talkEntry:addResponse("I sell various portal books that can take you to places, handy if you're lost in the wild.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -477,7 +477,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Me and my family like to hike and explore, I bet you can find my other siblings at other places if you just look closely!");
+talkEntry:addResponse("Me and my family like to hike and explore, I bet you can find my siblings at other places if you just look closely!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -499,7 +499,7 @@ tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Pipillo der Portalbuchhändler.", "This NPC is Pipillo the portalbook merchant");
+mainNPC:setLookat("Dieser NPC ist Pipillo der Portalbuchhändler.", "This NPC is Pipillo the portal book merchant");
 mainNPC:setUseMessage("Fass mich nicht an!", "Stop touching me!");
 mainNPC:setConfusedMessage("#me blickt dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 829);

@@ -1,12 +1,12 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Evera                                                       None --
--- NPC Job:  portalbook merchant                                              --
+-- NPC Job:  portal book merchant                                             --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  139, 622, 0            --
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -192,7 +192,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I do not issue any quests, but I can sell you books to go to other places.");
+talkEntry:addResponse("I do not issue quests, but I can sell you books to go to other places.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -207,7 +207,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I do not issue any quests, but I can sell you books to go to other places.");
+talkEntry:addResponse("I do not issue quests, but I can sell you books to go to other places.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
