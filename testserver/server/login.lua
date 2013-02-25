@@ -220,7 +220,7 @@ function onLogin( player )
 	--TEMPORARY SOLUTION TO CATCH BUGGED PLAYERS
 	if player:getMentalCapacity() < 1999 then --Mental Capacity CANNOT drop below 1999 -> Bugged player or cheater
 
-        player:increaseMentalCapacity(2000000); --This is default for new players.
+        player:increaseMentalCapacity(4000000); --This is default for new players.
 
 	end
 	--TEMPORARY SOLUTION END
