@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -61,7 +61,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
-talkEntry:addResponse("#me stares at you. 'Be greeted, traveller! I am much too thirsty to talk. If you bring me a glass with red wine I will gladly answer your questions.'");
+talkEntry:addResponse("#me stares at you. 'Be greeted, traveller! I am much too thirsty to talk. If you bring me a glass of red wine I will gladly answer your questions.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -122,6 +122,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkEntry:addResponse("Hah! My frilet us talk about important things, we're important people, aren't we?");
@@ -505,7 +506,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addTrigger("town");
-talkEntry:addResponse("Cadomyr is the most civilized and advanced community! I hear the others live in pitiful clay huts.");
+talkEntry:addResponse("Cadomyr is the most civilised and advanced community! I hear the others live in pitiful clay huts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -533,7 +534,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addTrigger("gift");
-talkEntry:addResponse("Gifts? Of course our Queen likes gifts! Expensive jewelry and shiny gemstones, especially diamonds, is what she fancies.");
+talkEntry:addResponse("Gifts? Of course our Queen likes gifts! Expensive jewellery and shiny gemstones, especially diamonds, is what she fancies.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -696,7 +697,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addTrigger("queen");
-talkEntry:addResponse("We are ruled by the Queen in Cadomyr! She can trace her ancestry back a millennia or more, having the bluest of blue blood in all the land.");
+talkEntry:addResponse("We are ruled by the Queen of Cadomyr! She can trace her ancestry back a millennia or more, having the bluest of blue blood in all the land.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -906,7 +907,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Zhambra, Zhambra, what shall I say? I am his minion, well actually, I am the Queen's royal fan waver, that's beyond being a humble minion I guess.");
+talkEntry:addResponse("Zhambra, Zhambra, what shall I say? I am his minion, well actually, I am the Queen's royal fan-waver, that's beyond being a humble minion I guess.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1262,12 +1263,12 @@ talkingNPC:addCycleText("Wie, ich soll für meine Getränke zahlen? Ihr solltet mi
 talkingNPC:addCycleText("#me ist ein Mann in feiner, aber weingetränkten Kleidung. Sein Haar glänzt durch ein wohlriechendes Öl.", "#me is a man in expensive, albeit wine-stained clothes, his hair gleams with fine-smelling oil.");
 talkingNPC:addCycleText("Ich arbeite im königlichen Palast. Nichts geschieht dort, ohne das ich davon erfahre.", "I work in the Royal Palace. Nothing happens there without my knowledge.");
 talkingNPC:addCycleText("#me knurrt beim Anblick seines leeren Glases: 'Warum erfreu ich euch Bauern mit meiner Anwesenheit? Ich, der Liebling der Königin! Sie hat mich gestern sogar angesehen.'", "#me frowns at the empty glass of wine, 'Why do I bless you peasants with my presence? I, who am the Queen's favourite! She even looked at me two days ago!'");
-talkingNPC:addCycleText("Ich fächere der Königin Luft, damit sie einen ruhigen Kopf bewahren kann. Das nenn' ich eine wichtige Tätigkeit.", "I wave my fan over the Queen, keeping her blue blood cool in this dessert heat. Now that is an important duty!");
+talkingNPC:addCycleText("Ich fächere der Königin Luft, damit sie einen ruhigen Kopf bewahren kann. Das nenn' ich eine wichtige Tätigkeit.", "I wave my fan over the Queen, keeping her blue blood cool in this desert heat. Now that is an important duty!");
 talkingNPC:addCycleText("Wein ist fein.", "Wine is divine.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dies ist der königliche Fechlwedler Hassan.", "This is the royal fan waver Hassan.");
+mainNPC:setLookat("Dies ist der königliche Fechlwedler Hassan.", "This is the royal fan-waver Hassan.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
