@@ -81,7 +81,7 @@ end
 
 function reduceMC( user )
     if (isTestserver() and user.name == "Jupiter") then -- testing if idle function works properly!
-		user:inform("idling since "..user:idleTime.." seconds")
+		user:inform("idling since "..user:idleTime().." seconds")
 	end	
 
     if user:idleTime() < 300 then --Has the user done any action or spoken anything within the last five minutes?
