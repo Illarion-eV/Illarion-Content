@@ -71,6 +71,14 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, ltstate)
+    if User.lastSpokenText == "admin" then
+        if User:isAdmin() then
+            User:inform("You are an admin!")
+        else
+            User:inform("You are mortal!")
+        end
+    end
+
     if (User.lastSpokenText == "stat") then
         local stats = world:getItemStatsFromId(9)
     end
