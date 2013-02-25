@@ -80,15 +80,9 @@ end
 -- user:idleTime() can be used to get the number of seconds a user has been idle to check for inactivity
 
 function reduceMC( user )
-    if (isTestserver() and user.name == "Jupiter") then -- testing if idle function works properly!
-		user:inform("idling since "..user:idleTime().." seconds")
-	end	
-
-    if user:idleTime() < 300 then --Has the user done any action or spoken anything within the last five minutes?
+    
+	if user:idleTime() < 300 then --Has the user done any action or spoken anything within the last five minutes?
      	user:increaseMentalCapacity(-1*math.floor(user:getMentalCapacity()*0.00025+0.5)); --reduce MC-points by 0.025%, rounded correctly.
-	    if (isTestserver() and user.name == "Jupiter") then 
-		    user:inform("lower mc")
-		end	
 	end
 	
 end
