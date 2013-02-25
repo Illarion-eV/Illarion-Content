@@ -63,12 +63,12 @@ function UseItem(User, SourceItem)
     end
     foodLevel = User:increaseAttrib("foodlevel",0) + food[1]; -- Foodlevel anheben
     world:makeSound(12,User.pos); -- Trinkgeräuusch machen
-    if ( math.random( 50 ) <= 1 ) then -- 1/50 das die Flasche zerbricht
-        world:erase(SourceItem,1);
+    world:erase(SourceItem,1)
+	if ( math.random( 50 ) <= 1 ) then -- 1/50 das die Flasche zerbricht
         base.common.InformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.");
     else
-        world:swap( SourceItem,food[2],333);
-    end
+        User:createItem(food[2],1,333,nil)
+	end
     
     if ( foodLevel > 40000 ) then 
         base.common.InformNLS( User, "Du hast genug getrunken.", "You have had enough to drink.");
