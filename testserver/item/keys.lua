@@ -30,7 +30,7 @@ function SentenceCharacter(User,SourceItem)
 	
 	if User:isAdmin() == false then
       local charname = User.name;
-      	if not charname == "Elvaine Morgan" and not charname == "Valerio Guilianni" and not charname == "Rosaline Edwards" then
+      	if (charname ~= "Elvaine Morgan" and charname ~= "Valerio Guilianni" and charname ~= "Rosaline Edwards") then
           return; -- for now only GMs are supposed to use the keys
         end;
     end;	
