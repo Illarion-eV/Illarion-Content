@@ -24,8 +24,8 @@ autointroduce = on
 
 author = "Estralis Seborian"
 
-lookatDE = "Dieser NPC ist Palis Nestros der <Beruf/Funktion>."
-lookatUS = "This NPC is Palis Nestros the <profession/function>."
+lookatDE = "Dieser NPC ist Palis Nestros der Artefakthändler."
+lookatUS = "This NPC is Palis Nestros the artifact trader."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
@@ -95,11 +95,11 @@ rank > 6, town = Cadomyr, "sell", "buy", "wares", "price", "trade", "purchase" -
 rank > 6, town = Cadomyr, "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", trade
 
 -- Insufficient rank
-town = Cadomyr, "sell", "buy", "wares", "price", "trade", "purchase" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+town = Cadomyr, "sell", "buy", "wares", "price", "trade", "purchase" -> "I only trade with the cadomyrian nobility. Come back if your at a least a Baron of Cadomyr."
 town = Cadomyr, "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Not a Cadomyr member
-rank > 6, town = Cadomyr, "sell", "buy", "wares", "price", "trade", "purchase" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+rank > 6, town = Cadomyr, "sell", "buy", "wares", "price", "trade", "purchase" -> "I do not trade with outsiders. My goods are reserved for the nobility of Cadomyr."
 rank > 6, town = Cadomyr, "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
@@ -120,8 +120,8 @@ english, "job" -> "If you aquire any artifacts on your adventures, I will pay a 
 "YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Artefakt",english -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Artefakt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
