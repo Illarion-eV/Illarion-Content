@@ -49,8 +49,8 @@ itemShoes = 771
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 122, 21, 22, 234, 2536, 446, 447, 448, 449, 450, 451, 452, 45, 46, 197, 198, 283, 284, 285, 224, 225, 336, 465, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 92, 393, 397, 399, 1001, 1840, 2031, 24, 2763, 2140, 251, 252, 253, 254, 255, 256, 257
-buyPrimaryItems = 122, 21, 22, 234, 2536, 446, 447, 448, 449, 450, 451, 452, 45, 46, 197, 198, 283, 284, 285, 224, 225, 336, 465, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 92, 393, 397, 399, 1001, 1840, 2031
+sellItems = 122, 21, 22, 234, 2536, 446, 447, 448, 449, 450, 451, 452, 45, 46, 197, 198, 283, 284, 285, 224, 225, 336, 465, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 92, 393, 399, 1001, 1840, 2031, 24, 2763, 2140, 251, 252, 253, 254, 255, 256, 257
+buyPrimaryItems = 122, 21, 22, 234, 2536, 446, 447, 448, 449, 450, 451, 452, 45, 46, 197, 198, 283, 284, 285, 224, 225, 336, 465, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 92, 393, 399, 1001, 1840, 2031
 buySecondaryItems = 24, 2763, 2140, 251, 252, 253, 254, 255, 256, 257
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
@@ -71,7 +71,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 10% Gold goods: 224, 225, 336, 465
 -- 10% Jewellery: 62, 67, 71, 79, 82, 83, 222
 -- 10% Rings: 68, 235, 277, 278, 279, 280, 281, 282
--- 10% Copper goods: 92, 393, 397, 399, 1001, 1840, 2031
+-- 10% Copper goods: 92, 393, 399, 1001, 1840, 2031
 -- 5% Raw gems: 251, 252, 253, 254, 255, 256, 257
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I sell any kind of jewellery.", "Things made of gold, of copper, of gems... What do you need?", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich handele mit allerlei Juwelen.", "Dinge aus Gold, aus Kupfer, aus Edelsteinen... was braucht ihr?", trade
