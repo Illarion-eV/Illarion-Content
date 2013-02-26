@@ -23,7 +23,7 @@ function UseItem(User, SourceItem)
 				User:inform("Ihr habt euch dazu entschlossen nach " ..names[selected+1].. " zu Reisen")
 				base.money.TakeMoneyFromChar(User,1000)
 				
-				User:warp(targetPos[selceted+1])
+				User:warp(targetPos[selected+1])
 			else
 				User:inform("Ihr verfügt nicht über genug Geld für eine solche Reise")
 			end
