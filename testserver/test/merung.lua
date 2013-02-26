@@ -36,7 +36,4 @@ function UseItem(User, SourceItem)
     end
   
 	User:requestSelectionDialog(dialog)
-	
-	
-	end
 end
