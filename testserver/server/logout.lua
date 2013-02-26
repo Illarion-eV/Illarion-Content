@@ -5,11 +5,8 @@ require("scheduled.factionLeader")
 module("server.logout", package.seeall)
 
 function onLogout( theChar )
-	  if false then
-	  	  return true;
-	  end
-
-    world:gfx(31,theChar.pos); --A nice GFX that announces clearly: A player logged out.
+	
+	world:gfx(31,theChar.pos); --A nice GFX that announces clearly: A player logged out.
 
 	-- begin tying
 	local foundEffect, Tying = theChar.effects:find(24);
