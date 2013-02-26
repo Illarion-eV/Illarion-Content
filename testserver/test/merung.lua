@@ -34,7 +34,7 @@ function UseItem(User, SourceItem)
 					base.money.TakeMoneyFromChar(User,1000)
 								
 				
-					User:warp(targetPos[selcted+1])
+					User:warp(targetPos[selected+1])
 				end
 			else
 				User:inform("Ihr habt nicht genug Geld für diese Reise. Die Reise kostet zehn Silberstücke.", "You don't have enough money for this journey. The journey costs ten silver coins.")
