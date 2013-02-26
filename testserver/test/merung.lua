@@ -10,19 +10,18 @@ module("test.merung", package.seeall)
 
 function UseItem(User, SourceItem)
 	
-	local callback = function(dialog)
-	
 	local names
 	if getPlayerLanguage() == Player.german then
 		names = {"Runewick","Galmair","Cadomyr","Hanfschlinge"}
 	else
 		names = {"Runewick","Galmair","Cadomyr","Necktie"}
 	end
-	
 	local items = {105,61,2701,1909}
 	local targetPos = {position(788,826,0), position(424,245,0),position(127,647,0),position(684,307,0)}
 	
-		success = dialog:getSuccess()
+	local callback = function(dialog)
+	
+	    success = dialog:getSuccess()
 		if success then
 			selected = dialog:getSelectedIndex()
 			if  base.money.CharHasMoney(User,1000) then
