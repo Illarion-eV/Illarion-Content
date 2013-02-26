@@ -26,7 +26,7 @@ function UseItem(User, SourceItem)
 			selected = dialog:getSelectedIndex()
 			if  base.money.CharHasMoney(User,1000) then
 				
-				if (targetPos[selcted+1].x - SourceItem.pos.x) * (targetPos[selcted+1].x - SourceItem.pos.x) < 10 then
+				if (targetPos[selected+1].x - SourceItem.pos.x) * (targetPos[selected+1].x - SourceItem.pos.x) < 10 then
 					User:inform("Ihr befindet euch bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
 				else
 				
