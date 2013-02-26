@@ -78,9 +78,9 @@ GAL_PRIEST = 515
 GAL_TRANSL = 516
 
 
-function addBook(id, germanTitle, englishTitle)
+function addBook(id, germanTitle, englishTitle, bookGraphic)
     books = books or {}
-    books[id] = {german = germanTitle, english = englishTitle}
+    books[id] = {german = germanTitle, english = englishTitle, graphic = bookGraphic}
 end
 
 function addBookshelf(pos, containedBooks)
@@ -310,7 +310,7 @@ function UseItem(user, item, target, counter, param, ltstate)
             local dialog = SelectionDialog(title, description, callback)
             
             for i=1, bookCount do
-                dialog:addOption(116, base.common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english))
+                dialog:addOption(books[bookshelf[i]].graphic, base.common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english))
             end
             
             user:requestSelectionDialog(dialog)
