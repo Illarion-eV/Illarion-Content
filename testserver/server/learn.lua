@@ -61,7 +61,7 @@ function learn(user, skill, actionPoints, learnLimit)
 				    skillValue=user:getSkill(skill); --reading the skill points
      			    user:increaseMinorSkill(skill,realIncrease); --this is why we do all this grinding!
 										
-					if user:getType() == 0 and user:getQuestProgress(154)==0 then --Only players get informs
+					if user:getType() == 0 and user:getQuestProgress(154)~=1 then --Only players get informs
 
 						base.common.InformNLS(user,"[Levelaufstieg] Eine deiner Fertigkeiten hat sich soeben erhöht. Drücke 'C' um deine Fertigkeiten anzeigen zu lassen.","[Level up] One of your skills just increased. Hit 'C' to review your skills."); --sending a message
 						user:setQuestProgress(154,1); --Remember that we already spammed the player
