@@ -43,10 +43,11 @@ function UseItem(User, SourceItem)
 		end
 	end
 	
+	local dialog
 	if User:getPlayerLanguage() == Player.german then
-		local dialog = SelectionDialog("Teleporter", "Eine Reise kostet zehn Silberstücke. Wähle eine Ziel aus.", callback)
+		dialog = SelectionDialog("Teleporter", "Eine Reise kostet zehn Silberstücke. Wähle eine Ziel aus.", callback)
 	else
-		local dialog = SelectionDialog("Teleporter", "A journey costs ten silver coins. Choose a destination.", callback)
+		dialog = SelectionDialog("Teleporter", "A journey costs ten silver coins. Choose a destination.", callback)
 	end
 	
     for i=1,#items do
