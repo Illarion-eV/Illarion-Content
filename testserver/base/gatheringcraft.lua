@@ -88,7 +88,7 @@ end
 -- @return If something was done
 function GatheringCraft:FindRandomItem(User)
 
-  if math.random(1,100) == 1 then --why complicated if you can solve it simple... 1% chance for an interruption
+  if math.random(1,100) == 50 or math.random(1,100) == 51 then --why complicated if you can solve it simple... 2% chance for an interruption
     if(table.getn(self.InterruptMsg) > 0) then
       local m = math.random(table.getn(self.InterruptMsg));
       base.common.InformNLS(User, self.InterruptMsg[m][1], self.InterruptMsg[m][2]);
