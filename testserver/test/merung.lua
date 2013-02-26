@@ -13,7 +13,7 @@ function UseItem(User, SourceItem)
 	local names = {"Runewick","Galmair","Cadomyr","Hanfschlinge"}
 	local items = {105,61,2701,1909}
 	local callback = function(dialog)
-	targetPos = {position(900,800,0), postion(220,110,1),position(1,1,0),position(450,450,0)}
+	targetPos = {position(900,800,0), position(220,110,1),position(1,1,0),position(450,450,0)}
 	
 		success = dialog:getSuccess()
 		if success then
