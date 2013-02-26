@@ -11,7 +11,7 @@ module("test.merung", package.seeall)
 function UseItem(User, SourceItem)
 	
 	local names
-	if getPlayerLanguage() == Player.german then
+	if  User:getPlayerLanguage() == Player.german then
 		names = {"Runewick","Galmair","Cadomyr","Hanfschlinge"}
 	else
 		names = {"Runewick","Galmair","Cadomyr","Necktie"}
