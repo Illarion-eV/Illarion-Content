@@ -26,15 +26,15 @@ function UseItem(User, SourceItem)
 			selected = dialog:getSelectedIndex()
 			if  base.money.CharHasMoney(User,1000) then
 				
-				if (targetPos[selcted+1].x - SourceItem.pos.x) * (targetPos[selcted+1].x - SourceItem.pos.x) < 10 then
+				if (targetPos[selected+1].x - SourceItem.pos.x) * (targetPos[selected+1].x - SourceItem.pos.x) < 10 then
 					User:inform("Ihr befindet euch bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
 				else
 				
-					User:inform("Ihr habt euch dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]".")
+					User:inform("Ihr habt euch dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
 					base.money.TakeMoneyFromChar(User,1000)
 								
 				
-					User:warp(targetPos[selcted+1])
+					User:warp(targetPos[selected+1])
 				end
 			else
 				User:inform("Ihr habt nicht genug Geld für diese Reise. Die Reise kostet zehn Silberstücke.", "You don't have enough money for this journey. The journey costs ten silver coins.")
@@ -43,10 +43,11 @@ function UseItem(User, SourceItem)
 		end
 	end
 	
+	local dialog
 	if User:getPlayerLanguage() == Player.german then
-		local dialog = SelectionDialog("Teleporter", "Eine Reise kostet zehn Silberstücke. Wähle eine Ziel aus.", callback)
+		dialog = SelectionDialog("Teleporter", "Eine Reise kostet zehn Silberstücke. Wähle eine Ziel aus.", callback)
 	else
-		local dialog = SelectionDialog("Teleporter", "A journey costs ten silver coins. Choose a destination.", callback)
+		dialog = SelectionDialog("Teleporter", "A journey costs ten silver coins. Choose a destination.", callback)
 	end
 	
     for i=1,#items do
