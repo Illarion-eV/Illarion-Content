@@ -98,12 +98,6 @@ function onCasted(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
-function setTarget(Monster, Enemies)
-
-    return 1
-
-end
-
 function onDeath(Monster)
 
     if killer and killer[Monster.id] ~= nil then
