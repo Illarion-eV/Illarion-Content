@@ -19,13 +19,13 @@ function LookAtItem(User,Item)
 	
 	-- what is this? I don't know! I will keep that for now.
 	if (tonumber(Item:getData("bookrestData")) == 666) then
-		local lookAt = FoobarLookAt(User, Item)
+		lookAt = FoobarLookAt(User, Item)
 	end
 	-- strange stuff end
 	
 	-- static teleporter
 	    if Item:getData("staticTeleporter") ~= "" then
-			StaticTeleporterLookAt(User, Item)
+	        lookAt = StaticTeleporterLookAt(User, Item)
 		end
 	-- teleporter end
 	
