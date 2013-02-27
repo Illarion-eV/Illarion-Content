@@ -24,7 +24,7 @@ function LookAtItem(User,Item)
 	-- strange stuff end
 	
 	-- static teleporter
-	    if SourceItem:getData("staticTeleporter") ~= "" then
+	    if Item:getData("staticTeleporter") ~= "" then
 			StaticTeleporterLookAt(User, Item)
 		end
 	-- teleporter end
