@@ -38,12 +38,12 @@ function DrinkPotion(User,SourceItem)
 		local hitpointsOT, poisonvalueOT, manaOT, foodlevelOT
 		for i=1,8 do
 			-- effects
-			local CaulcularionSetp
-			if (i == 4) or (i == 7) then  -- poison
-				CalculationStep = ((10-dataZList[i])-5) -- we need a slightly different calculation for poison
-			else
+			--local CaulcularionSetp
+			--if (i == 4) or (i == 7) then  -- poison
+				 --CalculationStep = ((10-dataZList[i])-5) -- we need a slightly different calculation for poison
+			--else
 				CalculationStep = (dataZList[i]-5) -- for everything else
-			end
+			--end
 			
 			local Val = CalculationStep * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
 			
@@ -58,7 +58,7 @@ function DrinkPotion(User,SourceItem)
 				   foodlevelOT = (Val * 1.25) / 5;
 			-- instatnt poison value cannot be < 0
 			elseif ( attribList[i] == "poisonvalue" ) then
-				Val = base.common.Limit( (User:getPoisonValue() + Val) , 0, 10000 ); 
+				Val = base.common.Limit( (User:getPoisonValue() - Val) , 0, 10000 ); 
 				User:setPoisonValue( Val );
 			--[[ instant foodlevel; you cannot overeat on food potion
 			elseif ( attribList[i] == "foodlevel" ) then
@@ -160,8 +160,7 @@ function UseItem(User, SourceItem, ltstate)
         if User.attackmode then
 		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
 		else
-			User:talkLanguage(Character.say, Player.german, "#me trinkt eine violette Flüssigkeit.");
-			User:talkLanguage(Character.say, Player.english, "#me drinks a violet liquid.");
+		    User:talk(Character.say, "#me trinkt eine violette Flüssigkeit.", "#me drinks a violet liquid.")
 			User.movepoints=User.movepoints - 20
 			DrinkPotion(User,SourceItem) -- call effect
 			alchemy.base.alchemy.EmptyBottle(User,SourceItem)

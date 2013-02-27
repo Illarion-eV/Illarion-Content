@@ -32,7 +32,7 @@ function callEffect(Effect,User)
 			  User:setAttrib("foodlevel",foodlevelIncrease);
            end
            if findPoisonvalue then    
-	          poisonvalueIncrease = base.common.Limit( (User:getPoisonValue() + poisonvalueIncrease) , 0, 10000 ); 
+	          poisonvalueIncrease = base.common.Limit( (User:getPoisonValue() - poisonvalueIncrease) , 0, 10000 ); 
 	          User:setPoisonValue( poisonvalueIncrease );
 	       end
 	      
