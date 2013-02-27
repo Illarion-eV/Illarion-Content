@@ -30,7 +30,7 @@ function LookAtItem(User,Item)
 	-- teleporter end
 	
 	if lookAt then
-	    world:itemInform(player, item, lookAt)
+	    world:itemInform(User, item, lookAt)
 	else
 	    world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
 	end	
