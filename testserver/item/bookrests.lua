@@ -150,10 +150,11 @@ function StaticTeleporter(User, SourceItem)
 		
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
-			dialog = SelectionDialog("Teleporter", "Eine Reise kostet zehn Silberstücke. Wähle eine Ziel aus.", callback)
+		dialog = SelectionDialog("Teleporter", "Eine Reise kostet zehn Silberstücke. Wähle eine Ziel aus.", callback)
 	else
 		dialog = SelectionDialog("Teleporter", "A journey costs ten silver coins. Choose a destination.", callback)
 	end
+	dialog:setCloseOnMove()
 	
 	for i=1,#items do
 		dialog:addOption(items[i], names[i])
