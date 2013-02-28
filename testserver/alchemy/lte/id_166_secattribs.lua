@@ -32,6 +32,7 @@ function callEffect(Effect,User)
            end
            if findPoisonvalue then    
 	          if isTestserver() then User:inform("poisonvalueIncrease: "..poisonvalueIncrease) end
+			  if isTestserver() then User:inform("User:getPoisonValue: "..User:getPoisonValue()) end
 			  poisonvalueIncrease = base.common.Limit( (User:getPoisonValue() - poisonvalueIncrease) , 0, 10000 ); 
 	          if isTestserver() then User:inform("poisonvalueIncrease: "..poisonvalueIncrease) end
 			  User:setPoisonValue( poisonvalueIncrease );
