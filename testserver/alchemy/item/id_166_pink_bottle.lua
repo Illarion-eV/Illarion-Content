@@ -51,6 +51,7 @@ function DrinkPotion(User,SourceItem)
 			if ( attribList[i] == "hitpointsOT" ) then
 				hitpointsOT = (Val * 1.25) / 5;
 				if isTestserver() then User:inform("hitpointsOT: "..hitpointsOT) end
+				debug("hp check")
 			elseif ( attribList[i] == "poisonvalueOT" ) then
 				   poisonvalueOT = (Val * 1.25) / 5;
 				  -- if isTestserver() then User:inform("poisonvalueOT: "..poisonvalueOT) end
