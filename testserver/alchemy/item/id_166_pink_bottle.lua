@@ -37,35 +37,20 @@ function DrinkPotion(User,SourceItem)
 		
 		local hitpointsOT, poisonvalueOT, manaOT, foodlevelOT
 		for i=1,8 do
-			-- effects
-			--local CaulcularionSetp
-			--if (i == 4) or (i == 7) then  -- poison
-				 --CalculationStep = ((10-dataZList[i])-5) -- we need a slightly different calculation for poison
-			--else
-				local CalculationStep = (dataZList[i]-5) -- for everything else
-			--end
-			--if isTestserver() then User:inform("CalculationStep: "..CalculationStep) end
-			local Val = CalculationStep * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
-			--if isTestserver() then User:inform("Val: "..Val) end
-			-- over time effect values
+			
+			local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
+			
 			if ( attribList[i] == "hitpointsOT" ) then
 				hitpointsOT = (Val * 1.25) / 5;
-				if isTestserver() then User:inform("hitpointsOT: "..hitpointsOT) end
-				debug("hp check")
 			elseif ( attribList[i] == "poisonvalueOT" ) then
 				   poisonvalueOT = (Val * 1.25) / 5;
-				  -- if isTestserver() then User:inform("poisonvalueOT: "..poisonvalueOT) end
 			elseif ( attribList[i] == "manaOT" ) then
 				   manaOT = (Val * 1.25) / 5;
 			elseif ( attribList[i] == "foodlevelOT" ) then     			
 				   foodlevelOT = (Val * 1.25) / 5;
-			-- instatnt poison value cannot be < 0
 			elseif ( attribList[i] == "poisonvalue" ) then
 				Val = base.common.Limit( (User:getPoisonValue() - Val) , 0, 10000 ); 
 				User:setPoisonValue( Val );
-			--[[ instant foodlevel; you cannot overeat on food potion
-			elseif ( attribList[i] == "foodlevel" ) then
-				Val = base.common.Limit( (User:increaseAttrib("foodlevel",0) + Val) , 0 , 60000 );]]
 			else
 				User:increaseAttrib(attribList[i],Val);
 			end
@@ -73,12 +58,26 @@ function DrinkPotion(User,SourceItem)
 	    -- LTE
 		local myEffect=LongTimeEffect(166,70);
 		-- now we add the values
-	   if isTestserver() then User:inform("hitpointsOT: "..hitpointsOT) end
-	   myEffect:addValue("hitpointsIncrease",hitpointsOT)
-	   myEffect:addValue("manaIncrease",manaOT)
-	   myEffect:addValue("foodlevelIncrease",foodlevelOT)
-	   if isTestserver() then User:inform("poisonvalueOT: "..poisonvalueOT) end
-	   myEffect:addValue("poisonvalueIncrease",poisonvalueOT)
+	    if hitpointsOT < 0 then
+	        myEffect:addValue("hitpointsDecrease",hitpointsOT*-1)
+	    else
+			myEffect:addValue("hitpointsIncrease",hitpointsOT)
+		end
+        if manaOT < 0 then		
+	        myEffect:addValue("manaDecrease",manaOT*-1)
+	    else
+		    myEffect:addValue("manaIncrease",manaOT)
+		end
+        if foodlevelOT < 0 then
+            myEffect:addValue("foodlevelDecrease",foodlevelOT*-1)		
+		else
+	        myEffect:addValue("foodlevelIncrease",foodlevelOT)
+		end	
+	    if poisonvalueOT < 0 then
+		    myEffect:addValue("poisonvalueDecrease",poisonvalueOT*-1)
+	    else
+	        myEffect:addValue("poisonvalueIncrease",poisonvalueOT)
+		end	
 	   myEffect:addValue("counterPink",5)	   
 	   User.effects:addEffect(myEffect)
 	
