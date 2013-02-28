@@ -50,9 +50,10 @@ function DrinkPotion(User,SourceItem)
 			-- over time effect values
 			if ( attribList[i] == "hitpointsOT" ) then
 				hitpointsOT = (Val * 1.25) / 5;
+				if isTestserver() then User:inform("hitpointsOT: "..hitpointsOT) end
 			elseif ( attribList[i] == "poisonvalueOT" ) then
 				   poisonvalueOT = (Val * 1.25) / 5;
-				   if isTestserver() then User:inform("poisonvalueOT: "..poisonvalueOT) end
+				  -- if isTestserver() then User:inform("poisonvalueOT: "..poisonvalueOT) end
 			elseif ( attribList[i] == "manaOT" ) then
 				   manaOT = (Val * 1.25) / 5;
 			elseif ( attribList[i] == "foodlevelOT" ) then     			
@@ -71,6 +72,7 @@ function DrinkPotion(User,SourceItem)
 	    -- LTE
 		local myEffect=LongTimeEffect(166,70);
 		-- now we add the values
+	   if isTestserver() then User:inform("hitpointsOT: "..hitpointsOT) end
 	   myEffect:addValue("hitpointsIncrease",hitpointsOT)
 	   myEffect:addValue("manaIncrease",manaOT)
 	   myEffect:addValue("foodlevelIncrease",foodlevelOT)

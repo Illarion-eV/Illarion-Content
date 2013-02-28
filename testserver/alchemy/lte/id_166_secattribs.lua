@@ -21,7 +21,8 @@ function callEffect(Effect,User)
 	if findCounter then 
        if counterPink > 0 then
            if findHitpoints then
-              User:increaseAttrib("hitpoints",hitpointsIncrease);
+              if isTestserver() then User:inform("hitpointsIncrease: "..hitpointsIncrease) end
+			  User:increaseAttrib("hitpoints",hitpointsIncrease);
            end
            if findMana then   
               User:increaseAttrib("mana",manaIncrease);
