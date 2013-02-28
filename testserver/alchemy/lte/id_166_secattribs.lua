@@ -13,30 +13,47 @@ end
 function callEffect(Effect,User) 
     local findCounter,counterPink = Effect:findValue("counterPink")
     
-	local findHitpoints,hitpointsIncrease = Effect:findValue("hitpointsIncrease")
-    local findMana,manaIncrease = Effect:findValue("manaIncrease")
-    local findFoodlevel,foodlevelIncrease = Effect:findValue("foodlevelIncrease")
-    local findPoisonvalue,poisonvalueIncrease = Effect:findValue("poisonvalueIncrease")
+	local findHitpointsIn,hitpointsIncrease = Effect:findValue("hitpointsIncrease")
+    local findManaIn,manaIncrease = Effect:findValue("manaIncrease")
+    local findFoodlevelIn,foodlevelIncrease = Effect:findValue("foodlevelIncrease")
+    local findPoisonvalueIn,poisonvalueIncrease = Effect:findValue("poisonvalueIncrease")
+	
+	local findHitpointsDe,hitpointsDecrease = Effect:findValue("hitpointsDecrease")
+    local findManaDe,manaDecrease = Effect:findValue("manaDecrease")
+    local findFoodlevelDe,foodlevelDecrease = Effect:findValue("foodlevelDecrease")
+    local findPoisonvalueDe,poisonvalueDecrease = Effect:findValue("poisonvalueDecrease")
     
 	if findCounter then 
        if counterPink > 0 then
-           if findHitpoints then
+           if findHitpointsIn then
               User:increaseAttrib("hitpoints",hitpointsIncrease);
            end
-           if findMana then   
+           if findManaIn then   
               User:increaseAttrib("mana",manaIncrease);
            end
-           if findFoodlevel then
-              foodlevelIncrease = base.common.Limit( (User:increaseAttrib("foodlevel",0) + foodlevelIncrease) , 0 , 60000 );
-			  if isTestserver() then User:inform(""..foodlevelIncrease) end
-			  User:setAttrib("foodlevel",foodlevelIncrease);
+           if findFoodlevelIn then
+              User:increaseAttrib("foodlevel",foodlevelIncrease);
            end
-           if findPoisonvalue then    
-	          poisonvalueIncrease = base.common.Limit( (User:getPoisonValue() + poisonvalueIncrease) , 0, 10000 ); 
+           if findPoisonvalueIn then    
+	          poisonvalueIncrease = base.common.Limit( (User:getPoisonValue() - poisonvalueIncrease) , 0, 10000 ); 
 	          User:setPoisonValue( poisonvalueIncrease );
 	       end
 	      
-	       if findCounter then
+		   if findHitpointsDe then
+              User:increaseAttrib("hitpoints",-hitpointsDecrease);
+           end
+           if findManaDe then   
+              User:increaseAttrib("mana",-manaDecrease);
+           end
+           if findFoodlevelDe then
+              User:increaseAttrib("foodlevel",-foodlevelDecrease);
+           end
+           if findPoisonvalueDe then    
+	          poisonvalueDecrease = base.common.Limit( (User:getPoisonValue() + poisonvalueDecrease) , 0, 10000 ); 
+	          User:setPoisonValue( poisonvalueDecrease );
+	       end
+		  
+		   if findCounter then
 		      counterPink = counterPink - 1;
 	          Effect:addValue("counterPink",counterPink)
 	       end
