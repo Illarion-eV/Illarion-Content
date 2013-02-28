@@ -44,14 +44,15 @@ function DrinkPotion(User,SourceItem)
 			--else
 				local CalculationStep = (dataZList[i]-5) -- for everything else
 			--end
-			if isTestserver() then User:inform("CalculationStep: "..CalculationStep) end
+			--if isTestserver() then User:inform("CalculationStep: "..CalculationStep) end
 			local Val = CalculationStep * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
-			if isTestserver() then User:inform("Val: "..Val) end
+			--if isTestserver() then User:inform("Val: "..Val) end
 			-- over time effect values
 			if ( attribList[i] == "hitpointsOT" ) then
 				hitpointsOT = (Val * 1.25) / 5;
 			elseif ( attribList[i] == "poisonvalueOT" ) then
 				   poisonvalueOT = (Val * 1.25) / 5;
+				   if isTestserver() then User:inform("poisonvalueOT: "..poisonvalueOT) end
 			elseif ( attribList[i] == "manaOT" ) then
 				   manaOT = (Val * 1.25) / 5;
 			elseif ( attribList[i] == "foodlevelOT" ) then     			
