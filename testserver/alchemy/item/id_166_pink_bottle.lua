@@ -74,6 +74,7 @@ function DrinkPotion(User,SourceItem)
 	   myEffect:addValue("hitpointsIncrease",hitpointsOT)
 	   myEffect:addValue("manaIncrease",manaOT)
 	   myEffect:addValue("foodlevelIncrease",foodlevelOT)
+	   if isTestserver() then User:inform("poisonvalueOT: "..poisonvalueOT) end
 	   myEffect:addValue("poisonvalueIncrease",poisonvalueOT)
 	   myEffect:addValue("counterPink",5)	   
 	   User.effects:addEffect(myEffect)
