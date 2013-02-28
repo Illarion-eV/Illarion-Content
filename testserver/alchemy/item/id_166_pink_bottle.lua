@@ -42,11 +42,11 @@ function DrinkPotion(User,SourceItem)
 			--if (i == 4) or (i == 7) then  -- poison
 				 --CalculationStep = ((10-dataZList[i])-5) -- we need a slightly different calculation for poison
 			--else
-				CalculationStep = (dataZList[i]-5) -- for everything else
+				local CalculationStep = (dataZList[i]-5) -- for everything else
 			--end
-			
+			if isTestserver() then User:inform("CalculationStep: "..CalculationStep) end
 			local Val = CalculationStep * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
-			
+			if isTestserver() then User:inform("Val: "..Val) end
 			-- over time effect values
 			if ( attribList[i] == "hitpointsOT" ) then
 				hitpointsOT = (Val * 1.25) / 5;
