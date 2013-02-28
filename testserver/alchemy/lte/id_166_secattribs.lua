@@ -31,8 +31,10 @@ function callEffect(Effect,User)
 			  User:setAttrib("foodlevel",foodlevelIncrease);
            end
            if findPoisonvalue then    
-	          poisonvalueIncrease = base.common.Limit( (User:getPoisonValue() - poisonvalueIncrease) , 0, 10000 ); 
-	          User:setPoisonValue( poisonvalueIncrease );
+	          if isTestserver() then User:inform("poisonvalueIncrease: "..poisonvalueIncrease) end
+			  poisonvalueIncrease = base.common.Limit( (User:getPoisonValue() - poisonvalueIncrease) , 0, 10000 ); 
+	          if isTestserver() then User:inform("poisonvalueIncrease: "..poisonvalueIncrease) end
+			  User:setPoisonValue( poisonvalueIncrease );
 	       end
 	      
 	       if findCounter then
