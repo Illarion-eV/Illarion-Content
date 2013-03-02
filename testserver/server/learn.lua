@@ -89,7 +89,7 @@ function reduceMC( user )
      	if isTestserver() then user:inform("reset mc") end
 		user:increaseMentalCapacity(-1*math.floor(user:getMentalCapacity()*0.00025+0.5)); --reduce MC-points by 0.025%, rounded correctly.
 	end
-	if isTestserver() then user:inform("mc : "..user:increaseMentalCapacity(0)) end
+	if isTestserver() then user:inform("mc : "..user:getMentalCapacity()) end
 end
 
 function getLeadAttrib(Char, Skill)
