@@ -3,6 +3,7 @@ require("base.lookat")
 require("base.money")
 require("content.areas")
 require("triggerfield.potionToTeacher")
+require("alchemy.base.teacher")
 
 -- UPDATE common SET com_script = 'test.merung' WHERE com_itemid = 1266;
 
@@ -11,12 +12,8 @@ module("test.merung", package.seeall)
 function UseItem(User, SourceItem)
 	
 	if User.lastSpokenText == "inform" then
-	    local myItem = world:getItemOnField(position(957,95,0))
-		lookAt = ItemLookAt()
-		lookAt.name = "Was ist das?"
-		lookAt.description = "Du bemerkst ein seltsames Glitzern im Gras vor der Eiche."
-	    LookAtItem(User, myItem)
-	    lookAt = nil
+	    local myItem = world:getItemOnField(position(432,238,0))
+		alchemy.base.teacher.LookAtItem(User, myItem)
 	end
     
 end
