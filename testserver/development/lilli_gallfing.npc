@@ -33,15 +33,15 @@ wrongLangUS = "#me looks at you confused."
 radius = 0
 hairID = 7
 beardID = 0
-colorHair = 251, 194, 157
-colorSkin = 60, 30, 4
+colorHair = 255, 20, 147
+colorSkin = 245, 200, 145
 itemHead = 0
-itemChest = 812
+itemChest = 182
 itemCoat = 2418
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 0
-itemTrousers = 839
+itemTrousers = 844
 itemShoes = 53
 
 -- Help
