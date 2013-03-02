@@ -1,0 +1,988 @@
+--------------------------------------------------------------------------------
+-- NPC Name: Jakob Lindorn                                            Cadomyr --
+-- NPC Job:  Helper                                                           --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  124, 649, 0            --
+-- NPC Sex:  male                       NPC Direction: east                   --
+--                                                                            --
+-- Author:   Zot                                                              --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (0, 124, 649, 0, 2, 'Jakob Lindorn', 'npc.jakob_lindorn', 0, 1, 0, 139, 105, 20, 238, 216, 174);
+---]]
+
+require("npc.base.basic")
+require("npc.base.condition.language")
+require("npc.base.condition.quest")
+require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
+require("npc.base.talk")
+module("development.jakob_lindorn", package.seeall)
+
+function initNpc()
+mainNPC = npc.base.basic.baseNPC();
+local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Help");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Jakob Lindorn the helper. Keywords: quest"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Jakob Lindorn der Helfer. Schlüsselwörter: Quest"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 1));
+talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Beror Oakaxe this letter for me please? You won't miss him if you enter the city, he is a dwarf.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 0));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 1));
+talkEntry:addResponse("Willkommen in Cadomyr. Könnt ihr meinem Freund Beror Oakaxe bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, wenn ihr in die Stadt hinein geht, er ist ein Zwerg.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greet");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good Evening");
+talkEntry:addResponse("Hello, I can tell you who in Cadomyr has tasks for you to do.");
+talkEntry:addResponse("Nice to meet you, I'm Jakob Lindorn, I can tell you who in Cadomyr has tasks for you to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Grüß");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
+talkEntry:addTrigger("Mahlzeit");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
+talkEntry:addResponse("Hallo, ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat.");
+talkEntry:addResponse("Freut mich, Euch zu treffen. Ich bin Jakob Lindorn. Ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
+talkEntry:addResponse("Hello, I can tell you who in Cadomyr has tasks for you to do.");
+talkEntry:addResponse("Nice to meet you, I'm Jakob Lindorn, I can tell you who in Cadomyr has tasks for you to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
+talkEntry:addResponse("Hallo, ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat.");
+talkEntry:addResponse("Freut mich, Euch zu treffen. Ich bin Jakob Lindorn. Ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Farewell");
+talkEntry:addTrigger("Bye");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
+talkEntry:addResponse("Thank you so, so much for talking to me. If you need help finding something to do, just come back.");
+talkEntry:addResponse("Please have a good day. If you need help finding something to do, just come back.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tschüß");
+talkEntry:addTrigger("Tschüss");
+talkEntry:addTrigger("Wiedersehen");
+talkEntry:addResponse("Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück.");
+talkEntry:addResponse("Ich wünsche Euch einen schönen Tag. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
+talkEntry:addResponse("Thank you so, so much for talking to me. If you need help finding something to do, just come back.");
+talkEntry:addResponse("Please have a good day. If you need help finding something to do, just come back.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
+talkEntry:addResponse("Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück.");
+talkEntry:addResponse("Ich wünsche Euch einen schönen Tag. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("How are you");
+talkEntry:addTrigger("How feel");
+talkEntry:addTrigger("How do you do");
+talkEntry:addResponse("I feel fine, thank you for asking.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addTrigger("Wie Befind");
+talkEntry:addResponse("Mir geht es gut, danke für die Nachfrage.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("your name");
+talkEntry:addTrigger("who are you");
+talkEntry:addTrigger("who art thou");
+talkEntry:addResponse("I'm Jakob Lindorn. I'm here to help.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
+talkEntry:addTrigger("dein name");
+talkEntry:addTrigger("wer bist du");
+talkEntry:addTrigger("wer seid ihr");
+talkEntry:addTrigger("wie heißt");
+talkEntry:addResponse("Ich bin Jakob Lindorn. Ich bin hier zum Helfen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("profession");
+talkEntry:addResponse("My mission is to help, so if you need something to do, just ask.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beruf");
+talkEntry:addResponse("Meine Berufung ist zu helfen. Also wenn Ihr etwas zu tun sucht, fragt einfach.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
+talkEntry:addResponse("My mission is to help, so if you need something to do, just ask.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Meine Berufung ist zu helfen. Also wenn Ihr etwas zu tun sucht, fragt einfach.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("market");
+talkEntry:addResponse("Just follow the street to your right and go through the gate, you won't miss the marketplace. Ask Frizza over there if you want to know more about the places around Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("markt");
+talkEntry:addResponse("Folgt einfach der Straße zur eurer Rechten und geht durch das Tor, ihr werdet den Marktplatz kaum übersehen können. Fragt Frizza dort drüben, wenn Ihr mehr über die Orte um Cadomyr herum wissen wollt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Frizza");
+talkEntry:addResponse("She is right over there, just go over and talk to her. She knows alot about Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Frizza");
+talkEntry:addResponse("Sie ist gleich dort drüben, geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("food");
+talkEntry:addTrigger("eat");
+talkEntry:addResponse("You can find food all around you. There are fruits on the trees and bushes or you ask other people for something to eat.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("essen");
+talkEntry:addTrigger("nahrung");
+talkEntry:addResponse("Ihr könnt überall etwas zu essen finden. Früchte wachsen an Bäumen und Büschen oder Ihr fragt andere Leute nach etwas zu essen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("fighting");
+talkEntry:addTrigger("monster");
+talkEntry:addResponse("There are a few wild animals in the wilderness so be careful. If you want to train ask around for a sparring partner.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("kämpfen");
+talkEntry:addTrigger("monster");
+talkEntry:addResponse("Es gibt einige wilde Tiere in der Wildness, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt herum nach einem Trainingspartner.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("This is Cadomyr, my home. We are a realm of honorable and kind people, I'm sure you will enjoy it here.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("Dies is Cadomyr, mein Zuhause. Wir sind ein Reich von ehrenvollen und aufrichtigen Leuten, ich bin mir sicher, dass Ihr es hier mögen werdet.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Beror Oakaxe this letter for me please? You won't miss him if you enter the city, he is a dwarf.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Willkommen in Cadomyr. Könnt ihr meinem Freund Beror Oakaxe bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, wenn ihr in die Stadt hinein geht, er ist ein Zwerg.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Beror Oakaxe this letter for me please? You won't miss him if you enter the city, he is a dwarf.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Willkommen in Cadomyr. Könnt ihr meinem Freund Beror Oakaxe bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, wenn ihr in die Stadt hinein geht, er ist ein Zwerg.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(111, ">", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
+talkEntry:addResponse("So I suppose you have already delivered the letter to my friend Beror Oakaxe? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(111, ">", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
+talkEntry:addResponse("Ich nehme an, Ihr habt meinem Freundin Beror Oakaxe bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(111, ">", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
+talkEntry:addResponse("So I suppose you have already delivered the letter to my friend Beror Oakaxe? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(111, ">", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
+talkEntry:addResponse("Ich nehme an, Ihr habt meinem Freund Beror Oakaxe bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("So I suppose you have already delivered the letter to my friend Beror Oakaxe? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Ich nehme an, Ihr habt meinem Freund Beror Oakaxe bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("So I suppose you have already delivered the letter to my friend Beror Oakaxe? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Ich nehme an, Ihr habt meinem Freund Beror Oakaxe bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 3));
+talkEntry:addResponse("A friend of mine Mirarie Bragolin always needs some help. You can find her if you follow the street into the city, she is at the gate before which leads to the marketplace.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 3));
+talkEntry:addResponse("Eine Freundin Mirarie Bragolin kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden wenn Ihr in die Stadt hinein geht, sie steht beim Tor Richtung Marktplatz.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 3));
+talkEntry:addResponse("A friend of mine Mirarie Bragolin always needs some help. You can find her if you follow the street into the city, she is at the gate before which leads to the marketplace.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 3));
+talkEntry:addResponse("Eine Freundin Mirarie Bragolin kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden wenn Ihr in die Stadt hinein geht, sie steht beim Tor Richtung Marktplatz.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("A friend of mine Mirarie Bragolin always needs some help. You can find her if you follow the street into the city, she is at the gate before which leads to the marketplace.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Eine Freundin Mirarie Bragolin kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden wenn Ihr in die Stadt hinein geht, sie steht beim Tor Richtung Marktplatz.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("A friend of mine Mirarie Bragolin always needs some help. You can find her if you follow the street into the city, she is at the gate before which leads to the marketplace.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Eine Freundin Mirarie Bragolin kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden wenn Ihr in die Stadt hinein geht, sie steht beim Tor Richtung Marktplatz.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, ">", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 4));
+talkEntry:addResponse("Hassan, the royal fan-waver has for sure a little task for you. You can find him in the taverne 'Unicorn Lion', if he isn't at the palace. The tavern is north of the marketplace.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, ">", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 4));
+talkEntry:addResponse("Hassan, der königliche Fächelwedler hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, ">", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 4));
+talkEntry:addResponse("Hassan, the royal fan-waver has for sure a little task for you. You can find him in the taverne 'Unicorn Lion', if he isn't at the palace. The tavern is north of the marketplace.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, ">", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 4));
+talkEntry:addResponse("Hassan, der königliche Fächelwedler hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Hassan, the royal fan-waver has for sure a little task for you. You can find him in the taverne 'Unicorn Lion', if he isn't at the palace. The tavern is north of the marketplace.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Hassan, der königliche Fächelwedler hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("Hassan, the royal fan-waver has for sure a little task for you. You can find him in the taverne 'Unicorn Lion', if he isn't at the palace. The tavern is north of the marketplace.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Hassan, der königliche Fächelwedler hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(75, ">", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 5));
+talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You met her for sure in the tavern already.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(75, ">", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 5));
+talkEntry:addResponse("Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte vielleicht eine kleine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(75, ">", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 5));
+talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You met her for sure in the tavern already.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(75, ">", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 5));
+talkEntry:addResponse("Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You met her for sure in the tavern already.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 0));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You met her for sure in the tavern already.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 0));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(126, ">", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
+talkEntry:addResponse("Zerarisa, a good friend lives at the Cape Farewell. Could you look for her, I didn't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you to the right direction.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(126, ">", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
+talkEntry:addResponse("Zerarisa, eine gute Freundin lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen, ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt, die Wegweiser sollten Euch direkt zum Kap führen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(126, ">", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
+talkEntry:addResponse("Zerarisa, a good friend lives at the Cape Farewell. Could you look for her, I didn't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you to the right direction.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(126, ">", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
+talkEntry:addResponse("Zerarisa, eine gute Freundin lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen, ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt, die Wegweiser sollten Euch direkt zum Kap führen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Zerarisa, a good friend lives at the Cape Farewell. Could you look for her, I didn't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you to the right direction.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Zerarisa, eine gute Freundin lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen, ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt, die Wegweiser sollten Euch direkt zum Kap führen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("Zerarisa, a good friend lives at the Cape Farewell. Could you look for her, I didn't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you to the right direction.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Zerarisa, eine gute Freundin lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen, ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt, die Wegweiser sollten Euch direkt zum Kap führen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, ">", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 7));
+talkEntry:addResponse("Reret Odohir our notary told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colorfull pillar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, ">", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 7));
+talkEntry:addResponse("Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, ">", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 7));
+talkEntry:addResponse("Reret Odohir our notary told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colorfull pillar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, ">", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 7));
+talkEntry:addResponse("Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Reret Odohir our notary told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colorfull pillar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("Reret Odohir our notary told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colorfull pillar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.quest.quest(150, ">", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("Reret Odohir our notary told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colorfull pillar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.quest.quest(150, ">", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.quest.quest(150, ">", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("Reret Odohir our notary told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colorfull pillar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.quest.quest(150, ">", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("I cannot help you with that. Why not ask Elesil Dealwon over there, I'm sure she has the answer.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Elesil Dealwon dort drüben, ich bin mir sicher sie hat eine Antwort.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+talkingNPC:addCycleText("Willkommen in Cadomyr!", "Welcome to Cadomyr!");
+talkingNPC:addCycleText("Wenn ihr Hilfe benötigt, sprecht mich einfach an.", "If you need help, just speak to me.");
+talkingNPC:addCycleText("Ich kann Euch sagen, wer in diesem Reich eure Hilfe benötigt.", "I can tell you who in this realm needs your help.");
+talkingNPC:addCycleText("Wenn Ihr neu hier seid, bin ich Euer Mann.", "If you're new to this realm, I'm your man.");
+mainNPC:addLanguage(0);
+mainNPC:addLanguage(1);
+mainNPC:setDefaultLanguage(0);
+mainNPC:setLookat("", "");
+mainNPC:setUseMessage("Fass mich nicht an!", "Hands off!");
+mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 362);
+mainNPC:setEquipment(11, 2384);
+mainNPC:setEquipment(5, 207);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 0);
+mainNPC:setEquipment(9, 826);
+mainNPC:setEquipment(10, 679);
+mainNPC:setAutoIntroduceMode(true);
+
+mainNPC:initDone();
+end;
+
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
+initNpc();
+initNpc = nil;
+-- END
