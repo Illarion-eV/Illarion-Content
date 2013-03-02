@@ -95,9 +95,9 @@ town = Runewick, "task", "adventure", "order", "order" -> "If you are from Runew
 town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wenn ihr aus Runewick seid, so habt ihr nicht meine Aufträge sondern die von Erzmagier Morgan zu erfüllen."
 
 -- Catching quest triggers of those who have to wait for a new quest
-queststatus(129) ~= 0, english, town = Cadomyr, "quest", "mission" -> "#me browses a list and shakes his head, 'No orders for you, sorry. Please come back later.'", "There are no orders you could fulfill at this moment.", "For you, I have currently no orders."
+queststatus(129) ~= 0, english, town = Cadomyr, "quest", "mission" -> "#me browses a list and shakes his head, 'No orders for you, sorry. Please come back later.'", "There are no orders you could fulfil at this moment.", "For you, I have currently no orders."
 queststatus(129) ~= 0, town = Cadomyr, "quest", "mission" -> "#me studiert eine Liste und schüttelt den Kopf: 'Keine Aufträge für euch. Kommt doch bitte später wieder.'", "Derzeit gibt es für euch keine Aufträge.", "Für euch gibt es zur Zeit keine Aufträge."
-queststatus(129) ~= 0, town = Cadomyr, "task", "adventure", "order" -> "#me browses a list and shakes his head, 'No orders for you, sorry. Please come back later.'", "There are no orders you could fulfill at this moment.", "For you, I have currently no orders."
+queststatus(129) ~= 0, town = Cadomyr, "task", "adventure", "order" -> "#me browses a list and shakes his head, 'No orders for you, sorry. Please come back later.'", "There are no orders you could fulfil at this moment.", "For you, I have currently no orders."
 queststatus(129) ~= 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me studiert eine Liste und schüttelt den Kopf: 'Keine Aufträge für euch. Kommt doch bitte später wieder.'", "Derzeit gibt es für euch keine Aufträge.", "Für euch gibt es zur Zeit keine Aufträge."
 
 -- ATTENTION: The lines below are generated. Do not do any manual changes. Tell me (Estralis) what is wrong and I will regenerate the lines.
