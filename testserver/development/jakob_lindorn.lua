@@ -3,7 +3,7 @@
 -- NPC Job:  Helper                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  124, 649, 0            --
--- NPC Sex:  male                       NPC Direction: east                   --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
 --                                                     easyNPC Parser v1.23.1 --
@@ -861,99 +861,51 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("");
+talkEntry:addResponse("I'm sure you can find your way around here without my help now. If you need help in smithing or tailoring, just go and look for Berri Firegold or Lilli Gallfing, you can find both in the workshop.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("");
+talkEntry:addResponse("Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Wenn Ihr etwas Hilfe beim Schmieden oder Schneidern braucht, sucht nach Berri Firegold oder Lilli Gallfing die beiden müssten in der Werkstatt zu finden sein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("");
+talkEntry:addResponse("I'm sure you can find your way around here without my help now. If you need help in smithing or tailoring, just go and look for Berri Firegold or Lilli Gallfing, you can find both in the workshop.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
-talkEntry:addResponse("");
+talkEntry:addResponse("Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Wenn Ihr etwas Hilfe beim Schmieden oder Schneidern braucht, sucht nach Berri Firegold oder Lilli Gallfing die beiden müssten in der Werkstatt zu finden sein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I cannot help you with that. Why not ask Elesil Dealwon over there, I'm sure she has the answer.");
+talkEntry:addResponse("I cannot help you with that. Why not ask Frizza over there, I'm sure she has the answer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Elesil Dealwon dort drüben, ich bin mir sicher sie hat eine Antwort.");
+talkEntry:addResponse("Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Frizza dort drüben, ich bin mir sicher sie hat eine Antwort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Willkommen in Cadomyr!", "Welcome to Cadomyr!");

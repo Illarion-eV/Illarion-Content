@@ -2,7 +2,7 @@
 -- NPC Name: Berri Firegold                                        Cadomyr    --
 -- NPC Job:  Smith and Miner                                                  --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  141, 581, 0            --
+-- NPC Race: dwarf                      NPC Position:  141, 582, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
@@ -12,7 +12,7 @@
 name = "Berri Firegold"
 race = dwarf
 sex = male
-position = 141, 581, 0
+position = 141, 582, 0
 direction = south
 affiliation = "Cadomyr"
 job = "Smith and Miner"

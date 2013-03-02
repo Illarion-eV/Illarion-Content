@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 135, 576, 0, 6, 'Lilli Gallfing', 'npc.lilli_gallfing', 1, 2, 0, 139, 105, 20, 238, 216, 174);
+VALUES (0, 135, 576, 0, 6, 'Lilli Gallfing', 'npc.lilli_gallfing', 1, 7, 0, 251, 194, 157, 60, 30, 4);
 ---]]
 
 require("npc.base.basic")
@@ -833,8 +833,8 @@ mainNPC:setLookat("", "");
 mainNPC:setUseMessage("Fass mich nicht an!", "Hands off!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 850);
-mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(3, 812);
+mainNPC:setEquipment(11, 2418);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 0);

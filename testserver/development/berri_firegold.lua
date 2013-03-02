@@ -2,7 +2,7 @@
 -- NPC Name: Berri Firegold                                           Cadomyr --
 -- NPC Job:  Smith and Miner                                                  --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  141, 581, 0            --
+-- NPC Race: dwarf                      NPC Position:  141, 582, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 141, 581, 0, 4, 'Berri Firegold', 'npc.berri_firegold', 0, 3, 4, 139, 105, 20, 238, 216, 174);
+VALUES (1, 141, 582, 0, 4, 'Berri Firegold', 'npc.berri_firegold', 0, 3, 4, 139, 105, 20, 238, 216, 174);
 ---]]
 
 require("npc.base.basic")

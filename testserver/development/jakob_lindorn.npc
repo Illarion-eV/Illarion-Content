@@ -139,18 +139,14 @@ queststatus(703) = 7, queststatus(150) > 1, english, "quest", "mission" -> quest
 queststatus(703) = 7, queststatus(150) > 1, "quest", "mission" -> queststatus(703) = 8, "Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor."
 queststatus(703) = 7, queststatus(150) > 1, "task", "adventure", "order" -> queststatus(703) = 8, "Reret Odohir our notary told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colorfull pillar."
 queststatus(703) = 7, queststatus(150) > 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 8, "Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor."
-queststatus(703) = 8, queststatus(704) = 0, english, "quest", "mission" -> ""
-queststatus(703) = 8, queststatus(704) = 0, "quest", "mission" -> ""
-queststatus(703) = 8, queststatus(704) = 0, "task", "adventure", "order" -> ""
-queststatus(703) = 8, queststatus(704) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
-queststatus(703) = 8, queststatus(704) > 1, english, "quest", "mission" -> queststatus(703) = 8, ""
-queststatus(703) = 8, queststatus(704) > 1, "quest", "mission" -> queststatus(703) = 8, ""
-queststatus(703) = 8, queststatus(704) > 1, "task", "adventure", "order" -> queststatus(703) = 8, ""
-queststatus(703) = 8, queststatus(704) > 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 8, ""
+queststatus(703) = 8, english, "quest", "mission" -> "I'm sure you can find your way around here without my help now. If you need help in smithing or tailoring, just go and look for Berri Firegold or Lilli Gallfing, you can find both in the workshop."
+queststatus(703) = 8, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Wenn Ihr etwas Hilfe beim Schmieden oder Schneidern braucht, sucht nach Berri Firegold oder Lilli Gallfing die beiden müssten in der Werkstatt zu finden sein."
+queststatus(703) = 8, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. If you need help in smithing or tailoring, just go and look for Berri Firegold or Lilli Gallfing, you can find both in the workshop."
+queststatus(703) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Wenn Ihr etwas Hilfe beim Schmieden oder Schneidern braucht, sucht nach Berri Firegold oder Lilli Gallfing die beiden müssten in der Werkstatt zu finden sein."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, ".*" -> "I cannot help you with that. Why not ask Elesil Dealwon over there, I'm sure she has the answer."
-german, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Elesil Dealwon dort drüben, ich bin mir sicher sie hat eine Antwort."
+english, ".*" -> "I cannot help you with that. Why not ask Frizza over there, I'm sure she has the answer."
+german, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Frizza dort drüben, ich bin mir sicher sie hat eine Antwort."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
