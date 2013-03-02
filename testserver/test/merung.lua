@@ -11,9 +11,11 @@ module("test.merung", package.seeall)
 function UseItem(User, SourceItem)
 	
 	if User.lastSpokenText == "inform" then
-	    User:inform("deutsch","english")
+	    local myItem = world:getItemOnField(position(957,95,0))
+		local lookAt = ItemLookAt()
+		lookAt.name = "Was ist das?"
+		lookAt.description = "Du bemerkst ein seltsames Glitzern im Gras vor der Eiche."
+		world:itemInform(User,myItem,lookAt)
 	end
     
-	
-	
 end

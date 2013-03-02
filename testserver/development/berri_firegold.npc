@@ -31,8 +31,8 @@ useMsgUS = "Hands off!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 3
-beardID = 4
+hairID = 1
+beardID = 2
 colorHair = 139, 105, 20
 colorSkin = 238, 216, 174
 itemHead = 0
@@ -111,8 +111,8 @@ queststatus(704) = 5, item(1858, all) < 5, english, ".+" -> "You haven't solved 
 queststatus(704) = 5, item(1858, all) < 5, ".+" -> "Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, ".*" -> "I don't have anything more for you to do. Thank you for the help though!"
-german, ".*" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+queststatus(704) = 6, english, ".*" -> "I don't have anything more for you to do. Thank you for the help though!"
+queststatus(704) = 6, german, ".*" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
