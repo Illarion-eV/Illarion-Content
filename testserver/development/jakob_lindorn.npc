@@ -13,7 +13,7 @@ name = "Jakob Lindorn"
 race = human
 sex = male
 position = 124, 649, 0
-direction = east
+direction = west
 affiliation = "Cadomyr"
 job = "Helper"
 
