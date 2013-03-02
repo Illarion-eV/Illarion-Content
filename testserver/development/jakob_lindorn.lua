@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -19,8 +19,9 @@ require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.talkstate")
 require("npc.base.talk")
-module("development.jakob_lindorn", package.seeall)
+module("npc.jakob_lindorn", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -219,7 +220,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Frizza");
-talkEntry:addResponse("She is right over there, just go over and talk to her. She knows alot about Cadomyr.");
+talkEntry:addResponse("She is right over there, just go over and talk to her. She knows a lot about Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -277,7 +278,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Beror Oakaxe this letter for me please? You won't miss him if you enter the city, he is a dwarf.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Welcome to Cadomyr. Could you give my friBeror Oakaxe, this letter for me please? You won't miss him if you enter the city, he is a dwarf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -296,7 +298,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Beror Oakaxe this letter for me please? You won't miss him if you enter the city, he is a dwarf.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Welcome to Cadomyr. Could you give my friBeror Oakaxe, this letter for me please? You won't miss him if you enter the city, he is a dwarf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -402,7 +405,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 3));
-talkEntry:addResponse("A friend of mine Mirarie Bragolin always needs some help. You can find her if you follow the street into the city, she is at the gate before which leads to the marketplace.");
+talkEntry:addResponse("A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -423,7 +426,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 3));
-talkEntry:addResponse("A friend of mine Mirarie Bragolin always needs some help. You can find her if you follow the street into the city, she is at the gate before which leads to the marketplace.");
+talkEntry:addResponse("A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -445,7 +448,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("A friend of mine Mirarie Bragolin always needs some help. You can find her if you follow the street into the city, she is at the gate before which leads to the marketplace.");
+talkEntry:addResponse("A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -464,7 +467,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("A friend of mine Mirarie Bragolin always needs some help. You can find her if you follow the street into the city, she is at the gate before which leads to the marketplace.");
+talkEntry:addResponse("A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -486,7 +489,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 4));
-talkEntry:addResponse("Hassan, the royal fan-waver has for sure a little task for you. You can find him in the taverne 'Unicorn Lion', if he isn't at the palace. The tavern is north of the marketplace.");
+talkEntry:addResponse("Hassan, the royal fan-waver, is sure to have a little task for you. You can find him in the 'Unicorn Lion' tavern, if he isn't at the palace. The tavern is north of the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -507,7 +510,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 4));
-talkEntry:addResponse("Hassan, the royal fan-waver has for sure a little task for you. You can find him in the taverne 'Unicorn Lion', if he isn't at the palace. The tavern is north of the marketplace.");
+talkEntry:addResponse("Hassan, the royal fan-waver, is sure to have a little task for you. You can find him in the 'Unicorn Lion' tavern, if he isn't at the palace. The tavern is north of the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -529,7 +532,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Hassan, the royal fan-waver has for sure a little task for you. You can find him in the taverne 'Unicorn Lion', if he isn't at the palace. The tavern is north of the marketplace.");
+talkEntry:addResponse("Hassan, the royal fan-waver, is sure to have a little task for you. You can find him in the 'Unicorn Lion' tavern, if he isn't at the palace. The tavern is north of the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -548,7 +551,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Hassan, the royal fan-waver has for sure a little task for you. You can find him in the taverne 'Unicorn Lion', if he isn't at the palace. The tavern is north of the marketplace.");
+talkEntry:addResponse("Hassan, the royal fan-waver, is sure to have a little task for you. You can find him in the 'Unicorn Lion' tavern, if he isn't at the palace. The tavern is north of the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -570,7 +573,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 5));
-talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You met her for sure in the tavern already.");
+talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met her in the tavern already.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -591,7 +594,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 5));
-talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You met her for sure in the tavern already.");
+talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met in the tavern already.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -613,7 +616,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You met her for sure in the tavern already.");
+talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probbaly met her in the tavern already.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -632,7 +635,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You met her for sure in the tavern already.");
+talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met her in the tavern already.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -654,7 +657,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
-talkEntry:addResponse("Zerarisa, a good friend lives at the Cape Farewell. Could you look for her, I didn't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you to the right direction.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Zerarisa, a good frilives at the Cape Farewell. Could you look for her, I haven't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you in the right direction.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -675,7 +679,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
-talkEntry:addResponse("Zerarisa, a good friend lives at the Cape Farewell. Could you look for her, I didn't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you to the right direction.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Zerarisa, a good frilives at the Cape Farewell. Could you look for her, I haven't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you in the right direction.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -697,7 +702,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Zerarisa, a good friend lives at the Cape Farewell. Could you look for her, I didn't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you to the right direction.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Zerarisa, a good frilives at the Cape Farewell. Could you look for her, I haven't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you in the right direction.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -716,7 +722,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Zerarisa, a good friend lives at the Cape Farewell. Could you look for her, I didn't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you to the right direction.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Zerarisa, a good frilives at the Cape Farewell. Could you look for her, I haven't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you in the right direction.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -738,7 +745,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 7));
-talkEntry:addResponse("Reret Odohir our notary told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colorfull pillar.");
+talkEntry:addResponse("Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -759,7 +766,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 7));
-talkEntry:addResponse("Reret Odohir our notary told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colorfull pillar.");
+talkEntry:addResponse("Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -781,7 +788,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Reret Odohir our notary told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colorfull pillar.");
+talkEntry:addResponse("Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -800,7 +807,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Reret Odohir our notary told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colorfull pillar.");
+talkEntry:addResponse("Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -822,7 +829,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
-talkEntry:addResponse("Reret Odohir our notary told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colorfull pillar.");
+talkEntry:addResponse("Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -843,7 +850,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
-talkEntry:addResponse("Reret Odohir our notary told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colorfull pillar.");
+talkEntry:addResponse("Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -898,7 +905,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I cannot help you with that. Why not ask Frizza over there, I'm sure she has the answer.");
+talkEntry:addResponse("I cannot help you with that. Why not ask Frizza over there? I'm sure she has the answer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
