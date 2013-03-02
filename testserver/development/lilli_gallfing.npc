@@ -133,8 +133,8 @@ queststatus(705) = 9, item(174, all) < 5, english, ".+" -> "You didn't solve the
 queststatus(705) = 9, item(174, all) < 5, ".+" -> "Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Kommt doch bitte wieder, wenn Ihr die fünf Rollen roten Stoff zusammen habt."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, ".*" -> "I don't have anything to do for you anymore. Thank you for the help though!"
-german, ".*" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+queststatus(705) = 10, english, ".*" -> "I don't have anything to do for you anymore. Thank you for the help though!"
+queststatus(705) = 10, german, ".*" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
