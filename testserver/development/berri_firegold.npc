@@ -69,23 +69,23 @@ english, "job" -> "I'm a smith of course, maybe I'll have a little task for you 
 "job" -> "Ich bin natürlich ein Schmied, vielleicht habe ich später eine kleine Aufgabe für Euch."
 
 -- help triggers
-english, "mine" -> "If you leave the town and follow the street to the south you will reach the 'Cornerstone of Candour', you can find coal there. If you leave the town and go northeast you will reach the 'Liberty Quarry', you can find iron- and copper ore and sometimes even goldnuggets there."
+english, "mine" -> "If you leave the town and follow the street to the south you will reach the 'Cornerstone of Candour', you can find coal there. If you leave the town and go northeast you will reach the 'Liberty Quarry', you can find iron and copper ore there, and sometimes even gold nuggets."
 german, "mine" -> "Wenn Ihr die Stadt verlässt und nach Süden der Straße folgt erreicht Ihr den 'Grundstein der Aufrichtigkeit', dort könnt Ihr Kohle finden. Wenn Ihr die Stadt verlässt und nach Nordosten geht, erreicht Ihr den 'Freiheitsbruch', dort findet Ihr Eisen- und Kupfererz und manchmal sogar Goldnuggets."
-english, "smith" -> "If you want to smith you need ingots and a hammer of course. Blacksmiths need a normal hammer, finesmith's need a finesmith hammer though."
+english, "smith" -> "If you want to smith you need ingots and a hammer of course. Blacksmiths need a normal hammer, finesmith's need a finesmithing hammer though."
 "schmied" -> "Wenn Ihr schmieden wollt dann braucht Ihr Barren und natürlich einen Hammer. Schmiede benutzen einen gewöhnlichen Hammer, Goldschmiede dagegen brauchen einen Feinschmiedehammer."
 
 -- Quests
-queststatus(704) = 0, english, "quest", "mission" -> "Could you bring me 20 pieces iron ore from the 'Liberty Quarry' and also 20 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south if you leave city. Here a pick-axe to mine the ore.",  item(2763, 1, 555), queststatus(704) = 1
+queststatus(704) = 0, english, "quest", "mission" -> "Could you bring me 20 pieces of iron ore from the 'Liberty Quarry' and also 20 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore.",  item(2763, 1, 555), queststatus(704) = 1
 queststatus(704) = 0, "quest", "mission" -> "Könntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten, den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlässt. Hier habt ihr eine Spitzhacke um das Erz zu sammeln.",  item(2763, 1, 555), queststatus(704) = 1
-queststatus(704) = 0, "task", "adventure", "order" -> "Could you bring me 20 pieces iron ore from the 'Liberty Quarry' and also 20 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south if you leave city. Here a pick-axe to mine the ore.",  item(2763, 1, 555), queststatus(704) = 1
+queststatus(704) = 0, "task", "adventure", "order" -> "Could you bring me 20 pieces of iron ore from the 'Liberty Quarry' and also 20 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore.",  item(2763, 1, 555), queststatus(704) = 1
 queststatus(704) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Könntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten, den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlässt. Hier habt ihr eine Spitzhacke um das Erz zu sammeln.",  item(2763, 1, 555), queststatus(704) = 1
 queststatus(704) = 1, item(21, all) > 9, item(22, all) > 9, english, "quest", "mission" -> "Well done, thank you. Do you want another task?", deleteItem(21, 10), deleteItem(22, 10), queststatus(704) = 2
 queststatus(704) = 1, item(21, all) > 9, item(22, all) > 9, "quest", "mission" -> "Gut gemacht, danke. Wollt Ihr eine weitere Aufgabe?", deleteItem(21, 10), deleteItem(22, 10), queststatus(704) = 2
 queststatus(704) = 1, item(21, all) > 9, item(22, all) > 9, "task", "adventure", "order" -> "Well done, thank you. Do you want another task?", deleteItem(21, 10), deleteItem(22, 10), queststatus(704) = 2
 queststatus(704) = 1, item(21, all) > 9, item(22, all) > 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, danke. Wollt Ihr eine weitere Aufgabe?", deleteItem(21, 10), deleteItem(22, 10), queststatus(704) = 2
-queststatus(704) = 1, item(21, all) < 10, english, ".+" -> "That's not everything what I was looking for. Did you forgot that I told you to bring me 20 pieces of iron ore and 20 lumps of coal?"
+queststatus(704) = 1, item(21, all) < 10, english, ".+" -> "That's not everything I was looking for. Did you forget that I told you to bring me 20 pieces of iron ore and 20 lumps of coal?"
 queststatus(704) = 1, item(21, all) < 10, ".+" -> "Da fehlt aber noch etwas. Ich wollte 10 Eisenerze sowie 10 Kohleklumpen von Euch, habt Ihr das vergessen?"
-queststatus(704) = 1, item(22, all) < 10, english, ".+" -> "That's not everything what I was looking for. Did you forgot that I told you to bring me 20 pieces of iron ore and 20 lumps of coal?"
+queststatus(704) = 1, item(22, all) < 10, english, ".+" -> "That's not everything I was looking for. Did you forget that I told you to bring me 20 pieces of iron ore and 20 lumps of coal?"
 queststatus(704) = 1, item(22, all) < 10, ".+" -> "Da fehlt aber noch etwas. Ich wollte 10 Eisenerze sowie 10 Kohleklumpen von Euch, habt Ihr das vergessen?"
 queststatus(704) = 2, english, "quest", "mission" -> "I have another task for you, indeed. Could you smelt me 10 iron ingots at the furnace over there? Here I'll even give you the crucible-pincers for smelting the ore.", item(2751, 1, 333), queststatus(704) = 3
 queststatus(704) = 2, "quest", "mission" -> "Ich hätte einen weitere Aufgabe für euch, in der Tat. Könntet Ihr mir 10 Eisenbarren bei der Esse dort drüben schmelzen? Hier, ich gebe Euch sogar eine Tiegelzange zum schmelzen.", item(2751, 1, 333), queststatus(704) = 3
@@ -97,21 +97,21 @@ queststatus(704) = 3, item(2535, all) > 9, "task", "adventure", "order" -> "Well
 queststatus(704) = 3, item(2535, all) > 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, danke. Wollt Ihr eine weitere Aufgabe?", deleteItem(2535, 10), queststatus(704) = 4
 queststatus(704) = 3, item(2535, all) < 10, english, ".+" -> "That are not 10 iron ingots yet. Please come again later when you've finished the task."
 queststatus(704) = 3, item(2535, all) < 10, ".+" -> "Das sind noch keine 10 Eisenbarren, die ich von Euch wollte. Kommt wieder wenn Ihr die Aufgabe erledigt habt."
-queststatus(704) = 4, english, "quest", "mission" -> "You want another task? Well alright. Could you smith me 5 pins and 5 goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handles is for finesmithing. Here I'll give you one of each kind so you can practise a little bit.", item(23, 1, 333), item(122, 1, 333), queststatus(704) = 5
+queststatus(704) = 4, english, "quest", "mission" -> "You want another task? Well alright. Could you smith me 5 pins and 5 goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handle is for finesmithing. Here I'll give you one of each kind so you can practise a little bit.", item(23, 1, 333), item(122, 1, 333), queststatus(704) = 5
 queststatus(704) = 4, "quest", "mission" -> "Ihr wollt noch eine weitere Aufgabe? Nun gut, meinetwegen. Bitte stellt mir 5 Nägel sowie 5 Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht, der mit dem roten Griff für das Feinschmieden. Hier ich gebe Euch jeweils einen zum üben.", item(23, 1, 333), item(122, 1, 333), queststatus(704) = 5
-queststatus(704) = 4, "task", "adventure", "order" -> "You want another task? Well alright. Could you smith me 5 pins and 5 goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handles is for finesmithing. Here I'll give you one of each kind so you can practise a little bit.", item(23, 1, 333), item(122, 1, 333), queststatus(704) = 5
+queststatus(704) = 4, "task", "adventure", "order" -> "You want another task? Well alright. Could you smith me 5 pins and 5 goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handle is for finesmithing. Here I'll give you one of each kind so you can practise a little bit.", item(23, 1, 333), item(122, 1, 333), queststatus(704) = 5
 queststatus(704) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr wollt noch eine weitere Aufgabe? Nun gut, meinetwegen. Bitte stellt mir 5 Nägel sowie 5 Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht, der mit dem roten Griff für das Feinschmieden. Hier ich gebe Euch jeweils einen zum üben.", item(23, 1, 333), item(122, 1, 333), queststatus(704) = 5
-queststatus(704) = 5, item(2738, all) > 4, item(1858, all) > 4, english, "quest", "mission" -> "Well done, thank you very much. I think you don't need my help any longer, good luck!", deleteItem(2738, 5), deleteItem(2738, 5), queststatus(704) = 6
+queststatus(704) = 5, item(2738, all) > 4, item(1858, all) > 4, english, "quest", "mission" -> "Well done, thank you very much. I don't think you need my help any longer, good luck!", deleteItem(2738, 5), deleteItem(2738, 5), queststatus(704) = 6
 queststatus(704) = 5, item(2738, all) > 4, item(1858, all) > 4, "quest", "mission" -> "Gut gemacht, vielen Dank. Ich denke Ihr kommt nun auch ohne meine Hilfe zurecht.", deleteItem(2738, 5), deleteItem(2738, 5), queststatus(704) = 6
-queststatus(704) = 5, item(2738, all) > 4, item(1858, all) > 4, "task", "adventure", "order" -> "Well done, thank you very much. I think you don't need my help any longer, good luck!", deleteItem(2738, 5), deleteItem(2738, 5), queststatus(704) = 6
+queststatus(704) = 5, item(2738, all) > 4, item(1858, all) > 4, "task", "adventure", "order" -> "Well done, thank you very much. I don't think you need my help any longer, good luck!", deleteItem(2738, 5), deleteItem(2738, 5), queststatus(704) = 6
 queststatus(704) = 5, item(2738, all) > 4, item(1858, all) > 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, vielen Dank. Ich denke Ihr kommt nun auch ohne meine Hilfe zurecht.", deleteItem(2738, 5), deleteItem(2738, 5), queststatus(704) = 6
-queststatus(704) = 5, item(2738, all) < 5, english, ".+" -> "You didn't solve the task yet. Please come again if you have 5 pins and 5 goblets for me."
+queststatus(704) = 5, item(2738, all) < 5, english, ".+" -> "You haven't solved the task yet. Please come back again if you have 5 pins and 5 goblets for me."
 queststatus(704) = 5, item(2738, all) < 5, ".+" -> "Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche."
-queststatus(704) = 5, item(1858, all) < 5, english, ".+" -> "You didn't solve the task yet. Please come again if you have 5 pins and 5 goblets for me."
+queststatus(704) = 5, item(1858, all) < 5, english, ".+" -> "You haven't solved the task yet. Please come back again if you have 5 pins and 5 goblets for me."
 queststatus(704) = 5, item(1858, all) < 5, ".+" -> "Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, ".*" -> "I don't have anything to do for you anymore. Thank you for the help though!"
+english, ".*" -> "I don't have anything more for you to do. Thank you for the help though!"
 german, ".*" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
 
 ------------------------------------------------------------------------------AC
@@ -120,8 +120,8 @@ german, ".*" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals f�
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
-cycletext "#me streicht sich über seinen Bart.", "#me runs with a hand over his beard."
-cycletext "Wenn ihr Hilfe beim schmieden braucht dann fragt nur mich!", "If you need any help in smithing, just ask me!"
+cycletext "#me streicht sich über seinen Bart.", "#me runs a hand over his beard."
+cycletext "Wenn ihr Hilfe beim schmieden braucht dann fragt nur mich!", "If you need any help smithing, just ask me!"
 cycletext "#me gähnt verhalten.", "#me yawns restrained."
 cycletext "Ein Bier! Bringt mir ein Bier!", "A beer, bring me a beer!"
 cycletext "#me grummelt.", "#me grumbles."

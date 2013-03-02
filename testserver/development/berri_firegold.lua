@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -23,7 +23,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.berri_firegold", package.seeall)
+module("npc.berri_firegold", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -193,7 +193,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("mine");
-talkEntry:addResponse("If you leave the town and follow the street to the south you will reach the 'Cornerstone of Candour', you can find coal there. If you leave the town and go northeast you will reach the 'Liberty Quarry', you can find iron- and copper ore and sometimes even goldnuggets there.");
+talkEntry:addResponse("If you leave the town and follow the street to the south you will reach the 'Cornerstone of Candour', you can find coal there. If you leave the town and go northeast you will reach the 'Liberty Quarry', you can find iron and copper ore there, and sometimes even gold nuggets.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -207,7 +207,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("smith");
-talkEntry:addResponse("If you want to smith you need ingots and a hammer of course. Blacksmiths need a normal hammer, finesmith's need a finesmith hammer though.");
+talkEntry:addResponse("If you want to smith you need ingots and a hammer of course. Blacksmiths need a normal hammer, finesmith's need a finesmithing hammer though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -224,7 +224,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Could you bring me 20 pieces iron ore from the 'Liberty Quarry' and also 20 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south if you leave city. Here a pick-axe to mine the ore.");
+talkEntry:addResponse("Could you bring me 20 pieces of iron ore from the 'Liberty Quarry' and also 20 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -245,7 +245,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Could you bring me 20 pieces iron ore from the 'Liberty Quarry' and also 20 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south if you leave city. Here a pick-axe to mine the ore.");
+talkEntry:addResponse("Could you bring me 20 pieces of iron ore from the 'Liberty Quarry' and also 20 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -322,7 +322,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That's not everything what I was looking for. Did you forgot that I told you to bring me 20 pieces of iron ore and 20 lumps of coal?");
+talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me 20 pieces of iron ore and 20 lumps of coal?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -339,7 +339,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That's not everything what I was looking for. Did you forgot that I told you to bring me 20 pieces of iron ore and 20 lumps of coal?");
+talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me 20 pieces of iron ore and 20 lumps of coal?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -468,7 +468,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(122, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 5));
-talkEntry:addResponse("You want another task? Well alright. Could you smith me 5 pins and 5 goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handles is for finesmithing. Here I'll give you one of each kind so you can practise a little bit.");
+talkEntry:addResponse("You want another task? Well alright. Could you smith me 5 pins and 5 goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handle is for finesmithing. Here I'll give you one of each kind so you can practise a little bit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -491,7 +491,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(122, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 5));
-talkEntry:addResponse("You want another task? Well alright. Could you smith me 5 pins and 5 goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handles is for finesmithing. Here I'll give you one of each kind so you can practise a little bit.");
+talkEntry:addResponse("You want another task? Well alright. Could you smith me 5 pins and 5 goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handle is for finesmithing. Here I'll give you one of each kind so you can practise a little bit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -518,7 +518,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 6));
-talkEntry:addResponse("Well done, thank you very much. I think you don't need my help any longer, good luck!");
+talkEntry:addResponse("Well done, thank you very much. I don't think you need my help any longer, good luck!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -545,7 +545,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 6));
-talkEntry:addResponse("Well done, thank you very much. I think you don't need my help any longer, good luck!");
+talkEntry:addResponse("Well done, thank you very much. I don't think you need my help any longer, good luck!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -569,7 +569,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You didn't solve the task yet. Please come again if you have 5 pins and 5 goblets for me.");
+talkEntry:addResponse("You haven't solved the task yet. Please come back again if you have 5 pins and 5 goblets for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -586,7 +586,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(1858, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You didn't solve the task yet. Please come again if you have 5 pins and 5 goblets for me.");
+talkEntry:addResponse("You haven't solved the task yet. Please come back again if you have 5 pins and 5 goblets for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -601,7 +601,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I don't have anything to do for you anymore. Thank you for the help though!");
+talkEntry:addResponse("I don't have anything more for you to do. Thank you for the help though!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -612,8 +612,8 @@ talkEntry:addResponse("Ich habe nichts weiter für Euch zu tun. Aber danke nochma
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
-talkingNPC:addCycleText("#me streicht sich über seinen Bart.", "#me runs with a hand over his beard.");
-talkingNPC:addCycleText("Wenn ihr Hilfe beim schmieden braucht dann fragt nur mich!", "If you need any help in smithing, just ask me!");
+talkingNPC:addCycleText("#me streicht sich über seinen Bart.", "#me runs a hand over his beard.");
+talkingNPC:addCycleText("Wenn ihr Hilfe beim schmieden braucht dann fragt nur mich!", "If you need any help smithing, just ask me!");
 talkingNPC:addCycleText("#me gähnt verhalten.", "#me yawns restrained.");
 talkingNPC:addCycleText("Ein Bier! Bringt mir ein Bier!", "A beer, bring me a beer!");
 talkingNPC:addCycleText("#me grummelt.", "#me grumbles.");
