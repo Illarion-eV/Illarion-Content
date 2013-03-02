@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -264,7 +264,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("#me browses a list and shakes his head, 'No orders for you, sorry. Please come back later.'");
-talkEntry:addResponse("There are no orders you could fulfill at this moment.");
+talkEntry:addResponse("There are no orders you could fulfil at this moment.");
 talkEntry:addResponse("For you, I have currently no orders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -287,7 +287,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addResponse("#me browses a list and shakes his head, 'No orders for you, sorry. Please come back later.'");
-talkEntry:addResponse("There are no orders you could fulfill at this moment.");
+talkEntry:addResponse("There are no orders you could fulfil at this moment.");
 talkEntry:addResponse("For you, I have currently no orders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

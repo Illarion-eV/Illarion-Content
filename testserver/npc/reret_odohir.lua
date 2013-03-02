@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -315,7 +315,7 @@ talkEntry:addTrigger("give up citizenship");
 talkEntry:addTrigger("terminate");
 talkEntry:addTrigger("leave");
 talkEntry:addTrigger("leaving");
-talkEntry:addResponse("Ehm... are not a citizen of Cadomyr.");
+talkEntry:addResponse("Ehm... you are not a citizen of Cadomyr anyway.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -333,7 +333,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("yes");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "0"));
-talkEntry:addResponse("You are no longer citizen under the protection of her majesty Queen Rosaline, you no longer belong to Cadomyr. Farewell.");
+talkEntry:addResponse("You are no longer citizen under the protection of Her Majesty Queen Rosaline, you no longer belong to Cadomyr. Farewell.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -777,8 +777,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("I do not know about other towns' ranks.");
-talkEntry:addResponse("I am not interested in other systems than the Cadomyrian one.");
+talkEntry:addResponse("I do not know about other ranks of other towns.");
+talkEntry:addResponse("I am not interested in other systems, only the Cadomyrian one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1015,7 +1015,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("Sand can be used to make glass, but I like it just the way it is. This place is full of sand, it is on the streets, inside my shoes, even the air is filled with sand if the wind is blowing. If you don't like sand, don't go to the desert.");
-talkEntry:addResponse("I really like sand. Especially quarz sand.");
+talkEntry:addResponse("I really like sand. Especially quartz sand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1029,7 +1029,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("People go to shrines to pray to their gods. Usually they bring a donation for the gods along.");
+talkEntry:addResponse("People go to shrines to pray to their gods. Usually they take a donation for the gods along.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1042,7 +1042,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("I heard the archmage does nothing but reading books and studying the arcane arts. If it's true he must be almost dead of starvation.");
+talkEntry:addResponse("I heard the Archmage does nothing but read books and study the arcane arts. If it's true he must be almost dead of starvation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1071,7 +1071,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("I don't like it there. It's a cold and boring place.");
-talkEntry:addResponse("There are many book there. But not very interesting ones.");
+talkEntry:addResponse("There are many book there, but not very interesting ones.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1087,7 +1087,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Valerio Guilianni is the ruler of Galmair. He is not living in Cadomyr of course.");
+talkEntry:addResponse("Valerio Guilianni is the ruler of Galmair. He does not live in Cadomyr of course.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1114,8 +1114,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Honor to our Queen!");
-talkEntry:addResponse("The queen likes donkey milk... and I like sand.");
+talkEntry:addResponse("Honour to our Queen!");
+talkEntry:addResponse("The Queen likes donkey milk... and I like sand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1130,7 +1130,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("She is the noble and rightful rule of Cadomyr.");
+talkEntry:addResponse("She is the noble and rightful ruler of Cadomyr.");
 talkEntry:addResponse("Honour to our Queen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1147,7 +1147,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("I really love the hot weather here, and you?");
-talkEntry:addResponse("Each town has magical gems, but ours, the ones of Cadomyr, are the most beautifull of them all!");
+talkEntry:addResponse("Each town has magical gems, but ours, the ones of Cadomyr, are the most beautiful of them all!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1161,7 +1161,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Albar? My grandparents spoke badly about this place. I've never been there.");
+talkEntry:addResponse("Albar? My grandparents spoke badly about the place. I've never been there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1175,7 +1175,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Many merchants come from Gync, at least that's my impression.");
+talkEntry:addResponse("Many merchants come from Gynk, at least that's my impression.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
