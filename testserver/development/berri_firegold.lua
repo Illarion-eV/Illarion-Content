@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 141, 582, 0, 4, 'Berri Firegold', 'npc.berri_firegold', 0, 3, 4, 139, 105, 20, 238, 216, 174);
+VALUES (1, 141, 582, 0, 4, 'Berri Firegold', 'npc.berri_firegold', 0, 1, 2, 139, 105, 20, 238, 216, 174);
 ---]]
 
 require("npc.base.basic")
@@ -599,6 +599,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("I don't have anything to do for you anymore. Thank you for the help though!");
@@ -606,6 +607,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!");
