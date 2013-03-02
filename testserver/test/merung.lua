@@ -15,7 +15,7 @@ function UseItem(User, SourceItem)
 		local lookAt = ItemLookAt()
 		lookAt.name = "Was ist das?"
 		lookAt.description = "Du bemerkst ein seltsames Glitzern im Gras vor der Eiche."
-		world:itemInform(User,myIten,lookAt)
+		world:itemInform(User,myItem,lookAt)
 	end
     
 end
