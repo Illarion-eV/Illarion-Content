@@ -45,10 +45,10 @@ itemTrousers = 826
 itemShoes = 679
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Jakob Lindorn the helper. Keywords: quest")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Jakob Lindorn der Helfer. Schlüsselwörter: Quest")
-queststatus(703) = 0, english, ".+" -> queststatus(703) = 1, "Welcome to Cadomyr. Could you give my friend Beror Oakaxe this letter for me please? You won't miss him if you enter the city, he is a dwarf."
-queststatus(703) = 0, ".+" -> queststatus(703) = 1, "Willkommen in Cadomyr. Könnt ihr meinem Freund Beror Oakaxe bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, wenn ihr in die Stadt hinein geht, er ist ein Zwerg."
+"Help" -> inform("[Game Help] This NPC is Jakob Lindorn the helper. Keywords: quest, craft, market, workshop, Frizza, food, fighting, Cadomyr")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Jakob Lindorn der Helfer. Schlüsselwörter: Quest, Handwerke, Markt, Werkstatt, Frizza, Essen, Kämpfen, Cadomyr")
+queststatus(703) = 0, english, ".+" -> queststatus(703) = 1, "Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armor and can usually be found in the workshop."
+queststatus(703) = 0, ".+" -> queststatus(703) = 1, "Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, I can tell you who in Cadomyr has tasks for you to do.", "Nice to meet you, I'm Jakob Lindorn, I can tell you who in Cadomyr has tasks for you to do."
@@ -71,7 +71,7 @@ english, "job" -> "My mission is to help, so if you need something to do, just a
 "job" -> "Meine Berufung ist zu helfen. Also wenn Ihr etwas zu tun sucht, fragt einfach."
 
 -- help triggers
-"market" -> "Just follow the street to your right and go through the gate, you won't miss the marketplace. Ask Frizza over there if you want to know more about the places around Cadomyr."
+english, "market" -> "Just follow the street to your right and go through the gate, you won't miss the marketplace. Ask Frizza over there if you want to know more about the places around Cadomyr."
 "markt" -> "Folgt einfach der Straße zur eurer Rechten und geht durch das Tor, ihr werdet den Marktplatz kaum übersehen können. Fragt Frizza dort drüben, wenn Ihr mehr über die Orte um Cadomyr herum wissen wollt."
 english, "Frizza" -> "She is right over there, just go over and talk to her. She knows a lot about Cadomyr."
 "Frizza" -> "Sie ist gleich dort drüben, geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Cadomyr."
@@ -81,20 +81,24 @@ english, "fighting", "monster" -> "There are a few wild animals in the wildernes
 "kämpfen", "monster" -> "Es gibt einige wilde Tiere in der Wildness, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt herum nach einem Trainingspartner."
 english, "Cadomyr" -> "This is Cadomyr, my home. We are a realm of honorable and kind people, I'm sure you will enjoy it here."
 "Cadomyr" -> "Dies is Cadomyr, mein Zuhause. Wir sind ein Reich von ehrenvollen und aufrichtigen Leuten, ich bin mir sicher, dass Ihr es hier mögen werdet."
+english, "work" -> "You can find the workshop very easy. Go through the main gate north from here, then turn right and follow the street, go through the gate, turn left and go through the next gate. From here you go north until you reach a building to your right with a little garden and some tools outside."
+german, "Werk" -> "Die Werkstatt könnt Ihr ganz leicht finden. Geht durch das Haupttor im Norden, dann biegt nach rechts ab, geht durch das Tor, nun erneut nach Norden, dann öffnet Ihr das Tor zu eurer linken und geht nach Norden. Die Werkstatt ist kurz vor dem Palast auf der rechten Seite."
+english, "craft" -> "You want to know more about the crafts in Cadomyr? Well then go and visit Berri Firegold, Gerry Deloid, Lilli Gallfing or Zlatxhol, they can tell you more about the crafts than me. You can find them in the workshop north of the city."
+german, "hand" -> "Ihr wollt mehr über die Handwerke in Cadomyr wissen? Dann besucht Berri Firegold, Gerry Deloid, Lilli Gallfing oder Zlatxhol, sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt sie alle in der Werkstatt im Norden der Stadt finden."
 
 -- Quests
-queststatus(703) = 1, queststatus(111) = 0, english, "quest", "mission" -> "Welcome to Cadomyr. Could you give my friend, Beror Oakaxe, this letter for me please? You won't miss him if you enter the city, he is a dwarf."
-queststatus(703) = 1, queststatus(111) = 0, "quest", "mission" -> "Willkommen in Cadomyr. Könnt ihr meinem Freund Beror Oakaxe bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, wenn ihr in die Stadt hinein geht, er ist ein Zwerg."
-queststatus(703) = 1, queststatus(111) = 0, "task", "adventure", "order" -> "Welcome to Cadomyr. Could you give my friend, Beror Oakaxe, this letter for me please? You won't miss him if you enter the city, he is a dwarf."
-queststatus(703) = 1, queststatus(111) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Willkommen in Cadomyr. Könnt ihr meinem Freund Beror Oakaxe bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, wenn ihr in die Stadt hinein geht, er ist ein Zwerg."
-queststatus(703) = 1, queststatus(111) > 1, english, "quest", "mission" -> queststatus(703) = 2, "So I suppose you have already delivered the letter to my friend Beror Oakaxe? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
-queststatus(703) = 1, queststatus(111) > 1, "quest", "mission" -> queststatus(703) = 2, "Ich nehme an, Ihr habt meinem Freundin Beror Oakaxe bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
-queststatus(703) = 1, queststatus(111) > 1, "task", "adventure", "order" -> queststatus(703) = 2, "So I suppose you have already delivered the letter to my friend Beror Oakaxe? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
-queststatus(703) = 1, queststatus(111) > 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 2, "Ich nehme an, Ihr habt meinem Freund Beror Oakaxe bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
-queststatus(703) = 2, queststatus(78) = 0, english, "quest", "mission" -> "So I suppose you have already delivered the letter to my friend Beror Oakaxe? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
-queststatus(703) = 2, queststatus(78) = 0, "quest", "mission" -> "Ich nehme an, Ihr habt meinem Freund Beror Oakaxe bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
-queststatus(703) = 2, queststatus(78) = 0, "task", "adventure", "order" -> "So I suppose you have already delivered the letter to my friend Beror Oakaxe? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
-queststatus(703) = 2, queststatus(78) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich nehme an, Ihr habt meinem Freund Beror Oakaxe bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
+queststatus(703) = 1, queststatus(704) = 0, english, "quest", "mission" -> "Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armor and can usually be found in the workshop."
+queststatus(703) = 1, queststatus(704) = 0, "quest", "mission" -> "Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum."
+queststatus(703) = 1, queststatus(704) = 0, "task", "adventure", "order" -> "Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armor and can usually be found in the workshop."
+queststatus(703) = 1, queststatus(704) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum."
+queststatus(703) = 1, queststatus(704) > 1, english, "quest", "mission" -> queststatus(703) = 2, "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
+queststatus(703) = 1, queststatus(704) > 1, "quest", "mission" -> queststatus(703) = 2, "Ich nehme an, Ihr habt meinem Freundin Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
+queststatus(703) = 1, queststatus(704) > 1, "task", "adventure", "order" -> queststatus(703) = 2, "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
+queststatus(703) = 1, queststatus(704) > 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 2, "Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
+queststatus(703) = 2, queststatus(78) = 0, english, "quest", "mission" -> "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
+queststatus(703) = 2, queststatus(78) = 0, "quest", "mission" -> "Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
+queststatus(703) = 2, queststatus(78) = 0, "task", "adventure", "order" -> "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
+queststatus(703) = 2, queststatus(78) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
 queststatus(703) = 2, queststatus(78) > 1, english, "quest", "mission" -> queststatus(703) = 3, "A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace."
 queststatus(703) = 2, queststatus(78) > 1, "quest", "mission" -> queststatus(703) = 3, "Eine Freundin Mirarie Bragolin kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden wenn Ihr in die Stadt hinein geht, sie steht beim Tor Richtung Marktplatz."
 queststatus(703) = 2, queststatus(78) > 1, "task", "adventure", "order" -> queststatus(703) = 3, "A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace."
@@ -139,10 +143,10 @@ queststatus(703) = 7, queststatus(150) > 1, english, "quest", "mission" -> quest
 queststatus(703) = 7, queststatus(150) > 1, "quest", "mission" -> queststatus(703) = 8, "Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor."
 queststatus(703) = 7, queststatus(150) > 1, "task", "adventure", "order" -> queststatus(703) = 8, "Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar."
 queststatus(703) = 7, queststatus(150) > 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 8, "Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor."
-queststatus(703) = 8, english, "quest", "mission" -> "I'm sure you can find your way around here without my help now. If you need help in smithing or tailoring, just go and look for Berri Firegold or Lilli Gallfing, you can find both in the workshop."
-queststatus(703) = 8, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Wenn Ihr etwas Hilfe beim Schmieden oder Schneidern braucht, sucht nach Berri Firegold oder Lilli Gallfing die beiden müssten in der Werkstatt zu finden sein."
-queststatus(703) = 8, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. If you need help in smithing or tailoring, just go and look for Berri Firegold or Lilli Gallfing, you can find both in the workshop."
-queststatus(703) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Wenn Ihr etwas Hilfe beim Schmieden oder Schneidern braucht, sucht nach Berri Firegold oder Lilli Gallfing die beiden müssten in der Werkstatt zu finden sein."
+queststatus(703) = 8, english, "quest", "mission" -> "I'm sure you can find your way around here without my help now."
+queststatus(703) = 8, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht."
+queststatus(703) = 8, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now."
+queststatus(703) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, ".*" -> "I cannot help you with that. Why not ask Frizza over there? I'm sure she has the answer."

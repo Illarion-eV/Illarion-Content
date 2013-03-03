@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -29,13 +29,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Jakob Lindorn the helper. Keywords: quest"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Jakob Lindorn the helper. Keywords: quest, craft, market, workshop, Frizza, food, fighting, Cadomyr"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Jakob Lindorn der Helfer. Schlüsselwörter: Quest"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Jakob Lindorn der Helfer. Schlüsselwörter: Quest, Handwerke, Markt, Werkstatt, Frizza, Essen, Kämpfen, Cadomyr"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -44,7 +44,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 1));
-talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Beror Oakaxe this letter for me please? You won't miss him if you enter the city, he is a dwarf.");
+talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armor and can usually be found in the workshop.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -52,7 +52,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 1));
-talkEntry:addResponse("Willkommen in Cadomyr. Könnt ihr meinem Freund Beror Oakaxe bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, wenn ihr in die Stadt hinein geht, er ist ein Zwerg.");
+talkEntry:addResponse("Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -206,6 +206,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("market");
 talkEntry:addResponse("Just follow the street to your right and go through the gate, you won't miss the marketplace. Ask Frizza over there if you want to know more about the places around Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -273,88 +274,114 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("work");
+talkEntry:addResponse("You can find the workshop very easy. Go through the main gate north from here, then turn right and follow the street, go through the gate, turn left and go through the next gate. From here you go north until you reach a building to your right with a little garden and some tools outside.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Werk");
+talkEntry:addResponse("Die Werkstatt könnt Ihr ganz leicht finden. Geht durch das Haupttor im Norden, dann biegt nach rechts ab, geht durch das Tor, nun erneut nach Norden, dann öffnet Ihr das Tor zu eurer linken und geht nach Norden. Die Werkstatt ist kurz vor dem Palast auf der rechten Seite.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("craft");
+talkEntry:addResponse("You want to know more about the crafts in Cadomyr? Well then go and visit Berri Firegold, Gerry Deloid, Lilli Gallfing or Zlatxhol, they can tell you more about the crafts than me. You can find them in the workshop north of the city.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("hand");
+talkEntry:addResponse("Ihr wollt mehr über die Handwerke in Cadomyr wissen? Dann besucht Berri Firegold, Gerry Deloid, Lilli Gallfing oder Zlatxhol, sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt sie alle in der Werkstatt im Norden der Stadt finden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
-talkEntry:addResponse("Welcome to Cadomyr. Could you give my friBeror Oakaxe, this letter for me please? You won't miss him if you enter the city, he is a dwarf.");
+talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armor and can usually be found in the workshop.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Willkommen in Cadomyr. Könnt ihr meinem Freund Beror Oakaxe bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, wenn ihr in die Stadt hinein geht, er ist ein Zwerg.");
+talkEntry:addResponse("Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
-talkEntry:addResponse("Welcome to Cadomyr. Could you give my friBeror Oakaxe, this letter for me please? You won't miss him if you enter the city, he is a dwarf.");
+talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armor and can usually be found in the workshop.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Willkommen in Cadomyr. Könnt ihr meinem Freund Beror Oakaxe bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, wenn ihr in die Stadt hinein geht, er ist ein Zwerg.");
+talkEntry:addResponse("Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(111, ">", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
-talkEntry:addResponse("So I suppose you have already delivered the letter to my friend Beror Oakaxe? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
+talkEntry:addResponse("So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(111, ">", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
-talkEntry:addResponse("Ich nehme an, Ihr habt meinem Freundin Beror Oakaxe bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
+talkEntry:addResponse("Ich nehme an, Ihr habt meinem Freundin Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(111, ">", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
-talkEntry:addResponse("So I suppose you have already delivered the letter to my friend Beror Oakaxe? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
+talkEntry:addResponse("So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(111, ">", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
-talkEntry:addResponse("Ich nehme an, Ihr habt meinem Freund Beror Oakaxe bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
+talkEntry:addResponse("Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -364,7 +391,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("So I suppose you have already delivered the letter to my friend Beror Oakaxe? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
+talkEntry:addResponse("So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -373,7 +400,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich nehme an, Ihr habt meinem Freund Beror Oakaxe bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
+talkEntry:addResponse("Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -383,7 +410,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("So I suppose you have already delivered the letter to my friend Beror Oakaxe? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
+talkEntry:addResponse("So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -394,7 +421,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich nehme an, Ihr habt meinem Freund Beror Oakaxe bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
+talkEntry:addResponse("Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -871,7 +898,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I'm sure you can find your way around here without my help now. If you need help in smithing or tailoring, just go and look for Berri Firegold or Lilli Gallfing, you can find both in the workshop.");
+talkEntry:addResponse("I'm sure you can find your way around here without my help now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -879,7 +906,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Wenn Ihr etwas Hilfe beim Schmieden oder Schneidern braucht, sucht nach Berri Firegold oder Lilli Gallfing die beiden müssten in der Werkstatt zu finden sein.");
+talkEntry:addResponse("Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -888,7 +915,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I'm sure you can find your way around here without my help now. If you need help in smithing or tailoring, just go and look for Berri Firegold or Lilli Gallfing, you can find both in the workshop.");
+talkEntry:addResponse("I'm sure you can find your way around here without my help now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -898,7 +925,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Wenn Ihr etwas Hilfe beim Schmieden oder Schneidern braucht, sucht nach Berri Firegold oder Lilli Gallfing die beiden müssten in der Werkstatt zu finden sein.");
+talkEntry:addResponse("Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
