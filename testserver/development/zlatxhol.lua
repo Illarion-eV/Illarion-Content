@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -23,7 +23,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.zlatxhol", package.seeall)
+module("npc.zlatxhol", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -124,7 +124,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addResponse("Goodbye");
 talkEntry:addResponse("Farewell");
-talkEntry:addResponse("#me nods slowly: 'Goodbye'.");
+talkEntry:addResponse("#me nods slowly, 'Goodbye'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -174,7 +174,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I'm glassz blower and bricksss maker, do you wantssz to help Zlatxhol?");
+talkEntry:addResponse("I'm a glassz blower and bricksss maker, do you wantssz to help Zlatxhol?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -187,7 +187,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I'm glassz blower and bricksss maker, do you wantssz to help Zlatxhol?");
+talkEntry:addResponse("I'm a glassz blower and bricksss maker, do you wantssz to help Zlatxhol?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -200,7 +200,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("sand");
-talkEntry:addResponse("You can find sssand under stones in the desert, zsss.");
+talkEntry:addResponse("You can find the best sssand under stones in the desert, zsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -230,7 +230,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 1));
-talkEntry:addResponse("Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol 30 clay. You can findz clay at riverz west of here. Here Zlatxhol givess you old sshovel of hiss for digging clay.");
+talkEntry:addResponse("Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol 30 clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you old sshovel of hiss for digging clay.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -251,7 +251,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 1));
-talkEntry:addResponse("Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol 30 clay. You can findz clay at riverz west of here. Here Zlatxhol givess you old sshovel of hiss for digging clay.");
+talkEntry:addResponse("Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol 30 clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you old sshovel of hiss for digging clay.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,7 +316,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(707, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(26, "all", "<", 30, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Zsss, Zlatxhol wantsss 30 clays, that not 30 clayssz. Come back when finished taskz!");
+talkEntry:addResponse("Zsss, Zlatxhol wantsss 30 clumps of clay, that not enough clayssz. Come back when you have finished the taskz!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -335,7 +335,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(734, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 3));
-talkEntry:addResponse("Now we make brickss with clayss. You go to oven next me and makes 15 bricksss. First you make unfired bricksess and then froms the unfired you make fired bricks! Here, me givesss you old brickses mold of mines.");
+talkEntry:addResponse("Now we make brickss with clayss. You go to oven next to me and makes 15 bricksss. First you make unfired bricksess, and then froms the unfired ones you make fired bricks! Here, me givesss you an old brickssz mould of mines.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -356,7 +356,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(734, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 3));
-talkEntry:addResponse("Now we make brickss with clayss. You go to oven next me and makes 15 bricksss. First you make unfired bricksess and then froms the unfired you make fired bricks! Here, me givesss you old brickses mold of mines.");
+talkEntry:addResponse("Now we make brickss with clayss. You go to oven next to me and makes 15 bricksss. First you make unfired bricksess, and then froms the unfired ones you make fired bricks! Here, me givesss you an old brickssz mould of mines.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -425,7 +425,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(707, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2588, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You not finished. I want 15 bricksss, come againsss when you finished!");
+talkEntry:addResponse("You not finished! I want 15 bricksss, come backsss when you have finished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -444,7 +444,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(312, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 5));
-talkEntry:addResponse("Zzzs, now we make glass! You now go outssside of city and look for place with much sssand and ssstone and sstone on it. Then you dig coarssse sssand with shovel and come back to make quartz sand from coarssse sssand. You make ten quartzzs sand with sssieve over there, I'll give yous little ssshovel of mine for making quartzzs sssand!");
+talkEntry:addResponse("Zzzs, now we make glass! You now go out of the city and look for a place with much sssand and find a ssstone with sssand around it. Then you dig coarssse sssand with the shovel and come back to turn it into quartzzs sssand. You ssshould make ten scoops of quartzzs sssand with the sssieve over there, I'll give yous a little ssshovel of mine for making quartzzs sssand!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -465,7 +465,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(312, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 5));
-talkEntry:addResponse("Zzzs, now we make glass! You now go outssside of city and look for place with much sssand and ssstone and sstone on it. Then you dig coarssse sssand with shovel and come back to make quartz sand from coarssse sssand. You make ten quartzzs sand with sssieve over there, I'll give yous little ssshovel of mine for making quartzzs sssand!");
+talkEntry:addResponse("Zzzs, now we make glass! You now go out of the city and look for a place with much sssand and find a ssstone with sssand around it. Then you dig coarssse sssand with the shovel and come back to turn it into quartzzs sssand. You ssshould make ten scoops of quartzzs sssand with the sssieve over there, I'll give yous a little ssshovel of mine for making quartzzs sssand!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -530,7 +530,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(707, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(316, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Zsss, I want ten quartzzs ssand. Come again when you finissshed taks, zsss!");
+talkEntry:addResponse("Zsss, I want ten quartzzs sssand. Come again when you have finissshed the task, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -550,7 +550,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(311, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 7));
-talkEntry:addResponse("Now we collect assh for making glasss. I give you old hatchet of me to collect wood and make ten assh. When you have assh, you come back to oven and make with glass blow pipe which I'll gives you ten glasss ingots, zsss.");
+talkEntry:addResponse("Now we collect asssh for making glasss. I give you an old hatchet of mine to collect wood and make ten piles of asssh. When you have the asssh, you come back to the oven and makes ten glasss ingots with the glasss blow pipe which I'll gives you, zsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -573,7 +573,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(311, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 7));
-talkEntry:addResponse("Now we collect assh for making glasss. I give you old hatchet of me to collect wood and make ten assh. When you have assh, you come back to oven and make with glass blow pipe which I'll gives you ten glasss ingots, zsss.");
+talkEntry:addResponse("Now we collect asssh for making glasss. I give you an old hatchet of mine to collect wood and make ten piles of asssh. When you have the asssh, you come back to the oven and makes ten glasss ingots with the glasss blow pipe which I'll gives you, zsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -597,7 +597,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 8));
-talkEntry:addResponse("Zsss, well done! Glass ingotss look good. Zsss, do you want to make bottles now?");
+talkEntry:addResponse("Zsss, well done! These glass ingotsss look good. Zsss, do you want to make bottles now?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -618,7 +618,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 8));
-talkEntry:addResponse("Zsss, well done! Glass ingotss look good. Zsss, do you want to make bottles now?");
+talkEntry:addResponse("Zsss, well done! These glasss ingotsss look good. Zsss, do you want to make bottles now?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -639,7 +639,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(707, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(41, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Zsss, I want ten glass ingotsss. Come again when you have ingotsss!");
+talkEntry:addResponse("Zsss, I want ten glasss ingotsss. Come again when you have the ingotsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -657,7 +657,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 9));
-talkEntry:addResponse("Zsss, now difficult part of work sstartsss! You go to oven with pipe and make with the glass ingots empty bottlesss. Come again when you have fivess bottles to show me, zsss.");
+talkEntry:addResponse("Zsss, now the difficult part of the work sstartsss! You go to oven with the glasss blow pipe and make empty bottlesss from the glasss ingots. Come backsss when you have five bottlesss to show me, zsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -676,7 +676,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 9));
-talkEntry:addResponse("Zsss, now difficult part of work sstartsss! You go to oven with pipe and make with the glass ingots empty bottlesss. Come again when you have fivess bottles to show me, zsss.");
+talkEntry:addResponse("Zsss, now the difficult part of the work sstartsss! You go to oven with the glasss blow pipe and make empty bottlesss from the glasss ingots. Come backsss when you have five bottlesss to show me, zsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -698,7 +698,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 9));
-talkEntry:addResponse("Zsss, well done! Bottles look good. Zsss, Zlatxhol says thanks for help and hopes you learned sssomething about glasss blowing and brickss making.");
+talkEntry:addResponse("Zsss, well done! These bottlesss look good. Zsss, Zlatxhol says thanksss for the help and hopesss you learnt sssomething about glasss blowing and bricksss making.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -719,7 +719,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 9));
-talkEntry:addResponse("Zsss, well done! Bottles look good. Zsss, Zlatxhol says thanks for help and hopes you learned sssomething about glasss blowing and brickss making.");
+talkEntry:addResponse("Zsss, well done! These bottlesss look good. Zsss, Zlatxhol says thanksss for the help and hopesss you learnt sssomething about glasss blowing and bricksss making.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -740,7 +740,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(707, "=", 9));
 talkEntry:addCondition(npc.base.condition.item.item(790, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Zsss, that are not the five bottlesss I was looking for. Come again when have the bottlesss!");
+talkEntry:addResponse("Zsss, they are not the five bottlesss I was looking for. Come backsss when you have the bottlesss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -756,7 +756,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(707, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Zsss, I don't have anything to dosss for yous anymore. Thank yous for the help though, zsss!");
+talkEntry:addResponse("Zsss, I don't have any other thingsss for yous to do. Thank yous for the help though, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -769,8 +769,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
 talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches his head.");
-talkingNPC:addCycleText("Wenns du Hilfe beim Glasssblassen oder Zzziegelbrennen brauchst dann fragt michss!", "If you need any help in glassss blowing or brickss making, jusst asssk me!");
-talkingNPC:addCycleText("Zsss.", "Zsss.");
+talkingNPC:addCycleText("Wenns du Hilfe beim Glasssblassen oder Zzziegelbrennen brauchst dann fragt michss!", "If you need any help in glassss blowing or bricksss making, jussst asssk me!");
+talkingNPC:addCycleText("Zsss...", "Zsss...");
 talkingNPC:addCycleText("Zsss!", "Zsss!");
 talkingNPC:addCycleText("Zsss?", "Zsss?");
 talkingNPC:addCycleText("#me zischelt.", "#me hisses.");
