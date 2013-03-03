@@ -1,0 +1,204 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Charwis Irongate                                         Galmair --
+-- NPC Job:  Message quest giver                                              --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  360, 281, 0            --
+-- NPC Sex:  male                       NPC Direction: east                   --
+--                                                                            --
+-- Author:   Lillian                                                          --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Charwis Irongate"
+race = human
+sex = male
+position = 360, 281, 0
+direction = east
+affiliation = "Galmair"
+job = "Message quest giver"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Lillian"
+
+lookatDE = ""
+lookatUS = ""
+useMsgDE = "#me schaut verärgert."
+useMsgUS = "#me looks angry."
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 5
+hairID = 3
+beardID = 2
+colorHair = 54, 54, 54
+colorSkin = 238, 223, 204
+itemHead = 0
+itemChest = 458
+itemCoat = 0
+itemMainHand = 23
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 826
+itemShoes = 53
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Charwis Irongate. Keywords: quest, mission, order.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Charwis Irongate. Schlüsselwörter: Quest, Mission, Auftrag.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings to you."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt."
+"Farewell", "Bye", "Fare well", "See you" -> "Irmorom be with you."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Irmorom sei mit Euch."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Irmorom be with you."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Irmorom sei mit Euch."
+"How are you", "How feel", "How do you do" -> "Good, good."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut, gut."
+"your name", "who are you", "who art thou" -> "I am called Charwis, Charwis Irongate. Nice to meet you."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich werde Charwis genannt, Charwis Irongate. Schön Euch kennenzulernen."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Trade Hooks, use only for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Charwis Irongate is not a trader!"
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Charwis Irongate ist kein Händler!"
+
+-- A message Quest
+-- 1st quest starts, if you are citizen of Galmair
+queststatus(702) = 0, english, town = Galmair, "quest", "mission" -> inform("[New quest] Message Delivery I"), queststatus(702) = 1, "Could you help me? Nik Nilo asked me for a ruby some time ago. I found one whilst mining the other day. Could you tell him that he should talk to me?"
+queststatus(702) = 0, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Nachrichten Überbringen I"), queststatus(702) = 1, "Könntet Ihr mir Helfen? Nik Nilo fragte mich vor einiger Zeit nach einem Rubin. Neulich habe ich eine beim Schürfen gefunden. Könnt Ihr ihm bitte sagen, dass er mit mir reden möge?"
+queststatus(702) = 0, town = Galmair, "task", "adventure", "order" -> inform("[New quest] Message Delivery I"), queststatus(702) = 1, "Could you help me? Nik Nilo asked me for a ruby some time ago. I found one whilst mining the other day. Could you tell him that he should talk to me?"
+queststatus(702) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Nachrichten Überbringen I"), queststatus(702) = 1, "Könntet Ihr mir Helfen? Nik Nilo fragte mich vor einiger Zeit nach einem Rubin. Neulich habe ich eine beim Schürfen gefunden. Könnt Ihr ihm bitte sagen, dass er mit mir reden möge?"
+
+-- 1st quest not solved, repeat the instructions
+queststatus(702) = 1, english, town = Galmair, "quest", "mission" -> "Nik Nilo asked me for a ruby some time ago. Can you tell him he should talk to me?"
+queststatus(702) = 1, town = Galmair, "quest", "mission" -> "Nik Nilo fragte mich nach einem Rubin. Sagt ihm bitte, er möge mit mir reden."
+queststatus(702) = 1, town = Galmair, "task", "adventure", "order" -> "Nik Nilo asked me for a ruby some time ago. Can you tell him he should talk to me?"
+queststatus(702) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nik Nilo fragte mich nach einem Rubin. Sagt ihm bitte, er möge mit mir reden."
+
+-- 1st quest solved, reward sabre,boots, rankpoints +2
+queststatus(702) = 2, english, town = Galmair, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Charwis with some coins, an old sabre and a pair of new boots. You advance in Don Valerio Guilianni's favour."), money + 600, item(25, 1, 333), item(53, 1, 333), queststatus(702) = 3, rankpoints + 2, "So you talked to Mister Nik Nilo? Well, thank you for your help."
+queststatus(702) = 2, town = Galmair, ".+" -> inform("[Quest gelöst] Du hast das Quest gelöst und erhälst zum Dank etwas Geld, einen Säbel und ein Paar neue Stiefel von Charwis. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 600, item(25, 1, 333), item(53, 1, 333), queststatus(702) = 3, rankpoints + 2, "Ihr habt also mit Mister Nik Nilo gesprochen? Nun, danke für Eure Hilfe."
+
+-- 2nd quest: Talk to Morri
+queststatus(702) = 3, english, town = Galmair, "quest", "mission" -> inform("[New quest] Message Delivery II"), queststatus(702) = 4, "So, you came to help me again? That's very nice of you. I haven't seen Morri in a while. Please, ask him if he would still like to buy the pins he ordered, they are already starting to corrode."
+queststatus(702) = 3, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Nachrichten Überbringen II"), queststatus(702) = 4, "So, Ihr kommt um mir zu helfen? Wie nett. Morri hat sich schon lange nicht mehr bei mir blicken lassen. Fragt ihn, ob er noch die Nägel kaufen möchte, die er bestellt hat. Die Nägel beginnen schon zu rosten."
+queststatus(702) = 3, town = Galmair, "task", "adventure", "order" -> inform("[New quest] Message Delivery II"), queststatus(118) = 4, "So, you came to help me again? That's very nice of you. I haven't seen Morri in a while. Please, ask him if he would still like to buy the pins he ordered, they are already starting to corrode."
+queststatus(702) = 3, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Nachrichten Überbringen II"), queststatus(702) = 4, "So, Ihr kommt um mir zu helfen? Wie nett. Morri hat sich schon lange nicht mehr bei mir blicken lassen. Fragt ihn, ob er noch die Nägel kaufen möchte, die er bestellt hat. Die Nägel beginnen schon zu rosten."
+
+-- 2nd quest,  not solved repeat the instructions = Talk to Morri
+queststatus(702) = 4, english, town = Galmair, "quest", "mission" -> "Please ask Morri about his pin order."
+queststatus(702) = 4, town = Galmair, "quest", "mission" -> "Bitte fragt bei Morri wegen seiner Nagelbestellung nach."
+queststatus(702) = 4, town = Galmair, "task", "adventure", "order" -> "Please ask Morri about his pin order."
+queststatus(702) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte fragt bei Morri wegen seiner Nagelbestellung nach."
+
+-- 2nd quest solved, Talk to Morri, reward 10 Silber, old wizard hat, + 4 rankpoints
+queststatus(702) = 5, english, town = Galmair, ".+" -> inform("[Quest solved] You solved the quest. You are awarded 10 silver coins and an old hat. You advance in Don Valerio Guilianni's favour."), money + 1000, item(356, 1, 333), queststatus(702) = 6, rankpoints + 4, "Thank you. Take this as a reward."
+queststatus(702) = 5, town = Galmair, ".+" -> inform("[Quest gelöst] Du hast das Quest gelöst. Du wirst mit 10 Silbermünzen und einem alten Schlapphut belohnt. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 1000, item(356, 1, 333), queststatus(702) = 6, rankpoints + 4, "Danke sehr. Nehmt dies als Belohnung."
+
+-- 3nd quest talk to Gretel Goldhair
+queststatus(702) = 6, english, town = Galmair, "quest", "mission" -> inform("[New quest] Message Delivery III"), queststatus(702) = 7, "Please ask Gretel Goldhair what happened to my collection of hammers. I saw her carrying them away the other day. You can find her inside the Don's residence, the building right there to the north."
+queststatus(702) = 6, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Nachrichten Überbringen III"), queststatus(702) = 7, "Bitte fragt Gretel Goldhair was sie mit meiner Sammlung Hämmer gemacht hat. Ich sah wie sie sie neulich davon trug. Ihr könnt sie in der Residenz des Dons finden, es ist das Gebäude gleich dort im Norden."
+queststatus(702) = 6, town = Galmair, "task", "adventure", "order" -> inform("[New quest] Message Delivery III"), queststatus(702) = 7, "Please ask Gretel Goldhair what happened to my collection of hammers. I saw her carrying them away the other day. You can find her inside the Don's residence, the building right there to the north."
+queststatus(702) = 6, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Nachrichten Überbringen III"), queststatus(702) = 7, "Bitte fragt Gretel Goldhair was sie mit meiner Sammlung Hämmer gemacht hat. Ich sah wie sie sie neulich davon trug. Ihr könnt sie in der Residenz des Dons finden, es ist das Gebäude gleich dort im Norden."
+
+-- 3dr quest not solved, repeat instruction, talk to Gretel Goldhair
+queststatus(702) = 7, english, town = Galmair, "quest", "mission" -> "Please ask Gretel Goldhair what happened to my collection of hammers. I saw her carrying them away."
+queststatus(702) = 7, town = Galmair, "quest", "mission" -> "Bitte fragt Gretel Goldhair was sie mit meiner Sammlung Hämmer gemacht hat. Ich sah wie sie sie davon trug."
+queststatus(702) = 7, town = Galmair, "task", "adventure", "order" -> "Please ask Gretel Goldhair what happened to my collection of hammers. I saw her carrying them away."
+queststatus(702) = 7, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte fragt Gretel Goldhair was sie mit meiner Sammlung Hämmer gemacht hat. Ich sah wie sie sie davon trug."
+
+-- 3rd quest solved, Talk to Gretel Goldhair, reward robe (blue), 12 silver, + 5 rankpoints
+queststatus(702) = 8, english, town = Galmair, ".+" -> inform("[Quest solved] You solved the quest. You are awarded 12 silver coins and a new robe. You advance in Don Valerio Guilianni's favour."), money + 1200, item(195, 1, 333, "descriptionEn" = "This robe has the colour of the Galmairian flag.", "descriptionDe" = "Diese Robe hat die Farbe der Galmairischen Flagge."), queststatus(702) = 9, rankpoints + 5, "What? She said she threw them away? First I must thank you for asking Gretel Goldhair, take this as a present. Then I will talk to her!"
+queststatus(702) = 8, town = Galmair, ".+" -> inform("[Quest gelöst] Du hast das Quest gelöst. Du wirst mit 12 Silbermünzen und einer neuen Robe belohnt. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 1200, item(195, 1, 333, "descriptionEn" = "This robe has the colour of the Galmairian flag.", "descriptionDe" = "Diese Robe hat die Farbe der Galmairischen Flagge."), queststatus(702) = 9, rankpoints + 5, "Was? Wegeworfen hat sie sie? Zuerst will ich Euch danken, dass Ihr mit Gretel Goldhair spracht. Nehmt dies als Geschenk. Dann werde ich mir ihr sprechen!"
+
+-- 4th quest talk to Pheritaleth
+queststatus(702) = 9, english, town = Galmair, "quest", "mission" -> inform("[New quest] Message Delivery IV"), item(234, 1, 440, "nameDe" = "Echt großer Goldnugget", "nameEn" = "Really big gold nugget", "descriptionEn" = "This gold nugget is the size of an apple.", "rareness" = "2", "descriptionDe" = "Dieser Goldnugget ist so groß wie ein Apfel."), queststatus(702) = 10, "Look, I found this gold nugget. It's as big as an apple but Pheritaleth, the magical smith from Cadomyr, does not believe me! Show her the gold nugget, please."
+queststatus(702) = 9, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Nachrichten Überbringen IV"), item(234, 1, 440, "nameDe" = "Echt großer Goldnugget", "nameEn" = "Really big gold nugget", "descriptionEn" = "This gold nugget is the size of an apple.", "rareness" = "2", "descriptionDe" = "Dieser Goldnugget ist so groß wie ein Apfel."), queststatus(702) = 10, "Schaut, ich habe einen Goldnugget gefangen, der ist so groß wie ein Apfel. Aber Pheritaleth, magische Schmied aus Cadomyr, sagt ich lüge! Bitte zeigt ihr diesen Goldnugget!"
+queststatus(702) = 9, town = Galmair, "task", "adventure", "order" -> inform("[New quest] Message Delivery IV"), item(234, 1, 440, "nameDe" = "Echt großer Goldnugget", "nameEn" = "Really big gold nugget", "descriptionEn" = "This gold nugget is the size of an apple.", "rareness" = "2", "descriptionDe" = "Dieser Goldnugget ist so groß wie ein Apfel."), queststatus(702) = 10, "Look, I found this gold nugget. It's as big as an apple but Pheritaleth, the magical smith from Cadomyr, does not believe me! Show her the gold nugget, please."
+queststatus(702) = 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Nachrichten Überbringen IV"), item(234, 1, 440, "nameDe" = "Echt großer Goldnugget", "nameEn" = "Really big gold nugget", "descriptionEn" = "This gold nugget is the size of an apple.", "rareness" = "2", "descriptionDe" = "Dieser Goldnugget ist so groß wie ein Apfel."), queststatus(702) = 10, "Schaut, ich habe einen Goldnugget gefangen, der ist so groß wie ein Apfel. Aber Pheritaleth, magische Schmied aus Cadomyr, sagt ich lüge! Bitte zeigt ihr diesen Goldnugget!"
+
+-- 4th quest,  not solved repeat the instructions = Talk to Pheritaleth
+queststatus(702) = 10, english, town = Galmair, "quest", "mission" -> "Please, show the gold nugget to Pheritaleth in Cadomyr."
+queststatus(702) = 10, town = Galmair, "quest", "mission" -> "Bitte zeigt Pheritaleth aus Cadomyr diesen Goldnugget."
+queststatus(702) = 10, town = Galmair, "task", "adventure", "order" -> "Please, show the gold nugget to Pheritaleth in Cadomyr."
+queststatus(702) = 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte zeigt Pheritaleth aus Cadomyr diesen Goldnugget."
+
+-- 4th quest solved, reward a necklace and 10 silver
+queststatus(702) = 11, english, english, town = Galmair, ".+" -> inform("[Quest solved] You solved the quest. You are rewarded with some coins and jewellery. You advance in Don Valerio Guilianni's favour."), money + 1000, item(62, 1, 877, "rareness" = "1", "craftedBy" = "Charwis Irongate"), queststatus(702) = 12, rankpoints + 9, "Thank you. Please take this as a reward, and keep the gold nugget as a souvenir, I found an even larger one than that."
+queststatus(702) = 11, town = Galmair, ".+" -> inform("[Quest gelöst] Du hast das Quest gelöst. Du wirst mit Münzen und Schmuck belohnt. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 1000, item(62, 1, 877, "rareness" = "1", "craftedBy" = "Charwis Irongate"), queststatus(702) = 12, rankpoints + 9, "Danke schön. Bitte nehmt dies. Und behaltet den Goldnugget als Souvenir, ich habe bereits einen größeren gefunden."
+
+-- 5th quest talk to Elvaine Morgan
+queststatus(702) = 12, english, town = Galmair, "quest", "mission" -> inform("[New quest] Message Delivery V"), item(2785, 1, 999, "descriptionEn" = "This wand belongs to Elvaine Morgan.", "descriptionDe" = "Dieser Stab gehört Elvaine Morgan."), queststatus(702) = 13, "I was lucky today. I found the wand of Elvaine Morgan. He will surely miss it, please go and take his wand back."
+queststatus(702) = 12, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Nachrichten Überbringen V"), item(2785, 1, 999, "descriptionEn" = "This wand belongs to Elvaine Morgan.", "descriptionDe" = "Dieser Stab gehört Elvaine Morgan."), queststatus(702) = 13, "Ich hatte heute wirklich Glück. Ich habe den Stab von Elvaine Morgan gefunden. Sicher vermisst er ihn schon. Geht und bringt ihm den Stab zurück."
+queststatus(702) = 12, town = Galmair, "task", "adventure", "order" -> inform("[New quest] Message Delivery V"), item(2785, 1, 999, "descriptionEn" = "This wand belongs to Elvaine Morgan.", "descriptionDe" = "Dieser Stab gehört Elvaine Morgan."), queststatus(702) = 13, "I was lucky today. I found the wand of Elvaine Morgan. He will surely miss it, please go and take his wand back."
+queststatus(702) = 12, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Nachrichten Überbringen V"), item(2785, 1, 999, "descriptionEn" = "This wand belongs to Elvaine Morgan.", "descriptionDe" = "Dieser Stab gehört Elvaine Morgan."), queststatus(702) = 13, "Ich hatte heute wirklich Glück. Ich habe den Stab von Elvaine Morgan gefunden. Sicher vermisst er ihn schon. Geht und bringt ihm den Stab zurück."
+
+-- 5th quest,  not solved repeat the instructions = Talk to Rosaline Edwards
+queststatus(702) = 13, english, town = Galmair, "quest", "mission" -> "Please take the wand back to Elvaine Morgan, he will miss it."
+queststatus(702) = 13, town = Galmair, "quest", "mission" -> "Bitte bringt Elvaine Morgan seinen Stab zurück. Er wird ihn vermissen."
+queststatus(702) = 13, town = Galmair, "task", "adventure", "order" -> "Please take the wand back to Elvaine Morgan, he will miss it."
+queststatus(702) = 13, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte bringt Elvaine Morgan seinen Stab zurück. Er wird ihn vermissen."
+
+-- 5th quest solved, reward silvered sword 98, 5 Silver
+queststatus(702) = 14, english, town = Galmair, ".+" -> inform("[Quest solved] You solved the quest. You are awarded a silvered longsword and some coins. You advance in Don Valerio Guilianni's favour."), money + 500, item(98, 1, 222, "descriptionEn" = "This sword was a present from Charwis Irongate", "rareness" = "1", "descriptionDe" = "Dieses Schwert war ein Geschenk von Charwis Irongate."), queststatus(702) = 15, rankpoints + 12, "Thank you. Take this for your trouble."
+queststatus(702) = 14, town = Galmair, ".+" -> inform("[Quest gelöst] Du hast das Quest gelöst. Du wirst mit einem versilberten Langschwert und ein paar Silbermünzen belohnt. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 500, item(98, 1, 222, "descriptionEn" = "This wand was a present from Charwis Irongate", "rareness" = "1", "descriptionDe" = "Dieses Schwert war ein Geschenk von Charwis Irongate."), queststatus(702) = 15, rankpoints + 12, "Danke, nehmt dies als Belohnung."
+
+-- Final dialogue: No more quests, just nice hints
+queststatus(702) = 15, english, "quest", "mission" -> "Thank you. I have nothing else for you to do."
+queststatus(702) = 15, "quest", "mission" -> "Danke schön. Zss. Ich habe nichts mehr für Euch zu tun."
+queststatus(702) = 15, "task", "adventure", "order" -> "Thank you. I have nothing else for you to do."
+queststatus(702) = 15, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke schön. Ich habe nichts mehr für Euch zu tun."
+
+-- No quests for non Galmairians
+english, "quest", "mission" -> "I have no task for people who do not belong to Galmair. You can go to Frederik to become a citizen."
+"quest", "mission" -> "Ich habe keine Aufgabe für Leute die nicht Galmair angehören. Ihr könnt zu Frederik gehen, um Bürger zu werden."
+"task", "adventure", "order" -> "I have no task for people who do not belong to Galmair. You can go to Frederik to become a citizen."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe für Leute die nicht Galmair angehören. Ihr könnt zu Frederik gehen, um Bürger zu werden."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I work as a smith."
+"beruf" -> "Ich arbeite als Schmied."
+english, "job" -> "I work as a smith."
+"job" -> "Ich arbeite als Schmied."
+"tell something" -> "Do you know there's a difference between iron, coal and gold?"
+"erzähl was", "erzähl etwas", "erzähl mir was", "erzählt mir was" -> "Wissst ihr, dass es einen Unterschied zwischen Erz, Kohle und Gold gibt?"
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "I pray to Irmorom. To whom do you pray?"
+"Gott", "Götter" -> "Ich bete zu Irmorom. Zu wem betet Ihr?"
+english, "Irmorom" -> "He's the God of crafts and merchants."
+"Irmorom" -> "Er ist der Gott des Handwerks und der Händler."
+
+-- Optional: Faction stuff
+english, "Runewick" -> "Leave me alone about those wand-wavers."
+"Runewick" -> "Lasst mich zufrieden mit diesen Zauberstabwedlern."
+english, "Galmair" -> "The best place to be, if you ask me."
+"Galmair" -> "Der beste Ort, wenn ihr mich fragt."
+english, "Cadomyr" -> "Leave me alone about those palm-wavers."
+"Cadomyr" -> "Lasst mich zufrieden mit diesen Palmenwedlern."
+
+-- Optional: Main land factions
+english, "albar" -> "I don't talk about foreign places."
+"albar" -> "Ich spreche nicht über fremde Orte."
+english, "gynk", "gync" -> "I don't talk about foreign places."
+"gync", "gynk" -> "Ich spreche nicht über fremde Orte."
+english, "salkama" -> "I don't talk about foreign places."
+"salkama" -> "Ich spreche nicht über fremde Orte."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me schaut sich um.", "#me looks around."
+cycletext "#me kratzt sich am Kinn.", "#me scratches his chin."
+cycletext "#me räuspert sich geräuschvoll.", "#me clears his throat noisily."
+cycletext "So, so...", "There, there..."
