@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -21,7 +21,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.talkstate")
 require("npc.base.talk")
-module("development.jakob_lindorn", package.seeall)
+module("npc.jakob_lindorn", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -44,7 +44,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 1));
-talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armor and can usually be found in the workshop.");
+talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -249,7 +249,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("fighting");
 talkEntry:addTrigger("monster");
-talkEntry:addResponse("There are a few wild animals in the wilderness so be careful. If you want to train ask around for a sparring partner.");
+talkEntry:addResponse("There are a few wild animals in the wilderness so be careful. If you want to train, ask around for a sparring partner.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -263,7 +263,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("This is Cadomyr, my home. We are a realm of honorable and kind people, I'm sure you will enjoy it here.");
+talkEntry:addResponse("This is Cadomyr, my home. We are a realm of honourable and kind people, I'm sure you will enjoy it here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -276,7 +276,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("work");
-talkEntry:addResponse("You can find the workshop very easy. Go through the main gate north from here, then turn right and follow the street, go through the gate, turn left and go through the next gate. From here you go north until you reach a building to your right with a little garden and some tools outside.");
+talkEntry:addResponse("You can find the workshop really easily. Go through the main gate north from here, then turn right and follow the street, go through the gate, turn left and go through the next gate. From here you go north until you reach a building to your right with a little garden and some tools outside.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -290,7 +290,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("craft");
-talkEntry:addResponse("You want to know more about the crafts in Cadomyr? Well then go and visit Berri Firegold, Gerry Deloid, Lilli Gallfing or Zlatxhol, they can tell you more about the crafts than me. You can find them in the workshop north of the city.");
+talkEntry:addResponse("You want to know more about the crafts of Cadomyr? Well then go and visit Berri Firegold, Gerry Deloid, Lilli Gallfing or Zlatxhol, they can tell you more about the crafts than me. You can find them in the workshop in the north of the city.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -307,7 +307,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armor and can usually be found in the workshop.");
+talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -326,7 +326,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armor and can usually be found in the workshop.");
+talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
