@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -22,7 +22,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.gerry_deloid", package.seeall)
+module("npc.gerry_deloid", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -192,7 +192,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("honey");
-talkEntry:addResponse("You can collect honeycombs right over there at the beehouses on the table. Look out that you don't get stung by a wesp.");
+talkEntry:addResponse("You can collect honeycombs right over there at the beehives on the table. Look out that you don't get stung!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -205,7 +205,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("black");
-talkEntry:addResponse("You can find black thistles if you search on a rocky ground in the grass.");
+talkEntry:addResponse("You can find black thistles if you search on rocky ground in the grass.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -221,7 +221,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 1));
-talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehouses outside of the workshop, so please collect 20 honeycombs for me and I'll teach you how to make wax out of them.");
+talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives outside the workshop, so please collect 20 honeycombs for me and I'll teach you how to make wax from them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -240,7 +240,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 1));
-talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehouses outside of the workshop, so please collect 20 honeycombs for me and I'll teach you how to make wax out of them.");
+talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives outside the workshop, so please collect 20 honeycombs for me and I'll teach you how to make wax from them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -304,7 +304,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(706, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2529, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I want 20 honeycombs from you, you can collect them right outside the workshop at the beehouses.");
+talkEntry:addResponse("I want 20 honeycombs from you, you can collect them from the beehives right outside the workshop.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -367,7 +367,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 4));
-talkEntry:addResponse("Well done, the wax looks pretty good. Do you want another task?");
+talkEntry:addResponse("Well done, that wax looks pretty good. Do you want another task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -388,7 +388,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 4));
-talkEntry:addResponse("Well done, the wax looks pretty good. Do you want another task?");
+talkEntry:addResponse("Well done, that wax looks pretty good. Do you want another task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -409,7 +409,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(706, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(431, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I want 20 pieces of wax, please come again once you are done with this task.");
+talkEntry:addResponse("I want 20 pieces of wax, please come back once you are done with this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -428,7 +428,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(429, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 5));
-talkEntry:addResponse("Alright now we can start producing the candles. Go to the chandler table again and bring me ten candles back. I'll give you my old candle mold, you will need this one to make the candles, if you need more molds, just ask a carpenter.");
+talkEntry:addResponse("Alright, now we can start producing the candles. Go to the chandler table again and bring me ten candles back. I'll give you my old candle mould, you will need one to make the candles. If you need more moulds, just ask a carpenter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -449,7 +449,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(429, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 5));
-talkEntry:addResponse("Alright now we can start producing the candles. Go to the chandler table again and bring me ten candles back. I'll give you my old candle mold, you will need this one to make the candles, if you need more molds, just ask a carpenter.");
+talkEntry:addResponse("Alright, now we can start producing the candles. Go to the chandler table again and bring me ten candles back. I'll give you my old candle mould, you will need one to make the candles. If you need more moulds, just ask a carpenter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -514,7 +514,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(706, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(43, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Well, it looks like you didn't solve this task yet. I was looking for ten candles.");
+talkEntry:addResponse("Well, it looks like you haven't solved this task yet. I was looking for ten candles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -532,7 +532,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 7));
-talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search in grass clusters. Please collet some thistles and bring me at least 2 bottles with oil. The press is next me.");
+talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect some thistles and bring me at least 2 bottles with oil. The oil press is next me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -551,7 +551,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 7));
-talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search in grass clusters. Please collet some thistles and bring me at least 2 bottles with oil. The press is next me.");
+talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect some thistles and bring me at least 2 bottles with oil. The oil press is next me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -615,7 +615,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(706, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(390, "all", "<", 2, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I want two bottles of lamp oil, please come again once you are done with this task.");
+talkEntry:addResponse("I want two bottles of lamp oil, please come back once you are done with this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -631,7 +631,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(706, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I don't have anything to do for you anymore. Thank you for the help though!");
+talkEntry:addResponse("I don't have anything more for you to do. Thank you for the help though!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
