@@ -699,7 +699,7 @@ function GetArmourType(Defender, Globals)
         armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
     else
         -- No armour worn
-		Defender["DefenseSkill"] = false;
+		Defender["DefenseSkill"] = 0;
 		return false;
     end;
 
