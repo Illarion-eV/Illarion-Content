@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -36,9 +36,9 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("I trade with building materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.");
-talkEntry:addResponse("Bricks, stone blocks, marble... Iall the workers need.");
-talkEntry:addResponse("I can sell you the tools you need to serve the queen. On, on!");
+talkEntry:addResponse("I trade with building materials. I'll purchase anything that can help building Her Majesty's... place of peaceful rest.");
+talkEntry:addResponse("Bricks, stone blocks, marble... all the workers need.");
+talkEntry:addResponse("I can sell you the tools you need to serve the Queen. On, on!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -78,8 +78,8 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Ah, you must be the marble deliverer. Put it just next to the stack of bricks.");
-talkEntry:addResponse("Welcome, stranger. Do you have any building material for me?");
-talkEntry:addResponse("Be greeted, in the name of the queen.");
+talkEntry:addResponse("Welcome, stranger. Do you have any building materials for me?");
+talkEntry:addResponse("Be greeted, in the name of the Queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -107,8 +107,8 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Ah, you must be the marble deliverer. Put it just next to the stack of bricks.");
-talkEntry:addResponse("Welcome, stranger. Do you have any building material for me?");
-talkEntry:addResponse("Be greeted, in the name of the queen.");
+talkEntry:addResponse("Welcome, stranger. Do you have any building materials for me?");
+talkEntry:addResponse("Be greeted, in the name of the Queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -171,9 +171,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("As long as the queen is content, I am happy. And I'd do anything to please her.");
+talkEntry:addResponse("As long as the Queen is content, I am happy, and I'd do anything to please her.");
 talkEntry:addResponse("I just need to finish this calculation, then we can talk.");
-talkEntry:addResponse("Every day is a great day to serve under queen Rosaline.");
+talkEntry:addResponse("Every day is a great day to serve under Queen Rosaline.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -192,8 +192,8 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("Robertus.");
-talkEntry:addResponse("My name is Robertus, I am the royal builder. I serve the queen with every fibre of my body.");
-talkEntry:addResponse("They call me Robertus. I'm the royal builder of Cadomyr, loyal to the queen.");
+talkEntry:addResponse("My name is Robertus, I am the royal builder. I serve the Queen with every fibre of my body.");
+talkEntry:addResponse("They call me Robertus. I'm the royal builder of Cadomyr, loyal to the Queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -221,7 +221,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
-talkEntry:addResponse("Oh! Her majesty has drawn a sketch how she'd like her grave to be! What a marvellous plan! A cube in the desert!");
+talkEntry:addResponse("Oh! Her Majesty has drawn a sketch showing how she'd like her grave to be! What a marvellous plan! A cube in the desert!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -251,7 +251,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
-talkEntry:addResponse("Oh! Her majesty has drawn a sketch how she'd like her grave to be! What a marvellous plan! A cube in the desert!");
+talkEntry:addResponse("Oh! Her Majesty has drawn a sketch showing how she'd like her grave to be! What a marvellous plan! A cube in the desert!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,7 +271,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("So, you want to assist with the construction of her majesty's grave? I'll always trade building material with you, but there's nothing specific I need.");
+talkEntry:addResponse("So, you want to assist with the construction of Her Majesty's grave? I'll always trade building material with you, but there's nothing specific I need.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -286,7 +286,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("So, you want to assist with the construction of her majesty's grave? I'll always trade building material with you, but there's nothing specific I need.");
+talkEntry:addResponse("So, you want to assist with the construction of Her Majesty's grave? I'll always trade building material with you, but there's nothing specific I need.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -301,8 +301,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am Robertus, the royal builder. The queen depends on me to build her a grave that will last for aeons.");
-talkEntry:addResponse("Construction is my business. Behold the tavern - My work for the queen. I am not proud of it, but proud to serve queen Rosaline.");
+talkEntry:addResponse("I am Robertus, the royal builder. The Queen depends on me to build her a grave that will last for aeons.");
+talkEntry:addResponse("Construction is my business. Behold the tavern - My work for the Queen. I am not proud of it, but proud to serve Queen Rosaline.");
 talkEntry:addResponse("I am the builder of Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -318,8 +318,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am Robertus, the royal builder. The queen depends on me to build her a grave that will last for aeons.");
-talkEntry:addResponse("Construction is my business. Behold the tavern - My work for the queen. I am not proud of it, but proud to serve queen Rosaline.");
+talkEntry:addResponse("I am Robertus, the royal builder. The Queen depends on me to build her a grave that will last for aeons.");
+talkEntry:addResponse("Construction is my business. Behold the tavern - My work for the Queen. I am not proud of it, but proud to serve Queen Rosaline.");
 talkEntry:addResponse("I am the builder of Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -351,7 +351,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Do yourself a favour: If you want your name to matter, make it known to the queen by obeying her orders.");
+talkEntry:addResponse("Do yourself a favour... If you want your name to matter, make it known to the Queen by obeying her orders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -363,8 +363,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("builder");
-talkEntry:addResponse("I am Robertus, the royal builder. The queen depends on me to build her a grave that will last for aeons.");
-talkEntry:addResponse("Construction is my business. Behold the tavern - My work for the queen. I am not proud of it, but proud to serve queen Rosaline.");
+talkEntry:addResponse("I am Robertus, the royal builder. The Queen depends on me to build her a grave that will last for aeons.");
+talkEntry:addResponse("Construction is my business. Behold the tavern - My work for the Queen. I am not proud of it, but proud to serve Queen Rosaline.");
 talkEntry:addResponse("I am the builder of Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -403,7 +403,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("queendom");
 talkEntry:addTrigger("kingdom");
-talkEntry:addResponse("Cadomyr is indeed a queendom. Never will the queen chose a husband; she serves her people only.");
+talkEntry:addResponse("Cadomyr is indeed a queendom. Never will the Queen choose a husband; she serves her people only.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -416,9 +416,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("grave");
-talkEntry:addResponse("I am the one whose service for queen Rosaline will stand the test of time, for I build her grave.");
+talkEntry:addResponse("I am the one whose service for Queen Rosaline will stand the test of time, for I build her grave.");
 talkEntry:addResponse("The grave is taking progress. We need more marble, though.");
-talkEntry:addResponse("I think I should let the workers clad her majesty's grave chamber with gold.");
+talkEntry:addResponse("I think I should let the workers clad Her Majesty's grave chamber with gold.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -434,7 +434,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("pyramid");
 talkEntry:addResponse("A pyramid as a grave? Who would do such a foolish thing?");
-talkEntry:addResponse("The queen prefers a cube, but the drawing is not done yet.");
+talkEntry:addResponse("The Queen prefers a cube, but the drawing is not done yet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -449,8 +449,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hastings");
 talkEntry:addResponse("Baron Hastings? A traitor, he is, indeed!");
-talkEntry:addResponse("The head of the baron will soon thrown on a pike!");
-talkEntry:addResponse("A bastard, he is, the baron Hastings! The queen will judge him.");
+talkEntry:addResponse("The head of the baron will soon stuck on a pike!");
+talkEntry:addResponse("A bastard, he is, the baron Hastings! The Queen will judge him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -464,7 +464,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("cube");
-talkEntry:addResponse("How creative our marvellous queen is! A cube as grave! How brilliant!");
+talkEntry:addResponse("How creative our marvellous Queen is! A cube as grave! How brilliant!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -477,7 +477,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("tavern");
-talkEntry:addResponse("I build the tavern. Well... I commanded the workers, sometimes, with the whip.");
+talkEntry:addResponse("I built the tavern. Well... I commanded the workers, sometimes with the whip.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -496,8 +496,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("slave");
-talkEntry:addResponse("Slaves.. well... I prefer the term workers. It is an honour to work for the queen afterall!");
-talkEntry:addResponse("A whip is an important tool! I never understand why some workers don't obey. It's an honour to work for the queen!");
+talkEntry:addResponse("Slaves.. well... I prefer the term workers. It is an honour to work for the Queen afterall!");
+talkEntry:addResponse("A whip is an important tool! I never understand why some workers don't obey. It's an honour to work for the Queen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -559,7 +559,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addResponse("There's one thing Don Guilianni is capable of - he knows how to control his minions.");
-talkEntry:addResponse("Don Guilianni is a coward. But that's no wonder; a son of a whore he is.");
+talkEntry:addResponse("Don Guilianni is a coward, but that's no wonder; a son of a whore he is.");
 talkEntry:addResponse("I bet five copper the Don will be stabbed by one of his own men one of these days.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -593,8 +593,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("My queen. Speak her name with glee!");
-talkEntry:addResponse("One bad word about her majesty and you'll find your tongue nailed to the gate of the palace.");
+talkEntry:addResponse("My Queen. Speak her name with glee!");
+talkEntry:addResponse("One bad word about Her Majesty and you'll find your tongue nailed to the gate of the Palace.");
 talkEntry:addResponse("Hail Queen Rosaline Edwards of Cadomyr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -611,8 +611,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("My queen. Speak her name with glee!");
-talkEntry:addResponse("One bad word about her majesty and you will find your tongue nailed to the gate of the palace.");
+talkEntry:addResponse("My Queen. Speak her name with glee!");
+talkEntry:addResponse("One bad word about Her Majesty and you will find your tongue nailed to the gate of the Palace.");
 talkEntry:addResponse("Hail Queen Rosaline Edwards of Cadomyr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -629,9 +629,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr is my home, my everything. All of us must work together to make it prosper under the guidance of our queen.");
+talkEntry:addResponse("Cadomyr is my home, my everything. All of us must work together to make it prosper under the guidance of our Queen.");
 talkEntry:addResponse("Cadomyr rules!");
-talkEntry:addResponse("I swore an oath and I hope you will also do anything to serve Cadomyr and queen Rosaline.");
+talkEntry:addResponse("I swore an oath and I hope you will also do anything to serve Cadomyr and Queen Rosaline.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -648,7 +648,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
 talkEntry:addResponse("We remember our roots, our ancestors. Cadomyr stands alone, but this is not a reason to forget about the old customs.");
 talkEntry:addResponse("Albar... ages ago, the people of Cadomyr set out from Albar.");
-talkEntry:addResponse("I wish I could visit an albarian slave market. There is so much work that need to be done.");
+talkEntry:addResponse("I wish I could visit an Albarian slave market. There is so much work that need to be done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,7 +694,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("I pray to Irmorom - and to queen Rosaline.");
+talkEntry:addResponse("I pray to Irmorom - and to Queen Rosaline.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -721,8 +721,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("I'll never let Cherga take away our queen. If she departs from this world, I will follow.");
-talkEntry:addResponse("I do not fear Cherga. I will meet Cherga, side by side with the queen.");
+talkEntry:addResponse("I'll never let Cherga take away our Queen. If she departs from this world, I will follow.");
+talkEntry:addResponse("I do not fear Cherga. I will meet Cherga, side by side with the Queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -735,9 +735,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Shh, don't speak about this in public, but we're actually building the queen's grave.");
-talkEntry:addResponse("I wonder where all the refugees came from. More hands for the queen!");
-talkEntry:addResponse("Never venture to the mountains alone. Dragons were reported to roam there.");
+talkEntry:addResponse("Shh, don't speak about this in public, but we're actually building the Queen's grave.");
+talkEntry:addResponse("I wonder where all the refugees came from. More hands for the Queen!");
+talkEntry:addResponse("Never venture to the mountains alone, dragons were reported to roam there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -788,8 +788,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("It's good that you said this. Hail the queen!");
-talkEntry:addResponse("Really? I should tell the queen about this.");
+talkEntry:addResponse("It's good that you said this. Hail the Queen!");
+talkEntry:addResponse("Really? I should tell the Queen about this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -803,7 +803,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("Do you have any further information?");
-talkEntry:addResponse("You make me curious. Should I report to the queen?");
+talkEntry:addResponse("You make me curious. Should I report to the Queen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -841,34 +841,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Hoch lebe die Königin!", "Hail the Queen!");
 talkingNPC:addCycleText("#me beugt sich über eine große Zeichnung und macht sorgfältig Korrekturen an einzelnen Linien.", "#me leans over a huge drawing and corrects individual lines carefully.");
-talkingNPC:addCycleText("#me schlägt mit seiner Faust auf eine auf dem Tisch liegende Zeichnung. 'Nein! So nicht!'", "#me slams his fist on a drawing, lying on the table. 'No! Not this way!'");
+talkingNPC:addCycleText("#me schlägt mit seiner Faust auf eine auf dem Tisch liegende Zeichnung. 'Nein! So nicht!'", "#me slams his fist on a drawing lying on the table. 'No! Not this way!'");
 talkingNPC:addCycleText("#me murmelt vor sich hin und streicht mit einem Federkiel an seinem Kinn entlang.", "#me murmurs to himself and strokes his chin with the feather of a quill.");
 talkingNPC:addCycleText("Wir könnten eine Säuler hier hinzufügen... und da auch...", "We could add a pillar here... and there...");
-talkingNPC:addCycleText("Sie wird beeindruckt sein, ich hoffe nur, die Königin wird ihr Grab nie brauchen.", "She will be impressed, I just hope the queen will never need her grave.");
-talkingNPC:addCycleText("Dient ihrer Hohheit!", "Serve her majesty!");
+talkingNPC:addCycleText("Sie wird beeindruckt sein, ich hoffe nur, die Königin wird ihr Grab nie brauchen.", "She will be impressed, I just hope the Queen will never need her grave.");
+talkingNPC:addCycleText("Dient ihrer Hohheit!", "Serve Her Majesty!");
 talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches his forehead.");
 talkingNPC:addCycleText("Ein Kubus - wie genial!", "A cube - how genius!");
-talkingNPC:addCycleText("Der Königin ein Grabmal zu erbauen ist eine äußerst ehrbare Tat.", "To build the queen's grave is a very honourable deed.");
+talkingNPC:addCycleText("Der Königin ein Grabmal zu erbauen ist eine äußerst ehrbare Tat.", "To build the Queen's grave is a very honourable deed.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(24,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(26,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(737,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(734,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(736,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2588,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(733,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(735,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1266,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(24,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(26,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(737,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(734,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(736,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2588,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(733,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(735,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1266,"buySecondary"));
 tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear you can not afford that.");
 tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
 tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");

@@ -96,11 +96,11 @@ rank > 6, town = Cadomyr, "kauf", "waren", "preis", "Handel", "veräußer", "erw
 
 -- Insufficient rank
 town = Cadomyr, "sell", "buy", "wares", "price", "trade", "purchase" -> "I only trade with the cadomyrian nobility. Come back if your at a least a Baron of Cadomyr."
-town = Cadomyr, "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+town = Cadomyr, "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich handel nur mit den Edelleuten Cadomyrs. Kommt erst wieder, wenn Ihr wenigstens ein Baron Cadomyrs seid."
 
 -- Not a Cadomyr member
 rank > 6, town = Cadomyr, "sell", "buy", "wares", "price", "trade", "purchase" -> "I do not trade with outsiders. My goods are reserved for the nobility of Cadomyr."
-rank > 6, town = Cadomyr, "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+rank > 6, town = Cadomyr, "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich handel nicht mit Auswärtigen. Meine Waren sind für die Edelleute Cadomyrs bestimmt."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -120,7 +120,7 @@ english, "job" -> "If you aquire any artifacts on your adventures, I will pay a 
 "YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Artefakt",english -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Artefakt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Artefakt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -139,13 +139,13 @@ english, "Cadomyr" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
+cycletext "Habt Ihr ein Artefakt gefunden?", "Did you find any artifacts?"
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "Ich suche nach seltenen Dingen. Wirklich selten, nicht einfach irgendwelchen Schrott.", "I am interested in rare items. Not some ordinary scrap but really rare items."
+cycletext "#me zählt einige Münzen ab.", "#me counts some coins."
+cycletext "#me poliert ein funkelndes Schwert.", "#me polishes a sparkling sword."

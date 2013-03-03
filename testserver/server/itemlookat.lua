@@ -6,7 +6,7 @@ module("server.itemlookat", package.seeall)
 
 --- Item Lookat
 -- The task of this function is to generate the lookat on a item.
--- This function is called by the server.
+-- This function is called by the server when an item has no script attached to it in the database.
 --
 -- @param[in] player 	the player that is supposed to receive the inform
 -- @param[in] item      the item the player is looking at

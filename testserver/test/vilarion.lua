@@ -71,6 +71,22 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, ltstate)
+    if User.lastSpokenText == "inform" then
+        local myItem = world:getItemOnField(position(957,95,0))
+        local lookAt = ItemLookAt()
+        lookAt.name = "Was ist das?"
+            lookAt.description = "Du bemerkst ein seltsames Glitzern im Gras vor der Eiche."
+        world:itemInform(User,myItem,lookAt)
+    end
+
+    if User.lastSpokenText == "admin" then
+        if User:isAdmin() then
+            User:inform("You are an admin!")
+        else
+            User:inform("You are mortal!")
+        end
+    end
+
     if (User.lastSpokenText == "stat") then
         local stats = world:getItemStatsFromId(9)
     end

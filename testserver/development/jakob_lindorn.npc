@@ -1,0 +1,163 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Jakob Lindorn                                        Cadomyr    --
+-- NPC Job:  Helper                                                           --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  124, 649, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   Zot                                                              --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Jakob Lindorn"
+race = human
+sex = male
+position = 124, 649, 0
+direction = west
+affiliation = "Cadomyr"
+job = "Helper"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Zot"
+
+lookatDE = ""
+lookatUS = ""
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Hands off!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 2
+beardID = 0
+colorHair = 168, 123, 30
+colorSkin = 238, 216, 174
+itemHead = 0
+itemChest = 362
+itemCoat = 2384
+itemMainHand = 207
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 826
+itemShoes = 679
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Jakob Lindorn the helper. Keywords: quest, craft, market, workshop, Frizza, food, fighting, Cadomyr")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Jakob Lindorn der Helfer. Schlüsselwörter: Quest, Handwerke, Markt, Werkstatt, Frizza, Essen, Kämpfen, Cadomyr")
+queststatus(703) = 0, english, ".+" -> queststatus(703) = 1, "Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armor and can usually be found in the workshop."
+queststatus(703) = 0, ".+" -> queststatus(703) = 1, "Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum."
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, I can tell you who in Cadomyr has tasks for you to do.", "Nice to meet you, I'm Jakob Lindorn, I can tell you who in Cadomyr has tasks for you to do."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat.", "Freut mich, Euch zu treffen. Ich bin Jakob Lindorn. Ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, I can tell you who in Cadomyr has tasks for you to do.", "Nice to meet you, I'm Jakob Lindorn, I can tell you who in Cadomyr has tasks for you to do."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat.", "Freut mich, Euch zu treffen. Ich bin Jakob Lindorn. Ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat."
+"Farewell", "Bye", "Fare well", "See you" -> "Thank you so, so much for talking to me. If you need help finding something to do, just come back.", "Please have a good day. If you need help finding something to do, just come back."
+"Tschüß", "Tschüss", "Wiedersehen" -> "Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück.", "Ich wünsche Euch einen schönen Tag. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Thank you so, so much for talking to me. If you need help finding something to do, just come back.", "Please have a good day. If you need help finding something to do, just come back."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück.", "Ich wünsche Euch einen schönen Tag. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück."
+"How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke für die Nachfrage."
+"your name", "who are you", "who art thou" -> "I'm Jakob Lindorn. I'm here to help."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Jakob Lindorn. Ich bin hier zum Helfen."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "My mission is to help, so if you need something to do, just ask."
+"beruf" -> "Meine Berufung ist zu helfen. Also wenn Ihr etwas zu tun sucht, fragt einfach."
+english, "job" -> "My mission is to help, so if you need something to do, just ask."
+"job" -> "Meine Berufung ist zu helfen. Also wenn Ihr etwas zu tun sucht, fragt einfach."
+
+-- help triggers
+english, "market" -> "Just follow the street to your right and go through the gate, you won't miss the marketplace. Ask Frizza over there if you want to know more about the places around Cadomyr."
+"markt" -> "Folgt einfach der Straße zur eurer Rechten und geht durch das Tor, ihr werdet den Marktplatz kaum übersehen können. Fragt Frizza dort drüben, wenn Ihr mehr über die Orte um Cadomyr herum wissen wollt."
+english, "Frizza" -> "She is right over there, just go over and talk to her. She knows a lot about Cadomyr."
+"Frizza" -> "Sie ist gleich dort drüben, geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Cadomyr."
+"food", "eat" -> "You can find food all around you. There are fruits on the trees and bushes or you ask other people for something to eat."
+"essen", "nahrung" -> "Ihr könnt überall etwas zu essen finden. Früchte wachsen an Bäumen und Büschen oder Ihr fragt andere Leute nach etwas zu essen."
+english, "fighting", "monster" -> "There are a few wild animals in the wilderness so be careful. If you want to train ask around for a sparring partner."
+"kämpfen", "monster" -> "Es gibt einige wilde Tiere in der Wildness, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt herum nach einem Trainingspartner."
+english, "Cadomyr" -> "This is Cadomyr, my home. We are a realm of honorable and kind people, I'm sure you will enjoy it here."
+"Cadomyr" -> "Dies is Cadomyr, mein Zuhause. Wir sind ein Reich von ehrenvollen und aufrichtigen Leuten, ich bin mir sicher, dass Ihr es hier mögen werdet."
+english, "work" -> "You can find the workshop very easy. Go through the main gate north from here, then turn right and follow the street, go through the gate, turn left and go through the next gate. From here you go north until you reach a building to your right with a little garden and some tools outside."
+german, "Werk" -> "Die Werkstatt könnt Ihr ganz leicht finden. Geht durch das Haupttor im Norden, dann biegt nach rechts ab, geht durch das Tor, nun erneut nach Norden, dann öffnet Ihr das Tor zu eurer linken und geht nach Norden. Die Werkstatt ist kurz vor dem Palast auf der rechten Seite."
+english, "craft" -> "You want to know more about the crafts in Cadomyr? Well then go and visit Berri Firegold, Gerry Deloid, Lilli Gallfing or Zlatxhol, they can tell you more about the crafts than me. You can find them in the workshop north of the city."
+german, "hand" -> "Ihr wollt mehr über die Handwerke in Cadomyr wissen? Dann besucht Berri Firegold, Gerry Deloid, Lilli Gallfing oder Zlatxhol, sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt sie alle in der Werkstatt im Norden der Stadt finden."
+
+-- Quests
+queststatus(703) = 1, queststatus(704) = 0, english, "quest", "mission" -> "Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armor and can usually be found in the workshop."
+queststatus(703) = 1, queststatus(704) = 0, "quest", "mission" -> "Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum."
+queststatus(703) = 1, queststatus(704) = 0, "task", "adventure", "order" -> "Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armor and can usually be found in the workshop."
+queststatus(703) = 1, queststatus(704) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum."
+queststatus(703) = 1, queststatus(704) > 0, english, "quest", "mission" -> queststatus(703) = 2, "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
+queststatus(703) = 1, queststatus(704) > 0, "quest", "mission" -> queststatus(703) = 2, "Ich nehme an, Ihr habt meinem Freundin Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
+queststatus(703) = 1, queststatus(704) > 0, "task", "adventure", "order" -> queststatus(703) = 2, "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
+queststatus(703) = 1, queststatus(704) > 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 2, "Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
+queststatus(703) = 2, queststatus(78) = 0, english, "quest", "mission" -> "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
+queststatus(703) = 2, queststatus(78) = 0, "quest", "mission" -> "Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
+queststatus(703) = 2, queststatus(78) = 0, "task", "adventure", "order" -> "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
+queststatus(703) = 2, queststatus(78) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
+queststatus(703) = 2, queststatus(78) > 1, english, "quest", "mission" -> queststatus(703) = 3, "A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace."
+queststatus(703) = 2, queststatus(78) > 1, "quest", "mission" -> queststatus(703) = 3, "Eine Freundin Mirarie Bragolin kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden wenn Ihr in die Stadt hinein geht, sie steht beim Tor Richtung Marktplatz."
+queststatus(703) = 2, queststatus(78) > 1, "task", "adventure", "order" -> queststatus(703) = 3, "A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace."
+queststatus(703) = 2, queststatus(78) > 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 3, "Eine Freundin Mirarie Bragolin kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden wenn Ihr in die Stadt hinein geht, sie steht beim Tor Richtung Marktplatz."
+queststatus(703) = 3, queststatus(317) = 0, english, "quest", "mission" -> "A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace."
+queststatus(703) = 3, queststatus(317) = 0, "quest", "mission" -> "Eine Freundin Mirarie Bragolin kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden wenn Ihr in die Stadt hinein geht, sie steht beim Tor Richtung Marktplatz."
+queststatus(703) = 3, queststatus(317) = 0, "task", "adventure", "order" -> "A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace."
+queststatus(703) = 3, queststatus(317) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Eine Freundin Mirarie Bragolin kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden wenn Ihr in die Stadt hinein geht, sie steht beim Tor Richtung Marktplatz."
+queststatus(703) = 3, queststatus(317) > 1, english, "quest", "mission" -> queststatus(703) = 4, "Hassan, the royal fan-waver, is sure to have a little task for you. You can find him in the 'Unicorn Lion' tavern, if he isn't at the palace. The tavern is north of the marketplace."
+queststatus(703) = 3, queststatus(317) > 1, "quest", "mission" -> queststatus(703) = 4, "Hassan, der königliche Fächelwedler hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz."
+queststatus(703) = 3, queststatus(317) > 1, "task", "adventure", "order" -> queststatus(703) = 4, "Hassan, the royal fan-waver, is sure to have a little task for you. You can find him in the 'Unicorn Lion' tavern, if he isn't at the palace. The tavern is north of the marketplace."
+queststatus(703) = 3, queststatus(317) > 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 4, "Hassan, der königliche Fächelwedler hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz."
+queststatus(703) = 4, queststatus(75) = 0, english, "quest", "mission" -> "Hassan, the royal fan-waver, is sure to have a little task for you. You can find him in the 'Unicorn Lion' tavern, if he isn't at the palace. The tavern is north of the marketplace."
+queststatus(703) = 4, queststatus(75) = 0, "quest", "mission" -> "Hassan, der königliche Fächelwedler hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz."
+queststatus(703) = 4, queststatus(75) = 0, "task", "adventure", "order" -> "Hassan, the royal fan-waver, is sure to have a little task for you. You can find him in the 'Unicorn Lion' tavern, if he isn't at the palace. The tavern is north of the marketplace."
+queststatus(703) = 4, queststatus(75) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hassan, der königliche Fächelwedler hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz."
+queststatus(703) = 4, queststatus(75) > 1, english, "quest", "mission" -> queststatus(703) = 5, "Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met her in the tavern already."
+queststatus(703) = 4, queststatus(75) > 1, "quest", "mission" -> queststatus(703) = 5, "Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte vielleicht eine kleine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen."
+queststatus(703) = 4, queststatus(75) > 1, "task", "adventure", "order" -> queststatus(703) = 5, "Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met in the tavern already."
+queststatus(703) = 4, queststatus(75) > 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 5, "Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen."
+queststatus(703) = 5, queststatus(126) = 0, english, "quest", "mission" -> "Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probbaly met her in the tavern already."
+queststatus(703) = 5, queststatus(126) = 0, "quest", "mission" -> "Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen."
+queststatus(703) = 5, queststatus(126) = 0, "task", "adventure", "order" -> "Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met her in the tavern already."
+queststatus(703) = 5, queststatus(126) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen."
+queststatus(703) = 5, queststatus(126) > 1, english, "quest", "mission" -> queststatus(703) = 6, "Zerarisa, a good friend, lives at the Cape Farewell. Could you look for her, I haven't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you in the right direction."
+queststatus(703) = 5, queststatus(126) > 1, "quest", "mission" -> queststatus(703) = 6, "Zerarisa, eine gute Freundin lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen, ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt, die Wegweiser sollten Euch direkt zum Kap führen."
+queststatus(703) = 5, queststatus(126) > 1, "task", "adventure", "order" -> queststatus(703) = 6, "Zerarisa, a good friend, lives at the Cape Farewell. Could you look for her, I haven't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you in the right direction."
+queststatus(703) = 5, queststatus(126) > 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 6, "Zerarisa, eine gute Freundin lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen, ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt, die Wegweiser sollten Euch direkt zum Kap führen."
+queststatus(703) = 6, queststatus(71) = 0, english, "quest", "mission" -> "Zerarisa, a good friend, lives at the Cape Farewell. Could you look for her, I haven't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you in the right direction."
+queststatus(703) = 6, queststatus(71) = 0, "quest", "mission" -> "Zerarisa, eine gute Freundin lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen, ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt, die Wegweiser sollten Euch direkt zum Kap führen."
+queststatus(703) = 6, queststatus(71) = 0, "task", "adventure", "order" -> "Zerarisa, a good friend, lives at the Cape Farewell. Could you look for her, I haven't see her around here for quite a while. You can find the Cape if you follow the street to the west, the signposts should lead you in the right direction."
+queststatus(703) = 6, queststatus(71) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zerarisa, eine gute Freundin lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen, ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt, die Wegweiser sollten Euch direkt zum Kap führen."
+queststatus(703) = 6, queststatus(71) > 1, english, "quest", "mission" -> queststatus(703) = 7, "Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar."
+queststatus(703) = 6, queststatus(71) > 1, "quest", "mission" -> queststatus(703) = 7, "Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor."
+queststatus(703) = 6, queststatus(71) > 1, "task", "adventure", "order" -> queststatus(703) = 7, "Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar."
+queststatus(703) = 6, queststatus(71) > 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 7, "Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor."
+queststatus(703) = 7, queststatus(150) = 0, english, "quest", "mission" -> "Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar."
+queststatus(703) = 7, queststatus(150) = 0, "quest", "mission" -> "Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor."
+queststatus(703) = 7, queststatus(150) = 0, "task", "adventure", "order" -> "Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar."
+queststatus(703) = 7, queststatus(150) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor."
+queststatus(703) = 7, queststatus(150) > 1, english, "quest", "mission" -> queststatus(703) = 8, "Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar."
+queststatus(703) = 7, queststatus(150) > 1, "quest", "mission" -> queststatus(703) = 8, "Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor."
+queststatus(703) = 7, queststatus(150) > 1, "task", "adventure", "order" -> queststatus(703) = 8, "Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar."
+queststatus(703) = 7, queststatus(150) > 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 8, "Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor."
+queststatus(703) = 8, english, "quest", "mission" -> "I'm sure you can find your way around here without my help now."
+queststatus(703) = 8, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht."
+queststatus(703) = 8, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now."
+queststatus(703) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, ".*" -> "I cannot help you with that. Why not ask Frizza over there? I'm sure she has the answer."
+german, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Frizza dort drüben, ich bin mir sicher sie hat eine Antwort."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Willkommen in Cadomyr!", "Welcome to Cadomyr!"
+cycletext "Wenn ihr Hilfe benötigt, sprecht mich einfach an.", "If you need help, just speak to me."
+cycletext "Ich kann Euch sagen, wer in diesem Reich eure Hilfe benötigt.", "I can tell you who in this realm needs your help."
+cycletext "Wenn Ihr neu hier seid, bin ich Euer Mann.", "If you're new to this realm, I'm your man."

@@ -32,63 +32,8 @@ function HighInformNLS(User, textInDe, textInEn)
     User:inform(textInDe, textInEn, Player.highPriority)
 end
 
---- Triggers a multi language talking for a character
--- In case there is no player in range who could hear the talking nothing is
--- said
--- @param User The character who should say the message
--- @param method The method that is used to speak Character.say, Character.yell, Character.whisper
--- @param textInDe german text
--- @param textInEn english text
 function TalkNLS(User, method, textInDe, textInEN)
-    if (User == nil) then
-        return;
-    end
-    local Range = 0;
-    if (method == Character.whisper) then
-        Range = 2;
-    elseif (method == Character.yell) then
-        Range = 30;
-    else
-        Range = 12;
-        method = Character.say;
-    end;
-
-    local players = world:getPlayersInRangeOf(User.pos, Range);
-
-    if (table.getn(players) == 0) then
-        return;
-    end;
-
-    if (textInDe == nil and textInEN ~= nil) then
-        User:talk( method, textInEN );
-        return;
-    elseif (textInDe ~= nil and textInEN == nil) then
-        User:talk( method, textInDe );
-        return;
-    end;
-
-    local foundDE = false;
-    local foundEN = false;
-
-    for _, char in pairs(players) do
-        if (char:getPlayerLanguage() == Player.german) then
-            foundDE = true;
-        else
-            foundEN = true;
-        end;
-
-        if foundDE and foundEN then
-            break;
-        end;
-    end;
-
-    if foundDE then
-        User:talkLanguage(method, Player.german,  textInDe);
-    end;
-
-    if foundEN then
-        User:talkLanguage(method, Player.english, textInEN);
-    end;
+    User:talk(method, textInDe, textInEN)
 end;
 
 --- Get a text based on the gender of the character.
