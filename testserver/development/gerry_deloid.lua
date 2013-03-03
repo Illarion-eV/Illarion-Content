@@ -6,12 +6,12 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 126, 572, 0, 4, 'Gerry Deloid', 'npc.gerry_deloid', 0, 2, 2, 192, 107, 5, 191, 139, 97);
+VALUES (0, 126, 572, 0, 4, 'Gerry Deloid', 'npc.gerry_deloid', 0, 3, 4, 216, 33, 29, 191, 139, 97);
 ---]]
 
 require("npc.base.basic")
@@ -22,7 +22,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("npc.gerry_deloid", package.seeall)
+module("development.gerry_deloid", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -221,7 +221,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 1));
-talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives outside the workshop, so please collect 20 honeycombs for me and I'll teach you how to make wax from them.");
+talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives right there on the tables, so please collect 20 honeycombs for me and I'll teach you how to make wax from them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -230,7 +230,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(706, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 1));
-talkEntry:addResponse("Eine Aufgabe..nun, Ihr könntet mir erstmal einige Honigwaben bringen, diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche bei den Bienenstöcken außerhalb der Werkstatt finden. Bringt mir 20 Waben und ich zeige Euch wie man Wachs herstellt.");
+talkEntry:addResponse("Eine Aufgabe..nun, Ihr könntet mir erstmal einige Honigwaben bringen, diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche bei den Bienenstöcken gleich da vorne bei den Tischen finden. Bringt mir 20 Waben und ich zeige Euch wie man Wachs herstellt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -240,7 +240,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 1));
-talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives outside the workshop, so please collect 20 honeycombs for me and I'll teach you how to make wax from them.");
+talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives right there on the tables, so please collect 20 honeycombs for me and I'll teach you how to make wax from them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -251,7 +251,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 1));
-talkEntry:addResponse("Eine Aufgabe..nun, Ihr könntet mir erstmal einige Honigwaben bringen, diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche bei den Bienenstöcken außerhalb der Werkstatt finden. Bringt mir 20 Waben und ich zeige Euch wie man Wachs herstellt.");
+talkEntry:addResponse("Eine Aufgabe..nun, Ihr könntet mir erstmal einige Honigwaben bringen, diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche bei den Bienenstöcken gleich da vorne bei den Tischen finden. Bringt mir 20 Waben und ich zeige Euch wie man Wachs herstellt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -304,7 +304,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(706, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2529, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I want 20 honeycombs from you, you can collect them from the beehives right outside the workshop.");
+talkEntry:addResponse("I want 20 honeycombs from you, you can collect them from the beehives right there on the tables.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -312,7 +312,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(706, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2529, "all", "<", 20, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Ihr sollt mir 20 Honigwaben bringen, Ihr könnt welche bei den Bienenstöcken außerhalb der Werkstatt finden.");
+talkEntry:addResponse("Ihr sollt mir 20 Honigwaben bringen, Ihr könnt welche bei den Bienenstöcken gleich da vorne auf den Tischen finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

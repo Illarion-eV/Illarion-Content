@@ -31,9 +31,9 @@ useMsgUS = "Hands off!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 2
-beardID = 2
-colorHair = 192, 107, 5
+hairID = 3
+beardID = 4
+colorHair = 216, 33, 29
 colorSkin = 191, 139, 97
 itemHead = 0
 itemChest = 458
@@ -75,16 +75,16 @@ english, "black" -> "You can find black thistles if you search on rocky ground i
 "schwarz" -> "Schwarze Disteln könnt Ihr finden wenn Ihr auf felsigem Boden in Grasbüscheln sucht."
 
 -- Quests
-queststatus(706) = 0, english, "quest", "mission" -> "A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives outside the workshop, so please collect 20 honeycombs for me and I'll teach you how to make wax from them.", queststatus(706) = 1
-queststatus(706) = 0, "quest", "mission" -> "Eine Aufgabe..nun, Ihr könntet mir erstmal einige Honigwaben bringen, diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche bei den Bienenstöcken außerhalb der Werkstatt finden. Bringt mir 20 Waben und ich zeige Euch wie man Wachs herstellt.", queststatus(706) = 1
-queststatus(706) = 0, "task", "adventure", "order" -> "A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives outside the workshop, so please collect 20 honeycombs for me and I'll teach you how to make wax from them.", queststatus(706) = 1
-queststatus(706) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Eine Aufgabe..nun, Ihr könntet mir erstmal einige Honigwaben bringen, diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche bei den Bienenstöcken außerhalb der Werkstatt finden. Bringt mir 20 Waben und ich zeige Euch wie man Wachs herstellt.", queststatus(706) = 1
+queststatus(706) = 0, english, "quest", "mission" -> "A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives right there on the tables, so please collect 20 honeycombs for me and I'll teach you how to make wax from them.", queststatus(706) = 1
+queststatus(706) = 0, "quest", "mission" -> "Eine Aufgabe..nun, Ihr könntet mir erstmal einige Honigwaben bringen, diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche bei den Bienenstöcken gleich da vorne bei den Tischen finden. Bringt mir 20 Waben und ich zeige Euch wie man Wachs herstellt.", queststatus(706) = 1
+queststatus(706) = 0, "task", "adventure", "order" -> "A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives right there on the tables, so please collect 20 honeycombs for me and I'll teach you how to make wax from them.", queststatus(706) = 1
+queststatus(706) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Eine Aufgabe..nun, Ihr könntet mir erstmal einige Honigwaben bringen, diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche bei den Bienenstöcken gleich da vorne bei den Tischen finden. Bringt mir 20 Waben und ich zeige Euch wie man Wachs herstellt.", queststatus(706) = 1
 queststatus(706) = 1, item(2529, all) > 19, english, "quest", "mission" -> "Well done, thank you. Do you want another task?", queststatus(706) = 2
 queststatus(706) = 1, item(2529, all) > 19, "quest", "mission" -> "Gut gemacht, danke. Wollt Ihr eine weitere Aufgabe?", queststatus(706) = 2
 queststatus(706) = 1, item(2529, all) > 19, "task", "adventure", "order" -> "Well done, thank you. Do you want another task?", queststatus(706) = 2
 queststatus(706) = 1, item(2529, all) > 19, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, danke. Wollt Ihr eine weitere Aufgabe?", queststatus(706) = 2
-queststatus(706) = 1, item(2529, all) < 20, english, ".+" -> "I want 20 honeycombs from you, you can collect them from the beehives right outside the workshop."
-queststatus(706) = 1, item(2529, all) < 20, ".+" -> "Ihr sollt mir 20 Honigwaben bringen, Ihr könnt welche bei den Bienenstöcken außerhalb der Werkstatt finden."
+queststatus(706) = 1, item(2529, all) < 20, english, ".+" -> "I want 20 honeycombs from you, you can collect them from the beehives right there on the tables."
+queststatus(706) = 1, item(2529, all) < 20, ".+" -> "Ihr sollt mir 20 Honigwaben bringen, Ihr könnt welche bei den Bienenstöcken gleich da vorne auf den Tischen finden."
 queststatus(706) = 2, english, "quest", "mission" -> "Very well, now we can start to make wax out of the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make 20 pieces of wax for me.", item(2751, 1, 555), queststatus(706) = 3
 queststatus(706) = 2, "quest", "mission" -> "Wunderbar, nun sollten wir aus den Waben Wachs machen. Dazu braucht Ihr eine Tiegelzange, die gebe ich Euch zum üben. Geht rüber zum Kerzenziehertisch und versucht etwas Wachs herzustellen. Bringt mir 20 Stück von dem Wachs.", item(2751, 1, 555), queststatus(706) = 3
 queststatus(706) = 2, "task", "adventure", "order" -> "Very well, now we can start to make wax out of the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make 20 pieces of wax for me.", item(2751, 1, 555), queststatus(706) = 3
