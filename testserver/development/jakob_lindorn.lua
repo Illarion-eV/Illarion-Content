@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 124, 649, 0, 6, 'Jakob Lindorn', 'npc.jakob_lindorn', 0, 1, 0, 139, 105, 20, 238, 216, 174);
+VALUES (0, 124, 649, 0, 6, 'Jakob Lindorn', 'npc.jakob_lindorn', 0, 2, 0, 10, 33, 192, 238, 216, 174);
 ---]]
 
 require("npc.base.basic")
@@ -343,7 +343,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -354,7 +354,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
@@ -364,7 +364,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -375,7 +375,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
