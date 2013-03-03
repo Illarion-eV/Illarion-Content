@@ -6,12 +6,12 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 141, 582, 0, 4, 'Berri Firegold', 'npc.berri_firegold', 0, 1, 2, 139, 105, 20, 238, 216, 174);
+VALUES (1, 141, 582, 0, 4, 'Berri Firegold', 'npc.berri_firegold', 0, 2, 3, 129, 66, 10, 238, 216, 174);
 ---]]
 
 require("npc.base.basic")
@@ -628,7 +628,7 @@ mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you con
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 2390);
 mainNPC:setEquipment(11, 2384);
-mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(5, 23);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 0);
 mainNPC:setEquipment(9, 826);

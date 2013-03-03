@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 124, 649, 0, 6, 'Jakob Lindorn', 'npc.jakob_lindorn', 0, 2, 0, 10, 33, 192, 238, 216, 174);
+VALUES (0, 124, 649, 0, 6, 'Jakob Lindorn', 'npc.jakob_lindorn', 0, 2, 0, 168, 123, 30, 238, 216, 174);
 ---]]
 
 require("npc.base.basic")
