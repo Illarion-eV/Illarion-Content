@@ -492,8 +492,8 @@ function MoneyToString(money)
 			estring = estring..", ";
 			gstring = gstring..", ";
 		elseif sp ~= 0 or cp ~= 0 then
-			estring = estring.."and ";
-			gstring = gstring.."und ";
+			estring = estring.." and";
+			gstring = gstring.." und";
 		end		
 	end
 	
@@ -501,8 +501,8 @@ function MoneyToString(money)
 		estring = estring..sp.." silver coins";
 		gstring = gstring..sp.." Silberstücke";	
 		if cp ~= 0 then
-			estring = estring.."and ";
-			gstring = gstring.."und ";
+			estring = estring.." and";
+			gstring = gstring.." und";
 		end
 	end
 	
