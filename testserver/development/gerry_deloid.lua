@@ -22,7 +22,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("npc.gerry_deloid", package.seeall)
+module("development.gerry_deloid", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
