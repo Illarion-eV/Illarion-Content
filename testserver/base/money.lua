@@ -465,7 +465,7 @@ function MoneyToString(money)
 
     gp,sp,cp=base.money.MoneyToCoins(money); --converting to gp, sp and cp
 
-	if money >= 10000 then -- at least one gold coin
+	--[[if money >= 10000 then -- at least one gold coin
 
 	    estring=" "..gp.." gold coins, "..sp.." silver coins and "..cp.." copper coins";
 		gstring=" "..gp.." Goldstücke, "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
@@ -480,6 +480,35 @@ function MoneyToString(money)
 		estring=" "..cp.." copper coins";
 		gstring=" "..cp.." Kupferstücke"; --what a name for a variable...
 
+	end]]
+	
+	local estring = " ";
+	local gstring = " ";
+	
+	if gp ~= 0 then -- at least one gold coin
+		estring = estring..gp.." gold coins";
+		gstring = gstring..gp.." Goldstücke";
+		if sp ~= 0 and cp ~= 0 then
+			estring = estring..", ";
+			gstring = gstring..", ";
+		elseif sp ~= 0 or cp ~= 0 then
+			estring = estring.."and ";
+			gstring = gstring.."und ";
+		end		
+	end
+	
+	if sp ~= 0 then -- at least one silver coin
+		estring = estring..sp.." silver coins";
+		gstring = gstring..sp.." Silberstücke";	
+		if cp ~= 0 then
+			estring = estring.."and ";
+			gstring = gstring.."und ";
+		end
+	end
+	
+	if cp ~= 0 then -- at least one copper coin
+		estring = estring..cp.." copper coins";
+		gstring = gstring..cp.." Kupferstücke";
 	end
 
     return gstring, estring;
