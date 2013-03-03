@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
 -- Author:   Lillian                                                          --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -24,7 +24,7 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
-module("development.charwis_irongate", package.seeall)
+module("npc.charwis_irongate", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -518,7 +518,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(702, "=", 8));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du hast das Quest gelöst. Du wirst mit 12 Silbermünzen und eine neue Robe belohnt. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du hast das Quest gelöst. Du wirst mit 12 Silbermünzen und einer neuen Robe belohnt. Dein Ansehen bei Don Valerio Guilianni steigt."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
 talkEntry:addConsequence(npc.base.consequence.item.item(195, 1, 333, {["descriptionEn"] = "This robe has the colour of the Galmairian flag.", ["descriptionDe"] = "Diese Robe hat die Farbe der Galmairischen Flagge."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 9));
@@ -548,7 +548,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Nachrichten Überbringen IV"));
 talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 440, {["nameDe"] = "Echt großer Goldnugget", ["nameEn"] = "Really big gold nugget", ["descriptionEn"] = "This gold nugget is the size of an apple.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Goldnugget ist so groß wie ein Apfel."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 10));
-talkEntry:addResponse("Schaut, ich habe einen Goldnugget gefangen, der ist so groß wie ein Apfel. Aber Pheritaleth, magische Schmied aus Cadomyr sagt, ich lüge! Bitte zeigt ihr diesen Goldnugget!");
+talkEntry:addResponse("Schaut, ich habe einen Goldnugget gefangen, der ist so groß wie ein Apfel. Aber Pheritaleth, magische Schmied aus Cadomyr, sagt ich lüge! Bitte zeigt ihr diesen Goldnugget!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -575,7 +575,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Nachrichten Überbringen IV"));
 talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 440, {["nameDe"] = "Echt großer Goldnugget", ["nameEn"] = "Really big gold nugget", ["descriptionEn"] = "This gold nugget is the size of an apple.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Goldnugget ist so groß wie ein Apfel."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 10));
-talkEntry:addResponse("Schaut, ich habe einen Goldnugget gefangen, der ist so groß wie ein Apfel. Aber Pheritaleth, magische Schmied aus Cadomyr sagt, ich lüge! Bitte zeigt ihr diesen Goldnugget!");
+talkEntry:addResponse("Schaut, ich habe einen Goldnugget gefangen, der ist so groß wie ein Apfel. Aber Pheritaleth, magische Schmied aus Cadomyr, sagt ich lüge! Bitte zeigt ihr diesen Goldnugget!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -668,7 +668,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Nachrichten Überbringen V"));
 talkEntry:addConsequence(npc.base.consequence.item.item(2785, 1, 999, {["descriptionEn"] = "This wand belongs to Elvaine Morgan.", ["descriptionDe"] = "Dieser Stab gehört Elvaine Morgan."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 13));
-talkEntry:addResponse("Ich hatte heute wirklich Glück. Ich habe den Stab von Elvaine Morgan gefunden.. Sicher vermisst er ihn schon. Geht und bringt ihm den Stab zurück.");
+talkEntry:addResponse("Ich hatte heute wirklich Glück. Ich habe den Stab von Elvaine Morgan gefunden. Sicher vermisst er ihn schon. Geht und bringt ihm den Stab zurück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -695,7 +695,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Nachrichten Überbringen V"));
 talkEntry:addConsequence(npc.base.consequence.item.item(2785, 1, 999, {["descriptionEn"] = "This wand belongs to Elvaine Morgan.", ["descriptionDe"] = "Dieser Stab gehört Elvaine Morgan."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 13));
-talkEntry:addResponse("Ich hatte heute wirklich Glück. Ich habe den Stab von Elvaine Morgan gefunden.. Sicher vermisst er ihn schon. Geht und bringt ihm den Stab zurück.");
+talkEntry:addResponse("Ich hatte heute wirklich Glück. Ich habe den Stab von Elvaine Morgan gefunden. Sicher vermisst er ihn schon. Geht und bringt ihm den Stab zurück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -870,7 +870,7 @@ talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
 talkEntry:addTrigger("erzähl mir was");
 talkEntry:addTrigger("erzählt mir was");
-talkEntry:addResponse("Wissst ihr, dasss es einen Unterschied zzzwischen Erz, Kohle und Gold?");
+talkEntry:addResponse("Wissst ihr, dass es einen Unterschied zwischen Erz, Kohle und Gold gibt?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -896,7 +896,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Er ist der Got des Handwerks und der Händler.");
+talkEntry:addResponse("Er ist der Gott des Handwerks und der Händler.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
