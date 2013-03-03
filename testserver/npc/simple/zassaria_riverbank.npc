@@ -134,7 +134,7 @@ queststatus(701) = 7, town = Runewick, "task", "adventure", "order" -> "Pleassse
 queststatus(701) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Zss Zss."
 
 -- 3rd quest solved, Talk to Neiran el Nyarale, reward robe (blue), 12 silver, + 5 rankpoints
-queststatus(701) = 8, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the quest. You are awarded 12 silver coins and a new robe in the colour of the ocean. You advance in Archmage Elvaine Morgan's favour."), money + 1200, item(193, 1, 333, "descriptionEn" = "This robe has the colour of the sea.", "descriptionDe" = "Diese Robe hat die Farbe des Meers."), queststatus(701) = 9, rankpoints + 5, "What? He saisss he threw them away? Zss! Zss! Firssst I ssshall thank you for assking Neiran el Nyarale. Zzzs. Take thisss as a present. Then I will talk to him! Zss... "
+queststatus(701) = 8, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the quest. You are awarded 12 silver coins and a new robe in the colour of the ocean. You advance in Archmage Elvaine Morgan's favour."), money + 1200, item(193, 1, 333, "descriptionEn" = "This robe has the colour of the sea.", "descriptionDe" = "Diese Robe hat die Farbe des Meers."), queststatus(701) = 9, rankpoints + 5, "What? He saysss he threw them away? Zss! Zss! Firssst I ssshall thank you for assking Neiran el Nyarale. Zzzs. Take thisss as a present. Then I will talk to him! Zss... "
 queststatus(701) = 8, town = Runewick, ".+" -> inform("[Quest gelößt] Du hast das Quest gelöst. Du wirst mit 12 Silbermünzen und eine neue Robe in der Farbe des Ozeans belohnt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 1200, item(193, 1, 333, "descriptionEn" = "This robe has the colour of the sea.", "descriptionDe" = "Diese Robe hat die Farbe des Meers."), queststatus(701) = 9, rankpoints + 5, "Wasss? Veggeworfen hat er sssie? Zss! Zss! Zzzuerssst will ich Euch danken, dassss Ihr mit Neiran el Nyarale spracht. Nehmt diesss alsss Gessschenk. Dann werde ich mir ihm ssssprechen! Zss..."
 
 -- 4th quest talk to Marinanne Forgeron
@@ -186,7 +186,7 @@ english, "quest", "mission" -> "I have no tasssk for people who do not belong to
 "beruf" -> "Ich arbeite alsss Fischerin. Esss macht Spaßsss. Zss."
 english, "job" -> "I work asss a fisssher. It'sss fun. Zss."
 "job" -> "Ich arbeite alsss Fischerin. Esss macht Spaßsss. Zss."
-"tell something" -> "Do you know there'sss a difference between Zsss, Tsss and Ssss?", "Usssually marriages between my people are arranged by the parentsss. Sss. Usually."
+"tell something" -> "Do you know there'sss a difference between Zsss, Tsss and Ssss?", "Usssually marriages between my people are arranged by the parentsss. Sss. Usssually."
 "erzähl was", "erzähl etwas", "erzähl mir was", "erzählt mir was" -> "Wissst ihr, dasss es einen Unterschied zzzwischen Zsss, Tss und Ssss?", "Normalerweisse werden Ehen in meinem Volk arrangiert. Ssss. Normalerweissse."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
