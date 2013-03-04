@@ -116,15 +116,10 @@ english, "job" -> "If you aquire any artifacts on your adventures, I will pay a 
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "artifact" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 english, "Artefakt" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Artefakt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Merinium" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Merinium" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Faction stuff
 "Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
