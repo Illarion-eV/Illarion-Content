@@ -181,8 +181,8 @@ state = 24, "weiter" -> state = 0, "...Bragon ist Gott der heiligen Flammen. Sei
 "tell something" -> state = 0, "Ask Grimlug to tell about the Creation', G'rak and H'ref, the Spirits, Shamans or the gods."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-english, "<NPC first name>", "<NPC last name>" -> "How, the shaman 's able to help you?", "Hurr! What's your desire?"
-"<NPC-Vorname>", "<NPC-Nachname>" -> "Wie kann dir der Schamane helfigen?", "Hurr! Was issigt dein Begehr?"
+english, "Grimlug" -> "How, the shaman 's able to help you?", "Hurr! What's your desire?"
+"Grimlug" -> "Wie kann dir der Schamane helfigen?", "Hurr! Was issigt dein Begehr?"
 "Yes" -> "So shall it beings.", "Well then...", "Good - Mes feel the spirits arround you are kin of happy."
 "Ja" -> "So es sein solle.", "Gut....", "Ich spüre die Geister um dich herum... sie heiter sind."
 "No" -> "Hrmpf. Maybes you change your mind, eh?", "Is that' so?", "I don't think so."

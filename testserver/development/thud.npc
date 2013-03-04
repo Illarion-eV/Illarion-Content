@@ -84,7 +84,7 @@ skill(distanceWeapons) => 40, queststatus(301) => 250, queststatus(301) =< 254, 
 -- skill(slashing weapons)>=40
 -- queststatus(301) 9- 13 - kleine belohnung +5 (12) ~ volle Flasche (517)
 -- queststatus(301)= 25-29 - kleine belohnung +5 (21) ~ 5x Lamm mit Beilage (559)
--- queststatus(301)= 50-54 mittel belohnung+5 (21) ~ Amethystkette (97)
+-- queststatus(301)= 50-54 mittel belohnung+5 (21) ~ Amethystkette (79)
 -- queststatus(301)= 75-79 mittel belohnung+5 (41) ~ Horn (333)
 -- queststatus(301)= 120-124 große belohnung+5 (41) ~ Legionästrumschild, graviert (2448)
 -- queststatus(301)= 165-169 große belohnung +5 (81) ~ Flammen-Helm (2286)
@@ -93,8 +93,8 @@ skill(slashingWeapons) => 40, queststatus(301) => 9, queststatus(301) =< 13, eng
 skill(slashingWeapons) => 40, queststatus(301) => 9, queststatus(301) =< 13, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(517, 1, 333), queststatus(301) + 5
 skill(slashingWeapons) => 40, queststatus(301) => 25, queststatus(301) =< 29, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(559, 5, 333), queststatus(301) + 5
 skill(slashingWeapons) => 40, queststatus(301) => 25, queststatus(301) =< 29, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(559, 5, 333), queststatus(301) + 5
-skill(slashingWeapons) => 40, queststatus(301) => 50, queststatus(301) =< 54, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(97, 1, 999), queststatus(301) + 5
-skill(slashingWeapons) => 40, queststatus(301) => 50, queststatus(301) =< 54, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(97, 1, 999), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 50, queststatus(301) =< 54, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(79, 1, 999), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 50, queststatus(301) =< 54, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(79, 1, 999), queststatus(301) + 5
 skill(slashingWeapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(333, 1, 999), queststatus(301) + 5
 skill(slashingWeapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(333, 1, 999), queststatus(301) + 5
 skill(slashingWeapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2448, 1, 999, "gravur" = "thud"), queststatus(301) + 5
