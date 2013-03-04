@@ -620,7 +620,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("IRMOROM! Der vater des Zwergenvolkes. Auf ewig wird mein Volk an ihn gebunden sein, und das erfüllt unser Herz mit Freude und Stolz. Er ist wahrlich der prächtigste und uns Zwergen in so vielfältiger Weise ähnlich.");
+talkEntry:addResponse("IRMOROM! Der Vater des Zwergenvolkes. Auf ewig wird mein Volk an ihn gebunden sein, und das erfüllt unser Herz mit Freude und Stolz. Er ist wahrlich der Prächtigste und uns Zwergen in so vielfältiger Weise ähnlich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -737,7 +737,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(65.0));
+talkEntry:addCondition(npc.base.condition.chance.chance(80.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("#me nods slowly. 'Aha..?'");
 talkEntry:addResponse("#me slowly shakes his head. 'Hmpf.'");
@@ -756,7 +756,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(65.0));
+talkEntry:addCondition(npc.base.condition.chance.chance(80.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("#me nickt langsam. 'Aha..?'");
 talkEntry:addResponse("#me legt den Kopf schief. 'Hmpf.'");
