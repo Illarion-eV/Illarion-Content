@@ -383,7 +383,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("regel");
 talkEntry:addTrigger("Gesetz");
-talkEntry:addResponse("Regel eins, es werden keine Fragen gestellt. Regel zwei, werden keine Fragen gestellt. Regel drei, Half-hung Bryan vermietet Zimmer an wen und wie er will. Regel vier, Half-hung Bryan tut was Half-hung Bryan tut.");
+talkEntry:addResponse("Regel eins, es werden keine Fragen gestellt. Regel zwei, es werden keine Fragen gestellt. Regel drei, Half-hung Bryan vermietet Zimmer an wen und wie er will. Regel vier, Half-hung Bryan tut was Half-hung Bryan tut.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
