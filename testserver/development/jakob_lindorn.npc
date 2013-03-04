@@ -47,7 +47,7 @@ itemShoes = 679
 -- Help
 "Help" -> inform("[Game Help] This NPC is Jakob Lindorn the helper. Keywords: quest, craft, market, workshop, Frizza, food, fighting, Cadomyr")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Jakob Lindorn der Helfer. Schlüsselwörter: Quest, Handwerke, Markt, Werkstatt, Frizza, Essen, Kämpfen, Cadomyr")
-queststatus(703) = 0, english, ".+" -> queststatus(703) = 1, "Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop."
+queststatus(703) = 0, english, ".+" -> queststatus(703) = 1, "Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop."
 queststatus(703) = 0, ".+" -> queststatus(703) = 1, "Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum."
 
 -- General speech
@@ -87,14 +87,10 @@ english, "craft" -> "You want to know more about the crafts of Cadomyr? Well the
 german, "hand" -> "Ihr wollt mehr über die Handwerke in Cadomyr wissen? Dann besucht Berri Firegold, Gerry Deloid, Lilli Gallfing oder Zlatxhol, sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt sie alle in der Werkstatt im Norden der Stadt finden."
 
 -- Quests
-queststatus(703) = 1, queststatus(704) = 0, english, "quest", "mission" -> "Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop."
-queststatus(703) = 1, queststatus(704) = 0, "quest", "mission" -> "Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum."
-queststatus(703) = 1, queststatus(704) = 0, "task", "adventure", "order" -> "Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop."
-queststatus(703) = 1, queststatus(704) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum."
-queststatus(703) = 1, queststatus(704) > 0, english, "quest", "mission" -> queststatus(703) = 2, "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
-queststatus(703) = 1, queststatus(704) > 0, "quest", "mission" -> queststatus(703) = 2, "Ich nehme an, Ihr habt meinem Freundin Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
-queststatus(703) = 1, queststatus(704) > 0, "task", "adventure", "order" -> queststatus(703) = 2, "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
-queststatus(703) = 1, queststatus(704) > 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 2, "Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
+queststatus(703) = 1, english, "quest", "mission" -> queststatus(703) = 2, "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
+queststatus(703) = 1, "quest", "mission" -> queststatus(703) = 2, "Ich nehme an, Ihr habt meinem Freundin Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
+queststatus(703) = 1, "task", "adventure", "order" -> queststatus(703) = 2, "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
+queststatus(703) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 2, "Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
 queststatus(703) = 2, queststatus(78) = 0, english, "quest", "mission" -> "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
 queststatus(703) = 2, queststatus(78) = 0, "quest", "mission" -> "Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
 queststatus(703) = 2, queststatus(78) = 0, "task", "adventure", "order" -> "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
@@ -158,6 +154,6 @@ german, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Frizza 
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Willkommen in Cadomyr!", "Welcome to Cadomyr!"
-cycletext "Wenn ihr Hilfe benötigt, sprecht mich einfach an.", "If you need help, just speak to me."
+cycletext "Wenn Ihr Hilfe benötigt, sprecht mich einfach an.", "If you need help, just speak to me."
 cycletext "Ich kann Euch sagen, wer in diesem Reich eure Hilfe benötigt.", "I can tell you who in this realm needs your help."
 cycletext "Wenn Ihr neu hier seid, bin ich Euer Mann.", "If you're new to this realm, I'm your man."
