@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -512,7 +512,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
 talkEntry:addConsequence(npc.base.consequence.item.item(193, 1, 333, {["descriptionEn"] = "This robe has the colour of the sea.", ["descriptionDe"] = "Diese Robe hat die Farbe des Meers."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 9));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("What? He saisss he threw them away? Zss! Zss! Firssst I ssshall thank you for assking Neiran el Nyarale. Zzzs. Take thisss as a present. Then I will talk to him! Zss... ");
+talkEntry:addResponse("What? He saysss he threw them away? Zss! Zss! Firssst I ssshall thank you for assking Neiran el Nyarale. Zzzs. Take thisss as a present. Then I will talk to him! Zss... ");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -864,7 +864,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("Do you know there'sss a difference between Zsss, Tsss and Ssss?");
-talkEntry:addResponse("Usssually marriages between my people are arranged by the parentsss. Sss. Usually.");
+talkEntry:addResponse("Usssually marriages between my people are arranged by the parentsss. Sss. Usssually.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

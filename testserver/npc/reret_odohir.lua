@@ -797,7 +797,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
-talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
+talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them fifteen desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -820,7 +820,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
-talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
+talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them fifteen desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1257,15 +1257,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("Nein? Das ist schade.");
-talkEntry:addResponse("Nein? Nun, Ihr werde Eure Gründe für diese Antwort haben.");
+talkEntry:addResponse("No? That's sad.");
+talkEntry:addResponse("No? Well, you'll have a reason for saying so.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("No? That's sad.");
-talkEntry:addResponse("No? Well, you'll have a reason for saying so.");
+talkEntry:addResponse("Nein? Das ist schade.");
+talkEntry:addResponse("Nein? Nun, Ihr werde Eure Gründe für diese Antwort haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me unterzeichnet ein Dokument.", "#me signs a document.");

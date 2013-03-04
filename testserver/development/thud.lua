@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                       easyNPC Parser v1.21 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -51,9 +51,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 9));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(1319, 5, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -63,9 +63,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 9));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 13));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(1319, 5, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -75,9 +75,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 25));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 29));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(333, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -87,9 +87,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 25));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 29));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(333, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -99,9 +99,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 50));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 54));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(62, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -111,9 +111,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 50));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 54));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(62, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -123,9 +123,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 75));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 79));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2445, 1, 999, {["gravur"] = "thud"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -135,9 +135,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 75));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 79));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2445, 1, 999, {["gravur"] = "thud"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -147,9 +147,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 120));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 124));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(364, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -159,9 +159,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 120));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 124));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(364, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -171,9 +171,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 165));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 169));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(322, 50, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -183,9 +183,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 165));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 169));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(322, 50, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -195,9 +195,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 250));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 254));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2780, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "=", 1));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -207,9 +207,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 250));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 254));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2780, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "=", 1));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -219,9 +219,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 9));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(517, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -231,9 +231,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 9));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 13));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(517, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -243,9 +243,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 25));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 29));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(559, 5, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -255,9 +255,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 25));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 29));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(559, 5, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -267,9 +267,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 50));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 54));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
-talkEntry:addConsequence(npc.base.consequence.item.item(97, 1, 999, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(79, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -279,9 +279,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 50));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 54));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
-talkEntry:addConsequence(npc.base.consequence.item.item(97, 1, 999, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(79, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -291,9 +291,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 75));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 79));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(333, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -303,9 +303,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 75));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 79));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(333, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -315,9 +315,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 120));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 124));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2448, 1, 999, {["gravur"] = "thud"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -327,9 +327,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 120));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 124));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2448, 1, 999, {["gravur"] = "thud"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -339,9 +339,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 165));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 169));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2286, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -351,9 +351,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 165));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 169));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2286, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -363,9 +363,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 250));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 254));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2627, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "=", 1));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,9 +375,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 250));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 254));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2627, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "=", 1));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -386,9 +386,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 9));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2664, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -397,9 +397,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 9));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 13));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2664, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -408,9 +408,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 25));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 29));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(559, 5, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -419,9 +419,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 25));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 29));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(559, 5, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -430,9 +430,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 50));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 54));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(333, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -441,9 +441,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 50));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 54));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(333, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -452,9 +452,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 75));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 79));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -463,9 +463,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 75));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 79));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -474,9 +474,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 120));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 124));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(39, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -485,9 +485,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 120));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 124));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(39, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -496,9 +496,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 165));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 169));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(95, 1, 999, {["gravur"] = "thud"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -507,9 +507,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 165));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 169));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(95, 1, 999, {["gravur"] = "thud"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -518,9 +518,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 250));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 254));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2742, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "=", 1));
+talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -529,9 +529,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 250));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 254));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2742, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "=", 1));
+talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -539,8 +539,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(333, "belt", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("#me peeks at your belt: 'Wanna give Thud your horn?'");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -548,8 +548,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(333, "belt", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben Horn, das?'");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -557,26 +557,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(333, "belt", "=>", 1, nil));
 talkEntry:addTrigger("Ja");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(333, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 2));
 talkEntry:addResponse("Dancke für Horn, das!");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(333, 1, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("So'n Mist!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("So'n Mist!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("Ich nix dumm! Du nix hast.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Ich nix dumm! Du nix hast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -584,26 +584,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(333, "belt", "=>", 1, nil));
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Thanks for tha horn!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(333, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 2));
+talkEntry:addResponse("Thanks for tha horn!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addTrigger("No");
-talkEntry:addResponse("What a bummer!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("What a bummer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Me no fool. You don't have one!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Me no fool. You don't have one!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -611,8 +611,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(2586, "belt", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
 talkEntry:addResponse("#me peeks at your belt: 'Wanna give Thud your fur?'");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -620,8 +620,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(2586, "belt", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
 talkEntry:addResponse("#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben die Felle?'");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,26 +629,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2586, "belt", "=>", 1, nil));
 talkEntry:addTrigger("Ja");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2586, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 1));
 talkEntry:addResponse("Dancke für die Felle!");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2586, 1, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("So'n Mist!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("So'n Mist!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("Ich nix dumm! Du nix hast.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Ich nix dumm! Du nix hast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -656,26 +656,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2586, "belt", "=>", 1, nil));
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Thanks for tha fur!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2586, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 1));
+talkEntry:addResponse("Thanks for tha fur!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
 talkEntry:addTrigger("No");
-talkEntry:addResponse("What a bummer!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("What a bummer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Me no fool. You don't have one!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Me no fool. You don't have one!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -683,8 +683,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(2291, "belt", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
 talkEntry:addResponse("#me peeks at your belt: 'Wanna give Thud your salkish paladin helmet?'");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -692,8 +692,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(2291, "belt", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
 talkEntry:addResponse("#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein salkamarischer Paladinhelm?'");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -701,26 +701,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2291, "belt", "=>", 1, nil));
 talkEntry:addTrigger("Ja");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2291, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 2));
 talkEntry:addResponse("Dancke für den Helm!");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2291, 1, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 3));
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("So'n Mist!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("So'n Mist!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 3));
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("Ich nix dumm! Du nix hast.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Ich nix dumm! Du nix hast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -728,26 +728,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2291, "belt", "=>", 1, nil));
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Thanks for tha helmet!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2291, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 2));
+talkEntry:addResponse("Thanks for tha helmet!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 3));
 talkEntry:addTrigger("No");
-talkEntry:addResponse("What a bummer!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("What a bummer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 3));
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Me no fool. You don't have one!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Me no fool. You don't have one!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -755,8 +755,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(190, "belt", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 4));
 talkEntry:addResponse("#me peeks at your belt: 'Wanna give Thud your ornate dagger?'");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -764,8 +764,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(190, "belt", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 4));
 talkEntry:addResponse("#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein verzierhrte Dolch?'");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -773,26 +773,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 4));
 talkEntry:addCondition(npc.base.condition.item.item(190, "belt", "=>", 1, nil));
 talkEntry:addTrigger("Ja");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(190, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 1));
 talkEntry:addResponse("Dancke für den Dolch!");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(190, 1, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 4));
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("So'n Mist!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("So'n Mist!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 4));
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("Ich nix dumm! Du nix hast.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Ich nix dumm! Du nix hast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -800,26 +800,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 4));
 talkEntry:addCondition(npc.base.condition.item.item(190, "belt", "=>", 1, nil));
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Thanks for tha dagger!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(190, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 1));
+talkEntry:addResponse("Thanks for tha dagger!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 4));
 talkEntry:addTrigger("No");
-talkEntry:addResponse("What a bummer!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("What a bummer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 4));
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Me no fool. You don't have one!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Me no fool. You don't have one!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -827,8 +827,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(2660, "belt", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 5));
 talkEntry:addResponse("#me peeks at your belt: 'Wanna give Thud your dwarven axe?'");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -836,8 +836,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(2660, "belt", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein Zwergenaxt?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 5));
+talkEntry:addResponse("#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein Zwergenaxt?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -845,26 +845,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2660, "belt", "=>", 1, nil));
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("Dancke für d'Axt!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2660, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 3));
+talkEntry:addResponse("Dancke für d'Axt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 5));
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("So'n Mist!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("So'n Mist!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 5));
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("Ich nix dumm! Du nix hast.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Ich nix dumm! Du nix hast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -872,26 +872,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2660, "belt", "=>", 1, nil));
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Thanks for tha axe!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2660, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 3));
+talkEntry:addResponse("Thanks for tha axe!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 5));
 talkEntry:addTrigger("No");
-talkEntry:addResponse("What a bummer!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("What a bummer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 5));
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Me no fool. You don't have one!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Me no fool. You don't have one!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -899,8 +899,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(2718, "belt", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("#me peeks at your belt: 'Wanna give Thud your elven composite longbow?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
+talkEntry:addResponse("#me peeks at your belt: 'Wanna give Thud your elven composite longbow?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -908,8 +908,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(2718, "belt", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein Elben-Kompositlangbogen?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
+talkEntry:addResponse("#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein Elben-Kompositlangbogen?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -917,26 +917,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 6));
 talkEntry:addCondition(npc.base.condition.item.item(2718, "belt", "=>", 1, nil));
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("Dancke für d'Bogen!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2718, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 3));
+talkEntry:addResponse("Dancke für d'Bogen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 6));
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("So'n Mist!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("So'n Mist!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 6));
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("Ich nix dumm! Du nix hast.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Ich nix dumm! Du nix hast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -944,26 +944,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 6));
 talkEntry:addCondition(npc.base.condition.item.item(2718, "belt", "=>", 1, nil));
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Thanks for tha bow!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2718, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 3));
+talkEntry:addResponse("Thanks for tha bow!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 6));
 talkEntry:addTrigger("No");
-talkEntry:addResponse("What a bummer!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("What a bummer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 6));
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Me no fool. You don't have one!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Me no fool. You don't have one!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1549,7 +1549,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
