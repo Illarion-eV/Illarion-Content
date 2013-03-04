@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -44,7 +44,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 1));
-talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop.");
+talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -303,47 +303,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("order");
-talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -354,7 +313,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
@@ -364,7 +322,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -375,7 +332,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
-talkEntry:addCondition(npc.base.condition.quest.quest(704, ">", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -943,7 +899,7 @@ talkEntry:addResponse("Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht F
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Willkommen in Cadomyr!", "Welcome to Cadomyr!");
-talkingNPC:addCycleText("Wenn ihr Hilfe benötigt, sprecht mich einfach an.", "If you need help, just speak to me.");
+talkingNPC:addCycleText("Wenn Ihr Hilfe benötigt, sprecht mich einfach an.", "If you need help, just speak to me.");
 talkingNPC:addCycleText("Ich kann Euch sagen, wer in diesem Reich eure Hilfe benötigt.", "I can tell you who in this realm needs your help.");
 talkingNPC:addCycleText("Wenn Ihr neu hier seid, bin ich Euer Mann.", "If you're new to this realm, I'm your man.");
 mainNPC:addLanguage(0);
