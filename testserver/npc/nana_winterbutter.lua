@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
 --           Magdha Tiefenerz                                                 --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -209,6 +209,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale I"));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
@@ -220,6 +222,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal I"));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));

@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -126,7 +126,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
-talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addResponse("Aye, you may pass matey!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -145,7 +145,7 @@ talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
-talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addResponse("Aye, you may pass matey!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -188,7 +188,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
-talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addResponse("Aye, you may pass matey!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -207,7 +207,7 @@ talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
-talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addResponse("Aye, you may pass matey!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -250,7 +250,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
-talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addResponse("Aye, you may pass matey!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -269,7 +269,7 @@ talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
-talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addResponse("Aye, you may pass matey!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -312,7 +312,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
-talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addResponse("Aye, you may pass matey!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -331,7 +331,7 @@ talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
-talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addResponse("Aye, you may pass matey!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -374,7 +374,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
-talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addResponse("Aye, you may pass matey!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -393,7 +393,7 @@ talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
-talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addResponse("Aye, you may pass matey!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -477,12 +477,12 @@ talkEntry:addTrigger("hail");
 talkEntry:addTrigger("hello");
 talkEntry:addTrigger("Be greeted");
 talkEntry:addTrigger("Good morning");
-talkEntry:addResponse("Hey land lubber !");
+talkEntry:addResponse("Hey landlubber !");
 talkEntry:addResponse("Aye.");
 talkEntry:addResponse("Always fair winds and following seas, Jack.");
-talkEntry:addResponse("Arr! Whats new?");
-talkEntry:addResponse("Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?");
-talkEntry:addResponse("Ahoy, me Hearties!");
+talkEntry:addResponse("Arr! What's new?");
+talkEntry:addResponse("Oi me matey! Ya wouldn' happen to 'ave a bottle o' rum on ya would ye?");
+talkEntry:addResponse("Ahoy, me hearties!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -493,12 +493,12 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
-talkEntry:addResponse("Hey land lubber!");
+talkEntry:addResponse("Hey landlubber!");
 talkEntry:addResponse("Aye.");
 talkEntry:addResponse("Always fair winds and following seas, Jack.");
-talkEntry:addResponse("Arr! Whats new?");
-talkEntry:addResponse("Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?");
-talkEntry:addResponse("Ahoy, me Hearties!");
+talkEntry:addResponse("Arr! What's new?");
+talkEntry:addResponse("Oi me matey! Ya wouldn' happen to 'ave a bottle o' rum on ya would ye?");
+talkEntry:addResponse("Ahoy, me hearties!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -618,7 +618,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tobis");
 talkEntry:addTrigger("Vunu");
-talkEntry:addResponse("Aye Tobis Vunu is my matee! Arr.");
+talkEntry:addResponse("Aye Tobis Vunu is my matey! Arr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -632,7 +632,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Piero");
-talkEntry:addResponse("I never saw such a land lubber.. He's Corporal of Cadomyr and has been trying to bash the pirate bay for years. Har-har.");
+talkEntry:addResponse("I never saw such a landlubber.. He's Corporal of Cadomyr and has been trying to bash the pirate bay for years. Har-har.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -640,7 +640,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("murgo");
 talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
-talkEntry:addResponse("Not even Murgo's here to save you land lubber! Get out!");
+talkEntry:addResponse("Not even Murgo's here to save you now landlubber! Get out!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -658,7 +658,7 @@ talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
-talkEntry:addResponse("Are you bull headed or what? I told you to leave!");
+talkEntry:addResponse("Are you thickheaded or what? I told you to leave!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -745,7 +745,7 @@ talkEntry:addResponse("Hör zu... ich will nicht mit dir sprechen. Verschwinde hi
 talkEntry:addResponse("Ich sags nicht nochmal. VERSCHWINDE!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Aye. Wassimma.", "Aye. Whatevva.");
+talkingNPC:addCycleText("Aye. Wassimma.", "Aye. Whatever.");
 talkingNPC:addCycleText("#me lässt die seine Figner knacken.", "#me cracks his knuckles.");
 talkingNPC:addCycleText("#me glotzt stur gerade aus, wie ein Stier.", "#me stares stubbornly straight ahead.");
 talkingNPC:addCycleText("#me knirscht mit den Zähnen.", "#me gnashes his teeth");

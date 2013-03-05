@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.zlatxhol", package.seeall)
+module("npc.zlatxhol", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -232,7 +232,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 1));
-talkEntry:addResponse("Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol 30 clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you old sshovel of hiss for digging clay.");
+talkEntry:addResponse("Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol thirty clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you old sshovel of hiss for digging clay.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -255,7 +255,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 1));
-talkEntry:addResponse("Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol 30 clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you old sshovel of hiss for digging clay.");
+talkEntry:addResponse("Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol thirty clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you old sshovel of hiss for digging clay.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -326,7 +326,7 @@ talkEntry:addCondition(npc.base.condition.item.item(26, "all", "<", 30, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Zsss, Zlatxhol wantsss 30 clumps of clay, that not enough clayssz. Come back when you have finished the taskz!");
+talkEntry:addResponse("Zsss, Zlatxhol wantsss thirty clumps of clay, that not enough clayssz. Come back when you have finished the taskz!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -347,7 +347,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(734, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 3));
-talkEntry:addResponse("Now we make brickss with clayss. You go to oven next to me and makes 15 bricksss. First you make unfired bricksess, and then froms the unfired ones you make fired bricks! Here, me givesss you an old brickssz mould of mines.");
+talkEntry:addResponse("Now we make brickss with clayss. You go to oven next to me and makes fifteen bricksss. First you make unfired bricksess, and then froms the unfired ones you make fired bricks! Here, me givesss you an old brickssz mould of mines.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -370,7 +370,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(734, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 3));
-talkEntry:addResponse("Now we make brickss with clayss. You go to oven next to me and makes 15 bricksss. First you make unfired bricksess, and then froms the unfired ones you make fired bricks! Here, me givesss you an old brickssz mould of mines.");
+talkEntry:addResponse("Now we make brickss with clayss. You go to oven next to me and makes fifteen bricksss. First you make unfired bricksess, and then froms the unfired ones you make fired bricks! Here, me givesss you an old brickssz mould of mines.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -445,7 +445,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2588, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You not finished! I want 15 bricksss, come backsss when you have finished.");
+talkEntry:addResponse("You not finished! I want fifteen bricksss, come backsss when you have finished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
