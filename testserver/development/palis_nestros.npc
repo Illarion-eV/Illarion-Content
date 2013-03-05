@@ -103,10 +103,10 @@ rank > 6, town = Cadomyr, "sell", "buy", "wares", "price", "trade", "purchase" -
 rank > 6, town = Cadomyr, "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich handel nicht mit Auswärtigen. Meine Waren sind für die Edelleute Cadomyrs bestimmt."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-english, "quest", "mission" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "quest", "mission" -> "I do not issue any quests."
+"quest", "mission" -> "Ich vergebe keine Aufträge."
+"task", "adventure", "order" -> "I do not issue any quests."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufträge."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "If you aquire any artifacts on your adventures, I will pay a nice sum for them."
