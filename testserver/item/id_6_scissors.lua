@@ -52,8 +52,7 @@ function UseItemWoolCutting( User, SourceItem, ltstate, Sheep )
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 
@@ -86,8 +85,7 @@ function UseItemWoolCutting( User, SourceItem, ltstate, Sheep )
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User,SourceItem);
 		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt ein Schaf zu scheren.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to shear a sheep."); 
+		User:talk(Character.say, "#me beginnt ein Schaf zu scheren.", "#me starts to shear a sheep.")
 		-- make sure the sheep doesn't move away
 		Sheep.movepoints = math.min(Sheep.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
 		return;
@@ -135,8 +133,7 @@ function UseItemEntrailsCutting( User, SourceItem, ltstate )
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 
@@ -167,8 +164,7 @@ function UseItemEntrailsCutting( User, SourceItem, ltstate )
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		entrailscutting.SavedWorkTime[User.id] = entrailscutting:GenWorkTime(User,SourceItem);
 		User:startAction( entrailscutting.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt Eingeweide zu zerschneiden.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to cut entrails."); 
+		User:talk(Character.say, "#me beginnt Eingeweide zu zerschneiden.", "#me starts to cut entrails.")
 		return
 	end
 

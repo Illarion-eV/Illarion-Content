@@ -404,8 +404,7 @@ function UseItem(User, SourceItem, ltstate)
       gText = "ihre";
       eText = "her";
     end
-    User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-    User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+    User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
     return
   end
 
@@ -454,8 +453,7 @@ function UseItem(User, SourceItem, ltstate)
   if ( ltstate == Action.none ) then -- currently not working -> let's go
     mining.SavedWorkTime[User.id] = mining:GenWorkTime(User,SourceItem);
     User:startAction( mining.SavedWorkTime[User.id], 0, 0, 0, 0);
-    User:talkLanguage( Character.say, Player.german, "#me beginnt mit einer Spitzhacke auf den Stein zu schlagen.");
-    User:talkLanguage( Character.say, Player.english, "#me starts to hit the stone with a pick-axe."); 
+    User:talk(Character.say, "#me beginnt mit einer Spitzhacke auf den Stein zu schlagen.", "#me starts to hit the stone with a pick-axe.")
 	User:performAnimation(14);
     return
   end

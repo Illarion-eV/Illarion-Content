@@ -90,8 +90,7 @@ function DrinkPotion(User,SourceItem)
 		if foundEffect then
 			base.common.InformNLS(User, "Sofort steigt Hitze und Erbrochenes in dir auf.", 
 			"Immediately, your body heats up and and some stomach contents comes up.")
-			User:talkLanguage(Character.say, Player.german, "#me übergibt sich und spuckt dabei einen großen Feuerball aus.");
-			User:talkLanguage(Character.say, Player.english, "#me throws up and pukes out a big fireball.");
+			User:talk(Character.say, "#me übergibt sich und spuckt dabei einen großen Feuerball aus.", "#me throws up and pukes out a big fireball.")
 			local frontPos = base.common.GetFrontPosition(User)
 			world:makeSound(5,frontPos)
 		    world:gfx(9,frontPos)

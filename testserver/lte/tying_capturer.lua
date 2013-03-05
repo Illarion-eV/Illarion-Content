@@ -64,8 +64,7 @@ function callEffect( Tying, Capturer )
 					local Quality = math.min(1200,120+math.random(55,65)*AttribOffset);
 					Rope.quality = (Quality*2)+100; -- *2 -> nextCalled = 5. Duration min=2minutes max=20minutes
 				elseif Rope.quality == 100 then -- break rope
-					Capturer:talkLanguage(Character.say,Player.german,"#mes Seil zerreiﬂt, es wurde wohl zu lange belastet.");
-					Capturer:talkLanguage(Character.say,Player.english,"#me's rope is torn, it has been used for too long apparently.");
+					Capturer:talk(Character.say, "#mes Seil zerreiﬂt, es wurde wohl zu lange belastet.", "#me's rope is torn, it has been used for too long apparently.")
 					world:erase(Rope,1);
 					return false;
 				else

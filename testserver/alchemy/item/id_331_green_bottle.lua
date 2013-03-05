@@ -60,8 +60,7 @@ function DrinkIt(User, SourceItem)
     if User.attackmode then
 		base.common.InformNLS(User, "Du kannst nichts trinken, während du kämpfst.", "You cannot drink while fighting.", Player.lowPriority)
 	else
-		User:talkLanguage(Character.say, Player.german, "#me trinkt eine grüne Flüssigkeit.")
-		User:talkLanguage(Character.say, Player.english, "#me drinks a green liquid.")
+		User:talk(Character.say, "#me trinkt eine grüne Flüssigkeit.", "#me drinks a green liquid.")
 		base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", "You don't have the feeling that something happens.")
 		User.movepoints=User.movepoints - 20
 	end

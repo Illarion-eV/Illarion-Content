@@ -36,8 +36,7 @@ function RandomStart(thisNPC)
 	local rand=math.random(table.getn(PossiblePositions));
 
 	thisNPC:warp(PossiblePositions[rand]);
-	thisNPC:talkLanguage(Character.say, Player.german, "Nargun sei gepriesen, da bin ich!");
-	thisNPC:talkLanguage(Character.say, Player.english, "Praise Nargun, here I am!");
+	thisNPC:talk(Character.say, "Nargun sei gepriesen, da bin ich!", "Praise Nargun, here I am!")
 
 end
 
@@ -1225,8 +1224,7 @@ function nextCycle()
 		if i==10 then
 			gText="#me streckt seine Arme nach links und rechts aus so weit er kann.";
 			eText="#me widens his arms as much as he can.";
-			thisNPC:talkLanguage(Character.say,Player.german,gText);
-			thisNPC:talkLanguage(Character.say,Player.english,eText);
+			thisNPC:talk(Character.say, gText, eText)
 		elseif i==40 then
 		  	gText="Ich hab mal einen Fisch gefangen, der war SO GROß!"	
 			eText="Once I cought a fish THIS BIG!"

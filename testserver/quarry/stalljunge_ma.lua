@@ -100,8 +100,7 @@ end
 
 function SayPrice(message, originator)
     if (string.find(message,"koste")~=nil) or (string.find(message,"costs")~=nil) then
-        thisNPC:talkLanguage( Character.say, Player.german, "Wenn ich euch einen Golem beschwören soll kostet das "..PreisProKuh.." Kupferstücke. Außerdem müsst ihr "..(Kaution/100).." Silberstücke als Kaution hinterlegen die ihr aber wieder bekommt, wenn ihr mir den Golem in einem Stück zurück bringt.");
-        thisNPC:talkLanguage( Character.say, Player.english, "When I should summon a golem for you it costs "..PreisProKuh.." coppercoins. Furthermore you have to pay "..(Kaution/100).." silvercoins as surety, but you get these coins back in case you bring the golem back to me in one piece.");
+        thisNPC:talk(Character.say, "Wenn ich euch einen Golem beschwören soll kostet das "..PreisProKuh.." Kupferstücke. Außerdem müsst ihr "..(Kaution/100).." Silberstücke als Kaution hinterlegen die ihr aber wieder bekommt, wenn ihr mir den Golem in einem Stück zurück bringt.", "When I should summon a golem for you it costs "..PreisProKuh.." coppercoins. Furthermore you have to pay "..(Kaution/100).." silvercoins as surety, but you get these coins back in case you bring the golem back to me in one piece.")
         return true
     end
     return false
@@ -143,14 +142,12 @@ function GetCow(message, originator)
             GCoins,SCoins,CCoins = CalcSilverCopper(PreisProKuh + Kaution);
             if CheckMoney(originator,GCoins,SCoins,CCoins) then
                 if false then
-                    thisNPC:talkLanguage( Character.say, Player.german, "Ich darf dir im Augenblick keinen Golem beschwören." );
-                    thisNPC:talkLanguage( Character.say, Player.english,"I'm not allowed to summon a golem for you currently, sorry." );
+                    thisNPC:talk(Character.say, "Ich darf dir im Augenblick keinen Golem beschwören." , "I'm not allowed to summon a golem for you currently, sorry." )
                     return true;
                 end
                 posOfCow = createCow(originator);
                 if not posOfCow then
-                    thisNPC:talkLanguage( Character.say, Player.german, "Ich kann momentan nicht noch einen Golem beschwören." );
-                    thisNPC:talkLanguage( Character.say, Player.english,"I'm not able to summan another golem yet. Please come back later." );
+                    thisNPC:talk(Character.say, "Ich kann momentan nicht noch einen Golem beschwören." , "I'm not able to summan another golem yet. Please come back later." )
                     return true
                 else
                     Transporter = world:getCharacterOnField(posOfCow);
@@ -159,10 +156,8 @@ function GetCow(message, originator)
                     Transporter.effects:addEffect(transport_effect);
                     
                     Pay(originator,GCoins,SCoins,CCoins);
-                    thisNPC:talkLanguage( Character.say, Player.german, "Hier habt ihr einen Golem. Bringt ihn heile wieder dann bekommt ihr die "..(Kaution/100).." Silberstücke Kaution wieder.");
-                    thisNPC:talkLanguage( Character.say, Player.english, "There you have a golem. Bring it back safely then you get your "..(Kaution/100).." silvercoins surety back.");
-                    thisNPC:talkLanguage( Character.say, Player.german, "Wenn du \"bleib stehen\" sagst, bleibt der Golem stehen und du kannst ihn be- und entladen. Sagst du \"weiter\" folgt er dir wieder. Pass auf dass er dich nicht aus den Augen verliert." );
-                    thisNPC:talkLanguage( Character.say, Player.english, "If you say \"stay\", the golem will stay where it is and you can give your things to the golem or take your things from him. If you say \"follow me\" the golem follows you again. Make sure you do not lose the golem." );
+                    thisNPC:talk(Character.say, "Hier habt ihr einen Golem. Bringt ihn heile wieder dann bekommt ihr die "..(Kaution/100).." Silberstücke Kaution wieder.", "There you have a golem. Bring it back safely then you get your "..(Kaution/100).." silvercoins surety back.")
+                    thisNPC:talk(Character.say, "Wenn du \"bleib stehen\" sagst, bleibt der Golem stehen und du kannst ihn be- und entladen. Sagst du \"weiter\" folgt er dir wieder. Pass auf dass er dich nicht aus den Augen verliert." , "If you say \"stay\", the golem will stay where it is and you can give your things to the golem or take your things from him. If you say \"follow me\" the golem follows you again. Make sure you do not lose the golem." )
                     originator:setQuestProgress(8,1);
                     
                     Depot = originator:getDepot( originator.id );    
@@ -171,20 +166,17 @@ function GetCow(message, originator)
                     
                 end
             else
-                thisNPC:talkLanguage( Character.say, Player.german, "Du hast nicht genug Geld. Ein Golem kostet "..PreisProKuh.." Kupferstücke und "..(Kaution/100).." Silberstücke müsst ihr als Kaution hinterlegen." );
-                thisNPC:talkLanguage( Character.say, Player.english,"You don't have enough money. A golem costs "..PreisProKuh.." coppercoins and you have to pay "..(Kaution/100).." silvercoins as surety." );
+                thisNPC:talk(Character.say, "Du hast nicht genug Geld. Ein Golem kostet "..PreisProKuh.." Kupferstücke und "..(Kaution/100).." Silberstücke müsst ihr als Kaution hinterlegen." , "You don't have enough money. A golem costs "..PreisProKuh.." coppercoins and you have to pay "..(Kaution/100).." silvercoins as surety." )
             end
             return true
         else
-            thisNPC:talkLanguage( Character.say, Player.german, "Du kontrollierst schon einen Golem. Mehr als einer geht nicht." );
-            thisNPC:talkLanguage( Character.say, Player.english, "You allready control a golem. More then one is not possible." );
+            thisNPC:talk(Character.say, "Du kontrollierst schon einen Golem. Mehr als einer geht nicht." , "You allready control a golem. More then one is not possible." )
         end
         return true
     elseif ((string.find(message,"golem.+kaufen")~=nil) and not (string.find(message,"golem.+verkaufen")~=nil))
     or ((string.find(message,"kaufe.+golem")~=nil) and not (string.find(message,"verkaufe.+golem")~=nil))
     or (string.find(message,"buy.+golem"   )~=nil) then
-            thisNPC:talkLanguage( Character.say, Player.german, "Ich verkaufe keine Golem. Ich beschwöre sie höchstens zum verleih." );
-            thisNPC:talkLanguage( Character.say, Player.english, "I don't sell golem. I just summon them to borrow." );
+            thisNPC:talk(Character.say, "Ich verkaufe keine Golem. Ich beschwöre sie höchstens zum verleih." , "I don't sell golem. I just summon them to borrow." )
     end
     return false
 end
@@ -197,8 +189,7 @@ function returnCow(message, originator)
     or (string.find(message,"sell.+golem")~=nil)
     or (string.find(message,"return.+golem")~=nil) then
         if (originator:getQuestProgress(8) == 0) then
-            thisNPC:talkLanguage( Character.say, Player.german, "Du hast gar keinen Golem." );
-            thisNPC:talkLanguage( Character.say, Player.english, "You do not even have a golem." );
+            thisNPC:talk(Character.say, "Du hast gar keinen Golem." , "You do not even have a golem." )
         else
               npcs = world:getNPCSInRangeOf(thisNPC.pos,8);
             for i, npc in pairs(npcs) do
@@ -220,8 +211,7 @@ function returnCow(message, originator)
                     end
                 end
             end
-            thisNPC:talkLanguage( Character.say, Player.german, "Wo ist der Golem denn?" );
-            thisNPC:talkLanguage( Character.say, Player.english, "Where is the golem?" );
+            thisNPC:talk(Character.say, "Wo ist der Golem denn?" , "Where is the golem?" )
         end
         return true;
     end

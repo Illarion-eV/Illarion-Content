@@ -33,8 +33,7 @@ function UseItem(User, SourceItem, ltstate)
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 
@@ -88,8 +87,7 @@ function UseItem(User, SourceItem, ltstate)
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		dyeing.SavedWorkTime[User.id] = dyeing:GenWorkTime(User,toolItem);
 		User:startAction( dyeing.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt Stoff zu färben.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to dye cloth.");
+		User:talk(Character.say, "#me beginnt Stoff zu färben.", "#me starts to dye cloth.")
 		return
 	end
 

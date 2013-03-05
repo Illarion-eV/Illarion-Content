@@ -96,8 +96,7 @@ end
 
 function SayPrice(message, originator)
     if (string.find(message,"koste")~=nil) or (string.find(message,"costs")~=nil) then
-        thisNPC:talkLanguage( Character.say, Player.german, "Ein Esel kostet "..PreisProKuh.." Kupferstücke. Außerdem müsst ihr "..(Kaution/100).." Silberstücke als Kaution hinterlegen die ihr aber wieder bekommt, wenn ihr den Esel sicher wieder hier her bringt.");
-        thisNPC:talkLanguage( Character.say, Player.english, "A mule costs "..PreisProKuh.." coppercoins. Furthermore you have to pay "..(Kaution/100).." silvercoins as surety, but you get these coins back in case you bring the mule safely back to me.");
+        thisNPC:talk(Character.say, "Ein Esel kostet "..PreisProKuh.." Kupferstücke. Außerdem müsst ihr "..(Kaution/100).." Silberstücke als Kaution hinterlegen die ihr aber wieder bekommt, wenn ihr den Esel sicher wieder hier her bringt.", "A mule costs "..PreisProKuh.." coppercoins. Furthermore you have to pay "..(Kaution/100).." silvercoins as surety, but you get these coins back in case you bring the mule safely back to me.")
         return true
     end
     return false
@@ -147,14 +146,12 @@ function GetCow(message, originator)
             GCoins,SCoins,CCoins = CalcSilverCopper(PreisProKuh + Kaution);
             if CheckMoney(originator,GCoins,SCoins,CCoins) then
                 if false then
-                      thisNPC:talkLanguage( Character.say, Player.german, "Ich darf dir im Augenblick keinen Esel verkaufen." );
-                    thisNPC:talkLanguage( Character.say, Player.english,"I'm not allowed to sell you a mule currently, sorry." );
+                      thisNPC:talk(Character.say, "Ich darf dir im Augenblick keinen Esel verkaufen." , "I'm not allowed to sell you a mule currently, sorry." )
                     return true;
                 end
                 posOfCow = createCow(originator);
                 if not posOfCow then
-                    thisNPC:talkLanguage( Character.say, Player.german, "Leider kein Esel mehr da. Kommt später wieder." );
-                    thisNPC:talkLanguage( Character.say, Player.english,"There are no more mules in the stable. Please come back later." );
+                    thisNPC:talk(Character.say, "Leider kein Esel mehr da. Kommt später wieder." , "There are no more mules in the stable. Please come back later." )
                     return true
                 else
                     Transporter = world:getCharacterOnField(posOfCow);
@@ -163,10 +160,8 @@ function GetCow(message, originator)
                     Transporter.effects:addEffect(transport_effect);
                     
                     Pay(originator,GCoins,SCoins,CCoins);
-                    thisNPC:talkLanguage( Character.say, Player.german, "Hier habt ihr den Esel. Bring ihn sicher wieder dann bekommt ihr die "..(Kaution/100).." Silberstücke Kaution wieder.");
-                    thisNPC:talkLanguage( Character.say, Player.english, "There you have your mule. Bring him back safely then you get your "..(Kaution/100).." silvercoins surety back.");
-                    thisNPC:talkLanguage( Character.say, Player.german, "Wenn du \"bleib stehen\" sagst, bleibt der Esel stehen und du kannst ihn be- und entladen. Sagst du \"weiter\" folgt er dir wieder. Pass auf dass er dich nicht aus den Augen verliert." );
-                    thisNPC:talkLanguage( Character.say, Player.english, "If you say \"stay\", the mule will stay where it is and you can put your things on the mule or take your things from it. If you say \"follow me\" the mule follows you again. Make sure you do not lose the mule." );
+                    thisNPC:talk(Character.say, "Hier habt ihr den Esel. Bring ihn sicher wieder dann bekommt ihr die "..(Kaution/100).." Silberstücke Kaution wieder.", "There you have your mule. Bring him back safely then you get your "..(Kaution/100).." silvercoins surety back.")
+                    thisNPC:talk(Character.say, "Wenn du \"bleib stehen\" sagst, bleibt der Esel stehen und du kannst ihn be- und entladen. Sagst du \"weiter\" folgt er dir wieder. Pass auf dass er dich nicht aus den Augen verliert." , "If you say \"stay\", the mule will stay where it is and you can put your things on the mule or take your things from it. If you say \"follow me\" the mule follows you again. Make sure you do not lose the mule." )
                     originator:setQuestProgress(8,1);
                     
                     Depot = originator:getDepot( originator.id );    
@@ -175,13 +170,11 @@ function GetCow(message, originator)
                     
                 end
             else
-                thisNPC:talkLanguage( Character.say, Player.german, "Du hast nicht genug Geld. Ein Esel kostet "..PreisProKuh.." Kupferstücke und "..(Kaution/100).." Silberstücke müsst ihr als Kaution hinterlegen." );
-                thisNPC:talkLanguage( Character.say, Player.english,"You don't have enough money. A mule costs "..PreisProKuh.." coppercoins and you have to pay "..(Kaution/100).." silvercoins as surety." );
+                thisNPC:talk(Character.say, "Du hast nicht genug Geld. Ein Esel kostet "..PreisProKuh.." Kupferstücke und "..(Kaution/100).." Silberstücke müsst ihr als Kaution hinterlegen." , "You don't have enough money. A mule costs "..PreisProKuh.." coppercoins and you have to pay "..(Kaution/100).." silvercoins as surety." )
             end
             return true
         else
-            thisNPC:talkLanguage( Character.say, Player.german, "Du hast schon einen Esel. Mehr als einer geht nicht." );
-            thisNPC:talkLanguage( Character.say, Player.english, "You have allready a mule. More then one is not possible." );
+            thisNPC:talk(Character.say, "Du hast schon einen Esel. Mehr als einer geht nicht." , "You have allready a mule. More then one is not possible." )
         end
         return true
     elseif ((string.find(message,"esel.+kaufen")~=nil) and not (string.find(message,"esel.+verkaufen")~=nil))
@@ -192,11 +185,9 @@ function GetCow(message, originator)
     or (string.find(message,"buy.+burro"   )~=nil)
     or (string.find(message,"buy.+donkey"   )~=nil) then
         if (string.find(message,"[Ee]sel")~=nil) or (string.find(message,"mule")~=nil) then
-            thisNPC:talkLanguage( Character.say, Player.german, "Ich verkaufe keine Esel. Ihr könnt sie euch von mir höchstens leihen." );
-            thisNPC:talkLanguage( Character.say, Player.english, "I don't sell mules. You can just rent them." );
+            thisNPC:talk(Character.say, "Ich verkaufe keine Esel. Ihr könnt sie euch von mir höchstens leihen." , "I don't sell mules. You can just rent them." )
         else
-            thisNPC:talkLanguage( Character.say, Player.german, "Ich verkaufe meine Esel nicht. Ihr könnt sie euch von mir höchstens leihen." );
-            thisNPC:talkLanguage( Character.say, Player.english, "I don't sell my mules. You can just rent them." );
+            thisNPC:talk(Character.say, "Ich verkaufe meine Esel nicht. Ihr könnt sie euch von mir höchstens leihen." , "I don't sell my mules. You can just rent them." )
         end
     end
     return false
@@ -219,8 +210,7 @@ function returnCow(message, originator)
     or (string.find(message,"return.+burro")~=nil)
     or (string.find(message,"return.+donkey")~=nil) then
         if (originator:getQuestProgress(8) == 0) then
-            thisNPC:talkLanguage( Character.say, Player.german, "Du hast gar keinen Esel." );
-            thisNPC:talkLanguage( Character.say, Player.english, "You do not even have a mule." );
+            thisNPC:talk(Character.say, "Du hast gar keinen Esel." , "You do not even have a mule." )
         else
               npcs = world:getNPCSInRangeOf(thisNPC.pos,8);
             for i, npc in pairs(npcs) do
@@ -230,8 +220,7 @@ function returnCow(message, originator)
                     if find_owner then
                         if (value_owner == originator.id) then
                             if world:deleteNPC( npc.id ) then
-                                thisNPC:talkLanguage( Character.say, Player.german, "Danke für den Esel." );
-                                thisNPC:talkLanguage( Character.say, Player.english, "Thanks for the mule." );
+                                thisNPC:talk(Character.say, "Danke für den Esel." , "Thanks for the mule." )
                                 originator:createItem(3077,math.floor(Kaution/100),333,0);
                                 originator:setQuestProgress(8,0);
                                 return true;
@@ -240,8 +229,7 @@ function returnCow(message, originator)
                     end
                 end
             end
-            thisNPC:talkLanguage( Character.say, Player.german, "Wo ist der Esel denn?" );
-            thisNPC:talkLanguage( Character.say, Player.english, "Where is the mule?" );
+            thisNPC:talk(Character.say, "Wo ist der Esel denn?" , "Where is the mule?" )
         end
         return true;
     end

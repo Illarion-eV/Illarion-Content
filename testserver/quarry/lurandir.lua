@@ -73,12 +73,10 @@ function receiveText(texttype, message, originator)
                         local litem = originator:getItemAt(5);
                         local ritem = originator:getItemAt(6);
                         if ( ( (litem.id == 2496) and (litem.data == 3) ) or ( (ritem.id == 2496) and (ritem.data == 3) ) ) then
-                            thisNPC:talkLanguage(Character.say,Player.german ,"Habt Dank mein Freund. Ich benötige nur einige Tropfen, den Rest könnt Ihr behalten. Aber seid gewarnt: Eine übermäßige Anwendung könnte schädlich sein. Verwendet es weise! Kommt später wieder, vielleicht weiß ich dann mehr...");
-                            thisNPC:talkLanguage(Character.say,Player.english,"Be thanked my friend. I need just a few drops, you can keep the rest for yourself. But be warned: Do not use it too often, it might be harmful. Use it wisely. Come back later and I might have found out more...");
+                            thisNPC:talk(Character.say, "Habt Dank mein Freund. Ich benötige nur einige Tropfen, den Rest könnt Ihr behalten. Aber seid gewarnt: Eine übermäßige Anwendung könnte schädlich sein. Verwendet es weise! Kommt später wieder, vielleicht weiß ich dann mehr...", "Be thanked my friend. I need just a few drops, you can keep the rest for yourself. But be warned: Do not use it too often, it might be harmful. Use it wisely. Come back later and I might have found out more...")
                             originator:setQuestProgress(1, LuaOr( originator:getQuestProgress(1), 65536 ) );
                         else
-                            thisNPC:talkLanguage(Character.say,Player.german ,"Ihr habt also das gesegnete Wasser von Irundar gefunden, mein Freund? So lasst es mich denn sehen!");
-                            thisNPC:talkLanguage(Character.say,Player.english,"So you have found the blessed water of Irundar, my friend. Please, let me see it!");
+                            thisNPC:talk(Character.say, "Ihr habt also das gesegnete Wasser von Irundar gefunden, mein Freund? So lasst es mich denn sehen!", "So you have found the blessed water of Irundar, my friend. Please, let me see it!")
                         end;
                     else
             			thisNPC:talk(Character.say,NPCText[3-lang][i]);

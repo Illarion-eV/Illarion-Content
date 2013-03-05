@@ -4,8 +4,7 @@ module("magic.base.itemspell")
 function DoItemSpell(Caster, TargetPos, ltstate)
     Hitted_already = {};
     if ( ltstate == Action.abort ) then
-        Caster:talkLanguage(Character.say, Player.german, "#me stoppt apprupt mit dem Zaubern.");
-        Caster:talkLanguage(Character.say, Player.english,"#me abruptly stops casting.");
+        Caster:talk(Character.say, "#me stoppt apprupt mit dem Zaubern.", "#me abruptly stops casting.")
         return;
     end
 
