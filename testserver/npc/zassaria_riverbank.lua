@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -188,6 +188,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me I"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 1));
 talkEntry:addResponse("Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?");
@@ -199,6 +201,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich I"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 1));
 talkEntry:addResponse("Könntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.");
