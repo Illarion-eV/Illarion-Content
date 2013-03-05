@@ -17,15 +17,15 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammel 20 Honigwaben für Gerry Deloid bei den Bienenstöcken auf dem Tisch vor ihm."
-Description[ENGLISH][1] = "Collect 20 honeycombs for Gerry Deloid at the beehives on the tabel in front of him."
+Description[ENGLISH][1] = "Collect twenty honeycombs for Gerry Deloid at the beehives on the tabel in front of him."
 Description[GERMAN][3] = "Stell 20 Stück Wachs beim Kerzenziehertisch in der Werkstatt her und zeig diese Gerry Deloid."
-Description[ENGLISH][3] = "Produce 20 pieces of wax at the chandler table in the workshop and show these to Gerry Deloid."
+Description[ENGLISH][3] = "Produce twenty pieces of wax at the chandler table in the workshop and show these to Gerry Deloid."
 Description[GERMAN][5] = "Stell mittels der Kerzenform zehn Kerzen beim Kerzenziehertisch für Gerry Deloid her."
-Description[ENGLISH][5] = "Produce with the candle mold ten candles at the chandler table in the workshop for Gerry Deloid. "
+Description[ENGLISH][5] = "Produce ten candles using the candle mould at the chandler table in the workshop for Gerry Deloid. "
 Description[GERMAN][7] = "Stell mittels schwarzen Disteln zwei Flaschen Lampenöl an der Ölpresse in Cadomyr her und bring diese zu Gerry Deloid. Schwarze Disteln kannst du finden wenn du auf felsigem Boden in Grasbüscheln suchst."
-Description[ENGLISH][7] = "Produce two bottles lamp oil with black thistles at the press in Cadomyr and bring these to Gerry Deloid. You can find black thistles if you search on rocky ground in the grass."
+Description[ENGLISH][7] = "Produce two bottles of lamp oil with black thistles at the press in Cadomyr and take them to Gerry Deloid. You can find black thistles if you search the rocky ground in the grass."
 Description[GERMAN][8] = "Du hast alle Aufgaben von Gerry Deloid erfüllt."
-Description[ENGLISH][8] = "You have fulfilled all tasks of Gerry Deloid."
+Description[ENGLISH][8] = "You have fulfilled all the tasks for Gerry Deloid."
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
