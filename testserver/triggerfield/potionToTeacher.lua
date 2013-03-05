@@ -82,8 +82,7 @@ function PutItemOnField(Item,User)
 	    end
 	end
     if success == false then
-	    myNPC:talkLanguage(Character.say,Player.english,"I won't teach you anything for this. Have a look at my list, show me what you would liek to leran and I will tell you what you have to give me in return.")
-		myNPC:talkLanguage(Character.say,Player.german,"Dafür werde ich Euch nichts lehren. Schaut auf meine Liste und zeigt mir, was Euch interessiert und ich sage Euch, was ich dafür verlange.")
+	    myNPC:talk(Character.say, "Dafür werde ich Euch nichts lehren. Schaut auf meine Liste und zeigt mir, was Euch interessiert und ich sage Euch, was ich dafür verlange.", "I won't teach you anything for this. Have a look at my list, show me what you would liek to leran and I will tell you what you have to give me in return.")
 	
 	else
         local ListEffectId = item.id_3109_open_pell.ListEffectId[town]
