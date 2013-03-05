@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.berri_firegold", package.seeall)
+module("npc.berri_firegold", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -237,6 +237,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("letter");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
 talkEntry:addResponse("Ah, thank you. If you need help with smithing, ask me for a task. If you prefer glass blowing or brick making talk with Zlatxhol at the oven over there. You can ask Lilli Gallfing behind me in the other room if you want to know more about tailoring. If you don't like any of these crafts you can talk to Gerry Deloid, he can teach you the basics of candle making.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -246,6 +247,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("brief");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
 talkEntry:addResponse("Ah, vielen Dank. Wenn Ihr Hilfe beim Schmieden braucht fragt mich nach einer Aufgabe. Wollt Ihr lieber etwas über das Glasblasen oder Ziegelmachen lernen, dann fragt Zlatxhol da vorne. Liegt euch das Schneiderhandwerk eher, dann fragt Lilli Gallfing hinter mir im anderen Raum. Falls Ihr jedoch am Kerzenmachen interessiert seid, dann geht über die Schneiderrei hinaus und sprecht Gerry Deloid an.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

@@ -47,8 +47,8 @@ itemShoes = 679
 -- Help
 "Help" -> inform("[Game Help] This NPC is Jakob Lindorn the helper. Keywords: quest, craft, market, workshop, Frizza, food, fighting, Cadomyr")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Jakob Lindorn der Helfer. Schlüsselwörter: Quest, Handwerke, Markt, Werkstatt, Frizza, Essen, Kämpfen, Cadomyr")
-queststatus(703) = 0, town = Cadomyr, english, ".+" -> queststatus(703) = 1, "Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop."
-queststatus(703) = 0, town = Cadomyr, ".+" -> queststatus(703) = 1, "Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum."
+queststatus(703) = 0, town = Cadomyr, english, ".+" -> queststatus(703) = 1, "Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you."
+queststatus(703) = 0, town = Cadomyr, ".+" -> queststatus(703) = 1, "Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, I can tell you who in Cadomyr has tasks for you to do.", "Nice to meet you, I'm Jakob Lindorn, I can tell you who in Cadomyr has tasks for you to do."
@@ -87,10 +87,6 @@ english, "craft" -> "You want to know more about the crafts of Cadomyr? Well the
 german, "hand" -> "Ihr wollt mehr über die Handwerke in Cadomyr wissen? Dann besucht Berri Firegold, Gerry Deloid, Lilli Gallfing oder Zlatxhol, sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt sie alle in der Werkstatt im Norden der Stadt finden."
 
 -- Quests
-queststatus(703) = 1, town = Cadomyr, english, "quest", "mission" -> queststatus(703) = 2, "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
-queststatus(703) = 1, town = Cadomyr, "quest", "mission" -> queststatus(703) = 2, "Ich nehme an, Ihr habt meinem Freundin Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
-queststatus(703) = 1, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 2, "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
-queststatus(703) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 2, "Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
 queststatus(703) = 2, queststatus(78) = 0, town = Cadomyr, english, "quest", "mission" -> "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
 queststatus(703) = 2, queststatus(78) = 0, town = Cadomyr, "quest", "mission" -> "Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
 queststatus(703) = 2, queststatus(78) = 0, town = Cadomyr, "task", "adventure", "order" -> "So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
