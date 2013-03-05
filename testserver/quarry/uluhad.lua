@@ -24,8 +24,7 @@ function cashOut()
             filepoint:close();
         end;
         
-        thisNPC:talkLanguage(Character.say, Player.german, "Der Hausanteil ist "..houseRakePercent.."% aller Gewinne");
-        thisNPC:talkLanguage(Character.say, Player.english,"The house rake is "..houseRakePercent.."% of all winnings");
+        thisNPC:talk(Character.say, "Der Hausanteil ist "..houseRakePercent.."% aller Gewinne", "The house rake is "..houseRakePercent.."% of all winnings")
     end;
     User:setQuestProgress(playerMoneyID, 0);
     User:setQuestProgress(playerBuyInID, 0);
@@ -34,8 +33,7 @@ end
 
  function useNPC(user)
    thisNPC:increaseSkill(1,"common language",100);
-   thisNPC:talkLanguage(Character.say, Player.german, "Finger weg!");
-   thisNPC:talkLanguage(Character.say, Player.english, "Don't you touch me!");
+   thisNPC:talk(Character.say, "Finger weg!", "Don't you touch me!")
  end
 
  function initializeNpc()

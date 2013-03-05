@@ -47,16 +47,13 @@ function UseItem(User, SourceItem, ltstate)
     end
     
 	if (TargetItem.pos == position(528, 555, 0)) then
-        User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
-        User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
+        User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
         User:warp(position(518,559, -3));
 	elseif (TargetItem.pos == position(367, 253, 0)) then
-        User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
-        User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
+        User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
         User:warp(position(292, 377, -6));
     elseif (TargetItem.pos == position(787,801,0)) then
-        User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
-        User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
+        User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
 		User:warp(position(797,791,-3));
 	else
     	base.common.InformNLS( User,
@@ -171,8 +168,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 		
 		gText = GetRaceGenderText(0,Target);
 		eText = GetRaceGenderText(1,Target);
-		User:talkLanguage(Character.say, Player.german, "#me versucht "..gText.." zu fesseln.");
-		User:talkLanguage(Character.say, Player.english, "#me tries to tie up "..eText..".");
+		User:talk(Character.say, "#me versucht "..gText.." zu fesseln.", "#me tries to tie up "..eText..".")
 		
 		base.common.InformNLS(Target,
 			"Jemand versucht dich zu fesseln!",
@@ -245,8 +241,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 		gText = "#me ist nun mit einem weiteren Seil gefesselt.";
 		eText = "#me is now tied up with another rope.";
 	end
-	Target:talkLanguage(Character.say, Player.german, gText);
-	Target:talkLanguage(Character.say, Player.english, eText);
+	Target:talk(Character.say, gText, eText)
 	if Target.effects:find(26) then
 		base.common.InformNLS(Target,
 			"Du kannst deinen Gefangenen nicht mehr halten und lässt ihn frei.",
@@ -314,8 +309,7 @@ function TyingRopeHandler(User, Rope, Target)
 					Tying:removeValue("escape");
 					Tying:removeValue("success");
 				end
-				User:talkLanguage(Character.say, Player.german, "#me zieht das Seil straff.");
-				User:talkLanguage(Character.say, Player.english, "#me tightens the rope.");
+				User:talk(Character.say, "#me zieht das Seil straff.", "#me tightens the rope.")
 				local rope = lte.tying_capturer.GetRope(User);
 				if rope then
 					rope.quality = math.max(104,rope.quality-60);
@@ -329,8 +323,7 @@ function TyingRopeHandler(User, Rope, Target)
 			-- target is captive, so untie him
 			gText = GetRaceGenderText(0,Target);
 			eText = GetRaceGenderText(1,Target);
-			User:talkLanguage(Character.say, Player.german, "#me bindet "..gText.." los.");
-			User:talkLanguage(Character.say, Player.english, "#me unties "..eText..".");
+			User:talk(Character.say, "#me bindet "..gText.." los.", "#me unties "..eText..".")
 			foundEffect, Tying = Target.effects:find(24);
 			if foundEffect then
 				Tying:removeValue("Capturer");
@@ -354,8 +347,7 @@ function TyingRopeHandler(User, Rope, Target)
 										Tying:addValue("Capturer", Target.id);
 										gText = GetRaceGenderText(0,Target);
 										eText = GetRaceGenderText(1,Target);
-										User:talkLanguage(Character.say, Player.german, "#me übergibt das Seil an "..gText..".");
-										User:talkLanguage(Character.say, Player.english, "#me hands the rope to "..eText..".");
+										User:talk(Character.say, "#me übergibt das Seil an "..gText..".", "#me hands the rope to "..eText..".")
 										base.common.InformNLS(User,
 											"Der Gefangene folgt dir nun nicht mehr.",
 											"Now the captive doesn't follow you any more.");

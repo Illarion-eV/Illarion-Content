@@ -4,8 +4,7 @@ module("npc.ashural", package.seeall)
 
 function useNPC(user)
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(Character.say, Player.german, "Finger weg!");
-    thisNPC:talkLanguage(Character.say, Player.english, "Don't you touch me!");
+    thisNPC:talk(Character.say, "Finger weg!", "Don't you touch me!")
 end
 
 function initializeNpc()

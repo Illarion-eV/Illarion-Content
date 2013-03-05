@@ -79,8 +79,7 @@ function UseItem(User, SourceItem, ltstate)
         if User.attackmode then
 		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
 		else
-			User:talkLanguage(Character.say, Player.german, "#me trinkt eine hellblaue Flüssigkeit.");
-			User:talkLanguage(Character.say, Player.english, "#me drinks a light blue liquid.");
+			User:talk(Character.say, "#me trinkt eine hellblaue Flüssigkeit.", "#me drinks a light blue liquid.")
 			User.movepoints=User.movepoints - 20
 			DrinkPotion(User,SourceItem)
 			alchemy.base.alchemy.EmptyBottle(User,SourceItem)

@@ -14,8 +14,7 @@ module("npc.onor", package.seeall)
 function useNPC(user)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(Character.say, Player.german , "Fasst mich nicht an!" );
-    thisNPC:talkLanguage(Character.say, Player.english, "Don't you touch me!" );
+    thisNPC:talk(Character.say, "Fasst mich nicht an!" , "Don't you touch me!" )
 end
 
 function initializeNpc()

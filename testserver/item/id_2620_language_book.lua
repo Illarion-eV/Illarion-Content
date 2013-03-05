@@ -18,11 +18,9 @@ function UseItem(User, SourceItem, ltstate)
             --User:warp(position(-243,-340,-3));
         elseif ( ltstate == Action.none ) then
             User:startAction( 100,53, 4, 0, 0);
-            User:talkLanguage( Character.say, Player.german, "#me beginnt in einem Buch zu lesen.");
-            User:talkLanguage( Character.say, Player.english, "#me starts reading in a book.");
+            User:talk(Character.say, "#me beginnt in einem Buch zu lesen.", "#me starts reading in a book.")
         elseif ( ltstate == Action.abort ) then
-            User:talkLanguage(Character.say, Player.german, "#me hört auf in dem Buch zu lesen.");
-            User:talkLanguage(Character.say, Player.english,"#me stops reading in the book.");
+            User:talk(Character.say, "#me hört auf in dem Buch zu lesen.", "#me stops reading in the book.")
         end
         return
     end 

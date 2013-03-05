@@ -15,8 +15,7 @@ module("npc.magda_rosenzopf", package.seeall)
 
 function useNPC(user)
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(Character.say, Player.german, "Finger wech oder du bist ein Kopf kürzer!");
-    thisNPC:talkLanguage(Character.say, Player.english, "Dont ya' touch me!");
+    thisNPC:talk(Character.say, "Finger wech oder du bist ein Kopf kürzer!", "Dont ya' touch me!")
 end
 
 function initializeNpc()

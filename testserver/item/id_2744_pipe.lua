@@ -18,13 +18,11 @@ function UseItem(User, SourceItem)
 		
 		
 	elseif (User:countItemAt("belt",155) ~= 0) then 
-		User:talkLanguage(Character.say,Player.german ,"#me nimmt einen tiefen Zug von der Pfeife.");
-		User:talkLanguage(Character.say,Player.english,"#me takes a deep drag from the pipe.");
+		User:talk(Character.say, "#me nimmt einen tiefen Zug von der Pfeife.", "#me takes a deep drag from the pipe.")
 		User:eraseItem( 155, 1 );
 			
 	elseif (User:countItemAt("belt",772) ~= 0) then
-		User:talkLanguage(Character.say,Player.german ,"#me nimmt einen tiefen Zug von der Pfeife.");
-		User:talkLanguage(Character.say,Player.english,"#me takes a deep drag from the pipe.");
+		User:talk(Character.say, "#me nimmt einen tiefen Zug von der Pfeife.", "#me takes a deep drag from the pipe.")
 		User:eraseItem( 772, 1 );
 	--[[Effekt setzen falls noch nicht vorhanden
 	-- LTE to get High, currently not working

@@ -22,8 +22,7 @@ function UseItem(User, SourceItem, ltstate)
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 
@@ -69,8 +68,7 @@ function UseItem(User, SourceItem, ltstate)
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		graingrinding.SavedWorkTime[User.id] = graingrinding:GenWorkTime(User,toolItem);
 		User:startAction( graingrinding.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt Getreide zu mahlen.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to grind grain.");
+		User:talk(Character.say, "#me beginnt Getreide zu mahlen.", "#me starts to grind grain.")
 		return
 	end
 

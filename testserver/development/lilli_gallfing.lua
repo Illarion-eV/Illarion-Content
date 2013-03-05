@@ -18,6 +18,7 @@ require("npc.base.basic")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.condition.town")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
@@ -258,6 +259,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 477, nil));
@@ -268,6 +270,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 477, nil));
@@ -278,6 +281,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -289,6 +293,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -303,6 +308,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 2));
@@ -313,6 +319,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 2));
@@ -323,6 +330,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -334,6 +342,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -347,6 +356,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(170, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("That isn't 20 bales of wool yet, please come back once you've finished this task.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -355,6 +365,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(170, "all", "<", 20, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Das sind noch keine 20 Wollknäule die ich haben wollte. Kommt wieder wenn Ihr die Aufgabe erledigt habt.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -364,6 +375,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(170, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("That isn't 20 bales of wool yet, please come back once you've finished this task.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -372,6 +384,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(170, "all", "<", 20, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Das sind noch keine 20 Wollknäule die ich haben wollte. Kommt wieder wenn Ihr die Aufgabe erledigt habt.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -380,6 +393,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 3));
@@ -389,6 +403,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 3));
@@ -398,6 +413,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -408,6 +424,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -422,6 +439,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(176, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 4));
@@ -433,6 +451,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(176, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 4));
@@ -444,6 +463,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(176, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -456,6 +476,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(176, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -469,6 +490,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(176, "all", "<", 2, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Could you produce two grey cloth and five spools of thread from the remaining 20 bales of wool for me please?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -477,6 +499,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(176, "all", "<", 2, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Stellt doch bitte aus den übrigen 20 Wollknäulen fünf Garnrollen und zwei Rollen grauen Stoff her.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -486,6 +509,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(50, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Could you produce two grey cloth and five spools of thread from the remaining 20 bales of wool for me please?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -494,6 +518,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(50, "all", "<", 5, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Stellt doch bitte aus den übrigen 20 Wollknäulen fünf Garnrollen und zwei Rollen grauen Stoff her.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -502,6 +527,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 555, nil));
@@ -514,6 +540,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 4));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 555, nil));
@@ -526,6 +553,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 4));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -539,6 +567,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 4));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -555,6 +584,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(802, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(802, 1, nil));
@@ -566,6 +596,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(802, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(802, 1, nil));
@@ -577,6 +608,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(802, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -589,6 +621,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(802, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -603,6 +636,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(802, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("You haven't solved the task yet. Come again once you've the grey dress I'm looking for.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -611,6 +645,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(802, "all", "=", 0, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bringt mir ein graues Gewand.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -619,6 +654,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(58, 1, 555, nil));
@@ -633,6 +669,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 6));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(58, 1, 555, nil));
@@ -647,6 +684,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 6));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -662,6 +700,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 6));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -680,6 +719,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2681, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 8));
@@ -690,6 +730,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2681, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 8));
@@ -700,6 +741,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2681, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -711,6 +753,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2681, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -724,6 +767,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2681, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("You haven't solved the task yet. Come again once you've all five buckets with red dye.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -732,6 +776,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2681, "all", "<", 5, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bringt mir die fünf Eimer mit roter Farbe.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -740,6 +785,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2781, 1, 555, nil));
@@ -751,6 +797,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 8));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2781, 1, 555, nil));
@@ -762,6 +809,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 8));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -774,6 +822,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 8));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -789,6 +838,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 9));
 talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 10));
@@ -799,6 +849,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 9));
 talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 10));
@@ -809,6 +860,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 9));
 talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -820,6 +872,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 9));
 talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -833,6 +886,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 9));
 talkEntry:addCondition(npc.base.condition.item.item(174, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("You haven't solved the task yet. Come again once you have the five red cloth for me.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -841,6 +895,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 9));
 talkEntry:addCondition(npc.base.condition.item.item(174, "all", "<", 5, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Kommt doch bitte wieder, wenn Ihr die fünf Rollen roten Stoff zusammen habt.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -849,6 +904,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("I don't have anything for you to do anymore. Thank you for the help though!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -857,8 +913,23 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("You are not a citizen of Cadomyr. I don't have anything to do for you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");

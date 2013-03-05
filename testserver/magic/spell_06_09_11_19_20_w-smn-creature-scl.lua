@@ -231,8 +231,7 @@ function WriteTeleSpell(Caster, ltstate )
             if CheckAttrib(Caster,"foodlevel",FPChange) then
                 if CheckAttrib(Caster,"mana",MPChange) then
                    Caster:startAction( timeToCast, timeGfxEffect, timeRptGfxEffect, timeSndEffect, timeRptSndEffect);
-                   Caster:talkLanguage( Character.say, Player.german, "#me beginnt mit einer mystischen Formel.");
-                   Caster:talkLanguage( Character.say, Player.english, "#me starts with a mystical formula.");
+                   Caster:talk(Character.say, "#me beginnt mit einer mystischen Formel.", "#me starts with a mystical formula.")
                 else
                     base.common.InformNLS(Caster,"Nicht genügend Mana.","Not enough mana.");
                 end;
@@ -243,7 +242,6 @@ function WriteTeleSpell(Caster, ltstate )
             InformNLS(Caster,"Du würdest es nicht überleben, jetzt diesen Spruch zu sprechen.","You die if you cast this spell now.");
         end;
     elseif ( ltstate == Action.abort ) then
-        Caster:talkLanguage(Character.say, Player.german, "#me stoppt apprupt mit dem Zaubern.");
-        Caster:talkLanguage(Character.say, Player.english,"#me abruptly stops casting.");
+        Caster:talk(Character.say, "#me stoppt apprupt mit dem Zaubern.", "#me abruptly stops casting.")
     end
 end

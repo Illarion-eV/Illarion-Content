@@ -82,20 +82,16 @@ function PutItemOnField(Item,User)
 	    end
 	end
     if success == false then
-	    myNPC:talkLanguage(Character.say,Player.english,"I won't teach you anything for this. Have a look at my list, show me what you would liek to leran and I will tell you what you have to give me in return.")
-		myNPC:talkLanguage(Character.say,Player.german,"Dafür werde ich Euch nichts lehren. Schaut auf meine Liste und zeigt mir, was Euch interessiert und ich sage Euch, was ich dafür verlange.")
+	    myNPC:talk(Character.say, "Dafür werde ich Euch nichts lehren. Schaut auf meine Liste und zeigt mir, was Euch interessiert und ich sage Euch, was ich dafür verlange.", "I won't teach you anything for this. Have a look at my list, show me what you would liek to leran and I will tell you what you have to give me in return.")
 	
 	else
         local ListEffectId = item.id_3109_open_pell.ListEffectId[town]
 		if User:getQuestProgress(ListEffectId[myListPos]+1000) ~= 0 then
-		    myNPC:talkLanguage(Character.say,Player.german,"Mhh. Ich würde Euch wohl dafür etwas zeigen, aber Ihr macht den Eindruck, diese Kenntnisse schon zu haben.")
-		    myNPC:talkLanguage(Character.say,Player.english,"Mhh. Well, I would teach you something for this, but you seem to already have this knowledge.")
+		    myNPC:talk(Character.say, "Mhh. Ich würde Euch wohl dafür etwas zeigen, aber Ihr macht den Eindruck, diese Kenntnisse schon zu haben.", "Mhh. Well, I would teach you something for this, but you seem to already have this knowledge.")
 		else
-			myNPC:talkLanguage(Character.say,Player.german,"Ah! Sehr gut, sehr gut! Nun denn, Ihr habt es Euch verdient. Schaut genau her.")
-			myNPC:talkLanguage(Character.say,Player.english,"Ah! Very good, very good! Well, you've earned your pay. Look closely.")
+			myNPC:talk(Character.say, "Ah! Sehr gut, sehr gut! Nun denn, Ihr habt es Euch verdient. Schaut genau her.", "Ah! Very good, very good! Well, you've earned your pay. Look closely.")
 			world:erase(Item,1)
-			myNPC:talkLanguage(Character.say,Player.german,"#me beginnt sorgsam und langsam die einzelnen Zutaten vorzubereiten und dann zu verarbeiten, darauf Acht gebend, dass keine Unbefugten es sehen können. \"So geht das richtig.\"")
-			myNPC:talkLanguage(Character.say,Player.english,"#me starts to prepare the ingredients carefully and slowly and then to worken them, while making sure that no unasked eyes have a look at it. \"So geht das richtig.\"")
+			myNPC:talk(Character.say, "#me beginnt sorgsam und langsam die einzelnen Zutaten vorzubereiten und dann zu verarbeiten, darauf Acht gebend, dass keine Unbefugten es sehen können. \"So geht das richtig.\"", "#me starts to prepare the ingredients carefully and slowly and then to worken them, while making sure that no unasked eyes have a look at it. \"So geht das richtig.\"")
 			User:setQuestProgress(ListEffectId[myListPos]+1000,1)
 			TellRecipe(User,ListEffectId[myListPos])
 		end	

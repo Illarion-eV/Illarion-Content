@@ -18,6 +18,7 @@ require("npc.base.basic")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.condition.town")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
@@ -200,7 +201,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("mine");
-talkEntry:addResponse("Wenn Ihr die Stadt verlässt und nach Süden der Straße folgt erreicht Ihr den 'Grundstein der Aufrichtigkeit', dort könnt Ihr Kohle finden. Wenn Ihr die Stadt verlässt und nach Nordosten geht, erreicht Ihr den 'Freiheitsbruch', dort findet Ihr Eisen- und Kupfererz und manchmal sogar Goldnuggets.");
+talkEntry:addResponse("Wenn Ihr die Stadt verlasst und nach Süden der Straße folgt erreicht Ihr den 'Grundstein der Aufrichtigkeit', dort könnt Ihr Kohle finden. Wenn Ihr die Stadt verlasst und nach Nordosten geht, erreicht Ihr den 'Freiheitsbruch', dort findet Ihr Eisen- und Kupfererz und manchmal sogar Goldnuggets.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -234,6 +235,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("letter");
 talkEntry:addResponse("Ah, thank you. If you need help with smithing, ask me for a task. If you prefer glass blowing or brick making talk with Zlatxhol at the oven over there. You can ask Lilli Gallfing behind me in the other room if you want to know more about tailoring. If you don't like any of these crafts you can talk to Gerry Deloid, he can teach you the basics of candle making.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -242,6 +244,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("brief");
 talkEntry:addResponse("Ah, vielen Dank. Wenn Ihr Hilfe beim Schmieden braucht fragt mich nach einer Aufgabe. Wollt Ihr lieber etwas über das Glasblasen oder Ziegelmachen lernen, dann fragt Zlatxhol da vorne. Liegt euch das Schneiderhandwerk eher, dann fragt Lilli Gallfing hinter mir im anderen Raum. Falls Ihr jedoch am Kerzenmachen interessiert seid, dann geht über die Schneiderrei hinaus und sprecht Gerry Deloid an.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -250,6 +253,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
@@ -260,16 +264,18 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Könntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten, den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlässt. Hier habt Ihr eine Spitzhacke um das Erz zu sammeln.");
+talkEntry:addResponse("Könntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten, den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke um das Erz zu sammeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -281,13 +287,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Könntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten, den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlässt. Hier habt Ihr eine Spitzhacke um das Erz zu sammeln.");
+talkEntry:addResponse("Könntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten, den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke um das Erz zu sammeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -296,6 +303,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
@@ -309,6 +317,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 19, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
@@ -322,6 +331,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 19, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -336,6 +346,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 19, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -351,6 +362,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me 20 pieces of iron ore and 20 lumps of coal?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -359,6 +371,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 20 Eisenerze sowie 20 Kohleklumpen von Euch, habt Ihr das vergessen?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -368,6 +381,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me 20 pieces of iron ore and 20 lumps of coal?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -376,6 +390,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 20, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 20 Eisenerze sowie 20 Kohleklumpen von Euch, habt Ihr das vergessen?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -384,6 +399,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 333, nil));
@@ -394,6 +410,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 333, nil));
@@ -404,6 +421,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -415,6 +433,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -429,6 +448,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 4));
@@ -439,6 +459,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 4));
@@ -449,6 +470,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -460,6 +482,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -473,6 +496,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("That are not 10 iron ingots yet. Please come again later when you've finished the task.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -481,14 +505,16 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 10, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Das sind noch keine 10 Eisenbarren, die ich von Euch wollte. Kommt wieder wenn Ihr die Aufgabe erledigt habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 555, nil));
@@ -499,7 +525,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 4));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 555, nil));
@@ -510,7 +537,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 4));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -522,7 +550,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 4));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -535,73 +564,98 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.item.item(1858, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 6));
 talkEntry:addResponse("Well done, thank you very much. I don't think you need my help any longer, good luck!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.item.item(1858, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 6));
 talkEntry:addResponse("Gut gemacht, vielen Dank. Ich denke Ihr kommt nun auch ohne meine Hilfe zurecht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.item.item(1858, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 6));
 talkEntry:addResponse("Well done, thank you very much. I don't think you need my help any longer, good luck!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.item.item(1858, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 6));
 talkEntry:addResponse("Gut gemacht, vielen Dank. Ich denke Ihr kommt nun auch ohne meine Hilfe zurecht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("You haven't solved the task yet. Please come back again if you have 5 pins and 5 goblets for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", "<", 5, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger(".+");
+talkEntry:addResponse("Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(1858, "all", "<", 5, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger(".+");
+talkEntry:addResponse("You haven't solved the task yet. Please come back again if you have 5 pins and 5 goblets for me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(1858, "all", "<", 5, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -609,34 +663,33 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(1858, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger(".+");
-talkEntry:addResponse("You haven't solved the task yet. Please come back again if you have 5 pins and 5 goblets for me.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(1858, "all", "<", 5, nil));
-talkEntry:addTrigger(".+");
-talkEntry:addResponse("Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 8));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("I don't have anything more for you to do. Thank you for the help though!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 8));
+talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("You are not a citizen of Cadomyr. I don't have anything to do for you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");

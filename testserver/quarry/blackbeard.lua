@@ -24,8 +24,7 @@ module("npc.blackbeard", package.seeall, package.seeall(npc.base.ships));
 function useNPC( User )
     User:introduce(thisNPC);
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage( Character.say, Player.german, "Fass mich an und ich schneid dir die Augen raus, Landratte.");
-    thisNPC:talkLanguage( Character.say, Player.english, "Touch me, and I will cut out your eyes, landlubber.");
+    thisNPC:talk(Character.say, "Fass mich an und ich schneid dir die Augen raus, Landratte.", "Touch me, and I will cut out your eyes, landlubber.")
 end
 
 function nextCycle()

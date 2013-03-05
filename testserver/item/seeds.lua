@@ -78,8 +78,7 @@ function UseItem(User, SourceItem, ltstate)
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 

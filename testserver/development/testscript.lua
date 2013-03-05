@@ -582,10 +582,9 @@ function CoupDeGrace(Attacker, Defender)
             "ihrem");
         local eText = base.common.GetGenderText(Attacker.Char, "his",
             "her");
-        Attacker.Char:talkLanguage(Character.say, Player.german,
-            string.format("#me gibt %s Gegner den Gnadenstoﬂ.", gText));
-        Attacker.Char:talkLanguage(Character.say, Player.english,
-            string.format("#me gives %s enemy the coup de gr·ce.", eText));
+        Attacker.Char:talk(Character.say,
+                string.format("#me gibt %s Gegner den Gnadenstoﬂ.", gText),
+                string.format("#me gives %s enemy the coup de gr·ce.", eText))
         
         -- Kill character and notify other scripts about the death
         if not base.character.Kill(Defender.Char) then

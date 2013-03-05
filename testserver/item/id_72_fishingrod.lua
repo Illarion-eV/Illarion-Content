@@ -23,8 +23,7 @@ function UseItem(User, SourceItem, ltstate)
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 
@@ -64,8 +63,7 @@ function UseItem(User, SourceItem, ltstate)
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,nil);
 		User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt zu fischen.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to fish."); 
+		User:talk(Character.say, "#me beginnt zu fischen.", "#me starts to fish.")
 		return
 	end
 

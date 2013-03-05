@@ -7,8 +7,7 @@ function DoGFXSpell(Caster, TargetPos, ltstate)
     end
     Hitted_already = {};
     if ( ltstate == Action.abort ) then
-        Caster:talkLanguage(Character.say, Player.german, "#me stoppt apprupt mit dem Zaubern.");
-        Caster:talkLanguage(Character.say, Player.english,"#me abruptly stops casting.");
+        Caster:talk(Character.say, "#me stoppt apprupt mit dem Zaubern.", "#me abruptly stops casting.")
         return;
     end
 
@@ -196,8 +195,7 @@ function TargetHitting( Caster, Target, CasterValue, Resistance, Percent)
                 local CharOffsetY = base.common.Limit(Caster.pos.y - Target.pos.y,-1,1);
                 local newPos = position( Target.pos.x + CharOffsetX, Target.pos.y + CharOffsetY, Target.pos.z );
                 Target:warp( newPos );
-                Target:talkLanguage( Character.say, Player.german,  "#me stolpert zurück und geht zu Boden." );
-                Target:talkLanguage( Character.say, Player.english, "#me stumbles back and falls to the ground." );
+                Target:talk(Character.say, "#me stolpert zurück und geht zu Boden." , "#me stumbles back and falls to the ground." )
                 base.common.ParalyseCharacter(Target, 7, false, true);
 
                 local reg_found, reg_effect = Target.effects:find(2);

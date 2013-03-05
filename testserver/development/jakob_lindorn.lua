@@ -17,6 +17,7 @@ VALUES (0, 124, 649, 0, 6, 'Jakob Lindorn', 'npc.jakob_lindorn', 0, 2, 0, 168, 1
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.talkstate")
@@ -42,6 +43,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 1));
 talkEntry:addResponse("Welcome to Cadomyr. Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop.");
@@ -50,6 +52,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 1));
 talkEntry:addResponse("Willkommen in Cadomyr. Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum.");
@@ -304,6 +307,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
@@ -313,6 +317,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
@@ -322,6 +327,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -332,6 +338,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -345,6 +352,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("So I suppose you have already delivered the letter to my friend Berri Firegold? I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
@@ -354,6 +362,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Ich nehme an, Ihr habt meinem Freund Berri Firegold bereits den Brief überbracht? Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
@@ -363,6 +372,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -373,6 +383,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -385,6 +396,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 3));
@@ -395,6 +407,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 3));
@@ -405,6 +418,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -416,6 +430,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -429,6 +444,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
 talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace.");
@@ -438,6 +454,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
 talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Eine Freundin Mirarie Bragolin kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden wenn Ihr in die Stadt hinein geht, sie steht beim Tor Richtung Marktplatz.");
@@ -447,6 +464,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
 talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -457,6 +475,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
 talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -469,6 +488,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
 talkEntry:addCondition(npc.base.condition.quest.quest(317, ">", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 4));
@@ -479,6 +499,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
 talkEntry:addCondition(npc.base.condition.quest.quest(317, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 4));
@@ -489,6 +510,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
 talkEntry:addCondition(npc.base.condition.quest.quest(317, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -500,6 +522,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
 talkEntry:addCondition(npc.base.condition.quest.quest(317, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -513,6 +536,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Hassan, the royal fan-waver, is sure to have a little task for you. You can find him in the 'Unicorn Lion' tavern, if he isn't at the palace. The tavern is north of the marketplace.");
@@ -522,6 +546,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Hassan, der königliche Fächelwedler hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz.");
@@ -531,6 +556,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -541,6 +567,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -553,6 +580,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
 talkEntry:addCondition(npc.base.condition.quest.quest(75, ">", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 5));
@@ -563,6 +591,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
 talkEntry:addCondition(npc.base.condition.quest.quest(75, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 5));
@@ -573,6 +602,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
 talkEntry:addCondition(npc.base.condition.quest.quest(75, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -584,6 +614,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 4));
 talkEntry:addCondition(npc.base.condition.quest.quest(75, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -597,6 +628,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probbaly met her in the tavern already.");
@@ -606,6 +638,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen.");
@@ -615,6 +648,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -625,6 +659,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -637,6 +672,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
 talkEntry:addCondition(npc.base.condition.quest.quest(126, ">", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
@@ -648,6 +684,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
 talkEntry:addCondition(npc.base.condition.quest.quest(126, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
@@ -658,6 +695,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
 talkEntry:addCondition(npc.base.condition.quest.quest(126, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -670,6 +708,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
 talkEntry:addCondition(npc.base.condition.quest.quest(126, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -683,6 +722,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
@@ -693,6 +733,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Zerarisa, eine gute Freundin lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen, ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt, die Wegweiser sollten Euch direkt zum Kap führen.");
@@ -702,6 +743,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -713,6 +755,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -725,6 +768,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, ">", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 7));
@@ -735,6 +779,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 7));
@@ -745,6 +790,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -756,6 +802,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 6));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -769,6 +816,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar.");
@@ -778,6 +826,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
@@ -787,6 +836,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -797,6 +847,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -809,6 +860,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
 talkEntry:addCondition(npc.base.condition.quest.quest(150, ">", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
@@ -819,6 +871,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
 talkEntry:addCondition(npc.base.condition.quest.quest(150, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
@@ -829,6 +882,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
 talkEntry:addCondition(npc.base.condition.quest.quest(150, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -840,6 +894,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
 talkEntry:addCondition(npc.base.condition.quest.quest(150, ">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -852,6 +907,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("I'm sure you can find your way around here without my help now.");
@@ -860,6 +916,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht.");
@@ -868,6 +925,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -877,6 +935,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 8));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -887,6 +946,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("I cannot help you with that. Why not ask Frizza over there? I'm sure she has the answer.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -894,8 +954,23 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Frizza dort drüben, ich bin mir sicher sie hat eine Antwort.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("You are not a citizen of Cadomyr. I don't have anything to do for you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Willkommen in Cadomyr!", "Welcome to Cadomyr!");

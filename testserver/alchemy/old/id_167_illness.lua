@@ -28,23 +28,19 @@ function ManaIllnessEffects(User, coughProb, strongCoughProb, sneezProb, snotPro
 	local Field5FieldsOfChar = base.commom.GetFrontPosition(User, 5)
 	
 	if (probRandom <= coughProb) and (coughProb ~= 0) then
-	    User:talkLanguage(Character.say,Player.german,"#me hustet eine blaue Wolke aus.")
-		User:talkLanguage(Character.say,Player.english,"#me coughs a blue cloud out.")
+	    User:talk(Character.say, "#me hustet eine blaue Wolke aus.", "#me coughs a blue cloud out.")
 		world:gfx(4,FieldFrontOfChar)
 		User:increaseAttrib("mana",-250)
     elseif (probRandom > coughProb) and (probRandom <= (coughProb + strongCoughProb)) and (strongCoughProb ~= 0) then
-	    User:talkLanguage(Character.say,Player.german,"#me hustet lautstark eine große, blaue Wolke aus, die sich um "..pronoun_DE.."en Kopf herum verteilt.")
-		User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.")
+	    User:talk(Character.say, "#me hustet lautstark eine große, blaue Wolke aus, die sich um "..pronoun_DE.."en Kopf herum verteilt.", "#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.")
 		base.common.CreateCircle(User.pos, 1, CreateManaCloud)
 		User:increaseAttrib("mana",-500)   
     elseif (probRandom > (coughProb + strongCoughProb)) and (probRandom <= (coughProb + strongCoughProb + sneezProb)) and (sneezProb ~= 0) then
-	    User:talkLanguage(Character.say,Player.german,"#me niest und eine Strahl von Manawolken entfleucht sein"..pronoun_DE.." Nase.")
-		User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.")
+	    User:talk(Character.say, "#me niest und eine Strahl von Manawolken entfleucht sein"..pronoun_DE.." Nase.", "#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.")
 		base.common.CreateLine(FieldFrontOfChar, Field5FieldsOfChar, CreateManaCloud)
 		User:increaseAttrib("mana",-500)
     elseif (probRandom > (coughProb + strongCoughProb + sneezProb)) and (probRandom <= (coughProb + strongCoughProb + sneezProb + snotProb)) and (snotProb ~= 0) then
-	    User:talkLanguage(Character.say,Player.german,"#mes Nase entkommt ein bläulicher Faden Schleim und tropft auf den Boden.")
-		User:talkLanguage(Character.say,Player.english,"#me's nose looses a blusih strand of snot which drops to the ground.")
+	    User:talk(Character.say, "#mes Nase entkommt ein bläulicher Faden Schleim und tropft auf den Boden.", "#me's nose looses a blusih strand of snot which drops to the ground.")
 		world:gfx(11,FieldFrontOfChar)
 		User:increaseAttrib("mana",-100)
 	end
@@ -320,8 +316,7 @@ function getEffect_2(Character,Runde)
       Character:setAttrib("faceto",richtung)
 --    Grafik für Erbrochenes?
 --    Würge-Sound wäre nicht schlecht
-      Character:talkLanguage(Character.say,Player.german,"#me muss sich übergeben.");
-	  Character:talkLanguage(Character.say,Player.english,"#me has to vomit.");
+      Character:talk(Character.say, "#me muss sich übergeben.", "#me has to vomit.")
       world:makeSound(23,Character.pos)
 
 --    Foodlevel halbieren

@@ -23,8 +23,7 @@ function UseItem(User, SourceItem, ltstate)
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 
@@ -53,8 +52,7 @@ function UseItem(User, SourceItem, ltstate)
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		flailing.SavedWorkTime[User.id] = flailing:GenWorkTime(User,SourceItem);
 		User:startAction( flailing.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt Getreide zu dreschen.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to flail grain."); 
+		User:talk(Character.say, "#me beginnt Getreide zu dreschen.", "#me starts to flail grain.")
 		return
 	end
 

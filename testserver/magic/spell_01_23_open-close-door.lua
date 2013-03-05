@@ -64,10 +64,8 @@ function CastMagicOnItem(Caster,TargetItem, ltstate)
         OpenCloseTarget(Caster,TargetItem)
     elseif ( ltstate == Action.none ) then
         Caster:startAction( 15, 21, 10, 0, 0);
-        Caster:talkLanguage( Character.say, Player.german, "#me beginnt mit einer mystischen Formel.");
-        Caster:talkLanguage( Character.say, Player.english, "#me starts with a mystical formula.");
+        Caster:talk(Character.say, "#me beginnt mit einer mystischen Formel.", "#me starts with a mystical formula.")
     elseif ( ltstate == Action.abort ) then
-        Caster:talkLanguage(Character.say, Player.german, "#me stoppt apprupt mit dem Zaubern.");
-        Caster:talkLanguage(Character.say, Player.english,"me stopps appruptly with the casting.");
+        Caster:talk(Character.say, "#me stoppt apprupt mit dem Zaubern.", "me stopps appruptly with the casting.")
     end
 end
