@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -155,7 +155,7 @@ talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addResponse("I have a grain of sand in my eye - how would you feel?!");
 talkEntry:addResponse("Fine, fine.");
-talkEntry:addResponse("All I can say is: I hope you are feeling as good as I do!");
+talkEntry:addResponse("All I can say is, I hope you are feeling as good as I do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -404,7 +404,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Oasis of Stars II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(67, "=", 3));
-talkEntry:addResponse("Another task? Alright, listen: I need twenty piles of quartz sand. First of all you need to get the coarse sand and then you need to filter it with a sieve. You will earn ten silver coins.");
+talkEntry:addResponse("Another task? Alright, listen, I need twenty piles of quartz sand. First of all you need to get the coarse sand and then you need to filter it with a sieve. You will earn ten silver coins.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -425,7 +425,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Oasis of Stars II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(67, "=", 3));
-talkEntry:addResponse("Another task? Alright, listen: I need twenty piles of quartz sand. First of all you need to get the coarse sand and then you need to filter it with a sieve. You will earn ten silver coins.");
+talkEntry:addResponse("Another task? Alright, listen, I need twenty piles of quartz sand. First of all you need to get the coarse sand and then you need to filter it with a sieve. You will earn ten silver coins.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -454,7 +454,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(67, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
-talkEntry:addResponse("This is what I call fine sand. And here is your money.");
+talkEntry:addResponse("This is what I call fine sand, and here is your money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -469,7 +469,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(67, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
-talkEntry:addResponse("This is what I call fine sand. And here is your money.");
+talkEntry:addResponse("This is what I call fine sand, and here is your money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -514,7 +514,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+",
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(67, "=", 4));
-talkEntry:addResponse("This is what I call fine sand. And here is your money.");
+talkEntry:addResponse("This is what I call fine sand, and here is your money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -527,7 +527,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(67, "=", 4));
-talkEntry:addResponse("This is what I call fine sand. And here is your money.");
+talkEntry:addResponse("This is what I call fine sand, and here is your money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -604,7 +604,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Oasis of Stars III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(67, "=", 5));
-talkEntry:addResponse("I need your help again. But this time it is a bit more complicated. I want you to collect five raw topaz and your reward will be ten silvers!");
+talkEntry:addResponse("I need your help again, but this time it is a bit more complicated. I want you to collect five raw topaz and your reward will be ten silvers!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -625,7 +625,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Oasis of Stars III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(67, "=", 5));
-talkEntry:addResponse("I need your help again. But this time it is a bit more complicated. I want you to collect five raw topaz and your reward will be ten silvers!");
+talkEntry:addResponse("I need your help again, but this time it is a bit more complicated. I want you to collect five raw topaz and your reward will be ten silvers!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -858,7 +858,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(67, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
-talkEntry:addResponse("Ha! You did it perfectly - just like all the other tasks. You were a big help and here are your coins. I'll place a sausage over the fire later on for you, my friend.");
+talkEntry:addResponse("Ha! You did it perfectly, just like all the other tasks. You were a big help and here are your coins. I'll place a sausage over the fire later for you, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -873,7 +873,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(67, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
-talkEntry:addResponse("Ha! You did it perfectly - just like all the other tasks. You were a big help and here are your coins. I'll place a sausage over the fire later on for you, my friend.");
+talkEntry:addResponse("Ha! You did it perfectly, just like all the other tasks. You were a big help and here are your coins. I'll place a sausage over the fire later for you, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -918,7 +918,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+",
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(67, "=", 8));
-talkEntry:addResponse("Ha! You did it great - just like all the other tasks. You were a big help and here are your coins. I'll place a sausage over the fire later on for you, my friend.");
+talkEntry:addResponse("Ha! You did it great, just like all the other tasks. You were a big help and here are your coins. I'll place a sausage over the fire later for you, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -931,7 +931,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(67, "=", 8));
-talkEntry:addResponse("Ha! You did it great - just like all the other tasks. You were a big help and here are your coins. I'll place a sausage over the fire later on for you, my friend.");
+talkEntry:addResponse("Ha! You did it great, just like all the other tasks. You were a big help and here are your coins. I'll place a sausage over the fire later for you, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -967,7 +967,7 @@ talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ten lumps of coal - shouldn't be too difficult, eh?");
+talkEntry:addResponse("Ten lumps of coal... shouldn't be too difficult, eh?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -986,7 +986,7 @@ talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 10, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Ten lumps of coal - shouldn't be too difficult, eh?");
+talkEntry:addResponse("Ten lumps of coal... shouldn't be too difficult, eh?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1006,7 +1006,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(67, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("You helped me enough, really. I have no other jobs for you. But maybe you can find someone in the Dark Hole mine who will give you something to do. And remember: The shovel is your friend.");
+talkEntry:addResponse("You've helped me enough, really. I have no other jobs for you, but maybe you can find someone in the Dark Hole mine who will give you something to do. Also remember, the shovel is your friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1023,7 +1023,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(67, "=", 8));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("You helped me enough, really. I have no other jobs for you. But maybe you can find someone in the Dark Hole mine who will give you something to do. And remember: The shovel is your friend.");
+talkEntry:addResponse("You've helped me enough, really. I have no other jobs for you, but maybe you can find someone in the Dark Hole mine who will give you something to do. Also remember, the shovel is your friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1040,7 +1040,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Profession");
 talkEntry:addResponse("I'm a digger. I dig. I dig in the sand and anywhere else one can dig.");
-talkEntry:addResponse("My job? I bring sand to glassblowers.");
+talkEntry:addResponse("My job? I collect sand for glassblowers.");
 talkEntry:addResponse("I steal the sand from the desert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1057,7 +1057,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addResponse("I'm a digger. I dig. I dig in the sand and anywhere else one can dig.");
-talkEntry:addResponse("My job? I bring sand to glassblowers.");
+talkEntry:addResponse("My job? I collect sand for glassblowers.");
 talkEntry:addResponse("I steal the sand from the desert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1100,7 +1100,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("desert");
 talkEntry:addResponse("The Katabi desert is a nice place, aye, but you need to watch out for scorpions.");
-talkEntry:addResponse("Welcome to the Katabi desert! If your throat gets try, you can visit the tavern.");
+talkEntry:addResponse("Welcome to the Katabi desert! If your throat gets dry, you can visit the tavern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1116,7 +1116,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Katabi");
 talkEntry:addTrigger("sand");
 talkEntry:addResponse("The Katabi desert is a nice place, aye, but you need to watch out for scorpions.");
-talkEntry:addResponse("Welcome to the Katabi desert! If your throat gets try, you can visit the tavern.");
+talkEntry:addResponse("Welcome to the Katabi desert! If your throat gets dry, you can visit the tavern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1130,8 +1130,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("oasis");
-talkEntry:addResponse("This is the Oasis of Stars - a paradise for diggers.");
-talkEntry:addResponse("This oasis is a beacon of hope in the Katabi desert - just like a bright star in the darkest night.");
+talkEntry:addResponse("This is the Oasis of Stars, a paradise for diggers.");
+talkEntry:addResponse("This oasis is a beacon of hope in the Katabi desert, just like a bright star in the darkest night.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1145,7 +1145,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Raban");
-talkEntry:addResponse("Raban... I remember this name. It has been a while.");
+talkEntry:addResponse("Raban... I remember that name. It has been a while.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1158,7 +1158,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tool");
 talkEntry:addTrigger("shovel");
-talkEntry:addResponse("The shovel is my tool. It may seem like a normal object, but it is powerful in the right hands. I will give you one if you do a little task for me.");
+talkEntry:addResponse("The shovel is my tool. It may seem like just a normal object, but it is powerful in the right hands. I will give you one if you do a little task for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1241,7 +1241,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Edwards... I remember an Edward, he is pretty awesome. Concerning the queen of Cadomyr, I doubt she even knows anyone is living in the desert.");
+talkEntry:addResponse("Edwards... I remember an Edward, he is pretty awesome. Concerning the Queen of Cadomyr, I doubt she even knows anyone is living in the desert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1255,7 +1255,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Edwards... I remember an Edward, he is pretty awesome. Concerning the queen of Cadomyr, I doubt she even knows anyone is living in the desert.");
+talkEntry:addResponse("Edwards... I remember an Edward, he is pretty awesome. Concerning the Queen of Cadomyr, I doubt she even knows anyone is living in the desert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1353,7 +1353,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("It is windy today... Is that divine intervention?");
+talkEntry:addResponse("It is windy today... is that a divine intervention?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1367,7 +1367,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("The Katabi desert is tanoraforsaken!");
+talkEntry:addResponse("The Katabi desert is Tanoraforsaken!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1383,7 +1383,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I'm not a trader but a digger!");
+talkEntry:addResponse("I'm not a trader, but a digger!");
 talkEntry:addResponse("I do not sell or buy anything, but I may have a quest for you.");
 talkEntry:addResponse("No trading! However, You could get some coins, if you do a task for me.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1403,7 +1403,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("We have to be very thankful that the shovel allows us to work with it.");
-talkEntry:addResponse("Without shovel; no clay, without clay; no bricks, without bricks; no house! The shovel if the beginning of everything.");
+talkEntry:addResponse("Without a shovel, no clay... without clay, no bricks... without bricks, no house! The shovel is the beginning of everything.");
 talkEntry:addResponse("Dig for sand next to rocks. You can find the best sand to make glass there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1474,15 +1474,15 @@ talkEntry:addResponse("Mir egal.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me streicht sich durch das Haar und lässt so einige Sandkörner herumfliegen.", "#me runs a hand through his hair and a few grains of sand fly from it.");
-talkingNPC:addCycleText("#me säubert seine Schaufel.", "#me cleans his shovel. ");
-talkingNPC:addCycleText("Na warte, Wüste. Ich grabe so lange, bis du erledigt bist!", "Just wait, desert. I'll keep on digging 'til you're gone!");
+talkingNPC:addCycleText("#me säubert seine Schaufel.", "#me cleans his shovel.");
+talkingNPC:addCycleText("Na warte, Wüste. Ich grabe so lange, bis du erledigt bist!", "Just wait, desert... I'll keep on digging 'til you're gone!");
 talkingNPC:addCycleText("#me lässt seinen Blick durch die Gegend wandern, während er sich auf seiner Schaufel abstützt.", "#me leans on his shovel and looks around.");
 talkingNPC:addCycleText("Ein Mann ohne Schaufel ist nur ein halber Mann.", "A man without a shovel is just half a man.");
 talkingNPC:addCycleText("#me murmelt etwas zu seiner Schaufel.", "#me murmurs to his shovel.");
 talkingNPC:addCycleText("Ich sollte beginnen, ein Loch im Sand auszuheben.", "I should start to dig a hole.");
 talkingNPC:addCycleText("Es gibt hier eindeutig zu viel Sand.", "Too much sand here, am I not right?");
 talkingNPC:addCycleText("Verdammt soll derjenige sein, der all den Sand genau hier hin bringen mußte!", "Cursed be the one who brought all that sand to exactly this location.");
-talkingNPC:addCycleText("Aus der Nordbrücke wird noch eine Sandbrücke.", "The Northbridge will become a Sandybridge.");
+talkingNPC:addCycleText("Aus der Nordbrücke wird noch eine Sandbrücke.", "The North bridge will be renamed Sandy bridge.");
 talkingNPC:addCycleText("Willkommen in... im Sand!", "Welcome to the... sand!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
