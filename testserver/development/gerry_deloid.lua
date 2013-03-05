@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -23,7 +23,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.gerry_deloid", package.seeall)
+module("npc.gerry_deloid", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -225,7 +225,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 1));
-talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives right there on the tables, so please collect 20 honeycombs for me and I'll teach you how to make wax from them.");
+talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives right there on the tables, so please collect twenty honeycombs for me and I'll teach you how to make wax from them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -246,7 +246,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 1));
-talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives right there on the tables, so please collect 20 honeycombs for me and I'll teach you how to make wax from them.");
+talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives right there on the tables, so please collect twenty honeycombs for me and I'll teach you how to make wax from them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,7 +316,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2529, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I want 20 honeycombs from you, you can collect them from the beehives right there on the tables.");
+talkEntry:addResponse("I want twenty honeycombs from you, you can collect them from the beehives right there on the tables.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -431,7 +431,7 @@ talkEntry:addCondition(npc.base.condition.item.item(431, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I want 20 pieces of wax, please come back once you are done with this task.");
+talkEntry:addResponse("I want twenty pieces of wax, please come back once you are done with this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -566,7 +566,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 7));
-talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect some thistles and bring me at least 2 bottles with oil. The oil press is next me.");
+talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect some thistles and bring me at least two bottles with oil. The oil press is next me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -587,7 +587,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 7));
-talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect some thistles and bring me at least 2 bottles with oil. The oil press is next me.");
+talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect some thistles and bring me at least two bottles with oil. The oil press is next me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

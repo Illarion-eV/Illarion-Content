@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.lilli_gallfing", package.seeall)
+module("npc.lilli_gallfing", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -264,7 +264,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 477, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 1));
-talkEntry:addResponse("Oh, you want to learn something about tailoring? Well, let's start with something simple. Could you collect 20 bales of wool for me? You can find sheep if you leave the city and follow the street to the west. You can have my old scissors to collect the wool.");
+talkEntry:addResponse("Oh, you want to learn something about tailoring? Well, let's start with something simple. Could you collect twenty bales of wool for me? You can find sheep if you leave the city and follow the street to the west. You can have my old scissors to collect the wool.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -287,7 +287,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 477, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 1));
-talkEntry:addResponse("Oh, you want to learn something about tailoring? Well, let's start with something simple. Could you collect 20 bales of wool for me? You can find sheep if you leave the city and follow the street to the west. You can have my old scissors to collect the wool.");
+talkEntry:addResponse("Oh, you want to learn something about tailoring? Well, let's start with something simple. Could you collect twenty bales of wool for me? You can find sheep if you leave the city and follow the street to the west. You can have my old scissors to collect the wool.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -358,7 +358,7 @@ talkEntry:addCondition(npc.base.condition.item.item(170, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That isn't 20 bales of wool yet, please come back once you've finished this task.");
+talkEntry:addResponse("That isn't twenty bales of wool yet, please come back once you've finished this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -377,7 +377,7 @@ talkEntry:addCondition(npc.base.condition.item.item(170, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That isn't 20 bales of wool yet, please come back once you've finished this task.");
+talkEntry:addResponse("That isn't twenty bales of wool yet, please come back once you've finished this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,7 +492,7 @@ talkEntry:addCondition(npc.base.condition.item.item(176, "all", "<", 2, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Could you produce two grey cloth and five spools of thread from the remaining 20 bales of wool for me please?");
+talkEntry:addResponse("Could you produce two grey cloth and five spools of thread from the remaining twenty bales of wool for me please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -511,7 +511,7 @@ talkEntry:addCondition(npc.base.condition.item.item(50, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Could you produce two grey cloth and five spools of thread from the remaining 20 bales of wool for me please?");
+talkEntry:addResponse("Could you produce two grey cloth and five spools of thread from the remaining twenty bales of wool for me please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -663,7 +663,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(302, 15, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(544, 3, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 7));
-talkEntry:addResponse("Let's produce some dye now, you will need dye for tailoring as well. Please go outside and make a little fire with the wood and hatchet which you get from me and produce five buckets of red dye. You need a mortar, 5 buckets filled with water and 15 cherries to make the dye. I'll give you these things, just this once.");
+talkEntry:addResponse("Let's produce some dye now, you will need dye for tailoring as well. Please go outside and make a little fire with the wood and hatchet which you get from me and produce five buckets of red dye. You need a mortar, five buckets filled with water and fifteen cherries to make the dye. I'll give you these things, just this once.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,7 +694,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(302, 15, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(544, 3, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 7));
-talkEntry:addResponse("Let's produce some dye now, you will need dye for tailoring as well. Please go outside and make a little fire with the wood and hatchet which you get from me and produce five buckets of red dye. You need a mortar, 5 buckets filled with water and 15 cherries to make the dye. I'll give you these things, just this once.");
+talkEntry:addResponse("Let's produce some dye now, you will need dye for tailoring as well. Please go outside and make a little fire with the wood and hatchet which you get from me and produce five buckets of red dye. You need a mortar, five buckets filled with water and fifteen cherries to make the dye. I'll give you these things, just this once.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
