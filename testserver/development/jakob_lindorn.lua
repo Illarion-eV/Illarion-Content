@@ -22,7 +22,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.talkstate")
 require("npc.base.talk")
-module("npc.jakob_lindorn", package.seeall)
+module("development.jakob_lindorn", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
