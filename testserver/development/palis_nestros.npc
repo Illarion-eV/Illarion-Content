@@ -74,14 +74,14 @@ buyPrimaryItems = 91, 104, 206, 2627, 2640, 2656, 2742, 2551, 2552, 2553, 2554, 
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Palis Nestros der Artefakthändler. Schlüsselwörter: Hallo, Artefakte, Handel, Cadomyr.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. I am sure you came to me for trading artifacts.", "Let's get straight to business.", "Did you find any artifacts?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid mir gegrüßt. Ich bin mir sicher, Ihr wollt Artefakte mit mir handeln.", "Lasst uns direkt zum Geschäft kommen.", "Habt Ihr eine Artefakt gefunden?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted. I am sure you came to me for trading artifacts.", "Let's get straight to business.", "Did you find any artifacts?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid mir gegrüßt. Ich bin mir sicher, Ihr wollt Artefakte mit mir handeln.", "Lasst uns direkt zum Geschäft kommen.", "Habt Ihr eine Artefakt gefunden?"
+"Farewell", "Bye", "Fare well", "See you" -> "See you around.", "Don't come back without artifacts!", "Farewell."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Bis zum nächsten mal.", "Kommt mir ja nicht ohne Artefakte wieder!", "Auf wiedersehen."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See you around.", "Don't come back without artifacts!", "Farewell."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Bis zum nächsten mal.", "Kommt mir ja nicht ohne Artefakte wieder!", "Auf wiedersehen."
 "How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
