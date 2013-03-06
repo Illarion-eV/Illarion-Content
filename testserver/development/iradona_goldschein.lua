@@ -890,7 +890,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schattenland");
-talkEntry:addResponse("Ein gefährlicher Ort am südlichen Ende der Malachit Mine. Geh nicht alleine dort hin. Für mehr Information frage jemanden anderen.");
+talkEntry:addResponse("Ein gefährlicher Ort am südlichen Ende der Malachitmine. Geh nicht alleine dort hin. Für mehr Information frage jemanden anderen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

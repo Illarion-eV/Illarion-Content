@@ -195,7 +195,7 @@ english, "Hinterland" -> inform("[Keywords] Sleepy Bujhaar Inn, Census office, S
 "Blackbridge" -> inform("[Keyword] location"), "The Blackbridge in the northeast leads you over the Bounding Stream to the Swamp and Northern Woods, if you want to go to those locations."
 "Schwarzbrücke" -> inform("[Schlüsselwort] Ort"), "Die Schwarzbrücke, im Nordosten von hier, führt dich über den Grenzstrom zum Sumpf und den Nördlichen Wäldern, falls du zu diesen Orten gehen möchtest."
 "Shadowland" -> "A dangerous place at the south end of the Malachite mine. Do not go there alone. For more information, ask someone else."
-"Schattenland" -> "Ein gefährlicher Ort am südlichen Ende der Malachit Mine. Geh nicht alleine dort hin. Für mehr Information frage jemanden anderen."
+"Schattenland" -> "Ein gefährlicher Ort am südlichen Ende der Malachitmine. Geh nicht alleine dort hin. Für mehr Information frage jemanden anderen."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_galmair_1.quest belongs to this NPC: Quest-ID.: 631

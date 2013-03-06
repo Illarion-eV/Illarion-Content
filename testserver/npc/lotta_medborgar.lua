@@ -748,7 +748,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair Hochebene");
-talkEntry:addResponse("Die Galmair Hochebene ist südlich von Galmair und westlich der Malachit Mine. Du findest dort die Banditen vom Fort Schnellbeil.");
+talkEntry:addResponse("Die Galmair Hochebene ist südlich von Galmair und westlich der Malachitmine. Du findest dort die Banditen vom Fort Schnellbeil.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -797,7 +797,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fort Schnellbeil");
-talkEntry:addResponse("Das Heim von Banditen auf der Glamair Hochebene, geführt von Uri Schnellbeil. Sie behindern unsere Geschäfte in der Malachit Mine von Zeit zu Zeit.");
+talkEntry:addResponse("Das Heim von Banditen auf der Glamair Hochebene, geführt von Uri Schnellbeil. Sie behindern unsere Geschäfte in der Malachitmine von Zeit zu Zeit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
