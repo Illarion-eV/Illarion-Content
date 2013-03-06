@@ -1,9 +1,9 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Thorgrem Silverbeard                                  Galmair    --
+-- NPC Name: Thorgrem Silverbeard       Galmair                               --
 -- NPC Job:  Smith and Miner                                                  --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  387, 273, 0            --
--- NPC Sex:  male                       NPC Direction: west                  --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
 --                                                     easyNPC Parser v1.23.1 --
@@ -34,9 +34,9 @@ radius = 0
 hairID = 1
 beardID = 4
 colorHair = 233, 233, 233
-colorSkin = 75, 131, 255
+colorSkin = 233, 202, 173
 itemHead = 358
-itemChest = 0
+itemChest = 2360
 itemCoat = 0
 itemMainHand = 23
 itemSecondHand = 0
