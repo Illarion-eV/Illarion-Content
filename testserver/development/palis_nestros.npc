@@ -82,10 +82,10 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted. I am sure you came to m
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Bis zum nächsten mal.", "Kommt mir ja nicht ohne Artefakte wieder!", "Auf wiedersehen."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See you around.", "Don't come back without artifacts!", "Farewell."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Bis zum nächsten mal.", "Kommt mir ja nicht ohne Artefakte wieder!", "Auf wiedersehen."
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel", "How do you do" -> "That is none of your business."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Das geht euch nicht allzuviel an."
+"your name", "who are you", "who art thou" -> "I am Palis Nestros, the artifact trader of Cadomyr."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Palis Nestros, der Artefakthändler Cadomyrs."
 
 -- OPTIONAL TRIGGERS
 
@@ -110,9 +110,9 @@ english, "quest", "mission" -> "I do not issue any quests."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "If you aquire any artifacts on your adventures, I will pay a nice sum for them."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"beruf" -> "Solltet Ihr bei euren Abenteuern ein Artefakt finden, so werde ich euch eine nette Summe dafür zahlen."
 english, "job" -> "If you aquire any artifacts on your adventures, I will pay a nice sum for them."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job" -> "Solltet Ihr bei euren Abenteuern ein Artefakt finden, so werde ich euch eine nette Summe dafür zahlen."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "artifact" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
