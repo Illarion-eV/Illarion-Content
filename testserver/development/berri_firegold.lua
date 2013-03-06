@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.berri_firegold", package.seeall)
+module("npc.berri_firegold", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -106,7 +106,7 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addResponse("Ich wünsche Euch noch einen schönen Tag.");
-talkEntry:addResponse("Ich hoffe wir sehen uns wieder, auf bald!");
+talkEntry:addResponse("Ich hoffe, wir sehen uns wieder. Auf bald!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -127,7 +127,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Ich wünsche Euch noch einen schönen Tag.");
-talkEntry:addResponse("Ich hoffe wir sehen uns wieder, auf bald!");
+talkEntry:addResponse("Ich hoffe, wir sehen uns wieder. Auf bald!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -162,7 +162,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Ich bin Berri Firegold, wer bist du?");
+talkEntry:addResponse("Ich bin Berri Firegold. Wer bist du?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -174,7 +174,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin natürlich ein Schmied, vielleicht habe ich später eine kleine Aufgabe für Euch.");
+talkEntry:addResponse("Ich bin natürlich ein Schmied. Vielleicht habe ich später eine kleine Aufgabe für Euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -187,7 +187,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin natürlich ein Schmied, vielleicht habe ich später eine kleine Aufgabe für Euch.");
+talkEntry:addResponse("Ich bin natürlich ein Schmied. Vielleicht habe ich später eine kleine Aufgabe für Euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -201,7 +201,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("mine");
-talkEntry:addResponse("Wenn Ihr die Stadt verlasst und nach Süden der Straße folgt erreicht Ihr den 'Grundstein der Aufrichtigkeit', dort könnt Ihr Kohle finden. Wenn Ihr die Stadt verlasst und nach Nordosten geht, erreicht Ihr den 'Freiheitsbruch', dort findet Ihr Eisen- und Kupfererz und manchmal sogar Goldnuggets.");
+talkEntry:addResponse("Wenn Ihr die Stadt verlasst und nach Süden der Straße folgt, erreicht Ihr den 'Grundstein der Aufrichtigkeit'. Dort könnt Ihr Kohle finden. Wenn Ihr die Stadt verlasst und nach Nordosten geht, erreicht Ihr den 'Freiheitsbruch'. Dort findet Ihr Eisen- und Kupfererz und manchmal sogar Goldnuggets.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -214,7 +214,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("schmied");
-talkEntry:addResponse("Wenn Ihr schmieden wollt dann braucht Ihr Barren und natürlich einen Hammer. Schmiede benutzen einen gewöhnlichen Hammer, Goldschmiede dagegen brauchen einen Feinschmiedehammer.");
+talkEntry:addResponse("Wenn Ihr schmieden wollt, dann braucht Ihr Barren und natürlich einen Hammer. Schmiede benutzen einen gewöhnlichen Hammer. Goldschmiede dagegen brauchen einen Feinschmiedehammer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -228,7 +228,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("hand");
-talkEntry:addResponse("Wenn Ihr Hilfe beim Schmieden braucht fragt mich nach einer Aufgabe. Wollt Ihr lieber etwas über das Glasblasen oder Ziegelmachen lernen, dann fragt Zlatxhol da vorne. Liegt euch das Schneiderhandwerk eher, dann fragt Lilli Gallfing hinter mir im anderen Raum. Falls Ihr jedoch am Kerzenmachen interessiert seid, dann geht über die Schneiderrei hinaus und sprecht Gerry Deloid an.");
+talkEntry:addResponse("Wenn Ihr Hilfe beim Schmieden braucht, fragt mich nach einer Aufgabe. Wollt Ihr lieber etwas über das Glasblasen oder Ziegelmachen lernen, dann fragt Zlatxhol da vorne. Liegt Euch das Schneiderhandwerk eher, dann fragt Lilli Gallfing hinter mir im anderen Raum. Falls Ihr jedoch am Kerzenmachen interessiert seid, dann geht durch die Schneiderei hinaus und sprecht Gerry Deloid an.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -248,7 +248,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("brief");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
-talkEntry:addResponse("Ah, vielen Dank. Wenn Ihr Hilfe beim Schmieden braucht fragt mich nach einer Aufgabe. Wollt Ihr lieber etwas über das Glasblasen oder Ziegelmachen lernen, dann fragt Zlatxhol da vorne. Liegt euch das Schneiderhandwerk eher, dann fragt Lilli Gallfing hinter mir im anderen Raum. Falls Ihr jedoch am Kerzenmachen interessiert seid, dann geht über die Schneiderrei hinaus und sprecht Gerry Deloid an.");
+talkEntry:addResponse("Ah, vielen Dank. Wenn Ihr Hilfe beim Schmieden braucht, fragt mich nach einer Aufgabe. Wollt Ihr lieber etwas über das Glasblasen oder Ziegelmachen lernen, dann fragt Zlatxhol da vorne. Liegt euch das Schneiderhandwerk eher, dann fragt Lilli Gallfing hinter mir im anderen Raum. Falls Ihr jedoch am Kerzenmachen interessiert seid, dann geht durch die Schneiderei hinaus und sprecht Gerry Deloid an.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,7 +271,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Könntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten, den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke um das Erz zu sammeln.");
+talkEntry:addResponse("Könntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -296,7 +296,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Könntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten, den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke um das Erz zu sammeln.");
+talkEntry:addResponse("Könntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,7 +375,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 20 Eisenerze sowie 20 Kohleklumpen von Euch, habt Ihr das vergessen?");
+talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 20 Eisenerze sowie 20 Kohleklumpen von Euch. Habt Ihr das vergessen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -394,7 +394,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 20 Eisenerze sowie 20 Kohleklumpen von Euch, habt Ihr das vergessen?");
+talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 20 Eisenerze sowie 20 Kohleklumpen von Euch Habt Ihr das vergessen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -417,7 +417,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 3));
-talkEntry:addResponse("Ich hätte einen weitere Aufgabe für euch, in der Tat. Könntet Ihr mir 10 Eisenbarren bei der Esse dort drüben schmelzen? Hier, ich gebe Euch sogar eine Tiegelzange zum schmelzen.");
+talkEntry:addResponse("Ich hätte einen weitere Aufgabe für Euch, in der Tat. Könntet Ihr mir 10 Eisenbarren bei der Esse dort drüben schmelzen? Hier, ich gebe Euch sogar eine Tiegelzange zum schmelzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -442,7 +442,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 3));
-talkEntry:addResponse("Ich hätte einen weitere Aufgabe für euch, in der Tat. Könntet Ihr mir 10 Eisenbarren bei der Esse dort drüben schmelzen? Hier, ich gebe Euch sogar eine Tiegelzange zum schmelzen.");
+talkEntry:addResponse("Ich hätte einen weitere Aufgabe für Euch, in der Tat. Könntet Ihr mir 10 Eisenbarren bei der Esse dort drüben schmelzen? Hier, ich gebe Euch sogar eine Tiegelzange zum schmelzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -509,7 +509,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Das sind noch keine 10 Eisenbarren, die ich von Euch wollte. Kommt wieder wenn Ihr die Aufgabe erledigt habt.");
+talkEntry:addResponse("Das sind noch keine 10 Eisenbarren, die ich von Euch wollte. Kommt wieder, wenn Ihr die Aufgabe erledigt habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -534,7 +534,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(122, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 5));
-talkEntry:addResponse("Ihr wollt noch eine weitere Aufgabe? Nun gut, meinetwegen. Bitte stellt mir 5 Nägel sowie 5 Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht, der mit dem roten Griff für das Feinschmieden. Hier ich gebe Euch jeweils einen zum üben.");
+talkEntry:addResponse("Ihr wollt noch eine weitere Aufgabe? Nun gut, meinetwegen. Bitte stellt mir 5 Nägel sowie 5 Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht. Der mit dem roten Griff für das Feinschmieden. Hier ich gebe Euch jeweils einen zum üben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -561,7 +561,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(122, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 5));
-talkEntry:addResponse("Ihr wollt noch eine weitere Aufgabe? Nun gut, meinetwegen. Bitte stellt mir 5 Nägel sowie 5 Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht, der mit dem roten Griff für das Feinschmieden. Hier ich gebe Euch jeweils einen zum üben.");
+talkEntry:addResponse("Ihr wollt noch eine weitere Aufgabe? Nun gut, meinetwegen. Bitte stellt mir 5 Nägel sowie 5 Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht. Der mit dem roten Griff für das Feinschmieden. Hier ich gebe Euch jeweils einen zum üben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -590,7 +590,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 6));
-talkEntry:addResponse("Gut gemacht, vielen Dank. Ich denke Ihr kommt nun auch ohne meine Hilfe zurecht.");
+talkEntry:addResponse("Gut gemacht, vielen Dank. Ich denke, Ihr kommt nun auch ohne meine Hilfe zurecht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -621,7 +621,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 6));
-talkEntry:addResponse("Gut gemacht, vielen Dank. Ich denke Ihr kommt nun auch ohne meine Hilfe zurecht.");
+talkEntry:addResponse("Gut gemacht, vielen Dank. Ich denke, Ihr kommt nun auch ohne meine Hilfe zurecht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -640,7 +640,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche.");
+talkEntry:addResponse("Ihr habt die Aufgabe noch nicht erfüllt, wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -659,7 +659,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(1858, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche.");
+talkEntry:addResponse("Ihr habt die Aufgabe noch nicht erfüllt, wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -696,7 +696,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
 talkingNPC:addCycleText("#me streicht sich über seinen Bart.", "#me runs a hand over his beard.");
-talkingNPC:addCycleText("Wenn Ihr Hilfe beim schmieden braucht dann fragt nur mich!", "If you need any help smithing, just ask me!");
+talkingNPC:addCycleText("Wenn Ihr Hilfe beim schmieden braucht, dann fragt nur mich!", "If you need any help smithing, just ask me!");
 talkingNPC:addCycleText("#me gähnt verhalten.", "#me yawns restrained.");
 talkingNPC:addCycleText("Ein Bier! Bringt mir ein Bier!", "A beer, bring me a beer!");
 talkingNPC:addCycleText("#me grummelt.", "#me grumbles.");
