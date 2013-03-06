@@ -178,11 +178,7 @@ function logWeather(newWeather)
     aMin=world:getTime("minute");
     aSec=world:getTime("second");
 
-    LogString=aYear.."/"..aMonth.."/"..aDay.."/"..aHour.."/"..aMin.."/"..aSec..":"..LogString
-
-   --LogFile=io.open("/home/martin/weatherlog.txt","a")
-   --LogFile:write(LogString);
-   -- LogFile:close();
+    debug(aYear.."/"..aMonth.."/"..aDay.."/"..aHour.."/"..aMin.."/"..aSec..":"..LogString)
 end
 
 -- fruehling: 1-4: 
