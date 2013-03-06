@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -661,9 +661,8 @@ talkEntry:addConsequence(npc.base.consequence.item.item(58, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(52, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(302, 15, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(544, 3, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 7));
-talkEntry:addResponse("Let's produce some dye now, you will need dye for tailoring as well. Please go outside and make a little fire with the wood and hatchet which you get from me and produce five buckets of red dye. You need a mortar, five buckets filled with water and fifteen cherries to make the dye. I'll give you these things, just this once.");
+talkEntry:addResponse("Let's produce some dye now, you will need dye for tailoring as well. Please go outside and make a little fire with the wood which you get from me and produce five buckets of red dye. You need a mortar, five buckets filled with water and fifteen cherries to make the dye. I'll give you these things, just this once.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -676,9 +675,8 @@ talkEntry:addConsequence(npc.base.consequence.item.item(58, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(52, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(302, 15, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(544, 3, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 7));
-talkEntry:addResponse("Lasst uns nun etwas Farbe herstellen. Bitte geht hinaus, macht ein kleines Feuer mit dem dem Holz und dem Beil das ich Euch gebe und stellt fünf Eimer mit roter Farbe her. Dafür braucht Ihr außerdem noch einen Mörser, 5 Eimer mit Wasser darin und 15 Kirschen. Dies kriegt Ihr heute ausnahmsweise alles von mir.");
+talkEntry:addResponse("Lasst uns nun etwas Farbe herstellen. Bitte geht hinaus, macht ein kleines Feuer mit dem dem Holz das ich Euch gebe und stellt fünf Eimer mit roter Farbe her. Dafür braucht Ihr außerdem noch einen Mörser, 5 Eimer mit Wasser darin und 15 Kirschen. Dies kriegt Ihr heute ausnahmsweise alles von mir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -692,9 +690,8 @@ talkEntry:addConsequence(npc.base.consequence.item.item(58, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(52, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(302, 15, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(544, 3, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 7));
-talkEntry:addResponse("Let's produce some dye now, you will need dye for tailoring as well. Please go outside and make a little fire with the wood and hatchet which you get from me and produce five buckets of red dye. You need a mortar, five buckets filled with water and fifteen cherries to make the dye. I'll give you these things, just this once.");
+talkEntry:addResponse("Let's produce some dye now, you will need dye for tailoring as well. Please go outside and make a little fire with the wood which you get from me and produce five buckets of red dye. You need a mortar, five buckets filled with water and fifteen cherries to make the dye. I'll give you these things, just this once.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -709,9 +706,8 @@ talkEntry:addConsequence(npc.base.consequence.item.item(58, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(52, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(302, 15, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(544, 3, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 7));
-talkEntry:addResponse("Lasst uns nun etwas Farbe herstellen. Bitte geht hinaus, macht ein kleines Feuer mit dem dem Holz und dem Beil das ich Euch gebe und stellt fünf Eimer mit roter Farbe her. Dafür braucht Ihr außerdem noch einen Mörser, 5 Eimer mit Wasser darin und 15 Kirschen. Dies kriegt Ihr heute ausnahmsweise alles von mir.");
+talkEntry:addResponse("Lasst uns nun etwas Farbe herstellen. Bitte geht hinaus, macht ein kleines Feuer mit dem dem Holz das ich Euch gebe und stellt fünf Eimer mit roter Farbe her. Dafür braucht Ihr außerdem noch einen Mörser, 5 Eimer mit Wasser darin und 15 Kirschen. Dies kriegt Ihr heute ausnahmsweise alles von mir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
