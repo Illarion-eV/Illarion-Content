@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 383, 269, 0, 4, 'Tony Spirotelli', 'npc.tony_spirotelli', 0, 3, 2, 119, 221, 230, 255, 206, 183);
+VALUES (0, 383, 269, 0, 4, 'Tony Spirotelli', 'npc.tony_spirotelli', 0, 3, 2, 173, 54, 33, 255, 206, 183);
 ---]]
 
 require("npc.base.basic")
@@ -601,7 +601,7 @@ mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 0);
 mainNPC:setEquipment(9, 826);
-mainNPC:setEquipment(10, 667);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

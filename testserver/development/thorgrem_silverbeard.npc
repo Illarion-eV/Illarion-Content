@@ -35,14 +35,14 @@ hairID = 1
 beardID = 4
 colorHair = 233, 233, 233
 colorSkin = 75, 131, 255
-itemHead = 0
+itemHead = 358
 itemChest = 0
 itemCoat = 0
 itemMainHand = 23
 itemSecondHand = 0
 itemHands = 0
 itemTrousers = 825
-itemShoes = 369
+itemShoes = 698
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Thorgrem Silverbeard the smith. Keywords: quest, smithing, craft, letter")
