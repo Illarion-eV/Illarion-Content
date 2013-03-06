@@ -45,8 +45,8 @@ itemTrousers = 183
 itemShoes = 0
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Zlatxhol the glass blower and brick maker. Keywords: quest, sand, ash")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zlatxhol der Glasbläser und Ziegelmacher. Schlüsselwörter: Quest, Sand, Asche")
+"Help" -> inform("[Game Help] This NPC is Zlatxhol the glass blower and brick maker. Keywords: quest, sand")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zlatxhol der Glasbläser und Ziegelmacher. Schlüsselwörter: Quest, Sand")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you.", "Yess, greetingss.", "Blessingss of the Mother upon you, greetingss"
@@ -71,8 +71,6 @@ english, "job" -> "I'm a glassz blower and bricksss maker, do you wantssz to hel
 -- help triggers
 english, "sand" -> "You can find the best sssand under stones in the desert, zsss."
 "sand" -> "Ssand findest du unter Sssteinen in der Wüsste, zsss."
-english, "ash" -> "To make assh, you need wood. Make big fire and wait until it's burned down, then you collectss the asssh. zsss!"
-"asche" -> "Um Asssche zu machen du brauchen Holzzz und großess Feuer machen. Du warten müssen bis Feuer aus issst und dann ssammeln Assche, zsss!"
 
 -- Quests
 queststatus(707) = 0, town = Cadomyr, english, "quest", "mission" -> "Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol thirty clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you old sshovel of hiss for digging clay.", item(24, 1, 555), queststatus(707) = 1

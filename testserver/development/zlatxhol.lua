@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("npc.zlatxhol", package.seeall)
+module("development.zlatxhol", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -32,13 +32,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Zlatxhol the glass blower and brick maker. Keywords: quest, sand, ash"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Zlatxhol the glass blower and brick maker. Keywords: quest, sand"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Zlatxhol der Glasbläser und Ziegelmacher. Schlüsselwörter: Quest, Sand, Asche"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Zlatxhol der Glasbläser und Ziegelmacher. Schlüsselwörter: Quest, Sand"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -208,19 +208,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sand");
 talkEntry:addResponse("Ssand findest du unter Sssteinen in der Wüsste, zsss.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("ash");
-talkEntry:addResponse("To make assh, you need wood. Make big fire and wait until it's burned down, then you collectss the asssh. zsss!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("asche");
-talkEntry:addResponse("Um Asssche zu machen du brauchen Holzzz und großess Feuer machen. Du warten müssen bis Feuer aus issst und dann ssammeln Assche, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
