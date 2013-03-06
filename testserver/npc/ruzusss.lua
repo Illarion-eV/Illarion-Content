@@ -727,13 +727,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Shadowland");
-talkEntry:addResponse("It has two entrances. One in the Malachite mine and one to the southwest of the Border Mountains. No one has ever passed it. It is very dangerous there. The gate, therefore, is locked and only the three rulers know how to enter.");
+talkEntry:addResponse("It has two entrances. One in the Malachite Mine and one to the southwest of the Border Mountains. No one has ever passed it. It is very dangerous there. The gate, therefore, is locked and only the three rulers know how to enter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schattenland");
-talkEntry:addResponse("Es hat zwei Eingänge. Einen bei der Malachit Mine und einen südwestlich der Grenzberge. Niemand hat es je durchquert. Viel zu gefährlich! Die Tore sind daher verschlossen und nur die drei Herrscher wissen wie man sie öffnet.");
+talkEntry:addResponse("Es hat zwei Eingänge. Einen bei der Malachitmine und einen südwestlich der Grenzberge. Niemand hat es je durchquert. Viel zu gefährlich! Die Tore sind daher verschlossen und nur die drei Herrscher wissen wie man sie öffnet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
