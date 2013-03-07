@@ -35,4 +35,21 @@ QuestTarget[3]= {897, 781, 2}
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 3
 
+function QuestTitle(user)
+    return base.common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
+end
 
+function QuestDescription(user, status)
+    local german = Description[GERMAN][status] or ""
+    local english = Description[ENGLISH][status] or ""
+
+    return base.common.GetNLS(user, german, english)
+end
+
+function QuestTargets(user, status)
+    return QuestTarget[status]
+end
+
+function QuestFinalStatus()
+    return FINAL_QUEST_STATUS
+end
