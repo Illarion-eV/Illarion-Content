@@ -341,8 +341,8 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 		local germanMoney, englishMoney = base.money.MoneyToString(amountToPay);
 		
 		if not base.money.CharHasMoney(originator,amountToPay) then --not enough money!
-		 	gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney".";
-			eText="You don't have enough money with you! You'll need"..englishMoney".";
+		 	gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".";
+			eText="You don't have enough money with you! You'll need"..englishMoney..".";
 			outText=base.common.GetNLS(originator,gText,eText);
             thisNPC:talk(Character.say, outText);
 			return;
