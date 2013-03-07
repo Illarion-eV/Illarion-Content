@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -21,7 +21,7 @@ require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.joey_licavoli", package.seeall)
+module("npc.joey_licavoli", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -45,7 +45,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 1));
-talkEntry:addResponse("Welcome to Galmair. Could you give Hannah Shepard this letter for me please? You won't miss her, she sits at the camp fire at the fields behind me. After you deliverd the letter to her, you can come back to me I'm sure I'll have more tasks for you.");
+talkEntry:addResponse("Welcome to Galmair. Could you give Hannah Shepard this letter for me please? You won't miss her, she sits at the camp fire near the fields behind me. After you deliverd the letter to her, you can come back to me I'm sure I'll have more tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -225,7 +225,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("food");
 talkEntry:addTrigger("eat");
-talkEntry:addResponse("You can find food all around you. There are fruits on the trees and bushes or you ask other people for something to eat.");
+talkEntry:addResponse("You can find food all around you. There are fruits on the trees and bushes, or you ask other people for something to eat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -268,7 +268,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("craft");
-talkEntry:addResponse("You want to know more about the crafts of Galmair? Well then go and visit Thorgrem Silverbeard, Seleseth, Tony Spirotelli or Hannah Shepard, they can tell you more about the crafts than me. You can find them all except Hannah Shepard in the workshop. Hannah is at the fields behind me.");
+talkEntry:addResponse("You want to know more about the crafts of Galmair? Well then go and visit Thorgrem Silverbeard, Seleseth, Tony Spirotelli or Hannah Shepard, they can tell you more about the crafts than me. You can find them all except Hannah Shepard in the workshop. Hannah is by the fields behind me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -286,7 +286,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("So I suppose you have already delivered the letter to Hannah Shepard? Now you can deliver another letter to Thorgrem Silverbeard at the workshop. The workshop is west of here, it's the building with the brownish roof. Come back again if you want more tasks from me.");
+talkEntry:addResponse("So I suppose you have already delivered the letter to Hannah Shepard? Now you can deliver another letter to Thorgrem Silverbeard at the workshop. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -307,7 +307,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("So I suppose you have already delivered the letter to Hannah Shepard? Now you can deliver another letter to Thorgrem Silverbeard at the workshop. The workshop is west of here, it's the building with the brownish roof. Come back again if you want more tasks from me.");
+talkEntry:addResponse("So I suppose you have already delivered the letter to Hannah Shepard? Now you can deliver another letter to Thorgrem Silverbeard at the workshop. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -330,7 +330,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("A friend of mine, Miggs, always needs some help. You can find him if you enter the city, once you are in the city go to the palace in west direction, after you enterd the palace follow the way north until you reach the library, in the library you can find Miggs.");
+talkEntry:addResponse("A friend of mine, Miggs, always needs some help. You can find him if you enter the city. Once you are in the city go to the palace in the west, after you enter the palace follow the way north until you reach the library, and in the library you can find Miggs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -351,7 +351,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("A friend of mine, Miggs, always needs some help. You can find him if you enter the city, once you are in the city go to the palace in west direction, after you enterd the palace follow the way north until you reach the library, in the library you can find Miggs.");
+talkEntry:addResponse("A friend of mine, Miggs, always needs some help. You can find him if you enter the city. Once you are in the city go to the palace in the west, after you enter the palace follow the way north until you reach the library, and in the library you can find Miggs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,7 +375,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 4));
-talkEntry:addResponse("Charwis Irongate has for sure a task for you. You can find him at the market place which is south west from here.");
+talkEntry:addResponse("Charwis Irongate is sure to have a task for you. You can find him at the market place which is south west from here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -398,7 +398,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 4));
-talkEntry:addResponse("Charwis Irongate has for sure a task for you. You can find him at the market place which is south west from here.");
+talkEntry:addResponse("Charwis Irongate is sure to have a task for you. You can find him at the market place which is south west from here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -422,7 +422,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Charwis Irongate has for sure a task for you. You can find him at the market place which is south west from here.");
+talkEntry:addResponse("Charwis Irongate is sure to have a task for you. You can find him at the market place which is south west from here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -443,7 +443,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Charwis Irongate has for sure a task for you. You can find him at the market place which is south west from here.");
+talkEntry:addResponse("Charwis Irongate is sure to have a task for you. You can find him at the market place which is south west from here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -467,7 +467,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 5));
-talkEntry:addResponse("Ah..there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the malachit mine which you can find if you enter the city and follow the street to the south east.");
+talkEntry:addResponse("Ah... there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the Malachite Mine, which you can find if you enter the city and follow the street to the south east.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -490,7 +490,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 5));
-talkEntry:addResponse("Ah..there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the malachit mine which you can find if you enter the city and follow the street to the south east.");
+talkEntry:addResponse("Ah... there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the Malachite Mine, which you can find if you enter the city and follow the street to the south east.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -514,7 +514,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ah..there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the malachit mine which you can find if you enter the city and follow the street to the south east.");
+talkEntry:addResponse("Ah... there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the Malachite Mine, which you can find if you enter the city and follow the street to the south east.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -535,7 +535,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Ah..there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the malachit mine which you can find if you enter the city and follow the street to the south east.");
+talkEntry:addResponse("Ah... there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the Malachite Mine, which you can find if you enter the city and follow the street to the south east.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -559,7 +559,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 6));
-talkEntry:addResponse("Gretel Goldhair, the treasurer has a task for you. Please find her in the palace and ask her for a task.");
+talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the palace and ask her for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -582,7 +582,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 6));
-talkEntry:addResponse("Gretel Goldhair, the treasurer has a task for you. Please find her in the palace and ask her for a task.");
+talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the palace and ask her for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -606,7 +606,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Gretel Goldhair, the treasurer has a task for you. Please find her in the palace and ask her for a task.");
+talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the palace and ask her for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -627,7 +627,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Gretel Goldhair, the treasurer has a task for you. Please find her in the palace and ask her for a task.");
+talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the palace and ask her for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -651,7 +651,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 7));
-talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the building with the red roof shortly before the palace.");
+talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the building with the red roof, shortly before the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -674,7 +674,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 7));
-talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the building with the red roof shortly before the palace.");
+talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the building with the red roof, shortly before the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -698,7 +698,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the building with the red roof shortly before the palace.");
+talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the building with the red roof, shortly before the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -719,7 +719,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the building with the red roof shortly before the palace.");
+talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the building with the red roof, shortly before the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -842,7 +842,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("You are not a citizen of Galmair. I don't have anything to do for you.");
+talkEntry:addResponse("You are not a citizen of Galmair. I don't have anything for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
