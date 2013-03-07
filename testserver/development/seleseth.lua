@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.seleseth", package.seeall)
+module("npc.seleseth", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -51,8 +51,8 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Greetingsss to you.");
-talkEntry:addResponse("Yess, greetingss.");
-talkEntry:addResponse("Blessingss of the Mother upon you, greetingss");
+talkEntry:addResponse("Yess, greetingsss.");
+talkEntry:addResponse("Blessingsss of the Mother upon you, greetingsss");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -102,7 +102,7 @@ talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("May the rainsss be heavy and frequent.");
-talkEntry:addResponse("May the ssea-Mother watch your path.");
+talkEntry:addResponse("May the sssea-Mother watch your path.");
 talkEntry:addResponse("Farewell, zsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -143,7 +143,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Seleseth iss fine, yess.");
+talkEntry:addResponse("Ssseleseth isss fine, yesss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -151,7 +151,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
-talkEntry:addResponse("Seleseth issst gut, ja..");
+talkEntry:addResponse("Ssseleseth issst gut, ja..");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -159,7 +159,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I be Seleseth, would you like to do a job for me?");
+talkEntry:addResponse("I be Ssseleseth, would you like to do a job for me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,13 +169,13 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Ich sindss Seleseth, machenss du Aufgabe für michss?");
+talkEntry:addResponse("Ich sindss Ssseleseth, machenss du Aufgabe für michss?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I'm a gem grinder, massson and bricksss maker, do you wantssz to help Seleseth?");
+talkEntry:addResponse("I'm a gem grinder, massson and bricksss maker, do you wantssz to help Ssseleseth?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -188,7 +188,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I'm a gem grinder, massson and bricksss maker, do you wantssz to help Seleseth?");
+talkEntry:addResponse("I'm a gem grinder, massson and bricksss maker, do you wantssz to help Ssseleseth?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -206,7 +206,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 1));
-talkEntry:addResponse("Zsss, tasssk? Yesss, Seleseth has tasks for yous. Bring Seleseth thirty clumps of clay. You can findz clay at the lake west of here. Here, Seleseth givess you old sshovel of hiss for digging clay.");
+talkEntry:addResponse("Zsss, tasssk? Yesss, Ssseleseth has tasksss for yousss. Bring SsSsseleseth thirty clumpsss of clay. You can findz clay at the lake west of here. Here, Ssseleseth givesss you old ssshovel of hisss for digging clay.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -217,7 +217,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 1));
-talkEntry:addResponse("Zsss, Aufgabe? Ja, Seleseth haben Aufgabe für dichsss. Bring Seleseth 30 Lehmssz! Du finden Lehm bei Sssee wesstlich der Stadt. Hier haben alte Ssschaufel von Seleseth um Lehm zu graben.");
+talkEntry:addResponse("Zsss, Aufgabe? Ja, Ssseleseth haben Aufgabe für dichsss. Bring Ssseleseth 30 Lehmssz! Du finden Lehm bei Sssee wesstlich der Stadt. Hier haben alte Ssschaufel von Ssseleseth um Lehm zu graben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -229,7 +229,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 1));
-talkEntry:addResponse("Zsss, tasssk? Yesss, Seleseth has tasks for yous. Bring Seleseth thirty clumps of clay. You can findz clay at the lake west of here. Here, Seleseth givess you old sshovel of hiss for digging clay.");
+talkEntry:addResponse("Zsss, tasssk? Yesss, Ssseleseth has tasksss for yousss. Bring Ssseleseth thirty clumpsss of clay. You can findz clay at the lake west of here. Here, Ssseleseth givesss you old ssshovel of hisss for digging clay.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -242,7 +242,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 1));
-talkEntry:addResponse("Zsss, Aufgabe? Ja, Seleseth haben Aufgabe für dichsss. Bring Seleseth 30 Lehmssz! Du finden Lehm bei Sssee wesstlich der Stadt. Hier haben alte Ssschaufel von Seleseth um Lehm zu graben.");
+talkEntry:addResponse("Zsss, Aufgabe? Ja, Ssseleseth haben Aufgabe für dichsss. Bring Ssseleseth 30 Lehmssz! Du finden Lehm bei Sssee wesstlich der Stadt. Hier haben alte Ssschaufel von Ssseleseth um Lehm zu graben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -254,7 +254,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 2));
-talkEntry:addResponse("Well done, thanks you. Do you wants another taskss?");
+talkEntry:addResponse("Well done, thanksss you. Do you wants another tasksss?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -265,7 +265,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 2));
-talkEntry:addResponse("Gut gemacht, dankes. Wollen weitere Aufgabe von Seleseth?");
+talkEntry:addResponse("Gut gemacht, dankes. Wollen weitere Aufgabe von Ssseleseth?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -277,7 +277,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 2));
-talkEntry:addResponse("Well done, thanks you. Do you wants another taskss?");
+talkEntry:addResponse("Well done, thanksss you. Do you wants another tasksss?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -290,7 +290,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 2));
-talkEntry:addResponse("Gut gemacht, dankes. Wollen weitere Aufgabe von Seleseth?");
+talkEntry:addResponse("Gut gemacht, dankes. Wollen weitere Aufgabe von Ssseleseth?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -300,7 +300,7 @@ talkEntry:addCondition(npc.base.condition.item.item(26, "all", "<", 30, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Zsss, Seleseth wantsss thirty clumps of clay, that not enough clayssz. Come back when you have finished the taskz!");
+talkEntry:addResponse("Zsss, Ssseleseth wantsss thirty clumpsss of clay, that is not enough clayssz. Come back when you have finished the taskz!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,7 +321,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(734, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 3));
-talkEntry:addResponse("Now we make brickss with clayss. You go to glass melting oven over there and makes fifteen bricksss. First you make unfired bricksess, and then froms the unfired ones you make fired bricks! Here, me givesss you an old brickssz mould of mines.");
+talkEntry:addResponse("Now we make bricksss with the clayssz. You go to glass melting oven over there and makessz fifteen bricksss. First you make unfired brickszss, and then fromz the unfired ones you make fired bricksss! Here, me givesss you an old brickssz mould of minesz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -344,7 +344,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(734, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 3));
-talkEntry:addResponse("Now we make brickss with clayss. You go to glass melting oven over there and makes fifteen bricksss. First you make unfired bricksess, and then froms the unfired ones you make fired bricks! Here, me givesss you an old brickssz mould of mines.");
+talkEntry:addResponse("Now we make brickss with clayss. You go to glass melting oven over there and makes fifteen bricksss. First you make unfired brickszss, and then fromz the unfired ones you make fired bricksss! Here, me givesss you an old brickssz mould of minesz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -370,7 +370,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2588, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 4));
-talkEntry:addResponse("Well done, thanks you. Do you wants another taskss?");
+talkEntry:addResponse("Well done, thanksss you. Do you wants another tasksss?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -382,7 +382,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2588, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 4));
-talkEntry:addResponse("Gut gemacht, dankes. Wollen weitere Aufgabe von Seleseth?");
+talkEntry:addResponse("Gut gemacht, dankes. Wollen weitere Aufgabe von Ssseleseth?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -395,7 +395,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2588, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 4));
-talkEntry:addResponse("Well done, thanks you. Do you wants another taskss?");
+talkEntry:addResponse("Well done, thanksss you. Do you wants another tasksss?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -409,7 +409,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2588, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 4));
-talkEntry:addResponse("Gut gemacht, dankes. Wollen weitere Aufgabe von Seleseth?");
+talkEntry:addResponse("Gut gemacht, dankes. Wollen weitere Aufgabe von Ssseleseth?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -419,7 +419,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2588, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You not finished! I want fifteen bricksss, come backsss when you have finished.");
+talkEntry:addResponse("You not finissshed! I want fifteen bricksss, come backsss when you have finissshed.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -441,7 +441,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(251, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2140, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 5));
-talkEntry:addResponse("Zzzs, now we makesshiny gems! I'll givess you ten raw Amethyssstss and tong. You grinde them at the gem grinder for me and show me result when you done, zsss!");
+talkEntry:addResponse("Zzzs, now we makesz ssshiny gems! I'll givesss you ten raw amethyssstsz and a pair of tongsss. You grindz them at the gem grinder for me and ssshow me resssult when you done, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -466,7 +466,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(251, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2140, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 5));
-talkEntry:addResponse("Zzzs, now we makesshiny gems! I'll givess you ten raw Amethyssstss and tong. You grinde them at the gem grinder for me and show me result when you done, zsss!");
+talkEntry:addResponse("Zzzs, now we makesz ssshiny gems! I'll givesss you ten raw amethyssstsz and a pair of tongsss. You grindz them at the gem grinder for me and ssshow me resssult when you done, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,7 +492,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 6));
-talkEntry:addResponse("Well done, do you want to make powder with sshiny ssstones with me now, zsss?");
+talkEntry:addResponse("Well done, do you want to make powder with ssshiny ssstones with me now, zsss?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -515,7 +515,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 6));
-talkEntry:addResponse("Well done, do you want to make powder with sshiny ssstones with me now, zsss?");
+talkEntry:addResponse("Well done, do you want to make powder with ssshiny ssstones with me now, zsss?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -538,7 +538,7 @@ talkEntry:addCondition(npc.base.condition.item.item(197, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Zsss, I want ten amethysstsss. Come again when you have finissshed the task, zsss!");
+talkEntry:addResponse("Zsss, I want ten amethyssstsz. Come back when you have finissshed the tasssk, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -558,7 +558,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 7));
-talkEntry:addResponse("Zss, now we make with sshiny gems powder. You go to the gem grinder again and make with eight amethyssts two bags with amethyssst powder for me, zsss!");
+talkEntry:addResponse("Zss, now we make powder with the ssshiny gemsz. You go to the gem grinder again and make two bagsz of amethyssst powder from eight amethyssstsz for me, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -579,7 +579,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 7));
-talkEntry:addResponse("Zss, now we make with sshiny gems powder. You go to the gem grinder again and make with eight amethyssts two bags with amethyssst powder for me, zsss!");
+talkEntry:addResponse("Zss, now we make powder with the ssshiny gemsz. You go to the gem grinder again and make two bagsz of amethyssst powder from eight amethyssstsz for me, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -603,7 +603,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 8));
-talkEntry:addResponse("Zsss, well done! The quality of the powder is very good. Do you want another task from Seleseth?");
+talkEntry:addResponse("Zsss, well done! The quality of thisss powder isss very good. Do you want another tasssk from Ssseleseth?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -614,7 +614,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 8));
-talkEntry:addResponse("Zsss, gut gemachts! Staub haben gute Qualität. Wollen neue Aufgabe von Seleseth?");
+talkEntry:addResponse("Zsss, gut gemachts! Staub haben gute Qualität. Wollen neue Aufgabe von Ssseleseth?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -626,7 +626,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 8));
-talkEntry:addResponse("Zsss, well done! The quality of the powder is very good. Do you want another task from Seleseth?");
+talkEntry:addResponse("Zsss, well done! The quality of thisss powder isss very good. Do you want another tasssk from Ssseleseth?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -639,7 +639,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 8));
-talkEntry:addResponse("Zsss, gut gemachts! Staub haben gute Qualität. Wollen neue Aufgabe von Seleseth?");
+talkEntry:addResponse("Zsss, gut gemachts! Staub haben gute Qualität. Wollen neue Aufgabe von Ssseleseth?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -649,7 +649,7 @@ talkEntry:addCondition(npc.base.condition.item.item(450, "all", "<", 2, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Zsss, I want two bagss with amethyssst powder. Come again when you have the amethystst powder!");
+talkEntry:addResponse("Zsss, I want two bagsss of amethyssst powder. Come back when you have the amethyssst powder!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -671,7 +671,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(737, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(735, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 9));
-talkEntry:addResponse("Zsss, do you want to learn sssomething about massoning? I'll give you ten raw sstones and chissel and you makes 20 ssmall sstoness for me with it! Raw sstones can be found in mine, a lot, zsss! Take chissel in your hand and start cutting raw sstones to sstone blocksss then you repeat that and make with ssstone blockss ssmall sstones.");
+talkEntry:addResponse("Zsss, do you want to learn sssomething about masssonry? I'll give you ten raw ssstonesz and a chisssel and you can makesz twenty sssmall ssstonesz for me with them! Raw ssstonesz can be found in minesz, a lot, zsss! Take the chisssel in your hand and ssstart cutting raw ssstonesz into ssstone blocksss, then you repeat that with the ssstone blocksss to make sssmall ssstonesz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -696,7 +696,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(737, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(735, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 9));
-talkEntry:addResponse("Zsss, do you want to learn sssomething about massoning? I'll give you ten raw sstones and chissel and you makes 20 ssmall sstoness for me with it! Raw sstones can be found in mine, a lot, zsss! Take chissel in your hand and start cutting raw sstones to sstone blocksss then you repeat that and make with ssstone blockss ssmall sstones.");
+talkEntry:addResponse("Zsss, do you want to learn sssomething about masssonry? I'll give you ten raw ssstonesz and a chisssel and you can makesz twenty sssmall ssstonesz for me with them! Raw ssstonesz can be found in minesz, a lot, zsss! Take the chisssel in your hand and ssstart cutting raw ssstonesz into ssstone blocksss, then you repeat that with the ssstone blocksss to make sssmall ssstonesz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -723,7 +723,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1266, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 9));
-talkEntry:addResponse("Zsss, well done, thanks you. Zsss, Seleseth says thanksss for the help and hopesss you learnt sssomething about gem grinding, masoning and bricksss making.");
+talkEntry:addResponse("Zsss, well done, thanksss you. Zsss, Ssseleseth says thanksss for the help and hopesss you learnt sssomething about gem grinding, masssonry and bricksss making.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -735,7 +735,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1266, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 9));
-talkEntry:addResponse("Zsss, gut gemachts, dankes. Zsss, Seleseth sagen danke für Hilfess und hoffen du was über Edelssteinssschleifen, Sssteine bahauen und Zzziegelmachen gelernt haben.");
+talkEntry:addResponse("Zsss, gut gemachts, dankes. Zsss, Ssseleseth sagen danke für Hilfess und hoffen du was über Edelssteinssschleifen, Sssteine bahauen und Zzziegelmachen gelernt haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -748,7 +748,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1266, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 9));
-talkEntry:addResponse("Zsss, well done, thanks you. Zsss, Seleseth says thanksss for the help and hopesss you learnt sssomething about gem grinding, masoning and bricksss making.");
+talkEntry:addResponse("Zsss, well done, thanksss you. Zsss, Ssseleseth says thanksss for the help and hopesss you learnt sssomething about gem grinding, masssonry and bricksss making.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -762,7 +762,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1266, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 9));
-talkEntry:addResponse("Zsss, gut gemachts, dankes. Zsss, Seleseth sagen danke für Hilfess und hoffen du was über Edelssteinssschleifen, Sssteine bahauen und Zzziegelmachen gelernt haben.");
+talkEntry:addResponse("Zsss, gut gemachts, dankes. Zsss, Ssseleseth sagen danke für Hilfess und hoffen du was über Edelssteinssschleifen, Sssteine bahauen und Zzziegelmachen gelernt haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -772,7 +772,7 @@ talkEntry:addCondition(npc.base.condition.item.item(1266, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Zsss, they are not the 20 sssmall sstones that I was looking for. Come backsss when you have the Sstones!");
+talkEntry:addResponse("Zsss, they are not the twenty sssmall ssstonesz that I was looking for. Come backsss when you have the ssstonesz!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -790,7 +790,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(709, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Zsss, I don't have any other thingsss for yous to do. Thank yous for the help though, zsss!");
+talkEntry:addResponse("Zsss, I don't have any other thingsss for yousss to do. Thank yousss for the help though, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -806,7 +806,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("You are not a citizzsen of Galmairss. I don't haves anything to do for yous, zsss.");
+talkEntry:addResponse("You are not a citizzsen of Galmairss. I don't have anything for yousss to do, zsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -818,7 +818,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
 talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches his head.");
-talkingNPC:addCycleText("Wenns du Hilfe beim Edelsssteinsschleifen, Sssteine behauen oder Zzziegelbrennen brauchst dann frag michss!", "If you need any help in gem grinding, massoning or bricksss making, jussst asssk me!");
+talkingNPC:addCycleText("Wenns du Hilfe beim Edelsssteinsschleifen, Sssteine behauen oder Zzziegelbrennen brauchst dann frag michss!", "If you need any help in gem grinding, masssonry or bricksss making, jussst asssk me!");
 talkingNPC:addCycleText("Zsss...", "Zsss...");
 talkingNPC:addCycleText("Zsss!", "Zsss!");
 talkingNPC:addCycleText("Zsss?", "Zsss?");

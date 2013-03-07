@@ -49,81 +49,81 @@ itemShoes = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Seleseth der Edelsteinschleifer, Steinmetz und Ziegelmacher. Schlüsselwörter: Quest")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you.", "Yess, greetingss.", "Blessingss of the Mother upon you, greetingss"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you.", "Yess, greetingsss.", "Blessingsss of the Mother upon you, greetingsss"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss to you.", "Yess, greetingss.", "Greetsss."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
-"Farewell", "Bye", "Fare well", "See you" -> "May the rainsss be heavy and frequent.", "May the ssea-Mother watch your path.", "Farewell, zsss."
+"Farewell", "Bye", "Fare well", "See you" -> "May the rainsss be heavy and frequent.", "May the sssea-Mother watch your path.", "Farewell, zsss."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mögenss Regen häufig und ssstark sssein.", "Mögenss die Meermutter dein Pfad leitenss.", "Abschied, zsss."
 english, "Ciao", "Adieu", "Au revoir" -> "Goodbye", "Farewell", "#me nods slowly, 'Goodbye'."
 "Ciao", "Adieu", "Au revoir" -> "Gut wiedersehensss.", "Abschied.", "#me nickt langsam: 'Gut wiedersehensss'."
-"How are you", "How feel", "How do you do" -> "Seleseth iss fine, yess."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Seleseth issst gut, ja.."
-"your name", "who are you", "who art thou" -> "I be Seleseth, would you like to do a job for me?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich sindss Seleseth, machenss du Aufgabe für michss?"
+"How are you", "How feel", "How do you do" -> "Ssseleseth isss fine, yesss."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ssseleseth issst gut, ja.."
+"your name", "who are you", "who art thou" -> "I be Ssseleseth, would you like to do a job for me?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich sindss Ssseleseth, machenss du Aufgabe für michss?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I'm a gem grinder, massson and bricksss maker, do you wantssz to help Seleseth?"
+"profession" -> "I'm a gem grinder, massson and bricksss maker, do you wantssz to help Ssseleseth?"
 "beruf" -> "Ich binss Edelsteinsschleifer, Sssteinmetzzs und Zzsiegelmacher, wollen du michssz helfen?"
-english, "job" -> "I'm a gem grinder, massson and bricksss maker, do you wantssz to help Seleseth?"
+english, "job" -> "I'm a gem grinder, massson and bricksss maker, do you wantssz to help Ssseleseth?"
 "job" -> "Ich binss Edelsteinsschleifer, Sssteinmetzzs und Zzsiegelmacher, wollen du michssz helfen?"
 
 -- Quests
-queststatus(709) = 0, town = Galmair, english, "quest", "mission" -> "Zsss, tasssk? Yesss, Seleseth has tasks for yous. Bring Seleseth thirty clumps of clay. You can findz clay at the lake west of here. Here, Seleseth givess you old sshovel of hiss for digging clay.", item(24, 1, 555), queststatus(709) = 1
-queststatus(709) = 0, town = Galmair, "quest", "mission" -> "Zsss, Aufgabe? Ja, Seleseth haben Aufgabe für dichsss. Bring Seleseth 30 Lehmssz! Du finden Lehm bei Sssee wesstlich der Stadt. Hier haben alte Ssschaufel von Seleseth um Lehm zu graben.", item(24, 1, 555), queststatus(709) = 1
-queststatus(709) = 0, town = Galmair, "task", "adventure", "order" -> "Zsss, tasssk? Yesss, Seleseth has tasks for yous. Bring Seleseth thirty clumps of clay. You can findz clay at the lake west of here. Here, Seleseth givess you old sshovel of hiss for digging clay.", item(24, 1, 555), queststatus(709) = 1
-queststatus(709) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zsss, Aufgabe? Ja, Seleseth haben Aufgabe für dichsss. Bring Seleseth 30 Lehmssz! Du finden Lehm bei Sssee wesstlich der Stadt. Hier haben alte Ssschaufel von Seleseth um Lehm zu graben.", item(24, 1, 555), queststatus(709) = 1
-queststatus(709) = 1, item(26, all) > 29, town = Galmair, english, "quest", "mission" -> "Well done, thanks you. Do you wants another taskss?", queststatus(709) = 2
-queststatus(709) = 1, item(26, all) > 29, town = Galmair, "quest", "mission" -> "Gut gemacht, dankes. Wollen weitere Aufgabe von Seleseth?", queststatus(709) = 2
-queststatus(709) = 1, item(26, all) > 29, town = Galmair, "task", "adventure", "order" -> "Well done, thanks you. Do you wants another taskss?", queststatus(709) = 2
-queststatus(709) = 1, item(26, all) > 29, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, dankes. Wollen weitere Aufgabe von Seleseth?", queststatus(709) = 2
-queststatus(709) = 1, item(26, all) < 30, town = Galmair, english, ".+" -> "Zsss, Seleseth wantsss thirty clumps of clay, that not enough clayssz. Come back when you have finished the taskz!"
+queststatus(709) = 0, town = Galmair, english, "quest", "mission" -> "Zsss, tasssk? Yesss, Ssseleseth has tasksss for yousss. Bring SsSsseleseth thirty clumpsss of clay. You can findz clay at the lake west of here. Here, Ssseleseth givesss you old ssshovel of hisss for digging clay.", item(24, 1, 555), queststatus(709) = 1
+queststatus(709) = 0, town = Galmair, "quest", "mission" -> "Zsss, Aufgabe? Ja, Ssseleseth haben Aufgabe für dichsss. Bring Ssseleseth 30 Lehmssz! Du finden Lehm bei Sssee wesstlich der Stadt. Hier haben alte Ssschaufel von Ssseleseth um Lehm zu graben.", item(24, 1, 555), queststatus(709) = 1
+queststatus(709) = 0, town = Galmair, "task", "adventure", "order" -> "Zsss, tasssk? Yesss, Ssseleseth has tasksss for yousss. Bring Ssseleseth thirty clumpsss of clay. You can findz clay at the lake west of here. Here, Ssseleseth givesss you old ssshovel of hisss for digging clay.", item(24, 1, 555), queststatus(709) = 1
+queststatus(709) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zsss, Aufgabe? Ja, Ssseleseth haben Aufgabe für dichsss. Bring Ssseleseth 30 Lehmssz! Du finden Lehm bei Sssee wesstlich der Stadt. Hier haben alte Ssschaufel von Ssseleseth um Lehm zu graben.", item(24, 1, 555), queststatus(709) = 1
+queststatus(709) = 1, item(26, all) > 29, town = Galmair, english, "quest", "mission" -> "Well done, thanksss you. Do you wants another tasksss?", queststatus(709) = 2
+queststatus(709) = 1, item(26, all) > 29, town = Galmair, "quest", "mission" -> "Gut gemacht, dankes. Wollen weitere Aufgabe von Ssseleseth?", queststatus(709) = 2
+queststatus(709) = 1, item(26, all) > 29, town = Galmair, "task", "adventure", "order" -> "Well done, thanksss you. Do you wants another tasksss?", queststatus(709) = 2
+queststatus(709) = 1, item(26, all) > 29, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, dankes. Wollen weitere Aufgabe von Ssseleseth?", queststatus(709) = 2
+queststatus(709) = 1, item(26, all) < 30, town = Galmair, english, ".+" -> "Zsss, Ssseleseth wantsss thirty clumpsss of clay, that is not enough clayssz. Come back when you have finished the taskz!"
 queststatus(709) = 1, item(26, all) < 30, town = Galmair, ".+" -> "Zsss, ichse haben wollten 30 Lehmss! Dasss nicht sssein 30 Lehm. Kommen zurück wenn fertig!"
-queststatus(709) = 2, town = Galmair, english, "quest", "mission" -> "Now we make brickss with clayss. You go to glass melting oven over there and makes fifteen bricksss. First you make unfired bricksess, and then froms the unfired ones you make fired bricks! Here, me givesss you an old brickssz mould of mines.", item(734, 1, 777), queststatus(709) = 3
+queststatus(709) = 2, town = Galmair, english, "quest", "mission" -> "Now we make bricksss with the clayssz. You go to glass melting oven over there and makessz fifteen bricksss. First you make unfired brickszss, and then fromz the unfired ones you make fired bricksss! Here, me givesss you an old brickssz mould of minesz.", item(734, 1, 777), queststatus(709) = 3
 queststatus(709) = 2, town = Galmair, "quest", "mission" -> "Jetztss wir machen Zzziegel mit Lehm. Du gehen zum Glasschmelzofen dort drüben und machen 15 Zzziegels. Erst du machen ungebrannte Zzziegel und aus ungebrannte Zzziegel du machen fertige Ziegel. Hier ich geben dir alte Zzziegelform von mirs.", item(734, 1, 777), queststatus(709) = 3
-queststatus(709) = 2, town = Galmair, "task", "adventure", "order" -> "Now we make brickss with clayss. You go to glass melting oven over there and makes fifteen bricksss. First you make unfired bricksess, and then froms the unfired ones you make fired bricks! Here, me givesss you an old brickssz mould of mines.", item(734, 1, 777), queststatus(709) = 3
+queststatus(709) = 2, town = Galmair, "task", "adventure", "order" -> "Now we make brickss with clayss. You go to glass melting oven over there and makes fifteen bricksss. First you make unfired brickszss, and then fromz the unfired ones you make fired bricksss! Here, me givesss you an old brickssz mould of minesz.", item(734, 1, 777), queststatus(709) = 3
 queststatus(709) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Jetztss wir machen Zzziegel mit Lehm. Du gehen zum Glasschmelzofen dort drüben und machen 15 Zzziegels. Erst du machen ungebrannte Zzziegel und aus ungebrannte Zzziegel du machen fertige Ziegel. Hier ich geben dir alte Zzziegelform von mirs.", item(734, 1, 777), queststatus(709) = 3
-queststatus(709) = 3, item(2588, all) > 14, town = Galmair, english, "quest", "mission" -> "Well done, thanks you. Do you wants another taskss?", deleteItem(2588, 15), queststatus(709) = 4
-queststatus(709) = 3, item(2588, all) > 14, town = Galmair, "quest", "mission" -> "Gut gemacht, dankes. Wollen weitere Aufgabe von Seleseth?", deleteItem(2588, 15), queststatus(709) = 4
-queststatus(709) = 3, item(2588, all) > 14, town = Galmair, "task", "adventure", "order" -> "Well done, thanks you. Do you wants another taskss?", deleteItem(2588, 15), queststatus(709) = 4
-queststatus(709) = 3, item(2588, all) > 14, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, dankes. Wollen weitere Aufgabe von Seleseth?", deleteItem(2588, 15), queststatus(709) = 4
-queststatus(709) = 3, item(2588, all) < 15, town = Galmair, english, ".+" -> "You not finished! I want fifteen bricksss, come backsss when you have finished."
+queststatus(709) = 3, item(2588, all) > 14, town = Galmair, english, "quest", "mission" -> "Well done, thanksss you. Do you wants another tasksss?", deleteItem(2588, 15), queststatus(709) = 4
+queststatus(709) = 3, item(2588, all) > 14, town = Galmair, "quest", "mission" -> "Gut gemacht, dankes. Wollen weitere Aufgabe von Ssseleseth?", deleteItem(2588, 15), queststatus(709) = 4
+queststatus(709) = 3, item(2588, all) > 14, town = Galmair, "task", "adventure", "order" -> "Well done, thanksss you. Do you wants another tasksss?", deleteItem(2588, 15), queststatus(709) = 4
+queststatus(709) = 3, item(2588, all) > 14, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, dankes. Wollen weitere Aufgabe von Ssseleseth?", deleteItem(2588, 15), queststatus(709) = 4
+queststatus(709) = 3, item(2588, all) < 15, town = Galmair, english, ".+" -> "You not finissshed! I want fifteen bricksss, come backsss when you have finissshed."
 queststatus(709) = 3, item(2588, all) < 15, town = Galmair, ".+" -> "Du nichtss fertig seinsss. Ich wollen 15 Zzziegels, kommen wieder wenn du fertig seinsss."
-queststatus(709) = 4, town = Galmair, english, "quest", "mission" -> "Zzzs, now we makesshiny gems! I'll givess you ten raw Amethyssstss and tong. You grinde them at the gem grinder for me and show me result when you done, zsss!", item(251, 10, 777), item(2140, 1, 777), queststatus(709) = 5
+queststatus(709) = 4, town = Galmair, english, "quest", "mission" -> "Zzzs, now we makesz ssshiny gems! I'll givesss you ten raw amethyssstsz and a pair of tongsss. You grindz them at the gem grinder for me and ssshow me resssult when you done, zsss!", item(251, 10, 777), item(2140, 1, 777), queststatus(709) = 5
 queststatus(709) = 4, town = Galmair, "quest", "mission" -> "Zzzz, nun wir machen glänzzsende Sssteine! Ich geben dir zzsehn rohe Amethysssten und Zzange. Du sschleifen Amethysssten für michs am Edelssteinsschleifer neben michs. Wenn du fertig, dann mir zeigen, zsss!", item(251, 10, 777), item(2140, 1, 777), queststatus(709) = 5
-queststatus(709) = 4, town = Galmair, "task", "adventure", "order" -> "Zzzs, now we makesshiny gems! I'll givess you ten raw Amethyssstss and tong. You grinde them at the gem grinder for me and show me result when you done, zsss!", item(251, 10, 777), item(2140, 1, 777), queststatus(709) = 5
+queststatus(709) = 4, town = Galmair, "task", "adventure", "order" -> "Zzzs, now we makesz ssshiny gems! I'll givesss you ten raw amethyssstsz and a pair of tongsss. You grindz them at the gem grinder for me and ssshow me resssult when you done, zsss!", item(251, 10, 777), item(2140, 1, 777), queststatus(709) = 5
 queststatus(709) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zzzz, nun wir machen glänzzsende Sssteine! Ich geben dir zzsehn rohe Amethysssten und Zzange. Du sschleifen Amethysssten für michs am Edelssteinsschleifer neben michs. Wenn du fertig, dann mir zeigen, zsss!", item(251, 10, 777), item(2140, 1, 777), queststatus(709) = 5
-queststatus(709) = 5, item(197, all) > 9, town = Galmair, english, "quest", "mission" -> "Well done, do you want to make powder with sshiny ssstones with me now, zsss?", queststatus(709) = 6
+queststatus(709) = 5, item(197, all) > 9, town = Galmair, english, "quest", "mission" -> "Well done, do you want to make powder with ssshiny ssstones with me now, zsss?", queststatus(709) = 6
 queststatus(709) = 5, item(197, all) > 9, town = Galmair, "quest", "mission" -> "Gut gemachtss. Wollen nun Staub aus glänzenden Sssteinen nun machen mit mir, zsss?", queststatus(709) = 6
-queststatus(709) = 5, item(197, all) > 9, town = Galmair, "task", "adventure", "order" -> "Well done, do you want to make powder with sshiny ssstones with me now, zsss?", queststatus(709) = 6
+queststatus(709) = 5, item(197, all) > 9, town = Galmair, "task", "adventure", "order" -> "Well done, do you want to make powder with ssshiny ssstones with me now, zsss?", queststatus(709) = 6
 queststatus(709) = 5, item(197, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemachtss. Wollen nun Staub aus glänzenden Sssteinen nun machen mit mir, zsss?", queststatus(709) = 6
-queststatus(709) = 5, item(197, all) < 10, town = Galmair, english, ".+" -> "Zsss, I want ten amethysstsss. Come again when you have finissshed the task, zsss!"
+queststatus(709) = 5, item(197, all) < 10, town = Galmair, english, ".+" -> "Zsss, I want ten amethyssstsz. Come back when you have finissshed the tasssk, zsss!"
 queststatus(709) = 5, item(197, all) < 10, town = Galmair, ".+" -> "Zsss, ich wollten zehn Amethyssten. Komm wieder wenn du Aufgabe erledigt hassst, zsss!"
-queststatus(709) = 6, town = Galmair, english, "quest", "mission" -> "Zss, now we make with sshiny gems powder. You go to the gem grinder again and make with eight amethyssts two bags with amethyssst powder for me, zsss!", queststatus(709) = 7
+queststatus(709) = 6, town = Galmair, english, "quest", "mission" -> "Zss, now we make powder with the ssshiny gemsz. You go to the gem grinder again and make two bagsz of amethyssst powder from eight amethyssstsz for me, zsss!", queststatus(709) = 7
 queststatus(709) = 6, town = Galmair, "quest", "mission" -> "Zss, nun wir machen aus glänzzsenden Sssteinen Staub. Du gehen zu Edelsteinschleifer und machen aus acht geschliffenen Amethyssten zwei Beutel Amethyststaub für michs, zsss!", queststatus(709) = 7
-queststatus(709) = 6, town = Galmair, "task", "adventure", "order" -> "Zss, now we make with sshiny gems powder. You go to the gem grinder again and make with eight amethyssts two bags with amethyssst powder for me, zsss!", queststatus(709) = 7
+queststatus(709) = 6, town = Galmair, "task", "adventure", "order" -> "Zss, now we make powder with the ssshiny gemsz. You go to the gem grinder again and make two bagsz of amethyssst powder from eight amethyssstsz for me, zsss!", queststatus(709) = 7
 queststatus(709) = 6, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zss, nun wir machen aus glänzzsenden Sssteinen Staub. Du gehen zu Edelsteinschleifer und machen aus acht geschliffenen Amethyssten zwei Beutel Amethyststaub für michs, zsss!", queststatus(709) = 7
-queststatus(709) = 7, item(450, all) > 1, town = Galmair, english, "quest", "mission" -> "Zsss, well done! The quality of the powder is very good. Do you want another task from Seleseth?", queststatus(709) = 8
-queststatus(709) = 7, item(450, all) > 1, town = Galmair, "quest", "mission" -> "Zsss, gut gemachts! Staub haben gute Qualität. Wollen neue Aufgabe von Seleseth?", queststatus(709) = 8
-queststatus(709) = 7, item(450, all) > 1, town = Galmair, "task", "adventure", "order" -> "Zsss, well done! The quality of the powder is very good. Do you want another task from Seleseth?", queststatus(709) = 8
-queststatus(709) = 7, item(450, all) > 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zsss, gut gemachts! Staub haben gute Qualität. Wollen neue Aufgabe von Seleseth?", queststatus(709) = 8
-queststatus(709) = 7, item(450, all) < 2, town = Galmair, english, ".+" -> "Zsss, I want two bagss with amethyssst powder. Come again when you have the amethystst powder!"
+queststatus(709) = 7, item(450, all) > 1, town = Galmair, english, "quest", "mission" -> "Zsss, well done! The quality of thisss powder isss very good. Do you want another tasssk from Ssseleseth?", queststatus(709) = 8
+queststatus(709) = 7, item(450, all) > 1, town = Galmair, "quest", "mission" -> "Zsss, gut gemachts! Staub haben gute Qualität. Wollen neue Aufgabe von Ssseleseth?", queststatus(709) = 8
+queststatus(709) = 7, item(450, all) > 1, town = Galmair, "task", "adventure", "order" -> "Zsss, well done! The quality of thisss powder isss very good. Do you want another tasssk from Ssseleseth?", queststatus(709) = 8
+queststatus(709) = 7, item(450, all) > 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zsss, gut gemachts! Staub haben gute Qualität. Wollen neue Aufgabe von Ssseleseth?", queststatus(709) = 8
+queststatus(709) = 7, item(450, all) < 2, town = Galmair, english, ".+" -> "Zsss, I want two bagsss of amethyssst powder. Come back when you have the amethyssst powder!"
 queststatus(709) = 7, item(450, all) < 2, town = Galmair, ".+" -> "Zsss, ich wollte zwei Beutel Amethyssstssstaub, zsss. Komm wieder wenn Staub fertig!"
-queststatus(709) = 8, town = Galmair, english, "quest", "mission" -> "Zsss, do you want to learn sssomething about massoning? I'll give you ten raw sstones and chissel and you makes 20 ssmall sstoness for me with it! Raw sstones can be found in mine, a lot, zsss! Take chissel in your hand and start cutting raw sstones to sstone blocksss then you repeat that and make with ssstone blockss ssmall sstones.", item(737, 1, 777), item(735, 10, 777), queststatus(709) = 9
+queststatus(709) = 8, town = Galmair, english, "quest", "mission" -> "Zsss, do you want to learn sssomething about masssonry? I'll give you ten raw ssstonesz and a chisssel and you can makesz twenty sssmall ssstonesz for me with them! Raw ssstonesz can be found in minesz, a lot, zsss! Take the chisssel in your hand and ssstart cutting raw ssstonesz into ssstone blocksss, then you repeat that with the ssstone blocksss to make sssmall ssstonesz.", item(737, 1, 777), item(735, 10, 777), queststatus(709) = 9
 queststatus(709) = 8, town = Galmair, "quest", "mission" -> "Zsss, du wollen mehr über Steinmetz lernen? Ich geben dir zzehn rohe Sssteine und Meissel um 20 kleine Sssteine für mich zu machen, zsss. Rohe Sssteine gibtsss in der Mine viel! Du nehmen Meisel in die Hand und bearbeiten rohe Sssteine, danach Sssteinquadar bearbeiten zu kleinen Sssteinen und mir bringen 20, zss!", item(737, 1, 777), item(735, 10, 777), queststatus(709) = 9
-queststatus(709) = 8, town = Galmair, "task", "adventure", "order" -> "Zsss, do you want to learn sssomething about massoning? I'll give you ten raw sstones and chissel and you makes 20 ssmall sstoness for me with it! Raw sstones can be found in mine, a lot, zsss! Take chissel in your hand and start cutting raw sstones to sstone blocksss then you repeat that and make with ssstone blockss ssmall sstones.", item(737, 1, 777), item(735, 10, 777), queststatus(709) = 9
+queststatus(709) = 8, town = Galmair, "task", "adventure", "order" -> "Zsss, do you want to learn sssomething about masssonry? I'll give you ten raw ssstonesz and a chisssel and you can makesz twenty sssmall ssstonesz for me with them! Raw ssstonesz can be found in minesz, a lot, zsss! Take the chisssel in your hand and ssstart cutting raw ssstonesz into ssstone blocksss, then you repeat that with the ssstone blocksss to make sssmall ssstonesz.", item(737, 1, 777), item(735, 10, 777), queststatus(709) = 9
 queststatus(709) = 8, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->  "Zsss, du wollen mehr über Steinmetz lernen? Ich geben dir zzehn rohe Sssteine und Meissel um 20 kleine Sssteine für mich zu machen, zsss. Rohe Sssteine gibtsss in der Mine viel! Du nehmen Meisel in die Hand und bearbeiten rohe Sssteine, danach Sssteinquadar bearbeiten zu kleinen Sssteinen und mir bringen 20, zss!", item(737, 1, 777), item(735, 10, 777), queststatus(709) = 9
-queststatus(709) = 9, item(1266, all) > 19, town = Galmair, english, "quest", "mission" -> "Zsss, well done, thanks you. Zsss, Seleseth says thanksss for the help and hopesss you learnt sssomething about gem grinding, masoning and bricksss making.", deleteItem(1266, 20),  queststatus(709) = 9
-queststatus(709) = 9, item(1266, all) > 19, town = Galmair, "quest", "mission" -> "Zsss, gut gemachts, dankes. Zsss, Seleseth sagen danke für Hilfess und hoffen du was über Edelssteinssschleifen, Sssteine bahauen und Zzziegelmachen gelernt haben.", deleteItem(1266, 20), queststatus(709) = 9
-queststatus(709) = 9, item(1266, all) > 19, town = Galmair, "task", "adventure", "order" -> "Zsss, well done, thanks you. Zsss, Seleseth says thanksss for the help and hopesss you learnt sssomething about gem grinding, masoning and bricksss making.", deleteItem(1266, 20),  queststatus(709) = 9
-queststatus(709) = 9, item(1266, all) > 19, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zsss, gut gemachts, dankes. Zsss, Seleseth sagen danke für Hilfess und hoffen du was über Edelssteinssschleifen, Sssteine bahauen und Zzziegelmachen gelernt haben.", deleteItem(1266, 20), queststatus(709) = 9
-queststatus(709) = 9, item(1266, all) < 20, town = Galmair, english, ".+" -> "Zsss, they are not the 20 sssmall sstones that I was looking for. Come backsss when you have the Sstones!"
+queststatus(709) = 9, item(1266, all) > 19, town = Galmair, english, "quest", "mission" -> "Zsss, well done, thanksss you. Zsss, Ssseleseth says thanksss for the help and hopesss you learnt sssomething about gem grinding, masssonry and bricksss making.", deleteItem(1266, 20),  queststatus(709) = 9
+queststatus(709) = 9, item(1266, all) > 19, town = Galmair, "quest", "mission" -> "Zsss, gut gemachts, dankes. Zsss, Ssseleseth sagen danke für Hilfess und hoffen du was über Edelssteinssschleifen, Sssteine bahauen und Zzziegelmachen gelernt haben.", deleteItem(1266, 20), queststatus(709) = 9
+queststatus(709) = 9, item(1266, all) > 19, town = Galmair, "task", "adventure", "order" -> "Zsss, well done, thanksss you. Zsss, Ssseleseth says thanksss for the help and hopesss you learnt sssomething about gem grinding, masssonry and bricksss making.", deleteItem(1266, 20),  queststatus(709) = 9
+queststatus(709) = 9, item(1266, all) > 19, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zsss, gut gemachts, dankes. Zsss, Ssseleseth sagen danke für Hilfess und hoffen du was über Edelssteinssschleifen, Sssteine bahauen und Zzziegelmachen gelernt haben.", deleteItem(1266, 20), queststatus(709) = 9
+queststatus(709) = 9, item(1266, all) < 20, town = Galmair, english, ".+" -> "Zsss, they are not the twenty sssmall ssstonesz that I was looking for. Come backsss when you have the ssstonesz!"
 queststatus(709) = 9, item(1266, all) < 20, town = Galmair, ".+" -> "Zsss, dasss nicht ssein 20 kleine Steiness die ich wollte. Komm wieder wenn du Sssteine haben!"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-queststatus(709) = 10, town = Galmair, english, ".*" -> "Zsss, I don't have any other thingsss for yous to do. Thank yous for the help though, zsss!"
+queststatus(709) = 10, town = Galmair, english, ".*" -> "Zsss, I don't have any other thingsss for yousss to do. Thank yousss for the help though, zsss!"
 queststatus(709) = 10, town = Galmair, german, ".*" -> "Zsss, ich haben nichtsss weiter für dich zu tun. Aber dankes nochmal für deine Hilfe, zsss!"
-english, ".*" -> "You are not a citizzsen of Galmairss. I don't haves anything to do for yous, zsss."
+english, ".*" -> "You are not a citizzsen of Galmairss. I don't have anything for yousss to do, zsss."
 german, ".*" -> "Du ssscheint kein Bürgers Galmair zu sssein. Ich hab nichtsss für dichss zu tun, zsss."
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -132,7 +132,7 @@ german, ".*" -> "Du ssscheint kein Bürgers Galmair zu sssein. Ich hab nichtsss 
 
 cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
 cycletext "#me kratzt sich am Kopf.", "#me scratches his head."
-cycletext "Wenns du Hilfe beim Edelsssteinsschleifen, Sssteine behauen oder Zzziegelbrennen brauchst dann frag michss!", "If you need any help in gem grinding, massoning or bricksss making, jussst asssk me!"
+cycletext "Wenns du Hilfe beim Edelsssteinsschleifen, Sssteine behauen oder Zzziegelbrennen brauchst dann frag michss!", "If you need any help in gem grinding, masssonry or bricksss making, jussst asssk me!"
 cycletext "Zsss...", "Zsss..."
 cycletext "Zsss!", "Zsss!"
 cycletext "Zsss?", "Zsss?"
