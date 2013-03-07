@@ -3,7 +3,7 @@
 -- NPC Job:  Money changer                                                    --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  374, 229, 0            --
--- NPC Sex:  female                     NPC Direction: southeast              --
+-- NPC Sex:  female                     NPC Direction: south              --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                     easyNPC Parser v1.23.1 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 374, 229, 0, 3, 'Laura Pepperbags', 'npc.laura_pepperbags', 1, 8, 0, 225, 162, 0, 245, 180, 137);
+VALUES (0, 374, 229, 0, 4, 'Laura Pepperbags', 'npc.laura_pepperbags', 1, 8, 0, 225, 162, 0, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")

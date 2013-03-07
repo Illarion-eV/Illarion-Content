@@ -1,0 +1,149 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Joey Licavoli              Galmair                               --
+-- NPC Job:  Helper                                                           --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  425, 247, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   Zot                                                              --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Joey Licavoli"
+race = human
+sex = male
+position = 425, 247, 0
+direction = west
+affiliation = "Galmair"
+job = "Helper"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Zot"
+
+lookatDE = ""
+lookatUS = ""
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Hands off!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 2
+beardID = 1
+colorHair = 202, 202, 202
+colorSkin = 233, 202, 173
+itemHead = 0
+itemChest = 182
+itemCoat = 2384
+itemMainHand = 2701
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 460
+itemShoes = 679
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Joey Licavoli the helper. Keywords: quest, craft, workshop, Iradona Goldschein, food, fighting, Galmair")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joey Licavoli der Helfer. Schlüsselwörter: Quest, Handwerke, Werkstatt, Iradona Goldschein, Essen, Kämpfen, Galmair")
+queststatus(712) = 0, town = Galmair, english, ".+" -> queststatus(712) = 1, "Welcome to Galmair. Could you give Hannah Shepard this letter for me please? You won't miss her, she sits at the camp fire at the fields behind me. After you deliverd the letter to her, you can come back to me I'm sure I'll have more tasks for you."
+queststatus(712) = 0, town = Galmair, ".+" -> queststatus(712) = 1, "Willkommen in Galmair. Könnt Ihr Hannah Shepard bitte diesen Brief hier für mich übergeben? Ihr könnt sie nicht übersehen, sie sitzt an der Kochstelle bei den Feldern hinter mir. Nachdem Ihr den Brief überbracht habt, kommt zurück wenn Ihr weitere Aufgaben von mir wollt."
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, I can tell you who in Galmair has tasks for you to do.", "Nice to meet you, I'm Joey Licavoli, I can tell you who in Galmair has tasks for you to do."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, ich kann Euch sagen, wer in Galmair Aufgaben für Euch hat.", "Freut mich, Euch zu treffen. Ich bin Joey Licavoli. Ich kann Euch sagen, wer in Galmair Aufgaben für Euch hat."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, I can tell you who in Galmair has tasks for you to do.", "Nice to meet you, I'm Joey Licavoli, I can tell you who in Galmair has tasks for you to do."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, ich kann Euch sagen, wer in Galmair Aufgaben für Euch hat.", "Freut mich, Euch zu treffen. Ich bin Joey Licavoli. Ich kann Euch sagen, wer in Galmair Aufgaben für Euch hat."
+"Farewell", "Bye", "Fare well", "See you" -> "Thank you so, so much for talking to me. If you need help finding something to do, just come back.", "Please have a good day. If you need help finding something to do, just come back."
+"Tschüß", "Tschüss", "Wiedersehen" -> "Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück.", "Ich wünsche Euch einen schönen Tag. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Thank you so, so much for talking to me. If you need help finding something to do, just come back.", "Please have a good day. If you need help finding something to do, just come back."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück.", "Ich wünsche Euch einen schönen Tag. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück."
+"How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke für die Nachfrage."
+"your name", "who are you", "who art thou" -> "I'm Joey Licavoli. I'm here to help."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Joey Licavoli. Ich bin hier zum Helfen."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "My mission is to help, so if you need something to do, just ask."
+"beruf" -> "Meine Berufung ist zu helfen. Also wenn Ihr etwas zu tun sucht, fragt einfach."
+english, "job" -> "My mission is to help, so if you need something to do, just ask."
+"job" -> "Meine Berufung ist zu helfen. Also wenn Ihr etwas zu tun sucht, fragt einfach."
+
+-- help triggers
+english, "Iradona", "Goldschein" -> "She is right over there, just go over and talk to her. She knows a lot about Galmair."
+"Iradona", "Goldschein" -> "Sie ist gleich dort drüben, geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Galmair."
+"food", "eat" -> "You can find food all around you. There are fruits on the trees and bushes or you ask other people for something to eat."
+"essen", "nahrung" -> "Ihr könnt überall etwas zu essen finden. Früchte wachsen an Bäumen und Büschen oder Ihr fragt andere Leute nach etwas zu essen."
+english, "fighting", "monster" -> "There are a few wild animals in the wilderness so be careful. If you want to train, ask around for a sparring partner."
+"kämpfen", "monster" -> "Es gibt einige wilde Tiere in der Wildness, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt herum nach einem Trainingspartner."
+english, "work" -> "You can find the workshop really easily. Go through the main gate and follow the street until you see a building with a yellow-brown looking roof. That's the workshop."
+german, "Werk" -> "Die Werkstatt könnt Ihr ganz leicht finden. Geht durch das Haupttor und folgt der Straße bis Ihr ein Gebäude mit einem gelb-braunen Dach findet. Das ist die Werkstatt."
+english, "craft" -> "You want to know more about the crafts of Galmair? Well then go and visit Thorgrem Silverbeard, Seleseth, Tony Spirotelli or Hannah Shepard, they can tell you more about the crafts than me. You can find them all except Hannah Shepard in the workshop. Hannah is at the fields behind me."
+german, "hand" -> "Ihr wollt mehr über die Handwerke in Galmair wissen? Dann besucht horgrem Silverbeard, Seleseth, Tony Spirotelli oder Hannah Shepard, sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt alle bis auf Hannah Shepard in der Werkstatt finden. Hannah ist bei den Feldern gleich hinter mir."
+
+-- Quests
+queststatus(712) = 2, queststatus(708) >= 0, town = Galmair, english, "quest", "mission" -> "So I suppose you have already delivered the letter to Hannah Shepard? Now you can deliver another letter to Thorgrem Silverbeard at the workshop. The workshop is west of here, it's the building with the brownish roof. Come back again if you want more tasks from me."
+queststatus(712) = 2, queststatus(708) >= 0, town = Galmair, "quest", "mission" -> "Ich nehme an, Ihr habt Hannah Shepard bereits den Brief überbracht? Nun könnt Ihr einen zweiten Brief an Thorgrem Silverbeard in der Werkstatt überbringen. Um zur Werkstatt zu gelangen geht nach Westen, kurz vor dem Palast ist auf der linken Seite ein Haus mit einem bräunlichen Dach, das ist die Werkstatt. Kommt danch wieder zurück wenn Ihr eine weitere Aufgabe von mir wollt."
+queststatus(712) = 2, queststatus(708) >= 0, town = Galmair, "task", "adventure", "order" -> "So I suppose you have already delivered the letter to Hannah Shepard? Now you can deliver another letter to Thorgrem Silverbeard at the workshop. The workshop is west of here, it's the building with the brownish roof. Come back again if you want more tasks from me."
+queststatus(712) = 2, queststatus(708) >= 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich nehme an, Ihr habt Hannah Shepard bereits den Brief überbracht? Nun könnt Ihr einen zweiten Brief an Thorgrem Silverbeard in der Werkstatt überbringen. Um zur Werkstatt zu gelangen geht nach Westen, kurz vor dem Palast ist auf der linken Seite ein Haus mit einem bräunlichen Dach, das ist die Werkstatt. Kommt danch wieder zurück wenn Ihr eine weitere Aufgabe von mir wollt."
+queststatus(712) = 3, queststatus(77) = 0, town = Galmair, english, "quest", "mission" -> "A friend of mine, Miggs, always needs some help. You can find him if you enter the city, once you are in the city go to the palace in west direction, after you enterd the palace follow the way north until you reach the library, in the library you can find Miggs."
+queststatus(712) = 3, queststatus(77) = 0, town = Galmair, "quest", "mission" -> "Ein Freund von mir Miggs kann auch immer etwas Hilfe benötigen. Ihr könnt Ihn finden wenn Ihr in die Stadt hinein geht, drinnen geht Ihr dann zum Palast, tretet ein und folgt dem Weg nördlich bis zur Bibliothek, dort befindet sich Miggs."
+queststatus(712) = 3, queststatus(77) = 0, town = Galmair, "task", "adventure", "order" -> "A friend of mine, Miggs, always needs some help. You can find him if you enter the city, once you are in the city go to the palace in west direction, after you enterd the palace follow the way north until you reach the library, in the library you can find Miggs."
+queststatus(712) = 3, queststatus(77) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ein Freund von mir Miggs kann auch immer etwas Hilfe benötigen. Ihr könnt Ihn finden wenn Ihr in die Stadt hinein geht, drinnen geht Ihr dann zum Palast, tretet ein und folgt dem Weg nördlich bis zur Bibliothek, dort befindet sich Miggs."
+queststatus(712) = 3, queststatus(77) > 1, town = Galmair, english, "quest", "mission" -> queststatus(712) = 4, "Charwis Irongate has for sure a task for you. You can find him at the market place which is south west from here."
+queststatus(712) = 3, queststatus(77) > 1, town = Galmair, "quest", "mission" -> queststatus(712) = 4, "Charwis Irongate hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn beim Marktplatz im Südwesten der Stadt finden."
+queststatus(712) = 3, queststatus(77) > 1, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 4, "Charwis Irongate has for sure a task for you. You can find him at the market place which is south west from here."
+queststatus(712) = 3, queststatus(77) > 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 4, "Charwis Irongate hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn beim Marktplatz im Südwesten der Stadt finden."
+queststatus(712) = 4, queststatus(702) = 0, town = Galmair, english, "quest", "mission" -> "Charwis Irongate has for sure a task for you. You can find him at the market place which is south west from here."
+queststatus(712) = 4, queststatus(702) = 0, town = Galmair, "quest", "mission" -> "Charwis Irongate hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn beim Marktplatz im Südwesten der Stadt finden."
+queststatus(712) = 4, queststatus(702) = 0, town = Galmair, "task", "adventure", "order" -> "Charwis Irongate has for sure a task for you. You can find him at the market place which is south west from here."
+queststatus(712) = 4, queststatus(702) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Charwis Irongate hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn beim Marktplatz im Südwesten der Stadt finden."
+queststatus(712) = 4, queststatus(702) > 1, town = Galmair, english, "quest", "mission" -> queststatus(712) = 5, "Ah..there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the malachit mine which you can find if you enter the city and follow the street to the south east."
+queststatus(712) = 4, queststatus(702) > 1, town = Galmair, "quest", "mission" -> queststatus(712) = 5, "Ah..da seid Ihr ja wieder. Geht doch bitte zu Bruno Blackhole er hat eine Aufgabe für euch sagte er mir. Ihr könnt ihn in der Malachitmine finden, die Mine findet Ihr, wenn Ihr die Stadt betretet und der Straße nach Südosten folgt."
+queststatus(712) = 4, queststatus(702) > 1, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 5, "Ah..there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the malachit mine which you can find if you enter the city and follow the street to the south east."
+queststatus(712) = 4, queststatus(702) > 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 5, "Ah..da seid Ihr ja wieder. Geht doch bitte zu Bruno Blackhole er hat eine Aufgabe für euch sagte er mir. Ihr könnt ihn in der Malachitmine finden, die Mine findet Ihr, wenn Ihr die Stadt betretet und der Straße nach Südosten folgt."
+queststatus(712) = 5, queststatus(65) = 0, town = Galmair, english, "quest", "mission" -> "Ah..there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the malachit mine which you can find if you enter the city and follow the street to the south east."
+queststatus(712) = 5, queststatus(65) = 0, town = Galmair, "quest", "mission" -> "Ah..da seid Ihr ja wieder. Geht doch bitte zu Bruno Blackhole er hat eine Aufgabe für euch sagte er mir. Ihr könnt ihn in der Malachitmine finden, die Mine findet Ihr, wenn Ihr die Stadt betretet und der Straße nach Südosten folgt."
+queststatus(712) = 5, queststatus(65) = 0, town = Galmair, "task", "adventure", "order" -> "Ah..there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the malachit mine which you can find if you enter the city and follow the street to the south east."
+queststatus(712) = 5, queststatus(65) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ah..da seid Ihr ja wieder. Geht doch bitte zu Bruno Blackhole er hat eine Aufgabe für euch sagte er mir. Ihr könnt ihn in der Malachitmine finden, die Mine findet Ihr, wenn Ihr die Stadt betretet und der Straße nach Südosten folgt."
+queststatus(712) = 5, queststatus(65) > 1, town = Galmair, english, "quest", "mission" -> queststatus(712) = 6, "Gretel Goldhair, the treasurer has a task for you. Please find her in the palace and ask her for a task."
+queststatus(712) = 5, queststatus(65) > 1, town = Galmair, "quest", "mission" -> queststatus(712) = 6, "Gretel Goldhair, die Schatzmeisterin hat eine kleine Aufgabe für euch. Geht doch bitte in den Palast und fragt sie nach einer Aufgabe."
+queststatus(712) = 5, queststatus(65) > 1, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 6, "Gretel Goldhair, the treasurer has a task for you. Please find her in the palace and ask her for a task."
+queststatus(712) = 5, queststatus(65) > 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 6, "Gretel Goldhair, die Schatzmeisterin hat eine kleine Aufgabe für euch. Geht doch bitte in den Palast und fragt sie nach einer Aufgabe."
+queststatus(712) = 6, queststatus(206) = 0, town = Galmair, english, "quest", "mission" -> "Gretel Goldhair, the treasurer has a task for you. Please find her in the palace and ask her for a task."
+queststatus(712) = 6, queststatus(206) = 0, town = Galmair, "quest", "mission" -> "Gretel Goldhair, die Schatzmeisterin hat eine kleine Aufgabe für euch. Geht doch bitte in den Palast und fragt sie nach einer Aufgabe."
+queststatus(712) = 6, queststatus(206) = 0, town = Galmair, "task", "adventure", "order" -> "Gretel Goldhair, the treasurer has a task for you. Please find her in the palace and ask her for a task."
+queststatus(712) = 6, queststatus(206) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gretel Goldhair, die Schatzmeisterin hat eine kleine Aufgabe für euch. Geht doch bitte in den Palast und fragt sie nach einer Aufgabe."
+queststatus(712) = 6, queststatus(206) > 1, town = Galmair, english, "quest", "mission" -> queststatus(712) = 7, "Groktan Flintsplit has a task for you, please visit him in the building with the red roof shortly before the palace."
+queststatus(712) = 6, queststatus(206) > 1, town = Galmair, "quest", "mission" -> queststatus(712) = 7, "Groktan Flintsplit hat eine Aufgabe für euch, besucht Ihn doch bitte in dem Gebäude mit dem roten Dach kurz vor dem Palast."
+queststatus(712) = 6, queststatus(206) > 1, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 7, "Groktan Flintsplit has a task for you, please visit him in the building with the red roof shortly before the palace."
+queststatus(712) = 6, queststatus(206) > 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 7, "Groktan Flintsplit hat eine Aufgabe für euch, besucht Ihn doch bitte in dem Gebäude mit dem roten Dach kurz vor dem Palast."
+queststatus(712) = 7, queststatus(107) = 0, town = Galmair, english, "quest", "mission" -> "Groktan Flintsplit has a task for you, please visit him in the building with the red roof shortly before the palace."
+queststatus(712) = 7, queststatus(107) = 0, town = Galmair, "quest", "mission" -> "Groktan Flintsplit hat eine Aufgabe für euch, besucht Ihn doch bitte in dem Gebäude mit dem roten Dach kurz vor dem Palast."
+queststatus(712) = 7, queststatus(107) = 0, town = Galmair, "task", "adventure", "order" -> "Groktan Flintsplit has a task for you, please visit him in the building with the red roof shortly before the palace."
+queststatus(712) = 7, queststatus(107) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Groktan Flintsplit hat eine Aufgabe für euch, besucht Ihn doch bitte in dem Gebäude mit dem roten Dach kurz vor dem Palast."
+queststatus(712) = 7, queststatus(107) > 1, town = Galmair, english, "quest", "mission" -> queststatus(712) = 8, "I'm sure you can find your way around here without my help now."
+queststatus(712) = 7, queststatus(107) > 1, town = Galmair, "quest", "mission" -> queststatus(712) = 8, "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht."
+queststatus(712) = 7, queststatus(107) > 1, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 8, "I'm sure you can find your way around here without my help now."
+queststatus(712) = 7, queststatus(107) > 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 8, "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht."
+queststatus(712) = 8, town = Galmair, english, "quest", "mission" -> "I'm sure you can find your way around here without my help now."
+queststatus(712) = 8, town = Galmair, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht."
+queststatus(712) = 8, town = Galmair, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now."
+queststatus(712) = 8, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+
+town = Galmair, english, ".*" -> "I cannot help you with that. Why not ask Iradona Goldschein over there? I'm sure she has the answer."
+town = Galmair, german, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Iradona Goldschein dort drüben, ich bin mir sicher sie hat eine Antwort."
+english, ".*" -> "You are not a citizen of Galmair. I don't have anything to do for you."
+german, ".*" -> "Ihr scheint kein Bürger Galmair zu sein. Ich habe nichts für Euch zu tun."
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Willkommen in Galmair!", "Welcome to Galmair!"
+cycletext "Wenn Ihr Hilfe benötigt, sprecht mich einfach an.", "If you need help, just speak to me."
+cycletext "Ich kann Euch sagen, wer in dieser Stadt eure Hilfe benötigt.", "I can tell you who in this city needs your help."
+cycletext "Wenn Ihr neu hier seid, bin ich Euer Mann.", "If you're new to this city, I'm your man."

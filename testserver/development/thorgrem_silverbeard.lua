@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------------
--- NPC Name: Berri Firegold                                           Cadomyr --
+-- NPC Name: Thorgrem Silverbeard                                     Galmair --
 -- NPC Job:  Smith and Miner                                                  --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  141, 582, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: dwarf                      NPC Position:  387, 273, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
 --                                                     easyNPC Parser v1.23.1 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 141, 582, 0, 4, 'Berri Firegold', 'npc.berri_firegold', 0, 2, 3, 129, 66, 10, 238, 216, 174);
+VALUES (1, 387, 273, 0, 6, 'Thorgrem Silverbeard', 'npc.thorgrem_silverbeard', 0, 1, 4, 216, 216, 216, 155, 105, 68);
 ---]]
 
 require("npc.base.basic")
@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.berri_firegold", package.seeall)
+module("development.thorgrem_silverbeard", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -32,13 +32,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Berri Firegold the smith. Keywords: quest, mine, smithing, letter, craft"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Thorgrem Silverbeard the smith. Keywords: quest, smithing, craft, letter"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Berri Firegold der Schmied. Schlüsselwörter: Quest, Mine, schmieden, Brief, Handwerk"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Thorgrem Silverbeard der Schmied. Schlüsselwörter: Quest, Schmieden, Handwerk, Brief"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -50,7 +50,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good Evening");
 talkEntry:addResponse("Hello, can I help you?");
-talkEntry:addResponse("Nice to meet you, I'm Berri Firegold.");
+talkEntry:addResponse("Irmorom with you, do you need anything?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -65,8 +65,8 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
-talkEntry:addResponse("Hallo, kann ich Euch helfen?");
-talkEntry:addResponse("Freut mich, Euch zu treffen. Ich bin Berri Firegold.");
+talkEntry:addResponse("Hallo, kann ich dir helfen?");
+talkEntry:addResponse("Irmorom zum Gruße, brauchst du was?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -77,7 +77,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Hello, can I help you?");
-talkEntry:addResponse("Nice to meet you, I'm Berri Firegold.");
+talkEntry:addResponse("Irmorom with you, do you need anything?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -86,8 +86,8 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hallo, kann ich Euch helfen?");
-talkEntry:addResponse("Freut mich, Euch zu treffen. Ich bin Berri Firegold");
+talkEntry:addResponse("Hallo, kann ich dir helfen?");
+talkEntry:addResponse("Irmorom zum Gruße, brauchst du was?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -96,8 +96,8 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("I wish you a nice day.");
-talkEntry:addResponse("I hope we meet again, goodbye.");
+talkEntry:addResponse("Farewell, Irmorom with you!");
+talkEntry:addResponse("Until next time! Bye");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -105,8 +105,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addResponse("Ich wünsche Euch noch einen schönen Tag.");
-talkEntry:addResponse("Ich hoffe, wir sehen uns wieder. Auf bald!");
+talkEntry:addResponse("Auf bald, Irmorom mit dir!");
+talkEntry:addResponse("Man sieht sich. Auf bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -116,8 +116,8 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("I wish you a nice day.");
-talkEntry:addResponse("I hope we meet again, goodbye.");
+talkEntry:addResponse("Farewell, Irmorom with you!");
+talkEntry:addResponse("Until next time! Bye");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -126,8 +126,8 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Ich wünsche Euch noch einen schönen Tag.");
-talkEntry:addResponse("Ich hoffe, wir sehen uns wieder. Auf bald!");
+talkEntry:addResponse("Auf bald, Irmorom mit dir!");
+talkEntry:addResponse("Man sieht sich. Auf bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -135,7 +135,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I feel fine, thank you for asking.");
+talkEntry:addResponse("I feel fine, I wouldn't mind a beer though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -144,7 +144,7 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("Mir geht es gut, danke für die Nachfrage.");
+talkEntry:addResponse("Mir geht es gut, ein Bier währe wohl nicht verkehrt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -152,7 +152,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I'm Berri Firegold, who are you?");
+talkEntry:addResponse("I'm Thorgrem Silverbeard, who are you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -162,7 +162,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Ich bin Berri Firegold. Wer bist du?");
+talkEntry:addResponse("Ich bin Thorgrem Silverbeard, wer bist du?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -174,7 +174,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin natürlich ein Schmied. Vielleicht habe ich später eine kleine Aufgabe für Euch.");
+talkEntry:addResponse("Ich bin natürlich ein Schmied, vielleicht habe ich später eine kleine Aufgabe für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -187,21 +187,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin natürlich ein Schmied. Vielleicht habe ich später eine kleine Aufgabe für Euch.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("mine");
-talkEntry:addResponse("If you leave the town and follow the street to the south you will reach the 'Cornerstone of Candour', you can find coal there. If you leave the town and go northeast you will reach the 'Liberty Quarry', you can find iron and copper ore there, and sometimes even gold nuggets.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addTrigger("mine");
-talkEntry:addResponse("Wenn Ihr die Stadt verlasst und nach Süden der Straße folgt, erreicht Ihr den 'Grundstein der Aufrichtigkeit'. Dort könnt Ihr Kohle finden. Wenn Ihr die Stadt verlasst und nach Nordosten geht, erreicht Ihr den 'Freiheitsbruch'. Dort findet Ihr Eisen- und Kupfererz und manchmal sogar Goldnuggets.");
+talkEntry:addResponse("Ich bin natürlich ein Schmied, vielleicht habe ich später eine kleine Aufgabe für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -214,489 +200,489 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("schmied");
-talkEntry:addResponse("Wenn Ihr schmieden wollt, dann braucht Ihr Barren und natürlich einen Hammer. Schmiede benutzen einen gewöhnlichen Hammer. Goldschmiede dagegen brauchen einen Feinschmiedehammer.");
+talkEntry:addResponse("Wenn du schmieden willt dann brauchst du Barren und natürlich einen Hammer. Schmiede benutzen einen gewöhnlichen Hammer, Goldschmiede dagegen brauchen einen Feinschmiedehammer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("craft");
-talkEntry:addResponse("If you need help with smithing, ask me for a task. If you prefer glass blowing or brick making talk with Zlatxhol at the oven over thre. You can ask Lilli Gallfing behind me in the other room if you want to know more about tailoring. If you don't like any of this crafts you can talk with Gerry Deloid, he can teach you the basics about candle making.");
+talkEntry:addResponse("If you need help with smithing, ask me for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("hand");
-talkEntry:addResponse("Wenn Ihr Hilfe beim Schmieden braucht, fragt mich nach einer Aufgabe. Wollt Ihr lieber etwas über das Glasblasen oder Ziegelmachen lernen, dann fragt Zlatxhol da vorne. Liegt Euch das Schneiderhandwerk eher, dann fragt Lilli Gallfing hinter mir im anderen Raum. Falls Ihr jedoch am Kerzenmachen interessiert seid, dann geht durch die Schneiderei hinaus und sprecht Gerry Deloid an.");
+talkEntry:addResponse("Wenn du Hilfe beim Schmieden brauchst frag mich nach einer Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(712, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("letter");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
-talkEntry:addResponse("Ah, thank you. If you need help with smithing, ask me for a task. If you prefer glass blowing or brick making talk with Zlatxhol at the oven over there. You can ask Lilli Gallfing behind me in the other room if you want to know more about tailoring. If you don't like any of these crafts you can talk to Gerry Deloid, he can teach you the basics of candle making.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 3));
+talkEntry:addResponse("Ah, thank you. If you need help with smithing, ask me for a task. If you prefer gem grinding or brick making talk with Seleseth at the grinder next me. You can ask Tony Spirotelli at the workbench over there if you want to know more about carpenting though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(712, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("brief");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
-talkEntry:addResponse("Ah, vielen Dank. Wenn Ihr Hilfe beim Schmieden braucht, fragt mich nach einer Aufgabe. Wollt Ihr lieber etwas über das Glasblasen oder Ziegelmachen lernen, dann fragt Zlatxhol da vorne. Liegt euch das Schneiderhandwerk eher, dann fragt Lilli Gallfing hinter mir im anderen Raum. Falls Ihr jedoch am Kerzenmachen interessiert seid, dann geht durch die Schneiderei hinaus und sprecht Gerry Deloid an.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 3));
+talkEntry:addResponse("Ah, vielen Dank. Wenn Ihr Hilfe beim Schmieden braucht, fragt mich nach einer Aufgabe. Wollt Ihr lieber etwas über das Edelsteinschleifen oder Ziegelmachen lernen, dann fragt Seleseth die Echse neben mir. Liegt euch das Schreinerhandwerk eher, dann fragt Tony Spirotelli bei der Werkbank dort drüben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Could you bring me twenty pieces of iron ore from the 'Liberty Quarry' and also twenty lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
+talkEntry:addResponse("Could you bring me 20 pieces of iron ore from the malachit mine and also 20 lumps of coal from the dark hole mine? If you leave the workshop in south direction and follow the street south you will get to the malachitmine. The dark hole mine is outside the city, you can find it if you go north west of the main gate. I'll give you my old pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Könntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
+talkEntry:addResponse("Kannst du mir 20 Brocken Eisenerz von der Malachitmine und außerdem noch 20 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke um das Erz abzubauen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Could you bring me twenty pieces of iron ore from the 'Liberty Quarry' and also twenty lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
+talkEntry:addResponse("Could you bring me 20 pieces of iron ore from the malachit mine and also 20 lumps of coal from the dark hole mine? If you leave the workshop in south direction and follow the street south you will get to the malachitmine. The dark hole mine is outside the city, you can find it if you go north west of the main gate. I'll give you my old pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 0));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Könntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
+talkEntry:addResponse("Kannst du mir 20 Brocken Eisenerz von der Malachitmine und außerdem noch 20 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke um das Erz abzubauen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 2));
 talkEntry:addResponse("Well done, thank you. Do you want another task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 19, nil));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 2));
-talkEntry:addResponse("Gut gemacht, danke. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 2));
+talkEntry:addResponse("Gut gemacht, danke. Willst du eine weitere Aufgabe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 19, nil));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 2));
 talkEntry:addResponse("Well done, thank you. Do you want another task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 19, nil));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 2));
-talkEntry:addResponse("Gut gemacht, danke. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 2));
+talkEntry:addResponse("Gut gemacht, danke. Wollst du eine weitere Aufgabe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me twenty pieces of iron ore and twenty lumps of coal?");
+talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me 20 pieces of iron ore and 20 lumps of coal?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, nil));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 20 Eisenerze sowie 20 Kohleklumpen von Euch. Habt Ihr das vergessen?");
+talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 20 Eisenerze sowie 20 Kohleklumpen von dir, hast du das vergessen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me twenty pieces of iron ore and twenty lumps of coal?");
+talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me 20 pieces of iron ore and 20 lumps of coal?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 20, nil));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 20 Eisenerze sowie 20 Kohleklumpen von Euch Habt Ihr das vergessen?");
+talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 20 Eisenerze sowie 20 Kohleklumpen von dir, hast du das vergessen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 3));
-talkEntry:addResponse("I have another task for you, indeed. Could you smelt me ten iron ingots at the furnace over there? Here I'll even give you the crucible-pincers for smelting the ore.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 555, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 3));
+talkEntry:addResponse("I have another task for you, aye. Could you smelt me ten iron ingots at the furnace next me? Here I'll even give you the crucible-pincers for smelting the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 2));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 3));
-talkEntry:addResponse("Ich hätte einen weitere Aufgabe für Euch, in der Tat. Könntet Ihr mir 10 Eisenbarren bei der Esse dort drüben schmelzen? Hier, ich gebe Euch sogar eine Tiegelzange zum schmelzen.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 555, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 3));
+talkEntry:addResponse("Ich hätte einen weitere Aufgabe für dich, aye. Kannst du zehn Eisenbarren bei der Esse neben mir schmelzen? Hier, ich gebe dir sogar eine Tiegelzange zum schmelzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 2));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 3));
-talkEntry:addResponse("I have another task for you, indeed. Could you smelt me ten iron ingots at the furnace over there? Here I'll even give you the crucible-pincers for smelting the ore.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 555, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 3));
+talkEntry:addResponse("I have another task for you, aye. Could you smelt me ten iron ingots at the furnace over there? Here I'll even give you the crucible-pincers for smelting the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 2));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 3));
-talkEntry:addResponse("Ich hätte einen weitere Aufgabe für Euch, in der Tat. Könntet Ihr mir 10 Eisenbarren bei der Esse dort drüben schmelzen? Hier, ich gebe Euch sogar eine Tiegelzange zum schmelzen.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 555, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 3));
+talkEntry:addResponse("Ich hätte einen weitere Aufgabe für dich, aye. Kannst du zehn Eisenbarren bei der Esse neben mir schmelzen? Hier, ich gebe dir sogar eine Tiegelzange zum schmelzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 4));
 talkEntry:addResponse("Well done. Do you want another task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 9, nil));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 4));
-talkEntry:addResponse("Gut gemacht. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 4));
+talkEntry:addResponse("Gut gemacht. Willst du eine weitere Aufgabe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 9, nil));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 4));
 talkEntry:addResponse("Well done. Do you want another task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 9, nil));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 4));
-talkEntry:addResponse("Gut gemacht. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 4));
+talkEntry:addResponse("Gut gemacht. Willst du eine weitere Aufgabe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("That are not ten iron ingots yet. Please come again later when you've finished the task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 10, nil));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Das sind noch keine 10 Eisenbarren, die ich von Euch wollte. Kommt wieder, wenn Ihr die Aufgabe erledigt habt.");
+talkEntry:addResponse("Das sind noch keine zehn Eisenbarren, die ich von dir wollte. Komm wieder wenn du die Aufgabe erledigt hast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(122, 1, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 5));
 talkEntry:addResponse("You want another task? Well alright. Could you smith me five pins and five goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handle is for finesmithing. Here I'll give you one of each kind so you can practise a little bit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 4));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 4));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(122, 1, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 5));
-talkEntry:addResponse("Ihr wollt noch eine weitere Aufgabe? Nun gut, meinetwegen. Bitte stellt mir 5 Nägel sowie 5 Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht. Der mit dem roten Griff für das Feinschmieden. Hier ich gebe Euch jeweils einen zum üben.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 5));
+talkEntry:addResponse("Du willst noch eine Aufgabe? Na gut, meinetwegen. Bitte stell mir fünf Nägel sowie fünf Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht, der mit dem roten Griff für das Feinschmieden. Hier ich gebe dir jeweils einen zum üben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 4));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 4));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(122, 1, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 5));
 talkEntry:addResponse("You want another task? Well alright. Could you smith me five pins and five goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handle is for finesmithing. Here I'll give you one of each kind so you can practise a little bit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 4));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 4));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(122, 1, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 5));
-talkEntry:addResponse("Ihr wollt noch eine weitere Aufgabe? Nun gut, meinetwegen. Bitte stellt mir 5 Nägel sowie 5 Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht. Der mit dem roten Griff für das Feinschmieden. Hier ich gebe Euch jeweils einen zum üben.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 5));
+talkEntry:addResponse("Du willst noch eine Aufgabe? Na gut, meinetwegen. Bitte stell mir fünf Nägel sowie fünf Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht, der mit dem roten Griff für das Feinschmieden. Hier ich gebe dir jeweils einen zum üben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.item.item(1858, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 6));
 talkEntry:addResponse("Well done, thank you very much. I don't think you need my help any longer, good luck!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.item.item(1858, "all", ">", 4, nil));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 6));
-talkEntry:addResponse("Gut gemacht, vielen Dank. Ich denke, Ihr kommt nun auch ohne meine Hilfe zurecht.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 6));
+talkEntry:addResponse("Gut gemacht, vielen Dank. Ich denke du kommst nun auch ohne meine Hilfe zurecht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.item.item(1858, "all", ">", 4, nil));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 6));
 talkEntry:addResponse("Well done, thank you very much. I don't think you need my help any longer, good luck!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.item.item(1858, "all", ">", 4, nil));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 5, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 6));
-talkEntry:addResponse("Gut gemacht, vielen Dank. Ich denke, Ihr kommt nun auch ohne meine Hilfe zurecht.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 6));
+talkEntry:addResponse("Gut gemacht, vielen Dank. Ich denke du kommst nun auch ohne meine Hilfe zurecht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("You haven't solved the task yet. Please come back again if you have five pins and five goblets for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", "<", 5, nil));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Ihr habt die Aufgabe noch nicht erfüllt, wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche.");
+talkEntry:addResponse("Du hast die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bring mir fünf Nägel und fünf Kelche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(1858, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You haven't solved the task yet. Please come back again if you have five pins and five goblets for me.");
+talkEntry:addResponse("You haven't solved the task yet. Please come back again if you have five pins and fünf goblets for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(1858, "all", "<", 5, nil));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Ihr habt die Aufgabe noch nicht erfüllt, wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche.");
+talkEntry:addResponse("Du hast die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bring mir fünf Nägel und fünf Kelche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("I don't have anything more for you to do. Thank you for the help though!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(704, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!");
+talkEntry:addResponse("Ich habe nichts weiter für dich zu tun. Aber danke nochmals für deine Hilfe!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("You are not a citizen of Cadomyr. I don't have anything to do for you.");
+talkEntry:addResponse("You are not a citizen of Galmair. I don't have anything to do for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun.");
+talkEntry:addResponse("Du scheinst kein Bürger Galmair zu sein. Ich habe nichts für dich zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
 talkingNPC:addCycleText("#me streicht sich über seinen Bart.", "#me runs a hand over his beard.");
-talkingNPC:addCycleText("Wenn Ihr Hilfe beim schmieden braucht, dann fragt nur mich!", "If you need any help smithing, just ask me!");
+talkingNPC:addCycleText("Wenn du Hilfe beim schmieden brauchst dann frag nur mich!", "If you need any help smithing, just ask me!");
 talkingNPC:addCycleText("#me gähnt verhalten.", "#me yawns restrained.");
 talkingNPC:addCycleText("Ein Bier! Bringt mir ein Bier!", "A beer, bring me a beer!");
 talkingNPC:addCycleText("#me grummelt.", "#me grumbles.");
@@ -706,14 +692,14 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("", "");
 mainNPC:setUseMessage("Fass mich nicht an!", "Hands off!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
-mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 2390);
-mainNPC:setEquipment(11, 2384);
+mainNPC:setEquipment(1, 358);
+mainNPC:setEquipment(3, 2360);
+mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 23);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 0);
-mainNPC:setEquipment(9, 826);
-mainNPC:setEquipment(10, 679);
+mainNPC:setEquipment(9, 825);
+mainNPC:setEquipment(10, 698);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
