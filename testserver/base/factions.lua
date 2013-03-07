@@ -348,7 +348,7 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 			return;
 		end
 
-		originator:inform("Das Wechseln der Stadt hat"..germanMoney.." gekostet.", "It costs"..englishMoney" to change the faction.");
+		originator:inform("Das Wechseln der Stadt hat"..germanMoney.." gekostet.", "It costs"..englishMoney.." to change the faction.");
 		
 		fv.rankpoints = 0 -- set default value for rankpoints
 		fv.tid = theTown; --set new Town ID
