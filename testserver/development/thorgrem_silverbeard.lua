@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.thorgrem_silverbeard", package.seeall)
+module("npc.thorgrem_silverbeard", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -50,7 +50,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good Evening");
 talkEntry:addResponse("Hello, can I help you?");
-talkEntry:addResponse("Irmorom with you, do you need anything?");
+talkEntry:addResponse("Irmorom be with you, do you need anything?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -77,7 +77,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Hello, can I help you?");
-talkEntry:addResponse("Irmorom with you, do you need anything?");
+talkEntry:addResponse("Irmorom be with you, do you need anything?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -96,7 +96,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Farewell, Irmorom with you!");
+talkEntry:addResponse("Farewell, Irmorom be with you!");
 talkEntry:addResponse("Until next time! Bye");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -116,7 +116,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Farewell, Irmorom with you!");
+talkEntry:addResponse("Farewell, Irmorom be with you!");
 talkEntry:addResponse("Until next time! Bye");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -224,7 +224,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("letter");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 3));
-talkEntry:addResponse("Ah, thank you. If you need help with smithing, ask me for a task. If you prefer gem grinding or brick making talk with Seleseth at the grinder next me. You can ask Tony Spirotelli at the workbench over there if you want to know more about carpenting though.");
+talkEntry:addResponse("Ah, thank you. If you need help with smithing, ask me for a task. If you prefer gem grinding or brick making, talk with Seleseth at the grinder next me. You can ask Tony Spirotelli at the workbench over there if you want to know more about carpentry though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -246,7 +246,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Could you bring me 20 pieces of iron ore from the malachit mine and also 20 lumps of coal from the dark hole mine? If you leave the workshop in south direction and follow the street south you will get to the malachitmine. The dark hole mine is outside the city, you can find it if you go north west of the main gate. I'll give you my old pick-axe to mine the ore.");
+talkEntry:addResponse("Could you bring me twenty pieces of iron ore from the Malachite Mine and also twenty lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -269,7 +269,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Could you bring me 20 pieces of iron ore from the malachit mine and also 20 lumps of coal from the dark hole mine? If you leave the workshop in south direction and follow the street south you will get to the malachitmine. The dark hole mine is outside the city, you can find it if you go north west of the main gate. I'll give you my old pick-axe to mine the ore.");
+talkEntry:addResponse("Could you bring me twenty pieces of iron ore from the Malachite Mine and also twenty lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -352,7 +352,7 @@ talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me 20 pieces of iron ore and 20 lumps of coal?");
+talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me twenty pieces of iron ore and twenty lumps of coal?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -371,7 +371,7 @@ talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me 20 pieces of iron ore and 20 lumps of coal?");
+talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me twenty pieces of iron ore and twenty lumps of coal?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -392,7 +392,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 3));
-talkEntry:addResponse("I have another task for you, aye. Could you smelt me ten iron ingots at the furnace next me? Here I'll even give you the crucible-pincers for smelting the ore.");
+talkEntry:addResponse("I have another task for you, aye. Could you smelt me ten iron ingots at the furnace over there? Here I'll even give you the crucible-pincers for smelting the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -486,7 +486,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That are not ten iron ingots yet. Please come again later when you've finished the task.");
+talkEntry:addResponse("There are not ten iron ingots yet. Please come back later when you've finished the task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -670,7 +670,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("You are not a citizen of Galmair. I don't have anything to do for you.");
+talkEntry:addResponse("You are not a citizen of Galmair. I don't have anything for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
