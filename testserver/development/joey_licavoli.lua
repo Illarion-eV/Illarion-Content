@@ -21,7 +21,7 @@ require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("npc.joey_licavoli", package.seeall)
+module("development.joey_licavoli", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
