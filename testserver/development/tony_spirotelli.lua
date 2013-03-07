@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.tony_spirotelli", package.seeall)
+module("npc.tony_spirotelli", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -172,7 +172,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I'm carpenter, if you want to know more about it, ask me for a task. I'm sure I have something to do for you.");
+talkEntry:addResponse("I'm carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -185,7 +185,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I'm carpenter, if you want to know more about it, ask me for a task. I'm sure I have something to do for you.");
+talkEntry:addResponse("I'm carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -204,7 +204,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 1));
-talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect 20 pieces of deciduous wood at the apple trees outside of the city. Then return to the workshop and saw the peices of deciduous wood at the workbench with the saw I'll give you to boards and show them to me.");
+talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect twenty pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the peices of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -229,7 +229,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 1));
-talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect 20 pieces of deciduous wood at the apple trees outside of the city. Then return to the workshop and saw the peices of deciduous wood at the workbench with the saw I'll give you to boards and show them to me.");
+talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect twenty pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the peices of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -301,7 +301,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2716, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I wanted 20 deciduous wood boards, come again once you have fullfiled this task.");
+talkEntry:addResponse("I wanted twenty deciduous wood boards, come back once you have fulfilled this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -322,7 +322,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2715, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 3));
-talkEntry:addResponse("Let's make some wooden cups with the deciduous boards now. You will need a plane for that which I'll give you. Then you go to the workbench next me and produce five wooden cups which you show me once you are done.");
+talkEntry:addResponse("Let's make some wooden cups from the deciduous boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce five wooden cups, which you can show me once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -345,7 +345,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2715, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 3));
-talkEntry:addResponse("Let's make some wooden cups with the deciduous boards now. You will need a plane for that which I'll give you. Then you go to the workbench next me and produce five wooden cups which you show me once you are done.");
+talkEntry:addResponse("Let's make some wooden cups from the deciduous boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce five wooden cups, which you can show me once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -420,7 +420,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2185, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I wanted five wooden cups, come again once you have fullfiled this task.");
+talkEntry:addResponse("I wanted five wooden cups, come back once you have fulfilled this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -441,7 +441,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2752, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 5));
-talkEntry:addResponse("Alright, now go out and collect five boughs. Once you have five boughs come back here and produce with the carving tools which I'll give you five hammer handles for me.");
+talkEntry:addResponse("Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce five hammer handles for me using these carving tools I'll give you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -464,7 +464,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2752, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 5));
-talkEntry:addResponse("Alright, now go out and collect five boughs. Once you have five boughs come back here and produce with the carving tools which I'll give you five hammer handles for me.");
+talkEntry:addResponse("Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce five hammer handles for me using these carving tools I'll give you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -490,7 +490,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2541, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 6));
-talkEntry:addResponse("Well done, the hammer handles look perfect. Until you become a master in carpenting it will for sure take a while, but I hope I could teach you at least the basics.");
+talkEntry:addResponse("Well done, the hammer handles look perfect. It will take a while for you to become a master in carpentry, but I hope I have taught you some of the basics at least.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -515,7 +515,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2541, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 6));
-talkEntry:addResponse("Well done, the hammer handles look perfect. Until you become a master in carpenting it will for sure take a while, but I hope I could teach you at least the basics.");
+talkEntry:addResponse("Well done, the hammer handles look perfect. It will take a while for you to become a master in carpentry, but I hope I have taught you some of the basics at least.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -539,7 +539,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2541, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I wanted five hammer handles, come again once you have fullfiled this task.");
+talkEntry:addResponse("I wanted five hammer handles, come back once you have fulfilled this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -573,7 +573,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("You are not a citizen of Galmair. I don't have anything to do for you.");
+talkEntry:addResponse("You are not a citizen of Galmair. I don't have anything for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -585,7 +585,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
 talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches his head.");
-talkingNPC:addCycleText("Wenn du Hilfe beim Schreinern braucht dann frag nur mich!", "If you need any help in carpenting, just ask me!");
+talkingNPC:addCycleText("Wenn du Hilfe beim Schreinern braucht dann frag nur mich!", "If you need any help in carpentry, just ask me!");
 talkingNPC:addCycleText("#me gähnt verhalten.", "#me yawns restrained.");
 talkingNPC:addCycleText("#me schaut sich kurz um und kratzt sich anschließend an seinem Hintern.", "#me looks around briefly and scratches his bum.");
 mainNPC:addLanguage(0);
