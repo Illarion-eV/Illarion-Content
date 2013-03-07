@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.hannah_shepard", package.seeall)
+module("npc.hannah_shepard", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -220,7 +220,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 1));
-talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some grain on the fields over there with the grain I'll give you. Once you've done that harvest the finished grain with a scythe which you will get from me and show me five bundles of grain.");
+talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me five bundles of grain.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -245,7 +245,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 1));
-talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some grain on the fields over there with the grain I'll give you. Once you've done that harvest the finished grain with a scythe which you will get from me and show me five bundles of grain.");
+talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me five bundles of grain.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,7 +321,7 @@ talkEntry:addCondition(npc.base.condition.item.item(249, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That aren't five bundles of grain yet, please come back once you've finished this task.");
+talkEntry:addResponse("That isn't five bundles of grain yet, please come back once you've finished this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -343,7 +343,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(258, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(312, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 3));
-talkEntry:addResponse("You want another task? Alright, make with bundles of grain and a flail which I'll give you grain. Once you have done that, go into the city, then go to the palace and enter the first room on the right side. Once you are there, make five sacks with flour on the millstone with the wooden shovel which you will get from me. Then return and show me the result.");
+talkEntry:addResponse("You want another task? Alright, thresh the bundles of grain using this flail I give you, to produce grain. Once you have done that, go into the city, make your way to the palace and enter the first room on the right-hand side. Once you are there, make five sacks of flour using the wooden shovel I give you at the millstone. Then return and show me the result.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -368,7 +368,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(258, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(312, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 3));
-talkEntry:addResponse("You want another task? Alright, make with bundles of grain and a flail which I'll give you grain. Once you have done that, go into the city, then go to the palace and enter the first room on the right side. Once you are there, make five sacks with flour on the millstone with the wooden shovel which you will get from me. Then return and show me the result.");
+talkEntry:addResponse("You want another task? Alright, thresh the bundles of grain using this flail I give you, to produce grain. Once you have done that, go into the city, make your way to the palace and enter the first room on the right-hand side. Once you are there, make five sacks of flour using the wooden shovel I give you at the millstone. Then return and show me the result.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -440,7 +440,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I wanted five sacks of flour, come again once you have fulfilled this task.");
+talkEntry:addResponse("I wanted five sacks of flour, come back once you have fulfilled this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,7 +462,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(121, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(52, 5, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 5));
-talkEntry:addResponse("Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets with water to make the bread rolls. I'll give you my old peel and five buckets so you can practise a little bit. Now go back to the palace and bake five bread rolls for me at the baking oven. Show me the result once you are done.");
+talkEntry:addResponse("Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets of water to make the bread rolls. I'll give you my old peel and five buckets so you can practise a little bit. Now go back to the palace and bake five bread rolls for me at the baking oven. Show me the result once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -487,7 +487,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(121, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(52, 5, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 5));
-talkEntry:addResponse("Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets with water to make the bread rolls. I'll give you my old peel and five buckets so you can practise a little bit. Now go back to the palace and bake five bread rolls for me at the baking oven. Show me the result once you are done.");
+talkEntry:addResponse("Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets of water to make the bread rolls. I'll give you my old peel and five buckets so you can practise a little bit. Now go back to the palace and bake five bread rolls for me at the baking oven. Show me the result once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -559,7 +559,7 @@ talkEntry:addCondition(npc.base.condition.item.item(191, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You haven't solved the task yet. Come again once you've the five bread rolls I'm looking for.");
+talkEntry:addResponse("You haven't solved the task yet. Come back once you've the five bread rolls I'm looking for.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -582,7 +582,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(307, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(63, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(227, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 7));
-talkEntry:addResponse("Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and the entrails if you kill pigs. Once you have that you will need a cooking spoon and a kettle like this one in front of me to cook. I'll give you five pieces of pork, five pieces of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done.");
+talkEntry:addResponse("Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and entrails if you kill pigs. Once you have that you will need a cooking spoon and a kettle like this one in front of me to cook. I'll give you five pieces of pork, five lengths of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -609,7 +609,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(307, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(63, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(227, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 7));
-talkEntry:addResponse("Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and the entrails if you kill pigs. Once you have that you will need a cooking spoon and a kettle like this one in front of me to cook. I'll give you five pieces of pork, five pieces of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done.");
+talkEntry:addResponse("Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and entrails if you kill pigs. Once you have that you will need a cooking spoon and a kettle like this one in front of me to cook. I'll give you five pieces of pork, five lengths of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -686,7 +686,7 @@ talkEntry:addCondition(npc.base.condition.item.item(3051, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You haven't solved the task yet. Come again once you have five sausages for me.");
+talkEntry:addResponse("You haven't solved the task yet. Come back once you have five sausages for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -704,7 +704,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(711, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I don't have anything for you to do anymore. Thank you for the help though!");
+talkEntry:addResponse("I don't have anything more for you to do. Thank you for the help though!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -720,7 +720,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("You are not a citizen of Galmair. I don't have anything to do for you.");
+talkEntry:addResponse("You are not a citizen of Galmair. I don't have anything for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
