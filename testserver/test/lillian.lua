@@ -22,11 +22,12 @@ function UseItem(User, SourceItem, ltstate)
 	
 	if(User.lastSpokenText == "quest") then
 		local status, changeTime = User:getQuestProgress(1337);
-		debug("QuestProgress changed at "..changeTime);
+		User:inform("QuestProgress changed at "..changeTime);
 	end
 	
 	if(User.lastSpokenText == "setQuest") then
 		User:setQuestProgress(1337, 10);
+		User:inform("QuestProgress set");
 	end
 end
 
