@@ -2,8 +2,8 @@
 -- NPC Name: Lilith Needlehand                                       Runewick --
 -- NPC Job:  Tailor                                                           --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  893, 756, 0            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: halfling                   NPC Position:  894, 762, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                     easyNPC Parser v1.23.1 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 893, 756, 0, 4, 'Lilith Needlehand', 'npc.lilith_needlehand', 1, 2, 0, 171, 73, 5, 237, 193, 151);
+VALUES (2, 894, 762, 0, 6, 'Lilith Needlehand', 'npc.lilith_needlehand', 1, 2, 0, 171, 73, 5, 237, 193, 151);
 ---]]
 
 require("npc.base.basic")
