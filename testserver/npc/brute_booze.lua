@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -272,7 +272,7 @@ talkEntry:addTrigger("town");
 talkEntry:addTrigger("village");
 talkEntry:addTrigger("city");
 talkEntry:addTrigger("cities");
-talkEntry:addResponse("Many lands I saw and even more tales I heard. Orcish towns like Kroch'Gurak, Fireshine, Judgement's Flame and Light of Khaari! Brute Booze drunk almost everywhere. In Firnismill, Pennymill but never in Oldwillows. The strongholds of the dwarvlings! Sevenhill, Storm's Keep and Arn-Gharrach. The stormy town Kjelt! The icy Karras, the old Ann-Korr and fameous Kang-Arr! Myr-Tobar the town made of jade. Oldford, Fennsworth, Falmarha, Nubris, Mitsobar and Koldamar - all towns of the human folk. And last Lor-Angur realm of magics.");
+talkEntry:addResponse("Many lands I saw and even more tales I heard. Orcish towns like Kroch'Gurak, Fireshine, Judgement's Flame and Light of Khaari! Brute Booze drunk almost everywhere. In Firnismill, Pennymill but never in Oldwillows. The strongholds of the dwarvlings! Sevenhill, Storm's Keep and Arn-Gharrach. The stormy town Kjelt! The icy Karras, the old Ann-Korr and famous Kang-Arr! Myr-Tobar the town made of jade. Oldford, Fennsworth, Falmarha, Nubris, Mitsobar and Koldamar - all towns of the human folk. And last Lor-Angur realm of magics.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
