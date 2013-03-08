@@ -134,8 +134,10 @@ queststatus(712) = 8, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 
-town = Galmair, english, ".*" -> "I cannot help you with that. Why not ask Iradona Goldschein over there? I'm sure she has the answer."
-town = Galmair, german, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Iradona Goldschein dort drüben, ich bin mir sicher sie hat eine Antwort."
+queststatus(712) = 8, town = Galmair, english, ".*" -> "I cannot help you with that. Why not ask Iradona Goldschein over there? I'm sure she has the answer."
+queststatus(712) = 8, town = Galmair, german, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Iradona Goldschein dort drüben, ich bin mir sicher sie hat eine Antwort."
+queststatus(712) < 8, town = Galmair, english, ".*" -> "I could need some help, just ask me for a task."
+queststatus(712) < 8, town = Galmair, german, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
 english, ".*" -> "You are not a citizen of Galmair. I don't have anything for you to do."
 german, ".*" -> "Ihr scheint kein Bürger Galmair zu sein. Ich habe nichts für Euch zu tun."
 ------------------------------------------------------------------------------AC

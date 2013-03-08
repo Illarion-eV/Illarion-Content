@@ -139,6 +139,8 @@ queststatus(705) = 9, item(174, all) < 5, town = Cadomyr, ".+" -> "Ihr habt die 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 queststatus(705) = 10, town = Cadomyr, english, ".*" -> "I don't have anything for you to do anymore. Thank you for the help though!"
 queststatus(705) = 10, town = Cadomyr, german, ".*" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+queststatus(705) < 10, town = Cadomyr, english, ".*" -> "I could need some help, just ask me for a task."
+queststatus(705) < 10, town = Cadomyr, german, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
 english, ".*" -> "You are not a citizen of Cadomyr. I don't have anything to do for you."
 german, ".*" -> "Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun."
 ------------------------------------------------------------------------------AC

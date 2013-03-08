@@ -103,6 +103,8 @@ queststatus(710) = 5, item(2541, all) < 5, town = Galmair, ".+" -> "Ich wollte f
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 queststatus(710) = 6, town = Galmair, english, ".*" -> "I don't have anything more for you to do. Thank you for the help though!"
 queststatus(710) = 6, town = Galmair, german, ".*" -> "Ich habe nichts weiter für dich zu tun. Aber danke nochmals für deine Hilfe!"
+queststatus(710) < 6, town = Galmair, english, ".*" -> "I could need some help, just ask me for a task."
+queststatus(710) < 6, town = Galmair, german, ".*" -> "Ich könnte etwas Hilfe gebrauchen, frag mich ruhig nach einer Aufgabe. Ich habe sicher etwas für dich zu tun."
 english, ".*" -> "You are not a citizen of Galmair. I don't have anything for you to do."
 german, ".*" -> "Du scheinst kein Bürger Galmair zu sein. Ich habe nichts für dich zu tun."
 ------------------------------------------------------------------------------AC
