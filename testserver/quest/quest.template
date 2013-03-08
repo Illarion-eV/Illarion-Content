@@ -21,7 +21,8 @@ Description[ENGLISH][1] = "Cool long description which is displayed when you rea
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(1, 2, 3), position(4, 5, 6)}
+QuestTarget[1] = {position(1, 2, 3), position(4, 5, 6)} oder QuestTarget[1] = {{1, 2, 3}, {4, 5, 6}}
+
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 0

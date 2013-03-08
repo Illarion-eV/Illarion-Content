@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("npc.thorgrem_silverbeard", package.seeall)
+module("development.thorgrem_silverbeard", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
