@@ -9,7 +9,7 @@ ENGLISH = Player.english
 -- Insert the quest title here, in both languages
 Title = {}
 Title[GERMAN] = "Das Schreinerhandwerk"
-Title[ENGLISH] = "The carpenting craft"
+Title[ENGLISH] = "The carpentry craft"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
@@ -17,15 +17,15 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammel 20 Laubholzbretter und zeig diese Tony Spirotelli. Sammel erstmal mit dem Beil an einem Apfelbaum 20 Laubholzscheite, hast du das erstmal gemacht geh zurück zur Werkstatt und säge die Scheite mit der Säge in der Hand bei der Werkbank neben Tony zu Brettern."
-Description[ENGLISH][1] = "Collect 20 deciduous wood boards for Tony Spirotelli. You should start with collecting 20 deciduous wood with the hatchet in your hand at a apple tree. Once you have the deciduous wood you can saw them in the workshop at the workbench with the saw in your hand to boards."
+Description[ENGLISH][1] = "Collect twenty deciduous wood boards for Tony Spirotelli. You should start by collecting twenty deciduous wood using the hatchet in your hand whilst standing in front of an apple tree. Once you have the deciduous wood you can saw it into boards in the workshop by using the workbench as you stand in front of it, with the saw in your hand."
 Description[GERMAN][2] = "Geh zu Tony Spirotelli, er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][2] = "Go to Tony Spirotelli, he has for sure another task for you."
+Description[ENGLISH][2] = "Go back to Tony Spirotelli, he is sure to have another task for you."
 Description[GERMAN][3] = "Stell fünf Holzbecher für Tony Spirotelli her. Um die Holzbecher herzustellen brauchst du Laubholzbretter, hast du diese nimmst du den Hobel in die Hand und benutzt ihn, während du vor einer Werkbank stehst."
-Description[ENGLISH][3] = "Produce five wooden cups for Tony Spirotelli. To produce the wooden cups you need deciduous wood boards, once you have them take the plane in your hand and use it while staying in front of a workbench."
+Description[ENGLISH][3] = "Produce five wooden cups for Tony Spirotelli. To produce the wooden cups you need deciduous wood boards. Once you have them take the plane in your hand and use it while standing in front of the workbench."
 Description[GERMAN][4] = "Geh zu Tony Spirotelli, er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][4] = "Go to Tony Spirotelli, he has for sure another task for you."
+Description[ENGLISH][4] = "Go back to Tony Spirotelli, he is sure to have another task for you."
 Description[GERMAN][5] = "Stell fünf Hammergriffe für Tony Spirotelli her. Um die Hammergriffe herzustellen brauchst du zuerst Äste, diese findest du manchmal beim fällen von Apfelbäumen. Hast du erstmal fünf Äste gefunden kehr zur Werkstatt zurück und fertige mit dem Schnitzmesser in der Hand bei der Werkbank fünf Hammergriffe."
-Description[ENGLISH][5] = "Produce five hammer handles for Tony Spirotelli. To produce the hammer handles you need five boughs first of all, you can get them while choping an apple tree. Once you have the boughs return to the workshop and produce with the carving tools in your hand five hammer handles at the workbench."
+Description[ENGLISH][5] = "Produce five hammer handles for Tony Spirotelli. To produce the hammer handles you need five boughs first of all, you can get them while chopping down an apple tree. Once you have the boughs return to the workshop and produce five hammer handles using the carving tools in your hand whilst at the workbench."
 Description[GERMAN][6] = "Du hast alle Aufgaben von Tony Spirotelli erfüllt."
 Description[ENGLISH][6] = "You have fulfilled all the tasks for Tony Spirotelli."
 
