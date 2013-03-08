@@ -1,4 +1,4 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (703, 'quest.joey_licavoli_712_galmair');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (712, 'quest.joey_licavoli_712_galmair');
 
 require("base.common")
 module("development.joey_licavoli_712_galmair", package.seeall)
