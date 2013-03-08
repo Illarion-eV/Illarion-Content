@@ -39,9 +39,9 @@ QuestTarget[1] = {position(124, 649, 0), position(141, 582, 0)} -- Berri Firegol
 QuestTarget[2] = {position(124, 649, 0), position(133, 638, 0)} -- Grakamesh
 QuestTarget[3] = {position(124, 649, 0), position(128, 621, 0)} -- Mirarie Bragolin
 QuestTarget[4] = {position(124, 649, 0), position(110, 574, 0)} -- Hassan
-QuestTarget[5] = {position(124, 649, 0), position(46, 683, 0)}  -- Zerarisa
-QuestTarget[6] = {position(124, 649, 0), position(106, 553, 0)} -- Reret Odohir
-QuestTarget[7] = {position(124, 649, 0)}
+QuestTarget[5] = {position(124, 649, 0), position(116, 576, 0)} -- Linda Rabon
+QuestTarget[6] = {position(124, 649, 0), position(46, 683, 0)}  -- Zerarisa
+QuestTarget[7] = {position(124, 649, 0), position(106, 553, 0)} -- Reret Odohir
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 8
