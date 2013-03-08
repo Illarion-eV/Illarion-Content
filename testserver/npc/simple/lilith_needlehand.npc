@@ -1,9 +1,9 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Lilith Needlehand                                       Runewick --
+-- NPC Name: Lilith Needlehand          Runewick                              --
 -- NPC Job:  Tailor                                                           --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  893, 756, 0            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: halfling                   NPC Position:  894, 762, 0            --
+-- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                     easyNPC Parser v1.23.1 --
@@ -12,8 +12,8 @@
 name = "Lilith Needlehand"
 race = halfling
 sex = female
-position = 893, 756, 0
-direction = south
+position = 894, 762, 0
+direction = north
 affiliation = "Runewick"
 job = "Tailor"
 
