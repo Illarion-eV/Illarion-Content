@@ -3,7 +3,7 @@
 -- NPC Job:  Carpenter                                                        --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  904, 827, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Sex:  male                       NPC Direction: west                  --
 --                                                                            --
 -- Author:   Zot                                                              --
 --                                                     easyNPC Parser v1.23.1 --
@@ -13,7 +13,7 @@ name = "Daniel Brock"
 race = human
 sex = male
 position = 904, 827, 0
-direction = south
+direction = west
 affiliation = "Runewick"
 job = "Carpenter"
 

@@ -3,7 +3,7 @@
 -- NPC Job:  Candle maker                                                     --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  892, 755, 0            --
--- NPC Sex:  male                       NPC Direction: west                   --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
 --                                                     easyNPC Parser v1.23.1 --
@@ -13,7 +13,7 @@ name = "Thomas Weste"
 race = human
 sex = male
 position = 892, 755, 0
-direction = west
+direction = south
 affiliation = "Runewick"
 job = "Candle maker"
 

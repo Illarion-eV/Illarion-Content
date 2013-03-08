@@ -3,7 +3,7 @@
 -- NPC Job:  Tailor                                                           --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  894, 762, 0            --
--- NPC Sex:  female                     NPC Direction: west                   --
+-- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                     easyNPC Parser v1.23.1 --
@@ -13,7 +13,7 @@ name = "Lilith Needlehand"
 race = halfling
 sex = female
 position = 894, 762, 0
-direction = west
+direction = north
 affiliation = "Runewick"
 job = "Tailor"
 
