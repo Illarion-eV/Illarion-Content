@@ -56,7 +56,7 @@ module("triggerfield.wonderland_612", package.seeall)
 
 
 function MoveToField(Character)
-if not Character:getType() ~= 0 then
+if char:getType() == Character.monster then
 return
 end
 --884,594,0 correct choice #6
