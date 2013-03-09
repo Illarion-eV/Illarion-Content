@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -200,7 +200,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(714, "=", 1));
-talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields at yewdale. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me five bundles of grain.");
+talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields at Yewdale. Once the crop is ready, harvest the ripened grain with this scythe I give you and bring me five bundles of grain.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -225,7 +225,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(714, "=", 1));
-talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields at yewdale. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me five bundles of grain.");
+talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields at Yewdale. Once the crop is ready, harvest the ripened grain with this scythe I give you and bring me five bundles of grain.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -301,7 +301,7 @@ talkEntry:addCondition(npc.base.condition.item.item(249, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That isn't five bundles of grain yet, please come back once you've finished this task.");
+talkEntry:addResponse("That isn't five bundles of grain, please come back once you've finished this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -442,7 +442,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(121, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(52, 5, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(714, "=", 5));
-talkEntry:addResponse("Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets of water to make the bread rolls. I'll give you my old peel and five buckets so you can practise a little bit. Now go to the other room to the baking oven and bake five bread rolls. Show me the result once you are done.");
+talkEntry:addResponse("Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets of water to make the bread rolls. I'll give you my old peel and five buckets so you can practise a little bit. Now go to the other room to find the baking oven and bake five bread rolls. Show me the result once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -467,7 +467,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(121, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(52, 5, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(714, "=", 5));
-talkEntry:addResponse("Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets of water to make the bread rolls. I'll give you my old peel and five buckets so you can practise a little bit. Now go to the other room to the baking oven and bake five bread rolls. Show me the result once you are done.");
+talkEntry:addResponse("Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets of water to make the bread rolls. I'll give you my old peel and five buckets so you can practise a little bit. Now go to the other room to find the baking oven and bake five bread rolls. Show me the result once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -539,7 +539,7 @@ talkEntry:addCondition(npc.base.condition.item.item(191, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You haven't solved the task yet. Come back once you've the five bread rolls I'm looking for.");
+talkEntry:addResponse("You haven't solved the task yet. Come back once you've got the five bread rolls I'm looking for.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -562,7 +562,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(307, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(63, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(227, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(714, "=", 7));
-talkEntry:addResponse("Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and entrails if you kill pigs. Once you have that you will need a cooking spoon and a kettle like this one in front of me to cook. I'll give you five pieces of pork, five lengths of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done.");
+talkEntry:addResponse("Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and entrails if you kill pigs. Once you have that, you will need a cooking spoon and a kettle like this one in front of me to cook. I'll give you five pieces of pork, five lengths of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -589,7 +589,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(307, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(63, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(227, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(714, "=", 7));
-talkEntry:addResponse("Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and entrails if you kill pigs. Once you have that you will need a cooking spoon and a kettle like this one in front of me to cook. I'll give you five pieces of pork, five lengths of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done.");
+talkEntry:addResponse("Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and entrails if you kill pigs. Once you have that, you will need a cooking spoon and a kettle like this one in front of me to cook. I'll give you five pieces of pork, five lengths of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
