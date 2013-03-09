@@ -55,7 +55,7 @@ module("triggerfield.wonderland_612", package.seeall)
 
 
 
-function MoveFromField(char)
+function MoveToField(char)
 if char:getType() ~= Character.player then
 return
 end
