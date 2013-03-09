@@ -106,7 +106,7 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addResponse("Ich wünsche Euch noch einen schönen Tag.");
-talkEntry:addResponse("Ich hoffe wir sehen uns wieder, auf bald!");
+talkEntry:addResponse("Ich hoffe, wir sehen uns wieder, auf bald!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -275,7 +275,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
-talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden wenn Ihr die Stadt verlässt und in den Wäldern oder Yewdale sucht. Hier noch eine Schere, um die Schafe zu scheren.");
+talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern oder Yewdale sucht. Hier noch eine Schere, um die Schafe zu scheren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -300,7 +300,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
-talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden wenn Ihr die Stadt verlässt und in den Wäldern oder Yewdale sucht. Hier noch eine Schere, um die Schafe zu scheren.");
+talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern oder Yewdale sucht. Hier noch eine Schere, um die Schafe zu scheren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -780,7 +780,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2781, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(178, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 9));
-talkEntry:addResponse("Nun gut eine letzte Aufgabe für Euch. Ihr sollt mir fünf rote Stoffe färben. Dazu braucht Ihr einen Färbestab, weißen Stoff und natürlich die Eimer mit Farbe. Wenn Ihr grauen Stoff lang genug in der Sonne liegen lasst, wird er weiß. Hier ich gebe euch meinen alten Färbestab, außerdem noch etwas weißen Stoff. Geht zum schwarzen Fass da vorne und stellt mir die fünf Rollen roten Stoff her.");
+talkEntry:addResponse("Nun gut, eine letzte Aufgabe für Euch. Ihr sollt mir fünf rote Stoffe färben. Dazu braucht Ihr einen Färbestab, weißen Stoff und natürlich die Eimer mit Farbe. Wenn Ihr grauen Stoff lang genug in der Sonne liegen lasst, wird er weiß. Hier ich gebe euch meinen alten Färbestab, außerdem noch etwas weißen Stoff. Geht zum schwarzen Fass da vorne und stellt mir die fünf Rollen roten Stoff her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -807,7 +807,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2781, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(178, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 9));
-talkEntry:addResponse("Nun gut eine letzte Aufgabe für Euch. Ihr sollt mir fünf rote Stoffe färben. Dazu braucht Ihr einen Färbestab, weißen Stoff und natürlich die Eimer mit Farbe. Wenn Ihr grauen Stoff lang genug in der Sonne liegen lasst, wird er weiß. Hier ich gebe euch meinen alten Färbestab außerdem noch etwas weißen Stoff. Geht zum schwarzen Fass da vorne und stellt mir die fünf Rollen roten Stoff her.");
+talkEntry:addResponse("Nun gut, eine letzte Aufgabe für Euch. Ihr sollt mir fünf rote Stoffe färben. Dazu braucht Ihr einen Färbestab, weißen Stoff und natürlich die Eimer mit Farbe. Wenn Ihr grauen Stoff lang genug in der Sonne liegen lasst, wird er weiß. Hier ich gebe euch meinen alten Färbestab außerdem noch etwas weißen Stoff. Geht zum schwarzen Fass da vorne und stellt mir die fünf Rollen roten Stoff her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
