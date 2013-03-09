@@ -48,7 +48,7 @@ QuestTarget[5] = {position(905, 780, 0), position(901, 779, 0)} -- Tailoring tab
 QuestTarget[6] = {position(905, 780, 0)} 
 QuestTarget[7] = {position(905, 780, 0), position(886, 795, 0)} -- Camp fire
 QuestTarget[8] = {position(905, 780, 0)}
-QuestTarget[9] = {position(905, 780, 0), position(909, 778, 0))} -- Barrels
+QuestTarget[9] = {position(905, 780, 0), position(909, 778, 0)} -- Barrels
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 10
