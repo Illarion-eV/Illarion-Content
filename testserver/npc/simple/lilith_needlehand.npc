@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Lilith Needlehand          Runewick                              --
+-- NPC Name: Lilith Needlehand                                       Runewick --
 -- NPC Job:  Tailor                                                           --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  894, 762, 0            --
@@ -73,9 +73,15 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me waves excitedly.", "Goo
 "your name", "who are you", "who art thou" -> "My name is Lilith Needlehand, and I am a tailor. It is a pleasure to meet you!"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Lilith Needlehand und ich bin eine Schneiderin. Es ist schön, deine Bekanntschaft zu machen."
 
+-- 1st quest: Gather 20 wool coming from florain
+queststatus(73) = 0, queststatus(820) = 17, english, "quest", "mission", "florain", "dreyndel" -> inform("[New quest] The Lazy Tailoress I"), queststatus(73) = 1, queststatus(820) = 18, "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty bundles of wool, I am short on that."
+queststatus(73) = 0, queststatus(820) = 17, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Das faule Schneiderlein I"), queststatus(73) = 1, queststatus(820) = 18, "Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr."
+queststatus(73) = 0, queststatus(820) = 17, "task", "adventure", "order" -> inform("[New quest] The Lazy Tailoress I"), queststatus(73) = 1, queststatus(820) = 18, "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty bundles of wool, I am short on that."
+queststatus(73) = 0, queststatus(820) = 17, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Das faule Schneiderlein I"), queststatus(73) = 1, queststatus(820) = 18, "Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr."
+
 -- 1st quest: Gather 20 wool
-queststatus(73) = 0, english, "quest", "mission", "florain", "dreyndel" -> inform("[New quest] The Lazy Tailoress I"), queststatus(73) = 1, "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty bundles of wool, I am short on that."
-queststatus(73) = 0, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Das faule Schneiderlein I"), queststatus(73) = 1, "Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr."
+queststatus(73) = 0, english, "quest", "mission" -> inform("[New quest] The Lazy Tailoress I"), queststatus(73) = 1, "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty bundles of wool, I am short on that."
+queststatus(73) = 0, "quest", "mission" -> inform("[Neues Quest] Das faule Schneiderlein I"), queststatus(73) = 1, "Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr."
 queststatus(73) = 0, "task", "adventure", "order" -> inform("[New quest] The Lazy Tailoress I"), queststatus(73) = 1, "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty bundles of wool, I am short on that."
 queststatus(73) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Das faule Schneiderlein I"), queststatus(73) = 1, "Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr."
 skill(tailoring) < 90, queststatus(73) = 1, item(170, all) > 19, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a needle and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."), skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999), queststatus(73) = 2, rankpoints + 5, "Why thank you! I don't have a real reward for you, but you can have my spare needle."

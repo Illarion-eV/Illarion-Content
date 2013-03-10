@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -204,6 +204,66 @@ talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
 talkEntry:addResponse("Ich? Ich bin kein Händler. Ich bin der Wächter der Schatzkammer, ein sehr interessanter Beruf wenn ihr mich fragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Runewick Treasury"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 8));
+talkEntry:addResponse("Do you want a task? Donate some of your wealth and contribute to ensuring the city stays clean! The donation platform is right next to me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Schatzkammer Runewicks"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 8));
+talkEntry:addResponse("Ihr möchtet eine Aufgabe? Spendet einen Teil eures Reichtums und sorgt dafür dass die Stadt sauber bleibt! Die Spendenplattform ist gleich neben mir.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Runewick Treasury"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 8));
+talkEntry:addResponse("Do you want a task? Donate some of your wealth and contribute to ensuring the city stays clean! The donation platform is right next to me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Schatzkammer Runewicks"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 8));
+talkEntry:addResponse("Ihr möchtet eine Aufgabe? Spendet einen Teil eures Reichtums und sorgt dafür dass die Stadt sauber bleibt! Die Spendenplattform ist gleich neben mir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

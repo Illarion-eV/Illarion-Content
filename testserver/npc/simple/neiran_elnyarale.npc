@@ -98,6 +98,12 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the Five 
 
 -- Quest 1: Donate something to the treasury
 -- 1: Quest 1 taken, donate something to the treasury, reward: 20 rankpoints
+queststatus(205) = 0, queststatus(820) = 7, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[New Quest] Runewick Treasury"), queststatus(205) = 1, queststatus(820) = 8, "Do you want a task? Donate some of your wealth and contribute to ensuring the city stays clean! The donation platform is right next to me."
+queststatus(205) = 0, queststatus(820) = 7, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Die Schatzkammer Runewicks"), queststatus(205) = 1, queststatus(820) = 8, "Ihr möchtet eine Aufgabe? Spendet einen Teil eures Reichtums und sorgt dafür dass die Stadt sauber bleibt! Die Spendenplattform ist gleich neben mir."
+queststatus(205) = 0, queststatus(820) = 7, town = Runewick, "task", "adventure", "order" -> inform("[New Quest] Runewick Treasury"), queststatus(205) = 1, queststatus(820) = 8, "Do you want a task? Donate some of your wealth and contribute to ensuring the city stays clean! The donation platform is right next to me."
+queststatus(205) = 0, queststatus(820) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Schatzkammer Runewicks"), queststatus(205) = 1, queststatus(820) = 8, "Ihr möchtet eine Aufgabe? Spendet einen Teil eures Reichtums und sorgt dafür dass die Stadt sauber bleibt! Die Spendenplattform ist gleich neben mir."
+
+-- 1: Quest 1 taken, donate something to the treasury, reward: 20 rankpoints
 queststatus(205) = 0, english, town = Runewick, "quest", "mission" -> inform("[New Quest] Runewick Treasury"), queststatus(205) = 1, "Do you want a task? Donate some of your wealth and contribute to ensuring the city stays clean! The donation platform is right next to me."
 queststatus(205) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Die Schatzkammer Runewicks"), queststatus(205) = 1, "Ihr möchtet eine Aufgabe? Spendet einen Teil eures Reichtums und sorgt dafür dass die Stadt sauber bleibt! Die Spendenplattform ist gleich neben mir."
 queststatus(205) = 0, town = Runewick, "task", "adventure", "order" -> inform("[New Quest] Runewick Treasury"), queststatus(205) = 1, "Do you want a task? Donate some of your wealth and contribute to ensuring the city stays clean! The donation platform is right next to me."
