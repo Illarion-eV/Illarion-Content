@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -253,6 +253,66 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nadel");
 talkEntry:addResponse("Eine Nadel bekommt Ihr bei einem Schmied.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(715, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
+talkEntry:addResponse("Oh, you want to learn something about tailoring? Well, let's start with something simple. Could you collect twenty bales of wool for me? You can find sheep if you leave the city and look around for them in the forest or Yewdale. You can have my old scissors to collect the wool.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(715, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 3));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
+talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern oder Yewdale sucht. Hier noch eine Schere, um die Schafe zu scheren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(715, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 3));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
+talkEntry:addResponse("Oh, you want to learn something about tailoring?Well, let's start with something simple. Could you collect twenty bales of wool for me? You can find sheep if you leave the city and look around for them in the forest or Yewdale. You can have my old scissors to collect the wool.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(715, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 3));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
+talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern oder Yewdale sucht. Hier noch eine Schere, um die Schafe zu scheren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -945,7 +1005,7 @@ mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 0);
 mainNPC:setEquipment(9, 844);
-mainNPC:setEquipment(10, 698);
+mainNPC:setEquipment(10, 0);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
