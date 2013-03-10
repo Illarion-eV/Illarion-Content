@@ -35,6 +35,12 @@ mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("test");
+talkEntry:addResponse("it works");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the scholar Sir Fludnar Yednos. Keywords: Hello, quest, god, orc."));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -2845,9 +2851,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 30));
 talkEntry:addTrigger("Flame");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You earned a treasure map."));
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 30));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 40));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
-talkEntry:addResponse("Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!");
+talkEntry:addResponse("Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently! test2");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
