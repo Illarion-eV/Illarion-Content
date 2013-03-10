@@ -69,7 +69,10 @@ english, "job" -> "I'm a carpenter, if you want to know more about it, ask me fo
 "job" -> "Ich bin Schreiner, falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich hab sicher etwas für dich zu tun."
 
 -- fix
-queststatus(820) = 1, queststatus(713) > 0, english, town = Runewick, "quest", "mission" -> queststatus(820) = 2, "I already gave you a task."
+queststatus(820) = 1, queststatus(713) > 0, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 2, "Ah Florain send you but you already ask me for something to do."
+queststatus(713) > 0, queststatus(820) = 1, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 2, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(713) > 0, queststatus(820) = 1, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 2, "Ah Florain send you but you already ask me for something to do."
+queststatus(713) > 0, queststatus(820) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 2, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- Quests
 queststatus(713) = 0, queststatus(820) = 1, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1, queststatus(820) = 2, "A task..ah yes, yes, of course. Take this old hatchet of mine and collect twenty pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me."

@@ -80,6 +80,12 @@ english, "scissors" -> "You can get scissors from a smith."
 english, "needle" -> "You can get a needle from a smith."
 "Nadel" -> "Eine Nadel bekommt Ihr bei einem Schmied."
 
+-- fix
+queststatus(715) > 0, queststatus(820) = 3, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 4, "Ah Florain send you but you already ask me for something to do."
+queststatus(715) > 0, queststatus(820) = 3, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 4, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(715) > 0, queststatus(820) = 3, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 4, "Ah Florain send you but you already ask me for something to do."
+queststatus(715) > 0, queststatus(820) = 3, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 4, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+
 -- Quests
 queststatus(715) = 0, queststatus(820) = 3, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> item(6, 1, 777), queststatus(715) = 1, queststatus(820) = 4, "Oh, you want to learn something about tailoring? Well, let's start with something simple. Could you collect twenty bales of wool for me? You can find sheep if you leave the city and look around for them in the forest or Yewdale. You can have my old scissors to collect the wool."
 queststatus(715) = 0, queststatus(820) = 3, town = Runewick, "quest", "mission", "florain", "dreyndel" -> item(6, 1, 777), queststatus(715) = 1, queststatus(820) = 4, "Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern oder Yewdale sucht. Hier noch eine Schere, um die Schafe zu scheren."

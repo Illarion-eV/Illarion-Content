@@ -97,6 +97,12 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the Five 
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich? Ich bin kein Händler. Ich bin der Wächter der Schatzkammer, ein sehr interessanter Beruf wenn ihr mich fragt."
 
 -- Quest 1: Donate something to the treasury
+-- fix
+queststatus(205) > 0, queststatus(820) = 7, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 8, "Ah Florain send you but you already ask me for something to do."
+queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 8, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 8, "Ah Florain send you but you already ask me for something to do."
+queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 8, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+
 -- 1: Quest 1 taken, donate something to the treasury, reward: 20 rankpoints
 queststatus(205) = 0, queststatus(820) = 7, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[New Quest] Runewick Treasury"), queststatus(205) = 1, queststatus(820) = 8, "Do you want a task? Donate some of your wealth and contribute to ensuring the city stays clean! The donation platform is right next to me."
 queststatus(205) = 0, queststatus(820) = 7, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Die Schatzkammer Runewicks"), queststatus(205) = 1, queststatus(820) = 8, "Ihr möchtet eine Aufgabe? Spendet einen Teil eures Reichtums und sorgt dafür dass die Stadt sauber bleibt! Die Spendenplattform ist gleich neben mir."
