@@ -88,7 +88,7 @@ QuestTarget[30] = {position(475, 795, 0)} -- Nobarg
 QuestTarget[40] = {position(896, 757, 1)} -- Sir Fludnar Yednos
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 3
+FINAL_QUEST_STATUS = 40
 
 
 function QuestTitle(user)
