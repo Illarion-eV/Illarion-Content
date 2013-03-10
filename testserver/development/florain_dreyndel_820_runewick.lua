@@ -1,7 +1,7 @@
--- INSERT INTO quests SET qst_script = 'quest.florain_dreyndel_820_runewick' WHERE qst_id = QUESTID;
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (820, 'quest.florain_dreyndel_820_runewick');
 
 require("base.common")
-module("quest.florain_dreyndel_820_runewick", package.seeall)
+module("development.florain_dreyndel_820_runewick", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
