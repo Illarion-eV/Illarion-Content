@@ -67,7 +67,7 @@ itemShoes = 369
 -- 21-20: Nobarg - Quest answer is imparted to player
 
 -- 40: Sir Fludnar Yedno - Quest done and Player rewarded
-
+"test" -> "it works"
 -- Help
 "Help" -> inform("[Game Help] This NPC is the scholar Sir Fludnar Yednos. Keywords: Hello, quest, god, orc.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Gelehrte Sir Fludnar Yednos. Schlüsselwörter: Hallo, Quest, Götter, Ork.")
