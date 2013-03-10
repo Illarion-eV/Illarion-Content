@@ -20,6 +20,7 @@ require("npc.base.condition.chance")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.condition.town")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
@@ -196,12 +197,121 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(307, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 15));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 16));
+talkEntry:addResponse("Ah Florain send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(307, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 15));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 16));
+talkEntry:addResponse("Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(307, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 15));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 16));
+talkEntry:addResponse("Ah Florain send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(307, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 15));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 16));
+talkEntry:addResponse("Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 15));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("florain");
 talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Tales and Swords started. - Fetch a mug filled with beer for Uriel."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 16));
+talkEntry:addResponse("I tell you what, go fetch me a beer and I will tell you my story, but don't you dare spill any.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 15));
+talkEntry:addTrigger("tell something");
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("beer");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Tales and Swords started. - Fetch a mug filled with beer for Uriel."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 16));
+talkEntry:addResponse("I tell you what, go fetch me a beer and I will tell you my story, but don't you dare spill any.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 15));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Geschichten und Schwerter gestartet. - Besorge einen Krug, gefüllt mit Bier für Uriel."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 16));
+talkEntry:addResponse("Wisst Ihr was? Bringt mir einen Krug mit Bier und ich erzähl Euch meine Geschichte. - Aber gebt Acht dass Ihr nicht's verschüttet!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 15));
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("bier");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Geschichten und Schwerter gestartet. - Besorge einen Krug, gefüllt mit Bier für Uriel."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 16));
+talkEntry:addResponse("Wisst Ihr was? Bringt mir einen Krug mit Bier und ich erzähl Euch meine Geschichte. - Aber gebt Acht dass Ihr nicht's verschüttet!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Tales and Swords started. - Fetch a mug filled with beer for Uriel."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 1));
 talkEntry:addResponse("I tell you what, go fetch me a beer and I will tell you my story, but don't you dare spill any.");
@@ -224,8 +334,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("florain");
-talkEntry:addTrigger("dreyndel");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Geschichten und Schwerter gestartet. - Besorge einen Krug, gefüllt mit Bier für Uriel."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 1));
 talkEntry:addResponse("Wisst Ihr was? Bringt mir einen Krug mit Bier und ich erzähl Euch meine Geschichte. - Aber gebt Acht dass Ihr nicht's verschüttet!");

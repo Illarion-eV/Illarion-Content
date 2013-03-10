@@ -19,6 +19,7 @@ require("npc.base.condition.chance")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.condition.town")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
@@ -326,12 +327,116 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(334, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 13));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 14));
+talkEntry:addResponse("Ah Florain send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(334, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 13));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 14));
+talkEntry:addResponse("Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(334, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 13));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 14));
+talkEntry:addResponse("Ah Florain send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(334, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 13));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 14));
+talkEntry:addResponse("Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("florain");
 talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Apprentice"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 14));
+talkEntry:addResponse("Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 13));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der faule Lehrling"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 14));
+talkEntry:addResponse("Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 13));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Apprentice"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 14));
+talkEntry:addResponse("Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 13));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der faule Lehrling"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 14));
+talkEntry:addResponse("Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Apprentice"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
 talkEntry:addResponse("Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.");
@@ -342,8 +447,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("florain");
-talkEntry:addTrigger("dreyndel");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der faule Lehrling"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
 talkEntry:addResponse("Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten");

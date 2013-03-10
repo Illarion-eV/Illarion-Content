@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -196,6 +196,122 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(713, ">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
+talkEntry:addResponse("Ah Florain send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(713, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
+talkEntry:addResponse("Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(713, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
+talkEntry:addResponse("Ah Florain send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(713, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
+talkEntry:addResponse("Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(713, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
+talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect twenty pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(713, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
+talkEntry:addResponse("Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel 20 Laubholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge die ich dir gebe zu Brettern und zeigst sie mir dann.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(713, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
+talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect twenty pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(713, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
+talkEntry:addResponse("Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel 20 Laubholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge die ich dir gebe zu Brettern und zeigst sie mir dann.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(713, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
@@ -243,6 +359,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
 talkEntry:addResponse("Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel 20 Laubholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge die ich dir gebe zu Brettern und zeigst sie mir dann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
