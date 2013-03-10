@@ -111,6 +111,12 @@ queststatus(333) = 6, "task", "adventure", "staff" -> "You should go find the Ha
 queststatus(333) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Stab" -> "Ihr sollt gehen und den Halbling Fosca Goodbarrel finden. Er hat Auroras Stab."
 
 -- 2nd quest: Bring 10 RESOURCES
+-- fix
+queststatus(334) > 0, queststatus(820) = 13, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 14, "Ah Florain send you but you already ask me for something to do."
+queststatus(334) > 0, queststatus(820) = 13, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 14, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(334) > 0, queststatus(820) = 13, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 14, "Ah Florain send you but you already ask me for something to do."
+queststatus(334) > 0, queststatus(820) = 13, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 14, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+
 -- Give out quest 2
 queststatus(334) = 0, queststatus(820) = 13, english, "quest", "mission", "florain", "dreyndel" -> inform("[New quest] The Lazy Apprentice"), queststatus(334) = 1, queststatus(820) = 14, "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms."
 queststatus(334) = 0, queststatus(820) = 13, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Der faule Lehrling"), queststatus(334) = 1, queststatus(820) = 14, "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten"

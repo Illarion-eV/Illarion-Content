@@ -183,6 +183,58 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(701, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 6));
+talkEntry:addResponse("Ah Florain sssend you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(701, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 6));
+talkEntry:addResponse("Ah Florain hat Euch gessschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(701, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 6));
+talkEntry:addResponse("Ah Florain sssend you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(701, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 6));
+talkEntry:addResponse("Ah Florain hat Euch gessschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 0));
 talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));

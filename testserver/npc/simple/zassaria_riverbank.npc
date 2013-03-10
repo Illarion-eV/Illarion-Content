@@ -88,6 +88,12 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia be with you
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Tsss! Ich aß all meinen Fisssch. Ich werde ssschnellssstmöglich neuen fangen."
 
 -- A message Quest
+-- fix
+queststatus(701) > 0, queststatus(820) = 5, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 6, "Ah Florain sssend you but you already ask me for something to do."
+queststatus(701) > 0, queststatus(820) = 5, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 6, "Ah Florain hat Euch gessschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(701) > 0, queststatus(820) = 5, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 6, "Ah Florain sssend you but you already ask me for something to do."
+queststatus(701) > 0, queststatus(820) = 5, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 6, "Ah Florain hat Euch gessschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+
 -- 1st quest starts, if you are citizen of Runewick and come from florain
 queststatus(701) = 0, queststatus(820) = 5, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[New quest] Ask for me I"), queststatus(701) = 1, queststatus(820) = 6, "Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?"
 queststatus(701) = 0, queststatus(820) = 5, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 1, queststatus(820) = 6, "Könntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
