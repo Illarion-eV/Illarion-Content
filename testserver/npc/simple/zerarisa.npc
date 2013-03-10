@@ -91,6 +91,12 @@ queststatus(71) = 0, "rute", "angel" -> "Brauchenss Angelrute, gehenss Fredericu
 "rod" -> "Broke your rod? If itss jusst the line, you can usse thread to fix it. If itss the wood, assk a carpenter for a new one."
 "rute", "angel" -> "Habenss gebrochen die Rute? Wennss die Schnur, brauchenss Faden. Wennss das Holzss, brauchenss Ssschreiner."
 
+-- fix
+queststatus(71) > 0, queststatus(703) = 11, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 12, "Ah Jakob send you but you already ask me for something to do."
+queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 12, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 12, "Ah Jakob send you but you already ask me for something to do."
+queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 12, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+
 -- 1st quest: Take a tool and gather 10 raw materials for 500cp.
 queststatus(71) = 0, english, "quest", "mission" -> inform("[New quest] Cape Farewell I"), item(72, 1, 399), queststatus(71) = 1, "Zerarisa hass hurt her claw, if you could collect ten trout for me, I give you coinsss."
 queststatus(71) = 0, "quest", "mission" -> inform("[Neues Quest] Kap des Abschiedes I"), item(72, 1, 399), queststatus(71) = 1, "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen."

@@ -95,6 +95,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebbas! Pray fer old oomi
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Kill 10 mummies, player receives torch.
 
+-- Fix
 queststatus(78) > 0, queststatus(703) = 3, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 4, "Ah Jakob send you but you already ask me for something to do."
 queststatus(78) > 0, queststatus(703) = 3, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 4, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 queststatus(78) > 0, queststatus(703) = 3, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 4, "Ah Jakob send you but you already ask me for something to do."

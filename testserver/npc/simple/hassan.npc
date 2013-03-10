@@ -69,6 +69,12 @@ queststatus(75) > 2, ".*" -> "Error! Something went wrong, please inform a devel
 "Help" -> inform("[Game help] This NPC is the royal fan-waver Hassan. Keywords: Greetings, Profession, Tavern.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Fächelwedler Hassan. Schlüsselwörter: Seid gegrüßt, Beruf, Taverne.")
 
+-- fix
+queststatus(75) > 0, queststatus(703) = 7, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 8, "Ah Jakob send you but you already ask me for something to do."
+queststatus(75) > 0, queststatus(703) = 7, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 8, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(75) > 0, queststatus(703) = 7, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 8, "Ah Jakob send you but you already ask me for something to do."
+queststatus(75) > 0, queststatus(703) = 7, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 8, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+
 -- First part, the gossiper is thirsty--
 queststatus(75) = 0, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> inform("[New Quest] Cadomyr's Gossiper"), queststatus(75) = 1, "#me stares at you. 'Be greeted, traveller! I am much too thirsty to talk. If you bring me a glass of red wine I will gladly answer your questions.'"
 queststatus(75) = 1, item(2057, all) < 1, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Wine! I told you to bring me a glass of wine! You want to hear my stories don't you?"
