@@ -1,7 +1,7 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (630, 'quest.iradona_goldschein_630');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (632, 'quest.lotta_medborgar_632');
 
 require("base.common")
-module("development.iradona_goldschein_630", package.seeall)
+module("development.lotta_medborgar_632", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english

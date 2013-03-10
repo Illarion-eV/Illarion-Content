@@ -1,7 +1,7 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (640, 'quest.frizza_640');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (642, 'quest.ruzusss_642');
 
 require("base.common")
-module("development.frizza_640", package.seeall)
+module("development.quest.ruzusss_642", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
