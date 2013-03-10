@@ -2847,7 +2847,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 40));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
-talkEntry:addResponse("Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently! test");
+talkEntry:addResponse("Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently! test2");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
