@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.gerry_deloid", package.seeall)
+module("npc.gerry_deloid", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -552,7 +552,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 7));
-talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect some thistles and bring me at least two bottles with oil. The oil press is next me.");
+talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect eight thistles and bring me at least two bottles with oil. The oil press is next me. Take this sickle to gather the thistles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -563,7 +563,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 7));
-talkEntry:addResponse("Ah..ja natürlich. Nun wollen wir etwas Lampenöl machen, dass ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln, diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt einige Disteln und bringt mir 2 Flaschen Öl mit wenn Ihr fertig seid. Die Ölpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel um die Diesteln zu sammeln.");
+talkEntry:addResponse("Ah..ja natürlich. Nun wollen wir etwas Lampenöl machen, dass ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln, diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt acht Disteln und bringt mir 2 Flaschen Öl mit wenn Ihr fertig seid. Die Ölpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel um die Diesteln zu sammeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -575,7 +575,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 7));
-talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect some thistles and bring me at least two bottles with oil. The oil press is next me.");
+talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect eight thistles and bring me at least two bottles with oil. The oil press is next me. Take this sickle to gather the thistles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -588,7 +588,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 7));
-talkEntry:addResponse("Ah..ja natürlich. Nun wollen wir etwas Lampenöl machen, dass ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln, diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt 20 Disteln und bringt mir 2 Flaschen Öl mit wenn Ihr fertig seid. Die Ölpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel um die Diesteln zu sammeln.");
+talkEntry:addResponse("Ah..ja natürlich. Nun wollen wir etwas Lampenöl machen, dass ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln, diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt acht Disteln und bringt mir 2 Flaschen Öl mit wenn Ihr fertig seid. Die Ölpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel um die Diesteln zu sammeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

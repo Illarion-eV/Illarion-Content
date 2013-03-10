@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.lilli_gallfing", package.seeall)
+module("npc.lilli_gallfing", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -435,7 +435,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(176, "all", "<", 2, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Stellt doch bitte aus den übrigen 20 Wollknäulen fünf Garnrollen und zwei Rollen grauen Stoff her.");
+talkEntry:addResponse("Stellt doch bitte aus den übrigen 20 Wollballen fünf Garnrollen und zwei Rollen grauen Stoff her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -454,7 +454,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(705, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(50, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Stellt doch bitte aus den übrigen 20 Wollknäulen fünf Garnrollen und zwei Rollen grauen Stoff her.");
+talkEntry:addResponse("Stellt doch bitte aus den übrigen 20 Wollballen fünf Garnrollen und zwei Rollen grauen Stoff her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -778,6 +778,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("cloth");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 10));
 talkEntry:addResponse("Well done, thank you very much. You helped me a lot, I hope I was able to teach you the basics of tailoring.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -790,6 +791,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("stoff");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 10));
 talkEntry:addResponse("Gut gemacht, vielen Dank. Ihr wart mir eine wirklich große Hilfe. Ich hoffe, ich konnte Euch auch etwas beibringen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -802,6 +804,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 10));
 talkEntry:addResponse("Well done, thank you very much. You helped me a lot, I hope I was able to teach you the basics of tailoring.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -815,6 +818,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 10));
 talkEntry:addResponse("Gut gemacht, vielen Dank. Ihr wart mir eine wirklich große Hilfe. Ich hoffe, ich konnte Euch auch etwas beibringen.");
 talkingNPC:addTalkingEntry(talkEntry);
