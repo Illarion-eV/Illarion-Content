@@ -68,6 +68,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me chuckles, 'I'll be seei
 english, "job" -> "I'm a carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do."
 "job" -> "Ich bin Schreiner, falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich hab sicher etwas für dich zu tun."
 
+-- fix
+queststatus(820) = 1, queststatus(713) > 0, english, town = Runewick, "quest", "mission" -> queststatus(820) = 2, "I already gave you a task."
+
 -- Quests
 queststatus(713) = 0, queststatus(820) = 1, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1, queststatus(820) = 2, "A task..ah yes, yes, of course. Take this old hatchet of mine and collect twenty pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me."
 queststatus(713) = 0, queststatus(820) = 1, town = Runewick, "quest", "mission", "florain", "dreyndel" -> item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1, queststatus(820) = 2, "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel 20 Laubholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge die ich dir gebe zu Brettern und zeigst sie mir dann."

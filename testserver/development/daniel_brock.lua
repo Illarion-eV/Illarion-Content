@@ -196,6 +196,18 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(713, ">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
+talkEntry:addResponse("I already gave you a task.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(713, "=", 0));
 talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
