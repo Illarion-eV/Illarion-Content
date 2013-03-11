@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.seleseth", package.seeall)
+module("npc.seleseth", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -738,7 +738,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("stone");
 talkEntry:addTrigger("small stone");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1266, 20, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 9));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 10));
 talkEntry:addResponse("Zsss, well done, thanksss you. Zsss, Ssseleseth says thanksss for the help and hopesss you learnt sssomething about gem grinding, masssonry and bricksss making.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -752,7 +752,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("stein");
 talkEntry:addTrigger("kleiner stein");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1266, 20, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 9));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 10));
 talkEntry:addResponse("Zsss, gut gemachts, dankes. Zsss, Ssseleseth sagen danke für Hilfess und hoffen du was über Edelssteinssschleifen, Sssteine bahauen und Zzziegelmachen gelernt haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -765,7 +765,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1266, 20, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 9));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 10));
 talkEntry:addResponse("Zsss, well done, thanksss you. Zsss, Ssseleseth says thanksss for the help and hopesss you learnt sssomething about gem grinding, masssonry and bricksss making.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -779,7 +779,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1266, 20, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 9));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 10));
 talkEntry:addResponse("Zsss, gut gemachts, dankes. Zsss, Ssseleseth sagen danke für Hilfess und hoffen du was über Edelssteinssschleifen, Sssteine bahauen und Zzziegelmachen gelernt haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
