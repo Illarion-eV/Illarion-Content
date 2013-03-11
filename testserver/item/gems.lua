@@ -224,8 +224,8 @@ function isSocketable(itemId)
 	local weaponfound, weaponitem = world:getWeaponStruct(itemId);
 
 	if weaponfound then
-		local weapontype=rAttWeapon.WeaponType;
-		if rWType==10 or rWType==11 or rWType==14 then -- Ammo or shield. Not socketable
+		local weapontype=weaponitem.WeaponType;
+		if weapontype==10 or weapontype==11 or weapontype==14 then -- Ammo or shield. Not socketable
 			return false;
 		else 
 			return true;
@@ -233,6 +233,11 @@ function isSocketable(itemId)
 	end
 
     return false;
+end
+
+function isUnsocketable(itemId)
+    -- currently only weapons can be socketed
+    return world:getWeaponStruct(itemId);
 end
 
 function magicSmith(npc, player)
@@ -280,7 +285,7 @@ function unsocketGems(user)
             local slot = unsocketPositions[selected]
             local item = user:getItemAt(slot)
 
-            if isSocketable(item.id) and itemHasGems(item) then
+            if isUnsocketable(item.id) and itemHasGems(item) then
                 if base.money.CharHasMoney(user, 100000) then
                     for i = 1, #gemDataKey do
                         local itemKey = gemDataKey[i]
