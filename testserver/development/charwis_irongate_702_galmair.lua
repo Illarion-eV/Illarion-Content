@@ -1,7 +1,7 @@
 -- INSERT INTO quests SET qst_script = 'quest.charwis_irongate_702_galmair' WHERE qst_id = 702;
 
 require("base.common")
-module("quest.charwis_irongate_702_galmair", package.seeall)
+module("development.charwis_irongate_702_galmair", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
