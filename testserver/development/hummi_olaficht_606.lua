@@ -20,7 +20,7 @@ Description[GERMAN][1] = "Finde Iradona Goldschein beim Teleporter in Galmair an
 Description[ENGLISH][1] = "Find Iradona Goldschein at the teleporter in Galmair and talk to her."
 Description[GERMAN][2] = "Da kannst nun mit Iradona sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst!\nDu kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen. Iradona hat nämlich auch mindestens eine Aufgabe für dich."
 Description[ENGLISH][2] = "You can talk with Iradona now. Ask for 'help' if you do not know what to say!\nYou can also go back to Hummi to collect your reward and come back later. Iradona has also at least one task for you."
-Description[GERMAN][3] = " Hast du bereits nach den beiden anderen NPCs die Hummi erwähnt gefragt und sie auch besucht? Frizza and Elesil? Wenn nein, dann solltest du das jetzt tun. Wenn ja, dann hat Hummi einen zusätzlichen Auftrag für dich."
+Description[GERMAN][3] = "Hast du bereits nach den beiden anderen NPCs die Hummi erwähnt gefragt und sie auch besucht? Frizza and Elesil? Wenn nein, dann solltest du das jetzt tun. Wenn ja, dann hat Hummi einen zusätzlichen Auftrag für dich."
 Description[ENGLISH][3] = "Have you already asked for and visited the two other NPCs that Hummi mentions? Frizza and Elesil? If not, you should do it now. If yes, Hummi has an additional task for you."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

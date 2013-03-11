@@ -63,7 +63,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "sell", "trade" -> "Let's!", trade, trade
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Rose Deepdelver the owner of the tavern. Keywords: Greetings, family, trade.")
+"Help" -> inform("[Game Help] This NPC is Rose Deepdelver, the owner of the tavern. Keywords: Greetings, family, trade.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Rose Deepdelver die Besitzerin der Taverne. Schlüsselwörter: Grüße, Familie, Handel.")
 
 -- General speech
@@ -77,7 +77,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See you!", "Toodles!", "Far
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Mach's gut!", "Tschüssi!", "Auf wiedersehen."
 "How are you", "How feel", "How do you do" -> "I'm fine, what about you?", "I'm fine, but you look like you could need something to drink, hihi."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir gehts ganz gut und dir?", "Gut., aber du siehst aus als würdest du was zu trinken gebrauchen, hihi."
-"your name", "who are you", "who art thou" -> "Rose Deepdelver, barkeeper. That's me.", "I am the barkeeper Rose Deepdelver.", "Rose Deepdelver is my name, owner is this lovely tavern."
+"your name", "who are you", "who art thou" -> "Rose Deepdelver, barkeeper. That's me.", "I am the barkeeper Rose Deepdelver.", "Rose Deepdelver is my name, owner of this lovely tavern."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Rose Deepdelver, die Bedienung. Das bin ich.", "Ich bin die Bedienung Rose Deepdelver", "Rose Deepdelver mein Name, Besitzerin dieser großartigen Taverne."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
@@ -89,15 +89,15 @@ english, "job" -> "I am the owner and also the barkeeper of this tavern."
 "mein Name" -> "Schön dich kennenzulernen. Wenn du etwas trinken oder essen willst, frag mich einfach, hihi.", "Ein netter Name."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"gods" -> "The gods created this world for us."
+"gods" -> "The Gods created this world for us."
 "Götter", "Gott" -> "Die Götter haben diese Welt für uns erschaffen."
 english, "Adron" -> "Hihi, that one I'd really like to meet!"
 "Adron" -> "Hihi, den würde ich gerne mal treffen!"
 
 -- NPCs background: family
-"family" -> "I am living together with my husband and child in Runewick. A peaceful place to be."
+"family" -> "I am living together with my husband and child in Runewick, a peaceful place to be."
 "Familie" -> "Ich lebe zusammen mit meinem Mann und meinem Kind in Runewick. Es ist ein sehr friedvoller Ort."
-"husband" -> "My husband Milo knows a lot about herb lore, just ask him if you want to know something about herbs!"
+"husband" -> "My husband Milo knows a lot about herblore, just ask him if you want to know something about herbs!"
 "Mann" -> "Mein Mann Milo weiß eine menge über Kräuterkunde, wenn du etwas wissen willst, frag ihn einfach!"
 "child" -> "I have a small daughter of three years, she is wonderful!"
 "Kind" -> "Ich habe eine kleine Tochter von drei Jahren, sie ist einfach wundervoll!"
@@ -120,4 +120,4 @@ english, "Rose", "Deepdelver" -> "Yes, this is my name. If you need something to
 cycletext "#me schaut sich nach Kunden um.", "#me looks around for customers."
 cycletext "#me knabbert an einem Keks.", "#me nibbles on a cookie."
 cycletext "#me trocknet ein Glas ab.", "#me cleans a glass."
-cycletext "#me summt leise etwas vor sich hin.", "#me hums quitly."
+cycletext "#me summt leise etwas vor sich hin.", "#me hums quietly."

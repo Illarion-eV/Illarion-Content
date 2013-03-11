@@ -69,7 +69,25 @@ queststatus(75) > 2, ".*" -> "Error! Something went wrong, please inform a devel
 "Help" -> inform("[Game help] This NPC is the royal fan-waver Hassan. Keywords: Greetings, Profession, Tavern.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Fächelwedler Hassan. Schlüsselwörter: Seid gegrüßt, Beruf, Taverne.")
 
+-- fix
+queststatus(75) > 0, queststatus(703) = 7, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 8, "Ah Jakob send you but you already ask me for something to do."
+queststatus(75) > 0, queststatus(703) = 7, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 8, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(75) > 0, queststatus(703) = 7, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 8, "Ah Jakob send you but you already ask me for something to do."
+queststatus(75) > 0, queststatus(703) = 7, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 8, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+
 -- First part, the gossiper is thirsty--
+
+queststatus(75) = 0, queststatus(703) = 7, town = Cadomyr, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> inform("[New Quest] Cadomyr's Gossiper"), queststatus(75) = 1, queststatus(703) = 8, "#me stares at you. 'Be greeted, traveller! I am much too thirsty to talk. If you bring me a glass of red wine I will gladly answer your questions.'"
+queststatus(75) = 0, queststatus(703) = 7, town = Cadomyr, english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[New Quest] Cadomyr's Gossiper"), queststatus(75) = 1, queststatus(703) = 8, "#me frowns, ‘Mere peasant you dare greet me in such a way! Make up for you lack of consideration by giving me a glass of wine so I may quench my thirst.'"
+queststatus(75) = 0, queststatus(703) = 7, town = Cadomyr, "How are you", "How feel", "How do you do" -> inform("[New Quest] Cadomyr's Gossiper"), queststatus(75) = 1, queststatus(703) = 8, "I am thirsty! If you bring me a glass of red wine, I will answer your questions... and trust me I know many things!"
+queststatus(75) = 0, queststatus(703) = 7, town = Cadomyr, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), queststatus(75) = 1, queststatus(703) = 8, "#me starrt dich an. 'Seid gegrüßt, Reisender. Meine Kehle ist zu trocken zum Reden. Bringt mir ein Glas Wein, wenn ihr was erfahren wollt."
+queststatus(75) = 0, queststatus(703) = 7, town = Cadomyr, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), queststatus(75) = 1, queststatus(703) = 8, "#me knurrt: 'Was für eine bäuerliche Art, einen Mann meines Ranges zu grüßen. Wenn ihr was wissen wollt, bringt mir erstmal ein Glas Wein, um meinen Durst zu stillen."
+queststatus(75) = 0, queststatus(703) = 7, town = Cadomyr, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), queststatus(75) = 1, queststatus(703) = 8, "Ich bin durstig! Wenn ihr mir ein Glas Wein bringt, beantworte ich eure Fragen... und ich weiß eine Menge!"
+queststatus(75) = 0, queststatus(703) = 7, town = Cadomyr, english, "quest", "mission" -> inform("[New Quest] Cadomyr's Gossiper"), queststatus(75) = 1, queststatus(703) = 8, "Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!"
+queststatus(75) = 0, queststatus(703) = 7, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), queststatus(75) = 1, queststatus(703) = 8, "Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe."
+queststatus(75) = 0, queststatus(703) = 7, town = Cadomyr, "task", "adventure", "question" -> inform("[New Quest] Cadomyr's Gossiper"), queststatus(75) = 1, queststatus(703) = 8, "Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!"
+queststatus(75) = 0, queststatus(703) = 7, town = Cadomyr, "Aufgabe", "Abenteuer", "Frage" -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), queststatus(75) = 1, queststatus(703) = 8, "Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe."
+
 queststatus(75) = 0, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> inform("[New Quest] Cadomyr's Gossiper"), queststatus(75) = 1, "#me stares at you. 'Be greeted, traveller! I am much too thirsty to talk. If you bring me a glass of red wine I will gladly answer your questions.'"
 queststatus(75) = 1, item(2057, all) < 1, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Wine! I told you to bring me a glass of wine! You want to hear my stories don't you?"
 queststatus(75) = 2, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Wine! I told you to bring me a glass of wine! You want to hear my stories, so grease my throat."

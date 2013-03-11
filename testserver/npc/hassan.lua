@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -48,6 +48,207 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der königliche Fächelwedler Hassan. Schlüsselwörter: Seid gegrüßt, Beruf, Taverne."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(75, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("jakob");
+talkEntry:addTrigger("lindorn");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("Ah Jakob send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(75, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("jakob");
+talkEntry:addTrigger("lindorn");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(75, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("Ah Jakob send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(75, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greet");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good evening");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("#me stares at you. 'Be greeted, traveller! I am much too thirsty to talk. If you bring me a glass of red wine I will gladly answer your questions.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("#me frowns, ?Mere peasant you dare greet me in such a way! Make up for you lack of consideration by giving me a glass of wine so I may quench my thirst.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("How are you");
+talkEntry:addTrigger("How feel");
+talkEntry:addTrigger("How do you do");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("I am thirsty! If you bring me a glass of red wine, I will answer your questions... and trust me I know many things!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Grüß");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Mahlzeit");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Moin");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("#me starrt dich an. 'Seid gegrüßt, Reisender. Meine Kehle ist zu trocken zum Reden. Bringt mir ein Glas Wein, wenn ihr was erfahren wollt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("#me knurrt: 'Was für eine bäuerliche Art, einen Mann meines Ranges zu grüßen. Wenn ihr was wissen wollt, bringt mir erstmal ein Glas Wein, um meinen Durst zu stillen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("Ich bin durstig! Wenn ihr mir ein Glas Wein bringt, beantworte ich eure Fragen... und ich weiß eine Menge!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("question");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Frage");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
+talkEntry:addResponse("Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

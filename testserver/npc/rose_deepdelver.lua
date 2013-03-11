@@ -46,7 +46,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Rose Deepdelver the owner of the tavern. Keywords: Greetings, family, trade."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Rose Deepdelver, the owner of the tavern. Keywords: Greetings, family, trade."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -171,7 +171,7 @@ talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("Rose Deepdelver, barkeeper. That's me.");
 talkEntry:addResponse("I am the barkeeper Rose Deepdelver.");
-talkEntry:addResponse("Rose Deepdelver is my name, owner is this lovely tavern.");
+talkEntry:addResponse("Rose Deepdelver is my name, owner of this lovely tavern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -228,7 +228,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gods");
-talkEntry:addResponse("The gods created this world for us.");
+talkEntry:addResponse("The Gods created this world for us.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -254,7 +254,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("family");
-talkEntry:addResponse("I am living together with my husband and child in Runewick. A peaceful place to be.");
+talkEntry:addResponse("I am living together with my husband and child in Runewick, a peaceful place to be.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,7 +266,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("husband");
-talkEntry:addResponse("My husband Milo knows a lot about herb lore, just ask him if you want to know something about herbs!");
+talkEntry:addResponse("My husband Milo knows a lot about herblore, just ask him if you want to know something about herbs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -354,7 +354,7 @@ end;
 talkingNPC:addCycleText("#me schaut sich nach Kunden um.", "#me looks around for customers.");
 talkingNPC:addCycleText("#me knabbert an einem Keks.", "#me nibbles on a cookie.");
 talkingNPC:addCycleText("#me trocknet ein Glas ab.", "#me cleans a glass.");
-talkingNPC:addCycleText("#me summt leise etwas vor sich hin.", "#me hums quitly.");
+talkingNPC:addCycleText("#me summt leise etwas vor sich hin.", "#me hums quietly.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(164,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(191,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(224,"sell"));

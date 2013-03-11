@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis & Ardian                                                --
 --           Rincewind                                                        --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -64,7 +64,7 @@ talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hunger");
-talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 4, 333, nil));
 talkEntry:addResponse("Here, have some mouldy bread. Back to work!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -92,7 +92,7 @@ talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("hunger");
-talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 4, 333, nil));
 talkEntry:addResponse("Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -120,7 +120,7 @@ talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addTrigger("hungry");
 talkEntry:addTrigger("food");
-talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 4, 333, nil));
 talkEntry:addResponse("Here, have some mouldy bread. Back to work!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -139,7 +139,7 @@ talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addTrigger("hungrig");
 talkEntry:addTrigger("essen");
-talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 4, 333, nil));
 talkEntry:addResponse("Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1059,7 +1059,7 @@ talkingNPC:addCycleText("Ich hab das genau gesehen!", "I saw that!");
 talkingNPC:addCycleText("#me summt: 'Der Trauerkloß saß auf einem Felsblock, in der Ecke und weinte vor sich hin.'", "#me sings low, 'The sad sack was sittin' on a block of stone, way over in the corner weepin' all alone'.");
 talkingNPC:addCycleText("Arbeite!", "Work!");
 talkingNPC:addCycleText("Schneller!", "Faster!");
-talkingNPC:addCycleText("Where there's a whip, there's a way!", "Where there's a whip, there's a way!");
+talkingNPC:addCycleText("Wo gibt es eine Peitsche, ist auch ein Weg!", "Where there's a whip, there's a way!");
 talkingNPC:addCycleText("Gehorche!", "Obey!");
 talkingNPC:addCycleText("Mwahaha!", "Mwahaha!");
 talkingNPC:addCycleText("#me lacht dreckig.", "#me laughs diabolically.");

@@ -27,9 +27,11 @@ function onLogin( player )
 	
 	--Taxes (has to be redone by "someone")
     if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
-	    -- So let there be taxes!
-		payTaxes(player);
-		receiveGems(player);				
+		if not player.name == "Valerio Guilianni" and player.name == "Rosaline Edwards" and player.name ==  "Elvaine Morgan" then --leader don't pay taxes or get gems
+			-- So let there be taxes!
+			payTaxes(player);
+			receiveGems(player);
+		end
 	end
 
 	--Noobia handling
@@ -334,7 +336,7 @@ function PayOutWage(Recipient,town)
 			while RankedWage>0 do
 				local randomGem=math.random(1,2);
 				local maxGemLevel=math.floor(RankedWage^(1/3))
-				local gemLevel=math.random(1,maxGemLevel)
+				local gemLevel= base.common.Limit(math.random(1,maxGemLevel), 1, 10)
 				
 				local gemsByTown={};
 				gemsByTown["Cadomyr"]={item.gems.TOPAZ, item.gems.AMETHYST}

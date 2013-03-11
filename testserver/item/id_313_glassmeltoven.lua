@@ -62,8 +62,7 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, ltstate )
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 
@@ -107,8 +106,7 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, ltstate )
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		glassingotproducing.SavedWorkTime[User.id] = glassingotproducing:GenWorkTime(User,toolItem);
 		User:startAction( glassingotproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt Glasblöcke herzustellen.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to produce glass ingots."); 
+		User:talk(Character.say, "#me beginnt Glasblöcke herzustellen.", "#me starts to produce glass ingots.")
 		return
 	end
 
@@ -159,8 +157,7 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, ltstate )
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 
@@ -201,8 +198,7 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, ltstate )
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		bricksproducing.SavedWorkTime[User.id] = bricksproducing:GenWorkTime(User,toolItem);
 		User:startAction( bricksproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt ungebrannte Ziegel herzustellen.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to produce unfired bricks."); 
+		User:talk(Character.say, "#me beginnt ungebrannte Ziegel herzustellen.", "#me starts to produce unfired bricks.")
 		return
 	end
 
@@ -253,8 +249,7 @@ function ProduceBricks( User, SourceItem, TargetItem, ltstate )
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 
@@ -295,8 +290,7 @@ function ProduceBricks( User, SourceItem, TargetItem, ltstate )
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		bricksproducing.SavedWorkTime[User.id] = bricksproducing:GenWorkTime(User,toolItem);
 		User:startAction( bricksproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt Ziegel zu brennen.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to fire bricks."); 
+		User:talk(Character.say, "#me beginnt Ziegel zu brennen.", "#me starts to fire bricks.")
 		return
 	end
 

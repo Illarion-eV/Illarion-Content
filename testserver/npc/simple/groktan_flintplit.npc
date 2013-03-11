@@ -98,7 +98,18 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back with some money!"
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Bring 5 ropes, reward 200cp
 
+-- fix
+queststatus(107) > 0, queststatus(712) = 13, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 14, "Ah Joey send you but you already ask me for something to do."
+queststatus(107) > 0, queststatus(712) = 13, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 14, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
+queststatus(107) > 0, queststatus(712) = 13, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 14, "Ah Joey send you but you already ask me for something to do."
+queststatus(107) > 0, queststatus(712) = 13, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 14, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
+
 -- Give out quest 1
+queststatus(107) = 0, queststatus(712) = 13, town = Galmair, english, "quest", "mission" -> inform("[New quest] The Reminder I"), queststatus(107) = 1, queststatus(712) = 14, "Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you..."
+queststatus(107) = 0, queststatus(712) = 13, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Die Erinnerung I"), queststatus(107) = 1, queststatus(712) = 14, "Japp, ich hätte einen Handlangerdienst. Bring' mir fünf Seile, du weist, wofür. Frag nicht! Bring sie ran und alles ist gut, bring sie nicht und ich werde dich an sie... 'erinnern'."
+queststatus(107) = 0, queststatus(712) = 13, town = Galmair, "task", "adventure", "message" -> inform("[New quest] The Reminder I"), queststatus(107) = 1, queststatus(712) = 14, "Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you..."
+queststatus(107) = 0, queststatus(712) = 13, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Die Erinnerung I"), queststatus(107) = 1, queststatus(712) = 14, "Japp, ich hätte einen Handlangerdienst. Bring' mir fünf Seile, du weist, wofür. Frag nicht! Bring sie ran und alles ist gut, bring sie nicht und ich werde dich an sie... 'erinnern'."
+
 queststatus(107) = 0, english, "quest", "mission" -> inform("[New quest] The Reminder I"), queststatus(107) = 1, "Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you..."
 queststatus(107) = 0, "quest", "mission" -> inform("[Neues Quest] Die Erinnerung I"), queststatus(107) = 1, "Japp, ich hätte einen Handlangerdienst. Bring' mir fünf Seile, du weist, wofür. Frag nicht! Bring sie ran und alles ist gut, bring sie nicht und ich werde dich an sie... 'erinnern'."
 queststatus(107) = 0, "task", "adventure", "message" -> inform("[New quest] The Reminder I"), queststatus(107) = 1, "Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you..."

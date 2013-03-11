@@ -23,8 +23,7 @@ function UseItem(User, SourceItem, ltstate)
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 
@@ -142,11 +141,9 @@ function UseItem(User, SourceItem, ltstate)
 		User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
 		if ( amount > 1) then
 			if ( harvestProduct.isFarmingItem ) then
-				User:talkLanguage( Character.say, Player.german, "#me beginnt mit der Sichel zu ernten.");
-				User:talkLanguage( Character.say, Player.english, "#me starts to harvest with the sickle.");
+				User:talk(Character.say, "#me beginnt mit der Sichel zu ernten.", "#me starts to harvest with the sickle.")
 			else
-				User:talkLanguage( Character.say, Player.german, "#me beginnt mit der Sichel Kräuter zu schneiden.");
-				User:talkLanguage( Character.say, Player.english, "#me starts to cut herbs with the sickle.");
+				User:talk(Character.say, "#me beginnt mit der Sichel Kräuter zu schneiden.", "#me starts to cut herbs with the sickle.")
 			end
 		else
 			-- this is no batch action => no emote message, only inform player

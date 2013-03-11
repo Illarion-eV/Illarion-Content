@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -790,6 +790,113 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 13));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("jakob");
+talkEntry:addTrigger("lindorn");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 14));
+talkEntry:addResponse("Ah Jakob send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 13));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("jakob");
+talkEntry:addTrigger("lindorn");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 14));
+talkEntry:addResponse("Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 13));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 14));
+talkEntry:addResponse("Ah Jakob send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 13));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 14));
+talkEntry:addResponse("Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 13));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 14));
+talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them fifteen desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 13));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschenk aus Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 14));
+talkEntry:addResponse("Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 13));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 14));
+talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them fifteen desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 13));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschenk aus Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
+talkEntry:addResponse("Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
@@ -797,7 +904,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
-talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
+talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them fifteen desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -820,7 +927,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
-talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
+talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them fifteen desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1257,15 +1364,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("Nein? Das ist schade.");
-talkEntry:addResponse("Nein? Nun, Ihr werde Eure Gründe für diese Antwort haben.");
+talkEntry:addResponse("No? That's sad.");
+talkEntry:addResponse("No? Well, you'll have a reason for saying so.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("No? That's sad.");
-talkEntry:addResponse("No? Well, you'll have a reason for saying so.");
+talkEntry:addResponse("Nein? Das ist schade.");
+talkEntry:addResponse("Nein? Nun, Ihr werde Eure Gründe für diese Antwort haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me unterzeichnet ein Dokument.", "#me signs a document.");

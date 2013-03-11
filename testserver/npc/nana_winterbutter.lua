@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
 --           Magdha Tiefenerz                                                 --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -201,6 +201,118 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
 talkEntry:addTrigger("Schüssel");
 talkEntry:addResponse("Ich rühre etwas Teig an aber der wird nicht reichen. Vielleicht könnt Ihr mir ja bei dieser Aufgabe helfen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(70, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 11));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 12));
+talkEntry:addResponse("Ah Florain send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(70, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 11));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 12));
+talkEntry:addResponse("Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(70, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 11));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 12));
+talkEntry:addResponse("Ah Florain send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(70, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 11));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 12));
+talkEntry:addResponse("Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 11));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale I"));
+talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 12));
+talkEntry:addResponse("For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the ears myself.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 11));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal I"));
+talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 12));
+talkEntry:addResponse("Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 11));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale I"));
+talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 12));
+talkEntry:addResponse("For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the ears myself.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 11));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal I"));
+talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 12));
+talkEntry:addResponse("Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

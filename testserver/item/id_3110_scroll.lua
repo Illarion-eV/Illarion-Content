@@ -133,13 +133,11 @@ function teleportUseItem(User, SourceItem)
                 destination = teleportTarget( SourceItem );
                 world:gfx(41,destination);
                     
-                User:talkLanguage( Character.say, Player.german, "#me beginnt konzentriert auf eine Pergamentrolle zu starren.");
-                User:talkLanguage( Character.say, Player.english, "#me begins to stare on a scroll of parchment intensely.");
+                User:talk(Character.say, "#me beginnt konzentriert auf eine Pergamentrolle zu starren.", "#me begins to stare on a scroll of parchment intensely.")
             
             elseif ( ltstate == Action.abort ) then
                 
-                User:talkLanguage(Character.say, Player.german, "#me wird abgelenkt.");
-                User:talkLanguage(Character.say, Player.english,"#me gets distracted.");
+                User:talk(Character.say, "#me wird abgelenkt.", "#me gets distracted.")
                 
             end
 end
@@ -170,8 +168,7 @@ function selfTeleportUseItem( Caster, Item )
     TelePos.x = TelePos.x - dx;
     TelePos.y = TelePos.y - dy;
     
-    Caster:talkLanguage( Character.say, Player.german, "#me starrt konzentriert auf eine Pergamentrolle.");
-    Caster:talkLanguage( Character.say, Player.english, "#me stares on a scroll of parchment intensely.");
+    Caster:talk(Character.say, "#me starrt konzentriert auf eine Pergamentrolle.", "#me stares on a scroll of parchment intensely.")
                    
     world:gfx(41,Caster.pos);
     world:gfx(41,TelePos);

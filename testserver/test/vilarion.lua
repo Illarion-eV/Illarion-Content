@@ -203,7 +203,8 @@ function UseItem(User, SourceItem, ltstate)
     a,b,quest = string.find(User.lastSpokenText,"getquest (%d+)")
 	if a ~= nil then
 		quest = tonumber(quest)
-		User:inform("Quest "..quest.." has queststatus "..User:getQuestProgress(quest))
+        local status, time = User:getQuestProgress(quest)
+		User:inform("Quest " .. quest .. " has quest status " .. status .. " since " .. time)
 		return
 	end
 

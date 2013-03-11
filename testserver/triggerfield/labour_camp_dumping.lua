@@ -27,7 +27,7 @@ function PutItemOnField(Item,User)
 		
 			local theItemStats=world:getItemStats(Item)
 			itemNumberPay = base.common.Limit(workLoad-Item.number,0,nil) -- we do only count the items a char has to deliver
-			local payToFaction = itemNumberPay*theItemStats.Worth--*FACTOR ; replace FACTOR with a value, determing what perecentage of the item worth is paid to the faction
+			local payToFaction = itemNumberPay*theItemStats.Worth*0.1 -- 10% of teh value
 			
 			base.townTreasure.ChangeTownTreasure(town,payToFaction) -- add to the town treasure
 			
@@ -37,8 +37,7 @@ function PutItemOnField(Item,User)
 				    local myNpc = world:getNPCSInRangeOf(position(-495,-484,-40),10)
 			        for i=1,#myNpc do
 				        if myNpc[i].name == "Percy Dryless" then -- check if it is the camp leader  
-							myNpc[i]:talkLanguage(Character.say,Player.german,"So, du Wicht, du hast deine Strafe abgearbeitet. Hau ab!")
-							myNpc[i]:talkLanguage(Character.say,Player.english,"Now, you runt, you're done with your punishment. Get lost!")
+							myNpc[i]:talk(Character.say, "So, du Wicht, du hast deine Strafe abgearbeitet. Hau ab!", "Now, you runt, you're done with your punishment. Get lost!")
 							break
 					    end
 					end	

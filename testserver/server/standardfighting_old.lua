@@ -834,8 +834,7 @@ function CoupDeGrace( Attacker, Defender )
             gText = "ihrem";
             eText = "her";
         end
-        Attacker.Char:talkLanguage( Character.say, Player.german,  "#me gibt "..gText.." Gegner den Gnadenstoß." );
-        Attacker.Char:talkLanguage( Character.say, Player.english, "#me gives "..eText.." enemy the coup de gráce." );
+        Attacker.Char:talk(Character.say, "#me gibt "..gText.." Gegner den Gnadenstoß." , "#me gives "..eText.." enemy the coup de gráce." )
 
         Defender.Char:increaseAttrib("hitpoints",-1);
         for x=-1,1 do
@@ -1804,8 +1803,7 @@ function CauseDamage( Attacker, Defender, Globals )
         local newPos = position( Defender.Char.pos.x + CharOffsetX, Defender.Char.pos.y + CharOffsetY, Defender.Char.pos.z );
         Defender.Char:warp( newPos );
 
-        Defender.Char:talkLanguage( Character.say, Player.german,  "#me stolpert zurück und geht zu Boden." );
-        Defender.Char:talkLanguage( Character.say, Player.english, "#me stumbles back and falls to the ground." );
+        Defender.Char:talk(Character.say, "#me stolpert zurück und geht zu Boden." , "#me stumbles back and falls to the ground." )
 
         base.common.ParalyseCharacter(Defender.Char, 7, false, true);
 
@@ -2062,14 +2060,12 @@ function CheckTying( Attacker, Defender )
 	end
 	if Defender.effects:find(24) and not base.common.IsCharacterParalysed(Defender) then
 		if math.random(10) > 1 then
-			Defender:talkLanguage(Character.say, Player.german, "#me wird hart getroffen und verliert kurz das Bewusstsein.");
-			Defender:talkLanguage(Character.say, Player.english, "#me is hit hard and loses consciousness shortly.");
+			Defender:talk(Character.say, "#me wird hart getroffen und verliert kurz das Bewusstsein.", "#me is hit hard and loses consciousness shortly.")
 			base.common.ParalyseCharacter(Defender, math.random(10,15), false, true);
 		end
 	elseif Defender.effects:find(26) then
 		if Defender:increaseAttrib("hitpoints",0) < 2500 then
-			Defender:talkLanguage(Character.say, Player.german, "#me kann das Seil nicht mehr halten und lässt los.");
-			Defender:talkLanguage(Character.say, Player.english, "#me can't hold the rope any longer and looses it.");
+			Defender:talk(Character.say, "#me kann das Seil nicht mehr halten und lässt los.", "#me can't hold the rope any longer and looses it.")
 			Defender.effects:removeEffect(26);
 		end
 	end

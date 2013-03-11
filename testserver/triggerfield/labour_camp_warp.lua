@@ -32,10 +32,8 @@ function MoveToField(User)
 			local myNpc = world:getNPCSInRangeOf(position(-495,-484,-40),10)
 			for i=1,#myNpc do
 				if myNpc[i].name == "Percy Dryless" then -- check if it is the camp leader  
-					myNpc[i]:talkLanguage(Character.say,Player.german,"#me wendet seinen Blick wütend zum Teleporter und schreit los:")
-					myNpc[i]:talkLanguage(Character.say,Player.english,"#me looks with anger to the teleporter and starts to shout:")
-					myNpc[i]:talkLanguage(Character.say,Player.german,"Mach gefälligst deine Arbeit zu Ende, du fauler Hund!")
-					myNpc[i]:talkLanguage(Character.say,Player.english,"Finish your work, you lazy bum!")
+					myNpc[i]:talk(Character.say, "#me wendet seinen Blick wütend zum Teleporter und schreit los:", "#me looks with anger to the teleporter and starts to shout:")
+					myNpc[i]:talk(Character.say, "Mach gefälligst deine Arbeit zu Ende, du fauler Hund!", "Finish your work, you lazy bum!")
 					break
 				end
 			end
