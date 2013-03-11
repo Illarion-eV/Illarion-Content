@@ -455,8 +455,8 @@ function HitChanceFlux(Attacker, Defender, Globals)
 				parryWeapon = Defender.RightWeapon;
 			end;
 		end;
-
-		local qualitymod = 0.91+0.02*math.floor(parryWeapon.quality/100);
+		
+		local qualitymod = 0.91+0.02*math.floor(parryItem.quality/100);
 		parryChance = (Defender.parry / 5); --0-20% by the skill
         parryChance = parryChance * (0.5 + (Defender.agility) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
         parryChance = parryChance + (parryWeapon.Defence) / 5; --0-20% bonus by the weapon/shield
