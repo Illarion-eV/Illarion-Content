@@ -230,7 +230,7 @@ function isSocketable(itemId)
 		end
 	end
 
-    return weaponfound
+    return weaponitem
 end
 
 function magicSmith(npc, player)
