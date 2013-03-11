@@ -228,7 +228,7 @@ function isSocketable(itemId)
 		if rWType==10 or rWType==11 or rWType==14 then -- Ammo or shield. Not socketable
 			return false;
 		end
-	else
+	end
 
     return weaponfound
 end
