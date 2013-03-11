@@ -221,7 +221,18 @@ end
 
 function isSocketable(itemId)
     -- currently only weapons can be socketed
-    return world:getWeaponStruct(itemId)
+	local weaponfound, weaponitem = world:getWeaponStruct(itemId);
+
+	if weaponfound then
+		local weapontype=rAttWeapon.WeaponType;
+		if rWType==10 or rWType==11 or rWType==14 then -- Ammo or shield. Not socketable
+			return false;
+		else 
+			return true;
+		end
+	end
+
+    return false;
 end
 
 function magicSmith(npc, player)
