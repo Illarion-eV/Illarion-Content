@@ -219,6 +219,25 @@ function getSocketablePositions(user, filter)
     return socketableTable
 end
 
+function getUnsocketablePositions(user, filter)
+    socketableTable = {}
+
+    for i=1,#slots do
+        local slot = slots[i]
+        local item = user:getItemAt(slot)
+
+        if not filter or filter(item) then
+            local itemId = item.id
+        
+            if isUnsocketable(itemId) then
+                table.insert(socketableTable, slot)
+            end
+        end
+    end
+
+    return socketableTable
+end
+
 function isSocketable(itemId)
     -- currently only weapons can be socketed
 	local weaponfound, weaponitem = world:getWeaponStruct(itemId);
@@ -233,6 +252,11 @@ function isSocketable(itemId)
 	end
 
     return false;
+end
+
+function isUnsocketable(itemId)
+    -- currently only weapons can be socketed
+    return world:getWeaponStruct(itemId);
 end
 
 function magicSmith(npc, player)
@@ -265,7 +289,7 @@ function magicSmith(npc, player)
 end
 
 function unsocketGems(user)
-    local unsocketPositions = getSocketablePositions(user, itemHasGems)
+    local unsocketPositions = getUnsocketablePositions(user, itemHasGems)
 
     if #unsocketPositions == 0 then
         user:inform("Es ist kein entsockelbarer Gegenstand in deinem Inventar!",
@@ -280,7 +304,7 @@ function unsocketGems(user)
             local slot = unsocketPositions[selected]
             local item = user:getItemAt(slot)
 
-            if isSocketable(item.id) and itemHasGems(item) then
+            if isUnsocketable(item.id) and itemHasGems(item) then
                 if base.money.CharHasMoney(user, 100000) then
                     for i = 1, #gemDataKey do
                         local itemKey = gemDataKey[i]
