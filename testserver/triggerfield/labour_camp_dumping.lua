@@ -30,7 +30,7 @@ function PutItemOnField(Item,User)
 			local payToFaction = itemNumberPay*theItemStats.Worth*0.1 -- 10% of teh value
 			
 			base.townTreasure.ChangeTownTreasure(town,payToFaction) -- add to the town treasure
-			
+			log("[prison mine] "..User.id.."; "..Item.number.." "..world:getItemName(Item.id,Player.english).." ("..Item.id.."); worth "..payToFaction)
 			-- reduce work load of char
 			if (workLoad - Item.number) <= 0 then
 				if workLoad > 0 then -- the char was actually still forced to work, inform him that he's free
