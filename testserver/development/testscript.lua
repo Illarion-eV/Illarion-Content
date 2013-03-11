@@ -290,7 +290,7 @@ function CalculateDamage(Attacker, Globals)
     DexterityBonus = (Attacker.dexterity - 6) * 1;
     SkillBonus = (Attacker.skill - 20) * 1.5;
     --TacticsBonus = (Attacker.tactics - 20) * 0.5;
-    GemBonus = base.gems.getGemBonus(Attacker.WeaponItem);
+    GemBonus = 0.5*base.gems.getGemBonus(Attacker.WeaponItem);
 	
 	--Quality Bonus: Multiplies final value by 0.91-1.09
 	QualityBonus = 0.91+0.02*math.floor(Attacker.WeaponItem.quality/100);
@@ -456,9 +456,11 @@ function HitChanceFlux(Attacker, Defender, Globals)
 			end;
 		end;
 
+		local qualitymod = 0.91+0.02*math.floor(parryWeapon.quality/100);
 		parryChance = (Defender.parry / 5); --0-20% by the skill
         parryChance = parryChance * (0.5 + (Defender.agility) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
-        parryChance = parryChance + (parryWeapon.Defence) / 10; --0-20% bonus by the weapon/shield
+        parryChance = parryChance + (parryWeapon.Defence) / 5; --0-20% bonus by the weapon/shield
+		parryChance = parryChance * qualitymod;
 		parryChance = math.min(math.max(parryChance,5),95);
 		
 	else
@@ -536,7 +538,7 @@ function CheckRange(AttackerStruct, Defender)
 		end
     end
 
-    if (distance == 1 and AttackerStruct.AttackKind == 4) then
+    if (distance <= 2 and AttackerStruct.AttackKind == 4) then
         return false;
     end
     if AttackerStruct.IsWeapon then
@@ -762,14 +764,14 @@ function GetArmourType(Defender, Globals)
 
 
 	if armourtype == 1 then
-		--Defender["DefenseSkill"] = Character.LightArmour;
-		Defender["DefenseSkillName"] = Character.dodge;
+		-- Heavy is good against punc
+		Defender["DefenseSkillName"] = Character.heavyArmour;
 	elseif armourtype == 2 then
-		--Defender["DefenseSkill"] = Character.MediumArmour;
-		Defender["DefenseSkillName"] = Character.dodge;
+		-- Medium is good against slash/stroke
+		Defender["DefenseSkillName"] = Character.mediumArmour;
 	elseif armourtype == 3 then
-		--Defender["DefenseSkill"] = Character.HeavyArmour;
-		Defender["DefenseSkillName"] = Character.dodge;
+		-- Light is good against conc/thrust
+		Defender["DefenseSkillName"] = Character.lightArmour;
 	else
 		Defender["DefenseSkill"] = false;
 		return false;
