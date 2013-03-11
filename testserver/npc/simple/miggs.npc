@@ -78,19 +78,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Go and come back, but not too soon.", 
 "your name", "who are you", "who art thou" -> "Miggs!", "I am Miggs, and this is my fist. Me and her are looking forward to make your acquaintance.", "I am Miggs, the right hand... no, the right fist of Don Valerio."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Miggs!", "Ich bin Miggs. Und dies ist meine Faust. Ich und sie freuen uns darauf, deine Bekanntschaft zu machen.", "Ich bin Miggs, die rechte Hand... nein, die rechte Faust Don Valerios."
 
--- fix
-queststatus(107) > 0, queststatus(712) = 5, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 6, "Ah Joey send you but you already ask me for something to do."
-queststatus(107) > 0, queststatus(712) = 5, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 6, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
-queststatus(107) > 0, queststatus(712) = 5, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 6, "Ah Joey send you but you already ask me for something to do."
-queststatus(107) > 0, queststatus(712) = 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 6, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
-
 -- Quest 107: A message from Groktan Flintsplit
-
-queststatus(107) = 3, queststatus(712) = 5, town = Galmair, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), queststatus(107) = 4, queststatus(712) = 6, "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... when I'm done with 'em."
-queststatus(107) = 3, queststatus(712) = 5, town = Galmair, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."), queststatus(107) = 4, queststatus(712) = 6, "Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin."
-queststatus(107) = 3, queststatus(712) = 5, town = Galmair, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), queststatus(107) = 4, queststatus(712) = 6, "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... when I'm done with 'em."
-queststatus(107) = 3, queststatus(712) = 5, town = Galmair, "Groktan", "Flintsplit" -> inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."), queststatus(107) = 4, queststatus(712) = 6, "Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin."
-
 queststatus(107) = 3, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), queststatus(107) = 4, "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... when I'm done with 'em."
 queststatus(107) = 3, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."), queststatus(107) = 4, "Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin."
 queststatus(107) = 3, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), queststatus(107) = 4, "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... when I'm done with 'em."
@@ -98,7 +86,18 @@ queststatus(107) = 3, "Groktan", "Flintsplit" -> inform("[Queststatus] Die Erinn
 
 -- 1st quest: Kill 10 slime, player receives torch.
 
+-- fix
+queststatus(77) > 0, queststatus(712) = 5, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 6, "Ah Joey send you but you already ask me for something to do."
+queststatus(77) > 0, queststatus(712) = 5, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 6, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
+queststatus(77) > 0, queststatus(712) = 5, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 6, "Ah Joey send you but you already ask me for something to do."
+queststatus(77) > 0, queststatus(712) = 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 6, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
+
 -- Give out quest 1 and a torch
+queststatus(77) = 3, queststatus(712) = 5, town = Galmair, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), queststatus(77) = 4, queststatus(712) = 6, "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... when I'm done with 'em."
+queststatus(77) = 3, queststatus(712) = 5, town = Galmair, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."), queststatus(77) = 4, queststatus(712) = 6, "Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin."
+queststatus(77) = 3, queststatus(712) = 5, town = Galmair, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), queststatus(77) = 4, queststatus(712) = 6, "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... when I'm done with 'em."
+queststatus(77) = 3, queststatus(712) = 5, town = Galmair, "Groktan", "Flintsplit" -> inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."), queststatus(77) = 4, queststatus(712) = 6, "Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin."
+
 queststatus(77) = 0, english, "quest", "mission" -> inform("[New quest] Galmair Sewers I"), item(391, 1, 399), queststatus(77) = 1, "Blasted slime! The Don wants me to keep the streets clean, but dirty slimes seem to emerge from the sewers over and over again. Climb down and slay at least ten of those annoyances! Here, have this torch."
 queststatus(77) = 0, "quest", "mission" -> inform("[Neues Quest] Die Kanalisation von Galmair I"), item(391, 1, 399), queststatus(77) = 1, "Verdammter Schleim! Der Don wünscht sich saubere Straßen, aber dieser Schleim steigt ein ums andere Mal aus der Kanalisation auf. Nehmt diese Fackel, steigt hinab und erschlagt wenigstens zehn dieser Plagegeister."
 queststatus(77) = 0, "task", "adventure" -> inform("[New quest] Galmair Sewers I"), item(391, 1, 399), queststatus(77) = 1, "Blasted slime! The Don wants me to keep the streets clean, but dirty slimes seem to emerge from the sewers over and over again. Climb down and slay at least ten of those annoyances! Here, have this torch."
