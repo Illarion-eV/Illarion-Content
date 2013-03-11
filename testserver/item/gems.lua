@@ -224,7 +224,7 @@ function isSocketable(itemId)
 	local weaponfound, weaponitem = world:getWeaponStruct(itemId);
 
 	if weaponfound then
-		local weapontype=rAttWeapon.WeaponType;
+		local weapontype=weaponitem.WeaponType;
 		if rWType==10 or rWType==11 or rWType==14 then -- Ammo or shield. Not socketable
 			return false;
 		else 
