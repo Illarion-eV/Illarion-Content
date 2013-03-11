@@ -225,7 +225,7 @@ function isSocketable(itemId)
 
 	if weaponfound then
 		local weapontype=weaponitem.WeaponType;
-		if rWType==10 or rWType==11 or rWType==14 then -- Ammo or shield. Not socketable
+		if weapontype==10 or weapontype==11 or weapontype==14 then -- Ammo or shield. Not socketable
 			return false;
 		else 
 			return true;
