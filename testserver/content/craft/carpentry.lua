@@ -63,7 +63,7 @@ product = carpentry:addProduct(catId, 2935, 0, 20, 5, 10)
 product:addIngredient(2716) -- Apple Wooden Boards: 1x1
 
 --Wooden Cup
-product = carpentry:addProduct(catId, 2185, 1, 21, 6, 12)
+product = carpentry:addProduct(catId, 2185, 3, 23, 6, 12)
 product:addIngredient(2716) -- Apple Wooden Boards: 1x1
 
 catId = carpentry:addCategory("bows", "Bögen") --bows
