@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Ssseleseth                                       Galmair           --
+-- NPC Name: Seleseth                                       Galmair           --
 -- NPC Job:  Brick maker, gem grinder, mason                                  --
 --                                                                            --
 -- NPC Race: lizardman                  NPC Position:  387, 277, 0            --
@@ -9,7 +9,7 @@
 --                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
-name = "Ssseleseth"
+name = "Seleseth"
 race = lizardman
 sex = male
 position = 387, 277, 0
@@ -45,8 +45,8 @@ itemTrousers = 824
 itemShoes = 0
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Ssseleseth the gem grinder, mason and brick maker. Keywords: quest")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Ssseleseth der Edelsteinschleifer, Steinmetz und Ziegelmacher. Schlüsselwörter: Quest")
+"Help" -> inform("[Game Help] This NPC is Seleseth the gem grinder, mason and brick maker. Keywords: quest")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Seleseth der Edelsteinschleifer, Steinmetz und Ziegelmacher. Schlüsselwörter: Quest")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you.", "Yess, greetingsss.", "Blessingsss of the Mother upon you, greetingsss"
