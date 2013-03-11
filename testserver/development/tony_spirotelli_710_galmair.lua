@@ -21,11 +21,11 @@ Description[ENGLISH][1] = "Collect ten deciduous wood boards for Tony Spirotelli
 Description[GERMAN][2] = "Geh zu Tony Spirotelli in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go back to Tony Spirotelli in the workshop of Galmair, he is sure to have another task for you."
 Description[GERMAN][3] = "Stell zehn Teller für Tony Spirotelli in der Werkstatt von Galmair her. Um die Teller herzustellen, brauchst du Laubholzbretter. Hast du diese, nimmst du den Hobel in die Hand und benutzt ihn, während du vor einer Werkbank stehst."
-Description[ENGLISH][3] = "Produce ten plates for Tony Spirotelli in the workshop of Galmair. To produce the plates you need deciduous wood boards. Once you have them take the plane in your hand and use it while standing in front of the workbench."
+Description[ENGLISH][3] = "Produce ten plates for Tony Spirotelli in the workshop of Galmair. To produce the plates you need deciduous wood boards. Once you have them take the plane in your hand and use it whilst standing in front of the workbench."
 Description[GERMAN][4] = "Geh zu Tony Spirotelli in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][4] = "Go back to Tony Spirotelli in the workshop of Galmair, he is sure to have another task for you."
 Description[GERMAN][5] = "Stell 25 Nägel und Keile für Tony Spirotelli in der Werkstatt von Galmair her. Um die Nägel und Keile herzustellen, brauchst du Äste und Nägel. Nägel können Schmied herstellen. Äste findest du manchmal beim Fällen von Apfelbäumen. Hast du erstmal fünf Äste gefunden, kehr zur Werkstatt zurück und fertige mit dem Schnitzmesser in der Hand bei der Werkbank 25 Nägel und Keile."
-Description[ENGLISH][5] = "Produce 25 pins and cotters for Tony Spirotelli in the workshop of Galmair. To produce the pins and cotters you need five boughs and pins first of all, you can get boughs while chopping down an apple tree. Pins can be made by a smith. Once you have the boughs return to the workshop and produce 25 pins and cotters using the carving tools in your hand whilst at the workbench."
+Description[ENGLISH][5] = "Produce twenty five pins and cotters for Tony Spirotelli in the workshop of Galmair. To produce the pins and cotters you need five boughs and some pins first of all, you can get boughs whilst chopping down an apple tree. Pins can be made by a smith. Once you have the boughs return to the workshop and produce twenty five pins and cotters using the carving tools in your hand, whilst at the workbench."
 Description[GERMAN][6] = "Du hast alle Aufgaben von Tony Spirotelli erfüllt."
 Description[ENGLISH][6] = "You have fulfilled all the tasks for Tony Spirotelli."
 
