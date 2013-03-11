@@ -93,21 +93,17 @@ function MoveToField(Character)
 		
 		-- Build the dialogs
 		local callbackNewbie, callbackNewbieTask
-        if isTestserver() then
-			callbackNewbie = function(dialogNewbie) 
-				callbackNewbieTask = function(dialogNewbieTask) end
-				if Character:getPlayerLanguage() == 0 then
-					dialogNewbieTaskTitle = "Ein guter Anfang";
-				else
-					dialogNewbieTaskTitle = "A good beginning";
-				end
-				dialogNewbieTask = MessageDialog(dialogNewbieTaskTitle, dialogNewbieTaskText, callbackNewbieTask)
-				Character:requestMessageDialog(dialogNewbieTask)
-		    end
-	    else
-	        callbackNewbie = function(dialogNewbie) end; --empty callback
-	    end
-		dialogNewbie = MessageDialog("Tutorial",dialogNewbieText, callbackNewbie)
+        callbackNewbie = function(dialogNewbie) 
+			callbackNewbieTask = function(dialogNewbieTask) end
+			if Character:getPlayerLanguage() == 0 then
+				dialogNewbieTaskTitle = "Ein guter Anfang";
+			else
+				dialogNewbieTaskTitle = "A good beginning";
+			end
+			dialogNewbieTask = MessageDialog(dialogNewbieTaskTitle, dialogNewbieTaskText, callbackNewbieTask)
+			Character:requestMessageDialog(dialogNewbieTask)
+		end
+	    dialogNewbie = MessageDialog("Tutorial",dialogNewbieText, callbackNewbie)
 		
 		-- We send him a message box
 		Character:requestMessageDialog(dialogNewbie); --sending the dialog box to tell him that he finshed the tutorial 
