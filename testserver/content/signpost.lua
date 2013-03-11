@@ -300,8 +300,8 @@ function InitWegweiser()
     AddWeg({630,462,0},"Funkelhöhle, Elfenruinen, Todes Schneise, Glühende Wälder, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Glittering Cave, Elven Ruins, Death Swath, Glowing Forest, Wight Canal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
     AddWeg({623,455,0},"Funkelhöhle, Elfenruinen, Cherass Zitadelle","Glittering Cave, Elven Ruins, Cherass' Citadel",0,0);
     AddWeg({610,385,0},"Cherass Zitadelle, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden","Cherass' Citadel, Spider's Mouth, The Hemp Necktie Inn, Galmair, North",0,0);
-    AddWeg({610,386,0},"Funkelhöhle","Glittering Cave",4,0);
-    AddWeg({610,387,0},"Elfenruinen, Schlangenkopfberg, Todes Schneise, Glühende Wälder, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Elven Ruins, Mount Snakehead, Death Swath, Glowing Forest, Wight Canal, Sentry Forest, Katanbi Desert, Cadomyr",6,0);
+    AddWeg({610,386,0},"Funkelhöhle","Glittering Cave",6,0);
+    AddWeg({610,387,0},"Elfenruinen, Schlangenkopfberg, Todes Schneise, Glühende Wälder, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Elven Ruins, Mount Snakehead, Death Swath, Glowing Forest, Wight Canal, Sentry Forest, Katanbi Desert, Cadomyr",4,0);
 
 
 end
