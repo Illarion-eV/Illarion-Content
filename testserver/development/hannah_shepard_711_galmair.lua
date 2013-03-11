@@ -28,8 +28,8 @@ Description[GERMAN][5] = "Back fünf Brötchen für Hannah Shepard bei den Feldern 
 Description[ENGLISH][5] = "Bake five bread rolls for Hannah Shepard at the fields of Galmair. To bake bread rolls you need buckets of water and flour. In the Palace of Galmair there is a baking oven. Once you find it, take the peel in your hand and use it while standing in front of the baking oven."
 Description[GERMAN][6] = "Geh zu Hannah Shepard bei den Feldern von Galmair. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][6] = "Go back to Hannah Shepard at the fields of Galmair, she is sure to have another task for you."
-Description[GERMAN][7] = "Koch für Hannah Shepard bei den Feldern von Galmair im Kessel neben ihr fünf Würstchen. Um Würstchen herzustellen, brauchst Schweinefleisch und Eingeweide. Beides findest du, wenn du Schweine erlegst. Hast du die Zutaten besorgt, musst du den Kochlöffel in die Hand nehmen und diesen benutzen, während du vor dem Kessel stehst."
-Description[ENGLISH][7] = "Cook for Hannah Shepard at the fields of Galmair five sausages at the kettle next her. To produce sausages you need pork and entrails, both can be obtained if you kill pigs. Once you have the ingredients, you have to take the cooking spoon in your hand and use it while standing in front of a kettle."
+Description[GERMAN][7] = "Koch für Hannah Shepard bei den Feldern von Galmair im Kessel vor ihr fünf Würstchen. Um Würstchen herzustellen, brauchst Schweinefleisch und Eingeweide. Beides findest du, wenn du Schweine erlegst. Hast du die Zutaten besorgt, musst du den Kochlöffel in die Hand nehmen und diesen benutzen, während du vor dem Kessel stehst."
+Description[ENGLISH][7] = "Cook for Hannah Shepard at the fields of Galmair five sausages at the kettle in front of her. To produce sausages you need pork and entrails, both can be obtained if you kill pigs. Once you have the ingredients, you have to take the cooking spoon in your hand and use it while standing in front of a kettle."
 Description[GERMAN][8] = "Du hast alle Aufgaben von Hannah Shepard erfüllt."
 Description[ENGLISH][8] = "You have fulfilled all the tasks for Hannah Shepard."
 
