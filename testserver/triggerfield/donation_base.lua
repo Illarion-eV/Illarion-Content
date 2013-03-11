@@ -1,5 +1,7 @@
+require("base.character")
 require("base.common")
 require("base.money")
+require("base.townTreasure")
 
 module("triggerfield.donation_base", package.seeall)
 
@@ -31,7 +33,9 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 		gstring,estring=base.money.MoneyToString(payToFaction); --converting money to a string
 			
         base.common.InformNLS(User,"[Spende] Du spendest Gegenstände im Gegenwert von"..gstring.." in die Schatzkammer von "..FactionName..". "..LeaderName.." wird zufrieden sein.","[Donation] You donate items valued at"..estring.." to the treasury of "..FactionName..". "..LeaderName.." will be pleased."); -- Feedback!		
-		log("[donation] "..User.id.."; "..Item.number.." "..world:getItemName(Item.id,Player.english).." ("..Item.id.."); worth: "..payToFaction)
+		log(string.format("[donation] %s donated %u %s (%u). Faction wealth increased by %d copper to $d copper.",
+				base.character.LogText(User), Item.number, world:getItemName(Item.id,Player.english), Item.id, payToFaction, base.townTreasure.GetTownTreasure(FactionName)));
+		log("[donation] "..base.character.LogText(User).." donated "..Item.number.." "..world:getItemName(Item.id,Player.english).." ("..Item.id.."); worth: "..payToFaction)
 		world:gfx(46,Item.pos); -- nice GFX
 		world:erase(Item,Item.number); -- delete the item
 	    donated=true; -- donation worked
