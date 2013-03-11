@@ -235,6 +235,11 @@ function isSocketable(itemId)
     return false;
 end
 
+function isUnsocketable(itemId)
+    -- currently only weapons can be socketed
+    return world:getWeaponStruct(itemId);
+end
+
 function magicSmith(npc, player)
     local callback = function(dialog)
         success = dialog:getSuccess()
@@ -280,7 +285,7 @@ function unsocketGems(user)
             local slot = unsocketPositions[selected]
             local item = user:getItemAt(slot)
 
-            if isSocketable(item.id) and itemHasGems(item) then
+            if isUnsocketable(item.id) and itemHasGems(item) then
                 if base.money.CharHasMoney(user, 100000) then
                     for i = 1, #gemDataKey do
                         local itemKey = gemDataKey[i]
