@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -204,7 +204,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 1));
-talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect twenty pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
+talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -216,7 +216,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 1));
-talkEntry:addResponse("Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel 20 Laubholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge die ich dir gebe zu Brettern und zeigst sie mir dann.");
+talkEntry:addResponse("Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Laubholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge die ich dir gebe zu Brettern und zeigst sie mir dann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -229,7 +229,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 1));
-talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect twenty pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
+talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -243,74 +243,74 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 1));
-talkEntry:addResponse("Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel 20 Laubholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge die ich dir gebe zu Brettern und zeigst sie mir dann.");
+talkEntry:addResponse("Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Laubholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge die ich dir gebe zu Brettern und zeigst sie mir dann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(710, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2716, "all", ">", 19, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2716, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 2));
-talkEntry:addResponse("Well done, the boards look great. Do you want another task?");
+talkEntry:addResponse("Well done, the boards look great. Please keep them for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(710, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2716, "all", ">", 19, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2716, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 2));
-talkEntry:addResponse("Gut gemacht, die Bretter sehen gut aus. Willst du eine weitere Aufgabe?");
+talkEntry:addResponse("Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie für deine nächste Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(710, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2716, "all", ">", 19, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2716, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 2));
-talkEntry:addResponse("Well done, the boards look great. Do you want another task?");
+talkEntry:addResponse("Well done, the boards look great. Please keep them for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(710, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2716, "all", ">", 19, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2716, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 2));
-talkEntry:addResponse("Gut gemacht, die Bretter sehen gut aus. Willst du eine weitere Aufgabe?");
+talkEntry:addResponse("Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie für deine nächste Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(710, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2716, "all", "<", 20, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2716, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I wanted twenty deciduous wood boards, come back once you have fulfilled this task.");
+talkEntry:addResponse("I wanted ten deciduous wood boards, come back once you have fulfilled this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(710, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2716, "all", "<", 20, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2716, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Ich wollte 20 Laubholzbretter haben, komm wieder wenn du die Aufgabe erfüllt hast.");
+talkEntry:addResponse("Ich wollte zehn Laubholzbretter haben, komm wieder wenn du die Aufgabe erfüllt hast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -322,7 +322,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2715, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 3));
-talkEntry:addResponse("Let's make some wooden cups from the deciduous boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce five wooden cups, which you can show me once you are done.");
+talkEntry:addResponse("Let's make some wooden cups from the deciduous boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten wooden cups, which you can show me once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -333,7 +333,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2715, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 3));
-talkEntry:addResponse("Nun stellen wir aus den Laubholzbrettern Holzbecher her. Dafür brauchst du einen Hobel den ich dir gebe, dann setzt du dich auf den Stuhl da gleich neben mich bei der Werkbank und machst fünf Holzbecher, diese zeigst du mir wenn du fertig bist.");
+talkEntry:addResponse("Nun stellen wir aus den Laubholzbrettern Holzbecher her. Dafür brauchst du einen Hobel den ich dir gebe, dann setzt du dich auf den Stuhl da gleich neben mich bei der Werkbank und machst zehn Holzbecher, diese zeigst du mir wenn du fertig bist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -345,7 +345,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2715, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 3));
-talkEntry:addResponse("Let's make some wooden cups from the deciduous boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce five wooden cups, which you can show me once you are done.");
+talkEntry:addResponse("Let's make some wooden cups from the deciduous boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten wooden cups, which you can show me once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -358,18 +358,18 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2715, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 3));
-talkEntry:addResponse("Nun stellen wir aus den Laubholzbrettern Holzbecher her. Dafür brauchst du einen Hobel den ich dir gebe, dann setzt du dich auf den Stuhl da gleich neben mich bei der Werkbank und machst fünf Holzbecher, diese zeigst du mir wenn du fertig bist.");
+talkEntry:addResponse("Nun stellen wir aus den Laubholzbrettern Holzbecher her. Dafür brauchst du einen Hobel den ich dir gebe, dann setzt du dich auf den Stuhl da gleich neben mich bei der Werkbank und machst zehn Holzbecher, diese zeigst du mir wenn du fertig bist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(710, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2185, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2185, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2185, 5, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2185, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 4));
 talkEntry:addResponse("Well done, the cups look pretty good. Do you want another task?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -377,11 +377,11 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(710, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2185, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2185, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2185, 5, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2185, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 4));
 talkEntry:addResponse("Gut gemacht, die Becher sehen gut aus. Wollt Ihr eine weitere Aufgabe?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -389,12 +389,12 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(710, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2185, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2185, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2185, 5, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2185, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 4));
 talkEntry:addResponse("Well done, the cups look pretty good. Do you want another task?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -402,13 +402,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(710, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2185, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2185, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2185, 5, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2185, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 4));
 talkEntry:addResponse("Gut gemacht, die Becher sehen gut aus. Wollt Ihr eine weitere Aufgabe?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -416,20 +416,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(710, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2185, "all", "<", 5, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2185, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I wanted five wooden cups, come back once you have fulfilled this task.");
+talkEntry:addResponse("I wanted ten wooden cups, come back once you have fulfilled this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(710, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2185, "all", "<", 5, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2185, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Ich wollte fünf Holzbecher, komm wieder wenn du die Aufgabe erfüllt hast.");
+talkEntry:addResponse("Ich wollte zehn Holzbecher, komm wieder wenn du die Aufgabe erfüllt hast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
