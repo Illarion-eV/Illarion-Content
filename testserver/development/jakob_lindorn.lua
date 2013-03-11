@@ -310,7 +310,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you.");
+talkEntry:addResponse("Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -319,7 +319,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun.");
+talkEntry:addResponse("Sucht doch bitte Berri Firegold, er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -329,7 +329,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Could you give my friend Berri Firegold this letter for me please? You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you.");
+talkEntry:addResponse("Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -340,7 +340,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Könnt ihr meinem Freund Berri Firegold bitte diesen Brief hier für mich übergeben? Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun.");
+talkEntry:addResponse("Sucht doch bitte Berri Firegold, er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
