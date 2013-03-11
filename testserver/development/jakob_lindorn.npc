@@ -51,10 +51,10 @@ queststatus(703) = 0, town = Cadomyr, english, ".+" -> queststatus(703) = 1, "We
 queststatus(703) = 0, town = Cadomyr, ".+" -> queststatus(703) = 1, "Willkommen in Cadomyr. Sucht doch bitte Berri Firegold, er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun."
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, I can tell you who in Cadomyr has tasks for you to do.", "Nice to meet you, I'm Jakob Lindorn, I can tell you who in Cadomyr has tasks for you to do."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat.", "Freut mich, Euch zu treffen. Ich bin Jakob Lindorn. Ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, I can tell you who in Cadomyr has tasks for you to do.", "Nice to meet you, I'm Jakob Lindorn, I can tell you who in Cadomyr has tasks for you to do."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat.", "Freut mich, Euch zu treffen. Ich bin Jakob Lindorn. Ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Be greeted.", "Nice to meet you, I'm Jakob Lindorn."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt.", "Freut mich, Euch zu treffen. Ich bin Jakob Lindorn."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted", "Nice to meet you, I'm Jakob Lindorn."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Freut mich, Euch zu treffen. Ich bin Jakob Lindorn."
 "Farewell", "Bye", "Fare well", "See you" -> "Thank you so, so much for talking to me. If you need help finding something to do, just come back.", "Please have a good day. If you need help finding something to do, just come back."
 "Tschüß", "Tschüss", "Wiedersehen" -> "Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück.", "Ich wünsche Euch einen schönen Tag. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Thank you so, so much for talking to me. If you need help finding something to do, just come back.", "Please have a good day. If you need help finding something to do, just come back."
@@ -172,5 +172,4 @@ german, ".*" -> "Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für 
 
 cycletext "Willkommen in Cadomyr!", "Welcome to Cadomyr!"
 cycletext "Wenn Ihr Hilfe benötigt, sprecht mich einfach an.", "If you need help, just speak to me."
-cycletext "Ich kann Euch sagen, wer in diesem Reich eure Hilfe benötigt.", "I can tell you who in this realm needs your help."
 cycletext "Wenn Ihr neu hier seid, bin ich Euer Mann.", "If you're new to this realm, I'm your man."
