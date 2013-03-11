@@ -51,10 +51,10 @@ queststatus(712) = 0, town = Galmair, english, ".+" -> queststatus(712) = 1, "We
 queststatus(712) = 0, town = Galmair, ".+" -> queststatus(712) = 1, "Willkommen in Galmair. Sucht doch bitte Hannah Shepard, sie hat bestimmt eine Aufgabe für Euch. Ihr könnt sie nicht übersehen, sie sitzt an der Kochstelle bei den Feldern hinter mir. Nachdem Ihr die Aufgabe erfüllt habt, kommt zurück wenn Ihr weitere Aufgaben von mir wollt."
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, I can tell you who in Galmair has tasks for you to do.", "Nice to meet you, I'm Joey Licavoli, I can tell you who in Galmair has tasks for you to do."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, ich kann Euch sagen, wer in Galmair Aufgaben für Euch hat.", "Freut mich, Euch zu treffen. Ich bin Joey Licavoli. Ich kann Euch sagen, wer in Galmair Aufgaben für Euch hat."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, I can tell you who in Galmair has tasks for you to do.", "Nice to meet you, I'm Joey Licavoli, I can tell you who in Galmair has tasks for you to do."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, ich kann Euch sagen, wer in Galmair Aufgaben für Euch hat.", "Freut mich, Euch zu treffen. Ich bin Joey Licavoli. Ich kann Euch sagen, wer in Galmair Aufgaben für Euch hat."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Be greeted.", "Nice to meet you, I'm Joey Licavoli"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Freut mich, Euch zu treffen. Ich bin Joey Licavoli."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Nice to meet you, I'm Joey Licavoli"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Freut mich, Euch zu treffen. Ich bin Joey Licavoli."
 "Farewell", "Bye", "Fare well", "See you" -> "Thank you so, so much for talking to me. If you need help finding something to do, just come back.", "Please have a good day. If you need help finding something to do, just come back."
 "Tschüß", "Tschüss", "Wiedersehen" -> "Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück.", "Ich wünsche Euch einen schönen Tag. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Thank you so, so much for talking to me. If you need help finding something to do, just come back.", "Please have a good day. If you need help finding something to do, just come back."
@@ -168,5 +168,4 @@ german, ".*" -> "Ihr scheint kein Bürger Galmair zu sein. Ich habe nichts für 
 
 cycletext "Willkommen in Galmair!", "Welcome to Galmair!"
 cycletext "Wenn Ihr Hilfe benötigt, sprecht mich einfach an.", "If you need help, just speak to me."
-cycletext "Ich kann Euch sagen, wer in diesem Reich eure Hilfe benötigt.", "I can tell you who in this realm needs your help."
 cycletext "Wenn Ihr neu hier seid, bin ich Euer Mann.", "If you're new to this realm, I'm your man."

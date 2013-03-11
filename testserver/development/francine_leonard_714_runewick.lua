@@ -16,23 +16,23 @@ Title[ENGLISH] = "Farming and cooking"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Sammel fünf Getreidebündel für Francine Leonard. Um Getreidebündel zu kriegen, musst du das Getreide von Francine auf den Feldern in Yewdale säen. Dazu benutz du das Getreide, während du auf dem Feld stehst. Anschließend musst du warten, bis es reif ist. Sobald es reif ist, nimmst du die Sense in die Hand und schneidest das Getreide zu Getreidebündeln."
-Description[ENGLISH][1] = "Collect five bundles of grain for Francine Leonard. To get the bundles of grain you have to seed the grain which Francine gave you on the fields in Yewdale. To do this just hold the grain in your hand and use it, whilst standing on the field. Once the crop is ready, harvest the ripened grain by holding the scythe you got from Francine in your hand and using it."
-Description[GERMAN][2] = "Geh zu Francine Leonard. Sie hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][2] = "Go back to Francine Leonard, she is sure to have another task for you."
-Description[GERMAN][3] = "Produzier fünf Säcke Mehl für Francine Leonard. Um Mehl zu produzieren, musst du die Getreidebündel mit dem Dreschflegel in der Hand zu Getreide schlagen. Hast du erst einmal Getreide, musst du zum Mühlstein links von Francine. Um anschließend Mehl daraus zu machen, nimmst du die Holzkelle in die Hand und benutzt den Mühlstein."
-Description[ENGLISH][3] = "Produce five sacks of flour for Francine Leonard. To produce flour you have to first thresh the bundles of grain; you do this by using the flail in your hand with the bundles of grain in your inventory. Once you've produced grain from the bundles of grain, go to the millstone on the left-hand side of Francine. To make flour you have to take the wooden shovel in your hand and use the millstone."
-Description[GERMAN][4] = "Geh zu Francine Leonard. Sie hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][4] = "Go back to Francine Leonard, she is sure to have another task for you."
-Description[GERMAN][5] = "Backt fünf Brötchen für Francine Leonard. Um Brötchen zu backen, brauchst du Eimer mit Wasser und Mehl. Im anderen, nördlichen Raum ist ein Backofen. Geh dorthin und nimm den Backofenschieber in die Hand und benutz den Backofen anschließend, um Brötchen zu backen."
-Description[ENGLISH][5] = "Bake five bread rolls for Francine Leonard. To bake bread rolls you need buckets of water and flour. In the other room, north of your current position, is a baking oven. Go there and use the peel in your hand whilst standing in front of the baking oven to bake the bread rolls."
-Description[GERMAN][6] = "Geh zu Francine Leonard. Sie hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][6] = "Go back to Francine Leonard, she is sure to have another task for you."
-Description[GERMAN][7] = "Koch fünf Würstchen für Francine Leonard am Kessel neben ihr. Um Würstchen herzustellen, brauchst Schweinefleisch und Eingeweide. Beides findest du, wenn du Schweine erlegst. Hast du die Zutaten erlangt, kannst du mit dem Kochlöffel in der Hand bei einem Kessel Würstchen daraus machen."
-Description[ENGLISH][7] = "Cook five sausages for Francine Leonard at the kettle next her. To produce sausages you need pork and entrails, both can be obtained if you kill pigs. Once you have the ingredients, you have to take the cooking spoon in your hand and use it whilst standing in front of the kettle."
+
+Description[GERMAN][1] = "Sammel fünf Getreidebündel für Francine Leonard im Untergeschoss des Luftturms. Um Getreidebündel zu kriegen, musst du das Getreide von Francine auf den Feldern in Yewdale säen. Dazu benutz du das Getreide, während du auf dem Feld stehst. Anschließend musst du warten, bis es reif ist. Sobald es reif ist, nimmst du die Sense in die Hand und benutzt diese um das Getreide zu Getreidebündeln zu schneiden. Yewdale ist nördlich des Teleporters."
+Description[ENGLISH][1] = "Collect five bundles of grain for Francine Leonard in the basement of the windtower. To get the bundles of grain you have to seed the grain which Francine gave you on the fields in Yewdale. To do this just hold the grain in your hand and use it, whilst standing on the field. Once the crop is ready, harvest the ripened grain by holding the scythe you got from Francine in your hand and using it. Yewdale is north of the teleporter."
+Description[GERMAN][2] = "Geh zu Francine Leonard, die sich im Untergeschoss des Windturms aufhält. Sie hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][2] = "Go back to Francine Leonard in the basement of the windtower, she is sure to have another task for you."
+Description[GERMAN][3] = "Produzier fünf Säcke Mehl für Francine Leonard im Untergeschoss des Luftturms. Um Mehl zu produzieren, musst du die Getreidebündel mit dem Dreschflegel in der Hand zu Getreide schlagen. Hast du erst einmal Getreide, musst du zum Mühlstein links von Francine. Anschließend benutzt du den Mühlstein mit der Holzkelle in der Hand und machst aus dem Getreide Mehl."
+Description[ENGLISH][3] = "Produce five sacks of flour for Francine Leonard in the basement of the windtower. To produce flour you have to use the flail in your hand with the bundles of grain in your inventory. Once you've produced grain from the bundles of grain, go to the millstone on the left-hand side of Francine. To make flour you have to take the wooden shovel in your hand and use the millstone."
+Description[GERMAN][4] = "Geh zu Francine Leonard, die sich im Untergeschoss des Windturms aufhält. Sie hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][4] = "Go back to Francine Leonard in the basement of the windtower, she is sure to have another task for you."
+Description[GERMAN][5] = "Back fünf Brötchen für Francine Leonard die sich im Untergeschoss des Windturms aufhält. Um Brötchen zu backen, brauchst du Eimer mit Wasser und Mehl. Im anderen, nördlichen Raum ist ein Backofen. Geh dorthin und nimm den Backofenschieber in die Hand und benutz den Backofen anschließend, um Brötchen zu backen."
+Description[ENGLISH][5] = "Bake five bread rolls for Francine Leonard in the basement of the windtower. To bake bread rolls you need buckets of water and flour. In the other room, north of your current position, is a baking oven. Go there and use the peel in your hand whilst standing in front of the baking oven to bake the bread rolls."
+Description[GERMAN][6] = "Geh zu Francine Leonard, die sich im Untergeschoss des Windturms aufhält. Sie hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][6] = "Go back to Francine Leonard in the basement of the windtower, she is sure to have another task for you."
+Description[GERMAN][7] = "Koch für Francine Leonard im Untergeschoss des Luftturms im Kessel vor ihr fünf Würstchen. Um Würstchen herzustellen, brauchst du Schweinefleisch und Eingeweide. Beides findest du, wenn du Schweine erlegst. Hast du die Zutaten besorgt, musst du den Kochlöffel in die Hand nehmen und diesen benutzen, während du vor dem Kessel stehst."
+Description[ENGLISH][7] = "Cook for Francine Leonard at the fields of Galmair five sausages at the kettle next her. To produce sausages you need pork and entrails, both can be obtained if you kill pigs. Once you have the ingredients, you have to take the cooking spoon in your hand and use it while standing in front of a kettle."
 Description[GERMAN][8] = "Du hast alle Aufgaben von Francine Leonard erfüllt."
 Description[ENGLISH][8] = "You have fulfilled all the tasks for Francine Leonard."
-
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
