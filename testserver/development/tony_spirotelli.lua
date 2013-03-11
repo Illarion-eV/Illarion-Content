@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -172,7 +172,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I'm carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do.");
+talkEntry:addResponse("I'm a carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -185,7 +185,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I'm carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do.");
+talkEntry:addResponse("I'm a carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -450,7 +450,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2752, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2738, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 5));
-talkEntry:addResponse("Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce 25 pins and cotters for me using these carving tools and this 25 pins I'll give you.");
+talkEntry:addResponse("Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools and these twenty five pins I'll give you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -475,7 +475,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2752, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2738, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 5));
-talkEntry:addResponse("Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce 25 pins and cotters for me using these carving tools this 25 pins I'll give you.");
+talkEntry:addResponse("Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools this twenty five pins I'll give you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -555,7 +555,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2717, "all", "<", 25, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I wanted 25 pins and cotters, come back once you have fulfilled this task.");
+talkEntry:addResponse("I wanted twenty five pins and cotters, come back once you have fulfilled this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -591,7 +591,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(710, "<", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I could need some help, just ask me for a task.");
+talkEntry:addResponse("I could use some help, just ask me for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

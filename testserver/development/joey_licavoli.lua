@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -267,7 +267,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("craft");
-talkEntry:addResponse("You want to know more about the crafts of Galmair? Well then go and visit Thorgrem Silverbeard, Seleseth, Tony Spirotelli or Hannah Shepard, they can tell you more about the crafts than me. You can find them all except Hannah Shepard in the workshop. Hannah is by the fields behind me.");
+talkEntry:addResponse("You want to know more about the crafts of Galmair? Well then go and visit Thorgrem Silverbeard, Seleseth, Tony Spirotelli or Hannah Shepard, they can tell you more about the crafts than me. You can find all of them except Hannah Shepard in the workshop. Hannah is by the fields behind me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -325,7 +325,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 3));
-talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop of Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
+talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop in Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -346,7 +346,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 3));
-talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop of Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
+talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop in Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -368,7 +368,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop of Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
+talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop in Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -387,7 +387,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop of Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
+talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop in Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -867,7 +867,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(712, "<", 14));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I could need some help, just ask me for a task.");
+talkEntry:addResponse("I could use some help, just ask me for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -883,7 +883,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("You are not a citizen of Galmair. I don't have anything to do for you.");
+talkEntry:addResponse("You are not a citizen of Galmair. I don't have anything for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
