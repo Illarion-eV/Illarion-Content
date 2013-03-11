@@ -125,6 +125,11 @@ queststatus(317) > 0, queststatus(703) = 5, town = Cadomyr, "Auftrag", "Aufgabe"
 
 -- 1st quest: Bring 5 bottles of water, reward 3000cp + metall schild +5 rankpoints
 -- Give out quest 1
+queststatus(317) = 0, queststatus(703) = 5, town = Cadomyr, english, "quest", "mission" -> inform("[New quest] Writing History I"), queststatus(317) = 1, queststatus(703) = 6, "You want to help me? Well... Could you bring me five bottles of water, please? I lost mine."
+queststatus(317) = 0, queststatus(703) = 5, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Geschichte schreiben I"), queststatus(317) = 1, queststatus(703) = 6, "Du möchtest mir helfen? Nun,... Kannst du mir bitte fünf Flaschen voll Wasser bringen? Ich habe meine verloren."
+queststatus(317) = 0, queststatus(703) = 5, town = Cadomyr, "task", "adventure", "message" -> inform("[New quest]  Writing history I"), queststatus(317) = 1, queststatus(703) = 6, "You want to help me? Well... Could you bring me five bottles of water, please? I lost mine."
+queststatus(317) = 0, queststatus(703) = 5, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Geschichte schreiben I"), queststatus(317) = 1, queststatus(703) = 6, "Du möchtest mir helfen? Nun,... Kannst du mir bitte fünf Flaschen voll Wasser bringen? Ich habe meine verloren."
+
 queststatus(317) = 0, english, "quest", "mission" -> inform("[New quest] Writing History I"), queststatus(317) = 1, "You want to help me? Well... Could you bring me five bottles of water, please? I lost mine."
 queststatus(317) = 0, "quest", "mission" -> inform("[Neues Quest] Geschichte schreiben I"), queststatus(317) = 1, "Du möchtest mit helfen? Nun,... Kannst du mir bitte fünf Flaschen voll Wasser bringen? Ich habe meine verloren."
 queststatus(317) = 0, "task", "adventure", "message" -> inform("[New quest]  Writing history I"), queststatus(317) = 1, "You want to help me? Well... Could you bring me five bottles of water, please? I lost mine."
