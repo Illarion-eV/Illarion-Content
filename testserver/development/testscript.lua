@@ -58,11 +58,11 @@ function onAttack(Attacker, Defender)
     LoadWeapons(Attacker);
     -- Check the range between the both fighting characters
 
+	-- Find out the attack type and the required combat skill
+	GetAttackType(Attacker);
 
     if not CheckRange(Attacker, Defender.Char) then return false; end;
-
-    -- Find out the attack type and the required combat skill
-    GetAttackType(Attacker);
+    
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then 
         return false; 
@@ -540,6 +540,7 @@ function CheckRange(AttackerStruct, Defender)
     end
 
     if (distance <= 2 and AttackerStruct.AttackKind == 4) then
+		--AttackerStruct.Char:inform("I acknowledge that bows shouldn't fire."); --Debugging
         return false;
     end
     if AttackerStruct.IsWeapon then
