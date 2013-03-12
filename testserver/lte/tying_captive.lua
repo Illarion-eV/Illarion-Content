@@ -119,11 +119,11 @@ function loadEffect( Tying, Captive )
 	
 	foundCapturer, Capturer = Tying:findValue("Capturer");
 	if not IsEffectInLogoutTime(Tying, Captive) then
-		local logText = os.date()..": "..Captive.name.." logs in again. "..(foundCapturer and " Capturer: "..Capturer or "").." Time limit exceeded"
-		logToFile(logText);
+		local logText = "[Rope]: "..Captive.name.." logs in again. "..(foundCapturer and " Capturer: "..Capturer or "").." Time limit exceeded"
+		log(logText);
 	else
-		local logText = os.date()..": "..Captive.name.." logs in again. "..(foundCapturer and " Capturer: "..Capturer or "").." Within time limit"
-		logToFile(logText);
+		local logText = "[Rope]: "..Captive.name.." logs in again. "..(foundCapturer and " Capturer: "..Capturer or "").." Within time limit"
+		log(logText);
 	end
 	Tying:removeValue("logout");
 end
