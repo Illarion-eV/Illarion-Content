@@ -51,7 +51,7 @@ function onAttack(Attacker, Defender)
     local Defender = { ["Char"]=Defender };
     local Globals = {};
 
-	AttackerStruct.Char:inform("Checkpoint 1"); --Debugging
+	Attacker.Char:inform("Checkpoint 1"); --Debugging
 
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
@@ -59,7 +59,7 @@ function onAttack(Attacker, Defender)
     LoadWeapons(Attacker);
     -- Check the range between the both fighting characters
 
-	AttackerStruct.Char:inform("Checkpoint 2"); --Debugging
+	Attacker.Char:inform("Checkpoint 2"); --Debugging
 
     if not CheckRange(Attacker, Defender.Char) then return false; end;
 
