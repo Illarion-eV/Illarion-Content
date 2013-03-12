@@ -214,7 +214,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("florain");
 talkEntry:addTrigger("dreyndel");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkEntry:addResponse("Ah, Florain hat Euch geschickt. Aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -239,7 +239,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkEntry:addResponse("Ah, Florain hat Euch geschickt. Aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -418,7 +418,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(715, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(170, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Das sind noch keine 20 Wollballen, die ich haben wollte. Kommt wiede, wenn Ihr die Aufgabe erledigt habt.");
+talkEntry:addResponse("Das sind noch keine 20 Wollballen, die ich haben wollte. Kommt wieder, wenn Ihr die Aufgabe erledigt habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -878,7 +878,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2781, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(178, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 9));
-talkEntry:addResponse("Nun gut eine letzte Aufgabe für Euch. Ihr sollt mir fünf rote Stoffe färben. Dazu braucht Ihr einen Färbestab, weißen Stoff und natürlich die Eimer mit Farbe. Wenn Ihr grauen Stoff lang genug in der Sonne liegen lasst, wird er weiß. Hier ich gebe euch meinen alten Färbestab außerdem noch etwas weißen Stoff. Geht zum schwarzen Fass da vorne und stellt mir die fünf Rollen roten Stoff her.");
+talkEntry:addResponse("Nun gut, eine letzte Aufgabe für Euch. Ihr sollt mir fünf rote Stoffe färben. Dazu braucht Ihr einen Färbestab, weißen Stoff und natürlich die Eimer mit Farbe. Wenn Ihr grauen Stoff lang genug in der Sonne liegen lasst, wird er weiß. Hier ich gebe euch meinen alten Färbestab, außerdem noch etwas weißen Stoff. Geht zum schwarzen Fass da vorne und stellt mir die fünf Rollen roten Stoff her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1001,7 +1001,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ihr scheint kein Bürger Runewick zu sein. Ich habe nichts für Euch zu tun.");
+talkEntry:addResponse("Ihr scheint kein Bürger Runewicks zu sein. Ich habe nichts für Euch zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
