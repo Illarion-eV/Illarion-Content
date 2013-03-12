@@ -1,7 +1,6 @@
 -- Fighting System
 -- All fights are handled with this script
--- Written by martin, Nitram and Xandrina
--- Rebalanced by Estralis and Flux
+-- Written by Flux
 
 
 --[[ Weapontypes:
@@ -60,6 +59,7 @@ function onAttack(Attacker, Defender)
 
     if not CheckRange(Attacker, Defender.Char) then return false; end;
 
+	Attacker.Char:inform("Works to here."); --Debugging
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker);
     -- Check if the attack is good to go (possible weapon configuration)
