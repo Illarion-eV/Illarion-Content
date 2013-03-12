@@ -722,11 +722,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
 talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches his head.");
-<<<<<<< HEAD
 talkingNPC:addCycleText("Wenn ihr Hilfe beim kerzenmachen braucht dann fragt nur mich!", "If you need any help with candle making, just ask me!");
-=======
-talkingNPC:addCycleText("Wenn ihr Hilfe beim Kerzenmachen braucht, dann fragt nur mich!", "If you need any help in candle making, just ask me!");
->>>>>>> ac4462071a2c15004719b3a2b57c21dfd15032ca
 talkingNPC:addCycleText("#me g‰hnt verhalten.", "#me yawns restrained.");
 talkingNPC:addCycleText("#me schaut sich kurz um und kratzt sich anschlieﬂend an seinem Hintern.", "#me looks around briefly and scratches his bum.");
 mainNPC:addLanguage(0);
