@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (708, 'quest.thorgrem silverbeard_708_galmair');
 
 require("base.common")
-module("development.thorgrem silverbeard_708_galmair", package.seeall)
+module("quest.thorgrem silverbeard_708_galmair", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english

@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.zlatxhol", package.seeall)
+module("npc.zlatxhol", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();

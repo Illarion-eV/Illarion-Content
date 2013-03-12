@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.tony_spirotelli", package.seeall)
+module("npc.tony_spirotelli", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -448,7 +448,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2752, 1, 777, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(2738, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(2738, 25, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 5));
 talkEntry:addResponse("Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools and these twenty five pins I'll give you.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -460,7 +460,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2752, 1, 777, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(2738, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(2738, 25, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 5));
 talkEntry:addResponse("Gut, nun geh hinaus und sammel bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komm hierher zurück und stell aus den Ästen 25 Nägel und Keile her, dazu brauchst du ein Schnitzmesser, dass ich dir gebe und diese 25 Nägel.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -473,7 +473,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2752, 1, 777, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(2738, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(2738, 25, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 5));
 talkEntry:addResponse("Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools this twenty five pins I'll give you.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -487,7 +487,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2752, 1, 777, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(2738, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(2738, 25, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 5));
 talkEntry:addResponse("Gut, nun geh hinaus und sammel bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komm hierher zurück und stell aus den Ästen 25 Nägel und Keile her, dazu brauchst du ein Schnitzmesser, dass ich dir gebe und diese 25 Nägel.");
 talkingNPC:addTalkingEntry(talkEntry);
