@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (710, 'quest.tony_spirotelli_710_galmair');
 
 require("base.common")
-module("development.tony_spirotelli_710_galmair", package.seeall)
+module("quest.tony_spirotelli_710_galmair", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english

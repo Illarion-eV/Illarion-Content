@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (709, 'quest.seleseth_709_galmair');
 
 require("base.common")
-module("development.seleseth_709_galmair", package.seeall)
+module("npc.seleseth_709_galmair", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english

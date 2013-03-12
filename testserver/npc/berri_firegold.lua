@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.berri_firegold", package.seeall)
+module("npc.berri_firegold", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();

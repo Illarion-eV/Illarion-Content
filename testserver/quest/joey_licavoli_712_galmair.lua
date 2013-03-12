@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (712, 'quest.joey_licavoli_712_galmair');
 
 require("base.common")
-module("development.joey_licavoli_712_galmair", package.seeall)
+module("quest.joey_licavoli_712_galmair", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -32,16 +32,16 @@ Description[GERMAN][7] = "Finde Charwis Irongate und frag ihn, ob er eine Aufgab
 Description[ENGLISH][7] = "Find Charwis Irongate and ask him if he has a task for you. Charwis Irongate can be found at the marketplace in Galmair. The marketplace is south of the palace."
 Description[GERMAN][8] = "Geh zu Joey Licavoli beim Teleporter in Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][8] = "Go to Joey Licavoli at the teleporter of Galmair, he is sure to have another task for you."
-Description[GERMAN][9] = "Bruno Blackhole hat eine Aufgabe für dich. Geh und such ihn in der Malachitmine. Die Malachitmine findest du, wenn du von der Werkstatt aus nach Südosten gehst."
+Description[GERMAN][9] = "Bruno Blackhole hat eine Aufgabe für dich. Geh und such ihn in der Malachitmine. Die Malachitmine findest du, wenn du von der Werkstatt aus nach Süd gehst, daraufhin die Brücke überquerst und anschließend nach Südosten gehst."
 Description[ENGLISH][9] = "Bruno Blackhole has a task for you, go and search for him at the Malachite Mine. The Malachite Mine can be found if you follow the street to the south from the workshop."
 Description[GERMAN][10] = "Geh zu Joey Licavoli beim Teleporter in Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][10] = "Go to Joey Licavoli at the teleporter of Galmair, he is sure to have another task for you."
-Description[GERMAN][11] = "Gretel Goldhair hat nach dir gefragt. Such sie in der Krone Galmairs und frag sie nach einer Aufgabe."
-Description[ENGLISH][11] = "Gretel Goldhair was looking for you. Search for her in Galmair's Crest and ask her for a task."
+Description[GERMAN][11] = "Gretel Goldhair hat nach dir gefragt. Such sie im Thronsaal in der Krone Galmairs und frag sie nach einer Aufgabe."
+Description[ENGLISH][11] = "Gretel Goldhair was looking for you. Search for her in the throne room in Galmair's Crest and ask her for a task."
 Description[GERMAN][12] = "Geh zu Joey Licavoli beim Teleporter in Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][12] = "Go to Joey Licavoli at the teleporter of Galmair, he is sure to have another task for you."
-Description[GERMAN][13] = "Groktan Flintsplit hat vielleicht eine Aufgabe für dich. Such ihn in Galmair und frag, was du für ihn tun kannst. Groktan Flintsplit hält sich in dem Gebäude mit dem roten Dach im Osten des Palastes auf."
-Description[ENGLISH][13] = "Groktan Flintsplit probably has a task for you. Search for him in Galmair and ask him for a task. Groktan Flintsplit can be found in the building with the red roof east of the palace."
+Description[GERMAN][13] = "Groktan Flintsplit hat vielleicht eine Aufgabe für dich. Such ihn im Haus des Schuldeneintreibers und frag, was du für ihn tun kannst. Groktan Flintsplit hält sich in dem Gebäude mit dem roten Ziegeldachach im Osten des Palastes auf."
+Description[ENGLISH][13] = "Groktan Flintsplit probably has a task for you. Search for him in the house of the debt-collector and ask him for a task. Groktan Flintsplit can be found in the building with the red roof east of the palace."
 Description[GERMAN][14] = "Du hast alle Aufgaben von Joey Licavoli erfüllt."
 Description[ENGLISH][14] = "You have fulfilled all the tasks for Joey Licavoli."
 

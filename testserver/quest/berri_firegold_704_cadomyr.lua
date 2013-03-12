@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (704, 'quest.berri_firegold_704_cadomyr');
 
 require("base.common")
-module("development.berri_firegold_704_cadomyr", package.seeall)
+module("quest.berri_firegold_704_cadomyr", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
