@@ -540,7 +540,7 @@ function CheckRange(AttackerStruct, Defender)
     end
 
     if (distance <= 2 and AttackerStruct.AttackKind == 4) then
-		AttackerStruct.Char:inform("I acknowledge that bows shouldn't fire."); --Debugging
+		--AttackerStruct.Char:inform("I acknowledge that bows shouldn't fire."); --Debugging
         return false;
     end
     if AttackerStruct.IsWeapon then
