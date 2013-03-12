@@ -539,6 +539,7 @@ function CheckRange(AttackerStruct, Defender)
     end
 
     if (distance <= 2 and AttackerStruct.AttackKind == 4) then
+		AttackerStruct.Char:inform("You can't be serious"); --Debugging
         return false;
     end
     if AttackerStruct.IsWeapon then
