@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (709, 'quest.seleseth_709_galmair');
 
 require("base.common")
-module("development.seleseth_709_galmair", package.seeall)
+module("npc.seleseth_709_galmair", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -24,8 +24,8 @@ Description[GERMAN][3] = "Stell zehn Ziegel am Glassschmelzofen für Seleseth in 
 Description[ENGLISH][3] = "Produce ten bricks in the glass melting oven for Seleseth in Galmair. To produce the bricks, you have to take the brick mould in your hand and use the oven. First of all you will produce unfired bricks, then you repeat the action again to produce fired bricks."
 Description[GERMAN][4] = "Geh zu Seleseth in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][4] = "Go to Seleseth in the workshop of Galmair, he is sure to have another task for you."
-Description[GERMAN][5] = "Schleif zehn Amethysten für Seleseth mit der Zange am Edelsteinschleifer in der Werkstatt von Galmair. Um den Edelsteinschleifer zu benutzen, brauchst du rohe Edelsteine und eine Zange in der Hand. Rohe Edelsteine findet man beim schürfen in der Mine."
-Description[ENGLISH][5] = "Grind ten amethysts for Seleseth using the tongs he gave you at the gem grinder in the workshop of Galmair. You can use the gem grinder if you have raw gems and hold the tongs in your hand. You can find raw gems in the mines whilst mining."
+Description[GERMAN][5] = "Schleif acht Amethysten für Seleseth mit der Zange am Edelsteinschleifer in der Werkstatt von Galmair. Um den Edelsteinschleifer zu benutzen, brauchst du rohe Edelsteine und eine Zange in der Hand. Rohe Edelsteine findet man beim schürfen in der Mine."
+Description[ENGLISH][5] = "Grind eight amethysts for Seleseth with the tongs he gave you at the gem grinder in the workshop of Galmair. You can use the gem grinder if you have raw gems and hold the tongs in your hand. You can find raw gems in the mines whilst mining."
 Description[GERMAN][6] = "Geh zu Seleseth in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][6] = "Go to Seleseth in the workshop of Galmair, he is sure to have another task for you."
 Description[GERMAN][7] = "Geh erneut zum Edelsteinschleifer und mach für Seleseth zwei Beutel Amethyststaub aus den acht geschliffenen Amethysten."
@@ -33,7 +33,7 @@ Description[ENGLISH][7] = "Go once again to the gem grinder and produce two bags
 Description[GERMAN][8] = "Geh zu Seleseth in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][8] = "Go to Seleseth in the workshop of Galmair, he is sure to have another task for you."
 Description[GERMAN][9] = "Stell für Seleseth in der Werkstatt von Galmair aus den zwei rohen Steinen 20 kleine Steine her. Um kleine Steine herzustellen, musst du den Meisel in die Hand nehmen und rohe Steine bei dir haben. Anschließend benutz du den Meisel, um aus den rohen Steinen Steinquader zu machen. Aus den gewonnen Steinquadarn lassen sich kleine Steine herstellen, wenn man die Prozedur wiederholt. Rohe Steine lassen sich in der Mine als Nebenprodukt beim Abbau finden. Die kleinen Steine können mit einer Schleuder in der Hand als Waffe genutzt werden."
-Description[ENGLISH][9] = "Produce 20 small stones from the two raw stones for Seleseth at the workshop of Galmair. To produce the small stones you need to take the chisel in your hand and use it whilst you have raw stones in your inventory. Once you have made stone blocks you repeat the process again to make small stones. You can find raw stones whilst mining. Furthermore you can use the small stones together with a sling as a weapon."
+Description[ENGLISH][9] = "Produce twenty small stones from the two raw stones for Seleseth at the workshop of Galmair. To produce the small stones you need to take the chisel in your hand and use it, whilst you have raw stones in your inventory. Once you have made stone blocks you repeat the process again to make small stones. You can find raw stones whilst mining. Furthermore you can use the small stones together with a sling as a weapon."
 Description[GERMAN][10] = "Du hast alle Aufgaben von Seleseth erfüllt."
 Description[ENGLISH][10] = "You have fulfilled all the tasks for Seleseth."
 

@@ -21,7 +21,7 @@ require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.joey_licavoli", package.seeall)
+module("npc.joey_licavoli", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -267,7 +267,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("craft");
-talkEntry:addResponse("You want to know more about the crafts of Galmair? Well then go and visit Thorgrem Silverbeard, Seleseth, Tony Spirotelli or Hannah Shepard, they can tell you more about the crafts than me. You can find them all except Hannah Shepard in the workshop. Hannah is by the fields behind me.");
+talkEntry:addResponse("You want to know more about the crafts of Galmair? Well then go and visit Thorgrem Silverbeard, Seleseth, Tony Spirotelli or Hannah Shepard, they can tell you more about the crafts than me. You can find all of them except Hannah Shepard in the workshop. Hannah is by the fields behind me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -325,7 +325,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 3));
-talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop of Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
+talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop in Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -346,7 +346,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 3));
-talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop of Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
+talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop in Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -368,7 +368,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop of Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
+talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop in Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -387,7 +387,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop of Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
+talkEntry:addResponse("You're back. Good. Now you can search Thorgrem Silverbeard at the workshop in Galmair. The workshop is west of here, just before the palace, it's the building with the brownish roof. Come back again if you want more tasks from me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -577,7 +577,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 9));
-talkEntry:addResponse("Ah... there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the Malachite Mine, which you can find if you enter the city and follow the street to the south east.");
+talkEntry:addResponse("Ah... there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the Malachite Mine, which you can find if you enter the city and follow the street to the south. Once you are at the bridge follow the street to the south east.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -587,7 +587,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 9));
-talkEntry:addResponse("Ah..da seid Ihr ja wieder. Geht doch bitte zu Bruno Blackhole er hat eine Aufgabe für euch sagte er mir. Ihr könnt ihn in der Malachitmine finden, die Mine findet Ihr, wenn Ihr die Stadt betretet und der Straße nach Südosten folgt.");
+talkEntry:addResponse("Ah..da seid Ihr ja wieder. Geht doch bitte zu Bruno Blackhole er hat eine Aufgabe für euch sagte er mir. Ihr könnt ihn in der Malachitmine finden, die Mine findet Ihr, wenn Ihr die Stadt betretet und der Straße nach Süden folgt. Anschließend überquert Ihr die Brücke und folgt der Straße nach Südosten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -598,7 +598,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 9));
-talkEntry:addResponse("Ah... there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the Malachite Mine, which you can find if you enter the city and follow the street to the south east.");
+talkEntry:addResponse("Ah... there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the Malachite Mine, which you can find if you enter the city and follow the street to the south. Once you are at the bridge follow the street to the south east.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -610,7 +610,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 9));
-talkEntry:addResponse("Ah..da seid Ihr ja wieder. Geht doch bitte zu Bruno Blackhole er hat eine Aufgabe für euch sagte er mir. Ihr könnt ihn in der Malachitmine finden, die Mine findet Ihr, wenn Ihr die Stadt betretet und der Straße nach Südosten folgt.");
+talkEntry:addResponse("Ah..da seid Ihr ja wieder. Geht doch bitte zu Bruno Blackhole er hat eine Aufgabe für euch sagte er mir. Ihr könnt ihn in der Malachitmine finden, die Mine findet Ihr, wenn Ihr die Stadt betretet und der Straße nach Süden folgt. Anschließend überquert Ihr die Brücke und folgt der Straße nach Südosten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -620,7 +620,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ah... there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the Malachite Mine, which you can find if you enter the city and follow the street to the south east.");
+talkEntry:addResponse("Ah... there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the Malachite Mine, which you can find if you enter the city and follow the street to the south. Once you are at the bridge follow the street to the south east.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,7 +629,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(712, "=", 9));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ah..da seid Ihr ja wieder. Geht doch bitte zu Bruno Blackhole er hat eine Aufgabe für euch sagte er mir. Ihr könnt ihn in der Malachitmine finden, die Mine findet Ihr, wenn Ihr die Stadt betretet und der Straße nach Südosten folgt.");
+talkEntry:addResponse("Ah..da seid Ihr ja wieder. Geht doch bitte zu Bruno Blackhole er hat eine Aufgabe für euch sagte er mir. Ihr könnt ihn in der Malachitmine finden, die Mine findet Ihr, wenn Ihr die Stadt betretet und der Straße nach Südosten folgt. Anschließend überquert Ihr die Brücke und folgt der Straße nach Südosten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -639,7 +639,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Ah... there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the Malachite Mine, which you can find if you enter the city and follow the street to the south east.");
+talkEntry:addResponse("Ah... there you are again. Please go to Bruno Blackhole, he told me he has a task for you. You can find him in the Malachite Mine, which you can find if you enter the city and follow the street to the south. Once you are at the bridge follow the street to the south east.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -650,7 +650,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ah..da seid Ihr ja wieder. Geht doch bitte zu Bruno Blackhole er hat eine Aufgabe für euch sagte er mir. Ihr könnt ihn in der Malachitmine finden, die Mine findet Ihr, wenn Ihr die Stadt betretet und der Straße nach Südosten folgt.");
+talkEntry:addResponse("Ah..da seid Ihr ja wieder. Geht doch bitte zu Bruno Blackhole er hat eine Aufgabe für euch sagte er mir. Ihr könnt ihn in der Malachitmine finden, die Mine findet Ihr, wenn Ihr die Stadt betretet und der Straße nach Südosten folgt. Anschließend überquert Ihr die Brücke und folgt der Straße nach Südosten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -661,7 +661,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 11));
-talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the palace and ask her for a task.");
+talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the thron room in the palace and ask her for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -671,7 +671,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 11));
-talkEntry:addResponse("Gretel Goldhair, die Schatzmeisterin hat eine kleine Aufgabe für Euch. Geht doch bitte in den Palast und fragt sie nach einer Aufgabe.");
+talkEntry:addResponse("Gretel Goldhair, die Schatzmeisterin hat eine kleine Aufgabe für Euch. Geht doch bitte in den Thronsaal des Palastes und fragt sie nach einer Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -682,7 +682,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 11));
-talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the palace and ask her for a task.");
+talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the thron room in the palace and ask her for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,7 +694,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 11));
-talkEntry:addResponse("Gretel Goldhair, die Schatzmeisterin hat eine kleine Aufgabe für Euch. Geht doch bitte in den Palast und fragt sie nach einer Aufgabe.");
+talkEntry:addResponse("Gretel Goldhair, die Schatzmeisterin hat eine kleine Aufgabe für Euch. Geht doch bitte in den Thronsaal des Palastes und fragt sie nach einer Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -704,7 +704,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the palace and ask her for a task.");
+talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the thron room in the palace and ask her for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -713,7 +713,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(712, "=", 11));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Gretel Goldhair, die Schatzmeisterin hat eine kleine Aufgabe für Euch. Geht doch bitte in den Palast und fragt sie nach einer Aufgabe.");
+talkEntry:addResponse("Gretel Goldhair, die Schatzmeisterin hat eine kleine Aufgabe für Euch. Geht doch bitte in den Thronsaal des Palastes und fragt sie nach einer Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -723,7 +723,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the palace and ask her for a task.");
+talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the thron room in the palace and ask her for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -734,7 +734,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Gretel Goldhair, die Schatzmeisterin hat eine kleine Aufgabe für Euch. Geht doch bitte in den Palast und fragt sie nach einer Aufgabe.");
+talkEntry:addResponse("Gretel Goldhair, die Schatzmeisterin hat eine kleine Aufgabe für Euch. Geht doch bitte in den Thronsaal des Palastes und fragt sie nach einer Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -745,7 +745,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 13));
-talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the building with the red roof, shortly before the palace.");
+talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the house of the debt collector. That is the building with the red roof, shortly before the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -755,7 +755,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 13));
-talkEntry:addResponse("Groktan Flintsplit hat eine Aufgabe für Euch, besucht ihn doch bitte in dem Gebäude mit dem roten Dach kurz vor dem Palast.");
+talkEntry:addResponse("Groktan Flintsplit hat eine Aufgabe für Euch, besucht ihn doch bitte im Haus des Schuldeneintreibers. Es ist das Gebäude mit dem roten Ziegeldachach kurz vor dem Palast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -766,7 +766,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 13));
-talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the building with the red roof, shortly before the palace.");
+talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the house of the debt collector. That is the building with the red roof, shortly before the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -778,7 +778,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 13));
-talkEntry:addResponse("Groktan Flintsplit hat eine Aufgabe für Euch, besucht ihn doch bitte in dem Gebäude mit dem roten Dach kurz vor dem Palast.");
+talkEntry:addResponse("Groktan Flintsplit hat eine Aufgabe für Euch, besucht ihn doch bitte im Haus des Schuldeneintreibers. Es ist das Gebäude mit dem roten Ziegeldachach kurz vor dem Palast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -788,7 +788,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the building with the red roof, shortly before the palace.");
+talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the house of the debt collector. That is the building with the red roof, shortly before the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -797,7 +797,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(712, "=", 13));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Groktan Flintsplit hat eine Aufgabe für Euch, besucht ihn doch bitte in dem Gebäude mit dem roten Dach kurz vor dem Palast.");
+talkEntry:addResponse("Groktan Flintsplit hat eine Aufgabe für Euch, besucht ihn doch bitte im Haus des Schuldeneintreibers. Es ist das Gebäude mit dem roten Ziegeldachach kurz vor dem Palast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -807,7 +807,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the building with the red roof, shortly before the palace.");
+talkEntry:addResponse("Groktan Flintsplit has a task for you, please visit him in the house of the debt collector. That is the building with the red roof, shortly before the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -818,7 +818,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Groktan Flintsplit hat eine Aufgabe für Euch, besucht ihn doch bitte in dem Gebäude mit dem roten Dach kurz vor dem Palast.");
+talkEntry:addResponse("Groktan Flintsplit hat eine Aufgabe für Euch, besucht ihn doch bitte im Haus des Schuldeneintreibers. Es ist das Gebäude mit dem roten Ziegeldachach kurz vor dem Palast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -867,7 +867,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(712, "<", 14));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I could need some help, just ask me for a task.");
+talkEntry:addResponse("I could use some help, just ask me for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -883,7 +883,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("You are not a citizen of Galmair. I don't have anything to do for you.");
+talkEntry:addResponse("You are not a citizen of Galmair. I don't have anything for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

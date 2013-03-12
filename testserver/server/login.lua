@@ -411,6 +411,7 @@ function payNow(User)
 	
     tax=math.floor(val*taxHeight);
     local totTax=tax; -- total tax to pay
+	log("[taxes] "..User.id.."; paid: "..totTax)
 	
 	-- try to get the payable tax from the depots first
 	for i=1, #(depNr) do

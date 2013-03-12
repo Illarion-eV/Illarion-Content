@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (707, 'quest.zlatxhol_707_cadomyr');
 
 require("base.common")
-module("development.zlatxhol_707_cadomyr", package.seeall)
+module("quest.zlatxhol_707_cadomyr", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english

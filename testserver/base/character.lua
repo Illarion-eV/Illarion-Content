@@ -83,3 +83,10 @@ function DeathAfterTime(Character,deathAfter,deathGfx,deathSound)
 		Character.effects:addEffect(myEffect)
     end
 end	
+
+-- Get a string that is nicely usable for a character reference in the logfile
+-- @param character the character
+-- @return the reference string to the character for the logfile
+function LogText(character)
+	return string.format("%s (%u)", character.name, character.id);
+end;

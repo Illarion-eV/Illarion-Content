@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (708, 'quest.thorgrem silverbeard_708_galmair');
 
 require("base.common")
-module("development.thorgrem silverbeard_708_galmair", package.seeall)
+module("quest.thorgrem silverbeard_708_galmair", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -17,15 +17,15 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammel 20 Klumpen Kohle und 20 Brocken Eisenerz und bring diese zu Thorgrem Silverbeard bei der Werkstatt von Galmair. Wenn du aus der Werkstatt die südliche Tür hinaus nimmst, der Straße nach Süden folgst bis du zu einer Brücke gelangst und anschließend weiter nach Südosten gehst, erreichst du die Malachitmine. Zur Dunkellochmine gelangst du, wenn du die Stadt im Osten verlässt, der Straße nach Osten folgst, die goldene Brücke überquerst und anschließend die goldene Brücke im Norden nochmals überquerst. Nach der Brücke nimmst du den Weg nach Westen und überquerst die Holzbrücke und dann hast du dein Ziel erreicht."
-Description[ENGLISH][1] = "Collect 20 lumps of coal and 20 pieces of iron ore and take them to Thorgrem Silverbeard at the workshop of Galmair. You can find the Malachite Mine if you leave the workshop through the south door and follow the street south until you reach a bridge; over the bridge you follow the street south east and then you are there. To find the Dark Hole Mine you have to leave the city to the east, then you follow the street, crossing a golden bridge and bearing north until you reach another bridge; again you go over a bridge and follow the street to the west where you just need to go over the wooden bridge to get to the mine." 
+Description[ENGLISH][1] = "Collect twenty lumps of coal and twenty pieces of iron ore and take them to Thorgrem Silverbeard at the workshop in Galmair. You can find the Malachite Mine if you leave the workshop through the south door and follow the street south until you reach a bridge; over the bridge you follow the street south east and then you are there. To find the Dark Hole Mine you have to leave the city to the east, then you follow the street, crossing a golden bridge and bearing north until you reach another bridge; again you go over a bridge and follow the street to the west where you just need to go over the wooden bridge to get to the mine." 
 Description[GERMAN][2] = "Geh zu Thorgrem Silverbeard in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][2] = "Go to Thorgrem Silverbeard at the workshop of Galmair, he is sure to have another task for you."
+Description[ENGLISH][2] = "Go to Thorgrem Silverbeard at the workshop in Galmair, he is sure to have another task for you."
 Description[GERMAN][3] = "Schmilz zehn Eisenbarren für Thorgrem Silverbeard an der Esse in Galmair. Um die Barren herzustellen, musst du die Tiegelzange in die Hand nehmen und die Esse benutzen, wenn du vor ihr stehst."
-Description[ENGLISH][3] = "Smelt ten iron ingots for Thorgrem Silverbeard at the furnace of Galmair. To smelt the ingots you have to take the crucible-pincers in your hand and use the furnace."
+Description[ENGLISH][3] = "Smelt ten iron ingots for Thorgrem Silverbeard at the furnace in Galmair's workshop. To smelt the ingots you have to take the crucible-pincers in your hand and use the furnace."
 Description[GERMAN][4] = "Geh zu Thorgrem Silverbeard in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][4] = "Go to Thorgrem Silverbeard at the workshop of Galmair, he is sure to have another task for you."
+Description[ENGLISH][4] = "Go to Thorgrem Silverbeard at the workshop in Galmair, he is sure to have another task for you."
 Description[GERMAN][5] = "Schmiede fünf Nägel und fünf Kelche für Thorgrem Silverbeard bei der Werkstatt von Galmair. Für die Nägel musst du den Hammer mit dem gelben Griff benutzen. Für die Kelche nimmst du den Feinschmiedehammer mit dem roten Griff."
-Description[ENGLISH][5] = "Smith five pins and five goblets for Thorgrem Silverbeard at the workshop of Galmair. For the pins you have to use the hammer with the yellow handle, for the goblets use the finesmithing hammer with the red handle."
+Description[ENGLISH][5] = "Smith five pins and five goblets for Thorgrem Silverbeard at the workshop of Galmair. To smith you need to stand facing the anvil. For the pins you have to use the hammer with the yellow handle, for the goblets use the finesmithing hammer with the red handle."
 Description[GERMAN][6] = "Du hast alle Aufgaben von Thorgrem Silverbeard erfüllt."
 Description[ENGLISH][6] = "You have fulfilled all the tasks for Thorgrem Silverbeard."
 
