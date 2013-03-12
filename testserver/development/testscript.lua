@@ -51,7 +51,6 @@ function onAttack(Attacker, Defender)
     local Defender = { ["Char"]=Defender };
     local Globals = {};
 
-	Attacker.Char:inform("Checkpoint 1"); --Debugging
 
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
@@ -59,11 +58,9 @@ function onAttack(Attacker, Defender)
     LoadWeapons(Attacker);
     -- Check the range between the both fighting characters
 
-	Attacker.Char:inform("Checkpoint 2"); --Debugging
 
     if not CheckRange(Attacker, Defender.Char) then return false; end;
 
-	Attacker.Char:inform("Works to here."); --Debugging
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker);
     -- Check if the attack is good to go (possible weapon configuration)

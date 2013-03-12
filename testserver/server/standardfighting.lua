@@ -53,6 +53,7 @@ module("server.standardfighting", package.seeall)
 function onAttack(Attacker, Defender)
 
 	if isTestserver() then
+		Attacker.Char:inform("Should be attacking."); --Debugging
 		development.testscript.onAttack(Attacker,Defender);
 		return;
 	end;
