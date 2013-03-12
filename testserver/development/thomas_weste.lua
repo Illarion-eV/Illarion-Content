@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -198,7 +198,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 1));
-talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are a few beehives at yewdale, so please collect 20 honeycombs for me and I'll teach you how to make wax from them.");
+talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are a few beehives at Yewdale, so please collect twenty honeycombs for me and I'll teach you how to make wax from them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -219,7 +219,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 1));
-talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are a few beehives at yewdale, so please collect 20 honeycombs for me and I'll teach you how to make wax from them.");
+talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are a few beehives at Yewdale, so please collect twenty honeycombs for me and I'll teach you how to make wax from them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -293,7 +293,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2529, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I want twenty honeycombs from you, you can collect them from the beehives right there on the tables.");
+talkEntry:addResponse("I want twenty honeycombs from you, you can collect them from the beehives right there on the tables in Yewdale.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -314,7 +314,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 3));
-talkEntry:addResponse("Very well, now we can start to make wax out of the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make 20 pieces of wax for me.");
+talkEntry:addResponse("Very well, now we can start to make wax out of the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make twenty pieces of wax for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -337,7 +337,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 3));
-talkEntry:addResponse("Very well, now we can start to make wax out of the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make 20 pieces of wax for me.");
+talkEntry:addResponse("Very well, now we can start to make wax out of the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make twenty pieces of wax for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -414,7 +414,7 @@ talkEntry:addCondition(npc.base.condition.item.item(431, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I want 20 pieces of wax, please come back once you are done with this task.");
+talkEntry:addResponse("I want twenty pieces of wax, please come back once you are done with this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,7 +694,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(716, "<", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I could need some help, just ask me for a task.");
+talkEntry:addResponse("I could use some help, just ask me for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -710,7 +710,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("You are not a citizen of Runewick. I don't have anything to do for you.");
+talkEntry:addResponse("You are not a citizen of Runewick. I don't have anything for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -722,7 +722,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
 talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches his head.");
-talkingNPC:addCycleText("Wenn ihr Hilfe beim kerzenmachen braucht dann fragt nur mich!", "If you need any help in candle making, just ask me!");
+talkingNPC:addCycleText("Wenn ihr Hilfe beim kerzenmachen braucht dann fragt nur mich!", "If you need any help with candle making, just ask me!");
 talkingNPC:addCycleText("#me gähnt verhalten.", "#me yawns restrained.");
 talkingNPC:addCycleText("#me schaut sich kurz um und kratzt sich anschließend an seinem Hintern.", "#me looks around briefly and scratches his bum.");
 mainNPC:addLanguage(0);

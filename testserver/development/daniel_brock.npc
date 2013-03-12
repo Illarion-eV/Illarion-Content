@@ -69,9 +69,9 @@ english, "job" -> "I'm a carpenter, if you want to know more about it, ask me fo
 "job" -> "Ich bin Schreiner, falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich hab sicher etwas für dich zu tun."
 
 -- fix
-queststatus(820) = 1, queststatus(713) > 0, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 2, "Ah Florain send you but you already ask me for something to do."
+queststatus(820) = 1, queststatus(713) > 0, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 2, "Ah Florain sent you, but you have already asked me for something to do."
 queststatus(713) > 0, queststatus(820) = 1, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 2, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
-queststatus(713) > 0, queststatus(820) = 1, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 2, "Ah Florain send you but you already ask me for something to do."
+queststatus(713) > 0, queststatus(820) = 1, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 2, "Ah Florain sent you, but you have already asked me for something to do."
 queststatus(713) > 0, queststatus(820) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 2, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- Quests
@@ -94,27 +94,27 @@ queststatus(713) = 2, town = Runewick, english, "quest", "mission" -> "Let's mak
 queststatus(713) = 2, town = Runewick, "quest", "mission" -> "Nun stellen wir aus den Laubholzbrettern Teller her. Dafür brauchst du einen Hobel den ich dir gebe, dann setzt du dich auf den Stuhl da gleich neben mich bei der Werkbank und machst zehn Teller, diese zeigst du mir wenn du fertig bist.", item(2715, 1, 777), queststatus(713) = 3
 queststatus(713) = 2, town = Runewick, "task", "adventure", "order" -> "Let's make some plates from the deciduous boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done.", item(2715, 1, 777), queststatus(713) = 3
 queststatus(713) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun stellen wir aus den Laubholzbrettern Teller her. Dafür brauchst du einen Hobel den ich dir gebe, dann setzt du dich auf den Stuhl da gleich neben mich bei der Werkbank und machst zehn Teller, diese zeigst du mir wenn du fertig bist.", item(2715, 1, 777), queststatus(713) = 3
-queststatus(713) = 3, item(2952, all) > 9, town = Runewick, english, "quest", "mission", "plate" -> "Well done, the cups look pretty good. Do you want another task?", deleteItem(2952, 10), queststatus(713) = 4
-queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "quest", "mission", "teller" -> "Gut gemacht, die Becher sehen gut aus. Wollt Ihr eine weitere Aufgabe?", deleteItem(2952, 10), queststatus(713) = 4
-queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "task", "adventure", "order" -> "Well done, the cups look pretty good. Do you want another task?", deleteItem(2952, 10), queststatus(713) = 4
-queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, die Becher sehen gut aus. Wollt Ihr eine weitere Aufgabe?", deleteItem(2952, 10), queststatus(713) = 4
+queststatus(713) = 3, item(2952, all) > 9, town = Runewick, english, "quest", "mission", "plate" -> "Well done, the plates look pretty good. Do you want another task?", deleteItem(2952, 10), queststatus(713) = 4
+queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "quest", "mission", "teller" -> "Gut gemacht, die Teller sehen gut aus. Wollt Ihr eine weitere Aufgabe?", deleteItem(2952, 10), queststatus(713) = 4
+queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "task", "adventure", "order" -> "Well done, the plates look pretty good. Do you want another task?", deleteItem(2952, 10), queststatus(713) = 4
+queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, die Teller sehen gut aus. Wollt Ihr eine weitere Aufgabe?", deleteItem(2952, 10), queststatus(713) = 4
 queststatus(713) = 3, item(2952, all) < 10, town = Runewick, english, ".+" -> "I wanted ten plates, come back once you have fulfilled this task."
 queststatus(713) = 3, item(2952, all) < 10, town = Runewick, ".+" -> "Ich wollte zehn Teller, komm wieder wenn du die Aufgabe erfüllt hast."
-queststatus(713) = 4, town = Runewick, english, "quest", "mission" -> "Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce 25 pins and cotters for me using these carving tools and this 25 pins I'll give you.", item(2752, 1, 777), item(2738, 25, 777), queststatus(713) = 5
+queststatus(713) = 4, town = Runewick, english, "quest", "mission" -> "Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools and these twenty five pins I'll give you.", item(2752, 1, 777), item(2738, 25, 777), queststatus(713) = 5
 queststatus(713) = 4, town = Runewick, "quest", "mission" -> "Gut, nun geh hinaus und sammel bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komm hierher zurück und stell aus den Ästen 25 Nägel und Keile her, dazu brauchst du ein Schnitzmesser, dass ich dir gebe und diese 25 Nägel.", item(2752, 1, 777), item(2738, 25, 777), queststatus(713) = 5
-queststatus(713) = 4, town = Runewick, "task", "adventure", "order" -> "Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce 25 pins and cotters for me using these carving tools and this 25 pins I'll give you.", item(2752, 1, 777), item(2738, 25, 777), queststatus(713) = 5
+queststatus(713) = 4, town = Runewick, "task", "adventure", "order" -> "Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools and these twenty five pins I'll give you.", item(2752, 1, 777), item(2738, 25, 777), queststatus(713) = 5
 queststatus(713) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut, nun geh hinaus und sammel bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komm hierher zurück und stell aus den Ästen 25 Nägel und Keile her, dazu brauchst du ein Schnitzmesser, dass ich dir gebe und diese 25 Nägel.", item(2752, 1, 777), item(2738, 25, 777), queststatus(713) = 5
 queststatus(713) = 5, item(2717, all) > 24, town = Runewick, english, "quest", "mission", "pin", "cotter" -> "Well done, the pins and cotters look perfect. It will take a while for you to become a master in carpentry, but I hope I have taught you some of the basics at least.", deleteItem(2717, 25), queststatus(713) = 6
 queststatus(713) = 5, item(2717, all) > 24, town = Runewick, "quest", "mission", "nägel", "keil" -> "Gut gemacht, die Nägel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherscht nun zumindest die Grundlagen.", deleteItem(2717, 25), queststatus(713) = 6
 queststatus(713) = 5, item(2717, all) > 24, town = Runewick, "task", "adventure", "order" -> "Well done, the pins and cotters look perfect. It will take a while for you to become a master in carpentry, but I hope I have taught you some of the basics at least.", deleteItem(2717, 25), queststatus(713) = 6
 queststatus(713) = 5, item(2717, all) > 24, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, die Nägel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherscht nun zumindest die Grundlagen.", deleteItem(2717, 25), queststatus(713) = 6
-queststatus(713) = 5, item(2717, all) < 25, town = Runewick, english, ".+" -> "I wanted 25 pins and cotters, come back once you have fulfilled this task."
+queststatus(713) = 5, item(2717, all) < 25, town = Runewick, english, ".+" -> "I wanted twenty five pins and cotters, come back once you have fulfilled this task."
 queststatus(713) = 5, item(2717, all) < 25, town = Runewick, ".+" -> "Ich wollte 25 Nägel und Keile, komm wieder wenn du die Aufgabe erfüllt hast."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 queststatus(713) = 6, town = Runewick, english, ".*" -> "I don't have anything more for you to do. Thank you for the help though!"
 queststatus(713) = 6, town = Runewick, german, ".*" -> "Ich habe nichts weiter für dich zu tun. Aber danke nochmals für deine Hilfe!"
-queststatus(713) < 6, town = Runewick, english, ".*" -> "I could need some help, just ask me for a task."
+queststatus(713) < 6, town = Runewick, english, ".*" -> "I could use some help, just ask me for a task."
 queststatus(713) < 6, town = Runewick, german, ".*" -> "Ich könnte etwas Hilfe gebrauchen, frag mich ruhig nach einer Aufgabe. Ich habe sicher etwas für dich zu tun."
 english, ".*" -> "You are not a citizen of Runewick. I don't have anything for you to do."
 german, ".*" -> "Du scheinst kein Bürger Runewick zu sein. Ich habe nichts für dich zu tun."
