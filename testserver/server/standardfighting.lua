@@ -52,16 +52,15 @@ module("server.standardfighting", package.seeall)
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender)
 
+	if isTestserver() then
+		Attacker:inform("Should be attacking."); --Debugging
+		development.testscript.onAttack(Attacker,Defender);
+		return;
+	end;
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
     local Globals = {};
-
-	if isTestserver() then
-		Attacker.Char:inform("Should be attacking."); --Debugging
-		development.testscript.onAttack(Attacker,Defender);
-		return;
-	end;
 
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
