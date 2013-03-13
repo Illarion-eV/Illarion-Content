@@ -405,7 +405,7 @@ function MergeSkill(User)
 
 	end
 
-	Recipient:requestMessageDialog(dialogue);
+	User:requestMessageDialog(dialogue);
 
 
 
