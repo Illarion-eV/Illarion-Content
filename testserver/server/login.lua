@@ -400,14 +400,13 @@ function MergeSkillInform(User)
 						"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.");
 		local title = base.common.GetNLS(User,"New Armour Skills","New Armour Skills")
 	
-		local dialogue=MessageDialog(title,infText,closeTrib);
-			
 		local closeTrib=function(onClose)
 			MergeSkill(User);
 		end
 
-		User:requestMessageDialog(dialogue);
+		local dialogue=MessageDialog(title,infText,closeTrib);
 
+		User:requestMessageDialog(dialogue);
 	
 end
 
