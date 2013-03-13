@@ -17,7 +17,6 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammel 20 Honigwaben für Thomas Weste im Untergeschoss des Feuerturms. Bienenstöcke findet man in Yewdale bei den Feldern nördlich vom Teleporter."
-<<<<<<< HEAD
 Description[ENGLISH][1] = "Collect twenty honeycombs for Thomas Weste in the basement of the Fire Tower. You can find beehives in Yewdale, at the fields north of the teleporter."
 Description[GERMAN][2] = "Geh zu Thomas Weste, der sich im Untergeschoss des Feuerturms aufhält. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go back to Thomas Weste in the basement of the Fire Tower, he is sure to have another task for you."
