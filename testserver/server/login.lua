@@ -394,21 +394,6 @@ end
 
 function MergeSkill(User)
 	
-	local infText = base.common.GetNLS(User, 
-	                "Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.",
-					"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.");
-	local title = base.common.GetNLS(User,"New Armour Skills","New Armour Skills")
-	
-	local dialogue=MessageDialog(title,infText,closeTrib);
-			
-	local closeTrib=function(onClose)
-
-	end
-
-	User:requestMessageDialog(dialogue);
-
-
-
     local names
 	if  User:getPlayerLanguage() == Player.german then
 		names = {"Leichte Rüstungen","Mittlere Rüstungen","Schwere Rüstungen"}
@@ -426,12 +411,12 @@ function MergeSkill(User)
 					User:inform("You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.", "You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.")
 					world:gfx(46,User.pos)
 					world:makeSound(13,User.pos);
-					local newskillValue = (user:getSkill(25)+user:getSkill(23))/2;
-					local skillValue=user:getSkill(targetSkill[selected+1]); --reading the skill points
-     			    user:increaseSkill(targetSkill[selected+1],newskillValue-skillValue); 
-					user:increaseSkill(25,-user:getSkill(25)); 
-					user:increaseSkill(25,-user:getSkill(23)); 
-					user:setQuestProgress(154,1); --Remember that we already spammed the player
+					local newskillValue = (User:getSkill(25)+User:getSkill(23))/2;
+					local skillValue=User:getSkill(targetSkill[selected+1]); --reading the skill points
+     			    User:increaseSkill(targetSkill[selected+1],newskillValue-skillValue); 
+					User:increaseSkill(25,-User:getSkill(25)); 
+					User:increaseSkill(25,-User:getSkill(23)); 
+					User:setQuestProgress(154,1); --Remember that we already spammed the player
 		end
 	end
 		
@@ -447,6 +432,19 @@ function MergeSkill(User)
 		dialog:addOption(items[i], names[i])
 	end
 	User:requestSelectionDialog(dialog)
+
+	local infText = base.common.GetNLS(User, 
+	                "Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.",
+					"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.");
+	local title = base.common.GetNLS(User,"New Armour Skills","New Armour Skills")
+	
+	local dialogue=MessageDialog(title,infText,closeTrib);
+			
+	local closeTrib=function(onClose)
+
+	end
+
+	User:requestMessageDialog(dialogue);
 
 	return;
 end
