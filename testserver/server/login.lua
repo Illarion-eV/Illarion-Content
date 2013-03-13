@@ -394,10 +394,10 @@ end
 
 function MergeSkill(User)
 	
-	local infText = base.common.GetNLS(Recipient, 
+	local infText = base.common.GetNLS(User, 
 	                "Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.",
 					"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.");
-	local title = base.common.GetNLS(Recipient,"New Armour Skills","New Armour Skills")
+	local title = base.common.GetNLS(User,"New Armour Skills","New Armour Skills")
 	
 	local dialogue=MessageDialog(title,infText,closeTrib);
 			
