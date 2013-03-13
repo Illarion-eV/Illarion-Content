@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -66,7 +66,7 @@ talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Hallo, kann ich Euch helfen?");
-talkEntry:addResponse("Freut mich, Euch zu treffen. Ich bin Hannah Shepard.");
+talkEntry:addResponse("Freut mich Euch zu treffen. Ich bin Hannah Shepard.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -87,7 +87,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Hallo, kann ich Euch helfen?");
-talkEntry:addResponse("Freut mich, Euch zu treffen. Ich bin Hannah Shepard");
+talkEntry:addResponse("Freut mich Euch zu treffen. Ich bin Hannah Shepard.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -174,7 +174,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin Köchin und Bäuerin. Wollt ihr mehr darüber wissen? Dann fragt mich einfach nach einer Aufgabe!");
+talkEntry:addResponse("Ich bin Köchin und Bäuerin. Wollt Ihr mehr darüber wissen? Dann fragt mich einfach nach einer Aufgabe!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -187,7 +187,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin Köchin und Bäuerin. Wollt ihr mehr darüber wissen? Dann fragt mich einfach nach einer Aufgabe!");
+talkEntry:addResponse("Ich bin Köchin und Bäuerin. Wollt Ihr mehr darüber wissen? Dann fragt mich einfach nach einer Aufgabe!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -214,7 +214,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("joey");
 talkEntry:addTrigger("licavoli");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
-talkEntry:addResponse("Ah Joey hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkEntry:addResponse("Ah, Joey hat Euch geschickt, aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -239,7 +239,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
-talkEntry:addResponse("Ah Joey hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkEntry:addResponse("Ah, Joey hat Euch geschickt, aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -272,7 +272,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 2));
-talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Säet etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesäet habt und es reif ist, sammelt die Getreidebündel mit der Sense die ich Euch gebe und zeigt mir fünf Bündel.");
+talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Säet etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir fünf Bündel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -303,7 +303,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 2));
-talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Säet etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesäet habt und es reif ist, sammelt die Getreidebündel mit der Sense die ich Euch gebe und zeigt mir fünf Bündel.");
+talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Säet etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir fünf Bündel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,7 +328,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 1));
-talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Säet etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesäet habt und es reif ist, sammelt die Getreidebündel mit der Sense die ich Euch gebe und zeigt mir fünf Bündel.");
+talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Säet etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir fünf Bündel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -355,7 +355,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 1));
-talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Säet etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesäet habt und es reif ist, sammelt die Getreidebündel mit der Sense die ich Euch gebe und zeigt mir fünf Bündel.");
+talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Säet etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir fünf Bündel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -430,7 +430,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(711, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(249, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Das sind noch keine fünf Getreidemündel die ich haben wollte. Kommt wieder wenn Ihr die Aufgabe erledigt habt.");
+talkEntry:addResponse("Das sind noch keine fünf Getreidebündel. Kommt wieder wenn Ihr die Aufgabe erledigt habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -455,7 +455,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(258, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(312, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 3));
-talkEntry:addResponse("Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den übrigen Getreidebündeln, Getreide. Sobald Ihr damit fertig seid, geht in die Stadt und dann in den Palast hinein, dort geht Ihr in den Raum gleich rechts und macht mit der Holzkelle von mir fünf Säcke Mehl am Mühlstein, kommt anschließend zurück zu mir.");
+talkEntry:addResponse("Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den übrigen Getreidebündeln Getreide. Sobald Ihr damit fertig seid, geht in die Stadt und dann in den Palast hinein.Dort geht Ihr in den Raum gleich rechts und macht, mit der Holzkelle von mir, fünf Säcke Mehl am Mühlstein. Kommt anschließend zurück zu mir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -482,7 +482,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(258, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(312, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 3));
-talkEntry:addResponse("Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den übrigen Getreidebündeln, Getreide. Sobald Ihr damit fertig seid, geht in die Stadt und dann in den Palast hinein, dort geht Ihr in den Raum gleich rechts und macht mit der Holzkelle von mir fünf Säcke Mehl am Mühlstein, kommt anschließend zurück zu mir.");
+talkEntry:addResponse("Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den übrigen Getreidebündeln Getreide. Sobald Ihr damit fertig seid, geht in die Stadt und dann in den Palast hinein. Dort geht Ihr in den Raum gleich rechts und macht, mit der Holzkelle von mir, fünf Säcke Mehl am Mühlstein. Kommt anschließend zurück zu mir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -507,7 +507,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("mehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 4));
-talkEntry:addResponse("Gut gemacht. Bitte behaltet den Mehl für Eure nächste Aufgabe.");
+talkEntry:addResponse("Gut gemacht. Bitte behaltet das Mehl für Eure nächste Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -532,7 +532,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 4));
-talkEntry:addResponse("Gut gemacht. Bitte behaltet den Mehl für Eure nächste Aufgabe.");
+talkEntry:addResponse("Gut gemacht. Bitte behaltet das Mehl für Eure nächste Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -551,7 +551,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(711, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Ich wollte fünf Säcke Mehl von Euch, kommt wieder wenn Ihr die Aufgabe erfüllt habt.");
+talkEntry:addResponse("Ich wollte fünf Säcke Mehl von Euch. Kommt wieder wenn Ihr die Aufgabe erfüllt habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -576,7 +576,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(121, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(52, 5, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 5));
-talkEntry:addResponse("Gut, nun machen wir einige Brötchen. Dafür braucht Ihr einen Brotschieber, den Mehl den Ihr bereits habt und natürlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fünf Eimer damit Ihr etwas üben könnt. Nun geht zum Palast zurück und backt mir am Backofen fünf Brötchen und bringt mir diese.");
+talkEntry:addResponse("Gut, nun machen wir einige Brötchen. Dafür braucht Ihr einen Brotschieber, das Mehl das Ihr bereits habt und natürlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fünf Eimer, damit Ihr etwas üben könnt. Nun geht zum Palast zurück und backt mir am Backofen fünf Brötchen und bringt mir diese.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -603,7 +603,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(121, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(52, 5, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 5));
-talkEntry:addResponse("Gut, nun machen wir einige Brötchen. Dafür braucht Ihr einen Brotschieber, den Mehl den Ihr bereits habt und natürlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fünf Eimer damit Ihr etwas üben könnt. Nun geht zum Palast zurück und backt mir am Backofen fünf Brötchen und bringt mir diese.");
+talkEntry:addResponse("Gut, nun machen wir einige Brötchen. Dafür braucht Ihr einen Brotschieber, das Mehl das Ihr bereits habt und natürlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fünf Eimer, damit Ihr etwas üben könnt. Nun geht zum Palast zurück und backt mir am Backofen fünf Brötchen und bringt mir diese.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -704,7 +704,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(307, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(63, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(227, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 7));
-talkEntry:addResponse("Genug vom Backen, jetzt kochen wir etwas schönes! Ein guter Anfang sind wohl Würstchen, dazu braucht Ihr etwas Schweinefleisch und Eingeweide. Beides findet Ihr, wenn Ihr Schweine erlegt. Um das ganze dann zu kochen braucht Ihr einen Kochlöffel und so einen Kessel den Ihr vor mir sehen könnt. Ich gebe Euch fünf Stück Fleisch, fünf Stück Eingeweide und einen Kochlöffel, damit Ihr etwas üben könnt. Bringt mir fünf Würstchen sobald Ihr fertig seid.");
+talkEntry:addResponse("Genug vom Backen, jetzt kochen wir etwas schönes! Ein guter Anfang sind wohl Würstchen, dazu braucht Ihr etwas Schweinefleisch und Eingeweide. Beides findet Ihr, wenn Ihr Schweine erlegt. Um das ganze dann zu kochen braucht Ihr einen Kochlöffel und so einen Kessel, den Ihr vor mir sehen könnt. Ich gebe Euch fünf Stück Fleisch, fünf Eingeweide und einen Kochlöffel, damit Ihr etwas üben könnt. Bringt mir fünf Würstchen sobald Ihr fertig seid.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -733,7 +733,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(307, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(63, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(227, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 7));
-talkEntry:addResponse("Genug vom Backen, jetzt kochen wir etwas schönes! Ein guter Anfang sind wohl Würstchen, dazu braucht Ihr etwas Schweinefleisch und Eingeweide. Beides findet Ihr, wenn Ihr Schweine erlegt. Um das ganze dann zu kochen braucht Ihr einen Kochlöffel und so einen Kessel den Ihr vor mir sehen könnt. Ich gebe Euch fünf Stück Fleisch, fünf Stück Eingeweide und einen Kochlöffel, damit Ihr etwas üben könnt. Bringt mir fünf Würstchen sobald Ihr fertig seid.");
+talkEntry:addResponse("Genug vom Backen, jetzt kochen wir etwas schönes! Ein guter Anfang sind wohl Würstchen, dazu braucht Ihr etwas Schweinefleisch und Eingeweide. Beides findet Ihr, wenn Ihr Schweine erlegt. Um das ganze dann zu kochen braucht Ihr einen Kochlöffel und so einen Kessel, den Ihr vor mir sehen könnt. Ich gebe Euch fünf Stück Fleisch, fünf Eingeweide und einen Kochlöffel, damit Ihr etwas üben könnt. Bringt mir fünf Würstchen sobald Ihr fertig seid.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -843,7 +843,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(711, "<", 8));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun.");
+talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen. Fragt mich ruhig nach einer Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -857,11 +857,11 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ihr scheint kein Bürger Galmair zu sein. Ich habe nichts für Euch zu tun.");
+talkEntry:addResponse("Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
-talkingNPC:addCycleText("Wenn Ihr Hilfe beim Kochen und Backen braucht dann fragt nur mich!", "If you need any help with baking and cooking, just ask me!");
+talkingNPC:addCycleText("Wenn Ihr Hilfe beim Kochen und Backen braucht dann fragt mich nur!", "If you need any help with baking and cooking, just ask me!");
 talkingNPC:addCycleText("#me gähnt verhalten.", "#me yawns restrained.");
 talkingNPC:addCycleText("#me pfeift eine Melodie.", "#me whistles a melody.");
 talkingNPC:addCycleText("#me liest einen Brief.", "#me reads a letter.");
