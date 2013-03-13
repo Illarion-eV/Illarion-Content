@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -221,7 +221,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("craft");
-talkEntry:addResponse("If you need help with smithing, ask me for a task. If you prefer glass blowing or brick making talk with Zlatxhol at the oven over thre. You can ask Lilli Gallfing behind me in the other room if you want to know more about tailoring. If you don't like any of this crafts you can talk with Gerry Deloid, he can teach you the basics about candle making.");
+talkEntry:addResponse("If you need help with smithing, ask me for a task. If you prefer glass blowing or brick making talk with Zlatxhol at the oven over there. You can ask Lilli Gallfing behind me in the other room if you want to know more about tailoring. If you don't like any of these crafts you can talk with Gerry Deloid, he can teach you the basics about candle making.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -242,7 +242,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("jakob");
 talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
-talkEntry:addResponse("Ah Jakob send you but you already asked me for something to do. If you want to learn more about glass blowing or brick making talk with Zlatxhol at the oven over there. You can ask Lilli Gallfing behind me in the other room if you want to know more about tailoring. If you don't like any of these crafts you can talk to Gerry Deloid, he can teach you the basics of candle making.");
+talkEntry:addResponse("Ah Jakob sent you, but you have already asked me for something to do. If you want to learn more about glass blowing or brick making talk with Zlatxhol at the oven over there. You can ask Lilli Gallfing behind me in the other room if you want to know more about tailoring. If you don't like any of these crafts you can talk to Gerry Deloid, he can teach you the basics of candle making.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -267,7 +267,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
-talkEntry:addResponse("Ah Jakob send you but you already asked me for something to do. If you want to learn more about glass blowing or brick making talk with Zlatxhol at the oven over there. You can ask Lilli Gallfing behind me in the other room if you want to know more about tailoring. If you don't like any of these crafts you can talk to Gerry Deloid, he can teach you the basics of candle making.");
+talkEntry:addResponse("Ah Jakob sent you, but you have already asked me for something to do. If you want to learn more about glass blowing or brick making talk with Zlatxhol at the oven over there. You can ask Lilli Gallfing behind me in the other room if you want to know more about tailoring. If you don't like any of these crafts you can talk to Gerry Deloid, he can teach you the basics of candle making.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -405,7 +405,7 @@ talkEntry:addTrigger("iron");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 2));
-talkEntry:addResponse("Well done, thank you. I take ten pieces of ore and ten lumps of coal. You can keep the other ten for your next task.");
+talkEntry:addResponse("Well done, thank you. I'll take ten pieces of ore and ten lumps of coal. You can keep the other ten for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -436,7 +436,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 2));
-talkEntry:addResponse("Well done, thank you. I take ten pieces of ore and ten lumps of coal. You can keep the other ten for your next task.");
+talkEntry:addResponse("Well done, thank you. I'll take ten pieces of ore and ten lumps of coal. You can keep the other ten for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -552,7 +552,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("iron");
 talkEntry:addTrigger("ingots");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 4));
-talkEntry:addResponse("Well done. Please keep the iron ingots for your next task?");
+talkEntry:addResponse("Well done. Please keep the iron ingots for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -577,7 +577,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 4));
-talkEntry:addResponse("Well done. Please keep the iron ingots for your next task?");
+talkEntry:addResponse("Well done. Please keep the iron ingots for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -600,7 +600,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That are not ten iron ingots yet. Please come again later when you've finished the task.");
+talkEntry:addResponse("That are not ten iron ingots yet. Please come back later when you've finished the task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -790,7 +790,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(704, "<", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I could need some help, just ask me for a task.");
+talkEntry:addResponse("I could use some help, just ask me for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -806,7 +806,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("You are not a citizen of Cadomyr. I don't have anything to do for you.");
+talkEntry:addResponse("You are not a citizen of Cadomyr. I don't have anything for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
