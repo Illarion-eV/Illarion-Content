@@ -404,19 +404,26 @@ function MergeSkill(User)
 	local targetSkill = {38,39,40}
 	
 	local callback = function(dialog)
-	
+
 		success = dialog:getSuccess()
+
 		if success then
-			selected = dialog:getSelectedIndex()
-					User:inform("You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.", "You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.")
-					world:gfx(46,User.pos)
-					world:makeSound(13,User.pos);
+					selected = dialog:getSelectedIndex()
 					local newskillValue = (User:getSkill(25)+User:getSkill(23))/2;
 					local skillValue=User:getSkill(targetSkill[selected+1]); --reading the skill points
      			    User:increaseSkill(targetSkill[selected+1],newskillValue-skillValue); 
 					User:increaseSkill(25,-User:getSkill(25)); 
 					User:increaseSkill(23,-User:getSkill(23)); 
 					User:setQuestProgress(154,1); --Remember that we already spammed the player
+					User:inform("You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.", "You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.")
+					world:gfx(46,User.pos)
+					world:makeSound(13,User.pos);
+		else
+			if User:getPlayerLanguage() == Player.german then
+				dialog = SelectionDialog("No, seriously", "Which armour skill will you use?", callback)
+			else
+				dialog = SelectionDialog("No, seriously", "Which armour skill will you use?", callback)
+			end
 		end
 	end
 		
@@ -426,7 +433,6 @@ function MergeSkill(User)
 	else
 		dialog = SelectionDialog("New Armour Skill", "Which armour skill will you use?", callback)
 	end
-	dialog:setCloseOnMove()
 	
 	for i=1,#items do
 		dialog:addOption(items[i], names[i])
