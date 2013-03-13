@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -68,8 +68,8 @@ talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Grüßsse dir.");
-talkEntry:addResponse("Ja, Grüßsse.");
-talkEntry:addResponse("Grüßsse.");
+talkEntry:addResponse("Ja, Grüße.");
+talkEntry:addResponse("Grüße.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -135,7 +135,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addResponse("Gut wiedersehensss.");
 talkEntry:addResponse("Abschied.");
-talkEntry:addResponse("#me nickt langsam: 'Gut wiedersehensss'.");
+talkEntry:addResponse("#me nickt langsam: 'Auf Wiedersehensss'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,7 +169,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Ich sindss Ssseleseth, machenss du Aufgabe für michss?");
+talkEntry:addResponse("Ich sindss Ssseleseth, machenss du Aufgabe für michse?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -217,7 +217,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 1));
-talkEntry:addResponse("Zsss, Aufgabe? Ja, Ssseleseth haben Aufgabe für dichsss. Bring Ssseleseth zehn Lehmssz! Du finden Lehm bei Sssee wesstlich der Stadt. Hier haben alte Ssschaufel von Ssseleseth um Lehm zu graben.");
+talkEntry:addResponse("Zsss, Aufgabe? Ja, Ssseleseth haben Aufgabe für dichsss. Bring Ssseleseth zehn Lehm! Du finden Lehm bei Sssee wesstlich der Stadt. Hier haben alte Ssschaufel von Ssseleseth, um Lehm zu graben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -242,7 +242,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 1));
-talkEntry:addResponse("Zsss, Aufgabe? Ja, Ssseleseth haben Aufgabe für dichsss. Bring Ssseleseth zehn Lehmssz! Du finden Lehm bei Sssee wesstlich der Stadt. Hier haben alte Ssschaufel von Ssseleseth um Lehm zu graben.");
+talkEntry:addResponse("Zsss, Aufgabe? Ja, Ssseleseth haben Aufgabe für dichsss. Bring Ssseleseth zehn Lehmssz! Du finden Lehm bei Sssee wesstlich der Stadt. Hier haben alte Ssschaufel von Ssseleseth, um Lehm zu graben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -267,7 +267,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("lehm");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 2));
-talkEntry:addResponse("Gut gemacht. Bittes behalten Lehm für nächsste Aufgabe von Ssseleseth.");
+talkEntry:addResponse("Gut gemacht. Bitte behaltens Lehm für nächsste Aufgabe von Ssseleseth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -292,7 +292,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 2));
-talkEntry:addResponse("Gut gemacht. Bittes behalten Lehm für nächsste Aufgabe von Ssseleseth.");
+talkEntry:addResponse("Gut gemacht. Bitte behaltens Lehm für nächsste Aufgabe von Ssseleseth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -457,7 +457,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(251, 8, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2140, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 5));
-talkEntry:addResponse("Zzzz, nun wir machen glänzzsende Sssteine! Ich geben dir acht rohe Amethysssten und Zzange. Du sschleifen Amethysssten für michs am Edelssteinsschleifer neben michs. Wenn du fertig, dann mir zeigen, zsss!");
+talkEntry:addResponse("Zzzz, nun wir machen glänzzsende Sssteine! Ich geben dir acht rohe Amethysssten und Zzange. Du sschleifen Amethysssten für michs am Edelssteinsschleifer neben mirs. Wenn du fertig, dann mir zeigen, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -484,7 +484,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(251, 8, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2140, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 5));
-talkEntry:addResponse("Zzzz, nun wir machen glänzzsende Sssteine! Ich geben dir acht rohe Amethysssten und Zzange. Du sschleifen Amethysssten für michs am Edelssteinsschleifer neben michs. Wenn du fertig, dann mir zeigen, zsss!");
+talkEntry:addResponse("Zzzz, nun wir machen glänzzsende Sssteine! Ich geben dir acht rohe Amethysssten und Zzange. Du sschleifen Amethysssten für michs am Edelssteinsschleifer neben mirs. Wenn du fertig, dann mir zeigen, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -574,7 +574,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 7));
-talkEntry:addResponse("Zss, nun wir machen aus glänzzsenden Sssteinen Staub. Du gehen zu Edelsteinschleifer und machen aus acht geschliffenen Amethyssten zwei Beutel Amethyststaub für michs, zsss!");
+talkEntry:addResponse("Zss, nun wir machen aus glänzzsenden Sssteinen Staub. Du gehen zu Edelsteinschleifer und machen aus acht geschliffenen Amethyssten zwei Beutel Amethyststaub für michse, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -597,7 +597,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 7));
-talkEntry:addResponse("Zss, nun wir machen aus glänzzsenden Sssteinen Staub. Du gehen zu Edelsteinschleifer und machen aus acht geschliffenen Amethyssten zwei Beutel Amethyststaub für michs, zsss!");
+talkEntry:addResponse("Zss, nun wir machen aus glänzzsenden Sssteinen Staub. Du gehen zu Edelsteinschleifer und machen aus acht geschliffenen Amethyssten zwei Beutel Amethyststaub für michse, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -697,7 +697,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(737, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(735, 2, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 9));
-talkEntry:addResponse("Zsss, du wollen mehr über Steinmetz lernen? Ich geben dir zwei rohe Sssteine und Meissel um 20 kleine Sssteine für mich zu machen, zsss. Rohe Sssteine gibtsss in der Mine viel! Du nehmen Meisel in die Hand und bearbeiten rohe Sssteine, danach Sssteinquadar bearbeiten zu kleinen Sssteinen und mir bringen 20, zss!");
+talkEntry:addResponse("Zsss, du wollen mehr über Steinmetz lernen? Ich geben dir zwei rohe Sssteine und Meissel, um 20 kleine Sssteine für mich zu machen, zsss. Rohe Sssteine gibtsss in der Mine viel! Du nehmen Meisel in die Hand und bearbeiten rohe Sssteine, danach Sssteinquadar bearbeiten zu kleinen Sssteinen und mir bringen 20, zss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -724,7 +724,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(737, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(735, 2, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 9));
-talkEntry:addResponse("Zsss, du wollen mehr über Steinmetz lernen? Ich geben dir zwei rohe Sssteine und Meissel um 20 kleine Sssteine für mich zu machen, zsss. Rohe Sssteine gibtsss in der Mine viel! Du nehmen Meisel in die Hand und bearbeiten rohe Sssteine, danach Sssteinquadar bearbeiten zu kleinen Sssteinen und mir bringen 20, zss!");
+talkEntry:addResponse("Zsss, du wollen mehr über Steinmetz lernen? Ich geben dir zwei rohe Sssteine und Meissel, um 20 kleine Sssteine für mich zu machen, zsss. Rohe Sssteine gibtsss in der Mine viel! Du nehmen Meisel in die Hand und bearbeiten rohe Sssteine, danach Sssteinquadar bearbeiten zu kleinen Sssteinen und mir bringen 20, zss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -753,7 +753,7 @@ talkEntry:addTrigger("stein");
 talkEntry:addTrigger("kleiner stein");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1266, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 10));
-talkEntry:addResponse("Zsss, gut gemachts, dankes. Zsss, Ssseleseth sagen danke für Hilfess und hoffen du was über Edelssteinssschleifen, Sssteine bahauen und Zzziegelmachen gelernt haben.");
+talkEntry:addResponse("Zsss, gut gemachts, dankes. Zsss, Ssseleseth sagen danke für Hilfess und hoffen du was über Edelssteinssschleifen, Sssteine bahauen und Zzziegel machen gelernt haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -780,7 +780,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1266, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 10));
-talkEntry:addResponse("Zsss, gut gemachts, dankes. Zsss, Ssseleseth sagen danke für Hilfess und hoffen du was über Edelssteinssschleifen, Sssteine bahauen und Zzziegelmachen gelernt haben.");
+talkEntry:addResponse("Zsss, gut gemachts, dankes. Zsss, Ssseleseth sagen danke für Hilfess und hoffen du was über Edelssteinssschleifen, Sssteine bahauen und Zzziegel machen gelernt haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -835,7 +835,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(709, "<", 10));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ich könnte etwasss Hilfe gebrauchen, fragss michs ruhig nach einer Aufgabe. Ich habe sssicher etwass für dichss zu tun, zsss.");
+talkEntry:addResponse("Ich könnte etwasss Hilfe gebrauchen, fragss michse ruhig nach einer Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -849,7 +849,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Du ssscheint kein Bürgers Galmair zu sssein. Ich hab nichtsss für dichss zu tun, zsss.");
+talkEntry:addResponse("Du ssscheint kein Bürgers Galmairs zu sssein. Ich hab nichtsss für dichss zu tun, zsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
