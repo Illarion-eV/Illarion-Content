@@ -19,6 +19,7 @@ require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.condition.town")
+require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
@@ -105,7 +106,7 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addResponse("Ich wünsche Euch noch einen schönen Tag.");
-talkEntry:addResponse("Ich hoffe wir sehen uns wieder, auf bald!");
+talkEntry:addResponse("Ich hoffe, wir sehen uns wieder, auf bald!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -126,7 +127,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Ich wünsche Euch noch einen schönen Tag.");
-talkEntry:addResponse("Ich hoffe wir sehen uns wieder, auf bald!");
+talkEntry:addResponse("Ich hoffe, wir sehen uns wieder, auf bald!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -173,7 +174,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin Kerzenmacher, ich kümmere mich um die Beleuchtung unserer schönen Stadt.");
+talkEntry:addResponse("Ich bin Kerzenmacher. Ich kümmere mich um die Beleuchtung unserer schönen Stadt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -186,22 +187,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin Kerzenmacher, ich kümmere mich um die Beleuchtung unserer schönen Stadt.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("black");
-talkEntry:addTrigger("thistle");
-talkEntry:addResponse("You can find black thistles if you search on rocky ground in the grass.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("schwarz");
-talkEntry:addTrigger("diestel");
-talkEntry:addResponse("Schwarze Disteln könnt Ihr finden wenn Ihr auf felsigem Boden in Grasbüscheln sucht.");
+talkEntry:addResponse("Ich bin Kerzenmacher. Ich kümmere mich um die Beleuchtung unserer schönen Stadt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -222,7 +208,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 1));
-talkEntry:addResponse("Eine Aufgabe..nun, Ihr könntet mir erstmal einige Honigwaben bringen, diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche in Yewdale bei den Bienenstöcken finden. Bringt mir 20 Waben und ich zeige Euch wie man Wachs herstellt.");
+talkEntry:addResponse("Eine Aufgabe..nun, Ihr könntet mir erstmal einige Honigwaben bringen. Diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche in Yewdale nördlich des Teleporters bei den Bienenstöcken finden. Bringt mir 20 Waben und ich zeige Euch, wie man Wachs herstellt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -233,7 +219,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 1));
-talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are a few beehives at yewdale, so please collect twenty honeycombs for me and I'll teach you how to make wax from them.");
+talkEntry:addResponse("A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are a few beehives at Yewdale, so please collect twenty honeycombs for me and I'll teach you how to make wax from them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -245,7 +231,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 1));
-talkEntry:addResponse("Eine Aufgabe..nun, Ihr könntet mir erstmal einige Honigwaben bringen, diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche in Yewdale bei den Bienenstöcken finden. Bringt mir 20 Waben und ich zeige Euch wie man Wachs herstellt.");
+talkEntry:addResponse("Eine Aufgabe..nun, Ihr könntet mir erstmal einige Honigwaben bringen. Diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche in Yewdale nördlich des Teleporters bei den Bienenstöcken finden. Bringt mir 20 Waben und ich zeige Euch, wie man Wachs herstellt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -256,8 +242,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("honey");
+talkEntry:addTrigger("comb");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 2));
-talkEntry:addResponse("Well done, thank you. Do you want another task?");
+talkEntry:addResponse("Well done, thank you. Please keep the honeycombs for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -267,8 +255,10 @@ talkEntry:addCondition(npc.base.condition.item.item(2529, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("honig");
+talkEntry:addTrigger("wabe");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 2));
-talkEntry:addResponse("Gut gemacht, danke. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addResponse("Gut gemacht, danke. Bitte behaltet die Honigwaben für Eure nächste Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -280,7 +270,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 2));
-talkEntry:addResponse("Well done, thank you. Do you want another task?");
+talkEntry:addResponse("Well done, thank you. Please keep the honeycombs for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -293,7 +283,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 2));
-talkEntry:addResponse("Gut gemacht, danke. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addResponse("Gut gemacht, danke. Bitte behaltet die Honigwaben für Eure nächste Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -303,7 +293,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2529, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I want twenty honeycombs from you, you can collect them from the beehives in Yewdale.");
+talkEntry:addResponse("I want twenty honeycombs from you, you can collect them from the beehives right there on the tables in Yewdale.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -312,7 +302,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(716, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2529, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Ihr sollt mir 20 Honigwaben bringen, Ihr könnt welche bei den Bienenstöcken in Yewdale finden.");
+talkEntry:addResponse("Ihr sollt mir 20 Honigwaben bringen. Ihr könnt welche bei den Bienenstöcken gleich da vorne auf den Tischen finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -324,7 +314,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 3));
-talkEntry:addResponse("Very well, now we can start to make wax from the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make twenty pieces of wax for me.");
+talkEntry:addResponse("Very well, now we can start to make wax out of the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make twenty pieces of wax for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -335,7 +325,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 3));
-talkEntry:addResponse("Wunderbar, nun sollten wir aus den Waben Wachs machen. Dazu braucht Ihr eine Tiegelzange, die gebe ich Euch zum üben. Geht rüber zum Kerzenziehertisch und versucht etwas Wachs herzustellen. Bringt mir 20 Stück von dem Wachs.");
+talkEntry:addResponse("Wunderbar, nun sollten wir aus den Waben Wachs machen. Dazu braucht Ihr eine Tiegelzange. Die gebe ich Euch zum üben. Geht rüber zum Kerzenziehertisch und versucht etwas Wachs herzustellen. Bringt mir 20 Stück von dem Wachs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -347,7 +337,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 3));
-talkEntry:addResponse("Very well, now we can start to make wax from the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make twenty pieces of wax for me.");
+talkEntry:addResponse("Very well, now we can start to make wax out of the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make twenty pieces of wax for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -360,7 +350,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 3));
-talkEntry:addResponse("Wunderbar, nun sollten wir aus den Waben Wachs machen. Dazu braucht Ihr eine Tiegelzange, die gebe ich Euch zum üben. Geht rüber zum Kerzenziehertisch und versucht etwas Wachs herzustellen. Bringt mir 20 Stück von dem Wachs.");
+talkEntry:addResponse("Wunderbar, nun sollten wir aus den Waben Wachs machen. Dazu braucht Ihr eine Tiegelzange. Die gebe ich Euch zum üben. Geht rüber zum Kerzenziehertisch und versucht etwas Wachs herzustellen. Bringt mir 20 Stück von dem Wachs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -371,8 +361,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("wax");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(431, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 4));
-talkEntry:addResponse("Well done, that wax looks pretty good. Do you want another task?");
+talkEntry:addResponse("Well done, that wax looks pretty good. Please keep the wax for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -382,8 +374,10 @@ talkEntry:addCondition(npc.base.condition.item.item(431, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("wachs");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(431, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 4));
-talkEntry:addResponse("Gut gemacht, das Wachs sieht sehr gut aus. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addResponse("Gut gemacht, das Wachs sieht sehr gut aus. Bitte behaltet den Wachs für Eure nächste Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -394,8 +388,9 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(431, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 4));
-talkEntry:addResponse("Well done, that wax looks pretty good. Do you want another task?");
+talkEntry:addResponse("Well done, that wax looks pretty good. Please keep the wax for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -407,8 +402,9 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(431, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 4));
-talkEntry:addResponse("Gut gemacht, das Wachs sieht sehr gut aus. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addResponse("Gut gemacht, das Wachs sieht sehr gut aus. Bitte behaltet das Wachs für Eure nächste Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -427,7 +423,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(716, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(431, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Ihr sollt mir 20 Stück Wachs bringen. Kommt wieder wenn Ihr die Aufgabe erfüllt habt.");
+talkEntry:addResponse("Ihr sollt mir 20 Stück Wachs bringen. Kommt wieder, wenn Ihr die Aufgabe erfüllt habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -437,7 +433,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.item.item(429, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(429, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 5));
 talkEntry:addResponse("Alright, now we can start producing the candles. Go to the chandler table again and bring me ten candles back. I'll give you my old candle mould, you will need one to make the candles. If you need more moulds, just ask a carpenter.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -448,9 +444,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(716, "=", 4));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.item.item(429, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(429, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 5));
-talkEntry:addResponse("Jetzt wo wir das Wachs haben können wir endlich die Kerzen herstellen. Geht zu dem Kerzenziehertisch und stellt zehn Kerzen her bitte. Ich gebe Euch meine alte Kerzenform, damit könnt Ihr die richtigen Kerzen herstellen, falls Ihr weitere Kerzenformen braucht fragt doch einfach einen Schreiner.");
+talkEntry:addResponse("Jetzt, wo wir das Wachs haben, können wir endlich die Kerzen herstellen. Geht zu dem Kerzenziehertisch und stellt zehn Kerzen her bitte. Ich gebe Euch meine alte Kerzenform. Damit könnt Ihr die richtigen Kerzen herstellen. Falls Ihr weitere Kerzenformen braucht, fragt doch einfach einen Schreiner.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -460,7 +456,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.item.item(429, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(429, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 5));
 talkEntry:addResponse("Alright, now we can start producing the candles. Go to the chandler table again and bring me ten candles back. I'll give you my old candle mould, you will need one to make the candles. If you need more moulds, just ask a carpenter.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -473,9 +469,9 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.item.item(429, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(429, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 5));
-talkEntry:addResponse("Jetzt wo wir das Wachs haben können wir endlich die Kerzen herstellen. Geht zu dem Kerzenziehertisch und stellt zehn Kerzen her bitte. Ich gebe Euch meine alte Kerzenform, damit könnt Ihr die richtigen Kerzen herstellen, falls Ihr weitere Kerzenformen braucht fragt doch einfach einen Schreiner.");
+talkEntry:addResponse("Jetzt, wo wir das Wachs haben, können wir endlich die Kerzen herstellen. Geht zu dem Kerzenziehertisch und stellt zehn Kerzen her bitte. Ich gebe Euch meine alte Kerzenform, damit könnt Ihr die richtigen Kerzen herstellen. Falls Ihr weitere Kerzenformen braucht, fragt doch einfach einen Schreiner.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -486,6 +482,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("candle");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(43, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 6));
 talkEntry:addResponse("Well done, the candles look perfect. If you have some time left, I can give you one last task.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -497,6 +495,8 @@ talkEntry:addCondition(npc.base.condition.item.item(43, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("kerze");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(43, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 6));
 talkEntry:addResponse("Gut gemacht, die Kerzen sehen sehr gut aus. Wenn Ihr noch etwas Zeit habt, hätte ich noch eine letzte Aufgabe für Euch.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -509,6 +509,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(43, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 6));
 talkEntry:addResponse("Well done, the candles look perfect. If you have some time left, I can give you one last task.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -522,6 +523,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(43, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 6));
 talkEntry:addResponse("Gut gemacht, die Kerzen sehen sehr gut aus. Wenn Ihr noch etwas Zeit habt, hätte ich noch eine letzte Aufgabe für Euch.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -542,7 +544,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(716, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(43, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Wie ich sehe habt Ihr die zehn Kerzen noch nicht zusammen. Kommt wieder wenn Ihr die Aufgabe erfüllt habt.");
+talkEntry:addResponse("Wie ich sehe, habt Ihr die zehn Kerzen noch nicht zusammen. Kommt wieder, wenn Ihr die Aufgabe erfüllt habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -552,8 +554,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 7));
-talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect some thistles and bring me at least two bottles with oil. The oil press is in the Wind Tower.");
+talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect four thistles and bring me at least two bottles with oil. The oil press is next me. Take this sickle to gather the thistles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -562,8 +565,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(716, "=", 6));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 7));
-talkEntry:addResponse("Ah..ja natürlich. Nun wollen wir etwas Lampenöl machen, dass ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln, diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt einige Disteln und bringt mir 2 Flaschen Öl mit wenn Ihr fertig seid. Die Ölpresse steht im Windturm.");
+talkEntry:addResponse("Ah..ja natürlich. Nun wollen wir etwas Lampenöl machen. Das ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln. Diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt vier Disteln und bringt mir 2 Flaschen Öl mit, wenn Ihr fertig seid. Die Ölpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel, um die Diesteln zu sammeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -573,8 +577,9 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 7));
-talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect some thistles and bring me at least two bottles with oil. The oil press is in the Wind Tower.");
+talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect four thistles and bring me at least two bottles with oil. The oil press is next me. Take this sickle to gather the thistles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -585,8 +590,9 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 7));
-talkEntry:addResponse("Ah..ja natürlich. Nun wollen wir etwas Lampenöl machen, dass ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln, diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt 20 Disteln und bringt mir 2 Flaschen Öl mit wenn Ihr fertig seid. Die Ölpresse steht im Windturm.");
+talkEntry:addResponse("Ah..ja natürlich. Nun wollen wir etwas Lampenöl machen. Das ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln. Diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt vier Disteln und bringt mir 2 Flaschen Öl mit, wenn Ihr fertig seid. Die Ölpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel, um die Diesteln zu sammeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -597,6 +603,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("oil");
+talkEntry:addTrigger("lamp");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(390, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 8));
 talkEntry:addResponse("Well done, thank you very much. I hope I was able to teach you the basic things about candle making.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -608,8 +617,11 @@ talkEntry:addCondition(npc.base.condition.item.item(390, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("öl");
+talkEntry:addTrigger("lampe");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(390, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 8));
-talkEntry:addResponse("Gut gemacht, vielen Dank. Ich hoffe ich konnte Euch die Grundlagen des Kerzenmachens beibringen.");
+talkEntry:addResponse("Gut gemacht, vielen Dank. Ich hoffe, ich konnte Euch die Grundlagen des Kerzenmachens beibringen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -620,6 +632,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(390, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 8));
 talkEntry:addResponse("Well done, thank you very much. I hope I was able to teach you the basic things about candle making.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -633,8 +646,9 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(390, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 8));
-talkEntry:addResponse("Gut gemacht, vielen Dank. Ich hoffe ich konnte Euch die Grundlagen des Kerzenmachens beibringen.");
+talkEntry:addResponse("Gut gemacht, vielen Dank. Ich hoffe, ich konnte Euch die Grundlagen des Kerzenmachens beibringen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -653,7 +667,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(716, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(390, "all", "<", 2, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Ich wollte zwei Flaschen mit Lampenöl, bitte kommt wieder wenn Ihr fertig seid.");
+talkEntry:addResponse("Ich wollte zwei Flaschen mit Lampenöl. Bitte kommt wieder, wenn Ihr fertig seid.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -689,7 +703,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(716, "<", 8));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun.");
+talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen. Fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -708,7 +722,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
 talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches his head.");
-talkingNPC:addCycleText("Wenn ihr Hilfe beim Kerzenmachen braucht dann fragt nur mich!", "If you need any help in candle making, just ask me!");
+talkingNPC:addCycleText("Wenn ihr Hilfe beim kerzenmachen braucht dann fragt nur mich!", "If you need any help with candle making, just ask me!");
 talkingNPC:addCycleText("#me gähnt verhalten.", "#me yawns restrained.");
 talkingNPC:addCycleText("#me schaut sich kurz um und kratzt sich anschließend an seinem Hintern.", "#me looks around briefly and scratches his bum.");
 mainNPC:addLanguage(0);

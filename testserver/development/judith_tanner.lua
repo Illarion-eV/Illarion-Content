@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -32,13 +32,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Judith Tanner the tailor. Keywords: quest, cloth, sheeps"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Judith Tanner the tailor. Keywords: quest"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Judith Tanner die Schneiderin. Schlüsselwörter: Quest, Stoff, Schafe"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Judith Tanner die Schneiderin. Schlüsselwörter: Quest"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -192,71 +192,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("cloth");
-talkEntry:addResponse("If you place grey cloth on the ground and let it bleach in the sun it will turn into white cloth. That works with some dye as well!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("stoff");
-talkEntry:addResponse("Wenn Ihr grauen Stoff auf den Boden legt und ihn in der Sonne trocknen lasst, dann wird er zu weißem Stoff. Das funktioniert übrigens auch mit einigen Farben!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("tailor");
-talkEntry:addResponse("For tailoring you need many different things, the most important ones are scissors and a needle though!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("schneid");
-talkEntry:addResponse("Zum Schneidern braucht Ihr verschiedene Dinge. Das wichtigste ist aber wohl eine Schere und eine Nadel!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("sheep");
-talkEntry:addResponse("If you leave the town and you can find sheeps at the forest or at yewdale.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("schaf");
-talkEntry:addResponse("Schafe findet Ihr außerhalb der Stadt im Wald oder bei Yewdale.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("scissors");
-talkEntry:addResponse("You can get scissors from a smith.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Schere");
-talkEntry:addResponse("Eine Schere kann Euch ein Schmied herstellen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("needle");
-talkEntry:addResponse("You can get a needle from a smith.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nadel");
-talkEntry:addResponse("Eine Nadel bekommt Ihr bei einem Schmied.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(715, ">", 0));
 talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -266,7 +201,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("florain");
 talkEntry:addTrigger("dreyndel");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Ah Florain send you but you already ask me for something to do.");
+talkEntry:addResponse("Ah Florain sent you, but you have already asked me for something to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -279,7 +214,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("florain");
 talkEntry:addTrigger("dreyndel");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkEntry:addResponse("Ah, Florain hat Euch geschickt. Aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -291,7 +226,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Ah Florain send you but you already ask me for something to do.");
+talkEntry:addResponse("Ah Florain sent you, but you have already asked me for something to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -304,7 +239,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkEntry:addResponse("Ah, Florain hat Euch geschickt. Aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -320,7 +255,7 @@ talkEntry:addTrigger("dreyndel");
 talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Oh, you want to learn something about tailoring? Well, let's start with something simple. Could you collect twenty bales of wool for me? You can find sheep if you leave the city and look around for them in the forest or Yewdale. You can have my old scissors to collect the wool.");
+talkEntry:addResponse("Oh, you want to learn something about tailoring? Well, let's start with something simple. Could you collect twenty bales of wool for me? You can find sheep if you leave the city and look around for them in the forest. You can have my old scissors to collect the wool.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -335,7 +270,7 @@ talkEntry:addTrigger("dreyndel");
 talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern oder Yewdale sucht. Hier noch eine Schere, um die Schafe zu scheren.");
+talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern sucht. Hier noch eine Schere, um die Schafe zu scheren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -349,7 +284,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Oh, you want to learn something about tailoring?Well, let's start with something simple. Could you collect twenty bales of wool for me? You can find sheep if you leave the city and look around for them in the forest or Yewdale. You can have my old scissors to collect the wool.");
+talkEntry:addResponse("Oh, you want to learn something about tailoring? Well, let's start with something simple. Could you collect twenty bales of wool for me? You can find sheep if you leave the city and look around for them in the forest. You can have my old scissors to collect the wool.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -364,7 +299,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern oder Yewdale sucht. Hier noch eine Schere, um die Schafe zu scheren.");
+talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern sucht. Hier noch eine Schere, um die Schafe zu scheren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -374,9 +309,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 477, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
-talkEntry:addResponse("Oh, you want to learn something about tailoring? Well, let's start with something simple. Could you collect twenty bales of wool for me? You can find sheep if you leave the city and look around for them in the forest or Yewdale. You can have my old scissors to collect the wool.");
+talkEntry:addResponse("Oh, you want to learn something about tailoring? Well, let's start with something simple. Could you collect twenty bales of wool for me? You can find sheep if you leave the city and look around for them in the forest. You can have my old scissors to collect the wool.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -385,9 +320,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(715, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 477, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
-talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern oder Yewdale sucht. Hier noch eine Schere, um die Schafe zu scheren.");
+talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern sucht. Hier noch eine Schere, um die Schafe zu scheren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -397,9 +332,9 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 477, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
-talkEntry:addResponse("Oh, you want to learn something about tailoring?Well, let's start with something simple. Could you collect twenty bales of wool for me? You can find sheep if you leave the city and look around for them in the forest or Yewdale. You can have my old scissors to collect the wool.");
+talkEntry:addResponse("Oh, you want to learn something about tailoring? Well, let's start with something simple. Could you collect twenty bales of wool for me? You can find sheep if you leave the city and look around for them in the forest. You can have my old scissors to collect the wool.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -410,9 +345,9 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 477, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
-talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern oder Yewdale sucht. Hier noch eine Schere, um die Schafe zu scheren.");
+talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern sucht. Hier noch eine Schere, um die Schafe zu scheren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -423,8 +358,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("wool");
+talkEntry:addTrigger("bale");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 2));
-talkEntry:addResponse("Ah, so you found the sheep, well done. Do you want another task?");
+talkEntry:addResponse("Ah, so you have found the sheep, well done. Keep the bales of wool for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -434,8 +371,10 @@ talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("wolle");
+talkEntry:addTrigger("ballen");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 2));
-talkEntry:addResponse("Ah, also habt Ihr die Schafe gefunden, gut gemacht. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addResponse("Ah, also habt Ihr die Schafe gefunden, gut gemacht. Behaltet die Wollballen für die nächste Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -447,7 +386,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 2));
-talkEntry:addResponse("Ah, so you found the sheep, well done. Do you want another task?");
+talkEntry:addResponse("Ah, so you have found the sheep, well done. Keep the bales of wool for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -460,7 +399,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 2));
-talkEntry:addResponse("Ah, also habt Ihr die Schafe gefunden, gut gemacht. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addResponse("Ah, also habt Ihr die Schafe gefunden, gut gemacht. Behaltet die Wollballen für die nächste Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -479,7 +418,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(715, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(170, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Das sind noch keine 20 Wollknäule, die ich haben wollte. Kommt wieder, wenn Ihr die Aufgabe erledigt habt.");
+talkEntry:addResponse("Das sind noch keine 20 Wollballen, die ich haben wollte. Kommt wieder, wenn Ihr die Aufgabe erledigt habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -535,8 +474,13 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("thread");
+talkEntry:addTrigger("cloth");
+talkEntry:addTrigger("grey");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(176, 2, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 4));
-talkEntry:addResponse("Well done. Do you want another task?");
+talkEntry:addResponse("Well done, thank you. Do you want another task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -547,8 +491,13 @@ talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("garn");
+talkEntry:addTrigger("stoff");
+talkEntry:addTrigger("grau");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(176, 2, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 4));
-talkEntry:addResponse("Gut gemacht. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addResponse("Gut gemacht, danke. Wollt Ihr eine weitere Aufgabe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -560,8 +509,10 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(176, 2, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 4));
-talkEntry:addResponse("Well done. Do you want another task?");
+talkEntry:addResponse("Well done, thank you. Do you want another task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -574,8 +525,10 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(176, 2, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 4));
-talkEntry:addResponse("Gut gemacht. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addResponse("Gut gemacht, danke. Wollt Ihr eine weitere Aufgabe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -585,7 +538,7 @@ talkEntry:addCondition(npc.base.condition.item.item(176, "all", "<", 2, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Could you produce two sheets of grey cloth and five spools of thread from the remaining twenty bales of wool for me please?");
+talkEntry:addResponse("Could you produce two grey cloth and five spools of thread from the remaining twenty bales of wool for me please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -594,7 +547,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(715, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(176, "all", "<", 2, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Stellt doch bitte aus den übrigen 20 Wollknäulen fünf Garnrollen und zwei Rollen grauen Stoff her.");
+talkEntry:addResponse("Stellt doch bitte aus den übrigen 20 Wollballen fünf Garnrollen und zwei Rollen grauen Stoff her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -604,7 +557,7 @@ talkEntry:addCondition(npc.base.condition.item.item(50, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Could you produce two sheets of grey cloth and five spools of thread from the remaining twenty bales of wool for me please?");
+talkEntry:addResponse("Could you produce two grey cloth and five spools of thread from the remaining twenty bales of wool for me please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -613,7 +566,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(715, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(50, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Stellt doch bitte aus den übrigen 20 Wollknäulen fünf Garnrollen und zwei Rollen grauen Stoff her.");
+talkEntry:addResponse("Stellt doch bitte aus den übrigen 20 Wollballen fünf Garnrollen und zwei Rollen grauen Stoff her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -624,8 +577,8 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(176, 10, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(50, 10, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(176, 3, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(50, 6, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 5));
 talkEntry:addResponse("You want another task? Well alright, could you produce a grey dress for me please? Here take this needle, some thread and grey cloth to produce the dress at the tailoring table next me.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -637,8 +590,8 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(176, 10, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(50, 10, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(176, 3, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(50, 6, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 5));
 talkEntry:addResponse("Ihr wollt noch eine weitere Aufgabe? Nun gut, meinetwegen. Geht zum Schneidertisch neben mir und stellt mir bitte ein graues Gewand her. Hier habt Ihr eine Nadel, etwas grauen Stoff und einige Garnrollen, um das Gewand herzustellen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -651,8 +604,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(176, 10, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(50, 10, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(176, 3, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(50, 6, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 5));
 talkEntry:addResponse("You want another task? Well alright, could you produce a grey dress for me please? Here take this needle, some thread and grey cloth to produce the dress at the tailoring table next me.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -666,8 +619,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 555, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(176, 10, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(50, 10, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(176, 3, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(50, 6, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 5));
 talkEntry:addResponse("Ihr wollt noch eine weitere Aufgabe? Nun gut, meinetwegen. Geht zum Schneidertisch neben mir und stellt mir bitte ein graues Gewand her. Hier habt Ihr eine Nadel, etwas grauen Stoff und einige Garnrollen, um das Gewand herzustellen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -680,6 +633,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("dress");
+talkEntry:addTrigger("grey");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(802, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 6));
 talkEntry:addResponse("Well done, thank you very much. If you have more time I can give you another task.");
@@ -692,6 +647,8 @@ talkEntry:addCondition(npc.base.condition.item.item(802, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("grau");
+talkEntry:addTrigger("gewand");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(802, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 6));
 talkEntry:addResponse("Gut gemacht, vielen Dank. Wenn Ihr noch etwas Zeit erübrigen könnt, hätte ich eine weitere Aufgabe für Euch.");
@@ -731,7 +688,7 @@ talkEntry:addCondition(npc.base.condition.item.item(802, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You haven't solved the task yet. Come back once you've made the grey dress I'm looking for.");
+talkEntry:addResponse("You haven't solved the task yet. Come again once you've got the grey dress I'm looking for.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -755,7 +712,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(52, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(302, 15, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(544, 3, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 7));
-talkEntry:addResponse("Let's produce some dye now, you will need dye for tailoring as well. Please go outside and make a little fire with the wood, which you get from me, and produce five buckets of red dye. You need a mortar, five buckets filled with water and fifteen cherries to make the dye. I'll give you these things, just this once.");
+talkEntry:addResponse("Let's produce some dye now, you will need dye for tailoring as well. Please go outside and make a little fire with the wood which you get from me and produce five buckets of red dye. You need a mortar, five buckets filled with water and fifteen cherries to make the dye. I'll give you these things, just this once.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -784,7 +741,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(52, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(302, 15, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(544, 3, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 7));
-talkEntry:addResponse("Let's produce some dye now, you will need dye for tailoring as well. Please go outside and make a little fire with the wood, which you get from me, and produce five buckets of red dye. You need a mortar, five buckets filled with water and fifteen cherries to make the dye. I'll give you these things, just this once.");
+talkEntry:addResponse("Let's produce some dye now, you will need dye for tailoring as well. Please go outside and make a little fire with the wood which you get from me and produce five buckets of red dye. You need a mortar, five buckets filled with water and fifteen cherries to make the dye. I'll give you these things, just this once.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -811,8 +768,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("dye");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 8));
-talkEntry:addResponse("Well done, thank you very much. I have one last task for you if you are interested?");
+talkEntry:addResponse("Well done, thank you very much. Please keep the buckets with dye for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -822,8 +780,9 @@ talkEntry:addCondition(npc.base.condition.item.item(2681, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("farbe");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 8));
-talkEntry:addResponse("Gut gemacht, vielen Dank. Ich habe eine letzte Aufgabe für Euch, wenn Ihr Interesse habt.");
+talkEntry:addResponse("Gut gemacht, vielen Dank. Bitte behaltet die Eimer mit Farbe für Eure nächste Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -835,7 +794,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 8));
-talkEntry:addResponse("Well done, thank you very much. I have one last task for you if you are interested?");
+talkEntry:addResponse("Well done, thank you very much. Please keep the buckets with dye for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -848,7 +807,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 8));
-talkEntry:addResponse("Gut gemacht, vielen Dank. Ich habe eine letzte Aufgabe für Euch, wenn Ihr Interesse habt.");
+talkEntry:addResponse("Gut gemacht, vielen Dank. Bitte behaltet die Eimer mit Farbe für Eure nächste Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -880,7 +839,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2781, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(178, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 9));
-talkEntry:addResponse("Alright, one last task. Please bring me five bolts of red cloth. You need a dyeing rod, white cloth and of course the buckets of dye. You can get white cloth if you place grey cloth on the ground and let it bleach in the sun. I'll give you my old dyeing rod and some white cloth. Please bring me five red cloth back.");
+talkEntry:addResponse("Alright, one last task. Please bring me five bolts of red cloth. You will need a dyeing rod, white cloth and of course the buckets of dye. You can get white cloth if you place grey cloth on the ground and let it bleach in the sun. I'll give you my old dyeing rod and some white cloth. Please bring me five bolts of red cloth back.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -892,7 +851,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2781, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(178, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 9));
-talkEntry:addResponse("Nun gut, eine letzte Aufgabe für Euch. Ihr sollt mir fünf rote Stoffe färben. Dazu braucht Ihr einen Färbestab, weißen Stoff und natürlich die Eimer mit Farbe. Wenn Ihr grauen Stoff lang genug in der Sonne liegen lasst, wird er weiß. Hier ich gebe euch meinen alten Färbestab, außerdem noch etwas weißen Stoff. Geht zum schwarzen Fass da vorne und stellt mir die fünf Rollen roten Stoff her.");
+talkEntry:addResponse("Nun gut eine letzte Aufgabe für Euch. Ihr sollt mir fünf rote Stoffe färben. Dazu braucht Ihr einen Färbestab, weißen Stoff und natürlich die Eimer mit Farbe. Wenn Ihr grauen Stoff lang genug in der Sonne liegen lasst, wird er weiß. Hier ich gebe euch meinen alten Färbestab, außerdem noch etwas weißen Stoff. Geht zum schwarzen Fass da vorne und stellt mir die fünf Rollen roten Stoff her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -905,7 +864,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2781, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(178, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 9));
-talkEntry:addResponse("Alright, one last task. Please bring me five bolts of red cloth. You need a dyeing rod, white cloth and of course the buckets of dye. You can get white cloth if you place grey cloth on the ground and let it bleach in the sun. I'll give you my old dyeing rod and some white cloth. Please bring me five red cloth back.");
+talkEntry:addResponse("Alright, one last task. Please bring me five bolts of red cloth. You will need a dyeing rod, white cloth and of course the buckets of dye. You can get white cloth if you place grey cloth on the ground and let it bleach in the sun. I'll give you my old dyeing rod and some white cloth. Please bring me five bolts of red cloth back.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -919,7 +878,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2781, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(178, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 9));
-talkEntry:addResponse("Nun gut, eine letzte Aufgabe für Euch. Ihr sollt mir fünf rote Stoffe färben. Dazu braucht Ihr einen Färbestab, weißen Stoff und natürlich die Eimer mit Farbe. Wenn Ihr grauen Stoff lang genug in der Sonne liegen lasst, wird er weiß. Hier ich gebe euch meinen alten Färbestab außerdem noch etwas weißen Stoff. Geht zum schwarzen Fass da vorne und stellt mir die fünf Rollen roten Stoff her.");
+talkEntry:addResponse("Nun gut, eine letzte Aufgabe für Euch. Ihr sollt mir fünf rote Stoffe färben. Dazu braucht Ihr einen Färbestab, weißen Stoff und natürlich die Eimer mit Farbe. Wenn Ihr grauen Stoff lang genug in der Sonne liegen lasst, wird er weiß. Hier ich gebe euch meinen alten Färbestab, außerdem noch etwas weißen Stoff. Geht zum schwarzen Fass da vorne und stellt mir die fünf Rollen roten Stoff her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -930,8 +889,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("cloth");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 10));
-talkEntry:addResponse("Well done, thank you very much. You helped me a lot, I hope I was able to teach you the basics of tailoring.");
+talkEntry:addResponse("Well done, thank you very much. You have helped me a lot, I hope I was able to teach you the basics of tailoring.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -941,6 +902,8 @@ talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("stoff");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 10));
 talkEntry:addResponse("Gut gemacht, vielen Dank. Ihr wart mir eine wirklich große Hilfe. Ich hoffe, ich konnte Euch auch etwas beibringen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -953,8 +916,9 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 10));
-talkEntry:addResponse("Well done, thank you very much. You helped me a lot, I hope I was able to teach you the basics of tailoring.");
+talkEntry:addResponse("Well done, thank you very much. You have helped me a lot, I hope I was able to teach you the basics of tailoring.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -966,6 +930,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 10));
 talkEntry:addResponse("Gut gemacht, vielen Dank. Ihr wart mir eine wirklich große Hilfe. Ich hoffe, ich konnte Euch auch etwas beibringen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1036,11 +1001,11 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ihr scheint kein Bürger Runewick zu sein. Ich habe nichts für Euch zu tun.");
+talkEntry:addResponse("Ihr scheint kein Bürger Runewicks zu sein. Ich habe nichts für Euch zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
-talkingNPC:addCycleText("Wenn Ihr Hilfe beim schneidern braucht, dann fragt nur mich!", "If you need any help in tailoring, just ask me!");
+talkingNPC:addCycleText("Wenn Ihr Hilfe beim schneidern braucht, dann fragt nur mich!", "If you need any help tailoring, just ask me!");
 talkingNPC:addCycleText("#me gähnt verhalten.", "#me yawns restrained.");
 talkingNPC:addCycleText("#me pfeift eine Melodie.", "#me whistles a melody.");
 talkingNPC:addCycleText("#me liest einen Brief.", "#me reads a letter.");

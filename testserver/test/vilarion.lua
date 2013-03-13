@@ -71,6 +71,10 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, ltstate)
+    if User.lastSpokenText == "log" then
+        log("Test")
+    end
+
     if User.lastSpokenText == "inform" then
         local myItem = world:getItemOnField(position(957,95,0))
         local lookAt = ItemLookAt()

@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (705, 'quest.lilli_gallfing_705_cadomyr');
 
 require("base.common")
-module("development.lilli_gallfing_705_cadomyr", package.seeall)
+module("quest.lilli_gallfing_705_cadomyr", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -16,23 +16,23 @@ Title[ENGLISH] = "The tailoring craft"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Sammel 20 Wollkballen für Lilli Gallfing in der Werkstatt von Cadomyr. Schafe kannst du westlich von Cadomyr finden. Du kannst die Schafe schweren, wenn du die Schere in die Hand nimmst und diese benutzt wenn ein Schaf neben dir steht."
+Description[GERMAN][1] = "Sammel 20 Wollkballen für Lilli Gallfing in der Werkstatt von Cadomyr. Schafe kannst du westlich von Cadomyr finden. Du kannst die Schafe scheren, indem du die Schere in die Hand nimmst und diese benutzt wenn ein Schaf neben dir steht."
 Description[ENGLISH][1] = "Collect 20 bales of wool for Lilli Gallfing in the workshop of Cadomyr. You can find sheeps west of Cadomyr. You can collect wool if you stay next to a sheep and use the scissors while holding them in your hand."
-Description[GERMAN][2] = "Geh zu Lilli Gallfing in die Werkstatt von Cadomyr, sie hat bestimmt noch eine Aufgabe für dich."
+Description[GERMAN][2] = "Geh zu Lilli Gallfing in der Werkstatt von Cadomyr, sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go to Lilli Gallfing in the workshop of Cadomyr, she is sure to have another task for you."
 Description[GERMAN][3] = "Bring Lilli Gallfing in der Werkstatt von Cadomyr fünf Garnrollen und zwei Rollen grauen Stoff. Den Stoff kannst du am Webstuhl herstellen und die Garnrollen am Spinnrad. Für beides brauchst du unterschiedliche Mengen an Wolle."
 Description[ENGLISH][3] = "Take Lilli Gallfing in the workshop of Cadomyr five spools of thread and two grey cloth. You can produce the cloth at the loom. The thread can be produced at the spinning wheel, you'll need different amounts of wool to produce them both."
-Description[GERMAN][4] = "Geh zu Lilli Gallfing in die Werkstatt von Cadomyr, sie hat bestimmt noch eine Aufgabe für dich."
+Description[GERMAN][4] = "Geh zu Lilli Gallfing in der Werkstatt von Cadomyr, sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][4] = "Go to Lilli Gallfing in the workshop of Cadomyr, she is sure to have another task for you."
 Description[GERMAN][5] = "Schneidere ein graues Gewand am Schneidertisch für Lilli Gallfing in der Werkstatt von Cadomyr. Um das Gewand herzustellen musst du die Nadel in die Hand nehmen und diese benutzen wenn du vor einem Schneidertisch stehst. Der Schneidertisch befindet sich in der Werkstatt."
 Description[ENGLISH][5] = "Tailor one grey dress at the tailoring table for Lilli Gallfing in the workshop of Cadomyr. To produce the dress you have to take the needle in your hand and use it, while staying in front of the tailoring table. Der Schneidertisch befindet sich in der Werkstatt."
-Description[GERMAN][6] = "Geh zu Lilli Gallfing in die Werkstatt von Cadomyr, sie hat bestimmt noch eine Aufgabe für dich."
+Description[GERMAN][6] = "Geh zu Lilli Gallfing in der Werkstatt von Cadomyr, sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][6] = "Go to Lilli Gallfing in the workshop of Cadomyr, she is sure to have another task for you."
 Description[GERMAN][7] = "Stell fünf Eimer mit roter Farbe für Lilli Gallfing in der Werkstatt von Cadomyr her. Um die rote Farbe herzustellen musst du ein Feuer machen, dafür plazierst du das Holz vor dir auf dem Boden und benutzt dieses. Anschließend nimmst du den Mörser in die Hand und benutzt diesen."
 Description[ENGLISH][7] = "Produce five buckets of red dye for Lilli Gallfing in the workshop of Cadomyr. To produce red dye you have to make a fire, for this you have to place the fire on the ground and use it. Once you have done that take the mortar in your hand and use it while staying in front of the fire."
-Description[GERMAN][8] = "Geh zu Lilli Gallfing in die Werkstatt von Cadomyr, sie hat bestimmt noch eine Aufgabe für dich."
+Description[GERMAN][8] = "Geh zu Lilli Gallfing in der Werkstatt von Cadomyr, sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][8] = "Go to Lilli Gallfing in the workshop of Cadomyr, she is sure to have another task for you."
-Description[GERMAN][9] = "Färbe fünf Rollen roten Stoff bei dem schwarzen Fass in der Schneiderei von Cadomyr für Lilli Gallfing die sich in der Werkstatt von Cadomyr aufhält. Um die Stoffe herzustellen musst du den Färberstab in die Hand nehmen, anschließend benutz du das schwarze Fass während du die Eimer mit Farbe und den weißen Stoff in deinem Inventar hast."
+Description[GERMAN][9] = "Färbe fünf Rollen roten Stoff bei dem schwarzen Fass in der Schneiderei von Cadomyr für Lilli Gallfing die sich in der Werkstatt von Cadomyr aufhält. Um die Stoffe herzustellen musst du den Färberstab in die Hand nehmen, anschließend benutzt du das schwarze Fass während du die Eimer mit Farbe und den weißen Stoff in deinem Inventar hast."
 Description[ENGLISH][9] = "Dye five cloths red for Lilli Gallfing in the workshop of Cadomyr, using the black barrel in the workshop. To produce the cloth you have to take the dyeing rod in your hand and use the black barrel while having red dye and white cloth in your inventory."
 Description[GERMAN][10] = "Du hast alle Aufgaben von Lilli Gallfing erfüllt."
 Description[ENGLISH][10] = "You have fulfilled all the tasks for Lilli Gallfing."

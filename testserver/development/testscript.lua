@@ -1,7 +1,6 @@
 -- Fighting System
 -- All fights are handled with this script
--- Written by martin, Nitram and Xandrina
--- Rebalanced by Estralis and Flux
+-- Written by Flux
 
 
 --[[ Weapontypes:
@@ -52,16 +51,18 @@ function onAttack(Attacker, Defender)
     local Defender = { ["Char"]=Defender };
     local Globals = {};
 
+
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
     -- Load the weapons of the attacker
     LoadWeapons(Attacker);
     -- Check the range between the both fighting characters
 
-    if not CheckRange(Attacker, Defender.Char) then return false; end;
+	-- Find out the attack type and the required combat skill
+	GetAttackType(Attacker);
 
-    -- Find out the attack type and the required combat skill
-    GetAttackType(Attacker);
+    if not CheckRange(Attacker, Defender.Char) then return false; end;
+    
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then 
         return false; 
@@ -290,7 +291,7 @@ function CalculateDamage(Attacker, Globals)
     DexterityBonus = (Attacker.dexterity - 6) * 1;
     SkillBonus = (Attacker.skill - 20) * 1.5;
     --TacticsBonus = (Attacker.tactics - 20) * 0.5;
-    GemBonus = base.gems.getGemBonus(Attacker.WeaponItem);
+    GemBonus = 0.5*base.gems.getGemBonus(Attacker.WeaponItem);
 	
 	--Quality Bonus: Multiplies final value by 0.91-1.09
 	QualityBonus = 0.91+0.02*math.floor(Attacker.WeaponItem.quality/100);
@@ -455,10 +456,12 @@ function HitChanceFlux(Attacker, Defender, Globals)
 				parryWeapon = Defender.RightWeapon;
 			end;
 		end;
-
+		
+		local qualitymod = 0.91+0.02*math.floor(parryItem.quality/100);
 		parryChance = (Defender.parry / 5); --0-20% by the skill
         parryChance = parryChance * (0.5 + (Defender.agility) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
-        parryChance = parryChance + (parryWeapon.Defence) / 10; --0-20% bonus by the weapon/shield
+        parryChance = parryChance + (parryWeapon.Defence) / 5; --0-20% bonus by the weapon/shield
+		parryChance = parryChance * qualitymod;
 		parryChance = math.min(math.max(parryChance,5),95);
 		
 	else
@@ -536,7 +539,8 @@ function CheckRange(AttackerStruct, Defender)
 		end
     end
 
-    if (distance == 1 and AttackerStruct.AttackKind == 4) then
+    if (distance <= 2 and AttackerStruct.AttackKind == 4) then
+		--AttackerStruct.Char:inform("I acknowledge that bows shouldn't fire."); --Debugging
         return false;
     end
     if AttackerStruct.IsWeapon then
@@ -762,14 +766,14 @@ function GetArmourType(Defender, Globals)
 
 
 	if armourtype == 1 then
-		--Defender["DefenseSkill"] = Character.LightArmour;
-		Defender["DefenseSkillName"] = Character.dodge;
+		-- Heavy is good against punc
+		Defender["DefenseSkillName"] = Character.heavyArmour;
 	elseif armourtype == 2 then
-		--Defender["DefenseSkill"] = Character.MediumArmour;
-		Defender["DefenseSkillName"] = Character.dodge;
+		-- Medium is good against slash/stroke
+		Defender["DefenseSkillName"] = Character.mediumArmour;
 	elseif armourtype == 3 then
-		--Defender["DefenseSkill"] = Character.HeavyArmour;
-		Defender["DefenseSkillName"] = Character.dodge;
+		-- Light is good against conc/thrust
+		Defender["DefenseSkillName"] = Character.lightArmour;
 	else
 		Defender["DefenseSkill"] = false;
 		return false;

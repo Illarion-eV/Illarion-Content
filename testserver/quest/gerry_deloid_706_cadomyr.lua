@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (706, 'quest.gerry_deloid_706_cadomyr');
 
 require("base.common")
-module("development.gerry_deloid_706_cadomyr", package.seeall)
+module("quest.gerry_deloid_706_cadomyr", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -17,7 +17,7 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammel 20 Honigwaben für Gerry Deloid bei der Werkstatt von Cadomyr. Die Bienenstöcke stehen auf den Tischen vor ihm."
-Description[ENGLISH][1] = "Collect 20 honeycombs for Gerry Deloid at the workshop of Cadomyr. The beehives are on the tabel in front of him."
+Description[ENGLISH][1] = "Collect 20 honeycombs for Gerry Deloid at the workshop of Cadomyr. The beehives are on the table in front of him."
 Description[GERMAN][2] = "Geh zu Gerry Deloid bei der Werkstatt von Cadomyr, er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go to Gerry Deloid at the workshop of Cadomyr, he is sure to have another task for you."
 Description[GERMAN][3] = "Stell 20 Stück Wachs beim Kerzenziehertisch her und zeig diese Gerry Deloid bei der Werkstatt von Cadomyr. Der Tisch befindet sich in der Werkstatt, neben den Glasschmelzöfen. Um den Wachs herzustellen musst du die Zange in die Hand nehmen und den Tisch anschließend benutzen."
@@ -28,7 +28,7 @@ Description[GERMAN][5] = "Stell mittels der Kerzenform zehn Kerzen beim Kerzenzi
 Description[ENGLISH][5] = "Produce ten candles using the candle mould at the chandler table in the workshop for Gerry Deloid. To produce the candles you have to take the candle mold in your hand and use it while staying in front of the chandler table."
 Description[GERMAN][6] = "Geh zu Gerry Deloid bei der Werkstatt von Cadomyr, er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][6] = "Go to Gerry Deloid at the workshop of Cadomyr, he is sure to have another task for you."
-Description[GERMAN][7] = "Stell mittels schwarzer Disteln zwei Flaschen Lampenöl an der Ölpresse in Cadomyr her und bring diese zu Gerry Deloid. Schwarze Disteln kannst du finden, wenn du auf felsigem Boden in Grasbüscheln mit der Sichel in der Hand suchst. Benutz dabei die Sichel in der Hand, während du vor dem Grass stehst. Für eine Flasche Lampenöl brauchst du vier schwarze Diesteln."
+Description[GERMAN][7] = "Stell mittels schwarzer Disteln zwei Flaschen Lampenöl an der Ölpresse in Cadomyr her und bring diese zu Gerry Deloid. Schwarze Disteln kannst du finden, wenn du auf felsigem Boden in Grasbüscheln mit der Sichel in der Hand suchst. Benutz dabei die Sichel in der Hand, während du vor dem Grass stehst. Für eine Flasche Lampenöl brauchst du zwei schwarze Disteln."
 Description[ENGLISH][7] = "Produce two bottles of lamp oil with black thistles at the press in Cadomyr and take them to Gerry Deloid. You can find black thistles if you search the rocky ground in the grass while holding the sickle in your hand. Use the sickle in your hadn while staying in front of the grass to gather the thistles. For one bottle with lamp oil you will need four black thistles."
 Description[GERMAN][8] = "Du hast alle Aufgaben von Gerry Deloid erfüllt."
 Description[ENGLISH][8] = "You have fulfilled all the tasks for Gerry Deloid."

@@ -22,7 +22,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.talkstate")
 require("npc.base.talk")
-module("development.jakob_lindorn", package.seeall)
+module("npc.jakob_lindorn", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -66,8 +66,8 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good Evening");
-talkEntry:addResponse("Hello, I can tell you who in Cadomyr has tasks for you to do.");
-talkEntry:addResponse("Nice to meet you, I'm Jakob Lindorn, I can tell you who in Cadomyr has tasks for you to do.");
+talkEntry:addResponse("Be greeted.");
+talkEntry:addResponse("Nice to meet you, I'm Jakob Lindorn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -82,8 +82,8 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
-talkEntry:addResponse("Hallo, ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat.");
-talkEntry:addResponse("Freut mich, Euch zu treffen. Ich bin Jakob Lindorn. Ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat.");
+talkEntry:addResponse("Seid gegrüßt.");
+talkEntry:addResponse("Freut mich, Euch zu treffen. Ich bin Jakob Lindorn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -93,8 +93,8 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hello, I can tell you who in Cadomyr has tasks for you to do.");
-talkEntry:addResponse("Nice to meet you, I'm Jakob Lindorn, I can tell you who in Cadomyr has tasks for you to do.");
+talkEntry:addResponse("Be greeted");
+talkEntry:addResponse("Nice to meet you, I'm Jakob Lindorn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -103,8 +103,8 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hallo, ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat.");
-talkEntry:addResponse("Freut mich, Euch zu treffen. Ich bin Jakob Lindorn. Ich kann Euch sagen, wer in Cadomyr Aufgaben für Euch hat.");
+talkEntry:addResponse("Seid gegrüßt.");
+talkEntry:addResponse("Freut mich, Euch zu treffen. Ich bin Jakob Lindorn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -925,7 +925,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Willkommen in Cadomyr!", "Welcome to Cadomyr!");
 talkingNPC:addCycleText("Wenn Ihr Hilfe benötigt, sprecht mich einfach an.", "If you need help, just speak to me.");
-talkingNPC:addCycleText("Ich kann Euch sagen, wer in diesem Reich eure Hilfe benötigt.", "I can tell you who in this realm needs your help.");
 talkingNPC:addCycleText("Wenn Ihr neu hier seid, bin ich Euer Mann.", "If you're new to this realm, I'm your man.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
