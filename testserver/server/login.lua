@@ -37,7 +37,7 @@ function onLogin( player )
 	if isTestserver() then
 
 		if player:getSkill(25)>0 or player:getSkill(23)>0 then
-			MergeSkill(player,false);
+			MergeSkillInform(player);
 		end
 
 	end
@@ -392,7 +392,26 @@ function PayOutWage(Recipient,town)
 end
 
 
-function MergeSkill(User, recurse)
+function MergeSkillInform(User)
+	
+
+		local infText = base.common.GetNLS(User, 
+						"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.",
+						"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.");
+		local title = base.common.GetNLS(User,"New Armour Skills","New Armour Skills")
+	
+		local dialogue=MessageDialog(title,infText,closeTrib);
+			
+		local closeTrib=function(onClose)
+			MergeSkill(User);
+		end
+
+		User:requestMessageDialog(dialogue);
+
+	
+end
+
+function MergeSkill(User)
 	
     local names
 	if  User:getPlayerLanguage() == Player.german then
@@ -420,7 +439,7 @@ function MergeSkill(User, recurse)
 					world:makeSound(13,User.pos);
 		else
 			User:inform("Please choose a skill.", "Please choose a skill.");		
-			MergeSkill(User,true);
+			MergeSkill(User);
 		end
 	end
 		
@@ -435,23 +454,6 @@ function MergeSkill(User, recurse)
 		dialog:addOption(items[i], names[i])
 	end
 	User:requestSelectionDialog(dialog)
-
-	if not recurse then
-
-		local infText = base.common.GetNLS(User, 
-						"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.",
-						"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.");
-		local title = base.common.GetNLS(User,"New Armour Skills","New Armour Skills")
-	
-		local dialogue=MessageDialog(title,infText,closeTrib);
-			
-		local closeTrib=function(onClose)
-
-		end
-
-		User:requestMessageDialog(dialogue);
-
-	end
 
 	return;
 end
