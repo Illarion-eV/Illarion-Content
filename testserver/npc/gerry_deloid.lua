@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -314,7 +314,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 3));
-talkEntry:addResponse("Very well, now we can start to make wax out of the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make 20 pieces of wax for me.");
+talkEntry:addResponse("Very well, now we can start to make wax out of the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make twenty pieces of wax for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -337,7 +337,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2751, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 3));
-talkEntry:addResponse("Very well, now we can start to make wax out of the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make 20 pieces of wax for me.");
+talkEntry:addResponse("Very well, now we can start to make wax out of the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make twenty pieces of wax for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -414,7 +414,7 @@ talkEntry:addCondition(npc.base.condition.item.item(431, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I want 20 pieces of wax, please come back once you are done with this task.");
+talkEntry:addResponse("I want twenty pieces of wax, please come back once you are done with this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -556,7 +556,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 7));
-talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect four thistles and bring me at least two bottles with oil. The oil press is next me. Take this sickle to gather the thistles.");
+talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect four thistles and bring me two bottles of oil. The oil press is next me. Take this sickle to gather the thistles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -579,7 +579,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(706, "=", 7));
-talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect four thistles and bring me at least two bottles with oil. The oil press is next me. Take this sickle to gather the thistles.");
+talkEntry:addResponse("Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect four thistles and bring me two bottles of oil. The oil press is next me. Take this sickle to gather the thistles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,7 +694,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(706, "<", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I could need some help, just ask me for a task.");
+talkEntry:addResponse("I could use some help, just ask me for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -710,7 +710,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("You are not a citizen of Cadomyr. I don't have anything to do for you.");
+talkEntry:addResponse("You are not a citizen of Cadomyr. I don't have anything for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -722,7 +722,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
 talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches his head.");
-talkingNPC:addCycleText("Wenn ihr Hilfe beim kerzenmachen braucht dann fragt nur mich!", "If you need any help in candle making, just ask me!");
+talkingNPC:addCycleText("Wenn ihr Hilfe beim kerzenmachen braucht dann fragt nur mich!", "If you need any help candle making, just ask me!");
 talkingNPC:addCycleText("#me gähnt verhalten.", "#me yawns restrained.");
 talkingNPC:addCycleText("#me schaut sich kurz um und kratzt sich anschließend an seinem Hintern.", "#me looks around briefly and scratches his bum.");
 mainNPC:addLanguage(0);
