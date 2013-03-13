@@ -9,16 +9,16 @@ ENGLISH = Player.english
 -- Insert the quest title here, in both languages
 Title = {}
 Title[GERMAN] = "Finde Ruzusss in Cadomyr"
-Title[ENGLISH] = "Finde KÃ¶nigin Rosaline Edwards"
+Title[ENGLISH] = "Finde Königin Rosaline Edwards"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde KÃ¶nigin Rosaline Edwards und bringe ihr dein Geschenk."
+Description[GERMAN][1] = "Finde Königin Rosaline Edwards und bringe ihr dein Geschenk."
 Description[ENGLISH][1] = "Find Queen Rosaline Edwards and bring her your gift."
-Description[GERMAN][2] = "Du weiÃŸt nun wo KÃ¶nigin Rosaline Edwards zu finden ist."
+Description[GERMAN][2] = "Du weißt nun wo Königin Rosaline Edwards zu finden ist."
 Description[ENGLISH][2] = "You know now where you can find Queen Rosaline Edwards."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

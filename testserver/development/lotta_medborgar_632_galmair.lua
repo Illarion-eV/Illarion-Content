@@ -18,7 +18,7 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Finde Lotta Medborgar in Galmair and sprich mit ihr."
 Description[ENGLISH][1] = "Finde Don Valerio Guilianni und bringe ihr dein Geschenk."
-Description[GERMAN][2] = "Du wei√üt nun wo Don Valerio Guilianni zu finden ist."
+Description[GERMAN][2] = "Du weiﬂt nun wo Don Valerio Guilianni zu finden ist."
 Description[ENGLISH][2] = "You know now where you can find Don Valerio Guilianni."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
