@@ -16,9 +16,9 @@ Title[ENGLISH] = "Sibanac for Wulfgorda at the Hemp Necktie Inn (Spider's Mouth)
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde Wulfgorda beim Gasthaus zur Hanfschlinge und bringe ihr die Sibanacbl√§tter um deine Belohnung zur erhalten."
+Description[GERMAN][1] = "Finde Wulfgorda beim Gasthaus zur Hanfschlinge und bringe ihr die Sibanacbl‰tter um deine Belohnung zur erhalten."
 Description[ENGLISH][1] = "Try to find Wulfgorda at the Hemp Necktie Inn and take her the sibanac leafs to get your reward."
-Description[GERMAN][2] = "Da kannst nun mit Wulfgorda sprechen. Frage nach 'Hilfe' wenn du nicht wei√üt nach was du fragen sollst!\nSie kann dir einiges √ºber die nord√∂stliche Karte von Illarion verraten."
+Description[GERMAN][2] = "Da kannst nun mit Wulfgorda sprechen. Frage nach 'Hilfe' wenn du nicht weiﬂt nach was du fragen sollst!\nSie kann dir einiges √ºber die nordˆstliche Karte von Illarion verraten."
 Description[ENGLISH][2] = "You can talk with Wulfgorda now. Ask for 'help' if you do not know what to say!\nShe provides you with information about the north-eastern part of Illarion."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

@@ -15,8 +15,8 @@ Title[ENGLISH] = "Runewick Treasury"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Lege ein Item, das du spenden willst auf die Spendenplatfrom neben Neiran el Nyarale."
-Description[ENGLISH][1] = "Put an item  wich you want to donate on the donnation platfrom next to Neiran es Nyarale."
+Description[GERMAN][1] = "Lege ein Item, das du spenden willst auf die Spendenplattfrom neben Neiran el Nyarale."
+Description[ENGLISH][1] = "Put an item wich you want to donate on the donnation platfrom next to Neiran el Nyarale."
 Description[GERMAN][2] = "Du hast deine Aufgabe erfüllt. Sprich mit Neiran el Nyarale."
 Description[ENGLISH][2] = "You did complete your task. Please talk to Neiran el Nyarale."
 Description[GERMAN][3] = "Du hast deine Aufgabe von Neiran el Nyarale erfolgreich erfüllt."
@@ -26,7 +26,7 @@ Description[ENGLISH][3] = "You did complete the task given by Neiran el Nyarale 
 -- Positionen
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = { 897, 781, 2}
+QuestTarget[1] = {897, 781, 2}
 QuestTarget[2]= {897, 781, 2}
 QuestTarget[3]= {897, 781, 2}
 

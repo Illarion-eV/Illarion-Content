@@ -50,6 +50,14 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
             "Deine aktuelle Position ist: "..Char.pos.x..", "..Char.pos.y..", "..Char.pos.z.."",
             "Your current position is: "..Char.pos.x..", "..Char.pos.y..", "..Char.pos.z.."" );
     end
+
+	if isTestserver() then
+	if not ( math.mod( Effect.numberCalled, 10 ) == 0 ) and string.find( Char.lastSpokenText, "armour" ) then
+        base.common.InformNLS( Char,
+            "Leichte: "..Char:getSkill(38)..". Mittlere: "..Char:getSkill(39)..". Schwere: "..Char:getSkill(40)..".",
+            "Light: "..Char:getSkill(38)..". Medium: "..Char:getSkill(39)..". Heavy: "..Char:getSkill(40).."." );
+    end
+	end
     ------------------------POSITION ANZEIGEN FERTIG--------------------------
 
     if ( Hitpoints == 0 ) then -- Charakter ist tot

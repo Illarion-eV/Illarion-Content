@@ -1,7 +1,7 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (620, 'quest.elesil_daelwon_620');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (620, 'quest.elesil_daelwon_620_runewick');
 
 require("base.common")
-module("development.elesil_daelwon_620", package.seeall)
+module("development.elesil_daelwon_620_runewick", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -18,7 +18,7 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Finde Numila Irunnleh in Runewick and sprich mit ihr."
 Description[ENGLISH][1] = "Find Numila Irunnleh in Runewick and talk to her."
-Description[GERMAN][2] = "Da kannst nun mit Elesil sprechen. Frage nach 'Hilfe' wenn du nicht weiÃŸt nach was du fragen sollst!\nSie kann dir einiges Ã¼ber die sÃ¼dÃ¶stliche Karte von Illarion verraten."
+Description[GERMAN][2] = "Da kannst nun mit Elesil sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst!\nSie kann dir einiges über die südöstliche Karte von Illarion verraten."
 Description[ENGLISH][2] = "You can talk with Elesil now. Ask for 'help' if you do not know what to say!\nShe provides you with information about the south-eastern part of Illarion."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

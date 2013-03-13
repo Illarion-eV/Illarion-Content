@@ -418,6 +418,14 @@ function HitChanceFlux(Attacker, Defender, Globals)
 		chancetohit=math.max(math.min(90*(1+(Attacker.perception-10)/500),100),5);
 	end;
 
+	if (Attacker.AttackKind==4) then
+		local distance = AttackerStruct.Char:distanceMetric(Defender);
+		local DistanceReductionModifier = 0.93
+		local archerymod = min(1,(1-DistanceReductionModifier)+DistanceReductionModifier^(distance-2))
+		--The value of 2 is used because that's the number of squares away it starts.
+		chancetohit = chancetohit*archerymod;
+	end;
+
 	--Surefire Special
 	if(Globals.criticalHit==7) then
 		chancetohit = 100;
@@ -1044,7 +1052,7 @@ function LearnSuccess(Attacker, Defender, AP)
 		Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.parry) + 20);
 	else
 		Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.DefenseSkill, Defender.parry) + 20);
-		Defender.Char:learn(Defender.DefenseSkill,AP/2,Attacker.Skillname+20);
+		Defender.Char:learn(Defender.DefenseSkillName,AP/2,Attacker.skill+20);
 	end;
     
 --debug("          DONE LEARNING");    
