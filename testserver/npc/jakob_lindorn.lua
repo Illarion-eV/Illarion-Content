@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -46,7 +46,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 1));
-talkEntry:addResponse("Welcome to Cadomyr. Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you.");
+talkEntry:addResponse("Welcome to Cadomyr. Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -310,7 +310,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you.");
+talkEntry:addResponse("Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -329,7 +329,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you.");
+talkEntry:addResponse("Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -603,7 +603,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 9));
-talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probbaly met her in the tavern already.");
+talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met her in the tavern already.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -624,7 +624,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 9));
-talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probbaly met her in the tavern already.");
+talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met her in the tavern already.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -646,7 +646,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probbaly met her in the tavern already.");
+talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met her in the tavern already.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -665,7 +665,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probbaly met her in the tavern already.");
+talkEntry:addResponse("Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met her in the tavern already.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -897,7 +897,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "<", 14));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I could need some help, just ask me for a task.");
+talkEntry:addResponse("I could use some help, just ask me for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -913,7 +913,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("You are not a citizen of Cadomyr. I don't have anything to do for you.");
+talkEntry:addResponse("You are not a citizen of Cadomyr. I don't have anything for you to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

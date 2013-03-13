@@ -47,7 +47,7 @@ itemShoes = 679
 -- Help
 "Help" -> inform("[Game Help] This NPC is Jakob Lindorn the helper. Keywords: quest, craft, market, workshop, Frizza, food, fighting, Cadomyr")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Jakob Lindorn der Helfer. Schlüsselwörter: Quest, Handwerke, Markt, Werkstatt, Frizza, Essen, Kämpfen, Cadomyr")
-queststatus(703) = 0, town = Cadomyr, english, ".+" -> queststatus(703) = 1, "Welcome to Cadomyr. Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you."
+queststatus(703) = 0, town = Cadomyr, english, ".+" -> queststatus(703) = 1, "Welcome to Cadomyr. Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you."
 queststatus(703) = 0, town = Cadomyr, ".+" -> queststatus(703) = 1, "Willkommen in Cadomyr. Sucht doch bitte Berri Firegold, er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun."
 
 -- General speech
@@ -88,9 +88,9 @@ german, "hand" -> "Ihr wollt mehr über die Handwerke in Cadomyr wissen? Dann be
 
 -- Quests
 -- Berri
-queststatus(703) = 1, town = Cadomyr, english, "quest", "mission" -> "Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you."
+queststatus(703) = 1, town = Cadomyr, english, "quest", "mission" -> "Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you."
 queststatus(703) = 1, town = Cadomyr, "quest", "mission" -> "Sucht doch bitte Berri Firegold, er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun."
-queststatus(703) = 1, town = Cadomyr, "task", "adventure", "order" -> "Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears a golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you."
+queststatus(703) = 1, town = Cadomyr, "task", "adventure", "order" -> "Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you."
 queststatus(703) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Sucht doch bitte Berri Firegold, er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun."
 
 -- Grakamesh
@@ -124,13 +124,13 @@ queststatus(703) = 7, town = Cadomyr, "task", "adventure", "order" -> "Hassan, t
 queststatus(703) = 7, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hassan, der königliche Fächelwedler hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz."
 
 -- Linda Rabon
-queststatus(703) = 8, town = Cadomyr, english, "quest", "mission" -> queststatus(703) = 9, "Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probbaly met her in the tavern already."
+queststatus(703) = 8, town = Cadomyr, english, "quest", "mission" -> queststatus(703) = 9, "Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met her in the tavern already."
 queststatus(703) = 8, town = Cadomyr, "quest", "mission" -> queststatus(703) = 9, "Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen."
-queststatus(703) = 8, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 9, "Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probbaly met her in the tavern already."
+queststatus(703) = 8, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 9, "Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met her in the tavern already."
 queststatus(703) = 8, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 9, "Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen."
-queststatus(703) = 9, town = Cadomyr, english, "quest", "mission" -> "Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probbaly met her in the tavern already."
+queststatus(703) = 9, town = Cadomyr, english, "quest", "mission" -> "Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met her in the tavern already."
 queststatus(703) = 9, town = Cadomyr, "quest", "mission" -> "Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen."
-queststatus(703) = 9, town = Cadomyr, "task", "adventure", "order" -> "Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probbaly met her in the tavern already."
+queststatus(703) = 9, town = Cadomyr, "task", "adventure", "order" -> "Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met her in the tavern already."
 queststatus(703) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen."
 
 -- Zerarisa
@@ -160,9 +160,9 @@ queststatus(703) = 14, town = Cadomyr, "task", "adventure", "order" -> "I'm sure
 queststatus(703) = 14, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-queststatus(703) < 14, town = Cadomyr, english, ".*" -> "I could need some help, just ask me for a task."
+queststatus(703) < 14, town = Cadomyr, english, ".*" -> "I could use some help, just ask me for a task."
 queststatus(703) < 14, town = Cadomyr, german, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
-english, ".*" -> "You are not a citizen of Cadomyr. I don't have anything to do for you."
+english, ".*" -> "You are not a citizen of Cadomyr. I don't have anything for you to do."
 german, ".*" -> "Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun."
 
 ------------------------------------------------------------------------------AC
