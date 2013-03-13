@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -66,7 +66,7 @@ talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Hallo, kann ich Euch helfen?");
-talkEntry:addResponse("Freut mich, Euch zu treffen. Ich bin Thorgrem Silverbeard.");
+talkEntry:addResponse("Freut mich Euch zu treffen. Ich bin Thorgrem Silverbeard.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -87,7 +87,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Hallo, kann ich Euch helfen?");
-talkEntry:addResponse("Freut mich, Euch zu treffen. Ich bin Thorgrem Silverbeard");
+talkEntry:addResponse("Freut mich Euch zu treffen. Ich bin Thorgrem Silverbeard");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -106,7 +106,7 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addResponse("Ich wünsche Euch noch einen schönen Tag.");
-talkEntry:addResponse("Ich hoffe, wir sehen uns wieder. Auf bald!");
+talkEntry:addResponse("Ich hoffe wir sehen uns wieder. Auf bald!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -127,7 +127,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Ich wünsche Euch noch einen schönen Tag.");
-talkEntry:addResponse("Ich hoffe, wir sehen uns wieder. Auf bald!");
+talkEntry:addResponse("Ich hoffe wir sehen uns wieder. Auf bald!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -174,7 +174,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin natürlich ein Schmied, vielleicht habe ich später eine kleine Aufgabe für dich.");
+talkEntry:addResponse("Ich bin natürlich ein Schmied. Vielleicht habe ich später eine kleine Aufgabe für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -187,7 +187,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin natürlich ein Schmied, vielleicht habe ich später eine kleine Aufgabe für dich.");
+talkEntry:addResponse("Ich bin natürlich ein Schmied. Vielleicht habe ich später eine kleine Aufgabe für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -241,7 +241,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("joey");
 talkEntry:addTrigger("licavoli");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 4));
-talkEntry:addResponse("Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt. Willst du etwas über das Edelsteinschleifen oder Ziegelmachen lernen, dann frag Seleseth die Echse neben mir. Liegt dir das Schreinerhandwerk eher, dann frag Tony Spirotelli bei der Werkbank dort drüben.");
+talkEntry:addResponse("Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt. Willst du etwas über das Edelsteinschleifen oder Ziegelmachen lernen, dann frag Seleseth, die Echse neben mir. Liegt dir das Schreinerhandwerk eher, dann frag Tony Spirotelli bei der Werkbank dort drüben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,7 +266,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 4));
-talkEntry:addResponse("Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt. Willst du etwas über das Edelsteinschleifen oder Ziegelmachen lernen, dann frag Seleseth die Echse neben mir. Liegt dir das Schreinerhandwerk eher, dann frag Tony Spirotelli bei der Werkbank dort drüben.");
+talkEntry:addResponse("Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt. Willst du etwas über das Edelsteinschleifen oder Ziegelmachen lernen, dann frag Seleseth, die Echse neben mir. Liegt dir das Schreinerhandwerk eher, dann frag Tony Spirotelli bei der Werkbank dort drüben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -297,7 +297,7 @@ talkEntry:addTrigger("licavoli");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Kannst du mir 20 Brocken Eisenerz von der Malachitmine und außerdem noch 20 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke um das Erz abzubauen.");
+talkEntry:addResponse("Kannst du mir 20 Brocken Eisenerz von der Malachitmine und außerdem noch 20 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folge der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -326,7 +326,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Kannst du mir 20 Brocken Eisenerz von der Malachitmine und außerdem noch 20 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke um das Erz abzubauen.");
+talkEntry:addResponse("Kannst du mir 20 Brocken Eisenerz von der Malachitmine und außerdem noch 20 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folge der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -349,7 +349,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Kannst du mir 20 Brocken Eisenerz von der Malachitmine und außerdem noch 20 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke um das Erz abzubauen.");
+talkEntry:addResponse("Kannst du mir 20 Brocken Eisenerz von der Malachitmine und außerdem noch 20 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -374,7 +374,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Kannst du mir 20 Brocken Eisenerz von der Malachitmine und außerdem noch 20 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke um das Erz abzubauen.");
+talkEntry:addResponse("Kannst du mir 20 Brocken Eisenerz von der Malachitmine und außerdem noch 20 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -407,7 +407,7 @@ talkEntry:addTrigger("eisen");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 2));
-talkEntry:addResponse("Gut gemacht, danke. Ich nehme zehn Stück vom Erz und zehn von der Kohle. Den Rest kannst du für die nächste Aufgabe behalten");
+talkEntry:addResponse("Gut gemacht, danke. Ich nehme zehn Stück vom Erz und zehn von der Kohle. Den Rest kannst du für die nächste Aufgabe behalten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -476,7 +476,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 20 Eisenerze sowie 20 Kohleklumpen von dir. Hast du das vergessen?");
+talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 20 Eisenerze und 20 Kohleklumpen von dir. Hast du das vergessen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -620,7 +620,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(122, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 5));
-talkEntry:addResponse("Du willst noch eine Aufgabe? Na gut, meinetwegen. Bitte stell mir fünf Nägel sowie fünf Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht, der mit dem roten Griff für das Feinschmieden. Hier ich gebe dir jeweils einen zum üben.");
+talkEntry:addResponse("Du willst noch eine Aufgabe? Na gut, meinetwegen. Bitte stell mir fünf Nägel, sowie fünf Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht, der mit dem roten Griff für das Feinschmieden. Hier ich gebe dir jeweils einen zum üben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -647,7 +647,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(122, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 5));
-talkEntry:addResponse("Du willst noch eine Aufgabe? Na gut, meinetwegen. Bitte stell mir fünf Nägel sowie fünf Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht, der mit dem roten Griff für das Feinschmieden. Hier ich gebe dir jeweils einen zum üben.");
+talkEntry:addResponse("Du willst noch eine Aufgabe? Na gut, meinetwegen. Bitte stell mir fünf Nägel, sowie fünf Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht, der mit dem roten Griff für das Feinschmieden. Hier ich gebe dir jeweils einen zum üben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -767,7 +767,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!");
+talkEntry:addResponse("Ich habe nichts weiter für Euch zu tun. Aber danke Euch nochmals für Eure Hilfe!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -785,7 +785,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(708, "<", 6));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun.");
+talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -799,12 +799,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ihr scheint kein Bürger Galmair zu sein. Ich habe nichts für Euch zu tun.");
+talkEntry:addResponse("Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
 talkingNPC:addCycleText("#me streicht sich über seinen Bart.", "#me runs a hand over his beard.");
-talkingNPC:addCycleText("Wenn du Hilfe beim Schmieden brauchst dann frag nur mich!", "If you need any help smithing, just ask me!");
+talkingNPC:addCycleText("Wenn du Hilfe beim Schmieden brauchst, dann frag mich nur!", "If you need any help smithing, just ask me!");
 talkingNPC:addCycleText("#me gähnt verhalten.", "#me yawns restrained.");
 talkingNPC:addCycleText("Ein Bier! Bringt mir ein Bier!", "A beer, bring me a beer!");
 talkingNPC:addCycleText("#me grummelt.", "#me grumbles.");
