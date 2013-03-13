@@ -419,11 +419,16 @@ function MergeSkill(User)
 					world:gfx(46,User.pos)
 					world:makeSound(13,User.pos);
 		else
+			User:inform("Please select a skill.", "Please select a skill.")
 			if User:getPlayerLanguage() == Player.german then
 				dialog = SelectionDialog("No, seriously", "Which armour skill will you use?", callback)
 			else
 				dialog = SelectionDialog("No, seriously", "Which armour skill will you use?", callback)
 			end
+			for i=1,#items do
+				dialog:addOption(items[i], names[i])
+			end
+			User:requestSelectionDialog(dialog)
 		end
 	end
 		
