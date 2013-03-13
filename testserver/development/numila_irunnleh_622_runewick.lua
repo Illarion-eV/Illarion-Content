@@ -1,7 +1,7 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (622, 'quest.numila_irunnleh_622');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (622, 'quest.numila_irunnleh_622_runewick');
 
 require("base.common")
-module("development.numila_irunnleh_622", package.seeall)
+module("development.numila_irunnleh_622_runewick", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english

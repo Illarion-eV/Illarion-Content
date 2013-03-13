@@ -1,7 +1,7 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (632, 'quest.lotta_medborgar_632');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (632, 'quest.lotta_medborgar_632_galmair');
 
 require("base.common")
-module("development.lotta_medborgar_632", package.seeall)
+module("development.lotta_medborgar_632_galmair", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
