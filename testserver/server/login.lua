@@ -415,7 +415,7 @@ function MergeSkill(User)
 					local skillValue=User:getSkill(targetSkill[selected+1]); --reading the skill points
      			    User:increaseSkill(targetSkill[selected+1],newskillValue-skillValue); 
 					User:increaseSkill(25,-User:getSkill(25)); 
-					User:increaseSkill(25,-User:getSkill(23)); 
+					User:increaseSkill(23,-User:getSkill(23)); 
 					User:setQuestProgress(154,1); --Remember that we already spammed the player
 		end
 	end
