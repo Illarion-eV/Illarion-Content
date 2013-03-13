@@ -109,7 +109,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addResponse("#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.");
+talkEntry:addResponse("#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.'");
 talkEntry:addResponse("Ja, bis zum nächsten mal.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -130,7 +130,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.");
+talkEntry:addResponse("#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.'");
 talkEntry:addResponse("Ja, bis zum nächsten mal.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -178,7 +178,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin Schreiner, falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich hab sicher etwas für dich zu tun.");
+talkEntry:addResponse("Ich bin Schreiner Falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich habe sicher etwas für dich zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -191,7 +191,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin Schreiner, falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich hab sicher etwas für dich zu tun.");
+talkEntry:addResponse("Ich bin Schreiner. Falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich habe sicher etwas für dich zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -216,7 +216,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 1));
-talkEntry:addResponse("Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Laubholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge die ich dir gebe zu Brettern und zeigst sie mir dann.");
+talkEntry:addResponse("Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Laubholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite, mit der Säge die ich dir gebe, bei der Werkbank zu Brettern und zeigst sie mir dann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -243,7 +243,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 1));
-talkEntry:addResponse("Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Laubholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge die ich dir gebe zu Brettern und zeigst sie mir dann.");
+talkEntry:addResponse("Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Laubholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite, mit der Säge die ich dir gebe, bei der Werkbank zu Brettern und zeigst sie mir dann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,7 +316,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(710, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2716, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Ich wollte zehn Laubholzbretter haben, komm wieder wenn du die Aufgabe erfüllt hast.");
+talkEntry:addResponse("Ich wollte zehn Laubholzbretter haben. Komme wieder wenn du die Aufgabe erfüllt hast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -339,7 +339,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2715, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 3));
-talkEntry:addResponse("Nun stellen wir aus den Laubholzbrettern Teller her. Dafür brauchst du einen Hobel den ich dir gebe, dann setzt du dich auf den Stuhl da gleich neben mich bei der Werkbank und machst zehn Teller, diese zeigst du mir wenn du fertig bist.");
+talkEntry:addResponse("Nun stellen wir aus den Laubholzbrettern Teller her. Dafür brauchst du einen Hobel, den ich dir gebe, und dann setzt du dich auf den Stuhl da gleich neben mir, bei der Werkbank und machst zehn Teller. Zeige sie mir wenn du fertig bist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -364,7 +364,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2715, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 3));
-talkEntry:addResponse("Nun stellen wir aus den Laubholzbrettern Teller her. Dafür brauchst du einen Hobel den ich dir gebe, dann setzt du dich auf den Stuhl da gleich neben mich bei der Werkbank und machst zehn Teller, diese zeigst du mir wenn du fertig bist.");
+talkEntry:addResponse("Nun stellen wir aus den Laubholzbrettern Teller her. Dafür brauchst du einen Hobel, den ich dir gebe, und dann setzt du dich auf den Stuhl da gleich neben mir bei der Werkbank und machst zehn Teller. Zeige sie mir wenn du fertig bist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -391,7 +391,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("teller");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 4));
-talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Willst du eine weitere Aufgabe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -418,7 +418,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 4));
-talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Willst du eine weitere Aufgabe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -437,7 +437,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(710, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2952, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Ich wollte zehn Teller, komm wieder wenn du die Aufgabe erfüllt hast.");
+talkEntry:addResponse("Ich wollte zehn Teller. Komme wieder wenn du die Aufgabe erfüllt hast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,7 +462,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2752, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2738, 25, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 5));
-talkEntry:addResponse("Gut, nun geh hinaus und sammel bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komm hierher zurück und stell aus den Ästen 25 Nägel und Keile her, dazu brauchst du ein Schnitzmesser, dass ich dir gebe und diese 25 Nägel.");
+talkEntry:addResponse("Gut, nun geh hinaus und sammel bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komme hierher zurück und stell aus den Ästen 25 Nägel und Keile her. Dafür brauchst du ein Schnitzmesser, das ich dir gebe, und diese 25 Nägel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,7 +489,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2752, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2738, 25, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 5));
-talkEntry:addResponse("Gut, nun geh hinaus und sammel bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komm hierher zurück und stell aus den Ästen 25 Nägel und Keile her, dazu brauchst du ein Schnitzmesser, dass ich dir gebe und diese 25 Nägel.");
+talkEntry:addResponse("Gut, nun geh hinaus und sammel bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komme hierher zurück und stell aus den Ästen 25 Nägel und Keile her. Dafür brauchst du ein Schnitzmesser, das ich dir gebe, und diese 25 Nägel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -518,7 +518,7 @@ talkEntry:addTrigger("nägel");
 talkEntry:addTrigger("keil");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2717, 25, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 6));
-talkEntry:addResponse("Gut gemacht, die Nägel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherscht nun zumindest die Grundlagen.");
+talkEntry:addResponse("Gut gemacht, die Nägel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherrscht nun zumindest die Grundlagen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -545,7 +545,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2717, 25, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 6));
-talkEntry:addResponse("Gut gemacht, die Nägel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherscht nun zumindest die Grundlagen.");
+talkEntry:addResponse("Gut gemacht, die Nägel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherrscht nun zumindest die Grundlagen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -600,7 +600,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(710, "<", 6));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen, frag mich ruhig nach einer Aufgabe. Ich habe sicher etwas für dich zu tun.");
+talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen, frag mich ruhig nach einer Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -614,12 +614,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Du scheinst kein Bürger Galmair zu sein. Ich habe nichts für dich zu tun.");
+talkEntry:addResponse("Du scheinst kein Bürger Galmairs zu sein. Ich habe nichts für dich zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
 talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches his head.");
-talkingNPC:addCycleText("Wenn du Hilfe beim Schreinern braucht dann frag nur mich!", "If you need any help in carpentry, just ask me!");
+talkingNPC:addCycleText("Wenn du Hilfe beim Schreinern brauchst, dann frag' mich nur!", "If you need any help in carpentry, just ask me!");
 talkingNPC:addCycleText("#me gähnt verhalten.", "#me yawns restrained.");
 talkingNPC:addCycleText("#me schaut sich kurz um und kratzt sich anschließend an seinem Hintern.", "#me looks around briefly and scratches his bum.");
 mainNPC:addLanguage(0);
