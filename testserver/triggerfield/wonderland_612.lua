@@ -62,14 +62,14 @@ end
 --884,594,0 correct choice #6
 	if char.pos == position(884,594,0) or char.pos == position(884,593,0) or char.pos == position(884,595,0) then
 	char:warp(position(863,578,0))
-	char:inform("Du vernimmst noch ein langezogenes 'Nein'. Danach kehrt Stille ein.", "You hear a dying 'No'. Afterwards there is silence.")  
+	char:inform("Du vernimmst noch ein langezogenes 'Nein'. Danach kehrt Stille ein. Du bist wieder frei.", "You hear a dying 'No'. Afterwards there is silence. You are free again.")  
 	return
 	end
 
 --886,584,0 correct choice #5
 	if char.pos == position(886,584,0) or char.pos == position(886,583,0) or char.pos == position(886,585,0) then
 	char:warp(position(885,594,0))
-	char:inform("Die krächzende Stimme brüllt: \"Verdammt!\" Worauf die eine Stimme aus dem Norden ruft: \"In den Baum! In den Baum!\"", "The jagged voice bellows: \"Blimey!\". A voice from the north shouts: \"Into the tree! Into the tree!\"")  
+	char:inform("Die krächzende Stimme brüllt: \"Verdammt! Nun gut, du darfst über die Brücke gehen.\" Worauf die eine Stimme aus dem Norden ruft: \"Nicht zur Brücke. In den Baum! In den Baum!\"", "The jagged voice bellows: \"Blimey! Well, you are allowed to pass the bridge.\". A voice from the north shouts: \"Don't go to the bridge. Into the tree! Into the tree!\"")  
 	return
 	end
 
@@ -109,7 +109,7 @@ end
 --wrong turn
 	if char:getQuestProgress(612) == 0 then
 	char:warp(position(900,580,0))
-	char:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du enkommst mir nicht!\" Eine andere Stimme ruft dir erneut aus dem Nordwesten zu: \"Gib nicht auf! Du kannst es schaffen aber geh weg von mir.\"","You hear laughter and a croaking voice, saying: \"HAHA! You cannot escape!\"Another voice replies again from the northwest: \"Do not give in! You can make it but get away from me.\"")  
+	char:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du enkommst mir nicht!\" Eine andere Stimme ruft dir erneut aus dem Nordwesten zu: \"Gib nicht auf! Du kannst es schaffen, aber geh weg von mir.\"","You hear laughter and a croaking voice, saying: \"HAHA! You cannot escape!\"Another voice replies again from the northwest: \"Do not give in! You can make it but get away from me.\"")  
 	char:setQuestProgress(612,0)
 	end
 	if (char:increaseAttrib("hitpoints",0)>1000) then
