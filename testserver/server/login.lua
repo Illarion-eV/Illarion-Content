@@ -34,6 +34,14 @@ function onLogin( player )
 		end
 	end
 
+	if isTestserver() then
+
+		if player:getSkill(25)>0 or player:getSkill(23)>0 then
+			MergeSkill(player);
+		end
+
+	end
+
 	--Noobia handling
 	if (base.common.IsOnNoobia(player.pos)) then --On Noobia
 
@@ -382,6 +390,67 @@ function PayOutWage(Recipient,town)
 		end
 	end
 end
+
+
+function MergeSkill(User)
+	
+	local infText = base.common.GetNLS(Recipient, 
+	                "Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.",
+					"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.");
+	local title = base.common.GetNLS(Recipient,"New Armour Skills","New Armour Skills")
+	
+	local dialogue=MessageDialog(title,infText,closeTrib);
+			
+	local closeTrib=function(onClose)
+
+	end
+
+	Recipient:requestMessageDialog(dialogue);
+
+
+
+    local names
+	if  User:getPlayerLanguage() == Player.german then
+		names = {"Leichte Rüstungen","Mittlere Rüstungen","Schwere Rüstungen"}
+	else
+		names = {"Light Armour","Medium Armour","Heavy Armour"}
+	end
+	local items = {364,2403,2390}
+	local targetSkill = {38,39,40}
+	
+	local callback = function(dialog)
+	
+		success = dialog:getSuccess()
+		if success then
+			selected = dialog:getSelectedIndex()
+					User:inform("You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.", "You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.")
+					world:gfx(46,User.pos)
+					world:makeSound(13,User.pos);
+					local newskillValue = (user:getSkill(25)+user:getSkill(23))/2;
+					local skillValue=user:getSkill(targetSkill[selected+1]); --reading the skill points
+     			    user:increaseSkill(targetSkill[selected+1],newskillValue-skillValue); 
+					user:increaseSkill(25,-user:getSkill(25)); 
+					user:increaseSkill(25,-user:getSkill(23)); 
+					user:setQuestProgress(154,1); --Remember that we already spammed the player
+		end
+	end
+		
+	local dialog
+	if User:getPlayerLanguage() == Player.german then
+		dialog = SelectionDialog("New Armour Skill", "Which armour skill will you use?", callback)
+	else
+		dialog = SelectionDialog("New Armour Skill", "Which armour skill will you use?", callback)
+	end
+	dialog:setCloseOnMove()
+	
+	for i=1,#items do
+		dialog:addOption(items[i], names[i])
+	end
+	User:requestSelectionDialog(dialog)
+
+	return;
+end
+
 
 
 function payNow(User)
