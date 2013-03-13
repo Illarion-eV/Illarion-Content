@@ -37,7 +37,7 @@ function onLogin( player )
 	if isTestserver() then
 
 		if player:getSkill(25)>0 or player:getSkill(23)>0 then
-			MergeSkill(player);
+			MergeSkill(player,false);
 		end
 
 	end
@@ -392,7 +392,7 @@ function PayOutWage(Recipient,town)
 end
 
 
-function MergeSkill(User)
+function MergeSkill(User, recurse)
 	
     local names
 	if  User:getPlayerLanguage() == Player.german then
@@ -419,16 +419,8 @@ function MergeSkill(User)
 					world:gfx(46,User.pos)
 					world:makeSound(13,User.pos);
 		else
-			User:inform("Please select a skill.", "Please select a skill.")
-			if User:getPlayerLanguage() == Player.german then
-				dialog = SelectionDialog("No, seriously", "Which armour skill will you use?", callback)
-			else
-				dialog = SelectionDialog("No, seriously", "Which armour skill will you use?", callback)
-			end
-			for i=1,#items do
-				dialog:addOption(items[i], names[i])
-			end
-			User:requestSelectionDialog(dialog)
+			User:inform("Please choose a skill.", "Please choose a skill.");		
+			MergeSkill(User,true);
 		end
 	end
 		
@@ -444,18 +436,22 @@ function MergeSkill(User)
 	end
 	User:requestSelectionDialog(dialog)
 
-	local infText = base.common.GetNLS(User, 
-	                "Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.",
-					"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.");
-	local title = base.common.GetNLS(User,"New Armour Skills","New Armour Skills")
+	if not recurse then
+
+		local infText = base.common.GetNLS(User, 
+						"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.",
+						"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.");
+		local title = base.common.GetNLS(User,"New Armour Skills","New Armour Skills")
 	
-	local dialogue=MessageDialog(title,infText,closeTrib);
+		local dialogue=MessageDialog(title,infText,closeTrib);
 			
-	local closeTrib=function(onClose)
+		local closeTrib=function(onClose)
+
+		end
+
+		User:requestMessageDialog(dialogue);
 
 	end
-
-	User:requestMessageDialog(dialogue);
 
 	return;
 end
