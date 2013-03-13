@@ -1,30 +1,30 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (642, 'quest.ruzusss_642');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (620, 'quest.elesil_daelwon_620');
 
 require("base.common")
-module("development.quest.ruzusss_642", package.seeall)
+module("development.elesil_daelwon_620", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 Title = {}
-Title[GERMAN] = "Finde Ruzusss in Cadomyr"
-Title[ENGLISH] = "Finde KÃ¶nigin Rosaline Edwards"
+Title[GERMAN] = "Finde Numila Irunnleh in Runewick"
+Title[ENGLISH] = "Find Numila Irunnleh in Runewick"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde KÃ¶nigin Rosaline Edwards und bringe ihr dein Geschenk."
-Description[ENGLISH][1] = "Find Queen Rosaline Edwards and bring her your gift."
-Description[GERMAN][2] = "Du weiÃŸt nun wo KÃ¶nigin Rosaline Edwards zu finden ist."
-Description[ENGLISH][2] = "You know now where you can find Queen Rosaline Edwards."
+Description[GERMAN][1] = "Finde Numila Irunnleh in Runewick and sprich mit ihr."
+Description[ENGLISH][1] = "Find Numila Irunnleh in Runewick and talk to her."
+Description[GERMAN][2] = "Da kannst nun mit Elesil sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst!\nSie kann dir einiges über die südöstliche Karte von Illarion verraten."
+Description[ENGLISH][2] = "You can talk with Elesil now. Ask for 'help' if you do not know what to say!\nShe provides you with information about the south-eastern part of Illarion."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(126, 630, 0)} -- Ruzusss
-QuestTarget[2] = {position(122, 521, 0)} -- Queen
+QuestTarget[1] = {position(790, 819, 0)} -- Elesil
+QuestTarget[2] = {position(942, 765, 1)} -- Numila
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2

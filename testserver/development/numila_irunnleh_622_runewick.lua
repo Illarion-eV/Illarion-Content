@@ -1,30 +1,30 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (620, 'quest.elesil_daelwon_620');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (622, 'quest.numila_irunnleh_622_runewick');
 
 require("base.common")
-module("development.elesil_daelwon_620", package.seeall)
+module("development.numila_irunnleh_622_runewick", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 Title = {}
-Title[GERMAN] = "Finde Numila Irunnleh in Runewick"
-Title[ENGLISH] = "Find Numila Irunnleh in Runewick"
+Title[GERMAN] = "Finde Erzmagier Elvaine Morgan"
+Title[ENGLISH] = "Find Archmage Elvaine Morgan"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde Numila Irunnleh in Runewick and sprich mit ihr."
-Description[ENGLISH][1] = "Find Numila Irunnleh in Runewick and talk to her."
-Description[GERMAN][2] = "Da kannst nun mit Elesil sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst!\nSie kann dir einiges über die südöstliche Karte von Illarion verraten."
-Description[ENGLISH][2] = "You can talk with Elesil now. Ask for 'help' if you do not know what to say!\nShe provides you with information about the south-eastern part of Illarion."
+Description[GERMAN][1] = "Finde Erzmagier Elvaine Morgan und bringe ihm dein Geschenk."
+Description[ENGLISH][1] = "Find Archmage Elvaine Morgan and take him your gift."
+Description[GERMAN][2] = "Du wei�t nun wo Erzmagier Elvaine Morgan zu finden ist."
+Description[ENGLISH][2] = "You know now where you can find Archmage Elvaine Morgan."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(790, 819, 0)} -- Elesil
-QuestTarget[2] = {position(942, 765, 1)} -- Numila
+QuestTarget[1] = {position(942, 765, 1)} -- Numila
+QuestTarget[2] = {position(898, 775, 2)} -- Archmage
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2

@@ -60,6 +60,8 @@ LOR_ANGUR = 325
 PETITION_ZELPHIA = 326
 TALES_TRAVELLER = 327
 TIHGARACS_COMBAT = 328
+EPOS_IGNIS = 329
+H_EVERGREEN = 330
 C_ORDER_1 = 501
 C_SPEECH_321105 = 502
 PARCH_LONGO = 503
@@ -76,6 +78,7 @@ GAL_HEADHUNTER = 513
 GAL_MERCHANT = 514
 GAL_PRIEST = 515
 GAL_TRANSL = 516
+GAL_QUATER = 517
 
 
 function addBook(id, germanTitle, englishTitle, bookGraphic)
@@ -151,6 +154,8 @@ addBook(LOR_ANGUR, "Lor-Angur", "Lor-Angur", 127)
 addBook(PETITION_ZELPHIA, "Gebet für Zelphia", "Petition for Zelphia", 3115)
 addBook(TALES_TRAVELLER, "Geschichten eines Reisenden", "Tales of a traveller", 2610)
 addBook(TIHGARACS_COMBAT, "Buch der Kampfeskunst", "Book of Combat", 110)
+addBook(EPOS_IGNIS, "Epos Ignis", "Epos Ignis", 2605)
+addBook(H_EVERGREEN, "Geschichte der Evergreen Halflings", "History of the Evergreen Halflings", 2608)
 addBook(C_ORDER_1, "Befehl 04. Findos 38 n.VdH", "Order 04. Findos 38 AW", 3114)
 addBook(C_SPEECH_321105, "Rede 05. Findos 38 n.VdH", "Speech 04. Findos 38 AW", 3114)
 addBook(PARCH_LONGO, "Eine Nachricht", "A note", 3115)
@@ -167,6 +172,7 @@ addBook(GAL_MERCHANT, "Gesucht! Kaufleute", "Wanted! Merchants", 3111)
 addBook(GAL_PRIEST, "Gesucht! Priester", "Wanted! Priests", 3115)
 addBook(GAL_TRANSL, "Gesucht! Dolmetscher", "Wanted! Interpreter", 3116)
 addBook(GAL_ADJUTANT, "Gesucht! Adjutant", "Wanted! Adjutant", 3110)
+addBook(GAL_QUATER, "Gesucht! Quartiermeister", "Wanted! Quatermaster", 3110)
 
 addBookshelf(position(390, 185, -6), {CALENDAR, C_ORC, ORCMAGES, MONROK_CHRONIC, ONE})
 addBookshelf(position(548, 547, -6), {ORCMAGES, ONE, DEMONOLOGIST})
@@ -190,7 +196,7 @@ addBookshelf(position(363, 221, 0), {CRAFTMAN_STORY, ART_TRADE})
 addBookshelf(position(364, 217, 0), {C_DWARF, URUBUR})
 addBookshelf(position(365, 222, 0), {GALMAIR_ON_C, GALMAIR_ON_G, GALMAIR_ON_R, CHRONICLES_GALMAIR})
 addBookshelf(position(365, 224, 0), {ZODIC_SIGN, CALENDAR})
-addBookshelf(position(375, 215, 0), {GAL_ADJUTANT, GAL_DIPLO, GAL_FORCES, GAL_CIA, GAL_CHARGE, GAL_ENTERT, GAL_HANGMAN, GAL_MERCHANT, GAL_PRIEST, GAL_TRANSL})
+addBookshelf(position(375, 215, 0), {GAL_ADJUTANT, GAL_DIPLO, GAL_FORCES, GAL_CIA, GAL_CHARGE, GAL_ENTERT, GAL_HANGMAN, GAL_MERCHANT, GAL_PRIEST, GAL_TRANSL, GAL_QUATER})
 addBookshelf(position(375, 217, 0), {GALMAIR_ON_C, GALMAIR_ON_G})
 addBookshelf(position(375, 219, 0), {GALMAIR_ON_R, CHRONICLES_GALMAIR})
 addBookshelf(position(388, 235, 0), {GALMAIR_ON_C})
@@ -204,7 +210,7 @@ addBookshelf(position(698, 311, 0), {CALENDAR, BLUMFUSSENS})
 addBookshelf(position(698, 319, 0), {JOKES, ALCHEMY, WALLERY_BANK})
 addBookshelf(position(698, 323, 0), {PARCH_LONGO})
 addBookshelf(position(901, 831, 0), {CANDLES, CRAFTMAN_STORY})
-addBookshelf(position(949, 752, 0), {BLUMFUSSENS, HUMANS_BERRYARD, BRIAR})
+addBookshelf(position(949, 752, 0), {BLUMFUSSENS, HUMANS_BERRYARD, H_EVERGREEN, BRIAR})
 addBookshelf(position(952, 756, 0), {ALCHEMY, C_HALFLING})
 addBookshelf(position(140, 620, 1), {FAIRY, GOD_SIRANI})
 addBookshelf(position(146, 620, 1), {CODOMYR_ON_C, CRAFTMAN_STORY})
@@ -216,6 +222,7 @@ addBookshelf(position(404, 258, 1), {GALMAIR_ON_R})
 addBookshelf(position(889, 835, 1), {NOIRA_LIV, CALENDAR})
 addBookshelf(position(889, 754, 1), {DEMONOLOGIST})
 addBookshelf(position(889, 838, 1), {ELDAN_PARCHMENT, ELDAN_HERMIT})
+addBookshelf(position(890, 758, 1), {EPOS_IGNIS})
 addBookshelf(position(890, 835, 1), {TALES_TRAVELLER, FAIRY})
 addBookshelf(position(891, 762, 1), {ELDAN_PARCHMENT, GODS1})
 addBookshelf(position(892, 754, 1), {LOR_ANGUR})
