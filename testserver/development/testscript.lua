@@ -1052,7 +1052,9 @@ function LearnSuccess(Attacker, Defender, AP)
 		Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.parry) + 20);
 	else
 		Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.DefenseSkill, Defender.parry) + 20);
-		Defender.Char:learn(Defender.DefenseSkill,AP/2,Attacker.Skillname+20);
+		Attacker.Char:inform("Learnt skill:"..Attacker.Skillname); --Debugging
+		Defender.Char:learn(Defender.DefenseSkillName,AP/2,Attacker.Skillname+20);
+		Defender.Char:inform("Learnt skill:"..Defender.DefenseSkillName); --Debugging
 	end;
     
 --debug("          DONE LEARNING");    
