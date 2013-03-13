@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -423,7 +423,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2588, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You not finished! I want ten bricksss, come backsss when you have finished.");
+talkEntry:addResponse("You have not finished! I want ten bricksss, come backsss when you have finished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -541,7 +541,7 @@ talkEntry:addCondition(npc.base.condition.item.item(316, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Zsss, I want ten quartzzs sssand. Come again when you have finissshed the task, zsss!");
+talkEntry:addResponse("Zsss, I want ten scoops of quartzzs sssand. Come back when you have finissshed the task, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -672,7 +672,7 @@ talkEntry:addCondition(npc.base.condition.item.item(41, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Zsss, I want ten glasss ingotsss. Come again when you have the ingotsss!");
+talkEntry:addResponse("Zsss, I want ten glasss ingotsss. Come back when you have the ingotsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -825,7 +825,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(707, "<", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I could needs sssome help, just asssk me for a task, zsss.");
+talkEntry:addResponse("I could ussse sssome help, just asssk me for a task, zsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -841,7 +841,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("You are not a citizzsen of Cadomyrss. I don't haves anything to do for yous, zsss.");
+talkEntry:addResponse("You are not a citizzsen of Cadomyrss. I don't haves anything for yous to do, zsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -853,7 +853,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schaut sich gelangweilt um.", "#me looks around bored.");
 talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches his head.");
-talkingNPC:addCycleText("Wenns du Hilfe beim Glasssblassen oder Zzziegelbrennen brauchst dann fragt michss!", "If you need any help in glassss blowing or bricksss making, jussst asssk me!");
+talkingNPC:addCycleText("Wenns du Hilfe beim Glasssblassen oder Zzziegelbrennen brauchst dann fragt michss!", "If you need any help with glassss blowing or bricksss making, jussst asssk me!");
 talkingNPC:addCycleText("Zsss...", "Zsss...");
 talkingNPC:addCycleText("Zsss!", "Zsss!");
 talkingNPC:addCycleText("Zsss?", "Zsss?");
