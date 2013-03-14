@@ -51,7 +51,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 1));
-talkEntry:addResponse("Willkommen in Runewick. Daniel Brock, ein wirklich guter Schreiner, ist immer gewillt anderen sein Handwerk zu zeigen. Ihr könnt ihn im Turm der Luft finden. Geht über die Brücke und durch das blaue Portal an dessen Ende, um zum Marktplatz zu gelangen. Von dort geht nach Süden in den Turm der Luft und in das Untergeschoss.");
+talkEntry:addResponse("Willkommen in Runewick. Daniel Brock, ein wirklich guter Schreiner, ist immer gewillt anderen sein Handwerk zu zeigen. Ihr könnt ihn im Turm der Luft finden. Geht über die Brücke und durch das blaue Portal an ihrem Ende, um zum Marktplatz zu gelangen. Von dort geht nach Süden in den Turm der Luft und in das Untergeschoss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -286,7 +286,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Daniel Brock, ein wirklich guter Schreiner, ist immer gewillt anderen sein Handwerk zu zeigen. Ihr könnt ihn im Turm der Luft finden. Geht über die Brücke und durch das blaue Portal an dessen Ende, um zum Marktplatz zu gelangen. Von dort geht nach Süden in den Turm der Luft und in das Untergeschoss.");
+talkEntry:addResponse("Daniel Brock, ein wirklich guter Schreiner, ist immer gewillt anderen sein Handwerk zu zeigen. Ihr könnt ihn im Turm der Luft finden. Geht über die Brücke und durch das blaue Portal an ihrem Ende, um zum Marktplatz zu gelangen. Von dort geht nach Süden in den Turm der Luft und in das Untergeschoss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -305,7 +305,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Daniel Brock, ein wirklich guter Schreiner, ist immer gewillt anderen sein Handwerk zu zeigen. Ihr könnt ihn im Turm der Luft finden. Geht über die Brücke und durch das blaue Portal an dessen Ende, um zum Marktplatz zu gelangen. Von dort geht nach Süden in den Turm der Luft und in das Untergeschoss.");
+talkEntry:addResponse("Daniel Brock, ein wirklich guter Schreiner, ist immer gewillt anderen sein Handwerk zu zeigen. Ihr könnt ihn im Turm der Luft finden. Geht über die Brücke und durch das blaue Portal an ihrem Ende, um zum Marktplatz zu gelangen. Von dort geht nach Süden in den Turm der Luft und in das Untergeschoss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -400,7 +400,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 4));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 5));
-talkEntry:addResponse("Ich habe gehört, dass meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an dessen Ende, um dorthin zu gelangen.");
+talkEntry:addResponse("Ich habe gehört, dass meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an ihrem Ende, um dorthin zu gelangen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -421,7 +421,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 5));
-talkEntry:addResponse("Ich habe gehört, dass meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an dessen Ende, um dorthin zu gelangen.");
+talkEntry:addResponse("Ich habe gehört, dass meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an ihrem Ende, um dorthin zu gelangen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -438,7 +438,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 5));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich habe gehört, dass meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an dessen Ende, um dorthin zu gelangen.");
+talkEntry:addResponse("Ich habe gehört, dass meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an ihrem Ende, um dorthin zu gelangen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -457,7 +457,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich habe gehört, dass meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an dessen Ende, um dorthin zu gelangen.");
+talkEntry:addResponse("Ich habe gehört, dass meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an ihrem Ende, um dorthin zu gelangen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

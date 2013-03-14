@@ -17,7 +17,7 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 
-Description[GERMAN][1] = "Sammel 20 Wollkballen für Judith Tanner im Untergeschoss des Feuerturms. Schafe kannst du im Wald von Runewick finden. Du kannst die Schafe scheren, indem du die Schere in die Hand nimmst und diese benutzt, wenn ein Schaf neben dir steht."
+Description[GERMAN][1] = "Sammel 20 Wollballen für Judith Tanner im Untergeschoss des Feuerturms. Schafe kannst du im Wald von Runewick finden. Du kannst die Schafe scheren, indem du die Schere in die Hand nimmst und diese benutzt, wenn ein Schaf neben dir steht."
 Description[ENGLISH][1] = "Collect twenty bales of wool for Judith Tanner in the basement of the Fire Tower. You can find sheep in the forest just outside Runewick. You can collect wool if you stand next to a sheep and use the scissors, whilst holding them in your hand."
 Description[GERMAN][2] = "Geh zu Judith Tanner, die sich im Untergeschoss des Feuerturms aufhält. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go back to Judith Tanner in the basement of the Fire Tower, she is sure to have another task for you."

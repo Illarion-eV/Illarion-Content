@@ -256,7 +256,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 2));
-talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me five bundles of grain.");
+talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me ten bundles of grain.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -272,7 +272,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 2));
-talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Säet etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir fünf Bündel.");
+talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Baut etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir zehn Bündel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -287,7 +287,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 2));
-talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me five bundles of grain.");
+talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me ten bundles of grain.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -303,7 +303,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 2));
-talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Säet etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir fünf Bündel.");
+talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Baut etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir zehn Bündel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,7 +316,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 1));
-talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me five bundles of grain.");
+talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me ten bundles of grain.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,7 +328,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 1));
-talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Säet etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir fünf Bündel.");
+talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Baut etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir zehn Bündel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -341,7 +341,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 1));
-talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me five bundles of grain.");
+talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me ten bundles of grain.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -355,13 +355,13 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(711, "=", 1));
-talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Säet etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir fünf Bündel.");
+talkEntry:addResponse("Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Baut etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir zehn Bündel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(711, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
@@ -376,7 +376,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(711, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -390,7 +390,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(711, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -403,7 +403,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(711, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -417,20 +417,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(711, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", "<", 5, nil));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That isn't five bundles of grain yet, please come back once you've finished this task.");
+talkEntry:addResponse("That isn't ten bundles of grain yet, please come back once you've finished this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(711, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", "<", 5, nil));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Das sind noch keine fünf Getreidebündel. Kommt wieder wenn Ihr die Aufgabe erledigt habt.");
+talkEntry:addResponse("Das sind noch keine zehn Getreidebündel. Kommt wieder wenn Ihr die Aufgabe erledigt habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

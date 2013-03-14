@@ -270,7 +270,7 @@ talkEntry:addTrigger("dreyndel");
 talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern sucht. Hier noch eine Schere, um die Schafe zu scheren.");
+talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollballen. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern sucht. Hier noch eine Schere, um die Schafe zu scheren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -299,7 +299,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern sucht. Hier noch eine Schere, um die Schafe zu scheren.");
+talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollballen. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern sucht. Hier noch eine Schere, um die Schafe zu scheren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -322,7 +322,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 477, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
-talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern sucht. Hier noch eine Schere, um die Schafe zu scheren.");
+talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollballen. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern sucht. Hier noch eine Schere, um die Schafe zu scheren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -347,7 +347,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(6, 1, 477, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 1));
-talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollknäule. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern sucht. Hier noch eine Schere, um die Schafe zu scheren.");
+talkEntry:addResponse("Oh, Ihr wollt etwas über das Schneidern lernen? Nun gut, fangen wir mit etwas Einfachem an. Bringt mir doch bitte 20 Wollballen. Schafe solltet Ihr finden, wenn Ihr die Stadt verlasst und in den Wäldern sucht. Hier noch eine Schere, um die Schafe zu scheren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

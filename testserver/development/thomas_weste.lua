@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -377,7 +377,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("wachs");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(431, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 4));
-talkEntry:addResponse("Gut gemacht, das Wachs sieht sehr gut aus. Bitte behaltet den Wachs für Eure nächste Aufgabe.");
+talkEntry:addResponse("Gut gemacht, das Wachs sieht sehr gut aus. Bitte behaltet das Wachs für Eure nächste Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -567,7 +567,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 7));
-talkEntry:addResponse("Ah..ja natürlich. Nun wollen wir etwas Lampenöl machen. Das ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln. Diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt vier Disteln und bringt mir 2 Flaschen Öl mit, wenn Ihr fertig seid. Die Ölpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel, um die Diesteln zu sammeln.");
+talkEntry:addResponse("Ah..ja natürlich. Nun wollen wir etwas Lampenöl machen. Das ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln. Diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt vier Disteln und bringt mir 2 Flaschen Öl mit, wenn Ihr fertig seid. Die Ölpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel, um die Disteln zu sammeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -592,7 +592,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(716, "=", 7));
-talkEntry:addResponse("Ah..ja natürlich. Nun wollen wir etwas Lampenöl machen. Das ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln. Diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt vier Disteln und bringt mir 2 Flaschen Öl mit, wenn Ihr fertig seid. Die Ölpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel, um die Diesteln zu sammeln.");
+talkEntry:addResponse("Ah..ja natürlich. Nun wollen wir etwas Lampenöl machen. Das ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln. Diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt vier Disteln und bringt mir 2 Flaschen Öl mit, wenn Ihr fertig seid. Die Ölpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel, um die Disteln zu sammeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
