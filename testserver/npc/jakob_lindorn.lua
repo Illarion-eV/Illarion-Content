@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -55,7 +55,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 1));
-talkEntry:addResponse("Willkommen in Cadomyr. Sucht doch bitte Berri Firegold, er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun.");
+talkEntry:addResponse("Willkommen in Cadomyr. Sucht doch bitte Berri Firegold. Er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen: Er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück. Ich hab sicher noch etwas für Euch zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -217,7 +217,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("markt");
-talkEntry:addResponse("Folgt einfach der Straße zur eurer Rechten und geht durch das Tor, ihr werdet den Marktplatz kaum übersehen können. Fragt Frizza dort drüben, wenn Ihr mehr über die Orte um Cadomyr herum wissen wollt.");
+talkEntry:addResponse("Folgt einfach der Straße zur Eurer Rechten und geht durch das Tor. Ihr werdet den Marktplatz kaum übersehen können. Fragt Frizza dort drüben, wenn Ihr mehr über die Orte um Cadomyr herum wissen wollt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -230,7 +230,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Frizza");
-talkEntry:addResponse("Sie ist gleich dort drüben, geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Cadomyr.");
+talkEntry:addResponse("Sie ist gleich dort drüben. Geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -244,7 +244,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("essen");
 talkEntry:addTrigger("nahrung");
-talkEntry:addResponse("Ihr könnt überall etwas zu essen finden. Früchte wachsen an Bäumen und Büschen oder Ihr fragt andere Leute nach etwas zu essen.");
+talkEntry:addResponse("Ihr könnt überall etwas zu essen finden. Früchte wachsen an Bäumen und Büschen, oder Ihr fragt andere Leute nach etwas zu essen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -259,7 +259,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("kämpfen");
 talkEntry:addTrigger("monster");
-talkEntry:addResponse("Es gibt einige wilde Tiere in der Wildness, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt herum nach einem Trainingspartner.");
+talkEntry:addResponse("Es gibt einige wilde Tiere in der Wildness, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt nach einem Trainingspartner herum.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -272,7 +272,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Dies is Cadomyr, mein Zuhause. Wir sind ein Reich von ehrenvollen und aufrichtigen Leuten, ich bin mir sicher, dass Ihr es hier mögen werdet.");
+talkEntry:addResponse("Dies is Cadomyr, mein Zuhause. Wir sind ein Reich von ehrenvollen und aufrichtigen Leuten. Ich bin mir sicher, dass Ihr es hier mögen werdet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -286,7 +286,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("Werk");
-talkEntry:addResponse("Die Werkstatt könnt Ihr ganz leicht finden. Geht durch das Haupttor im Norden, dann biegt nach rechts ab, geht durch das Tor, nun erneut nach Norden, dann öffnet Ihr das Tor zu eurer linken und geht nach Norden. Die Werkstatt ist kurz vor dem Palast auf der rechten Seite.");
+talkEntry:addResponse("Die Werkstatt könnt Ihr ganz leicht finden. Geht durch das Haupttor im Norden, dann biegt nach rechts ab, geht durch das Tor, nun erneut nach Norden, dann öffnet Ihr das Tor zu eurer Linken und geht nach Norden. Die Werkstatt ist kurz vor dem Palast auf der rechten Seite.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -300,7 +300,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("hand");
-talkEntry:addResponse("Ihr wollt mehr über die Handwerke in Cadomyr wissen? Dann besucht Berri Firegold, Gerry Deloid, Lilli Gallfing oder Zlatxhol, sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt sie alle in der Werkstatt im Norden der Stadt finden.");
+talkEntry:addResponse("Ihr wollt mehr über die Handwerke in Cadomyr wissen? Dann besucht Berri Firegold, Gerry Deloid, Lilli Gallfing oder Zlatxhol. Sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt sie alle in der Werkstatt im Norden der Stadt finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -319,7 +319,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 1));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Sucht doch bitte Berri Firegold, er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun.");
+talkEntry:addResponse("Sucht doch bitte Berri Firegold. Er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen: Er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -340,7 +340,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Sucht doch bitte Berri Firegold, er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen, er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun.");
+talkEntry:addResponse("Sucht doch bitte Berri Firegold. Er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen: Er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -361,7 +361,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 3));
-talkEntry:addResponse("Ihr seid zurück. Schön. Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
+talkEntry:addResponse("Ihr seid zurück. Schön. Ich habe gehört, dass Grakamesh Eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -384,7 +384,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 3));
-talkEntry:addResponse("Ihr seid zurück. Schön. Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
+talkEntry:addResponse("Ihr seid zurück. Schön. Ich habe gehört, dass Grakamesh Eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -403,7 +403,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ihr seid zurück. Schön. Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
+talkEntry:addResponse("Ihr seid zurück. Schön. Ich habe gehört, dass Grakamesh Eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -424,7 +424,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ihr seid zurück. Schön. Ich habe gehört, dass Grakamesh eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
+talkEntry:addResponse("Ihr seid zurück. Schön. Ich habe gehört, dass Grakamesh Eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -445,7 +445,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 5));
-talkEntry:addResponse("Eine Freundin Mirarie Bragolin kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden wenn Ihr in die Stadt hinein geht, sie steht beim Tor Richtung Marktplatz.");
+talkEntry:addResponse("Eine Freundin, Mirarie Bragolin, kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden, wenn Ihr in die Stadt hinein geht. Sie steht beim Tor Richtung Marktplatz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -468,7 +468,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 5));
-talkEntry:addResponse("Eine Freundin Mirarie Bragolin kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden wenn Ihr in die Stadt hinein geht, sie steht beim Tor Richtung Marktplatz.");
+talkEntry:addResponse("Eine Freundin, Mirarie Bragolin, kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden, wenn Ihr in die Stadt hinein geht. Sie steht beim Tor Richtung Marktplatz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -487,7 +487,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Eine Freundin Mirarie Bragolin kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden wenn Ihr in die Stadt hinein geht, sie steht beim Tor Richtung Marktplatz.");
+talkEntry:addResponse("Eine Freundin, Mirarie Bragolin, kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden, wenn Ihr in die Stadt hinein geht. Sie steht beim Tor Richtung Marktplatz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -508,7 +508,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Eine Freundin Mirarie Bragolin kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden wenn Ihr in die Stadt hinein geht, sie steht beim Tor Richtung Marktplatz.");
+talkEntry:addResponse("Eine Freundin, Mirarie Bragolin, kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden, wenn Ihr in die Stadt hinein geht. Sie steht beim Tor Richtung Marktplatz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -529,7 +529,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 7));
-talkEntry:addResponse("Hassan, der königliche Fächelwedler hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz.");
+talkEntry:addResponse("Hassan, der königliche Fächelwedler, hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -552,7 +552,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 7));
-talkEntry:addResponse("Hassan, der königliche Fächelwedler hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz.");
+talkEntry:addResponse("Hassan, der königliche Fächelwedler, hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -571,7 +571,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 7));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Hassan, der königliche Fächelwedler hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz.");
+talkEntry:addResponse("Hassan, der königliche Fächelwedler, hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -592,7 +592,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Hassan, der königliche Fächelwedler hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz.");
+talkEntry:addResponse("Hassan, der königliche Fächelwedler, hat bestimmte eine kleine Aufgabe für Euch. Ihr könnt ihn in der Taverne 'Einhörniger Löwe' finden, wenn er grad nicht im Palast ist. Die Taverne befindet sich nördlich vom Marktplatz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -613,7 +613,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 9));
-talkEntry:addResponse("Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen.");
+talkEntry:addResponse("Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten, Euch zu ihr zu senden. Sie sagte, sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -636,7 +636,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 9));
-talkEntry:addResponse("Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen.");
+talkEntry:addResponse("Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten, Euch zu ihr zu senden. Sie sagte, sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -655,7 +655,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen.");
+talkEntry:addResponse("Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten, Euch zu ihr zu senden. Sie sagte, sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -676,7 +676,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten Euch zu ihr zu senden. Sie sagte sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen.");
+talkEntry:addResponse("Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten, Euch zu ihr zu senden. Sie sagte, sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -698,7 +698,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 11));
-talkEntry:addResponse("Ah, Ihr seid zurück. Großartig. Zerarisa, eine gute Freundin lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen, ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt, die Wegweiser sollten Euch direkt zum Kap führen.");
+talkEntry:addResponse("Ah, Ihr seid zurück. Großartig. Zerarisa, eine gute Freundin, lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen? Ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt. Die Wegweiser sollten Euch direkt zum Kap führen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -722,7 +722,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 11));
-talkEntry:addResponse("Ah, Ihr seid zurück. Großartig. Zerarisa, eine gute Freundin lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen, ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt, die Wegweiser sollten Euch direkt zum Kap führen.");
+talkEntry:addResponse("Ah, Ihr seid zurück. Großartig. Zerarisa, eine gute Freundin, lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen? Ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt. Die Wegweiser sollten Euch direkt zum Kap führen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -742,7 +742,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 11));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ah, Ihr seid zurück. Großartig. Zerarisa, eine gute Freundin lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen, ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt, die Wegweiser sollten Euch direkt zum Kap führen.");
+talkEntry:addResponse("Ah, Ihr seid zurück. Großartig. Zerarisa, eine gute Freundin, lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen? Ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt. Die Wegweiser sollten Euch direkt zum Kap führen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -764,7 +764,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ah, Ihr seid zurück. Großartig. Zerarisa, eine gute Freundin lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen, ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt, die Wegweiser sollten Euch direkt zum Kap führen.");
+talkEntry:addResponse("Ah, Ihr seid zurück. Großartig. Zerarisa, eine gute Freundin, lebt beim Kap des Abschiedes. Könntet Ihr bitte nach ihr sehen? Ich hab sie schon länger nicht mehr hier gesehen. Das Kap findet Ihr, wenn Ihr der Straße nach Westen folgt. Die Wegweiser sollten Euch direkt zum Kap führen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -785,7 +785,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 13));
-talkEntry:addResponse("Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
+talkEntry:addResponse("Reret Odohir, unsere Notarin, sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr. Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -808,7 +808,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 13));
-talkEntry:addResponse("Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
+talkEntry:addResponse("Reret Odohir, unsere Notarin, sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr. Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -827,7 +827,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 13));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
+talkEntry:addResponse("Reret Odohir, unsere Notarin, sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr. Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -848,7 +848,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Reret Odohir unser Notar sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr, Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
+talkEntry:addResponse("Reret Odohir, unsere Notarin, sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr. Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -906,7 +906,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "<", 14));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun.");
+talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen. Fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
