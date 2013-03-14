@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -487,7 +487,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("plate");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 4));
-talkEntry:addResponse("Well done, the plates look pretty good. Do you want another task?");
+talkEntry:addResponse("Well done, the plates look pretty good. If you have more time, I could give you another task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -500,7 +500,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("teller");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 4));
-talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Wenn Ihr nch etwas Zeit habt, dann hätte ich eine weitere Aufgabe für Euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -513,7 +513,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 4));
-talkEntry:addResponse("Well done, the plates look pretty good. Do you want another task?");
+talkEntry:addResponse("Well done, the plates look pretty good. If you have more time, I could give you another task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -527,7 +527,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 4));
-talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Wollt Ihr eine weitere Aufgabe?");
+talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Wenn Ihr nch etwas Zeit habt, dann hätte ich eine weitere Aufgabe für Euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
