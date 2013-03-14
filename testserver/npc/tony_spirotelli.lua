@@ -378,7 +378,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("plate");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 4));
-talkEntry:addResponse("Well done, the plates look pretty good. Do you want another task?");
+talkEntry:addResponse("Well done, the plates look pretty good. If you have more time, I could give you another task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -391,7 +391,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("teller");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 4));
-talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Willst du eine weitere Aufgabe?");
+talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Wenn du etwas mehr Zeit hast, hätte ich eine weitere Aufgabe für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -404,7 +404,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 4));
-talkEntry:addResponse("Well done, the plates look pretty good. Do you want another task?");
+talkEntry:addResponse("Well done, the plates look pretty good. If you have more time, I could give you another task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -418,7 +418,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(710, "=", 4));
-talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Willst du eine weitere Aufgabe?");
+talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Wenn du etwas mehr Zeit hast, hätte ich eine weitere Aufgabe für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
