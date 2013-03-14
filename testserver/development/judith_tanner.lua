@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -851,7 +851,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2781, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(178, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 9));
-talkEntry:addResponse("Nun gut eine letzte Aufgabe für Euch. Ihr sollt mir fünf rote Stoffe färben. Dazu braucht Ihr einen Färbestab, weißen Stoff und natürlich die Eimer mit Farbe. Wenn Ihr grauen Stoff lang genug in der Sonne liegen lasst, wird er weiß. Hier ich gebe euch meinen alten Färbestab, außerdem noch etwas weißen Stoff. Geht zum schwarzen Fass da vorne und stellt mir die fünf Rollen roten Stoff her.");
+talkEntry:addResponse("Nun gut eine letzte Aufgabe für Euch. Ihr sollt mir fünf rote Stoffe färben. Dazu braucht Ihr einen Färberstab, weißen Stoff und natürlich die Eimer mit Farbe. Wenn Ihr grauen Stoff lang genug in der Sonne liegen lasst, wird er weiß. Hier ich gebe euch meinen alten Färberstab, außerdem noch etwas weißen Stoff. Geht zum schwarzen Fass da vorne und stellt mir die fünf Rollen roten Stoff her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -878,7 +878,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2781, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(178, 5, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(715, "=", 9));
-talkEntry:addResponse("Nun gut, eine letzte Aufgabe für Euch. Ihr sollt mir fünf rote Stoffe färben. Dazu braucht Ihr einen Färbestab, weißen Stoff und natürlich die Eimer mit Farbe. Wenn Ihr grauen Stoff lang genug in der Sonne liegen lasst, wird er weiß. Hier ich gebe euch meinen alten Färbestab, außerdem noch etwas weißen Stoff. Geht zum schwarzen Fass da vorne und stellt mir die fünf Rollen roten Stoff her.");
+talkEntry:addResponse("Nun gut, eine letzte Aufgabe für Euch. Ihr sollt mir fünf rote Stoffe färben. Dazu braucht Ihr einen Färberstab, weißen Stoff und natürlich die Eimer mit Farbe. Wenn Ihr grauen Stoff lang genug in der Sonne liegen lasst, wird er weiß. Hier ich gebe euch meinen alten Färberstab, außerdem noch etwas weißen Stoff. Geht zum schwarzen Fass da vorne und stellt mir die fünf Rollen roten Stoff her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
