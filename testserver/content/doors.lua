@@ -44,8 +44,8 @@ function initDoors()
 	AddDoor({393, 220,-6}, false,"Cameo Pit","Gemmenschacht"); -- Scoria Mine
 	AddDoor({382, 241,-6}, false,"Cameo Pit","Gemmenschacht"); -- Scoria Mine
 	AddDoor({383, 241,-6}, false,"Cameo Pit","Gemmenschacht"); -- Scoria Mine
-	AddDoor({344, 250,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
-	AddDoor({344, 251,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
+	AddDoor({343, 250,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
+	AddDoor({343, 251,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
 	AddDoor({385, 279,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
 	AddDoor({386, 279,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
 	AddDoor({382, 260,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
@@ -73,7 +73,7 @@ function initDoors()
 	AddDoor({355, 221, 0}, false,"Library","Bibilothek"); -- Galmair's Crest
 	AddDoor({370, 221, 0}, false,"Library","Bibilothek"); -- Galmair's Crest
 	AddDoor({370, 232, 0}, false,"Exchange + Kitchen","Wechselstube + Küche"); -- Galmair's Crest
-	AddDoor({366, 235, 0}, false,"Council Chamber","Konzil Kammer"); -- Galmair's Crest
+	AddDoor({364, 236, 0}, false,"Council Chamber","Konzil Kammer"); -- Galmair's Crest
 	AddDoor({348, 229, 0}, false,"Guilianni Residence","Guilianni Residenz"); -- Galmair's Crest
 
 	AddDoor({308, 238, 1}, false,"Temple of Irmorom","Tempel des Irmorom"); 
