@@ -73,8 +73,9 @@ english, "job" -> "My mission is to help, so if you need something to do, just a
 -- help triggers
 "market" -> "Just follow the bridge and go through the blue portal at the end. Ask Elesil Dealwon over there if you want to know more about the places around Runewick."
 "markt" -> "Folgt einfach der Brücke bis zum Ende und geht durch das blaue Portal. Fragt Elesil Dealwon dort drüben, wenn Ihr mehr über die Orte um Runewick herum wissen wollt."
-english, "Elesil", "Dealwon" -> "She is right over there, just go over and talk to her. She knows alot about Runewick."
-"Elesil", "Dealwon" -> "Sie ist gleich dort drüben, geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Runewick."
+
+-- english, "Elesil", "Dealwon" -> "She is right over there, just go over and talk to her. She knows alot about Runewick."
+-- "Elesil", "Dealwon" -> "Sie ist gleich dort drüben, geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Runewick."
 "food", "eat" -> "You can find food all around you. There are fruits on the trees and bushes or you ask other people for something to eat."
 "essen", "nahrung" -> "Ihr könnt überall etwas zu essen finden. Früchte wachsen an Bäumen und Büschen oder Ihr fragt andere Leute nach etwas zu essen."
 english, "fighting", "monster" -> "There are a few wild animals in the wilderness so be careful. If you want to train ask around for a sparring partner."
@@ -176,8 +177,10 @@ queststatus(820) = 18, "task", "adventure", "order" -> "I'm sure you can find yo
 queststatus(820) = 18, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, ".*" -> "I cannot help you with that. Why not ask Elesil Dealwon over there, I'm sure she has the answer."
-german, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Elesil Dealwon dort drüben, ich bin mir sicher sie hat eine Antwort."
+-- english, ".*" -> "I cannot help you with that. Why not ask Elesil Dealwon over there, I'm sure she has the answer."
+-- german, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Elesil Dealwon dort drüben, ich bin mir sicher sie hat eine Antwort."
+english, ".*" -> "I cannot help you with that. Why not ask a fellow citizen you meet, I'm sure someone has the answer."
+german, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht einen anderen Bürger, ich bin mir sicher das jemand eine Antwort hat."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
