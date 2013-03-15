@@ -250,6 +250,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("jakob");
+talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Sir Reginald's Tomb I"));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 1));

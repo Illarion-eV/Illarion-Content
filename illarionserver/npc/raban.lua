@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -53,8 +53,8 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Ah, yes, an unsettled soul. Welcome to my grove.");
-talkEntry:addResponse("Who is there! Pardon me, I am not used to visitors.");
-talkEntry:addResponse("So, after all those summers, somebody comes here. I hope your intentions are good.");
+talkEntry:addResponse("Who's there? Pardon me, I am not used to visitors.");
+talkEntry:addResponse("So, after all these summers, somebody comes here. I hope your intentions are good.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -82,8 +82,8 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Ah, yes, an unsettled soul. Welcome to my grove.");
-talkEntry:addResponse("Who is there! Pardon me, I am not used to visitors.");
-talkEntry:addResponse("So, after all those summers, somebody comes here. I hope your intentions are good.");
+talkEntry:addResponse("Who's there? Pardon me, I am not used to visitors.");
+talkEntry:addResponse("So, after all these summers, somebody comes here. I hope your intentions are good.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -105,7 +105,7 @@ talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Ushara may guide your way.");
 talkEntry:addResponse("Farewell.");
-talkEntry:addResponse("While leaving, do not stomp on any seedling, will you?");
+talkEntry:addResponse("While leaving, do not stomp on any seedlings, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -127,7 +127,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addResponse("Ushara may guide your way.");
 talkEntry:addResponse("Farewell.");
-talkEntry:addResponse("While leaving, do not stomp on any seedling, will you?");
+talkEntry:addResponse("While leaving, do not stomp on any seedlings, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -146,8 +146,8 @@ talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addResponse("I always feel pacified when surrounded by plants and trees.");
-talkEntry:addResponse("I'd feel much better if everyone honours the woods. Aren't those trees lovely?");
-talkEntry:addResponse("I cannot complain. My trees grow and this little fellow over there just turned ten years. I remember planting him like it was yesterday.");
+talkEntry:addResponse("I'd feel much better if everyone honours the woods. Aren't these trees lovely?");
+talkEntry:addResponse("I cannot complain. My trees grow and this little fellow over here just turned ten years. I remember planting him like it was yesterday.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -167,7 +167,7 @@ talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("They used to call me Raban when people still came here.");
 talkEntry:addResponse("Raban.");
-talkEntry:addResponse("I am an old man without an use for a name. The trees and plants have their own word for me. You may call me Raban.");
+talkEntry:addResponse("I am an old man without use for a name. The trees and plants have their own word for me. You may call me Raban.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -242,7 +242,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(149, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 2));
-talkEntry:addResponse("Thank you very much for the fir tree seedlings. Here, have those shiny disks, I have no use for them.");
+talkEntry:addResponse("Thank you very much for the fir tree seedlings. Here, have these shiny discs, I have no use for them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -255,7 +255,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(149, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 2));
-talkEntry:addResponse("Thank you very much for the fir tree seedlings. Here, have those shiny disks, I have no use for them.");
+talkEntry:addResponse("Thank you very much for the fir tree seedlings. Here, have these shiny discs, I have no use for them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -290,7 +290,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("So, how is progress in finding ten fir tree seedlings?");
+talkEntry:addResponse("So, how is your progress in finding ten fir tree seedlings?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -307,7 +307,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("So, how is progress in finding ten fir tree seedlings?");
+talkEntry:addResponse("So, how is your progress in finding ten fir tree seedlings?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,7 +328,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Raban's Grove II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 3));
-talkEntry:addResponse("How kind of you that you want to assist me one more time. Could you gather twenty black berries, sweet gifts of Oldra?");
+talkEntry:addResponse("How kind of you that you want to assist me one more time. Could you gather twenty blackberries, sweet gifts of Oldra?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -349,7 +349,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Raban's Grove II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 3));
-talkEntry:addResponse("How kind of you that you want to assist me one more time. Could you gather twenty black berries, sweet gifts of Oldra?");
+talkEntry:addResponse("How kind of you that you want to assist me one more time. Could you gather twenty blackberries, sweet gifts of Oldra?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -376,7 +376,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(147, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 4));
-talkEntry:addResponse("I am grateful for the twenty black berries you brought me. Have this small reward.");
+talkEntry:addResponse("I am grateful for the twenty blackberries you brought me. Have this small reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -389,7 +389,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(147, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 4));
-talkEntry:addResponse("I am grateful for the twenty black berries you brought me. Have this small reward.");
+talkEntry:addResponse("I am grateful for the twenty blackberries you brought me. Have this small reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -424,7 +424,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("You can find the twenty black berries I ask for in the hedge over there.");
+talkEntry:addResponse("You can find the twenty blackberries I asked for in the hedge over there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -441,7 +441,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("You can find the twenty black berries I ask for in the hedge over there.");
+talkEntry:addResponse("You can find the twenty blackberries I asked for in the hedge over there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,7 +462,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Raban's Grove III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 5));
-talkEntry:addResponse("It is honourable that you help me and the godess. For now, I desire five champignons to spread life on the soil.");
+talkEntry:addResponse("It is honourable that you help me and the Godess. For now, I desire five champignons to spread life on the soil.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -483,7 +483,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Raban's Grove III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 5));
-talkEntry:addResponse("It is honourable that you help me and the godess. For now, I desire five champignons to spread life on the soil.");
+talkEntry:addResponse("It is honourable that you help me and the Godess. For now, I desire five champignons to spread life on the soil.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -596,7 +596,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Raban's Grove IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 7));
-talkEntry:addResponse("Now I need something special. The soil here is too wet for some plants to grow. I need ten shovel of coarse sand. Please go to my old friend Rutrus at the Oasis of Stars and fetch some, will you?");
+talkEntry:addResponse("Now I need something special. The soil here is too wet for some plants to grow. I need ten shovels of coarse sand. Please go to my old friend Rutrus at the Oasis of Stars and fetch some, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -617,7 +617,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Raban's Grove IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 7));
-talkEntry:addResponse("Now I need something special. The soil here is too wet for some plants to grow. I need ten shovel of coarse sand. Please go to my old friend Rutrus at the Oasis of Stars and fetch some, will you?");
+talkEntry:addResponse("Now I need something special. The soil here is too wet for some plants to grow. I need ten shovels of coarse sand. Please go to my old friend Rutrus at the Oasis of Stars and fetch some, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -692,7 +692,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Head for the Oasis of Stars in order to find ten shovels of coarse sand. You get there when you head south and turn west when you reach the ocean.");
+talkEntry:addResponse("Head to the Oasis of Stars in order to find ten shovels of coarse sand. You get there when you head south and turn west when you reach the ocean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -709,7 +709,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 7));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Head for the Oasis of Hope in order to find ten shovels of coarse sand. You get there when you head south and turn west when you reach the ocean.");
+talkEntry:addResponse("Head to the Oasis of Stars in order to find ten shovels of coarse sand. You get there by heading south and then turning west when you reach the ocean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -728,7 +728,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("There is nothing you can do for me. Just leave me alone, maybe you visit my old friend Rutrus at the oasis again?");
+talkEntry:addResponse("There is nothing you can do for me, just leave me alone. Maybe you can visit my old friend Rutrus at the Oasis again?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -745,7 +745,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 8));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("There is nothing you can do for me. Just leave me alone, maybe you visit my old friend Rutrus at the oasis again?");
+talkEntry:addResponse("There is nothing you can do for me, just leave me alone. Maybe you can visit my old friend Rutrus at the Oasis again?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -761,7 +761,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("One could call me a hermit. Or a forester. Or a ranger. I do not care anymore.");
+talkEntry:addResponse("One could call me a hermit, or a forester, or a ranger... I do not care anymore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -774,7 +774,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("One could call me a hermit. Or a forester. Or a ranger. I do not care anymore.");
+talkEntry:addResponse("One could call me a hermit, or a forester, or a ranger... I do not care anymore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -787,7 +787,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
-talkEntry:addResponse("I've been to Gobaith, but that is long ago.");
+talkEntry:addResponse("I've been to Gobaith, but that was long ago.");
 talkEntry:addResponse("I do not want to talk about this with you, I hope you respect that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -816,7 +816,7 @@ talkEntry:addTrigger("hermit");
 talkEntry:addTrigger("forester");
 talkEntry:addTrigger("ranger");
 talkEntry:addTrigger("gardener");
-talkEntry:addResponse("Nature can offer much more joy to me than any place, made of cold stone.");
+talkEntry:addResponse("Nature can offer much more joy to me than any place made of cold stone.");
 talkEntry:addResponse("I plant trees and watch them grow. Can you imagine anything more... relaxing?");
 talkEntry:addResponse("I enjoy the silence here. A branch in the wind can sing wonderful songs.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -838,7 +838,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("shrine");
 talkEntry:addTrigger("grove");
 talkEntry:addResponse("Isn't this a lovely place? Most trees, I planted myself.");
-talkEntry:addResponse("Honor Ushara for this site is her gift.");
+talkEntry:addResponse("Honour Ushara for this site is her gift.");
 talkEntry:addResponse("Welcome to the place where nature embraces you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -866,7 +866,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("oasis");
-talkEntry:addResponse("At the Oasis of Hope, my good friend Rutrus has found his peace. Maybe you want to visit him?");
+talkEntry:addResponse("At the Oasis of Stars, my good friend Rutrus has found his peace. Maybe you want to visit him?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -892,7 +892,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bruno");
-talkEntry:addResponse("That name sounds familiar, but living in solitude, I forgot about names with time.");
+talkEntry:addResponse("That name sounds familiar, but living in solitude, I forget about names with time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -904,7 +904,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("herbs");
-talkEntry:addResponse("You can gather herbs with a sickle. But do not cut too many - Ushara won't be pleased when you plunder her treasury.");
+talkEntry:addResponse("You can gather herbs with a sickle. But do not cut too many... Ushara won't be pleased if you plunder her treasury.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -930,7 +930,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sickle");
-talkEntry:addResponse("In case you need a new sickle, ask for William in Runewick. If he is still alive after all those years we didn't meet.");
+talkEntry:addResponse("In case you need a new sickle, ask for William in Runewick. If he is still alive after all these years we didn't meet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -941,8 +941,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("virgin");
+talkEntry:addResponse("Virgin's weed only grows in rocky terrain, so you'll have to head for the mountains if you need any.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Jungfer");
+talkEntry:addResponse("Jungfernkraut wächst nur in felsigem Gelände; ihr werdet also in die Berge gehen müssen, wenn ihr welches benötigt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Once, I called the archmage of Runewick a friend of mine. But we disagreed in too many things, so I left Runewick for good.");
+talkEntry:addResponse("Once, I called the Archmage of Runewick a friend of mine, but we disagreed on too many things, so I left Runewick for good.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -956,7 +968,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Once, I called the archmage of Runewick a friend of mine. But we disagreed in too many things, so I left Runewick for good.");
+talkEntry:addResponse("Once, I called the Archmage of Runewick a friend of mine, but we disagreed on too many things, so I left Runewick for good.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -970,7 +982,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("The only place where you can find peace is Runewick. But I still prefer the forest.");
+talkEntry:addResponse("The only place where you can find peace is Runewick, but I still prefer the forest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -985,7 +997,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("I thank for every minute of life, not having to deal with any greedy dwarf.");
+talkEntry:addResponse("I give thanks for every moment of life, not having to deal with that greedy dwarf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1012,7 +1024,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Isn't Cadomyr's souvereign king Reginald Edwards?");
+talkEntry:addResponse("Isn't Cadomyr's sovereign King Reginald Edwards?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1026,7 +1038,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Isn't Cadomyr's souvereign king Reginald Edwards?");
+talkEntry:addResponse("Isn't Cadomyr's sovereign King Reginald Edwards?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1053,7 +1065,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("I stopped caring about things that happen abroad. Be it Albar, Gynk or Salkamar.");
+talkEntry:addResponse("I stopped caring about things that happen abroad long ago, be it Albar, Gynk or Salkamar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1067,7 +1079,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("I stopped caring about things that happen abroad. Be it Albar, Gynk or Salkamar.");
+talkEntry:addResponse("I stopped caring about things that happen abroad long ago, be it Albar, Gynk or Salkamar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1081,7 +1093,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("I stopped caring about things that happen abroad. Be it Albar, Gynk or Salkamar.");
+talkEntry:addResponse("I stopped caring about things that happen abroad long ago, be it Albar, Gynk or Salkamar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1093,7 +1105,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("In the solitude of the forest, one starts to think a lot about the gods - without conclusion so far.");
+talkEntry:addResponse("In the solitude of the forest, one starts to think a lot about the Gods... without conclusion so far.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1107,7 +1119,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Honour the goddess!");
+talkEntry:addResponse("Honour the Goddess!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1120,7 +1132,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Oldra... I am sure I saw her one day, dancing during dawn on the grass.");
+talkEntry:addResponse("Oldra... I am sure I saw her one day, dancing at dawn on the grass.");
 talkEntry:addResponse("Oldra now takes care of all the wonders Ushara has left on the land.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1165,8 +1177,8 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Is money all that matters for you? I abstain from bartering it since decades and never missed it a single day.");
-talkEntry:addResponse("I have no use for money. So I do not want yours.");
+talkEntry:addResponse("Is money all that matters to you? I abstained from bartering decades ago and have never missed it a single day.");
+talkEntry:addResponse("I have no use for money, so I do not want yours.");
 talkEntry:addResponse("I am not a merchant. Maybe you want to help me in a quest?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1185,7 +1197,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation.");
-talkEntry:addResponse("I did not make this place, nature did. But few honour the wonders of Ushara and Oldra.");
+talkEntry:addResponse("I did not make this place, nature did, but few honour the wonders of Ushara and Oldra.");
 talkEntry:addResponse("Tales of old I never witnessed. Seldom, travellers come here to tell me about foreign lands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1202,7 +1214,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Raban");
-talkEntry:addResponse("Raban... yes, that's how they uses to call me.");
+talkEntry:addResponse("Raban... yes, that's what they used to call me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1243,7 +1255,7 @@ talkEntry:addTrigger("No");
 talkEntry:addResponse("No?");
 talkEntry:addResponse("But on the other hand...");
 talkEntry:addResponse("Well...");
-talkEntry:addResponse("Maybe you reconsider about this?");
+talkEntry:addResponse("Maybe you should reconsider this?");
 talkEntry:addResponse("Is that all you have to say about this?");
 talkEntry:addResponse("I disagree.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1259,14 +1271,14 @@ talkEntry:addResponse("Ist das alles, was ihr dazu sagen wollt?");
 talkEntry:addResponse("Ich muss widersprechen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me klopft die Erde um einen frisch gepflanzten Setzling glatt.", "#me smoothes the soil around a newly planted seedling.");
+talkingNPC:addCycleText("#me klopft die Erde um einen frisch gepflanzten Setzling glatt.", "#me flattens the soil around a newly planted seedling.");
 talkingNPC:addCycleText("Wachst und gedeiht, meine Kinder.", "Grow and prosper, my children.");
-talkingNPC:addCycleText("#me streicht sachte über die Blätter eines Strauches und seufzt.", "#me strokes gently the leaves of a bush and sighs.");
-talkingNPC:addCycleText("#me flüstert kaum hörbar zu einer Fichte. Man kann sich einbilden, die Äste des Baumes würden antwortend im Wind rauschen.", "#me whispers to a fir tree, barely audible. One could imagine the branches of the tree sough in response.");
-talkingNPC:addCycleText("Waren wir noch längst nicht geboren, saht ihr auf alles herab. Sind wir längst gegangen, gehört euch das Land erneut.", "When we weren't even born, you already beheld all. When we are long gone, the land will be yours again.");
+talkingNPC:addCycleText("#me streicht sachte über die Blätter eines Strauches und seufzt.", "#me gently strokes the leaves of a bush and sighs.");
+talkingNPC:addCycleText("#me flüstert kaum hörbar zu einer Fichte. Man kann sich einbilden, die Äste des Baumes würden antwortend im Wind rauschen.", "#me whispers, barely audibly, to a fir tree. One could imagine the branches of the tree rustling in the wind in response.");
+talkingNPC:addCycleText("Waren wir noch längst nicht geboren, saht ihr auf alles herab. Sind wir längst gegangen, gehört euch das Land erneut.", "When we weren't even born, you could look down and behold it all. When we are long gone, the land will be yours again.");
 talkingNPC:addCycleText("Ich habe etwas gehört.", "I heard something.");
 talkingNPC:addCycleText("Shh! Wenn ihr ganz still seid, könnt ihr dem Klang der Stille lauschen.", "Shh! If you're quiet, you can listen to the sound of silence.");
-talkingNPC:addCycleText("#me schaut sich um und nickt zufrieden.", "#me looks around contentedly.");
+talkingNPC:addCycleText("#me schaut sich um und nickt zufrieden.", "#me looks around and nods with satisfaction.");
 talkingNPC:addCycleText("Wer wagt es, meine Ruhe zu stören?", "Who dares to disturb me?");
 talkingNPC:addCycleText("Willkommen in meinem Hain.", "Welcome to my grove.");
 mainNPC:addLanguage(0);

@@ -143,9 +143,9 @@ queststatus(112) = 2, ".+" -> inform("[Quest gelöst] Du erhältst sechs Silbers
 -- 2nd quest: Bring a battle axe 2946 and a silver bar 104
 -- Give out quest 2
 queststatus(112) = 3, english, "quest", "mission" -> inform("[New quest] The Ghost Oak II"), queststatus(112) = 4, "The oak cannot simply be cut down... I should have expected that much. The spirit of the tree is too strong. There is a way to solve this; Bring me a battle axe, a bar of silver and one more thing. I will tell you the last thing after you bring me the others."
-queststatus(112) = 3, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(112) = 4, "Diese Eiche kann man nicht einfach fällen... Ich hätte es wissen müssen. Der Geist in ihr ist zu stark. Aber es gibt einen Weg; bringt mir eine Kriegsaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
+queststatus(112) = 3, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(112) = 4, "Diese Eiche kann man nicht einfach fällen... Ich hätte es wissen müssen. Der Geist in ihr ist zu stark. Aber es gibt einen Weg; bringt mir eine Streitaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
 queststatus(112) = 3, "task", "adventure" -> inform("[New quest] The Ghost Oak II"), queststatus(112) = 4, "The oak cannot simply be cut down... I should have expected that much. The spirit of the tree is too strong. There is a way to solve this; Bring me a battle axe, a bar of silver and one more thing. I will tell you the last thing after you bring me the others."
-queststatus(112) = 3, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(112) = 4, "Diese Eiche kann man nicht einfach fällen... Ich hätte es wissen müssen. Der Geist in ihr ist zu stark. Aber es gibt einen Weg; bringt mir eine Kriegsaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
+queststatus(112) = 3, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(112) = 4, "Diese Eiche kann man nicht einfach fällen... Ich hätte es wissen müssen. Der Geist in ihr ist zu stark. Aber es gibt einen Weg; bringt mir eine Streitaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
 
 -- Quest 2 solved, reward: 1200cp, ruby amulet
 -- All Items are gathered except for one.
@@ -154,9 +154,9 @@ queststatus(112) = 4, item(2946, all) > 0, item(104, all) > 0, ".+" -> inform("[
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(112) = 4, english, "quest", "mission" -> "Bring me a battle axe, a bar of silver and one more thing. I will tell you the last thing after you bring me the others."
-queststatus(112) = 4, "quest", "mission" -> "Bringt mir eine Kriegsaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
+queststatus(112) = 4, "quest", "mission" -> "Bringt mir eine Streitaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
 queststatus(112) = 4, "task", "adventure" -> "Bring me a battle axe, a bar of silver and one more thing. I will tell you the last thing after you bring me the others."
-queststatus(112) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> "Bringt mir eine Kriegsaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
+queststatus(112) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> "Bringt mir eine Streitaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
 
 -- Quest 3
 -- Go to an abandon house and retrieve a bone of the real Madoquar

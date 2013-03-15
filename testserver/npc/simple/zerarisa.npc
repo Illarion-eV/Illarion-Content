@@ -98,8 +98,8 @@ queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "task", "adventure",
 queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 12, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- 1st quest: Take a tool and gather 10 raw materials for 500cp.
-queststatus(71) = 0, queststatus(703) = 11, town = Cadomyr, english, "quest", "mission" -> inform("[New quest] Cape Farewell I"), item(72, 1, 399), queststatus(71) = 1, queststatus(703) = 12, "Zerarisa hass hurt her claw, if you could collect ten trout for me, I give you coinsss."
-queststatus(71) = 0, queststatus(703) = 11, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Kap des Abschiedes I"), item(72, 1, 399), queststatus(71) = 1, queststatus(703) = 12, "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen."
+queststatus(71) = 0, queststatus(703) = 11, town = Cadomyr, english, "quest", "mission", "jakob", "lindorn" -> inform("[New quest] Cape Farewell I"), item(72, 1, 399), queststatus(71) = 1, queststatus(703) = 12, "Zerarisa hass hurt her claw, if you could collect ten trout for me, I give you coinsss."
+queststatus(71) = 0, queststatus(703) = 11, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> inform("[Neues Quest] Kap des Abschiedes I"), item(72, 1, 399), queststatus(71) = 1, queststatus(703) = 12, "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen."
 queststatus(71) = 0, queststatus(703) = 11, town = Cadomyr, "task", "adventure", "order" -> inform("[New quest] Cape Farewell I"), item(72, 1, 399), queststatus(71) = 1, queststatus(703) = 12, "Zerarisa hass hurt her claw, if you could collect ten trout for me, I give you coinsss."
 queststatus(71) = 0, queststatus(703) = 11, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Kap des Abschiedes I"), item(72, 1, 399), queststatus(71) = 1, queststatus(703) = 12, "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen."
 

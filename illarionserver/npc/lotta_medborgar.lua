@@ -748,7 +748,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair Hochebene");
-talkEntry:addResponse("Die Galmair Hochebene ist südlich von Galmair und westlich der Malachit Mine. Du findest dort die Banditen vom Fort Schnellbeil.");
+talkEntry:addResponse("Die Galmair Hochebene ist südlich von Galmair und westlich der Malachitmine. Du findest dort die Banditen vom Fort Schnellbeil.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -797,7 +797,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fort Schnellbeil");
-talkEntry:addResponse("Das Heim von Banditen auf der Glamair Hochebene, geführt von Uri Schnellbeil. Sie behindern unsere Geschäfte in der Malachit Mine von Zeit zu Zeit.");
+talkEntry:addResponse("Das Heim von Banditen auf der Glamair Hochebene, geführt von Uri Schnellbeil. Sie behindern unsere Geschäfte in der Malachitmine von Zeit zu Zeit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -965,7 +965,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(632, "<", 1));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Don Valerio Guilianni' gestartet] Finde Don Valerio Guilianni und bringe ihr dein Geschenk."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Don Valerio Guilianni' gestartet] Finde Don Valerio Guilianni und bringe ihm dein Geschenk."));
 talkEntry:addConsequence(npc.base.consequence.item.item(61, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(632, "=", 1));
 talkEntry:addResponse("Hast du bereits den Don kennengelernt? Falls nicht, dann solltest du dich bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er ein Auge auf Gold geworfen hat. *überreicht eine Goldmünze*");
@@ -992,7 +992,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Don Valerio Guilianni' gestartet] Finde Don Valerio Guilianni und bringe ihr dein Geschenk."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Don Valerio Guilianni' gestartet] Finde Don Valerio Guilianni und bringe ihm dein Geschenk."));
 talkEntry:addConsequence(npc.base.consequence.item.item(61, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(632, "=", 1));
 talkEntry:addResponse("Hast du bereits den Don kennengelernt? Falls nicht, dann solltest du dich bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er ein Auge auf Gold geworfen hat. *überreicht eine Goldmünze*");

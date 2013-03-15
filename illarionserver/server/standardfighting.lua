@@ -37,7 +37,9 @@ require("lte.chr_reg");
 -- for gem bonus
 require("base.gems")
 
---require("development.testscript")
+if isTestserver() then
+	require("development.testscript");
+end;
 
 module("server.standardfighting", package.seeall)
 
@@ -51,11 +53,10 @@ module("server.standardfighting", package.seeall)
 function onAttack(Attacker, Defender)
 
 	if isTestserver() then
-    -- Put this in when testing the new script
-		--development.testscript.onAttack(Attacker,Defender);
-		--return;
+		--Attacker:inform("Should be attacking."); --Debugging
+		development.testscript.onAttack(Attacker,Defender);
+		return;
 	end;
-	
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
@@ -704,10 +705,9 @@ function CoupDeGrace(Attacker, Defender)
             "ihrem");
         local eText = base.common.GetGenderText(Attacker.Char, "his",
             "her");
-        Attacker.Char:talkLanguage(Character.say, Player.german,
-            string.format("#me gibt %s Gegner den Gnadenstoﬂ.", gText));
-        Attacker.Char:talkLanguage(Character.say, Player.english,
-            string.format("#me gives %s enemy the coup de gr·ce.", eText));
+        Attacker.Char:talk(Character.say,
+            string.format("#me gibt %s Gegner den Gnadenstoﬂ.", gText),
+            string.format("#me gives %s enemy the coup de gr·ce.", eText))
         
         -- Kill character and notify other scripts about the death
         if not base.character.Kill(Defender.Char) then

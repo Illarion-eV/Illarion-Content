@@ -11,7 +11,7 @@ module("item.tree", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
     -- alchemy stuff
-	if Item.pos == position(432,238,0) then
+	if SourceItem.pos == position(432,238,0) then
 		alchemy.base.teacher.UseItem(User, SourceItem, ltstate)
 		return
 	end

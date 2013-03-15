@@ -43,8 +43,7 @@ function UseItem(User, SourceItem, ltstate)
 	    
     if ( ltstate == Action.none ) then 
 		User:startAction( 20, 21, 5, 10, 25);
-		User:talkLanguage( Character.say, 0, "#me beginnt Flaschen zu befüllen.");
-		User:talkLanguage( Character.say, 1, "#me starts to fill bottle."); 
+		User:talk(Character.say, "#me beginnt Flaschen zu befüllen.", "#me starts to fill bottle.")
 		return
 	end
 	

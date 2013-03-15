@@ -410,8 +410,7 @@ function ThrowMolotov(Monster,Enemy,rndTry,AP)
         end );
 
         Monster.movepoints=Monster.movepoints - AP;
-        Monster:talkLanguage( Character.say, Player.german, "#me schmeiﬂt eine weiﬂe Flasche nach "..Enemy.name..".");
-        Monster:talkLanguage( Character.say, Player.english, "#me tosses a white bottle at "..Enemy.name..".");
+        Monster:talk(Character.say, "#me schmeiﬂt eine weiﬂe Flasche nach "..Enemy.name..".", "#me tosses a white bottle at "..Enemy.name..".")
 		return false;
     end
     return true;

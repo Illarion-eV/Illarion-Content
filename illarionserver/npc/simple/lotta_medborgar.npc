@@ -171,7 +171,7 @@ english, "Numila", "Irunnleh" -> "You can find her in Runewick and she knows sev
 "Lonely Mountain" -> "These are the mountains around us."
 "Einsame Berge" -> "Das sind die Berge um uns."
 "Galmair Plateau" -> "The Galmair Plateau is south from Galmair and west from the Malachite Mine. You will find the bandits from Fort Schnellbeil there."
-"Galmair Hochebene" -> "Die Galmair Hochebene ist südlich von Galmair und westlich der Malachit Mine. Du findest dort die Banditen vom Fort Schnellbeil."
+"Galmair Hochebene" -> "Die Galmair Hochebene ist südlich von Galmair und westlich der Malachitmine. Du findest dort die Banditen vom Fort Schnellbeil."
 "Malachite creek" -> "The Malachite creek is the water between Galmair and Nargun's Plain. The Copperbridge will help you to cross it."
 "Malachit Bach" -> "Der Malachit Bach ist das Gewässer zwischen Galmair und der Narguns Ebene. Die Kupferbrücke wird dir helfen es zu überqueren."
 "Malachite Island" -> "This island is in the south in the middle of the Malachite creek."
@@ -179,7 +179,7 @@ english, "Numila", "Irunnleh" -> "You can find her in Runewick and she knows sev
 "Golden Rumil" -> "The Golden Rumil met a bad end once. The bandits of Fort Schnellbeil threw the good old Rumil into liquid gold. You can find him on the way to Fort Schnellbeil."
 "Goldener Rumil" -> "Der Goldene Rumil fand einst ein böses Ende. Die Banditen vom Fort Schnellbeil warfen den guten alten Rumil in flüssiges Gold. Du kannst ihn an deinem Weg zum Fort Schnellbeil finden."
 english, "Fort Schnellbeil" -> "The home of bandits at the Galmair Plateau, led by Uri Schnellbeil. They interrupt our business at the Malachite mine now and then."
-"Fort Schnellbeil" -> "Das Heim von Banditen auf der Glamair Hochebene, geführt von Uri Schnellbeil. Sie behindern unsere Geschäfte in der Malachit Mine von Zeit zu Zeit."
+"Fort Schnellbeil" -> "Das Heim von Banditen auf der Glamair Hochebene, geführt von Uri Schnellbeil. Sie behindern unsere Geschäfte in der Malachitmine von Zeit zu Zeit."
 "Fortress Hammerfall" -> "This fortress has been built by the betrayer Dwyn Axtblatt. You can find it at the north end of the Katanbi Desert."
 "Festung Hammerfall" -> "Diese Festung wurde erbaut von dem Veräter Dwyn Axtblatt. Du kannst sie im Norden der Katanbi Wüste finden."
 
@@ -210,9 +210,9 @@ english, "Ruzusss" -> "You can find him in Cadomyr and he knows several places i
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_galmair_2.quest belongs to this NPC: Quest-ID.: 632 - IN PROGRESS
 queststatus(632) < 1, town = Galmair, english, "quest", "mission" -> queststatus(632) = 1, item(61, 1, 777), inform("[New Quest 'Find Don Valerio Guilianni' started] Find Don Valerio Guilianni and bring her your gift."), "Have you already met our Don? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since she loves gold. *hands over a gold coin.*"
-queststatus(632) < 1, town = Galmair, "quest", "mission" -> queststatus(632) = 1, item(61, 1, 777), inform("[Neues Quest 'Finde Don Valerio Guilianni' gestartet] Finde Don Valerio Guilianni und bringe ihr dein Geschenk."), "Hast du bereits den Don kennengelernt? Falls nicht, dann solltest du dich bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er ein Auge auf Gold geworfen hat. *überreicht eine Goldmünze*"
+queststatus(632) < 1, town = Galmair, "quest", "mission" -> queststatus(632) = 1, item(61, 1, 777), inform("[Neues Quest 'Finde Don Valerio Guilianni' gestartet] Finde Don Valerio Guilianni und bringe ihm dein Geschenk."), "Hast du bereits den Don kennengelernt? Falls nicht, dann solltest du dich bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er ein Auge auf Gold geworfen hat. *überreicht eine Goldmünze*"
 queststatus(632) < 1, town = Galmair, "task", "adventure", "order" -> queststatus(632) = 1, item(61, 1, 777), inform("[New Quest 'Find Don Valerio Guilianni' started] Find Don Valerio Guilianni and bring her your gift."), "Have you already met our Don? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since she loves gold. *hands over a gold coin.*"
-queststatus(632) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(632) = 1, item(61, 1, 777), inform("[Neues Quest 'Finde Don Valerio Guilianni' gestartet] Finde Don Valerio Guilianni und bringe ihr dein Geschenk."), "Hast du bereits den Don kennengelernt? Falls nicht, dann solltest du dich bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er ein Auge auf Gold geworfen hat. *überreicht eine Goldmünze*"
+queststatus(632) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(632) = 1, item(61, 1, 777), inform("[Neues Quest 'Finde Don Valerio Guilianni' gestartet] Finde Don Valerio Guilianni und bringe ihm dein Geschenk."), "Hast du bereits den Don kennengelernt? Falls nicht, dann solltest du dich bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er ein Auge auf Gold geworfen hat. *überreicht eine Goldmünze*"
 english, "quest", "mission" -> "Nothing to do for you yet but soon I have plenty of tasks for you."
 "quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich."
 "task", "adventure", "order" -> "Nothing to do for you yet but soon I have plenty of tasks for you."

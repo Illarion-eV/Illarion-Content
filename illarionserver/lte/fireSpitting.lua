@@ -13,16 +13,14 @@ function callEffect(Effect, User)
     if not findSecondTime then
 	    User:inform("Hitze erfüllt dein Inneres und in deinem Magen fängt es zu kochen an.",
 		            "Your inner body is heating up and it seems to start boiling in your stomach.")
-        User:talkLanguage(Character.say, Player.german, "#mes Gesicht färbt sich knallrot.")
-		User:talkLanguage(Character.say, Player.english, "#me's face turns bright red.")
+        User:talk(Character.say, "#mes Gesicht färbt sich knallrot.", "#me's face turns bright red.")
         Effect:addValue("secondTime",1)	
 	    Effect.nextCalled = 50
 		return true
 	else
 		User:inform("Heiß und kochend steigt es deine Kehle hinauf und plötzlich...",
 		            "Hot and boiling it's coming up your throat and suddenly...")
-        User:talkLanguage(Character.say, Player.german, "#me spuckt Feuer aus seinem Mund raus.")
-		User:talkLanguage(Character.say, Player.english, "#me spits fire out of his mouth.")
+        User:talk(Character.say, "#me spuckt Feuer aus seinem Mund raus.", "#me spits fire out of his mouth.")
         local findQuality, quality = Effect:findValue("quality")
 		local spitFire = function(posi) 
 		    if world:isCharacterOnField(posi) then

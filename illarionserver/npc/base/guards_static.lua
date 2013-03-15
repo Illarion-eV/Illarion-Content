@@ -28,8 +28,7 @@ function CheckForEnemies(guard)
     end
 	end
   if (warpedMonster) then
-    guard:talkLanguage(Character.say, Player.german, "Weg mit dir, widerliche Kreatur!");
-    guard:talkLanguage(Character.say, Player.english, "Go away, nasty creature!");
+    guard:talk(Character.say, "Weg mit dir, widerliche Kreatur!", "Go away, nasty creature!");
   end
 
 	-- check for player characters
@@ -56,8 +55,8 @@ function CheckForEnemies(guard)
     end
 	end
   if (warpedPlayers) then
-    guard:talkLanguage(Character.say, Player.german, "Pass bloﬂ auf! Wir brauchen hier kein Gesindel.");
-    guard:talkLanguage(Character.say, Player.english, "You'd better watch out! We don't need such lowlifes here.");
+    guard:talk(Character.say, "Pass bloﬂ auf! Wir brauchen hier kein Gesindel.",
+                              "You'd better watch out! We don't need such lowlifes here.");
   end
   if (hittedPlayers) then
     world:makeSound(3, guard.pos);

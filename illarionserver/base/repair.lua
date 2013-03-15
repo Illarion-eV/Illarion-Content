@@ -6,7 +6,6 @@ itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust
 	{en="Belt 2", de="Gürtel 2"},{en="Belt 3", de="Gürtel 3"},{en="Belt 4", de="Gürtel 4"},{en="Belt 5", de="Gürtel 5"},{en="Belt 6", de="Gürtel 6"}}
 itemPos[0] = {en="Backpack", de="Rucksack"}
 
-
 module("base.repair", package.seeall)
 
 --opens a selection dialog for the player to choose an item to repair
@@ -32,8 +31,10 @@ function repairDialog(npcChar, speaker)
 	for i=17,0,-1 do 
 		local item = speaker:getItemAt(i);
 		if (item.id > 0) and (item.number == 1) and (getRepairPrice(item,speaker) ~= 0) then --only add items which are single items and repairable
-			table.insert(itemsOnChar, item);
-			table.insert(itemPosOnChar, itemPos[i])
+			if (item.id ~= base.money.GoldCoinsID and item.id ~= base.money.SilverCoinsID and item.id ~= base.money.CopperCoinsID) then --don't add money
+				table.insert(itemsOnChar, item);
+				table.insert(itemPosOnChar, itemPos[i])
+			end
 		end
 	end
 					

@@ -179,7 +179,7 @@ function Init()
     AddPotion("Runewick",		  
 			  521,
 			  {"a shape shifter potion male halfling with at least average quality","einen Verwandlungstrank männlicher Halbling von mindestens durchschnittlicher Qualität"},
-			  {330,5,{"filledWith","potion"},{"potionEffectId","520"}}
+			  {329,5,{"filledWith","potion"},{"potionEffectId","520"}}
 			  )
     AddPotion("Runewick",		  
 			  530,
@@ -299,8 +299,7 @@ function RecipeInform( User, SourceItem)
 			local orgPos = originalPos[selected+1]
             local effectId = myListEffectId[orgPos]
 			if User:getQuestProgress(effectId+1000) == 0 then
-				myNPC:talkLanguage(Character.say,Player.english,"If you want me to show you how to create this potion properly, bring me "..myListTaskText[orgPos][language]..". Just put it here ony my table so that I can analyse it.")
-				myNPC:talkLanguage(Character.say,Player.german,"Wenn Ihr wollt, dass ich Euch zeige, wie dieser Trank richtig hergestellt wird, bringt mir "..myListTaskText[orgPos][language]..". Einfach hier auf meinen Tisch tun, damit ich meine Analyse vollziehen kann.")
+				myNPC:talk(Character.say, "Wenn Ihr wollt, dass ich Euch zeige, wie dieser Trank richtig hergestellt wird, bringt mir "..myListTaskText[orgPos][language]..". Einfach hier auf meinen Tisch tun, damit ich meine Analyse vollziehen kann.", "If you want me to show you how to create this potion properly, bring me "..myListTaskText[orgPos][language]..". Just put it here ony my table so that I can analyse it.")
 		    else
 			    triggerfield.potionToTeacher.TellRecipe(User, effectId)
 			end	

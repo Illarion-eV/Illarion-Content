@@ -65,7 +65,7 @@ end
 
 function setFog(actFog, actCloud, thisMonth) -- in autumn and early winter
     fogProbability=math.floor(5-5*math.cos(month*math.pi/8-3));        -- ~0 in summer (6), 10% in month 11
-    fogTest=math.random(1,100);
+    fogTest=math.random(1,80);
     if actFog>0 then                        -- if there already is fog: change it a little
         if actCloud<10 then                 -- if the sun is shining...
             maxFogChange=0;                 -- only lower fog (sun burns it away ;) )
@@ -87,7 +87,7 @@ function setClouds(actClouds,thisMonth)     -- much in winter, less in summer
                                             -- clear sky, cold night (winter)
     newCloud=0;
     typicalClearDayProb=math.floor(40-9*math.cos(thisMonth*math.pi/8)); -- 78% in summer, 60 in winter (69)
-    clearTest=math.random(1,100);
+    clearTest=math.random(1,80);
     if clearTest>=typicalClearDayProb then  -- no clear day
         typicalClouds=50;                   -- if cloudy, then typically 50%
         cloudChange=pseudogauss(0,20);      -- change cloud coverage
@@ -106,7 +106,7 @@ end
 function getRain(thisMonth,actClouds)
     if actClouds>30 then        -- only care about rain with more than 30% cld coverage
         probabilityToRain=math.floor(60-20*math.cos(thisMonth*math.pi/8));  -- 35% in summer, 15 in winter (realistic values), 70% clear sky!
-        doesItRain=math.random(0,100);
+        doesItRain=math.random(0,125);
         if doesItRain<probabilityToRain then    -- rain positive
             retRain=math.random(0,100);   
         else            -- rain negative
@@ -172,11 +172,7 @@ function logWeather(newWeather)
     aMin=world:getTime("minute");
     aSec=world:getTime("second");
 
-    LogString=aYear.."/"..aMonth.."/"..aDay.."/"..aHour.."/"..aMin.."/"..aSec..":"..LogString
-
-   --LogFile=io.open("/home/martin/weatherlog.txt","a")
-   --LogFile:write(LogString);
-   -- LogFile:close();
+    --debug(aYear.."/"..aMonth.."/"..aDay.."/"..aHour.."/"..aMin.."/"..aSec..":"..LogString)
 end
 
 -- fruehling: 1-4: 

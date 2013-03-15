@@ -61,7 +61,7 @@ function ini()
   devoteItems[4]={52,253,72}; --Tanora: Bucket of water, Raw sapphire, Fishing rod
   devoteItems[5]={64,463,65}; --Findari: Arrow, Quill, Short Bow
   devoteItems[6]={80,356,733}; --Nargùn: Banana, Slouch hat, Stone block
-  devoteItems[7]={2745,329,463}; --Elara: Parchment, Ink, Quill
+  devoteItems[7]={2745,43,463}; --Elara: Parchment, Candle, Quill
   devoteItems[8]={223,2500,388}; --Adron: Iron Goblet, Bottle of Wine, Grapes
   devoteItems[9]={258,534,259}; --Oldra: Flail, Onion seeds, Grain
   devoteItems[10]={24,43,182}; --Cherga: Shovel, Candle, Black shirt

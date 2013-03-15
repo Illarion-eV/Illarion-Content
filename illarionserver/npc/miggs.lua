@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -224,6 +224,117 @@ talkEntry:addTrigger("Groktan");
 talkEntry:addTrigger("Flintsplit");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 4));
+talkEntry:addResponse("Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(712, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("joey");
+talkEntry:addTrigger("licavoli");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 6));
+talkEntry:addResponse("Ah Joey send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(712, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("joey");
+talkEntry:addTrigger("licavoli");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 6));
+talkEntry:addResponse("Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(712, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 6));
+talkEntry:addResponse("Ah Joey send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(712, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 6));
+talkEntry:addResponse("Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(712, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("message");
+talkEntry:addTrigger("news");
+talkEntry:addTrigger("letter");
+talkEntry:addTrigger("scroll");
+talkEntry:addTrigger("parchment");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 6));
+talkEntry:addResponse("Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... when I'm done with 'em.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(712, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("nachricht");
+talkEntry:addTrigger("brief");
+talkEntry:addTrigger("Botschaft");
+talkEntry:addTrigger("Schriftrolle");
+talkEntry:addTrigger("Pergament");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 6));
+talkEntry:addResponse("Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(712, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("Groktan");
+talkEntry:addTrigger("Flintsplit");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 6));
+talkEntry:addResponse("Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... when I'm done with 'em.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(712, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("Groktan");
+talkEntry:addTrigger("Flintsplit");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 6));
 talkEntry:addResponse("Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

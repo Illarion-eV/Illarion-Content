@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -735,8 +735,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 14));
-talkEntry:addTrigger("bemerkt hat");
-talkEntry:addTrigger("erkannt hat");
+talkEntry:addTrigger("bemerkt");
+talkEntry:addTrigger("erkannt");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Bringe Nobarg seine erwünschten Gegenstände' gestartet] Bringe ihm ein reines Feuer, eine rote Priester Robe und einen Goldkelch."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
 talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Ein reines Feuer, um Bragon zu würdigen, eine rote Priester Robe, um meine alte Robe zu ersetzen und einen Goldkelch für ein Ritual. So, geht und bringt mir diese Dinge!");
@@ -792,7 +792,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 17));
 talkEntry:addTrigger("verbindet");
-talkEntry:addTrigger("verbindung");
+talkEntry:addTrigger("Verbindung");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Bringe Nobarg seine erwünschten Gegenstände' gestartet] Bringe ihm ein reines Feuer, eine rote Priester Robe und einen Goldkelch."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
 talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Ein reines Feuer, um Bragon zu würdigen, eine rote Priester Robe, um meine alte Robe zu ersetzen und einen Goldkelch für ein Ritual. So, geht und bringt mir diese Dinge!");
@@ -1718,14 +1718,14 @@ talkEntry:addResponse("Denkt ihr nicht es ist an der Zeit für ein weiteres Gebet
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me kniet vor dem Altar.", "#me kneels in front of the altar.");
-talkingNPC:addCycleText("#me klopft gegen den Altar und ruft 'Heil dir Bragon!'", "#me knocks against the altar and calls, 'Hail Brágon!'");
+talkingNPC:addCycleText("#me klopft gegen den Altar und ruft 'Heil dir Brágon!'", "#me knocks against the altar and calls, 'Hail Brágon!'");
 talkingNPC:addCycleText("#me poliert gedankenverloren seinen Goldring.", "#me seems to be lost in thought while polishing a gold ring.");
-talkingNPC:addCycleText("#me murmelt vor sich hin: 'Bragon, möchte uns dein Feuer leuchten.'", "#me mumbles, 'Brágon, your fire shall be a light for us.'");
-talkingNPC:addCycleText("Bragon, er ist weise, stark, nobel, einfach wunderbar.", "Brágon, he is wise, strong, noble, and heavenly.");
-talkingNPC:addCycleText("Bragon belohnt manchmal Leute mit heilgen, wertvollen Dinge in diesem Temple.", "Brágon blesses people sometimes who sacrifice valuable things in his temple.");
-talkingNPC:addCycleText("Malachin, nicht gerade wie Bragon!", "Brágon, oh how your greatness exceeds Malachin's!");
+talkingNPC:addCycleText("#me murmelt vor sich hin: 'Brágon, möchte uns dein Feuer leuchten.'", "#me mumbles, 'Brágon, your fire shall be a light for us.'");
+talkingNPC:addCycleText("Brágon, er ist weise, stark, nobel, einfach wunderbar.", "Brágon, he is wise, strong, noble, and heavenly.");
+talkingNPC:addCycleText("Brágon belohnt manchmal Leute mit heilgen, wertvollen Dinge in diesem Temple.", "Brágon blesses people sometimes who sacrifice valuable things in his temple.");
+talkingNPC:addCycleText("Malachin, nicht gerade wie Brágon!", "Brágon, oh how your greatness exceeds Malachin's!");
 talkingNPC:addCycleText("Hmm... wo kriege ich nur mehr Gold her?", "Hmm... where do I get more gold?");
-talkingNPC:addCycleText("#me hält seinen Priesterstab gehn Himmel und ruft nach Bragon", "#me holds his cleric's staff to heaven and calls for Bragon.");
+talkingNPC:addCycleText("#me hält seinen Priesterstab gehn Himmel und ruft nach Brágon", "#me holds his cleric's staff to heaven and calls for Brágon.");
 talkingNPC:addCycleText("#me betrachtet seinen Rubin mit wohlwollen.", "#me looks at his ruby with a satisfied smirk on his face.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);

@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian + Miriam                                       --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -386,6 +386,119 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("Ich liebe diesen Ort. Ich bin so froh, dass ich hier sein kann und die Leute um mich herum studieren darf.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("jakob");
+talkEntry:addTrigger("lindorn");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
+talkEntry:addResponse("Ah Jakob send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("jakob");
+talkEntry:addTrigger("lindorn");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
+talkEntry:addResponse("Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
+talkEntry:addResponse("Ah Jakob send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
+talkEntry:addResponse("Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("jakob");
+talkEntry:addTrigger("lindorn");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Writing History I"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
+talkEntry:addResponse("You want to help me? Well... Could you bring me five bottles of water, please? I lost mine.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("jakob");
+talkEntry:addTrigger("lindorn");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschichte schreiben I"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
+talkEntry:addResponse("Du möchtest mir helfen? Nun,... Kannst du mir bitte fünf Flaschen voll Wasser bringen? Ich habe meine verloren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("message");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest]  Writing history I"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
+talkEntry:addResponse("You want to help me? Well... Could you bring me five bottles of water, please? I lost mine.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Botschaft");
+talkEntry:addTrigger("Nachricht");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschichte schreiben I"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
+talkEntry:addResponse("Du möchtest mir helfen? Nun,... Kannst du mir bitte fünf Flaschen voll Wasser bringen? Ich habe meine verloren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -18,7 +18,7 @@ function initDoors()
 	AddDoor({416, 250, 0}, false,"Galmair Towngate","Galmair Stadttor");
 
 
-	AddDoor({373, 222, 0}, 110,"House of Malachite","Malachite Haus"); -- guild house I !create 2145 1 333 lockId=110
+	AddDoor({373, 322, 0}, 110,"House of Malachite","Malachite Haus"); -- guild house I !create 2145 1 333 lockId=110
 	AddDoor({301, 280, 0}, 111,"Villa Goldvein","Villa Goldader"); -- guild house II !create 2145 1 333 lockId=111
 	AddDoor({304, 274, 0}, 111,"Villa Goldvein","Villa Goldader"); -- guild house II !create 2145 1 333 lockId=111
 
@@ -76,8 +76,8 @@ function initDoors()
 	AddDoor({366, 235, 0}, false,"Council Chamber","Konzil Kammer"); -- Galmair's Crest
 	AddDoor({348, 229, 0}, false,"Guilianni Residence","Guilianni Residenz"); -- Galmair's Crest
 
-	AddDoor({308, 238, 0}, false,"Temple of Irmorom","Tempel des Irmorom"); 
-	AddDoor({309, 238, 0}, false,"Temple of Irmorom","Tempel des Irmorom");
+	AddDoor({308, 238, 1}, false,"Temple of Irmorom","Tempel des Irmorom"); 
+	AddDoor({309, 238, 1}, false,"Temple of Irmorom","Tempel des Irmorom");
 	AddDoor({378, 272, 0}, false,"Workshop","Werkstatt"); 
 	AddDoor({383, 284, 0}, false,"Werkstatt","Workshop","Werkstatt");
 	AddDoor({408, 295, 0}, false,"Sleepy Bujhaar Inn","Gasthaus zum Schlafenden Bujhaar"); 
@@ -92,9 +92,11 @@ function initDoors()
 	AddDoor({394, 247, 0}, false,"Guardroom","Wachstube");
 	AddDoor({391, 241, 0}, false,"Guardroom","Wachstube");
 	AddDoor({387, 246, 0}, false,"Debt-collector","Schuldeneintreiber");
-    -- Runewick 2xx
+	-- Galmair end
+    
+	-- Runewick 2xx
     --Tower of Fire 20x
-    AddDoor({901, 763, 2}, 200,"Archmage Elvaine Morgan's rooms", "Die Räumlichkeiten von Erzmagier Elvaine Morgan"); -- Archmage's room
+	AddDoor({901, 763, 2}, 200,"Archmage Elvaine Morgan's rooms", "Die Räumlichkeiten von Erzmagier Elvaine Morgan"); -- Archmage's room
     AddDoor({901, 764, 2}, 200,"Archmage Elvaine Morgan's rooms", "Die Räumlichkeiten von Erzmagier Elvaine Morgan"); -- Archmage's room
  
 	AddDoor({902, 770, 4}, 201,"Tower of Fire Apartment 1","Turm des Feuers Appartement 1") -- 2 Persons
@@ -102,14 +104,61 @@ function initDoors()
 
     AddDoor({902, 777, 4}, 202,"Tower of Fire Apartment 1","Turm des Feuers Appartement 2") -- 3 Persons	+ Balcony	
     AddDoor({903, 777, 4}, 202,"Tower of Fire Apartment 1","Turm des Feuers Appartement 2") -- 3 Persons	+ Balcony	
+	
+	AddDoor({903, 786, 1}, false, "Tower of Fire", "Turm des Feuers")
+	AddDoor({902, 786, 1}, false, "Tower of Fire", "Turm des Feuers")
+
+	AddDoor({924, 762, 1}, false, "Tower of Fire", "Turm des Feuers")
+	AddDoor({924, 763, 1}, false, "Tower of Fire", "Turm des Feuers")
+
+	AddDoor({922, 764, 1}, false, "Tower of Fire", "Turm des Feuers")
+	AddDoor({921, 764, 1}, false, "Tower of Fire", "Turm des Feuers")
+
+	AddDoor({902, 770, 1}, false, "Library of Fire", "Bibliothek des Feuers")
+	AddDoor({902, 769, 0}, false, "Library of Fire", "Bibliothek des Feuers")
+
+	AddDoor({903, 768, 2}, false, "Hall of Elara", "Halle der Elara")
+	AddDoor({902, 768, 2}, false, "Hall of Elara", "Halle der Elara")
+
+	AddDoor({903, 769, 3}, false, "Brágon´s Stronghold", "Brágons Bollwerk")
+	AddDoor({904, 769, 3}, false, "Brágon´s Stronghold", "Brágons Bollwerk")
             
-    
     --Tower of Air 21x
     AddDoor({907, 833, 4}, 210,"Tower of Air Apartment 1","Turm der Luft Appartement 1") -- 2 Persons
     AddDoor({906, 833, 4}, 210,"Tower of Air Apartment 1","Turm der Luft Appartement 1") -- 2 Persons
     
     AddDoor({898, 834, 4}, 211,"Tower of Air Apartment 2","Turm der Luft Appartement 2") -- 3 Persons
     AddDoor({898, 835, 4}, 211,"Tower of Air Apartment 2","Turm der Luft Appartement 2") -- 3 Persons
+	
+	AddDoor({907, 832, 3}, false, "House of Gods", "Haus der Götter")
+	AddDoor({907, 833, 3}, false, "House of Gods", "Haus der Götter")
+
+	AddDoor({905, 832, 2}, false, "Shrine of Elara", "Schrein der Elara")
+	AddDoor({904, 832, 2}, false, "Shrine of Elara", "Schrein der Elara")
+
+	AddDoor({904, 833, 1}, false, "Library of Air", "Bibliothek der Luft")
+	AddDoor({904, 834, 1}, false, "Library of Air", "Bibliothek der Luft")
+
+	AddDoor({903, 815, 1}, false, "Tower of Air", "Turm der Luft")
+	AddDoor({902, 815, 1}, false, "Tower of Air", "Turm der Luft")
+
+	AddDoor({901, 817, 1}, false, "Tower of Air", "Turm der Luft")
+	AddDoor({901, 816, 1}, false, "Tower of Air", "Turm der Luft")
+
+	AddDoor({905, 829, 0}, false, "Tree kitchen", "Baumküche")
+	AddDoor({905, 830, 0}, false, "Tree kitchen", "Baumküche")
+
+	AddDoor({896, 841, 1}, false, "Room of Spirit", "Raum des Glaubens")
+	AddDoor({895, 841, 1}, false, "Room of Spirit", "Raum des Glaubens")
+
+	AddDoor({897, 834, 2}, false, "Dormitory", "Schlafsaal")
+	AddDoor({897, 835, 2}, false, "Dormitory", "Schlafsaal")
+
+	AddDoor({918, 832, 1}, false, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
+	AddDoor({918, 833, 1}, false, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
+
+	AddDoor({917, 834, 1}, false, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
+	AddDoor({916, 834, 1}, false, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
     
     --Tower of Earth 22x
     AddDoor({946, 763, 4}, 220,"Tower of Earth Apartment 1","Turm der Erde Appartement 1") -- 3 Persons
@@ -121,12 +170,34 @@ function initDoors()
     AddDoor({944, 764, 2}, 222,"Tower of Earth Apartment 3","Turm der Erde Appartement 3") -- 2 Persons + Balcony
     AddDoor({944, 765, 2}, 222,"Tower of Earth Apartment 3","Turm der Erde Appartement 3") -- 2 Persons + Balcony
 	
+	AddDoor({939, 762, 1}, false, "Tower of Earth", "Turm der Erde")
+	AddDoor({939, 761, 1}, false, "Tower of Earth", "Turm der Erde")
+
+	AddDoor({946, 761, 0}, false, "Chamber of Experiments", "Versuchskammer")
+	AddDoor({946, 762, 0}, false, "Chamber of Experiments", "Versuchskammer")
+
+	AddDoor({951, 758, 1}, false, "Library of Earth", "Bibliothek der Erde")
+	AddDoor({950, 758, 1}, false, "Library of Earth", "Bibliothek der Erde")
+
+	AddDoor({946, 764, 2}, false, "Root Chamber", "Wurzelkammer")
+	AddDoor({946, 765, 2}, false, "Root Chamber", "Wurzelkammer")
+
+	AddDoor({949, 759, 3}, false, "Kettle Chamber", "Kesselkammer")
+	AddDoor({949, 760 ,3}, false, "Kettle Chamber", "Kesselkammer")
+
+	AddDoor({945, 769, 1}, false, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
+	AddDoor({946, 769, 1}, false, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
+	
+	-- Slums
+	AddDoor({900, 817, 0}, false, "Pit Latrine", "Scheißhaus")
+	
 	--Homelands 25x
     AddDoor({749, 802, 0}, 250,"Quadruped Red Bird","Vierbeiniger Roter Vogel")
     AddDoor({748, 802, 0}, 250,"Quadruped Red Bird","Vierbeiniger Roter Vogel")
           
     AddDoor({790, 794, 0}, 251,"Cottage","Landhaus")
     AddDoor({789, 794, 0}, 251,"Cottage","Landhaus")
+	-- Runewick end
 
 	-- Cadomyr 3xx
 	

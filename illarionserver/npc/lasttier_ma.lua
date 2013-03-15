@@ -128,8 +128,7 @@ function receiveText(Texttype, Message, Originator)
 				if thisNPC:isInRange(Originator,1) then
 					thisNPC:move(Originator:getFaceTo(),true);
 				else
-                    thisNPC:talkLanguage( Character.say, Player.german, "Meister warten...ich nicht so schnell sein." );
-                    thisNPC:talkLanguage( Character.say, Player.english,"Master wait...I'm not that fast." );
+                    thisNPC:talk(Character.say, "Meister warten...ich nicht so schnell sein." , "Master wait...I'm not that fast." )
 				end
 			end
         end
@@ -249,8 +248,7 @@ function nextCycle()
     end
     if not char_owner then
         if not lost[thisNPC.id] then
-                    thisNPC:talkLanguage( Character.say, Player.german, "Meister warten...ich nicht so schnell sein." );
-                    thisNPC:talkLanguage( Character.say, Player.english,"Master wait...I'm not that fast." );
+                    thisNPC:talk(Character.say, "Meister warten...ich nicht so schnell sein." , "Master wait...I'm not that fast." )
             lostcnt[thisNPC.id] = 0;
             if ( depotpos[thisNPC.id] ) then
                 depot = world:getItemOnField(depotpos[thisNPC.id]);

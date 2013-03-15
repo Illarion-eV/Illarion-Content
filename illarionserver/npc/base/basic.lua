@@ -257,8 +257,7 @@ function baseNPC:_displayLanguageConfusion(npcChar)
     if (currentUnix - self._lastConfusionTimestamp > 59) then
         self._lastConfusionTimestamp = currentUnix;
         npcChar.activeLanguage = self._defaultLanguage;
-        npcChar:talkLanguage(Character.say, Player.german, self._confusedDE);
-        npcChar:talkLanguage(Character.say, Player.english, self._confusedUS);
+        npcChar:talk(Character.say, self._confusedDE, self._confusedUS);
     end;
 end;
 
@@ -347,8 +346,7 @@ end;
 --  @param mode the mode used to look at the NPC (no effect)
 function baseNPC:use(npcChar, char)
     npcChar.activeLanguage = self._defaultLanguage;
-    npcChar:talkLanguage(Character.say, Player.german, self._useMsgDE);
-    npcChar:talkLanguage(Character.say, Player.english, self._useMsgUS);
+    npcChar:talk(Character.say, self._useMsgDE, self._useMsgUS);
 end;
 
 --- This equipment sets the equipment an NPC gets at first start. This is needed

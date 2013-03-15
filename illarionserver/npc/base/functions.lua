@@ -178,8 +178,8 @@ function SpeakerCycle()
             if (speakCount>=speakTime) then
                 speakCount=1;
                 TextNr=math.random(1,table.getn(CycleText))
-                thisNPC:talkLanguage(Character.say, Player.german,CycleText[TextNr][1]);
-                thisNPC:talkLanguage(Character.say, Player.english,CycleText[TextNr][2]);
+                thisNPC:talk(Character.say, CycleText[TextNr][1],
+                                            CycleText[TextNr][2]);
                 speakTime=math.random(900,3000);
             end
         end

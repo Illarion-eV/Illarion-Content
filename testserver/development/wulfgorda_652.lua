@@ -16,9 +16,9 @@ Title[ENGLISH] = "Find Borgate Northoff in the Hemp Necktie Inn (Spider's Mouth)
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde Borgate Northoff im Gasthaus zur Hanfschlinge und and sprich mit ihm."
+Description[GERMAN][1] = "Finde Borgate Northoff im Gasthaus zur Hanfschlinge und sprich mit ihm."
 Description[ENGLISH][1] = "Find Borgate Northoff in the Hemp Necktie Inn and talk to her."
-Description[GERMAN][2] = "Da kannst nun das eine oder andere Bier bei Borgate bestellen wenn du magst."
+Description[GERMAN][2] = "Da kannst nun das eine oder andere Bier bei Borgate bestellen, wenn du magst."
 Description[ENGLISH][2] = "If you like you can order a beer at Borgate now."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

@@ -18,7 +18,7 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Finde Ruzusss in Cadomyr and sprich mit ihr."
 Description[ENGLISH][1] = "Find Ruzusss in Cadomyr and talk to her."
-Description[GERMAN][2] = "Da kannst nun mit Frizza sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst!\nSie kann dir einiges über die südwestliche Karte von Illarion verraten."
+Description[GERMAN][2] = "Da kannst nun mit Frizza sprechen. Frage nach 'Hilfe', wenn du nicht weißt, nach was du fragen sollst!\nSie kann dir einiges über die südwestliche Karte von Illarion verraten."
 Description[ENGLISH][2] = "You can talk with Frizza now. Ask for 'help' if you do not know what to say!\nShe provides you with information about the south-western part of Illarion."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

@@ -23,8 +23,7 @@ function UseItem(User, SourceItem, ltstate)
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 
@@ -70,8 +69,7 @@ function UseItem(User, SourceItem, ltstate)
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		sieving.SavedWorkTime[User.id] = sieving:GenWorkTime(User,toolItem);
 		User:startAction( sieving.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt Sand zu sieben.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to sieve sand."); 
+		User:talk(Character.say, "#me beginnt Sand zu sieben.", "#me starts to sieve sand.")
 		return
 	end
 

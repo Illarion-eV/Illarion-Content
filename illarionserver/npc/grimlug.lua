@@ -1003,16 +1003,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("<NPC first name>");
-talkEntry:addTrigger("<NPC last name>");
+talkEntry:addTrigger("Grimlug");
 talkEntry:addResponse("How, the shaman 's able to help you?");
 talkEntry:addResponse("Hurr! What's your desire?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
+talkEntry:addTrigger("Grimlug");
 talkEntry:addResponse("Wie kann dir der Schamane helfigen?");
 talkEntry:addResponse("Hurr! Was issigt dein Begehr?");
 talkingNPC:addTalkingEntry(talkEntry);

@@ -25,8 +25,7 @@ function UseItem(User, SourceItem, ltstate)
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 
@@ -78,8 +77,7 @@ function UseItem(User, SourceItem, ltstate)
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		threadproducing.SavedWorkTime[User.id] = threadproducing:GenWorkTime(User,toolItem);
 		User:startAction( threadproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt Garn herzustellen.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to produce thread."); 
+		User:talk(Character.say, "#me beginnt Garn herzustellen.", "#me starts to produce thread.")
 		return
 	end
 

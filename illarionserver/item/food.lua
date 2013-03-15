@@ -51,7 +51,7 @@ FoodList = { add = function (self,id,Value,Leftover,BuffType,RacialFactor,UnEata
 				self[id].leftover = Leftover or 0;
         self[id].buffType = BuffType;
 				self[id].difficulty = nil;
-				self[id].racialFactor = racialFactor or {1,1,1,1,1,1,1,1,1,1};
+				self[id].racialFactor = RacialFactor or {1,1,1,1,1,1,1,1,1,1};
 				self[id].unEatable = UnEatable or {};
 				self[id].poison = Poison;
 			end

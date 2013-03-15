@@ -74,12 +74,10 @@ function tradeNPC:showDialog(npcChar, player)
                 anyTradeAction = true;
             elseif (not anyTradeAction and self._dialogClosedNoTradeMsg:hasMessages()) then
                 local msgGerman, msgEnglish = self._dialogClosedNoTradeMsg:getRandomMessage();
-                npcChar:talkLanguage(Character.say, Player.german, msgGerman);
-                npcChar:talkLanguage(Character.say, Player.english, msgEnglish);
+                npcChar:talk(Character.say, msgGerman, msgEnglish);
             elseif (self._dialogClosedMsg:hasMessages()) then    
                 local msgGerman, msgEnglish = self._dialogClosedMsg:getRandomMessage();
-                npcChar:talkLanguage(Character.say, Player.german, msgGerman);
-                npcChar:talkLanguage(Character.say, Player.english, msgEnglish);
+                npcChar:talk(Character.say, msgGerman, msgEnglish);
             end;
         end;
     end;
@@ -123,8 +121,7 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
 	-- Reject item
 	if (self._wrongItemMsg:hasMessages()) then    
 		local msgGerman, msgEnglish = self._wrongItemMsg:getRandomMessage();
-		npcChar:talkLanguage(Character.say, Player.german, msgGerman);
-		npcChar:talkLanguage(Character.say, Player.english, msgEnglish);
+		npcChar:talk(Character.say, msgGerman, msgEnglish);
 	end;
 end;
 
@@ -143,8 +140,7 @@ function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
         end;
     elseif (self._notEnoughMoneyMsg:hasMessages()) then
         local msgGerman, msgEnglish = self._notEnoughMoneyMsg:getRandomMessage();
-        npcChar:talkLanguage(Character.say, Player.german, msgGerman);
-        npcChar:talkLanguage(Character.say, Player.english, msgEnglish);
+        npcChar:talk(Character.say, msgGerman, msgEnglish);
     end;
 end;
 

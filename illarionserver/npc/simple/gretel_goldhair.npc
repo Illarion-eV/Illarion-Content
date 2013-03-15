@@ -98,7 +98,19 @@ queststatus(702) = 7, "charwis", "irongate", "Hämmer", "Sammlung" -> queststatu
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I do not sell anything. But I take donations...or well, the Don does. Just bring the things here and place them on the field."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich verkaufe nichts. Aber ich nehme Spenden entgegen... nun ja, eigentlich sind es Spenden für den Don. Bringt die Sachen ruhig her und legt sie auf das Feld."
 
+-- fix
+queststatus(206) > 0, queststatus(712) = 11, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 12, "Ah Joey send you but you already ask me for something to do."
+queststatus(206) > 0, queststatus(712) = 11, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 12, "Ah Joey hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(206) > 0, queststatus(712) = 11, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 12, "Ah Joey send you but you already ask me for something to do."
+queststatus(206) > 0, queststatus(712) = 11, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 12, "Ah Joey hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+
 -- Optional: Catching quest triggers. Galmair garbage bin quest (206)
+
+queststatus(206) = 0, queststatus(712) = 11, town = Galmair, english, "quest", "mission" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, queststatus(712) = 12, "Do you want a task? Bring some more donations. And drop them on the field here!"
+queststatus(206) = 0, queststatus(712) = 11, town = Galmair, "quest", "mission" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, queststatus(712) = 12, "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
+queststatus(206) = 0, queststatus(712) = 11, town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, queststatus(712) = 12, "Do you want a task? Bring some more donations. And drop them on the field here!"
+queststatus(206) = 0, queststatus(712) = 11, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, queststatus(712) = 12, "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
+
 queststatus(206) = 0, english, town = Galmair, "quest", "mission" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Do you want a task? Bring some more donations. And drop them on the field here!"
 queststatus(206) = 0, town = Galmair, "quest", "mission" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
 queststatus(206) = 0, town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Do you want a task? Bring some more donations. And drop them on the field here!"

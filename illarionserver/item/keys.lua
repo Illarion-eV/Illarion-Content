@@ -28,9 +28,12 @@ end
 
 function SentenceCharacter(User,SourceItem)
 	
-	if User:isAdmin() == false then 
-	    return -- for now only GMs are supposed to use the keys
-	end	
+	if User:isAdmin() == false then
+      local charname = User.name;
+      	if (charname ~= "Elvaine Morgan" and charname ~= "Valerio Guilianni" and charname ~= "Rosaline Edwards") then
+          return; -- for now only GMs are supposed to use the keys
+        end;
+    end;	
 	
 	local myTown = SourceItem:getData("prisonKeyOf")
 	local townId
