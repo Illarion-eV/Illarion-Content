@@ -204,7 +204,7 @@ function initDoors()
 	AddDoor({128, 520, 0}, 300,"Royal Chamber","Königliche Kammer");
 	AddDoor({128, 519, 0}, 300,"Royal Chamber","Königliche Kammer");
 
-	AddDoor({ 95, 615, 1}, 310,"Villa Rosaline - Balcony","Villa Rosaline - Balkon");
+	AddDoor({ 96, 615, 1}, 310,"Villa Rosaline - Balcony","Villa Rosaline - Balkon");
 	AddDoor({ 94, 612, 0}, 310,"Villa Rosaline","Villa Rosaline");
 	AddDoor({ 94, 613, 0}, 310,"Villa Rosaline","Villa Rosaline");
 	AddDoor({ 88, 600, 1}, 311,"Villa Edward - Balcony","Villa Edward - Balkon");
