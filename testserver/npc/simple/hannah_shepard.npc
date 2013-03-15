@@ -42,7 +42,7 @@ itemMainHand = 0
 itemSecondHand = 0
 itemHands = 0
 itemTrousers = 843
-itemShoes = 53
+itemShoes = 0
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Hannah Shepard the cook and farmer. Keywords: quest")

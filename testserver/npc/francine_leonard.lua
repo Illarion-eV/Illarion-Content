@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.francine_leonard", package.seeall)
+module("npc.francine_leonard", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -762,7 +762,7 @@ mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 0);
 mainNPC:setEquipment(9, 843);
-mainNPC:setEquipment(10, 53);
+mainNPC:setEquipment(10, 0);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

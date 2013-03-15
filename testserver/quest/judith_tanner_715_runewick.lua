@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (715, 'quest.judith_tanner_715_runewick');
 
 require("base.common")
-module("development.judith_tanner_715_runewick", package.seeall)
+module("quest.judith_tanner_715_runewick", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
