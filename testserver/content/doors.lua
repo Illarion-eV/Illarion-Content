@@ -18,7 +18,7 @@ function initDoors()
 	AddDoor({416, 250, 0}, false,"Galmair Towngate","Galmair Stadttor");
 
 
-	AddDoor({373, 222, 0}, 110,"House of Malachite","Malachite Haus"); -- guild house I !create 2145 1 333 lockId=110
+	AddDoor({373, 322, 0}, 110,"House of Malachite","Malachite Haus"); -- guild house I !create 2145 1 333 lockId=110
 	AddDoor({301, 280, 0}, 111,"Villa Goldvein","Villa Goldader"); -- guild house II !create 2145 1 333 lockId=111
 	AddDoor({304, 274, 0}, 111,"Villa Goldvein","Villa Goldader"); -- guild house II !create 2145 1 333 lockId=111
 
@@ -76,8 +76,8 @@ function initDoors()
 	AddDoor({366, 235, 0}, false,"Council Chamber","Konzil Kammer"); -- Galmair's Crest
 	AddDoor({348, 229, 0}, false,"Guilianni Residence","Guilianni Residenz"); -- Galmair's Crest
 
-	AddDoor({308, 238, 0}, false,"Temple of Irmorom","Tempel des Irmorom"); 
-	AddDoor({309, 238, 0}, false,"Temple of Irmorom","Tempel des Irmorom");
+	AddDoor({308, 238, 1}, false,"Temple of Irmorom","Tempel des Irmorom"); 
+	AddDoor({309, 238, 1}, false,"Temple of Irmorom","Tempel des Irmorom");
 	AddDoor({378, 272, 0}, false,"Workshop","Werkstatt"); 
 	AddDoor({383, 284, 0}, false,"Werkstatt","Workshop","Werkstatt");
 	AddDoor({408, 295, 0}, false,"Sleepy Bujhaar Inn","Gasthaus zum Schlafenden Bujhaar"); 
