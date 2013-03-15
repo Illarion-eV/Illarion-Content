@@ -419,7 +419,7 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	end;
 
 	if (Attacker.AttackKind==4) then
-		local distance = AttackerStruct.Char:distanceMetric(Defender);
+		local distance = Attacker.Char:distanceMetric(Defender);
 		local DistanceReductionModifier = 0.93
 		local archerymod = min(1,(1-DistanceReductionModifier)+DistanceReductionModifier^(distance-2))
 		--The value of 2 is used because that's the number of squares away it starts.
