@@ -7,9 +7,9 @@ module("item.id_463_quill", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
     -- we check if the char holds a bottle to label it
-    local bottle = CheckIfBottleInHand(User)
+    local bottlePos = CheckIfBottleInHand(User)
 	if bottle then 
-	    WriteLabel(User,SourceItem,bottle)
+	    WriteLabel(User,SourceItem)
 	end	
 
 end
@@ -29,7 +29,7 @@ function CheckIfBottleInHand(User)
 	return nil		
 end
 
-function WriteLabel (User,SourceItem,bottle)
+function WriteLabel (User,SourceItem)
     --[[
 	-- does the char have parchment?
     if User:countItem(2745) < 1 then 
@@ -57,10 +57,13 @@ function WriteLabel (User,SourceItem,bottle)
 		if not dialog:getSuccess() then
 			-- player canceld the dialog; nothing
 		else
-			local labelText = dialog:getInput()
-			base.lookat.SetSpecialDescription(bottle,"Flaschenetikett: ".."\""..labelText.."\"","Bottle label: ".."\""..labelText.."\"")
-			world:changeItem(bottle)
-			--User:eraseItem(2745,1)
+			local bottle = CheckIfBottleInHand(User) -- check for the bottle again
+			if bottle then
+				local labelText = dialog:getInput()
+				base.lookat.SetSpecialDescription(bottle,"Flaschenetikett: ".."\""..labelText.."\"","Bottle label: ".."\""..labelText.."\"")
+				world:changeItem(bottle)
+				--User:eraseItem(2745,1)
+			end	
 		end
 	end
 	local dialog = InputDialog(title, infoText, false, 100, callback)

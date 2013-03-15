@@ -15,7 +15,7 @@ sex = female
 position = 139, 622, 0
 direction = west
 affiliation = "None"
-job = "portalbook merchant"
+job = "portal book merchant"
 
 language = common
 language = halfling
@@ -91,9 +91,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Always keep moving!", "Tood
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Evera, Portalbuchhändlerin. Das bin ich.", "Ich bin die Händlerin Evera", "Evera mein Name, ich handle mit Portalbüchern"
 
 -- Catching quest triggers
-english, "quest", "mission" -> "I do not issue any quests, but I can sell you books to go to other places."
+english, "quest", "mission" -> "I do not issue quests, but I can sell you books to go to other places."
 "quest", "mission" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
-"task", "adventure", "order" -> "I do not issue any quests, but I can sell you books to go to other places."
+"task", "adventure", "order" -> "I do not issue quests, but I can sell you books to go to other places."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
 
 -- Easter Egg

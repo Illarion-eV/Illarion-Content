@@ -66,8 +66,7 @@ end
 function Drop(User,TargetItem)
     if (math.random(1,User:increaseAttrib("dexterity",0)+7)==1) then
         Explode(User,TargetItem);
-        User:talkLanguage(Character.say,Player.german,"#me lässt eine Flasche fallen, welche explodiert.");
-        User:talkLanguage(Character.say,Player.english,"#me drops a bottle and it explodes.");
+        User:talk(Character.say, "#me lässt eine Flasche fallen, welche explodiert.", "#me drops a bottle and it explodes.")
         base.common.InformNLS( User,
         "Der Wurfkörper rutscht dir aus den Händen und zerplatzt vor deinen Füßen.",
         "The missile slips out of your hands and burst asunder in front of you feets.");
@@ -102,8 +101,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 
     -- everything allright: explosion!
     Explode(User,TargetItem);
-    User:talkLanguage(Character.say,Player.german,"#me wirft eine Flasche, die zerplatzt.");
-    User:talkLanguage(Character.say,Player.english,"#me throws a bottle that splits.");
+    User:talk(Character.say, "#me wirft eine Flasche, die zerplatzt.", "#me throws a bottle that splits.")
     User.movepoints=User.movepoints-30;
 	return true   
 end;
@@ -178,8 +176,7 @@ function UseItem(User, SourceItem, ltstate)
 		        end
 			
 			else -- not a bomb
-				User:talkLanguage(Character.say, Player.german, "#me trinkt eine dunkelblaue Flüssigkeit.");
-				User:talkLanguage(Character.say, Player.english, "#me drinks a dark blue liquid.");
+				User:talk(Character.say, "#me trinkt eine dunkelblaue Flüssigkeit.", "#me drinks a dark blue liquid.")
 				User.movepoints=User.movepoints - 20
 				DrinkPotion(User,SourceItem)
 				alchemy.base.alchemy.EmptyBottle(User,SourceItem)

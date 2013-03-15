@@ -1,0 +1,67 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Giesela Evergreen                                           None --
+-- NPC Job:  Stitching descriptions into items                                --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  5, 5, 0                --
+-- NPC Sex:  female                     NPC Direction: north                  --
+--                                                                            --
+-- Author:   Silverwing                                                       --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Giesela Evergreen"
+race = halfling
+sex = female
+position = 5, 5, 0
+direction = north
+affiliation = "None"
+job = "sewer"
+
+language = common
+language = halfling
+defaultLanguage = common
+autointroduce = on
+
+author = "Silverwing"
+
+lookatDE = "Der NPC ist Giesela Evergreen"
+lookatUS = "Thsi NPC is Giesela Evergreen"
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 1
+beardID = 1
+colorHair = 255, 255, 77
+colorSkin = 236, 192, 150
+itemHead = 829
+itemChest = 804
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 823
+itemShoes = 0
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is the sewer Giesela Evergreen. Keywords:")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Näherin Giesela Evergreen. Schlüsselwörter:")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Grüße auch"
+
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüße auch"
+"Farewell", "Bye", "Fare well", "See you" -> "Have a good day!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", "Auf Bald"-> "Schönen Tag noch!"
+
+english, "Ciao", "Adieu", "Au revoir" -> "Have a good day!"
+"Ciao", "Adieu", "Au revoir" -> "Schönen Tag noch!"
+"How are you", "How feel", "How do you do" -> "But my I've stitched one of my fingers, I'm fine."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Bis darauf, dass ich mir in einen Finger gestochen habe, gut."
+"your name", "who are you", "who art thou" -> "I am Giesela Evergreen"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Giesela Evergreen"
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!

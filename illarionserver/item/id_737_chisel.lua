@@ -40,8 +40,7 @@ function UseItem(User, SourceItem, ltstate)
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 
@@ -72,8 +71,7 @@ function UseItem(User, SourceItem, ltstate)
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		stonecutting.SavedWorkTime[User.id] = stonecutting:GenWorkTime(User,SourceItem);
 		User:startAction( stonecutting.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt Steine zu behauen.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to cut stones."); 
+		User:talk(Character.say, "#me beginnt Steine zu behauen.", "#me starts to cut stones.")
 		-- save the item we're working on
 		if ( User:countItemAt("all",735) > 0 ) then
 			WorkOnStone[User.id] = 735; -- if there are raw stones, we work on those

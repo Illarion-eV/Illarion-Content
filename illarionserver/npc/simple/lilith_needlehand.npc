@@ -2,8 +2,8 @@
 -- NPC Name: Lilith Needlehand                                       Runewick --
 -- NPC Job:  Tailor                                                           --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  893, 756, 0            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: halfling                   NPC Position:  894, 762, 0            --
+-- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                     easyNPC Parser v1.23.1 --
@@ -12,8 +12,8 @@
 name = "Lilith Needlehand"
 race = halfling
 sex = female
-position = 893, 756, 0
-direction = south
+position = 894, 762, 0
+direction = north
 affiliation = "Runewick"
 job = "Tailor"
 
@@ -72,6 +72,18 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me waves excitedly.", "Goo
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin in Eile. Der Erzmagier hat eine Robe bestellt und ich habe sie noch nicht fertig."
 "your name", "who are you", "who art thou" -> "My name is Lilith Needlehand, and I am a tailor. It is a pleasure to meet you!"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Lilith Needlehand und ich bin eine Schneiderin. Es ist schön, deine Bekanntschaft zu machen."
+
+-- fix
+queststatus(73) > 0, queststatus(820) = 17, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 18, "Ah Florain send you but you already ask me for something to do."
+queststatus(73) > 0, queststatus(820) = 17, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 18, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(73) > 0, queststatus(820) = 17, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 18, "Ah Florain send you but you already ask me for something to do."
+queststatus(73) > 0, queststatus(820) = 17, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 18, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+
+-- 1st quest: Gather 20 wool coming from florain
+queststatus(73) = 0, queststatus(820) = 17, english, "quest", "mission", "florain", "dreyndel" -> inform("[New quest] The Lazy Tailoress I"), queststatus(73) = 1, queststatus(820) = 18, "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty bundles of wool, I am short on that."
+queststatus(73) = 0, queststatus(820) = 17, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Das faule Schneiderlein I"), queststatus(73) = 1, queststatus(820) = 18, "Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr."
+queststatus(73) = 0, queststatus(820) = 17, "task", "adventure", "order" -> inform("[New quest] The Lazy Tailoress I"), queststatus(73) = 1, queststatus(820) = 18, "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty bundles of wool, I am short on that."
+queststatus(73) = 0, queststatus(820) = 17, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Das faule Schneiderlein I"), queststatus(73) = 1, queststatus(820) = 18, "Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr."
 
 -- 1st quest: Gather 20 wool
 queststatus(73) = 0, english, "quest", "mission" -> inform("[New quest] The Lazy Tailoress I"), queststatus(73) = 1, "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty bundles of wool, I am short on that."

@@ -2,8 +2,8 @@
 -- NPC Name: Lilith Needlehand                                       Runewick --
 -- NPC Job:  Tailor                                                           --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  893, 756, 0            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: halfling                   NPC Position:  894, 762, 0            --
+-- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                     easyNPC Parser v1.23.1 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 893, 756, 0, 4, 'Lilith Needlehand', 'npc.lilith_needlehand', 1, 2, 0, 171, 73, 5, 237, 193, 151);
+VALUES (2, 894, 762, 0, 0, 'Lilith Needlehand', 'npc.lilith_needlehand', 1, 2, 0, 171, 73, 5, 237, 193, 151);
 ---]]
 
 require("npc.base.basic")
@@ -179,6 +179,114 @@ talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Mein Name ist Lilith Needlehand und ich bin eine Schneiderin. Es ist schön, deine Bekanntschaft zu machen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(73, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 17));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 18));
+talkEntry:addResponse("Ah Florain send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(73, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 17));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 18));
+talkEntry:addResponse("Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(73, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 17));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 18));
+talkEntry:addResponse("Ah Florain send you but you already ask me for something to do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(73, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 17));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 18));
+talkEntry:addResponse("Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 17));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress I"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 18));
+talkEntry:addResponse("I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty bundles of wool, I am short on that.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 17));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("florain");
+talkEntry:addTrigger("dreyndel");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Das faule Schneiderlein I"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 18));
+talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 17));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress I"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 18));
+talkEntry:addResponse("I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty bundles of wool, I am short on that.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 17));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Das faule Schneiderlein I"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 18));
+talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -2,7 +2,7 @@
 -- NPC Name: Jacobus                                                  Cadomyr --
 -- NPC Job:  Jeweller                                                         --
 --                                                                            --
--- NPC Race: human                      NPC Position:  134, 590, 0            --
+-- NPC Race: human                      NPC Position:  133, 589, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 134, 590, 0, 6, 'Jacobus', 'npc.jacobus', 0, 1, 5, 158, 66, 6, 183, 129, 87);
+VALUES (0, 133, 589, 0, 6, 'Jacobus', 'npc.jacobus', 0, 1, 5, 158, 66, 6, 183, 129, 87);
 ---]]
 
 require("npc.base.basic")
@@ -649,7 +649,6 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(281,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(282,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(92,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(393,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(397,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(399,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1001,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1840,"sell"));
@@ -704,7 +703,6 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(281,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(282,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(92,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(393,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(397,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(399,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1001,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1840,"buyPrimary"));

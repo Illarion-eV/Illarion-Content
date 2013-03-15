@@ -84,13 +84,25 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell is what we say aro
 "your name", "who are you", "who art thou" -> "I'm Bruno Blackhole.", "I'm a dwarven miner named Bruno.", "Just call meh Bruno for now."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bruno Blackhole.", "Ich bin 'n zwergischer Bergarbeiter namens Bruno.", "Nenn' mich einfach Bruno."
 
+-- fix
+queststatus(65) > 0, queststatus(712) = 9, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 10, "Ah Joey send you but you already ask me for something to do."
+queststatus(65) > 0, queststatus(712) = 9, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 10, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
+queststatus(65) > 0, queststatus(712) = 9, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 10, "Ah Joey send you but you already ask me for something to do."
+queststatus(65) > 0, queststatus(712) = 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 10, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
+
 -- Quest 107: A message from Groktan Flintsplit
+
 queststatus(107) = 6, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder III: You deliver the message from Groktan Flintsplit to Bruno Blackhole."), queststatus(107) = 7, "Oh my goodness! How will I pay that amount of money to the Don? I just know what I get when I don't pay..."
 queststatus(107) = 6, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Die Erinnerung III: Du überbringst Bruno Blackhole die Nachricht von Groktan Flintsplit."), queststatus(107) = 7, "Ach du meine Güte! Wie soll ich nur so viel Geld and den Don zahlen? Ich weiß nur, was mir blüht, wenn ich nicht zahle..."
 queststatus(107) = 6, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder III: You deliver the message from Groktan Flintsplit to Bruno Blackhole."), queststatus(107) = 7, "Oh my goodness! How will I pay that amount of money to the Don? I just know what I get when I don't pay..."
 queststatus(107) = 6, "Groktan", "Flintsplit" -> inform("[Queststatus] Die Erinnerung III: Du überbringst Bruno Blackhole die Nachricht von Groktan Flintsplit."), queststatus(107) = 7, "Ach du meine Güte! Wie soll ich nur so viel Geld and den Don zahlen? Ich weiß nur, was mir blüht, wenn ich nicht zahle..."
 
 -- 1st quest: Take a tool and gather 10 raw materials for 50cp.
+queststatus(65) = 0, queststatus(712) = 9, town = Galmair, english, "quest", "mission" -> inform("[New quest] Malachite Mine I"), item(2763, 1, 399), queststatus(65) = 1, queststatus(712) = 10, "Aye, I hope ya like hard work. Bring meh ten raw stones and I will give you a little something."
+queststatus(65) = 0, queststatus(712) = 9, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Malachitmine I"), item(2763, 1, 399), queststatus(65) = 1, queststatus(712) = 10, "Aye, ich hoffe du magst harte Arbeit. Bring mir zehn rohe Steine, dann gebe ich dir 'ne Kleinigkeit."
+queststatus(65) = 0, queststatus(712) = 9, town = Galmair, "task", "adventure", "order" -> inform("[New quest] Malachite Mine I"), item(2763, 1, 399), queststatus(65) = 1, queststatus(712) = 10, "Aye, I hope ya like hard work. Bring meh ten raw stones and I will give ya a little something."
+queststatus(65) = 0, queststatus(712) = 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Befehl" -> inform("[Neues Quest] Malachitmine I"), item(2763, 1, 399), queststatus(65) = 1, queststatus(712) = 10, "Aye, ich hoffe du magst harte Arbeit. Bring mir zehn rohe Steine, dann gebe ich dir 'ne Kleinigkeit."
+
 queststatus(65) = 0, english, "quest", "mission" -> inform("[New quest] Malachite Mine I"), item(2763, 1, 399), queststatus(65) = 1, "Aye, I hope ya like hard work. Bring meh ten raw stones and I will give you a little something."
 queststatus(65) = 0, "quest", "mission" -> inform("[Neues Quest] Malachitmine I"), item(2763, 1, 399), queststatus(65) = 1, "Aye, ich hoffe du magst harte Arbeit. Bring mir zehn rohe Steine, dann gebe ich dir 'ne Kleinigkeit."
 queststatus(65) = 0, "task", "adventure", "order" -> inform("[New quest] Malachite Mine I"), item(2763, 1, 399), queststatus(65) = 1, "Aye, I hope ya like hard work. Bring meh ten raw stones and I will give ya a little something."

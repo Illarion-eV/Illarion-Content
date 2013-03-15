@@ -22,8 +22,7 @@ function UseItem(User, SourceItem, ltstate)
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		return
 	end
 
@@ -57,8 +56,7 @@ function UseItem(User, SourceItem, ltstate)
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		oilsqueezing.SavedWorkTime[User.id] = oilsqueezing:GenWorkTime(User,nil);
 		User:startAction( oilsqueezing.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt Öl zu pressen.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to squeeze oil."); 
+		User:talk(Character.say, "#me beginnt Öl zu pressen.", "#me starts to squeeze oil.")
 		return
 	end
 

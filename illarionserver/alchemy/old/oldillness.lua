@@ -186,8 +186,7 @@ end -- function DoDruidism()
 --
 function UseItem(Character, SourceItem, ltstate)
 	if (ltstate == Action.abort) then
-        Character:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
-        Character:talkLanguage(Character.say, Player.english, "#me spills the potion.");
+        Character:talk(Character.say, "#me verschüttet den Trank.", "#me spills the potion.")
         world:erase(SourceItem,1);
         -- Chance for a new bottle 19/20
         if(math.random(20) == 1) then
@@ -220,8 +219,7 @@ function UseItem(Character, SourceItem, ltstate)
 			end
 		else
 			Character:startAction(20,0,0,12,25);
-			Character:talkLanguage(Character.say, Player.german, "#me beginnt einen Trank zu trinken.");
-			Character:talkLanguage(Character.say, Player.english, "#me starts to drink a potion.");
+			Character:talk(Character.say, "#me beginnt einen Trank zu trinken.", "#me starts to drink a potion.")
 			return;
 		end
     else

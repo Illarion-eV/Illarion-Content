@@ -1,0 +1,146 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Zlatxhol                                        Cadomyr          --
+-- NPC Job:  Glass blower and brick maker                                     --
+--                                                                            --
+-- NPC Race: lizardman                  NPC Position:  143, 588, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   Zot                                                              --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Zlatxhol"
+race = lizardman
+sex = male
+position = 143, 588, 0
+direction = west
+affiliation = "Cadomyr"
+job = "Glass blower and brick maker"
+
+language = common
+language = lizard
+defaultLanguage = common
+autointroduce = on
+
+author = "Zot"
+
+lookatDE = ""
+lookatUS = ""
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Hands off!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 6
+beardID = 0
+colorHair = 19, 17, 30
+colorSkin = 255, 223, 120
+itemHead = 0
+itemChest = 457
+itemCoat = 194
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 183
+itemShoes = 0
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Zlatxhol the glass blower and brick maker. Keywords: quest")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zlatxhol der Glasbläser und Ziegelmacher. Schlüsselwörter: Quest")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you.", "Yess, greetingss.", "Blessingss of the Mother upon you, greetingss"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss to you.", "Yess, greetingss.", "Greetsss."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
+"Farewell", "Bye", "Fare well", "See you" -> "May the rainsss be heavy and frequent.", "May the ssea-Mother watch your path.", "Farewell, zsss."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mögenss Regen häufig und ssstark sssein.", "Mögenss die Meermutter dein Pfad leitenss.", "Abschied, zsss."
+english, "Ciao", "Adieu", "Au revoir" -> "Goodbye", "Farewell", "#me nods slowly, 'Goodbye'."
+"Ciao", "Adieu", "Au revoir" -> "Gut wiedersehensss.", "Abschied.", "#me nickt langsam: 'Gut wiedersehensss'."
+"How are you", "How feel", "How do you do" -> "Zlatxhol iss fine, yess."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Zlatxhol issst gut, ja.."
+"your name", "who are you", "who art thou" -> "I be Zlatxhol, would you like to do a job for me?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich sindss Zlatxhol, machenss du Aufgabe für michss?"
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I'm a glassz blower and bricksss maker, do you wantssz to help Zlatxhol?"
+"beruf" -> "Ich binss Glasssblässzer und Zzsiegelmacher, wollen du michssz helfen?"
+english, "job" -> "I'm a glassz blower and bricksss maker, do you wantssz to help Zlatxhol?"
+"job" -> "Ich binss Glasssblässzer und Zzsiegelmacher, wollen du michssz helfen?"
+
+-- Quests
+queststatus(707) = 0, town = Cadomyr, english, "quest", "mission" -> "Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol ten clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you old sshovel of hiss for digging clay.", item(24, 1, 999), queststatus(707) = 1
+queststatus(707) = 0, town = Cadomyr, "quest", "mission" -> "Zsss, Aufgabe? Ja, Zlatxhol haben Aufgabe für dichsss. Bring Zlatxhol zehn Lehmssz! Du finden Lehm bei Flusssz wesstlich der Stadt. Hier haben alte Ssschaufel von Zlatxhol um Lehm zu graben.", item(24, 1, 999), queststatus(707) = 1
+queststatus(707) = 0, town = Cadomyr, "task", "adventure", "order" -> "Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol ten clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you old sshovel of hiss for digging clay.", item(24, 1, 999), queststatus(707) = 1
+queststatus(707) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zsss, Aufgabe? Ja, Zlatxhol haben Aufgabe für dichsss. Bring Zlatxhol zehn Lehmssz! Du finden Lehm bei Flusssz wesstlich der Stadt. Hier haben alte Ssschaufel von Zlatxhol um Lehm zu graben.", item(24, 1, 999), queststatus(707) = 1
+queststatus(707) = 1, item(26, all) > 9, town = Cadomyr, english, "quest", "mission", "clay" -> "Well done, thanks you. Pleasse keep clay for next tasssk of Zlatxhol.", queststatus(707) = 2
+queststatus(707) = 1, item(26, all) > 9, town = Cadomyr, "quest", "mission", "lehm" -> "Gut gemacht, dankes. Bittes behalten Lehm für nächsste Aufgabe von Zlatxhol.", queststatus(707) = 2
+queststatus(707) = 1, item(26, all) > 9, town = Cadomyr, "task", "adventure", "order" -> "Well done, thanks you. Pleasse keep clay for next tasssk of Zlatxhol.", queststatus(707) = 2
+queststatus(707) = 1, item(26, all) > 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, dankes. Bittes behalten Lehm für nächsste Aufgabe von Zlatxhol.", queststatus(707) = 2
+queststatus(707) = 1, item(26, all) < 10, town = Cadomyr, english, ".+" -> "Zsss, Zlatxhol wantsss ten clumps of clay, that not enough clayssz. Come back when you have finished the taskz!"
+queststatus(707) = 1, item(26, all) < 10, town = Cadomyr, ".+" -> "Zsss, ichse haben wollten zehn Lehmss! Dasss nicht sssein zehn Lehm. Kommen zurück wenn fertig!"
+queststatus(707) = 2, town = Cadomyr, english, "quest", "mission" -> "Now we make brickss with clayss. You go to oven next to me and makes ten bricksss. First you make unfired bricksess, and then froms the unfired ones you make fired bricks! Here, me givesss you an old brickssz mould of mines.", item(734, 1, 777), queststatus(707) = 3
+queststatus(707) = 2, town = Cadomyr, "quest", "mission" -> "Jetztss wir machen Zzziegel mit Lehm. Du gehen zum Ofen neben mir und machen zehn Zzziegels. Erst du machen ungebrannte Zzziegel und aus ungebrannte Zzziegel du machen fertige Ziegel. Hier ich geben dir alte Zzziegelform von mirs.", item(734, 1, 777), queststatus(707) = 3
+queststatus(707) = 2, town = Cadomyr, "task", "adventure", "order" -> "Now we make brickss with clayss. You go to oven next to me and makes ten bricksss. First you make unfired bricksess, and then froms the unfired ones you make fired bricks! Here, me givesss you an old brickssz mould of mines.", item(734, 1, 777), queststatus(707) = 3
+queststatus(707) = 2, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Jetztss wir machen Zzziegel mit Lehm. Du gehen zum Ofen neben mir und machen zehn Zzziegels. Erst du machen ungebrannte Zzziegel und aus ungebrannte Zzziegel du machen fertige Ziegel. Hier ich geben dir alte Zzziegelform von mirs.", item(734, 1, 777), queststatus(707) = 3
+queststatus(707) = 3, item(2588, all) > 9, town = Cadomyr, english, "quest", "mission", "brick" -> "Well done, thanks you. Do you wants another taskss?", deleteItem(2588, 10), queststatus(707) = 4
+queststatus(707) = 3, item(2588, all) > 9, town = Cadomyr, "quest", "mission", "ziegel" -> "Gut gemacht, dankes. Wollen weitere Aufgabe von Zlatxhol?", deleteItem(2588, 10), queststatus(707) = 4
+queststatus(707) = 3, item(2588, all) > 9, town = Cadomyr, "task", "adventure", "order" -> "Well done, thanks you. Do you wants another taskss?", deleteItem(2588, 10), queststatus(707) = 4
+queststatus(707) = 3, item(2588, all) > 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, dankes. Wollen weitere Aufgabe von Zlatxhol?", deleteItem(2588, 10), queststatus(707) = 4
+queststatus(707) = 3, item(2588, all) < 10, town = Cadomyr, english, ".+" -> "You have not finished! I want ten bricksss, come backsss when you have finished."
+queststatus(707) = 3, item(2588, all) < 10, town = Cadomyr, ".+" -> "Du nichtss fertig seinsss. Ich wollen zehn Zzziegels, kommen wieder wenn du fertig seinsss."
+queststatus(707) = 4, town = Cadomyr, english, "quest", "mission" -> "Zzzs, now we continue with glasss blowing! You need ssand first of all, to make glasss ingotss later. You now go out of the city and look for a place with much sssand and find a ssstone with sssand around it. Then you dig coarssse sssand with the big ssshovel I've gave you before and come back to turn it into quartzzs sssand. You ssshould make ten scoops of quartzzs sssand with the sssieve over there, I'll give yous a little ssshovel of mine for making quartzzs sssand!", item(312, 1, 777), queststatus(707) = 5
+queststatus(707) = 4, town = Cadomyr, "quest", "mission" -> "Zzzz, jetzt gehtsss weiter mit dem Glassblasssen! Du brauchen ersstmal Sand um darausss ssspäter Glasssblöcke zu machen. Du gehen rauss aus Ssstadt und ssuchen einen Ort mit Sssand und Ssstein auf Sssand. Dort graben und holen groben Sssand mit der großen Ssschaufel die Zlatxhol dir vorher gegeben hat. Wenn du groben Sssand haben, kommen zzzurück und machen aus groben Sssand bei Sssieb zehn Quarzzsand für Zlatxhol. Hier du kriegen kleine Sschaufel für Sssand ssieben sspäter von mir.", item(312, 1, 777), queststatus(707) = 5
+queststatus(707) = 4, town = Cadomyr, "task", "adventure", "order" -> "Zzzs, now we continue with glasss blowing! You need ssand first of all, to make glasss ingotss later. You now go out of the city and look for a place with much sssand and find a ssstone with sssand around it. Then you dig coarssse sssand with the big ssshovel I've gave you before and come back to turn it into quartzzs sssand. You ssshould make ten scoops of quartzzs sssand with the sssieve over there, I'll give yous a little ssshovel of mine for making quartzzs sssand!", item(312, 1, 777), queststatus(707) = 5
+queststatus(707) = 4, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zzzz, jetzt gehtsss weiter mit dem Glassblasssen! Du brauchen ersstmal Sand um darausss ssspäter Glasssblöcke zu machen. Du gehen rauss aus Ssstadt und ssuchen einen Ort mit Sssand und Ssstein auf Sssand. Dort graben und holen groben Sssand mit der großen Ssschaufel die Zlatxhol dir vorher gegeben hat. Wenn du groben Sssand haben, kommen zzzurück und machen aus groben Sssand bei Sssieb zehn Quarzzsand für Zlatxhol. Hier du kriegen kleine Sschaufel für Sssand ssieben sspäter von mir.", item(312, 1, 777), queststatus(707) = 5
+queststatus(707) = 5, item(316, all) > 9, town = Cadomyr, english, "quest", "mission", "sand" -> "Well done, pleasse keep the sssand for your next tasssk", queststatus(707) = 6
+queststatus(707) = 5, item(316, all) > 9, town = Cadomyr, german, "quest", "mission", "sand" -> "Gut gemachtss, bitte behalten Ssand für nächssste Aufgabe von Zlatxhol.", queststatus(707) = 6
+queststatus(707) = 5, item(316, all) > 9, town = Cadomyr, "task", "adventure", "order" -> "Well done, pleasse keep the sssand for your next tasssk", queststatus(707) = 6
+queststatus(707) = 5, item(316, all) > 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemachtss, bitte behalten Ssand für nächssste Aufgabe von Zlatxhol.", queststatus(707) = 6
+queststatus(707) = 5, item(316, all) < 10, town = Cadomyr, english, ".+" -> "Zsss, I want ten scoops of quartzzs sssand. Come back when you have finissshed the task, zsss!"
+queststatus(707) = 5, item(316, all) < 10, town = Cadomyr, ".+" -> "Zsss, ich wollten zehn Quarzzssand. Komm wieder wenn du Aufgabe erledigt hassst, zsss!"
+queststatus(707) = 6, town = Cadomyr, english, "quest", "mission" -> "Now we collect asssh for making glasss. I give you an old hatchet of mine and wood, you can make ten piles of asssh for me then. When you have the asssh, you come back to the oven and makes ten glasss ingots with the glasss blow pipe which I'll gives you, zsss.", item(311, 1, 777), item(74, 1, 777), item(3, 15, 777), queststatus(707) = 7
+queststatus(707) = 6, town = Cadomyr, "quest", "mission" -> "Nun wir sssammeln Assche für Glasss machen. Du kriegen Beil und Holzz von mir um zzehn Asssche zu machen. Wenn Assche haben du kommst zurück zum Ofen hier und machen mit Glasblasrohr, dass ich dir auch gebe, zehn Glasblöcke, zss!", item(311, 1, 777), item(74, 1, 777), item(3, 15, 777), queststatus(707) = 7
+queststatus(707) = 6, town = Cadomyr, "task", "adventure", "order" -> "Now we collect asssh for making glasss. I give you an old hatchet of mine and wood, you can make ten piles of asssh for me then. When you have the asssh, you come back to the oven and makes ten glasss ingots with the glasss blow pipe which I'll gives you, zsss.", item(311, 1, 777), item(74, 1, 777), item(3, 15, 777), queststatus(707) = 7
+queststatus(707) = 6, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun wir sssammeln Assche für Glasss machen. Du kriegen Beil und Holzz von mir um zzehn Asssche zu machen. Wenn Assche haben du kommst zurück zum Ofen hier und machen mit Glasblasrohr, dass ich dir auch gebe, zehn Glasblöcke, zss!", item(311, 1, 777), item(74, 1, 777), item(3, 15, 777), queststatus(707) = 7
+queststatus(707) = 7, item(41, all) > 9, town = Cadomyr, english, "quest", "mission", "glass", "ingot" -> "Zsss, well done! These glass ingotsss look good. Please keep the glass ingotsss for your next tasssk.", deleteItem(41, 5), queststatus(707) = 8
+queststatus(707) = 7, item(41, all) > 9, town = Cadomyr, "quest", "mission", "glas", "blöck" -> "Zsss, gut gemachts! Glassblöcke sssehen gut aus. Bitte behalten Glassblöcke für nächssste Aufgabe von Zlatxhol, zsss!", deleteItem(41, 5), queststatus(707) = 8
+queststatus(707) = 7, item(41, all) > 9, town = Cadomyr, "task", "adventure", "order" -> "Zsss, well done! These glass ingotsss look good. Please keep the glass ingotsss for your next tasssk.", deleteItem(41, 5), queststatus(707) = 8
+queststatus(707) = 7, item(41, all) > 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zsss, gut gemachts! Glassblöcke sssehen gut aus. Bitte behalten Glassblöcke für nächssste Aufgabe von Zlatxhol, zsss!", deleteItem(41, 5), queststatus(707) = 8
+queststatus(707) = 7, item(41, all) < 10, town = Cadomyr, english, ".+" -> "Zsss, I want ten glasss ingotsss. Come back when you have the ingotsss!"
+queststatus(707) = 7, item(41, all) < 10, town = Cadomyr, ".+" -> "Zsss, ich wollte zehn Glassblöcke. Komm wieder wenn Blöcke haben!"
+queststatus(707) = 8, town = Cadomyr, english, "quest", "mission" -> "Zsss, now the difficult part of the work sstartsss! You go to oven with the glasss blow pipe and make empty bottlesss from the glasss ingots. Come backsss when you have five bottlesss to show me, zsss.", queststatus(707) = 9
+queststatus(707) = 8, town = Cadomyr, "quest", "mission" -> "Zsss, jetzt schwieriger Teil von Arbeit kommen! Du gehen zum Ofen mit Rohr und machen auss den Glassblöcken leere Flassschen. Du kommen zurück wenn fertig und zeigen mir fünf Flaschen, zsss!", queststatus(707) = 9
+queststatus(707) = 8, town = Cadomyr, "task", "adventure", "order" -> "Zsss, now the difficult part of the work sstartsss! You go to oven with the glasss blow pipe and make empty bottlesss from the glasss ingots. Come backsss when you have five bottlesss to show me, zsss.", queststatus(707) = 9
+queststatus(707) = 8, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zsss, jetzt schwieriger Teil von Arbeit kommen! Du gehen zum Ofen mit Rohr und machen auss den Glassblöcken leere Flassschen. Du kommen zurück wenn fertig und zeigen mir fünf Flaschen, zsss!", queststatus(707) = 9
+queststatus(707) = 9, item(790, all) > 4, town = Cadomyr, english, "quest", "mission", "bottle" -> "Zsss, well done! These bottlesss look good. Zsss, Zlatxhol says thanksss for the help and hopesss you learnt sssomething about glasss blowing and bricksss making.", deleteItem(790, 5), queststatus(707) = 10
+queststatus(707) = 9, item(790, all) > 4, town = Cadomyr, "quest", "mission", "flasche" -> "Zsss, gut gemachts! Flasschen sssehen gut aus. Zsss, Zlatxhol sagen danke für Hilfess und hoffen du was über Glasssblassen und Zzziegelmachen gelernt haben.", deleteItem(790, 5), queststatus(707) = 10
+queststatus(707) = 9, item(790, all) > 4, town = Cadomyr, "task", "adventure", "order" -> "Zsss, well done! These bottlesss look good. Zsss, Zlatxhol says thanksss for the help and hopesss you learnt sssomething about glasss blowing and bricksss making.", deleteItem(790, 5), queststatus(707) = 10
+queststatus(707) = 9, item(790, all) > 4, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zsss, gut gemachts! Flasschen sssehen gut aus. Zsss, Zlatxhol sagen danke für Hilfess und hoffen du was über Glasssblassen und Zzziegelmachen gelernt haben.", deleteItem(790, 5), queststatus(707) = 10
+queststatus(707) = 9, item(790, all) < 5, town = Cadomyr, english, ".+" -> "Zsss, they are not the five bottlesss I was looking for. Come backsss when you have the bottlesss!"
+queststatus(707) = 9, item(790, all) < 5, town = Cadomyr, ".+" -> "Zsss, dasss nicht ssein fünf leere Flassschen die ich wollte. Komm wieder wenn du Flasschen haben!"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+queststatus(707) = 10, town = Cadomyr, english, ".*" -> "Zsss, I don't have any other thingsss for yous to do. Thank yous for the help though, zsss!"
+queststatus(707) = 10, town = Cadomyr, german, ".*" -> "Zsss, ich haben nichtsss weiter für dich zu tun. Aber dankes nochmal für deine Hilfe, zsss!"
+queststatus(707) < 10, town = Cadomyr, english, ".*" -> "I could ussse sssome help, just asssk me for a task, zsss."
+queststatus(707) < 10, town = Cadomyr, german, ".*" -> "Ich könnte etwasss Hilfe gebrauchen, fragss michs ruhig nach einer Aufgabe. Ich habe sssicher etwass für dichss zu tun, zsss."
+english, ".*" -> "You are not a citizzsen of Cadomyrss. I don't haves anything for yous to do, zsss."
+german, ".*" -> "Du ssscheint kein Bürgers Cadomyr zu sssein. Ich hab nichtsss für dichss zu tun, zsss."
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
+cycletext "#me kratzt sich am Kopf.", "#me scratches his head."
+cycletext "Wenns du Hilfe beim Glasssblassen oder Zzziegelbrennen brauchst dann fragt michss!", "If you need any help with glassss blowing or bricksss making, jussst asssk me!"
+cycletext "Zsss...", "Zsss..."
+cycletext "Zsss!", "Zsss!"
+cycletext "Zsss?", "Zsss?"
+cycletext "#me zischelt.", "#me hisses."
+cycletext "Ssss...", "Ssss..."
+cycletext "Ssss?", "Ssss?"
+cycletext "Ssss!", "Ssss!"
+cycletext "Tsss...", "Tsss..."
+cycletext "#me lässt seinen Schwanz hin und her schnellen.", "#me wags his tail back and forth."

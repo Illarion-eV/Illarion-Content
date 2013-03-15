@@ -19,7 +19,7 @@ function learn(user, skill, actionPoints, learnLimit)
 	local skillName = user:getSkillName(skill) --reading the skill
 	
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
-	scalingFactor=1000; --Here, you can mod the learning speed. Higher value=faster ;-)
+	scalingFactor=500; --Here, you can mod the learning speed. Higher value=faster ;-)
 	
 	--Constants - Do not change unless you know exactly what you're doing!
 	amplification=100; --An 'abritrary' value that governs the 'resolution' of the MC function.
@@ -57,13 +57,16 @@ function learn(user, skill, actionPoints, learnLimit)
                 if minorSkill+realIncrease<10000 then
                     user:increaseMinorSkill(skill,realIncrease); --minimum of 10 actions of 50AP for a swirlie at 5% activity
 					
-                else
+                else --Level up!
 				    skillValue=user:getSkill(skill); --reading the skill points
      			    user:increaseMinorSkill(skill,realIncrease); --this is why we do all this grinding!
 										
-					if user:getType() == 0 then --Only players get informs and swirlies! Strangely, monsters also learn, but meh.
-					-- Looks like the client handles such stuff now...
-                    end						
+					if user:getType() == 0 and user:getQuestProgress(154)~=1 then --Only players get informs
+
+						base.common.InformNLS(user,"[Levelaufstieg] Eine deiner Fertigkeiten hat sich soeben erhöht. Drücke 'C' um deine Fertigkeiten anzeigen zu lassen.","[Level up] One of your skills just increased. Hit 'C' to review your skills."); --sending a message
+						user:setQuestProgress(154,1); --Remember that we already spammed the player
+
+					end						
 		        end
 			
 			minorIncrease=minorIncrease-10000;
@@ -80,11 +83,10 @@ end
 -- user:idleTime() can be used to get the number of seconds a user has been idle to check for inactivity
 
 function reduceMC( user )
-
-    if user:idleTime() < 300 then --Has the user done any action or spoken anything within the last five minutes?
+    
+	if user:idleTime() < 300 then --Has the user done any action or spoken anything within the last five minutes?
      	user:increaseMentalCapacity(-1*math.floor(user:getMentalCapacity()*0.00025+0.5)); --reduce MC-points by 0.025%, rounded correctly.
 	end
-	
 end
 
 function getLeadAttrib(Char, Skill)

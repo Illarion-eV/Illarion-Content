@@ -7,8 +7,7 @@ Round=1;
 
 function MoveItemAfterMove(User, SourceItem, TargetItem)
 	if Round==1 then
-        User:talkLanguage(Character.say,Player.german,"#me wirft einen Schneeball.");
-        User:talkLanguage(Character.say,Player.english,"#me throws a snowball.");
+        User:talk(Character.say, "#me wirft einen Schneeball.", "#me throws a snowball.")
 		Round=2;
 	else
 		Round=1;

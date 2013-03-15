@@ -61,8 +61,7 @@ function UseItem(User, SourceItem, ltstate)
 	    
     if ( ltstate == Action.none ) then 
 		User:startAction( 20, 21, 5, 10, 25);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt Eimer zu befüllen.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to fill buckets."); 
+		User:talk(Character.say, "#me beginnt Eimer zu befüllen.", "#me starts to fill buckets.")
 		return
 	end
 	

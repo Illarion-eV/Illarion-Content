@@ -27,9 +27,19 @@ function onLogin( player )
 	
 	--Taxes (has to be redone by "someone")
     if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
-	    -- So let there be taxes!
-		payTaxes(player);
-		receiveGems(player);				
+		if not player.name == "Valerio Guilianni" and player.name == "Rosaline Edwards" and player.name ==  "Elvaine Morgan" then --leader don't pay taxes or get gems
+			-- So let there be taxes!
+			payTaxes(player);
+			receiveGems(player);
+		end
+	end
+
+	if isTestserver() then
+
+		if player:getSkill(25)>0 or player:getSkill(23)>0 then
+			MergeSkillInform(player);
+		end
+
 	end
 
 	--Noobia handling
@@ -220,7 +230,7 @@ function onLogin( player )
 	--TEMPORARY SOLUTION TO CATCH BUGGED PLAYERS
 	if player:getMentalCapacity() < 1999 then --Mental Capacity CANNOT drop below 1999 -> Bugged player or cheater
 
-        player:increaseMentalCapacity(2000000); --This is default for new players.
+        player:increaseMentalCapacity(4000000); --This is default for new players.
 
 	end
 	--TEMPORARY SOLUTION END
@@ -334,7 +344,7 @@ function PayOutWage(Recipient,town)
 			while RankedWage>0 do
 				local randomGem=math.random(1,2);
 				local maxGemLevel=math.floor(RankedWage^(1/3))
-				local gemLevel=math.random(1,maxGemLevel)
+				local gemLevel= base.common.Limit(math.random(1,maxGemLevel), 1, 10)
 				
 				local gemsByTown={};
 				gemsByTown["Cadomyr"]={item.gems.TOPAZ, item.gems.AMETHYST}
@@ -382,6 +392,73 @@ function PayOutWage(Recipient,town)
 end
 
 
+function MergeSkillInform(User)
+	
+
+		local infText = base.common.GetNLS(User, 
+						"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.",
+						"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.");
+		local title = base.common.GetNLS(User,"New Armour Skills","New Armour Skills")
+	
+		local closeTrib=function(onClose)
+			MergeSkill(User);
+		end
+
+		local dialogue=MessageDialog(title,infText,closeTrib);
+
+		User:requestMessageDialog(dialogue);
+	
+end
+
+function MergeSkill(User)
+	
+    local names
+	if  User:getPlayerLanguage() == Player.german then
+		names = {"Leichte Rüstungen","Mittlere Rüstungen","Schwere Rüstungen"}
+	else
+		names = {"Light Armour","Medium Armour","Heavy Armour"}
+	end
+	local items = {364,2403,2390}
+	local targetSkill = {38,39,40}
+	
+	local callback = function(dialog)
+
+		success = dialog:getSuccess()
+
+		if success then
+					selected = dialog:getSelectedIndex()
+					local newskillValue = math.floor((User:getSkill(25)+User:getSkill(23))/2);
+					local skillValue=User:getSkill(targetSkill[selected+1]); --reading the skill points
+     			    User:increaseSkill(targetSkill[selected+1],newskillValue-skillValue); 
+					User:increaseSkill(25,-User:getSkill(25)); 
+					User:increaseSkill(23,-User:getSkill(23)); 
+					User:setQuestProgress(154,1); --Remember that we already spammed the player
+					User:inform("You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.", "You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.")
+					world:gfx(46,User.pos)
+					world:makeSound(13,User.pos);
+		else
+			User:inform("Please choose a skill.", "Please choose a skill.");		
+			MergeSkill(User);
+		end
+	end
+		
+	local dialog
+	if User:getPlayerLanguage() == Player.german then
+		dialog = SelectionDialog("New Armour Skill", "Which armour skill will you use?", callback)
+	else
+		dialog = SelectionDialog("New Armour Skill", "Which armour skill will you use?", callback)
+	end
+	
+	for i=1,#items do
+		dialog:addOption(items[i], names[i])
+	end
+	User:requestSelectionDialog(dialog)
+
+	return;
+end
+
+
+
 function payNow(User)
 --Cadomyr = 100
 --Runewick = 101
@@ -409,6 +486,7 @@ function payNow(User)
 	
     tax=math.floor(val*taxHeight);
     local totTax=tax; -- total tax to pay
+	log("[taxes] "..User.id.."; paid: "..totTax)
 	
 	-- try to get the payable tax from the depots first
 	for i=1, #(depNr) do

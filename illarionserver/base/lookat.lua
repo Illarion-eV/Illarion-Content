@@ -19,7 +19,7 @@ GenericQualEn={"perfect","excellent","very good","good","normal","average","bad"
 GenericDuraEn={};
 GenericDuraEn[1]={"brand new","new"     ,"almost new","used","slightly scraped"  ,"scraped"  ,"highly scraped"  ,"old","rusty"     ,"corroded"      };
 GenericDuraEn[2]={"brand new","new"     ,"almost new","used","slightly scratched","scratched","highly scratched","old","rotten"    ,"nearly decayed"};
-GenericDuraEn[3]={"brand new","new"     ,"almost new","used","slightly torn"     ,"torn"     ,"highly torn"     ,"old","threadbare","torn"          };
+GenericDuraEn[3]={"brand new","new"     ,"almost new","used","slightly frayed" ,"frayed" ,"highly frayed" ,"old","threadbare","ragged" };
 GenericDuraEn[4]={"sparkling","shiny"    ,"glittery","used","slightly scraped","scraped"  ,"highly scraped"  ,"old","tarnished" ,"fragile"};
 
 GenericDuraLm={90,80,70,60,50,40,30,20,10,0};

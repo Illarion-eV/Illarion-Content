@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -23,9 +23,7 @@ require("npc.base.condition.town")
 require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
-require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
-require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.state")
 require("npc.base.talk")
 module("npc.numila_irunnleh", package.seeall)
@@ -43,52 +41,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Numila Irunnleh die Wissenschaftlerin. Schlüsselwörter: Auskunft, Information, Runewick, Orte."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(620, "=", 1));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End 'Find Numila'] You received 10 silvercoins."));
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers some silver coins and turns back to her book*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(620, "=", 1));
-talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 'Finde Numila'] Du hast 10 Silberstücke erhalten."));
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht einige Silbermünzen und wendet sich wieder ihrem Buch zu*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(620, "=", 1));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End 'Find Numila'] You received 10 silvercoins."));
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 2));
-talkEntry:addResponse("Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers some silver coins and turns back to her book*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(620, "=", 1));
-talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 'Finde Numila'] Du hast 10 Silberstücke erhalten."));
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 2));
-talkEntry:addResponse("Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht einige Silbermünzen und wendet sich wieder ihrem Buch zu*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -251,21 +203,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Orte");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"));
 talkEntry:addResponse("Orte? Welche Orte meint ihr? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Elesil");
-talkEntry:addTrigger("Daelwon");
-talkEntry:addResponse("You can find her outside of the town, close to the teleporter. She has a lot of information and some tasks for you.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elesil");
-talkEntry:addTrigger("Daelwon");
-talkEntry:addResponse("Ihr findet sie draußen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1068,13 +1005,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("That is here and if you want to know more about it ask Elesil Daelwon at the teleporter outside for further information.");
+talkEntry:addResponse("That is here and if you want to know more about it ask around.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Das ist hier und wenn du mehr darüber wissen möchtest, dann frag Elesil Daelwon beim Teleporter draußen nach weiterer Information.");
+talkEntry:addResponse("Das ist hier und wenn du mehr darüber wissen möchtest, dann fragt herum.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1175,94 +1112,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Bragon");
-talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("If you would like to know more about this God ask somone else, for example Elesil Daelwon outside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bragon");
-talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("If you would like to know more about this God ask somone else, for example Elesil Daelwon outside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Elara");
-talkEntry:addResponse("You may find a Temple dedicated to her in the Tower of Air, but better ask Elesil Daelwon regarding the Tower of Air and the Shrine of Elara.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Ihr möget den Tempel von ihr im Luftturm finden. Aber fragt besser Elesil Daelwon bezüglich des Luftturms und dem Schrein der E");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("If you would like to know more about this God ask somone else, for example Elesil Daelwon outside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Findari");
-talkEntry:addResponse("If you would like to know more about this God ask somone else, for example Elesil Daelwon outside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Findari");
-talkEntry:addResponse("Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("If you would like to know more about this God ask somone else, for example Elesil Daelwon outside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("If you would like to know more about this God ask somone else, for example Elesil Daelwon outside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addResponse("Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter.");
@@ -1305,23 +1154,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Nargun");
-talkEntry:addTrigger("Nargún");
-talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("If you would like to know more about this God ask somone else, for example Elesil Daelwon outside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nargun");
-talkEntry:addTrigger("Nargún");
-talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
 talkEntry:addResponse("You may find a Temple dedicated to her on the other side of the Snakehead Bay in the Northeast of the Sentry Forest. This place is also known as Oldra's Corner. Follow the signposts, but keep in mind a dangerous journey is awaiting you.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1335,68 +1167,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("If you would like to know more about this God ask somone else, for example Elesil Daelwon outside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("If you would like to know more about this God ask somone else, for example Elesil Daelwon outside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addResponse("If you would like to know more about this God ask somone else, for example Elesil Daelwon outside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tanora");
-talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("If you would like to know more about this God ask somone else, for example Elesil Daelwon outside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("If you would like to know more about this God ask somone else, for example Elesil Daelwon outside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

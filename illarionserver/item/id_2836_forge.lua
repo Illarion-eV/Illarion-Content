@@ -58,8 +58,7 @@ function UseItem(User, SourceItem, ltstate)
 			gText = "ihre";
 			eText = "her";
 		end
-		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
 		
     if (SourceItem.id == 2834) then --swapping
       SourceItem.id = 2837;
@@ -153,8 +152,7 @@ function UseItem(User, SourceItem, ltstate)
       -- alright, it's off
       oremelting.SavedWorkTime[User.id] = oremelting:GenWorkTime(User,toolItem);
       User:startAction( oremelting.SavedWorkTime[User.id], 0, 0, 0, 0);
-      User:talkLanguage( Character.say, Player.german, "#me beginnt an der Esse Erz zu schmelzen.");
-      User:talkLanguage( Character.say, Player.english, "#me starts to melt ore at the forge."); 
+      User:talk(Character.say, "#me beginnt an der Esse Erz zu schmelzen.", "#me starts to melt ore at the forge.")
 	  
 	     if (SourceItem.id == 2836) then --turn it on!
             SourceItem.id = 2835;

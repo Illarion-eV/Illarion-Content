@@ -68,7 +68,7 @@ queststatus(702) = 10, item(234, all, "nameDe" = "Echt großer Goldnugget") > 0,
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "I foretell that you did not come to me to chat about inane things. We should strictly get to business, mine is transmuting gems."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ich nehme an, ihr seid nicht zu mir gekommen um über Unwichtiges Gewäsch zu reden. Lasst uns zur Sache kommen, mein Geschäft ist das Vereinen von Edelsteinen."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "I foretell that you did not come to me to chat about inane things. We should strictly get to business, mine is gems."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "I foretell that you did not come to me to chat about inane things. We should strictly get to business, mine transmuting is gems."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ich nehme an, ihr seid nicht zu mir gekommen um über Unwichtiges Gewäsch zu reden. Lasst uns zur Sache kommen, mein Geschäft ist das Vereinen von Edelsteinen."
 "Farewell", "Bye", "Fare well", "See you" -> "Happy mining.", "Farewell."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Viel Spaß in der Mine.", "Gehabt euch wohl."
@@ -76,7 +76,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Happy mining.", "Farewell."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Viel Spaß in der Mine.", "Gehabt euch wohl."
 "How are you", "How feel", "How do you do" -> "Fine! Let's talk about gems."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Nun lasst uns über Edelsteine reden."
-"your name", "who are you", "who art thou" -> gemcraft, "They call me Pheritaleth and I am skilled in."
+"your name", "who are you", "who art thou" -> gemcraft, "They call me Pheritaleth and I am skilled in gem transmutation."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich werde Pheritaleth genannt und bin eine Edelsteinkünstlerin."
 
 -- OPTIONAL TRIGGERS
@@ -93,13 +93,13 @@ english, "job" -> "My profession is to transmute magical gems. I have several ae
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "gem" -> "I know a lot about all the gems. Just throw in a keyword!"
-english, "Amethyst" -> "Amethysts are the the clubs among the gems. Their beauty is rather brute but true."
+english, "Amethyst" -> "Amethysts are the the clubs amongst gems. Their beauty is rather crude but natural."
 "Ruby" -> "Some say, rubies were made of Brágon's fire, but I know better why they are so red..."
-english, "Obsidian" -> "The obsidian is known for its role in dark rituals, but keep in mind that evil deeds are done by evil men, not by gems."
-"Sapphire" -> "Those who don't know any better see a connection between sapphires and Tanora. How did I laught when I first heard that rumor!"
-"Emerald" -> "Emeralds are the gems many people forgot about; I never heard obscure theories about their origin."
-"Topaz" -> "I keep wondering why some people search for topazes at the shores. You could as well wait for them to drop from the sky."
-"Diamond" -> "The diamond is the king among the gems. They are extremely rare and powerful."
+english, "Obsidian" -> "Obsidian is known to be used in dark rituals, but keep in mind that evil deeds are done by evil men, not by gems."
+"Sapphire" -> "Those who don't know any better see a connection between sapphires and Tanora. How I laughed when I first heard that rumour!"
+"Emerald" -> "Emeralds are the gems many people forgot about; I have never heard idiotic theories about their origin."
+"Topaz" -> "I keep wondering why some people search for topaz along the shores. You may as well wait for them to drop from the sky."
+"Diamond" -> "The diamond is the king amongst the gems. They are extremely rare and powerful."
 "Edelstein" -> "Ich weiß eine Menge über die Edelsteine. Gebt mir einfach ein Stichwort!"
 "Amethyst" -> "Die Amethysten sind die Knüppel unter den Edelsteinen. Ihre Schönheit ist von roher, aber natürlicher Art."
 "Rubin" -> "Manche glauben, Rubine wurden aus Brágons Feuer geschaffen, aber ich weiß, warum sie wirklich so rot sind..."
@@ -110,9 +110,9 @@ english, "Obsidian" -> "The obsidian is known for its role in dark rituals, but 
 "Diamant" -> "Die Diamanten sind die Könige der Edelsteine. Sie sind äußerst selten und mächtig."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god", "faith" -> "The Eleven are just rascals. Only the Five have true power."
+"god", "faith" -> "The Eleven are just rascals, only the Five have true power."
 "Gott", "Götter", "Glaube" -> "Die Elf sind einfach nur ein paar Bengel. Die wahre Macht ist den Fünf zu eigen."
-english, "religion" -> "The Eleven are just rascals. Only the Five have true power."
+english, "religion" -> "The Eleven are just rascals, only the Five have true power."
 "religion" -> "Die Elf sind einfach nur ein paar Bengel. Die wahre Macht ist den Fünf zu eigen."
 english, "Irmorom" -> "So, you assume my art is a craft and I should pray to Irmorom? Shall I laugh or shall I cry?"
 "Irmorom" -> "Ah, ihr glaubt also, meine Kunst ist ein Handwerk und ich sollte zu Irmorom beten? Soll ich jetzt lachen oder weinen?"
@@ -120,15 +120,15 @@ english, "Ushara" -> "Ushara granted us the gems long ago, even for my kin. Hail
 "Ushara" -> "Ushara vermachte uns vor selbst für mein Volk langer Zeit die Edelsteine. Huldigt ihr!"
 
 -- Optional: Faction stuff
-"Queen" -> "Her majesty is the current monarch. Let us wait some decades and another short lived human will take her place."
+"Queen" -> "Her Majesty is the current monarch. Let us wait some decades and another short lived human will take her place."
 "Königin" -> "Ihre Majestät ist gerade die Monarchin. Lasst uns ein paar Jahrzehnte warten und irgendein anderer kurzlebiger Mensch hat ihren Platz eingenommen."
-english, "rosaline", "edwards" -> "Her majesty is the current monarch. Let us wait some decades and another short lived human will take her place."
+english, "rosaline", "edwards" -> "Her Majesty is the current monarch. Let us wait some decades and another short lived human will take her place."
 "rosaline", "edwards" -> "Ihre Majestät ist gerade die Monarchin. Lasst uns ein paar Jahrzehnte warten und irgendein anderer kurzlebiger Mensch hat ihren Platz eingenommen."
-english, "Cadomyr" -> "Cadomyr is quite a gemstone itself. It sparkles in the morning sun, might be because of the dew."
+english, "Cadomyr" -> "Cadomyr is quite a gemstone itself. It shimmers in the morning sun... perhaps because of the dew."
 "Cadomyr" -> "Cadomyr ist selbst ein Edelstein. Es schimmert in der Morgensonne, könnte am Tau liegen."
 
 -- Optional: Gobaith
-english, "Gobaith", "Gobiath" -> "Anger."
+english, "Gobaith", "Gobiath" -> "Fury."
 "Gobaith", "Gobiath" -> "Wut."
 
 ------------------------------------------------------------------------------AC
@@ -137,12 +137,12 @@ english, "Gobaith", "Gobiath" -> "Anger."
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Meine Vorfahren haben schon Edelsteine geschliffen als euer Stamm noch nicht mal gegründet war.", "My ancestors cut gems back when your tribe was not even founded."
-cycletext "Manche werden nie verstehen, welche Macht die Edelsteine haben und sie für einfache Klunker halten.", "Some people will never understand the power of gems and regard them just rocks."
-cycletext "Wenn ihr nach Tand sucht, geht zu Jacobus, dem Juwelier.", "If you need ordinary bling-bling, go to Jacobus, the lapidary."
+cycletext "Manche werden nie verstehen, welche Macht die Edelsteine haben und sie für einfache Klunker halten.", "Some people will never understand the power of gems and regard them as just rocks."
+cycletext "Wenn ihr nach Tand sucht, geht zu Jacobus, dem Juwelier.", "If you need ordinary bling-bling, go to Jacobus, the jeweller."
 cycletext "In jedem Edelstein liegt wahre Macht.", "True magic lies within every gem."
-cycletext "Schaut, wie dieser hier funkelt.", "Look at it, it is sparkeling."
+cycletext "Schaut, wie dieser hier funkelt.", "Look at it, it is sparkling."
 cycletext "Funkel wie ein Diamant.", "Shine bright like a diamond."
 cycletext "Wenn ein Mann sagt, dass die Augen einer Frau wie Edelsteine strahlen, meint er damit, dass er ihr sie rausschneiden möchte?", "If a man says that a woman's eyes look like gemstones, does he imply that he wants to cut them out of her face?"
 cycletext "Zwerge lieben Granit, Elfen lieben Edelsteine.", "Dwarves love granite, elves love gemstones."
 cycletext "Diamanten sind die besten Freunde einer Elfin.", "Diamonds are an elf's best friend."
-cycletext "Habt ihr Edelsteine?", "Got gems?"
+cycletext "Habt ihr Edelsteine?", "Got any gems?"
