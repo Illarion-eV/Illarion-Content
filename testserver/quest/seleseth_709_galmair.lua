@@ -49,6 +49,7 @@ QuestTarget[6] = {position(387, 277, 0)}
 QuestTarget[7] = {position(387, 277, 0), position(387, 279, 0)} -- gem grinder
 QuestTarget[8] = {position(387, 277, 0)} 
 QuestTarget[9] = {position(387, 277, 0)} -- Workshop
+QuestTarget[10] = {position(387, 277, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 10

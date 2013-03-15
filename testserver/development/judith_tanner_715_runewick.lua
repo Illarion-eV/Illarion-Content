@@ -50,6 +50,7 @@ QuestTarget[6] = {position(905, 780, 0)}
 QuestTarget[7] = {position(905, 780, 0), position(886, 795, 0)} -- Camp fire
 QuestTarget[8] = {position(905, 780, 0)}
 QuestTarget[9] = {position(905, 780, 0), position(909, 778, 0)} -- Barrels
+QuestTarget[10] = {position(905, 780, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 10

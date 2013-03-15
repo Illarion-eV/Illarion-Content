@@ -49,6 +49,7 @@ QuestTarget[6] = {position(142, 589, 0)}
 QuestTarget[7] = {position(142, 589, 0), position(142, 587, 0)} -- Glass melting oven
 QuestTarget[8] = {position(142, 589, 0)} 
 QuestTarget[9] = {position(142, 589, 0), position(142, 587, 0)} -- Glass melting oven
+QuestTarget[10] = {position(142, 589, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 10

@@ -43,6 +43,7 @@ QuestTarget[4] = {position(893, 837, 0)}
 QuestTarget[5] = {position(893, 837, 0), position(907, 832, 0)} -- Baking oven
 QuestTarget[6] = {position(893, 837, 0)} 
 QuestTarget[7] = {position(893, 837, 0), position(894, 837, 0)} -- Camp fire
+QuestTarget[8] = {position(893, 837, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 8

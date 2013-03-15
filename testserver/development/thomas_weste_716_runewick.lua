@@ -43,6 +43,7 @@ QuestTarget[4] = {position(892, 755, 0)}
 QuestTarget[5] = {position(892, 755, 0), position(890, 755, 0)} -- Chandler table
 QuestTarget[6] = {position(892, 755, 0)} 
 QuestTarget[7] = {position(892, 755, 0), position(841, 824, 0)} -- Grass
+QuestTarget[8] = {position(892, 755, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 8

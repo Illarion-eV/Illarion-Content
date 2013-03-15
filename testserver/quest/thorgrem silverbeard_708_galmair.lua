@@ -37,6 +37,7 @@ QuestTarget[2] = {position(387, 273, 0)}
 QuestTarget[3] = {position(387, 273, 0), position(387, 272, 0)} -- Furnace
 QuestTarget[4] = {position(387, 273, 0)} 
 QuestTarget[5] = {position(387, 273, 0), position(383, 272, 0)} -- anvil
+QuestTarget[6] = {position(387, 273, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 6

@@ -60,6 +60,7 @@ QuestTarget[10] = {position(124, 649, 0)}
 QuestTarget[11] = {position(124, 649, 0), position(46, 683, 0)}  -- Zerarisa
 QuestTarget[12] = {position(124, 649, 0)}
 QuestTarget[13] = {position(124, 649, 0), position(106, 553, 0)} -- Reret Odohir
+QuestTarget[14] = {position(124, 649, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 14

@@ -37,7 +37,7 @@ QuestTarget[2] = {position(904, 827, 0)}
 QuestTarget[3] = {position(904, 827, 0), position(902, 825, 0)} -- Work bench
 QuestTarget[4] = {position(904, 827, 0)} 
 QuestTarget[5] = {position(904, 827, 0), position(902, 825, 0)} -- Work bench
-
+QuestTarget[6] = {position(904, 827, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 6

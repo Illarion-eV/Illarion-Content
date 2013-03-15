@@ -60,6 +60,7 @@ QuestTarget[10] = {position(425, 247, 0)}
 QuestTarget[11] = {position(425, 247, 0), position(341, 218, 0)} -- Gretel Goldhair
 QuestTarget[12] = {position(425, 247, 0)}
 QuestTarget[13] = {position(425, 247, 0), position(388, 238, 0)} -- Groktan Flintsplit
+QuestTarget[14] = {position(425, 247, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 14
