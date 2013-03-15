@@ -57,14 +57,14 @@ function initDoors()
 	AddDoor({380, 325,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
 	AddDoor({400, 327,-6}, false,"Winged Sow Taverne - Storeroom","Taverne zur Geflügelten Sau - Lagerraum"); -- Scoria Mine
 	AddDoor({342, 252, 0}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
-	AddDoor({332, 254,-6}, false,"Sewers","Abwasserschächte"); -- Scoria Mine
-	AddDoor({333, 254,-6}, false,"Sewers","Abwasserschächte"); -- Scoria Mine
+	AddDoor({332, 253,-6}, false,"Sewers","Abwasserschächte"); -- Scoria Mine
+	AddDoor({333, 253,-6}, false,"Sewers","Abwasserschächte"); -- Scoria Mine
 	AddDoor({327, 251,-6}, false,"Flicker Swale","Schimmersenke"); -- Scoria Mine
 	AddDoor({327, 252,-6}, false,"Flicker Swale","Schimmersenke"); -- Scoria Mine
 	AddDoor({248, 295,-6}, false,"Game room","Spielraum"); -- Scoria Mine
 	AddDoor({249, 295,-6}, false,"Game room","Spielraum"); -- Scoria Mine
-	AddDoor({249, 298,-5}, false,"Temple of Nargun","Tempel des Nargun"); -- Scoria Mine
-	AddDoor({250, 298,-5}, false,"Temple of Nargun","Tempel des Nargun"); -- Scoria Mine
+	AddDoor({249, 297,-5}, false,"Temple of Nargun","Tempel des Nargun"); -- Scoria Mine
+	AddDoor({250, 297,-5}, false,"Temple of Nargun","Tempel des Nargun"); -- Scoria Mine
 
 	AddDoor({367, 255, 0}, false,"Galmair's Crest","Galmairs Krone"); -- Galmair's Crest
 	AddDoor({368, 255, 0}, false,"Galmair's Crest","Galmairs Krone"); -- Galmair's Crest
