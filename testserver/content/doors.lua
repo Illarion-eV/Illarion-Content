@@ -199,7 +199,58 @@ function initDoors()
 	-- Runewick end
 
 	-- Cadomyr 3xx
-	
+	AddDoor({122, 547, 0}, 300,"Palace","Palast");
+	AddDoor({121, 547, 0}, 300,"Palace","Palast");
+	AddDoor({128, 520, 0}, 300,"Royal Chamber","Königliche Kammer");
+	AddDoor({128, 519, 0}, 300,"Royal Chamber","Königliche Kammer");
+
+	AddDoor({ 95, 615, 1}, 310,"Villa Rosaline - Balcony","Villa Rosaline - Balkon");
+	AddDoor({ 94, 612, 0}, 310,"Villa Rosaline","Villa Rosaline");
+	AddDoor({ 94, 613, 0}, 310,"Villa Rosaline","Villa Rosaline");
+	AddDoor({ 88, 600, 1}, 311,"Villa Edward - Balcony","Villa Edward - Balkon");
+	AddDoor({ 90, 605, 0}, 311,"Villa Edward","Villa Edward");
+	AddDoor({ 91, 605, 0}, 311,"Villa Edward","Villa Edward");
+	AddDoor({ 93, 560, 0}, 312,"Villa Reginald","Villa Reginald");
+
+	AddDoor({144, 627, 1}, 320,"Flat quarter","Wohnungsquartier");
+	AddDoor({138, 604, 0}, 321,"Flat quarter","Wohnungsquartier");
+	AddDoor({139, 604, 1}, 322,"Flat quarter","Wohnungsquartier");
+	AddDoor({137, 610, 0}, 323,"Flat quarter","Wohnungsquartier");
+	AddDoor({138, 610, 1}, 324,"Flat quarter","Wohnungsquartier");
+	AddDoor({136, 615, 0}, 325,"Flat quarter","Wohnungsquartier");
+	AddDoor({137, 615, 1}, 326,"Flat quarter","Wohnungsquartier");
+
+	AddDoor({116, 633, 0}, false,"Cadomyr Towngate","Cadomyr Stadttor");
+	AddDoor({115, 633, 0}, false,"Cadomyr Towngate","Cadomyr Stadttor");	
+	AddDoor({113, 633, 0}, false,"Cadomyr Towngate","Cadomyr Stadttor");
+	AddDoor({112, 633, 0}, false,"Cadomyr Towngate","Cadomyr Stadttor");	
+	AddDoor({129, 633, 0}, false,"Quartermaster Store","Quartiermeisters Laden");
+	AddDoor({129, 632, 0}, false,"Quartermaster Store","Quartiermeisters Laden");
+	AddDoor({129, 624, 0}, false,"Quartermaster Store","Quartiermeisters Laden");
+	AddDoor({129, 623, 0}, false,"Quartermaster Store","Quartiermeisters Laden");
+	AddDoor({130, 624, 1}, false,"Civic Hall","Stadtsaal");
+	AddDoor({130, 623, 1}, false,"Civic Hall","Stadtsaal");
+	AddDoor({129, 633, 1}, false,"Civic Hall","Stadtsaal");
+	AddDoor({129, 632, 1}, false,"Civic Hall","Stadtsaal");
+	AddDoor({138, 635, 1}, false,"Civic Hall","Stadtsaal");
+	AddDoor({137, 635, 1}, false,"Civic Hall","Stadtsaal");
+	AddDoor({ 81, 626, 1}, false,"Guard room","Wachstube");
+	AddDoor({ 82, 626, 1}, false,"Guard room","Wachstube");
+	AddDoor({ 79, 622, 0}, false,"Guard room","Wachstube");
+	AddDoor({ 79, 621, 0}, false,"Guard room","Wachstube");
+
+	AddDoor({107, 558, 0}, false,"Census office","Zensusbüro");
+	AddDoor({ 86, 577, 1}, false,"Inn Lakeshore","Gasthaus Seeufer");
+	AddDoor({ 87, 574, 1}, false,"Inn Lakeshore","Gasthaus Seeufer");
+	AddDoor({ 85, 574, 1}, false,"Inn Lakeshore","Gasthaus Seeufer");
+	AddDoor({ 83, 581, 1}, false,"Inn Lakeshore - Balcony","Gasthaus Seeufer - Balkon");
+	AddDoor({ 84, 578, 0}, false,"Inn Lakeshore","Gasthaus Seeufer");
+	AddDoor({ 89, 578, 0}, false,"Inn Lakeshore","Gasthaus Seeufer");
+	AddDoor({ 84, 585, 0}, false,"Inn Lakeshore","Gasthaus Seeufer");
+	AddDoor({ 89, 585, 0}, false,"Inn Lakeshore","Gasthaus Seeufer");
+	AddDoor({100, 576, 0}, false,"Tavern Unicorn Lion","Taverne Einhörniger Löwe");
+	AddDoor({113, 586, 0}, false,"Tavern Unicorn Lion","Taverne Einhörniger Löwe");
+
 	-- Irundar xxx
     --AddDoor( -42, 193, -9,  X00); -- Irundar Gate
     --AddDoor( -49, 174, -9,  X01); -- Irundar Smith
