@@ -212,13 +212,13 @@ function initDoors()
 	AddDoor({ 91, 605, 0}, 311,"Villa Edward","Villa Edward");
 	AddDoor({ 93, 560, 0}, 312,"Villa Reginald","Villa Reginald");
 
-	AddDoor({144, 627, 1}, 320,"Flat quarter","Wohnungsquartier");
-	AddDoor({138, 604, 0}, 321,"Flat quarter","Wohnungsquartier");
-	AddDoor({139, 604, 1}, 322,"Flat quarter","Wohnungsquartier");
-	AddDoor({137, 610, 0}, 323,"Flat quarter","Wohnungsquartier");
-	AddDoor({138, 610, 1}, 324,"Flat quarter","Wohnungsquartier");
-	AddDoor({136, 615, 0}, 325,"Flat quarter","Wohnungsquartier");
-	AddDoor({137, 615, 1}, 326,"Flat quarter","Wohnungsquartier");
+	AddDoor({138, 604, 0}, 321,"Flat quarter - Faith & Obedience","Wohnungsquartier - Glaube & Gehorsam");
+	AddDoor({139, 604, 1}, 322,"Flat quarter - Honour & Lineage","Wohnungsquartier - Ehre & Abstammung");
+	AddDoor({137, 610, 0}, 323,"Flat quarter - Truth & Justice","Wohnungsquartier - Ehrlichkeit & Gerechtigkeit");
+	AddDoor({138, 610, 1}, 324,"Flat quarter - Courage","Wohnungsquartier - Courage");
+	AddDoor({136, 615, 0}, 325,"Flat quarter - Patriarchy","Wohnungsquartier - Patriarchat");
+	AddDoor({137, 615, 1}, 326,"Flat quarter - Property","Wohnungsquartier - Besitz");
+	AddDoor({144, 627, 1}, 320,"Flat quarter - Responsibility","Wohnungsquartier - Verantwortung");
 
 	AddDoor({116, 633, 0}, false,"Cadomyr Towngate","Cadomyr Stadttor");
 	AddDoor({115, 633, 0}, false,"Cadomyr Towngate","Cadomyr Stadttor");	
