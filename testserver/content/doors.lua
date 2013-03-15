@@ -50,12 +50,12 @@ function initDoors()
 	AddDoor({386, 279,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
 	AddDoor({382, 260,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
 	AddDoor({383, 260,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
-	AddDoor({338, 254,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
-	AddDoor({339, 254,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
-	AddDoor({371, 292,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
-	AddDoor({371, 293,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
-	AddDoor({380, 352,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
-	AddDoor({400, 327,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
+	AddDoor({338, 253,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
+	AddDoor({339, 253,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
+	AddDoor({370, 292,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
+	AddDoor({370, 293,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
+	AddDoor({380, 325,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
+	AddDoor({400, 327,-6}, false,"Winged Sow Taverne - Storeroom","Taverne zur Geflügelten Sau - Lagerraum"); -- Scoria Mine
 	AddDoor({342, 252, 0}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
 	AddDoor({332, 254,-6}, false,"Sewers","Abwasserschächte"); -- Scoria Mine
 	AddDoor({333, 254,-6}, false,"Sewers","Abwasserschächte"); -- Scoria Mine
