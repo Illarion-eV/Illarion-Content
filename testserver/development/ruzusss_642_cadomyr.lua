@@ -8,8 +8,8 @@ ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 Title = {}
-Title[GERMAN] = "Finde Ruzusss in Cadomyr"
-Title[ENGLISH] = "Finde Königin Rosaline Edwards"
+Title[GERMAN] = "Finde Königin Rosaline Edwards in Cadomyr"
+Title[ENGLISH] = "Find Queen Rosaline Edwards in Cadomyr"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
