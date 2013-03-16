@@ -1,6 +1,6 @@
 -- Irgendwas wird eingefügt...
 require("base.common")
-module("quest.Neiran_el_Nyaralet_205_runewick", package.seeall)
+module("development.Neiran_el_Nyaralet_205_runewick", package.seeall)
 
 -- GERMAN bedeutet Clienteinstellung Spielersprache ist deutsch, ENGLISCH  bedeutet sie ist english
 GERMAN = Player.german
