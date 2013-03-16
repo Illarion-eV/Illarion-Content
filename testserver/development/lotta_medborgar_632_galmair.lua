@@ -8,18 +8,18 @@ ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 Title = {}
-Title[GERMAN] = "Finde Lotta Medborgarn in Galmair"
-Title[ENGLISH] = "Finde Don Valerio Guilianni"
+Title[GERMAN] = "Finde Don Valerio Guilianni in Galmair"
+Title[ENGLISH] = "Find Don Valerio Guilianni in Galmair"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde Lotta Medborgar in Galmair and sprich mit ihr."
-Description[ENGLISH][1] = "Finde Don Valerio Guilianni und bringe ihr dein Geschenk."
+Description[GERMAN][1] = "Finde Don Valerio Guilianni und bringe ihr dein Geschenk."
+Description[ENGLISH][1] = "Find Don Valerio Guilianni and take him your gift."
 Description[GERMAN][2] = "Du weiﬂt nun wo Don Valerio Guilianni zu finden ist."
-Description[ENGLISH][2] = "You know now where you can find Don Valerio Guilianni."
+Description[ENGLISH][2] = "You now know where you can find Don Valerio Guilianni."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
