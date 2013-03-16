@@ -17,9 +17,9 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Finde Königin Rosaline Edwards und bringe ihr dein Geschenk."
-Description[ENGLISH][1] = "Find Queen Rosaline Edwards and bring her your gift."
+Description[ENGLISH][1] = "Find Queen Rosaline Edwards and take her your gift."
 Description[GERMAN][2] = "Du weißt nun wo Königin Rosaline Edwards zu finden ist."
-Description[ENGLISH][2] = "You know now where you can find Queen Rosaline Edwards."
+Description[ENGLISH][2] = "You now know where you can find Queen Rosaline Edwards."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
