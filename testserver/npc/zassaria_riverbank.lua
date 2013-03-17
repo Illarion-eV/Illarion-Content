@@ -401,7 +401,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 2));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du hast das Quest gelöst und erhälst zum Dank etwas Geld, einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat und ein Paar neue Stiefel. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du hast das Quest gelöst und erhältst zum Dank etwas Geld, einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat und ein Paar neue Stiefel. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.item.item(25, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(53, 1, 333, nil));

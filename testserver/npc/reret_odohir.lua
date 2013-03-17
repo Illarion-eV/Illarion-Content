@@ -978,7 +978,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhälst als Belohnung einen Dolch. Euer Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst als Belohnung einen Dolch. Euer Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 466, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 2));
