@@ -8,7 +8,7 @@ ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 Title = {}
-Title[GERMAN] = "Bier fÃ¼r Tronuk"
+Title[GERMAN] = "Bier für Tronuk"
 Title[ENGLISH] = "Beer for Tronuk"
 
 -- Insert an extensive description of each status here, in both languages
