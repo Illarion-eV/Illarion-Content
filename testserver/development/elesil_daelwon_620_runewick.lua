@@ -18,8 +18,8 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Finde Numila Irunnleh in Runewick and sprich mit ihr."
 Description[ENGLISH][1] = "Find Numila Irunnleh in Runewick and talk to her."
-Description[GERMAN][2] = "Da kannst nun mit Elesil sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst!\nSie kann dir einiges über die südöstliche Karte von Illarion verraten."
-Description[ENGLISH][2] = "You can talk with Elesil now. Ask for 'help' if you do not know what to say!\nShe provides you with information about the south-eastern part of Illarion."
+Description[GERMAN][2] = "Da hast Numila gefunden. Wenn du möchtest, kannst du nun mit ihr sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst!\nSie kann dir einiges über die südöstliche Karte von Illarion verraten."
+Description[ENGLISH][2] = "You found Numila. If you like you can talk with her now. Ask for 'help' if you do not know what to say!\nShe provides you with information about the south-eastern part of Illarion."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}

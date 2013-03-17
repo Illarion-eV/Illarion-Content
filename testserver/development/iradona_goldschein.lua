@@ -18,6 +18,7 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.trade")
@@ -455,20 +456,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Donkey stable");
-talkEntry:addTrigger("stable");
-talkEntry:addResponse("Through the town gate and then right. *nods*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eselstall");
-talkEntry:addTrigger("Stall");
-talkEntry:addResponse("Auf der rechten Seite nach dem Stadttor. *nickt*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Well Dreams");
 talkEntry:addResponse("The Well of Dreams is the other side of the town. Therefore, enter the town, head past the market and Villa Goldvein and you are there, but usually, people avoid this place. *smirks*");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -741,6 +728,20 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gasthof Bujhaar");
 talkEntry:addResponse("Das Gasthaus zum Schlafenden Bujhaar kann an der Straße zur Malachitmine nach dem Zensusbüro gefunden werden. Folge einfach den Wegschildern. Du kannst dort essen oder rasten wenn du möchtest.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("Census");
+talkEntry:addResponse("The Census office can be found south on the way to the Malachite Mine. It is close to the Sleepy Bujhaar Inn. There you can find information about your rank.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("Zensusbüro");
+talkEntry:addResponse("Das Zensusbüro kann südlich auf dem Weg zur Malachitmine gefunden werden. Es liegt nahe dem Gasthof zum schläfrigen Bujhaar. Dort kannst du Information über deinen Rang erhalten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

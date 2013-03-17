@@ -392,7 +392,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(702, "=", 2));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du hast das Quest gelöst und erhälst zum Dank etwas Geld, einen Säbel und ein Paar neue Stiefel von Charwis. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du hast das Quest gelöst und erhältst zum Dank etwas Geld, einen Säbel und ein Paar neue Stiefel von Charwis. Dein Ansehen bei Don Valerio Guilianni steigt."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.item.item(25, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(53, 1, 333, nil));

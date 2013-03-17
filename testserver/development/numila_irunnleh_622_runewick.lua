@@ -19,7 +19,7 @@ Description[ENGLISH] = {}
 Description[GERMAN][1] = "Finde Erzmagier Elvaine Morgan und bringe ihm dein Geschenk."
 Description[ENGLISH][1] = "Find Archmage Elvaine Morgan and take him your gift."
 Description[GERMAN][2] = "Du weiﬂt nun wo Erzmagier Elvaine Morgan zu finden ist."
-Description[ENGLISH][2] = "You know now where you can find Archmage Elvaine Morgan."
+Description[ENGLISH][2] = "You now know where you can find Archmage Elvaine Morgan."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
