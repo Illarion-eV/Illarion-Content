@@ -16,10 +16,10 @@ Title[ENGLISH] = "Find Ruzusss in Cadomyr"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde Ruzusss in Cadomyr and sprich mit ihr."
+Description[GERMAN][1] = "Finde Ruzusss in Cadomyr and sprich mit ihm."
 Description[ENGLISH][1] = "Find Ruzusss in Cadomyr and talk to him."
-Description[GERMAN][2] = "Da kannst nun mit Ruzusss sprechen. Frage nach 'Hilfe', wenn du nicht weißt, nach was du fragen sollst!\nSie kann dir einiges über die südwestliche Karte von Illarion verraten."
-Description[ENGLISH][2] = "You can talk with Ruzuss now. Ask for 'help' if you do not know what to say!\nHe provides you with information about the south-western part of Illarion."
+Description[GERMAN][2] = "Du hast Ruzuss gefunden. Wenn du möchtest, kannst nun mit ihm sprechen. Frage nach 'Hilfe', wenn du nicht weißt, nach was du fragen sollst!\nEr kann dir einiges über die südwestliche Karte von Illarion verraten."
+Description[ENGLISH][2] = "You found Ruzuss. If you like you can talk with him now. Ask for 'help' if you do not know what to say!\nHe provides you with information about the south-western part of Illarion."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}

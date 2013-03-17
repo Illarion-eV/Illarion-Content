@@ -18,6 +18,7 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.condition.town")
 require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
@@ -251,15 +252,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("building");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Market, temple, teleporter, census office, donkey stable, library, Garden of Eldan, Slums, Tomb, towers, Tower of Air, Tower of Fire, Tower of Water, Tower of Earth"));
-talkEntry:addResponse("Which building do you mean? Market, temple, teleporter, census office, donkey stable, library, Garden of Eldan, Slums, Tomb, or our towers: Tower of Air, Tower of Fire, Tower of Water or Tower of Earth?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Market, shrine, teleporter, census office, library, Garden of Eldan, Slums, Tomb, towers, Tower of Air, Tower of Fire, Tower of Water, Tower of Earth"));
+talkEntry:addResponse("Which building do you mean? Market, shrine, teleporter, census office, donkey stable, library, Garden of Eldan, Slums, Tomb, or our towers: Tower of Air, Tower of Fire, Tower of Water or Tower of Earth?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gebäude");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Markt, Tempel, Teleporter, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, Türme, Turm der Luft, Turm des Feuers, Turm des Wassers, Turm der Erde"));
-talkEntry:addResponse("Welches Gebäude meint ihr? Markt, Tempel, Teleporter, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, oder unsere Türme, sprich Turm der Luft, Turm des Feuers, Turm des Wassers, Turm der Erde?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Markt, Schrein, Teleporter, Zensusbüro, Bibliothek, Garten des Eldan, Slums, Gruft, Türme, Turm der Luft, Turm des Feuers, Turm des Wassers, Turm der Erde"));
+talkEntry:addResponse("Welches Gebäude meint ihr? Markt, Schrein, Teleporter, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, oder unsere Türme, sprich Turm der Luft, Turm des Feuers, Turm des Wassers, Turm der Erde?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -387,42 +388,54 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("temple");
+talkEntry:addTrigger("shrine");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Bragon"));
-talkEntry:addResponse("Let me think... You can find four here, the Garden of Eldan, Shrine of Elara, Shrine of Findari and Shrine of Brágon.");
+talkEntry:addResponse("Let me think... You can find four here, the Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Oldra and Shrine of Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tempel");
+talkEntry:addTrigger("Schrein");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein des Bragon"));
-talkEntry:addResponse("Lasst mich nachdenken... Ihr findet hier vier: Garten des Eldan, Schrein der Elara, Schrein der Findari und Schrein des Brágon.");
+talkEntry:addResponse("Lasst mich nachdenken... Ihr findet hier vier: Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein der Oldra und Schrein des Brágon.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Census");
+talkEntry:addResponse("The census office can be found in the Tower of Fire,  after you entered it from the market. You will find Torina Scibrim there. She will help you further.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Zensusbüro");
+talkEntry:addResponse("Das Zensusbüro kann im Turm des Feuers gefunden werden werden, gleich nachdem ihr diesen vom Markt aus kommend betreten habt. Man findet dort Torina Scibrim. Sie wird euch weiterhelfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Census");
-talkEntry:addResponse("The census office can be found in the Tower of Fire, next to the Library of Fire. You will find Reret Odohir there. He will help you further.");
+talkEntry:addResponse("The census office can be found in the Tower of Fire, after you entered it from the market. You can join the realm of wisdom there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zensusbüro");
-talkEntry:addResponse("Das Zensusbüro kann im Turm des Feuers neben der Bibliothek des Feuers gefunden werden werden. Man findet dort Reret Odohir. Er wird einem weiterhelfen.");
+talkEntry:addResponse("Das Zensusbüro kann im Turm des Feuers gefunden werden werden, gleich nachdem ihr diesen vom Markt aus kommend betreten habt. Dort könnt ihr dem Reich der Weisheit beitreten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Donkey stable");
-talkEntry:addTrigger("stable");
-talkEntry:addResponse("Right after the Lurnord Bridge. *points behind her*");
+talkEntry:addTrigger("Yewdale");
+talkEntry:addResponse("This place here is Yewdale. For more details ask Numila Irunnleh.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eselstall");
-talkEntry:addTrigger("Stall");
-talkEntry:addResponse("Gleich nach der Lurnord Brücke *zeigt hinter sich*");
+talkEntry:addTrigger("Eibental");
+talkEntry:addResponse("Dieser Ort hier ist Eibental. Befragt hierzu Numila Irunnleh um nähere Information zu erhalten .");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -534,56 +547,56 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Library Air");
 talkEntry:addTrigger("Air Library");
-talkEntry:addResponse("The Library of Air can be found on the second floor of the Tower of Air. Do I have to explain what you can do there? I hope not.");
+talkEntry:addResponse("The Library of Air can be found on the first floor of the Tower of Air. Do I have to explain what you can do there? I hope not.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bibliothek Luft");
 talkEntry:addTrigger("Luft Bibliothek");
-talkEntry:addResponse("Die Bibliothek der Luft kann im ersten Stock des Turms der Luft gefunden werden. Muss ich erklären, was man dort tun kann? Ich hoffe nicht.");
+talkEntry:addResponse("Die Bibliothek der Luft kann im Erdgeschoss des Turms der Luft gefunden werden. Muss ich erklären, was man dort tun kann? Ich hoffe nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("House God");
 talkEntry:addTrigger("God House");
-talkEntry:addResponse("The House of Gods is based on the fourth floor of the Tower of Air. There you can find items which represent the different gods and information about them.");
+talkEntry:addResponse("The House of Gods is based on the third floor of the Tower of Air. There you can find items which represent the different gods and information about them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Haus Götter");
 talkEntry:addTrigger("Götter Haus");
-talkEntry:addResponse("Das Haus der Götter ist lokalisiert im dritten Stock des Turms der Luft. Dort findet ihr Gegenstände welche die unterschiedlichen Götter repräsentieren sowie Informationen über sie.");
+talkEntry:addResponse("Das Haus der Götter ist lokalisiert im zweiten Stock des Turms der Luft. Dort findet ihr Gegenstände welche die unterschiedlichen Götter repräsentieren sowie Informationen über sie.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Shrine Elara");
 talkEntry:addTrigger("Elara Shrine");
-talkEntry:addResponse("The Shrine of Elara can be found on the third floor of the Tower of Air. There you can praise Elara and hope for more wisdom.");
+talkEntry:addResponse("The Shrine of Elara can be found on the second floor of the Tower of Air. There you can praise Elara and hope for more wisdom.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schrein Elara");
 talkEntry:addTrigger("Elara Schrein");
-talkEntry:addResponse("Der Schrein der Elara kann im zweiten Stock des Turms der Luft gefunden werden. Dort könnt ihr Elara anbeten und auf mehr Weisheit hoffen.");
+talkEntry:addResponse("Der Schrein der Elara kann im ersten Stock des Turms der Luft gefunden werden. Dort könnt ihr Elara anbeten und auf mehr Weisheit hoffen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Shrine Findari");
 talkEntry:addTrigger("Findari Shrine");
-talkEntry:addResponse("The Shrine of Findari can be found on the sixth floor, or rather at the top, of the Tower of Air.");
+talkEntry:addResponse("The Shrine of Findari can be found on the fifth floor, or rather at the top, of the Tower of Air.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schrein Findari");
 talkEntry:addTrigger("Findari Shrine");
-talkEntry:addResponse("Der Schrein der Findari kann im fünften Stock beziehungsweise auf der Spitze des Turms der Luft gefunden werden.");
+talkEntry:addResponse("Der Schrein der Findari kann im vierten Stock beziehungsweise auf der Spitze des Turms der Luft gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -605,41 +618,41 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Workshop");
-talkEntry:addResponse("The workshop in the basement of the Tower of Fire offers possibilities for tailors, cooks, glassblowers, and so on. Furthermore, due to Adron's Swill currently being closed, our tavern is also located there.");
+talkEntry:addResponse("The workshop in the basement of the Tower of Fire offers possibilities for tailors, glassblowers, and so on. Furthermore, due to that Adron's Swill is currently closed, our tavern is also located there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Werkstatt");
-talkEntry:addResponse("Die Werkstatt im Erdgeschoss des Turms des Feuers ermöglicht Schneidern, Köchen, Glasbläsern und so weiter eine Möglichkeit ihrer Tätigkeit nachzugehen. Zusätzlich ist auch unsere Taverne dort zu finden, da Adrons Gesöff momentan geschlossen ist.");
+talkEntry:addResponse("Die Werkstatt im Erdgeschoss des Turms des Feuers ermöglicht Schneidern, Glasbläsern und so weiter eine Möglichkeit ihrer Tätigkeit nachzugehen. Zusätzlich ist auch unsere Taverne dort zu finden, da Adrons Gesöff momentan geschlossen ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Library Fire");
 talkEntry:addTrigger("Fire Library");
-talkEntry:addResponse("The Library of Fire can be found on the second floor of the Tower of Fire. Do I have to explain what you can do there? I hope not.");
+talkEntry:addResponse("The Library of Fire can be found on the first floor of the Tower of Fire. Do I have to explain what you can do there? I hope not.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bibliothek Feuer");
 talkEntry:addTrigger("Feuer Bibliothek");
-talkEntry:addResponse("Die Bibliothek des Feuer kann im ersten Stock des Turms des Feuers gefunden werden. Muss ich erklären, was man dort tun kann? Ich hoffe nicht.");
+talkEntry:addResponse("Die Bibliothek des Feuer kann im Erdgeschoss des Turms des Feuers gefunden werden. Muss ich erklären, was man dort tun kann? Ich hoffe nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Archmage Chamber");
 talkEntry:addTrigger("Chamber Archmage");
-talkEntry:addResponse("The Chamber of the Archmage can be found on the third floor of the Tower of Fire. It is the private room of our Archmage Elvaine Morgan.");
+talkEntry:addResponse("The Chamber of the Archmage can be found on the second floor of the Tower of Fire. It is the private room of our Archmage Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier Kammer");
 talkEntry:addTrigger("Kammer Erzmagier");
-talkEntry:addResponse("Die Kammer des Erzmagier kann im zweiten Stock des Turms des Feuers gefunden werden. Es ist der private Raum unserers Erzmagier Elvaine Morgan.");
+talkEntry:addResponse("Die Kammer des Erzmagier kann im ersten Stock des Turms des Feuers gefunden werden. Es ist der private Raum unserers Erzmagier Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -647,100 +660,98 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hall Elara");
 talkEntry:addTrigger("Elara Hall");
-talkEntry:addResponse("The Hall of Elara can be found on the third floor of the Tower of Fire. It serves as an audience chamber or conference room to listen to and meet our Archmage Elvaine Morgan.");
+talkEntry:addResponse("The Hall of Elara can be found on the second floor of the Tower of Fire. It serves as an audience chamber or conference room to listen to and meet our Archmage Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Halle Elara");
 talkEntry:addTrigger("Elara Halle");
-talkEntry:addResponse("Die Halle der Elara kann im zweiten Stock des Turms des Feuers gefunden werden. Sie dient als ein Audienzsaal oder Konferenzraum zum hören und treffen unseres Erzmagier Elvaine Morgan.");
+talkEntry:addResponse("Die Halle der Elara kann im ersten Stock des Turms des Feuers gefunden werden. Sie dient als ein Audienzsaal oder Konferenzraum zum hören und treffen unseres Erzmagier Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon's Stronghold");
 talkEntry:addTrigger("Bragons Stronghold");
-talkEntry:addResponse("Bragon's Stronghold is on the fourth floor of the Tower of Fire and offers a possibility to improve your combat skills.");
+talkEntry:addResponse("Bragon's Stronghold is on the third floor of the Tower of Fire and offers a possibility to improve your combat skills.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragons Bollwerk");
 talkEntry:addTrigger("Bragon Bollwerk");
-talkEntry:addResponse("Bragon's Bollwerk ist im dritten Stock des Turms des Feuers und ermöglicht jeder Person seine Kampffähigkeiten zu verbessern.");
+talkEntry:addResponse("Bragon's Bollwerk ist im zweiten Stock des Turms des Feuers und ermöglicht jeder Person seine Kampffähigkeiten zu verbessern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Shrine Bragon");
 talkEntry:addTrigger("Bragon Shrine");
-talkEntry:addResponse("The Shrine of Bragon can be found on the sixth floor, or rather at the top, of the Tower of Fire.");
+talkEntry:addResponse("The Shrine of Bragon can be found on the fifth floor, or rather at the top, of the Tower of Fire.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schrein Bragon");
 talkEntry:addTrigger("Bragon Schrein");
-talkEntry:addResponse("Der Schrein des Bragon kann im fünften Stock beziehungsweise auf der Spitze des Turms des Feuers gefunden werden.");
+talkEntry:addResponse("Der Schrein des Bragon kann im vierten Stock beziehungsweise auf der Spitze des Turms des Feuers gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower Water");
 talkEntry:addTrigger("Water Tower");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Library of Water, Adron's Swill, Hubbub Chamber"));
-talkEntry:addResponse("This is the second southern tower and is mainly for bards. You can find the following rooms: Library of Water, Adron's Swill and Hubbub Chamber. Unfortunately, this tower is closed due to an incident you can read about in our history book.");
+talkEntry:addResponse("Unfortunately, this tower is closed due to an incident you can read about in our history book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm Wasser");
 talkEntry:addTrigger("Wasser Turm");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Bibliothek des Wassers, Adrons Gesöff, Lärmkammer"));
-talkEntry:addResponse("Dieser Turm ist der zweite südliche Turm und ist hauptsächlich für Barden gebaut worden. Ihr findet folgende Räume dort: Bibliothek des Wassers, Adrons Gesöff und Lärmkammer. Unglücklicherweise ist dieser Turm gesperrt, wie ihr unserem Geschichtsbuch entnehmen könnt.");
+talkEntry:addResponse("Unglücklicherweise ist dieser Turm gesperrt, wie ihr unserem Geschichtsbuch entnehmen könnt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Library Water");
 talkEntry:addTrigger("Water Library");
-talkEntry:addResponse("The Library of Water can be found on the second floor of the Tower of Water, but it is closed along with the rest of the Tower of Water, as you can read in our history book.");
+talkEntry:addResponse("The Library of Water can be found on the first floor of the Tower of Water, but it is closed along with the rest of the Tower of Water, as you can read in our history book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bibliothek Wasser");
 talkEntry:addTrigger("Wasser Bibliothek");
-talkEntry:addResponse("Die Bibliothek des Wassers kann im ersten Stock des Turms des Wassers gefunden werden. Sie ist aber gesperrt wie der ganze Turm des Wassers, wie ihr unserem Geschichtsbuch entnehmen könnt.");
+talkEntry:addResponse("Die Bibliothek des Wassers kann im Erdgeschoss des Turms des Wassers gefunden werden. Sie ist aber gesperrt wie der ganze Turm des Wassers, wie ihr unserem Geschichtsbuch entnehmen könnt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron's Swill");
 talkEntry:addTrigger("Adrons Swill");
-talkEntry:addResponse("Adron's Swill can be found on the first floor of the Tower of Water and serves as our tavern, but it is closed as along with the rest of the Tower of Water, as you can read in our history book.");
+talkEntry:addResponse("Adron's Swill can be found in the basement of the Tower of Water and serves as our tavern, but it is closed as along with the rest of the Tower of Water, as you can read in our history book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adrons Gesöff");
 talkEntry:addTrigger("Adron Gesöff");
-talkEntry:addResponse("Adrons Gesöff kann im Erdgeschoss des Turms des Wasser gefunden werden und dient als unsere Taverne. Sie ist aber gesperrt wie der ganze Turm des Wasser, wie ihr unserem Geschichtsbuch entnehmen könnt.");
+talkEntry:addResponse("Adrons Gesöff kann im Keller des Turms des Wasser gefunden werden und dient als unsere Taverne. Sie ist aber gesperrt wie der ganze Turm des Wasser, wie ihr unserem Geschichtsbuch entnehmen könnt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hubbub Chamber");
 talkEntry:addTrigger("Chamber Hubbub");
-talkEntry:addResponse("The Hubbub Chamber is on the third floor of the Tower of Water and serves as practice room for our bards, but it is closed as along with the rest of the Tower of Water, as you can read in our history book.");
+talkEntry:addResponse("The Hubbub Chamber is on the second floor of the Tower of Water and serves as practice room for our bards, but it is closed as along with the rest of the Tower of Water, as you can read in our history book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lärmkammer");
 talkEntry:addTrigger("Kammer Lärm");
-talkEntry:addResponse("Die Lärmkammer ist im zweiten Stock des Turms des Wassers und dient als Übungsraum für unsere Barden. Sie ist aber gesperrt wie der ganze Turm des Wassers, wie ihr unserem Geschichtsbuch entnehmen könnt.");
+talkEntry:addResponse("Die Lärmkammer ist im ersten Stock des Turms des Wassers und dient als Übungsraum für unsere Barden. Sie ist aber gesperrt wie der ganze Turm des Wassers, wie ihr unserem Geschichtsbuch entnehmen könnt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -763,63 +774,63 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Library Earth");
 talkEntry:addTrigger("Earth Library");
-talkEntry:addResponse("The Library of Earth can be found on the second floor of the Tower of Earth. Do I have to explain what you can do there? I hope not.");
+talkEntry:addResponse("The Library of Earth can be found on the first floor of the Tower of Earth. Do I have to explain what you can do there? I hope not.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bibliothek Erd");
 talkEntry:addTrigger("Erd Bibliothek");
-talkEntry:addResponse("Die Bibliothek der Erde kann im ersten Stock des Turms der Erde gefunden werden. Muss ich erklären, was man dort tun kann? Ich hoffe nicht.");
+talkEntry:addResponse("Die Bibliothek der Erde kann im Erdgeschoss des Turms der Erde gefunden werden. Muss ich erklären, was man dort tun kann? Ich hoffe nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kettle Chamber");
 talkEntry:addTrigger("Chamber Kettle");
-talkEntry:addResponse("The Kettle Chamber on the fourth floor of the Tower of Earth serves as a conference and study room for druids and alchemists.");
+talkEntry:addResponse("The Kettle Chamber on the third floor of the Tower of Earth serves as a conference and study room for druids and alchemists.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kesselkammer");
 talkEntry:addTrigger("Kammer Kessel");
-talkEntry:addResponse("Die Kesselkammer im dritten Stock im Turm der Erde dient als Konferenz- und Lehrraum für die Druiden und Alchemisten.");
+talkEntry:addResponse("Die Kesselkammer im zweiten Stock im Turm der Erde dient als Konferenz- und Lehrraum für die Druiden und Alchemisten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Root Chamber");
 talkEntry:addTrigger("Chamber Root");
-talkEntry:addResponse("In the Root Chamber on the third floor of the Tower of Earth, druids and alchemists can share their knowledge with their students.");
+talkEntry:addResponse("In the Root Chamber on the second floor of the Tower of Earth, druids and alchemists can share their knowledge with their students.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wurzelkammer");
 talkEntry:addTrigger("Kammer Wurzel");
-talkEntry:addResponse("In der Wurzelkammer im zweiten Stock des Turms der Erde können Druiden und Alchemisten ihr Wissen mit ihren Studenten teilen.");
+talkEntry:addResponse("In der Wurzelkammer im ersten Stock des Turms der Erde können Druiden und Alchemisten ihr Wissen mit ihren Studenten teilen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Test Chamber");
 talkEntry:addTrigger("Chamber Test");
-talkEntry:addResponse("In the Test Chamber on the fist floor of the Tower of Earth, alchemists can work and try their potions.");
+talkEntry:addResponse("In the Test Chamber in the basement of the Tower of Earth, alchemists can work and try their potions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Testkammer");
 talkEntry:addTrigger("Kammer Test");
-talkEntry:addResponse("In der Versuchskammer im Grundgeschoss des Turms der Erde können Alchemisten an ihren Tränken arbeiten und testen.");
+talkEntry:addResponse("In der Versuchskammer im Keller des Turms der Erde können Alchemisten an ihren Tränken arbeiten und testen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Versuchskammer");
 talkEntry:addTrigger("Kammer Versuch");
-talkEntry:addResponse("In der Versuchskammer im Grundgeschoss des Turms der Erde können Alchemisten an ihren Tränken arbeiten und testen.");
+talkEntry:addResponse("In der Versuchskammer im Keller des Turms der Erde können Alchemisten an ihren Tränken arbeiten und testen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1344,13 +1355,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Most of her priests are female, who serve the Goddess into old age. They think that when they die, they will be brought to a big garden gate. If they have been good, they can enjoy the wonders of the never ending garden.");
+talkEntry:addResponse("Most of her priests are female, who serve the Goddess into old age. They think that when they die, they will be brought to a big garden gate. If they have been good, they can enjoy the wonders of the never ending garden. However, there is a shrine here next to me on the coast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Die meisten Ihrer Priester sind weiblich und dienen der Gottheit bis ins hohe Alter. Sie glauben wenn sie sterben, werden sie zu einem prachtvollen Gartentor gebracht, und wenn sie gut waren dürfen sie an diesem wunderbaren Ort leben.");
+talkEntry:addResponse("Die meisten Ihrer Priester sind weiblich und dienen der Gottheit bis ins hohe Alter. Sie glauben wenn sie sterben, werden sie zu einem prachtvollen Gartentor gebracht, und wenn sie gut waren dürfen sie an diesem wunderbaren Ort leben. Wie dem auch sei, hier gleich an der Küste findet ihr einen Schrein");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
