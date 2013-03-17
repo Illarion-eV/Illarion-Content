@@ -18,6 +18,7 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
@@ -400,6 +401,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Census");
+talkEntry:addResponse("The Census office can be found in front of the Palace to the left ssside. There you can find information about your rank.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Zensusbüro");
+talkEntry:addResponse("Dasss Zensusbüro kann vor dem Palassst auf der linken Ssseite gefunden werden. Dort kannssst du Information über deinen Rang erhalten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Census");
 talkEntry:addResponse("The Census office can be found in front of the Palace to the left ssside. There you can register yourssself and become one of usss.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -408,20 +423,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zensusbüro");
 talkEntry:addResponse("Dasss Zensusbüro kann vor dem Palassst auf der linken Ssseite gefunden werden. Dort kann man sssich registrieren lasssen und einer von unsss werden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Donkey stable");
-talkEntry:addTrigger("stable");
-talkEntry:addResponse("Our donkey stable isss close to the Quartermaster's Store. Jussst go inssside the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eselstall");
-talkEntry:addTrigger("Stall");
-talkEntry:addResponse("Unser Essselssstall ist der Nähe desss Quartiermeisters Laden. Geh einfach in die Ssstadt rein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

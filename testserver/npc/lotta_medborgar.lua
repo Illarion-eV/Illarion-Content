@@ -271,37 +271,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Nothing to do for you yet, but soon.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Nothing to do for you yet, but soon.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Illarion");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Northeast, northwest, southwest, southeast"));
 talkEntry:addResponse("This land is called Illarion and I divide it into northeast, northwest, southwest and southeast.");
@@ -953,7 +922,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Don Valerio Guilianni' started] Find Don Valerio Guilianni and bring her your gift."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Don Valerio Guilianni' started] Find Don Valerio Guilianni and take her your gift."));
 talkEntry:addConsequence(npc.base.consequence.item.item(61, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(632, "=", 1));
 talkEntry:addResponse("Have you already met our Don? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since she loves gold. *hands over a gold coin.*");
@@ -978,7 +947,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Don Valerio Guilianni' started] Find Don Valerio Guilianni and bring her your gift."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Don Valerio Guilianni' started] Find Don Valerio Guilianni and take her your gift."));
 talkEntry:addConsequence(npc.base.consequence.item.item(61, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(632, "=", 1));
 talkEntry:addResponse("Have you already met our Don? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since she loves gold. *hands over a gold coin.*");

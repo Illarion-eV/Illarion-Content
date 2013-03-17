@@ -88,13 +88,6 @@ english, "inform" -> inform("[Keywords] Illarion, northeast, northwest, southwes
 english, "Iradona", "Goldschein" -> "You can find her outside the town, close to the teleporter. She has a lot of information and some tasks for you."
 "Iradona", "Goldschein" -> "Du findest sie draußen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für dich."
 
--- Optional: Catching quest triggers. Modify if the NPC does quests
--- quest information_galmair_2.quest belongs to this NPC: Quest-ID.: 632 - IN PROGRESS
-english, "quest", "mission" -> "Nothing to do for you yet, but soon."
-"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald."
-"task", "adventure" -> "Nothing to do for you yet, but soon."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
-
 -- Places
 english, "Illarion" -> inform("[Keywords] Northeast, northwest, southwest, southeast"), "This land is called Illarion and I divide it into northeast, northwest, southwest and southeast."
 "Illarion" -> inform("[Schlüsselwörter] Nordosten, Nordwesten, Südwesten, Südosten"), "Dieses Land wird Illarion genannt und ich unterteile sie in in Nordost, Nordwest, Südwest und Südost."
@@ -209,9 +202,9 @@ english, "Ruzusss" -> "You can find him in Cadomyr and he knows several places i
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_galmair_2.quest belongs to this NPC: Quest-ID.: 632 - IN PROGRESS
-queststatus(632) < 1, town = Galmair, english, "quest", "mission" -> queststatus(632) = 1, item(61, 1, 777), inform("[New Quest 'Find Don Valerio Guilianni' started] Find Don Valerio Guilianni and bring her your gift."), "Have you already met our Don? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since she loves gold. *hands over a gold coin.*"
+queststatus(632) < 1, town = Galmair, english, "quest", "mission" -> queststatus(632) = 1, item(61, 1, 777), inform("[New Quest 'Find Don Valerio Guilianni' started] Find Don Valerio Guilianni and take her your gift."), "Have you already met our Don? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since she loves gold. *hands over a gold coin.*"
 queststatus(632) < 1, town = Galmair, "quest", "mission" -> queststatus(632) = 1, item(61, 1, 777), inform("[Neues Quest 'Finde Don Valerio Guilianni' gestartet] Finde Don Valerio Guilianni und bringe ihm dein Geschenk."), "Hast du bereits den Don kennengelernt? Falls nicht, dann solltest du dich bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er ein Auge auf Gold geworfen hat. *überreicht eine Goldmünze*"
-queststatus(632) < 1, town = Galmair, "task", "adventure", "order" -> queststatus(632) = 1, item(61, 1, 777), inform("[New Quest 'Find Don Valerio Guilianni' started] Find Don Valerio Guilianni and bring her your gift."), "Have you already met our Don? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since she loves gold. *hands over a gold coin.*"
+queststatus(632) < 1, town = Galmair, "task", "adventure", "order" -> queststatus(632) = 1, item(61, 1, 777), inform("[New Quest 'Find Don Valerio Guilianni' started] Find Don Valerio Guilianni and take her your gift."), "Have you already met our Don? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since she loves gold. *hands over a gold coin.*"
 queststatus(632) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(632) = 1, item(61, 1, 777), inform("[Neues Quest 'Finde Don Valerio Guilianni' gestartet] Finde Don Valerio Guilianni und bringe ihm dein Geschenk."), "Hast du bereits den Don kennengelernt? Falls nicht, dann solltest du dich bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er ein Auge auf Gold geworfen hat. *überreicht eine Goldmünze*"
 english, "quest", "mission" -> "Nothing to do for you yet but soon I have plenty of tasks for you."
 "quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich."
