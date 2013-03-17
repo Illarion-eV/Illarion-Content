@@ -8,7 +8,7 @@ ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 Title = {}
-Title[GERMAN] = "Der m√§chtige Turniergewinner"
+Title[GERMAN] = "Der m‰chtige Turniergewinner"
 Title[ENGLISH] = "The mighty tournament champion"
 
 -- Insert an extensive description of each status here, in both languages
