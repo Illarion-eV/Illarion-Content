@@ -66,7 +66,7 @@ function onCasted(Monster,Enemy)
 end
 
 function onDeath(Monster)
-	
+	if isTestserver() then debug("enter onDeath") end
 	if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
