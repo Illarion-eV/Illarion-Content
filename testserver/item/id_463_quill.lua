@@ -55,7 +55,9 @@ function WriteLabel (User,SourceItem)
 				local labelText = dialog:getInput()
 				base.lookat.SetSpecialDescription(bottle,"Flaschenetikett: ".."\""..labelText.."\"","Bottle label: ".."\""..labelText.."\"")
 				world:changeItem(bottle)
-			end	
+			else
+                User:inform("Du brauchst eine Flasche, um diese zu beschrfiten.","You need a bottle if you want to label one.")
+            end				
 		end
 	end
 	local dialog = InputDialog(title, infoText, false, 100, callback)
