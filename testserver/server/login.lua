@@ -344,7 +344,7 @@ function PayOutWage(Recipient,town)
 			while RankedWage>0 do
 				local randomGem=math.random(1,2);
 				local maxGemLevel=math.floor(RankedWage^(1/3))
-				local gemLevel= base.common.Limit(math.random(1,maxGemLevel), 1, 5)
+				local gemLevel= base.common.Limit(math.random(1,maxGemLevel), 1, 10)
 				
 				local gemsByTown={};
 				gemsByTown["Cadomyr"]={item.gems.TOPAZ, item.gems.AMETHYST}
