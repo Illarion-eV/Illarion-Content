@@ -3,6 +3,22 @@
 -- Written by Flux
 
 
+-- SUPER IMPORTANT TIP:
+-- There are several variables in this script that can be easily tweaked to change things in the game.
+-- Only a few of them should ever be considered for changing. These are the ones:
+-- The Armour Scaling Factor (ASF). This scales how much better the top armour is than the bottom one.
+-- The Shield Scaling Factor (SSF). This scales how much better the top shield is than the bottom one.
+-- The Global Damage Factor (GDF). This scales how much damage all weapons do.
+-- The Global Speed Mod (GSM). This scales how fast everyone hits.
+-- The Distance Reduction Modifier (DRM). Modifies how inaccurate archers get from further away.
+
+-- Weapon scaling is actually done in the stats, because it needs to scaled the Weapon Factor (WF).
+-- This is equal to Attack*Accuracy/Actionpoints. This is harder to scale.
+-- This is because armour is obvious. 100 armour = The top stat. With weapons it is much different.
+-- Because some weapons are slow but strong and some accurate but weak etc. etc.
+-- Ideally weapon fightpoints should be >=10, accuray <=98 and attack can be anything.
+-- The WF itself scales up to 7.5.
+
 --[[ Weapontypes:
 1:  1 hd slashing
 2:  1 hd concussion
@@ -12,9 +28,9 @@
 6:  2 hd puncture
 7:  (cross-) Bow, sling, spear, throwing star
 10: Arrows
-11: crossbow bolts
-12: stone
-13: staves
+11: Crossbow bolts
+12: Sling ammo
+13: Wands
 14: shields
 ]]
 
@@ -173,6 +189,12 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         end;
     end;
 
+	-- This Armour Scaling Factor (ASF) is important. You can think of it like this:
+	-- If ASF = 5, the top armour in the game is 5x as good as the worst armour in the game
+	local ArmourScalingFactor = 5;
+
+	armourValue = (100/ArmourScalingFactor) + armourValue*(1-1/ArmourScalingFactor);
+
     Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 250);
 
 	Globals.Damage = skillmod*Globals.Damage;
@@ -301,7 +323,10 @@ function CalculateDamage(Attacker, Globals)
 		CritBonus=2;
 	end;
 
-    Globals["Damage"] = BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)/100;
+	--The Global Damage Factor (GDF). Adjust this to change how much damage is done per hit on all attacks.
+	local GlobalDamageFactor = 1/100;
+
+    Globals["Damage"] = GlobalDamageFactor*BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus);
    
 end;
 
@@ -419,8 +444,14 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	end;
 
 	if (Attacker.AttackKind==4) then
-		local distance = AttackerStruct.Char:distanceMetric(Defender);
+
+		--The Distance Reduction Modifier (DRM). This value scales the chance of hitting in archery
+		--After the pointblank range. In other words, 3 squares away (just out of PB range) has
+		--1x the normal accuracy. One square further away is DRM x normal accuracy.
+		--One square even further away is DRM^2 x normal accuracy.
 		local DistanceReductionModifier = 0.93
+
+		local distance = Attacker.Char:distanceMetric(Defender);
 		local archerymod = min(1,(1-DistanceReductionModifier)+DistanceReductionModifier^(distance-2))
 		--The value of 2 is used because that's the number of squares away it starts.
 		chancetohit = chancetohit*archerymod;
@@ -465,12 +496,17 @@ function HitChanceFlux(Attacker, Defender, Globals)
 			end;
 		end;
 		
+		--The Shield Scaling Factor (SSF). Changes how much the top shield is better than the worse one.
+		local ShieldScalingFactor =10;
+
+		local defenderdefense = (100/ShieldScalingFactor) + parryWeapon.Defence*(1-1/ShieldScalingFactor);
+
 		local qualitymod = 0.91+0.02*math.floor(parryItem.quality/100);
 		parryChance = (Defender.parry / 5); --0-20% by the skill
         parryChance = parryChance * (0.5 + (Defender.agility) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
-        parryChance = parryChance + (parryWeapon.Defence) / 5; --0-20% bonus by the weapon/shield
+        parryChance = parryChance + (defenderdefense) / 5; --0-20% bonus by the weapon/shield
 		parryChance = parryChance * qualitymod;
-		parryChance = math.min(math.max(parryChance,5),95);
+		parryChance = math.min(math.max(parryChance,5),95); -- Min and max parry are 5% and 95% respectively
 		
 	else
 		return true; -- If they can't parry, it succeeds
@@ -783,6 +819,7 @@ function GetArmourType(Defender, Globals)
 		-- Light is good against conc/thrust
 		Defender["DefenseSkillName"] = Character.lightArmour;
 	else
+		Defender["DefenseSkillName"] = false;
 		Defender["DefenseSkill"] = false;
 		return false;
 	end;
@@ -1024,8 +1061,10 @@ function HandleMovepoints(Attacker, Globals)
         weaponFightpoints = content.fighting.GetWrestlingMovepoints(Attacker.Race);
     end;
     
-            
-    local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
+    -- The Global Speed Mod (GSM). Increase this to make fights faster.
+	local GlobalSpeedMod = 100;
+
+    local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / GlobalSpeedMod );
 
 	if(Globals.criticalHit==1) then
 		reduceFightpoints = 2;
@@ -1048,7 +1087,7 @@ end;
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP)
 --debug("          NOW LEARNING att: "..Attacker.Skillname..", "..(AP/3)..", "..(math.max(Defender.dodge, Defender.parry) + 20));
-	if not Defender.DefenseSkill then
+	if not Defender.DefenseSkillName then
 		Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.parry) + 20);
 	else
 		Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.DefenseSkill, Defender.parry) + 20);

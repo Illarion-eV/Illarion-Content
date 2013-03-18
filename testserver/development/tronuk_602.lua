@@ -8,7 +8,7 @@ ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 Title = {}
-Title[GERMAN] = "Bier fÃ¼r Tronuk"
+Title[GERMAN] = "Bier für Tronuk"
 Title[ENGLISH] = "Beer for Tronuk"
 
 -- Insert an extensive description of each status here, in both languages
@@ -17,9 +17,9 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Bringe Tronuk eine volle Flasche Bier."
-Description[ENGLISH][1] = "Bring Tronuk a full bottle beer."
+Description[ENGLISH][1] = "Take Tronuk a full bottle beer."
 Description[GERMAN][2] = "Tronuk hat nun genug Bier aber vielleicht möchte er zu einem späteren Zeitpunkt nach einer weiteren Flasche verlangen."
-Description[ENGLISH][2] = "Tronuk has enough beer for now but he might want to have another bottle later on."
+Description[ENGLISH][2] = "Tronuk has enough beer for now but he might want another bottle later on."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}

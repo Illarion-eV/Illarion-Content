@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -850,8 +850,25 @@ talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches his forehead.
 talkingNPC:addCycleText("Ein Kubus - wie genial!", "A cube - how genius!");
 talkingNPC:addCycleText("Der Königin ein Grabmal zu erbauen ist eine äußerst ehrbare Tat.", "To build the Queen's grave is a very honourable deed.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(24,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(26,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(737,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(734,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(736,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2588,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(733,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(735,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1266,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(24,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(26,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(737,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(734,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(736,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2588,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(733,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(735,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1266,"buySecondary"));
 tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear you can not afford that.");
 tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
 tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
