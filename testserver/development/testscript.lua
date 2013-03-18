@@ -819,6 +819,7 @@ function GetArmourType(Defender, Globals)
 		-- Light is good against conc/thrust
 		Defender["DefenseSkillName"] = Character.lightArmour;
 	else
+		Defender["DefenseSkillName"] = false;
 		Defender["DefenseSkill"] = false;
 		return false;
 	end;
@@ -1086,7 +1087,7 @@ end;
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP)
 --debug("          NOW LEARNING att: "..Attacker.Skillname..", "..(AP/3)..", "..(math.max(Defender.dodge, Defender.parry) + 20));
-	if not Defender.DefenseSkill then
+	if not Defender.DefenseSkillName then
 		Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.parry) + 20);
 	else
 		Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.DefenseSkill, Defender.parry) + 20);
