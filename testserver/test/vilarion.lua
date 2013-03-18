@@ -96,8 +96,7 @@ function UseItem(User, SourceItem, ltstate)
     end
 
     if (User.lastSpokenText == "create") then
-        User:createItem(529, 1, 599, {craftedBy="Hero"})
-        User:createItem(529, 1, 799, {craftedBy="Hero"})
+        world:createItemFromId(1, 1, User.pos, true, 222, nil)
     end
 
     if (User.lastSpokenText == "server") then
