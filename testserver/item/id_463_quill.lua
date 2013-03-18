@@ -7,7 +7,7 @@ module("item.id_463_quill", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
     -- we check if the char holds a bottle to label it
-    local bottlePos = CheckIfBottleInHand(User)
+    local bottle = CheckIfBottleInHand(User)
 	if bottle then 
 	    WriteLabel(User,SourceItem)
 	end	
@@ -30,19 +30,8 @@ function CheckIfBottleInHand(User)
 end
 
 function WriteLabel (User,SourceItem)
-    --[[
-	-- does the char have parchment?
-    if User:countItem(2745) < 1 then 
-	    User:inform("Dir fehlt Pergament, das du als Etikett nutzen könntest.","You don't have any parchment you could use as a label.")		
-	    return
-	end]]
-	
-	if bottle.number > 1 then
-	    User:inform("Du kannst immer nur eine Flasche beschriften.","You can label only one bottle at once.")		
-	    return
-	end
-	
-    local title
+    
+	local title
 	local infoText
     if User:getPlayerLanguage() == 0 then
 	    title = "Tranketikettierung" 
@@ -59,10 +48,13 @@ function WriteLabel (User,SourceItem)
 		else
 			local bottle = CheckIfBottleInHand(User) -- check for the bottle again
 			if bottle then
+				if bottle.number > 1 then
+					User:inform("Du kannst immer nur eine Flasche beschriften.","You can label only one bottle at once.")		
+					return
+				end
 				local labelText = dialog:getInput()
 				base.lookat.SetSpecialDescription(bottle,"Flaschenetikett: ".."\""..labelText.."\"","Bottle label: ".."\""..labelText.."\"")
 				world:changeItem(bottle)
-				--User:eraseItem(2745,1)
 			end	
 		end
 	end
