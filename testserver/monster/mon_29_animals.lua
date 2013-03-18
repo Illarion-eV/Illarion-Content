@@ -66,7 +66,6 @@ function onCasted(Monster,Enemy)
 end
 
 function onDeath(Monster)
-	if isTestserver() then debug("enter onDeath") end
 	if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
@@ -83,7 +82,6 @@ function onDeath(Monster)
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
-	if isTestserver() then debug("Monster ID = "..MonID) end
 
     if (MonID==181 or MonID==182) then --sheep
 
