@@ -1088,9 +1088,13 @@ end;
 function LearnSuccess(Attacker, Defender, AP)
 --debug("          NOW LEARNING att: "..Attacker.Skillname..", "..(AP/3)..", "..(math.max(Defender.dodge, Defender.parry) + 20));
 	if not Defender.DefenseSkillName then
-		Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.parry) + 20);
+		if Attacker.Skillname then
+			Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.parry) + 20);
+		end
 	else
-		Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.DefenseSkill, Defender.parry) + 20);
+		if Attacker.Skillname then
+			Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.DefenseSkill, Defender.parry) + 20);
+		end
 		Defender.Char:learn(Defender.DefenseSkillName,AP/2,Attacker.skill+20);
 	end;
     
