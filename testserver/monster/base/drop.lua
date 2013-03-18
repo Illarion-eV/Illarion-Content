@@ -9,6 +9,7 @@ function ClearDropping()
 end
 
 function AddDropItem(ItemID,Amount,Prob,Qual,DataValue,Category)
+	if isTestserver() then debug("enter AddDropItem") end
     if( Amount == nil ) then
         return false;
     elseif (Amount>0) then
@@ -30,6 +31,7 @@ function AddDropItem(ItemID,Amount,Prob,Qual,DataValue,Category)
 end
 
 function Dropping(Char)
+	if isTestserver() then debug("enter Dropping") end
     if ((dropped == nil) or (dropped ~= Char.id)) then
         dropped = Char.id;
         first = true
