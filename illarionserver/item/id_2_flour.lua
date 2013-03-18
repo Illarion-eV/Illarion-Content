@@ -5,8 +5,6 @@ module("item.id_2_flour", package.seeall)
 
 --if isTestserver() then
 
-require("test.martin")
-
 function UseItem(User, SourceItem, ltstate)
 	if User.name=="Ciryon" then
 	User:inform("drin")
