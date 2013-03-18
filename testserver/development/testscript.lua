@@ -193,7 +193,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 	-- If ASF = 5, the top armour in the game is 5x as good as the worst armour in the game
 	local ArmourScalingFactor = 5;
 
-	armourValue = (100/BigScalingFactor) + armourValue*(1-1/BigScalingFactor);
+	armourValue = (100/ArmourScalingFactor) + armourValue*(1-1/ArmourScalingFactor);
 
     Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 250);
 
