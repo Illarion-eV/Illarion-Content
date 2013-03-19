@@ -26,10 +26,9 @@ function onLogin( player )
 	end
 	
 	--Taxes (has to be redone by "someone")
-    if (not player:isAdmin() or player.name == "Jupiter") and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
+    if not player:isAdmin()  and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
 		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
 			-- So let there be taxes!
-			if isTestserver() then debug("before payTaxes and receiveGems") end
 			payTaxes(player);
 			receiveGems(player);
 		end
@@ -259,7 +258,6 @@ end
 
 
 function payTaxes(taxPayer)
-	if isTestserver() then debug("payTaxes") end
 	local yr=world:getTime("year");
 	local mon=world:getTime("month");
 	local timeStmp=yr*1000+mon;
@@ -276,7 +274,6 @@ function payTaxes(taxPayer)
 end
 
 function receiveGems(gemRecipient)
-	if isTestserver() then debug("receiveGems") end
 	local yr=world:getTime("year");
 	local mon=world:getTime("month"); --- TODO
 	local timeStmp=yr*1000+mon;
