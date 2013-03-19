@@ -26,7 +26,7 @@ function onLogin( player )
 	end
 	
 	--Taxes (has to be redone by "someone")
-    if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
+    if (not player:isAdmin() or player.name == "Jupiter") and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
 		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
 			-- So let there be taxes!
 			if isTestserver() then debug("before payTaxes and receiveGems") end
