@@ -48,16 +48,19 @@ function RareArmours(Item)
 		Item:setData("RareArmour", -1);
 		base.lookat.SetSpecialDescription(Item, "This appears to be an uncommon artifact. You should get it repaired by a smith.", "This appears to be an uncommon artifact. You should get it repaired by a smith.");
 		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		base.lookat.SetItemRareness(Item,ItemLookAt.uncommonItem);
 		world:changeItem(Item);
 	elseif(rand<chanceofraredrop) then
 		Item:setData("RareArmour", -2);
 		base.lookat.SetSpecialDescription(Item, "This appears to be a rare artifact. You should get it repaired by a smith.", "This appears to be a rare artifact. You should get it repaired by a smith.");
 		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		base.lookat.SetItemRareness(Item,ItemLookAt.rareItem);
 		world:changeItem(Item);
 	elseif(rand<chanceofexceptionaldrop) then
 		Item:setData("RareArmour", -3);
 		base.lookat.SetSpecialDescription(Item, "This appears to be an exceptional artifact. You should get it repaired by a smith.", "This appears to be an exceptional artifact. You should get it repaired by a smith.");
 		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		base.lookat.SetItemRareness(Item,ItemLookAt.epicItem);
 		world:changeItem(Item);
 	end
 
@@ -81,20 +84,20 @@ function RareWeapons(Item)
 		Item:setData("RareWeapon", -1);
 		base.lookat.SetSpecialDescription(Item, "This appears to be an uncommon artifact. You should get it repaired by a smith.", "This appears to be an uncommon artifact. You should get it repaired by a smith.");
 		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		base.lookat.SetItemRareness(Item,ItemLookAt.uncommonItem);
 		world:changeItem(Item);
-		debug("Uncommon drop");
 	elseif(rand<chanceofraredrop) then
 		Item:setData("RareWeapon", -2);
 		base.lookat.SetSpecialDescription(Item, "This appears to be a rare artifact. You should get it repaired by a smith.", "This appears to be a rare artifact. You should get it repaired by a smith.");
 		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		base.lookat.SetItemRareness(Item,ItemLookAt.rareItem);
 		world:changeItem(Item);
-		debug("Rare drop");
 	elseif(rand<chanceofexceptionaldrop) then
 		Item:setData("RareWeapon", -3);
 		base.lookat.SetSpecialDescription(Item, "This appears to be an exceptional artifact. You should get it repaired by a smith.", "This appears to be an exceptional artifact. You should get it repaired by a smith.");
 		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		base.lookat.SetItemRareness(Item,ItemLookAt.epicItem);
 		world:changeItem(Item);
-		debug("Exceptional drop");
 	end
 
 end
