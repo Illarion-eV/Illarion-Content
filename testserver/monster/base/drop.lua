@@ -1,5 +1,6 @@
 require("base.common")
 require("base.messages")
+require("base.lookat")
 
 module("monster.base.drop", package.seeall)
 
@@ -29,6 +30,72 @@ function AddDropItem(ItemID,Amount,Prob,Qual,DataValue,Category)
     return false;
 end
 
+function RareArmours(Item)
+	
+	local rand = math.random();
+	
+	--The chances for an uncommon, rare or exceptional drop
+	local uncommondrop = 1/100;
+	local raredrop = 1/1000;
+	local exceptionaldrop = 1/10000;
+
+
+	--The probabilities should be independent of each other, so they have to divide by the probability so far.
+	local chanceofraredrop=uncommondrop+raredrop/(1-uncommondrop);
+	local chanceofexceptionaldrop=chanceofraredrop+exceptionaldrop/(1-chanceofraredrop);
+
+	if(rand<uncommondrop) then
+		Item:setData("RareArmour", -1);
+		base.lookat.SetSpecialDescription(Item, "This appears to be an uncommon artifact. You should get it repaired by a smith.", "This appears to be an uncommon artifact. You should get it repaired by a smith.");
+		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		world:changeItem(Item);
+	elseif(rand<chanceofraredrop) then
+		Item:setData("RareArmour", -2);
+		base.lookat.SetSpecialDescription(Item, "This appears to be a rare artifact. You should get it repaired by a smith.", "This appears to be a rare artifact. You should get it repaired by a smith.");
+		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		world:changeItem(Item);
+	elseif(rand<chanceofexceptionaldrop) then
+		Item:setData("RareArmour", -3);
+		base.lookat.SetSpecialDescription(Item, "This appears to be an exceptional artifact. You should get it repaired by a smith.", "This appears to be an exceptional artifact. You should get it repaired by a smith.");
+		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		world:changeItem(Item);
+	end
+
+end
+
+function RareWeapons(Item)
+
+	local rand = math.random();
+	
+	--The chances for an uncommon, rare or exceptional drop
+	local uncommondrop = 1/100;
+	local raredrop = 1/1000;
+	local exceptionaldrop = 1/10000;
+
+
+	--The probabilities should be independent of each other, so they have to divide by the probability so far.
+	local chanceofraredrop=uncommondrop+raredrop/(1-uncommondrop);
+	local chanceofexceptionaldrop=chanceofraredrop+exceptionaldrop/(1-chanceofraredrop);
+
+	if(rand<uncommondrop) then
+		Item:setData("RareWeapon", -1);
+		base.lookat.SetSpecialDescription(Item, "This appears to be an uncommon artifact. You should get it repaired by a smith.", "This appears to be an uncommon artifact. You should get it repaired by a smith.");
+		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		world:changeItem(Item);
+	elseif(rand<chanceofraredrop) then
+		Item:setData("RareWeapon", -2);
+		base.lookat.SetSpecialDescription(Item, "This appears to be a rare artifact. You should get it repaired by a smith.", "This appears to be a rare artifact. You should get it repaired by a smith.");
+		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		world:changeItem(Item);
+	elseif(rand<chanceofexceptionaldrop) then
+		Item:setData("RareWeapon", -3);
+		base.lookat.SetSpecialDescription(Item, "This appears to be an exceptional artifact. You should get it repaired by a smith.", "This appears to be an exceptional artifact. You should get it repaired by a smith.");
+		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		world:changeItem(Item);
+	end
+
+end
+
 function Dropping(Char)
     if ((dropped == nil) or (dropped ~= Char.id)) then
         dropped = Char.id;
@@ -45,6 +112,20 @@ function Dropping(Char)
 					    values[4] = nil; --catching "old" data values
 					end
                     Item=world:createItemFromId(values[1],values[2],Char.pos,true,values[3], values[4]) -- Do not create items with old data
+					
+					if isTestserver() then
+						local armourfound, armour;
+						armourfound, armour = world:getArmorStruct(values[1]);
+						local weaponfound, weapon;
+						weaponfound, weapon = world:getWeaponStruct(values[1]);
+
+						if armourfound then
+							RareArmours(Item);
+						elseif weaponfound then
+							RareWeapons(Item);
+						end
+					end;
+
 					-- values[1]=ID, values[2]=amount, values[3]=quality, values[4]=data
                 end
             end
