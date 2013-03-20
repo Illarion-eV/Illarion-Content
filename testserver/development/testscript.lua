@@ -546,7 +546,7 @@ function CheckAttackOK(CharStruct)
         return false;
     end;
 
-	if (CharStruct.WeaponItem:getData("RareWeapon"<0) then -- Item is a broken artifact
+	if (CharStruct.WeaponItem:getData("RareWeapon")<0) then -- Item is a broken artifact
         return false;
     end;
 
