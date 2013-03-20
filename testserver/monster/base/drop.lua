@@ -70,8 +70,8 @@ function RareWeapons(Item)
 	--The chances for an uncommon, rare or exceptional drop
 	local uncommondrop = 1/100;
 	local raredrop = 1/1000;
-	local exceptionaldrop = 1/10000;
-
+	--local exceptionaldrop = 1/10000;
+	local exceptionaldrop = 1/2;
 
 	--The probabilities should be independent of each other, so they have to divide by the probability so far.
 	local chanceofraredrop=uncommondrop+raredrop/(1-uncommondrop);
