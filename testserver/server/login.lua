@@ -26,8 +26,8 @@ function onLogin( player )
 	end
 	
 	--Taxes (has to be redone by "someone")
-    if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
-		if not player.name == "Valerio Guilianni" and player.name == "Rosaline Edwards" and player.name ==  "Elvaine Morgan" then --leader don't pay taxes or get gems
+    if not player:isAdmin()  and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
+		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
 			-- So let there be taxes!
 			payTaxes(player);
 			receiveGems(player);
@@ -486,7 +486,7 @@ function payNow(User)
 	
     tax=math.floor(val*taxHeight);
     local totTax=tax; -- total tax to pay
-	log("[taxes] "..User.id.."; paid: "..totTax)
+	log("[taxes] "..User.id.." paid "..totTax.." copper coins to "..town)
 	
 	-- try to get the payable tax from the depots first
 	for i=1, #(depNr) do
