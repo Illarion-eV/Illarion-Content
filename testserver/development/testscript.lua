@@ -546,6 +546,10 @@ function CheckAttackOK(CharStruct)
         return false;
     end;
 
+	if (CharStruct.WeaponItem:getData("RareWeapon"<0) then -- Item is a broken artifact
+        return false;
+    end;
+
 --    CharStruct.Char:talk(Character.say,"check 3 ok");
     if (CharStruct.SecIsWeapon) then
         -- there is something in the second hand
