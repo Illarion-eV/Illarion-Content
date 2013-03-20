@@ -174,6 +174,36 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         end;
     end;
 
+	local Noobmessupmalus = 5; -- Amount that armour value is divided by if your skill isn't high enough to use this armour.
+	--No level implemented yet, for now derive it from the armour value.
+	local ArmourLevel=0;
+
+	local skilltype= Defender.DefenseSkillName;
+	if(skilltype==Character.lightArmour) then
+		ArmourLevel = armour.ThrustArmor;
+	elseif (skilltype==Character.mediumArmour) then
+		ArmourLevel = armour.StrokeArmor;
+	elseif (skilltype==Character.heavyArmour) then
+		ArmourLevel = armour.PunctureArmor;
+	end;
+
+	if(ArmourLevel>Defender.DefenseSkill) then
+		armourValue = armourValue/Noobmessupmalus;
+		Defender.Char:inform("Your armour is too high level for you");
+	end
+
+	local Rarity = NotNil(tonumber(Globals.HittedItem:getData("RareArmour")));
+
+	if(Rarity<0) then -- Armour is broken
+		armourValue = 0;
+		Defender.Char:inform("Your armour piece is a broken artifact. No defense");
+	elseif(Rarity>0) then -- Armour is a rare artifact
+		--Each bonus is equivalent to 20 skill levels of equipment.
+		local RarityBonus = 20*Rarity;
+		armourValue = armourValue+RarityBonus;
+	end
+
+
     armourfound, armour = world:getNaturalArmor(Defender.Race);
     if armourfound then
         if (Attacker.AttackKind == 0) then --wrestling
@@ -304,6 +334,18 @@ function CalculateDamage(Attacker, Globals)
     
     if Attacker.IsWeapon then
         BaseDamage = Attacker.Weapon.Attack * 10;
+
+		-- If it has RareWeapon data 1, 2 or 3 it's a special version. Has more attack.
+		local Rarity = NotNil(tonumber(Attacker.WeaponItem:getData("RareWeapon")));
+		if (Rarity>0) then
+			--This "20" corresponds to how many skill levels it should boost by. 20 is the value for now. Might be OP. If so, lower.
+			local RarityBonus = 20*Rarity;
+			--This "6" value isn't a frickelfactor. It comes from the fact that attack for eachh weapon is derived by:
+			--AP/Accuracy*(150+ASL*6), where ASL is Associated Skill Level. This means a level 100 weapon is 5x as good as a base one.
+			--This formula is used because the base WF values are based on 1.5+ASL*6/100
+			BaseDamage = BaseDamage + Attacker.Weapon.ActionPoints/Attacker.Weapon.Accuracy*6*RarityBonus;
+		end 
+
     else
         BaseDamage = content.fighting.GetWrestlingAttack( Attacker.Race ) * 10;
     end;
