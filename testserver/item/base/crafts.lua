@@ -295,16 +295,20 @@ function Craft:loadDialog(dialog, user)
         local category = self.categories[i]
         local categoryRequirement = category.minSkill
         if categoryRequirement and categoryRequirement <= skill then
-            if user:getPlayerLanguage() == Player.german then
-                dialog:addGroup(category.nameDE)
-            else
-                dialog:addGroup(category.nameEN)
-            end
+			if(category.nameEN~="Rare Items") then
+				if user:getPlayerLanguage() == Player.german then
+					dialog:addGroup(category.nameDE)
+				else
+					dialog:addGroup(category.nameEN)
+				end
 
-            categoryListId[i] = listId
-            listId = listId + 1
+				categoryListId[i] = listId
+				listId = listId + 1
+			end
         end
     end
+
+	local zero=true;
 
     for i = 1,#self.products do
         local product = self.products[i]
@@ -324,6 +328,16 @@ function Craft:loadDialog(dialog, user)
 					special=tonumber(special);
 					if not RareItems(user,product.item,-special) then
 						continue=false;
+					elseif(zero) then
+						zero=false;
+						if user:getPlayerLanguage() == Player.german then
+							dialog:addGroup(self.categories[#self.categories].nameDE)
+						else
+							dialog:addGroup(self.categories[#self.categories].nameEN)
+						end
+
+						categoryListId[#self.categories] = listId;
+						listId = listId + 1;
 					end
 				end
 
