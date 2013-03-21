@@ -312,52 +312,14 @@ function Craft:loadDialog(dialog, user)
         
         if productRequirement <= skill then
 			
-			local continue = true;
-			if isTestserver() then
+			dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
 
-				local special = NotNil(tonumber(product:getData("RareArmour")));
-				if(special==0) then
-					special = NotNil(tonumber(product:getData("RareWeapon")));
-				end
-
-				if(special>0) then
-					if not RareItems(user,product.id,-special) then
-						continue=false;
-					end
-				end
-
+			for j = 1, #product.ingredients do
+				local ingredient = product.ingredients[j]
+				dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
 			end
-
-			if(continue) then
-				dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
-
-				for j = 1, #product.ingredients do
-					local ingredient = product.ingredients[j]
-					dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
-				end
-			end;
         end
     end
-end
-
-function RareItems(user, comparisonid, dataId)
-
-    for i=1,#slots do
-        local slot = slots[i]
-        local item = user:getItemAt(slot)
-
-        if not filter or filter(item) then
-            local itemId = item.id
-        
-            if itemId==comparisonid then
-				if (NotNil(tonumber(Globals.HittedItem:getData("RareArmour")))==dataId or NotNil(tonumber(Globals.HittedItem:getData("RareWeapon")))==dataId ) then
-					return true;
-				end
-            end
-        end
-    end
-
-	return false;
 end
 
 function Craft:refreshDialog(dialog, user)
