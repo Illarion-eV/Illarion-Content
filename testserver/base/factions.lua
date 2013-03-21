@@ -284,7 +284,7 @@ end
 function setSpecialRank(player, rank) 
 	for i=0, #specialRanks do
 		debug(player.name.." "..rank.." "..i);
-		if rank == i then 
+		if rank == specialRanks[i] then 
 			debug("rank set")
 			player:setQuestProgress(200, tonumber(rank));
 		end
@@ -325,7 +325,7 @@ function setRankpoints(originator, rankpoints)
 
 	if isTestserver() then
 	for i=0, #(specialRanks) do
-		if rank ~= i then
+		if rank ~= specialRanks[i] then
 			Faction.rankTown = checkForRankChange(rankpoints,rank);	
 		end
 	end
