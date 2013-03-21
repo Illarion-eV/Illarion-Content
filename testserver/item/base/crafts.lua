@@ -318,6 +318,7 @@ function Craft:loadDialog(dialog, user)
 				local special = product.data.RareArmour;
 				if(special==nil) then
 					special = product.data.RareWeapon;
+					debug("Testing:"..product.data.nameEn);
 				end
 
 				if((not special==nil)and(special>0)) then
