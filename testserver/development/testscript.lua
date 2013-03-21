@@ -195,8 +195,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 	local Rarity = NotNil(tonumber(Globals.HittedItem:getData("RareArmour")));
 
 	if(Rarity<0) then -- Armour is broken
-		armourValue = 0;
-		Defender.Char:inform("Your armour piece is a broken artifact. No defense");
+		armourValue = armourValue/2;
 	elseif(Rarity>0) then -- Armour is a rare artifact
 		--Each bonus is equivalent to 20 skill levels of equipment.
 		local RarityBonus = 20*Rarity;
@@ -235,7 +234,34 @@ end;
 
 function ArmourDegrade(Defender, Globals)
 	
-	if (base.common.Chance(Globals.Damage, 6000)) then
+	local Rarity = NotNil(tonumber(Globals.HittedItem:getData("RareArmour")));
+
+	if(Rarity<0) then
+		
+		local durability = math.mod(Globals.HittedItem.quality, 100);
+		local quality = (Globals.HittedItem.quality - durability) / 100;
+		
+		durability = durability - 20;
+
+		if (durability <= 0) then
+			base.common.InformNLS(Defender.Char,
+		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		  "Your artifact shatters. You should take better care of it next time.");
+		  world:erase(Globals.HittedItem, 1);
+		  return true;
+		end;
+
+		
+		Globals.HittedItem.quality = quality * 100 + durability;
+		--world:changeItem(Globals.HittedItem.WeaponItem);
+		world:changeItem(Globals.HittedItem);
+
+    
+		base.common.InformNLS(Defender.Char,
+		"Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		"You should take off your broken artifact before it shatters!");
+
+	elseif (base.common.Chance(Globals.Damage, 6000)) then
 
 		local durability = math.mod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
@@ -268,7 +294,34 @@ end;
 -- @param ParryWeapon The item which was used to parry
 function WeaponDegrade(Attacker, Defender, ParryWeapon)
 	
-	if (base.common.Chance(1, 20)) then
+	local Rarity = NotNil(tonumber(Attacker.WeaponItem:getData("RareWeapon")));
+
+	if(Rarity<0) then
+		
+		local durability = math.mod(Attacker.WeaponItem.quality, 100);
+		local quality = (Attacker.WeaponItem.quality - durability) / 100;
+		
+		durability = durability - 20;
+
+		if (durability <= 0) then
+			base.common.InformNLS(Defender.Char,
+		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		  "Your artifact shatters. You should take better care of it next time.");
+		  world:erase(Attacker.WeaponItem, 1);
+		  return true;
+		end;
+
+		
+		Attacker.WeaponItem.quality = quality * 100 + durability;
+		--world:changeItem(Globals.HittedItem.WeaponItem);
+		world:changeItem(Attacker.WeaponItem);
+
+    
+		base.common.InformNLS(Defender.Char,
+		"Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		"You should stop wielding your broken artifact before it shatters!");
+
+	elseif (base.common.Chance(1, 20)) then
 		local durability = math.mod(Attacker.WeaponItem.quality, 100);
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
     
@@ -291,7 +344,34 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		end;
 	end;
 
-	if (base.common.Chance(1, 20)) then
+	Rarity = NotNil(tonumber(ParryWeapon:getData("RareWeapon")));
+
+	if(Rarity<0) then
+		
+		local durability = math.mod(ParryWeapon.quality, 100);
+		local quality = (ParryWeapon.quality - durability) / 100;
+		
+		durability = durability - 20;
+
+		if (durability <= 0) then
+			base.common.InformNLS(Defender.Char,
+		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		  "Your artifact shatters. You should take better care of it next time.");
+		  world:erase(ParryWeapon, 1);
+		  return true;
+		end;
+
+		
+		ParryWeapon.quality = quality * 100 + durability;
+		--world:changeItem(Globals.HittedItem.WeaponItem);
+		world:changeItem(ParryWeapon);
+
+    
+		base.common.InformNLS(Defender.Char,
+		"Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		"You should stop wielding your broken artifact before it shatters!");
+
+	elseif (base.common.Chance(1, 20)) then
 		local durability = math.mod(ParryWeapon.quality, 100);
 		local quality = (ParryWeapon.quality - durability) / 100;
     
@@ -588,9 +668,10 @@ function CheckAttackOK(CharStruct)
         return false;
     end;
 
-	if (NotNil(tonumber(CharStruct.WeaponItem:getData("RareWeapon")))<0) then -- Item is a broken artifact
+	--Uncomment this line if rares should be unuseable
+	--[[if (NotNil(tonumber(CharStruct.WeaponItem:getData("RareWeapon")))<0) then -- Item is a broken artifact
         return false;
-    end;
+    end;]]
 
 --    CharStruct.Char:talk(Character.say,"check 3 ok");
     if (CharStruct.SecIsWeapon) then
