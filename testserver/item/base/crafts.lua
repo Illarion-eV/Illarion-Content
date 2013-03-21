@@ -343,20 +343,18 @@ end
 
 function RareItems(user, comparisonid, dataId)
 
-    for i=1,#slots do
-        local slot = slots[i]
-        local item = user:getItemAt(slot)
-
-        if not filter or filter(item) then
-            local itemId = item.id
-        
-            if itemId==comparisonid then
-				if (NotNil(tonumber(Globals.HittedItem:getData("RareArmour")))==dataId or NotNil(tonumber(Globals.HittedItem:getData("RareWeapon")))==dataId ) then
+	local itemsOnChar = {};
+	for i=17,0,-1 do 
+		local item = User:getItemAt(i);
+		local itemId = item.id
+		if (itemId > 0) then
+			if itemId==comparisonid then
+				if tonumber(item:getData("RareArmour"))==dataId or tonumber(item:getData("RareWeapon")))==dataId then
 					return true;
 				end
             end
-        end
-    end
+		end
+	end
 
 	return false;
 end
