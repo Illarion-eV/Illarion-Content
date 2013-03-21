@@ -2,26 +2,6 @@ require("item.base.crafts")
 
 module("content.craft.smithing", package.seeall)
 
-function RareItems(user, comparisonid)
-
-    for i=1,#slots do
-        local slot = slots[i]
-        local item = user:getItemAt(slot)
-
-        if not filter or filter(item) then
-            local itemId = item.id
-        
-            if itemId==comparisonid then
-				if (NotNil(tonumber(Globals.HittedItem:getData("RareArmour")))<0 or NotNil(tonumber(Globals.HittedItem:getData("RareWeapon")))<0 ) then
-					return true;
-				end
-            end
-        end
-    end
-
-	return false;
-end
-
 smithing = item.base.crafts.Craft:new{
                       craftEN = "blacksmithing",
                       craftDE = "Schmieden",
@@ -690,12 +670,7 @@ product:addIngredient(2535) -- Iron Ingot: 1x1
 
 if isTestserver() then
 	catId = smithing:addCategory("Rare Items", "Rare Items")
-
-	if not RareItems(Character,189) then
-			product = smithing:addProduct(catId, 189, 0, 40, 1, 1, 1,"Rareweapon=1")
-			product:addIngredient(189,1,"RareWeapon=-1");
-	end
-
-
+	product = smithing:addProduct(catId, 189, 0, 40, 1, 1, 1,"Rareweapon=1")
+	product:addIngredient(189,1,"RareWeapon=-1");
 end
 
