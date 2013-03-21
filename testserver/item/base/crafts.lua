@@ -351,7 +351,7 @@ function RareItems(user, comparisonid, dataId)
 			if itemId==comparisonid then
 				if (tonumber(item:getData("RareArmour"))==dataId) then
 					return true;
-				elseif tonumber(item:getData("RareWeapon")))==dataId) then
+				elseif (tonumber(item:getData("RareWeapon"))==dataId) then
 					return true
 				end
             end
