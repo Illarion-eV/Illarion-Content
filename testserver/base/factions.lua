@@ -283,7 +283,9 @@ end
 
 function setSpecialRank(player, rank) 
 	for i=0, #specialRanks do
+		debug(player.name.." "..rank.." "..i);
 		if rank == i then 
+			debug("rank set")
 			player:setQuestProgress(200, tonumber(rank));
 		end
 	end

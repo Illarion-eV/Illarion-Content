@@ -18,7 +18,8 @@ function UseItem(User, SourceItem, ltstate)
 	end
 		
 	if(User.lastSpokenText == "special") then
-		base.factions.setSpecialRank(User, 12) 
+		base.factions.setSpecialRank(User, 12)
+		User:inform("SpecialRank set");
 	end
 	
 	
