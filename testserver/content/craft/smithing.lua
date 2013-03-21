@@ -671,7 +671,7 @@ product:addIngredient(2535) -- Iron Ingot: 1x1
 if isTestserver() then
 	catId = smithing:addCategory("Rare Items", "Rare Items")
 	
-	product = smithing:addProduct(catId, 189, 0, 40, 1, 1, 1,{RareWeapon="1",nameEn="Dagger of Whatever",nameDe="Hilfe der Kampf",descriptionEn="This is a dagger",descriptionDe="Stuff",rareness="1"})
+	product = smithing:addProduct(catId, 189, 0, 40, 1, 1, 1,{RareWeapon="1",nameEn="Dagger of Whatever",nameDe="Hilfe der Kampf",descriptionEn="This is a dagger",descriptionDe="Stuff",rareness="2"})
 	product:addIngredient(189,1,{RareWeapon="-1",nameEn="Broken Artifact"});
 end
 
