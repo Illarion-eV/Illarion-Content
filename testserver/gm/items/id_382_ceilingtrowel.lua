@@ -290,14 +290,15 @@ function UseItem(User, SourceItem)
 						base.factions.setSpecialRank(User, 10+tonumber(index));
 					end
 				end	
-            end
-			local infoText = ""
-			local sd = SelectionDialog("Special rank", infoText, cbSetSpecialRank);
-			sd:addOption(0, "Demote");
-			sd:addOption(0, "Promote to special rank 1");
-			sd:addOption(0, "Promote to special rank 2");
-			sd:addOption(0, "Promote to special rank 3");
-			User:requestSelectionDialog(sd);			
+
+				local infoText = ""
+				local sd = SelectionDialog("Special rank", infoText, cbSetSpecialRank);
+				sd:addOption(0, "Demote");
+				sd:addOption(0, "Promote to special rank 1");
+				sd:addOption(0, "Promote to special rank 2");
+				sd:addOption(0, "Promote to special rank 3");
+				User:requestSelectionDialog(sd);	
+			end
           end
 		  
 		  --general faction part
