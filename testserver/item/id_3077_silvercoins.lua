@@ -19,7 +19,7 @@ local frontItem = base.common.GetFrontItem(User)
 			data.descriptionEn="Holy Shield of Ronagan"
 			User:createItem(17, 1, 799, data)
 		else
-			User:inform('Die Münze verschwindet im Schlitz aber nichts passiert.', 'The coin disapears but nothing happens.')
+			User:inform('Die Münze verschwindet im Schlitz, aber nichts passiert.', 'The coin disapears but nothing happens.')
 			world:erase(SourceItem,1)
 		end
 	
