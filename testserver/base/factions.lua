@@ -191,12 +191,12 @@ end
 
 function getRank(player)
 	local Faction = getFaction(player);
-  if (townRanks[Faction.tid] == nil) then
-    return "[ERROR: no ranks for " .. Faction.tid .. "]";
-  end
-  if (townRanks[Faction.tid][Faction.rankTown] == nil) then
-    return "[ERROR: no rank " .. Faction.rankTown .. " in town " .. Faction.tid .. "]";
-  end
+	if (townRanks[Faction.tid] == nil) then
+		return "[ERROR: no ranks for " .. Faction.tid .. "]";
+	end
+	if (townRanks[Faction.tid][Faction.rankTown] == nil) then
+		return "[ERROR: no rank " .. Faction.rankTown .. " in town " .. Faction.tid .. "]";
+	end
 
 	if (originator:increaseAttrib("sex",0) == 0) then --male Ranks
 		if player:getPlayerLanguage() == 0 then
@@ -227,8 +227,15 @@ end
 					3-5 the Ranks/Reputation in the Towns Cadomyr, Runewick and Galmair
 ]]
 function getFaction(originator)
-
-	local rankTown = getRankAsNumber(originator);
+	local rankTown;
+	
+	--check for special rank
+	if getSpecialRank(originator) ~= 0 then
+		rankTown = getSpecialRank(originator);
+	else
+		rankTown = getRankAsNumber(originator);
+	end
+	
 	local factionMembership = originator:getQuestProgress(199);
 	local towncnt = originator:getQuestProgress(201);
 	local rankpoints = getRankpoints(originator);
@@ -241,7 +248,7 @@ function getFaction(originator)
 		towncnt = 0;
 	end
 
-	return { towncnt = towncnt, tid = factionMembership, rankTown = rankTown, rankpoints = rankpoints, specialRank = specialRank};
+	return { towncnt = towncnt, tid = factionMembership, rankTown = rankTown, rankpoints = rankpoints};
 end
 
 --[[
