@@ -320,7 +320,7 @@ function Craft:loadDialog(dialog, user)
 					special = product.data.RareWeapon;
 				end
 
-				if(special>0) then
+				if((not special==nil)and(special>0)) then
 					if not RareItems(user,product.item.id,-special) then
 						continue=false;
 					end
