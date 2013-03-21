@@ -297,9 +297,9 @@ function UseItem(User, SourceItem)
 				local infoText = ""
 				local sd = SelectionDialog("Special rank", infoText, cbSetSpecialRank);
 				sd:addOption(0, "Demote");
-				sd:addOption(0, "Promote to special rank 1");
-				sd:addOption(0, "Promote to special rank 2");
-				sd:addOption(0, "Promote to special rank 3");
+				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 11));
+				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 12));
+				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 13));
 				User:requestSelectionDialog(sd);	
 			end
           end

@@ -218,6 +218,30 @@ function getRankAsNumber(player)
 	return math.floor(rankpoints/100)+1;
 end
 
+--returns the name of a specific rank
+--input needed: ranknumber, faction, sex
+function getRankName(player, ranknumber)
+	local Faction = getFaction(player);
+	
+	if ranknumber > leaderRank then
+		return;
+	end
+	
+	if (player:increaseAttrib("sex",0) == 0) then --male Ranks
+		if player:getPlayerLanguage() == 0 then
+			return townRanks[Faction.tid][ranknumber].gRank;
+		else
+			return townRanks[Faction.tid][ranknumber].eRank;
+		end
+	else
+		if player:getPlayerLanguage() == 0 then
+			return townRanks[tonumber(Faction.tid)+3][ranknumber].gRank;
+		else
+			return townRanks[tonumber(Faction.tid)+3][ranknumber].eRank;
+		end
+	end
+end
+
 --[[
     getFaction
 	Looks up to which Faction a Character belongs and checks also his rank
