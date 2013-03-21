@@ -12,14 +12,14 @@ local frontItem = base.common.GetFrontItem(User)
 	if frontItem.id == 2805 and frontItem.pos == position(415, 273, -6) then --if frontItem is questpillar
 		if User:getQuestProgress(170) == 0 then
 			User:setQuestProgress (170, 1)
-			User:inform('Die Münze fällt durch den Schlitz und mit einem metallischen Klicken öffnet sich eine versteckte Klappe in der Säule, aus der ein Schild fällt.', 'The coin falls into the slit and with a metallic click a hidden scuttle opens and a shield drops out.')
+			User:inform('Die Münze fällt durch den Schlitz und mit einem metallischen Klicken öffnet sich eine versteckte Klappe in der Säule, aus der ein Schild fällt.', 'The coin falls into the slit and with a metallic click a hidden hatch opens and a shield drops out.')
 			world:erase(SourceItem,1)
 			local data = {}
 			data.descriptionDe="Geweihter Schild Ronagans"
-			data.descriptionEn="Holy Shield of Ronagan"
+			data.descriptionEn="Blessed Shield of Ronagan"
 			User:createItem(17, 1, 799, data)
 		else
-			User:inform('Die Münze verschwindet im Schlitz, aber nichts passiert.', 'The coin disapears but nothing happens.')
+			User:inform('Die Münze verschwindet im Schlitz, aber nichts passiert.', 'The coin disappears but nothing happens.')
 			world:erase(SourceItem,1)
 		end
 	
