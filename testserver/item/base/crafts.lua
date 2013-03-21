@@ -345,7 +345,7 @@ function RareItems(user, comparisonid, dataId)
 
 	local itemsOnChar = {};
 	for i=17,0,-1 do 
-		local item = User:getItemAt(i);
+		local item = user:getItemAt(i);
 		local itemId = item.id
 		if (itemId > 0) then
 			if itemId==comparisonid then
