@@ -315,9 +315,9 @@ function Craft:loadDialog(dialog, user)
 			local continue = true;
 			if isTestserver() then
 				
-				local special = product.data.RareArmour;
+				local special = product.item.data.RareArmour;
 				if(special==nil) then
-					special = product.data.RareWeapon;
+					special = product.item.data.RareWeapon;
 				end
 
 				if not special==nil then
