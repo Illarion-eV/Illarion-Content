@@ -9,6 +9,7 @@ ACTION_NONE = 0;		-- do nothing at all
 ACTION_PASSIVE = 1;		-- if in attackmode, warp away
 ACTION_HOSTILE = 2;		-- warp away
 ACTION_AGGRESSIVE = 3;	-- attack (TO DO)
+ACTION_PASSAGE = 4;     -- let this person pass, even if he is memeber of a hostile group (only for individuals, not for factions)
 
 --- Checks for chars in range and handles them (warp)
 -- @param guard The character struct of the guard NPC
@@ -47,7 +48,7 @@ function CheckForEnemies(guard)
         hittedPlayers = true;
         warpedPlayers = true;
         Warp(guard, char);
-      elseif (mode == ACTION_HOSTILE or (mode == ACTION_PASSIVE and char.attackmode)) then
+      elseif (mode == ACTION_HOSTILE or (mode == ACTION_PASSIVE and char.attackmode)) and then
         -- warp
         warpedPlayers = true;
         Warp(guard, char);
@@ -63,17 +64,44 @@ function CheckForEnemies(guard)
   end
 end
 
---- get the mode for this faction depending on the char's faction
+--- get the mode for this faction depending on the char's faction or his individual mode
 -- @param char The character whose faction is to be checked
 -- @param thisFaction The faction ID of the guard
 function GetMode(char, thisFaction)
 	
-	-- if char:isAdmin() then
-		-- return ACTION_NONE;
-	-- end
+	if char:isAdmin() then
+		return ACTION_NONE;
+	end
+	
+	local individualMode = GetIndividualMode(char) 
 
 	local f = base.factions.getFaction(char).tid;
-	return GetModeByFaction(thisFaction, f);
+	local factionMode = GetModeByFaction(thisFaction, f);
+	
+	return math.max(individualMode, factionMode)
+end
+
+-- return the mode of the character; check also for temporary mode
+-- @param char The character whose faction is to be checked 
+function GetIndividualMode(char) 
+
+    local mode = char:getQuestProgress(191)
+	local days, setTime = char:getQuestProgress(192)
+	
+	if mode > 4 then
+	    debug("[Error] "..char.name.." ("..char.id..") had a higher quest value than allowed. Reset to 0.")
+		mode = 0
+		char:setQuestProgress(191,0)
+	end	
+	
+	if days ~= 0 then 
+	    difference = (days/3)*60*60
+	    if (world:getTime("unix") - setTime <= 0) then
+		    return mode
+		end	
+	end	
+	
+	return mode
 end
 
 --- get the mode for this faction by the other (hostile) faction
