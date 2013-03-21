@@ -1,4 +1,5 @@
 require("base.common")
+require("base.factions")
 
 -- UPDATE common SET com_script = 'test.lillian' WHERE com_itemid = 2697 ;
 
@@ -17,7 +18,7 @@ function UseItem(User, SourceItem, ltstate)
 	end
 		
 	if(User.lastSpokenText == "special") then
-		setSpecialRank(User, 12) 
+		base.factions.setSpecialRank(User, 12) 
 	end
 	
 	
