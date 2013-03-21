@@ -30,15 +30,18 @@ function UseItem(User, SourceItem)
     return;
   end
   
-  if (string.find(User.lastSpokenText, "help")) then
-    User:inform("To change the mode of this trowel, say \"setmode\" and use it.");
-  end
+	if (string.find(User.lastSpokenText, "help")) then
+		User:inform("To change the mode of this trowel, say \"setmode\" and use it.");
+	end
 	
 	local TargetItem = base.common.GetTargetItem(User, SourceItem);
 	if not TargetItem then
 		TargetItem = base.common.GetFrontItem(User);
 	end
 	
+  --[[
+  Change items
+  ]]
   if (TargetItem and TargetItem.id~=0) then
 
     if (string.find(User.lastSpokenText,"setdata (%a+) (.+)")~=nil) then
@@ -97,6 +100,10 @@ function UseItem(User, SourceItem)
       User:warp(position(newx,newy,0));
     end
   end
+  
+  --[[
+  Lets change some weather
+  ]]  
   if (SourceItem:getData("mode")=="weather") then
     currWeather=world.weather;
     if (string.find(User.lastSpokenText,"help")~=nil) then
@@ -191,6 +198,10 @@ function UseItem(User, SourceItem)
         currWeather.percipitation_type=2;
     end
     world:setWeather(currWeather);
+	
+  --[[
+  All the faction stuff
+  ]]
   elseif (SourceItem:getData("mode")=="factions") then  --faction system
     local cbFaction = function (dialog)
       if (not dialog:getSuccess()) then
@@ -216,10 +227,14 @@ function UseItem(User, SourceItem)
               return;
             end
             local ind = dialog:getSelectedIndex();
+			
+			--change town
             if (ind < 4) then
               faction.tid = ind;
 			  faction.rankpoints = 0;
               base.factions.setFaction(chosenPlayer, faction);
+			
+			--change towncount
             elseif (ind == 4) then
               local cbSetCount = function (dialog)
                 if (not dialog:getSuccess()) then
@@ -234,6 +249,8 @@ function UseItem(User, SourceItem)
                 base.factions.setFaction(chosenPlayer, faction);
               end
               User:requestInputDialog(InputDialog("Set town count", "", false, 255, cbSetCount));
+			  
+			--change the rankpoints
             elseif (ind == 5) then
               local cbSetRank = function (dialog)
                 if (not dialog:getSuccess()) then
@@ -257,8 +274,37 @@ function UseItem(User, SourceItem)
 				end
               end
               User:requestInputDialog(InputDialog("Set rankpoints", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
-            end
+
+			--change special rank
+			elseif (ind == 6) then
+				local cbSetSpecialRank = function (dialog)
+					if (not dialog:getSuccess()) then
+						return;
+					end
+					local inform;
+					local index = dialog:getSelectedIndex();
+					if index == 0 then -- demoting
+						base.factions.setSpecialRank(User, 0);
+						inform = base.common.GetNLS(chosenPlayer,"Ihr wurdet degradiert und habt nun keinen spziellen Rang mehr.","You have been demoted and have no special rank anymore.")
+						chosenPlayer:inform(inform)
+					else -- promoting
+						base.factions.setSpecialRank(User, 10+tonumber(index));
+						inform = base.common.GetNLS(chosenPlayer,"Ihr wurdet befördert und seid nun "..base.factions.getRank(chosenPlayer),"You have been promoted and are now "..base.factions.getRank(chosenPlayer));
+						chosenPlayer:inform(inform)
+					end
+				end	
+
+				local infoText = ""
+				local sd = SelectionDialog("Special rank", infoText, cbSetSpecialRank);
+				sd:addOption(0, "Demote");
+				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 11));
+				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 12));
+				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 13));
+				User:requestSelectionDialog(sd);	
+			end
           end
+		  
+		  --general faction part
           local infoText = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
           infoText = infoText .. "\nChanged towns already (town count): " .. faction.towncnt;
           if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
@@ -274,8 +320,11 @@ function UseItem(User, SourceItem)
           sd:addOption(0, "Change town to Galmair");
           sd:addOption(0, "Change town count");
           sd:addOption(0, "Change rankpoints");
+		  sd:addOption(0, "Change special rank");
           User:requestSelectionDialog(sd);
         end 
+		
+		--general playerchoosing part
         local sd = SelectionDialog("Get/Set faction values for ...", "First choose a player:", cbChoosePlayer);
         local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
         for _,player in ipairs(players) do 
@@ -283,7 +332,9 @@ function UseItem(User, SourceItem)
           sd:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end
         User:requestSelectionDialog(sd);
-      elseif (ind == 1) then -- rankpoints in radius
+		
+	  -- rankpoints in radius
+      elseif (ind == 1) then 
         local cbRadius = function (dialog)
           if (not dialog:getSuccess()) then
             return;
@@ -310,7 +361,10 @@ function UseItem(User, SourceItem)
           end
         end
         User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
-      elseif (ind == 2) then -- guard modes
+      
+	  
+	  -- guard modes
+	  elseif (ind == 2) then 
         local factionIds = {0,1,2,3};
         local cbFirstFaction = function (dialog)
           if (not dialog:getSuccess()) then

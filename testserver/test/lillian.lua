@@ -1,4 +1,5 @@
 require("base.common")
+require("base.factions")
 
 -- UPDATE common SET com_script = 'test.lillian' WHERE com_itemid = 2697 ;
 
@@ -15,20 +16,14 @@ function UseItem(User, SourceItem, ltstate)
 		 local list = setRanklist(User, User, 666);
 		 User:inform("List: "..list);
 	end
-	
-	if (User.lastSpokenText == "sound") then
-		world:makeSound( 13, User.pos )
+		
+	if(User.lastSpokenText == "special") then
+		base.factions.setSpecialRank(User, 12)
+		User:inform("SpecialRank set");
 	end
 	
-	if(User.lastSpokenText == "quest") then
-		local status, changeTime = User:getQuestProgress(1337);
-		User:inform("QuestProgress changed at "..tostring(changeTime));
-	end
 	
-	if(User.lastSpokenText == "setQuest") then
-		User:setQuestProgress(1337, 10);
-		User:inform("QuestProgress set");
-	end
+	
 end
 
 function LookAtItem(User, Item)

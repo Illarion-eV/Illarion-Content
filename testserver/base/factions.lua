@@ -34,6 +34,9 @@ function InitFactionLists()
 					 {gRank = "Graf", eRank = "Count"},     			--rank 8
 					 {gRank = "Fürst", eRank = "Earl"},           	--rank 9
 					 {gRank = "Herzog", eRank = "Duke"},				--rank 10
+					 {gRank = "Spezial CM 1", eRank = "Special CM 1"},
+					 {gRank = "Spezial CM 2", eRank = "Special CM 2"},	
+					 {gRank = "Spezial CM 3", eRank = "Special CM 3"},						 
 					 {gRank = "König", eRank = "King"}};				--rank leader
 	
 	CadomyrRankListFemale = { {gRank = "Hörige", eRank = "Serf"},        	--rank 1
@@ -46,6 +49,9 @@ function InitFactionLists()
 					 {gRank = "Gräfin", eRank = "Countess"},     			--rank 8
 					 {gRank = "Fürstin", eRank = "Earl"},           	--rank 9
 					 {gRank = "Herzogin", eRank = "Duchess"},				--rank 10
+					 {gRank = "Spezial CF 1", eRank = "Special CF 1"},
+					 {gRank = "Spezial CF 2", eRank = "Special CF 2"},	
+					 {gRank = "Spezial CF 3", eRank = "Special CF 3"},	
 					 {gRank = "Königin", eRank = "Queen"}};				--rank leader
 
 	RunewickRankListMale = { {gRank = "Novize", eRank = "Novice"},    		--rank 1
@@ -58,6 +64,9 @@ function InitFactionLists()
 					 {gRank = "Professor", eRank = "Professor"},        --rank 8
 					 {gRank = "Dekan", eRank = "Dean"},    				--rank 9
 					 {gRank = "Rektor", eRank = "Rector"},    			--rank 10
+					 {gRank = "Spezial RM 1", eRank = "Special RM 1"},
+					 {gRank = "Spezial RM 2", eRank = "Special RM 2"},	
+					 {gRank = "Spezial RM 3", eRank = "Special RM 3"},	
 					 {gRank = "Erzmagier", eRank = "Archmage"}};		--rank leader
 	
 	RunewickRankListFemale = { {gRank = "Novizin", eRank = "Novice"},    		--rank 1
@@ -70,6 +79,9 @@ function InitFactionLists()
 					 {gRank = "Professorin", eRank = "Professor"},        --rank 8
 					 {gRank = "Dekanin", eRank = "Dean"},    				--rank 9
 					 {gRank = "Rektorin", eRank = "Rector"},    			--rank 10
+					 {gRank = "Spezial RF 1", eRank = "Special RF 1"},
+					 {gRank = "Spezial RF 2", eRank = "Special RF 2"},	
+					 {gRank = "Spezial RF 3", eRank = "Special RF 3"},	
 					 {gRank = "Erzmagierin", eRank = "Archmage"}};		--rank leader
 
 	GalmairRankListMale = { {gRank = "Rumtreiber", eRank = "Tramp"},      	--rank 1
@@ -82,6 +94,9 @@ function InitFactionLists()
 					 {gRank = "Mogul", eRank = "Mogul"},           		--rank 8
 					 {gRank = "Magnat", eRank = "Magnate"},    			--rank 9
 					 {gRank = "Tycoon", eRank = "Tycoon"},				--rank 10
+					 {gRank = "Spezial GM 1", eRank = "Special GM 1"},
+					 {gRank = "Spezial GM 2", eRank = "Special GM 2"},	
+					 {gRank = "Spezial GM 3", eRank = "Special GM 3"},	
 					 {gRank = "Don", eRank = "Don"}};					--rank leader
 	
 	GalmairRankListFemale = { {gRank = "Rumtreiberin", eRank = "Tramp"},      	--rank 1
@@ -94,6 +109,9 @@ function InitFactionLists()
 					 {gRank = "Mogulin", eRank = "Mogul"},           		--rank 8
 					 {gRank = "Magnatin", eRank = "Magnate"},    			--rank 9
 					 {gRank = "Tycoon", eRank = "Tycoon"},				--rank 10
+					 {gRank = "Spezial GF 1", eRank = "Special GF 1"},
+					 {gRank = "Spezial GF 2", eRank = "Special GF 2"},	
+					 {gRank = "Spezial GF 3", eRank = "Special GF 3"},	
 					 {gRank = "Don", eRank = "Don"}};					--rank leader
 
 	NoneRankList ={};
@@ -134,7 +152,8 @@ if not InitFaction then
 	InitFaction = true;
     citizenRank = 1;
 	highestRank = 10;
-    leaderRank = 11;
+	specialRanks = {11,12,13};
+    leaderRank = 14;
 
 --==================================ADD NEW TOWNS HERE===============
 --AddTown(TownID,TownName), IDs from 1-9
@@ -172,14 +191,14 @@ end
 
 function getRank(player)
 	local Faction = getFaction(player);
-  if (townRanks[Faction.tid] == nil) then
-    return "[ERROR: no ranks for " .. Faction.tid .. "]";
-  end
-  if (townRanks[Faction.tid][Faction.rankTown] == nil) then
-    return "[ERROR: no rank " .. Faction.rankTown .. " in town " .. Faction.tid .. "]";
-  end
+	if (townRanks[Faction.tid] == nil) then
+		return "[ERROR: no ranks for " .. Faction.tid .. "]";
+	end
+	if (townRanks[Faction.tid][Faction.rankTown] == nil) then
+		return "[ERROR: no rank " .. Faction.rankTown .. " in town " .. Faction.tid .. "]";
+	end
 
-	if (originator:increaseAttrib("sex",0) == 0) then --male Ranks
+	if (player:increaseAttrib("sex",0) == 0) then --male Ranks
 		if player:getPlayerLanguage() == 0 then
 			return townRanks[Faction.tid][Faction.rankTown].gRank;
 		else
@@ -199,6 +218,30 @@ function getRankAsNumber(player)
 	return math.floor(rankpoints/100)+1;
 end
 
+--returns the name of a specific rank
+--input needed: ranknumber, faction, sex
+function getRankName(player, ranknumber)
+	local Faction = getFaction(player);
+	
+	if ranknumber > leaderRank then
+		return;
+	end
+	
+	if (player:increaseAttrib("sex",0) == 0) then --male Ranks
+		if player:getPlayerLanguage() == 0 then
+			return townRanks[Faction.tid][ranknumber].gRank;
+		else
+			return townRanks[Faction.tid][ranknumber].eRank;
+		end
+	else
+		if player:getPlayerLanguage() == 0 then
+			return townRanks[tonumber(Faction.tid)+3][ranknumber].gRank;
+		else
+			return townRanks[tonumber(Faction.tid)+3][ranknumber].eRank;
+		end
+	end
+end
+
 --[[
     getFaction
 	Looks up to which Faction a Character belongs and checks also his rank
@@ -208,11 +251,21 @@ end
 					3-5 the Ranks/Reputation in the Towns Cadomyr, Runewick and Galmair
 ]]
 function getFaction(originator)
-
-	local rankTown = getRankAsNumber(originator);
+	local rankTown  = getRankAsNumber(originator);
+	
+	if isTestserver() then
+	--check for special rank
+	if getSpecialRank(originator) ~= 0 then
+		rankTown = getSpecialRank(originator);
+	else
+		rankTown = getRankAsNumber(originator);
+	end
+	end
+	
 	local factionMembership = originator:getQuestProgress(199);
 	local towncnt = originator:getQuestProgress(201);
 	local rankpoints = getRankpoints(originator);
+	local specialRank = getSpecialRank(originator);
 	if factionMembership == nil then
 		originator:setQuestProgress(199,0);
 		factionMembership = 0;
@@ -242,6 +295,11 @@ function getRankpoints(originator)
 	return qpg;
 end
 
+function getSpecialRank(player)
+	local specialRank = player:getQuestProgress(200);
+	return specialRank;
+end
+
 --[[
     setFaction
 	Saves the Factionchanges of the Char
@@ -254,6 +312,14 @@ function setFaction(originator,Faction)
 	originator:setQuestProgress(199,tonumber(Faction.tid));
 	originator:setQuestProgress(201,tonumber(Faction.towncnt));
 	originator:setQuestProgress(202,tonumber(Faction.rankpoints));
+end
+
+function setSpecialRank(player, rank) 
+	for i=0, #specialRanks do
+		if rank == specialRanks[i] or tonumber(rank) == 0 then 
+			player:setQuestProgress(200, tonumber(rank));
+		end
+	end
 end
 
 function checkForRankChange(rankpoints,rank)
@@ -288,7 +354,15 @@ function setRankpoints(originator, rankpoints)
 		rankpoints = (highestRank-1)*100;
 	end
 
+	if isTestserver() then
+	for i=0, #(specialRanks) do
+		if rank ~= specialRanks[i] then
+			Faction.rankTown = checkForRankChange(rankpoints,rank);	
+		end
+	end
+	else
 	Faction.rankTown = checkForRankChange(rankpoints,rank);
+	end
 	
 	-- Factionleaders always have the leaderrank 11 and 1000 rankpoints (just to keep it consistent)
 	if originator.name == "Valerio Guilianni" or originator.name == "Rosaline Edwards" or originator.name == "Elvaine Morgan" then
