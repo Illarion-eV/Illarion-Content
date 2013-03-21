@@ -227,13 +227,15 @@ end
 					3-5 the Ranks/Reputation in the Towns Cadomyr, Runewick and Galmair
 ]]
 function getFaction(originator)
-	local rankTown;
+	local rankTown  = getRankAsNumber(originator);
 	
+	if isTestserver() then
 	--check for special rank
 	if getSpecialRank(originator) ~= 0 then
 		rankTown = getSpecialRank(originator);
 	else
 		rankTown = getRankAsNumber(originator);
+	end
 	end
 	
 	local factionMembership = originator:getQuestProgress(199);
@@ -290,9 +292,7 @@ end
 
 function setSpecialRank(player, rank) 
 	for i=0, #specialRanks do
-		debug(player.name.." "..rank.." "..i);
-		if rank == specialRanks[i] then 
-			debug("rank set")
+		if rank == specialRanks[i] or rank == 0 then 
 			player:setQuestProgress(200, tonumber(rank));
 		end
 	end
