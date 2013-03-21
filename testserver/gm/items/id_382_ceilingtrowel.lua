@@ -289,7 +289,7 @@ function UseItem(User, SourceItem)
 						chosenPlayer:inform(inform)
 					else -- promoting
 						base.factions.setSpecialRank(User, 10+tonumber(index));
-						inform = base.common.GetNLS(chosenPlayer,"Ihr wurdet befördert und seid nun "..base.faction.getRank(chosenPlayer),"You have been promoted and are now "..base.faction.getRank(chosenPlayer));
+						inform = base.common.GetNLS(chosenPlayer,"Ihr wurdet befördert und seid nun "..base.factions.getRank(chosenPlayer),"You have been promoted and are now "..base.factions.getRank(chosenPlayer));
 						chosenPlayer:inform(inform)
 					end
 				end	
