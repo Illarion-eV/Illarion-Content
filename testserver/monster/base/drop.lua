@@ -46,19 +46,19 @@ function RareArmours(Item)
 
 	if(rand<uncommondrop) then
 		Item:setData("RareArmour", -1);
-		base.lookat.SetSpecialDescription(Item, "This appears to be an uncommon artifact. You should get it repaired by a smith.", "This appears to be an uncommon artifact. You should get it repaired by a smith.");
+		base.lookat.SetSpecialDescription(Item, "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.", "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.");
 		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
 		base.lookat.SetItemRareness(Item,ItemLookAt.uncommonItem);
 		world:changeItem(Item);
 	elseif(rand<chanceofraredrop) then
 		Item:setData("RareArmour", -2);
-		base.lookat.SetSpecialDescription(Item, "This appears to be a rare artifact. You should get it repaired by a smith.", "This appears to be a rare artifact. You should get it repaired by a smith.");
+		base.lookat.SetSpecialDescription(Item, "This appears to be a rare artifact. You should get it repaired by a smith before you use it.", "This appears to be a rare artifact. You should get it repaired by a smith before you use it.");
 		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
 		base.lookat.SetItemRareness(Item,ItemLookAt.rareItem);
 		world:changeItem(Item);
 	elseif(rand<chanceofexceptionaldrop) then
 		Item:setData("RareArmour", -3);
-		base.lookat.SetSpecialDescription(Item, "This appears to be an exceptional artifact. You should get it repaired by a smith.", "This appears to be an exceptional artifact. You should get it repaired by a smith.");
+		base.lookat.SetSpecialDescription(Item, "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.", "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.");
 		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
 		base.lookat.SetItemRareness(Item,ItemLookAt.epicItem);
 		world:changeItem(Item);
@@ -82,19 +82,19 @@ function RareWeapons(Item)
 
 	if(rand<uncommondrop) then
 		Item:setData("RareWeapon", -1);
-		base.lookat.SetSpecialDescription(Item, "This appears to be an uncommon artifact. You should get it repaired by a smith.", "This appears to be an uncommon artifact. You should get it repaired by a smith.");
+		base.lookat.SetSpecialDescription(Item, "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.", "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.");
 		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
 		base.lookat.SetItemRareness(Item,ItemLookAt.uncommonItem);
 		world:changeItem(Item);
 	elseif(rand<chanceofraredrop) then
 		Item:setData("RareWeapon", -2);
-		base.lookat.SetSpecialDescription(Item, "This appears to be a rare artifact. You should get it repaired by a smith.", "This appears to be a rare artifact. You should get it repaired by a smith.");
+		base.lookat.SetSpecialDescription(Item, "This appears to be a rare artifact. You should get it repaired by a smith before you use it.", "This appears to be a rare artifact. You should get it repaired by a smith before you use it.");
 		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
 		base.lookat.SetItemRareness(Item,ItemLookAt.rareItem);
 		world:changeItem(Item);
 	elseif(rand<chanceofexceptionaldrop) then
 		Item:setData("RareWeapon", -3);
-		base.lookat.SetSpecialDescription(Item, "This appears to be an exceptional artifact. You should get it repaired by a smith.", "This appears to be an exceptional artifact. You should get it repaired by a smith.");
+		base.lookat.SetSpecialDescription(Item, "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.", "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.");
 		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
 		base.lookat.SetItemRareness(Item,ItemLookAt.epicItem);
 		world:changeItem(Item);
