@@ -292,7 +292,7 @@ end
 
 function setSpecialRank(player, rank) 
 	for i=0, #specialRanks do
-		if rank == specialRanks[i] or rank == 0 then 
+		if rank == specialRanks[i] or tonumber(rank) == 0 then 
 			player:setQuestProgress(200, tonumber(rank));
 		end
 	end
