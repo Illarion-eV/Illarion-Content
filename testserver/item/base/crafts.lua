@@ -315,9 +315,9 @@ function Craft:loadDialog(dialog, user)
 			local continue = true;
 			if isTestserver() then
 				
-				local special = getLookAt(user, product).RareWeapon;
+				local special = self:getLookAt(user, product).RareWeapon;
 				if(special==nil) then
-					special = getLookAt(user, product).RareArmour;
+					special = self:getLookAt(user, product).RareArmour;
 				end
 
 				if not special==nil then
