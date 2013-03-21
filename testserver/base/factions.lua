@@ -198,7 +198,7 @@ function getRank(player)
 		return "[ERROR: no rank " .. Faction.rankTown .. " in town " .. Faction.tid .. "]";
 	end
 
-	if (originator:increaseAttrib("sex",0) == 0) then --male Ranks
+	if (player:increaseAttrib("sex",0) == 0) then --male Ranks
 		if player:getPlayerLanguage() == 0 then
 			return townRanks[Faction.tid][Faction.rankTown].gRank;
 		else
