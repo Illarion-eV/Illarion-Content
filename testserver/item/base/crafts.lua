@@ -315,13 +315,13 @@ function Craft:loadDialog(dialog, user)
 			local continue = true;
 			if isTestserver() then
 
-				local special = NotNil(tonumber(product.item:getData("RareArmour")));
+				local special = NotNil(tonumber(product:getData("RareArmour")));
 				if(special==0) then
-					special = NotNil(tonumber(product.item:getData("RareWeapon")));
+					special = NotNil(tonumber(product:getData("RareWeapon")));
 				end
 
 				if(special>0) then
-					if not RareItems(user,product.item.id,-special) then
+					if not RareItems(user,product.id,-special) then
 						continue=false;
 					end
 				end
