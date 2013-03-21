@@ -321,9 +321,8 @@ function Craft:loadDialog(dialog, user)
 				end
 
 				if special~=nil then
-					debug("Testing");
 					special=tonumber(special);
-					if not RareItems(user,product.item.id,-special) then
+					if not RareItems(user,product.item,-special) then
 						continue=false;
 					end
 				end
