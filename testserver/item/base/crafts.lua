@@ -315,13 +315,14 @@ function Craft:loadDialog(dialog, user)
 			local continue = true;
 			if isTestserver() then
 				
-				local special = self:getLookAt(user, product).RareWeapon;
+				local special = product.data.RareWeapon;
 				if(special==nil) then
-					special = self:getLookAt(user, product).RareArmour;
+					special = product.data.RareArmour;
 				end
 
-				if not special==nil then
+				if special~=nil then
 					debug("Testing");
+					special=tonumber(special);
 					if not RareItems(user,product.item.id,-special) then
 						continue=false;
 					end
