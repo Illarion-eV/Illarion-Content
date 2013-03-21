@@ -48,7 +48,7 @@ function CheckForEnemies(guard)
         hittedPlayers = true;
         warpedPlayers = true;
         Warp(guard, char);
-      elseif (mode == ACTION_HOSTILE or (mode == ACTION_PASSIVE and char.attackmode)) and then
+      elseif (mode == ACTION_HOSTILE or (mode == ACTION_PASSIVE and char.attackmode)) then
         -- warp
         warpedPlayers = true;
         Warp(guard, char);
