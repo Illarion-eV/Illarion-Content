@@ -275,7 +275,6 @@ function UseItem(User, SourceItem)
               end
               User:requestInputDialog(InputDialog("Set rankpoints", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
 
-			
 			--change special rank
 			elseif (ind == 6) then
 				local cbSetSpecialRank = function (dialog)
@@ -283,7 +282,9 @@ function UseItem(User, SourceItem)
 						return;
 					end
 					local index = dialog:getSelectedIndex();
+					debug("in dialog")
 					if index == 0 then
+						debug("demoting")
 						base.factions.setSpecialRank(User, 0);
 					else
 						base.factions.setSpecialRank(User, 10+tonumber(index));
