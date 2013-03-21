@@ -2,6 +2,26 @@ require("item.base.crafts")
 
 module("content.craft.smithing", package.seeall)
 
+function RareItems(user, comparisonid)
+
+    for i=1,#slots do
+        local slot = slots[i]
+        local item = user:getItemAt(slot)
+
+        if not filter or filter(item) then
+            local itemId = item.id
+        
+            if itemId==comparisonid then
+				if (NotNil(tonumber(Globals.HittedItem:getData("RareArmour")))<0 or NotNil(tonumber(Globals.HittedItem:getData("RareWeapon")))<0 ) then
+					return true;
+				end
+            end
+        end
+    end
+
+	return false;
+end
+
 smithing = item.base.crafts.Craft:new{
                       craftEN = "blacksmithing",
                       craftDE = "Schmieden",
@@ -679,22 +699,3 @@ if isTestserver() then
 
 end
 
-function RareItems(user, comparisonid)
-
-    for i=1,#slots do
-        local slot = slots[i]
-        local item = user:getItemAt(slot)
-
-        if not filter or filter(item) then
-            local itemId = item.id
-        
-            if itemId==comparisonid then
-				if (NotNil(tonumber(Globals.HittedItem:getData("RareArmour")))<0 or NotNil(tonumber(Globals.HittedItem:getData("RareWeapon")))<0 ) then
-					return true;
-				end
-            end
-        end
-    end
-
-	return false;
-end
