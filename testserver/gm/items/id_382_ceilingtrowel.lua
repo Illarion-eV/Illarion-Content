@@ -429,7 +429,7 @@ function guardInfo(chosenPlayer)
 		    chosenPlayer:inform("before nil")
 			days = nil
 		else
-            days = math.ceil((((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
+            days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
 	    end
 	end
 	if days == 0 then
