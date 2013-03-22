@@ -429,7 +429,7 @@ function guardInfo(chosenPlayer)
 		    chosenPlayer:inform("before nil")
 			days = nil
 		else
-            days = ((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24
+            days = math.ceil((((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
 	    end
 	end
 	if days == 0 then
@@ -439,6 +439,43 @@ function guardInfo(chosenPlayer)
 	else
         myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." ("..days..")"
 	end	
+	
+	local days, setTime = chosenPlayer:getQuestProgress(194)
+	local daysInSec = (days/3)*24*60*60
+	if days ~= 0 then
+	    if  (world:getTime("unix") - setTime >= daysInSec) then
+		    chosenPlayer:inform("before nil")
+			days = nil
+		else
+            days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
+	    end
+	end
+	if days == 0 then
+	    myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." (permanent)"
+	elseif days == nil then
+	    myInfoText = myInfoText.."\nRunewick: None (permanent)"
+	else
+        myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." ("..days..")"
+	end
+	
+	local days, setTime = chosenPlayer:getQuestProgress(196)
+	local daysInSec = (days/3)*24*60*60
+	if days ~= 0 then
+	    if  (world:getTime("unix") - setTime >= daysInSec) then
+		    chosenPlayer:inform("before nil")
+			days = nil
+		else
+            days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
+	    end
+	end
+	if days == 0 then
+	    myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." (permanent)"
+	elseif days == nil then
+	    myInfoText = myInfoText.."\nRunewick: None (permanent)"
+	else
+        myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." ("..days..")"
+	end
+	
 	return myInfoText
 end
 
