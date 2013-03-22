@@ -2,7 +2,7 @@ require("base.factions")
 require("base.common")
 require("content.guards")
 require("content.areas")
-require("development.guards_static")
+require("development.guard_test")
 module("npc.base.guards_static", package.seeall)
 
 -- modes to define how players are handled. Monsters are always attacked (TO DO, for now: warp only)
@@ -15,7 +15,7 @@ ACTION_AGGRESSIVE = 3;	-- attack (TO DO)
 -- @param guard The character struct of the guard NPC
 function CheckForEnemies(guard) 
     if isTestserver() then
-	    development.guards_static.CheckForEnemies(guard)
+	    development.guard_test.CheckForEnemies(guard)
 		return
 	end	
 
