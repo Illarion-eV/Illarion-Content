@@ -432,11 +432,11 @@ function guardInfo(chosenPlayer)
 	    end
 	end
 	if days == 0 then
-	    myInfoText = "\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." (permanent)"
+	    myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." (permanent)"
 	elseif days == nil then
-	    myInfoText = "\nCadomyr: None (permanent)"
+	    myInfoText = myInfoText.."\nCadomyr: None (permanent)"
 	else
-        myInfoText = "\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." ("..days..")"
+        myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." ("..days..")"
 	end	
 	return myInfoText
 end
