@@ -83,22 +83,32 @@ function GetMode(char, thisFaction)
 end
 
 -- return the mode of the character; check also for temporary mode
--- @param char The character whose faction is to be checked 
+-- @param char The character whose faction is to be checked
+-- @param thisFaction The faction ID of the guard 
 function GetIndividualMode(char, thisFaction) 
 
-    local mode = char:getQuestProgress(191)
-	local days, setTime = char:getQuestProgress(192)
+    local modeList = {}
+    local daysList = {}	
+	modeList["Cadomyr"]  = 191; daysList["Cadomyr"]  = 192
+	modeList["Runewick"] = 193; daysList["Runewick"] = 194
+	modeList["Galmair"]  = 195; daysList["Cadomyr"]  = 196
+	
+    local factionName = base.factions.getTownNameByID(thisFaction)
+    local mode = char:getQuestProgress(modeList[factionName])
+	local days, setTime = char:getQuestProgress(daysList[factionName])
 	
 	if mode > 4 then
 	    debug("[Error] "..char.name.." ("..char.id..") had a higher quest value than allowed. Reset to 0.")
 		mode = 0
-		char:setQuestProgress(191,0)
+		char:setQuestProgress(mode,0)
 	end	
 	
 	if days ~= 0 then 
 	    difference = (days/3)*60*60
 	    if (world:getTime("unix") - setTime <= 0) then
-		    return mode
+		    char:setQuestProgress(mode,0)
+			char:setQuestProgress(days,0)
+			return 0
 		end	
 	end	
 	
