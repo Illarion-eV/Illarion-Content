@@ -222,7 +222,7 @@ function LabourCamp(User, SourceItem)
 			            dialogLabour = MessageDialog("Labour camp" ,"You have been sentenced to collect "..workLoad.." resources in the mine. If you have served your sentence, you are free to go. You can get a pick-axe and food from the guard.", callbackLabour)
 		            end	
 		            thePrisoner:requestMessageDialog(dialogLabour)
-				    User:createItem(2763,1,777,nil)
+				    thePrisoner:createItem(2763,1,777,nil)
 				end
 			else
                 User:inform("You haven't put in all necessary informations.")
