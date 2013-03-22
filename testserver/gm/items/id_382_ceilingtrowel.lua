@@ -437,7 +437,7 @@ function guardInfo(chosenPlayer)
 	elseif days == nil then
 	    myInfoText = myInfoText.."\nCadomyr: None (permanent)"
 	else
-        myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." ("..days..")"
+        myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." ("..days.." days left)"
 	end	
 	
 	local days, setTime = chosenPlayer:getQuestProgress(194)
@@ -454,7 +454,7 @@ function guardInfo(chosenPlayer)
 	elseif days == nil then
 	    myInfoText = myInfoText.."\nRunewick: None (permanent)"
 	else
-        myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." ("..days..")"
+        myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." ("..days.." days left)"
 	end
 	
 	local days, setTime = chosenPlayer:getQuestProgress(196)
@@ -472,7 +472,7 @@ function guardInfo(chosenPlayer)
 	elseif days == nil then
 	    myInfoText = myInfoText.."\nGalmair: None (permanent)"
 	else
-        myInfoText = myInfoText.."\nGalmair: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." ("..days..")"
+        myInfoText = myInfoText.."\nGalmair: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." ("..days.." days left)"
 	end
 	
 	return myInfoText

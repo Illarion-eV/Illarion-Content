@@ -2,22 +2,18 @@ require("base.factions")
 require("base.common")
 require("content.guards")
 require("content.areas")
-require("development.guard_test")
-module("npc.base.guards_static", package.seeall)
+module("development.guard_test", package.seeall)
 
 -- modes to define how players are handled. Monsters are always attacked (TO DO, for now: warp only)
 ACTION_NONE = 0;		-- do nothing at all
 ACTION_PASSIVE = 1;		-- if in attackmode, warp away
 ACTION_HOSTILE = 2;		-- warp away
 ACTION_AGGRESSIVE = 3;	-- attack (TO DO)
+ACTION_PASSAGE = 4;     -- let this person pass, even if he is memeber of a hostile group (only for individuals, not for factions)
 
 --- Checks for chars in range and handles them (warp)
 -- @param guard The character struct of the guard NPC
-function CheckForEnemies(guard) 
-    if isTestserver() then
-	    development.guard_test.CheckForEnemies(guard)
-		return
-	end	
+function CheckForEnemies(guard)
 
 	-- check for hostile monsters
 	local monsterList = world:getMonstersInRangeOf(guard.pos, content.guards.Guards[guard.name].radius);
@@ -33,8 +29,7 @@ function CheckForEnemies(guard)
     end
 	end
   if (warpedMonster) then
-    guard:talkLanguage(Character.say, Player.german, "Weg mit dir, widerliche Kreatur!");
-    guard:talkLanguage(Character.say, Player.english, "Go away, nasty creature!");
+    guard:talk(Character.say, "Weg mit dir, widerliche Kreatur!", "Go away, nasty creature!");
   end
 
 	-- check for player characters
@@ -44,6 +39,7 @@ function CheckForEnemies(guard)
 	for i,char in pairs(charList) do
     if (content.areas.PointInArea(char.pos,content.guards.Guards[guard.name].areaName)) then
       local mode = GetMode(char, content.guards.Guards[guard.name].faction);
+	  char:inform("mode is "..mode)
       if (mode == ACTION_AGGRESSIVE) then
         -- spawn monster guards
         -- TODO
@@ -61,25 +57,60 @@ function CheckForEnemies(guard)
     end
 	end
   if (warpedPlayers) then
-    guard:talkLanguage(Character.say, Player.german, "Pass bloß auf! Wir brauchen hier kein Gesindel.");
-    guard:talkLanguage(Character.say, Player.english, "You'd better watch out! We don't need such lowlifes here.");
+    guard:talk(Character.say, "Pass bloß auf! Wir brauchen hier kein Gesindel.",
+                              "You'd better watch out! We don't need such lowlifes here.");
   end
   if (hittedPlayers) then
     world:makeSound(3, guard.pos);
   end
 end
 
---- get the mode for this faction depending on the char's faction
+--- get the mode for this faction depending on the char's faction or his individual mode
 -- @param char The character whose faction is to be checked
 -- @param thisFaction The faction ID of the guard
 function GetMode(char, thisFaction)
+	char:inform("getmode")
+	--if char:isAdmin() then
+		--return ACTION_NONE;
+	--end
 	
-	-- if char:isAdmin() then
-		-- return ACTION_NONE;
-	-- end
-
+	local individualMode = GetIndividualMode(char, thisFaction) 
+    char:inform("invidu mode "..individualMode)
 	local f = base.factions.getFaction(char).tid;
-	return GetModeByFaction(thisFaction, f);
+	local factionMode = GetModeByFaction(thisFaction, f);
+	char:inform("faction mode "..factionMode)
+	return math.max(individualMode, factionMode)
+end
+
+-- return the mode of the character; check also for temporary mode
+-- @param char The character whose faction is to be checked
+-- @param thisFaction The faction ID of the guard 
+function GetIndividualMode(char, thisFaction) 
+
+    local modeList = {}
+    local daysList = {}	
+	modeList["Cadomyr"]  = 191; daysList["Cadomyr"]  = 192
+	modeList["Runewick"] = 193; daysList["Runewick"] = 194
+	modeList["Galmair"]  = 195; daysList["Cadomyr"]  = 196
+	
+    local factionName = base.factions.getTownNameByID(thisFaction)
+    local mode = char:getQuestProgress(modeList[factionName])
+	local days, setTime = char:getQuestProgress(daysList[factionName])
+	
+	if mode > 4 then
+	    debug("[Error] "..char.name.." ("..char.id..") had a higher quest value than allowed. Reset to 0.")
+		mode = 0
+		char:setQuestProgress(mode,0)
+	end	
+	
+	if days ~= 0 then 
+	    local daysInSec = (days/3)*24*60*60
+	    if (world:getTime("unix") - setTime >= daysInSec) then
+		    return 0
+		end	
+	end	
+	
+	return mode
 end
 
 --- get the mode for this faction by the other (hostile) faction
