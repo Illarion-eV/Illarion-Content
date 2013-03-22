@@ -469,11 +469,11 @@ function guardInfo(chosenPlayer)
 	    end
 	end
 	if days == 0 then
-	    myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." (permanent)"
+	    myInfoText = myInfoText.."\nGalmair: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." (permanent)"
 	elseif days == nil then
-	    myInfoText = myInfoText.."\nRunewick: None (permanent)"
+	    myInfoText = myInfoText.."\nGalmair: None (permanent)"
 	else
-        myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." ("..days..")"
+        myInfoText = myInfoText.."\nGalmair: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." ("..days..")"
 	end
 	
 	return myInfoText
