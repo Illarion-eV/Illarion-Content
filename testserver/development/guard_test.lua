@@ -70,9 +70,9 @@ end
 -- @param thisFaction The faction ID of the guard
 function GetMode(char, thisFaction)
 	char:inform("getmode")
-	if char:isAdmin() then
-		return ACTION_NONE;
-	end
+	--if char:isAdmin() then
+		--return ACTION_NONE;
+	--end
 	
 	local individualMode = GetIndividualMode(char, thisFaction) 
     char:inform("invidu mode "..individualMode)
