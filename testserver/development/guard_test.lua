@@ -2,7 +2,7 @@ require("base.factions")
 require("base.common")
 require("content.guards")
 require("content.areas")
-module("development.guards_static", package.seeall)
+module("development.guard_test", package.seeall)
 
 -- modes to define how players are handled. Monsters are always attacked (TO DO, for now: warp only)
 ACTION_NONE = 0;		-- do nothing at all

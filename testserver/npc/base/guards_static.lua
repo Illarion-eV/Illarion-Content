@@ -2,6 +2,7 @@ require("base.factions")
 require("base.common")
 require("content.guards")
 require("content.areas")
+require("development.guards_static")
 module("npc.base.guards_static", package.seeall)
 
 -- modes to define how players are handled. Monsters are always attacked (TO DO, for now: warp only)
@@ -12,7 +13,11 @@ ACTION_AGGRESSIVE = 3;	-- attack (TO DO)
 
 --- Checks for chars in range and handles them (warp)
 -- @param guard The character struct of the guard NPC
-function CheckForEnemies(guard)
+function CheckForEnemies(guard) 
+    if isTestserver() then
+	    development.guards_static.CheckForEnemies(guard)
+		return
+	end	
 
 	-- check for hostile monsters
 	local monsterList = world:getMonstersInRangeOf(guard.pos, content.guards.Guards[guard.name].radius);
