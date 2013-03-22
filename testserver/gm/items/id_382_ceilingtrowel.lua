@@ -426,7 +426,8 @@ function guardInfo(chosenPlayer)
 	local daysInSec = (days/3)*24*60*60
 	if days ~= 0 then
 	    if  (world:getTime("unix") - setTime >= daysInSec) then
-		    days = nil
+		    chosenPlayer:inform("before nil")
+			days = nil
 		else
             days = ((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24
 	    end
