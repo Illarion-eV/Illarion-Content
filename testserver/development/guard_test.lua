@@ -48,7 +48,7 @@ function CheckForEnemies(guard)
         hittedPlayers = true;
         warpedPlayers = true;
         Warp(guard, char);
-      elseif (mode == ACTION_HOSTILE or (mode == ACTION_PASSIVE and char.attackmode)) and then
+      elseif (mode == ACTION_HOSTILE or (mode == ACTION_PASSIVE and char.attackmode)) then
         -- warp
         warpedPlayers = true;
         Warp(guard, char);
@@ -73,7 +73,7 @@ function GetMode(char, thisFaction)
 		return ACTION_NONE;
 	end
 	
-	local individualMode = GetIndividualMode(char) 
+	local individualMode = GetIndividualMode(char, thisFaction) 
 
 	local f = base.factions.getFaction(char).tid;
 	local factionMode = GetModeByFaction(thisFaction, f);
@@ -83,7 +83,7 @@ end
 
 -- return the mode of the character; check also for temporary mode
 -- @param char The character whose faction is to be checked 
-function GetIndividualMode(char) 
+function GetIndividualMode(char, thisFaction) 
 
     local mode = char:getQuestProgress(191)
 	local days, setTime = char:getQuestProgress(192)
