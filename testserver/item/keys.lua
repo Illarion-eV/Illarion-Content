@@ -140,8 +140,8 @@ function SelectTargetChar(User, SourceItem, behaviour)
 					modeList["Galmair"]  = 195; daysList["Cadomyr"]  = 196
 				
 				    local town = SourceItem:getData("townKeyOf")
-					theChar:setProgress(modeList[town],behaviour)
-					theChar:setProgress(daysList[town],days)
+					theChar:setQuestProgress(modeList[town],behaviour)
+					theChar:setQuestProgress(daysList[town],days)
 				end
 			else
                 User:inform("You haven't put in all necessary informations.")
