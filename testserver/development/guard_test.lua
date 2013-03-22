@@ -104,11 +104,9 @@ function GetIndividualMode(char, thisFaction)
 	end	
 	
 	if days ~= 0 then 
-	    difference = (days/3)*60*60
-	    if (world:getTime("unix") - setTime <= 0) then
-		    char:setQuestProgress(mode,0)
-			char:setQuestProgress(days,0)
-			return 0
+	    local daysInSec = (days/3)*24*60*60
+	    if (world:getTime("unix") - setTime >= daysInSec) then
+		    return 0
 		end	
 	end	
 	

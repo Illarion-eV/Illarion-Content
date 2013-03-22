@@ -55,7 +55,7 @@ function SentenceCharacter(User,SourceItem)
 		end
 	end
 
-	local dialog = SelectionDialog("Town key", "What do you want to do?", callback)
+	local dialog = SelectionDialog("Town key of "..SourceItem:getData("townKeyOf"), "What do you want to do?", callback)
 	dialog:setCloseOnMove()
 	dialog:addOption(0, "Send someone to the labour camp")
 	dialog:addOption(0, "Set behaviour of guards towards a certain person")
@@ -148,7 +148,7 @@ function SelectTargetChar(User, SourceItem, behaviour)
             end
 		end	
 	end
-	local dialog = InputDialog("Set behaviour","Insert: [Name|ID] [days] Example: John Doe 100 ;notice: days are ig days. if it should be unlimited, set it to 0",false,255,callback)
+	local dialog = InputDialog("Set behaviour","Insert: [Name|ID] [days] Example: John Doe 100; Notice: Days are ig days. If it should be permanent, set it to 0",false,255,callback)
 	User:requestInputDialog(dialog)
 end
 

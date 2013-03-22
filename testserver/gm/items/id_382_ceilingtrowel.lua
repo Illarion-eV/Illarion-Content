@@ -313,7 +313,8 @@ function UseItem(User, SourceItem)
             infoText = infoText .. "\nRank: no rank " .. faction.rankTown;
           end
           infoText = infoText .. "\nExact rankpoints: " .. faction.rankpoints;
-          local sd = SelectionDialog("Set faction value", infoText, cbSetFactionValue);
+		  infoText = infoText .. guardInfo(chosenPlayer)
+		  local sd = SelectionDialog("Set faction value", infoText, cbSetFactionValue);
           sd:addOption(0, "Change town to None");
           sd:addOption(0, "Change town to Cadomyr");
           sd:addOption(0, "Change town to Runewick");
@@ -415,6 +416,29 @@ function UseItem(User, SourceItem)
     sd:addOption(0,"Get/Set guard modes");
     User:requestSelectionDialog(sd);
   end
+end
+
+function guardInfo(chosenPlayer)
+    local guardModes = {"None","Passive","Hostile","Aggressive","Let always pass"}
+    local myInfoText = "\nIndividual guard mode:"
+    
+	local days, setTime = chosenPlayer:getQuestProgress(192)
+	local daysInSec = (days/3)*24*60*60
+	if days ~= 0 then
+	    if  (world:getTime("unix") - setTime >= daysInSec) then
+		    days = nil
+		else
+            days = ((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24
+	    end
+	end
+	if days == 0 then
+	    "\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." (permanent)"
+	elseif days == nil then
+	    "\nCadomyr: None (permanent)"
+	else
+        "\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." ("..days..")"
+	end	
+	
 end
 
 
