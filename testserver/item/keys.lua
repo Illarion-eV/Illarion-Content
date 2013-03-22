@@ -35,7 +35,7 @@ function SentenceCharacter(User,SourceItem)
         end;
     end;	
 	
-	local myTown = SourceItem:getData("prisonKeyOf")
+	local myTown = SourceItem:getData("townKeyOf")
 	if not (myTown == "Cadomyr" or myTown == "Runewick" or myTown == "Galmair") then
         User:inform("This prison key does not belong to any town.")
         return
