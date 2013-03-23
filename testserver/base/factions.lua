@@ -353,7 +353,7 @@ function setRankpoints(originator, rankpoints)
 	end
 
 	if isTestserver() then
-	if rank < highestRank then
+	if rank <= highestRank then
 		Faction.rankTown = checkForRankChange(rankpoints,rank);	
 	end
 	else
