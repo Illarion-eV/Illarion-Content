@@ -11,7 +11,7 @@ module("test.merung", package.seeall)
 
 function UseItem(User, SourceItem)
 	
-	
+	User:increaseAttrib("essence",30)
     
 end
 
