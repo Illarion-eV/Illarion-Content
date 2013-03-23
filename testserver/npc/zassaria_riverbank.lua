@@ -441,7 +441,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] ask for me II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 4));
 talkEntry:addResponse("Ssso, you came to help me again? Zss. Thatsss very nice of you. Sss. I haven't sssseen Argentusss Almsbag for a while. Zzz. Pleassse, asssk him if he would ssstill like to buy fisssh. The fissh are ssstarting to sssmell.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
