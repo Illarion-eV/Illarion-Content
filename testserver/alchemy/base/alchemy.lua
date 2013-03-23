@@ -568,7 +568,8 @@ function FillFromTo(fromItem,toItem)
 		toItem.id = reCauldron
 	else
 		toItem.id = reBottle
-	end	
+	end
+    world:changeItem(toItem)	
 end
 
 function CauldronDestruction(User,cauldron,effectId)
