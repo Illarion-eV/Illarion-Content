@@ -39,8 +39,7 @@ function CheckForEnemies(guard)
 	for i,char in pairs(charList) do
     if (content.areas.PointInArea(char.pos,content.guards.Guards[guard.name].areaName)) then
       local mode = GetMode(char, content.guards.Guards[guard.name].faction);
-	  char:inform("mode is "..mode)
-      if (mode == ACTION_AGGRESSIVE) then
+	  if (mode == ACTION_AGGRESSIVE) then
         -- spawn monster guards
         -- TODO
         -- for now: just hit and warp
@@ -69,16 +68,13 @@ end
 -- @param char The character whose faction is to be checked
 -- @param thisFaction The faction ID of the guard
 function GetMode(char, thisFaction)
-	char:inform("getmode")
-	--if char:isAdmin() then
-		--return ACTION_NONE;
-	--end
+	if char:isAdmin() then
+		return ACTION_NONE;
+	end
 	
 	local individualMode = GetIndividualMode(char, thisFaction) 
-    char:inform("invidu mode "..individualMode)
-	local f = base.factions.getFaction(char).tid;
+    local f = base.factions.getFaction(char).tid;
 	local factionMode = GetModeByFaction(thisFaction, f);
-	char:inform("faction mode "..factionMode)
 	return math.max(individualMode, factionMode)
 end
 
