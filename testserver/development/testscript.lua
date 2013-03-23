@@ -202,6 +202,10 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 		armourValue = armourValue+RarityBonus;
 	end
 
+	if(Globals.criticalHit==6) then
+		--Armour pierce
+		armourValue=0;
+	end;
 
     armourfound, armour = world:getNaturalArmor(Defender.Race);
     if armourfound then
@@ -561,6 +565,11 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	
 	if Attacker.IsWeapon then
 		chancetohit=math.max(math.min(Attacker.Weapon.Accuracy*(1+(Attacker.perception-10)/500),100),5);
+		
+		--if Attacker.Weapon.Level>Attacker.skill) then
+			--chancetohit=chancetohit/5;
+		--end
+
 	else
 		chancetohit=math.max(math.min(90*(1+(Attacker.perception-10)/500),100),5);
 	end;
@@ -622,7 +631,14 @@ function HitChanceFlux(Attacker, Defender, Globals)
 		--The Shield Scaling Factor (SSF). Changes how much the top shield is better than the worse one.
 		local ShieldScalingFactor =5;
 
-		local defenderdefense = (100/ShieldScalingFactor) + parryWeapon.Defence*(1-1/ShieldScalingFactor);
+		local Rarity = NotNil(tonumber(parryItem:getData("RareWeapon")));
+
+		if (parryWeapon.WeaponType~=14) then
+			Rarity = 0;
+		end
+
+		local parryweapondefense = parryWeapon.Defence+Rarity*20;
+		local defenderdefense = (100/ShieldScalingFactor) + parryweapondefense*(1-1/ShieldScalingFactor);
 
 		if(parryWeapon.WeaponType~=14) then
 			defenderdefense = defenderdefense/2;
@@ -633,6 +649,11 @@ function HitChanceFlux(Attacker, Defender, Globals)
         parryChance = parryChance * (0.5 + (Defender.agility) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
         parryChance = parryChance + (defenderdefense) / 5; --0-20% bonus by the weapon/shield
 		parryChance = parryChance * qualitymod;
+
+		if(parryItem.Level<Defender.parry) then
+			parryChance = parryChance/5;
+		end
+
 		parryChance = math.min(math.max(parryChance,5),95); -- Min and max parry are 5% and 95% respectively
 		
 	else
@@ -1023,6 +1044,10 @@ function Specials(Attacker, Defender, Globals)
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
             "#me brings down "..hisher.." weapon with great force, stunning "..hisher.." foe.");
+	elseif(Globals.criticalHit==6) then -- 2HP
+		base.common.TalkNLS(Attacker.Char, Character.say,
+            "#me stolpert zurück und geht zu Boden.",
+            "#me thrusts "..hisher.." weapon with a powerful, piercing attack.");
 	elseif(Globals.criticalHit==7) then -- Dist
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
@@ -1030,7 +1055,7 @@ function Specials(Attacker, Defender, Globals)
 	elseif(Globals.criticalHit==8) then -- Wrest
 		base.common.TalkNLS(Attacker.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
-            "#me moves "..hisher.." fist extremely quickly, dealing a powerful blow to "..hisher.." opponent.");
+            "#me strikes out extremely quickly, dealing a powerful blow to "..hisher.." opponent.");
 	end;
 
 	if(Globals.criticalHit==4) then
