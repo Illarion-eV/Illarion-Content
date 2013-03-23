@@ -176,7 +176,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 
 	local Noobmessupmalus = 5; -- Amount that armour value is divided by if your skill isn't high enough to use this armour.
 	--No level implemented yet, for now derive it from the armour value.
-	local ArmourLevel=0;
+	--[[local ArmourLevel=0;
 
 	local skilltype= Defender.DefenseSkillName;
 	if(skilltype==Character.lightArmour) then
@@ -185,12 +185,11 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 		ArmourLevel = armour.StrokeArmor;
 	elseif (skilltype==Character.heavyArmour) then
 		ArmourLevel = armour.PunctureArmor;
-	end;
+	end;]]
 
-	if(ArmourLevel>Defender.DefenseSkill) then
-		armourValue = armourValue/Noobmessupmalus;
-		Defender.Char:inform("Your armour is too high level for you");
-	end
+	--if(Globals.HittedItem.Level>Defender.DefenseSkill) then
+		--armourValue = armourValue/Noobmessupmalus;
+	--end
 
 	local Rarity = NotNil(tonumber(Globals.HittedItem:getData("RareArmour")));
 
@@ -650,9 +649,9 @@ function HitChanceFlux(Attacker, Defender, Globals)
         parryChance = parryChance + (defenderdefense) / 5; --0-20% bonus by the weapon/shield
 		parryChance = parryChance * qualitymod;
 
-		if(parryItem.Level<Defender.parry) then
-			parryChance = parryChance/5;
-		end
+		--if(parryItem.Level>Defender.parry) then
+			--parryChance = parryChance/5;
+		--end
 
 		parryChance = math.min(math.max(parryChance,5),95); -- Min and max parry are 5% and 95% respectively
 		
