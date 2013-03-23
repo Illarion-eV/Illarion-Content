@@ -1218,17 +1218,9 @@ function HandleMovepoints(Attacker, Globals)
     end;
 
 	if Attacker.Weapon.AmmunitionType==10 then
-		if Defender.LeftIsWeapon then
-			if(Defender.LeftWeaponItem==322) then
-				weaponFightpoints = weaponFightpoints-1;
-			end
-		end;
-    
-		if Defender.RightIsWeapon then
-			if(Defender.RightWeaponItem==322) then
-				weaponFightpoints = weaponFightpoints-1;
-			end
-		end;
+		if(Attacker.SecWeaponItem.id==322) then
+			weaponFightpoints = weaponFightpoints-1;
+		end
 	end
     
     -- The Global Speed Mod (GSM). Increase this to make fights faster.
