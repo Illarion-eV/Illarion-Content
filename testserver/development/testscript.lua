@@ -573,12 +573,11 @@ function HitChanceFlux(Attacker, Defender, Globals)
 		--One square even further away is DRM^2 x normal accuracy.
 		local DistanceReductionModifier = 0.93
 
-		Attacker.Char:inform("Gets to here");
 		local distance = Attacker.Char:distanceMetric(Defender.Char);
-		Attacker.Char:inform("But does it get to here?");
 		local archerymod = min(1,(1-DistanceReductionModifier)+DistanceReductionModifier^(distance-2))
 		--The value of 2 is used because that's the number of squares away it starts.
 		chancetohit = chancetohit*archerymod;
+		Attacker.Char:inform("Distance = "..distance", and archerymod = "..archerymod..". Therefore chancetohit = "..chancetohit);
 	end;
 
 	--Surefire Special
