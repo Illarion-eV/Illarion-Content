@@ -31,8 +31,9 @@ function PutItemOnField(Item,User)
 			local payToFaction = itemNumberPay*theItemStats.Worth*0.1 -- 10% of teh value
 			
 			base.townTreasure.ChangeTownTreasure(town,payToFaction) -- add to the town treasure
-			log(string.format("[prison mine] %s donated %u %s (%u). Faction wealth increased by %d copper to %d copper.",
-				base.character.LogText(User), Item.number, world:getItemName(Item.id,Player.english), Item.id, payToFaction, base.townTreasure.GetTownTreasure(FactionName)));
+		-- BUGGY INFORM
+		--	log(string.format("[prison mine] %s donated %u %s (%u). Faction wealth increased by %d copper to %d copper.",
+			--	base.character.LogText(User), Item.number, world:getItemName(Item.id,Player.english), Item.id, payToFaction, base.townTreasure.GetTownTreasure(FactionName)));
 			-- reduce work load of char
 			if (workLoad - Item.number) <= 0 then
 				if workLoad > 0 then -- the char was actually still forced to work, inform him that he's free

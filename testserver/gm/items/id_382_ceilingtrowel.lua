@@ -313,7 +313,8 @@ function UseItem(User, SourceItem)
             infoText = infoText .. "\nRank: no rank " .. faction.rankTown;
           end
           infoText = infoText .. "\nExact rankpoints: " .. faction.rankpoints;
-          local sd = SelectionDialog("Set faction value", infoText, cbSetFactionValue);
+		  infoText = infoText .. guardInfo(chosenPlayer)
+		  local sd = SelectionDialog("Set faction value", infoText, cbSetFactionValue);
           sd:addOption(0, "Change town to None");
           sd:addOption(0, "Change town to Cadomyr");
           sd:addOption(0, "Change town to Runewick");
@@ -415,6 +416,66 @@ function UseItem(User, SourceItem)
     sd:addOption(0,"Get/Set guard modes");
     User:requestSelectionDialog(sd);
   end
+end
+
+function guardInfo(chosenPlayer)
+    local guardModes = {"None","Passive","Hostile","Aggressive","Let always pass"}
+    local myInfoText = "\nIndividual guard mode:"
+    
+	local days, setTime = chosenPlayer:getQuestProgress(192)
+	local daysInSec = (days/3)*24*60*60
+	if days ~= 0 then
+	    if  (world:getTime("unix") - setTime >= daysInSec) then
+		    chosenPlayer:inform("before nil")
+			days = nil
+		else
+            days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
+	    end
+	end
+	if days == 0 then
+	    myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." (permanent)"
+	elseif days == nil then
+	    myInfoText = myInfoText.."\nCadomyr: None (permanent)"
+	else
+        myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." ("..days.." days left)"
+	end	
+	
+	local days, setTime = chosenPlayer:getQuestProgress(194)
+	local daysInSec = (days/3)*24*60*60
+	if days ~= 0 then
+	    if  (world:getTime("unix") - setTime >= daysInSec) then
+		    days = nil
+		else
+            days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
+	    end
+	end
+	if days == 0 then
+	    myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." (permanent)"
+	elseif days == nil then
+	    myInfoText = myInfoText.."\nRunewick: None (permanent)"
+	else
+        myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." ("..days.." days left)"
+	end
+	
+	local days, setTime = chosenPlayer:getQuestProgress(196)
+	local daysInSec = (days/3)*24*60*60
+	if days ~= 0 then
+	    if  (world:getTime("unix") - setTime >= daysInSec) then
+		    chosenPlayer:inform("before nil")
+			days = nil
+		else
+            days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
+	    end
+	end
+	if days == 0 then
+	    myInfoText = myInfoText.."\nGalmair: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." (permanent)"
+	elseif days == nil then
+	    myInfoText = myInfoText.."\nGalmair: None (permanent)"
+	else
+        myInfoText = myInfoText.."\nGalmair: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." ("..days.." days left)"
+	end
+	
+	return myInfoText
 end
 
 
