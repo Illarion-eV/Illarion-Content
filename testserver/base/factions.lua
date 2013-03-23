@@ -315,10 +315,8 @@ function setFaction(originator,Faction)
 end
 
 function setSpecialRank(player, rank) 
-	for i=0, #specialRanks do
-		if rank == specialRanks[i] or tonumber(rank) == 0 then 
-			player:setQuestProgress(200, tonumber(rank));
-		end
+	if (rank > highestRank and rank < leaderRank) or rank == 0  then 
+		player:setQuestProgress(200, tonumber(rank));
 	end
 end
 
@@ -355,10 +353,8 @@ function setRankpoints(originator, rankpoints)
 	end
 
 	if isTestserver() then
-	for i=0, #(specialRanks) do
-		if rank ~= specialRanks[i] then
-			Faction.rankTown = checkForRankChange(rankpoints,rank);	
-		end
+	if rank < highestRank then
+		Faction.rankTown = checkForRankChange(rankpoints,rank);	
 	end
 	else
 	Faction.rankTown = checkForRankChange(rankpoints,rank);
