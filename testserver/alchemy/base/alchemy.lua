@@ -763,7 +763,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 				end
 				
 		else -- nothing in the cauldron, we just fill in the essence brew
-			if isTestserver() debug("before fillfromto") end
+			if isTestserver() then debug("before fillfromto") end
 			FillFromTo(SourceItem,cauldron)	
 		end
 		
