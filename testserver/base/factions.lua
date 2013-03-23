@@ -398,6 +398,14 @@ function setRankpoints(originator, rankpoints)
 		rankpoints = (leaderRank-1)*100;
 		Faction.rankTown = leaderRank;
 	end
+	
+	if rankpoints < base.factions.getRankpoints(originator) then
+		playerText = {"sinkt.","decline"};
+		informPlayerAboutRankpointchange(chosenPlayer, playerText);
+	else
+		playerText = {"steigt.","advance"};
+		informPlayerAboutRankpointchange(chosenPlayer, playerText);
+	end	
 
 	-- Inform about rankchange
 	if Faction.rankTown>rank then
@@ -433,6 +441,23 @@ function informPlayerAboutRankchange(player, factionValues, rankHigher)
 		base.common.InformNLS( player, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in "..townName.." um eine Stufe gesunken. Du bist nun "..rankName.gRank..".",
 			"Because of your permanent conflicts with the law your rank sinks for a degree in "..townName..". You are now "..rankName.eRank.."." );
 	end
+end
+
+--[[
+	informs the player about a rankpointchange
+	@param player - characterStruct
+	@modifierTextarray - Textarray with the info if the rankpoints were raised/ declined
+]]
+function informPlayerAboutRankpointchange(player, modifierTextarray)
+	local faction = base.factions.getMembership(player);
+	local factionLeadersDE = {"Königin Rosaline Edwards", "Erzmagier Elvaine Morgan", "Don Valerio Guilianni"};
+	local factionLeadersEN = {"Queen Rosaline Edwards", "Archmage Elvaine Morgan", "Don Valerio Guilianni"};
+
+	if faction ~= 0 then
+		base.common.InformNLS(player, "Dein Ansehen bei "..factionLeadersDE[faction].." "..modifierTextarray[1], "You "..modifierTextarray[2].." in "..factionLeadersEN[faction].."'s favour.");
+	else
+		return;
+	end;
 end
 
 --[[
