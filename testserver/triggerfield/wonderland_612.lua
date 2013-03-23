@@ -112,8 +112,8 @@ end
 	char:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du enkommst mir nicht!\" Eine andere Stimme ruft dir erneut aus dem Nordwesten zu: \"Gib nicht auf! Du kannst es schaffen, aber geh weg von mir.\"","You hear laughter and a croaking voice, saying: \"HAHA! You cannot escape!\"Another voice replies again from the northwest: \"Do not give in! You can make it but get away from me.\"")  
 	char:setQuestProgress(612,0)
 	end
-	if (char:increaseAttrib("hitpoints",0)>1000) then
-	char:increaseAttrib("hitpoints", -1000)
+	if (char:increaseAttrib("hitpoints",0)>2000) then
+	char:increaseAttrib("hitpoints", -500)
 	end
 end
 

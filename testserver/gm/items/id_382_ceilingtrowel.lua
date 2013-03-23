@@ -261,14 +261,8 @@ function UseItem(User, SourceItem)
                   User:inform("no number");
                   return;
                 end
-				if rankpoints < base.factions.getRankpoints(chosenPlayer) then
-					playerText = {"sinkt.","decline"};
-				else
-					playerText = {"steigt.","advance"};
-				end
 				if base.factions.getMembership(chosenPlayer) > 0 and base.factions.getMembership(chosenPlayer) < 4 then
 					base.factions.setRankpoints(chosenPlayer, rankpoints);
-					informPlayerAboutRankpointchange(chosenPlayer, playerText);
 				else
 					User:inform("Player does not belong to any faction. Rankpoints not changed.");
 				end
@@ -525,29 +519,15 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 			Factionvalues = base.factions.getFaction(player_list[i]);
 			if faction == nil or faction == 99 then
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
-				informPlayerAboutRankpointchange(player_list[i], playerText);
 				User:inform("You just "..text.." "..value.." rankpoints to everyone in a radius of ".. radius..".");
 			elseif tonumber(faction) == tonumber(Factionvalues.tid) then
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
-				informPlayerAboutRankpointchange(player_list[i], playerText);
 				User:inform("You just "..text.." "..value.." rankpoints to members of the faction "..base.factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".");
 			else
 				return;
 			end	
 		end
 	end	
-end
-
-function informPlayerAboutRankpointchange(User, modifierTextarray)
-	local faction = base.factions.getMembership(User);
-	local factionLeadersDE = {"Königin Rosaline Edwards", "Erzmagier Elvaine Morgan", "Don Valerio Guilianni"};
-	local factionLeadersEN = {"Queen Rosaline Edwards", "Archmage Elvaine Morgan", "Don Valerio Guilianni"};
-
-	if faction ~= 0 then
-		base.common.InformNLS(User, "Dein Ansehen bei "..factionLeadersDE[faction].." "..modifierTextarray[1], "You "..modifierTextarray[2].." in "..factionLeadersEN[faction].."'s favour.");
-	else
-		return;
-	end;
 end
 
 function Init()
