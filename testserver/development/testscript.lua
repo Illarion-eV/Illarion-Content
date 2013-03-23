@@ -574,10 +574,12 @@ function HitChanceFlux(Attacker, Defender, Globals)
 		local DistanceReductionModifier = 0.93
 
 		local distance = Attacker.Char:distanceMetric(Defender.Char);
-		local archerymod = min(1,(1-DistanceReductionModifier)+DistanceReductionModifier^(distance-2))
+		Attacker.Char:inform("Distance = "..distance);
+		local archerymod = min(1,(1-DistanceReductionModifier)+math.pow(DistanceReductionModifier,distance-2))
+		Attacker.Char:inform("Archerymod = "..archerymod);
 		--The value of 2 is used because that's the number of squares away it starts.
 		chancetohit = chancetohit*archerymod;
-		Attacker.Char:inform("Distance = "..distance", and archerymod = "..archerymod..". Therefore chancetohit = "..chancetohit);
+		Attacker.Char:inform("Therefore chancetohit = "..chancetohit);
 	end;
 
 	--Surefire Special
