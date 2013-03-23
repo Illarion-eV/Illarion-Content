@@ -573,7 +573,7 @@ function HitChanceFlux(Attacker, Defender, Globals)
 		--One square even further away is DRM^2 x normal accuracy.
 		local DistanceReductionModifier = 0.93
 
-		local distance = Attacker.Char:distanceMetric(Defender);
+		local distance = Attacker.Char:distanceMetric(Defender.Char);
 		local archerymod = min(1,(1-DistanceReductionModifier)+DistanceReductionModifier^(distance-2))
 		--The value of 2 is used because that's the number of squares away it starts.
 		chancetohit = chancetohit*archerymod;
@@ -619,9 +619,13 @@ function HitChanceFlux(Attacker, Defender, Globals)
 		end;
 		
 		--The Shield Scaling Factor (SSF). Changes how much the top shield is better than the worse one.
-		local ShieldScalingFactor =10;
+		local ShieldScalingFactor =5;
 
 		local defenderdefense = (100/ShieldScalingFactor) + parryWeapon.Defence*(1-1/ShieldScalingFactor);
+
+		if(parryWeapon.WeaponType~=14) then
+			defenderdefense = defenderdefense/2;
+		end
 
 		local qualitymod = 0.91+0.02*math.floor(parryItem.quality/100);
 		parryChance = (Defender.parry / 5); --0-20% by the skill
