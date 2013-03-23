@@ -1220,7 +1220,6 @@ function HandleMovepoints(Attacker, Globals)
 	if Attacker.Weapon.AmmunitionType==10 then
 		if(Attacker.SecWeaponItem.id==322) then
 			weaponFightpoints = weaponFightpoints-1;
-			Attacker.Char:inform("Working");
 		end
 	end
     
