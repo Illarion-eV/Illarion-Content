@@ -269,15 +269,13 @@ end
 					3-5 the Ranks/Reputation in the Towns Cadomyr, Runewick and Galmair
 ]]
 function getFaction(originator)
-	local rankTown  = getRankAsNumber(originator);
-	
-	if isTestserver() then
+	local rankTown;
+
 	--check for special rank
 	if getSpecialRank(originator) ~= 0 then
 		rankTown = getSpecialRank(originator);
 	else
 		rankTown = getRankAsNumber(originator);
-	end
 	end
 	
 	local factionMembership = originator:getQuestProgress(199);
@@ -392,14 +390,10 @@ function setRankpoints(originator, rankpoints)
 	end
 
 	-- determine if player got a new rank
-	if isTestserver() then
 	if rank <= highestRank then
 		Faction.rankTown = checkForRankChange(rankpoints,rank);	
 	end
-	else
-	Faction.rankTown = checkForRankChange(rankpoints,rank);
-	end
-	
+
 	-- Factionleaders always have the leaderrank 11 and 1000 rankpoints (just to keep it consistent)
 	if originator.name == "Valerio Guilianni" or originator.name == "Rosaline Edwards" or originator.name == "Elvaine Morgan" then
 		rankpoints = (leaderRank-1)*100;
