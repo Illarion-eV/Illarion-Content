@@ -275,11 +275,20 @@ function UseItem(User, SourceItem)
 					if (not dialog:getSuccess()) then
 						return;
 					end
+					local success;
 					local index = dialog:getSelectedIndex();
 					if index == 0 then -- demoting
-						base.factions.setSpecialRank(User, 0);
+						success = base.factions.setSpecialRank(User, 0);
 					else -- promoting
-						base.factions.setSpecialRank(User, base.factions.highestRank+tonumber(index));
+						success = base.factions.setSpecialRank(User, base.factions.highestRank+tonumber(index));						
+					end
+					
+					if success == false and base.factions.getRankpoints(chosenPlayer) ~= (base.factions.highestRank-1)*100 then
+						User:inform("Rangchange failed. Player has not enough rankpoints. Current rankpoints: "..base.factions.getRankpoints(chosenPlayer));
+					elseif success == true then
+						User:inform("Rankchange for "..chosenPlayer.name.." successful.");
+					else
+						User:inform("Rangchange failed for unknown reasons. Please inform a developer.");
 					end
 				end	
 
