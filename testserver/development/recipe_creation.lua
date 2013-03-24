@@ -323,24 +323,3 @@ function AddToRecipe(ingredientsList,addThis)
 	table.insert(ingredientsList,addThis)
 	
 end
-
-local callback = function(dialog) 
-	success = dialog:getSuccess() 
-	if success then
-		selected = dialog:getSelectedIndex()+1
-		
-	else
-		User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.") 
-	end
-end
-
-local dialog
-if User:getPlayerLanguage() == Player.german then
-    dialog = SelectionDialog("Rezepterstellung", "Select some stuff...", callback)
-    dialog:addOption(items[i], names[i])
-else
-	dialog = SelectionDialog("Recipe creation", "Select some stuff...", callback)
-	dialog:addOption(items[i], names[i])
-end
-dialog:setCloseOnMove()
-User:requestSelectionDialog(dialog)
