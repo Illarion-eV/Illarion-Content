@@ -387,8 +387,8 @@ function setRankpoints(originator, rankpoints)
 
 	if rankpoints < 0 then
 		rankpoints = 0;
-	elseif rankpoints > (highestRank-1)*100+99 then
-		rankpoints = (highestRank-1)*100;
+	elseif rankpoints > ((highestRank-1)*100)+99 then
+		rankpoints = ((highestRank-1)*100)+99;
 	end
 
 	-- determine if player got a new rank
