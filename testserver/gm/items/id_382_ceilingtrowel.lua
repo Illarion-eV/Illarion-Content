@@ -267,7 +267,7 @@ function UseItem(User, SourceItem)
 					User:inform("Player does not belong to any faction. Rankpoints not changed.");
 				end
               end
-              User:requestInputDialog(InputDialog("Set rankpoints", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
+              User:requestInputDialog(InputDialog("Set rankpoints", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 7 normal and 3 special ranks plus the leader.", false, 255, cbSetRank));
 
 			--change special rank
 			elseif (ind == 6) then
@@ -275,25 +275,20 @@ function UseItem(User, SourceItem)
 					if (not dialog:getSuccess()) then
 						return;
 					end
-					local inform;
 					local index = dialog:getSelectedIndex();
 					if index == 0 then -- demoting
 						base.factions.setSpecialRank(User, 0);
-						inform = base.common.GetNLS(chosenPlayer,"Ihr wurdet degradiert und habt nun keinen spziellen Rang mehr.","You have been demoted and have no special rank anymore.")
-						chosenPlayer:inform(inform)
 					else -- promoting
-						base.factions.setSpecialRank(User, 10+tonumber(index));
-						inform = base.common.GetNLS(chosenPlayer,"Ihr wurdet befördert und seid nun "..base.factions.getRank(chosenPlayer),"You have been promoted and are now "..base.factions.getRank(chosenPlayer));
-						chosenPlayer:inform(inform)
+						base.factions.setSpecialRank(User, base.factions.highestRank+tonumber(index));
 					end
 				end	
 
 				local infoText = ""
 				local sd = SelectionDialog("Special rank", infoText, cbSetSpecialRank);
 				sd:addOption(0, "Demote");
-				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 11));
-				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 12));
-				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 13));
+				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 8));
+				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 9));
+				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 10));
 				User:requestSelectionDialog(sd);	
 			end
           end
