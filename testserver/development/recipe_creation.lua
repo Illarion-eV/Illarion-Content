@@ -27,7 +27,7 @@ function FirstMenu(User, ingredientsList)
                 FinishRecipe(User, ingredientsList)
 			end	
 		else
-			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.") 
+			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority) 
 		end
 	end
 
@@ -71,7 +71,7 @@ function SelectPlantCategory(User, ingredientsList)
 			    SelectPlant(User, ingredientsList, PLANT_CATS["EN"][selected-1])
 			end	
 		else
-			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.")
+			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority)
 		end
 	end
 
@@ -114,7 +114,7 @@ function SelectPlant(User, ingredientsList, category)
 			    SelectPlant(User, ingredientsList, category)
 			end 
 		else
-			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.")
+			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority)
 		end
 	end
 
@@ -155,7 +155,7 @@ function SelectGemDust(User, ingredientsList)
 			    SelectGemDust(User, ingredientsList)
 			end 
 		else
-			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.")
+			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority)
 		end
 	end
 
@@ -197,7 +197,7 @@ end
 
 function SelectFillIntoCauldron(User, ingredientsList)
     
-	local posList = {}
+	local addList = {}
     local callback = function(dialog) 
 		success = dialog:getSuccess() 
 		if success then
@@ -214,11 +214,12 @@ function SelectFillIntoCauldron(User, ingredientsList)
      			if not CheckAmount(ingredientsList) then
 				    return
 				end
-				AddToRecipe(ingredientsList,posList[i])
-				User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(GEMPOWDERS[selected-1],Player.german),"Has beend added to the recipe: "..world:getItemName(GEMPOWDERS[selected-1],Player.english),Character.lowPriority)
+				AddToRecipe(ingredientsList,addList[i])
+				local de,en = BottleBottlingString(addList[i])
+				User:inform("Wurde dem Rezept hinzugefügt: "..de,"Has beend added to the recipe: "..en,Character.lowPriority)
 		    end
 		else
-			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.") 
+			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority) 
 		end
 	end
     
@@ -231,7 +232,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 				local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
 				if a ~= nil then
 					local de, en = BottleBottlingString("add "..queue)
-					table.insert(posList, "add "..queue)
+					table.insert(addList, "add "..queue)
 					dialog:addOption(0,de)
 				end
 			end			
@@ -245,7 +246,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 				local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
 				if a ~= nil then
 					local de, en = BottleBottlingString("add "..queue)
-					table.insert(posList, "add "..queue)
+					table.insert(addList, "add "..queue)
 					dialog:addOption(0,en)
 				end	
 			end	
@@ -316,7 +317,7 @@ function BottleBottlingString(theString)
 	end
     a,b,queue = string.find(theString,"add (%d+)")
     if a ~= nil then    
-		return "füge "..queue..". Abgefülltes hinzu", "add "..queue.."th bottled"
+		return "Füge "..queue..". Abgefülltes hinzu", "Add "..queue.."th bottled"
 	end	
 end
 
