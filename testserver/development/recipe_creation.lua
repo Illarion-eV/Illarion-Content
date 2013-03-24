@@ -182,7 +182,7 @@ function BottleFromCauldron(User, ingredientsList)
     if not CheckAmount(ingredientsList) then
 		return
 	end	
-	local counter = 0
+	local counter = 1
 	for i=1,#ingredientsList do
 	    local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
 		if a ~= nil then
