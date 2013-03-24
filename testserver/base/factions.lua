@@ -394,6 +394,7 @@ function setRankpoints(originator, rankpoints)
 	if rankpoints < base.factions.getRankpoints(originator) then
 		playerText = {"sinkt.","decline"};
 		informPlayerAboutRankpointchange(originator, playerText);
+		setSpecialRank(originator, 0);
 	else
 		playerText = {"steigt.","advance"};
 		informPlayerAboutRankpointchange(originator, playerText);
