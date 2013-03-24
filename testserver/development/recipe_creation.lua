@@ -217,6 +217,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 				AddToRecipe(ingredientsList,addList[selected-2])
 				local de,en = BottleBottlingString(addList[selected-2])
 				User:inform("Wurde dem Rezept hinzugefügt: "..de,"Has beend added to the recipe: "..en,Character.lowPriority)
+				SelectFillIntoCauldron(User, ingredientsList)
 		    end
 		else
 			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority) 
