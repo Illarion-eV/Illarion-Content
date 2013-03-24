@@ -265,7 +265,7 @@ function ShowRecipe(User, ingredientsList)
 	if #ingredientsList == 0 then
 	    recipeDe = "Das Rezept ist leer."
 		recipeEn = "The recipe is empty."
-	elseif
+	else
 	    for i=1,#ingredientsList do
 		    if type(ingredientsList[i])=="number" then
 			    recipeDe = recipeDe..world:getItemName(ingredientsList[i],Player.german)
