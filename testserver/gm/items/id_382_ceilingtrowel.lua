@@ -267,7 +267,7 @@ function UseItem(User, SourceItem)
 					User:inform("Player does not belong to any faction. Rankpoints not changed.");
 				end
               end
-              User:requestInputDialog(InputDialog("Set rankpoints", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
+              User:requestInputDialog(InputDialog("Set rankpoints", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 7 normal and 3 special ranks plus the leader.", false, 255, cbSetRank));
 
 			--change special rank
 			elseif (ind == 6) then
