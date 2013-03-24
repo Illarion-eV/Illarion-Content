@@ -281,7 +281,7 @@ function ShowRecipe(User, ingredientsList)
                 recipeDe = recipeDe..de
                 recipeEn = recipeEn..en
             end
-            if i > 1 and i < #ingredientsList then
+            if i < #ingredientsList then
                 recipeDe = recipeDe..", "			
 			    recipeEn = recipeEn..", "
 			end
