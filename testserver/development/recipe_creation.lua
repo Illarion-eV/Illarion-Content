@@ -226,23 +226,27 @@ function SelectFillIntoCauldron(User, ingredientsList)
 		dialog:addOption(0, "Zurück")
 		dialog:addOption(52, world:getItemName(52,Player.german))
 		for i=1,#ingredientsList do
-		    local a,b,queue = string.find(theString,"bottle (%d+)")
-			if a ~= nil then
-			    local de, en BottleBottlingString("add "..queue)
-				table.insert(posList, "add "..queue)
-				dialog:addOption(0,de)
-			end	
+		    if type(ingredientsList[i])=="string" then
+				local a,b,queue = string.find(theString,"bottle (%d+)")
+				if a ~= nil then
+					local de, en BottleBottlingString("add "..queue)
+					table.insert(posList, "add "..queue)
+					dialog:addOption(0,de)
+				end
+			end			
 		end
 	else
 		dialog = SelectionDialog("Recipe creation", "Select what you want to fill into the cauldron.", callback)
 		dialog:addOption(0, "Back")
 		dialog:addOption(52, world:getItemName(52,Player.english))
 		for i=1,#ingredientsList do
-		    local a,b,queue = string.find(theString,"bottle (%d+)")
-			if a ~= nil then
-			    local de, en BottleBottlingString("add "..queue)
-				table.insert(posList, "add "..queue)
-				dialog:addOption(0,en)
+		    if type(ingredientsList[i])=="string" then
+				local a,b,queue = string.find(theString,"bottle (%d+)")
+				if a ~= nil then
+					local de, en BottleBottlingString("add "..queue)
+					table.insert(posList, "add "..queue)
+					dialog:addOption(0,en)
+				end	
 			end	
 		end
 	end
