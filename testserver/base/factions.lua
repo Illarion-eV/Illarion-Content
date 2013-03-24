@@ -338,7 +338,7 @@ function setSpecialRank(player, rank)
 	local inform;
 	
 	if (rank > highestRank and rank < leaderRank) or rank == 0  then
-		if rankpoints == (highestRank-1)*100 then
+		if rankpoints >= (highestRank-1)*100 then
 			player:setQuestProgress(200, tonumber(rank));
 			if rank == 0 then
 				inform = base.common.GetNLS(player,"Ihr wurdet degradiert und habt nun keinen spziellen Rang mehr.","You have been demoted and have no special rank anymore.")
@@ -387,7 +387,7 @@ function setRankpoints(originator, rankpoints)
 
 	if rankpoints < 0 then
 		rankpoints = 0;
-	elseif rankpoints > (highestRank-1)*100 then
+	elseif rankpoints > (highestRank-1)*100+99 then
 		rankpoints = (highestRank-1)*100;
 	end
 
