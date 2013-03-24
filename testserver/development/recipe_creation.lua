@@ -209,6 +209,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 				    return
 				end	
 				AddToRecipe(ingredientsList,52)
+				SelectFillIntoCauldron(User, ingredientsList)
 			else
      			if not CheckAmount(ingredientsList) then
 				    return
