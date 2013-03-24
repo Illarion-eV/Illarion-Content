@@ -261,7 +261,7 @@ function RemoveLastIngredient(User, ingredientsList)
 end
 
 function ShowRecipe(User, ingredientsList) 
-    local recipeDe = "", recipeEn = ""
+    local recipeDe = ""; local recipeEn = ""
 	if #ingredientsList == 0 then
 	    recipeDe = "Das Rezept ist leer."
 		recipeEn = "The recipe is empty."
