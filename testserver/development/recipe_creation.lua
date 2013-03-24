@@ -223,6 +223,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 					if ingredientsList[i] == addList[selected-2] then
 					    User:inform("here i am to save the day")
 						local removed = table.remove(ingredientsList,i)
+						User:inform("removed: "..removed)
 					end
 				end			
 				SelectFillIntoCauldron(User, ingredientsList)
