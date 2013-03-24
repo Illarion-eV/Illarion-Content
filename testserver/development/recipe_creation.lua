@@ -214,6 +214,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
      			if not CheckAmount(ingredientsList) then
 				    return
 				end
+				debug(""..addList[i])
 				AddToRecipe(ingredientsList,addList[i])
 				local de,en = BottleBottlingString(addList[i])
 				User:inform("Wurde dem Rezept hinzugefügt: "..de,"Has beend added to the recipe: "..en,Character.lowPriority)
