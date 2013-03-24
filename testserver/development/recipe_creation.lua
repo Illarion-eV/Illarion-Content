@@ -36,16 +36,18 @@ function FirstMenu(User, ingredientsList)
 		dialog = SelectionDialog("Rezepterstellung", "Wähle eine Kategorie aus, aus der du dem Rezept etwas hinzutun willst.", callback)
 		dialog:addOption(0, "Pflanzen")
 		dialog:addOption(0, "Edelsteinstaub")
-		dialog:addOption(0, "Kesslinhalt abfüllen")
 		dialog:addOption(0, "Kessel befüllen")
+		dialog:addOption(0, "Kesslinhalt abfüllen")
+		dialog:addOption(0, "Letzte Zutat entfernen")
 		dialog:addOption(0, "Rezept betrachten")
 		dialog:addOption(0, "Rezept fertigstellen")
     else
 	    dialog = SelectionDialog("Recipe creation", "Select a category from which you want to add something to the recipe.", callback)
 		dialog:addOption(0, "Plants")
 		dialog:addOption(0, "Gem powder")
-		dialog:addOption(0, "Bottle cauldron content")
 		dialog:addOption(0, "Fill into the cauldron")
+		dialog:addOption(0, "Bottle cauldron content")
+		dialog:addOption(0, "Remove last ingredient")
 		dialog:addOption(0, "Show recipe")
 		dialog:addOption(0, "Finish recipe")
 	end
@@ -250,13 +252,16 @@ function SelectFillIntoCauldron(User, ingredientsList)
 end
 
 function RemoveLastIngredient(User, ingredientsList)
-
+    
+	if #ingredientsList==0 then
+	    User:inform("Das Rezept ist leer. Es kann nichts entfernt werden.","The recipe is empty. There is nothing to be removed.",Character.lowPriority)
+	
     local removed = table.remove(ingredientsList)
 	if type(removed)=="number" then
 	    User:inform("Die letzte Zutat wurde vom Rezept entfernt: "..world:getItemName(removed,Player.german),"The last ingredient has been removed: "..world:getItemName(removed,Player.english),Character.lowPriority)
     elseif type(removed)=="string" then
 	    local de, en = BottleBottlingString(removed)
-		User:inform("Die letzte Zutat wurde vom Rezept entfernt: "..de,"The last ingredient has been removed: "..en)
+		User:inform("Die letzte Zutat wurde vom Rezept entfernt: "..de,"The last ingredient has been removed: "..en,Character.lowPriority)
 	end
 end
 
