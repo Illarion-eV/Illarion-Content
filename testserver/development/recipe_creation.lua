@@ -228,7 +228,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 		dialog:addOption(52, world:getItemName(52,Player.german))
 		for i=1,#ingredientsList do
 		    if type(ingredientsList[i])=="string" then
-				local a,b,queue = string.find(theString,"bottle (%d+)")
+				local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
 				if a ~= nil then
 					local de, en BottleBottlingString("add "..queue)
 					table.insert(posList, "add "..queue)
@@ -242,7 +242,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 		dialog:addOption(52, world:getItemName(52,Player.english))
 		for i=1,#ingredientsList do
 		    if type(ingredientsList[i])=="string" then
-				local a,b,queue = string.find(theString,"bottle (%d+)")
+				local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
 				if a ~= nil then
 					local de, en BottleBottlingString("add "..queue)
 					table.insert(posList, "add "..queue)
