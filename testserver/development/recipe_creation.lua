@@ -218,12 +218,14 @@ function SelectFillIntoCauldron(User, ingredientsList)
 				User:inform(""..addList[selected-2])
 				local de,en = BottleBottlingString(addList[selected-2])
 				User:inform("Wurde dem Rezept hinzugefügt: "..de,"Has beend added to the recipe: "..en,Character.lowPriority)
+				User:inform("length: "..#ingredientsList)
 				for i=1,#ingredientsList do 
 				    User:inform(""..ingredientsList[i])
 					if ingredientsList[i] == addList[selected-2] then
 					    User:inform("here i am to save the day")
 						removeThatShit = table.remove(ingredientsList,i)
 						User:inform("removed: "..removeThatShit)
+					    User:inform("length: "..#ingredientsList)
 					end
 				end			
 				SelectFillIntoCauldron(User, ingredientsList)
