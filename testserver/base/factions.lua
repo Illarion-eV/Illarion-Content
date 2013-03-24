@@ -321,10 +321,20 @@ end
 	Sets a special rank if the rank given really is special
 	@param player - characterStruct
 	@param rank - new special rank (0 to take the specialness away)
+	
+	@return - special rank was set (true|false)
 ]]
 function setSpecialRank(player, rank) 
-	if (rank > highestRank and rank < leaderRank) or rank == 0  then 
-		player:setQuestProgress(200, tonumber(rank));
+	local Faction = getFaction(player);
+	local rankpoints = Faction.rankpoints;
+	
+	if (rank > highestRank and rank < leaderRank) or rank == 0  then
+		if rankpoints == (highestRank-1)*100 then
+			player:setQuestProgress(200, tonumber(rank));
+			return true;
+		else
+			return false;
+		end
 	end
 end
 
