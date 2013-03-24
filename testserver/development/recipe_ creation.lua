@@ -181,7 +181,7 @@ function BottleFromCauldron(User, ingredientsList)
 		return
 	end	
 	local counter = 0
-	for i=1,#ingredientsList do then
+	for i=1,#ingredientsList do
 	    local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
 		if a ~= nil then
 			counter = counter + 1
