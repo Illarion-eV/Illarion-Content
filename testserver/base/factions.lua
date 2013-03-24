@@ -327,10 +327,17 @@ end
 function setSpecialRank(player, rank) 
 	local Faction = getFaction(player);
 	local rankpoints = Faction.rankpoints;
+	local inform;
 	
 	if (rank > highestRank and rank < leaderRank) or rank == 0  then
 		if rankpoints == (highestRank-1)*100 then
 			player:setQuestProgress(200, tonumber(rank));
+			if rank == 0 then
+				inform = base.common.GetNLS(player,"Ihr wurdet degradiert und habt nun keinen spziellen Rang mehr.","You have been demoted and have no special rank anymore.")
+			else
+				inform = base.common.GetNLS(player,"Ihr wurdet befördert und seid nun "..getRank(player)..".","You have been promoted and are now "..getRank(player)..".");
+			end
+			player:inform(inform)
 			return true;
 		else
 			return false;
