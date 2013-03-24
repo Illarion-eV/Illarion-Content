@@ -282,7 +282,7 @@ function UseItem(User, SourceItem)
 						inform = base.common.GetNLS(chosenPlayer,"Ihr wurdet degradiert und habt nun keinen spziellen Rang mehr.","You have been demoted and have no special rank anymore.")
 						chosenPlayer:inform(inform)
 					else -- promoting
-						base.factions.setSpecialRank(User, 10+tonumber(index));
+						base.factions.setSpecialRank(User, 7+tonumber(index));
 						inform = base.common.GetNLS(chosenPlayer,"Ihr wurdet befördert und seid nun "..base.factions.getRank(chosenPlayer),"You have been promoted and are now "..base.factions.getRank(chosenPlayer));
 						chosenPlayer:inform(inform)
 					end
@@ -291,9 +291,9 @@ function UseItem(User, SourceItem)
 				local infoText = ""
 				local sd = SelectionDialog("Special rank", infoText, cbSetSpecialRank);
 				sd:addOption(0, "Demote");
-				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 11));
-				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 12));
-				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 13));
+				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 8));
+				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 9));
+				sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 10));
 				User:requestSelectionDialog(sd);	
 			end
           end

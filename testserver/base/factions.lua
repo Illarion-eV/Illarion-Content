@@ -27,10 +27,7 @@ function InitFactionLists()
 					 {gRank = "Baron", eRank = "Baron"},        		--rank 7
 					 {gRank = "Graf", eRank = "Count"},     			--rank 8
 					 {gRank = "Fürst", eRank = "Earl"},           	--rank 9
-					 {gRank = "Herzog", eRank = "Duke"},				--rank 10
-					 {gRank = "Spezial CM 1", eRank = "Special CM 1"},
-					 {gRank = "Spezial CM 2", eRank = "Special CM 2"},	
-					 {gRank = "Spezial CM 3", eRank = "Special CM 3"},						 
+					 {gRank = "Herzog", eRank = "Duke"},				--rank 10					 
 					 {gRank = "König", eRank = "King"}};				--rank leader
 	
 	CadomyrRankListFemale = { {gRank = "Hörige", eRank = "Serf"},        	--rank 1
@@ -42,10 +39,7 @@ function InitFactionLists()
 					 {gRank = "Baronin", eRank = "Baroness"},        		--rank 7
 					 {gRank = "Gräfin", eRank = "Countess"},     			--rank 8
 					 {gRank = "Fürstin", eRank = "Earl"},           	--rank 9
-					 {gRank = "Herzogin", eRank = "Duchess"},				--rank 10
-					 {gRank = "Spezial CF 1", eRank = "Special CF 1"},
-					 {gRank = "Spezial CF 2", eRank = "Special CF 2"},	
-					 {gRank = "Spezial CF 3", eRank = "Special CF 3"},	
+					 {gRank = "Herzogin", eRank = "Duchess"},				--rank 10	
 					 {gRank = "Königin", eRank = "Queen"}};				--rank leader
 
 	RunewickRankListMale = { {gRank = "Novize", eRank = "Novice"},    		--rank 1
@@ -58,9 +52,6 @@ function InitFactionLists()
 					 {gRank = "Professor", eRank = "Professor"},        --rank 8
 					 {gRank = "Dekan", eRank = "Dean"},    				--rank 9
 					 {gRank = "Rektor", eRank = "Rector"},    			--rank 10
-					 {gRank = "Spezial RM 1", eRank = "Special RM 1"},
-					 {gRank = "Spezial RM 2", eRank = "Special RM 2"},	
-					 {gRank = "Spezial RM 3", eRank = "Special RM 3"},	
 					 {gRank = "Erzmagier", eRank = "Archmage"}};		--rank leader
 	
 	RunewickRankListFemale = { {gRank = "Novizin", eRank = "Novice"},    		--rank 1
@@ -73,9 +64,6 @@ function InitFactionLists()
 					 {gRank = "Professorin", eRank = "Professor"},        --rank 8
 					 {gRank = "Dekanin", eRank = "Dean"},    				--rank 9
 					 {gRank = "Rektorin", eRank = "Rector"},    			--rank 10
-					 {gRank = "Spezial RF 1", eRank = "Special RF 1"},
-					 {gRank = "Spezial RF 2", eRank = "Special RF 2"},	
-					 {gRank = "Spezial RF 3", eRank = "Special RF 3"},	
 					 {gRank = "Erzmagierin", eRank = "Archmage"}};		--rank leader
 
 	GalmairRankListMale = { {gRank = "Rumtreiber", eRank = "Tramp"},      	--rank 1
@@ -88,9 +76,6 @@ function InitFactionLists()
 					 {gRank = "Mogul", eRank = "Mogul"},           		--rank 8
 					 {gRank = "Magnat", eRank = "Magnate"},    			--rank 9
 					 {gRank = "Tycoon", eRank = "Tycoon"},				--rank 10
-					 {gRank = "Spezial GM 1", eRank = "Special GM 1"},
-					 {gRank = "Spezial GM 2", eRank = "Special GM 2"},	
-					 {gRank = "Spezial GM 3", eRank = "Special GM 3"},	
 					 {gRank = "Don", eRank = "Don"}};					--rank leader
 	
 	GalmairRankListFemale = { {gRank = "Rumtreiberin", eRank = "Tramp"},      	--rank 1
@@ -102,10 +87,7 @@ function InitFactionLists()
 					 {gRank = "Patrizierin", eRank = "Patrician"},     	--rank 7
 					 {gRank = "Mogulin", eRank = "Mogul"},           		--rank 8
 					 {gRank = "Magnatin", eRank = "Magnate"},    			--rank 9
-					 {gRank = "Tycoon", eRank = "Tycoon"},				--rank 10
-					 {gRank = "Spezial GF 1", eRank = "Special GF 1"},
-					 {gRank = "Spezial GF 2", eRank = "Special GF 2"},	
-					 {gRank = "Spezial GF 3", eRank = "Special GF 3"},	
+					 {gRank = "Tycoon", eRank = "Tycoon"},				--rank 10	
 					 {gRank = "Don", eRank = "Don"}};					--rank leader
 
 	NoneRankList ={};
@@ -146,9 +128,9 @@ if not InitFaction then
 	InitFactionLists();
 	InitFaction = true;
     citizenRank = 1;
-	highestRank = 10;
-	specialRanks = {11,12,13};
-    leaderRank = 14;
+	highestRank = 7;
+	specialRanks = {8,9,10};
+    leaderRank = 11;
 
 --==================================ADD NEW TOWNS HERE===============
 --AddTown(TownID,TownName), IDs from 1-9
