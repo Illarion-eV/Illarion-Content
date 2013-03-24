@@ -219,8 +219,16 @@ end
 	@return - number of the rank
 ]]
 function getRankAsNumber(player)
-	rankpoints = getRankpoints(player);
-	return math.floor(rankpoints/100)+1;
+	local rankTown;
+	local rankpoints;
+
+	if getSpecialRank(player) ~= 0 then
+		rankTown = getSpecialRank(player);
+	else
+		rankpoints = getRankpoints(player);
+		rankTown = math.floor(rankpoints/100)+1;
+	end
+	return rankTown;
 end
 
 --[[
