@@ -112,7 +112,7 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
         if isFittingItem(item, boughtItem) then
             local price = item._price * boughtItem.number
 			local priceStringGerman, priceStringEnglish = base.money.MoneyToString(price);
-			local itemName = GetNLS(player, world:getItemName(boughtItem.id,0), world:getItemName(boughtItem.id,1));
+			local itemName = base.common.GetNLS(player, world:getItemName(boughtItem.id,0), world:getItemName(boughtItem.id,1));
             if world:erase(boughtItem, boughtItem.number) then
                 base.money.GiveMoneyToChar(player, price);
 				base.common.InformNLS(player, "Ihr habt "..boughtItem.number.." "..itemName.." zu einem Preis von "..priceStringGerman.." verkauft.", "You sold "..amount.." "..itemName.." at a price of "..priceStringEnglish..".");
@@ -139,7 +139,7 @@ function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
         base.money.TakeMoneyFromChar(player, item._price * amount);
 		local priceStringGerman, priceStringEnglish = base.money.MoneyToString(item._price * amount);
         local notCreated = player:createItem(item._itemId, amount, item._quality, item._data);
-		local itemName = GetNLS(player, world:getItemName(item.id,0), world:getItemName(item.id,1));
+		local itemName = base.common.GetNLS(player, world:getItemName(item.id,0), world:getItemName(item.id,1));
         if (notCreated > 0) then
             world:createItemFromId(item._itemId, notCreated, player.pos, true, item._quality, item._data);
 			base.common.InformNLS(player, "Ihr habt "..amount.." "..itemName.." zu einem Preis von "..priceStringGerman.." gekauft.", "You bought "..amount.." "..itemName.." at a price of "..priceStringEnglish..".");
