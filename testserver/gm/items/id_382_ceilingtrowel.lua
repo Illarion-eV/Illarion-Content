@@ -278,9 +278,9 @@ function UseItem(User, SourceItem)
 					local success;
 					local index = dialog:getSelectedIndex();
 					if index == 0 then -- demoting
-						success = base.factions.setSpecialRank(User, 0);
+						success = base.factions.setSpecialRank(chosenPlayer, 0);
 					else -- promoting
-						success = base.factions.setSpecialRank(User, base.factions.highestRank+tonumber(index));						
+						success = base.factions.setSpecialRank(chosenPlayer, base.factions.highestRank+tonumber(index));						
 					end
 					
 					if success == false and base.factions.getRankpoints(chosenPlayer) < (base.factions.highestRank-1)*100 then
