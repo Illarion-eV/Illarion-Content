@@ -44,6 +44,7 @@ function DrinkPotion(User,SourceItem)
 	    GenerateEffectMessage(User,dataZList) -- inform about the effects
 		
 		local attribValue, bottomBorder
+		local logmsg = ""..User.name.." ("..User.id..") used attribute potion: "
 		for i=1,8 do
 			
 			attribValue = User:increaseAttrib(attribList[i],0);
@@ -56,6 +57,7 @@ function DrinkPotion(User,SourceItem)
 
 			if dataZList[i] ~= 5 then
 				User:increaseAttrib(attribList[i],dataZList[i]-5);
+				logmsg = logmsg..attribList[i]""..dataZList[i]-5 .." "
 				myEffect:addValue(""..attribList[i],dataZList[i]);
 			end
 			
