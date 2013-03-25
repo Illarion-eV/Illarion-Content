@@ -215,12 +215,6 @@ function SelectFillIntoCauldron(User, ingredientsList)
 				    return
 				end
 				AddToRecipe(ingredientsList,addList[selected-2])
-				local de,en = BottleBottlingString(addList[selected-2])
-				for i=1,#ingredientsList do 
-				    if ingredientsList[i] == addList[selected-2] then
-					    removeThatShit = table.remove(ingredientsList,i)
-					end
-				end			
 				SelectFillIntoCauldron(User, ingredientsList)
 		    end
 		else
