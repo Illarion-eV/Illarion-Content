@@ -139,7 +139,7 @@ function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
         base.money.TakeMoneyFromChar(player, item._price * amount);
 		local priceStringGerman, priceStringEnglish = base.money.MoneyToString(item._price * amount);
         local notCreated = player:createItem(item._itemId, amount, item._quality, item._data);
-		local itemName = base.common.GetNLS(player, world:getItemName(item.id,0), world:getItemName(item.id,1));
+		local itemName = base.common.GetNLS(player, world:getItemName(item._itemId,0), world:getItemName(item._itemId,1));
         if (notCreated > 0) then
             world:createItemFromId(item._itemId, notCreated, player.pos, true, item._quality, item._data);
 			base.common.InformNLS(player, "Ihr habt "..amount.." "..itemName.." zu einem Preis von "..priceStringGerman.." gekauft.", "You bought "..amount.." "..itemName.." at a price of "..priceStringEnglish..".");
