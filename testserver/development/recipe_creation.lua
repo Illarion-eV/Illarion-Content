@@ -140,7 +140,7 @@ function SelectGemDust(User, ingredientsList)
 
 	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle den Edelsteinstaub aus, den du dem Rezept hinzufügen willst.","Select the gem powder you want to add to the recipe."), callback)
 	dialog:addOption(0, getText("Zurück","Back"))
-	for i=1,#GEMPOWDERS[i] do
+	for i=1,#GEMPOWDERS do
 		dialog:addOption(GEMPOWDERS[i],getText(world:getItemName(GEMPOWDERS[i],Player.german),world:getItemName(GEMPOWDERS[i],Player.english)))
 	end	
 	dialog:setCloseOnMove()
