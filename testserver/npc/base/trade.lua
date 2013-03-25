@@ -115,7 +115,7 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
 			local itemName = base.common.GetNLS(player, world:getItemName(boughtItem.id,0), world:getItemName(boughtItem.id,1));
             if world:erase(boughtItem, boughtItem.number) then
                 base.money.GiveMoneyToChar(player, price);
-				base.common.InformNLS(player, "Ihr habt "..boughtItem.number.." "..itemName.." zu einem Preis von "..priceStringGerman.." verkauft.", "You sold "..amount.." "..itemName.." at a price of "..priceStringEnglish..".");
+				base.common.InformNLS(player, "Ihr habt "..boughtItem.number.." "..itemName.." zu einem Preis von "..priceStringGerman.." verkauft.", "You sold "..boughtItem.number.." "..itemName.." at a price of "..priceStringEnglish..".");
             end;
             return;
         end;
