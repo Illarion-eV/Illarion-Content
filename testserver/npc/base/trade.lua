@@ -142,8 +142,8 @@ function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
 		local itemName = base.common.GetNLS(player, world:getItemName(item._itemId,0), world:getItemName(item._itemId,1));
         if (notCreated > 0) then
             world:createItemFromId(item._itemId, notCreated, player.pos, true, item._quality, item._data);
-			base.common.InformNLS(player, "Ihr habt "..amount.." "..itemName.." zu einem Preis von "..priceStringGerman.." gekauft.", "You bought "..amount.." "..itemName.." at a price of "..priceStringEnglish..".");
         end;
+		base.common.InformNLS(player, "Ihr habt "..amount.." "..itemName.." zu einem Preis von "..priceStringGerman.." gekauft.", "You bought "..amount.." "..itemName.." at a price of "..priceStringEnglish..".");
     elseif (self._notEnoughMoneyMsg:hasMessages()) then
         local msgGerman, msgEnglish = self._notEnoughMoneyMsg:getRandomMessage();
         npcChar:talk(Character.say, msgGerman, msgEnglish);
