@@ -27,7 +27,7 @@ function FirstMenu(User, ingredientsList)
                 FinishRecipe(User, ingredientsList)
 			end	
 		else
-			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.") 
+			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority) 
 		end
 	end
 
@@ -36,16 +36,18 @@ function FirstMenu(User, ingredientsList)
 		dialog = SelectionDialog("Rezepterstellung", "Wähle eine Kategorie aus, aus der du dem Rezept etwas hinzutun willst.", callback)
 		dialog:addOption(0, "Pflanzen")
 		dialog:addOption(0, "Edelsteinstaub")
-		dialog:addOption(0, "Kesslinhalt abfüllen")
 		dialog:addOption(0, "Kessel befüllen")
+		dialog:addOption(0, "Kesslinhalt abfüllen")
+		dialog:addOption(0, "Letzte Zutat entfernen")
 		dialog:addOption(0, "Rezept betrachten")
 		dialog:addOption(0, "Rezept fertigstellen")
     else
 	    dialog = SelectionDialog("Recipe creation", "Select a category from which you want to add something to the recipe.", callback)
 		dialog:addOption(0, "Plants")
 		dialog:addOption(0, "Gem powder")
-		dialog:addOption(0, "Bottle cauldron content")
 		dialog:addOption(0, "Fill into the cauldron")
+		dialog:addOption(0, "Bottle cauldron content")
+		dialog:addOption(0, "Remove last ingredient")
 		dialog:addOption(0, "Show recipe")
 		dialog:addOption(0, "Finish recipe")
 	end
@@ -69,7 +71,7 @@ function SelectPlantCategory(User, ingredientsList)
 			    SelectPlant(User, ingredientsList, PLANT_CATS["EN"][selected-1])
 			end	
 		else
-			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.")
+			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority)
 		end
 	end
 
@@ -112,7 +114,7 @@ function SelectPlant(User, ingredientsList, category)
 			    SelectPlant(User, ingredientsList, category)
 			end 
 		else
-			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.")
+			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority)
 		end
 	end
 
@@ -153,7 +155,7 @@ function SelectGemDust(User, ingredientsList)
 			    SelectGemDust(User, ingredientsList)
 			end 
 		else
-			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.")
+			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority)
 		end
 	end
 
@@ -180,7 +182,7 @@ function BottleFromCauldron(User, ingredientsList)
     if not CheckAmount(ingredientsList) then
 		return
 	end	
-	local counter = 0
+	local counter = 1
 	for i=1,#ingredientsList do
 	    local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
 		if a ~= nil then
@@ -195,7 +197,7 @@ end
 
 function SelectFillIntoCauldron(User, ingredientsList)
     
-	local posList = {}
+	local addList = {}
     local callback = function(dialog) 
 		success = dialog:getSuccess() 
 		if success then
@@ -207,15 +209,29 @@ function SelectFillIntoCauldron(User, ingredientsList)
 				    return
 				end	
 				AddToRecipe(ingredientsList,52)
+				SelectFillIntoCauldron(User, ingredientsList)
 			else
      			if not CheckAmount(ingredientsList) then
 				    return
 				end
-				AddToRecipe(ingredientsList,posList[i])
-				User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(GEMPOWDERS[selected-1],Player.german),"Has beend added to the recipe: "..world:getItemName(GEMPOWDERS[selected-1],Player.english),Character.lowPriority)
+				AddToRecipe(ingredientsList,addList[selected-2])
+				User:inform(""..addList[selected-2])
+				local de,en = BottleBottlingString(addList[selected-2])
+				User:inform("Wurde dem Rezept hinzugefügt: "..de,"Has beend added to the recipe: "..en,Character.lowPriority)
+				User:inform("length: "..#ingredientsList)
+				for i=1,#ingredientsList do 
+				    User:inform(""..ingredientsList[i])
+					if ingredientsList[i] == addList[selected-2] then
+					    User:inform("here i am to save the day")
+						removeThatShit = table.remove(ingredientsList,i)
+						User:inform("removed: "..removeThatShit)
+					    User:inform("length: "..#ingredientsList)
+					end
+				end			
+				SelectFillIntoCauldron(User, ingredientsList)
 		    end
 		else
-			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.") 
+			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority) 
 		end
 	end
     
@@ -224,23 +240,27 @@ function SelectFillIntoCauldron(User, ingredientsList)
 		dialog:addOption(0, "Zurück")
 		dialog:addOption(52, world:getItemName(52,Player.german))
 		for i=1,#ingredientsList do
-		    local a,b,queue = string.find(theString,"bottle (%d+)")
-			if a ~= nil then
-			    local de, en BottleBottlingString("add "..queue)
-				table.insert(posList, "add "..queue)
-				dialog:addOption(0,de)
-			end	
+		    if type(ingredientsList[i])=="string" then
+				local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
+				if a ~= nil then
+					local de, en = BottleBottlingString("add "..queue)
+					table.insert(addList, "add "..queue)
+					dialog:addOption(0,de)
+				end
+			end			
 		end
 	else
 		dialog = SelectionDialog("Recipe creation", "Select what you want to fill into the cauldron.", callback)
 		dialog:addOption(0, "Back")
 		dialog:addOption(52, world:getItemName(52,Player.english))
 		for i=1,#ingredientsList do
-		    local a,b,queue = string.find(theString,"bottle (%d+)")
-			if a ~= nil then
-			    local de, en BottleBottlingString("add "..queue)
-				table.insert(posList, "add "..queue)
-				dialog:addOption(0,en)
+		    if type(ingredientsList[i])=="string" then
+				local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
+				if a ~= nil then
+					local de, en = BottleBottlingString("add "..queue)
+					table.insert(addList, "add "..queue)
+					dialog:addOption(0,en)
+				end	
 			end	
 		end
 	end
@@ -250,13 +270,17 @@ function SelectFillIntoCauldron(User, ingredientsList)
 end
 
 function RemoveLastIngredient(User, ingredientsList)
-
+    
+	if #ingredientsList==0 then
+	    User:inform("Das Rezept ist leer. Es kann nichts entfernt werden.","The recipe is empty. There is nothing to be removed.",Character.lowPriority)
+	    return
+	end	
     local removed = table.remove(ingredientsList)
 	if type(removed)=="number" then
 	    User:inform("Die letzte Zutat wurde vom Rezept entfernt: "..world:getItemName(removed,Player.german),"The last ingredient has been removed: "..world:getItemName(removed,Player.english),Character.lowPriority)
     elseif type(removed)=="string" then
 	    local de, en = BottleBottlingString(removed)
-		User:inform("Die letzte Zutat wurde vom Rezept entfernt: "..de,"The last ingredient has been removed: "..en)
+		User:inform("Die letzte Zutat wurde vom Rezept entfernt: "..de,"The last ingredient has been removed: "..en,Character.lowPriority)
 	end
 end
 
@@ -275,7 +299,7 @@ function ShowRecipe(User, ingredientsList)
                 recipeDe = recipeDe..de
                 recipeEn = recipeEn..en
             end
-            if i > 1 and i < #ingredientsList then
+            if i < #ingredientsList then
                 recipeDe = recipeDe..", "			
 			    recipeEn = recipeEn..", "
 			end
@@ -305,7 +329,7 @@ function BottleBottlingString(theString)
 	end
     a,b,queue = string.find(theString,"add (%d+)")
     if a ~= nil then    
-		return "füge "..queue..". Abgefülltes hinzu", "add "..queue.."th bottled"
+		return "Füge "..queue..". Abgefülltes hinzu", "Add "..queue.."th bottled"
 	end	
 end
 
@@ -323,24 +347,3 @@ function AddToRecipe(ingredientsList,addThis)
 	table.insert(ingredientsList,addThis)
 	
 end
-
-local callback = function(dialog) 
-	success = dialog:getSuccess() 
-	if success then
-		selected = dialog:getSelectedIndex()+1
-		
-	else
-		User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.") 
-	end
-end
-
-local dialog
-if User:getPlayerLanguage() == Player.german then
-    dialog = SelectionDialog("Rezepterstellung", "Select some stuff...", callback)
-    dialog:addOption(items[i], names[i])
-else
-	dialog = SelectionDialog("Recipe creation", "Select some stuff...", callback)
-	dialog:addOption(items[i], names[i])
-end
-dialog:setCloseOnMove()
-User:requestSelectionDialog(dialog)

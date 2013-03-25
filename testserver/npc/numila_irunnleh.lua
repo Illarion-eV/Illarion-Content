@@ -279,7 +279,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elstree Forest");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -291,7 +291,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elstree Plain");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -303,7 +303,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eastland");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -315,7 +315,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Pauldron Isle");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -327,7 +327,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Dead Marsh");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -340,7 +340,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Spider's Mouth");
 talkEntry:addTrigger("spiders mouth");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -352,7 +352,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hemp Necktie Inn");
-talkEntry:addResponse("The Hemp Necktie Inn is a neutral tavern in the Spider's Mouth and many adventurer rests there. Among others, Wulfgorda. You can use the teleporter to get there.");
+talkEntry:addResponse("The Hemp Necktie Inn is a neutral tavern in the Spider's Mouth and many adventurer rests there. Amongst others, Wulfgorda. You can use the teleporter to get there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -366,7 +366,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(650, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Wulfgorda");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Wulfgorda' started] Try to find Wulfgorda and take her the sibanac leafs to get your reward."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Wulfgorda' started] Try to find Wulfgorda and take her the sibanac leaves to get your reward."));
 talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 1));
 talkEntry:addResponse("Wulfgorda is a hunter who knows almost every place in the northeast. You can find her in front of the Hemp Necktie Inn. Furthermore, you should take her these leaves here. *hands over some sibanac leaves*");
@@ -398,7 +398,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bounding Stream");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -410,7 +410,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glowing River");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -422,7 +422,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Plains Silence");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, they are in the northeast and you had better ask someone who lives there, for example, Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -434,7 +434,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Northern Woods");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, they are in the northeast and you had better ask someone who lives there, for example, Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -447,7 +447,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Insurmountable Limes");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -460,7 +460,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Evilrock");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -473,7 +473,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Three Fingertips");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example Wulfgorda.");
+talkEntry:addResponse("Well, as I said, they are in the northeast and you had better ask someone who lives there, for example, Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -510,7 +510,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Death's Stench");
 talkEntry:addTrigger("deaths stench");
-talkEntry:addResponse("This area north of the Dragon's Lair has been turned into a swamp by the dragons years ago.");
+talkEntry:addResponse("This area north of the Dragon's Lair was turned into a swamp by the dragons years ago.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -634,7 +634,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bear cave");
-talkEntry:addResponse("The Bear cave is north of Anthill Brook. The cave was used by bears until warriors from Galmair killed them. Nowadays you can find some wolves and other animals there. A good place to practice some combat-skills for inexperienced warriors.");
+talkEntry:addResponse("The Bear cave is north of Anthill Brook. The cave was used by bears until warriors from Galmair killed them. Nowadays you can find some wolves and other animals there. A good place to practice some combat skills for inexperienced warriors.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -659,7 +659,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yewdale");
-talkEntry:addResponse("This place west of Runewick beyond the Lurnord-bridge is somewhere that offers an opportunity for farmers and the place to catch the ferry.");
+talkEntry:addResponse("This place west of Runewick beyond the Lurnord bridge is somewhere that offers an opportunity for farmers, and is the place to catch the ferry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -671,7 +671,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lake Syrita");
-talkEntry:addResponse("Well, as I said, it is in the northwest and you had better ask someone who lives there, for example Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Well, as I said, it is in the northwest and you had better ask someone who lives there, for example, Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -684,7 +684,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun's Plain");
 talkEntry:addTrigger("narguns plain");
-talkEntry:addResponse("Well, as I said, it is in the northwest and you had better ask someone who lives there, for example Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Well, as I said, it is in the northwest and you had better ask someone who lives there, for example, Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -696,7 +696,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Swamp");
-talkEntry:addResponse("Well, as I said, it is in the northwest and you had better ask someone who lives there, for example Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Well, as I said, it is in the northwest and you had better ask someone who lives there, for example, Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -708,7 +708,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Temple five");
-talkEntry:addResponse("Well, as I said, it is in the northwest and you had better ask someone who lives there, for example Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Well, as I said, it is in the northwest and you had better ask someone who lives there, for example, Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -720,7 +720,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lonely Mountains");
-talkEntry:addResponse("Well, as I said, it is in the northwest and you had better ask someone who lives there, for example Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Well, as I said, it is in the northwest and you had better ask someone who lives there, for example, Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -732,7 +732,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair Plateau");
-talkEntry:addResponse("Well, as I said, it is in the northwest and you had better ask someone who lives there, for example Lotta Medborgar in Galmair.");
+talkEntry:addResponse("Well, as I said, it is in the northwest and you had better ask someone who lives there, for example, Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -759,7 +759,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Shadowland");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example, Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -771,7 +771,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wight Canal");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example, Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -783,7 +783,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sentry Forest");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example, Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -795,7 +795,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Great Ocean");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example, Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -807,7 +807,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Border Mountains");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, they are in the southwest and you had better ask someone who lives there, for example, Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -819,7 +819,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Western Katanbi Desert");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example, Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -831,7 +831,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi Desert");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example, Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -844,7 +844,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Katanbi Delta");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example Ruzusss in Cadomyr.");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you had better ask someone who lives there, for example, Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -869,7 +869,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Chapel Five");
-talkEntry:addResponse("The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert. Ask Ruzuss in Cadomyr if you cannot find it.");
+talkEntry:addResponse("The Chapel of the Five is at the southern end of the Border Mountains, on the eastern border of Katanbi Desert. Ask Ruzuss in Cadomyr if you cannot find it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -881,7 +881,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Chapel");
-talkEntry:addResponse("The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert. Ask Ruzuss in Cadomyr if you cannot find it.");
+talkEntry:addResponse("The Chapel of the Five is at the southern end of the Border Mountains, on the eastern border of Katanbi Desert. Ask Ruzuss in Cadomyr if you cannot find it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1101,7 +1101,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("You may find a Temple dedicated to him in the North, behind the Hemp Necktie Inn. You can either use a teleporter or you walk there according to the signposts, but you will need companions.");
+talkEntry:addResponse("You may find a temple dedicated to him in the North, behind the Hemp Necktie Inn. You can either use the teleporter or you walk following the signposts, but you will need companions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1169,13 +1169,13 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("If you would like to know more about this God ask somone else, for example Elesil Daelwon outside at the teleporter.");
+talkEntry:addResponse("If you would like to know more about this god ask someone else, for example, Elesil Daelwon outside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Hmm...you want some information... but what about?");
+talkEntry:addResponse("Hmm...you want some information... but about what?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1239,9 +1239,9 @@ talkEntry:addTrigger(".*");
 talkEntry:addResponse("Huh, über welche Orte wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Wer etwas über die Orte hier in der Umgebung wissen will, soll mich nur nach diesen Orten fragen.", "If someone wants to know something about the places around here, just ask me for these places.");
+talkingNPC:addCycleText("Wer etwas über die Orte hier in der Umgebung wissen will, soll mich nur nach diesen Orten fragen.", "If someone wants to know something about the places around here, just ask me about these places.");
 talkingNPC:addCycleText("#me gähnt.", "#me yawns.");
-talkingNPC:addCycleText("#me blickt herum mit ihren geschlossenen Augen.", "#me semingly looks around, but with closed eyes.");
+talkingNPC:addCycleText("#me blickt herum mit ihren geschlossenen Augen.", "#me seemingly looks around, but with closed eyes.");
 talkingNPC:addCycleText("#me untersucht ihr Kleid.", "#me examines her dress.");
 talkingNPC:addCycleText("#me kämmt ihr Haar.", "#me combs her hair.");
 talkingNPC:addCycleText("#me isst einen Apfel.", "#me eats an apple.");
@@ -1249,7 +1249,7 @@ mainNPC:addLanguage(0);
 mainNPC:addLanguage(3);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Numila Irunnleh die Wissenschaftlerin.", "This NPC is Numila Irunnleh the scholar.");
-mainNPC:setUseMessage("Ihr seid gut damit beraten mich nicht anzufassen.", "I recommend do not touch me.");
+mainNPC:setUseMessage("Ihr seid gut damit beraten mich nicht anzufassen.", "I recommend you do not touch me.");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 846);

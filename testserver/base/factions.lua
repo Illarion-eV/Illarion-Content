@@ -269,15 +269,13 @@ end
 					3-5 the Ranks/Reputation in the Towns Cadomyr, Runewick and Galmair
 ]]
 function getFaction(originator)
-	local rankTown  = getRankAsNumber(originator);
-	
-	if isTestserver() then
+	local rankTown;
+
 	--check for special rank
 	if getSpecialRank(originator) ~= 0 then
 		rankTown = getSpecialRank(originator);
 	else
 		rankTown = getRankAsNumber(originator);
-	end
 	end
 	
 	local factionMembership = originator:getQuestProgress(199);
@@ -338,7 +336,7 @@ function setSpecialRank(player, rank)
 	local inform;
 	
 	if (rank > highestRank and rank < leaderRank) or rank == 0  then
-		if rankpoints == (highestRank-1)*100 then
+		if rankpoints >= (highestRank-1)*100 then
 			player:setQuestProgress(200, tonumber(rank));
 			if rank == 0 then
 				inform = base.common.GetNLS(player,"Ihr wurdet degradiert und habt nun keinen spziellen Rang mehr.","You have been demoted and have no special rank anymore.")
@@ -387,19 +385,15 @@ function setRankpoints(originator, rankpoints)
 
 	if rankpoints < 0 then
 		rankpoints = 0;
-	elseif rankpoints > (highestRank-1)*100 then
-		rankpoints = (highestRank-1)*100;
+	elseif rankpoints > ((highestRank-1)*100)+99 then
+		rankpoints = ((highestRank-1)*100)+99;
 	end
 
 	-- determine if player got a new rank
-	if isTestserver() then
 	if rank <= highestRank then
 		Faction.rankTown = checkForRankChange(rankpoints,rank);	
 	end
-	else
-	Faction.rankTown = checkForRankChange(rankpoints,rank);
-	end
-	
+
 	-- Factionleaders always have the leaderrank 11 and 1000 rankpoints (just to keep it consistent)
 	if originator.name == "Valerio Guilianni" or originator.name == "Rosaline Edwards" or originator.name == "Elvaine Morgan" then
 		rankpoints = (leaderRank-1)*100;
@@ -409,7 +403,9 @@ function setRankpoints(originator, rankpoints)
 	if rankpoints < base.factions.getRankpoints(originator) then
 		playerText = {"sinkt.","decline"};
 		informPlayerAboutRankpointchange(originator, playerText);
-		setSpecialRank(originator, 0);
+		if getSpecialRank(originator) ~= 0 then
+			setSpecialRank(originator, 0);
+		end
 	else
 		playerText = {"steigt.","advance"};
 		informPlayerAboutRankpointchange(originator, playerText);
