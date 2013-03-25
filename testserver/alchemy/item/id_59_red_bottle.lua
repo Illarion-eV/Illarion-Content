@@ -62,7 +62,7 @@ function DrinkPotion(User,SourceItem)
 			end
 			
 		end
-		logmsg = logmsg.." will last: "..myEffectDuration/60 .. " minutes"
+		logmsg = logmsg.." will last: "..myEffectDuration/600 .. " minutes"
 		log(logmsg)
 		local foundEffect, checkedEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
 		if not foundEffect then
