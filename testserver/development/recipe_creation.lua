@@ -215,17 +215,10 @@ function SelectFillIntoCauldron(User, ingredientsList)
 				    return
 				end
 				AddToRecipe(ingredientsList,addList[selected-2])
-				User:inform(""..addList[selected-2])
 				local de,en = BottleBottlingString(addList[selected-2])
-				User:inform("Wurde dem Rezept hinzugefügt: "..de,"Has beend added to the recipe: "..en,Character.lowPriority)
-				User:inform("length: "..#ingredientsList)
 				for i=1,#ingredientsList do 
-				    User:inform(""..ingredientsList[i])
-					if ingredientsList[i] == addList[selected-2] then
-					    User:inform("here i am to save the day")
-						removeThatShit = table.remove(ingredientsList,i)
-						User:inform("removed: "..removeThatShit)
-					    User:inform("length: "..#ingredientsList)
+				    if ingredientsList[i] == addList[selected-2] then
+					    removeThatShit = table.remove(ingredientsList,i)
 					end
 				end			
 				SelectFillIntoCauldron(User, ingredientsList)
@@ -243,9 +236,18 @@ function SelectFillIntoCauldron(User, ingredientsList)
 		    if type(ingredientsList[i])=="string" then
 				local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
 				if a ~= nil then
-					local de, en = BottleBottlingString("add "..queue)
-					table.insert(addList, "add "..queue)
-					dialog:addOption(0,de)
+					local check = true
+					for j=1,#ingredientsList do
+					    if "add "..queue == ingredientsList[j] then
+						    check = false 
+							break
+						end
+					end	
+					if check then
+						local de, en = BottleBottlingString("add "..queue)
+						table.insert(addList, "add "..queue)
+						dialog:addOption(0,de)
+					end	
 				end
 			end			
 		end
