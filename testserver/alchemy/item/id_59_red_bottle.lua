@@ -57,7 +57,7 @@ function DrinkPotion(User,SourceItem)
 
 			if dataZList[i] ~= 5 then
 				User:increaseAttrib(attribList[i],dataZList[i]-5);
-				logmsg = logmsg..attribList[i]""..dataZList[i]-5 .." "
+				logmsg = logmsg..attribList[i]..""..dataZList[i]-5 .." "
 				myEffect:addValue(""..attribList[i],dataZList[i]);
 			end
 			
