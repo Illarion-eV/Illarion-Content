@@ -107,7 +107,7 @@ function SelectPlant(User, ingredientsList, category)
 	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle die Pflanze aus, die du dem Rezept hinzufügen willst.","Select the plant you want to add to the recipe."), callback)
 	dialog:addOption(0, getText("Zurück","Back"))
 	for i=1,#PLANTS[category] do
-		dialog:addOption(getText(PLANTS[category][i],world:getItemName(PLANTS[category][i],Player.german),PLANTS[category][i],world:getItemName(PLANTS[category][i],Player.english)))
+		dialog:addOption(PLANTS[category][i],getText(world:getItemName(PLANTS[category][i],Player.german),world:getItemName(PLANTS[category][i],Player.english)))
 	end	
 	dialog:setCloseOnMove()
 	User:requestSelectionDialog(dialog)
