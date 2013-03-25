@@ -1,9 +1,12 @@
+require("base.common")
+
 
 module("development.recipe_creation", package.seeall)
 
 function FirstMenu(User, ingredientsList)
-
-    if ingredientsList == nil then
+    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+    
+	if ingredientsList == nil then
 	    ingredientsList = {}
 	end
 
@@ -31,27 +34,15 @@ function FirstMenu(User, ingredientsList)
 		end
 	end
 
-    local dialog
-    if User:getPlayerLanguage() == Player.german then	
-		dialog = SelectionDialog("Rezepterstellung", "Wähle eine Kategorie aus, aus der du dem Rezept etwas hinzutun willst.", callback)
-		dialog:addOption(0, "Pflanzen")
-		dialog:addOption(0, "Edelsteinstaub")
-		dialog:addOption(0, "Kessel befüllen")
-		dialog:addOption(0, "Kesslinhalt abfüllen")
-		dialog:addOption(0, "Letzte Zutat entfernen")
-		dialog:addOption(0, "Rezept betrachten")
-		dialog:addOption(0, "Rezept fertigstellen")
-    else
-	    dialog = SelectionDialog("Recipe creation", "Select a category from which you want to add something to the recipe.", callback)
-		dialog:addOption(0, "Plants")
-		dialog:addOption(0, "Gem powder")
-		dialog:addOption(0, "Fill into the cauldron")
-		dialog:addOption(0, "Bottle cauldron content")
-		dialog:addOption(0, "Remove last ingredient")
-		dialog:addOption(0, "Show recipe")
-		dialog:addOption(0, "Finish recipe")
-	end
-	dialog:setCloseOnMove()
+    local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle eine Kategorie aus, aus der du dem Rezept etwas hinzutun willst.","Select a category from which you want to add something to the recipe."), callback)
+	dialog:addOption(0, getText("Pflanzen","Plants"))
+	dialog:addOption(0, getText("Edelsteinstaub", "Gem powder"))
+	dialog:addOption(0, getText("Kessel befüllen","Fill into the cauldron"))
+	dialog:addOption(0, getText("Kesslinhalt abfüllen","Bottle cauldron content"))
+	dialog:addOption(0, getText("Letzte Zutat entfernen","Remove last ingredient"))
+	dialog:addOption(0, getText("Rezept betrachten","Show recipe"))
+	dialog:addOption(0, getText("Rezept fertigstellen","Finish recipe"))
+    dialog:setCloseOnMove()
 	User:requestSelectionDialog(dialog)	
 
 end
