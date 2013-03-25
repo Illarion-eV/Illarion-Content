@@ -6,9 +6,12 @@ module("test.merung", package.seeall)
 
 function UseItem(User, SourceItem)
 	
-	if SourceItem == User:getItemAt(5) or SourceItem == User:getItemAt(6) then
-		User:increaseAttrib("essence",30)
-		development.recipe_creation.FirstMenu(User, ingredientsList)
+	if SourceItem:getType()==4 then
+	    if SourceItem.itempos == 5 or SourceItem.itempos == 6 then
+		    User:increaseAttrib("essence",30)
+			development.recipe_creation.FirstMenu(User, ingredientsList)
+	    else
+		    User:inform("Du musst ihn in die Hand nehmen","You have to hold it in your hands")
 	else
         User:inform("Du musst ihn in die Hand nehmen","You have to hold it in your hands")
     end		
