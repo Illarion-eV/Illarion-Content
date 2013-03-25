@@ -52,7 +52,9 @@ PLANT_CATS["DE"] = {"Pilze"    ,"Beeren" ,"Blätter"}
 PLANT_CATS["EN"] = {"Mushrooms","Berries","Leaves"}
 
 function SelectPlantCategory(User, ingredientsList)
-    local callback = function(dialog) 
+    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	
+	local callback = function(dialog) 
 		success = dialog:getSuccess() 
 		if success then
 			selected = dialog:getSelectedIndex()+1
@@ -66,20 +68,11 @@ function SelectPlantCategory(User, ingredientsList)
 		end
 	end
 
-	local dialog
-	if User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Rezepterstellung", "Wähle die Pflanzenkategorie aus, aus der du etwas zu dem Rezept hinzutun willst.", callback)
-		dialog:addOption(0, "Zurück")
-		for i=1,#PLANT_CATS["DE"] do
-		    dialog:addOption(0, PLANT_CATS["DE"][i])
-		end	
-	else
-		dialog = SelectionDialog("Recipe creation", "Select the plant category from which you want to add something to your recipe.", callback)
-		dialog:addOption(0, "Back")
-		for i=1,#PLANT_CATS["EN"] do
-		    dialog:addOption(0, PLANT_CATS["EN"][i])
-		end
-	end
+	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle die Pflanzenkategorie aus, aus der du etwas zu dem Rezept hinzutun willst.","Select the plant category from which you want to add something to your recipe."), callback)
+	dialog:addOption(0, getText("Zurück","Back"))
+	for i=1,#PLANT_CATS["DE"] do
+		dialog:addOption(0, getText(PLANT_CATS["DE"][i],PLANT_CATS["EN"][i]))
+	end	
 	dialog:setCloseOnMove()
 	User:requestSelectionDialog(dialog)
 end
@@ -90,7 +83,9 @@ PLANTS["Berries"]   = {142,143}
 PLANTS["Leaves"]    = {140,153,156}
 
 function SelectPlant(User, ingredientsList, category)
-    local callback = function(dialog) 
+    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	
+	local callback = function(dialog) 
 		success = dialog:getSuccess() 
 		if success then
 			selected = dialog:getSelectedIndex()+1
@@ -109,20 +104,11 @@ function SelectPlant(User, ingredientsList, category)
 		end
 	end
 
-	local dialog
-	if User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Rezepterstellung", "Wähle die Pflanze aus, die du dem Rezept hinzufügen willst.", callback)
-		dialog:addOption(0, "Zurück")
-		for i=1,#PLANTS[category] do
-		    dialog:addOption(PLANTS[category][i],world:getItemName(PLANTS[category][i],Player.german))
-		end	
-	else
-		dialog = SelectionDialog("Recipe creation", "Select the plant you want to add to the recipe.", callback)
-		dialog:addOption(0, "Back")
-		for i=1,#PLANTS[category] do
-		    dialog:addOption(PLANTS[category][i],world:getItemName(PLANTS[category][i],Player.english))
-		end	
-	end
+	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle die Pflanze aus, die du dem Rezept hinzufügen willst.","Select the plant you want to add to the recipe."), callback)
+	dialog:addOption(0, getText("Zurück","Back"))
+	for i=1,#PLANTS[category] do
+		dialog:addOption(getText(PLANTS[category][i],world:getItemName(PLANTS[category][i],Player.german),PLANTS[category][i],world:getItemName(PLANTS[category][i],Player.english)))
+	end	
 	dialog:setCloseOnMove()
 	User:requestSelectionDialog(dialog)
 
@@ -131,7 +117,9 @@ end
 GEMPOWDERS = {446,447,448,449,450,451,452}	
 	
 function SelectGemDust(User, ingredientsList)
-    local callback = function(dialog) 
+    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	
+	local callback = function(dialog) 
 		success = dialog:getSuccess() 
 		if success then
 			selected = dialog:getSelectedIndex()+1
@@ -150,27 +138,18 @@ function SelectGemDust(User, ingredientsList)
 		end
 	end
 
-	local dialog
-	if User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Rezepterstellung", "Wähle den Edelsteinstaub aus, den du dem Rezept hinzufügen willst.", callback)
-		dialog:addOption(0, "Zurück")
-		for i=1,#GEMPOWDERS[i] do
-		    dialog:addOption(GEMPOWDERS[i],world:getItemName(GEMPOWDERS[i],Player.german))
-		end	
-	else
-		dialog = SelectionDialog("Recipe creation", "Select the gem powder you want to add to the recipe.", callback)
-		dialog:addOption(0, "Back")
-		for i=1,#PLANTS[category] do
-		    dialog:addOption(GEMPOWDERS[i],world:getItemName(GEMPOWDERS[i],Player.english))
-		end	
-	end
+	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle den Edelsteinstaub aus, den du dem Rezept hinzufügen willst.","Select the gem powder you want to add to the recipe."), callback)
+	dialog:addOption(0, getText("Zurück","Back"))
+	for i=1,#GEMPOWDERS[i] do
+		dialog:addOption(getText(GEMPOWDERS[i],world:getItemName(GEMPOWDERS[i],Player.german),GEMPOWDERS[i],world:getItemName(GEMPOWDERS[i],Player.english)))
+	end	
 	dialog:setCloseOnMove()
 	User:requestSelectionDialog(dialog)
 end
 
 function BottleFromCauldron(User, ingredientsList)
-
-    if not CheckAmount(ingredientsList) then
+	
+	if not CheckAmount(ingredientsList) then
 		return
 	end	
 	local counter = 1
@@ -187,7 +166,8 @@ function BottleFromCauldron(User, ingredientsList)
 end
 
 function SelectFillIntoCauldron(User, ingredientsList)
-    
+    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	
 	local addList = {}
     local callback = function(dialog) 
 		success = dialog:getSuccess() 
@@ -205,9 +185,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
      			if not CheckAmount(ingredientsList) then
 				    return
 				end
-				User:inform("letztes element vor AddToRecipe: "..ingredientsList[#ingredientsList])
 				AddToRecipe(ingredientsList,addList[selected-2])
-				User:inform("letztes element nach AddToRecipe: "..ingredientsList[#ingredientsList])
 				SelectFillIntoCauldron(User, ingredientsList)
 		    end
 		else
@@ -215,47 +193,31 @@ function SelectFillIntoCauldron(User, ingredientsList)
 		end
 	end
     
-	if User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Rezepterstellung", "Wähle aus, was du in den Kessel füllen willst.", callback)
-		dialog:addOption(0, "Zurück")
-		dialog:addOption(52, world:getItemName(52,Player.german))
-		for i=1,#ingredientsList do
-		    if type(ingredientsList[i])=="string" then
-				local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
-				if a ~= nil then
-					local check = true
-					for j=1,#ingredientsList do
-					    if "add "..queue == ingredientsList[j] then
-						    check = false 
-							break
-						end
-					end	
-					if check then
-						local de, en = BottleBottlingString("add "..queue)
-						table.insert(addList, "add "..queue)
-						dialog:addOption(0,de)
-					end	
-				end
-			end			
-		end
-	else
-		dialog = SelectionDialog("Recipe creation", "Select what you want to fill into the cauldron.", callback)
-		dialog:addOption(0, "Back")
-		dialog:addOption(52, world:getItemName(52,Player.english))
-		for i=1,#ingredientsList do
-		    if type(ingredientsList[i])=="string" then
-				local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
-				if a ~= nil then
+	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle aus, was du in den Kessel füllen willst.","Select what you want to fill into the cauldron."), callback)
+	dialog:addOption(0, getText("Zurück","Back"))
+	dialog:addOption(52, getText(world:getItemName(52,Player.german),world:getItemName(52,Player.german)))
+	for i=1,#ingredientsList do
+		if type(ingredientsList[i])=="string" then
+			local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
+			if a ~= nil then
+				local check = true
+				for j=1,#ingredientsList do
+					if "add "..queue == ingredientsList[j] then
+						check = false 
+						break
+					end
+				end	
+				if check then
 					local de, en = BottleBottlingString("add "..queue)
 					table.insert(addList, "add "..queue)
-					dialog:addOption(0,en)
+					dialog:addOption(0,getText(de,en))
 				end	
-			end	
-		end
+			end
+		end			
 	end
+	
 	dialog:setCloseOnMove()
 	User:requestSelectionDialog(dialog)
-
 end
 
 function RemoveLastIngredient(User, ingredientsList)
@@ -274,7 +236,9 @@ function RemoveLastIngredient(User, ingredientsList)
 end
 
 function ShowRecipe(User, ingredientsList) 
-    local recipeDe = ""; local recipeEn = ""
+    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	
+	local recipeDe = ""; local recipeEn = ""
 	if #ingredientsList == 0 then
 	    recipeDe = "Das Rezept ist leer."
 		recipeEn = "The recipe is empty."
@@ -297,12 +261,7 @@ function ShowRecipe(User, ingredientsList)
 	local callback = function(dialog)
         FirstMenu(User, ingredientsList)
     end
-	local dialog
-    if User:getPlayerLanguage() == Player.german then
-	    dialog = MessageDialog("Rezept", recipeDe, callback)
-	else
-        dialog = MessageDialog("Recipe", recipeEn, callback)	
-	end
+	local dialog = MessageDialog(getText("Rezept","Recipe"), getText(recipeDe,recipeEn), callback)
 	User:requestMessageDialog(dialog)
 end
 
