@@ -157,7 +157,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,ltstate)
 end
 
 function CreateEmptyBucket(User, SourceItem,amount)
-    if SourceItem.number > 1 then
+    --[[if SourceItem.number > 1 then
 	    world:erase(SourceItem,amount)
 		local notCreated=User:createItem(51,amount,333,nil)
 		if notCreated ~= 0 then
@@ -167,6 +167,29 @@ function CreateEmptyBucket(User, SourceItem,amount)
 		SourceItem.id = 51
 		SourceItem.quality = 333
 		world:changeItem(SourceItem)
+	end]]
+	
+	
+	
+	local notCreated = User:createItem( 51, 1, 333, nil ); -- create the new produced items
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( 51, notCreated, User.pos, true, 333, nil );
+		base.common.HighInformNLS(User,
+		"Du kannst nichts mehr halten.",
+		"You can't carry any more.");
+		world:erase(SourceItem,1)
+		return
+	else -- character can still carry something
+		if SourceItem.number == 1 then
+		    world:erase(SourceItem,1)
+			return
+        else
+		    world:erase(SourceItem,1)
+			SourceItem.number = SourceItem.number-1
+			world:changeItem(SourceItem)
+			User:changeSource(SourceItem)
+			User:startAction( 20, 21, 5, 10, 25);
+		end	
 	end
 end
 
