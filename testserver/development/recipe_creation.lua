@@ -330,9 +330,9 @@ function GetParchmentQuill(User)
 	local itemB = User:getItemAt(6)
 	
 	local parchment
-	if itemA.id == 1266 and itemB.id == 463 then
+	if itemA.id == 2745 and itemB.id == 1266 then
 	    return itemA
-	elseif itemA.id == 463 and itemB.id == 1266 then
+	elseif itemA.id == 1266 and itemB.id == 2745 then
 	    return itemB
 	end
 	return nil
