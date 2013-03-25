@@ -180,12 +180,15 @@ function SelectFillIntoCauldron(User, ingredientsList)
 				    return
 				end	
 				AddToRecipe(ingredientsList,52)
+				User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(52,Player.german),"Has beend added to the recipe: "..world:getItemName(52,Player.english),Character.lowPriority)
 				SelectFillIntoCauldron(User, ingredientsList)
 			else
      			if not CheckAmount(ingredientsList) then
 				    return
 				end
 				AddToRecipe(ingredientsList,addList[selected-2])
+				local de, en = BottleBottlingString(addList[selected-2])
+				User:inform("Wurde dem Rezept hinzugefügt: "..de, "Has been added to the recipe: "..en)
 				SelectFillIntoCauldron(User, ingredientsList)
 		    end
 		else
@@ -195,7 +198,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
     
 	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle aus, was du in den Kessel füllen willst.","Select what you want to fill into the cauldron."), callback)
 	dialog:addOption(0, getText("Zurück","Back"))
-	dialog:addOption(52, getText(world:getItemName(52,Player.german),world:getItemName(52,Player.german)))
+	dialog:addOption(52, getText(world:getItemName(52,Player.german),world:getItemName(52,Player.english)))
 	for i=1,#ingredientsList do
 		if type(ingredientsList[i])=="string" then
 			local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
