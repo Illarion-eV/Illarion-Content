@@ -284,8 +284,6 @@ function FinishRecipe(User, ingredientsList)
 		return
     end
 	
-	User:inform("debug 1")
-	
 	local callback = function(dialog)
 		if dialog:getSuccess() then
 			local parchment = GetParchmentQuill(User)
@@ -295,14 +293,16 @@ function FinishRecipe(User, ingredientsList)
 			end
 			local data = {}
 			data["descriptionDe"] = "Alchemistisches Rezept: "..dialog:getInput()
-			data["descriptionDe"] = "Alchemical recipe: "..dialog:getInput()
+			data["descriptionEn"] = "Alchemical recipe: "..dialog:getInput()
 			data["alchemyRecipe"] = "true"
 			for i=1,#ingredientsList do
 			    data["ingredient"..i] = ingredientsList[i]
 			end
 			world:erase(parchment,1)
 			local notCreated = User:createItem(2745,1,333,data)
-			world:createItemFromId(2745,notCreated,User.pos,true,333,data)
+			if notCreated > 0 then
+				world:createItemFromId(2745,notCreated,User.pos,true,333,data)
+			end	
 		else
 			User:inform("Du hast die Rezeptbenennung abgebrochen.","You abroted the naming of the recipe.",Character.lowPriority)
 			FirstMenu(User, ingredientsList)
