@@ -424,6 +424,14 @@ function doubleEffect( e, c )
     c:inform("--- tried to add effect, but it is still active (n == "..n..") ---");
 end;
 
+function MoveItemBeforeMove(user, source, target)
+    if user.lastSpokenText == "nomove" then
+        return false
+    end
+
+    return true
+end
+
 function MoveItemAfterMove(user, source, target)
     user:inform("MoveItemAfterMove (source): " .. source.pos.x .. ", " .. source.pos.y .. ", " .. source.pos.z)
     user:inform("MoveItemAfterMove (target): " .. target.pos.x .. ", " .. target.pos.y .. ", " .. target.pos.z)
