@@ -227,7 +227,8 @@ function RemoveLastIngredient(User, ingredientsList)
     
 	if #ingredientsList==0 then
 	    User:inform("Das Rezept ist leer. Es kann nichts entfernt werden.","The recipe is empty. There is nothing to be removed.",Character.lowPriority)
-	    return
+	    FirstMenu(User, ingredientsList)
+		return
 	end	
     local removed = table.remove(ingredientsList)
 	if type(removed)=="number" then
