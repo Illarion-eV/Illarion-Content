@@ -12,6 +12,7 @@ function UseItem(User, SourceItem)
 			development.recipe_creation.FirstMenu(User, ingredientsList)
 	    else
 		    User:inform("Du musst ihn in die Hand nehmen","You have to hold it in your hands")
+	    end
 	else
         User:inform("Du musst ihn in die Hand nehmen","You have to hold it in your hands")
     end		
