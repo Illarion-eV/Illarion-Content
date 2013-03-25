@@ -325,6 +325,7 @@ function IsParchmentOK(User,parchment,ingredientsList)
 		FirstMenu(User, ingredientsList)
 		return
 	end
+	return parchment
 end
 
 function GetParchmentQuill(User)
