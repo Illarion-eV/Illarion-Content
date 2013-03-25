@@ -284,6 +284,8 @@ function FinishRecipe(User, ingredientsList)
 		return
     end
 	
+	User:inform("debug 1")
+	
 	local callback = function(dialog)
 		if dialog:getSuccess() then
 			local parchment = GetParchmentQuill(User)
