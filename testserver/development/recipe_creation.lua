@@ -276,7 +276,13 @@ function FinishRecipe(User, ingredientsList)
 	if not parchment then
 		return
 	end
-
+	
+	if #ingredientsList == 0 then
+	    User:inform("Es wurde noch nichts zum Notieren ausgewählt.","Nothing has been selected to be written down so far.", Character.highPriority)
+		FirstMenu(User, ingredientsList)
+		return
+    end
+	
 	local callback = function(dialog)
 		if dialog:getSuccess() then
 			local parchment = GetParchmentQuill(User)
