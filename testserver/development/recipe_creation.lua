@@ -215,7 +215,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 				    return
 				end
 				User:inform("letztes element vor AddToRecipe: "..ingredientsList[#ingredientsList])
-				AddToRecipe(,addList[selected-2])
+				AddToRecipe(ingredientsList,addList[selected-2])
 				User:inform("letztes element nach AddToRecipe: "..ingredientsList[#ingredientsList])
 				SelectFillIntoCauldron(User, ingredientsList)
 		    end
