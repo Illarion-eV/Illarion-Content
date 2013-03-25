@@ -214,7 +214,9 @@ function SelectFillIntoCauldron(User, ingredientsList)
      			if not CheckAmount(ingredientsList) then
 				    return
 				end
-				AddToRecipe(ingredientsList,addList[selected-2])
+				User:inform("letztes element vor AddToRecipe: "..ingredientsList[#ingredientsList])
+				AddToRecipe(,addList[selected-2])
+				User:inform("letztes element nach AddToRecipe: "..ingredientsList[#ingredientsList])
 				SelectFillIntoCauldron(User, ingredientsList)
 		    end
 		else
