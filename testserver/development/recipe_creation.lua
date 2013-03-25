@@ -273,7 +273,7 @@ function FinishRecipe(User, ingredientsList)
     local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
 	
 	local parchment = GetParchmentQuill(User)
-	parchment = IsParchmentOK(parchment)
+	parchment = IsParchmentOK(User,parchment,ingredientsList)
 	if not parchment then
 		return
 	end
@@ -287,7 +287,7 @@ function FinishRecipe(User, ingredientsList)
 	local callback = function(dialog)
 		if dialog:getSuccess() then
 			local parchment = GetParchmentQuill(User)
-			parchment = IsParchmentOK(parchment)
+			parchment = IsParchmentOK(User,parchment,ingredientsList)
 			if not parchment then
 				return
 			end
@@ -311,7 +311,7 @@ function FinishRecipe(User, ingredientsList)
 	return
 end
 
-function IsParchmentOK(parchment,ingredientsList)
+function IsParchmentOK(User,parchment,ingredientsList)
     if not parchment then
 		User:inform("Du musst eine Feder und ein Pergamnet in den Händne halten, um das Rezept zu notieren.", "You have to hold a quill and a parchment in your hands to write the recipe.",Character.highPriority) 
 		FirstMenu(User, ingredientsList)
