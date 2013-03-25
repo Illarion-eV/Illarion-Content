@@ -269,7 +269,66 @@ function ShowRecipe(User, ingredientsList)
 end
 
 function FinishRecipe(User, ingredientsList)
-    -- fertig woho
+    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	
+	local parchment = GetParchmentQuill(User)
+	parchment = IsParchmentOK(parchment)
+	if not parchment then
+		return
+	end
+
+	local callback = function(dialog)
+		if dialog:getSuccess() then
+			local parchment = GetParchmentQuill(User)
+			parchment = IsParchmentOK(parchment)
+			if not parchment then
+				return
+			end
+			local data = {}
+			data["descriptionDe"] = "Alchemistisches Rezept: "..dialog:getInput()
+			data["descriptionDe"] = "Alchemical recipe: "..dialog:getInput()
+			data["alchemyRecipe"] = "true"
+			for i=1,#ingredientsList do
+			    data["ingredient"..i] = ingredientsList[i]
+			end
+			world:erase(parchment,1)
+			local notCreated = User:createItem(2745,1,333,data)
+			world:createItemFromId(2745,notCreated,User.pos,true,333,data)
+		else
+			User:inform("Du hast die Rezeptbenennung abgebrochen.","You abroted the naming of the recipe.",Character.lowPriority)
+			FirstMenu(User, ingredientsList)
+		end
+	end
+	local dialog = InputDialog(getText("Rezeptbenennung","Recipe naming"), getText("Gebe einen Namen für das Rezept ein.","Enter a name for the recipe."), false, 100, callback)
+	User:requestInputDialog(dialog)
+	return
+end
+
+function IsParchmentOK(parchment,ingredientsList)
+    if not parchment then
+		User:inform("Du musst eine Feder und ein Pergamnet in den Händne halten, um das Rezept zu notieren.", "You have to hold a quill and a parchment in your hands to write the recipe.",Character.highPriority) 
+		FirstMenu(User, ingredientsList)
+		return
+	end
+
+	if parchment:getData("descriptionDe") ~= "" and parchment:getData("descriptionEn") ~= "" then
+	    User:inform("Du braucht ein leeres Pergament.","You need an empty parchment.")
+		FirstMenu(User, ingredientsList)
+		return
+	end
+end
+
+function GetParchmentQuill(User)
+    local itemA = User:getItemAt(5)
+	local itemB = User:getItemAt(6)
+	
+	local parchment
+	if itemA.id == 1266 and itemB.id == 463 then
+	    return itemA
+	elseif itemA.id == 463 and itemB.id == 1266 then
+	    return itemB
+	end
+	return nil
 end
 
 function BottleBottlingString(theString)
