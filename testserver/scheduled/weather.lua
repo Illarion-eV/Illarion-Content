@@ -87,7 +87,7 @@ function setClouds(actClouds,thisMonth)     -- much in winter, less in summer
                                             -- clear sky, cold night (winter)
     newCloud=0;
     typicalClearDayProb=math.floor(40-9*math.cos(thisMonth*math.pi/8)); -- 78% in summer, 60 in winter (69)
-    clearTest=math.random(1,80);
+    clearTest=math.random(1,50);
     if clearTest>=typicalClearDayProb then  -- no clear day
         typicalClouds=50;                   -- if cloudy, then typically 50%
         cloudChange=pseudogauss(0,20);      -- change cloud coverage
@@ -106,7 +106,7 @@ end
 function getRain(thisMonth,actClouds)
     if actClouds>30 then        -- only care about rain with more than 30% cld coverage
         probabilityToRain=math.floor(60-20*math.cos(thisMonth*math.pi/8));  -- 35% in summer, 15 in winter (realistic values), 70% clear sky!
-        doesItRain=math.random(0,125);
+        doesItRain=math.random(0,200);
         if doesItRain<probabilityToRain then    -- rain positive
             retRain=math.random(0,100);   
         else            -- rain negative
