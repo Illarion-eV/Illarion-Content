@@ -146,13 +146,13 @@ function Craft:showDialog(user, source)
 
     local callback = function(dialog)
         local result = dialog:getResult()
+		debug("amount: "..dialog:getCraftableAmount())
         if result == CraftingDialog.playerCrafts then
             local productId = dialog:getCraftableId()
             local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId)
             if canWork then
                 self:swapToActiveItem(user)
             end
-			debug("amount: "..dialog:getCraftableAmount())
             return canWork
         elseif result == CraftingDialog.playerLooksAtItem then
             local productId = dialog:getCraftableId()
