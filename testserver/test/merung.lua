@@ -25,7 +25,7 @@ function UseItem(User, SourceItem)
 	    if theItem.id == 0 then
             return
         end
-		alchemy.base.brewing.UseItem(User, SourceItem)
+		alchemy.base.brewing.UseItem(User, theItem)
 	end	
             		
 	
