@@ -87,7 +87,7 @@ function GetIndividualMode(char, thisFaction)
     local daysList = {}	
 	modeList["Cadomyr"]  = 191; daysList["Cadomyr"]  = 192
 	modeList["Runewick"] = 193; daysList["Runewick"] = 194
-	modeList["Galmair"]  = 195; daysList["Cadomyr"]  = 196
+	modeList["Galmair"]  = 195; daysList["Galmair"]  = 196
 	
     local factionName = base.factions.getTownNameByID(thisFaction)
     local mode = char:getQuestProgress(modeList[factionName])
