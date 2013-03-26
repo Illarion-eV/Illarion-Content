@@ -27,8 +27,7 @@ function UseItem(User, SourceItem, ltstate)
         end
 
         if ( ltstate == Action.abort ) then
-		    world:createItemFromId(15,1,User.pos,true,333,nil)
-			base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+		    base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	        return
 	    end
 	
