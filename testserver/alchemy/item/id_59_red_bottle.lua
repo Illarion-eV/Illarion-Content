@@ -61,7 +61,7 @@ function DrinkPotion(User,SourceItem)
 				if(dataZList[i]-5>0) then
 					emptystring = " +";
 				end
-				logmsg = logmsg..emptystring..(dataZList[i]-5).."to "..attribList[i]..", and"
+				logmsg = logmsg..emptystring..(dataZList[i]-5).." to "..attribList[i]..", and"
 				myEffect:addValue(""..attribList[i],dataZList[i]);
 			end
 			
