@@ -19,7 +19,7 @@ function AlchemyRecipe(User, SourceItem, ltstate)
     if alchemy.base.alchemy.GetCauldronInfront(User) then 
 	    UseRecipe(User, SourceItem, ltstate)
 	else
-        ShowRecipe(User, SourceItem)
+        ViewRecipe(User, SourceItem)
 	end	
 
 end
@@ -28,13 +28,13 @@ function UseRecipe(User, SourceItem, ltstate)
     User:inform("still to do")
 end
 
-function ShowRecipe(User, SourceItem)
+function ViewRecipe(User, SourceItem)
     local ingredientsList = getIngredients(SourceItem)
-	ShowRecipe(User, ingredientsList, true) 
+	development.recipe_creation.ShowRecipe(User, ingredientsList, true) 
 end
 
 function getIngredients(SourceItem)
-debug("check")
+
     local ingredientsList = {}
 	for i=1,60 do
 		if SourceItem:getData("ingredient"..i) ~= "" then
