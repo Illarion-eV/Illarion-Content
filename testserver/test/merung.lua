@@ -25,7 +25,15 @@ function UseItem(User, SourceItem,ltstate)
 	    if theItem.id == 0 then
             return
         end
-		alchemy.base.brewing.UseItem(User, theItem, ltstate)
+		if (ltstate == Action.none) then
+		   User:startAction(50,21,5,15,25);
+		   return
+	    end
+		if ( ltstate == Action.abort ) then
+		    User:inform("Nevermind that shit. Here comes Mongo")
+	        return
+	    end
+		alchemy.base.brewing.UseItem(User, theItem)
 	end	
             		
 	
