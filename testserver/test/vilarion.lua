@@ -71,6 +71,10 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, ltstate)
+    if User.lastSpokenText == "erase" then
+        User:getBackPack():eraseItem(61, 1)
+    end
+
     if User.lastSpokenText == "log" then
         log("Test")
     end
