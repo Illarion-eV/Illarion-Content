@@ -295,30 +295,84 @@ function Craft:loadDialog(dialog, user)
         local category = self.categories[i]
         local categoryRequirement = category.minSkill
         if categoryRequirement and categoryRequirement <= skill then
-            if user:getPlayerLanguage() == Player.german then
-                dialog:addGroup(category.nameDE)
-            else
-                dialog:addGroup(category.nameEN)
-            end
+			if(category.nameEN~="Rare Items") then
+				if user:getPlayerLanguage() == Player.german then
+					dialog:addGroup(category.nameDE)
+				else
+					dialog:addGroup(category.nameEN)
+				end
 
-            categoryListId[i] = listId
-            listId = listId + 1
+				categoryListId[i] = listId
+				listId = listId + 1
+			end
         end
     end
+
+	local zero=true;
 
     for i = 1,#self.products do
         local product = self.products[i]
         local productRequirement = product.difficulty
         
         if productRequirement <= skill then
-            dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
+			
+			local continue = true;
+			if isTestserver() then
+				
+				local special = product.data.RareWeapon;
+				if(special==nil) then
+					special = product.data.RareArmour;
+				end
 
-            for j = 1, #product.ingredients do
-                local ingredient = product.ingredients[j]
-                dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
-            end
+				if special~=nil then
+					special=tonumber(special);
+					if not RareItems(user,product.item,-special) then
+						continue=false;
+					elseif(zero) then
+						zero=false;
+						if user:getPlayerLanguage() == Player.german then
+							dialog:addGroup(self.categories[#self.categories].nameDE)
+						else
+							dialog:addGroup(self.categories[#self.categories].nameEN)
+						end
+
+						categoryListId[#self.categories] = listId;
+						listId = listId + 1;
+					end
+				end
+
+			end
+
+			if(continue) then
+				dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
+
+				for j = 1, #product.ingredients do
+					local ingredient = product.ingredients[j]
+					dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
+				end
+			end
         end
     end
+end
+
+function RareItems(user, comparisonid, dataId)
+
+	local itemsOnChar = {};
+	for i=17,0,-1 do 
+		local item = user:getItemAt(i);
+		local itemId = item.id
+		if (itemId > 0) then
+			if itemId==comparisonid then
+				if (tonumber(item:getData("RareArmour"))==dataId) then
+					return true;
+				elseif (tonumber(item:getData("RareWeapon"))==dataId) then
+					return true
+				end
+            end
+		end
+	end
+
+	return false;
 end
 
 function Craft:refreshDialog(dialog, user)

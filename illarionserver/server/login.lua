@@ -26,8 +26,8 @@ function onLogin( player )
 	end
 	
 	--Taxes (has to be redone by "someone")
-    if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
-		if not player.name == "Valerio Guilianni" and player.name == "Rosaline Edwards" and player.name ==  "Elvaine Morgan" then --leader don't pay taxes or get gems
+    if not player:isAdmin()  and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
+		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
 			-- So let there be taxes!
 			payTaxes(player);
 			receiveGems(player);
@@ -317,7 +317,7 @@ function PayOutWage(Recipient,town)
 	
 	if tonumber(totalPayers)>0 then
 		if tonumber(totalTaxes)>0 then
-			local baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
+			local baseWageUnit=totalTaxes/(totalPayers*10000);		-- 10000: "base unit"; change accordingly if necessary.
 			local RecipientRk=base.factions.getRankAsNumber(Recipient)
 
 			--If the recipient is level 1 they don't get anything. Stops abuse! - Flux
@@ -339,7 +339,7 @@ function PayOutWage(Recipient,town)
 				return;
 			end;
 
-			local RankedWage=math.ceil(RecipientRk*baseWageUnit);
+			local RankedWage=math.ceil(RecipientRk*baseWageUnit*0.5);
 			endname="";
 			while RankedWage>0 do
 				local randomGem=math.random(1,2);
@@ -486,7 +486,7 @@ function payNow(User)
 	
     tax=math.floor(val*taxHeight);
     local totTax=tax; -- total tax to pay
-	log("[taxes] "..User.id.."; paid: "..totTax)
+	log("[taxes] "..User.id.." paid "..totTax.." copper coins to "..town)
 	
 	-- try to get the payable tax from the depots first
 	for i=1, #(depNr) do

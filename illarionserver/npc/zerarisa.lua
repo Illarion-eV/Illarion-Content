@@ -996,6 +996,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(2547, "all", "<", 10, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Habenss sschon gefundenss Henry in Morgentausumpfss? Schuldenss zehn Lederhäute.");
@@ -1005,6 +1006,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(2547, "all", "<", 10, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -1015,6 +1017,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(2547, "all", "<", 10, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");

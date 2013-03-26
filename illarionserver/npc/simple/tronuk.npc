@@ -78,15 +78,15 @@ english, "Tronruk" -> "Yubba, dat meh name! *hits his chest and grunts*"
 "Tronruk" -> "Yubba, das mein Name! *schlägt sich auf die Brust*"
 
 -- Catching quest triggers. Modify if the NPC does quests.
-queststatus(602) = 0, english, "quest", "mission" -> inform("[Quest 602 started] Bring Tronuk a full bottle beer."), queststatus(602) = 1, "A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!"
+queststatus(602) = 0, english, "quest", "mission" -> inform("[Quest 602 started] Take Tronuk a full bottle beer."), queststatus(602) = 1, "A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!"
 queststatus(602) = 0, "quest", "mission" -> inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."), queststatus(602) = 1, "Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!"
-queststatus(602) = 0, "task", "adventure", "order" -> inform("[Quest 602 started] Bring Tronuk a full bottle beer."), queststatus(602) = 1, "A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!"
+queststatus(602) = 0, "task", "adventure", "order" -> inform("[Quest 602 started] Take Tronuk a full bottle beer."), queststatus(602) = 1, "A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!"
 queststatus(602) = 0, "Auftrag", "Aufgabe" -> inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."), queststatus(602) = 1, "Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!"
 
 -- Player brings beer and gets reward
 queststatus(602) = 1, item(2501, all) > 0, english, ".*" -> inform("[Quest end 602] You received 10 silvercoins."), money + 1000, deleteItem(2501, 1), queststatus(602) = 2, "Hurr, you hub beer! Great! For dhat you shall hub some coins."
 queststatus(602) = 1, item(2501, all) > 0, german, ".*" -> inform("[Quest Ende 602] Du hast 10 Silbermünzen erhalten."), money + 1000, deleteItem(2501, 1), queststatus(602) = 2, "Hurr, du haben Bier! Gut! Für das du sollen haben einige Münzen."
-queststatus(602) = 1, english, ".*" -> inform("Bring Tronuk a full bottle beer."), "Hurr, you should get beer first! Yubba!"
+queststatus(602) = 1, english, ".*" -> inform("Take Tronuk a full bottle beer."), "Hurr, you should get beer first! Yubba!"
 queststatus(602) = 1, german, ".*" -> inform("Bringe Tronuk eine volle Flasche Bier."), "Hurr, du sollen bringen Bier erst! Yubba!"
 
 -- Player asks again
@@ -94,9 +94,9 @@ queststatus(602) = 2, english, chance(80.0), "quest", "mission" -> "Yoo got task
 queststatus(602) = 2, german, chance(80.0), "quest", "mission" -> "Du hattest Auftrag und Tronruk haben Bier genug nun. Frage später vielleicht."
 queststatus(602) = 2, english, chance(80.0), "task", "adventure", "order" -> "Yoo got task and Tronruk hub enub beer now. Ask later maybeh."
 queststatus(602) = 2, german, chance(80.0), "Auftrag", "Aufgabe" -> "Du hattest Auftrag und Tronruk haben Bier genug nun. Frage später vielleicht."
-queststatus(602) = 2, english, "quest", "mission" -> inform("[Quest 602 started] Bring Tronuk a full bottle beer."), queststatus(602) = 1, "Anodha bottle beer might beh guud. Yubba! Get more beer!"
+queststatus(602) = 2, english, "quest", "mission" -> inform("[Quest 602 started] Take Tronuk a full bottle beer."), queststatus(602) = 1, "Anodha bottle beer might beh guud. Yubba! Get more beer!"
 queststatus(602) = 2, "quest", "mission" -> inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."), queststatus(602) = 1, "Andere Flasche Bier sein gut. Yubba! Bring mehr Bier!"
-queststatus(602) = 2, "task", "adventure", "order" -> inform("[Quest 602 started] Bring Tronuk a full bottle beer."), queststatus(602) = 1, "Anodha bottle beer might beh guud. Yubba! Get more beer!"
+queststatus(602) = 2, "task", "adventure", "order" -> inform("[Quest 602 started] Take Tronuk a full bottle beer."), queststatus(602) = 1, "Anodha bottle beer might beh guud. Yubba! Get more beer!"
 queststatus(602) = 2, "Auftrag", "Aufgabe" -> inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."), queststatus(602) = 1, "Andere Flasche Bier sein gut. Yubba! Bring mehr Bier!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
