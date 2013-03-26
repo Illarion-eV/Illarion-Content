@@ -239,7 +239,7 @@ function RemoveLastIngredient(User, ingredientsList)
 	end
 end
 
-function ShowRecipe(User, ingredientsList) 
+function ShowRecipe(User, ingredientsList, notMenu) 
     local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
 	
 	local recipeDe = ""; local recipeEn = ""
@@ -263,7 +263,9 @@ function ShowRecipe(User, ingredientsList)
         end
     end
 	local callback = function(dialog)
-        FirstMenu(User, ingredientsList)
+        if not notMenu then
+		    FirstMenu(User, ingredientsList)
+		end	
     end
 	local dialog = MessageDialog(getText("Rezept","Recipe"), getText(recipeDe,recipeEn), callback)
 	User:requestMessageDialog(dialog)
@@ -299,9 +301,9 @@ function FinishRecipe(User, ingredientsList)
 			    data["ingredient"..i] = ingredientsList[i]
 			end
 			world:erase(parchment,1)
-			local notCreated = User:createItem(2745,1,333,data)
+			local notCreated = User:createItem(3109,1,333,data)
 			if notCreated > 0 then
-				world:createItemFromId(2745,notCreated,User.pos,true,333,data)
+				world:createItemFromId(3109,notCreated,User.pos,true,333,data)
 			end	
 		else
 			User:inform("Du hast die Rezeptbenennung abgebrochen.","You abroted the naming of the recipe.",Character.lowPriority)
@@ -333,9 +335,9 @@ function GetParchmentQuill(User)
 	local itemB = User:getItemAt(6)
 	
 	local parchment
-	if itemA.id == 2745 and itemB.id == 1266 then
+	if itemA.id == 3109 and itemB.id == 1266 then
 	    return itemA
-	elseif itemA.id == 1266 and itemB.id == 2745 then
+	elseif itemA.id == 1266 and itemB.id == 3109 then
 	    return itemB
 	end
 	return nil

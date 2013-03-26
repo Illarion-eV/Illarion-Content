@@ -325,7 +325,12 @@ function RecipeInform( User, SourceItem)
 end
 
 function UseItem(User, SourceItem, ltstate)
-      
+    if isTestserver() then
+        if SourceItem:getData("alchemyRecipe") == "true" then
+		    development.id_2745_parchment.UseItem(User, SourceItem, ltstate)
+			return
+		end
+    end		
     if (SourceItem:getType()~=3) then -- no map item
 	    return
 	end	
