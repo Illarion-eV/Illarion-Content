@@ -9,7 +9,7 @@ module("item.keys", package.seeall)
 function UseItem(User, SourceItem)
     local DoorItem = base.common.GetFrontItem( User );
     
-	if SourceItem:getData("prisonKeyOf") ~= "" then 
+	if SourceItem:getData("townKeyOf") ~= "" then 
 	    -- sentence char to forced labour
 		SentenceCharacter(User,SourceItem)
 	    return
@@ -35,16 +35,133 @@ function SentenceCharacter(User,SourceItem)
         end;
     end;	
 	
-	local myTown = SourceItem:getData("prisonKeyOf")
-	local townId
-	if myTown == "Cadomyr" then
-	    townId = 1
-	elseif myTown == "Runewick" then
-        townId = 2
-    elseif myTown == "Galmair" then
-        townId = 3
-    else
+	local myTown = SourceItem:getData("townKeyOf")
+	if not (myTown == "Cadomyr" or myTown == "Runewick" or myTown == "Galmair") then
         User:inform("This prison key does not belong to any town.")
+        return
+    end
+
+	local callback = function(dialog) 
+		local success = dialog:getSuccess() 
+		if success then
+			local selected = dialog:getSelectedIndex()+1 
+			if selected == 1 then
+			    LabourCamp(User, SourceItem)
+			elseif selected == 2 then
+                GuardBehaviourTowardsChar(User, SourceItem)			
+		    end
+		else
+			User:inform("Selection aborted!") 
+		end
+	end
+
+	local dialog = SelectionDialog("Town key of "..SourceItem:getData("townKeyOf"), "What do you want to do?", callback)
+	dialog:setCloseOnMove()
+	dialog:addOption(0, "Send someone to the labour camp")
+	dialog:addOption(0, "Set behaviour of guards towards a certain person")
+
+	User:requestSelectionDialog(dialog)
+	
+end
+
+function GuardBehaviourTowardsChar(User, SourceItem)
+    
+	local callback = function(dialog) 
+		local success = dialog:getSuccess() 
+		if success then
+			local selected = dialog:getSelectedIndex()
+			SelectTargetChar(User, SourceItem, selected)
+		else
+			User:inform("Selection aborted!") 
+		end
+    end
+
+	local dialog = SelectionDialog("Guard behaviour", "Select the behaviour you want the guards to have towardas a certain person", callback)
+	dialog:setCloseOnMove()
+	dialog:addOption(0, "None")
+	dialog:addOption(0, "Passive")
+	dialog:addOption(0, "Hostile")
+	dialog:addOption(0, "Aggresive")
+	dialog:addOption(0, "Let always pass")
+
+	User:requestSelectionDialog(dialog)
+	
+end
+
+function SelectTargetChar(User, SourceItem, behaviour)
+    
+    local callback = function(dialog)
+	    if not dialog:getSuccess() then
+		    User:inform("Abortion. No one was sentenced to anything.")
+			return
+		else 
+            local myString = dialog:getInput()
+			local myCharId
+			local myCharName
+	        local days
+			local allFound = false
+			local a, b
+			if string.find(myString,"(%d+) (%d+)") then
+			    a,b,myCharId,days = string.find(myString,"(%d+) (%d+)")
+                myCharId = tonumber(myCharId); days = tonumber(days)
+				allFound = true
+			elseif string.find(myString,"(%d+)") then
+			    a,b,days = string.find(myString,"(%d+)")
+                days = tonumber(days)
+				if a-2 > 1 then 
+					myCharName=string.sub (myString, 1,a-2)
+                    allFound = true
+                end
+			end
+            if allFound then
+			    local onlineChars = world:getPlayersOnline()
+				local theChar
+				for i=1,#onlineChars do
+					local checkChar = onlineChars[i]
+					if myCharId then
+					    if checkChar.id == myCharId then
+						    theChar = checkChar
+				            break
+						end	
+			        else 
+         			    if checkChar.name == myCharName then
+		                    theChar = checkChar
+				            break
+						end
+                    end	
+                end    
+				if not theChar then 
+					User:inform("Character has not been found.")
+				else
+				    local modeList = {}
+					local daysList = {}	
+					modeList["Cadomyr"]  = 191; daysList["Cadomyr"]  = 192
+					modeList["Runewick"] = 193; daysList["Runewick"] = 194
+					modeList["Galmair"]  = 195; daysList["Galmair"]  = 196
+				
+				    local town = SourceItem:getData("townKeyOf")
+					theChar:setQuestProgress(modeList[town],behaviour)
+					theChar:setQuestProgress(daysList[town],days)
+				end
+			else
+                User:inform("You haven't put in all necessary informations.")
+            end
+		end	
+	end
+	local dialog = InputDialog("Set behaviour","Insert: [Name|ID] [days] Example: John Doe 100; Notice: Days are ig days. If it should be permanent, set it to 0",false,255,callback)
+	User:requestInputDialog(dialog)
+end
+
+function LabourCamp(User, SourceItem)
+
+    local townId 
+    if SourceItem:getData("townKeyOf") == "Cadomyr" then
+        townId = 1
+	elseif SourceItem:getData("townKeyOf") == "Runewick" then 
+	    townId = 2
+	elseif SourceItem:getData("townKeyOf") == "Galmair" then
+	    townId = 3
+	else
         return
     end		
 	
@@ -105,7 +222,7 @@ function SentenceCharacter(User,SourceItem)
 			            dialogLabour = MessageDialog("Labour camp" ,"You have been sentenced to collect "..workLoad.." resources in the mine. If you have served your sentence, you are free to go. You can get a pick-axe and food from the guard.", callbackLabour)
 		            end	
 		            thePrisoner:requestMessageDialog(dialogLabour)
-				    User:createItem(2763,1,777,nil)
+				    thePrisoner:createItem(2763,1,777,nil)
 				end
 			else
                 User:inform("You haven't put in all necessary informations.")
@@ -114,36 +231,11 @@ function SentenceCharacter(User,SourceItem)
 	end
 	local dialog = InputDialog("Sentence to forced labour","Insert: [Name|ID] [workload] Example: John Doe 300",false,255,callback)
 	User:requestInputDialog(dialog)
+
 end
 
 
 
 function LookAtItem(User,Item)
    world:itemInform( User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE) )
-end
-
-function MoveItemBeforeMove(User, SourceItem, TargetItem)
-    if ((TargetItem.data~=3001) and (TargetItem.data~=3002)) then
-        return true;
-    end
-
-    if (User:getRace() == 1) then
-        return true;
-    end
-
-    if User:isAdmin() then
-        return true;
-    end
-
-    if (TargetItem:getType()~=3) then
-        base.common.InformNLS(User,
-        "Der Schlüssel rutscht dir seltsamerweise aus der Hand.",
-        "The key slips out of your hand for a strange reason.");
-        return false;
-    end
-    return true;
-end
-
-function MoveItemAfterMove( User, SourceItem, TargetItem )
-    return true;
 end

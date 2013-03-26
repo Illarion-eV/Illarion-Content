@@ -568,7 +568,8 @@ function FillFromTo(fromItem,toItem)
 		toItem.id = reCauldron
 	else
 		toItem.id = reBottle
-	end	
+	end
+    world:changeItem(toItem)	
 end
 
 function CauldronDestruction(User,cauldron,effectId)
@@ -743,10 +744,10 @@ function FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 	
     if (SourceItem:getData("filledWith") =="essenceBrew") then -- essence brew should be filled into the cauldron
 		-- water, essence brew or potion is in the cauldron; leads to a failure
-		if cauldron:getData("cauldronFilledWith") == "water" then
+		if cauldron:getData("filledWith") == "water" then
 			CauldronDestruction(User,cauldron,1)
 			
-		elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+		elseif cauldron:getData("filledWith") == "essenceBrew" then 
 			CauldronDestruction(User,cauldron,2)
 			
 		elseif cauldron:getData("filledWith") == "potion" then
@@ -763,6 +764,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 				end
 				
 		else -- nothing in the cauldron, we just fill in the essence brew
+			if isTestserver() then debug("before fillfromto") end
 			FillFromTo(SourceItem,cauldron)	
 		end
 		

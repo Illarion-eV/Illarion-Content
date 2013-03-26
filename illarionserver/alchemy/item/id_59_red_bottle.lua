@@ -44,6 +44,7 @@ function DrinkPotion(User,SourceItem)
 	    GenerateEffectMessage(User,dataZList) -- inform about the effects
 		
 		local attribValue, bottomBorder
+		local logmsg = ""..User.name.." ("..User.id..") used an attribute potion, giving: "
 		for i=1,8 do
 			
 			attribValue = User:increaseAttrib(attribList[i],0);
@@ -56,11 +57,17 @@ function DrinkPotion(User,SourceItem)
 
 			if dataZList[i] ~= 5 then
 				User:increaseAttrib(attribList[i],dataZList[i]-5);
+				local emptystring = " ";
+				if(dataZList[i]-5>0) then
+					emptystring = " +";
+				end
+				logmsg = logmsg..emptystring..(dataZList[i]-5).." to "..attribList[i]..", and"
 				myEffect:addValue(""..attribList[i],dataZList[i]);
 			end
 			
 		end
-		
+		logmsg = logmsg.." it will last for "..myEffectDuration/600 .. " minutes."
+		log(logmsg)
 		local foundEffect, checkedEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
 		if not foundEffect then
 		   User.effects:addEffect( myEffect )

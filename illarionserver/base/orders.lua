@@ -939,7 +939,7 @@ function Order:doOrder(character,orderstatestruct)
         --Wert für schlecht erfüllten auftrag.
         setThrustWorthyness(character,ThrustworthynessChangeAfterNotSuccessOrder,GoodOrderChangeAfterNotSuccessOrder);
     end
-	base.common.InformNLS(character, "[Quest gelöst] Du erhälst "..price.." Kupferstücke.", "[Quest solved] You are awarded "..price.." copper coins.")
+	base.common.InformNLS(character, "[Quest gelöst] Du erhältst "..price.." Kupferstücke.", "[Quest solved] You are awarded "..price.." copper coins.")
 end
 
 
