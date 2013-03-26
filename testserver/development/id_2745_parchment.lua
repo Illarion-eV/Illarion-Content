@@ -37,7 +37,7 @@ function getIngredients(SourceItem)
 
     local ingredientsList = {}
 	for i=1,60 do
-		if SourceItem:getData("ingredient"..i) then
+		if SourceItem:getData("ingredient"..i) ~= "" then
 			if tonumber(SourceItem:getData("ingredient"..i)) ~= nil then
 				table.insert(ingredientsList,tonumber(SourceItem:getData("ingredient"..i)))
 			else
