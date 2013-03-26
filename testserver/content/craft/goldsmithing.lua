@@ -19,41 +19,41 @@ goldsmithing:addActiveTool(172, 13) -- anvil with glowing metal
 local catId = goldsmithing:addCategory("miscellaneous", "Verschiedenes") -- Random Stuff
 
 --Goblet
-local product = goldsmithing:addProduct(catId, 1858, 0, 10, 5, 10)
+local product = goldsmithing:addProduct(catId, 1858, 0, 20, 5, 10)
 product:addIngredient(2535) -- Iron Ingot: 1x1
 
 --Oil Lamp
-product = goldsmithing:addProduct(catId, 92, 9, 15, 14, 28)
+product = goldsmithing:addProduct(catId, 92, 10, 30, 14, 28)
 product:addIngredient(2550, 2) -- Copper Ingot: 2x1
 
 --Glass blow pipe
-product = goldsmithing:addProduct(catId, 311, 14, 20, 14, 28)
+product = goldsmithing:addProduct(catId, 311, 15, 35, 14, 28)
 product:addIngredient(2550, 2) -- Copper Ingot: 2x1
 
 --Candlestick
-product = goldsmithing:addProduct(catId, 399, 19, 25, 18, 36)
+product = goldsmithing:addProduct(catId, 399, 20, 40, 18, 36)
 product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
 
 --Plate
-product = goldsmithing:addProduct(catId, 1001, 24, 30, 28, 56)
+product = goldsmithing:addProduct(catId, 1001, 25, 45, 28, 56)
 product:addIngredient(2550, 2) -- Copper Ingot: 2x1
 
 --Copper Goblet
-product = goldsmithing:addProduct(catId, 1840, 28, 35, 32, 64)
+product = goldsmithing:addProduct(catId, 1840, 30, 50, 32, 64)
 product:addIngredient(2550, 2) -- Copper Ingot: 2x1
 
 --Gold Goblet
-product = goldsmithing:addProduct(catId, 224, 33, 40, 54, 108)
+product = goldsmithing:addProduct(catId, 224, 30, 50, 54, 108)
 product:addIngredient(104, 2) -- Silver Ingot: 2x1
 product:addIngredient(236) -- Gold Ingot: 1x1
 
 --Plate
-product = goldsmithing:addProduct(catId, 2031, 35, 45, 63, 126)
+product = goldsmithing:addProduct(catId, 2031, 35, 55, 63, 126)
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 
 --Cutlery
-product = goldsmithing:addProduct(catId, 2647, 40, 48, 69, 138)
+product = goldsmithing:addProduct(catId, 2647, 40, 60, 69, 138)
 product:addIngredient(104, 3) -- Silver Ingot: 3x1
 
 catId = goldsmithing:addCategory("amulets", "Amulette") -- amulets
@@ -81,19 +81,19 @@ product:addIngredient(236) -- Gold Ingot: 1x1
 product:addIngredient(283) -- Obsidian: 1x1
 
 --Sapphire Amulet
-product = goldsmithing:addProduct(catId, 71, 60, 90, 60, 120)
+product = goldsmithing:addProduct(catId, 71, 60, 80, 60, 120)
 product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
 product:addIngredient(284) -- Sapphire: 1x1
 
 --Emerald Amulet
-product = goldsmithing:addProduct(catId, 62, 70, 80, 66, 132)
+product = goldsmithing:addProduct(catId, 62, 70, 90, 66, 132)
 product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
 product:addIngredient(45) -- Emerald: 1x1
 
 --Topas Amulet
-product = goldsmithing:addProduct(catId, 83, 75, 90, 75, 150)
+product = goldsmithing:addProduct(catId, 83, 75, 95, 75, 150)
 product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
 product:addIngredient(198) -- Topas: 1x1
@@ -165,7 +165,7 @@ product:addIngredient(236) -- Gold Ingot: 1x1
 product:addIngredient(198) -- Topas: 1x1
 
 --Diamond Ring
-product = goldsmithing:addProduct(catId, 280, 75, 90, 72, 144)
+product = goldsmithing:addProduct(catId, 280, 75, 95, 72, 144)
 product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
 product:addIngredient(285) -- Diamond: 1x1
