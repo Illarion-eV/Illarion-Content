@@ -152,6 +152,7 @@ function Craft:showDialog(user, source)
             if canWork then
                 self:swapToActiveItem(user)
             end
+			debug("amount: "..dialog:getCraftableAmount())
             return canWork
         elseif result == CraftingDialog.playerLooksAtItem then
             local productId = dialog:getCraftableId()
