@@ -68,7 +68,7 @@ end
 -- @param char The character whose faction is to be checked
 -- @param thisFaction The faction ID of the guard
 function GetMode(char, thisFaction)
-	if char:isAdmin() then
+	if char:isAdmin() and not char.name=="Jupiter" then
 		return ACTION_NONE;
 	end
 	
