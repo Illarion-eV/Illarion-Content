@@ -5,7 +5,7 @@ require("alchemy.base.brewing")
 
 module("test.merung", package.seeall)
 
-function UseItem(User, SourceItem)
+function UseItem(User, SourceItem,ltstate)
 	User:increaseAttrib("essence",30)
 	
 	if User.lastSpokenText == "rezept" then
@@ -25,7 +25,7 @@ function UseItem(User, SourceItem)
 	    if theItem.id == 0 then
             return
         end
-		alchemy.base.brewing.UseItem(User, theItem)
+		alchemy.base.brewing.UseItem(User, theItem, ltstate)
 	end	
             		
 	
