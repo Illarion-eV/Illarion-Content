@@ -234,7 +234,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil))
 talkEntry:addTrigger("Problem");
 talkEntry:addTrigger("Mission");
 talkEntry:addTrigger("Quest");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhälst zehn Alraunen und eine Flasche Elfenwein."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Alraunen und eine Flasche Elfenwein."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(1318, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(752, 10, 333, nil));
@@ -273,7 +273,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addTrigger("Ochse");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhälst zehn Alraunen und eine Flasche Elfenwein."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Alraunen und eine Flasche Elfenwein."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(1318, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(752, 10, 333, nil));

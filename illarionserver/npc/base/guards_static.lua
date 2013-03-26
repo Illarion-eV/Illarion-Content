@@ -9,6 +9,7 @@ ACTION_NONE = 0;		-- do nothing at all
 ACTION_PASSIVE = 1;		-- if in attackmode, warp away
 ACTION_HOSTILE = 2;		-- warp away
 ACTION_AGGRESSIVE = 3;	-- attack (TO DO)
+ACTION_PASSAGE = 4;     -- let this person pass, even if he is memeber of a hostile group (only for individuals, not for factions)
 
 --- Checks for chars in range and handles them (warp)
 -- @param guard The character struct of the guard NPC
@@ -38,7 +39,7 @@ function CheckForEnemies(guard)
 	for i,char in pairs(charList) do
     if (content.areas.PointInArea(char.pos,content.guards.Guards[guard.name].areaName)) then
       local mode = GetMode(char, content.guards.Guards[guard.name].faction);
-      if (mode == ACTION_AGGRESSIVE) then
+	  if (mode == ACTION_AGGRESSIVE) then
         -- spawn monster guards
         -- TODO
         -- for now: just hit and warp
@@ -63,17 +64,49 @@ function CheckForEnemies(guard)
   end
 end
 
---- get the mode for this faction depending on the char's faction
+--- get the mode for this faction depending on the char's faction or his individual mode
 -- @param char The character whose faction is to be checked
 -- @param thisFaction The faction ID of the guard
 function GetMode(char, thisFaction)
+	if char:isAdmin() then
+		return ACTION_NONE;
+	end
 	
-	-- if char:isAdmin() then
-		-- return ACTION_NONE;
-	-- end
+	local individualMode = GetIndividualMode(char, thisFaction) 
+    local f = base.factions.getFaction(char).tid;
+	local factionMode = GetModeByFaction(thisFaction, f);
+	return math.max(individualMode, factionMode)
+end
 
-	local f = base.factions.getFaction(char).tid;
-	return GetModeByFaction(thisFaction, f);
+-- return the mode of the character; check also for temporary mode
+-- @param char The character whose faction is to be checked
+-- @param thisFaction The faction ID of the guard 
+function GetIndividualMode(char, thisFaction) 
+
+    local modeList = {}
+    local daysList = {}	
+	modeList["Cadomyr"]  = 191; daysList["Cadomyr"]  = 192
+	modeList["Runewick"] = 193; daysList["Runewick"] = 194
+	modeList["Galmair"]  = 195; daysList["Cadomyr"]  = 196
+	
+    local factionName = base.factions.getTownNameByID(thisFaction)
+    local mode = char:getQuestProgress(modeList[factionName])
+	local days, setTime = char:getQuestProgress(daysList[factionName])
+	
+	if mode > 4 then
+	    debug("[Error] "..char.name.." ("..char.id..") had a higher quest value than allowed. Reset to 0.")
+		mode = 0
+		char:setQuestProgress(mode,0)
+	end	
+	
+	if days ~= 0 then 
+	    local daysInSec = (days/3)*24*60*60
+	    if (world:getTime("unix") - setTime >= daysInSec) then
+		    return 0
+		end	
+	end	
+	
+	return mode
 end
 
 --- get the mode for this faction by the other (hostile) faction
