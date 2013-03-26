@@ -222,7 +222,7 @@ function onLogin( player )
 
 		--Messages of the day
 		dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
-	    base.common.InformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
+	    player:inform(messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
     end
 
 	if player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan" then
