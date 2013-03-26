@@ -68,7 +68,7 @@ end
 -- @param char The character whose faction is to be checked
 -- @param thisFaction The faction ID of the guard
 function GetMode(char, thisFaction)
-	if char:isAdmin() then
+	if char:isAdmin() and not char.name=="Jupiter" then
 		return ACTION_NONE;
 	end
 	
@@ -87,7 +87,7 @@ function GetIndividualMode(char, thisFaction)
     local daysList = {}	
 	modeList["Cadomyr"]  = 191; daysList["Cadomyr"]  = 192
 	modeList["Runewick"] = 193; daysList["Runewick"] = 194
-	modeList["Galmair"]  = 195; daysList["Cadomyr"]  = 196
+	modeList["Galmair"]  = 195; daysList["Galmair"]  = 196
 	
     local factionName = base.factions.getTownNameByID(thisFaction)
     local mode = char:getQuestProgress(modeList[factionName])
