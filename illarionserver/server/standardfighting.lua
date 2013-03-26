@@ -37,9 +37,9 @@ require("lte.chr_reg");
 -- for gem bonus
 require("base.gems")
 
-if isTestserver() then
-	require("development.testscript");
-end;
+--if isTestserver() then
+	--require("development.testscript");
+--end;
 
 module("server.standardfighting", package.seeall)
 
@@ -52,11 +52,11 @@ module("server.standardfighting", package.seeall)
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender)
 
-	if isTestserver() then
+	--if isTestserver() then
 		--Attacker:inform("Should be attacking."); --Debugging
-		development.testscript.onAttack(Attacker,Defender);
-		return;
-	end;
+		--development.testscript.onAttack(Attacker,Defender);
+		--return;
+	--end;
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
