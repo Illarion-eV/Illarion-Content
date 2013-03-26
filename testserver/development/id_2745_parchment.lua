@@ -34,7 +34,7 @@ function ShowRecipe(User, SourceItem)
 end
 
 function getIngredients(SourceItem)
-
+debug("check")
     local ingredientsList = {}
 	for i=1,60 do
 		if SourceItem:getData("ingredient"..i) ~= "" then
