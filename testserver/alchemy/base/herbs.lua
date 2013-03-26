@@ -27,7 +27,8 @@ function UseItem(User, SourceItem, ltstate)
         end
 
         if ( ltstate == Action.abort ) then
-		    base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+		    world:createItemFromId(15,1,User.pos,true,333,nil)
+			base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	        return
 	    end
 	
@@ -36,17 +37,22 @@ function UseItem(User, SourceItem, ltstate)
 		   return
 	    end
 		
-		local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(SourceItem.id, User)
-	    if isPlant then
-	        BrewingPlant(User,SourceItem,cauldron)
-	    elseif SourceItem.id == 157 then
-		    BrewingFilter(User,SourceItem,cauldron)
-		end
-    
+		StartBrewing(User,SourceItem,cauldron)
+		
 	else
 	    -- not infront of cauldron, maybe do something else with herbs
         return
 	end
+end
+
+function StartBrewing(User,SourceItem,cauldron)
+    local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(SourceItem.id, User)
+	if isPlant then
+		BrewingPlant(User,SourceItem,cauldron)
+	elseif SourceItem.id == 157 then
+		BrewingFilter(User,SourceItem,cauldron)
+	end
+ 
 end
 
 function PlantInEssenceBrew(User,plant,cauldron)
