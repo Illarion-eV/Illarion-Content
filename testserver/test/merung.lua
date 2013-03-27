@@ -18,10 +18,9 @@ function UseItem(User, SourceItem,ltstate)
 	end
 	User:inform(""..counter)
 
-	if (ltstate == Action.none) then
-	   User:startAction(50,21,5,15,25);
-	   return
-	end
+	User:startAction(50,21,5,15,25);
+	
+	
 	--[[
 	if User.lastSpokenText == "rezept" then
 		if SourceItem:getType()==4 then
