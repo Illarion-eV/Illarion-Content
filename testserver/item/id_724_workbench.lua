@@ -1,7 +1,7 @@
 -- conifer wood (3) --> conifer wooden boards (2543)
 -- cherry wood (543) --> cherry wood boards(545)
 -- naldor wood (544) --> naldor wood boards(546)
--- deciduous wood (2560) --> apple wood boards(2716)
+-- applewood (2560) --> apple wood boards(2716)
 
 -- additional tool: saw (9)
 
@@ -94,8 +94,8 @@ function UseItem(User, SourceItem, ltstate)
   end
 	if (craftItem == nil) then -- check for items to work on
 		base.common.HighInformNLS( User, 
-		"Du brauchst Nadelholz, Kirschholz, Naldorholz oder Laubholz um es zu zersägen.", 
-		"You need conifer wood, cherry wood, naldor wood or deciduous wood for sawing them." );
+		"Du brauchst Nadelholz, Kirschholz, Naldorholz oder Apfelholz um es zu zersägen.", 
+		"You need conifer wood, cherry wood, naldor wood or applewood for sawing them." );
 		return;
 	end
 	

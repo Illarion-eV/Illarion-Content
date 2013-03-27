@@ -798,7 +798,7 @@ if not InitPrices then
 	price [   56   ] =    20   ; --    bough   ,   Resource   wood
 	price [   543   ] =    20   ; --    cherry wood   ,   Resource   wood
 	price [   544   ] =    20   ; --    naldor wood   ,   Resource   wood
-	price [   2560   ] =    20   ; --    deciduous wood   ,   Resource   wood
+	price [   2560   ] =    20   ; --    applewood   ,   Resource   wood
 	price [   2786   ] =    20   ; --    branch   ,   Resource   wood
 	price [   2445   ] =    100   ; --    small wooden shield   ,   Shield   wood
 	price [   17   ] =    120   ; --    wooden shield   ,   Shield   wood
