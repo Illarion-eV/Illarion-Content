@@ -432,7 +432,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Message Delivery II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(702, "=", 4));
 talkEntry:addResponse("So, you came to help me again? That's very nice of you. I haven't seen Morri in a while. Please, ask him if he would still like to buy the pins he ordered, they are already starting to corrode.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
