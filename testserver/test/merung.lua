@@ -7,7 +7,6 @@ module("test.merung", package.seeall)
 
 function UseItem(User, SourceItem,ltstate)
 	--User:increaseAttrib("essence",30)
-	counter = 0
 	if (ltstate == Action.none) then
 	   User:startAction(50,21,5,15,25);
 	   return
@@ -16,8 +15,17 @@ function UseItem(User, SourceItem,ltstate)
 		User:inform("Nevermind that shit. Here comes Mongo")
 		return
 	end
-	User:inform(""..counter)
+	if counter == nil then
+	    counter = 0
+	end
+	local counter2
+	if counter2 == nil then
+	    counter2 = 0
+	end	
+	User:inform("c1: "..counter)
+	User:inform("c2: "..counter2)
 	counter = counter + 1
+	counter2 = counter2+1
 
 	User:startAction(50,21,5,15,25);
 	
