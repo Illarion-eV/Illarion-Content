@@ -8,7 +8,7 @@ module("test.merung", package.seeall)
 function UseItem(User, SourceItem,ltstate)
 	--User:increaseAttrib("essence",30)
 	if (ltstate == Action.none) then
-	   User:startAction(50,21,5,15,25);
+	   User:startAction(20,21,5,15,25);
 	   return
 	end
 	if ( ltstate == Action.abort ) then
@@ -27,7 +27,7 @@ function UseItem(User, SourceItem,ltstate)
 	counter = counter + 1
 	counter2 = counter2+1
 
-	User:startAction(37,21,5,15,25);
+	User:startAction(20,37,5,15,25);
 	
 	
 	--[[
