@@ -27,7 +27,7 @@ function UseItem(User, SourceItem,ltstate)
 	counter = counter + 1
 	counter2 = counter2+1
 
-	User:startAction(50,21,5,15,25);
+	User:startAction(37,21,5,15,25);
 	
 	
 	--[[
