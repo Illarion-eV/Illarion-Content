@@ -7,7 +7,22 @@ module("test.merung", package.seeall)
 
 function UseItem(User, SourceItem,ltstate)
 	User:increaseAttrib("essence",30)
-	
+	local counter = 0
+	if (ltstate == Action.none) then
+	   User:startAction(50,21,5,15,25);
+	   return
+	end
+	if ( ltstate == Action.abort ) then
+		User:inform("Nevermind that shit. Here comes Mongo")
+		return
+	end
+	User:inform(""..counter)
+
+	if (ltstate == Action.none) then
+	   User:startAction(50,21,5,15,25);
+	   return
+	end
+	--[[
 	if User.lastSpokenText == "rezept" then
 		if SourceItem:getType()==4 then
 			if SourceItem.itempos == 5 or SourceItem.itempos == 6 then
@@ -35,7 +50,7 @@ function UseItem(User, SourceItem,ltstate)
 	    end
 		alchemy.base.brewing.UseItem(User, theItem)
 	end	
-            		
+    ]]        		
 	
 	
 end
