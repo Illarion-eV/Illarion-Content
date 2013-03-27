@@ -48,33 +48,8 @@ function UseItem(User, SourceItem, ltstate)
 			User:startAction( actionDuration, 21, 5, 10, 45)
 			return
 		end	
-	
-	    if (SourceItem:getData("filledWith")=="potion") then -- potion should be filled into the cauldron
-		    -- water leads to a failure
-			if cauldron:getData("cauldronFilledWith") == "water" then
-			    world:gfx(1,cauldron.pos)
-		    
-			elseif cauldron:getData("filledWith") == "essenceBrew" then 
-			    SupportEssenceBrew(User,SourceItem,cauldron)
-			
-			elseif cauldron:getData("filledWith") == "potion" then
-			    SupportPotion(User,SourceItem,cauldron)
-			    
-			elseif cauldron:getData("filledWith") == "stock" then
-				SupportStock(User,SourceItem,cauldron)
-			
-			else
-			    alchemy.base.alchemy.FillFromTo(SourceItem,cauldron)
-				world:changeItem(cauldron)
-			end    
-            alchemy.base.alchemy.EmptyBottle(User,SourceItem)
-			
-		elseif (SourceItem:getData("filledWith") =="essenceBrew") then -- essence brew should be filled into the cauldron
-		    -- unlike the support potion itself, the essence brew of it has no specail effects when filled in
-			-- therefore we call the ordinary fill-function; note that we call it after checking for potion in this script
-			-- and we do not set ltstate as a parameter, since we did the abort stuff already here
-			alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron)
-		end
+	    
+		FillIn(User, SourceItem, cauldron)
 	else -- not infront of a cauldron, therefore drink!
         if User.attackmode then
 		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
@@ -85,6 +60,37 @@ function UseItem(User, SourceItem, ltstate)
 			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 	    end
 	end  
+end
+
+function FillIn(User, SourceItem, cauldron)
+
+	if (SourceItem:getData("filledWith")=="potion") then -- potion should be filled into the cauldron
+		-- water leads to a failure
+		if cauldron:getData("cauldronFilledWith") == "water" then
+			world:gfx(1,cauldron.pos)
+		
+		elseif cauldron:getData("filledWith") == "essenceBrew" then 
+			SupportEssenceBrew(User,SourceItem,cauldron)
+		
+		elseif cauldron:getData("filledWith") == "potion" then
+			SupportPotion(User,SourceItem,cauldron)
+			
+		elseif cauldron:getData("filledWith") == "stock" then
+			SupportStock(User,SourceItem,cauldron)
+		
+		else
+			alchemy.base.alchemy.FillFromTo(SourceItem,cauldron)
+			world:changeItem(cauldron)
+		end    
+		alchemy.base.alchemy.EmptyBottle(User,SourceItem)
+		
+	elseif (SourceItem:getData("filledWith") =="essenceBrew") then -- essence brew should be filled into the cauldron
+		-- unlike the support potion itself, the essence brew of it has no specail effects when filled in
+		-- therefore we call the ordinary fill-function; note that we call it after checking for potion in this script
+		-- and we do not set ltstate as a parameter, since we did the abort stuff already here
+		alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron)
+	end
+
 end
 
 function SupportStock(User,support,stock)

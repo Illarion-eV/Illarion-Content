@@ -100,23 +100,30 @@ end
 function WaterIntoCauldron(User,SourceItem,TargetItem,ltstate)
     local cauldron = TargetItem
 	
-	if ( ltstate == Action.abort ) then
-	   base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
-	   return
-	end
-		
 	-- is the char an alchemist?
 	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
 	if not anAlchemist then
 		return
 	end
 		
+	if ( ltstate == Action.abort ) then
+	   base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+	   return
+	end
+	
 	if ( ltstate == Action.none ) then
 		User:startAction( 20, 21, 5, 0, 0)
 		return
 	end	
+	
+	-- the actual filling needs to be in an seperate function, since this function is also called by other script, where we do not need ltstate!
+	FillIn(User, SourceItem, cauldron)
+end
 
-	-- water, essence brew, potion or stock is in the cauldron; leads to a failure
+
+function FillIn(User, SourceItem, cauldron)
+
+   -- water, essence brew, potion or stock is in the cauldron; leads to a failure
 	if cauldron:getData("filledWith") == "water" then
 		base.common.InformNLS( User,
 				"Der Kessel läuft über. Offensichtlich war schon Wasser in ihm.",
@@ -154,6 +161,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,ltstate)
     end
     CreateEmptyBucket(User, SourceItem, 1)
 	world:changeItem(cauldron)
+
 end
 
 function CreateEmptyBucket(User, SourceItem,amount)

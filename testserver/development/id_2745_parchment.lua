@@ -25,7 +25,65 @@ function AlchemyRecipe(User, SourceItem, ltstate)
 end
 
 function UseRecipe(User, SourceItem, ltstate)
-    User:inform("still to do")
+    -- herbs ok
+	-- gemdust ok
+	-- water ok
+	-- empty bottle ok
+	-- stock ok
+	-- [red, pink, white, black, yellow, dark blue] ok
+	-- blue ok
+	
+	-- is the char an alchemist?
+	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+	if not anAlchemist then
+		return
+	end
+	
+	if ( User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0) + User:increaseAttrib("intelligence",0) ) < 30 then 
+		User:inform("Verstand, ein gutes Auge und ein Gespür für die feinstofflichen Dinge - dir fehlt es daran, als dass du hier arbeiten könntest.",
+		            "Mind, good eyes and a feeling for the world of fine matter - with your lack of those, you are unable to work here."
+	                )
+		return
+    end
+	
+	RemoveOldDatas(User, SourceItem)
+	
+	StartBrewing(User, SourceItem, ltstate)
+end
+
+function StartBrewing(User, SourceItem, ltstate)
+    
+	local recipeStep 
+	if tonumber(SourceItem:getData("recipeStep")) == nil then
+	    recipeStep = 1 
+	else	
+		recipeStep = tonumber(SourceItem:getData("recipeStep"))+1
+	end	
+	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+	alchemy.base.alchemy.GetStartAction(User, SourceItem, cauldron)
+	
+	
+	
+	
+	
+end
+
+function RemoveOldDatas(User, SourceItem)
+    if SourceItem:getData("recipeCounter")~="" then
+	    SourceItem:setData("recipeCounter","")
+		world:changeItem(SourceItem)
+	end
+    
+    local cleanUpList = {59,164,165,166,167,327,329,330,331}
+	for i=1,#cleanUpList do
+	    local checkList = User:getItemList(cleanUpList[i])
+		for j=1,#checkList do
+		    if checkList[i]:getData("recipeBottled") ~= "" then
+			    checkList[i]:setData("recipeBottled","")
+			    world:changeItem(checkList[i])	
+			end
+        end
+    end		
 end
 
 function ViewRecipe(User, SourceItem)
@@ -48,5 +106,4 @@ function getIngredients(SourceItem)
 		end
 	end
     return ingredientsList
-
 end
