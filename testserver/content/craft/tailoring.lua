@@ -130,11 +130,11 @@ product:addIngredient(175, 2) -- Black Cloth: 2x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
 product:addIngredient(177) -- Yellow Cloth: 1x1
 
---Black Yellow Dress
+--Black Grey Dress
 product = tailoring:addProduct(catId, 835, 27, 47, 72, 144)
 product:addIngredient(175, 2) -- Black Cloth: 2x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
-product:addIngredient(177) -- Yellow Cloth: 1x1
+product:addIngredient(176) -- Grey Cloth: 1x1
 
 --Blue Dress
 product = tailoring:addProduct(catId, 385, 29, 49, 72, 144)
