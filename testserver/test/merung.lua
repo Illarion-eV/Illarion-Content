@@ -6,7 +6,7 @@ require("alchemy.base.brewing")
 module("test.merung", package.seeall)
 
 function UseItem(User, SourceItem,ltstate)
-	User:increaseAttrib("essence",30)
+	--User:increaseAttrib("essence",30)
 	local counter = 0
 	if (ltstate == Action.none) then
 	   User:startAction(50,21,5,15,25);
