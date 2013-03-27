@@ -16,7 +16,7 @@ local catId = glassblowing:addCategory("bottles", "Flaschen")
 
 -- glassblowing:addProduct(category, item, difficulty, learnLimit, minTime, maxTime, quantity=1, data={})
 
---Empty Bottle (790) (Smoothies :p)
+--Empty Juice Bottle (790) (Smoothies :p)
 local product = glassblowing:addProduct(catId, 790, 0, 25, 5, 10)
 product:addIngredient(41) -- Glass Ingot: 1x
 
@@ -28,7 +28,7 @@ product:addIngredient(41) -- Glass Ingot: 1x
 product = glassblowing:addProduct(catId, 2498, 15, 40, 7, 14)
 product:addIngredient(41, 2) -- Glass Ingot: 2x
 
---Empty Bottle(518) (Rum)
+--Empty Round Body Bottle(518) (Rum)
 product = glassblowing:addProduct(catId, 518, 20, 50, 7, 14)
 product:addIngredient(41, 2) -- Glass Ingot: 2x
 
