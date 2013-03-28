@@ -199,8 +199,8 @@ function initDoors()
 	-- Runewick end
 
 	-- Cadomyr 3xx
-	AddDoor({122, 547, 0}, 300,"Palace","Palast");
-	AddDoor({121, 547, 0}, 300,"Palace","Palast");
+	AddDoor({122, 547, 0}, false,"Palace","Palast");
+	AddDoor({121, 547, 0}, false,"Palace","Palast");
 	AddDoor({128, 520, 0}, 300,"Royal Chamber","Königliche Kammer");
 	AddDoor({128, 519, 0}, 300,"Royal Chamber","Königliche Kammer");
 
