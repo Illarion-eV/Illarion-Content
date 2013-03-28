@@ -52,19 +52,27 @@ function UseRecipe(User, SourceItem, ltstate)
 end
 
 function StartBrewing(User, SourceItem, ltstate)
-    
+    local ingredientsList = getIngredients(SourceItem)
+	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+	
+	if (ltstate == Action.none) then
+	    local actionList = alchemy.base.alchemy.GetStartAction(User, ingredientsList[2], cauldron)
+		User:startAction(actionList[1],actionList[2],actionList[3],actionList[4],actionList[5])
+		return
+	end	
+	
+	
+	
+	
+	
+	
+	
 	local recipeStep 
 	if tonumber(SourceItem:getData("recipeStep")) == nil then
 	    recipeStep = 1 
 	else	
 		recipeStep = tonumber(SourceItem:getData("recipeStep"))+1
 	end	
-	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
-	alchemy.base.alchemy.GetStartAction(User, SourceItem, cauldron)
-	
-	
-	
-	
 	
 end
 

@@ -803,3 +803,29 @@ function repairPotion(Item)
 		world:changeItem(Item)
 	end	
 end
+
+-- return a list containing values for actionStart
+function GetStartAction(User, SourceItem, cauldron)
+    
+	if SourceItem.id == 52 then -- bucket with water
+        return {20, 21, 5, 0, 0}
+	end
+
+    if SourceItem.id == 164 then -- empty bottle
+        return {20,21,5,15,25}
+	end
+	
+	local isPlant, ignoreIt = getPlantSubstance(SourceItem.id, User)
+    if isPlant  or SourceItem.id == 157 then -- plant or rotten tree bark
+	    return {50,21,5,15,25}
+	end
+
+	local isGemDust = CheckIfGemDust(SourceItem, User)
+	if isGemDust then -- gem poweder
+		return {80,21,5,0,0}
+	end
+
+	
+
+	
+end

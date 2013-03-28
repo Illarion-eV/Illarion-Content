@@ -7,27 +7,21 @@ module("test.merung", package.seeall)
 
 function UseItem(User, SourceItem,ltstate)
 	--User:increaseAttrib("essence",30)
-	if (ltstate == Action.none) then
-	   User:startAction(20,21,5,15,25);
-	   return
+	local callback = function(dialog) 
+		success = dialog:getSuccess() 
+		if success then
+			selected = dialog:getSelectedIndex() 
+			User:inform("Success, you selected option "..selected+1) 
+		else
+			User:inform("Selection aborted!") 
+		end
 	end
-	if ( ltstate == Action.abort ) then
-		User:inform("Nevermind that shit. Here comes Mongo")
-		return
-	end
-	if counter == nil then
-	    counter = 0
-	end
-	local counter2
-	if counter2 == nil then
-	    counter2 = 0
-	end	
-	User:inform("c1: "..counter)
-	User:inform("c2: "..counter2)
-	counter = counter + 1
-	counter2 = counter2+1
 
-	User:startAction(20,37,5,15,25);
+	local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
+	dialog:setCloseOnMove()
+	dialog:addOption(133, "Essence brew based on amethyst powder, containing: night angels blossom, night angels blossom, night angels blossom, night angels blossom, night angels blossom, night angels blossom, night angels blossom, night angels blossom")
+
+	User:requestSelectionDialog(dialog)
 	
 	
 	--[[
