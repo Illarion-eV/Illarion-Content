@@ -59,7 +59,7 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frizza die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Cadomyr, Gebäude, Spiel, Auftrag, Stadt.")
 
 -- Mandatory: General speech
-queststatus(605) = 1, english, ".*" -> inform("[Quest 'Find Frizza'] You can speak with Frizza now. Ask for 'help' if you do not know what to say! You can also go back to Hummi to collect your reward and come back later."), "How can I help you? Are you looking for any information? Or would you like to be given a task?", queststatus(605)=2
+queststatus(605) = 1, english, ".*" -> inform("[Quest 'Find Frizza'] You can speak with Frizza now. Ask for 'help' if you do not know what to say! You can also go back to Hummi to collect your reward and come back later."), "How can I help you? Are you looking for any information? Or would you like to be given a tasssk?", queststatus(605)=2
 queststatus(605) = 1, ".*" -> inform("[Quest 'Finde Frizza'] Da kannst nun mit Frizza sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."), "Wie kann ich helfen? Wird eine Information erwünssscht? Oder eine Aufgabe?", queststatus(605)=2
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Greetingsss, can I help you?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Grüsssse, kann ich helfen?"
@@ -79,7 +79,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sssee you again, when you n
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "what sell", "what buy", "list wares", "price of" -> "I don't sssell or buy anything, but we have a marketplace. You can try your luck there."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe oder kaufe gar nichtsss. Aber wir haben einen Marktplatz. Versuch dein Glück doch dort."
-"tell something" -> "I can tell you many things about Cadomyr. Just asssk me about buildingsss, locationsss, eventsss, people, history or gods of Cadomyr. Additionally, I have a little tasssk."
+"tell something" -> "I can tell you many things about Cadomyr. Just asssk me about buildingsss, locationsss, eventsss, people, history or godsss of Cadomyr. Additionally, I have a little tasssk."
 "erzähl was", "erzähl etwas" -> "Ich kann dir viele Dinge über Cadomyr erzählen. Frag nur nach Gebäude, Orte, Ereignissse, Leute, Gessschichte oder Götter von Cadomyr. Zusssätzlich hätte ich noch eine kleine Aufgabe."
 
 english, "teleport" -> "A possibility to teleport yourself to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee. *points to the teleporter*"
@@ -195,7 +195,7 @@ english, "Cadomyr" -> "Here at Cadomyr, we are interesssted in fishermen, glass 
 "erzähl was", "erzähl etwas" -> "Ich kann dir viele Dinge über Galmair erzählen. Frag nur nach Gebäude, Orte, Ereignissse, Leute, Geschichte oder Götter von Cadomyr. Zusssätzlich hätte ich noch eine kleine Aufgabe."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Primarily, we pray to three Godsss in Cadomyr, they are Malachin, Zhambra and Sirani. I, however, pray to Zelphia, Mother of my race"
+"god" -> "Primarily, we pray to three godsss in Cadomyr, they are Malachin, Zhambra and Sirani. I, however, pray to Zelphia, Mother of my race"
 "Gott", "Götter" -> "Bevorzugt betten wir drei Götter in Cadomyr an. Die wären Malachin, Zhambra und Sirani. Aber ich bette zu Zelphia, der Mutter meiner Rassse."
 english, "Adron" -> "One of the unimportant, Younger Godsss. You can find followersss in Runewick."
 "Adron" -> "Einer der unwichtigen, jüngeren Götter. Du kann Anhänger in Runewick finden."
@@ -213,8 +213,8 @@ english, "Irmorom" -> "One of the unimportant, Younger Godsss. You can find foll
 "Irmorom" -> "Einer der unwichtigen, jüngeren Götter. Du kann Anhänger in Galmair finden."
 english, "Malachin", "Malachín" -> "Many follow the honourable Malachín. Soldiers and knights pray for protection in battles, hunters for a good hunt and protection while hunting, paladins for protection and a powerful fist against evil."
 "Malachin", "Malachín" -> "Viele folgen dem ehrenwerten Malachin. Soldaten und Ritter beten zu ihm, um Schutz in schweren Kämpfen zu erhalten; Jäger, um den erfolgreichen Ausgang einer Jagd; Paladine allgemein für den Schutz im Kampf gegen das Böse."
-english, "Moshran" -> "Sssss, I do not like thisss God. You better avoid thisss name. People should kill you for usssing thisss name!", "#s Helpsss! We have potential fellow of the Blood God here! Head up!"
-"Moshran" -> "Sssss, I do not like thisss God. Yoo better avoid thisss name. People should kill you for usssing thisss name!", "#s Hilfe! Wir haben einen potentiellen Anhänger desss Blutgott hier! Kopf ab!"
+english, "Moshran" -> "Sssss, I do not like thisss god. You had better avoid thisss name. People should kill you for usssing thisss name!", "#s Helpsss! We have potential fellow of the Blood God here! Head up!"
+"Moshran" -> " Ssss, ich mag diesen Gott nicht. Du solltest diesen Namen besser nicht aussprechen. Die Leute sollten dich dafür, dass du diesen Namen verwendest, töten!", "#s Hilfe! Wir haben einen potentiellen Anhänger desss Blutgott hier! Kopf ab!"
 english, "Nargun", "Nargún", "Nargùn" -> "One of the unimportant, Younger Godsss. You can find followersss in Galmair."
 "Nargun", "Nargún", "Nargùn" -> "Einer der unwichtigen, jüngeren Götter. Du kann Anhänger in Galmair finden."
 english, "Oldra" -> "One of the unimportant, Younger Godsss. You can find followersss in Runewick."
@@ -245,7 +245,7 @@ english, "Frizza" -> "Yes, that isss my name. About what do you want information
 "Nein" -> "Etwas konkreter wenn ich bitten darf!"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Huh, what ssshall I give you information about? Do you mind just to asssk for help asss a firssst ssstep?"
+english, chance(20.0), ".*" -> "Huh, what ssshall I give you information about? Do you mind just asssking for help asss a firssst ssstep?"
 german, chance(20.0), ".*" -> "Huh, über wasss wünssscht du Informationen? Vielleicht begnügssst du dich erssst mal nach Hilfe zu fragen?"
 
 ------------------------------------------------------------------------------AC
@@ -255,12 +255,12 @@ german, chance(20.0), ".*" -> "Huh, über wasss wünssscht du Informationen? Vie
 
 cycletext "Willkommen in Cadomyr!", "Welcome to Cadomyr!"
 cycletext "Ich bin die Auskunftsgeberin von Cadomyr. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Cadomyr. Ask me for information if you want some."
-cycletext "Wer etwas über die Orte hier wissen will, soll mich nur nach diesen Orten fragen.", "If you want to know something about the locationsss here, just ask me for these locationsss."
-cycletext "Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If you want to know something about the buildings here, just ask me for these buildings."
-cycletext "Wer etwas über die Geschichte hier wissen will, soll mich nur nach die Geschichte fragen.", "If you want to know something about the history of Cadomyr, just ask me for the history."
-cycletext "Wer etwas über die Leute hier wissen will, soll mich nur nach diesen Leuten fragen.", "If you want to know something about the people here, just ask me for these people."
-cycletext "Wer etwas über die Götter hier wissen will, soll mich nur nach diesen Gottheiten fragen.", "If you want to know something about the gods here, just ask me for these gods."
-cycletext "Wer etwas über die Ereignisse hier wissen will, soll mich nur nach diesen Ereignissen fragen.", "If you want to know something about the events here, just ask me for these events."
+cycletext "Wer etwas über die Orte hier wissen will, soll mich nur nach diesen Orten fragen.", "If you want to know something about the locationsss here, just ask me about these locationsss."
+cycletext "Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If you want to know something about the buildings here, just ask me about these buildings."
+cycletext "Wer etwas über die Geschichte hier wissen will, soll mich nur nach die Geschichte fragen.", "If you want to know something about the history of Cadomyr, just ask me about the history."
+cycletext "Wer etwas über die Leute hier wissen will, soll mich nur nach diesen Leuten fragen.", "If you want to know something about the people here, just ask me about these people."
+cycletext "Wer etwas über die Götter hier wissen will, soll mich nur nach diesen Gottheiten fragen.", "If you want to know something about the gods here, just ask me about these gods."
+cycletext "Wer etwas über die Ereignisse hier wissen will, soll mich nur nach diesen Ereignissen fragen.", "If you want to know something about the events here, just ask me about these events."
 cycletext "#me wedelt mit ihrem Schwanz.", "#me wags her tail."
 cycletext "#me blickt herum mit ihren weit geöffneten Augen.", "#me looks around with wide opened eyes."
 cycletext "#me untersucht ihr Kleid.", "#me examines her dress."
