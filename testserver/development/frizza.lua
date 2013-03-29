@@ -22,7 +22,7 @@ require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.frizza", package.seeall)
+module("npc.frizza", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -46,7 +46,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Frizza'] You can speak with Frizza now. Ask for 'help' if you do not know what to say! You can also go back to Hummi to collect your reward and come back later."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 2));
-talkEntry:addResponse("How can I help you? Are you looking for any information? Or would you like to be given a task?");
+talkEntry:addResponse("How can I help you? Are you looking for any information? Or would you like to be given a tasssk?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -201,7 +201,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I can tell you many things about Cadomyr. Just asssk me about buildingsss, locationsss, eventsss, people, history or gods of Cadomyr. Additionally, I have a little tasssk.");
+talkEntry:addResponse("I can tell you many things about Cadomyr. Just asssk me about buildingsss, locationsss, eventsss, people, history or godsss of Cadomyr. Additionally, I have a little tasssk.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -861,7 +861,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Primarily, we pray to three Godsss in Cadomyr, they are Malachin, Zhambra and Sirani. I, however, pray to Zelphia, Mother of my race");
+talkEntry:addResponse("Primarily, we pray to three godsss in Cadomyr, they are Malachin, Zhambra and Sirani. I, however, pray to Zelphia, Mother of my race");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -889,7 +889,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("One of the Elder Gods, but we do not care about this God here. Better you do not waste your time with this God.");
+talkEntry:addResponse("One of the Elder Gods, but we do not care about this God here. Better you do not waste your time with this god.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -929,7 +929,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("One of the Elder Gods, but we do not care about this God here. Better you do not waste your time with this God.");
+talkEntry:addResponse("One of the Elder Gods, but we do not care about this God here. Better you do not waste your time with this god.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -942,7 +942,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("One of the Elder Gods, but we do not care about this God here. Better you do not waste your time with this God.");
+talkEntry:addResponse("One of the Elder Gods, but we do not care about this God here. Better you do not waste your time with this god.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -983,14 +983,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("Sssss, I do not like thisss God. You better avoid thisss name. People should kill you for usssing thisss name!");
+talkEntry:addResponse("Sssss, I do not like thisss god. You had better avoid thisss name. People should kill you for usssing thisss name!");
 talkEntry:addResponse("#s Helpsss! We have potential fellow of the Blood God here! Head up!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("Sssss, I do not like thisss God. Yoo better avoid thisss name. People should kill you for usssing thisss name!");
+talkEntry:addResponse(" Ssss, ich mag diesen Gott nicht. Du solltest diesen Namen besser nicht aussprechen. Die Leute sollten dich dafür, dass du diesen Namen verwendest, töten!");
 talkEntry:addResponse("#s Hilfe! Wir haben einen potentiellen Anhänger desss Blutgott hier! Kopf ab!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1055,7 +1055,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("One of the Elder Gods, but apart from me and my race nobody cares about this God here. Better you do not waste your time with this God.");
+talkEntry:addResponse("One of the Elder Gods, but apart from me and my race nobody cares about this God here. Better you do not waste your time with this god.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1069,7 +1069,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("One of the Elder Gods, but we do not care about this God here. Better you do not waste your time with this God.");
+talkEntry:addResponse("One of the Elder Gods, but we do not care about this God here. Better you do not waste your time with this god.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1160,7 +1160,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Huh, what ssshall I give you information about? Do you mind just to asssk for help asss a firssst ssstep?");
+talkEntry:addResponse("Huh, what ssshall I give you information about? Do you mind just asssking for help asss a firssst ssstep?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1173,12 +1173,12 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Willkommen in Cadomyr!", "Welcome to Cadomyr!");
 talkingNPC:addCycleText("Ich bin die Auskunftsgeberin von Cadomyr. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Cadomyr. Ask me for information if you want some.");
-talkingNPC:addCycleText("Wer etwas über die Orte hier wissen will, soll mich nur nach diesen Orten fragen.", "If you want to know something about the locationsss here, just ask me for these locationsss.");
-talkingNPC:addCycleText("Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If you want to know something about the buildings here, just ask me for these buildings.");
-talkingNPC:addCycleText("Wer etwas über die Geschichte hier wissen will, soll mich nur nach die Geschichte fragen.", "If you want to know something about the history of Cadomyr, just ask me for the history.");
-talkingNPC:addCycleText("Wer etwas über die Leute hier wissen will, soll mich nur nach diesen Leuten fragen.", "If you want to know something about the people here, just ask me for these people.");
-talkingNPC:addCycleText("Wer etwas über die Götter hier wissen will, soll mich nur nach diesen Gottheiten fragen.", "If you want to know something about the gods here, just ask me for these gods.");
-talkingNPC:addCycleText("Wer etwas über die Ereignisse hier wissen will, soll mich nur nach diesen Ereignissen fragen.", "If you want to know something about the events here, just ask me for these events.");
+talkingNPC:addCycleText("Wer etwas über die Orte hier wissen will, soll mich nur nach diesen Orten fragen.", "If you want to know something about the locationsss here, just ask me about these locationsss.");
+talkingNPC:addCycleText("Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If you want to know something about the buildings here, just ask me about these buildings.");
+talkingNPC:addCycleText("Wer etwas über die Geschichte hier wissen will, soll mich nur nach die Geschichte fragen.", "If you want to know something about the history of Cadomyr, just ask me about the history.");
+talkingNPC:addCycleText("Wer etwas über die Leute hier wissen will, soll mich nur nach diesen Leuten fragen.", "If you want to know something about the people here, just ask me about these people.");
+talkingNPC:addCycleText("Wer etwas über die Götter hier wissen will, soll mich nur nach diesen Gottheiten fragen.", "If you want to know something about the gods here, just ask me about these gods.");
+talkingNPC:addCycleText("Wer etwas über die Ereignisse hier wissen will, soll mich nur nach diesen Ereignissen fragen.", "If you want to know something about the events here, just ask me about these events.");
 talkingNPC:addCycleText("#me wedelt mit ihrem Schwanz.", "#me wags her tail.");
 talkingNPC:addCycleText("#me blickt herum mit ihren weit geöffneten Augen.", "#me looks around with wide opened eyes.");
 talkingNPC:addCycleText("#me untersucht ihr Kleid.", "#me examines her dress.");
