@@ -174,7 +174,9 @@ function onLogin( player )
 			if isTestserver() then
 			local taxText = payTaxes(player);
 			local gemText = receiveGems(player);
-			informPlayeraboutTaxandGems(player, gemText, taxText)
+			if gemText ~= nil and taxText ~= nil then
+				informPlayeraboutTaxandGems(player, gemText, taxText)
+			end
 			else
 			payTaxes(player);
 			receiveGems(player);
