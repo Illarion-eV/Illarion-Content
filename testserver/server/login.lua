@@ -174,7 +174,7 @@ function onLogin( player )
 			if isTestserver() then
 			local taxText = payTaxes(player);
 			local gemText = receiveGems(player);
-			if gemText ~= nil and taxText ~= nil then
+			if gemText ~= nil or taxText ~= nil then
 				informPlayeraboutTaxandGems(player, gemText, taxText)
 			end
 			else
@@ -551,7 +551,13 @@ function payNow(User)
 end
 
 function informPlayeraboutTaxandGems(User, gemText, taxText)
-	local infText = taxText.."\n\n"..gemText
+	local infText = "";
+	if taxText ~= nil then
+		infText = taxText.."\n\n"
+	end
+	if gemText ~= nil then
+		infText = infText..gemText
+	end
 	local title = base.common.GetNLS(User,"Abgabenbenachrichtigung","Tribute information")
 
 	local dialog=MessageDialog(title,infText,closeTrib);
