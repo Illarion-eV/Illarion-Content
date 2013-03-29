@@ -171,8 +171,14 @@ function onLogin( player )
     if not player:isAdmin()  and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
 		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
 			-- So let there be taxes!
+			if isTestserver() then
+			local taxText = payTaxes(player);
+			local gemText = receiveGems(player);
+			informPlayeraboutTaxandGems(player, taxText, gemText)
+			else
 			payTaxes(player);
 			receiveGems(player);
+			end
 		end
 	end
 
@@ -267,11 +273,19 @@ function payTaxes(taxPayer)
 	if (lastTax~=0) then
 		if lastTax<timeStmp then
 			taxPayer:setQuestProgress(123,timeStmp);
+			if isTestserver() then
+			return payNow(taxPayer)
+			else
 			payNow(taxPayer)
+			end
 		end
 	else
 		taxPayer:setQuestProgress(123,timeStmp);
+		if isTestserver() then
+		return payNow(taxPayer)
+		else
 		payNow(taxPayer)
+		end
 	end
 end
 
@@ -301,11 +315,19 @@ function receiveGems(gemRecipient)
 	if (lastGem~=0) then
 		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
 			gemRecipient:setQuestProgress(124,timeStmp);
+			if isTestserver() then
+			return PayOutWage(gemRecipient,town)
+			else
 			PayOutWage(gemRecipient,town)
+			end
 		end
 	else
 		gemRecipient:setQuestProgress(124,timeStmp);
+		if isTestserver() then
+		return PayOutWage(gemRecipient,town)
+		else
 		PayOutWage(gemRecipient,town)
+		end
 	end
 end
 
@@ -328,57 +350,52 @@ function PayOutWage(Recipient,town)
 				local infText = base.common.GetNLS(Recipient, 
 	                "Du solltest dich bemühen, dein Ansehen in "..town.." zu steigern, damit du einen Lohn für deine Abgaben erhältst.",
 					"You should earn favour in "..town.." in order to receive rewards for your tribute.");
-				local title = base.common.GetNLS(Recipient,"Belohnung","Gratification")
-	
-				local dialog=MessageDialog(title,infText,closeTrib);
+
+			else
+
+				local RankedWage=math.ceil(RecipientRk*baseWageUnit*0.5);
+				endname="";
+				while RankedWage>0 do
+					local randomGem=math.random(1,2);
+					local maxGemLevel=math.floor(RankedWage^(1/3))
+					local gemLevel= base.common.Limit(math.random(1,maxGemLevel), 1, 10)
+					
+					local gemsByTown={};
+					gemsByTown["Cadomyr"]={item.gems.TOPAZ, item.gems.AMETHYST}
+					gemsByTown["Runewick"]={item.gems.EMERALD, item.gems.RUBY}
+					gemsByTown["Galmair"]={item.gems.SAPPHIRE, item.gems.OBSIDIAN}
+
+					local gemId = item.gems.getMagicGemId(gemsByTown[town][randomGem]);
+					local gemData = item.gems.getMagicGemData(gemLevel);
+					
+					local basename={}
+					basename=world:getItemName(gemId, Recipient:getPlayerLanguage());
+					
+					if Recipient:getPlayerLanguage() == 0 then
+						basename = item.gems.gemPrefixDE[gemLevel] .. " magischer " .. basename
+					else
+						basename = item.gems.gemPrefixEN[gemLevel] .. " magical " .. basename
+					end
+					
+					endname=endname.."\n"..basename;
+					--Recipient:inform("endname= "..endname);
+					local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
+					if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+						world:createItemFromId( gemId, notCreated, Recipient.pos, true, 333, gemData );
+						base.common.HighInformNLS(Recipient,
+							"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+							"You can't carry any more and the rest drops to the ground.");
+					end
+					RankedWage=RankedWage-gemLevel^3;
+				end
 			
-				local closeTrib=function(onClose)
-
-				end
-
-				Recipient:requestMessageDialog(dialog);
-
-				return;
-			end;
-
-			local RankedWage=math.ceil(RecipientRk*baseWageUnit*0.5);
-			endname="";
-			while RankedWage>0 do
-				local randomGem=math.random(1,2);
-				local maxGemLevel=math.floor(RankedWage^(1/3))
-				local gemLevel= base.common.Limit(math.random(1,maxGemLevel), 1, 10)
-				
-				local gemsByTown={};
-				gemsByTown["Cadomyr"]={item.gems.TOPAZ, item.gems.AMETHYST}
-				gemsByTown["Runewick"]={item.gems.EMERALD, item.gems.RUBY}
-				gemsByTown["Galmair"]={item.gems.SAPPHIRE, item.gems.OBSIDIAN}
-
-				local gemId = item.gems.getMagicGemId(gemsByTown[town][randomGem]);
-				local gemData = item.gems.getMagicGemData(gemLevel);
-				
-				local basename={}
-				basename=world:getItemName(gemId, Recipient:getPlayerLanguage());
-				
-				if Recipient:getPlayerLanguage() == 0 then
-					basename = item.gems.gemPrefixDE[gemLevel] .. " magischer " .. basename
-				else
-					basename = item.gems.gemPrefixEN[gemLevel] .. " magical " .. basename
-				end
-				
-				endname=endname.."\n"..basename;
-				--Recipient:inform("endname= "..endname);
-				local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
-				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-					world:createItemFromId( gemId, notCreated, Recipient.pos, true, 333, gemData );
-					base.common.HighInformNLS(Recipient,
-						"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-						"You can't carry any more and the rest drops to the ground.");
-				end
-				RankedWage=RankedWage-gemLevel^3;
-			end
-			local infText = base.common.GetNLS(Recipient, 
+				local infText = base.common.GetNLS(Recipient, 
 	                                   "Deine loyalen Dienste für "..town.." werden mit den folgenden magischen Edelsteinen belohnt:"..endname, 
 	                                   "Your loyal service to "..town.." is awarded with the following magical gems:"..endname)
+			end
+			if isTestserver() then
+			return infText;
+			else
 			local title = base.common.GetNLS(Recipient,"Belohnung","Gratification")
 	
 			local dialog=MessageDialog(title,infText,closeTrib);
@@ -388,7 +405,7 @@ function PayOutWage(Recipient,town)
 			end
 			
 			Recipient:requestMessageDialog(dialog);
-			
+			end
 		end
 	end
 end
@@ -512,7 +529,9 @@ function payNow(User)
 	                                   "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%", 
 	                                   "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
 	local title = base.common.GetNLS(User,"Abgabenbenachrichtigung","Tribute information")
-	
+	if isTestserver() then
+		return infText;
+	else
 	local dialog=MessageDialog(title,infText,closeTrib);
     
 	local closeTrib=function(onClose)
@@ -520,10 +539,25 @@ function payNow(User)
     end
 
     User:requestMessageDialog(dialog);
+	end
 	
 	base.townTreasure.ChangeTownTreasure(town,totTax)
 	base.townTreasure.IncreaseTaxpayerNumber(town)
     
+end
+
+function informPlayeraboutTaxandGems(User, gemText, taxText)
+	local infText = taxText.."\n\n"..gemText
+	local title = base.common.GetNLS(User,"Abgabenbenachrichtigung","Tribute information")
+
+	local dialog=MessageDialog(title,infText,closeTrib);
+    
+	local closeTrib=function(onClose)
+    -- do nothing
+    end
+
+    User:requestMessageDialog(dialog);
+
 end
 
 -- Function to exchange the faction leader of a town.
