@@ -335,6 +335,7 @@ end
 function PayOutWage(Recipient,town)
 	local totalTaxes=base.townTreasure.GetPaymentAmount(town)
 	local totalPayers=base.townTreasure.GetTaxpayerNumber(town)
+	local infText = "";
 	
 	--Recipient:inform("in payoutwage "..totalPayers)
 	--Recipient:inform("totaltaxes "..totalTaxes)
@@ -347,7 +348,7 @@ function PayOutWage(Recipient,town)
 			--If the recipient is level 1 they don't get anything. Stops abuse! - Flux
 			if RecipientRk <2 then
 
-				local infText = base.common.GetNLS(Recipient, 
+				infText = base.common.GetNLS(Recipient, 
 	                "Du solltest dich bemühen, dein Ansehen in "..town.." zu steigern, damit du einen Lohn für deine Abgaben erhältst.",
 					"You should earn favour in "..town.." in order to receive rewards for your tribute.");
 
@@ -389,7 +390,7 @@ function PayOutWage(Recipient,town)
 					RankedWage=RankedWage-gemLevel^3;
 				end
 			
-				local infText = base.common.GetNLS(Recipient, 
+				infText = base.common.GetNLS(Recipient, 
 	                                   "Deine loyalen Dienste für "..town.." werden mit den folgenden magischen Edelsteinen belohnt:"..endname, 
 	                                   "Your loyal service to "..town.." is awarded with the following magical gems:"..endname)
 			end
