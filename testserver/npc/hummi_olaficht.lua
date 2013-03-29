@@ -386,7 +386,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I don't have a specific profession.");
-talkEntry:addResponse("I only pass information along, I don't have a profession, per say.");
+talkEntry:addResponse("I only pass information along, I don't have a profession, as such.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -401,7 +401,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addResponse("I don't have any specific profession.");
-talkEntry:addResponse(" I only pass information along, I don't have a profession, per say.");
+talkEntry:addResponse(" I only pass information along, I don't have a profession, as such.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -444,23 +444,23 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("town");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Runewick', 'Galmair' or 'Cadomyr' if you want to know more."));
-talkEntry:addResponse("We have three towns here: Runewick, Cadomyr and Galmair. You will have to choose one. Otherwise you will have quite a low chance of survival. *Giggles* Each of which are home to certain races and craftsmen. If you'd like to know more about towns, races, or crafting in this area just say the word.");
+talkEntry:addResponse("We have three towns here: Runewick, Cadomyr and Galmair. You will have to choose one, otherwise you will have quite a low chance of survival. *Giggles* Each of the towns are home to certain races and craftsmen. If you'd like to know more about towns, races, or crafting in this area just say the word.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("race");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'elf', 'human', 'dwarf', 'orc', 'lizard' or 'halfling' if you want to know more. You can also ask about 'Runewick', 'Galmair' or 'Cadomyr'."));
-talkEntry:addResponse("In every town there are particular races you will find. In Runewick, you'll mainly find Elves and Halflings; in Galmair, Dwarves; and in Cadomyr, Lizards and Orcs. As far as humans, well just about anywhere really.");
+talkEntry:addResponse("In every town there are particular races you will find. In Runewick, you'll mainly find elves and halflings; in Galmair, dwarves; and in Cadomyr, lizards and orcs. As far as humans are concerned, well you find them just about anywhere really.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("craft");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Alchemist', 'Candle maker', 'Carpenter', 'Lumberjack', 'Cook', 'Baker', 'Farmer', 'Herb gatherer', 'Tailor', 'Tanner', 'Dyer', 'Blacksmith', 'Brick maker', 'Mason', 'Miner', 'Brewer', 'Fisher', 'Glass blower', 'Digger', 'Finesmith' or 'Gem grinder' if you want to know more. You can also ask about 'Runewick', 'Galmair' or 'Cadomyr'."));
-talkEntry:addResponse("Which one do you mean? Alchemist, Candle maker, Carpenter, Lumberjack, Cook, Baker, Farmer, Herb gatherer, Tailor, Tanner, Dyer, Blacksmith, Brick maker, Mason, Miner, Brewer, Fisher, Glass blower, Digger, Finesmith or Gem grinder?");
+talkEntry:addResponse("Which one do you mean? Alchemist, candle maker, carpenter, lumberjack, cook, baker, farmer, herb gatherer, tailor, tanner, dyer, blacksmith, brick maker, mason, miner, brewer, fisher, glass blower, digger, finesmith or gem grinder?");
 talkEntry:addResponse("Every town has specialists in certain crafts. Mention a specific craft and I will tell you which town you will find it in.");
-talkEntry:addResponse("The main crafts you'll find in Runewick are Alchemists, Candle makers, Carpenters/Lumberjacks, Cooks/Bakers, Farmers, Herb gatherers, and Tailors/Tanners/Dyers. In Galmair you'll find Blacksmiths, Masons, Miners, and Brewers. Finally, in Cadomyr you'll get Fishers, Glass blowers, Diggers, Finesmiths, and Gem grinders.");
+talkEntry:addResponse("The main crafters you'll find in Runewick are alchemists, candle makers, carpenters and lumberjacks, cooks and bakers, farmers, herb gatherers, and tailors, tanners and dyers. In Galmair you'll find blacksmiths, masons, miners, and brewers. Finally, in Cadomyr you'll come across fishers, glass blowers, diggers, finesmiths, and gem grinders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,13 +489,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("law");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Runewick', 'Galmair' or 'Cadomyr' if you want to know more."));
-talkEntry:addResponse("Runewick is the only community with posted laws to rely on; Galmair doesn't have any real laws - except obeying the Don; and there are customs in Cadomyr which are of Albarian origin, but to an Albarian they will look shockingly innovative. More information can be found in the town of your choice.");
+talkEntry:addResponse("Runewick is the only community with posted laws to rely on; Galmair doesn't have any real laws... except obeying the Don; and there are customs in Cadomyr which are of Albarian origin, but to an Albarian they will look shockingly innovative. More information can be found in the town of your choice.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Father");
-talkEntry:addResponse("The father of Queen Rosaline Edwards was King Sir Reginald, and the father of Don Valerio Guilianni was Don Tommaso Guilianni. Both Reginald and Tommaso are dead. The father of Archmage Elvaine Morgan is presumed dead as well, but that's just the rumours I have heard. *Giggles*");
+talkEntry:addResponse("The father of Queen Rosaline Edwards was the King, Sir Reginald, whilst the father of Don Valerio Guilianni was Don Tommaso Guilianni. Both Reginald and Tommaso are dead. The father of Archmage Elvaine Morgan is presumed dead as well, but that's just the rumours I have heard. *Giggles*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -623,7 +623,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("honour");
 talkEntry:addTrigger("honor");
-talkEntry:addResponse("Honor is the highest premise in Cadomyr, therefore, they believe in Malachin above all other gods. They rely on Queen Rosaline Edwards for her noble leadership.");
+talkEntry:addResponse("Honour is the highest premise in Cadomyr, therefore, they believe in Malachin above all other gods. They rely on Queen Rosaline Edwards for her noble leadership.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -710,7 +710,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farmer");
-talkEntry:addResponse("Farmers rely on Runewick's fair climate to grow and harvest their crops, and without question there labour the most peasants in the land. Galmair doesn't get nearly the same amount of rain as Runewick, but the land is cheap and I know a skilled farmer or two that calls Galmair home. Cadomyr, ha, you'd be better off digging for buried treasure as a profession.");
+talkEntry:addResponse("Farmers rely on Runewick's fair climate to grow and harvest their crops, and without question most peasants in the land labour there. Galmair doesn't get nearly the same amount of rain as Runewick, but the land is cheap and I know a skilled farmer or two that calls Galmair home. Cadomyr, ha, you'd be better off digging for buried treasure as a profession.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -783,7 +783,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glass");
 talkEntry:addTrigger("blow");
-talkEntry:addResponse("Cadomyr has always been known for their glassblowers if you are searching for a mentor. However, if you're looking for less competition perhaps you should make your way to Runewick. Now as for Galmair you won't find many glassblowers if my memory serves me right.");
+talkEntry:addResponse("Cadomyr has always been known for their glassblowers if you are searching for a mentor. However, if you're looking for less competition perhaps you should make your way to Runewick. As for Galmair, you won't find many glassblowers if my memory serves me right.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -858,7 +858,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mason");
-talkEntry:addResponse("Galmair for sure but you might be able to find a mason in Cadomyr too. Runewick not so much, although you might be able to make a trade.");
+talkEntry:addResponse("Galmair for sure, but you might be able to find a mason in Cadomyr too. Runewick not so much, although you might be able to make a trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1005,7 +1005,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("Runewick has four towers that loom over the land in the southeast. If you follow the path correctly you will have to cross a long narrow bridge and from there you should see the towers easily. They believe in wisdom and above all the advice of their Archmage, Elvaine Morgan. Use the teleporter book, choose 'Runewick' and you will be there.");
 talkEntry:addResponse("Their rivals from Cadomyr and Galmair call them arrogant smart arses who claim to know it all and try to keep a self-defined 'balance'. Don't ask me what all that means. *Giggles* Use the teleporter book, choose 'Runewick' and you will be there.");
-talkEntry:addResponse("Ah, Runewick, you should expect to find many types of craftsmen in that wondrous place: Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, Tailors, Tanners and Dyers. Use the teleporter book, choose 'Runewick' and you will be there.");
+talkEntry:addResponse("Ah, Runewick, you should expect to find many types of craftsmen in that wondrous place: alchemists, candle makers, carpenters, lumberjacks, cooks, bakers, farmers, ehrb gatherers, tailors, tanners and dyers. Use the teleporter book, choose 'Runewick' and you will be there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1039,7 +1039,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Galmair is located in the northwest and it consists of several halls and caves, very deep and amazing caves! With enough wealth you can become anything! Use the teleporter book, choose 'Galmair' and you will be there.");
 talkEntry:addResponse("Their rivals from Runewick and Cadomyr call them greedy and chaotic. They assume that people from Galmair would do anything to earn a coin. Use the teleporter book, choose 'Galmair' and you will be there.");
-talkEntry:addResponse("Galmair has always been known for its working class: Blacksmiths, Brick makers, Masons, Miners, and Brewers. Use the teleporter book, choose 'Galmair' and you will be there.");
+talkEntry:addResponse("Galmair has always been known for its working class: blacksmiths, brick makers, masons, miners, and brewers. Use the teleporter book, choose 'Galmair' and you will be there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1047,13 +1047,13 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Galmair ist irgendwo im Nordwesten und es besteht aus mehreren Hallen und Höhlen. Sehr tiefe und beeindruckende Höhlen. Wie dem auch sei, du kannst dort alles bekommen was du möchtest, solange du genügend Geld hast. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Galmair' und du bist dort.");
 talkEntry:addResponse("Bei ihren Gegner aus Runewick und Cadomyr sind sie als gierig und chaotisch verschrien. Die nehmen an, dass Leute aus Galmair würden alles für einige zusätzliche Münzen tun. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Galmair' und du bist dort.");
-talkEntry:addResponse("Insbesondere folgende Handwerke können in Galmair gefunden werden: Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer. Wie dem auch sei, verwende das Wort 'Galmair' im Teleporter und du bist dort.");
+talkEntry:addResponse("Insbesondere folgende Handwerke können in Galmair gefunden werden: Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Galmair' und du bist dort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("queen");
-talkEntry:addResponse("The Queen of Cadomyr? Her name is Rosaline Edwards, but don't let her beauty fool you, she is a proud and noble ruler. It's well known that she is Albarian, but be prepared she doesn't govern in quite the same manner. She is, however, a devout follower of Malachín and is always on the lookout for valiant warriors and hunters! If you are brave enough, she will probably show you Cadomyr's two stones of power, a topaz and an amethyst.");
+talkEntry:addResponse("The Queen of Cadomyr? Her name is Rosaline Edwards, but don't let her beauty fool you, she is a proud and noble ruler. It's well known that she is Albarian, but be prepared, she doesn't govern in quite the same manner. She is, however, a devout follower of Malachín and is always on the lookout for valiant warriors and hunters! If you are brave enough, she will probably show you Cadomyr's two stones of power, a topaz and an amethyst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1067,7 +1067,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Ah, Rosaline Edwards, she is the fair Queen of Cadomyr. It's well known that she is Albarian, but be prepared she doesn't govern in quite the same manner. She is, however, a devout follower of Malachín and is always on the lookout for valiant warriors and hunters! If you are brave enough, she will probably show you Cadomyr's two stones of power, a topaz and an amethyst.");
+talkEntry:addResponse("Ah, Rosaline Edwards, she is the fair Queen of Cadomyr. It's well known that she is Albarian, but be prepared, she doesn't govern in quite the same manner. She is, however, a devout follower of Malachín and is always on the lookout for valiant warriors and hunters! If you are brave enough, she will probably show you Cadomyr's two stones of power, a topaz and an amethyst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1098,7 +1098,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("stones");
 talkEntry:addTrigger("power");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for Emerald, Ruby, Topaz, Amethyst, Sapphire, Obsidian or Diamond if you want to know more."));
-talkEntry:addResponse("The stones of power each offer their own tremendous power. The sorcerer Mordak al Kharud once owned three of them and could thus conquer almost all of Illarion, but this was some decades ago. Nowadays the town leaders own them. Since each town leader has two of them, the balance between them is guaranteed. There, however, exists seven stones. These are Emerald, Ruby, Topaz, Amethyst, Sapphire, Obsidian and Diamond.");
+talkEntry:addResponse("The stones of power each offer their own tremendous power. The sorcerer Mordak al Kharud once owned three of them and could thus conquer almost all of Illarion, but this was some decades ago. Nowadays the town leaders own them. Since each town leader has two of them, the balance between them is guaranteed. There, however, exists seven stones. These are emerald, ruby, topaz, amethyst, sapphire, obsidian and diamond.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1112,7 +1112,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Emerald");
-talkEntry:addResponse("The Emerald belongs to Runewick and is part of the collection of Archmage Elvaine Morgan. You can find further information about it in each of the towns.");
+talkEntry:addResponse("The emerald belongs to Runewick and is part of the collection of Archmage Elvaine Morgan. You can find further information about it in each of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1124,7 +1124,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ruby");
-talkEntry:addResponse("The Ruby belongs to Runewick and is part of the collection of Archmage Elvaine Morgan. You can find further information about it in each of the towns.");
+talkEntry:addResponse("The ruby belongs to Runewick and is part of the collection of Archmage Elvaine Morgan. You can find further information about it in each of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1136,7 +1136,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Topaz");
-talkEntry:addResponse("The Topaz belongs to Cadomyr and is part of the collection of Queen Rosaline Edwards. You can find further information about it in each of the towns.");
+talkEntry:addResponse("The topaz belongs to Cadomyr and is part of the collection of Queen Rosaline Edwards. You can find further information about it in each of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1149,7 +1149,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Amethyst");
-talkEntry:addResponse("The Amethyst belongs to Cadomyr and is part of the collection of Queen Rosaline Edwards. You can find further information about it in each of the towns.");
+talkEntry:addResponse("The amethyst belongs to Cadomyr and is part of the collection of Queen Rosaline Edwards. You can find further information about it in each of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1161,7 +1161,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sapphire");
-talkEntry:addResponse("The Sapphire belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the towns.");
+talkEntry:addResponse("The sapphire belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1173,7 +1173,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Obsidian");
-talkEntry:addResponse("The Obsidian belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the towns.");
+talkEntry:addResponse("The obsidian belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1185,7 +1185,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Diamond");
-talkEntry:addResponse("The Diamond is missing. Nobody knows where it is but rumours say that it must be somewhere here. If you can find it for your chosen town you will definitely be highly rewarded.");
+talkEntry:addResponse("The diamond is missing. Nobody knows where it is but rumours say that it must be somewhere here. If you can find it for your chosen town you will definitely be highly rewarded.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1321,7 +1321,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("younger");
-talkEntry:addResponse("The Younger Gods are Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan, and Moshran. Most towns are shaped and moulded by the Gods they follow. I follow Elara! *Smiles*");
+talkEntry:addResponse("The Younger Gods are Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan, and Moshran. Most towns are shaped and moulded by the gods they follow. I follow Elara! *Smiles*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1362,7 +1362,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("She is the Goddess of spirits and the underworld. No one in particular worships her, except those who think they will be traveling to underworld soon. *Giggles*");
+talkEntry:addResponse("She is the Goddess of spirits and the underworld. No one in particular worships her, except those who think they will be travelling to underworld soon. *Giggles*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1442,7 +1442,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("He is the unnamed one, also called the Milkspiller, who suffered a sickness in his belly from an old cake he had stolen from Nargùn. The cake was actually baked by Nargùn in order to poison and kill a giant. But I won't say anymore about him. *Shivers*");
+talkEntry:addResponse("He is the unnamed one, also called the Milkspiller, who suffered a sickness in his belly from an old cake he had stolen from Nargùn. The cake was actually baked by Nargùn in order to poison and kill a giant... but I won't say anymore about him. *Shivers*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1539,7 +1539,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("He is the god of friendship and loyalty, and many of his followers can be found in Cadomyr. If such noble things are what you are seeking I wish you well and safe travels!");
+talkEntry:addResponse("He is the God of friendship and loyalty, and many of his followers can be found in Cadomyr. If such noble things are what you are seeking I wish you well and safe travels!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1649,13 +1649,13 @@ end;
 talkingNPC:addCycleText("Frag mich nach 'Hilfe', wenn du 'Hilfe' brauchst.", "Ask me for 'help', if you need help.");
 talkingNPC:addCycleText("Frag mich wenn du was über Stadten wissen möchtest.", "Ask me if you'd like to know something about the towns here.");
 talkingNPC:addCycleText("Runewick, Galmair, Cadomyr...ich weiß alles...fast alles. *kichert*", "Runewick, Galmair, Cadomyr... I know everything...almost. *Giggles*");
-talkingNPC:addCycleText("Frage immer nach Aufgaben, vielleicht hat einer eine für dich und es gibt etwas für dich zu verdienen.", "Hiho, traveler! Keep on the lookout if you're in search of tasks or grand quests! All across the land many are in need, don't be afraid ask!");
+talkingNPC:addCycleText("Frage immer nach Aufgaben, vielleicht hat einer eine für dich und es gibt etwas für dich zu verdienen.", "Hiho, traveller! Keep on the lookout if you're in search of tasks or grand quests! All across the land many are in need, don't be afraid ask!");
 talkingNPC:addCycleText("Ob Königin Rosaline Edwards, Don Valerio Guilianni, oder Erzmagier Elvaine Morgan... ich weiß alles über sie... fast alles.*kichert*", "Queen Rosaline Edwards, Don Valerio Guilianni, or Archmage Elvaine Morgan...learn all you need to know right here! Well, just about everything. *Giggles*");
 talkingNPC:addCycleText("Wenn du nicht weißt wohin du gehen sollst, frag mich nach hilfe.", "Don't get lost! I'm Hummi, the local area guide, ask me for help and I won't let you down!");
 talkingNPC:addCycleText("Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach hilfe.", "If you'd like to know where you and your faith are welcome, tell me your God and I'll tell you the best town to join!");
 talkingNPC:addCycleText("Ich bin Hummi und weiß viele Sachen", "I'm Hummi and I know many things.");
 talkingNPC:addCycleText("Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbing, ich weiß für jeden den richtigen Platz.", "Whether your an elf, dwarf, human, orc, lizardman, or halfling I know the right place for everyone!");
-talkingNPC:addCycleText("Lebwohl Gobaith, willkommen östlich des Siebenhügel Gebirge.", "Farewell to Gobaith and welcome to the east known as Sevenhill Mountains!");
+talkingNPC:addCycleText("Lebwohl Gobaith, willkommen östlich des Siebenhügel Gebirge.", "Farewell to Gobaith and welcome to the east, known as the Sevenhill Mountains!");
 talkingNPC:addCycleText("Wähle eine der Städte: Runewick, Galmair, Cadomyr. Sag ihren Namen während du im Teleporter stehst um dorthin zu gelangen.", "Choose one of the three towns: Runewick, Galmair, Cadomyr. Say the name you want in the teleporter to get there.");
 talkingNPC:addCycleText("Ich kann nur empfehlen: Sobald du in Runewick, Galmair oder Cadomyr ankommen bist, dich im Zensusbüro anzumelden. Die Überlebenschancen steigen gewaltig! *kichert*", "I highly recommend: As soon as you got to Runewick, Galmair or Cadomyr to register there in the respective census office. *giggles*");
 mainNPC:addLanguage(0);
@@ -1663,7 +1663,7 @@ mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein NPC der kurze und wichtige Informationen über Runewick, Galmair und Cadomyr.", "This NPC has brief and important information about Runewick, Galmair and Cadomyr.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
-mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache.", "You have to talk to me in a language which I understand. Either the common or the race specific language.");
+mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache.", "You have to talk to me in a language which I understand. Use either the common or the race specific language.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 181);
 mainNPC:setEquipment(11, 0);
