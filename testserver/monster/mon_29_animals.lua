@@ -86,7 +86,7 @@ function onDeath(Monster)
     if (MonID==181 or MonID==182) then --sheep
 
         monster.base.drop.AddDropItem(63,1,50,333,0,1); --entrails
-        monster.base.drop.AddDropItem(170,10,50,333,0,2); --wool
+        monster.base.drop.AddDropItem(170,1,50,333,0,2); --wool
         monster.base.drop.AddDropItem(2934,1,100,333,0,3); --lamb meat
 
     elseif (MonID==371 or MonID==381 or MonID==382) then --cow
