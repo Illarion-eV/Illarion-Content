@@ -484,7 +484,8 @@ function payNow(User)
 --Runewick = 101
 --Galmair = 102
 --Hemp Necktie Inn = 103 (not a faction!)
-     
+    local infText = "";
+	
 	 -- no memeber of any town
 	local town = base.factions.getMembershipByName(User)
 	if town == "None" then
@@ -526,7 +527,7 @@ function payNow(User)
 
 	gstring,estring=base.money.MoneyToString(totTax); --converting money to a string
     
-	local infText = base.common.GetNLS(User, 
+	infText = base.common.GetNLS(User, 
 	                                   "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%", 
 	                                   "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
 	local title = base.common.GetNLS(User,"Abgabenbenachrichtigung","Tribute information")
