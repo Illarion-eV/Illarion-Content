@@ -730,7 +730,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("William");
 talkEntry:addTrigger("Deloire");
-talkEntry:addResponse("Yes, that's me. I'm William Deloire: at you service.");
+talkEntry:addResponse("Yes, that's me. I'm William Deloire at you service.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
