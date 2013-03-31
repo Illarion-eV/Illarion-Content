@@ -8,6 +8,9 @@ TimeList = {};
 
 function UseItem(User, SourceItem)
 local frontItem = base.common.GetFrontItem(User)
+	if not frontItem then
+	    return
+	end	
 
 	if frontItem.id == 2805 and frontItem.pos == position(415, 273, -6) then --if frontItem is questpillar
 		if User:getQuestProgress(170) == 0 then

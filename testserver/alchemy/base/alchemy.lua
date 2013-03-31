@@ -292,17 +292,17 @@ wirkstoff[6] = "Dracolin";
 wirkstoff[7] = "Orcanol";
 wirkstoff[8] = "Fenolin";
 
-wirkung_de[1] = "gesättigte Anreicherung von";
+wirkung_de[1] = "gesättigte Anreicherung";
 wirkung_de[2] = "eine sehr ausgeprägte Menge";
 wirkung_de[3] = "merklich";
-wirkung_de[4] = "schwache Konzentration an";
+wirkung_de[4] = "schwache Konzentration";
 wirkung_de[5] = "kein";
 wirkung_de[6] = "geringe Mengen";
 wirkung_de[7] = "etwas";
 wirkung_de[8] = "konzentriertes";
 wirkung_de[9] = "hoch toxisches";
 
-wirkung_en[1] = "saturated solution of";
+wirkung_en[1] = "saturated solution";
 wirkung_en[2] = "dominant marked";
 wirkung_en[3] = "distinctive";
 wirkung_en[4] = "slightly marked";

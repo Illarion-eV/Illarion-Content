@@ -51,7 +51,7 @@ PLANT_CATS = {}
 PLANT_CATS["DE"] = {"Pilze"    ,"Beeren" ,"Blätter"}
 PLANT_CATS["EN"] = {"Mushrooms","Berries","Leaves"}
 
-function SelectPlantCategory(User, ingredientsList)
+function SelectPlantCategory(User, ingredientsList, currentEssenceList)
     local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
 	
 	local callback = function(dialog) 
@@ -59,16 +59,25 @@ function SelectPlantCategory(User, ingredientsList)
 		if success then
 			selected = dialog:getSelectedIndex()+1
 			if selected == 1 then
-			    FirstMenu(User, ingredientsList)
+			    if currentEssenceList then
+				    SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
+				else
+					FirstMenu(User, ingredientsList)
+				end	
 			else	
-			    SelectPlant(User, ingredientsList, PLANT_CATS["EN"][selected-1])
+			    SelectPlant(User, ingredientsList, PLANT_CATS["EN"][selected-1], currentEssenceList)
 			end	
 		else
 			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority)
 		end
 	end
 
-	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle die Pflanzenkategorie aus, aus der du etwas zu dem Rezept hinzutun willst.","Select the plant category from which you want to add something to your recipe."), callback)
+	local dialog
+	if currentEssenceList == nil then 
+		dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle die Pflanzenkategorie aus, aus der du etwas zu dem Rezept hinzutun willst.","Select the plant category from which you want to add something to your recipe."), callback)
+	else
+	    dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle die Pflanzenkategorie aus, aus der du etwas zum Essenzgebräu hinzutun willst.","Select the plant category from which you want to add something to the essence brew."), callback)
+	end	
 	dialog:addOption(0, getText("Zurück","Back"))
 	for i=1,#PLANT_CATS["DE"] do
 		dialog:addOption(0, getText(PLANT_CATS["DE"][i],PLANT_CATS["EN"][i]))
@@ -82,7 +91,7 @@ PLANTS["Mushrooms"] = {158,159,160}
 PLANTS["Berries"]   = {142,143}
 PLANTS["Leaves"]    = {140,153,156}
 
-function SelectPlant(User, ingredientsList, category)
+function SelectPlant(User, ingredientsList, category, currentEssenceList)
     local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
 	
 	local callback = function(dialog) 
@@ -90,21 +99,36 @@ function SelectPlant(User, ingredientsList, category)
 		if success then
 			selected = dialog:getSelectedIndex()+1
 			if selected == 1 then
-			    SelectPlantCategory(User, ingredientsList)
+			    SelectPlantCategory(User, ingredientsList,currentEssenceList)
 			else
-				if not CheckAmount(ingredientsList) then
-				    return
-				end	
-				AddToRecipe(ingredientsList,PLANTS[category][selected-1])
-				User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(PLANTS[category][selected-1],Player.german),"Has beend added to the recipe: "..world:getItemName(PLANTS[category][selected-1],Player.english),Character.lowPriority)
-			    SelectPlant(User, ingredientsList, category)
+				if currentEssenceList == nil then
+					if not CheckAmount(ingredientsList) then
+						return
+					end	
+					AddToRecipe(ingredientsList,PLANTS[category][selected-1])
+					User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(PLANTS[category][selected-1],Player.german),"Has beend added to the recipe: "..world:getItemName(PLANTS[category][selected-1],Player.english),Character.lowPriority)
+					SelectPlant(User, ingredientsList, category)
+				else
+					if #currentEssenceList == 9 then
+					    User:inform("Du kannst nicht mehr als acht Pflanzen einem Essengebräu hinzutun.","You cannot add more than eight plants to an essence brew.",Character.lowPriority)
+					else
+						table.insert(currentEssenceList,PLANTS[category][selected-1])
+						User:inform("Wurde dem Essenzgebräu hinzugefügt: "..world:getItemName(PLANTS[category][selected-1],Player.german),"Has beend added to the essence brew: "..world:getItemName(PLANTS[category][selected-1],Player.english),Character.lowPriority)
+						SelectPlant(User, ingredientsList, category, currentEssenceList)
+					end
+				end
 			end 
 		else
 			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority)
 		end
 	end
 
-	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle die Pflanze aus, die du dem Rezept hinzufügen willst.","Select the plant you want to add to the recipe."), callback)
+	local dialog 
+	if currentEssenceList == nil then
+		dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle die Pflanze aus, die du dem Rezept hinzufügen willst.","Select the plant you want to add to the recipe."), callback)
+	else
+		dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle die Pflanze aus, die du dem Essenzgebräu hinzufügen willst.","Select the plant you want to add to the essence brew."), callback)
+	end
 	dialog:addOption(0, getText("Zurück","Back"))
 	for i=1,#PLANTS[category] do
 		dialog:addOption(PLANTS[category][i],getText(world:getItemName(PLANTS[category][i],Player.german),world:getItemName(PLANTS[category][i],Player.english)))
@@ -152,25 +176,48 @@ function BottleFromCauldron(User, ingredientsList)
 	if not CheckAmount(ingredientsList) then
 		return
 	end	
-	local counter = 1
-	for i=1,#ingredientsList do
-	    local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
-		if a ~= nil then
-			counter = counter + 1
-		end
-    end	
-	AddToRecipe(ingredientsList,"bottle "..counter)
-	local de, en = BottleBottlingString("bottle "..counter)
-	User:inform("Wurde dem Rezept hinzugefügt: "..de,"Has beend added to the recipe: "..en,Character.lowPriority)
+	AddToRecipe(ingredientsList,"bottle")
+	User:inform("Wurde dem Rezept hinzugefügt: Abfüllen","Has beend added to the recipe: Bottling",Character.lowPriority)
 	FirstMenu(User, ingredientsList)
 end
+
+ESSENCE_BREWS_IDS = {59,165,166,167,327,329,330}
+ESSENCE_BREWS = {}
+ESSENCE_BREWS[59] = {}
+ESSENCE_BREWS[59]["de"] = "Essenzgebräu auf Rubinstaubbasis"
+ESSENCE_BREWS[59]["en"] = "Essence brew based on ruby powder"
+
+ESSENCE_BREWS[165] = {}
+ESSENCE_BREWS[165]["de"] = "Essenzgebräu auf Saphirstaubbasis"
+ESSENCE_BREWS[165]["en"] = "Essence brew based on sapphire powder"
+
+ESSENCE_BREWS[166] = {}
+ESSENCE_BREWS[166]["de"] = "Essenzgebräu auf Amethyststaubbasis"
+ESSENCE_BREWS[166]["en"] = "Essence brew based on ameythst powder"
+
+ESSENCE_BREWS[167] = {}
+ESSENCE_BREWS[167]["de"] = "Essenzgebräu auf Topasstaubbasis"
+ESSENCE_BREWS[167]["en"] = "Essence brew based on topaz powder"
+
+ESSENCE_BREWS[327] = {}
+ESSENCE_BREWS[327]["de"] = "Essenzgebräu auf Saphirstaubbasis"
+ESSENCE_BREWS[327]["en"] = "Essence brew based on sapphire powder"
+
+ESSENCE_BREWS[329] = {}
+ESSENCE_BREWS[329]["de"] = "Essenzgebräu auf Obsidianstaubbasis"
+ESSENCE_BREWS[329]["en"] = "Essence brew based on obsidian powder"
+
+ESSENCE_BREWS[330] = {}
+ESSENCE_BREWS[330]["de"] = "Essenzgebräu auf Diamantstaubbasis"
+ESSENCE_BREWS[330]["en"] = "Essence brew based on diamond powder"
+
 
 function SelectFillIntoCauldron(User, ingredientsList)
     local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
 	
 	local addList = {}
     local callback = function(dialog) 
-		success = dialog:getSuccess() 
+		local success = dialog:getSuccess() 
 		if success then
 			selected = dialog:getSelectedIndex()+1
 			if selected == 1 then
@@ -182,14 +229,13 @@ function SelectFillIntoCauldron(User, ingredientsList)
 				AddToRecipe(ingredientsList,52)
 				User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(52,Player.german),"Has beend added to the recipe: "..world:getItemName(52,Player.english),Character.lowPriority)
 				SelectFillIntoCauldron(User, ingredientsList)
+			elseif selected == 3 then
+			    SelectActiveSubstance(User, ingredientsList, {5,5,5,5,5,5,5,5})
 			else
      			if not CheckAmount(ingredientsList) then
 				    return
 				end
-				AddToRecipe(ingredientsList,addList[selected-2])
-				local de, en = BottleBottlingString(addList[selected-2])
-				User:inform("Wurde dem Rezept hinzugefügt: "..de, "Has been added to the recipe: "..en)
-				SelectFillIntoCauldron(User, ingredientsList)
+				SelectEssenceBrewOption(User, ingredientsList, {ESSENCE_BREWS_IDS[selected-3]})
 		    end
 		else
 			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority) 
@@ -199,27 +245,141 @@ function SelectFillIntoCauldron(User, ingredientsList)
 	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle aus, was du in den Kessel füllen willst.","Select what you want to fill into the cauldron."), callback)
 	dialog:addOption(0, getText("Zurück","Back"))
 	dialog:addOption(52, getText(world:getItemName(52,Player.german),world:getItemName(52,Player.english)))
-	for i=1,#ingredientsList do
-		if type(ingredientsList[i])=="string" then
-			local a,b,queue = string.find(ingredientsList[i],"bottle (%d+)")
-			if a ~= nil then
-				local check = true
-				for j=1,#ingredientsList do
-					if "add "..queue == ingredientsList[j] then
-						check = false 
-						break
-					end
-				end	
-				if check then
-					local de, en = BottleBottlingString("add "..queue)
-					table.insert(addList, "add "..queue)
-					dialog:addOption(0,getText(de,en))
-				end	
-			end
-		end			
+	dialog:addOption(331, getText("Sud","Stock"))
+	for i=1,#ESSENCE_BREWS_IDS do
+		local id = ESSENCE_BREWS_IDS[i]
+		dialog:addOption(id,getText(ESSENCE_BREW[id]["de"],ESSENCE_BREW[id]["en"]))
+	end	
+	dialog:setCloseOnMove()
+	User:requestSelectionDialog(dialog)
+end
+
+function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
+
+    local callback = function(dialog) 
+		local success = dialog:getSuccess() 
+		if success then
+			local selected = dialog:getSelectedIndex() + 1
+			if selected == 1 then
+				SelectFillIntoCauldron(User, ingredientsList)
+			elseif selcted == 2 then
+                SelectPlantCategory(User, ingredientsList, currentEssenceList)
+            elseif selected == 3 then
+				if currentEssenceList < 2 then
+				    User:inform("Es befinden sich keine Pflanzen zum Entfernen im Essenzgebräu.","There are no plants to be removed in the essence brew.")
+				else
+					local removed = table.remove(currentEssenceList)
+					User:inform("Wurde vom Essenzgebräu entfernt: "..world:getItemName(removed,Player.german),"Has been remove from the essence brew: "..world:getItemName(removed,Player.english),Character.lowPriority) 
+				end
+				SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
+			else
+				AddToRecipe(ingredientsList,"essence "..base.common.join(currentEssenceList,";"))
+				User:inform("Wurde dem Rezept hinzugefügt: Essenzgebräu","Has beend added to the recipe: Essence brew",Character.lowPriority)
+				FirstMenu(User, ingredientsList)
+			end	
+		else
+			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority) 
+		end
 	end
 	
+	local essenceStringDe = [ESSENCE_BREWS[currentEssenceList[1]]["de"]]..", beinhaltend:"
+	local essenceStringEn = [ESSENCE_BREWS[currentEssenceList[1]]["en"]]..", containing:"
+	for i=2,#currentEssenceList do
+	    if currentEssenceList[i] == nil then
+		    if i == 2 then
+				essenceStringDe = essenceStringDe.." keine Pflanzen"
+				essenceStringEn = essenceStringEn.." no plants"
+			end	
+			break
+		else
+            if i ~= 2 then
+                essenceStringDe = essenceStringDe..","
+				essenceStringEn = essenceStringEn..","
+			end
+            essenceStringDe = essenceStringDe.." "..world:getItemName(currentEssenceList[i],Player.german)
+			essenceStringEn = essenceStringEn.." "..world:getItemName(currentEssenceList[i],Player.english)
+        end
+    end		
+	
+	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle aus, was du machen möchtest. Derzeitiges Essenzgebräu: "..essenceStringDe,"Select what you would like to do. Current essence brew: "..essenceStringEn), callback)
 	dialog:setCloseOnMove()
+	dialog:addOption(0, getText("Zurück","Back"))
+	dialog:addOption(0, getText("Pflanze hinzufügen","Add plant"))
+	dialog:addOption(0, getText("Letzte Pflanze entfernen","Remove last plant"))
+	dialog:addOption(0, getText("Essenzgebräu dem Rezept hinzufügen","Add essence brew to the recipe"))
+
+	User:requestSelectionDialog(dialog)
+
+end
+
+function SelectActiveSubstance(User, ingredientsList, currentConcentrations)
+	local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	if currentConcentrations == nil then
+	    currentConcentrations = {5,5,5,5,5,5,5,5}
+	end	
+	
+	local callback = function(dialog) 
+		local success = dialog:getSuccess() 
+		if success then
+			local selected = dialog:getSelectedIndex() + 1
+			if selected == 1 then
+				SelectFillIntoCauldron(User, ingredientsList)
+			elseif selected >= 2 and selected <= 9 then
+			    SelectConcentration(User,ingredientsList,currentConcentrations, selected-1)
+			else
+			    AddToRecipe(ingredientsList,"stock "..base.common.join(currentConcentrations,";"))
+				User:inform("Wurde dem Rezept hinzugefügt: Sud","Has beend added to the recipe: Stock",Character.lowPriority)
+				FirstMenu(User, ingredientsList)
+			end
+		else
+			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority) 
+		end
+	end
+
+	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle einen Wirkstoff aus, um dessen Konzentartion festzusetzen. Wähle 'Sud dem Rezept hinzufügen', wenn du damit fertig bist.","Select an active substance to determine its concentration. If you are done, choose 'Add stock to the recipe'"), callback)
+	dialog:setCloseOnMove()
+	dialog:addOption(0, getText("Zurück","Back"))
+    local activSubstances = alchemy.base.alchemy.wirkstoff
+	local concentrationsDe = alchemy.base.alchemy.wirkung_de
+	local concentrationsEn = alchemy.base.alchemy.wirkung_en
+	for i=1,#activeSubstances do 
+	    dialog:addOption(0,getText(activeSubstances[i]..": "..concentrationsDe[currentConcentrations[i]],activeSubstances[i]..": "..concentrationsEn[currentConcentrations[i]]))
+	end
+	dialog:addOption(getText("Sud dem Rezept hinzufügen","Add stock to the recipe"))
+	
+	User:requestSelectionDialog(dialog)
+	
+end
+
+function SelectConcentration(User,ingredientsList,currentConcentrations, activeSubstancePos)
+    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	
+	local activSubstances = alchemy.base.alchemy.wirkstoff
+	local concentrationsDe = alchemy.base.alchemy.wirkung_de
+	local concentrationsEn = alchemy.base.alchemy.wirkung_en
+	
+	local callback = function(dialog) 
+		local success = dialog:getSuccess() 
+		if success then
+			local selected = dialog:getSelectedIndex()+1
+			if selected == 1 then
+				SelectActiveSubstance(User, ingredientsList, currentConcentrations)
+			else
+				currentConcentrations[activeSubstancePos] = selected-1
+				SelectActiveSubstance(User, ingredientsList, currentConcentrations)
+			end	
+		else
+			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority) 
+		end
+	end
+
+	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle eine Konzentration für "..activSubstances[i].." aus.","Select a concentration for "..activSubstances[i].."."), callback)
+	dialog:setCloseOnMove()
+	dialog:addOption(0, getText("Zurück","Back"))
+	for i=1,#concentrationsDe do
+	    add:dialog(0,getText(""..concentrationsDe[i],""..concentrationsEn[i]))
+	end	
+
 	User:requestSelectionDialog(dialog)
 end
 
@@ -234,7 +394,14 @@ function RemoveLastIngredient(User, ingredientsList)
 	if type(removed)=="number" then
 	    User:inform("Die letzte Zutat wurde vom Rezept entfernt: "..world:getItemName(removed,Player.german),"The last ingredient has been removed: "..world:getItemName(removed,Player.english),Character.lowPriority)
     elseif type(removed)=="string" then
-	    local de, en = BottleBottlingString(removed)
+	    local de, en
+		if string.find(removed,"stock") then
+		    de = "Sud"
+			en = "Stock"
+		else
+            de = "Essenzgebräu"
+			en = "Essence brew"
+		end	
 		User:inform("Die letzte Zutat wurde vom Rezept entfernt: "..de,"The last ingredient has been removed: "..en,Character.lowPriority)
 	end
 end
@@ -242,33 +409,59 @@ end
 function ShowRecipe(User, ingredientsList, notMenu) 
     local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
 	
-	local recipeDe = ""; local recipeEn = ""
-	if #ingredientsList == 0 then
-	    recipeDe = "Das Rezept ist leer."
-		recipeEn = "The recipe is empty."
+	local callback = function(dialog) 
+		local success = dialog:getSuccess() 
+		if success then
+			local selected = dialog:getSelectedIndex() 
+			User:inform("Success, you selected option "..selected+1) 
+		else
+			if not notMenu then
+				FirstMenu(User, ingredientsList)
+			end	
+		end
+	end
+
+	local dialog
+	if not notMenu then
+		dialog = SelectionDialog(getText("Rezeptvorschau","Recipe preview"), getText("Hier wird deine bisherige Auswahl angezeigt. Wähle ein Essenzgebräu oder Sud aus, um Nähres über dessen Inhalt zu erfahren.","Here are your current choices shown. Select an essence brew or stock to get to know more about its content."), callback)
 	else
+	    dialog = SelectionDialog(getText("Rezept","Recipe"),getText("Wähle ein Essenzgebräu oder Sud aus, um Nähres über dessen Inhalt zu erfahren. Wenn du aber vor einem Kessel stehst, wähle eine Zutat aus, von welcher du das Brauen beginnen willst.","Select an essence brew or a stock to get to learn more about its content. But if there is an cauldron infront of you, select the ingredient where you want to start to brew from."))
+	end
+	dialog:setCloseOnMove()
+	dialog:addOption(0, getText("Zurück","Back"))
+	if #ingredientsList > 0 then
 	    for i=1,#ingredientsList do
-		    if type(ingredientsList[i])=="number" then
-			    recipeDe = recipeDe..world:getItemName(ingredientsList[i],Player.german)
-				recipeEn = recipeEn..world:getItemName(ingredientsList[i],Player.english)
+		    if type(ingredientsList[i])=="string" then 
+				if string.find(ingredientsList[i],"bottle") then
+					dialog:addOption(164, getText("Abfüllen","Bottling"))
+				else	
+				    local liquid, liquidList = StockEssenceList(theString)
+					if liquid == "stock" then
+					    dialog:addOption(331, getText("Sud","Stock"))
+					elseif liquid == "essence brew" then
+						dialog:addOption(liquidList[1], getText("Essenzgebräu","Essence brew"))
+					end		
+			    end
 			else
-                local de,en = BottleBottlingString(ingredientsList[i])
-                recipeDe = recipeDe..de
-                recipeEn = recipeEn..en
-            end
-            if i < #ingredientsList then
-                recipeDe = recipeDe..", "			
-			    recipeEn = recipeEn..", "
+				dialog:addOption(ingredientsList[i], getText(world:getItemName(ingredientsList[i],Player.german),world:getItemName(ingredientsList[i],Player.english)))
 			end
-        end
-    end
-	local callback = function(dialog)
-        if not notMenu then
-		    FirstMenu(User, ingredientsList)
-		end	
-    end
-	local dialog = MessageDialog(getText("Rezept","Recipe"), getText(recipeDe,recipeEn), callback)
-	User:requestMessageDialog(dialog)
+		end
+	end
+	User:requestSelectionDialog(dialog)
+end
+
+function StockEssenceList(theString)
+
+	local liquid
+    if string.find(theString,"stock ")
+	    liquid = "stock"
+	elseif 	string.find(theString,"essence ")
+	    liquid = "essence brew"
+	end
+	local fromHere = string.find(theString,"(%d+)")
+	local theList = base.common.split(string.sub(theString,fromHere), ";")
+	
+	return liquid, theList
 end
 
 function FinishRecipe(User, ingredientsList)
@@ -341,18 +534,6 @@ function GetParchmentQuill(User)
 	    return itemB
 	end
 	return nil
-end
-
-function BottleBottlingString(theString)
-
-    local a,b,queue = string.find(theString,"bottle (%d+)")
-    if a ~= nil then
-        return  queue..". Abfüllen", queue.."th bottling"
-	end
-    a,b,queue = string.find(theString,"add (%d+)")
-    if a ~= nil then    
-		return "Füge "..queue..". Abgefülltes hinzu", "Add "..queue.."th bottled"
-	end	
 end
 
 function CheckAmount(ingredientsList)
