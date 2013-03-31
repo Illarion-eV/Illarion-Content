@@ -282,8 +282,8 @@ function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 		end
 	end
 	
-	local essenceStringDe = [ESSENCE_BREWS[currentEssenceList[1]]["de"]]..", beinhaltend:"
-	local essenceStringEn = [ESSENCE_BREWS[currentEssenceList[1]]["en"]]..", containing:"
+	local essenceStringDe = ESSENCE_BREWS[currentEssenceList[1]]["de"]..", beinhaltend:"
+	local essenceStringEn = ESSENCE_BREWS[currentEssenceList[1]]["en"]..", containing:"
 	for i=2,#currentEssenceList do
 	    if currentEssenceList[i] == nil then
 		    if i == 2 then
