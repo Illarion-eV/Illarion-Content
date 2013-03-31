@@ -453,9 +453,9 @@ end
 function StockEssenceList(theString)
 
 	local liquid
-    if string.find(theString,"stock ")
+    if string.find(theString,"stock ") then
 	    liquid = "stock"
-	elseif 	string.find(theString,"essence ")
+	elseif 	string.find(theString,"essence ") then
 	    liquid = "essence brew"
 	end
 	local fromHere = string.find(theString,"(%d+)")
