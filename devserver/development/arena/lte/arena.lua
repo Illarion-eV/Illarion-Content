@@ -7,7 +7,7 @@ author: Lillian
 ]]
 
 require("base.common")
-require("base.arena")
+require("development.arena.base.arena")
 
 
 module("development.arena.lte.arena", package.seeall)
