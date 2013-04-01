@@ -372,7 +372,7 @@ function SelectConcentration(User,ingredientsList,currentConcentrations, activeS
 			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority) 
 		end
 	end
-User:inform(""..activeSubstancePos)
+if callback then User:inform("callback") end
 	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle eine Konzentration für "..activeSubstances[activeSubstancePos].." aus.","Select a concentration for "..activeSubstances[activeSubstancePos].."."), callback)
 	dialog:setCloseOnMove()
 	dialog:addOption(0, getText("Zurück","Back"))
