@@ -446,7 +446,7 @@ function ShowRecipe(User, ingredientsList, notMenu)
 				if string.find(ingredientsList[i],"bottle") then
 					dialog:addOption(164, getText("Abfüllen","Bottling"))
 				else	
-				    local liquid, liquidList = StockEssenceList(theString)
+				    local liquid, liquidList = StockEssenceList(ingredientsList[i])
 					if liquid == "stock" then
 					    dialog:addOption(331, getText("Sud","Stock"))
 					elseif liquid == "essence brew" then
