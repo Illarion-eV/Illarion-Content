@@ -421,7 +421,7 @@ function ShowRecipe(User, ingredientsList, notMenu)
 			if selected == 1 and not notMenu then
 			    FirstMenu(User, ingredientsList)
             elseif type(ingredientsList[selected-1])=="string" and not string.find(ingredientsList[selected-1],"bottle") then
-				ShowStockEssence(User, ingredientsList[i], notMenu)
+				ShowStockEssence(User, ingredientsList[selected-1], notMenu)
 			else
 				ShowRecipe(User, ingredientsList, notMenu) 
 			end	
