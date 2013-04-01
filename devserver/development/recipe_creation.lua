@@ -111,6 +111,7 @@ function SelectPlant(User, ingredientsList, category, currentEssenceList)
 				else
 					if #currentEssenceList == 9 then
 					    User:inform("Du kannst nicht mehr als acht Pflanzen einem Essengebräu hinzutun.","You cannot add more than eight plants to an essence brew.",Character.lowPriority)
+						SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 					else
 						table.insert(currentEssenceList,PLANTS[category][selected-1])
 						User:inform("Wurde dem Essenzgebräu hinzugefügt: "..world:getItemName(PLANTS[category][selected-1],Player.german),"Has beend added to the essence brew: "..world:getItemName(PLANTS[category][selected-1],Player.english),Character.lowPriority)
@@ -445,10 +446,11 @@ function ShowRecipe(User, ingredientsList, notMenu)
 				if string.find(ingredientsList[i],"bottle") then
 					dialog:addOption(164, getText("Abfüllen","Bottling"))
 				else	
-				    local liquid, liquidList = StockEssenceList(theString)
+				    local liquid, liquidList = StockEssenceList(ingredientsList[i])
 					if liquid == "stock" then
 					    dialog:addOption(331, getText("Sud","Stock"))
 					elseif liquid == "essence brew" then
+						User:inform(""..liquidList[i])
 						dialog:addOption(liquidList[1], getText("Essenzgebräu","Essence brew"))
 					end		
 			    end
