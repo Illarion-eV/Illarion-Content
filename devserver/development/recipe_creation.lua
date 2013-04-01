@@ -462,7 +462,8 @@ function ShowRecipe(User, ingredientsList, notMenu)
 end
 
 function ShowStockEssence(User, theLiquid, notMenu)
-
+	local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	
 	local liquid, liquidList = StockEssenceList(theLiquid)
 	local de, en, titleDe, titleEn
 	if liquid == "essence brew" then
