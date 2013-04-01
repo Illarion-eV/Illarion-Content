@@ -220,7 +220,7 @@ function setRanklist(User, arena, points)
 	local newRanklist = {};
 	local arenaListName = "ArenaList"..town;
 
-	if ranklist[table.getn(ranklist)] > tonumber(points) then
+	if tonumber(ranklist[table.getn(ranklist)]) > points then
 		return;
 	else
 		for i=2, #(ranklist), 2 do
