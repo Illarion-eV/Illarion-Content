@@ -345,7 +345,7 @@ function SelectActiveSubstance(User, ingredientsList, currentConcentrations)
 	for i=1,#activeSubstances do 
 	    dialog:addOption(0,getText(activeSubstances[i]..": "..concentrationsDe[currentConcentrations[i]],activeSubstances[i]..": "..concentrationsEn[currentConcentrations[i]]))
 	end
-	dialog:addOption(getText("Sud dem Rezept hinzufügen","Add stock to the recipe"))
+	dialog:addOption(0,getText("Sud dem Rezept hinzufügen","Add stock to the recipe"))
 	
 	User:requestSelectionDialog(dialog)
 	
