@@ -515,8 +515,13 @@ function StockEssenceList(theString)
 	end
 	local fromHere = string.find(theString,"(%d+)")
 	local theList = base.common.split(string.sub(theString,fromHere), ";")
-	
-	return liquid, theList
+	local returnList = {}
+	for i=1,#theList do
+		if tonumber(theList[i]) ~= nil then
+			table.insert(tonumber(theLIst[i]))
+		end
+	end
+	return liquid, returnList
 end
 
 function FinishRecipe(User, ingredientsList)
