@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<!--
+@author		pharse
+@version	1.0
+-->
+<NotepadPlus>
+	<AutoComplete>
+		<KeyWord name="abortRoute" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct character"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="Action.abort" />
+		<KeyWord name="Action.none" />
+		<KeyWord name="activeLanguage" />
+		<KeyWord name="addEffect" func="yes">
+			<Overload retVal="void" descr="{character}.effects:">
+				<Param name="int CLongTimeEffect"/>
+			</Overload>
+			<Overload retVal="[entry point]">
+				<Param name="effStruct effect"/>
+				<Param name="chrStruct character"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="addFromlist" func="yes">
+			<Overload retVal="void" descr="{character}.waypoints:">
+				<Param name="list(posStruct) waypointlist"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="addItem" func="yes">
+			<Overload retVal="void" descr="{menu}:">
+				<Param name="int itemId"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="addValue" func="yes">
+			<Overload retVal="void" descr="{effect}:">
+				<Param name="text name"/>
+				<Param name="int value"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="addWaypoint" func="yes">
+			<Overload retVal="void" descr="{character}.waypoints:">
+				<Param name="posStruct position"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="alterMessage" func="yes">
+			<Overload retVal="text" descr="{character}:">
+				<Param name="text text"/>
+				<Param name="int languageSkill"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="attackmode" />
+		<KeyWord name="CastMagic" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct caster"/>
+				<Param name="int counter"/>
+				<Param name="int param"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="CastMagicOnCharacter" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct caster"/>
+				<Param name="chrStruct targetCharacter"/>
+				<Param name="int counter"/>
+				<Param name="int param"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="CastMagicOnField" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct caster"/>
+				<Param name="posStruct position"/>
+				<Param name="int counter"/>
+				<Param name="int param"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="CastMagicOnItem" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct caster"/>
+				<Param name="scrItem targetItem"/>
+				<Param name="int counter"/>
+				<Param name="int param"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="changeItem" func="yes">
+			<Overload retVal="void" descr="{world}:">
+				<Param name="scrItem item"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="changeQuality" func="yes">
+			<Overload retVal="void" descr="{world}:">
+				<Param name="scrItem item"/>
+				<Param name="int amount"/>
+			</Overload>
+			<Overload retVal="boolean" descr="{container}:">
+				<Param name="int itemId"/>
+				<Param name="int amount"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="changeQualityAt" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int bodyPosition"/>
+				<Param name="int amount"/>
+			</Overload>
+			<Overload retVal="bool" descr="{container}:">
+				<Param name="int itempos"/>
+				<Param name="int amount"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="changeQualityItem" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int id"/>
+				<Param name="int amount"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="changeQualityOfTopItem" func="yes">
+			<Overload retVal="void" descr="{field}:">
+				<Param name="int amount"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="changeTile" func="yes">
+			<Overload retVal="void" descr="{world}:">
+				<Param name="int tileId"/>
+				<Param name="posStruct position"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="characterNear" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct NPC"/>
+				<Param name="chrStruct character"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="CharacterOnField" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct character"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="characterOnSight" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct NPC"/>
+				<Param name="chrStruct character"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="clear" func="yes">
+			<Overload retVal="void" descr="{character}.waypoints:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="CLongTimeEffect" func="yes">
+			<Overload retVal="int">
+				<Param name="int effectId"/>
+				<Param name="int nextCalled"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="countItem" func="yes">
+			<Overload retVal="int" descr="{character}:">
+				<Param name="int itemId"/>
+			</Overload>
+			<Overload retVal="int"  descr="{container}:">
+				<Param name="int itemId"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="countItems" func="yes">
+			<Overload retVal="int" descr="{field}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="countItemAt" func="yes">
+			<Overload retVal="int" descr="{character}:">
+				<Param name="text location"/>
+				<Param name="int itemId"/>
+			</Overload>
+			<Overload retVal="int" descr="{character}:">
+				<Param name="text location"/>
+				<Param name="int itemId"/>
+				<Param name="int data"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="createAtPos" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int bodyPosition"/>
+				<Param name="int itemId"/>
+				<Param name="int count"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="createItem" func="yes">
+			<Overload retVal="int" descr="{character}:">
+				<Param name="int itemId"/>
+				<Param name="int count"/>
+				<Param name="int quality"/>
+				<Param name="int data"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="createItemFromId" func="yes">
+			<Overload retVal="scrItem" descr="{world}:">
+				<Param name="int itemId"/>
+				<Param name="int count"/>
+				<Param name="posStruct position"/>
+				<Param name="boolean alwaysFlag"/>
+				<Param name="int quality"/>
+				<Param name="int data"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="createItemFromItem" func="yes">
+			<Overload retVal="void" descr="{world}:">
+				<Param name="scrItem"/>
+				<Param name="posStruct"/>
+				<Param name="boolean alwaysFlag"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="createMonster" func="yes">
+			<Overload retVal="void" descr="{world}:">
+				<Param name="int monsterId"/>
+				<Param name="posStruct position"/>
+				<Param name="int movepoints"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="data" />
+		<KeyWord name="death_consequences" />
+		<KeyWord name="distanceMetric" func="yes">
+			<Overload retVal="int" descr="{character}:">
+				<Param name="chrStruct character2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="distanceMetricToPosition" func="yes">
+			<Overload retVal="int" descr="{character}:">
+				<Param name="posStruct position"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="doubleEffect" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="effStruct effect"/>
+				<Param name="chrStruct character"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="effectId" />
+		<KeyWord name="effectName" />
+		<KeyWord name="effects" />
+		<KeyWord name="enemyNear" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct monster"/>
+				<Param name="chrStruct enemy"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="enemyOnSight" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct monster"/>
+				<Param name="chrStruct enemy"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="equapos" func="yes">
+			<Overload retVal="boolean">
+				<Param name="posStruct posA"/>
+				<Param name="posStruct posB"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="erase" func="yes">
+			<Overload retVal="void" descr="{world}:">
+				<Param name="scrItem item"/>
+				<Param name="int amount"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="eraseItem" func="yes">
+			<Overload retVal="int" descr="{character}:">
+				<Param name="int itemId"/>
+				<Param name="int count"/>
+			</Overload>
+			<Overload retVal="int" descr="{container}:">
+				<Param name="int itemId"/>
+				<Param name="int count"/>
+			</Overload>
+			<Overload retVal="int" descr="{character}:">
+				<Param name="int itemId"/>
+				<Param name="int count"/>
+				<Param name="int data"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="find" func="yes">
+			<Overload retVal="boolean, effStruct" descr="{character}.effects:">
+				<Param name="int effectId"/>
+			</Overload>
+			<Overload retVal="boolean, text" descr="ScriptVars:">
+				<Param name="text/int identifier"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="findValue" func="yes">
+			<Overload retVal="boolean, int" descr="{effect}:">
+				<Param name="text name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="forceWarp" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="posStruct position"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getFaceTo" func="yes">
+			<Overload retVal="int" descr="{character}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getRace" func="yes">
+			<Overload retVal="int" descr="{character}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getType" func="yes">
+			<Overload retVal="int" descr="{character}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getBackPack" func="yes">
+			<Overload retVal="conSctruct" descr="{character}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getCharacterOnField" func="yes">
+			<Overload retVal="chrStruct" descr="{world}:">
+				<Param name="posStruct position"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getCharactersInRangeOf" func="yes">
+			<Overload retVal="list(chrStruct)">
+				<Param name="posStruct position"/>
+				<Param name="int range"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getClippingActive" func="yes">
+			<Overload retVal="boolean" descr="{character}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getDepot" func="yes">
+			<Overload retVal="conStruct" descr="{character}:">
+				<Param name="int depotId"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getField" func="yes">
+			<Overload retVal="tleStruct" descr="{world}:">
+				<Param name="posStruct position"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getItemAt" func="yes">
+			<Overload retVal="scrItem" descr="{character}:">
+				<Param name="int bodyPosition"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getItemList" func="yes">
+			<Overload retVal="list(scrItem)" descr="{character}:">
+				<Param name="int itemId"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getItemName" func="yes">
+			<Overload retVal="text" descr="{world}:">
+				<Param name="int itemId"/>
+				<Param name="int language"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getItemOnField" func="yes">
+			<Overload retVal="scrItem" descr="{world}:">
+				<Param name="posStruct position"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getItemStats" func="yes">
+			<Overload retVal="comItem" descr="{world}:">
+				<Param name="scrItem item"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getItemStatsFromId" func="yes">
+			<Overload retVal="comItem" descr="{world}:">
+				<Param name="int itemId"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getMagicFlags" func="yes">
+			<Overload retVal="int" descr="{character}:">
+				<Param name="int magicType"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getMagicType" func="yes">
+			<Overload retVal="int" descr="{character}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getMentalCapacity" func="yes">
+			<Overload retVal="int" descr="{character}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getMonstersInRangeOf" func="yes">
+			<Overload retVal="list(chrStruct)" descr="{world}:">
+				<Param name="posStruct position"/>
+				<Param name="int range"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getNextStepDir" func="yes">
+			<Overload retVal="boolean, int" descr="{character}:">
+				<Param name="posStruct position"/>
+				<Param name="int rangeToCheck"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getNPCSInRangeOf" func="yes">
+			<Overload retVal="list(chrStruct)" descr="{world}:">
+				<Param name="posStruct position"/>
+				<Param name="int range"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getOnRoute" func="yes">
+			<Overload retVal="boolean" descr="{character}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getPlayerLanguage" func="yes">
+			<Overload retVal="int" descr="{character}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getPlayersInRangeOf" func="yes">
+			<Overload retVal="list(chrStruct)" descr="{world}:">
+				<Param name="posStruct position"/>
+				<Param name="int range"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getPlayersOnline" func="yes">
+			<Overload retVal="list(chrStruct)" descr="{world}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getPoisonValue" func="yes">
+			<Overload retVal="int" descr="{character}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getQuestProgress" func="yes">
+			<Overload retVal="int" descr="{character}:">
+				<Param name="int questId"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getSkill" func="yes">
+			<Overload retVal="int" descr="{character}:">
+				<Param name="text skillName"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getStackItem" func="yes">
+			<Overload retVal="scrItem" descr="{field}:">
+				<Param name="int stackpos"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getStepList" func="yes">
+			<Overload retVal="list(int)" descr="{character}:">
+				<Param name="posStruct position"/>
+				<Param name="int rangeToCheck"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getTime" func="yes">
+			<Overload retVal="int" descr="{world}:">
+				<Param name="text time"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getType" func="yes">
+			<Overload retVal="int" descr="{scrItem}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="getWaypoints" func="yes">
+			<Overload retVal="list(posStruct)" descr="{character}.waypoints:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="gfx" func="yes">
+			<Overload retVal="void" descr="{world}:">
+				<Param name="int graphicsEffect"/>
+				<Param name="posStruct position"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="id" />
+		<KeyWord name="increase" func="yes">
+			<Overload retVal="void" descr="{world}:">
+				<Param name="scrItem item"/>
+				<Param name="int amount"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="increaseAtPos" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int bodyPosition"/>
+				<Param name="int count"/>
+			</Overload>
+			<Overload retVal="int" descr="{container}:">
+				<Param name="int itempos"/>
+				<Param name="int count"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="increaseAttrib" func="yes">
+			<Overload retVal="int" descr="{character}:">
+				<Param name="text attribName"/>
+				<Param name="int value"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="increaseMentalCapacity" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int value"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="increasePoisonValue" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int value"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="increaseSkill" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int skillGroup"/>
+				<Param name="text skillName"/>
+				<Param name="int value"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="inform" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="text text"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="insertContainer" func="yes">
+			<Overload retVal="boolean" descr="{container}:">
+				<Param name="scrItem item"/>
+				<Param name="conStruct container"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="insertItem" func="yes">
+			<Overload retVal="void" descr="{container}:">
+				<Param name="scrItem item"/>
+				<Param name="[boolean merge=false]"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="introduce" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="chrStruct character2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="isAdmin" func="yes">
+			<Overload retVal="boolean" descr="{character}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="isCharacterOnField" func="yes">
+			<Overload retVal="boolean" descr="{world}:">
+				<Param name="posStruct position"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="isInRange" func="yes">
+			<Overload retVal="boolean" descr="{character}:">
+				<Param name="chrStruct character2"/>
+				<Param name="int distance"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="isInRangeToPosition" func="yes">
+			<Overload retVal="boolean" descr="{character}:">
+				<Param name="posStruct position"/>
+				<Param name="int distance"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="isItemOnField" func="yes">
+			<Overload retVal="boolean" descr="{world}:">
+				<Param name="posStruct position"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="itemInform" func="yes">
+			<Overload retVal="void" descr="{world}:">
+				<Param name="chrStruct character"/>
+				<Param name="scrItem item"/>
+				<Param name="text text"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="itempos" />
+		<KeyWord name="ItemRotsOnField" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="scrItem oldItem"/>
+				<Param name="scrItem newItem"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="lastCalled" />
+		<KeyWord name="lastSpokenText" />
+		<KeyWord name="learn" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int skillGroup"/>
+				<Param name="text skillName"/>
+				<Param name="int step"/>
+				<Param name="int skillOfOpponent"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="loadEffect" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="effStruct effect"/>
+				<Param name="chrStruct character"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="LookAtItem" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct user"/>
+				<Param name="scrItem item"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="lookAtMonster" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct sourceCharacter"/>
+				<Param name="chrStruct monster"/>
+				<Param name="int mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="lookAtNpc" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct sourceCharacter"/>
+				<Param name="int mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="LTIncreaseHP" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int value"/>
+				<Param name="int count"/>
+				<Param name="int stepInSec"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="LTIncreaseMana" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int value"/>
+				<Param name="int count"/>
+				<Param name="int stepInSec"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="makeSound" func="yes">
+			<Overload retVal="void" descr="{world}:">
+				<Param name="int soundEffect"/>
+				<Param name="posStruct position"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="MenuStruct" func="yes">
+			<Overload retVal="menStruct">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="move" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int direction"/>
+				<Param name="boolean activeMove"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="MoveFromField" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct character"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="MoveItemAfterMove" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct user"/>
+				<Param name="scrItem sourceItem"/>
+				<Param name="scrItem targetItem"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="MoveItemBeforMove" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct user"/>
+				<Param name="scrItem sourceItem"/>
+				<Param name="scrItem targetItem"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="movepoints" />
+		<KeyWord name="MoveToField" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct character"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="name" />
+		<KeyWord name="nextCalled" />
+		<KeyWord name="nextCycle" func="yes">
+			<Overload retVal="[entry point]">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="number" />
+		<KeyWord name="numberCalled" />
+		<KeyWord name="onAttack" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct monster"/>
+				<Param name="chrStruct enemy"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="onAttacked" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct monster"/>
+				<Param name="chrStruct attacker"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="onCasted" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct monster"/>
+				<Param name="chrStruct caster"/>
+			</Overload>
+		</KeyWord>	
+		<KeyWord name="onDeath" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct monster"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="onSpawn" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct monster"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="owner" />
+		<KeyWord name="pos" />
+		<KeyWord name="position" func="yes">
+			<Overload retVal="posStruct">
+				<Param name="int x"/>
+				<Param name="int y"/>
+				<Param name="int z"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="PutItemOnField" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="scrItem item"/>
+				<Param name="chrStruct character"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="quality" />
+		<KeyWord name="receiveText" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="int textType"/>
+				<Param name="text text"/>
+				<Param name="chrStruct originator"/>
+			</Overload>
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct monster"/>
+				<Param name="int textType"/>
+				<Param name="text text"/>
+				<Param name="chrStruct originator"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="remove" func="yes">
+			<Overload retVal="boolean" descr="ScriptVars:">
+				<Param name="text/int identifier"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="removeEffect" func="yes">
+			<Overload retVal="boolean" descr="{character}.effects:">
+				<Param name="int effectId"/>
+			</Overload>
+			<Overload retVal="[entry point]">
+				<Param name="effStruct effect"/>
+				<Param name="chrStruct character"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="removeValue" func="yes">
+			<Overload retVal="void" descr="{effect}:">
+				<Param name="text name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="save" func="yes">
+			<Overload retVal="void" descr="ScriptVars:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ScriptVars" />
+		<KeyWord name="sendCharDescription" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int srcCharId"/>
+				<Param name="text text"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sendMapUpdate" func="yes">
+			<Overload retVal="void" descr="{world}:">
+				<Param name="posStruct position"/>
+				<Param name="int range"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sendMenu" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="menStruct menu"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="set" func="yes">
+			<Overload retVal="void" descr="ScriptVars:">
+				<Param name="text/int identifier"/>
+				<Param name="text/int value"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="setAttrib" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="text attribName"/>
+				<Param name="int value"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="setClippingActive" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="boolean status"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="setMagicType" func="yes">
+			<Overload retVal="void">
+				<Param name="int magicType"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="setMentalCapacity" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int value"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="setOnRoute" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="boolean toggleRoute"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="setPoisonValue" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int value"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="setQuestProgress" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int questId"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="startAction" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int timeInDeciseconds"/>
+				<Param name="int gfxId"/>
+				<Param name="int gfxIntervalInDeciseconds"/>
+				<Param name="int sfxId"/>
+				<Param name="int sfxIntervalInDeciseconds"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="startMusic" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int musicId"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="swap" func="yes">
+			<Overload retVal="void" descr="{world}:">
+				<Param name="scrItem item"/>
+				<Param name="int newId"/>
+				<Param name="int newQuality"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="swapAtPos" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int bodyPosition"/>
+				<Param name="int newId"/>
+				<Param name="int newQuality"/>
+			</Overload>
+			<Overload retVal="boolean" descr="{container}:">
+				<Param name="int itempos"/>
+				<Param name="int newId"/>
+				<Param name="int newQuality"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="swapTopItem" func="yes">
+			<Overload retVal="void" descr="{field}:">
+				<Param name="int newId"/>
+				<Param name="int newQuality"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="takeItemNr" func="yes">
+			<Overload retVal="boolean, scrItem, conStruct" descr="{container}:">
+				<Param name="int itempos"/>
+				<Param name="int count"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="TakeItemOnField" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="scrItem item"/>
+				<Param name="chrStruct character"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="talk" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int texttype"/>
+				<Param name="text text"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="talkLanguage" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int texttype"/>
+				<Param name="int language"/>
+				<Param name="text text"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="teachMagic" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="int magicType"/>
+				<Param name="int magicFlag"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="tempChangeAttrib" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="text attribName"/>
+				<Param name="int value"/>
+				<Param name="int timeInSec"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="tile" />
+		<KeyWord name="UseItem" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct user"/>
+				<Param name="scrItem sourceItem"/>
+				<Param name="scrItem targetItem"/>
+				<Param name="int counter"/>
+				<Param name="int param"/>
+				<Param name="int ltstate"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="useMonster" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct monster"/>
+				<Param name="chrStruct user"/>
+				<Param name="chrStruct targetChar"/>
+				<Param name="int counter"/>
+				<Param name="int param"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="useNPC" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct user"/>
+				<Param name="int counter"/>
+				<Param name="int param"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="useTile" func="yes">
+			<Overload retVal="[entry point]">
+				<Param name="chrStruct user"/>
+				<Param name="posStruct position"/>
+				<Param name="int counter"/>
+				<Param name="int param"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="viewItemNr" func="yes">
+			<Overload retVal="boolean, scrItem, conStruct" descr="{container}:">
+				<Param name="int itempos"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="Volume" func="yes">
+			<Overload retVal="int" descr="{container}:">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="warp" func="yes">
+			<Overload retVal="void" descr="{character}:">
+				<Param name="posStruct position"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="waypoints" />
+		<KeyWord name="wear" />
+		<KeyWord name="weight" func="yes">
+			<Overload retVal="int" descr="{container}:">
+			</Overload>
+		</KeyWord>
+	</AutoComplete>
+</NotepadPlus>
