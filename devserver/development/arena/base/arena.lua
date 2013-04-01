@@ -90,6 +90,8 @@ function payforMonster(User, MonsterLevel, NPC)
 	return true;
 end
 
+arenaMonster = {}
+
 function spawnMonster(User, MonsterLevel, arena)
     if not arenaMonster[User.id] then
 		arenaMonster[User.id] = {};
