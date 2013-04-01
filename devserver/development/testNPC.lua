@@ -30,8 +30,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("repair");
-talkEntry:addConsequence(npc.base.consequence.repair.repair());
+talkEntry:addTrigger("request");
+talkEntry:addConsequence(development.arena.consequence.arena.arena("request"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("points");
+talkEntry:addConsequence(development.arena.consequence.arena.arena("points"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("list");
+talkEntry:addConsequence(development.arena.consequence.arena.arena("list"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
