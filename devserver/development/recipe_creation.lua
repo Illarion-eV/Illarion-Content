@@ -339,7 +339,7 @@ function SelectActiveSubstance(User, ingredientsList, currentConcentrations)
 	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle einen Wirkstoff aus, um dessen Konzentartion festzusetzen. Wähle 'Sud dem Rezept hinzufügen', wenn du damit fertig bist.","Select an active substance to determine its concentration. If you are done, choose 'Add stock to the recipe'"), callback)
 	dialog:setCloseOnMove()
 	dialog:addOption(0, getText("Zurück","Back"))
-    local activSubstances = alchemy.base.alchemy.wirkstoff
+    local activeSubstances = alchemy.base.alchemy.wirkstoff
 	local concentrationsDe = alchemy.base.alchemy.wirkung_de
 	local concentrationsEn = alchemy.base.alchemy.wirkung_en
 	for i=1,#activeSubstances do 
@@ -485,7 +485,7 @@ function ShowStockEssence(User, theLiquid, notMenu)
 		titleEn = "Essence brew"
 		de = "Sud:"
 		en = "Stock:"
-		local activSubstances = alchemy.base.alchemy.wirkstoff
+		local activeSubstances = alchemy.base.alchemy.wirkstoff
 		local concentrationsDe = alchemy.base.alchemy.wirkung_de
 		local concentrationsEn = alchemy.base.alchemy.wirkung_en
 		for i=1,#liquidList do
