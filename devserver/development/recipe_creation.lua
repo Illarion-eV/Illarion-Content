@@ -489,8 +489,8 @@ function ShowStockEssence(User, theLiquid, ingredientsList, notMenu)
 		local concentrationsDe = alchemy.base.alchemy.wirkung_de
 		local concentrationsEn = alchemy.base.alchemy.wirkung_en
 		for i=1,#liquidList do
-		    de = "\n"..concentrationsDe[liquidList[i]].." "..alchemy.base.alchemy.wirkstoff[i]
-			en = "\n"..concentrationsEn[liquidList[i]].." "..alchemy.base.alchemy.wirkstoff[i]
+		    de = de.."\n"..concentrationsDe[liquidList[i]].." "..alchemy.base.alchemy.wirkstoff[i]
+			en = en.."\n"..concentrationsEn[liquidList[i]].." "..alchemy.base.alchemy.wirkstoff[i]
 		end
 	end
 
