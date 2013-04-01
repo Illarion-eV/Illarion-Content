@@ -514,7 +514,7 @@ function StockEssenceList(theString)
 	local returnList = {}
 	for i=1,#theList do
 		if tonumber(theList[i]) ~= nil then
-			table.insert(tonumber(theList[i]))
+			table.insert(returnList,tonumber(theList[i]))
 		end
 	end
 	return liquid, returnList
