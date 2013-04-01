@@ -407,6 +407,7 @@ function RemoveLastIngredient(User, ingredientsList)
 		end	
 		User:inform("Die letzte Zutat wurde vom Rezept entfernt: "..de,"The last ingredient has been removed: "..en,Character.lowPriority)
 	end
+	FirstMenu(User, ingredientsList)
 end
 
 function ShowRecipe(User, ingredientsList, notMenu) 
