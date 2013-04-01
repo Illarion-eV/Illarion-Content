@@ -263,7 +263,7 @@ function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 			local selected = dialog:getSelectedIndex() + 1
 			if selected == 1 then
 				SelectFillIntoCauldron(User, ingredientsList)
-			elseif selcted == 2 then
+			elseif selected == 2 then
                 SelectPlantCategory(User, ingredientsList, currentEssenceList)
             elseif selected == 3 then
 				if #currentEssenceList < 2 then
