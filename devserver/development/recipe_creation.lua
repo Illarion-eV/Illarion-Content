@@ -354,7 +354,7 @@ end
 function SelectConcentration(User,ingredientsList,currentConcentrations, activeSubstancePos)
     local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
 	
-	local activSubstances = alchemy.base.alchemy.wirkstoff
+	local activeSubstances = alchemy.base.alchemy.wirkstoff
 	local concentrationsDe = alchemy.base.alchemy.wirkung_de
 	local concentrationsEn = alchemy.base.alchemy.wirkung_en
 	
@@ -373,7 +373,7 @@ function SelectConcentration(User,ingredientsList,currentConcentrations, activeS
 		end
 	end
 
-	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle eine Konzentration für "..activSubstances[i].." aus.","Select a concentration for "..activSubstances[i].."."), callback)
+	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle eine Konzentration für "..activeSubstances[i].." aus.","Select a concentration for "..activeSubstances[i].."."), callback)
 	dialog:setCloseOnMove()
 	dialog:addOption(0, getText("Zurück","Back"))
 	for i=1,#concentrationsDe do
