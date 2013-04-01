@@ -266,7 +266,7 @@ function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 			elseif selcted == 2 then
                 SelectPlantCategory(User, ingredientsList, currentEssenceList)
             elseif selected == 3 then
-				if currentEssenceList < 2 then
+				if #currentEssenceList < 2 then
 				    User:inform("Es befinden sich keine Pflanzen zum Entfernen im Essenzgebräu.","There are no plants to be removed in the essence brew.")
 				else
 					local removed = table.remove(currentEssenceList)
