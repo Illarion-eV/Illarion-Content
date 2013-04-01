@@ -248,7 +248,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 	dialog:addOption(331, getText("Sud","Stock"))
 	for i=1,#ESSENCE_BREWS_IDS do
 		local id = ESSENCE_BREWS_IDS[i]
-		dialog:addOption(id,getText(ESSENCE_BREW[id]["de"],ESSENCE_BREW[id]["en"]))
+		dialog:addOption(id,getText(ESSENCE_BREWS[id]["de"],ESSENCE_BREWS[id]["en"]))
 	end	
 	dialog:setCloseOnMove()
 	User:requestSelectionDialog(dialog)
@@ -339,13 +339,13 @@ function SelectActiveSubstance(User, ingredientsList, currentConcentrations)
 	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle einen Wirkstoff aus, um dessen Konzentartion festzusetzen. Wähle 'Sud dem Rezept hinzufügen', wenn du damit fertig bist.","Select an active substance to determine its concentration. If you are done, choose 'Add stock to the recipe'"), callback)
 	dialog:setCloseOnMove()
 	dialog:addOption(0, getText("Zurück","Back"))
-    local activSubstances = alchemy.base.alchemy.wirkstoff
+    local activeSubstances = alchemy.base.alchemy.wirkstoff
 	local concentrationsDe = alchemy.base.alchemy.wirkung_de
 	local concentrationsEn = alchemy.base.alchemy.wirkung_en
 	for i=1,#activeSubstances do 
 	    dialog:addOption(0,getText(activeSubstances[i]..": "..concentrationsDe[currentConcentrations[i]],activeSubstances[i]..": "..concentrationsEn[currentConcentrations[i]]))
 	end
-	dialog:addOption(getText("Sud dem Rezept hinzufügen","Add stock to the recipe"))
+	dialog:addOption(0,getText("Sud dem Rezept hinzufügen","Add stock to the recipe"))
 	
 	User:requestSelectionDialog(dialog)
 	
@@ -398,12 +398,16 @@ function RemoveLastIngredient(User, ingredientsList)
 		if string.find(removed,"stock") then
 		    de = "Sud"
 			en = "Stock"
-		else
+		elseif string.find(removed,"stock") then
             de = "Essenzgebräu"
 			en = "Essence brew"
+		else
+			de = "Abfüllen"
+			en = "Bottle"
 		end	
 		User:inform("Die letzte Zutat wurde vom Rezept entfernt: "..de,"The last ingredient has been removed: "..en,Character.lowPriority)
 	end
+	FirstMenu(User, ingredientsList)
 end
 
 function ShowRecipe(User, ingredientsList, notMenu) 
@@ -460,26 +464,42 @@ end
 
 function ShowStockEssence(User, theLiquid, notMenu)
 
-	local liquid, liquidList = StockEssenceList(ingredientsList[i])
-	
-	
-
-
-
-
+	local liquid, liquidList = StockEssenceList(theLiquid)
+	local de, en, titleDe, titleEn
+	if liquid == "essence brew" then
+		titelDe = "Essenzgebräu"
+		titleEn = "Essece brew"
+		de = ESSENCE_BREWS[liquidList[1]]["de"]..":"
+		en = ESSENCE_BREWS[liquidList[1]]["en"]..":"
+	    if not (#liquidList > 1) then
+		    de = de.."\nKeine Pflanzen essenziert"
+			en = en.."\nNo essenced herbs"
+		else
+			for i=2,#liquidList do
+			    de = de.."\n"..world:getItemName(liquidList[i],Player.german)
+				en = en.."\n"..world:getItemName(liquidList[i],Player.english)
+			end
+		end
+	elseif liquid == "stock" then
+	    titelDe = "Sud"
+		titleEn = "Essence brew"
+		de = "Sud:"
+		en = "Stock:"
+		local activeSubstances = alchemy.base.alchemy.wirkstoff
+		local concentrationsDe = alchemy.base.alchemy.wirkung_de
+		local concentrationsEn = alchemy.base.alchemy.wirkung_en
+		for i=1,#liquidList do
+		    de = "\n"..concentrationsDe[liquidList[i]].." "..alchemy.base.alchemy.wirkstoff[i]
+			en = "\n"..concentrationsEn[liquidList[i]].." "..alchemy.base.alchemy.wirkstoff[i]
+		end
+	end
 
 	local callback = function(dialog)
         ShowRecipe(User, ingredientsList, notMenu) 
     end
 
-	local dialog = MessageDialog("Lorem ipsum", message, callback)
+	local dialog = MessageDialog(getText(titleDe,titleEn), getText(de,en), callback)
     User:requestMessageDialog(dialog)
-        
-	
-
-
-
-
 end
 
 function StockEssenceList(theString)
