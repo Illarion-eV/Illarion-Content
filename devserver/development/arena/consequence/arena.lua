@@ -20,7 +20,7 @@ function(self, mode)
     end;
 end);
 
-function _arena_helper_set(self, npcChar, player)
+function _arena_helper_request(self, npcChar, player)
 	development.arena.base.arena.requestMonster(player, npcChar);
 end;
 
