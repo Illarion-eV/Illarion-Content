@@ -460,26 +460,42 @@ end
 
 function ShowStockEssence(User, theLiquid, notMenu)
 
-	local liquid, liquidList = StockEssenceList(ingredientsList[i])
-	
-	
-
-
-
-
+	local liquid, liquidList = StockEssenceList(theLiquid)
+	local de, en, titleDe, titleEn
+	if liquid == "essence brew" then
+		titelDe = "Essenzgebräu"
+		titleEn = "Essece brew"
+		de = ESSENCE_BREWS[liquidList[1]]["de"]..":"
+		en = ESSENCE_BREWS[liquidList[1]]["en"]..":"
+	    if not (#liquidList > 1) then
+		    de = de.."\nKeine Pflanzen essenziert"
+			en = en.."\nNo essenced herbs"
+		else
+			for i=2,#liquidList do
+			    de = de.."\n"..world:getItemName(liquidList[i],Player.german)
+				en = en.."\n"..world:getItemName(liquidList[i],Player.english)
+			end
+		end
+	elseif liquid == "stock" then
+	    titelDe = "Sud"
+		titleEn = "Essence brew"
+		de = "Sud:"
+		en = "Stock:"
+		local activSubstances = alchemy.base.alchemy.wirkstoff
+		local concentrationsDe = alchemy.base.alchemy.wirkung_de
+		local concentrationsEn = alchemy.base.alchemy.wirkung_en
+		for i=1,#liquidList do
+		    de = "\n"..concentrationsDe[liquidList[i]].." "..alchemy.base.alchemy.wirkstoff[i]
+			en = "\n"..concentrationsEn[liquidList[i]].." "..alchemy.base.alchemy.wirkstoff[i]
+		end
+	end
 
 	local callback = function(dialog)
         ShowRecipe(User, ingredientsList, notMenu) 
     end
 
-	local dialog = MessageDialog("Lorem ipsum", message, callback)
+	local dialog = MessageDialog(getText(titleDe,titleEn), getText(de,en), callback)
     User:requestMessageDialog(dialog)
-        
-	
-
-
-
-
 end
 
 function StockEssenceList(theString)

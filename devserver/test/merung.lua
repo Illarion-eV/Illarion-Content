@@ -6,22 +6,8 @@ require("alchemy.base.brewing")
 module("test.merung", package.seeall)
 
 function UseItem(User, SourceItem,ltstate)
-	--User:increaseAttrib("essence",30)
-	local callback = function(dialog) 
-		success = dialog:getSuccess() 
-		if success then
-			selected = dialog:getSelectedIndex() 
-			User:inform("Success, you selected option "..selected+1) 
-		else
-			User:inform("Selection aborted!") 
-		end
-	end
-
-	local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
-	dialog:setCloseOnMove()
-	dialog:addOption(133, "Essence brew based on amethyst powder, containing: night angels blossom, night angels blossom, night angels blossom, night angels blossom, night angels blossom, night angels blossom, night angels blossom, night angels blossom")
-
-	User:requestSelectionDialog(dialog)
+	User:increaseAttrib("essence",30)
+	development.recipe_creation.FirstMenu(User, ingredientsList)
 	
 	
 	--[[
