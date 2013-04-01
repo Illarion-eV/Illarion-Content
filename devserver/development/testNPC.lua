@@ -10,6 +10,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.repair")
 require("npc.base.talk")
 require("npc.base.trade")
+require("development.arena.consequence.arena")
 module("development.testNPC", package.seeall)
 
 function initNpc()

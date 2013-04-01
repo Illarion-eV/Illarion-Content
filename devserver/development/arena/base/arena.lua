@@ -243,7 +243,7 @@ end
 function getArenastats(User, NPC)
 	local arena = getArena(User, NPC);
 	local quest = arenaInformations[arena].quest;
-	local points = User:getQuestState(quest);
+	local points = User:getQuestProgress(quest);
 	
 	gText="Ihr habt bereits "..points.." gesammelt. Weiter so!";
 	eText="You already earned "..points.." points. Keep it up!";

@@ -1,5 +1,7 @@
 require("base.class")
 require("npc.base.consequence.consequence")
+require("development.arena.base.arena")
+require("development.arena.lte.arena")
 
 module("development.arena.consequence.arena", package.seeall)
 
