@@ -36,7 +36,7 @@ function UseItem(User, SourceItem, ltstate)
 	-- additional tool item is needed
 	if (User:countItemAt("all",6)==0) then
 		base.common.HighInformNLS( User,
-		"Du brauchst eine Schere um weben.", 
+		"Du brauchst eine Schere zum weben.", 
 		"You need a pair of scissors for weaving." );
 		return
 	end
@@ -61,7 +61,7 @@ function UseItem(User, SourceItem, ltstate)
 	
 	-- any other checks?
 
-	if (User:countItemAt("all",170)<5) then -- check for items to work on
+	if (User:countItemAt("all",170)<2) then -- check for items to work on
     if (User:countItemAt("all",170)==0) then
       base.common.HighInformNLS( User, 
       "Du brauchst Wolle um zu weben.", 
@@ -88,7 +88,7 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 	User:learn( weaving.LeadSkill, weaving.SavedWorkTime[User.id], weaving.LearnLimit);
-	User:eraseItem( 170, 5 ); -- erase the item we're working on
+	User:eraseItem( 170, 2 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 176, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -97,7 +97,7 @@ function UseItem(User, SourceItem, ltstate)
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		if (User:countItemAt("all",170)>4) then  -- there are still items we can work on
+		if (User:countItemAt("all",170)>1) then  -- there are still items we can work on
 			weaving.SavedWorkTime[User.id] = weaving:GenWorkTime(User,toolItem);
 			User:startAction( weaving.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left

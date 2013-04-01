@@ -61,7 +61,7 @@ function UseItem(User, SourceItem, ltstate)
 	
 	-- any other checks?
 
-	if (User:countItemAt("all",170)<2 and User:countItemAt("all",155)<3) then -- check for items to work on
+	if (User:countItemAt("all",170)<1 and User:countItemAt("all",155)<3) then -- check for items to work on
 		if (User:countItemAt("all",170)==0 and User:countItemAt("all",155)==0) then
 			base.common.HighInformNLS( User, 
 			"Du brauchst Wolle oder Sibanacblätter um Garn herzustellen.", 
@@ -89,8 +89,8 @@ function UseItem(User, SourceItem, ltstate)
 
 	User:learn( threadproducing.LeadSkill, threadproducing.SavedWorkTime[User.id], threadproducing.LearnLimit);
 	local itemId = 170; -- first check for wool
-	local eraseCount = 2;
-	if ( User:countItemAt("all",170)<2 ) then
+	local eraseCount = 1;
+	if ( User:countItemAt("all",170)<1 ) then
 		itemId = 155; -- not enough wool, then there must be enough sibanac leaves
 		eraseCount = 3;
 		if ( User:countItemAt("all",155)<3 ) then
@@ -108,7 +108,7 @@ function UseItem(User, SourceItem, ltstate)
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		if ((User:countItemAt("all",170)>=2 or User:countItemAt("all",155)>=3)) then  -- there are still items we can work on
+		if ((User:countItemAt("all",170)>=1 or User:countItemAt("all",155)>=3)) then  -- there are still items we can work on
 			threadproducing.SavedWorkTime[User.id] = threadproducing:GenWorkTime(User,toolItem);
 			User:startAction( threadproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- not enough items left
