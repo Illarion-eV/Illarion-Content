@@ -450,6 +450,7 @@ function ShowRecipe(User, ingredientsList, notMenu)
 					if liquid == "stock" then
 					    dialog:addOption(331, getText("Sud","Stock"))
 					elseif liquid == "essence brew" then
+						User:inform(""..liquidList[i])
 						dialog:addOption(liquidList[1], getText("Essenzgebräu","Essence brew"))
 					end		
 			    end
