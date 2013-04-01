@@ -421,7 +421,7 @@ function ShowRecipe(User, ingredientsList, notMenu)
 			if selected == 1 and not notMenu then
 			    FirstMenu(User, ingredientsList)
             elseif type(ingredientsList[selected-1])=="string" and not string.find(ingredientsList[selected-1],"bottle") then
-				ShowStockEssence(User, ingredientsList[selected-1], notMenu)
+				ShowStockEssence(User, ingredientsList[selected-1], ingredientsList, notMenu)
 			else
 				ShowRecipe(User, ingredientsList, notMenu) 
 			end	
@@ -434,7 +434,7 @@ function ShowRecipe(User, ingredientsList, notMenu)
 
 	local dialog
 	if not notMenu then
-		dialog = SelectionDialog(getText("Rezeptvorschau","Recipe preview"), getText("Hier wird deine bisherige Auswahl angezeigt. Wähle ein Essenzgebräu oder Sud aus, um Nähres über dessen Inhalt zu erfahren.","Here are your current choices shown. Select an essence brew or stock to get to know more about its content."), callback)
+		dialog = SelectionDialog(getText("Rezeptvorschau","Recipe preview"), getText("Hier wird deine bisherige Auswahl angezeigt. Wähle ein Essenzgebräu oder einen Sud aus, um Nähres über dessen Inhalt zu erfahren.","Here are your current choices shown. Select an essence brew or stock to get to know more about its content."), callback)
 	else
 	    dialog = SelectionDialog(getText("Rezept","Recipe"),getText("Wähle ein Essenzgebräu oder Sud aus, um Nähres über dessen Inhalt zu erfahren. Wenn du aber vor einem Kessel stehst, wähle eine Zutat aus, von welcher du das Brauen beginnen willst.","Select an essence brew or a stock to get to learn more about its content. But if there is an cauldron infront of you, select the ingredient where you want to start to brew from."))
 	end
@@ -461,7 +461,7 @@ function ShowRecipe(User, ingredientsList, notMenu)
 	User:requestSelectionDialog(dialog)
 end
 
-function ShowStockEssence(User, theLiquid, notMenu)
+function ShowStockEssence(User, theLiquid, ingredientsList, notMenu)
 	local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
 	
 	local liquid, liquidList = StockEssenceList(theLiquid)
