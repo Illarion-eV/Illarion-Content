@@ -458,7 +458,7 @@ function ShowRecipe(User, ingredientsList, notMenu)
 	User:requestSelectionDialog(dialog)
 end
 
-function ShowStockEssence(User, ingredientsList[i], notMenu)
+function ShowStockEssence(User, theLiquid, notMenu)
 
 	local liquid, liquidList = StockEssenceList(ingredientsList[i])
 	
