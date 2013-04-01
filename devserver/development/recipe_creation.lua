@@ -255,7 +255,8 @@ function SelectFillIntoCauldron(User, ingredientsList)
 end
 
 function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
-
+	local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	
     local callback = function(dialog) 
 		local success = dialog:getSuccess() 
 		if success then
