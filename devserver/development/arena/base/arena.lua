@@ -99,7 +99,7 @@ function spawnMonster(User, MonsterLevel, arena)
 	
     local monster;
 	world:gfx(31,arenaInformations[arena].monsterPos);
-	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformations[arena].monsterPos,0);
+	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformations[arena].monsterPos,10);
 	if isValidChar(monster) then
 		table.insert( arenaMonster[User.id], monster );
     end
@@ -110,12 +110,13 @@ function checkMonster(User)
 		return true;
     end
 
-    local mosnter = arenaMonster[User.id];
-    if isValidChar(mosnter) then
-        if monster:increaseAttrib("hitpoints",0) > 0 then
-            return false;
-        end
-    end
+	for i,monster in pairs(arenaMonster[User.id]) do
+		if isValidChar(monster) then
+			if monster:increaseAttrib("hitpoints",0) > 0 then
+				return false;
+			end
+		end
+	end
     arenaMonster[User.id] = nil;
     return true;
 end
@@ -125,11 +126,11 @@ function killMonster(User)
 		return true;
     end
 
-	local monster = arenaMonster[User.id];
-
-	if isValidChar(monster) then
-		if monster:increaseAttrib("hitpoints",0) > 0 then
-			monster:increaseAttrib("hitpoints",-10000);
+	for i,monster in pairs(arenaMonster[User.id]) do
+		if isValidChar(monster) then
+			if monster:increaseAttrib("hitpoints",0) > 0 then
+				monster:increaseAttrib("hitpoints",-10000);
+			end
 		end
 	end
 	arenaMonster[User.id] = nil;
