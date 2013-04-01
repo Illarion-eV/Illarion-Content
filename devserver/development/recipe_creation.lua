@@ -263,10 +263,10 @@ function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 			local selected = dialog:getSelectedIndex() + 1
 			if selected == 1 then
 				SelectFillIntoCauldron(User, ingredientsList)
-			elseif selcted == 2 then
+			elseif selected == 2 then
                 SelectPlantCategory(User, ingredientsList, currentEssenceList)
             elseif selected == 3 then
-				if currentEssenceList < 2 then
+				if #currentEssenceList < 2 then
 				    User:inform("Es befinden sich keine Pflanzen zum Entfernen im Essenzgebräu.","There are no plants to be removed in the essence brew.")
 				else
 					local removed = table.remove(currentEssenceList)
@@ -285,22 +285,19 @@ function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 	
 	local essenceStringDe = ESSENCE_BREWS[currentEssenceList[1]]["de"]..", beinhaltend:"
 	local essenceStringEn = ESSENCE_BREWS[currentEssenceList[1]]["en"]..", containing:"
-	for i=2,#currentEssenceList do
-	    if currentEssenceList[i] == nil then
-		    if i == 2 then
-				essenceStringDe = essenceStringDe.." keine Pflanzen"
-				essenceStringEn = essenceStringEn.." no plants"
-			end	
-			break
-		else
-            if i ~= 2 then
-                essenceStringDe = essenceStringDe..","
+	if #currentEssenceList > 1 then
+		for i=2,#currentEssenceList do
+			if i ~= 2 then
+				essenceStringDe = essenceStringDe..","
 				essenceStringEn = essenceStringEn..","
 			end
-            essenceStringDe = essenceStringDe.." "..world:getItemName(currentEssenceList[i],Player.german)
+			essenceStringDe = essenceStringDe.." "..world:getItemName(currentEssenceList[i],Player.german)
 			essenceStringEn = essenceStringEn.." "..world:getItemName(currentEssenceList[i],Player.english)
-        end
-    end		
+		end
+    else
+		essenceStringDe = essenceStringDe.." keine Pflanzen"
+		essenceStringEn = essenceStringEn.." no plants"
+	end
 	
 	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle aus, was du machen möchtest. Derzeitiges Essenzgebräu: "..essenceStringDe,"Select what you would like to do. Current essence brew: "..essenceStringEn), callback)
 	dialog:setCloseOnMove()
