@@ -412,8 +412,16 @@ function ShowRecipe(User, ingredientsList, notMenu)
 	local callback = function(dialog) 
 		local success = dialog:getSuccess() 
 		if success then
-			local selected = dialog:getSelectedIndex() 
-			User:inform("Success, you selected option "..selected+1) 
+			local selected = dialog:getSelectedIndex() + 1
+			-- check if infrotn of cauldron
+			-- else
+			if selected == 1 and not notMenu then
+			    FirstMenu(User, ingredientsList)
+            elseif type(ingredientsList[selected-1])=="string" and not string.find(ingredientsList[selected-1],"bottle") then
+				ShowStockEssence(User, ingredientsList[i], notMenu)
+			else
+				ShowRecipe(User, ingredientsList, notMenu) 
+			end	
 		else
 			if not notMenu then
 				FirstMenu(User, ingredientsList)
@@ -448,6 +456,30 @@ function ShowRecipe(User, ingredientsList, notMenu)
 		end
 	end
 	User:requestSelectionDialog(dialog)
+end
+
+function ShowStockEssence(User, ingredientsList[i], notMenu)
+
+	local liquid, liquidList = StockEssenceList(ingredientsList[i])
+	
+	
+
+
+
+
+
+	local callback = function(dialog)
+        ShowRecipe(User, ingredientsList, notMenu) 
+    end
+
+	local dialog = MessageDialog("Lorem ipsum", message, callback)
+    User:requestMessageDialog(dialog)
+        
+	
+
+
+
+
 end
 
 function StockEssenceList(theString)
