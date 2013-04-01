@@ -232,7 +232,7 @@ function setRanklist(User, arena, points)
 				break;
 			end
 		end
-		stringList = base.common.join(ranklist);
+		stringList = base.common.join(ranklist, ";");
 		ScriptVars:set(arenaListName, stringList)
 	end
 end
