@@ -29,5 +29,6 @@ function _arena_helper_points(self, npcChar, player)
 end;
 
 function _arena_helper_list(self, npcChar, player)
-    development.arena.base.arena.getRanklist(player, npcChar, true);
+	local arena = development.arena.base.arena.getArena(player, npcChar);
+    development.arena.base.arena.getRanklist(player, arena, true);
 end;

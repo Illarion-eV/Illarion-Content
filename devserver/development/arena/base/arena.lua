@@ -164,8 +164,7 @@ message = true: displays a messagebox with the ranklist
 message = false: returns the ranklist table
 ]]
 
-function getRanklist(User, NPC, message)
-	local arena = getArena(User, NPC);
+function getRanklist(User, arena, message)
 	local town = arenaInformations[arena].town;
 	local found = false;
 	local arenaEntry;
@@ -214,17 +213,14 @@ end
 Saves the points of the player and if he reached the 
 top five, also saves the new top five.
 ]]
-function setRanklist(User, NPC, points) 
-	local ranklist = getRanklist(User, NPC, false)
-	local arena = getArena(User, NPC);
+function setRanklist(User, arena, points) 
+	local ranklist = getRanklist(User, arena, false)
 	local town = arenaInformations[arena].town;
 	local quest = arenaInformations[arena].quest;
 	local newRanklist = {};
 	local arenaListName = "ArenaList"..town;
-	
-	User:setQuestState(quest, points);
-	
-	if ranklist[table.getn(ranklist)] > points then
+
+	if tonumber(ranklist[table.getn(ranklist)]) > points then
 		return;
 	else
 		for i=2, #(ranklist), 2 do
@@ -253,8 +249,12 @@ function getArenastats(User, NPC)
     NPC:talk(Character.say, outText);
 end
 
-function setArenastats(User, NPC, points)
-	--ToDo
+function setArenastats(User, arena, points)
+	local quest = arenaInformations[arena].quest;
+	local oldPoints = User:getQuestProgress(quest);
+	
+	points = points + oldPoints;
+	User:setQuestProgress(quest, points);
 end
 
 --Sorts a table deceanding by the value of every second entry

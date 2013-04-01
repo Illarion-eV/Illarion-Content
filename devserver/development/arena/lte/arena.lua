@@ -47,6 +47,10 @@ function callEffect(arenaEffect, User)
         base.common.InformNLS( User,
         "Ihr habt euren Gegner geschlagen und Punkte verdient.",
         "You defeated your enemy and gained points for it.");
+		development.arena.base.arena.setArenastats(User, arena, development.arena.base.arena.monsterIDsByLevel[level].points);
+		local quest = development.arena.base.arena.arenaInformations[arena].quest;
+		local points = User:getQuestProgress(quest);
+		development.arena.base.arena.setRanklist(User, arena, points);
 		User:warp(development.arena.base.arena.arenaInformations[arena].newPlayerPos);
         return false;
     end
