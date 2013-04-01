@@ -248,7 +248,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 	dialog:addOption(331, getText("Sud","Stock"))
 	for i=1,#ESSENCE_BREWS_IDS do
 		local id = ESSENCE_BREWS_IDS[i]
-		dialog:addOption(id,getText(ESSENCE_BREW[id]["de"],ESSENCE_BREW[id]["en"]))
+		dialog:addOption(id,getText(ESSENCE_BREWS[id]["de"],ESSENCE_BREWS[id]["en"]))
 	end	
 	dialog:setCloseOnMove()
 	User:requestSelectionDialog(dialog)
@@ -398,9 +398,12 @@ function RemoveLastIngredient(User, ingredientsList)
 		if string.find(removed,"stock") then
 		    de = "Sud"
 			en = "Stock"
-		else
+		elseif string.find(removed,"stock") then
             de = "Essenzgebräu"
 			en = "Essence brew"
+		else
+			de = "Abfüllen"
+			en = "Bottle"
 		end	
 		User:inform("Die letzte Zutat wurde vom Rezept entfernt: "..de,"The last ingredient has been removed: "..en,Character.lowPriority)
 	end
