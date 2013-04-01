@@ -255,7 +255,8 @@ function SelectFillIntoCauldron(User, ingredientsList)
 end
 
 function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
-
+	local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	
     local callback = function(dialog) 
 		local success = dialog:getSuccess() 
 		if success then
@@ -372,12 +373,12 @@ function SelectConcentration(User,ingredientsList,currentConcentrations, activeS
 			User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority) 
 		end
 	end
-if callback then User:inform("callback") end
+
 	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle eine Konzentration für "..activeSubstances[activeSubstancePos].." aus.","Select a concentration for "..activeSubstances[activeSubstancePos].."."), callback)
 	dialog:setCloseOnMove()
 	dialog:addOption(0, getText("Zurück","Back"))
 	for i=1,#concentrationsDe do
-	    add:dialog(0,getText(""..concentrationsDe[i],""..concentrationsEn[i]))
+	    dialog:addOption(0,getText(""..concentrationsDe[i],""..concentrationsEn[i]))
 	end	
 
 	User:requestSelectionDialog(dialog)
