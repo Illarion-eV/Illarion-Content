@@ -97,7 +97,6 @@ function spawnMonster(User, MonsterLevel, arena)
 		arenaMonster[User.id] = {};
     end
 	
-	local arena = getArena(User, NPC)
     local monster;
 	world:gfx(31,arenaInformations[arena].monsterPos);
 	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformations[arena].monsterPos,0);
