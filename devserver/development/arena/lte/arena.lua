@@ -18,7 +18,7 @@ function addEffect(arenaEffect, User)
     if not found then
         return false;
     end
-    base.arena.spawnMonster(User, level, arena);
+    development.arena.base.arena.spawnMonster(User, level, arena);
     return true;
 end
 
@@ -43,11 +43,11 @@ function callEffect(arenaEffect, User)
         return false;      -- no monster
     end
 
-    if base.arena.checkMonster( User ) then
+    if development.arena.base.arena.checkMonster( User ) then
         base.common.InformNLS( User,
         "Ihr habt euren Gegner geschlagen und Punkte verdient.",
         "You defeated your enemy and gained points for it.");
-		User:warp(arenaInformations[arena].newPlayerPos);
+		User:warp(development.arena.base.arena.arenaInformations[arena].newPlayerPos);
         return false;
     end
 	
@@ -55,7 +55,7 @@ function callEffect(arenaEffect, User)
 end
 
 function removeEffect(arenaEffect, User)
-    base.arena.killMonster( User );
+    development.arena.base.arena.killMonster( User );
     return false;
 end
 
