@@ -251,6 +251,10 @@ function getArenastats(User, NPC)
     NPC:talk(Character.say, outText);
 end
 
+function setArenastats(User, NPC, points)
+	--ToDo
+end
+
 --Sorts a table deceanding by the value of every second entry
 function sortTable(inputTable)
 	local numberTable = {}
