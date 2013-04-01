@@ -90,12 +90,13 @@ function payforMonster(User, MonsterLevel, NPC)
 	return true;
 end
 
+arenaMonster = {}
+
 function spawnMonster(User, MonsterLevel, arena)
     if not arenaMonster[User.id] then
 		arenaMonster[User.id] = {};
     end
 	
-	local arena = getArena(User, NPC)
     local monster;
 	world:gfx(31,arenaInformations[arena].monsterPos);
 	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformations[arena].monsterPos,0);
