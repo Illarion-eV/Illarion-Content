@@ -450,10 +450,6 @@ function ShowRecipe(User, ingredientsList, notMenu)
 					if liquid == "stock" then
 					    dialog:addOption(331, getText("Sud","Stock"))
 					elseif liquid == "essence brew" then
-						if type(ingredientsList[liquidList[1]])=="number" then
-							User:inform("number")
-						end
-						User:inform(""..liquidList[1])
 						dialog:addOption(liquidList[1], getText("Essenzgebräu","Essence brew"))
 					end		
 			    end
@@ -518,7 +514,7 @@ function StockEssenceList(theString)
 	local returnList = {}
 	for i=1,#theList do
 		if tonumber(theList[i]) ~= nil then
-			table.insert(tonumber(theLIst[i]))
+			table.insert(tonumber(theList[i]))
 		end
 	end
 	return liquid, returnList
