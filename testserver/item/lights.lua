@@ -56,6 +56,12 @@ function UseItem(User, SourceItem, ltstate)
 			"Take the light source into your hand or put it on your belt.");
 		return;
 	end
+	
+	if SourceItem.number > 1 then
+	    User:inform("Du kannst immer nur eine Lichtquelle auf einmal anzünden.",
+					"You can only light up one light source at once.")
+		return
+	end
 
 --Noobia addition by Estralis: Lighting a torch is a task of NPC Aldania
 
