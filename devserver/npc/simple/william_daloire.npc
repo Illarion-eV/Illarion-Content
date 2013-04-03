@@ -1,0 +1,207 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: William Daloire                                             None --
+-- NPC Job:  herbalist                                                        --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  897, 794, 1            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Miriam                                                           --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "William Daloire"
+race = human
+sex = male
+position = 897, 794, 1
+direction = south
+affiliation = "None"
+job = "herbalist"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Miriam"
+
+lookatDE = "Dieser NPC ist William Daloire der Kräuterkundige."
+lookatUS = "This NPC is William Daloire the herbalist."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 831
+itemChest = 363
+itemCoat = 196
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 183
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 58, 429, 126, 43, 391, 52, 753, 759, 767, 133, 134, 135, 136, 137, 140, 141, 142, 143, 144, 145, 148, 153, 154, 155, 156, 157, 431, 463, 2745, 158, 159, 160, 161, 162, 163
+buyPrimaryItems = 58, 429, 126, 43, 391, 52, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 431, 463, 2745, 158, 159, 160, 161, 162, 163
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
+-- Template Version 1.03 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
+-- 10% Tools (Alchemist): 58
+-- 10% Tools (Candle maker): 429
+-- 10% Tools (Herb gatherer): 126
+-- 10% Candles, torches: 43, 391
+-- 10% Herbs II: 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769
+-- 10% Herbs: 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157
+-- 10% Wax: 431
+-- 10% Writing stuff: 463, 2745
+-- 10% Mushrooms: 158, 159, 160, 161, 162, 163
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+
+-- Help
+"Help" -> inform("[Game Help]This NPC is William Daloire the herbalist. Keywords: trade, buy, sell, greetings, profession, tell something.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist William Daloire der Kräuterkundige. Schlüsselwörter: Handel, kaufe, verkaufe, Grüße, Beruf, erzähl was.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Oldra.", "Greetings.", "Be greeted."
+"Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oldra zum Gruße.", "Grüße.", "Seid gegrüßt."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings.", "Be greeted."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüße.", "Seid gegrüßt."
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell. May Oldra be with you.", "Farewell. Please come again."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl! Möge Oldra über Euch wachen!", "Lebt wohl! Und schaut mal wieder vorbei."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adé!", "A bientôt!", "May Oldra be with you."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Adé!", "A bientôt!", "Möge Oldra über Euch wachen!"
+"How are you", "How feel", "How do you do" -> "Thank you for asking. Since I stopped smoking Sibanac I feel great!", " I drank some herbal tea for my headache, now I feel better."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage. Seitdem ich kein Sibanac mehr rauche geht es mir ausgezeichnet!", "I trank Tee gegen meine Kopfschmerzen, und nun  geht es mir wieder gut."
+"your name", "who are you", "who art thou" -> "I'm a merchant, I sell fresh herbs. I am called William Deloire.", "I'm William Deloire, at you service."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Händler der frische Kräuter verkauft. Ich werde William Deloire genannt.", "Ich heiße William Deloire, was kann ich für Euch tun?"
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "Nah I don't sell quests. I mean.. sorry.. I don't *have any* quests for you, rather."
+"quest", "mission" -> "Soetwas verkaufe ich nicht. Ähm...Ich wollte sagen, ich biete soetwas nicht an."
+"task", "adventure", "order" -> "Nah I don't sell quests. I mean.. sorry.. I don't *have any* quests for you, rather."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Soetwas verkaufe ich nicht. Ähm...Ich wollte sagen, ich biete soetwas nicht an."
+
+-- Quest by NPC mirarie Bragolin (Writing history IV)
+queststatus(317) = 9, english, "Mirarie", "Bragolin", "letter", "message" -> queststatus(317) = 10, "Oh? A letter for me? Hrm... Ah, I see. Please tell Miss Bragolin I'll send her a letter to answer her question."
+queststatus(317) = 9, "Mirarie", "Bragolin", "Brief", "Nachricht" -> queststatus(317) = 10, "Oh?... ein Brief für mich? ... Ah, ich verstehe. Bitte sagt Fräulein Bragolin ich werde ihr einen Brief schreiben um ihre Fragen zu beantworten."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I'm a herbalist, so as you might expect: I sell herbs. Want to take a look?", "I don't just sell herbs: I also sell useful tools. Come have a look.", "I sell herbs and tools too. Want to see?"
+"beruf" -> "Ich bin ein Kräuterhändler, das heißt ich handle mit Kräutern. Möchtet Ihr das Angebot sehen?", "I verkaufe nicht nur Kräuter, sondern auch sehr nützliche Werkzeuge. Möchtet Ihr das Angebot sehen?", "Ich verkaufe Kräuter und einige Werkzeuge. Möchtet Ihr das Angebot sehen?"
+english, "job" -> "I'm a herbalist, so as you might expect: I sell herbs. Want to take a look?", "I don't just sell herbs: I also sell useful tools. Come have a look.", "I sell herbs and tools too. Want to see?"
+"job" -> "Ich bin ein Kräuterhändler, das heißt ich handle mit Kräutern. Möchtet Ihr das Angebot sehen?", "I verkaufe nicht nur Kräuter, sondern auch sehr nützliche Werkzeuge. Möchtet Ihr das Angebot sehen?", "Ich verkaufe Kräuter und einige Werkzeuge.Möchtet Ihr das Angebot sehen?"
+"tell something" -> "Smoking sibanac isn't good for your health.", "There are some herbs which you can only find in the desert.", "Herbs can have very different qualities. Druids can tell you more that."
+"erzähl was", "erzähl etwas" -> "Sibanac zu rauchen ist nicht gesund.", "Einige Käuter findet man nur in der Wüste.", "Kräuter können sehr unterschiedliche Eigenschaften haben, ein Druide kann euch dazu sicher mehr erzählen."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "The elder gods gave their power to the new ones before they left this world.", "The old gods aren't worshipped often nowadays."
+"Gott", "Götter" -> "Die alten Götter gaben ihre Macht den jungen Göttern, bevor sie diese Welt verließen.", "Zu den alten Göttern betet heutzutage kaum einer mehr."
+english, "Adron" -> "I don't pray to him. Do you?"
+"Adron" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Bragon", "Bràgon" -> "I don't pray to him. Do you?"
+"Bragon", "Bràgon" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Cherga" -> "I don't pray to her. Do you?"
+"Cherga" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Elara" -> "I don't pray to her. Do you?"
+"Elara" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Eldan" -> "I don't pray to him. Do you?"
+"Eldan" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Findari" -> "I don't pray to her. Do you?"
+"Findari" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Irmorom" -> "I don't pray to him. Do you?"
+"Irmorom" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Malachin", "Malachín" -> "I don't pray to him. Do you?"
+"Malachin", "Malachín" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Moshran" -> "I do not pray to that evil fiend. Do you?"
+"Moshran" -> "Ich bete nicht zu diesem finsteren Gott. Und Ihr?"
+english, "Nargun", "Nargùn", "Nargún" -> "I don't pray to him. Do you?"
+"Nargun", "Nargùn", "Nargún" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Oldra" -> "Ushara is the goddess of earth, while Oldra is the goddess of life."
+"Oldra" -> "Ushara ist die Göttin der Erde, während Oldra die Göttin des Lebens ist."
+english, "Ronagan" -> "I don't pray to him. Do you?"
+"Ronagan" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Sirani" -> "I don't pray to her. Do you?"
+"Sirani" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Tanora", "Zelphia" -> "I don't pray to her. Do you?"
+"Tanora", "Zelphia" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Ushara" -> "Ushara is the goddess of earth, while Oldra is the goddess of life."
+"Ushara" -> "Ushara ist die Göttin der Erde, während Oldra die Göttin des Lebens ist."
+english, "Zhambra" -> "I don't pray to him. Do you?"
+"Zhambra" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+
+-- Optional: Faction stuff
+"archmage" -> "I hear that he secretly takes pride in his plants.", "He's a man who knows his stuff, at least. Even if it isn't herbs."
+"Erzmagier" -> "Was hat ein Kräuterhändler mit dem Erzmagier zu tun? Nichts.", "Davon weiß ich nichts."
+english, "Elvaine", "Morgan" -> "I hear that he secretly takes pride in his plants.", "He's a man who knows his stuff, at least. Even if it isn't herbs."
+"Elvaine", "Morgan" -> "Was hat ein Kräuterhändler mit Elvaine Morgan zu tun? Nichts.", "Davon weiß ich nichts."
+english, "Runewick" -> "Even in a magical town you find good herbs. Plants grow almost everywhere."
+"Runewick" -> "Auch dort kann man Kräuter finden. Pflanzen wachsen fast überall."
+english, "Valerio", "Guilianni", "Don" -> "I think the Don prefers a good 'whine' to tea."
+"Valerio", "Guilianni", "Don" -> "Der Don schätzt guten Wein bmehr als Kräutertee."
+english, "Galmair" -> "Even underground you'll find herbs. Plants grow almost everywhere."
+"Galmair" -> "Auch dort kann man Kräuter finden. Pflanzen wachsen fast überall."
+"Queen" -> "Why would a herbalist concern the queen? Right, I don't.", "I don't think we have anything in common."
+"Königin" -> "Was hat ein Kräuterhändler mit der Königin zu tun? Nichts.", "Davon weiß ich nichts."
+english, "rosaline", "edwards" -> "Why would a herbalist concern the queen? Right, I don't.", "I don't think we have anything in common."
+"rosaline", "edwards" -> "Was hat ein Kräuterhändler mit dem Rosaline Edwards zu tun? Nichts.", "Davon weiß ich nichts."
+english, "Cadomyr" -> "Even in the desert you find herbs. Plants grow almost everywhere."
+"Cadomyr" -> "Auch dort kann man Kräuter finden. Pflanzen wachsen fast überall."
+
+-- Optional: Main land factions
+english, "albar" -> "Place sounds like a wasteland. Perhaps it's the only place herbs won't grow."
+"albar" -> "Auch dort kann man Kräuter finden. Pflanzen wachsen fast überall."
+english, "gynk", "gync" -> "You can even find herbs there! As I always say: plants grow almost everywhere."
+"gync", "gynk" -> "Auch dort kann man Kräuter finden. Pflanzen wachsen fast überall."
+english, "salkama" -> "Herbs are plentiful there. Plants grow almost everywhere."
+"salkama" -> "Auch dort kann man Kräuter finden. Pflanzen wachsen fast überall."
+
+-- Optional: Gobaith
+english, "Gobaith", "Gobiath" -> "Goba.. Gobi-what? I've never heard of that herb."
+"Gobaith", "Gobiath" -> "Goba...Gobi-was? Was für ein Kraut ist das denn?"
+
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+"my name" -> "A pleasure to meet you,%CHARNAME."
+"mein Name" -> "Es ist eine Freude Eure Bekanntschaft zu machen, %CHARNAME."
+english, "William", "Deloire" -> "Yes, that's me. I'm William Deloire, at you service."
+"William", "Deloire" -> "Ja, das bin ich. William Deloire, was kann ich für Euch tun?"
+"Yes" -> "I should think so too!", "Perhaps..."
+"Ja" -> "Das sehe ich genau so.", "Nun..."
+"No" -> "Ah. Alright, I suppose.", "Ah.."
+"Nein" -> "Ah. Das verstehe ich ...", "Nun..."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "I fear I didn't catch your drift."
+german, chance(20.0), ".*" -> "Ich fürchte, ich habe Euch nicht verstanden."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me duftet nach Kräutern.", "#me's scent fills the air thickly, a cocktail of herbal smells."
+cycletext "#me wischt ein paar alte Blätter vom Tisch.", "#me quickly brushes some old leaves from the tabletop."
+cycletext "#me blickt nach draußen.", "#me glances outside, deep in thought."
+cycletext "#me zwinkert der Verkäuferin am anderen Tisch zu.", "#me winks suggestively at the merchant behind the other table."
+cycletext "#me pfeift eine vergnügliche Melodie.", "#me whistles a happy melody in a rather shrill tone."
+cycletext "#me wiegt ein Beutelchen mit Kräutern.", "#me weighs a small bag of herbs out carefully on the counter."
+cycletext "Kräuter! Frische Kräuter mit bester Qualität!", "Herbs! Fresh herbs of the finest quality!"
