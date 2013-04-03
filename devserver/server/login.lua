@@ -171,16 +171,12 @@ function onLogin( player )
     if not player:isAdmin()  and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
 		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
 			-- So let there be taxes!
-			if isTestserver() then
 			local taxText = payTaxes(player);
 			local gemText = receiveGems(player);
 			if gemText ~= nil or taxText ~= nil then
 				informPlayeraboutTaxandGems(player, gemText, taxText)
 			end
-			else
-			payTaxes(player);
-			receiveGems(player);
-			end
+
 		end
 	end
 
@@ -275,19 +271,11 @@ function payTaxes(taxPayer)
 	if (lastTax~=0) then
 		if lastTax<timeStmp then
 			taxPayer:setQuestProgress(123,timeStmp);
-			if isTestserver() then
 			return payNow(taxPayer)
-			else
-			payNow(taxPayer)
-			end
 		end
 	else
 		taxPayer:setQuestProgress(123,timeStmp);
-		if isTestserver() then
 		return payNow(taxPayer)
-		else
-		payNow(taxPayer)
-		end
 	end
 end
 
@@ -317,19 +305,11 @@ function receiveGems(gemRecipient)
 	if (lastGem~=0) then
 		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
 			gemRecipient:setQuestProgress(124,timeStmp);
-			if isTestserver() then
 			return PayOutWage(gemRecipient,town)
-			else
-			PayOutWage(gemRecipient,town)
-			end
 		end
 	else
 		gemRecipient:setQuestProgress(124,timeStmp);
-		if isTestserver() then
 		return PayOutWage(gemRecipient,town)
-		else
-		PayOutWage(gemRecipient,town)
-		end
 	end
 end
 
@@ -396,19 +376,7 @@ function PayOutWage(Recipient,town)
 	                                   "Deine loyalen Dienste für "..town.." werden mit den folgenden magischen Edelsteinen belohnt:"..endname, 
 	                                   "Your loyal service to "..town.." is awarded with the following magical gems:"..endname)
 			end
-			if isTestserver() then
 			return infText;
-			else
-			local title = base.common.GetNLS(Recipient,"Belohnung","Gratification")
-	
-			local dialog=MessageDialog(title,infText,closeTrib);
-			
-			local closeTrib=function(onClose)
-				-- do nothing
-			end
-			
-			Recipient:requestMessageDialog(dialog);
-			end
 		end
 	end
 end
@@ -533,21 +501,11 @@ function payNow(User)
 	                                   "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%", 
 	                                   "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
 	local title = base.common.GetNLS(User,"Abgabenbenachrichtigung","Tribute information")
-	if isTestserver() then
-		return infText;
-	else
-	local dialog=MessageDialog(title,infText,closeTrib);
-    
-	local closeTrib=function(onClose)
-    -- do nothing
-    end
-
-    User:requestMessageDialog(dialog);
-	end
+		
 	
 	base.townTreasure.ChangeTownTreasure(town,totTax)
 	base.townTreasure.IncreaseTaxpayerNumber(town)
-    
+    return infText;
 end
 
 function informPlayeraboutTaxandGems(User, gemText, taxText)
