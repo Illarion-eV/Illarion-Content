@@ -56,7 +56,7 @@ function onAttack(Attacker, Defender)
 		--Attacker:inform("Should be attacking."); --Debugging
 		development.testscript.onAttack(Attacker,Defender);
 		return;
-	-end;
+	end;
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
