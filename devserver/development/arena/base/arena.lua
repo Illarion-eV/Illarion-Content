@@ -250,6 +250,7 @@ function isUserInList(User, ranklist)
 	for i=1, #(ranklist), 2 do
 		if ranklist[i] == User.name then
 			return true, i;
+		end
 	end	
 	return false, 0;
 end
