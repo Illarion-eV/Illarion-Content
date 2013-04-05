@@ -436,7 +436,7 @@ function ShowRecipe(User, ingredientsList, notMenu)
 	if not notMenu then
 		dialog = SelectionDialog(getText("Rezeptvorschau","Recipe preview"), getText("Hier wird deine bisherige Auswahl angezeigt. Wähle ein Essenzgebräu oder einen Sud aus, um Nähres über dessen Inhalt zu erfahren.","Here are your current choices shown. Select an essence brew or stock to get to know more about its content."), callback)
 	else
-	    dialog = SelectionDialog(getText("Rezept","Recipe"),getText("Wähle ein Essenzgebräu oder Sud aus, um Nähres über dessen Inhalt zu erfahren. Wenn du aber vor einem Kessel stehst, wähle eine Zutat aus, von welcher du das Brauen beginnen willst.","Select an essence brew or a stock to get to learn more about its content. But if there is an cauldron infront of you, select the ingredient where you want to start to brew from."))
+	    dialog = SelectionDialog(getText("Rezept","Recipe"),getText("Wähle ein Essenzgebräu oder Sud aus, um Nähres über dessen Inhalt zu erfahren. Wenn du aber vor einem Kessel stehst, wähle eine Zutat aus, von welcher du das Brauen beginnen willst.","Select an essence brew or a stock to get to learn more about its content. But if there is an cauldron infront of you, select the ingredient where you want to start to brew from."),callback)
 	end
 	dialog:setCloseOnMove()
 	dialog:addOption(0, getText("Zurück","Back"))
