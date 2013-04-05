@@ -423,7 +423,7 @@ function UseItem(User, SourceItem, ltstate)
     return
   end
   
-  if DigForTresure(User) then
+  if DigForTreasure(User) then
     return;
   end
   
@@ -502,7 +502,7 @@ function UseItem(User, SourceItem, ltstate)
 end
 
 -- @return  True if found a treasure.
-function DigForTresure(User)
+function DigForTreasure(User)
   local TargetPos = base.common.GetFrontPosition(User);
   local groundTile = world:getField( TargetPos ):tile();
   local GroundType = base.common.GetGroundType( groundTile );

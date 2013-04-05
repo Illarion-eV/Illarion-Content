@@ -71,6 +71,12 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, ltstate)
+    if User.lastSpokenText == "setglobal" then
+        User:inform("Player.english: " .. Player.english)
+        Player.english = 42
+        User:inform("Player.english: " .. Player.english)
+    end
+    
     if User.lastSpokenText == "erase" then
         User:getBackPack():eraseItem(61, 1)
     end

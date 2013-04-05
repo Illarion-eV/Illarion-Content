@@ -248,7 +248,7 @@ function ArmourDegrade(Defender, Globals)
 
 		if (durability <= 0) then
 			base.common.InformNLS(Defender.Char,
-		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		  "Dein Artefakt zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
 		  "Your artifact shatters. You should take better care of it next time.");
 		  world:erase(Globals.HittedItem, 1);
 		  return true;
@@ -261,7 +261,7 @@ function ArmourDegrade(Defender, Globals)
 
     
 		base.common.InformNLS(Defender.Char,
-		"Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		"Du solltest dein kaputtes Artefakt ablegen bevor es zerbricht!",
 		"You should take off your broken artifact before it shatters!");
 
 	elseif (base.common.Chance(Globals.Damage, 6000)) then
@@ -271,7 +271,7 @@ function ArmourDegrade(Defender, Globals)
     
 		if (durability == 0) then
 			base.common.InformNLS(Defender.Char,
-		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		  "Dein Rüstteil zerbricht. Glücklicherweise tritt kein Splitter in deinen Körper ein.",
 		  "Your armour piece shatters. Thankfully, no fragments end up in your body.");
 		  world:erase(Globals.HittedItem, 1);
 		  return true;
@@ -285,8 +285,8 @@ function ArmourDegrade(Defender, Globals)
     
 		if (durability == 10) then 
 		  base.common.InformNLS(Defender.Char,
-		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
-		  "Your armour has seen better days. You may want to repair it.");
+		  "Dein Rüstteil hat schon bessere Zeiten gesehen. Vielleicht solltest du es reparieren.",
+		  "Your armour piece has seen better days. You may want to repair it.");
 		end;
 	end;
 
@@ -308,7 +308,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
 		if (durability <= 0) then
 			base.common.InformNLS(Defender.Char,
-		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		  "Dein Artefakt zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
 		  "Your artifact shatters. You should take better care of it next time.");
 		  world:erase(Attacker.WeaponItem, 1);
 		  return true;
@@ -321,7 +321,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
     
 		base.common.InformNLS(Defender.Char,
-		"Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		"Du solltest aufhören dein kaputtes Artefakt zu verwenden bevor es zerbricht!",
 		"You should stop wielding your broken artifact before it shatters!");
 
 	elseif (base.common.Chance(1, 20)) then
@@ -330,7 +330,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
     
 		if (durability == 0) then
 			base.common.InformNLS(Attacker.Char,
-		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		  "Deine Waffe zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl als sie in das nächste Leben über geht.",
 		  "Your weapon shatters. You shed a single tear and bid it farewell as it moves onto its next life.");
 		  world:erase(Attacker.WeaponItem, 1);
 		  return true;
@@ -342,7 +342,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
     
 		if (durability == 10) then 
 		  base.common.InformNLS(Attacker.Char,
-		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		  "Deine Waffe hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren.",
 		  "Your weapon has seen better days. You may want to repair it.");
 		end;
 	end;
@@ -358,7 +358,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
 		if (durability <= 0) then
 			base.common.InformNLS(Defender.Char,
-		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		  "Dein Artefakt zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
 		  "Your artifact shatters. You should take better care of it next time.");
 		  world:erase(ParryWeapon, 1);
 		  return true;
@@ -371,7 +371,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
     
 		base.common.InformNLS(Defender.Char,
-		"Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		"Du solltest aufhören dein kaputtes Artefakt zu verwenden bevor es zerbricht!",
 		"You should stop wielding your broken artifact before it shatters!");
 
 	elseif (base.common.Chance(1, 20)) then
@@ -380,7 +380,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
     
 		if (durability == 0) then
 			base.common.InformNLS(Defender.Char,
-		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		  "Dein Gegenstand zerbricht, dies erschwert es dir dich zu verteidigen.",
 		  "Your item shatters, making it more difficult for you to defend yourself.");
 		  world:erase(ParryWeapon, 1);
 		  return true;
@@ -392,7 +392,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
 		if (durability == 10) then 
 		  base.common.InformNLS(Defender.Char,
-		  "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+		  "Dein Gegenstand hat schon bessere Zeiten gesehen. Vielleicht solltest du ihn reparieren.",
 		  "Your item has seen better days. You may want to repair it.");
 		end;
 	end;
@@ -1022,38 +1022,39 @@ end;
 function Specials(Attacker, Defender, Globals)
 
 	local hisher =  base.common.GetGenderText(Attacker.Char,"his","her");
+	local seinihr = base.common.GetGenderText(Attacker.Char,"sein","ihr");
 
 	if(Globals.criticalHit==1) then -- 1HS
 		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me stolpert zurück und geht zu Boden.",
+            "#me schwingt "..seinihr.."e Klinge und teilt rasch zwei Hiebe aus.",
             "#me sweeps "..hisher.." blade, dealing two blows in rapid succession.");
 	elseif(Globals.criticalHit==2) then -- 1HC
 		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me stolpert zurück und geht zu Boden.",
+            "#me schwingt "..seinihr.."e Waffe mit solcher Kraft, dass diese nicht pariert werden kann.",
             "#me swings "..hisher.." weapon with such force that it cannot be blocked.");
 	elseif(Globals.criticalHit==3) then -- 1HP
 		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me stolpert zurück und geht zu Boden.",
+            "#me rammt "..seinihr.."e Klinge schnell in den Rücken "..seinihr.."es Gegners.",
             "#me slams "..hisher.." blade quickly into "..hisher.." opponent's back.");
 	elseif(Globals.criticalHit==4) then -- 2HS
 		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me stolpert zurück und geht zu Boden.",
+            "#me führ einen gewaltigen Hieb aus und schlägt "..seinihr.."en Gegner zurück.",
             "#me delivers a mighty swing, knocking back "..hisher.." opponent.");
 	elseif(Globals.criticalHit==5) then -- 2HC
 		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me stolpert zurück und geht zu Boden.",
+            "#me lässt "..seinihr.."e Waffe mit gewaltiger Kraft nach unten fahren so dass "..seinihr.." Gegner benommen ist.",
             "#me brings down "..hisher.." weapon with great force, stunning "..hisher.." foe.");
 	elseif(Globals.criticalHit==6) then -- 2HP
 		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me stolpert zurück und geht zu Boden.",
+            "#me stößt "..seinihr.."e Waffe mit einem kraftvollen Stich nach vorne.",
             "#me thrusts "..hisher.." weapon with a powerful, piercing attack.");
 	elseif(Globals.criticalHit==7) then -- Dist
 		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me stolpert zurück und geht zu Boden.",
+            "#me zielt genau und beginnt auf "..seinihr.."en Gegner präzise und kraftvoll einzustechen.",
             "#me takes careful aim, hitting "..hisher.." target with precision and power.");
 	elseif(Globals.criticalHit==8) then -- Wrest
 		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me stolpert zurück und geht zu Boden.",
+            "#me führt einen extrem schnellen Hieb gegen "..seinihr.."en Gegner.",
             "#me strikes out extremely quickly, dealing a powerful blow to "..hisher.." opponent.");
 	end;
 
@@ -1111,7 +1112,7 @@ function Counter(Attacker, Defender)
 	if Defender.Char.attackmode then
 		if base.common.Chance(1,50) then
 			base.common.TalkNLS(Defender.Char, Character.say,
-            "#me stolpert zurück und geht zu Boden.",
+            "#me blockt geschickt den Hieb und macht sich schnell für einen Konter bereit.",
             "#me deftly blocks the hit and quickly readies stance for a counter attack.");
 			base.character.ChangeFightingpoints(Defender.Char,-Defender.Char.fightpoints);
 			Defender.Char.movepoints=21; 

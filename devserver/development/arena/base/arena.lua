@@ -219,22 +219,40 @@ function setRanklist(User, arena, points)
 	local quest = arenaInformations[arena].quest;
 	local newRanklist = {};
 	local arenaListName = "ArenaList"..town;
+	local userInList, position = isUserInList(User, ranklist);
 
 	if tonumber(ranklist[table.getn(ranklist)]) > points then
 		return;
 	else
 		for i=2, #(ranklist), 2 do
 			if tonumber(ranklist[i]) < points then
-				table.insert(ranklist, i, points);
-				table.insert(ranklist, i, User.name);
-				table.remove(ranklist, 1);
-				table.remove(ranklist, 1);
-				break;
+				if not userInList then
+					table.insert(ranklist, i-1, points);
+					table.insert(ranklist, i-1, User.name);
+					table.remove(ranklist, table.getn(ranklist));
+					table.remove(ranklist, table.getn(ranklist));
+					break;
+				else
+					table.remove(ranklist, position);
+					table.remove(ranklist, position);
+					table.insert(ranklist, i-1, points);
+					table.insert(ranklist, i-1, User.name);
+					break;
+				end
 			end
 		end
 		stringList = base.common.join(ranklist, ";");
 		ScriptVars:set(arenaListName, stringList)
 	end
+end
+
+function isUserInList(User, ranklist)
+	for i=1, #(ranklist), 2 do
+		if ranklist[i] == User.name then
+			return true, i;
+		end
+	end	
+	return false, 0;
 end
 
 -- Returns the points of a present arena, which the player has earned so far

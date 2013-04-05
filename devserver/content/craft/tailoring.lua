@@ -617,3 +617,7 @@ product:addIngredient(50, 2*2) -- Thread: 2x2
 product = tailoring:addProduct(catId, 89, 10, 30, 28, 56)
 product:addIngredient(2547, 2) -- Leather: 2x1
 product:addIngredient(50, 2*2) -- Thread: 2x2 
+
+--Rope
+product = tailoring:addProduct(catId, 2760, 20, 40, 60, 120)
+product:addIngredient(50, 10) -- Thread: 10x1
