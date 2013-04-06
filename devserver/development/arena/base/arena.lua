@@ -25,16 +25,14 @@ Level 6: Really strong monsters award 13 points
 Level 7: Monsters for really, really good fighters 'heros' award 20 points
 ]]
 monsterIDsByLevel = {
-	{monsters = {252, 271, 382, 582, 592}, points = 1},
-	{monsters = {101, 196, 381, 602, 881}, points = 2},
+	{monsters = {991, 271, 1051, 582, 1071}, points = 1},
+	{monsters = {101, 196, 273, 602, 881}, points = 2},
 	{monsters = {311, 394, 551, 882, 1011}, points = 3},
 	{monsters = {141, 501, 552, 791, 872}, points = 5},
 	{monsters = {191, 492, 531, 411, 851}, points = 8},
 	{monsters = {121, 202, 491, 525, 852}, points = 13},
 	{monsters = {534, 124, 562, 661, 853}, points = 20}
 }
-
-ranklist = {name, faction, points} --list of the top ten contestants
 
 arenaInformations = {{playerPos=position(10,1,0), monsterPos=position(1,10,0), newPlayerPos=position(10,10,0), npcName="Repair Man", town="Cadomyr", quest=801}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Runewick", quest=802}, 
