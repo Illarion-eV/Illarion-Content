@@ -19,7 +19,7 @@ function LookAtItem(User, Item)
     return true    
 end
 
-local informAboutResult(User, numberOfDice)
+function informAboutResult(User, numberOfDice)
 	local thrownNumbers = math.random(1,6);
 	
 	for i=1, numberOfDice-1 do
