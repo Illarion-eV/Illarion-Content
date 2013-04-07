@@ -38,8 +38,7 @@ function chooseNumberOfDice(User)
 		end
 		local inputNumber = dialog:getInput();
 		if (string.find(inputNumber,"(%d+)") ~= nil) then
-			a, b, number = string.find(inputNumber,"(%d+)");
-			return number;
+			return inputNumber;
 		else
 			User:inform("Not a valid number. Please try again.");
 			User:requestInputDialog(InputDialog(title, text ,false, 255, cbInputDialog))
