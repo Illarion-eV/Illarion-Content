@@ -311,7 +311,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2390, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 4));
-talkEntry:addResponse("Aye aye, I have to say that you are getting better and better. These silver coins are yours now.");
+talkEntry:addResponse("Aye aye, I have to say that you are getting better and better. These gold coins are yours now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -323,7 +323,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2390, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 4));
-talkEntry:addResponse("Aye aye, ich muß schon sagen, Ihr werdet immer besser. Diese Silberstücke gehören nun Euch.");
+talkEntry:addResponse("Aye aye, ich muß schon sagen, Ihr werdet immer besser. Diese Goldstücke gehören nun Euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
