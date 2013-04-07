@@ -28,7 +28,7 @@ function informAboutResult(User, numberOfDice)
 		
 	local text = base.common.GetNLS(User,"#me wirft "..numberOfDice.." Würfel und wirft: "..thrownNumbers ,"#me throws "..numberOfDice.." dice and gets: "..thrownNumbers);
 	
-	User:talk(Character.talk, text);
+	User:talk(Character.say, text);
 end
 
 function chooseNumberOfDice(User)
