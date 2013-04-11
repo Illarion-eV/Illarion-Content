@@ -7,8 +7,12 @@ module("test.merung", package.seeall)
 
 function UseItem(User, SourceItem,ltstate)
 	User:increaseAttrib("essence",30)
-	development.recipe_creation.FirstMenu(User, ingredientsList)
-	
+	--development.recipe_creation.FirstMenu(User, ingredientsList)
+	User:teachMagic(3,0)
+	User:setMagicType(0)
+	User:setQuestProgress(350,0)
+	User:setQuestProgress(351,0)
+	User:setQuestProgress(352,0)
 	
 	--[[
 	if User.lastSpokenText == "rezept" then

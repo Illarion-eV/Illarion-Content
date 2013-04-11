@@ -46,8 +46,6 @@ function UseRecipe(User, SourceItem, ltstate)
 		return
     end
 	
-	RemoveOldDatas(User, SourceItem)
-	
 	StartBrewing(User, SourceItem, ltstate)
 end
 
@@ -74,24 +72,6 @@ function StartBrewing(User, SourceItem, ltstate)
 		recipeStep = tonumber(SourceItem:getData("recipeStep"))+1
 	end	
 	
-end
-
-function RemoveOldDatas(User, SourceItem)
-    if SourceItem:getData("recipeCounter")~="" then
-	    SourceItem:setData("recipeCounter","")
-		world:changeItem(SourceItem)
-	end
-    
-    local cleanUpList = {59,164,165,166,167,327,329,330,331}
-	for i=1,#cleanUpList do
-	    local checkList = User:getItemList(cleanUpList[i])
-		for j=1,#checkList do
-		    if checkList[i]:getData("recipeBottled") ~= "" then
-			    checkList[i]:setData("recipeBottled","")
-			    world:changeItem(checkList[i])	
-			end
-        end
-    end		
 end
 
 function ViewRecipe(User, SourceItem)
