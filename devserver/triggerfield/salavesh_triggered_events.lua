@@ -60,11 +60,11 @@ function MoveToField(User)
 			world:gfx(9,User.pos); --Fireball!
 			world:makeSound(5,User.pos); --BOOM!
 		    User:increaseAttrib("hitpoints",math.random(-4999,-2499)); --damaging the User
-			world:createItemFromId(359,1,User.pos,true,599,0); --a flame
-			world:createItemFromId(359,1,position(User.pos.x+1,User.pos.y,User.pos.z),true,599,0); --another flame
-			world:createItemFromId(359,1,position(User.pos.x-1,User.pos.y,User.pos.z),true,599,0); --yet another
-			world:createItemFromId(359,1,position(User.pos.x,User.pos.y+1,User.pos.z),true,599,0); --pretty hot isn't it?
-			world:createItemFromId(359,1,position(User.pos.x,User.pos.y-1,User.pos.z),true,599,0); --BURN SUCKER!!!111
+			world:createItemFromId(359,1,User.pos,true,599,nil); --a flame
+			world:createItemFromId(359,1,position(User.pos.x+1,User.pos.y,User.pos.z),true,599,nil); --another flame
+			world:createItemFromId(359,1,position(User.pos.x-1,User.pos.y,User.pos.z),true,599,nil); --yet another
+			world:createItemFromId(359,1,position(User.pos.x,User.pos.y+1,User.pos.z),true,599,nil); --pretty hot isn't it?
+			world:createItemFromId(359,1,position(User.pos.x,User.pos.y-1,User.pos.z),true,599,nil); --BURN SUCKER!!!111
 			
 		elseif User.pos == waypoint[2] and queststatuslist[2] == 0 and User:getFaceTo() == 6 then --the boss in the small alcove, only triggered once by each char upon entering the alcove
 
