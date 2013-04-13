@@ -14,9 +14,9 @@ function UseItem(User, SourceItem,ltstate)
 	User:setQuestProgress(351,0)
 	User:setQuestProgress(352,0)
 	
-	User:inform(""..User:getQuestProgress(350,0))
-	User:inform(""..User:getQuestProgress(351,0))
-	User:inform(""..User:getQuestProgress(352,0))
+	User:inform(""..User:getQuestProgress(350))
+	User:inform(""..User:getQuestProgress(351))
+	User:inform(""..User:getQuestProgress(352))
 	User:inform(""..User:getMagicType())
 	User:inform(""..getMagicFlags(0))
 	
