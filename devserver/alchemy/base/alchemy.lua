@@ -825,7 +825,10 @@ function GetStartAction(User, SourceItem, cauldron)
 		return {80,21,5,0,0}
 	end
 
-	
-
+	if (SourceItem:getData("filledWith")=="stock" and cauldron:getData("filledWith")=="essenceBrew") or (SourceItem:getData("filledWith")=="essenceBrew" and cauldron:getData("filledWith")=="stock") then
+		return { 80, 21, 5, 10, 45} -- we combine stock and essence brew
+	end
+    
+    return {20, 21, 5, 10, 45}	-- everything else: fill in stock, essence brew or potion
 	
 end
