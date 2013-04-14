@@ -68,6 +68,8 @@ function MoveToField(char)
 			return
 		end
 	elseif char:getQuestProgress(612) == 1 then
+		char:inform("Du hörst eine krächzende Stimme ängstlich schreien: \"Nein! Nicht schon wieder du. Geh weg und lass mich in Ruhe!\" Danach kehrt Stille ein.","You hear a croaking voice crying scared: \"No! Not you again. Leave me alone!\" Afterwards there is silence.")
+		char:setQuestProgress(612,2)
 		return
 	end 
 	if char:getQuestProgress(612) == 0 then -- riddle hasn't been solved yet
