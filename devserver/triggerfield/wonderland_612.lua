@@ -101,6 +101,7 @@ function MoveToField(char)
 
 		--901,581,0 correct choice #1
 		elseif char.pos == position(901,581,0) or char.pos == position(900,581,0) or char.pos == position(901,580,0) then
+			world:gfx(37,char.pos);			
 			char:warp(position(905,574,0))
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
@@ -117,11 +118,12 @@ function MoveToField(char)
 		else
 			char:warp(position(900,580,0))
 			world:gfx(13,char.pos);
-			world:makeSound(13,char.pos);
+			world:makeSound(25,char.pos);
 			char:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du enkommst mir nicht!\" Eine andere Stimme ruft dir erneut aus dem Nordwesten zu: \"Gib nicht auf! Du kannst es schaffen, aber geh weg von mir.\"","You hear laughter and a croaking voice, saying: \"HAHA! You cannot escape!\"Another voice replies again from the northwest: \"Do not give in! You can make it but get away from me.\"")  
 
 			if (char:increaseAttrib("hitpoints",0)>2000) then
 				char:increaseAttrib("hitpoints", -500)
+				world:makeSound(3,char.pos);
 			end
 		end
 		
