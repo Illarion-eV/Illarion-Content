@@ -63,12 +63,12 @@ function MoveToField(char)
 		if char.pos == position(890,596,0) or char.pos == position(876,590,0) or char.pos == position(878,562,0) then
 			world:makeSound(1,char.pos);
 			char:warp(position(900,600,0))
-			world:makeSound(1,char.pos);
-			char:inform("Du hörst eine krächzende Stimme seufzen: \"Nein! Nicht schon wieder du. Geh weg und lass mich in Ruhe!\" Danach kehrt Stille ein.","You hear a croaking voice saying: \"No! Not you again. Leave me alone!\" Afterwards there is silence.")
+			char:inform("Du hörst eine krächzende Stimme ängstlich schreien: \"Nein! Nicht schon wieder du. Geh weg und lass mich in Ruhe!\" Danach kehrt Stille ein.","You hear a croaking voice crying scared: \"No! Not you again. Leave me alone!\" Afterwards there is silence.")
 			world:makeSound(1,char.pos);
 			return
 		end
-	else char:inform("Mäh","Mäh")
+	elseif char:getQuestProgress(612) == 1 then
+		char:inform("Mäh","Mäh")
 		return
 	end 
 	if char:getQuestProgress(612) == 0 then -- riddle hasn't been solved yet
