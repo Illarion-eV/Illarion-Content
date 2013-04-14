@@ -70,32 +70,47 @@ function MoveToField(char)
 	if char:getQuestProgress(612) == 0 then -- riddle hasn't been solved yet
 		--884,594,0 correct choice #6
 		if char.pos == position(884,594,0) or char.pos == position(884,593,0) or char.pos == position(884,595,0) then
+			world:gfx(37,char.pos);	
 			char:warp(position(863,578,0))
+			world:gfx(37,char.pos);
+			world:makeSound(13,char.pos);
 			char:inform("Du vernimmst noch ein langezogenes 'Nein'. Danach kehrt Stille ein. Du bist wieder frei.", "You hear a dying 'No'. Afterwards there is silence. You are free again.")  
 			char:setQuestProgress(612,1)
 			return
 
 		--886,584,0 correct choice #5
 		elseif char.pos == position(886,584,0) or char.pos == position(886,583,0) or char.pos == position(886,585,0) then
+			world:gfx(37,char.pos);	
 			char:warp(position(885,594,0))
+			world:gfx(37,char.pos);
+			world:makeSound(13,char.pos);
 			char:inform("Die krächzende Stimme brüllt: \"Verdammt! Nun gut, du darfst über die Brücke gehen.\" Worauf die eine Stimme aus dem Norden ruft: \"Nicht zur Brücke. In den Baum! In den Baum!\"", "The jagged voice bellows: \"Blimey! Well, you are allowed to pass the bridge.\". A voice from the north shouts: \"Don't go to the bridge. Into the tree! Into the tree!\"")  
 			return
 
 		--890,560,0 correct choice #4
 		elseif char.pos == position(890,560,0) or char.pos == position(889,560,0) or char.pos == position(891,560,0) then
+			world:gfx(37,char.pos);	
 			char:warp(position(885,584,0))
+			world:gfx(37,char.pos);
+			world:makeSound(13,char.pos);
 			char:inform("Die krächzende Stimme bellt: \"Narr!\" Worauf eine Stimme aus dem Süden ruft: \"Zum Meer! Zum Meer!\"", "The jagged voice barks: \"Fool!\". A voice from the south shouts: \"To the sea! To the sea!\"")  
 			return
 
 		--885,573,0 correct choice #3
 		elseif char.pos == position(885,573,0) or char.pos == position(884,573,0) or char.pos == position(886,573,0) then
+			world:gfx(37,char.pos);	
 			char:warp(position(890,559,0))
+			world:gfx(37,char.pos);
+			world:makeSound(13,char.pos);
 			char:inform("Die krächzende Stimme ruft: \"Vergeblich!\" Worauf eine Stimme aus dem Süden flüstert: \"Zu mir!\"", "The jagged voice says: \"Futile!\". A voice from the south whispers: \"To me!\"")  
 			return
 
 		--906,573,0 correct choice #2
 		elseif char.pos == position(906,573,0) or char.pos == position(905,573,0) or char.pos == position(906,574,0) then
+			world:gfx(37,char.pos);	
 			char:warp(position(885,574,0))
+			world:gfx(37,char.pos);
+			world:makeSound(13,char.pos);
 			char:inform("Die krächzende Stimme schreit: \"Gib auf! Du bist mein!\" Worauf eine Stimme aus dem Norden antwortet: \"Komm zu mir!\"", "The scratchy voice shouts: \"Surrender! You are mine!\". A voice from the north answers: \"Come to me!\"")  
 			return
 
