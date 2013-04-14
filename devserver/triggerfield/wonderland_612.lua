@@ -68,15 +68,8 @@ function MoveToField(char)
 			world:makeSound(1,char.pos);
 			return
 		end
-	else char.pos == position(890,596,0) or char.pos == position(876,590,0) or char.pos == position(878,562,0) then
-			world:makeSound(1,char.pos);
-			char:warp(position(900,610,0))
-			world:makeSound(1,char.pos);
-			char:inform("Mäh","Mäh")
-			world:makeSound(1,char.pos);
-			return
-		end
-
+	else char:inform("Mäh","Mäh")
+		return
 	end 
 	if char:getQuestProgress(612) == 0 then -- riddle hasn't been solved yet
 		--884,594,0 correct choice #6
