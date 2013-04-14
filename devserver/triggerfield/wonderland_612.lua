@@ -59,15 +59,16 @@ function MoveToField(char)
 	if char:getType() ~= Character.player then
 		return
 	end
-	if char:getQuestProgress(612) == 1 and math.random(0,99)< 20 then -- riddle has been solved yet; chance to hear the voice one more time
+	if char:getQuestProgress(612) == 1 and math.random(0,99)< 10 then -- riddle has been solved yet; the voice one more time; chance be warped
 		if char.pos == position(890,596,0) or char.pos == position(876,590,0) or char.pos == position(878,562,0) then
 			world:makeSound(1,char.pos);
-			char:warp(position(900,600,0))
+			char:warp(position(900,580,0))
 			char:inform("Du hörst eine krächzende Stimme ängstlich schreien: \"Nein! Nicht schon wieder du. Geh weg und lass mich in Ruhe!\" Danach kehrt Stille ein.","You hear a croaking voice crying scared: \"No! Not you again. Leave me alone!\" Afterwards there is silence.")
 			char:setQuestProgress(612,2)
 			return
 		end
-	elseif char:getQuestProgress(612) == 1 then
+	elseif char:getQuestProgress(612) == 1 then -- riddle has been solved yet; the voice one more time without warp
+		world:makeSound(1,char.pos);		
 		char:inform("Du hörst eine krächzende Stimme ängstlich schreien: \"Nein! Nicht schon wieder du. Geh weg und lass mich in Ruhe!\" Danach kehrt Stille ein.","You hear a croaking voice crying scared: \"No! Not you again. Leave me alone!\" Afterwards there is silence.")
 		char:setQuestProgress(612,2)
 		return
@@ -143,7 +144,7 @@ function MoveToField(char)
 			world:makeSound(25,char.pos);
 			char:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du enkommst mir nicht!\" Eine andere Stimme ruft dir erneut aus dem Nordwesten zu: \"Gib nicht auf! Du kannst es schaffen, aber geh weg von mir.\"","You hear laughter and a croaking voice, saying: \"HAHA! You cannot escape!\"Another voice replies again from the northwest: \"Do not give in! You can make it but get away from me.\"")  
 
-			if (char:increaseAttrib("hitpoints",0)>2000) then
+			if (char:increaseAttrib("hitpoints",0)>2000) then --punishment for wrong turn
 				char:increaseAttrib("hitpoints", -500)
 				world:makeSound(3,char.pos);
 			end
