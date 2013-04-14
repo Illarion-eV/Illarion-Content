@@ -220,8 +220,8 @@ function InitPennant()
     AddPennant({609,462,2},"Schlangenkopfberg","Mount Snakehead", 7,0); --Mt. Snakehead
     AddPennant({608,468,0},"Schlangenkopfberg","Mount Snakehead", 7,0); --Mt. Snakehead
     --Spider's Mouth
-    AddPennant({675,346,0},"Der Todes Sumpf - Trette den Toten bei!","The Death Marsh - Join the dead!", 4,0);
-    AddPennant({678,346,0},"Der Todes Sumpf - Trette den Toten bei!","The Death Marsh - Join the dead!", 4,0);
+    AddPennant({675,346,0},"Der Todes Sumpf - Trette den Toten bei! Gesponsert von Erzmagier Elvaine Morgan.","The Death Marsh - Join the dead! Sponsered by Archmage Elvaine Morgan.", 4,0);
+    AddPennant({678,346,0},"Der Todes Sumpf - Trette den Toten bei! Gesponsert von Erzmagier Elvaine Morgan.","The Death Marsh - Join the dead! Sponsered by Archmage Elvaine Morgan.", 4,0);
     --The Royal Academy of Gladiators
     AddPennant({210,701,0},"Königliche Akademie der Gladiatoren","Royal Academy of Gladiators", 1,5);
     AddPennant({215,701,0},"Königliche Akademie der Gladiatoren","Royal Academy of Gladiators", 1,5);
