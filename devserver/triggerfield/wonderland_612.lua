@@ -59,7 +59,9 @@ function MoveToField(char)
 	if char:getType() ~= Character.player then
 		return
 	end
-	
+	if char:getQuestProgress(612) == 2 then -- riddle has been solved yet; chance to hear the voice one more time
+		return
+	end 
 	if char:getQuestProgress(612) == 0 then -- riddle hasn't been solved yet
 		--884,594,0 correct choice #6
 		if char.pos == position(884,594,0) or char.pos == position(884,593,0) or char.pos == position(884,595,0) then
@@ -95,6 +97,7 @@ function MoveToField(char)
 		--901,581,0 correct choice #1
 		elseif char.pos == position(901,581,0) or char.pos == position(900,581,0) or char.pos == position(901,580,0) then
 			char:warp(position(905,574,0))
+			world:gfx(37,User.pos);
 			char:inform("Die krächzende Stimme meldet sich wieder: \"Keine Chance!\" Worauf eine Stimme aus dem Südwesten sagt: \"Lauf weg!\"", "The jagged voice says: \"No Chance!\". A voice from the southwest replies: \"Run away!\"")  
 			return
 
@@ -107,6 +110,7 @@ function MoveToField(char)
 		--wrong turn
 		else
 			char:warp(position(900,580,0))
+			world:gfx(13,User.pos);
 			char:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du enkommst mir nicht!\" Eine andere Stimme ruft dir erneut aus dem Nordwesten zu: \"Gib nicht auf! Du kannst es schaffen, aber geh weg von mir.\"","You hear laughter and a croaking voice, saying: \"HAHA! You cannot escape!\"Another voice replies again from the northwest: \"Do not give in! You can make it but get away from me.\"")  
 
 			if (char:increaseAttrib("hitpoints",0)>2000) then
