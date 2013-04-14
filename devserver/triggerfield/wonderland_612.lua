@@ -126,11 +126,13 @@ function MoveToField(char)
 		--start
 		elseif char.pos == position(890,596,0) or char.pos == position(876,590,0) or char.pos == position(878,562,0) then
 			char:warp(position(900,580,0))
+			world:makeSound(25,char.pos);
 			char:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du gehörst nun mir!\" Nach einer Weile hörst du eine andere Stimme aus dem Nordwesten: \"Geh weg von mir!\"","You hear laughter and a croaking voice, saying: \"HAHA! You are mine now!\" After a while you hear another voice from the northwest: \"Get away from me!\"")  
 			return
 			
 		--wrong turn
 		else
+			world:makeSound(25,char.pos);			
 			char:warp(position(900,580,0))
 			world:gfx(13,char.pos);
 			world:makeSound(25,char.pos);
