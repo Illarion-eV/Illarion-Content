@@ -59,16 +59,15 @@ function MoveToField(char)
 	if char:getType() ~= Character.player then
 		return
 	end
-	if char:getQuestProgress(612) == 1 and math.random(0,99)< 50 then -- riddle has been solved yet; chance to hear the voice one more time
+	if char:getQuestProgress(612) == 1 and math.random(0,99)< 20 then -- riddle has been solved yet; chance to hear the voice one more time
 		if char.pos == position(890,596,0) or char.pos == position(876,590,0) or char.pos == position(878,562,0) then
 			world:makeSound(1,char.pos);
 			char:warp(position(900,600,0))
 			char:inform("Du hörst eine krächzende Stimme ängstlich schreien: \"Nein! Nicht schon wieder du. Geh weg und lass mich in Ruhe!\" Danach kehrt Stille ein.","You hear a croaking voice crying scared: \"No! Not you again. Leave me alone!\" Afterwards there is silence.")
-			world:makeSound(1,char.pos);
+			char:setQuestProgress(612,2)
 			return
 		end
 	elseif char:getQuestProgress(612) == 1 then
-		char:inform("Mäh","Mäh")
 		return
 	end 
 	if char:getQuestProgress(612) == 0 then -- riddle hasn't been solved yet
