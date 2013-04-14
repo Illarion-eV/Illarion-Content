@@ -115,7 +115,7 @@ function InitPillar()
     AddPillar({476,791,0},"Die Statue entspricht einer ungeschmückten Schönheit. Sie wirkt ruhig, geduldig und etwas traurig.","The statue portrays an unadorned beauty. She appears peaceful, patient and a little sad.", 6,0);
 	AddPillar({470,793,0},"Die Statue entspricht einem dunkelhaarigen Ritter mit seiner Rüstung in Flammen stehen. Er wirkt stark, nobel und hübsch.","The statue portrays a dark-haired knight with his armour on fire. He appears strong, noble and handsome.", 4,0);
     AddPillar({470,798,0},"Die Statue entspricht einer jungen, dunkelhäutigen Frau mit schwarzem Haar und einem schwarzen Kleid. Sie wirkt weise und ruhig.","The statue portrays a young, dark-skinned woman with dark hair and wearing a dark dress. She appears wise and calm.", 4,0);
-    --[[--Cherass‘ Citadel
+    --[[--Cherass' Citadel
     AddPillar({568,314,0},"","", 1,5);
     AddPillar({568,319,0},"","", 1,5);
     AddPillar({574,314,0},"","", 1,5);
@@ -234,8 +234,18 @@ function InitPillar()
     AddPillar({331,233,0},"","", 8, 5); --Galmair's Crest
     AddPillar({335,215,0},"","", 2, 5); --Galmair's Crest
     AddPillar({339,215,0},"","", 2, 5); --Galmair's Crest
-    AddPillar({338,214,0},"","", 5, 5); --Galmair's Crest
-    AddPillar({359,213,0},"","", 4, 5); --Don's Room
+    AddPillar({338,214,0},"","", 5, 5); --Galmair's Crest  ]]--
+
+    AddPillar({366,253,0},"Die Statue hält eine Goldtafel mit folgender Gravierung: '1. Der Don beschützt dich wenn du die Gebühr bezahlst.'","The statue holds a golden plate with following engraving: '1. The Don protects you if you pay the fee.'", 5, 5); --Galmair's Crest
+    AddPillar({369,253,0},"Die Statue hält eine Goldtafel mit folgender Gravierung: '2. Zahl die Abgaben und die Zinsen, und kein Leid soll dir widerfahren.'","The statue holds a golden plate with following engraving: '2. Pay the toll, and the interest, and no harm will be done.'", 5, 5); --Galmair's Crest
+    AddPillar({366,250,0},"Die Statue hält eine Goldtafel mit folgender Gravierung: '3. Handle frei, bleibe und gehe wie es dir beliebt.'","The statue holds a golden plate with following engraving: '3. Trade freely, stay and depart as you wish.'", 5, 5); --Galmair's Crest
+    AddPillar({369,250,0},"Die Statue hält eine Goldtafel mit folgender Gravierung: '4. Komm zum Don wenn du Hilfe benötigst. Er ist dein Pate.'","The statue holds a golden plate with following engraving: '4. Come to the Don if you need help. He is your godfather.'", 5, 5); --Galmair's Crest
+    AddPillar({366,247,0},"Die Statue hält eine Goldtafel mit folgender Gravierung: '5. Eine Abmachung mit dem Don, ist eine mit deinem Schicksal.'","The statue holds a golden plate with following engraving: '5. A deal with the Don is a deal with your fate.'", 5, 5); --Galmair's Crest
+    AddPillar({369,247,0},"Die Statue hält eine Goldtafel mit folgender Gravierung: '6. Hast du Schaden angerichtet, so kompensiere ihn großzügig mit der zweifachen Menge des Schadens.'","The statue holds a golden plate with following engraving: '6. If you did harm, compensate generously, twice the damage.", 5, 5); --Galmair's Crest
+    AddPillar({366,244,0},"Die Statue hält eine Goldtafel mit folgender Gravierung: 'Folge diesen sechs einfachen Regeln des Don, und du kannst tun und lassen was immer du möchtest. Nun tritt ein.'","The statue holds a golden plate with following engraving: 'Follow the simple rules of the Don and you can do whatever you like. Come in now.'", 5, 5); --Galmair's Crest
+    AddPillar({369,244,0},"Die Statue hält eine Goldtafel mit folgender Gravierung: 'Folge diesen sechs einfachen Regeln des Don, und du kannst tun und lassen was immer du möchtest. Nun tritt ein.'","The statue holds a golden plate with following engraving: 'Follow the simple rules of the Don and you can do whatever you like. Come in now.'", 5, 5); --Galmair's Crest
+
+    --[[AddPillar({359,213,0},"","", 4, 5); --Don's Room
     AddPillar({359,210,0},"","", 4, 5); --Don's Room
     AddPillar({359,207,0},"","", 4, 5); --Don's Room
     AddPillar({359,204,0},"","", 4, 5); --Don's Room
