@@ -201,8 +201,8 @@ function initDoors()
 	-- Cadomyr 3xx
 	AddDoor({122, 547, 0}, false,"Palace","Palast");
 	AddDoor({121, 547, 0}, false,"Palace","Palast");
-	AddDoor({128, 520, 0}, 300,"Royal Chamber","Königliche Kammer");
-	AddDoor({128, 519, 0}, 300,"Royal Chamber","Königliche Kammer");
+	AddDoor({128, 520, 0}, 300,"Royal Chamber","Königliche Kammer", false);
+	AddDoor({128, 519, 0}, 300,"Royal Chamber","Königliche Kammer", false);
 
 	AddDoor({ 96, 615, 1}, 310,"Villa Rosaline - Balcony","Villa Rosaline - Balkon");
 	AddDoor({ 94, 612, 0}, 310,"Villa Rosaline","Villa Rosaline");
@@ -270,7 +270,7 @@ function initDoors()
 	
 end
 
-function AddDoor(posList,lockId, lookAtEN, lookAtDE)
+function AddDoor(posList,lockId, lookAtEN, lookAtDE, lockedOnreload)
     local DoorPos=position(posList[1],posList[2],posList[3]);
 	if world:isItemOnField(DoorPos) then
         local thisDoor = world:getItemOnField(DoorPos);
@@ -279,8 +279,12 @@ function AddDoor(posList,lockId, lookAtEN, lookAtDE)
         if (doorOOK or doorCOK) then
             if lockId then
 				thisDoor:setData("lockId", lockId);
-				thisDoor:setData("doorLock","locked")
-			    world:changeItem(thisDoor)
+				if lockedOnreload == false then
+					thisDoor:setData("doorLock","unlocked")
+				else
+					thisDoor:setData("doorLock","locked")
+				end
+				world:changeItem(thisDoor)
 			end
 			if lookAtEN and lookAtDE then
 			    base.lookat.SetSpecialDescription(thisDoor,lookAtDE,lookAtEN)
