@@ -70,6 +70,7 @@ function CheckKey(Key, Door, User)
         if (Key:getData("lockId") == Door:getData("lockId") and Door:getData("lockId") ~= "") or checkForMasterKey(User, Key) then
             return true;
         else
+			debug("false")
             return false;
         end;
     else
@@ -85,9 +86,12 @@ end;
 	@return boolean - true in case of a master key else false
 ]]
 function checkForMasterKey(User, key)
+	debug("in master check")
 	if User:isAdmin() and key:getData("lockId")==666 then
+		debug("true")
 		return true;
 	else
+		debug("false")
 		return false;
 	end
 end
