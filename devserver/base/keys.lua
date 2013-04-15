@@ -91,7 +91,7 @@ function checkForMasterKey(User, key)
 		debug("true")
 		return true;
 	else
-		debug("false")
+		debug("false "..tostring(User:isAdmin()).." "..key:getData("lockId"))
 		return false;
 	end
 end
