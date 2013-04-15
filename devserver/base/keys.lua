@@ -87,7 +87,7 @@ end;
 ]]
 function checkForMasterKey(User, key)
 	debug("in master check")
-	if User:isAdmin() and key:getData("lockId")==666 then
+	if User:isAdmin() and key:getData("lockId")=="666" then
 		debug("true")
 		return true;
 	else
