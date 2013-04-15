@@ -8,6 +8,7 @@ function initDoors()
     -- AddDoor({x, y, z}, lockId, lookAtEN, lookAtDE) -- description
 	-- if you want no lookat, just use false: AddDoor({1, 1, 1}, 343, false, false)
 	-- if you just want lookats, but no lock: AddDoor({1, 1, 1}, false, "Door without lock", "Tür ohne Schloss")
+	-- if you want a lock, which isn't locked after reload: AddDoor({1, 1, 1}, 343, "Unlocked door", "Unverschlossene Tür", false) 
 	
 	-- Galmair 1xx
 	AddDoor({341, 207, 0}, 100,"Golden Dreams, the private chamber of the Don","Goldträume, die Privatkammer des Dons"); -- Don's private room !create 2141 1 333 lockId=100
@@ -201,8 +202,8 @@ function initDoors()
 	-- Cadomyr 3xx
 	AddDoor({122, 547, 0}, false,"Palace","Palast");
 	AddDoor({121, 547, 0}, false,"Palace","Palast");
-	AddDoor({128, 520, 0}, 300,"Royal Chamber","Königliche Kammer", false);
-	AddDoor({128, 519, 0}, 300,"Royal Chamber","Königliche Kammer", false);
+	AddDoor({128, 520, 0}, 300,"Royal Chamber","Königliche Kammer");
+	AddDoor({128, 519, 0}, 300,"Royal Chamber","Königliche Kammer");
 
 	AddDoor({ 96, 615, 1}, 310,"Villa Rosaline - Balcony","Villa Rosaline - Balkon");
 	AddDoor({ 94, 612, 0}, 310,"Villa Rosaline","Villa Rosaline");

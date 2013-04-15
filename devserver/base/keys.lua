@@ -58,15 +58,16 @@ end;
     How ever it checks if the door item is a opened or a closed door.
     @param ItemStruct - the item that is the key for a door
     @param ItemStruct - the item that is the door that shall be checked
+	@param CharacterStruct - the user that has the key
     @return boolean - true in case the key item would fit to the door, false if
     it does not fit
 ]]
-function CheckKey(Key, Door)
+function CheckKey(Key, Door, User)
     if Door == nil then
 	    return false
 	end	
 	if base.doors.CheckClosedDoor(Door.id) or base.doors.CheckOpenDoor(Door.id) then
-        if (Key:getData("lockId") == Door:getData("lockId") and Door:getData("lockId") ~= "") then
+        if (Key:getData("lockId") == Door:getData("lockId") and Door:getData("lockId") ~= "") or checkForMasterKey(User, Key) then
             return true;
         else
             return false;
@@ -75,3 +76,18 @@ function CheckKey(Key, Door)
         return false;
     end;
 end;
+
+--[[ 
+	Checks if the key is a master key and in the hands of an admin. A master key 
+	can open and close all doors.
+	@param User - character struct to check if the owner of the key is an admin
+	@param key - ItemStruct of the key that shall be checked
+	@return boolean - true in case of a master key else false
+]]
+function checkForMasterKey(User, key)
+	if User:isAdmin() and key:getData("lockId"==666) then
+		return true;
+	else
+		return false;
+	end
+end
