@@ -85,7 +85,7 @@ end;
 	@return boolean - true in case of a master key else false
 ]]
 function checkForMasterKey(User, key)
-	if User:isAdmin() and key:getData("lockId"==666) then
+	if User:isAdmin() and key:getData("lockId")==666) then
 		return true;
 	else
 		return false;
