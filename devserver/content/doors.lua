@@ -11,10 +11,10 @@ function initDoors()
 	-- if you want a lock, which isn't locked after reload: AddDoor({1, 1, 1}, 343, "Unlocked door", "Unverschlossene Tür", false) 
 	
 	-- Galmair 1xx
-	AddDoor({341, 207, 0}, 100,"Golden Dreams, the private chamber of the Don","Goldträume, die Privatkammer des Dons"); -- Don's private room !create 2141 1 333 lockId=100
-	AddDoor({352, 213, 0}, 101,"Treasury","Schatzkammer"); -- Don's treasury !create 3055 1 333 lockId=101
-	AddDoor({352, 214, 0}, 101,"Treasury","Schatzkammer"); -- Don's treasury !create 3055 1 333 lockId=101
-	AddDoor({352, 215, 0}, 101,"Treasury","Schatzkammer"); -- Don's treasury !create 3055 1 333 lockId=101
+	AddDoor({341, 207, 0}, 100,"Golden Dreams, the private chamber of the Don","Goldträume, die Privatkammer des Dons"); -- Don's private room !create 2122 1 333 lockId=100
+	AddDoor({352, 213, 0}, 101,"Treasury","Schatzkammer"); -- Don's treasury !create 2124 1 333 lockId=101
+	AddDoor({352, 214, 0}, 101,"Treasury","Schatzkammer"); -- Don's treasury !create 2124 1 333 lockId=101
+	AddDoor({352, 215, 0}, 101,"Treasury","Schatzkammer"); -- Don's treasury !create 2124 1 333 lockId=101
 	AddDoor({416, 249, 0}, false,"Galmair Towngate","Galmair Stadttor");
 	AddDoor({416, 250, 0}, false,"Galmair Towngate","Galmair Stadttor");
 
