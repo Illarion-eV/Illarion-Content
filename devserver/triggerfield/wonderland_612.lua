@@ -73,7 +73,7 @@ function MoveToField(char)
 		end
 	elseif char:getQuestProgress(612) == 1 then -- riddle has been solved yet; the voice one more time without warp
 		world:makeSound(1,char.pos);		
-		char:inform("Du hörst eine krächzende Stimme ängstlich schreien: \"Nein! Nicht schon wieder du. Geh weg und lass mich in Ruhe!\" Danach kehrt Stille ein.","You hear a croaking voice crying scared: \"No! Not you again. Leave me alone!\" Afterwards there is silence.")
+		char:inform("Du hörst eine krächzende Stimme ängstlich schreien: \"Nein! Nicht schon wieder du. Geh weg und lass mich in Ruhe!\" Danach kehrt Stille ein. test","You hear a croaking voice crying scared: \"No! Not you again. Leave me alone!\" Afterwards there is silence. test")
 		char:setQuestProgress(612,2)
 		return
 	end 
