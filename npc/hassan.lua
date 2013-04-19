@@ -61,7 +61,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("jakob");
 talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
-talkEntry:addResponse("Ah Jakob send you but you already ask me for something to do.");
+talkEntry:addResponse("Ah Jakob sent you but you already ask me for something to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -86,7 +86,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
-talkEntry:addResponse("Ah Jakob send you but you already ask me for something to do.");
+talkEntry:addResponse("Ah Jakob sent you but you already ask me for something to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
