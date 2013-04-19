@@ -48,7 +48,7 @@ itemShoes = 53
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hair. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
 
@@ -61,16 +61,16 @@ itemShoes = 53
 -- 0: No quest taken
 -- 1: Quest 1: Deliver 5 ropes
 -- 2: Quest 1 solved, reward: 200cp, (5 rankpoints)
--- 3: Quest 2: Bring a message to Miggs. Needs edit of the NPC script!
+-- 3: Quest 2: Take a message to Miggs. Needs edit of the NPC script!
 -- 4: Message delivered
 -- 5: Quest 2 solved, reward: 50cp, red hat (358), (10 rankpoints)
--- 6: Quest 3: Bring a message to Bruno Blackhole. Needs edit of the NPC script!
+-- 6: Quest 3: Take a message to Bruno Blackhole. Needs edit of the NPC script!
 -- 7: Message delivered
 -- 8: Quest 3 solved, reward: warhammer (226), (10 rankpoints)
--- 9: Quest 4: Bring a message to Fronita Emery. Needs edit of the NPC script!
+-- 9: Quest 4: Take a message to Fronita Emery. Needs edit of the NPC script!
 -- 10: Message delivered
 -- 11: Quest 4 solved, reward: 400cp, (15 rankpoints)
--- 12: Quest 5: Bring a message to Queen Rosaline Edwards. Needs edit of the NPC script!
+-- 12: Quest 5: Take a message to Queen Rosaline Edwards. Needs edit of the NPC script!
 -- 13: Message delivered
 -- 14: Quest 5 solved, reward: icebird amueltt (334), (20 rankpoints)
 
@@ -99,26 +99,26 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back with some money!"
 -- 1st quest: Bring 5 ropes, reward 200cp
 
 -- fix
-queststatus(107) > 0, queststatus(712) = 13, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 14, "Ah Joey send you but you already ask me for something to do."
+queststatus(107) > 0, queststatus(712) = 13, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 14, "Ah Joey sent you, but you have already asked me for something to do."
 queststatus(107) > 0, queststatus(712) = 13, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 14, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
-queststatus(107) > 0, queststatus(712) = 13, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 14, "Ah Joey send you but you already ask me for something to do."
+queststatus(107) > 0, queststatus(712) = 13, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 14, "Ah Joey sent you, but you have already asked me for something to do."
 queststatus(107) > 0, queststatus(712) = 13, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 14, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
 
 -- Give out quest 1
-queststatus(107) = 0, queststatus(712) = 13, town = Galmair, english, "quest", "mission" -> inform("[New quest] The Reminder I"), queststatus(107) = 1, queststatus(712) = 14, "Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you..."
+queststatus(107) = 0, queststatus(712) = 13, town = Galmair, english, "quest", "mission" -> inform("[New quest] The Reminder I"), queststatus(107) = 1, queststatus(712) = 14, "Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em 'ere and all is fine. If you don't, I'll 'remind' you..."
 queststatus(107) = 0, queststatus(712) = 13, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Die Erinnerung I"), queststatus(107) = 1, queststatus(712) = 14, "Japp, ich hätte einen Handlangerdienst. Bring' mir fünf Seile, du weist, wofür. Frag nicht! Bring sie ran und alles ist gut, bring sie nicht und ich werde dich an sie... 'erinnern'."
-queststatus(107) = 0, queststatus(712) = 13, town = Galmair, "task", "adventure", "message" -> inform("[New quest] The Reminder I"), queststatus(107) = 1, queststatus(712) = 14, "Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you..."
+queststatus(107) = 0, queststatus(712) = 13, town = Galmair, "task", "adventure", "message" -> inform("[New quest] The Reminder I"), queststatus(107) = 1, queststatus(712) = 14, "Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em 'ere and all is fine. If you don't, I'll 'remind' you..."
 queststatus(107) = 0, queststatus(712) = 13, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Die Erinnerung I"), queststatus(107) = 1, queststatus(712) = 14, "Japp, ich hätte einen Handlangerdienst. Bring' mir fünf Seile, du weist, wofür. Frag nicht! Bring sie ran und alles ist gut, bring sie nicht und ich werde dich an sie... 'erinnern'."
 
-queststatus(107) = 0, english, "quest", "mission" -> inform("[New quest] The Reminder I"), queststatus(107) = 1, "Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you..."
+queststatus(107) = 0, english, "quest", "mission" -> inform("[New quest] The Reminder I"), queststatus(107) = 1, "Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em 'ere and all is fine. If you don't, I'll 'remind' you..."
 queststatus(107) = 0, "quest", "mission" -> inform("[Neues Quest] Die Erinnerung I"), queststatus(107) = 1, "Japp, ich hätte einen Handlangerdienst. Bring' mir fünf Seile, du weist, wofür. Frag nicht! Bring sie ran und alles ist gut, bring sie nicht und ich werde dich an sie... 'erinnern'."
-queststatus(107) = 0, "task", "adventure", "message" -> inform("[New quest] The Reminder I"), queststatus(107) = 1, "Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you..."
+queststatus(107) = 0, "task", "adventure", "message" -> inform("[New quest] The Reminder I"), queststatus(107) = 1, "Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em 'ere and all is fine. If you don't, I'll 'remind' you..."
 queststatus(107) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Die Erinnerung I"), queststatus(107) = 1, "Japp, ich hätte einen Handlangerdienst. Bring' mir fünf Seile, du weist, wofür. Frag nicht! Bring sie ran und alles ist gut, bring sie nicht und ich werde dich an sie... 'erinnern'."
 
 -- Quest 1 taken but not solved, repeat the instructions
-queststatus(107) = 1, item(2760, all) < 5, english, "quest", "mission" -> "Five strong hemp ropes is what I need. Bring 'em or start attachin' them to the tree at the market place, whatever suits you best."
+queststatus(107) = 1, item(2760, all) < 5, english, "quest", "mission" -> "Five strong hemp ropes is what I need. Bring 'em 'ere or start attachin' them to the tree at the market place, whatever suits you best."
 queststatus(107) = 1, item(2760, all) < 5, "quest", "mission" -> "Fünf feste Hanfseile brauch ich. Bring sie her oder knüpf sie schonmal an den Baum auf dem Marktplatz, wie du meinst."
-queststatus(107) = 1, item(2760, all) < 5, "task", "adventure", "message" -> "Five strong hemp ropes is what I need. Bring 'em or start attachin' them to the tree at the market place, whatever suits you best."
+queststatus(107) = 1, item(2760, all) < 5, "task", "adventure", "message" -> "Five strong hemp ropes is what I need. Bring 'em 'ere or start attachin' them to the tree at the market place, whatever suits you best."
 queststatus(107) = 1, item(2760, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Fünf feste Hanfseile brauch ich. Bring sie her oder knüpf sie schonmal an den Baum auf dem Marktplatz, wie du meinst."
 
 -- Quest 1 solved, reward: 200cp, +5 rankpoints
@@ -127,12 +127,12 @@ queststatus(107) = 1, item(2760, all) > 4, english, ".+" -> inform("[Quest solve
 queststatus(107) = 1, item(2760, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 2000, deleteItem(2760, 5), queststatus(107) = 2, rankpoints + 5, "Ah, ja, fünf feste Seile. Sie werden's tun, du weißt schon, was. Wenn du dem Don loyal bist, kannst du eine weitere Mission für mich übernehmen."
 queststatus(107) = 1, item(2760, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(2760, 5), queststatus(107) = 2, "Ah, ja, fünf feste Seile. Sie werden's tun, du weißt schon, was. Wenn du dem Don loyal bist, kannst du eine weitere Mission für mich übernehmen."
 
--- 2nd quest: Bring a message to Miggs.
+-- 2nd quest: Take a message to Miggs.
 
 -- Give out quest 2
-queststatus(107) = 2, english, "quest", "mission" -> inform("[New quest] The Reminder II: You received a message for Miggs."), queststatus(107) = 3, "Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it, just names, don't ask! Take the list to Miggs and you won't read your name on it."
+queststatus(107) = 2, english, "quest", "mission" -> inform("[New quest] The Reminder II: You receive a message for Miggs."), queststatus(107) = 3, "Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it, just names, don't ask! Take the list to Miggs and you won't read your name on it."
 queststatus(107) = 2, "quest", "mission" -> inform("[Neues Quest] Die Erinnerung II: Du hast eine Nachricht für Miggs erhalten."), queststatus(107) = 3, "Aye, du könntest mir noch einen Gefallen tun. Ich habe hier eine Nachricht für Miggs, eine Namensliste. Nur Namen, frag nicht! Bring sie zu Miggs und dein Name wird nicht drauf stehen."
-queststatus(107) = 2, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder II: You received a message for Miggs."), queststatus(107) = 3, "Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it, just names, don't ask! Take the list to Miggs and you won't read your name on it."
+queststatus(107) = 2, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder II: You receive a message for Miggs."), queststatus(107) = 3, "Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it, just names, don't ask! Take the list to Miggs and you won't read your name on it."
 queststatus(107) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Die Erinnerung II: Du hast eine Nachricht für Miggs erhalten."), queststatus(107) = 3, "Aye, du könntest mir noch einen Gefallen tun. Ich habe hier eine Nachricht für Miggs, eine Namensliste. Nur Namen, frag nicht! Bring sie zu Miggs und dein Name wird nicht drauf stehen."
 
 -- Quest 2 taken but not solved, repeat the instructions
@@ -147,12 +147,12 @@ queststatus(107) = 4, english, ".+" -> inform("[Quest solved] You are awarded fi
 queststatus(107) = 4, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und einen roten Zauberhut. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 500, item(358, 1, 599), queststatus(107) = 5, rankpoints + 10, "Gut, Miggs weiß jetzt, wer eine Spezialbehandlung braucht. Ich hab da was für dich; eine der Hexen, für die du ein Seil gebracht hast, wird jetzt ihren Hut nicht mehr brauchen. Hier, ein freigewordener Hut!"
 queststatus(107) = 4, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und einen roten Zauberhut."), money + 500, item(358, 1, 599), queststatus(107) = 5, "Gut, Miggs weiß jetzt, wer eine Spezialbehandlung braucht. Ich hab da was für dich; eine der Hexen, für die du ein Seil gebracht hast, wird jetzt ihren Hut nicht mehr brauchen. Hier, ein freigewordener Hut!"
 
--- 3rd quest: Bring a message to Bruno Blackhole.
+-- 3rd quest: Take a message to Bruno Blackhole.
 
 -- Give out quest 3
-queststatus(107) = 5, english, "quest", "mission" -> inform("[New quest] The Reminder III: You received a message for Bruno Blackhole."), queststatus(107) = 6, "Arr! Bruno Blackhole, that filthy bastard owes the Don quite a sum. You will have no problem taking him this special message from me? Good! Off!"
+queststatus(107) = 5, english, "quest", "mission" -> inform("[New quest] The Reminder III: You receive a message for Bruno Blackhole."), queststatus(107) = 6, "Arr! Bruno Blackhole, that filthy bastard owes the Don quite a sum. You will have no problem taking him this special message from me? Good! Off!"
 queststatus(107) = 5, "quest", "mission" -> inform("[Neues Quest] Die Erinnerung III: Du hast eine Nachricht für Bruno Blackhole erhalten."), queststatus(107) = 6, "Arr! Bruno Blackhole, der dreckige Lump, schuldet dem Don eine ziemliche Summe. Du hast kein Problem damit, ihm diese spezielle Nachricht von mir zu überbringen? Gut! Los!"
-queststatus(107) = 5, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder III: You received a message for Bruno Blackhole."), queststatus(107) = 6, "Arr! Bruno Blackhole, that filthy bastard owes the Don quite a sum. You will have no problem taking him this special message from me? Good! Off!"
+queststatus(107) = 5, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder III: You receive a message for Bruno Blackhole."), queststatus(107) = 6, "Arr! Bruno Blackhole, that filthy bastard owes the Don quite a sum. You will have no problem taking him this special message from me? Good! Off!"
 queststatus(107) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Die Erinnerung III: Du hast eine Nachricht für Bruno Blackhole erhalten."), queststatus(107) = 6, "Arr! Bruno Blackhole, der dreckige Lump, schuldet dem Don eine ziemliche Summe. Du hast kein Problem damit, ihm diese spezielle Nachricht von mir zu überbringen? Gut! Los!"
 
 -- Quest 3 taken but not solved, repeat the instructions
@@ -162,17 +162,17 @@ queststatus(107) = 6, "Task", "Adventure", "Message" -> "What are still waiting 
 queststatus(107) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Warauf wartest du? Mit jedem Tag, der vergeht, steigen die Zinsen, die Bruno Blackhole zu zahlen hat. Ab zur Malachitmine!"
 
 -- Quest 3 solved, reward: warhammer, +10 rankpoints
-queststatus(107) = 7, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded a warhammer. You advance in Don Valerio Guilianni's favour."), item(226, 1, 699), queststatus(107) = 8, rankpoints + 10, end, "Now Bruno will pay the debt one way or another. Anyway, here, for your good service, have my frihis name is skull splitter!"
-queststatus(107) = 7, english, ".+" -> inform("[Quest solved] You are awarded a warhammer."), item(226, 1, 699), queststatus(107) = 8, end, "Now Bruno will paythe debt one way or another. Anyway, here, for your good service, have my frihis name is skull splitter!"
+queststatus(107) = 7, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded a warhammer. You advance in Don Valerio Guilianni's favour."), item(226, 1, 699), queststatus(107) = 8, rankpoints + 10, end, "Now Bruno will pay the debt one way or another. Anyway, here, for your good service, have my friend, his name is Skull Splitter!"
+queststatus(107) = 7, english, ".+" -> inform("[Quest solved] You are awarded a warhammer."), item(226, 1, 699), queststatus(107) = 8, end, "Now Bruno will pay the debt one way or another. Anyway, here, for your good service, have my friend, his name is Skull Splitter!"
 queststatus(107) = 7, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst einen Kriegshammer. Dein Ansehen bei Don Valerio Guilianni steigt."), item(226, 1, 699), queststatus(107) = 8, rankpoints + 10, "Jetzt wird Bruno zahlen, auf die eine oder andere Weise. Nun, für deine guten Dienste gebe ich dir meinen Freund. Sein Name ist Schädelspalter."
 queststatus(107) = 7, ".+" -> inform("[Quest gelöst] Du erhältst einen Kriegshammer."), item(226, 1, 699), queststatus(107) = 8, "Jetzt wird Bruno zahlen, auf die eine oder andere Weise. Nun, für deine guten Dienste gebe ich dir meinen Freund. Sein Name ist Schädelspalter."
 
--- 4th quest: Bring a message to Fronita Emery.
+-- 4th quest: Take a message to Fronita Emery.
 
 -- Give out quest 4
-queststatus(107) = 8, english, "quest", "mission" -> inform("[New quest] The Reminder IV: You received a message for Fronita Emery."), queststatus(107) = 9, "She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Bring her this payment reminder!"
+queststatus(107) = 8, english, "quest", "mission" -> inform("[New quest] The Reminder IV: You receive a message for Fronita Emery."), queststatus(107) = 9, "She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Take her this payment reminder!"
 queststatus(107) = 8, "quest", "mission" -> inform("[Neues Quest] Die Erinnerung IV: Du hast eine Nachricht für Fronita Emery erhalten."), queststatus(107) = 9, "Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Turmstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!"
-queststatus(107) = 8, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder IV: You received a message for Fronita Emery."), queststatus(107) = 9, "She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Bring her this payment reminder!"
+queststatus(107) = 8, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder IV: You receive a message for Fronita Emery."), queststatus(107) = 9, "She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Take her this payment reminder!"
 queststatus(107) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Die Erinnerung IV: Du hast eine Nachricht für Fronita Emery erhalten."), queststatus(107) = 9, "Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Turmstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!"
 
 -- Quest 4 taken but not solved, repeat the instructions
@@ -187,12 +187,12 @@ queststatus(107) = 10, english, ".+" -> inform("[Quest solved] You are awarded 4
 queststatus(107) = 10, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 40 Silberstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 4000, queststatus(107) = 11, rankpoints + 15, "Schlechtes Geschäft für Fronita! Ich gebe dir ein wenig von den Zinsen, die sie dem Don nun zurückzahlen wird. Der Don belohnt loyale Handlanger."
 queststatus(107) = 10, ".+" -> inform("[Quest gelöst] Du erhältst 40 Silberstücke."), money + 4000, queststatus(107) = 11, "Schlechtes Geschäft für Fronita! Ich gebe dir ein wenig von den Zinsen, die sie dem Don nun zurückzahlen wird. Der Don belohnt loyale Handlanger."
 
--- 5th quest: Bring a message to Rosaline Edwards.
+-- 5th quest: Take a message to Rosaline Edwards.
 
 -- Give out quest 5
-queststatus(107) = 11, english, "quest", "mission" -> inform("[New quest] The Reminder V: You received a message for Queen Rosaline Edwards."), queststatus(107) = 12, "The Don trusts me and I trust you. This time, you have to deliver a very... special message. Take this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!"
+queststatus(107) = 11, english, "quest", "mission" -> inform("[New quest] The Reminder V: You receive a message for Queen Rosaline Edwards."), queststatus(107) = 12, "The Don trusts me and I trust you. This time, you have to deliver a very... special message. Take this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!"
 queststatus(107) = 11, "quest", "mission" -> inform("[Neues Quest] Die Erinnerung V: Du hast eine Nachricht für Königin Rosaline Edwards erhalten."), queststatus(107) = 12, "Der Don vertraut mir und ich traue dir. Diesmal musst du eine 'besondere' Nachricht überbringen. Bring diesen 'Brief der Wertschätzung' zur Königin von Cadomyr. Kein Wort zu niemanden! Los!"
-queststatus(107) = 11, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder V: You received a message for Queen Rosaline Edwards."), queststatus(107) = 12, "I trust you. The Don trusts you. This time, you have to deliver a very... special message. Take this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!"
+queststatus(107) = 11, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder V: You receive a message for Queen Rosaline Edwards."), queststatus(107) = 12, "I trust you. The Don trusts you. This time, you have to deliver a very... special message. Take this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!"
 queststatus(107) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Die Erinnerung V: Du hast eine Nachricht für Königin Rosaline Edwards erhalten."), queststatus(107) = 12, "Der Don vertraut mir und ich traue dir. Diesmal musst du eine 'besondere' Nachricht überbringen. Bring diesen 'Brief der Wertschätzung' zur Königin von Cadomyr. Kein Wort zu niemanden! Los!"
 
 -- Quest 5 taken but not solved, repeat the instructions
@@ -208,9 +208,9 @@ queststatus(107) = 13, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhäl
 queststatus(107) = 13, ".+" -> inform("[Quest gelöst] Du erhältst ein Eisvogelamulett."), item(334, 1, 999), queststatus(107) = 14, "Ich habe schon davon gehört, dass die Königin von Cadomyr nicht so begeistert über die 'Nachricht' war, die du ihr gebracht hast. Den Don wird das nicht freuen. Meine nächste Mission wäre gewesen, dass du ihr diesen Halsschmuck bringst. Behalte ihn und die ganze Angelegenheit für dich!"
 
 -- No more quests, just nice words of gratitude
-queststatus(107) = 14, english, "quest", "mission" -> "You did so much for me and the Don; one could be suspicious why, so, I'll stick to other henchmen, no offense."
+queststatus(107) = 14, english, "quest", "mission" -> "You did so much for me and the Don; one could be suspicious why, so, I'll stick to other henchmen, no offence."
 queststatus(107) = 14, "quest", "mission" -> "Du hast schon so viel für mich und den Don getan; man könnte misstrauisch werden, warum. Ich werde mich anderer Handlanger bedienen, wenns dir nichts ausmacht."
-queststatus(107) = 14, "Task", "Adventure", "Message" -> "You did so much for me and the Don; one could be suspicious why, so, I'll stick to other henchmen, no offense."
+queststatus(107) = 14, "Task", "Adventure", "Message" -> "You did so much for me and the Don; one could be suspicious why, so, I'll stick to other henchmen, no offence."
 queststatus(107) = 14, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Du hast schon so viel für mich und den Don getan; man könnte misstrauisch werden, warum. Ich werde mich anderer Handlanger bedienen, wenns dir nichts ausmacht."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
@@ -234,11 +234,11 @@ english, "Gobaith", "Gobiath" -> "What's that supposed to be?"
 "Schuld" -> "Schulden bei Don Valerio sind so eine Sache. Wer loyal zum Don steht, dem gewährt er gerne Kredit oder Stundung. Aber wer seine Protektionsgebühr nicht rechtzeitig zahlt, der verliert auch seinen Schutz... vor mir!"
 "geld" -> "Kupfer, Silber und Gold. Mit dem ersten bewerfe ich Bettler, mitten in die Fresse. Das zweite behalte ich für mich. Das letzte gehört dem Don, vergiss das nie!"
 "Zins" -> "Zinsen? Was soll das denn sein? Entweder, du zahlst deine Schulden rechtzeitig zurück oder zu zahlst mit deinen Knochen. Ist es das, was man unter 'Zinsen' versteht?"
-"Dwarf" -> "If you're here for the throwing competition, I have to dissapoint you. It was canceled due to a lack of healthy participants."
+"Dwarf" -> "If you're here for the throwing competition, I have to disappoint you. It was cancelled due to a lack of healthy participants."
 "Zwerg" -> "Wenn du wegen dem Weitwurfwettbewerb hier bist, muss ich dich enttäuschen. Der wurde mangels gesunder Teilnehmer abgesagt."
 
 -- Other NPCs
-english, "Miggs" -> "Aye, Miggs, my best regards to him. You can find him in the headquarter of Don Valerio. He does the... serious cases for the Don."
+english, "Miggs" -> "Aye, Miggs, my best regards to him. You can find him in the headquarters of Don Valerio. He does the... serious cases for the Don."
 "Miggs" -> "Aye, Miggs. Meine besten Grüße an ihn. Du findest ihn im Hauptquartier von Don Valerio. Er übernimmt die... schwierigen Fälle des Dons."
 english, "Bruno", "Blackhole" -> "Bruno Blackhole is a lazy digger who pretends to work in the Malachite mine. Didn't really make him rich."
 "Bruno", "Blackhole" -> "Bruno Blackhole ist eine fauler Wühler der so tut, als würde er in der Malachitmine arbeiten. Hat ihn jedenfalls nicht reich gemacht."
@@ -246,7 +246,7 @@ english, "Fronita", "Emery" -> "In Runewick, you can find skilled artisans. Fron
 "Fronita", "Emery" -> "In Runewick kann man recht geschickte Handwerker finden. Fronita Emery gehört zu ihnen; anstatt allerdings preiswerte Waren anzubieten, verschwendet sie ihre Zeit mit Vasen, die eh niemand kauft."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
-"bottle" -> "Payment reminders don't come in a bottle, well maybe by a bottle on your head!"
+"bottle" -> "Payment reminders don't come in a bottle, well maybe by a bottle to your head!"
 "flasche" -> "Mahnungen werden nicht als Flaschenpost verschickt. Vielleicht aber als Flasche auf deinen Kopf!"
 english, "Snickers" -> "Could take a while..."
 "Snickers" -> "Wenns mal wieder länger dauert..."
@@ -288,7 +288,7 @@ english, "Bragon", "Brágon" -> "Brágon gave us the flame... my tinderbox does 
 "Bragon", "Brágon" -> "Und Brágon gab uns das Feuer... Zündhölzer können das auch. Bete ich deshalb Zündhölzer an!?"
 english, "Cherga" -> "I'm not dead, so leave me alone about Cherga."
 "Cherga" -> "Ich bin nicht tot, also lass mich mit Cherga in Frieden."
-english, "Elara" -> "Who was that again? Eleven younger Gods, how am I supposed to remember them all?"
+english, "Elara" -> "Who was that again? Eleven Younger Gods, how am I supposed to remember them all?"
 "Elara" -> "Wer war die nochmal? Elf junge Götter, wie soll man sich die alle merken!"
 english, "Eldan" -> "You don't want to talk to a dwarf like me about Eldan. You do not want to! Better for you!"
 "Eldan" -> "Du willst mit einem Zwerg wie mir nicht über Eldan reden. Das willst du nicht. Ist besser für dich."
@@ -296,9 +296,9 @@ english, "Findari" -> "You don't want to talk to a dwarf like me about Findari. 
 "Findari" -> "Du willst mit einem Zwerg wie mir nicht über Findari reden. Das willst du nicht. Ist besser für dich."
 english, "Irmorom" -> "Irmorom is called 'Father' by some of my bethren. I don't know my father,but I seriously doubt a god would mate with my mother."
 "Irmorom" -> "Manche meiner Zwergenbrüder nennen Irmorom 'Vater' Ich kenne meinen Vater nicht. Aber ich glaube kaum, dass sich ein Gott mit meiner Mutter eingelassen hat."
-english, "Malachin", "Malachín" -> "Who was that again? Eleven younger Gods, how am I supposed to remember them all?"
+english, "Malachin", "Malachín" -> "Who was that again? Eleven Younger Gods, how am I supposed to remember them all?"
 "Malachin", "Malachín" -> "Wer war die nochmal? Elf junge Götter, wie soll man sich die alle merken!"
-english, "Moshran" -> "Who was that again? Eleven younger Gods, how am I supposed to remember them all?"
+english, "Moshran" -> "Who was that again? Eleven Younger Gods, how am I supposed to remember them all?"
 "Moshran" -> "Wer war die nochmal? Elf junge Götter, wie soll man sich die alle merken!"
 english, "Nargun", "Nargún", "Nargùn" -> "You don't want to talk to a dwarf like me about Nargún. You do not want to! Better for you!"
 "Nargun", "Nargún", "Nargùn" -> "Du willst mit einem Zwerg wie mir nicht über Nargún reden. Das willst du nicht. Ist besser für dich."
@@ -326,7 +326,7 @@ english, "Groktan", "Flintsplit" -> "Who asks for me?", "Arr!", "What do you wan
 "Groktan", "Flintsplit" -> "Wer fragt nach mir?", "Arr!", "Was wollt ihr? Ne Abreibung?"
 "Yes" -> "There is something I wanted to say, but I forgot...", "Can you rephrase that?", "Don't try to fool me or I fool you... in your face!"
 "Ja" -> "Ich wollte gerade noch etwas sagen, aber ich hab es vergessen.", "Kannst das anders ausdrücken?", "Veräppel mich und ich veräppel... dein Gesicht!"
-"No" -> "Whatever, I do what the Don wants.", "That is pretty interesting, why don't you tell more about that?", "What!?", "Eh?"
+"No" -> "Whatever, I do what the Don wants.", "That is pretty interesting, why don't you tell me more about that?", "What!?", "Eh?"
 "Nein" -> "Na und, ich mach was der Don mir sagt.", "Das ist sehr interessant, warum erzählst du nicht mehr darüber?", "Was!?", "Eh?"
 
 ------------------------------------------------------------------------------AC
@@ -339,7 +339,7 @@ cycletext "Eine gutgemeinte Mahnung: Vergesst nie, was ihr dem Don schuldet.", "
 cycletext "#me zückt ein Notizbuch und streicht etwas durch: 'Erinnert!'", "#me takes out a notebook and rules out a line: 'Reminded!'"
 cycletext "Wenn der Don all das Geld hätte, was ihm die Leute schulden, wäre er ein reicher Mann!", "If the Don had all the money people owe him, he'd be rich!"
 cycletext "Zahltag!", "Payday!"
-cycletext "#me rümpft die Nase: 'Geld stinkt nicht. Muss also was anderes sein. Ich bin's nicht!'", "#me wrinkles his nose: 'Money doesn't stink, has to be something else, but not me!'"
+cycletext "#me rümpft die Nase: 'Geld stinkt nicht. Muss also was anderes sein. Ich bin's nicht!'", "#me wrinkles his nose, 'Money doesn't stink, has to be something else, but not me!'"
 cycletext "Schweigen ist Gold, Zahlen hält gesund.", "Silence is golden, paying is healthy."
 cycletext "Ich bin der Herr von Ratschkling!", "I am the Lord of Kerching!"
 cycletext "Die, die bezahlt haben, wurden daran erinnert. Die, die nicht zahlten, werden sich immer daran erinnern.", "Those who paid were reminded, those who didn't will remember."

@@ -204,7 +204,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("joey");
 talkEntry:addTrigger("licavoli");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 14));
-talkEntry:addResponse("Ah Joey send you but you already ask me for something to do.");
+talkEntry:addResponse("Ah Joey sent you, but you have already asked me for something to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -229,7 +229,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 14));
-talkEntry:addResponse("Ah Joey send you but you already ask me for something to do.");
+talkEntry:addResponse("Ah Joey sent you, but you have already asked me for something to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -256,7 +256,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder I"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 14));
-talkEntry:addResponse("Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you...");
+talkEntry:addResponse("Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em 'ere and all is fine. If you don't, I'll 'remind' you...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -283,7 +283,7 @@ talkEntry:addTrigger("message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder I"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 14));
-talkEntry:addResponse("Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you...");
+talkEntry:addResponse("Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em 'ere and all is fine. If you don't, I'll 'remind' you...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -310,7 +310,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder I"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 1));
-talkEntry:addResponse("Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you...");
+talkEntry:addResponse("Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em 'ere and all is fine. If you don't, I'll 'remind' you...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -331,7 +331,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder I"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 1));
-talkEntry:addResponse("Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you...");
+talkEntry:addResponse("Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em 'ere and all is fine. If you don't, I'll 'remind' you...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -354,7 +354,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2760, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Five strong hemp ropes is what I need. Bring 'em or start attachin' them to the tree at the market place, whatever suits you best.");
+talkEntry:addResponse("Five strong hemp ropes is what I need. Bring 'em 'ere or start attachin' them to the tree at the market place, whatever suits you best.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -373,7 +373,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2760, "all", "<", 5, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("message");
-talkEntry:addResponse("Five strong hemp ropes is what I need. Bring 'em or start attachin' them to the tree at the market place, whatever suits you best.");
+talkEntry:addResponse("Five strong hemp ropes is what I need. Bring 'em 'ere or start attachin' them to the tree at the market place, whatever suits you best.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -448,7 +448,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder II: You received a message for Miggs."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder II: You receive a message for Miggs."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 3));
 talkEntry:addResponse("Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it, just names, don't ask! Take the list to Miggs and you won't read your name on it.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -469,7 +469,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 2));
 talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder II: You received a message for Miggs."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder II: You receive a message for Miggs."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 3));
 talkEntry:addResponse("Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it, just names, don't ask! Take the list to Miggs and you won't read your name on it.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -580,7 +580,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder III: You received a message for Bruno Blackhole."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder III: You receive a message for Bruno Blackhole."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 6));
 talkEntry:addResponse("Arr! Bruno Blackhole, that filthy bastard owes the Don quite a sum. You will have no problem taking him this special message from me? Good! Off!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -601,7 +601,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 5));
 talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder III: You received a message for Bruno Blackhole."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder III: You receive a message for Bruno Blackhole."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 6));
 talkEntry:addResponse("Arr! Bruno Blackhole, that filthy bastard owes the Don quite a sum. You will have no problem taking him this special message from me? Good! Off!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -667,7 +667,8 @@ talkEntry:addConsequence(npc.base.consequence.item.item(226, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
-talkEntry:addResponse("Now Bruno will pay the debt one way or another. Anyway, here, for your good service, have my frihis name is skull splitter!");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Now Bruno will pay the debt one way or another. Anyway, here, for your good service, have my frihis name is Skull Splitter!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -679,7 +680,8 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.item.item(226, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
-talkEntry:addResponse("Now Bruno will paythe debt one way or another. Anyway, here, for your good service, have my frihis name is skull splitter!");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Now Bruno will pay the debt one way or another. Anyway, here, for your good service, have my frihis name is Skull Splitter!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -710,9 +712,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder IV: You received a message for Fronita Emery."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder IV: You receive a message for Fronita Emery."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 9));
-talkEntry:addResponse("She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Bring her this payment reminder!");
+talkEntry:addResponse("She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Take her this payment reminder!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -731,9 +733,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 8));
 talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder IV: You received a message for Fronita Emery."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder IV: You receive a message for Fronita Emery."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 9));
-talkEntry:addResponse("She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Bring her this payment reminder!");
+talkEntry:addResponse("She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Take her this payment reminder!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -838,7 +840,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 11));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder V: You received a message for Queen Rosaline Edwards."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder V: You receive a message for Queen Rosaline Edwards."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 12));
 talkEntry:addResponse("The Don trusts me and I trust you. This time, you have to deliver a very... special message. Take this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -859,7 +861,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 11));
 talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder V: You received a message for Queen Rosaline Edwards."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder V: You receive a message for Queen Rosaline Edwards."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 12));
 talkEntry:addResponse("I trust you. The Don trusts you. This time, you have to deliver a very... special message. Take this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -966,7 +968,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 14));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("You did so much for me and the Don; one could be suspicious why, so, I'll stick to other henchmen, no offense.");
+talkEntry:addResponse("You did so much for me and the Don; one could be suspicious why, so, I'll stick to other henchmen, no offence.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -983,7 +985,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 14));
 talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
-talkEntry:addResponse("You did so much for me and the Don; one could be suspicious why, so, I'll stick to other henchmen, no offense.");
+talkEntry:addResponse("You did so much for me and the Don; one could be suspicious why, so, I'll stick to other henchmen, no offence.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1131,7 +1133,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Dwarf");
-talkEntry:addResponse("If you're here for the throwing competition, I have to dissapoint you. It was canceled due to a lack of healthy participants.");
+talkEntry:addResponse("If you're here for the throwing competition, I have to disappoint you. It was cancelled due to a lack of healthy participants.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1144,7 +1146,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Miggs");
-talkEntry:addResponse("Aye, Miggs, my best regards to him. You can find him in the headquarter of Don Valerio. He does the... serious cases for the Don.");
+talkEntry:addResponse("Aye, Miggs, my best regards to him. You can find him in the headquarters of Don Valerio. He does the... serious cases for the Don.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1186,7 +1188,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("bottle");
-talkEntry:addResponse("Payment reminders don't come in a bottle, well maybe by a bottle on your head!");
+talkEntry:addResponse("Payment reminders don't come in a bottle, well maybe by a bottle to your head!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1421,7 +1423,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Who was that again? Eleven younger Gods, how am I supposed to remember them all?");
+talkEntry:addResponse("Who was that again? Eleven Younger Gods, how am I supposed to remember them all?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1474,7 +1476,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Who was that again? Eleven younger Gods, how am I supposed to remember them all?");
+talkEntry:addResponse("Who was that again? Eleven Younger Gods, how am I supposed to remember them all?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1488,7 +1490,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("Who was that again? Eleven younger Gods, how am I supposed to remember them all?");
+talkEntry:addResponse("Who was that again? Eleven Younger Gods, how am I supposed to remember them all?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1672,7 +1674,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("Whatever, I do what the Don wants.");
-talkEntry:addResponse("That is pretty interesting, why don't you tell more about that?");
+talkEntry:addResponse("That is pretty interesting, why don't you tell me more about that?");
 talkEntry:addResponse("What!?");
 talkEntry:addResponse("Eh?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1691,7 +1693,7 @@ talkingNPC:addCycleText("Eine gutgemeinte Mahnung: Vergesst nie, was ihr dem Don
 talkingNPC:addCycleText("#me zückt ein Notizbuch und streicht etwas durch: 'Erinnert!'", "#me takes out a notebook and rules out a line: 'Reminded!'");
 talkingNPC:addCycleText("Wenn der Don all das Geld hätte, was ihm die Leute schulden, wäre er ein reicher Mann!", "If the Don had all the money people owe him, he'd be rich!");
 talkingNPC:addCycleText("Zahltag!", "Payday!");
-talkingNPC:addCycleText("#me rümpft die Nase: 'Geld stinkt nicht. Muss also was anderes sein. Ich bin's nicht!'", "#me wrinkles his nose: 'Money doesn't stink, has to be something else, but not me!'");
+talkingNPC:addCycleText("#me rümpft die Nase: 'Geld stinkt nicht. Muss also was anderes sein. Ich bin's nicht!'", "#me wrinkles his nose, 'Money doesn't stink, has to be something else, but not me!'");
 talkingNPC:addCycleText("Schweigen ist Gold, Zahlen hält gesund.", "Silence is golden, paying is healthy.");
 talkingNPC:addCycleText("Ich bin der Herr von Ratschkling!", "I am the Lord of Kerching!");
 talkingNPC:addCycleText("Die, die bezahlt haben, wurden daran erinnert. Die, die nicht zahlten, werden sich immer daran erinnern.", "Those who paid were reminded, those who didn't will remember.");
