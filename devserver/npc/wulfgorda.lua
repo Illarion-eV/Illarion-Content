@@ -52,7 +52,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(155, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("#me tips her helmet. 'Finally you found me! I had already been informed about your visit. There, you have some silver coins for finding me.");
+talkEntry:addResponse("#me tips her helmet. 'Finally you found me! I had already been informed about your visit. There, have some silver coins for finding me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -351,7 +351,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Dead Marsh");
-talkEntry:addResponse("The Dead Marsh is just south from here, over the right branch of the Gloving River. You find the Altar of Hatred, Witch's Cottage, and Bramus Rest there.");
+talkEntry:addResponse("The Dead Marsh is just south from here, over the right branch of the Glowing River. You find the Altar of Hatred, Witch's Cottage, and Bramus Rest there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

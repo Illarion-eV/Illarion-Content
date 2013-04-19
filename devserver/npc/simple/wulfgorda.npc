@@ -59,7 +59,7 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Wulfgorda die Jägerin. Schlüsselwörter: Auskunft, Information, Orte.")
 
 -- Mandatory: General speech
-queststatus(650) = 1, english, ".*" -> inform("[Quest End  'Find Wulfgorda'] You receive 10 silver coins."), money + 1000, deleteItem(155, 10), queststatus(650) = 2, rankpoints + 5, "#me tips her helmet. 'Finally you found me! I had already been informed about your visit. There, you have some silver coins for finding me."
+queststatus(650) = 1, english, ".*" -> inform("[Quest End  'Find Wulfgorda'] You receive 10 silver coins."), money + 1000, deleteItem(155, 10), queststatus(650) = 2, rankpoints + 5, "#me tips her helmet. 'Finally you found me! I had already been informed about your visit. There, have some silver coins for finding me."
 queststatus(650) = 1, ".*" -> inform("[Quest Ende 'Find Wulfgorda'] Du hast 10 Silberstücke erhalten."), money + 1000, deleteItem(155, 10), queststatus(650) = 2, rankpoints + 5, "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen."
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me tips her helmet."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me tippt auf ihren Helm."
@@ -105,7 +105,7 @@ english, "Illarion" -> inform("[Keywords] Northeast, northwest, southwest, south
 "Ostland" -> "Du findest es östlich vom Elstree Wald und dort wiederum kannst du den Osthafen, die Zwillingsberge, den Paddock Hof, das Wunderland mit dem Wunschbrunnen und das Naganorium finden."
 "Pauldron" -> "The Pauldron Isle is east from Eastland. You can find Tanora Ruins, Epphurd's Houses, the Graveyard, Skewer Drift and the former Pauldron Settlement there."
 "Schulterplatte" -> "Die Schulterplatte Insel ist östlich vom Ostland. Du findest die Tanora Ruinen, Epphurds Häuser, den Friedhof, den Spießstollen und die ehemalige Schulterplattesiedlung."
-"Dead Marsh" -> "The Dead Marsh is just south from here, over the right branch of the Gloving River. You find the Altar of Hatred, Witch's Cottage, and Bramus Rest there."
+"Dead Marsh" -> "The Dead Marsh is just south from here, over the right branch of the Glowing River. You find the Altar of Hatred, Witch's Cottage, and Bramus Rest there."
 "Todes Sumpf" -> "Der Todes Sumpf ist gleich südlich von hier auf der anderen Seite des rechten Arms des Glühenden Fluss. Du findest dort den Altar der Gehaßten, die Hexen Hüte und Bramus Ruhe."
 "Spider's Mouth", "Spiders Mouth" -> "This island here is the so called Spider's Mouth. It is very famous for the Hemp Necktie Inn, which is also known as the neutral tavern. On the east side you can find a temple of Adron, and on the west side the Tears of Lost Love."
 "Spinnen Mund" -> "Diese Insel hier wird das Spinnen Maul genannt. Sie ist berümt für ihr Gasthof zur Hanfschlinge oder auch bekannt als die neutral Taverne. Am östlichen Ende findest du einen Tempel für Adron, am westlichen Ende die Tränen der Verlorenen Liebe."
