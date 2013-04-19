@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -317,7 +317,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 3));
-talkEntry:addResponse("You want another task? Alright, please go to the loom behind me and make two bolts of grey cloth. Furthermore, go to the spinning wheel over there and produce five spools of thread from the remaining wool.");
+talkEntry:addResponse("You want another task? Alright, please go to the loom behind me and weave two bolts of grey cloth. Furthermore, go to the spinning wheel over there and produce five spools of thread from the remaining wool.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,7 +338,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(705, "=", 3));
-talkEntry:addResponse("You want another task? Alright, please go to the loom behind me and make two bolts of grey cloth. Furthermore, go to the spinning wheel over there and produce five spools of thread from the remaining wool.");
+talkEntry:addResponse("You want another task? Alright, please go to the loom behind me and weave two bolts of grey cloth. Furthermore, go to the spinning wheel over there and produce five spools of thread from the remaining wool.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
