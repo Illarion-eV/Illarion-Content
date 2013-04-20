@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Hassan                                                   Cadomyr --
--- NPC Job:  royal fan waver                                                  --
+-- NPC Job:  royal fan-waver                                                  --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  110, 574, 0            --
 -- NPC Sex:  male                       NPC Direction: east                   --
@@ -61,7 +61,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("jakob");
 talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
-talkEntry:addResponse("Ah Jakob sent you but you already ask me for something to do.");
+talkEntry:addResponse("Ah Jakob sent you, but you have already asked me for something to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -86,7 +86,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
-talkEntry:addResponse("Ah Jakob sent you but you already ask me for something to do.");
+talkEntry:addResponse("Ah Jakob sent you, but you have already asked me for something to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -136,7 +136,7 @@ talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 8));
-talkEntry:addResponse("#me frowns, ?Mere peasant you dare greet me in such a way! Make up for you lack of consideration by giving me a glass of wine so I may quench my thirst.'");
+talkEntry:addResponse("#me frowns, ?Mere peasant you dare greet me in such a way! Make up for your lack of consideration by getting me a glass of wine so that I may quench my thirst.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -304,7 +304,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
-talkEntry:addResponse("#me frowns, ?Mere peasant you dare greet me in such a way! Make up for you lack of consideration by giving me a glass of wine so I may quench my thirst.'");
+talkEntry:addResponse("#me frowns, ?Mere peasant you dare greet me in such a way! Make up for your lack of consideration by getting me a glass of wine so that I may quench my thirst.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -748,7 +748,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("baron");
 talkEntry:addTrigger("hastings");
-talkEntry:addResponse("Baron Hastings? He was not at all happy about Queen Rosaline finding a clause that enabled her to succeed her father on the throne, but now he has gone missing...");
+talkEntry:addResponse("Baron Hastings? He was not at all happy about Queen Rosaline finding a clause that enabled her to succeed her father to the throne, but now he has gone missing...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -769,7 +769,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addTrigger("palace");
-talkEntry:addResponse("If Cadomyr is the crown of the land, than the Palace is certainly the most magnificent crown jewel! Sadly not all the servants in the Palace are as reliable and loyal as I am.");
+talkEntry:addResponse("If Cadomyr is the crown of the land, then the Palace is certainly the most magnificent crown jewel! Sadly not all the servants in the Palace are as reliable and loyal as I am.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1096,7 +1096,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addTrigger("gods");
-talkEntry:addResponse("#me nods eagerly, spilling some wine on the table. 'We are proper, honourable, God-fearing people in Cadomyr, unlike our wretched neighbours!'");
+talkEntry:addResponse("#me nods eagerly, spilling some wine on the table. 'We are proper, honourable, god-fearing people in Cadomyr, unlike our wretched neighbours!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1204,7 +1204,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("If you're looking for answers about Zelphia go find the lizardfolks, they're always blabbing on and on about her.");
+talkEntry:addResponse("If you're looking for answers about Zelphia go find the lizard folk, they're always blabbing on and on about her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

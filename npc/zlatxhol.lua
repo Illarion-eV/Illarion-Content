@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.23 --
+--                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -206,7 +206,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 1));
-talkEntry:addResponse("Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol ten clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you old sshovel of hiss for digging clay.");
+talkEntry:addResponse("Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol ten clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you an old sshovel of hiss for digging clay.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -229,7 +229,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 1));
-talkEntry:addResponse("Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol ten clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you old sshovel of hiss for digging clay.");
+talkEntry:addResponse("Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol ten clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you an old sshovel of hiss for digging clay.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -255,7 +255,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("clay");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 2));
-talkEntry:addResponse("Well done, thanks you. Pleasse keep clay for next tasssk of Zlatxhol.");
+talkEntry:addResponse("Well done, thanks you. Pleasse keep the clay for the next tasssk of Zlatxhol.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -279,7 +279,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(707, "=", 2));
-talkEntry:addResponse("Well done, thanks you. Pleasse keep clay for next tasssk of Zlatxhol.");
+talkEntry:addResponse("Well done, thanks you. Pleasse keep the clay for the next tasssk of Zlatxhol.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
