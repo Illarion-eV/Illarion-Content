@@ -522,7 +522,7 @@ end
 -- @return The timestamp of the date
 function GetCurrentTimestampForDate(year, month, day, hour, minute, second)
     	return math.floor(
-          (( year  - 1 ) * 35962361 + -- (year-1)*((15*24) + 5)*24*60*60;
+          (( year  - 1 ) * 35040250 + -- (year-1)*((15*24) + 5)*24*60*60;
            ( month - 1 ) *  2073600 + -- (month-1)*24*24*60*60;
            ( day   - 1 ) *    86400 + -- (day-1)*24*60*60;
             hour         *     3600 + -- hour*60*60
@@ -543,6 +543,10 @@ function GetCurrentTimestampForDate(year, month, day, hour, minute, second)
      );]]
 end;
 
+1366569754/x = 38
+1366569754 = 38*x
+1366569754/39 = 35040250
+
 --- Convert a timestamp back into a full data. This is the inverse function of
 -- GetCurrentTimestamp() and GetCurrentTimestampForData(...).
 -- @param timestamp The timestamp that shall be converted
@@ -553,8 +557,8 @@ end;
 -- @return The minute of the resulting data and time
 -- @return The second of the resulting data and time
 function TimestampToDate(timestamp)
-    local year = math.floor(timestamp / 35962361);
-    timestamp = timestamp - (year * 35962361);
+    local year = math.floor(timestamp / 35040250);
+    timestamp = timestamp - (year * 35040250);
 
     --Calculating day
     --86400 = 60*60*24
