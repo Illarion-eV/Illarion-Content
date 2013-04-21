@@ -18,8 +18,10 @@ function addEffect(arenaEffect, User)
     if not found then
         return false;
     end
-    base.arena.spawnMonster(User, level, arena);
-    return true;
+	if isValidChar(User) then
+		base.arena.spawnMonster(User, level, arena);
+		return true;
+	end
 end
 
 function callEffect(arenaEffect, User)
