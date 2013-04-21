@@ -13,7 +13,7 @@ author: Lillian
 ]]
 require("base.money")
 
-module("development.arena.base.arena", package.seeall)
+module("base.arena", package.seeall)
 
 --[[
 Level 1: Annoying monsters award 1 point
