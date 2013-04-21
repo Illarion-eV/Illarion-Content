@@ -43,7 +43,7 @@ function callEffect(arenaEffect, User)
         return false;      -- no monster
     end
 
-    if development.arena.base.arena.checkMonster( User ) then
+    if base.arena.checkMonster( User ) then
         base.common.InformNLS( User,
         "Ihr habt euren Gegner geschlagen und Punkte verdient.",
         "You defeated your enemy and gained points for it.");
