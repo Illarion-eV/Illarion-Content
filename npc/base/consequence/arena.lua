@@ -21,14 +21,14 @@ function(self, mode)
 end);
 
 function _arena_helper_request(self, npcChar, player)
-	development.arena.base.arena.requestMonster(player, npcChar);
+	base.arena.requestMonster(player, npcChar);
 end;
 
 function _arena_helper_points(self, npcChar, player)
-    development.arena.base.arena.getArenastats(player, npcChar);
+    base.arena.getArenastats(player, npcChar);
 end;
 
 function _arena_helper_list(self, npcChar, player)
-	local arena = development.arena.base.arena.getArena(player, npcChar);
-    development.arena.base.arena.getRanklist(player, arena, true);
+	local arena = base.arena.getArena(player, npcChar);
+    base.arena.getRanklist(player, arena, true);
 end;
