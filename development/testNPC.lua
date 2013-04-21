@@ -11,6 +11,7 @@ require("npc.base.consequence.repair")
 require("npc.base.talk")
 require("npc.base.trade")
 require("development.arena.consequence.arena")
+require("npc.base.condition.questtime")
 module("development.testNPC", package.seeall)
 
 function initNpc()
@@ -63,31 +64,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüß");
-talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Guten Morgen");
-talkEntry:addTrigger("Guten Tag");
-talkEntry:addTrigger("Guten Abend");
-talkEntry:addTrigger("Gute Nacht");
-talkEntry:addTrigger("Mahlzeit");
-talkEntry:addTrigger("Tach");
-talkEntry:addTrigger("Moin");
-talkEntry:addTrigger("Mohltied");
-talkEntry:addResponse("Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegessen?");
-talkEntry:addResponse("Hallo. Du siehst nicht so glücklich aus. Hast du Hunger?");
-talkEntry:addResponse("Hallo. Wie geht es dir?");
+talkEntry:addCondition(npc.base.condition.questtime.questtime(">", 666, 0, 1, 0));
+talkEntry:addTrigger("Grüße");
+talkEntry:addResponse("Größer");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Hiho");
-talkEntry:addTrigger("Hallo");
-talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hello. You look happy today. Did you eat a nice meal?");
-talkEntry:addResponse("Hello. You do not look too happy today. Are you hungry?");
-talkEntry:addResponse("Hello. How are you today?");
+talkEntry:addCondition(npc.base.condition.questtime.questtime("<", 666, 0, 1, 0));
+talkEntry:addTrigger("Grüße");
+talkEntry:addResponse("Kleiner");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
