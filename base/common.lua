@@ -543,10 +543,6 @@ function GetCurrentTimestampForDate(year, month, day, hour, minute, second)
      );]]
 end;
 
-1366569754/x = 38
-1366569754 = 38*x
-1366569754/39 = 35040250
-
 --- Convert a timestamp back into a full data. This is the inverse function of
 -- GetCurrentTimestamp() and GetCurrentTimestampForData(...).
 -- @param timestamp The timestamp that shall be converted
