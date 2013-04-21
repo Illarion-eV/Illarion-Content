@@ -4,9 +4,10 @@ module("npc.base.repeatable_quests", package.seeall)
 
 function checkIfTimesExpired(User, quest, monthToRepeat, dayToRepeat, hourToRepeat) 
 	local questState, questLastChanged = User:getQuestProgress(quest);
-	
+	debug("lastChanged: "..questLastChanged)
 	local year, month, day, hour, minute, second = base.common.TimestampToDate(questLastChanged);
-	
+
+	debug("year: "..year.." month: "..month.." day: "..day.." hour: "..hour);
 	hour = hour + hourToRepeat;
 	if hour > 24 then
 		day = day + 1;
@@ -31,9 +32,12 @@ function checkIfTimesExpired(User, quest, monthToRepeat, dayToRepeat, hourToRepe
 		year = year + 1;
 		day = day - 5;
 	end
-
+	
+	debug("year: "..year.." month: "..month.." day: "..day.." hour: "..hour);
 	local newTimestamp = base.common.GetCurrentTimestampForDate(year, month, day, hour, minute, second)	
+	debug("new: "..newTimestamp)
 	local currentTimestamp = world:getTime("unix")
+	debug("current: "..currentTimestamp)
 	
 	if newTimestamp >= currentTimestamp then
 		return true; 
