@@ -10,7 +10,6 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.repair")
 require("npc.base.talk")
 require("npc.base.trade")
-require("development.arena.consequence.arena")
 require("npc.base.condition.questtime")
 module("development.testNPC", package.seeall)
 
@@ -28,24 +27,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Marcel Metalfeet der Handwerker. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion,."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("request");
-talkEntry:addConsequence(development.arena.consequence.arena.arena("request"));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("points");
-talkEntry:addConsequence(development.arena.consequence.arena.arena("points"));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("list");
-talkEntry:addConsequence(development.arena.consequence.arena.arena("list"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
