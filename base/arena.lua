@@ -53,7 +53,9 @@ function requestMonster(User, NPC)
 			arenaEffect=LongTimeEffect(18,1);
 			arenaEffect:addValue("arenaID",arena);
 			arenaEffect:addValue("level",index);
-			User.effects:addEffect(arenaEffect);
+			if isValidChar(User) then
+				User.effects:addEffect(arenaEffect);
+			end
 		else
 			return;
 		end
