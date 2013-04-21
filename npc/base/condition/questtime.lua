@@ -27,7 +27,7 @@ function _questtime_helper_greater(self, npcChar, texttype, player)
 	local hour = npc.base.talk._get_value(self.npc, self.hour, self.valuetype);
 	local quest = npc.base.talk._get_value(self.npc, self.quest, self.valuetype);
     
-	return npc.base.checkIfTimesExpired(player, quest, month, day, hour);
+	return npc.base.repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour);
 end;
 
 function _questtime_helper_lesser(self, npcChar, texttype, player)
@@ -36,5 +36,5 @@ function _questtime_helper_lesser(self, npcChar, texttype, player)
 	local hour = npc.base.talk._get_value(self.npc, self.hour, self.valuetype);
 	local quest = npc.base.talk._get_value(self.npc, self.quest, self.valuetype);
 	
-    return not npc.base.checkIfTimesExpired(player, quest, month, day, hour); 
+    return not npc.base.repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour); 
 end;
