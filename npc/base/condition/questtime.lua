@@ -19,7 +19,7 @@ function(self, comp, quest, month, day, hour)
     else
         -- unkonwn comparator
     end;
-end
+end);
 
 function _questtime_helper_greater(self, npcChar, texttype, player)
     local month = npc.base.talk._get_value(self.npc, self.month, self.valuetype);
