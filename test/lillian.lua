@@ -31,11 +31,10 @@ function getRLDateFromUnixTimestamp(timestamp)
 	d=math.floor(ds/86400)+1
 	md=math.floor(((ds/2629743+1)-m)*daysPerMonth[m])+1
 	wd=d%7+6
-	if(m11)then DST=0 else DST=1 end
 	if(m==3)then if(md>=14)then DST=1 else DST=0 end end
 	if(m==11)then if(md>=7)then DST=0 else DST=1 end end
 	h=math.floor(math.fmod(timestamp,60*60*24)/3600) + 5 + (TIMEZONE) + (DST)
 	mn= math.floor(math.fmod(timestamp,60*60*24)/60 - 60*(h-DST))
 	s= math.floor(math.fmod(math.fmod(timestamp,60*60*24),60))
-	debug("Date: [dd.mm.yyyy hh:mm:ss]: "..d.."."..m.."."..y.." "..h..":"..mn..":"..s.." or "..wd)
+	debug("Date: [dd.mm.yyyy hh:mm:ss]: "..d.."."..m.."."..y.." "..h..":"..mn..":"..s.." or "..md)
 end
