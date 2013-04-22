@@ -21,19 +21,26 @@ function LookAtItem(User, Item)
 end
 
 daysPerMonth = {31,28,31,30,31,30,31,31,30,31,30,31}
-TIMEZONE=1
+TIMEZONE=-5
 DST=0
 
 function getRLDateFromUnixTimestamp(timestamp)
-	year=math.floor(1970+ timestamp /31556926)
-	ds=((1970+timestamp/31556926)-year)*31556926
-	month=math.floor(ds/2629743)+1
-	d=math.floor(ds/86400)+1
-	day=math.floor(((ds/2629743+1)-month)*daysPerMonth[month])+1
-	if(m==3)then if(day>=14)then DST=1 else DST=0 end end
-	if(m==11)then if(day>=7)then DST=0 else DST=1 end end
-	hour=math.floor(math.fmod(timestamp,60*60*24)/3600) + 5 + (TIMEZONE) + (DST)
-	minute= math.floor(math.fmod(timestamp,60*60*24)/60 - 60*(hour-DST))
-	second= math.floor(math.fmod(math.fmod(timestamp,60*60*24),60))
+	local year=math.floor(1970+ timestamp /31556926)
+	local ds=((1970+timestamp/31556926)-year)*31556926
+	local month=math.floor(ds/2629743)+1
+	local d=math.floor(ds/86400)+1
+	local day=math.floor(((ds/2629743+1)-month)*daysPerMonth[month])+1
+	if(month==3)then 
+		if(day>=14)then 
+			DST=1 else DST=0
+		end
+	elseif(month==11)then 
+		if(day>=7)then 
+			DST=0 else DST=1 
+		end 
+	end
+	local hour=math.floor(math.fmod(timestamp,60*60*24)/3600) + 5 + (TIMEZONE) + (DST)
+	local minute= math.floor(math.fmod(timestamp,60*60*24)/60 - 60*(hour-DST))
+	local second= math.floor(math.fmod(math.fmod(timestamp,60*60*24),60))
 	debug("Date: [dd.mm.yyyy hh:mm:ss]: "..day.."."..month.."."..year.." "..hour..":"..minute..":"..second)
 end
