@@ -21,7 +21,7 @@ function LookAtItem(User, Item)
 end
 
 daysPerMonth = {31,28,31,30,31,30,31,31,30,31,30,31}
-TIMEZONE=+1
+TIMEZONE=1
 DST=0
 
 function getRLDateFromUnixTimestamp(timestamp)
