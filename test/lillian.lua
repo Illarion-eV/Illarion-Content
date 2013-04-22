@@ -26,14 +26,14 @@ DST=0
 
 function getRLDateFromUnixTimestamp(timestamp)
 	year=math.floor(1970+ timestamp /31556926)
-	ds=((1970+timestamp/31556926)-y)*31556926
+	ds=((1970+timestamp/31556926)-year)*31556926
 	month=math.floor(ds/2629743)+1
 	d=math.floor(ds/86400)+1
-	day=math.floor(((ds/2629743+1)-m)*daysPerMonth[m])+1
-	if(m==3)then if(md>=14)then DST=1 else DST=0 end end
-	if(m==11)then if(md>=7)then DST=0 else DST=1 end end
+	day=math.floor(((ds/2629743+1)-month)*daysPerMonth[month])+1
+	if(m==3)then if(day>=14)then DST=1 else DST=0 end end
+	if(m==11)then if(day>=7)then DST=0 else DST=1 end end
 	hour=math.floor(math.fmod(timestamp,60*60*24)/3600) + 5 + (TIMEZONE) + (DST)
-	minute= math.floor(math.fmod(timestamp,60*60*24)/60 - 60*(h-DST))
+	minute= math.floor(math.fmod(timestamp,60*60*24)/60 - 60*(hour-DST))
 	second= math.floor(math.fmod(math.fmod(timestamp,60*60*24),60))
 	debug("Date: [dd.mm.yyyy hh:mm:ss]: "..day.."."..month.."."..year.." "..hour..":"..minute..":"..second)
 end
