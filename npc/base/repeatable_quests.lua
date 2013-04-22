@@ -38,7 +38,8 @@ function checkIfTimesExpired(User, quest, monthToRepeat, dayToRepeat, hourToRepe
 	debug("new: "..newTimestamp)
 	local currentTimestamp = base.common.GetCurrentTimestamp()
 	debug("current: "..currentTimestamp)
-	
+	year, month, day, hour, minute, second = base.common.TimestampToDate(currentTimestamp);
+	debug("current year: "..year.." month: "..month.." day: "..day.." hour: "..hour);
 	if newTimestamp >= currentTimestamp then
 		return true; 
 	else 
