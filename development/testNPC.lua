@@ -45,14 +45,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.questtime.questtime(">", 666, 0, 1, 0));
+talkEntry:addCondition(npc.base.condition.questtime.questtime(">", 666, 0, 0, 1));
 talkEntry:addTrigger("Grüße");
 talkEntry:addResponse("Größer");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.questtime.questtime("<", 666, 0, 1, 0));
+talkEntry:addCondition(npc.base.condition.questtime.questtime("<", 666, 0, 0, 1));
 talkEntry:addTrigger("Grüße");
 talkEntry:addResponse("Kleiner");
 talkingNPC:addTalkingEntry(talkEntry);
