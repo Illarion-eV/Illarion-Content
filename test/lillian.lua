@@ -35,5 +35,5 @@ function getRLDateFromUnixTimestamp(timestamp)
 	hour=math.floor(math.fmod(timestamp,60*60*24)/3600) + 5 + (TIMEZONE) + (DST)
 	minute= math.floor(math.fmod(timestamp,60*60*24)/60 - 60*(h-DST))
 	second= math.floor(math.fmod(math.fmod(timestamp,60*60*24),60))
-	debug("Date: [dd.mm.yyyy hh:mm:ss]: "..day.."."..month.."."..year.." "..hour..":"..minute..":"..second..)
+	debug("Date: [dd.mm.yyyy hh:mm:ss]: "..day.."."..month.."."..year.." "..hour..":"..minute..":"..second)
 end
