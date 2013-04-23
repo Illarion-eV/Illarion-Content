@@ -16,6 +16,10 @@ function UseItem(User, SourceItem, ltstate)
 	if(User.lastSpokenText == "deldata") then
 		User:eraseItem(2,1, {["descriptionDE"]="Gerstenmehl"})
 	end
+	
+	if(User.lastSpokenText == "delnil") then
+		User:eraseItem(2,1,nil)
+	end
 
 	if(User.lastSpokenText == "time") then
 		local questState, questLastChanged = User:getQuestProgress(666);
