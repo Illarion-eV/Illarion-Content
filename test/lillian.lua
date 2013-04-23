@@ -7,9 +7,19 @@ module("test.lillian", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
 
+	User:inform("Used!")
+
+	if(User.lastSpokenText == "del") then;
+		User:eraseItem(2,1)
+	end
+	
+	if(User.lastSpokenText == "deldata1") then;
+		User:eraseItem(2,1, "descriptionDE"="Gerstenmehl")
+	end
+
 	if(User.lastSpokenText == "time") then
 		local questState, questLastChanged = User:getQuestProgress(666);
-		getRLDateFromUnixTimestamp(questLastChanged)
+		--base.time.getRLDateFromUnixTimestamp(questLastChanged)
 	end
 
 end
@@ -20,27 +30,4 @@ function LookAtItem(User, Item)
     return true    
 end
 
-daysPerMonth = {31,28,31,30,31,30,31,31,30,31,30,31}
-TIMEZONE=-5
-DST=0
 
-function getRLDateFromUnixTimestamp(timestamp)
-	local year=math.floor(1970+ timestamp /31556926)
-	local ds=((1970+timestamp/31556926)-year)*31556926
-	local month=math.floor(ds/2629743)+1
-	local d=math.floor(ds/86400)+1
-	local day=math.floor(((ds/2629743+1)-month)*daysPerMonth[month])+1
-	if(month==3)then 
-		if(day>=14)then 
-			DST=1 else DST=0
-		end
-	elseif(month==11)then 
-		if(day>=7)then 
-			DST=0 else DST=1 
-		end 
-	end
-	local hour=math.floor(math.fmod(timestamp,60*60*24)/3600) + 5 + (TIMEZONE) + (DST)
-	local minute= math.floor(math.fmod(timestamp,60*60*24)/60 - 60*(hour-DST))
-	local second= math.floor(math.fmod(math.fmod(timestamp,60*60*24),60))
-	debug("Date: [dd.mm.yyyy hh:mm:ss]: "..day.."."..month.."."..year.." "..hour..":"..minute..":"..second)
-end
