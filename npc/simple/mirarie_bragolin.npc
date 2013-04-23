@@ -82,7 +82,7 @@ german, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Grüße, grüße!", "Gr�
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Auf Bald! Auf Bald!", "Adieu! Adieu!", "#me winkt dir mit einem vergnügten Grinsen."
 english, "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Farewell! Farewell!", "Adieu Adieu!", "#me waves at you with a happy grin on her face."
 "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Auf Bald! Auf Bald!", "Adieu! Adieu!", "#me winkt dir mit einem vergnügten Grinsen."
-"How are you", "How feel", "How do you do" -> "I'm fine. And you? How are you?", "I am happy. I'm always happy, except for the times then I'm sad.", "I have no reason to complain. I'm fine."
+"How are you", "How feel", "How do you do" -> "I'm fine. And you? How are you?", "I am happy. I'm always happy, except for the times when I'm sad.", "I have no reason to complain. I'm fine."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht es gut. Wie geht es dir?", "Ich bin immer glücklich, außer wenn ich mal traurig bin.", "Ich kann nicht klagen. Mir geht es gut."
 "your name", "who are you", "who art thou" -> "I am Mirarie Bragolin.", "Mirarie Bragolin, that's my name.", "My Name is Mirarie Bragolin. Who are you?"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Mirarie Bragolin.", "Mirarie Bragolin, so heiße ich.", "Mein Name ist Mirarie Bragolin. Wer bist du?"
@@ -118,9 +118,9 @@ english, "Cadomyr" -> "I love this place. I'm so happy I can live here and study
 "Cadomyr" -> "Ich liebe diesen Ort. Ich bin so froh, dass ich hier sein kann und die Leute um mich herum studieren darf."
 
 -- fix
-queststatus(317) > 0, queststatus(703) = 5, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 6, "Ah Jakob send you but you already ask me for something to do."
+queststatus(317) > 0, queststatus(703) = 5, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 6, "Ah Jakob sent you, but you have already asked me for something to do."
 queststatus(317) > 0, queststatus(703) = 5, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 6, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
-queststatus(317) > 0, queststatus(703) = 5, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 6, "Ah Jakob send you but you already ask me for something to do."
+queststatus(317) > 0, queststatus(703) = 5, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 6, "Ah Jakob sent you, but you have already asked me for something to do."
 queststatus(317) > 0, queststatus(703) = 5, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 6, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- 1st quest: Bring 5 bottles of water, reward 3000cp + metall schild +5 rankpoints
