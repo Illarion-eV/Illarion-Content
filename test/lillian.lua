@@ -14,7 +14,7 @@ function UseItem(User, SourceItem, ltstate)
 	end
 	
 	if(User.lastSpokenText == "deldata1") then
-		User:eraseItem(2,1, "descriptionDE"="Gerstenmehl")
+		User:eraseItem(2,1, {"descriptionDE"="Gerstenmehl"})
 	end
 
 	if(User.lastSpokenText == "time") then
