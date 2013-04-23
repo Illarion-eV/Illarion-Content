@@ -9,11 +9,11 @@ function UseItem(User, SourceItem, ltstate)
 
 	User:inform("Used!")
 
-	if(User.lastSpokenText == "del") then;
+	if(User.lastSpokenText == "del") then
 		User:eraseItem(2,1)
 	end
 	
-	if(User.lastSpokenText == "deldata1") then;
+	if(User.lastSpokenText == "deldata1") then
 		User:eraseItem(2,1, "descriptionDE"="Gerstenmehl")
 	end
 
