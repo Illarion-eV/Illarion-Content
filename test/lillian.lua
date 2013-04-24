@@ -1,7 +1,7 @@
 require("base.common")
 require("base.factions")
 
--- UPDATE common SET com_script = 'test.lillian' WHERE com_itemid = 2697 ;
+-- UPDATE common SET com_script = 'test.lillian' WHERE com_itemid = 2697;
 
 module("test.lillian", package.seeall)
 
