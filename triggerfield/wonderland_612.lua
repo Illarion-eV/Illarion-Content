@@ -58,7 +58,10 @@ module("triggerfield.wonderland_612", package.seeall)
 function MoveToField(char)
 	if char:getType() ~= Character.player then
 		if char.pos == position(884,594,0) or char.pos == position(884,593,0) or char.pos == position(884,595,0) or char.pos == position(886,584,0) or char.pos == position(886,583,0) or char.pos == position(886,585,0) or char.pos == position(890,560,0) or char.pos == position(889,560,0) or char.pos == position(891,560,0) or char.pos == position(885,573,0) or char.pos == position(884,573,0) or char.pos == position(886,573,0) or char.pos == position(906,573,0) or char.pos == position(905,573,0) or char.pos == position(906,574,0) or char.pos == position(901,581,0) or char.pos == position(900,581,0) or char.pos == position(901,580,0) then
+			world:gfx(37,char.pos);
 			char:warp(position(894,618,0))
+			world:gfx(37,char.pos);
+			world:makeSound(13,char.pos);
 			return
 		end
 		return
@@ -67,13 +70,13 @@ function MoveToField(char)
 		if char.pos == position(890,596,0) or char.pos == position(876,590,0) or char.pos == position(878,562,0) then
 			world:makeSound(1,char.pos);
 			char:warp(position(900,580,0))
-			char:inform("Du hörst eine krächzende Stimme ängstlich schreien: \"Nein! Nicht schon wieder du. Geh weg und lass mich in Ruhe!\" Danach kehrt Stille ein. test","You hear a croaking voice crying scared: \"No! Not you again. Leave me alone!\" Afterwards there is silence. Test")
+			char:inform("Du hörst eine krächzende Stimme ängstlich schreien: \"Nein! Nicht schon wieder du. Geh weg und lass mich in Ruhe!\" Danach kehrt Stille ein.","You hear a croaking voice crying scared: \"No! Not you again. Leave me alone!\" Afterwards there is silence.")
 			char:setQuestProgress(612,2)
 			return
 		end
 	elseif char:getQuestProgress(612) == 1 then -- riddle has been solved yet; the voice one more time without warp
 		world:makeSound(1,char.pos);		
-		char:inform("Du hörst eine krächzende Stimme ängstlich schreien: \"Nein! Nicht schon wieder du. Geh weg und lass mich in Ruhe!\" Danach kehrt Stille ein. test","You hear a croaking voice crying scared: \"No! Not you again. Leave me alone!\" Afterwards there is silence. test")
+		char:inform("Du hörst eine krächzende Stimme ängstlich schreien: \"Nein! Nicht schon wieder du. Geh weg und lass mich in Ruhe!\" Danach kehrt Stille ein.","You hear a croaking voice crying scared: \"No! Not you again. Leave me alone!\" Afterwards there is silence.")
 		char:setQuestProgress(612,2)
 		return
 	end 
