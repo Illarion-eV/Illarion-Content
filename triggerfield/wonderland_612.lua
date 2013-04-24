@@ -103,7 +103,8 @@ function MoveToField(char)
 
 		--890,560,0 correct choice #4
 		elseif char.pos == position(890,560,0) or char.pos == position(889,560,0) or char.pos == position(891,560,0) then
-			world:gfx(37,char.pos);	
+			world:gfx(37,char.pos);
+			world:makeSound(13,char.pos);	
 			char:warp(position(885,584,0))
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
@@ -112,7 +113,8 @@ function MoveToField(char)
 
 		--885,573,0 correct choice #3
 		elseif char.pos == position(885,573,0) or char.pos == position(884,573,0) or char.pos == position(886,573,0) then
-			world:gfx(37,char.pos);	
+			world:gfx(37,char.pos);
+			world:makeSound(13,char.pos);	
 			char:warp(position(890,559,0))
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
@@ -121,7 +123,8 @@ function MoveToField(char)
 
 		--906,573,0 correct choice #2
 		elseif char.pos == position(906,573,0) or char.pos == position(905,573,0) or char.pos == position(906,574,0) then
-			world:gfx(37,char.pos);	
+			world:gfx(37,char.pos);
+			world:makeSound(13,char.pos);	
 			char:warp(position(885,574,0))
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
@@ -130,7 +133,8 @@ function MoveToField(char)
 
 		--901,581,0 correct choice #1
 		elseif char.pos == position(901,581,0) or char.pos == position(900,581,0) or char.pos == position(901,580,0) then
-			world:gfx(37,char.pos);			
+			world:gfx(37,char.pos);
+			world:makeSound(13,char.pos);			
 			char:warp(position(905,574,0))
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
