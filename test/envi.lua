@@ -13,6 +13,8 @@ function MoveToField(char)
 	if math.random(0,99)< 99  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above 0
 		if base.factions.getMembership(char) ~= 2 then
 		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush!")
+		world:gfx(41,position(5,5,0));
+		world:gfx(41,position(6,6,0));
 		else
         	world:gfx(41,position(10,11,0));
         	world:createMonster(101,position(10,11,0),0); --smelly mummy
