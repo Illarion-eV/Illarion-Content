@@ -26,6 +26,11 @@ function MoveToField(char)
         	world:gfx(41,position(10,10,0));
         	world:createMonster(101,position(10,10,0),0); --another mummy
 		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush3!")
+			if base.factions.getMembership(char) == 1 then
+			char:inform("Hui, du bist aus Cadomyr", "Hui, you are from Cadomyr")
+			else
+			char:inform("Hui, du bist nicht von Cadomyr", "Hui, you are not from Cadomyr")
+			end
 		end
 	else
 			char:warp(position(8,16,0))
