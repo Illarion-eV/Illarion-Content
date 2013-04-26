@@ -9,7 +9,7 @@ function MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
 		return
 	end
-	if math.random(0,99)< 10  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above 0
+	if math.random(0,99)< 99  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above 0
         	world:gfx(41,position(10,10,0));
         	world:createMonster(101,position(10,10,0),0); --another mummy
         	world:gfx(41,position(10,11,0));
