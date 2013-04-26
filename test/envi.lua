@@ -18,7 +18,7 @@ function MoveToField(char)
 		else
         	world:gfx(41,position(10,11,0));
 		world:gfx(41,position(11,11,0));
-        	world:createMonster(101,position(10,11,0),0); --smelly mummy
+        	world:createMonster(101,position(10,11,0),0);
         	world:createMonster(101,position(11,11,0),0);
 		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush2!")
 		world:gfx(41,position(12,12,0));
