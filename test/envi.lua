@@ -11,7 +11,7 @@ function MoveToField(char)
 		return
 	end
 	if math.random(0,99)< 99  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above 0
-		if faction == 2 then
+		if base.factions.getMembership(char) ~= 2 then
 		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush!")
 		else
         	world:gfx(41,position(10,11,0));
