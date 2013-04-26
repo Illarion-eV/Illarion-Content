@@ -10,14 +10,15 @@ function MoveToField(char)
 		return
 	end
 	if math.random(0,99)< 99  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above 0
-        	world:gfx(41,position(10,10,0));
-        	world:createMonster(101,position(10,10,0),0); --another mummy
         	world:gfx(41,position(10,11,0));
         	world:createMonster(101,position(10,11,0),0); --smelly mummy
 		world:gfx(41,position(10,12,0));
         	world:createMonster(101,position(10,12,0),0); --mummified temple servant
 		world:gfx(41,position(10,13,0));
         	world:createMonster(101,position(10,13,0),0); --Cherga's servant
+        	world:gfx(41,position(10,10,0));
+        	world:createMonster(101,position(10,10,0),0); --another mummy
+		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush!")
 	else
 			char:warp(position(8,16,0))
 			world:gfx(37,char.pos);
