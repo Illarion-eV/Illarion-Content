@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (612, 'quest.wonderland_612');
 
 require("base.common")
-module("quest.wonderland_612", package.seeall)
+module("development.wonderland_612", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
