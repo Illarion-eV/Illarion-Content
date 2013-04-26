@@ -60,7 +60,7 @@ function MoveToField(char)
 		if char.pos == position(884,594,0) or char.pos == position(884,593,0) or char.pos == position(884,595,0) or char.pos == position(886,584,0) or char.pos == position(886,583,0) or char.pos == position(886,585,0) or char.pos == position(890,560,0) or char.pos == position(889,560,0) or char.pos == position(891,560,0) or char.pos == position(885,573,0) or char.pos == position(884,573,0) or char.pos == position(886,573,0) or char.pos == position(906,573,0) or char.pos == position(905,573,0) or char.pos == position(906,574,0) or char.pos == position(901,581,0) or char.pos == position(900,581,0) or char.pos == position(901,580,0) then
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
-			char:warp(position(894,618,0))
+			char:warp(position(895,572,0))
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
 			return
