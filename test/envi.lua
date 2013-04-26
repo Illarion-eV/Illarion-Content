@@ -11,10 +11,14 @@ function MoveToField(char)
 		return
 	end
 	if math.random(0,99)< 99  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above 0
-		if base.factions.getMembership(char) ~= 2 then
-		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush!")
+		if base.factions.getMembership(char) == 2 then
+		char:inform("Yeah!", "Yeah!")
 		world:gfx(41,position(5,5,0));
 		world:gfx(41,position(6,6,0));
+				local monsters = world:getMonstersInRangeOf(char.pos, 3);
+				for _,monster in ipairs(monsters) do
+					monster:increaseAttrib("hitpoints", -10000)
+				end
 		else
         	world:gfx(41,position(10,11,0));
 		world:gfx(41,position(11,11,0));
