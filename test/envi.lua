@@ -23,6 +23,7 @@ function MoveToField(char)
         	world:gfx(41,position(10,10,0));
         	world:createMonster(101,position(10,10,0),0); --another mummy
 		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush3!")
+		end
 	else
 			char:warp(position(8,16,0))
 			world:gfx(37,char.pos);
