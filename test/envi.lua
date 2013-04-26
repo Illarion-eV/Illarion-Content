@@ -30,7 +30,6 @@ function MoveToField(char)
 			world:gfx(13,char.pos);
 			world:makeSound(25,char.pos);
 			char:increaseAttrib("hitpoints", -500)
-		return; 
 	end
 
 end
