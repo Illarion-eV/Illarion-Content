@@ -566,8 +566,8 @@ function iniQuests()
     germanRace[id]="elfische Wildhüter"; 
     englishRace[id]="elven rangers";
     table.insert(questList[35],id); 
-    minimumQueststatus[id]=30; 
-    maximumQueststatus[id]=31; 
+    minimumQueststatus[id]=31; 
+    maximumQueststatus[id]=32; 
     questLocation[id]=position(775,475,0); 
     radius[id]=75; 
 

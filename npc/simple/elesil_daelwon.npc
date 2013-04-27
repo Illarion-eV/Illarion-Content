@@ -95,7 +95,7 @@ english, "inform" -> inform("[Keywords] building, location, event, people, histo
 "building" -> inform("[Keywords] Market, shrine, teleporter, census office, library, Garden of Eldan, Slums, Tomb, towers, Tower of Air, Tower of Fire, Tower of Water, Tower of Earth"), "Which building do you mean? I can tell you about the market, shrine, teleporter, census office, donkey stable, library, Garden of Eldan, Slums, Tomb, or our towers: Tower of Air, Tower of Fire, Tower of Water or Tower of Earth?"
 "Gebäude" -> inform("[Schlüsselwörter] Markt, Schrein, Teleporter, Zensusbüro, Bibliothek, Garten des Eldan, Slums, Gruft, Türme, Turm der Luft, Turm des Feuers, Turm des Wassers, Turm der Erde"), "Welches Gebäude meint ihr? Markt, Schrein, Teleporter, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, oder unsere Türme, sprich Turm der Luft, Turm des Feuers, Turm des Wassers, Turm der Erde?"
 "location" -> inform("[Keywords] Hinterland, Numila Irunnleh"), "Locations? Which locations of the hinterland do you mean? I recommend also talking to a geographer about them. I suggest Numila Irunnleh, who can be found in the Library of Earth."
-"Ort" -> inform("[Schlüsselwörter] Hinterland, Numila Irunnleh"), "Orte? Welche Orte des Hinterland meint ihr? Ich empfehle auch mit einen Geograph darüber zu sprechen. Ich kann euch eine in der Bibliothek der Erde empfehlen. Sie wird Numila Irunnleh genannt."
+"Ort" -> inform("[Schlüsselwörter] Hinterland, Numila Irunnleh"), "Orte? Welche Orte des Hinterlandes meint ihr? Ich empfehle auch mit einem Geograph darüber zu sprechen. Ich kann euch eine in der Bibliothek der Erde empfehlen. Sie wird Numila Irunnleh genannt."
 queststatus(620) < 1, english, "Numila", "Irunnleh" -> inform("[New Quest 'Find Numila' started] Try to find Numila Irunnleh and get your reward."), "She is a geographer and can be found in the Library of Earth. She will tell you information about locations outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Illarion, Shadowland and other places you might like to know.", queststatus(620) = 1
 queststatus(620) < 1, "Numila", "Irunnleh" -> inform("[Neues Quest 'Finde Numila' gestartet] Finde Numila Irunnleh und erhalte deine Belohnung."), "Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Orte wie Eibental, Bärenhöhle, Schlangekopfbucht, Illarion, Schattenland und andere Orte informieren über die ihr gerne mehr wissen möchtet.", queststatus(620) = 1
 english, "Numila", "Irunnleh" -> "She is a geographer and can be found in the Library of Earth. She will tell you information about locations outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Illarion, Shadowland and other places you might like to know."
@@ -107,9 +107,9 @@ english, "Numila", "Irunnleh" -> "She is a geographer and can be found in the Li
 "event" -> "I do not think that you have time to listen to all my knowledge about events in this place, therefore, I recommend the history book in our libraries."
 "Ereignis", "Geschehnis" -> "Ich denke nicht, dass ihr die Zeit habt all meinem Wissen über sämtliche stattgefunden Ereignisse euer Gehör zu schenken. Daher empfehle ich unser Geschichtsbuch in unseren Bibliotheken."
 "law" -> "If you can read, I suggest you read the law book in our libraries. If you cannot read, I suggest to move to either Galmair or Cadomyr."
-"Gesetz" -> "Wenn ihr des Lesen mächtig seid, dann empfehle ich unser Gesetzesbuch in unseren Bibliotheken. Wenn ihr es nicht seid, dann empfehle ich nach Galmair oder Cadomyr umzuziehen."
+"Gesetz" -> "Wenn ihr des Lesens mächtig seid, dann empfehle ich unser Gesetzesbuch in unseren Bibliotheken. Wenn ihr es nicht seid, dann empfehle ich euch nach Galmair oder Cadomyr umzuziehen."
 "ruler" -> "Our highest advisor is Archmage Elvaine Morgan. He founded this place of wisdom and might be found either in his chamber - the Chamber of the Archmage - or in the Hall of Elara."
-"Herrscher" -> "Unser höchster Ratgeber ist Erzmagier Elvaine Morgan. Er hat diesen Ort der Weisheit erschaffen und entweder in seiner Kammer - der Erzmagier Kammer - oder in den Hallen der Elara gefunden werden."
+"Herrscher" -> "Unser höchster Ratgeber ist Erzmagier Elvaine Morgan. Er hat diesen Ort der Weisheit erschaffen und kann entweder in seiner Kammer - der Kammer des Erzmagiers - oder in der Halle der Elara gefunden werden."
 
 "market" -> "Through the portal after the Lurnord Bridge and you are there *points behind her*."
 "Markt" -> "Durch das Portal nach der Lurnord Brücke und ihr seid dort *zeigt hinter sich*."
@@ -131,16 +131,16 @@ town = Runewick, "Zensusbüro" -> "Das Zensusbüro kann im Turm des Feuers gefun
 english, "Slum" -> "The slums are under the market. A Ladder will lead you there. I assume I do not have to explain who lives there? Those who lack knowledge or have spent too much time praising Adron."
 "Slum" -> "Die Slums können unter dem Markt gefunden werden. Eine Leiter wird euch dort hinführen. Ich nehme an, ich muss euch nicht erklären wer dort lebt. Jene, denen es an Weisheit mangelt und jene, die zu viel Zeit mit dem Huldigungen für Adron verbringen."
 "Tomb" -> inform("[Keywords] Room of Light, Room of Darkness, Room of  Twilight"), "To reach the tomb you have to pass through the market first and then the slums. The tomb is divided in three rooms: Room of Light, Room of Darkness, and Room of Twilight."
-"Gruft" -> inform("[Schlüsselwörter] Raum des Lichts, Raum der Finsternis, Raum des Zwielichts"), "Um die Gruft zu erreichen müsst erst zum Markt und dann zu den Slums. Die Gruft ist unterteilt in drei Räume: Raum des Lichts, Raum der Finsternis, und Raum des Zwielichts."
+"Gruft" -> inform("[Schlüsselwörter] Raum des Lichts, Raum der Finsternis, Raum des Zwielichts"), "Um die Gruft zu erreichen müsst ihr erst zum Markt und dann zu den Slums. Die Gruft ist unterteilt in drei Räume: Raum des Lichts, Raum der Finsternis, und Raum des Zwielichts."
 "Room Twilight" -> "The Room of Twilight is the place for those who were neither at the top or on the bottom of the god given hierarchy. Gregor, a human whom you should find on your way to the tomb, will tell you more."
-"Raum Zwielicht" -> "Der Raum des Zwielichts ist der Ort für jene welche weder an der Spitze noch am unteren Ende der Hierarchie gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen."
+"Raum Zwielicht" -> "Der Raum des Zwielichts ist der Ort für jene welche weder an der Spitze noch am unteren Ende der Hierarchie gelebt haben. Gregor, ein Mensch dem ihr auf eurem Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen."
 "Room Light" -> "The Room of Light is reserved for those who reached the top of the god given hierarchy. Eldan as well as Elara had a reason to set it this way. Our Archmage knows that and therefore rules according to this divine law."
-"Raum Lichts" -> "Der Raum des Lichts ist für jene an der Spitze der gottgewollten Hierarchie bestimmt. Eldan wie auch Elara hatten ihre Gründe dafür. Unser Erzmagier ist sich dem durchaus bewusst und regiert deswegen auch entsprechend."
+"Raum Lichts" -> "Der Raum des Lichts ist für jene an der Spitze der gottgewollten Hierarchie bestimmt. Eldan wie auch Elara hatten ihre Gründe dafür. Unser Erzmagier ist sich dessen durchaus bewusst und regiert deswegen auch entsprechend."
 "Room Darkness" -> "The Room of Darkness is the place for the corpses of those who lived at the bottom of the god given hierarchy. Gregor, a human whom you should find on your way to the tomb, will tell you more."
-"Raum Finsternis" -> "Der Raum der Finsternis ist jener Ort an denen die Leichen jener aufgehoben werden, welche zuvor an der Sohle der Gesellschaft gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen."
+"Raum Finsternis" -> "Der Raum der Finsternis ist jener Ort an dem die Leichen jener aufgehoben werden, welche zuvor an der Sohle der Gesellschaft gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen."
 
 "Tower Air", "Air Tower" -> inform("[Keywords] Tree kitchen, Library of Air, House of Gods, Shrine of Elara, Shrine of Findari"), "This is the first southern tower and is mainly made for priests. You can find the following rooms: Tree kitchen, Library of Air, House of Gods, Shrine of Findari, and Shrine of Elara."
-"Turm Luft", "Luft turm" -> inform("[Schlüsselwörter] Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Elara, Schrein der Findari"), "Dieser Turm ist der erste südliche Turm und ist hauptsächlich für Priester gebaut worden. Ihr findet folgende Räume dort: Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Findari, und Schrein der Elara."
+"Turm Luft", "Luft turm" -> inform("[Schlüsselwörter] Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Elara, Schrein der Findari"), "Dieser Turm ist der erste südliche Turm und ist hauptsächlich für Priester gebaut worden. Ihr findet folgende Räume dort: Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Findari und Schrein der Elara."
 "Tree kitchen" -> "The Tree kitchen is based in the basement of the Tower of Air. You can find cooks there or the possibility for cooking or carpentry yourself."
 "Baumküche" -> "Die Baumküche ist im Keller des Turms der Luft zu finden. Man findet dort Köche beziehungsweise die Möglichkeit zu kochen oder zu schreinern."
 "Library Air", "Air Library" -> "The Library of Air can be found on the first floor of the Tower of Air. Do I have to explain what you can do there? I hope not."
@@ -152,16 +152,16 @@ english, "Slum" -> "The slums are under the market. A Ladder will lead you there
 "Shrine Findari", "Findari Shrine" -> "The Shrine of Findari can be found on the fifth floor, or rather at the top, of the Tower of Air."
 "Schrein Findari", "Findari Shrine" -> "Der Schrein der Findari kann im vierten Stock beziehungsweise auf der Spitze des Turms der Luft gefunden werden."
 
-"Tower Fire", "Fire Tower" -> inform("[Keywords] Workshop, Library of Fire, Archmage Chamber, Hall of Elara, Bragon's Stronghold, Shrine of Bragon"), "This is the first northern tower and is mainly made for mages. You can find the following rooms: Workshop, Library of Fire, Chamber of the Archmage, Hall of Elara, Bragon's Stronghold and Shrine of Bragon."
-"Turm Feuer", "Feuer Turm" -> inform("[Schlüsselwörter] Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Halle der Elara, Bragons Bollwerk, Schrein des Bragon"), "Dieser Turm ist der erste nördliche Turm und ist hauptsächlich für Magier gebaut worden. Ihr findet folgende Räume dort: Werkstatt, Bibliothek des Feuers, Kammer des Erzmagier, Halle der Elara, Bragons Bollwerk und Schrein des Bragon."
+"Tower Fire", "Fire Tower" -> inform("[Keywords] Workshop, Library of Fire, Chamber of the Archmage, Hall of Elara, Bragon's Stronghold, Shrine of Bragon"), "This is the first northern tower and is mainly made for mages. You can find the following rooms: Workshop, Library of Fire, Chamber of the Archmage, Hall of Elara, Bragon's Stronghold and Shrine of Bragon."
+"Turm Feuer", "Feuer Turm" -> inform("[Schlüsselwörter] Werkstatt, Bibliothek des Feuers, Kammer des Erzmagiers, Halle der Elara, Bragons Bollwerk, Schrein des Bragon"), "Dieser Turm ist der erste nördliche Turm und ist hauptsächlich für Magier gebaut worden. Ihr findet folgende Räume dort: Werkstatt, Bibliothek des Feuers, Kammer des Erzmagiers, Halle der Elara, Bragons Bollwerk und Schrein des Bragon."
 "Workshop" -> "The workshop in the basement of the Tower of Fire offers possibilities for tailors, glassblowers, and so on. Furthermore, due to the fact that Adron's Swill is currently closed, our tavern is also located there."
 "Werkstatt" -> "Die Werkstatt im Erdgeschoss des Turms des Feuers ermöglicht Schneidern, Glasbläsern und so weiter eine Möglichkeit ihrer Tätigkeit nachzugehen. Zusätzlich ist auch unsere Taverne dort zu finden, da Adrons Gesöff momentan geschlossen ist."
 "Library Fire", "Fire Library" -> "The Library of Fire can be found on the first floor of the Tower of Fire. Do I have to explain what you can do there? I hope not."
 "Bibliothek Feuer", "Feuer Bibliothek" -> "Die Bibliothek des Feuer kann im Erdgeschoss des Turms des Feuers gefunden werden. Muss ich erklären, was man dort tun kann? Ich hoffe nicht."
 "Archmage Chamber", "Chamber Archmage" -> "The Chamber of the Archmage can be found on the second floor of the Tower of Fire. It is the private room of our Archmage Elvaine Morgan."
-"Erzmagier Kammer", "Kammer Erzmagier" -> "Die Kammer des Erzmagier kann im ersten Stock des Turms des Feuers gefunden werden. Es ist der private Raum unserers Erzmagier Elvaine Morgan."
+"Erzmagier Kammer", "Kammer Erzmagier" -> "Die Kammer des Erzmagiers kann im ersten Stock des Turms des Feuers gefunden werden. Es ist der private Raum unseres Erzmagiers Elvaine Morgan."
 english, "Hall Elara", "Elara Hall" -> "The Hall of Elara can be found on the second floor of the Tower of Fire. It serves as an audience chamber or conference room to listen to and meet our Archmage Elvaine Morgan."
-"Halle Elara", "Elara Halle" -> "Die Halle der Elara kann im ersten Stock des Turms des Feuers gefunden werden. Sie dient als ein Audienzsaal oder Konferenzraum zum hören und treffen unseres Erzmagier Elvaine Morgan."
+"Halle Elara", "Elara Halle" -> "Die Halle der Elara kann im ersten Stock des Turms des Feuers gefunden werden. Sie dient als ein Audienzsaal oder Konferenzraum um unseren Erzmagier Elvaine Morgan zu hören und zu treffen."
 "Bragon's Stronghold", "Bragons Stronghold" -> "Bragon's Stronghold is on the third floor of the Tower of Fire and offers a possibility to improve your combat skills."
 "Bragons Bollwerk", "Bragon Bollwerk" -> "Bragon's Bollwerk ist im zweiten Stock des Turms des Feuers und ermöglicht jeder Person seine Kampffähigkeiten zu verbessern."
 "Shrine Bragon", "Bragon Shrine" -> "The Shrine of Bragon can be found on the fifth floor, or rather at the top, of the Tower of Fire."
@@ -183,12 +183,12 @@ english, "Hall Elara", "Elara Hall" -> "The Hall of Elara can be found on the se
 "Library Earth", "Earth Library" -> "The Library of Earth can be found on the first floor of the Tower of Earth. Do I have to explain what you can do there? I hope not."
 "Bibliothek Erd", "Erd Bibliothek" -> "Die Bibliothek der Erde kann im Erdgeschoss des Turms der Erde gefunden werden. Muss ich erklären, was man dort tun kann? Ich hoffe nicht."
 "Kettle Chamber", "Chamber Kettle" -> "The Kettle Chamber on the third floor of the Tower of Earth serves as a conference and study room for druids and alchemists."
-"Kesselkammer", "Kammer Kessel" -> "Die Kesselkammer im zweiten Stock im Turm der Erde dient als Konferenz- und Lehrraum für die Druiden und Alchemisten."
+"Kesselkammer", "Kammer Kessel" -> "Die Kesselkammer im zweiten Stock im Turm der Erde dient als Konferenz- und Lehrraum für Druiden und Alchemisten."
 "Root Chamber", "Chamber Root" -> "In the Root Chamber on the second floor of the Tower of Earth, druids and alchemists can share their knowledge with their students."
 "Wurzelkammer", "Kammer Wurzel" -> "In der Wurzelkammer im ersten Stock des Turms der Erde können Druiden und Alchemisten ihr Wissen mit ihren Studenten teilen."
 "Test Chamber", "Chamber Test" -> "In the Test Chamber in the basement of the Tower of Earth, alchemists can work and try their potions."
-"Testkammer", "Kammer Test" -> "In der Versuchskammer im Keller des Turms der Erde können Alchemisten an ihren Tränken arbeiten und testen."
-"Versuchskammer", "Kammer Versuch" -> "In der Versuchskammer im Keller des Turms der Erde können Alchemisten an ihren Tränken arbeiten und testen."
+"Testkammer", "Kammer Test" -> "In der Versuchskammer im Keller des Turms der Erde können Alchemisten an ihren Tränken arbeiten und diese testen."
+"Versuchskammer", "Kammer Versuch" -> "In der Versuchskammer im Keller des Turms der Erde können Alchemisten an ihren Tränken arbeiten und diese testen."
 
 "Tower" -> inform("[Keywords] Tower of Air, Tower of Fire, Tower of Earth, Tower of Water"), "There are four towers: Tower of Air, Tower of Fire, Tower of Earth and Tower of Water. You can leave and enter them all at the top as well as the bottom, after you have entered the town through the portal over there. *points over her shoulder*"
 "Turm", "Türme" -> inform("[Schlüsselwörter] Turm der Luft, Turm des Feuers, Turm der Erde, Turm des Wassers"), "Es gibt vier Türme: Turm der Luft, Turm des Feuers, Turm der Erde und Turm des Wassers. Ihr könnt jeden Turm übers Dach oder durchs Erdgeschoss betreten oder verlassen, nachdem ihr über das Portal dort drüben die Stadt betreten habt. *zeigt nach hinten*"
@@ -210,20 +210,20 @@ english, "Hinterland" -> inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutte
 "Oldra's Column","Oldras Column" -> "This place can be found to the south of here *points first to the bridge and then to the south*. Some information about Oldra and what she likes awaits you. Look for the column and trees over there."
 "Oldras Säule" -> "Dieser Ort kann im Süden von hier aus gefunden werden *zeigt erst zur Brücke und dann in den Süden*. Einige Informationen über Oldra und Dinge die sie mag warten dort auf euch. Haltet Ausschau nach der Säule und den Bäumen dort."
 "Mermaid" -> "Just follow the west coast to the south after the Lurnord Bridge and you will find this place with a statue of a beautiful woman. This place is also used by fishers who are waiting to get in touch with the mermaid."
-"Meerjungfrau" -> "Folget der Westküste in den Süden nach der Lurnord Brücke und ihr werdet diesen Ort mit einer Statue einer schönen Frau finden. Dieser Ort ist auch von vielen Fischern verwendet, die auf die Meerjungfrau warten."
+"Meerjungfrau" -> "Folget der Westküste in den Süden nach der Lurnord Brücke und ihr werdet diesen Ort mit einer Statue einer schönen Frau finden. Dieser Ort wird auch von vielen Fischern verwendet, die auf die Meerjungfrau warten."
 "Lurnord bridge" -> "This is the bridge between Runewick and Yewdale here *points at the bridge*. It was destroyed years ago after a war with Galmair and rebuilt by a friend of mine who left afterwards. Lunord was his name."
-"Lurnord Brücke" -> "Das ist die Brücke zwischen Runewick und hier dem Eibental *zeigt zur Brücke*. Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welch nun gegangen ist. Sein Name war Lunord."
+"Lurnord Brücke" -> "Das ist die Brücke zwischen Runewick und hier dem Eibental *zeigt zur Brücke*. Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welcher nun gegangen ist. Sein Name war Lunord."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_runewick_1.quest belongs to this NPC: Quest-ID.: 621
 queststatus(620) < 1, english, "quest", "mission" -> inform("[New Quest 'Find Numila' started] Try to find Numila Irunnleh and get your reward."), "I do not have a task for you yet. Probably in two or three months. If you want you can try to find Numila Irunnleh, but if you desire a real task you would be better asking other people in Runewick. *points over her shoulder* Otherwise, you are very welcome to come back in two or three months when I will definitely have some tasks for you.", queststatus(620) = 1
-queststatus(620) < 1, "quest", "mission" -> inform("[Neues Quest 'Finde Numila' gestartet] Finde Numila Irunnleh und erhalte deine Belohnung."), "Ich habe momentan nichts für euch zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls ihr möchtet könnt ihr versuchen Numila Irunnleh zu finden. Aber wenn ihr einen richtigen Auftrag erwünscht dann solltet ihr besser die Leute in Runewick fragen. *zeigt über ihre Schulter* In jeden Fall seid ihr herzlich willkommen in zwei oder drei Monaten zurück zu kommen. Da sollte ich dann einige Aufgaben für euch haben.", queststatus(620) = 1
+queststatus(620) < 1, "quest", "mission" -> inform("[Neues Quest 'Finde Numila' gestartet] Finde Numila Irunnleh und erhalte deine Belohnung."), "Ich habe momentan nichts für euch zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls ihr möchtet könnt ihr versuchen Numila Irunnleh zu finden. Aber wenn ihr einen richtigen Auftrag wünscht dann solltet ihr besser die Leute in Runewick fragen. *zeigt über ihre Schulter* In jeden Fall seid ihr herzlich eingeladen in zwei oder drei Monaten zurück zu kommen. Dann sollte ich einige Aufgaben für euch haben.", queststatus(620) = 1
 queststatus(620) < 1, "task", "adventure", "order" -> inform("[New Quest 'Find Numila' started] Try to find Numila Irunnleh and get your reward."), "I do not have a task for you yet. Probably in one or two months.  If you want you can try to find Numila Irunnleh, but if you desire a real task you would be better asking other people in Runewick. *points over her shoulder* Otherwise, you are very welcome to come back in two or three months when I will have definitely some tasks for you.", queststatus(620) = 1
-queststatus(620) < 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest 'Finde Numila' gestartet] Finde Numila Irunnleh und erhalte deine Belohnung."), "Ich habe momentan nichts für euch zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls ihr möchtet könnt ihr versuchen Numila Irunnleh zu finden. Aber wenn ihr einen richtigen Auftrag erwünscht dann solltet ihr besser die Leute in Runewick fragen. *zeigt über ihre Schulter* In jeden Fall seid ihr herzlich willkommen in zwei oder drei Monaten zurück zu kommen. Da sollte ich dann einige Aufgaben für euch haben.", queststatus(620) = 1
+queststatus(620) < 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest 'Finde Numila' gestartet] Finde Numila Irunnleh und erhalte deine Belohnung."), "Ich habe momentan nichts für euch zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls ihr möchtet könnt ihr versuchen Numila Irunnleh zu finden. Aber wenn ihr einen richtigen Auftrag wünscht dann solltet ihr besser die Leute in Runewick fragen. *zeigt über ihre Schulter* In jeden Fall seid ihr herzlich eingeladen in zwei oder drei Monaten zurück zu kommen. Dann sollte ich einige Aufgaben für euch haben.", queststatus(620) = 1
 english, "quest", "mission" -> "As I said, you should ask other people in Runewick. *points over her shoulder* Or you can come back in two or three months when I will have definitely some tasks for you."
-"quest", "mission" -> "Wie ich sagte, ihr solltet besser die Leute in Runewick fragen. *zeigt über ihre Schulter* Oder ihr kommt in zwei oder drei Monaten zurück. Da sollte ich dann einige Aufgaben für euch haben."
+"quest", "mission" -> "Wie ich sagte, ihr solltet besser die Leute in Runewick fragen. *zeigt über ihre Schulter* Oder ihr kommt in zwei oder drei Monaten zurück. Dann sollte ich einige Aufgaben für euch haben."
 "task", "adventure", "order" -> "As I said, you should ask other people in Runewick. *points over her shoulder* Or you can come back in two or three months when I will have definitely some tasks for you."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wie ich sagte, ihr solltet besser die Leute in Runewick fragen. *zeigt über ihre Schulter* Oder ihr kommt in zwei oder drei Monaten zurück. Da sollte ich dann einige Aufgaben für euch haben."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wie ich sagte, ihr solltet besser die Leute in Runewick fragen. *zeigt über ihre Schulter* Oder ihr kommt in zwei oder drei Monaten zurück. Dann sollte ich einige Aufgaben für euch haben."
 
 -- Faction stuff
 "town" -> "There are three towns: Our town Runewick, ruled by our great leader Elvaine Morgan, then the two foolish towns of Galmair and Cadomyr, ruled by Don Valerio Guilianni and Queen Rosaline Edwards."
@@ -233,17 +233,17 @@ english, "quest", "mission" -> "As I said, you should ask other people in Runewi
 english, "Elvaine", "Morgan" -> "Our leader can be found in the Hall of Elara, in the Fire Tower, if you want to talk to him."
 "Elvaine", "Morgan" -> "Unser Herrscher kann in der Halle der Elara im Turm des Feuers gefunden werden, wenn ihr ihn zu sprechen wünscht."
 english, "Runewick" -> "That is here and if you want to know more about it ask me for further information.", "Here at Runewick, we are interested in alchemists, candle makers, carpenters, lumberjacks, cooks and bakers, farmers, herb gatherers, or tailors, tanners and dyers."
-"Runewick" -> "Das ist hier und wenn du mehr darüber wissen möchtest, dann frag mich nach weiterer Information.", "Hier in Runewick suchen wir immer nach Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber."
+"Runewick" -> "Das ist hier und wenn du mehr darüber wissen möchtest, dann frag mich nach weiterer Information.", "Hier in Runewick suchen wir immer Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber."
 english, "Valerio", "Guilianni", "Don" -> "I do not want to talk about him, but you will find him in Galmair."
 "Valerio", "Guilianni", "Don" -> "Ich will nicht über ihn sprechen, aber er kann in Galmair gefunden werden."
 english, "Galmair" -> "There are not many reasons to travel there. Exceptions are if you look for blacksmiths, brick makers, masons, miners, and brewers."
-"Galmair" -> "Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer."
+"Galmair" -> "Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einem Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer."
 "Queen" -> "I do not want to talk about her, but you will find her in Cadomyr."
-"Königin" -> "Ich will nicht über ihn sprechen, aber er kann in Galmair gefunden werden."
+"Königin" -> "Ich will nicht über ihn sprechen, aber sie kann in Cadomyr gefunden werden."
 english, "rosaline", "edwards" -> "I do not want to talk about her, but you will find her in Cadomyr."
-"rosaline", "edwards" -> "Ich will nicht über ihn sprechen, aber er kann in Galmair gefunden werden."
+"rosaline", "edwards" -> "Ich will nicht über ihn sprechen, aber sie kann in Cadomyr gefunden werden."
 english, "Cadomyr" -> "There are not many reasons to travel there. Exceptions are if you look for fishermen, glass blowers, diggers, finesmiths, and gem grinders."
-"Cadomyr" -> "Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer."
+"Cadomyr" -> "Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Fischer, Glasblässer, Sandgräber, Goldschmied oder Edelsteinschleifer."
 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "You better try your luck at our marketplace here."
@@ -261,43 +261,43 @@ english, "Bragon", "Brágon" -> "One of the Elder Gods, he is also known as the 
 english, "Cherga" -> "The Goddess of Spirits and the Underworld. She likes balance and justice. She does not care much about the living."
 "Cherga" -> "Die Göttin der Geister und der Unterwelt. Sie steht ein für ausgeglichene Gerechtigkeit. Sie gibt nicht viel auf das Leben an sich, der Tod ist Ihr Reich."
 english, "Elara" -> "Her followers believe in the power of wisdom. Some of these people are praying to be told great secrets, or even the secret of life. As legend tells, one holy man has been told it after long prayers and discussions with the Goddess."
-"Elara" -> "Ihre Anhänger glauben an die Macht der Weisheit. Einige dieser Anhänger beten, um geheimes und altes Wissen zu erlangen oder um den Sinn des Lebens zu erfahren. Eine Legende erzählt von einem Mann, der so lange betete, bis sich ihm dies offenbarte."
+"Elara" -> "Ihre Anhänger glauben an die Macht der Weisheit. Einige dieser Anhänger beten, um geheimes und altes Wissen zu erlangen oder um den Sinn des Lebens zu erfahren. Eine Legende erzählt von einem Mann, der so lange betete, bis sich ihm dieser offenbarte."
 english, "Eldan" -> "One of the Elder Gods, he is also known as the God of Spirit."
 "Eldan" -> "Einer der alten Götter. Er ist auch bekannt als Gott des Geists."
 english, "Findari" -> "One of the Elder Gods, she is also known as the Goddess of Air. There is a shrine dedicated to her at the top of the Tower of Air."
 "Findari" -> "Eine der alten Götter. Sie ist auch als Göttin der Luft bekannt. Es gibt einen Schrein auf der Spitze des Turms der Luft."
-english, "Irmorom" -> "One of the unimportant, Younger Gods. You can find followers in Galmair."
-"Irmorom" -> "Einer der unwichtigen, jüngeren Götter. Man kann Anhänger in Galmair finden."
-english, "Malachin", "Malachín" -> "One of the unimportant, Younger Gods. You can find followers in Cadomyr."
-"Malachin", "Malachín" -> "Einer der unwichtigen, jüngeren Götter. Man kann Anhänger in Cadomyr finden."
+english, "Irmorom" -> "One of the unimportant Younger Gods. You can find followers in Galmair."
+"Irmorom" -> "Einer der unwichtigen jüngeren Götter. Man kann Anhänger in Galmair finden."
+english, "Malachin", "Malachín" -> "One of the unimportant Younger Gods. You can find followers in Cadomyr."
+"Malachin", "Malachín" -> "Einer der unwichtigen jüngeren Götter. Man kann Anhänger in Cadomyr finden."
 english, "Moshran" -> "#me narrows her eyes and takes a blade which she swings immediately without a single word against her opposition.", attrib(hitpoints) - 6666, attrib(hitpoints) + 1
-"Moshran" -> "#me verengt ihre Augen, zieht ein Schwert und schlägt sogleich ohne ein einzelnes Wort damit herum.", attrib(hitpoints) - 6666, attrib(hitpoints) + 1
+"Moshran" -> "#me verengt ihre Augen, zieht ein Schwert und schlägt sogleich ohne ein einziges Wort damit herum.", attrib(hitpoints) - 6666, attrib(hitpoints) + 1
 
 -- ein HP abzug zufällig zwischen 1 und 10000 wäre wünschenswert
-english, "Nargun", "Nargún", "Nargùn" -> "One of the unimportant, Younger Gods. You can find followers in Galmair."
-"Nargun", "Nargún", "Nargùn" -> "Einer der unwichtigen, jüngeren Götter. Man kann Anhänger in Galmair finden."
+english, "Nargun", "Nargún", "Nargùn" -> "One of the unimportant Younger Gods. You can find followers in Galmair."
+"Nargun", "Nargún", "Nargùn" -> "Einer der unwichtigen jüngeren Götter. Man kann Anhänger in Galmair finden."
 english, "Oldra" -> "Most of her priests are female, who serve the Goddess into old age. They think that when they die, they will be brought to a big garden gate. If they have been good, they can enjoy the wonders of the never ending garden. There is a shrine dedicated to her here next to me on the coast."
 "Oldra" -> "Die meisten Ihrer Priester sind weiblich und dienen der Gottheit bis ins hohe Alter. Sie glauben wenn sie sterben, werden sie zu einem prachtvollen Gartentor gebracht, und wenn sie gut waren dürfen sie an diesem wunderbaren Ort leben. Wie dem auch sei, hier gleich an der Küste findet ihr einen Schrein"
-english, "Ronagan" -> "One of the unimportant, Younger Gods. You can find followers in Galmair."
-"Ronagan" -> "Einer der unwichtigen, jüngeren Götter. Man kann Anhänger in Galmair finden."
-english, "Sirani" -> "One of the unimportant, Younger Gods. You can find followers in Cadomyr."
-"Sirani" -> "Eine der unwichtigen, jüngeren Götter. Man kann Anhänger in Cadomyr finden."
+english, "Ronagan" -> "One of the unimportant Younger Gods. You can find followers in Galmair."
+"Ronagan" -> "Einer der unwichtigen jüngeren Götter. Man kann Anhänger in Galmair finden."
+english, "Sirani" -> "One of the unimportant Younger Gods. You can find followers in Cadomyr."
+"Sirani" -> "Eine der unwichtigen jüngeren Götter. Man kann Anhänger in Cadomyr finden."
 english, "Tanora", "Zelphia" -> "One of the Elder Gods, she is also known as the Goddess of Water."
 "Tanora", "Zelphia" -> "Eine der alten Götter. Sie ist auch als Göttin des Wassers bekannt."
 english, "Ushara" -> "One of the Elder Gods, she is also known as the Goddess of Earth"
 "Ushara" -> "Eine der alten Götter. Sie ist auch als Göttin der Erde bekannt."
-english, "Zhambra" -> "One of the unimportant, Younger Gods. You can find followers in Cadomyr."
-"Zhambra" -> "Eine der unwichtigen, jüngeren Götter. Man kann Anhänger in Cadomyr finden."
+english, "Zhambra" -> "One of the unimportant Younger Gods. You can find followers in Cadomyr."
+"Zhambra" -> "Eine der unwichtigen jüngeren Götter. Man kann Anhänger in Cadomyr finden."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "Hmm...ask someone else if you want know about it."
-"Gobaith", "Gobiath" -> "Hmm...fragt jemand anderen bezüglich dieses Ort."
+"Gobaith", "Gobiath" -> "Hmm...fragt jemand anderen bezüglich dieses Ortes."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Hmm...you want some information? But what about?"
 "mein Name" -> "Hmm...und ihr wünscht nach Information? Aber welche?"
 english, "Elesil", "Daelwon" -> "Yes, that is my name. What do you want information about?"
-"Elesil", "Daelwon" -> "Ja, das ist mein Name. Über was wollt ihr Information?"
+"Elesil", "Daelwon" -> "Ja, das ist mein Name. Worüber wollt ihr Information?"
 "Yes" -> "A bit more concrete, please!"
 "Ja" -> "Etwas konkreter wenn ich bitten darf!"
 "No" -> "A bit more concrete, please!"
@@ -305,7 +305,7 @@ english, "Elesil", "Daelwon" -> "Yes, that is my name. What do you want informat
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "Huh, what shall I give you information about? Do you mind just asking for help as a first step?"
-german, chance(20.0), ".*" -> "Huh, über was wünscht ihr Information? Vielleicht begnügt ihr euch erst mal nach Hilfe zu fragen?"
+german, chance(20.0), ".*" -> "Huh, woüber wünscht ihr Information? Vielleicht begnügt ihr euch erst mal nach Hilfe zu fragen?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -314,12 +314,12 @@ german, chance(20.0), ".*" -> "Huh, über was wünscht ihr Information? Vielleic
 
 cycletext "Willkommen in Runewick!", "Welcome to Runewick!"
 cycletext "Ich bin die Auskunftsgeberin von Runewick. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Runewick. Ask me for information if you want some."
-cycletext "Wer etwas über die Orten hier wissen will, soll mich nur nach diesen Orten fragen.", "If you want to know something about the locations here, just ask me about these locations."
-cycletext "Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If you want to know something about the buildings here, just ask me about these buildings."
-cycletext "Wer etwas über die Geschichte von Runewick wissen will, soll mich nur nach der Geschichte fragen.", "If you want to know something about the history of Runewick, just ask me about this history."
-cycletext "Wer etwas über die Leute hier wissen will, soll mich nur nach diesen Leuten fragen.", "If you want to know something about the people here, just ask me about these people."
-cycletext "Wer etwas über die Götter hier wissen will, soll mich nur nach diesen Gottheiten fragen.", "If you want to know something about the gods here, just ask me about these gods."
-cycletext "Wer etwas über die Ereignisse hier wissen will, soll mich nur nach diesen Ereignissen fragen.", "If you want to know something about the events here, just ask me about these events."
+cycletext "Wer etwas über die Orten hier wissen will, soll mich nach diesen Orten fragen.", "If you want to know something about the locations here, just ask me about these locations."
+cycletext "Wer etwas über die Gebäude hier wissen will, soll mich nach diesen Gebäuden fragen.", "If you want to know something about the buildings here, just ask me about these buildings."
+cycletext "Wer etwas über die Geschichte von Runewick wissen will, soll mich nach der Geschichte fragen.", "If you want to know something about the history of Runewick, just ask me about this history."
+cycletext "Wer etwas über die Leute hier wissen will, soll mich nach diesen Leuten fragen.", "If you want to know something about the people here, just ask me about these people."
+cycletext "Wer etwas über die Götter hier wissen will, soll mich nach diesen Gottheiten fragen.", "If you want to know something about the gods here, just ask me about these gods."
+cycletext "Wer etwas über die Ereignisse hier wissen will, soll mich nach diesen Ereignissen fragen.", "If you want to know something about the events here, just ask me about these events."
 cycletext "#me gähnt.", "#me yawns."
 cycletext "#me blickt herum mit ihren geschlossenen Augen.", "#me seems to look around, but her eyes are closed."
 cycletext "#me untersucht ihr Kleid.", "#me examines her dress."

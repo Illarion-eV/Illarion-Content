@@ -13,7 +13,7 @@ author: Lillian
 ]]
 require("base.money")
 
-module("development.arena.base.arena", package.seeall)
+module("base.arena", package.seeall)
 
 --[[
 Level 1: Annoying monsters award 1 point
@@ -34,7 +34,7 @@ monsterIDsByLevel = {
 	{monsters = {534, 124, 562, 661, 853}, points = 20}
 }
 
-arenaInformations = {{playerPos=position(10,1,0), monsterPos=position(1,10,0), newPlayerPos=position(10,10,0), npcName="Repair Man", town="Cadomyr", quest=801}, 
+arenaInformations = {{playerPos=position(261,668,0), monsterPos=position(255,668,0), newPlayerPos=position(258,664,0), npcName="Dale Daeon", town="Cadomyr", quest=801}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Runewick", quest=802}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Galmair", quest=803}}
 
@@ -53,7 +53,9 @@ function requestMonster(User, NPC)
 			arenaEffect=LongTimeEffect(18,1);
 			arenaEffect:addValue("arenaID",arena);
 			arenaEffect:addValue("level",index);
-			User.effects:addEffect(arenaEffect);
+			if isValidChar(User) then
+				User.effects:addEffect(arenaEffect);
+			end
 		else
 			return;
 		end
