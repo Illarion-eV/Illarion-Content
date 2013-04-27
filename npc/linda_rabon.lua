@@ -464,7 +464,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
-talkEntry:addResponse("We still don't have all the things we need for the noblemen's celebration. We want to serve best wine from Albar, but we lack suitable wine glasses. Will you bring me five of them?");
+talkEntry:addResponse("We still don't have all the things we need for the noblemen's celebration. We want to serve the best wine from Albar, but we lack suitable wine glasses. Will you bring me five of them?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -485,7 +485,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
-talkEntry:addResponse("We still don't have all the things we need for the noblemen's celebration. We want to serve best wine from Albar, but we lack suitable wine glasses. Will you bring me five of them?");
+talkEntry:addResponse("We still don't have all the things we need for the noblemen's celebration. We want to serve the best wine from Albar, but we lack suitable wine glasses. Will you bring me five of them?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1119,7 +1119,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("I'm not afraid of old bone head. If he ever walks through these doors, I will punch him in the nose.");
+talkEntry:addResponse("I'm not afraid of old bone head. If he ever walks through these doors, I will punch him on the nose.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

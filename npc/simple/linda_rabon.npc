@@ -109,9 +109,9 @@ queststatus(126) = 1, "task", "adventure", "order" -> "The celebration of the no
 queststatus(126) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Befehl" -> "Die Feier der Edelleute ist schon bald - bitte, holt doch die fünf Gedecke Besteck."
 
 -- 2nd quest: Gather 5 wine glasses (2457)
-queststatus(126) = 2, english, "quest", "mission" -> inform("[New quest] A Noble Celebration II"), queststatus(126) = 3, "We still don't have all the things we need for the noblemen's celebration. We want to serve best wine from Albar, but we lack suitable wine glasses. Will you bring me five of them?"
+queststatus(126) = 2, english, "quest", "mission" -> inform("[New quest] A Noble Celebration II"), queststatus(126) = 3, "We still don't have all the things we need for the noblemen's celebration. We want to serve the best wine from Albar, but we lack suitable wine glasses. Will you bring me five of them?"
 queststatus(126) = 2, "quest", "mission" -> inform("[Neues Quest] Eine edle Feier II"), queststatus(126) = 3, "Wir haben noch immer nicht alles für die Feier der Edelleute beisammen. Wir wollen besten Wein aus Albar ausschenken, aber wir haben keine Weingläser. Bringt doch bitte fünf davon."
-queststatus(126) = 2, "task", "adventure", "order" -> inform("[New quest] A Noble Celebration II"), queststatus(126) = 3, "We still don't have all the things we need for the noblemen's celebration. We want to serve best wine from Albar, but we lack suitable wine glasses. Will you bring me five of them?"
+queststatus(126) = 2, "task", "adventure", "order" -> inform("[New quest] A Noble Celebration II"), queststatus(126) = 3, "We still don't have all the things we need for the noblemen's celebration. We want to serve the best wine from Albar, but we lack suitable wine glasses. Will you bring me five of them?"
 queststatus(126) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eine edle Feier II"), queststatus(126) = 3, "Wir haben noch immer nicht alles für die Feier der Edelleute beisammen. Wir wollen besten Wein aus Albar ausschenken, aber wir haben keine Weingläser. Bringt doch bitte fünf davon."
 
 -- 2nd quest solved, reward: 2000 cp, +10 rankpoints if Cadomyr
@@ -200,7 +200,7 @@ english, "Irmorom" -> "There is a picture of him over there."
 "Irmorom" -> "Da drüben hängt ein Bild von ihm."
 english, "Malachin", "Malachín" -> "He's the wolf God. I want a wolf. I'm going to ask father tonight if I can have a wolf."
 "Malachin", "Malachín" -> "Man nennt ihn auch den Wolfgott. Ich will auch einen Wolf. Ich frag Vater nachher, ob ich einen Wolf haben kann."
-english, "Moshran" -> "I'm not afraid of old bone head. If he ever walks through these doors, I will punch him in the nose."
+english, "Moshran" -> "I'm not afraid of old bone head. If he ever walks through these doors, I will punch him on the nose."
 "Moshran" -> "Ich fürchte mich nicht vor dem ollen Knochenkopp. Wenn er jemals durch diese Tür kommt, kriegt er was auf die Nase."
 english, "Nargun", "Nargún", "Nargùn" -> "He is another bad one."
 "Nargun", "Nargún", "Nargùn" -> "Noch so ein Fiesling."
