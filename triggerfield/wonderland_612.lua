@@ -67,21 +67,22 @@ function MoveToField(char)
 		end
 		return
 	end
-	if char:getQuestProgress(612) == 1 and math.random(0,99)< 10 then -- riddle has been solved yet; the voice one more time; chance be warped
+	if char:getQuestProgress(612) == 2 and math.random(0,99)< 10 then -- riddle has been solved yet; the voice one more time; chance be warped
 		if char.pos == position(890,596,0) or char.pos == position(876,590,0) or char.pos == position(878,562,0) then
 			world:makeSound(1,char.pos);
 			char:warp(position(900,580,0))
 			char:inform("Du hörst eine krächzende Stimme ängstlich schreien: \"Nein! Nicht schon wieder du. Geh weg und lass mich in Ruhe!\" Danach kehrt Stille ein.","You hear a croaking voice crying scared: \"No! Not you again. Leave me alone!\" Afterwards there is silence.")
-			char:setQuestProgress(612,2)
+			char:setQuestProgress(612,3)
 			return
 		end
-	elseif char:getQuestProgress(612) == 1 then -- riddle has been solved yet; the voice one more time without warp
+	elseif char:getQuestProgress(612) == 2 then -- riddle has been solved yet; the voice one more time without warp
 		world:makeSound(1,char.pos);		
 		char:inform("Du hörst eine krächzende Stimme ängstlich schreien: \"Nein! Nicht schon wieder du. Geh weg und lass mich in Ruhe!\" Danach kehrt Stille ein.","You hear a croaking voice crying scared: \"No! Not you again. Leave me alone!\" Afterwards there is silence.")
-		char:setQuestProgress(612,2)
+		char:setQuestProgress(612,3)
 		return
 	end 
-	if char:getQuestProgress(612) == 0 then -- riddle hasn't been solved yet
+	if char:getQuestProgress(612) < 2 then -- riddle hasn't been solved yet
+			char:setQuestProgress(612,1) 
 		--884,594,0 correct choice #6
 		if char.pos == position(884,594,0) or char.pos == position(884,593,0) or char.pos == position(884,595,0) then
 			world:gfx(37,char.pos);	
@@ -89,7 +90,7 @@ function MoveToField(char)
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
 			char:inform("Du vernimmst noch ein langezogenes 'Nein'. Danach kehrt Stille ein. Du bist wieder frei.", "You hear a dying 'No'. Afterwards there is silence. You are free again.")  
-			char:setQuestProgress(612,1)
+			char:setQuestProgress(612,2)
 			return
 
 		--886,584,0 correct choice #5
@@ -98,7 +99,7 @@ function MoveToField(char)
 			char:warp(position(885,594,0))
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
-			char:inform("Die krächzende Stimme brüllt: \"Verdammt! Nun gut, du darfst über die Brücke gehen.\" Worauf die eine Stimme aus dem Norden ruft: \"Nicht zur Brücke. In den Baum! In den Baum!\"", "The jagged voice bellows: \"Blimey! Well, you are allowed to pass the bridge.\". A voice from the north shouts: \"Don't go to the bridge. Into the tree! Into the tree!\"")  
+			char:inform("Die krächzende Stimme brüllt: \"Verdammt! Nun gut, du darfst über die Brücke gehen.\" Worauf die eine Stimme aus dem Norden ruft: \"Nicht zur Brücke. In den Baum! In den Baum!\"", "The jagged voice bellows: \"Blimey! Well, you are allowed to pass the bridge.\". A voice from the north shouts: \"Don't go to the bridge. Into the tree! Into the tree!\"")
 			return
 
 		--890,560,0 correct choice #4
@@ -108,7 +109,7 @@ function MoveToField(char)
 			char:warp(position(885,584,0))
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
-			char:inform("Die krächzende Stimme bellt: \"Narr!\" Worauf eine Stimme aus dem Süden ruft: \"Zum Meer! Zum Meer!\"", "The jagged voice barks: \"Fool!\". A voice from the south shouts: \"To the sea! To the sea!\"")  
+			char:inform("Die krächzende Stimme bellt: \"Narr!\" Worauf eine Stimme aus dem Süden ruft: \"Zum Meer! Zum Meer!\"", "The jagged voice barks: \"Fool!\". A voice from the south shouts: \"To the sea! To the sea!\"")
 			return
 
 		--885,573,0 correct choice #3
@@ -118,7 +119,7 @@ function MoveToField(char)
 			char:warp(position(890,559,0))
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
-			char:inform("Die krächzende Stimme ruft: \"Vergeblich!\" Worauf eine Stimme aus dem Süden flüstert: \"Zu mir!\"", "The jagged voice says: \"Futile!\". A voice from the south whispers: \"To me!\"")  
+			char:inform("Die krächzende Stimme ruft: \"Vergeblich!\" Worauf eine Stimme aus dem Süden flüstert: \"Zu mir!\"", "The jagged voice says: \"Futile!\". A voice from the south whispers: \"To me!\"")
 			return
 
 		--906,573,0 correct choice #2
@@ -128,7 +129,7 @@ function MoveToField(char)
 			char:warp(position(885,574,0))
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
-			char:inform("Die krächzende Stimme schreit: \"Gib auf! Du bist mein!\" Worauf eine Stimme aus dem Norden antwortet: \"Komm zu mir!\"", "The scratchy voice shouts: \"Surrender! You are mine!\". A voice from the north answers: \"Come to me!\"")  
+			char:inform("Die krächzende Stimme schreit: \"Gib auf! Du bist mein!\" Worauf eine Stimme aus dem Norden antwortet: \"Komm zu mir!\"", "The scratchy voice shouts: \"Surrender! You are mine!\". A voice from the north answers: \"Come to me!\"")
 			return
 
 		--901,581,0 correct choice #1
@@ -138,14 +139,14 @@ function MoveToField(char)
 			char:warp(position(905,574,0))
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
-			char:inform("Die krächzende Stimme meldet sich wieder: \"Keine Chance!\" Worauf eine Stimme aus dem Südwesten sagt: \"Lauf weg!\"", "The jagged voice says: \"No Chance!\". A voice from the southwest replies: \"Run away!\"")  
+			char:inform("Die krächzende Stimme meldet sich wieder: \"Keine Chance!\" Worauf eine Stimme aus dem Südwesten sagt: \"Lauf weg!\"", "The jagged voice says: \"No Chance!\". A voice from the southwest replies: \"Run away!\"")
 			return
 
 		--start
 		elseif char.pos == position(890,596,0) or char.pos == position(876,590,0) or char.pos == position(878,562,0) then
 			char:warp(position(900,580,0))
 			world:makeSound(25,char.pos);
-			char:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du gehörst nun mir!\" Nach einer Weile hörst du eine andere Stimme aus dem Nordwesten: \"Geh weg von mir!\"","You hear laughter and a croaking voice, saying: \"HAHA! You are mine now!\" After a while you hear another voice from the northwest: \"Get away from me!\"")  
+			char:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du gehörst nun mir!\" Nach einer Weile hörst du eine andere Stimme aus dem Nordwesten: \"Geh weg von mir!\"","You hear laughter and a croaking voice, saying: \"HAHA! You are mine now!\" After a while you hear another voice from the northwest: \"Get away from me!\"")
 			return
 			
 		--wrong turn

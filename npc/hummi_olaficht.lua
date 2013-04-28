@@ -41,6 +41,27 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Elesil'end] You receive 30 silver coins. Have you already asked for and visited the two other NPCs that Hummi mentions?"));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 3));
+talkEntry:addResponse("So, that was easy, right? Here's your reward. A lot of other tasks await you, just ask around this place.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 2));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Elesil' Ende] Du hast 30 Silbermünzen erhalten. Hast du bereits nach den beiden anderen NPCs die Hummi erwähnt gefragt und sie auch besucht?"));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 3));
+talkEntry:addResponse("Das war einfach, oder? Hier dein Lohn. Viele andere Aufgaben warten auf dich hier. Frage einfach herum.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
@@ -380,6 +401,212 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."));
 talkEntry:addResponse("Wie ich sagte, finde den Ork Tronuk. Er kann vor einer Mine gefunden werden. Ich sage dir aber nicht welcher. Er erzählt zwei Geschichten. Eine handelt von einem Turnier. Komm zurück wenn du weißt wer der Gewinner ist und nenne mir seinen Namen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(606, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Elesil', 'Frizza', 'Iradona' or 'Explorer' if you want to have a task."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 1));
+talkEntry:addResponse("Alas, another bold traveller! Unfortunately, I haven't much work, but don't let me discourage you. The towns are always on the look out for adventurers and workers alike! For example, Elesil Daelwon in Runewick, Frizza in Cadomyr, and Iradona Goldschein in Galmair could all help you. Another option would be the Explorer guild. Just look for them.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(606, "=", 0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Elesil', 'Frizza', 'Iradona' oder 'Erkunder' wenn du einen Auftrag haben möchtest."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 1));
+talkEntry:addResponse("Hoi, ein anderer taferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Städte immer nach Abenteuerer und Arbeitern suchen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeit wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(606, "=", 0));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Elesil', 'Frizza', 'Iradona' or 'Explorer' if you want to have a task."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 1));
+talkEntry:addResponse("Ahh, gotta case of idle hands I see. Be assured traveller, if you're willing to seek them out there are folk out there that could use a hand or two. Best start with one of the towns! For example, Elesil Daelwon in Runewick, Frizza in Cadomyr, and Iradona Goldschein in Galmair could all help you. Another option would be the Explorer guild. Just look for them.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(606, "=", 0));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Elesil', 'Frizza', 'Iradona' oder 'Erkunder' wenn du einen Auftrag haben möchtest."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 1));
+talkEntry:addResponse("Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startest du bei einer der Städte! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeit wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Elesil', 'Frizza', 'Iradona' or 'Explorer' if you want to know more."));
+talkEntry:addResponse("Alas, another bold traveller! Unfortunately, I haven't much work, but don't let me discourage you. The towns are always on the look out for adventurers and workers alike! For example, Elesil Daelwon in Runewick, Frizza in Cadomyr, and Iradona Goldschein in Galmair could all help you. Another option would be the Explorer guild. Just look for them.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Elesil', 'Frizza', 'Iradona' oder 'Erkunder' wenn du mehr wissen möchtest."));
+talkEntry:addResponse("Hoi, ein anderer taferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Städte immer nach Abenteuerer und Arbeitern suchen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeit wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Elesil', 'Frizza', 'Iradona' or 'Explorer' if you want to know more."));
+talkEntry:addResponse("Ahh, gotta case of idle hands I see. Be assured traveller, if you're willing to seek them out there are folk out there that could use a hand or two. Best start with one of the towns! For example, Elesil Daelwon in Runewick, Frizza in Cadomyr, and Iradona Goldschein in Galmair could all help you. Another option would be the Explorer guild. Just look for them.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Elesil', 'Frizza', 'Iradona' oder 'Erkunder' wenn du mehr wissen möchtest."));
+talkEntry:addResponse("Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startest du bei einer der Städte! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeit wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "<", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Elesil");
+talkEntry:addTrigger("Daelwon");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Elesil' started] Find Elesil at the teleporter in Runewick and talk to her."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 1));
+talkEntry:addResponse("You can find her in Runewick. She knows any place in Runewick and has plenty of tasks for you. When you have found her, come back and collect your reward!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "<", 1));
+talkEntry:addTrigger("Elesil");
+talkEntry:addTrigger("Daelwon");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Elesil' gestartet] Finde Elesil beim Teleporter in Runewick and sprich mit ihr."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 1));
+talkEntry:addResponse("Du findest sie beim Teleporter in Runewick. Sie kennt jeden Platz in Runewick und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(605, "<", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Frizza");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Frizza' started] Find Frizza at the teleporter in Cadomyr and talk to her."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 1));
+talkEntry:addResponse("You can find her in Cadomyr. She knows any place in Cadomyr and has plenty of tasks for you. When you have found her, come back and collect your reward!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(605, "<", 1));
+talkEntry:addTrigger("Frizza");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Frizza' gestartet] Finde Frizza beim Teleporter in Cadomyr and sprich mit ihr."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 1));
+talkEntry:addResponse("Du findest sie beim Teleporter in Cadomyr. Sie kennt jeden Platz in Cadomyr und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(606, "<", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Iradona");
+talkEntry:addTrigger("Goldschein");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Iradona' started] Find Iradona at the teleporter in Galmair and talk to her."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 1));
+talkEntry:addResponse("You can find her in Galmair. She knows any place in Galmair and has plenty of tasks for you. When you have found her, come back and collect your reward!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(606, "<", 1));
+talkEntry:addTrigger("Iradona");
+talkEntry:addTrigger("Goldschein");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Iradona' gestartet] Finde Iradona beim Teleporter in Galmair and sprich mit ihr."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 1));
+talkEntry:addResponse("Du findest sie beim Teleporter in Galmair. Sie kennt jeden Platz in Galmair und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, ">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Elesil");
+talkEntry:addTrigger("Daelwon");
+talkEntry:addResponse("You can find her in Runewick. She knows any place in Runewick and has plenty of tasks for you, as you already know.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, ">", 0));
+talkEntry:addTrigger("Elesil");
+talkEntry:addTrigger("Daelwon");
+talkEntry:addResponse("Du findest sie beim Teleporter in Runewick. Sie kennt jeden Platz in Runewick und hat etliche Aufgaben für dich, wie du bereits weißt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(605, ">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Frizza");
+talkEntry:addResponse("You can find her in Cadomyr. She knows any place in Cadomyr and has plenty of tasks for you, as you already know.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(605, ">", 0));
+talkEntry:addTrigger("Frizza");
+talkEntry:addResponse("Du findest sie beim Teleporter in Cadomyr. Sie kennt jeden Platz in Cadomyr und hat etliche Aufgaben für dich, wie du bereits weißt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(606, ">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Iradona");
+talkEntry:addTrigger("Goldschein");
+talkEntry:addResponse("You can find her in Galmair. She knows any place in Galmair and has plenty of tasks for you, as you already know.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(606, ">", 0));
+talkEntry:addTrigger("Iradona");
+talkEntry:addTrigger("Goldschein");
+talkEntry:addResponse("Du findest sie beim Teleporter in Galmair. Sie kennt jeden Platz in Galmair und hat etliche Aufgaben für dich, wie du bereits weißt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

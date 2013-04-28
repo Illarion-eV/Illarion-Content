@@ -205,21 +205,21 @@ function initDoors()
 	AddDoor({128, 520, 0}, 300,"Royal Chamber","Königliche Kammer");
 	AddDoor({128, 519, 0}, 300,"Royal Chamber","Königliche Kammer");
 
-	AddDoor({ 96, 615, 1}, 310,"Villa Rosaline - Balcony","Villa Rosaline - Balkon");
-	AddDoor({ 94, 612, 0}, 310,"Villa Rosaline","Villa Rosaline");
-	AddDoor({ 94, 613, 0}, 310,"Villa Rosaline","Villa Rosaline");
-	AddDoor({ 88, 600, 1}, 311,"Villa Edward - Balcony","Villa Edward - Balkon");
-	AddDoor({ 90, 605, 0}, 311,"Villa Edward","Villa Edward");
-	AddDoor({ 91, 605, 0}, 311,"Villa Edward","Villa Edward");
-	AddDoor({ 93, 560, 0}, 312,"Villa Reginald","Villa Reginald");
+	AddDoor({ 96, 615, 1}, 310,"Villa Rosaline - Balcony","Villa Rosaline - Balkon"); --!create 3054 1 333 lockId=310
+	AddDoor({ 94, 612, 0}, 310,"Villa Rosaline","Villa Rosaline"); --!create 3054 1 333 lockId=310
+	AddDoor({ 94, 613, 0}, 310,"Villa Rosaline","Villa Rosaline"); --!create 3054 1 333 lockId=310
+	AddDoor({ 88, 600, 1}, 311,"Villa Edward - Balcony","Villa Edward - Balkon"); --!create 3054 1 333 lockId=311
+	AddDoor({ 90, 605, 0}, 311,"Villa Edward","Villa Edward"); --!create 3054 1 333 lockId=311
+	AddDoor({ 91, 605, 0}, 311,"Villa Edward","Villa Edward"); --!create 3054 1 333 lockId=311
+	AddDoor({ 93, 560, 0}, 312,"Villa Reginald","Villa Reginald"); --!create 3054 1 333 lockId=312
 
-	AddDoor({138, 604, 0}, 321,"Flat quarter - Faith & Obedience","Wohnungsquartier - Glaube & Gehorsam");
-	AddDoor({139, 604, 1}, 322,"Flat quarter - Honour & Lineage","Wohnungsquartier - Ehre & Abstammung");
-	AddDoor({137, 610, 0}, 323,"Flat quarter - Truth & Justice","Wohnungsquartier - Ehrlichkeit & Gerechtigkeit");
-	AddDoor({138, 610, 1}, 324,"Flat quarter - Courage","Wohnungsquartier - Courage");
-	AddDoor({136, 615, 0}, 325,"Flat quarter - Patriarchy","Wohnungsquartier - Patriarchat");
-	AddDoor({137, 615, 1}, 326,"Flat quarter - Property","Wohnungsquartier - Besitz");
-	AddDoor({144, 627, 1}, 320,"Flat quarter - Responsibility","Wohnungsquartier - Verantwortung");
+	AddDoor({138, 604, 0}, 321,"Flat quarter - Faith & Obedience","Wohnungsquartier - Glaube & Gehorsam"); --!create 2558 1 333 lockId=321
+	AddDoor({139, 604, 1}, 322,"Flat quarter - Honour & Lineage","Wohnungsquartier - Ehre & Abstammung"); --!create 2558 1 333 lockId=322
+	AddDoor({137, 610, 0}, 323,"Flat quarter - Truth & Justice","Wohnungsquartier - Ehrlichkeit & Gerechtigkeit"); --!create 2558 1 333 lockId=323
+	AddDoor({138, 610, 1}, 324,"Flat quarter - Courage","Wohnungsquartier - Courage"); --!create 2558 1 333 lockId=324
+	AddDoor({136, 615, 0}, 325,"Flat quarter - Patriarchy","Wohnungsquartier - Patriarchat"); --!create 2558 1 333 lockId=325
+	AddDoor({137, 615, 1}, 326,"Flat quarter - Property","Wohnungsquartier - Besitz"); --!create 2558 1 333 lockId=326
+	AddDoor({144, 627, 1}, 320,"Flat quarter - Responsibility","Wohnungsquartier - Verantwortung"); --!create 2558 1 333 lockId=320
 
 	AddDoor({116, 633, 0}, false,"Cadomyr Towngate","Cadomyr Stadttor");
 	AddDoor({115, 633, 0}, false,"Cadomyr Towngate","Cadomyr Stadttor");	
