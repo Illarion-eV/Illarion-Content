@@ -30,7 +30,7 @@ QuestTarget[2] = {{884,594,0}, {884,593,0}, {884,595,0}, {863,578,0}}
 QuestTarget[3] = {{890,596,0}, {876,590,0}, {878,562,0}}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 2,3
+FINAL_QUEST_STATUS = 3
 
 
 function QuestTitle(user)
