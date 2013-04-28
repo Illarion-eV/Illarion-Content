@@ -17,9 +17,9 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Um zu entkommen lese dir sorgfältig die Anweisungen der Stimmen durch und achte darauf, aus welcher Himmelsrichtung sie kommt.\nEs empfiehlt sich ebenfalls erst zu überlegern und dann zu agieren anstelle wild und zufällig herumzulaufen."
-Description[ENGLISH][1] = "In order to escape, you have to read the instruction of the voices carefully and pay attention to the cardinal direction of the voice.\nIt is also recommended to think first and then to run instead of running mad and haphazardly."
+Description[ENGLISH][1] = "In order to escape, you have to read the instructions given by the voices carefully and pay attention to the cardinal direction of the voice.\nIt is also recommended to think first and then to run instead of running mad and haphazardly."
 Description[GERMAN][2] = "Du bist erfolgreich dem Geist entkommen. Glückwunsch.\nWomöglich wirst du die Stimme des Geists noch einmal hören. Keine Angst, er wird dir nichts mehr anhaben."
-Description[ENGLISH][2] = "You have successfully escaped. Congratulation.\nProbably, you will hear the voice of the ghost one more time. Don't worry, he is not going to harm you anymore."
+Description[ENGLISH][2] = "You have successfully escaped. Congratulations.\nProbably, you will hear the voice of the ghost one more time. Don't worry, he is not going to harm you anymore."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
