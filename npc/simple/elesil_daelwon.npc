@@ -113,8 +113,8 @@ english, "Numila", "Irunnleh" -> "She is a geographer and can be found in the Li
 
 "market" -> "Through the portal after the Lurnord Bridge and you are there *points behind her*."
 "Markt" -> "Durch das Portal nach der Lurnord Brücke und ihr seid dort *zeigt hinter sich*."
-"shrine" -> inform("[Keywords] Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Bragon"), "Let me think... You can find four here, the Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Oldra and Shrine of Brágon."
-"Schrein" -> inform("[Schlüsselwörter] Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein des Bragon"), "Lasst mich nachdenken... Ihr findet hier vier: Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein der Oldra und Schrein des Brágon."
+"shrine" -> inform("[Keywords] Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Oldra, Shrine of Bragon"), "Let me think... You can find five here, the Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Oldra and Shrine of Brágon."
+"Schrein" -> inform("[Schlüsselwörter] Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein der Oldra, Schrein des Bragon"), "Lasst mich nachdenken... Ihr findet hier fünf: Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein der Oldra und Schrein des Brágon."
 town = Runewick, "Census" -> "The census office can be found in the Tower of Fire,  after you enter it from the market. You will find Torina Scibrim there. She will help you further."
 town = Runewick, "Zensusbüro" -> "Das Zensusbüro kann im Turm des Feuers gefunden werden werden, gleich nachdem ihr diesen vom Markt aus kommend betreten habt. Man findet dort Torina Scibrim. Sie wird euch weiterhelfen."
 "Census" -> "The census office can be found in the Tower of Fire, after you enter it from the market. You can join the realm of wisdom there."
@@ -128,6 +128,8 @@ town = Runewick, "Zensusbüro" -> "Das Zensusbüro kann im Turm des Feuers gefun
 
 "Garden Eldan", "Eldan Garden" -> "The Garden of Eldan is a place which inspires us with wisdom. You can find it if you walk through the portal into the town, on the other side of the Lurnord Bridge, and then take the red portal. There you will also find a shrine dedicated to Eldan."
 "Garten Eldan", "Eldan Garten" -> "Der Garten des Eldan ist ein Ort der uns mit Weisheit inspiriert. Ihr findet ihn wenn ihr in die Stadt durch das Portal an der anderen Seite der Lurnord Brücke reist und dann durch das nächste, rote, Portal tretet. Dort findet ihr auch einen Schrein für Eldan."
+"Shrine Oldra", "Findari Oldra" -> "The Shrine of Oldra can be found here next to me on the coast."
+"Schrein Oldra", "Findari Oldra" -> "Der Schrein der Oldra kann hier gleich an der Küste hinter mir gefunden werden."
 english, "Slum" -> "The slums are under the market. A Ladder will lead you there. I assume I do not have to explain who lives there? Those who lack knowledge or have spent too much time praising Adron."
 "Slum" -> "Die Slums können unter dem Markt gefunden werden. Eine Leiter wird euch dort hinführen. Ich nehme an, ich muss euch nicht erklären wer dort lebt. Jene, denen es an Weisheit mangelt und jene, die zu viel Zeit mit dem Huldigungen für Adron verbringen."
 "Tomb" -> inform("[Keywords] Room of Light, Room of Darkness, Room of  Twilight"), "To reach the tomb you have to pass through the market first and then the slums. The tomb is divided in three rooms: Room of Light, Room of Darkness, and Room of Twilight."
@@ -277,7 +279,7 @@ english, "Moshran" -> "#me narrows her eyes and takes a blade which she swings i
 english, "Nargun", "Nargún", "Nargùn" -> "One of the unimportant Younger Gods. You can find followers in Galmair."
 "Nargun", "Nargún", "Nargùn" -> "Einer der unwichtigen jüngeren Götter. Man kann Anhänger in Galmair finden."
 english, "Oldra" -> "Most of her priests are female, who serve the Goddess into old age. They think that when they die, they will be brought to a big garden gate. If they have been good, they can enjoy the wonders of the never ending garden. There is a shrine dedicated to her here next to me on the coast."
-"Oldra" -> "Die meisten Ihrer Priester sind weiblich und dienen der Gottheit bis ins hohe Alter. Sie glauben wenn sie sterben, werden sie zu einem prachtvollen Gartentor gebracht, und wenn sie gut waren dürfen sie an diesem wunderbaren Ort leben. Wie dem auch sei, hier gleich an der Küste findet ihr einen Schrein"
+"Oldra" -> "Die meisten Ihrer Priester sind weiblich und dienen der Gottheit bis ins hohe Alter. Sie glauben wenn sie sterben, werden sie zu einem prachtvollen Gartentor gebracht, und wenn sie gut waren dürfen sie an diesem wunderbaren Ort leben. Wie dem auch sei, hier gleich an der Küste findet ihr einen Schrein."
 english, "Ronagan" -> "One of the unimportant Younger Gods. You can find followers in Galmair."
 "Ronagan" -> "Einer der unwichtigen jüngeren Götter. Man kann Anhänger in Galmair finden."
 english, "Sirani" -> "One of the unimportant Younger Gods. You can find followers in Cadomyr."

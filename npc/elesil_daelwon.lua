@@ -389,15 +389,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("shrine");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Bragon"));
-talkEntry:addResponse("Let me think... You can find four here, the Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Oldra and Shrine of Brágon.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Oldra, Shrine of Bragon"));
+talkEntry:addResponse("Let me think... You can find five here, the Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Oldra and Shrine of Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schrein");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein des Bragon"));
-talkEntry:addResponse("Lasst mich nachdenken... Ihr findet hier vier: Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein der Oldra und Schrein des Brágon.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein der Oldra, Schrein des Bragon"));
+talkEntry:addResponse("Lasst mich nachdenken... Ihr findet hier fünf: Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein der Oldra und Schrein des Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -450,6 +450,20 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Garten Eldan");
 talkEntry:addTrigger("Eldan Garten");
 talkEntry:addResponse("Der Garten des Eldan ist ein Ort der uns mit Weisheit inspiriert. Ihr findet ihn wenn ihr in die Stadt durch das Portal an der anderen Seite der Lurnord Brücke reist und dann durch das nächste, rote, Portal tretet. Dort findet ihr auch einen Schrein für Eldan.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Shrine Oldra");
+talkEntry:addTrigger("Findari Oldra");
+talkEntry:addResponse("The Shrine of Oldra can be found here next to me on the coast.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Schrein Oldra");
+talkEntry:addTrigger("Findari Oldra");
+talkEntry:addResponse("Der Schrein der Oldra kann hier gleich an der Küste hinter mir gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1361,7 +1375,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Die meisten Ihrer Priester sind weiblich und dienen der Gottheit bis ins hohe Alter. Sie glauben wenn sie sterben, werden sie zu einem prachtvollen Gartentor gebracht, und wenn sie gut waren dürfen sie an diesem wunderbaren Ort leben. Wie dem auch sei, hier gleich an der Küste findet ihr einen Schrein");
+talkEntry:addResponse("Die meisten Ihrer Priester sind weiblich und dienen der Gottheit bis ins hohe Alter. Sie glauben wenn sie sterben, werden sie zu einem prachtvollen Gartentor gebracht, und wenn sie gut waren dürfen sie an diesem wunderbaren Ort leben. Wie dem auch sei, hier gleich an der Küste findet ihr einen Schrein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
