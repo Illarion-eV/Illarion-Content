@@ -239,8 +239,10 @@ end
 
 function AlchemistCheck(User)
 	if (User:getMagicType() == 3) and (User:getMagicFlags(3) > 0) then
-	    return true
-	end	
+	    User:inform("alchemist check true")
+		return true
+	end
+	User:inform("alchemist check false")
 end
 
 function NoMagicCheck(User)
@@ -484,7 +486,11 @@ function UseItem(User, SourceItem, ltstate)
     if not (SourceItem.pos == position(75,651,0) or SourceItem.pos == position(432,238,0) or SourceItem.pos == position(873,878,0)) then
 	    return
 	end	
-	
+	if User:getQuestProgress(350)==100 then
+	    User:inform("quest prg true")
+	else
+        User:inform("qzest prg false")
+	end
 	-- already an alchemist?
     local alchemistCheck = AlchemistCheck(User)
 	if alchemistCheck and User:getQuestProgress(350)==100 then
