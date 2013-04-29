@@ -4,9 +4,9 @@
 -- Forge off: 2837
 -- Forge on: 2834
 
--- coal (21) + { iron ore (22), copper ore (2536), gold nuggets (234), 
+-- coal (21) + { iron ore (22), copper ore (2536), gold nuggets (234), silver ore (1062),
 --               merinium ore (2534) + pure fire (2553) } 
---          --> {iron (2535), copper (2550), gold (236), merinium (2571)} ingot
+--          --> {iron (2535), copper (2550), silver (104), gold (236), merinium (2571)} ingot
 
 -- additional tool: crucible-pincers (2751)
 
@@ -38,6 +38,7 @@ OreList = {
   CreateOre(CreateItem(22), CreateItem(2535)),                              -- iron
   CreateOre(CreateItem(2536), CreateItem(2550)),                            -- copper
   CreateOre(CreateItem(234), CreateItem(236)),                              -- gold
+  CreateOre(CreateItem(1062), CreateItem(104)),  							-- silver
   CreateOre(CreateItem(2534), CreateItem(2571))                             -- merinium (pure fire required)
 };
 CoalItem = CreateItem(21);
@@ -141,8 +142,8 @@ function UseItem(User, SourceItem, ltstate)
   end
   if (oreItem == nil) then
 		base.common.HighInformNLS( User, 
-		"Du brauchst Eisenerz, Kupfererz, Goldnuggets oder Meriniumerz um es zu schmelzen.", 
-		"You need iron ore, copper ore, gold nuggets or merinium ore for melting it." );
+		"Du brauchst Eisenerz, Kupfererz, Silbererz, Goldnuggets oder Meriniumerz um es zu schmelzen.", 
+		"You need iron ore, copper ore, silver ore, gold nuggets or merinium ore for melting it." );
     return;
   end
 	
@@ -229,8 +230,8 @@ function UseItem(User, SourceItem, ltstate)
         end
       else -- no ore
         base.common.HighInformNLS(User,
-        "Du brauchst Eisenerz, Kupfererz, Goldnuggets oder Meriniumerz um es zu schmelzen.", 
-        "You need iron ore, copper ore, gold nuggets or merinium ore for melting it." );
+        "Du brauchst Eisenerz, Kupfererz, Silbererz, Goldnuggets oder Meriniumerz um es zu schmelzen.", 
+        "You need iron ore, copper ore, silver ore, gold nuggets or merinium ore for melting it." );
       end
     else -- no coal
       base.common.HighInformNLS(User,
