@@ -14,10 +14,11 @@ function UseItem(User, SourceItem, ltstate)
     if cauldron then
 	  
         -- is the char an alchemist?
-	    local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+	    local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+		User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
 		if not anAlchemist then
-		    return
-	    end
+			return
+		end
 		
 		if ( User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0) + User:increaseAttrib("intelligence",0) ) < 30 then 
 		User:inform("Verstand, ein gutes Auge und ein Gespür für die feinstofflichen Dinge - dir fehlt es daran, als dass du hier arbeiten könntest.",

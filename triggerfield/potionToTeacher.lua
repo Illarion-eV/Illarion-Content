@@ -40,7 +40,8 @@ end
 
 function PutItemOnField(Item,User)
     -- is the char an alchemist?
-	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Mir ist nicht bekannt, dass Ihr ein Alchemist sein sollt. Nehmt Euer Zeug wieder weg.","I haven't heard you being an alchemist. Take your stuff from my table.")
+	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+	User:inform("Mir ist nicht bekannt, dass Ihr ein Alchemist sein sollt. Nehmt Euer Zeug wieder weg.","I haven't heard you being an alchemist. Take your stuff from my table.")
 	if not anAlchemist then
 		return
 	end

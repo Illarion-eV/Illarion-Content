@@ -271,7 +271,8 @@ function RecipeInform( User, SourceItem)
     end
 
 	-- is the char an alchemist?
-	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Auf dem Schriftstück steht nur dir unverständliches Alchemistengeschwafel.","For you the document only appears to contain unintelligible alchemical gibberish.")
+	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+	User:inform("Auf dem Schriftstück steht nur dir unverständliches Alchemistengeschwafel.","For you the document only appears to contain unintelligible alchemical gibberish.")
 	if not anAlchemist then
 		return
 	end
