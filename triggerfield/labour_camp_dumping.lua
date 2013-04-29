@@ -11,7 +11,7 @@ module("triggerfield.labour_camp_dumping", package.seeall)
 
 function PutItemOnField(Item,User)
     -- coal, iron, copper, gold, silver; more resources can be added
-    if Item.id == 21 or Item.id == 22 or Item.id == 2536 or Item.id == 234 or Item.id = 1062 then
+    if Item.id == 21 or Item.id == 22 or Item.id == 2536 or Item.id == 234 or Item.id == 1062 then
         
 		local FactionImpr = User:getQuestProgress(26) -- faction which imprisoned the char
 		local town
