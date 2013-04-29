@@ -470,10 +470,9 @@ function GetCauldronInfront(User,Item)
 	return retVal
 end
 
-function CheckIfAlchemist(User,textDE,textEN)
-    if (User:getMagicType() ~= 3) or (User:getMagicFlags(3) <= 0) then
-	    User:inform(textDE,textEN)
-		return false
+function CheckIfAlchemist(User)
+    if (User:getMagicType() ~= 3) then
+	    return false
 	else
         return true
     end		

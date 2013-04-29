@@ -34,7 +34,8 @@ function UseRecipe(User, SourceItem, ltstate)
 	-- blue ok
 	
 	-- is the char an alchemist?
-	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+	User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
 	if not anAlchemist then
 		return
 	end

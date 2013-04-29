@@ -115,9 +115,10 @@ end
 
 function AnalysisOfBrew(User, gem, brew, ltstate)
 
-    local isAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die die Kunst der Alchemie beherrschen vermögen zu analysieren.","Only those who have been introduced to the art of alchemy are able to analyse.")
-    if not isAlchemist then
-        return
+    local isAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+	if not isAlchemist then
+        User:inform("Nur jene, die die Kunst der Alchemie beherrschen vermögen zu analysieren.","Only those who have been introduced to the art of alchemy are able to analyse.")
+		return
     end
 	
 	-- for every possible substance, we create the proper informs

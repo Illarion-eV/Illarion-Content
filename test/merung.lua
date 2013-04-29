@@ -6,20 +6,26 @@ require("alchemy.base.brewing")
 module("test.merung", package.seeall)
 
 function UseItem(User, SourceItem,ltstate)
-	User:increaseAttrib("essence",30)
-	--development.recipe_creation.FirstMenu(User, ingredientsList)
-	User:teachMagic(3,0)
-	User:setMagicType(0)
-	User:setQuestProgress(350,0)
-	User:setQuestProgress(351,0)
-	User:setQuestProgress(352,0)
 	
-	User:inform(""..User:getQuestProgress(350))
-	User:inform(""..User:getQuestProgress(351))
-	User:inform(""..User:getQuestProgress(352))
-	User:inform(""..User:getMagicType())
-	User:inform(""..User:getMagicFlags(0))
-	
+	if User.lastSpokenText == "remove" then
+		User:setMagicType(0)
+		User:teachMagic(0,0)
+		User:teachMagic(1,0)
+		User:teachMagic(2,0)
+		User:teachMagic(3,0)
+	end
+	if User.lastSpokenText == "mage" then
+	    User:setMagicType(0)
+		User:teachMagic(0,1)
+	end
+    if User.lastSpokenText == "alchemist" then
+		User:setMagicType(3)
+		User:teachMagic(3,1)
+	end	
+	User:inform("magic type: "..User:getMagicType().."; magic flag: "..User:getMagicFlags(User:getMagicType()))
+		
+		
+		
 	
 	--[[
 	if User.lastSpokenText == "rezept" then
