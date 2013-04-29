@@ -39,10 +39,12 @@ function getTown(Item)
 end
 
 function PutItemOnField(Item,User)
-    -- is the char an alchemist?
+    local myNPC = getNPC(Item)
+	
+	-- is the char an alchemist?
 	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
-	User:inform("Mir ist nicht bekannt, dass Ihr ein Alchemist sein sollt. Nehmt Euer Zeug wieder weg.","I haven't heard you being an alchemist. Take your stuff from my table.")
 	if not anAlchemist then
+		myNPC:talk(Character.say, "Mir ist nicht bekannt, dass Ihr ein Alchemist sein sollt. Nehmt Euer Zeug wieder weg.", "I haven't heard you being an alchemist. Take your stuff from my table.")
 		return
 	end
 	
@@ -50,7 +52,6 @@ function PutItemOnField(Item,User)
 	if town == false then
 	    return
 	end	
-	local myNPC = getNPC(Item)
 	local ListTaskItem = item.id_3109_open_pell.ListTaskItem[town]
 	if ListTaskItem == nil then
 	    item.id_3109_open_pell.Init()

@@ -96,8 +96,8 @@ function FillFromCauldron(User,SourceItem,TargetItem,ltstate)
 		
 	-- is the char an alchemist?
 	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
-	User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
 	if not anAlchemist then
+		User:inform("Auf dem Schriftstück steht nur dir unverständliches Alchemistengeschwafel.","For you the document only appears to contain unintelligible alchemical gibberish.")
 		return
 	end
 		
