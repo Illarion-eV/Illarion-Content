@@ -808,7 +808,7 @@ end
 function GetStartAction(User, SourceItem, cauldron)
 	
 	local duration = 0
-	local gfxId = 0,
+	local gfxId = 0
 	local gfxIntervall = 0
 	local sfxId = 0
 	local sfxIntervall = 0
