@@ -21,20 +21,22 @@ function ltstateCheck(User, ltstate, counter)
 	
 end    --]]
  
-function UseItem(User, SourceItem,ltstate)
+function UseItem(User, SourceItem,ltstate,newVar_a)
 --[[
 	if User.lastSpokenText == "ltstate" then       
 	    ltstateCheck(User, ltstate, 1)
 		return
 	end 
---]]
-	
+--]] 
+User:inform("local")
+	--[[
 	if ( ltstate == Action.abort ) then
 		User:inform("Nevermind that shit. Here comes Mongo")
      	return
 	end
 	
-	if not newVar then
+	if not newVar_a then
+		
 		if USER_POSITION_LIST == nil then
 			USER_POSITION_LIST = {}
 		end
@@ -45,8 +47,7 @@ function UseItem(User, SourceItem,ltstate)
 				selected = dialog:getSelectedIndex()+1
 				User:inform("Success, you selected option "..selected)
 				USER_POSITION_LIST[User.id] = selected
-				newVar = true
-				UseItem(User, SourceItem,ltstate)
+				UseItem(User, SourceItem,ltstate,true)
 			else
 				User:inform("Selection aborted!") 
 			end
@@ -60,9 +61,10 @@ function UseItem(User, SourceItem,ltstate)
 		
 		User:requestSelectionDialog(dialog)
 		return
-		
-		
 	end
+	
+	if newVar_a then 
+	    
 	
 	if (ltstate == Action.none) then
 		
@@ -81,7 +83,7 @@ function UseItem(User, SourceItem,ltstate)
 	User:inform("debug 3")		
 	User:startAction(50,52,5,15,25)
 		
-
+--]]
 end
 
 
