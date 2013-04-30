@@ -6,9 +6,32 @@ require("alchemy.base.brewing")
 module("test.merung", package.seeall)
 
 
+function ltstateCheck(User, ltstate)
+
+    if (ltstate == Action.none) then
+		User:startAction(50,21,5,15,25);
+		return
+	end
+	if ( ltstate == Action.abort ) then
+		User:inform("Nevermind that shit. Here comes Mongo")
+		return
+	end
+	if counter = nil then
+	    counter = 1
+	else
+		counter = counter + 1
+	end	
+	User:inform("counter: "..counter)
+	
+	User:startAction(50,21,5,15,25)
+	
+end	
+
 function UseItem(User, SourceItem,ltstate)
 		
-	User:increaseAttrib("essence",30)
+	if User.lastSpokenText == "ltstate" then	
+		ltstateCheck(User, ltstate)
+	end	
 	--[[
 	if User.lastSpokenText == "rezept" then
 		if SourceItem:getType()==4 then
