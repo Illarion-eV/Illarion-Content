@@ -5,28 +5,28 @@ require("alchemy.base.brewing")
 
 module("test.merung", package.seeall)
 
+
+function ltstateCheck(User, ltstate, counter)
+
+    if (ltstate == Action.none) then
+		User:startAction(50,21,5,15,25);
+		return
+	end
+	if ( ltstate == Action.abort ) then
+		User:inform("Nevermind that shit. Here comes Mongo")
+		return
+	end
+	User:inform("counter: "..counter)
+	
+	ltstateCheck(User, ltstate, counter+1)
+	
+end	
+
 function UseItem(User, SourceItem,ltstate)
-	
-	if User.lastSpokenText == "remove" then
-		User:setMagicType(0)
-		User:teachMagic(0,0)
-		User:teachMagic(1,0)
-		User:teachMagic(2,0)
-		User:teachMagic(3,0)
-	end
-	if User.lastSpokenText == "mage" then
-	    User:setMagicType(0)
-		User:teachMagic(0,1)
-	end
-    if User.lastSpokenText == "alchemist" then
-		User:setMagicType(3)
-		User:teachMagic(3,1)
+		
+	if User.lastSpokenText == "ltstate" then	
+		ltstateCheck(User, ltstate, 1)
 	end	
-	User:inform("magic type: "..User:getMagicType().."; magic flag: "..User:getMagicFlags(User:getMagicType()))
-		
-		
-		
-	
 	--[[
 	if User.lastSpokenText == "rezept" then
 		if SourceItem:getType()==4 then
