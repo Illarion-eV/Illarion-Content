@@ -21,7 +21,7 @@ function ltstateCheck(User, ltstate, counter)
 	
 end    --]]
  
-function UseItem(User, SourceItem,ltstate,newVar)
+function UseItem(User, SourceItem,ltstate)
 --[[
 	if User.lastSpokenText == "ltstate" then       
 	    ltstateCheck(User, ltstate, 1)
@@ -46,7 +46,7 @@ function UseItem(User, SourceItem,ltstate,newVar)
 				User:inform("Success, you selected option "..selected)
 				USER_POSITION_LIST[User.id] = selected
 				newVar = true
-				UseItem(User, SourceItem,ltstate, newVar)
+				UseItem(User, SourceItem,ltstate)
 			else
 				User:inform("Selection aborted!") 
 			end
