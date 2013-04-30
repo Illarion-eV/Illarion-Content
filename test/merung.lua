@@ -64,6 +64,7 @@ function UseItem(User, SourceItem,ltstate,newVar)
 		else
 			User:inform("debug 1")
 			User:startAction(50,36,5,15,25);
+			return
 		end	
 	end
 	
