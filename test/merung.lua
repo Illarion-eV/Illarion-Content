@@ -56,8 +56,7 @@ function UseItem(User, SourceItem,ltstate,newVar)
 		dialog:addOption(0, "1")
 		dialog:addOption(0, "2")
 		dialog:addOption(0, "3")
-		dialog:addOption(0, "4")
-
+		
 		User:requestSelectionDialog(dialog)
 		return
 		
