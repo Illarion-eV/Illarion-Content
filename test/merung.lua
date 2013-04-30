@@ -39,31 +39,28 @@ function UseItem(User, SourceItem,ltstate,newVar)
 			USER_POSITION_LIST = {}
 		end
 		
-		if USER_POSITION_LIST[User.id] ~= nil then
-			USER_POSITION_LIST[User.id] = {} 
-			
-			local callback = function(dialog) 
-				success = dialog:getSuccess() 
-				if success then
-					selected = dialog:getSelectedIndex()+1
-					User:inform("Success, you selected option "..selected)
-					USER_POSITION_LIST[User.id] = selected
-					UseItem(User, SourceItem,ltstate, true)
-				else
-					User:inform("Selection aborted!") 
-				end
+		local callback = function(dialog) 
+			success = dialog:getSuccess() 
+			if success then
+				selected = dialog:getSelectedIndex()+1
+				User:inform("Success, you selected option "..selected)
+				USER_POSITION_LIST[User.id] = selected
+				UseItem(User, SourceItem,ltstate, true)
+			else
+				User:inform("Selection aborted!") 
 			end
+		end
 
-			local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
-			dialog:setCloseOnMove()
-			dialog:addOption(0, "1")
-			dialog:addOption(0, "2")
-			dialog:addOption(0, "3")
-			dialog:addOption(0, "4")
+		local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
+		dialog:setCloseOnMove()
+		dialog:addOption(0, "1")
+		dialog:addOption(0, "2")
+		dialog:addOption(0, "3")
+		dialog:addOption(0, "4")
 
-			User:requestSelectionDialog(dialog)
-			return
-		end	
+		User:requestSelectionDialog(dialog)
+		return
+		
 		
 	end
 	
