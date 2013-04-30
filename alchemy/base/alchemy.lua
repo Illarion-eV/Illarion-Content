@@ -805,7 +805,7 @@ end
 
 -- return a list containing values for actionStart
 --@param theIngredient can be: "water","bottle","plant","gemPowder","stock","essenceBrew"; everything else gets a default value
-function GetStartAction(User, SourceItem, cauldron)
+function GetStartAction(User, theIngredient, cauldron)
 	
 	local duration = 0
 	local gfxId = 0
