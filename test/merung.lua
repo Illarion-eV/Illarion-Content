@@ -62,16 +62,19 @@ function UseItem(User, SourceItem,ltstate,newVar)
 
 			User:requestSelectionDialog(dialog)
 		else
+			User:inform("debug 1")
 			User:startAction(50,21,5,15,25);
 		end	
 	end
 	
 	if newVar then
-        USER_POSITION_LIST[User.name] = USER_POSITION_LIST[User.name]+1
+        User:inform("debug 2")
+		USER_POSITION_LIST[User.name] = USER_POSITION_LIST[User.name]+1
 		if USER_POSITION_LIST[User.name] == 4 then
 		    User:inform("last step. end")
 			return
-		end	
+		end
+		User:inform("debug 3")		
 		User:startAction(50,21,5,15,25)
 	end	
 
