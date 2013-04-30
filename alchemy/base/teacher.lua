@@ -237,14 +237,8 @@ function GetTeacherQuestInfos(User,SourceItem)
 	
 end
 
-function AlchemistCheck(User)
-	if (User:getMagicType() == 3) and (User:getMagicFlags(3) > 0) then
-	    return true
-	end	
-end
-
 function NoMagicCheck(User)
-    if (User:getMagicFlags(0) == 0) and (User:getMagicFlags(0) == 1) and (User:getMagicFlags(0) == 2) then
+    if (User:getMagicType() == 0 and User:getMagicFlags(0) > 0) then
 	    return false
 	end
 return true	
@@ -257,8 +251,7 @@ function TurnIntoAlchemist(User,SourceItem)
 	local questInfos = GetTeacherQuestInfos(User, SourceItem)
 	local callback = function(dialog) 
 	    User:setMagicType(3)
-	    User:teachMagic(3,1)
-		world:makeSound(13,User.pos)
+	    world:makeSound(13,User.pos)
 		world:gfx(31,User.pos)
 		world:gfx(52,User.pos)
 		world:gfx(31,User.pos)
@@ -486,8 +479,8 @@ function UseItem(User, SourceItem, ltstate)
 	end	
 	
 	-- already an alchemist?
-    local alchemistCheck = AlchemistCheck(User)
-	if alchemistCheck and User:getQuestProgress(350)==100 then
+    local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+	if anAlchemist and User:getQuestProgress(350)==100 then
 	    SendMessage(User, SourceItem,
 		            "You hear a voice you are unable to localise: \"You already know the great secret of alchemy. I am not allowed to help you further. Go away!\"",
 		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"Du kennst das große Geheimnis der Alchemie schon. Ich darf dir nicht weiter helfen. Geh weg!\""
@@ -498,7 +491,7 @@ function UseItem(User, SourceItem, ltstate)
 	local noMagicCheck = NoMagicCheck(User)
 	if (not noMagicCheck) then
 	    SendMessage(User, SourceItem,
-		            "You hear a voice you are unable to localise: \"You have chosen the path og magic. Go away!\"",
+		            "You hear a voice you are unable to localise: \"You have chosen the path of magic. Go away!\"",
 		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"Du hast den Weg der Magie gewählt. Geh weg!\""
 	                )
 	    return
