@@ -34,38 +34,41 @@ function UseItem(User, SourceItem,ltstate,newVar)
      	return
 	end
 	
+	if not newVar then
+		if USER_POSITION_LIST == nil then
+			USER_POSITION_LIST = {}
+		end
+		
+		local callback = function(dialog) 
+			success = dialog:getSuccess() 
+			if success then
+				selected = dialog:getSelectedIndex()+1
+				User:inform("Success, you selected option "..selected)
+				USER_POSITION_LIST[User.name] = selected
+				UseItem(User, SourceItem,ltstate, true)
+			else
+				User:inform("Selection aborted!") 
+			end
+		end
+
+		local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
+		dialog:setCloseOnMove()
+		dialog:addOption(0, "1")
+		dialog:addOption(0, "2")
+		dialog:addOption(0, "3")
+		dialog:addOption(0, "4")
+
+		User:requestSelectionDialog(dialog)
+		
+		return
+	end
+	
 	if (ltstate == Action.none) then
 		
-		if not newVar then
-			if USER_POSITION_LIST == nil then
-				USER_POSITION_LIST = {}
-			end
-			
-			local callback = function(dialog) 
-				success = dialog:getSuccess() 
-				if success then
-					selected = dialog:getSelectedIndex()+1
-					User:inform("Success, you selected option "..selected)
-					USER_POSITION_LIST[User.name] = selected
-					UseItem(User, SourceItem,ltstate, true)
-				else
-					User:inform("Selection aborted!") 
-				end
-			end
-
-			local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
-			dialog:setCloseOnMove()
-			dialog:addOption(0, "1")
-			dialog:addOption(0, "2")
-			dialog:addOption(0, "3")
-			dialog:addOption(0, "4")
-
-			User:requestSelectionDialog(dialog)
-		else
-			User:inform("debug 1")
-			User:startAction(50,36,5,15,25);
-			return
-		end	
+		User:inform("debug 1")
+		User:startAction(50,36,5,15,25);
+		return
+	
 	end
 	
 	if newVar then
