@@ -314,7 +314,8 @@ Radius 15
 		AddStone( 9, 914 );
 		AddStone( 9, 232 );
 		AddStone( 9, 1245 );
-    			SetResource( 9, 1245,  2534,  50); -- silver
+    			SetResource( 9, 1245,  1062,  50); -- silver ore
+    			SetResource( 9, 1245,  2534,  1); -- merinium ore
 
     InitDone = true;
 end
