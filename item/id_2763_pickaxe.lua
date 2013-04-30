@@ -309,13 +309,13 @@ Radius 15
 	SetResource( 8, 1250,  257,  1); -- topas
 	------- Prison Mine - FERTIG ------
 	
-	----------- Digging Projects (temporarly -----------
+	----------- Digging Projects (temporarly) -----------
 	AddArea( 9, position(427,217,0), 4 );
 		AddStone( 9, 914 );
 		AddStone( 9, 232 );
 		AddStone( 9, 1245 );
-    			SetResource( 9, 1245,  1062,  50); -- silver ore
-    			SetResource( 9, 1245,  2534,  1); -- merinium ore
+    			
+
 
     InitDone = true;
 end
