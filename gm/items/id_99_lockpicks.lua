@@ -35,8 +35,8 @@ Location[9]="Runewick Market";
 Coordina[9]={900,800,1};
 Location[10]="Galmair Game Room";
 Coordina[10]={250,290,-5};
-Location[40]="GM Castle";
-Coordina[40]={250,100,0};
+Location[11]="GM Castle";
+Coordina[11]={250,100,0};
 Location[50]="Hemp Necktie Inn";
 Coordina[50]={690,320,0};
 
