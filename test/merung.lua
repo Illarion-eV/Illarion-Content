@@ -16,7 +16,7 @@ function ltstateCheck(User, ltstate)
 		User:inform("Nevermind that shit. Here comes Mongo")
 		return
 	end
-	if counter = nil then
+	if counter == nil then
 	    counter = 1
 	else
 		counter = counter + 1
