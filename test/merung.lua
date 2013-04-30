@@ -63,7 +63,6 @@ function UseItem(User, SourceItem,ltstate,newVar)
 			User:requestSelectionDialog(dialog)
 		else
 			User:startAction(50,21,5,15,25);
-			return
 		end	
 	end
 	
