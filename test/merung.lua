@@ -61,9 +61,10 @@ function UseItem(User, SourceItem,ltstate,newVar)
 			dialog:addOption(0, "4")
 
 			User:requestSelectionDialog(dialog)
-		end
-		User:startAction(50,21,5,15,25);
-		return
+		else
+			User:startAction(50,21,5,15,25);
+			return
+		end	
 	end
 	
 	if newVar then
