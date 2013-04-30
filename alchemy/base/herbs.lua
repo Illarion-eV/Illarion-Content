@@ -139,7 +139,7 @@ function BrewingPlant(User,plantId,cauldron)
 	end		
 end
 
-function FilterStock(User,,cauldron)
+function FilterStock(User,cauldron)
     local success = false
 	local mySubstance = alchemy.base.alchemy.wirkstoff
 	for i=1,8 do 

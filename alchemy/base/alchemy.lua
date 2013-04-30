@@ -807,7 +807,11 @@ end
 --@param theIngredient can be: "water","bottle","plant","gemPowder","stock","essenceBrew"; everything else gets a default value
 function GetStartAction(User, SourceItem, cauldron)
 	
-	local duration = 0, gfxId = 0, gfxIntervall = 0, sfxId = 0, sfxIntervall = 0
+	local duration = 0
+	local gfxId = 0,
+	local gfxIntervall = 0
+	local sfxId = 0
+	local sfxIntervall = 0
 	
 	if theIngredient == "water" then -- bucket with water
         duration = 20
