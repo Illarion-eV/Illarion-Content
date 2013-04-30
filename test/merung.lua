@@ -38,7 +38,8 @@ function UseItem(User, SourceItem,ltstate,newVar)
 		if USER_POSITION_LIST == nil then
 			USER_POSITION_LIST = {}
 		end
-		if USER_POSITION_LIST[User.id] == nil then
+		
+		if USER_POSITION_LIST[User.id] ~= nil then
 			USER_POSITION_LIST[User.id] = {} 
 			
 			local callback = function(dialog) 
@@ -61,9 +62,9 @@ function UseItem(User, SourceItem,ltstate,newVar)
 			dialog:addOption(0, "4")
 
 			User:requestSelectionDialog(dialog)
-			
 			return
 		end	
+		
 	end
 	
 	if (ltstate == Action.none) then
@@ -75,8 +76,8 @@ function UseItem(User, SourceItem,ltstate,newVar)
 	end
 	
 	User:inform("debug 2")
-	USER_POSITION_LIST[User.name] = USER_POSITION_LIST[User.name]+1
-	if USER_POSITION_LIST[User.name] == 4 then
+	USER_POSITION_LIST[User.id] = USER_POSITION_LIST[User.id]+1
+	if USER_POSITION_LIST[User.id] == 4 then
 		User:inform("last step. end")
 		return
 	end
