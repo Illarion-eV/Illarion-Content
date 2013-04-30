@@ -75,7 +75,7 @@ function UseItem(User, SourceItem,ltstate,newVar)
 			return
 		end
 		User:inform("debug 3")		
-		User:startAction(50,21,5,15,25)
+		User:startAction(50,52,5,15,25)
 	end	
 
 end
