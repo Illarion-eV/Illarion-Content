@@ -45,7 +45,8 @@ function UseItem(User, SourceItem,ltstate,newVar)
 				selected = dialog:getSelectedIndex()+1
 				User:inform("Success, you selected option "..selected)
 				USER_POSITION_LIST[User.id] = selected
-				UseItem(User, SourceItem,ltstate, true)
+				newVar = true
+				UseItem(User, SourceItem,ltstate, newVar)
 			else
 				User:inform("Selection aborted!") 
 			end
