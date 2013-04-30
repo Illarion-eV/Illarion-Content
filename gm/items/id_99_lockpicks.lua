@@ -15,30 +15,42 @@ itemPos[0] = "Backpack"
 
 Location={};
 Coordina={};
-Location[1]="Cadomyr Market";
-Coordina[1]={130,600,0};
-Location[2]="Galmair Crest";
-Coordina[2]={360,230,0};
-Location[3]="Galmair Town";
-Coordina[3]={400,250,0};
-Location[4]="Galmair Malachite Mine";
-Coordina[4]={400,355,0};
-Location[5]="Runewick Lurnord Bridge";
-Coordina[5]={844,822,0};
-Location[6]="Cadomyr Palace of Her Majesty";
-Coordina[6]={120,545,0};
-Location[7]="Cadomyr Cornerstone of Candour";
-Coordina[7]={130,700,0};
-Location[8]="Cadomyr Blood Circle Arena";
-Coordina[8]={258,668,0};
-Location[9]="Runewick Market";
-Coordina[9]={900,800,1};
+Location[1]="GM Castle";
+Coordina[1]={250,100,0};
+Location[2]="Hemp Necktie Inn";
+Coordina[2]={690,320,0};
+Location[3]="Cadomyr Palace of Her Majesty";
+Coordina[3]={122,521,0};
+Location[4]="Cadomyr Market";
+Coordina[4]={130,600,0};
+Location[5]="Galmair Crest";
+Coordina[5]={337,215,0};
+Location[6]="Galmair Town";
+Coordina[6]={400,250,0};
+Location[7]="Runewick Hall of Elara";
+Coordina[7]={898,775,2};
+Location[8]="Runewick Market";
+Coordina[8]={900,800,1};
+Location[9]="Cadomyr Cornerstone of Candour";
+Coordina[9]={130,700,0};
+Location[10]="Cadomyr Liberty Quarry";
+Coordina[10]={170,620,0};
+Location[11]="Cadomyr Blood Circle Arena";
+Coordina[11]={258,668,0};
+Location[10]="Galmair Balckhole Mine";
+Coordina[10]={338,157,-3};
+Location[12]="Galmair Malachite Mine";
+Coordina[12]={400,355,0};
 Location[10]="Galmair Game Room";
 Coordina[10]={250,290,-5};
-Location[11]="GM Castle";
-Coordina[11]={250,100,0};
-Location[50]="Hemp Necktie Inn";
-Coordina[50]={690,320,0};
+Location[13]="Runewick Yewdale";
+Coordina[13]={750,810,0};
+Location[14]="Runewick Lurnord Bridge";
+Coordina[14]={844,822,0};
+
+
+
+
 
 skillNames = {Character.alchemy,Character.carpentry,Character.concussionWeapons,Character.cookingAndBaking,Character.distanceWeapons,Character.dodge,
 			Character.farming,Character.firingBricks,Character.fishing,Character.flute,Character.gemcutting,Character.glassBlowing,Character.goldsmithing,
