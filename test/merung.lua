@@ -28,48 +28,52 @@ function UseItem(User, SourceItem,ltstate,newVar)
 		return
 	end 
 --]]
-User:inform("called use item")
-    if newVar == 5 then
-	    User:inform("newVar is 5. end script")
-	else
-		User:inform("newVar not 5")
-		UseItem(User, SourceItem,ltstate,5)
-	end
---[[
-	if (ltstate == Action.none) then
-		if USER_POSITION_LIST == nil then
-			USER_POSITION_LIST = {}
-		end
-		
-		local callback = function(dialog) 
-			success = dialog:getSuccess() 
-			if success then
-				selected = dialog:getSelectedIndex()+1
-				User:inform("Success, you selected option "..selected)
-				USER_POSITION_LIST[User.name] = selected
-				UseItem(User, SourceItem,ltstate)
-			else
-				User:inform("Selection aborted!") 
-			end
-		end
-
-		local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
-		dialog:setCloseOnMove()
-		dialog:addOption(0, "1")
-		dialog:addOption(0, "2")
-		dialog:addOption(0, "3")
-		dialog:addOption(0, "4")
-
-		User:requestSelectionDialog(dialog)
-		
-		User:startAction(50,21,5,15,25);
-		return
-	end
+	
 	if ( ltstate == Action.abort ) then
 		User:inform("Nevermind that shit. Here comes Mongo")
      	return
 	end
-]]
+	
+	if (ltstate == Action.none) then
+		
+		if not newVar then
+			if USER_POSITION_LIST == nil then
+				USER_POSITION_LIST = {}
+			end
+			
+			local callback = function(dialog) 
+				success = dialog:getSuccess() 
+				if success then
+					selected = dialog:getSelectedIndex()+1
+					User:inform("Success, you selected option "..selected)
+					USER_POSITION_LIST[User.name] = selected
+					UseItem(User, SourceItem,ltstate, true)
+				else
+					User:inform("Selection aborted!") 
+				end
+			end
+
+			local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
+			dialog:setCloseOnMove()
+			dialog:addOption(0, "1")
+			dialog:addOption(0, "2")
+			dialog:addOption(0, "3")
+			dialog:addOption(0, "4")
+
+			User:requestSelectionDialog(dialog)
+		end
+		User:startAction(50,21,5,15,25);
+		return
+	end
+	
+	if newVar then
+        USER_POSITION_LIST[User.name] = USER_POSITION_LIST[User.name]+1
+		if USER_POSITION_LIST[User.name] == 4 then
+		    User:inform("last step. end")
+			return
+		end	
+		User:startAction(50,21,5,15,25)
+	end	
 
 end
 
