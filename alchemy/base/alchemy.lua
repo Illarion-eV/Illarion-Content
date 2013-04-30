@@ -804,7 +804,7 @@ function repairPotion(Item)
 end
 
 -- return a list containing values for actionStart
---@param theIngredient can be: "water","bottle","plant","gemPowder","stock","essenceBrew"; everything else gets a default value
+--@param theIngredient can be: "water","bottle","plant","gemPowder","stock","essenceBrew","potion"; everything else gets a default value
 function GetStartAction(User, theIngredient, cauldron)
 	
 	local duration = 0
@@ -849,7 +849,7 @@ function GetStartAction(User, theIngredient, cauldron)
 		sfxId = 10
 		sfxIntervall = 45
 		
-	else -- everything else: fill in stock, essence brew or potion
+	elseif theIngredient == "stock" or theIngredient == "essenceBrew" or theIngredient == "potion" then
 	    duration = 20
 		gfxId = 21
 		gfxIntervall = 5 
