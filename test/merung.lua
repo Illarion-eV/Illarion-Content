@@ -28,7 +28,7 @@ function ltstateCheck(User, ltstate)
 end	
 
 function UseItem(User, SourceItem,ltstate)
-		
+		User:inform("useitem")
 	if User.lastSpokenText == "ltstate" then	
 		ltstateCheck(User, ltstate)
 	end	
