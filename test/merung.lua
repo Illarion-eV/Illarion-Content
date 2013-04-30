@@ -38,29 +38,32 @@ function UseItem(User, SourceItem,ltstate,newVar)
 		if USER_POSITION_LIST == nil then
 			USER_POSITION_LIST = {}
 		end
-		
-		local callback = function(dialog) 
-			success = dialog:getSuccess() 
-			if success then
-				selected = dialog:getSelectedIndex()+1
-				User:inform("Success, you selected option "..selected)
-				USER_POSITION_LIST[User.name] = selected
-				UseItem(User, SourceItem,ltstate, true)
-			else
-				User:inform("Selection aborted!") 
+		if USER_POSITION_LIST[User.id] == nil then
+			USER_POSITION_LIST[User.id] = {} 
+			
+			local callback = function(dialog) 
+				success = dialog:getSuccess() 
+				if success then
+					selected = dialog:getSelectedIndex()+1
+					User:inform("Success, you selected option "..selected)
+					USER_POSITION_LIST[User.id] = selected
+					UseItem(User, SourceItem,ltstate, true)
+				else
+					User:inform("Selection aborted!") 
+				end
 			end
-		end
 
-		local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
-		dialog:setCloseOnMove()
-		dialog:addOption(0, "1")
-		dialog:addOption(0, "2")
-		dialog:addOption(0, "3")
-		dialog:addOption(0, "4")
+			local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
+			dialog:setCloseOnMove()
+			dialog:addOption(0, "1")
+			dialog:addOption(0, "2")
+			dialog:addOption(0, "3")
+			dialog:addOption(0, "4")
 
-		User:requestSelectionDialog(dialog)
-		
-		return
+			User:requestSelectionDialog(dialog)
+			
+			return
+		end	
 	end
 	
 	if (ltstate == Action.none) then
@@ -71,16 +74,15 @@ function UseItem(User, SourceItem,ltstate,newVar)
 	
 	end
 	
-	if newVar then
-        User:inform("debug 2")
-		USER_POSITION_LIST[User.name] = USER_POSITION_LIST[User.name]+1
-		if USER_POSITION_LIST[User.name] == 4 then
-		    User:inform("last step. end")
-			return
-		end
-		User:inform("debug 3")		
-		User:startAction(50,52,5,15,25)
-	end	
+	User:inform("debug 2")
+	USER_POSITION_LIST[User.name] = USER_POSITION_LIST[User.name]+1
+	if USER_POSITION_LIST[User.name] == 4 then
+		User:inform("last step. end")
+		return
+	end
+	User:inform("debug 3")		
+	User:startAction(50,52,5,15,25)
+		
 
 end
 
