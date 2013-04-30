@@ -63,7 +63,7 @@ function UseItem(User, SourceItem,ltstate,newVar)
 			User:requestSelectionDialog(dialog)
 		else
 			User:inform("debug 1")
-			User:startAction(50,21,5,15,25);
+			User:startAction(50,36,5,15,25);
 		end	
 	end
 	
