@@ -21,7 +21,7 @@ function ltstateCheck(User, ltstate, counter)
 	
 end    --]]
  
-function UseItem(User, SourceItem,ltstate,newVar_a)
+function UseItem(User, SourceItem,ltstate,checkVar)
 --[[
 	if User.lastSpokenText == "ltstate" then       
 	    ltstateCheck(User, ltstate, 1)

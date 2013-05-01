@@ -1,30 +1,31 @@
 require("base.common")
 require("alchemy.base.alchemy")
+require("alchemy.base.herbs")
 
 module("development.id_2745_parchment", package.seeall)
 
 
-function UseItem(User, SourceItem, ltstate)
+function UseItem(User, SourceItem,ltstate,checkVar)
 
     -- alchemy recipe?
     if SourceItem:getData("alchemyRecipe") == "true" then
-	    AlchemyRecipe(User, SourceItem, ltstate)
+	    AlchemyRecipe(User, SourceItem,ltstate,checkVar)
 		return
 	end	
 	
 end
 
-function AlchemyRecipe(User, SourceItem, ltstate)
+function AlchemyRecipe(User, SourceItem,ltstate,checkVar)
 
     if alchemy.base.alchemy.GetCauldronInfront(User) then 
-	    UseRecipe(User, SourceItem, ltstate)
+	    UseRecipe(User, SourceItem,ltstate,checkVar)
 	else
         ViewRecipe(User, SourceItem)
 	end	
 
 end
 
-function UseRecipe(User, SourceItem, ltstate)
+function UseRecipe(User, SourceItem,ltstate,checkVar)
     -- herbs ok
 	-- gemdust ok
 	-- water ok
@@ -47,31 +48,74 @@ function UseRecipe(User, SourceItem, ltstate)
 		return
     end
 	
-	StartBrewing(User, SourceItem, ltstate)
+	StartBrewing(User, SourceItem,ltstate,checkVar)
 end
 
-function StartBrewing(User, SourceItem, ltstate)
+function StartBrewing(User,SourceItem,ltstate,checkVar)
     local ingredientsList = getIngredients(SourceItem)
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
 	
-	if (ltstate == Action.none) then
-	    local actionList = alchemy.base.alchemy.GetStartAction(User, ingredientsList[2], cauldron)
-		User:startAction(actionList[1],actionList[2],actionList[3],actionList[4],actionList[5])
+	if not cauldron then -- security check
 		return
+	end
+	
+	if ( ltstate == Action.abort ) then
+		base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+		return
+	end
+	
+	if not checkVar and ltstate==Action.none then
+	    
+		if USER_POSITION_LIST == nil then -- note: it's global!
+			USER_POSITION_LIST = {}
+		end
+	    
+		local callback = function(dialog)
+			local success = dialog:getSuccess() 
+			if success then 
+				selected = dialog:getSelectedIndex()+1
+				USER_POSITION_LIST[User.id] = selected
+				StartBrewing(User, SourceItem,ltstate,true)
+			end
+		end
+		local dialog = SelectionDialog(getText("Rezept","Recipe"), getText("Wähle die Zutat aus, ab welcher das Rezept abgearbeitet werden soll.","Select the ingredient where you want to start to brew from."), callback)
+		dialog:setCloseOnMove()
+		if #ingredientsList > 0 then
+			for i=1,#ingredientsList do
+				if type(ingredientsList[i])=="string" then 
+					--[[
+					if string.find(ingredientsList[i],"bottle") then
+						dialog:addOption(164, getText("Abfüllen","Bottling"))
+					else	
+						local liquid, liquidList = StockEssenceList(ingredientsList[i])
+						if liquid == "stock" then
+							dialog:addOption(331, getText("Sud","Stock"))
+						elseif liquid == "essence brew" then
+							dialog:addOption(liquidList[1], getText("Essenzgebräu","Essence brew"))
+						end		
+					end]]
+				else
+					dialog:addOption(ingredientsList[i], getText(world:getItemName(ingredientsList[i],Player.german),world:getItemName(ingredientsList[i],Player.english)))
+				end
+			end
+			User:requestSelectionDialog(dialog)
+		end
 	end	
 	
+	if (ltstate == Action.none) then
+		
+		local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(User, "plant", cauldron)
+		
+		User:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
+		return
 	
+	end
 	
+	alchemy.base.herbs.BeginnBrewing(User,plantId,cauldron)
 	
-	
-	
-	
-	local recipeStep 
-	if tonumber(SourceItem:getData("recipeStep")) == nil then
-	    recipeStep = 1 
-	else	
-		recipeStep = tonumber(SourceItem:getData("recipeStep"))+1
-	end	
+	local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(User, "plant", cauldron)
+		
+	User:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
 	
 end
 
@@ -95,4 +139,8 @@ function getIngredients(SourceItem)
 		end
 	end
     return ingredientsList
+end
+
+function getText(deText,enText) 
+    return base.common.base.common.GetNLS(User,deText,enText) 
 end
