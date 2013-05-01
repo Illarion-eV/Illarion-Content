@@ -28,7 +28,7 @@ function UseItem(User, SourceItem,ltstate,newVar_a)
 		return
 	end 
 --]] 
-User:inform("local")
+User:inform("local2")
 	if ( ltstate == Action.abort ) then
 		User:inform("Nevermind that shit. Here comes Mongo")
      	return
