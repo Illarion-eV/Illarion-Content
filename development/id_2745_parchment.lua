@@ -111,6 +111,10 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	
 	end
 	
+	if User:countItemAt("all",plantId,{}) then
+		User:inform("missing: "..plantId)
+		return
+	end	
 	alchemy.base.herbs.BeginnBrewing(User,plantId,cauldron)
 	
 	local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(User, "plant", cauldron)
