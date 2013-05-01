@@ -329,7 +329,7 @@ end
 function UseItem(User, SourceItem, ltstate)
     if isTestserver() then
         if SourceItem:getData("alchemyRecipe") == "true" then
-		    development.id_2745_parchment.UseItem(User, SourceItem, ltstate)
+		    development.id_2745_parchment.UseItem(User, SourceItem, ltstate,checkVar)
 			return
 		end
     end		
