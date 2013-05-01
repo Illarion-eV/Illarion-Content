@@ -28,14 +28,13 @@ function UseItem(User, SourceItem,ltstate,newVar_a)
 		return
 	end 
 --]] 
-User:inform("local")
-	--[[
+
 	if ( ltstate == Action.abort ) then
 		User:inform("Nevermind that shit. Here comes Mongo")
      	return
 	end
 	
-	if not newVar_a then
+	if not newVar_a and ltstate==Action.none then
 		
 		if USER_POSITION_LIST == nil then
 			USER_POSITION_LIST = {}
@@ -63,9 +62,6 @@ User:inform("local")
 		return
 	end
 	
-	if newVar_a then 
-	    
-	
 	if (ltstate == Action.none) then
 		
 		User:inform("debug 1")
@@ -83,7 +79,7 @@ User:inform("local")
 	User:inform("debug 3")		
 	User:startAction(50,52,5,15,25)
 		
---]]
+
 end
 
 
