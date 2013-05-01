@@ -6,7 +6,7 @@ module("development.id_2745_parchment", package.seeall)
 
 
 function UseItem(User, SourceItem,ltstate,checkVar)
-
+User:inform("test")
     -- alchemy recipe?
     if SourceItem:getData("alchemyRecipe") == "true" then
 	    AlchemyRecipe(User, SourceItem,ltstate,checkVar)
@@ -112,7 +112,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	end
 	
 	if User:countItemAt("all",ingredientsList[USER_POSITION_LIST[User.id]],{}) then
-		User:inform("missing: "..plantId)
+		User:inform("missing: "..ingredientsList[USER_POSITION_LIST[User.id]])
 		return
 	end	
 	alchemy.base.herbs.BeginnBrewing(User,ingredientsList[USER_POSITION_LIST[User.id]],cauldron)
