@@ -7,7 +7,14 @@ module("test.merung", package.seeall)
 
  
 function UseItem(User, SourceItem,ltstate)
-    development.recipe_creation.FirstMenu(User, ingredientsList)
+    if User.lastSpokenText == "alchemist" then
+	    User:setMagicType(3)
+		User:increaseAttrib("essence",30)
+	    return
+	end
+	
+	
+	development.recipe_creation.FirstMenu(User, ingredientsList)
 end
 
 
