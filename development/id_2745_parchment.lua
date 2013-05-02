@@ -120,7 +120,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	
 	local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(User, "plant", cauldron)
 	
-	if tonumber(USER_POSITION_LIST[User.id]) > #ingredientsList then
+	if USER_POSITION_LIST[User.id] > #ingredientsList then
 	    User:inform("end")
 		return
 	else
