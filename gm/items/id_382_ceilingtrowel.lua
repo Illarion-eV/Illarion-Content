@@ -209,7 +209,7 @@ function UseItem(User, SourceItem)
       end
       local ind = dialog:getSelectedIndex();
       if (ind == 0) then -- get/set for specific player
-        local playersTmp = world:getPlayersInRangeOf(User.pos, 2);
+        local playersTmp = world:getPlayersInRangeOf(User.pos, 10);
         local players = {User};
         for _,player in pairs(playersTmp) do 
           if (player.id ~= User.id) then 
