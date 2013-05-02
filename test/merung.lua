@@ -4,55 +4,86 @@ require("alchemy.base.brewing")
 -- UPDATE common SET com_script = 'test.merung' WHERE com_itemid = 1266;
 
 module("test.merung", package.seeall)
-
-function UseItem(User, SourceItem,ltstate)
-	User:increaseAttrib("essence",30)
-	--development.recipe_creation.FirstMenu(User, ingredientsList)
-	User:teachMagic(3,0)
-	User:setMagicType(0)
-	User:setQuestProgress(350,0)
-	User:setQuestProgress(351,0)
-	User:setQuestProgress(352,0)
+--[[
+function ltstateCheck(User, ltstate, counter)
+ 
+	if (ltstate == Action.none) then
+		User:startAction(50,21,5,15,25);
+		return
+	end
+	if ( ltstate == Action.abort ) then
+		User:inform("Nevermind that shit. Here comes Mongo")
+     	return
+	end
+	User:inform("counter: "..counter)
+   
+	ltstateCheck(User, ltstate, counter+1)
 	
-	User:inform(""..User:getQuestProgress(350))
-	User:inform(""..User:getQuestProgress(351))
-	User:inform(""..User:getQuestProgress(352))
-	User:inform(""..User:getMagicType())
-	User:inform(""..User:getMagicFlags(0))
+end    --]]
+ 
+function UseItem(User, SourceItem,ltstate,newVar_a)
+--[[
+	if User.lastSpokenText == "ltstate" then       
+	    ltstateCheck(User, ltstate, 1)
+		return
+	end 
+--]] 
+User:inform("local2")
+	if ( ltstate == Action.abort ) then
+		User:inform("Nevermind that shit. Here comes Mongo")
+     	return
+	end
 	
-	
-	--[[
-	if User.lastSpokenText == "rezept" then
-		if SourceItem:getType()==4 then
-			if SourceItem.itempos == 5 or SourceItem.itempos == 6 then
-				development.recipe_creation.FirstMenu(User, ingredientsList)
+	if not newVar_a and ltstate==Action.none then
+		
+		if USER_POSITION_LIST == nil then
+			USER_POSITION_LIST = {}
+		end
+		
+		local callback = function(dialog) 
+			success = dialog:getSuccess() 
+			if success then
+				selected = dialog:getSelectedIndex()+1
+				User:inform("Success, you selected option "..selected)
+				USER_POSITION_LIST[User.id] = selected
+				UseItem(User, SourceItem,ltstate,true)
 			else
-				User:inform("Du musst ihn in die Hand nehmen","You have to hold it in your hands")
+				User:inform("Selection aborted!") 
 			end
-		else
-			User:inform("Du musst ihn in die Hand nehmen","You have to hold it in your hands")
-		end	
-	end	
+		end
+
+		local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
+		dialog:setCloseOnMove()
+		dialog:addOption(0, "1")
+		dialog:addOption(0, "2")
+		dialog:addOption(0, "3")
+		
+		User:requestSelectionDialog(dialog)
+		return
+	end
 	
-	if User.lastSpokenText == "brau" then
-		theItem = User:getItemAt(5)
-	    if theItem.id == 0 then
-            return
-        end
-		if (ltstate == Action.none) then
-		   User:startAction(50,21,5,15,25);
-		   return
-	    end
-		if ( ltstate == Action.abort ) then
-		    User:inform("Nevermind that shit. Here comes Mongo")
-	        return
-	    end
-		alchemy.base.brewing.UseItem(User, theItem)
-	end	
-    ]]        		
+	if (ltstate == Action.none) then
+		
+		User:inform("debug 1")
+		User:startAction(50,36,5,15,25);
+		return
 	
+	end
 	
+	User:inform("debug 2")
+	USER_POSITION_LIST[User.id] = USER_POSITION_LIST[User.id]+1
+	if USER_POSITION_LIST[User.id] == 4 then
+		User:inform("last step. end")
+		return
+	end
+	User:inform("debug 3")		
+	User:startAction(50,52,5,15,25)
+		
+
 end
+
+
+
 
 function LookAtItem(player, item)
     

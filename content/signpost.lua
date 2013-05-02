@@ -168,7 +168,7 @@ function InitWegweiser()
     AddWeg({537,525,0},"Glühende Wälder, Glühendes Tor","Glowing Forest, Glowing Gate",6,0);
     AddWeg({517,583,0},"Wichtkanal, Schlangenkopfberg, Elstree Ebene, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Runewick, Südosten","Wight Canal, Mount Snakehead, Elstree PLain, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, Runewick, Southeast",2,0);
     AddWeg({517,584,0},"Leuchttrum, Wachwald, Katanbi Wüste, Cadomyr","Lighthouse, Sentry Forest, Katanbi Desert, Cadomyr",4,0);
-    AddWeg({538,691,0},"Leuchttrum, Feuerlimes, Wichtkanal, Schlangenkopfberg, Elstree Ebene, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Runewick, Südosten","Lighthouse, Firelimes, Wight Canal, Mount Snakehead, Elstree PLain, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, Runewick, Southeast",2,0);
+    AddWeg({538,691,0},"Leuchttrum, Feuerlimes, Wichtkanal, Schlangenkopfberg, Elstree Ebene, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Runewick, Südosten","Lighthouse, Firelimes, Wight Canal, Mount Snakehead, Elstree PLain, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, Runewick, Southeast",0,0);
     AddWeg({537,687,0},"Wachwald, Katanbi Wüste, Cadomyr","Sentry Forest, Katanbi Desert, Cadomyr",4,0);
     AddWeg({520,715,0},"Leuchttrum, Feuerlimes, Wichtkanal, Schlangenkopfberg, Elstree Ebene, Spinnen Mund, Gasthof zur Hanfschlinge, Galmair, Norden, Runewick, Südosten","Lighthouse, Firelimes, Wight Canal, Mount Snakehead, Elstree PLain, Spider's Mouth, The Hemp Necktie Inn, Galmair, North, Runewick, Southeast",2,0);
     AddWeg({519,708,0},"Wachwald, Katanbi Wüste, Cadomyr","Sentry Forest, Katanbi Desert, Cadomyr",4,0);

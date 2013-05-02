@@ -274,7 +274,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ort");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Hinterland, Numila Irunnleh"));
-talkEntry:addResponse("Orte? Welche Orte des Hinterland meint ihr? Ich empfehle auch mit einen Geograph darüber zu sprechen. Ich kann euch eine in der Bibliothek der Erde empfehlen. Sie wird Numila Irunnleh genannt.");
+talkEntry:addResponse("Orte? Welche Orte des Hinterlandes meint ihr? Ich empfehle auch mit einem Geograph darüber zu sprechen. Ich kann euch eine in der Bibliothek der Erde empfehlen. Sie wird Numila Irunnleh genannt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -359,7 +359,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gesetz");
-talkEntry:addResponse("Wenn ihr des Lesen mächtig seid, dann empfehle ich unser Gesetzesbuch in unseren Bibliotheken. Wenn ihr es nicht seid, dann empfehle ich nach Galmair oder Cadomyr umzuziehen.");
+talkEntry:addResponse("Wenn ihr des Lesens mächtig seid, dann empfehle ich unser Gesetzesbuch in unseren Bibliotheken. Wenn ihr es nicht seid, dann empfehle ich euch nach Galmair oder Cadomyr umzuziehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -371,7 +371,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Herrscher");
-talkEntry:addResponse("Unser höchster Ratgeber ist Erzmagier Elvaine Morgan. Er hat diesen Ort der Weisheit erschaffen und entweder in seiner Kammer - der Erzmagier Kammer - oder in den Hallen der Elara gefunden werden.");
+talkEntry:addResponse("Unser höchster Ratgeber ist Erzmagier Elvaine Morgan. Er hat diesen Ort der Weisheit erschaffen und kann entweder in seiner Kammer - der Kammer des Erzmagiers - oder in der Halle der Elara gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -389,15 +389,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("shrine");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Bragon"));
-talkEntry:addResponse("Let me think... You can find four here, the Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Oldra and Shrine of Brágon.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Oldra, Shrine of Bragon"));
+talkEntry:addResponse("Let me think... You can find five here, the Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Oldra and Shrine of Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schrein");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein des Bragon"));
-talkEntry:addResponse("Lasst mich nachdenken... Ihr findet hier vier: Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein der Oldra und Schrein des Brágon.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein der Oldra, Schrein des Bragon"));
+talkEntry:addResponse("Lasst mich nachdenken... Ihr findet hier fünf: Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein der Oldra und Schrein des Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -454,6 +454,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Shrine Oldra");
+talkEntry:addTrigger("Findari Oldra");
+talkEntry:addResponse("The Shrine of Oldra can be found here next to me on the coast.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Schrein Oldra");
+talkEntry:addTrigger("Findari Oldra");
+talkEntry:addResponse("Der Schrein der Oldra kann hier gleich an der Küste hinter mir gefunden werden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Slum");
 talkEntry:addResponse("The slums are under the market. A Ladder will lead you there. I assume I do not have to explain who lives there? Those who lack knowledge or have spent too much time praising Adron.");
@@ -476,7 +490,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gruft");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Raum des Lichts, Raum der Finsternis, Raum des Zwielichts"));
-talkEntry:addResponse("Um die Gruft zu erreichen müsst erst zum Markt und dann zu den Slums. Die Gruft ist unterteilt in drei Räume: Raum des Lichts, Raum der Finsternis, und Raum des Zwielichts.");
+talkEntry:addResponse("Um die Gruft zu erreichen müsst ihr erst zum Markt und dann zu den Slums. Die Gruft ist unterteilt in drei Räume: Raum des Lichts, Raum der Finsternis, und Raum des Zwielichts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -488,7 +502,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Raum Zwielicht");
-talkEntry:addResponse("Der Raum des Zwielichts ist der Ort für jene welche weder an der Spitze noch am unteren Ende der Hierarchie gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen.");
+talkEntry:addResponse("Der Raum des Zwielichts ist der Ort für jene welche weder an der Spitze noch am unteren Ende der Hierarchie gelebt haben. Gregor, ein Mensch dem ihr auf eurem Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -500,7 +514,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Raum Lichts");
-talkEntry:addResponse("Der Raum des Lichts ist für jene an der Spitze der gottgewollten Hierarchie bestimmt. Eldan wie auch Elara hatten ihre Gründe dafür. Unser Erzmagier ist sich dem durchaus bewusst und regiert deswegen auch entsprechend.");
+talkEntry:addResponse("Der Raum des Lichts ist für jene an der Spitze der gottgewollten Hierarchie bestimmt. Eldan wie auch Elara hatten ihre Gründe dafür. Unser Erzmagier ist sich dessen durchaus bewusst und regiert deswegen auch entsprechend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -512,7 +526,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Raum Finsternis");
-talkEntry:addResponse("Der Raum der Finsternis ist jener Ort an denen die Leichen jener aufgehoben werden, welche zuvor an der Sohle der Gesellschaft gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen.");
+talkEntry:addResponse("Der Raum der Finsternis ist jener Ort an dem die Leichen jener aufgehoben werden, welche zuvor an der Sohle der Gesellschaft gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -528,7 +542,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm Luft");
 talkEntry:addTrigger("Luft turm");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Elara, Schrein der Findari"));
-talkEntry:addResponse("Dieser Turm ist der erste südliche Turm und ist hauptsächlich für Priester gebaut worden. Ihr findet folgende Räume dort: Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Findari, und Schrein der Elara.");
+talkEntry:addResponse("Dieser Turm ist der erste südliche Turm und ist hauptsächlich für Priester gebaut worden. Ihr findet folgende Räume dort: Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Findari und Schrein der Elara.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -603,7 +617,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower Fire");
 talkEntry:addTrigger("Fire Tower");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Workshop, Library of Fire, Archmage Chamber, Hall of Elara, Bragon's Stronghold, Shrine of Bragon"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Workshop, Library of Fire, Chamber of the Archmage, Hall of Elara, Bragon's Stronghold, Shrine of Bragon"));
 talkEntry:addResponse("This is the first northern tower and is mainly made for mages. You can find the following rooms: Workshop, Library of Fire, Chamber of the Archmage, Hall of Elara, Bragon's Stronghold and Shrine of Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -611,8 +625,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm Feuer");
 talkEntry:addTrigger("Feuer Turm");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Halle der Elara, Bragons Bollwerk, Schrein des Bragon"));
-talkEntry:addResponse("Dieser Turm ist der erste nördliche Turm und ist hauptsächlich für Magier gebaut worden. Ihr findet folgende Räume dort: Werkstatt, Bibliothek des Feuers, Kammer des Erzmagier, Halle der Elara, Bragons Bollwerk und Schrein des Bragon.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Werkstatt, Bibliothek des Feuers, Kammer des Erzmagiers, Halle der Elara, Bragons Bollwerk, Schrein des Bragon"));
+talkEntry:addResponse("Dieser Turm ist der erste nördliche Turm und ist hauptsächlich für Magier gebaut worden. Ihr findet folgende Räume dort: Werkstatt, Bibliothek des Feuers, Kammer des Erzmagiers, Halle der Elara, Bragons Bollwerk und Schrein des Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -652,7 +666,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier Kammer");
 talkEntry:addTrigger("Kammer Erzmagier");
-talkEntry:addResponse("Die Kammer des Erzmagier kann im ersten Stock des Turms des Feuers gefunden werden. Es ist der private Raum unserers Erzmagier Elvaine Morgan.");
+talkEntry:addResponse("Die Kammer des Erzmagiers kann im ersten Stock des Turms des Feuers gefunden werden. Es ist der private Raum unseres Erzmagiers Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -667,7 +681,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Halle Elara");
 talkEntry:addTrigger("Elara Halle");
-talkEntry:addResponse("Die Halle der Elara kann im ersten Stock des Turms des Feuers gefunden werden. Sie dient als ein Audienzsaal oder Konferenzraum zum hören und treffen unseres Erzmagier Elvaine Morgan.");
+talkEntry:addResponse("Die Halle der Elara kann im ersten Stock des Turms des Feuers gefunden werden. Sie dient als ein Audienzsaal oder Konferenzraum um unseren Erzmagier Elvaine Morgan zu hören und zu treffen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -795,7 +809,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kesselkammer");
 talkEntry:addTrigger("Kammer Kessel");
-talkEntry:addResponse("Die Kesselkammer im zweiten Stock im Turm der Erde dient als Konferenz- und Lehrraum für die Druiden und Alchemisten.");
+talkEntry:addResponse("Die Kesselkammer im zweiten Stock im Turm der Erde dient als Konferenz- und Lehrraum für Druiden und Alchemisten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -823,14 +837,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Testkammer");
 talkEntry:addTrigger("Kammer Test");
-talkEntry:addResponse("In der Versuchskammer im Keller des Turms der Erde können Alchemisten an ihren Tränken arbeiten und testen.");
+talkEntry:addResponse("In der Versuchskammer im Keller des Turms der Erde können Alchemisten an ihren Tränken arbeiten und diese testen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Versuchskammer");
 talkEntry:addTrigger("Kammer Versuch");
-talkEntry:addResponse("In der Versuchskammer im Keller des Turms der Erde können Alchemisten an ihren Tränken arbeiten und testen.");
+talkEntry:addResponse("In der Versuchskammer im Keller des Turms der Erde können Alchemisten an ihren Tränken arbeiten und diese testen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -950,7 +964,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Meerjungfrau");
-talkEntry:addResponse("Folget der Westküste in den Süden nach der Lurnord Brücke und ihr werdet diesen Ort mit einer Statue einer schönen Frau finden. Dieser Ort ist auch von vielen Fischern verwendet, die auf die Meerjungfrau warten.");
+talkEntry:addResponse("Folget der Westküste in den Süden nach der Lurnord Brücke und ihr werdet diesen Ort mit einer Statue einer schönen Frau finden. Dieser Ort wird auch von vielen Fischern verwendet, die auf die Meerjungfrau warten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -962,7 +976,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lurnord Brücke");
-talkEntry:addResponse("Das ist die Brücke zwischen Runewick und hier dem Eibental *zeigt zur Brücke*. Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welch nun gegangen ist. Sein Name war Lunord.");
+talkEntry:addResponse("Das ist die Brücke zwischen Runewick und hier dem Eibental *zeigt zur Brücke*. Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welcher nun gegangen ist. Sein Name war Lunord.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -983,7 +997,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Numila' gestartet] Finde Numila Irunnleh und erhalte deine Belohnung."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
-talkEntry:addResponse("Ich habe momentan nichts für euch zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls ihr möchtet könnt ihr versuchen Numila Irunnleh zu finden. Aber wenn ihr einen richtigen Auftrag erwünscht dann solltet ihr besser die Leute in Runewick fragen. *zeigt über ihre Schulter* In jeden Fall seid ihr herzlich willkommen in zwei oder drei Monaten zurück zu kommen. Da sollte ich dann einige Aufgaben für euch haben.");
+talkEntry:addResponse("Ich habe momentan nichts für euch zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls ihr möchtet könnt ihr versuchen Numila Irunnleh zu finden. Aber wenn ihr einen richtigen Auftrag wünscht dann solltet ihr besser die Leute in Runewick fragen. *zeigt über ihre Schulter* In jeden Fall seid ihr herzlich eingeladen in zwei oder drei Monaten zurück zu kommen. Dann sollte ich einige Aufgaben für euch haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1006,7 +1020,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Numila' gestartet] Finde Numila Irunnleh und erhalte deine Belohnung."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
-talkEntry:addResponse("Ich habe momentan nichts für euch zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls ihr möchtet könnt ihr versuchen Numila Irunnleh zu finden. Aber wenn ihr einen richtigen Auftrag erwünscht dann solltet ihr besser die Leute in Runewick fragen. *zeigt über ihre Schulter* In jeden Fall seid ihr herzlich willkommen in zwei oder drei Monaten zurück zu kommen. Da sollte ich dann einige Aufgaben für euch haben.");
+talkEntry:addResponse("Ich habe momentan nichts für euch zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls ihr möchtet könnt ihr versuchen Numila Irunnleh zu finden. Aber wenn ihr einen richtigen Auftrag wünscht dann solltet ihr besser die Leute in Runewick fragen. *zeigt über ihre Schulter* In jeden Fall seid ihr herzlich eingeladen in zwei oder drei Monaten zurück zu kommen. Dann sollte ich einige Aufgaben für euch haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1021,7 +1035,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Wie ich sagte, ihr solltet besser die Leute in Runewick fragen. *zeigt über ihre Schulter* Oder ihr kommt in zwei oder drei Monaten zurück. Da sollte ich dann einige Aufgaben für euch haben.");
+talkEntry:addResponse("Wie ich sagte, ihr solltet besser die Leute in Runewick fragen. *zeigt über ihre Schulter* Oder ihr kommt in zwei oder drei Monaten zurück. Dann sollte ich einige Aufgaben für euch haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1038,7 +1052,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Wie ich sagte, ihr solltet besser die Leute in Runewick fragen. *zeigt über ihre Schulter* Oder ihr kommt in zwei oder drei Monaten zurück. Da sollte ich dann einige Aufgaben für euch haben.");
+talkEntry:addResponse("Wie ich sagte, ihr solltet besser die Leute in Runewick fragen. *zeigt über ihre Schulter* Oder ihr kommt in zwei oder drei Monaten zurück. Dann sollte ich einige Aufgaben für euch haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1092,7 +1106,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("Das ist hier und wenn du mehr darüber wissen möchtest, dann frag mich nach weiterer Information.");
-talkEntry:addResponse("Hier in Runewick suchen wir immer nach Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber.");
+talkEntry:addResponse("Hier in Runewick suchen wir immer Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Köche, Bäcker, Bauern, Kräutersammler, Schneider, Gerber oder Färber.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1122,7 +1136,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer.");
+talkEntry:addResponse("Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einem Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1134,7 +1148,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("Ich will nicht über ihn sprechen, aber er kann in Galmair gefunden werden.");
+talkEntry:addResponse("Ich will nicht über ihn sprechen, aber sie kann in Cadomyr gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1149,7 +1163,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Ich will nicht über ihn sprechen, aber er kann in Galmair gefunden werden.");
+talkEntry:addResponse("Ich will nicht über ihn sprechen, aber sie kann in Cadomyr gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1162,7 +1176,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer.");
+talkEntry:addResponse("Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Fischer, Glasblässer, Sandgräber, Goldschmied oder Edelsteinschleifer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1206,7 +1220,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Bevorzugt betten wir drei Götter in Runewick an. Die wären Adron, Oldra und natürlich Elara, meine bevorzugte Gottheit.");
+talkEntry:addResponse("Bevorzugt beten wir drei Götter in Runewick an. Die wären Adron, Oldra und natürlich Elara, meine bevorzugte Gottheit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1260,7 +1274,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Ihre Anhänger glauben an die Macht der Weisheit. Einige dieser Anhänger beten, um geheimes und altes Wissen zu erlangen oder um den Sinn des Lebens zu erfahren. Eine Legende erzählt von einem Mann, der so lange betete, bis sich ihm dies offenbarte.");
+talkEntry:addResponse("Ihre Anhänger glauben an die Macht der Weisheit. Einige dieser Anhänger beten, um geheimes und altes Wissen zu erlangen oder um den Sinn des Lebens zu erfahren. Eine Legende erzählt von einem Mann, der so lange betete, bis sich ihm dieser offenbarte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1293,13 +1307,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("One of the unimportant, Younger Gods. You can find followers in Galmair.");
+talkEntry:addResponse("One of the unimportant Younger Gods. You can find followers in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Einer der unwichtigen, jüngeren Götter. Man kann Anhänger in Galmair finden.");
+talkEntry:addResponse("Einer der unwichtigen jüngeren Götter. Man kann Anhänger in Galmair finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1307,14 +1321,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("One of the unimportant, Younger Gods. You can find followers in Cadomyr.");
+talkEntry:addResponse("One of the unimportant Younger Gods. You can find followers in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Einer der unwichtigen, jüngeren Götter. Man kann Anhänger in Cadomyr finden.");
+talkEntry:addResponse("Einer der unwichtigen jüngeren Götter. Man kann Anhänger in Cadomyr finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1331,7 +1345,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 6666));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
-talkEntry:addResponse("#me verengt ihre Augen, zieht ein Schwert und schlägt sogleich ohne ein einzelnes Wort damit herum.");
+talkEntry:addResponse("#me verengt ihre Augen, zieht ein Schwert und schlägt sogleich ohne ein einziges Wort damit herum.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1340,7 +1354,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("One of the unimportant, Younger Gods. You can find followers in Galmair.");
+talkEntry:addResponse("One of the unimportant Younger Gods. You can find followers in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1348,7 +1362,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("Einer der unwichtigen, jüngeren Götter. Man kann Anhänger in Galmair finden.");
+talkEntry:addResponse("Einer der unwichtigen jüngeren Götter. Man kann Anhänger in Galmair finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1361,33 +1375,33 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Die meisten Ihrer Priester sind weiblich und dienen der Gottheit bis ins hohe Alter. Sie glauben wenn sie sterben, werden sie zu einem prachtvollen Gartentor gebracht, und wenn sie gut waren dürfen sie an diesem wunderbaren Ort leben. Wie dem auch sei, hier gleich an der Küste findet ihr einen Schrein");
+talkEntry:addResponse("Die meisten Ihrer Priester sind weiblich und dienen der Gottheit bis ins hohe Alter. Sie glauben wenn sie sterben, werden sie zu einem prachtvollen Gartentor gebracht, und wenn sie gut waren dürfen sie an diesem wunderbaren Ort leben. Wie dem auch sei, hier gleich an der Küste findet ihr einen Schrein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("One of the unimportant, Younger Gods. You can find followers in Galmair.");
+talkEntry:addResponse("One of the unimportant Younger Gods. You can find followers in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("Einer der unwichtigen, jüngeren Götter. Man kann Anhänger in Galmair finden.");
+talkEntry:addResponse("Einer der unwichtigen jüngeren Götter. Man kann Anhänger in Galmair finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("One of the unimportant, Younger Gods. You can find followers in Cadomyr.");
+talkEntry:addResponse("One of the unimportant Younger Gods. You can find followers in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Eine der unwichtigen, jüngeren Götter. Man kann Anhänger in Cadomyr finden.");
+talkEntry:addResponse("Eine der unwichtigen jüngeren Götter. Man kann Anhänger in Cadomyr finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1422,13 +1436,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("One of the unimportant, Younger Gods. You can find followers in Cadomyr.");
+talkEntry:addResponse("One of the unimportant Younger Gods. You can find followers in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Eine der unwichtigen, jüngeren Götter. Man kann Anhänger in Cadomyr finden.");
+talkEntry:addResponse("Eine der unwichtigen jüngeren Götter. Man kann Anhänger in Cadomyr finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1443,7 +1457,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Hmm...fragt jemand anderen bezüglich dieses Ort.");
+talkEntry:addResponse("Hmm...fragt jemand anderen bezüglich dieses Ortes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1470,7 +1484,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elesil");
 talkEntry:addTrigger("Daelwon");
-talkEntry:addResponse("Ja, das ist mein Name. Über was wollt ihr Information?");
+talkEntry:addResponse("Ja, das ist mein Name. Worüber wollt ihr Information?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1510,17 +1524,17 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Huh, über was wünscht ihr Information? Vielleicht begnügt ihr euch erst mal nach Hilfe zu fragen?");
+talkEntry:addResponse("Huh, woüber wünscht ihr Information? Vielleicht begnügt ihr euch erst mal nach Hilfe zu fragen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Willkommen in Runewick!", "Welcome to Runewick!");
 talkingNPC:addCycleText("Ich bin die Auskunftsgeberin von Runewick. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Runewick. Ask me for information if you want some.");
-talkingNPC:addCycleText("Wer etwas über die Orten hier wissen will, soll mich nur nach diesen Orten fragen.", "If you want to know something about the locations here, just ask me about these locations.");
-talkingNPC:addCycleText("Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If you want to know something about the buildings here, just ask me about these buildings.");
-talkingNPC:addCycleText("Wer etwas über die Geschichte von Runewick wissen will, soll mich nur nach der Geschichte fragen.", "If you want to know something about the history of Runewick, just ask me about this history.");
-talkingNPC:addCycleText("Wer etwas über die Leute hier wissen will, soll mich nur nach diesen Leuten fragen.", "If you want to know something about the people here, just ask me about these people.");
-talkingNPC:addCycleText("Wer etwas über die Götter hier wissen will, soll mich nur nach diesen Gottheiten fragen.", "If you want to know something about the gods here, just ask me about these gods.");
-talkingNPC:addCycleText("Wer etwas über die Ereignisse hier wissen will, soll mich nur nach diesen Ereignissen fragen.", "If you want to know something about the events here, just ask me about these events.");
+talkingNPC:addCycleText("Wer etwas über die Orten hier wissen will, soll mich nach diesen Orten fragen.", "If you want to know something about the locations here, just ask me about these locations.");
+talkingNPC:addCycleText("Wer etwas über die Gebäude hier wissen will, soll mich nach diesen Gebäuden fragen.", "If you want to know something about the buildings here, just ask me about these buildings.");
+talkingNPC:addCycleText("Wer etwas über die Geschichte von Runewick wissen will, soll mich nach der Geschichte fragen.", "If you want to know something about the history of Runewick, just ask me about this history.");
+talkingNPC:addCycleText("Wer etwas über die Leute hier wissen will, soll mich nach diesen Leuten fragen.", "If you want to know something about the people here, just ask me about these people.");
+talkingNPC:addCycleText("Wer etwas über die Götter hier wissen will, soll mich nach diesen Gottheiten fragen.", "If you want to know something about the gods here, just ask me about these gods.");
+talkingNPC:addCycleText("Wer etwas über die Ereignisse hier wissen will, soll mich nach diesen Ereignissen fragen.", "If you want to know something about the events here, just ask me about these events.");
 talkingNPC:addCycleText("#me gähnt.", "#me yawns.");
 talkingNPC:addCycleText("#me blickt herum mit ihren geschlossenen Augen.", "#me seems to look around, but her eyes are closed.");
 talkingNPC:addCycleText("#me untersucht ihr Kleid.", "#me examines her dress.");

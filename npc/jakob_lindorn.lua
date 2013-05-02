@@ -237,7 +237,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("food");
 talkEntry:addTrigger("eat");
-talkEntry:addResponse("You can find food all around you. There are fruits on the trees and bushes or you ask other people for something to eat.");
+talkEntry:addResponse("You can find food all around you. There are fruits on the trees and bushes or you can ask other people for something to eat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -351,7 +351,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 3));
-talkEntry:addResponse("You're back. Good. I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
+talkEntry:addResponse("You're back. Good. I heard Grakamesh could use your help. You can find him right there at Sir Reginald's Tomb.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -372,7 +372,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 3));
-talkEntry:addResponse("You're back. Good. I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
+talkEntry:addResponse("You're back. Good. I heard Grakamesh could use your help. You can find him right there at Sir Reginald's Tomb.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -394,7 +394,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("You're back. Good. I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
+talkEntry:addResponse("You're back. Good. I heard Grakamesh could use your help. You can find him right there at Sir Reginald's Tomb.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -413,7 +413,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("You're back. Good. I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb.");
+talkEntry:addResponse("You're back. Good. I heard Grakamesh could use your help. You can find him right there at Sir Reginald's Tomb.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

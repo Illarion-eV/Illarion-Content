@@ -83,9 +83,9 @@ queststatus(78) > 22, ".+" -> inform("[Error] Something went wrong, please infor
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas. Ehre die Ahnen!", "Hurr! Du sehst aus als kannst helfen mir - mirr tanzt für Heil von Seele.", "Greebs. Grakamesh hat wenig Zeit für dich. Mirr muss tanzen und singt, zu vertreiben bösen Spuk."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Honour dem dead!", "Hurr! Yoos look like yoos can help mes - mes dance fer salvation.", "Greebs. Nub hab much time fer yoos, need to dance and sing more to scare away evil spooks."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Ehre die Ahnen!", "Hurr! Du sehst aus als kannst helfen mir - mirr tanzt für Heil von Seele.", "Greebs. Grakamesh hat wenig Zeit für dich. Mirr muss tanzen und singt, zu vertreiben bösen Spuk."
-"Farewell", "Bye", "Fare well", "See you" -> "Farebbas! Pray fer old oomie chief, Reginald, will yoos?", "Gud hunt!", "Can yoos bring me sum bananas when come back? Danks in advance."
+"Farewell", "Bye", "Fare well", "See you" -> "Farebbas! Pray fer old oomie chief, Reginald, will yoos?", "Gud hunt!", "Can yoos bring mes sum bananas when yoos come back? Danks in advance."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Farebbas! Du betest für alten Häuptling der Oomies, yubba?", "Gute Jagd!", "Kannst du mir bringen mit... Bananen? Gedankt sei dir schon jetzig."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebbas! Pray fer old oomie chief, Reginald, will yoos?", "Gud hunt!", "Can yoos bring me sum bananas when come back? Danks in advance."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebbas! Pray fer old oomie chief, Reginald, will yoos?", "Gud hunt!", "Can yoos bring mes sum bananas when yoos come back? Danks in advance."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebbas! Du betest für alten Häuptling der Oomies, yubba?", "Gute Jagd!", "Kannst du mir bringen mit... Bananen? Gedankt sei dir schon jetzig."
 "How are you", "How feel", "How do you do" -> "Dem gods, dey will hear mes singin'. Mes gottur dance and sing to scare away spooks from old oomie chief tomb.", "Mes feel like dancin'.", "Danks, but mes feel much better if all spooks be smashed and Reginald oomie can rest in peace."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Die Götta werden hören meine Gesang! Grakamesh wird singen und tanzen, alle böser Spuk.", "Mirr fühlt den Rhytmus!", "Danks, aber mirr fühlen besser vieles, wenn alle böser Spuk zerschlagen und zerhauen ist. Dann Reginald-Oomie wir druhen in Ruhe."
@@ -96,9 +96,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebbas! Pray fer old oomi
 -- 1st quest: Kill 10 mummies, player receives torch.
 
 -- Fix
-queststatus(78) > 0, queststatus(703) = 3, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 4, "Ah Jakob send you but you already ask me for something to do."
+queststatus(78) > 0, queststatus(703) = 3, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 4, "Ah Jakob sent yoos, but yoos have already asked me for something to do."
 queststatus(78) > 0, queststatus(703) = 3, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 4, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
-queststatus(78) > 0, queststatus(703) = 3, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 4, "Ah Jakob send you but you already ask me for something to do."
+queststatus(78) > 0, queststatus(703) = 3, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 4, "Ah Jakob send yoos, but yoos have already asked me for something to do."
 queststatus(78) > 0, queststatus(703) = 3, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 4, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- Give out quest 1 and a torch
@@ -147,9 +147,9 @@ queststatus(78) > 12, queststatus(78) < 18, "Auftrag", "Aufgabe", "Abenteuer" ->
 -- 3rd quest: Kill 1 skeleton mage
 
 -- Give out quest 3
-queststatus(78) = 19, english, "quest", "mission" -> inform("[New quest] Sir Reginald's Tomb III"), queststatus(78) = 20, "Cherga hab shown mes origin of all spooks while dancin'. Dere be restless ghost ob foe ob Reginald oomie, hauntin' in tomb, want take revenge or sumding. Banish dat and Reginald hab peace."
+queststatus(78) = 19, english, "quest", "mission" -> inform("[New quest] Sir Reginald's Tomb III"), queststatus(78) = 20, "Cherga hab shown mes origin of all spooks while dancin'. Dere be restless ghost ob foe ob Reginald oomie, hauntin' in tomb, wantin' revenge or sumding. Banish dat and Reginald hab peace."
 queststatus(78) = 19, "quest", "mission" -> inform("[Neues Quest] Sir Reginalds Gruft III"), queststatus(78) = 20, "Cherga ließ mich den Ursprung allen Spukes sehen, während des Tanzes. Yubba. Dort ist ein rastloses Gespenst. Ein alter Feind, des verstorbenen Häuptlings, er nun sucht seine Rache oder sowie. Vertreibe das Ding und Reginald hat Friede."
-queststatus(78) = 19, "task", "adventure" -> inform("[New quest] Sir Reginald's Tomb III"), queststatus(78) = 20, "Cherga hab shown mes origin of all spooks while dancin'. Dere be restless ghost ob foe ob Reginald oomie, hauntin' in tomb, want take revenge or sumding. Banish dat and Reginald hab peace."
+queststatus(78) = 19, "task", "adventure" -> inform("[New quest] Sir Reginald's Tomb III"), queststatus(78) = 20, "Cherga hab shown mes origin of all spooks while dancin'. Dere be restless ghost ob foe ob Reginald oomie, hauntin' in tomb, wantin' revenge or sumding. Banish dat and Reginald hab peace."
 queststatus(78) = 19, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Sir Reginalds Gruft III"), queststatus(78) = 20, "Cherga ließ mich den Ursprung allen Spukes sehen, während des Tanzes. Yubba. Dort ist ein rastloses Gespenst. Ein alter Feind, des verstorbenen Häuptlings, er nun sucht seine Rache oder sowie. Vertreibe das Ding und Reginald hat Friede."
 
 -- Quest 3 solved, reward: brown priest robe, +20 rankpoints
@@ -233,7 +233,7 @@ english, "salkama" -> "Ah, mes hab hear lots bout Salkamar, proud realm, dat be.
 "salkama" -> "Ah, mir hat viel gehört aus Salkamar. Stolzes Land, das ist es. Mirr denkt, dort ist gut Jagen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Dere be lotsa gods, more den Grakamesh hab fingers. Mes honour dem all, but mes heart beats fer Brágon, god op fire, alone."
+"god" -> "Dere be lotsa gods, more den Grakamesh hab fingers. Mes honour dem all, but mes heart beats fer Brágon, God op fire, alone."
 "Gott", "Götter" -> "Mehr als Grakamesh Finger hat, es Götter gibt. Aber mein Herz schlägt für Brágon alleine, dem Gott der Feuer."
 english, "Bragon", "Brágon" -> "Brágon is dat Lord and dat everyding. Brágon is creator! Look around, creator ob whub yoos see, dat be Brágon."
 "Bragon", "Brágon" -> "Brágon ist der Herr. Der Erschaffer! Blick dich umher, der Erschaffer von alles was sehbar ist. Das ist Brágon."
@@ -266,8 +266,8 @@ english, "Grakamesh" -> "Dat be mes, yubba!"
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me schüttelt eine Rassel und beginnt zu singen.", "#me starts to rattle and sings."
-cycletext "#me beginnt unrhythmisch zu tanzen.", "#me starts to dance arhythmically."
-cycletext "#me schlägt seine Hände auf eine Trommel und singt: 'Heya, heya! Heya, heya!'", "#me slams his hands on a drum, singing: 'Heya, heya! Heya, heya!'"
+cycletext "#me beginnt unrhythmisch zu tanzen.", "#me starts to dance arrhythmically."
+cycletext "#me schlägt seine Hände auf eine Trommel und singt: 'Heya, heya! Heya, heya!'", "#me slams his hands on a drum, singing, 'Heya, heya! Heya, heya!'"
 cycletext "Hurrda, hurrda! Hurrda, hurrda!", "Hurrda, hurrda! Hurrda, hurrda!"
 cycletext "Waka, waka, eh, eh!", "Waka, waka, eh, eh!"
 cycletext "Ich will tanzen, tanzen, solange nichts zu mir fällt, was besser wäre.", "Mes feel like dancin', dancin', even if mes find sumding bedduh to do."
