@@ -54,8 +54,10 @@ function FirstMenu(User, ingredientsList)
                 FinishRecipe(User, ingredientsList)
 			end	
 		else
-			local menuFunction = FirstMenu()
-			WantToAbort(User, menuFunction, {ingredientsList})
+			local menuFunction = function(User, ingredientsList) 
+			    FirstMenu(User,ingredientsList)
+			end	
+		    WantToAbort(User, menuFunction, {ingredientsList})
 		end
 	end
 
