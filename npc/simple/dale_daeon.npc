@@ -83,8 +83,8 @@ town = cadomyr, "punkte" -> "#me schaut auf seine Liste.", points
 "kämpfen" -> "Nur Bürger Cadomyrs dürfen hier kämpfen und ihre Kraft beweisen."
 "points" -> "As I see it, you do not belong to Cadomyr. I will not find you on my list then."
 "punkte" -> "Ihr gehört nicht zu Cadomyr wie ich sehe. Ihr werdet also auch nicht auf meiner Liste stehen."
-"ranklist" -> "#me hands your a piece of parchment: 'Well, well...'", list
-"rangliste" -> "#me gibt dir ein Stück Papier: 'So, so...'", list
+"ranklist" -> "#me show you a piece of parchment: 'Look for yourself who the best ones are here.'", list
+"rangliste" -> "#me zeigt dir ein Stück Pergament: 'Seht für euch selbst wer die Besten hier sind.'", list
 
 --monster informations
 english, "beast", "monster" -> "There are several beasts roaming the lands as you might now. I found and captured a few for you to fight against."

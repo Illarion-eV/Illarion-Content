@@ -34,7 +34,7 @@ monsterIDsByLevel = {
 	{monsters = {534, 124, 562, 661, 853}, points = 20}
 }
 
-arenaInformations = {{playerPos=position(261,668,0), monsterPos=position(255,668,0), newPlayerPos=position(258,664,0), npcName="Dale Daeon", town="Cadomyr", quest=801}, 
+arenaInformations = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Runewick", quest=802}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Galmair", quest=803}}
 
@@ -48,7 +48,9 @@ function requestMonster(User, NPC)
 		local paid = payforMonster(User, index, NPC)
 		
 		if paid then
-			User:warp(arenaInformations[arena].playerPos);
+			if arenaInformations[arena].playerPos ~= nil then
+				User:warp(arenaInformations[arena].playerPos);
+			end
 			--add the effect to keep track of the monster
 			arenaEffect=LongTimeEffect(18,1);
 			arenaEffect:addValue("arenaID",arena);
@@ -62,11 +64,13 @@ function requestMonster(User, NPC)
 	end
 	if User:getPlayerLanguage() == 0 then
 		sdMonster = SelectionDialog("Monsterlevel", "Wählt ein Monsterlevel gegen das Ihr kämpfen möchtet:", cbChooseLevel);
+		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
 			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkt(e))");
 		end
 	else
 		sdMonster = SelectionDialog("Monsterlevel", "Plaese choose a monsterlevel you wish to fight against:", cbChooseLevel);
+		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
 			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." point(s))");
 		end
