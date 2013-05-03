@@ -59,7 +59,7 @@ function callEffect(arenaEffect, User)
         return false;
     end
 	
-	if addEffect.numberCalled==300 then
+	if arenaEffect.numberCalled==300 then
         base.common.InformNLS( User,
         "Ihr habt zulange gebraucht um das Monster zu besiegen.",
         "It took you too long to defeat the monster.");
