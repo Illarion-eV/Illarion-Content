@@ -53,7 +53,7 @@ function callEffect(arenaEffect, User)
 		local quest = base.arena.arenaInformations[arena].quest;
 		local points = User:getQuestProgress(quest);
 		base.arena.setRanklist(User, arena, points);
-		if base.arena.arenaInformations[arena].newPlayerPos ~= nil
+		if base.arena.arenaInformations[arena].newPlayerPos ~= nil then
 			User:warp(base.arena.arenaInformations[arena].newPlayerPos);
 		end
         return false;
