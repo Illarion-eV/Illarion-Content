@@ -99,6 +99,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 				end
 			end
 			User:requestSelectionDialog(dialog)
+			return
 		end
 	end	
 	
