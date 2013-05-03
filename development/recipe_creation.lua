@@ -3,30 +3,6 @@ require("base.common")
 
 module("development.recipe_creation", package.seeall)
 
-function WantToAbort(User, menuFunction, parameterList)
-    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
-	
-    local callback = function(dialog)
-	    local success = dialog:getSuccess() 
-		if success then 
-		    local selected = dialog:getSelectedIndex()+1
-			if selected == 1 then 
-				menuFunction(parameterList[1],parameterList[2],parameterList[3],parameterList[4])
-			else
-			    User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority)
-			end	
-		else
-			menuFunction(User,parameterList[1],parameterList[2],parameterList[3],parameterList[4])
-		end
-    end	
-    local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Willst du die Rezepterstellung wirklich abbrechen?","Do you really want to abort the recipe creation?"), callback)
-	dialog:addOption(0, getText("Nein","No"))
-	dialog:addOption(0, getText("Ja", "Yes"))
-	
-	User:requestSelectionDialog(dialog)	
-	
-end
-
 function FirstMenu(User, ingredientsList)
     local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
     
@@ -95,8 +71,10 @@ function SelectPlantCategory(User, ingredientsList, currentEssenceList)
 			    SelectPlant(User, ingredientsList, PLANT_CATS["EN"][selected-1], currentEssenceList)
 			end	
 		else
-			local menuFunction = SelectPlantCategory()
-			WantToAbort(User, menuFunction, {ingredientsList, currentEssenceList})
+			local menuFunction = function(User, ingredientsList, currentEssenceList) 
+			    SelectPlantCategory(User,ingredientsList, currentEssenceList)
+			end	
+		    WantToAbort(User, menuFunction, {ingredientsList, currentEssenceList})
 		end
 	end
 
@@ -148,8 +126,10 @@ function SelectPlant(User, ingredientsList, category, currentEssenceList)
 				end
 			end 
 		else
-			local menuFunction = SelectPlant()
-			WantToAbort(User, menuFunction, {ingredientsList, category, currentEssenceList})
+			local menuFunction = function(User, ingredientsList, category, currentEssenceList) 
+			    SelectPlant(User,ingredientsList, category, currentEssenceList)
+			end	
+		    WantToAbort(User, menuFunction, {ingredientsList, category, currentEssenceList})
 		end
 	end
 
@@ -188,8 +168,10 @@ function SelectGemDust(User, ingredientsList)
 			    SelectGemDust(User, ingredientsList)
 			end 
 		else
-			local menuFunction = SelectGemDust()
-			WantToAbort(User, menuFunction, {ingredientsList})
+			local menuFunction = function(User, ingredientsList) 
+			    SelectGemDust(User,ingredientsList)
+			end	
+		    WantToAbort(User, menuFunction, {ingredientsList})
 		end
 	end
 
@@ -269,8 +251,10 @@ function SelectFillIntoCauldron(User, ingredientsList)
 				SelectEssenceBrewOption(User, ingredientsList, {ESSENCE_BREWS_IDS[selected-3]})
 		    end
 		else
-			local menuFunction = SelectFillIntoCauldron()
-			WantToAbort(User, menuFunction, {ingredientsList})
+			local menuFunction = function(User, ingredientsList) 
+			    SelectFillIntoCauldron(User,ingredientsList)
+			end	
+		    WantToAbort(User, menuFunction, {ingredientsList})
 		end
 	end
     
@@ -311,8 +295,10 @@ function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 				FirstMenu(User, ingredientsList)
 			end	
 		else
-			local menuFunction = SelectEssenceBrewOption()
-			WantToAbort(User, menuFunction, {ingredientsList, currentEssenceList})
+			local menuFunction = function(User, ingredientsList, currentEssenceList) 
+			    SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
+			end	
+		    WantToAbort(User, menuFunction, {ingredientsList, currentEssenceList})
 		end
 	end
 	
@@ -363,8 +349,10 @@ function SelectActiveSubstance(User, ingredientsList, currentConcentrations)
 				FirstMenu(User, ingredientsList)
 			end
 		else
-			local menuFunction = SelectActiveSubstance()
-			WantToAbort(User, menuFunction, {ingredientsList, currentConcentrations})
+			local menuFunction = function(User, ingredientsList, currentConcentrations) 
+			    SelectActiveSubstance(User, ingredientsList, currentConcentrations)
+			end	
+		    WantToAbort(User, menuFunction, {ingredientsList, currentConcentrations})
 		end
 	end
 
@@ -401,8 +389,10 @@ function SelectConcentration(User,ingredientsList,currentConcentrations, activeS
 				SelectActiveSubstance(User, ingredientsList, currentConcentrations)
 			end	
 		else
-			local menuFunction = SelectConcentration()
-			WantToAbort(User, menuFunction, {ingredientsList,currentConcentrations, activeSubstancePos})
+			local menuFunction = function(User, ingredientsList,currentConcentrations, activeSubstancePos) 
+			    SelectConcentration(User,ingredientsList,currentConcentrations, activeSubstancePos)
+			end	
+		    WantToAbort(User, menuFunction, {ingredientsList,currentConcentrations, activeSubstancePos})
 		end
 	end
 
@@ -645,5 +635,29 @@ end
 function AddToRecipe(ingredientsList,addThis)
     
 	table.insert(ingredientsList,addThis)
+	
+end
+
+function WantToAbort(User, menuFunction, parameterList)
+    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	
+    local callback = function(dialog)
+	    local success = dialog:getSuccess() 
+		if success then 
+		    local selected = dialog:getSelectedIndex()+1
+			if selected == 1 then 
+				menuFunction(User,parameterList[1],parameterList[2],parameterList[3],parameterList[4])
+			else
+			    User:inform("Du hast die Rezeptherstellung abgebrochen.","You aborted the recipe creation.",Character.lowPriority)
+			end	
+		else
+			menuFunction(User,parameterList[1],parameterList[2],parameterList[3],parameterList[4])
+		end
+    end	
+    local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Willst du die Rezepterstellung wirklich abbrechen?","Do you really want to abort the recipe creation?"), callback)
+	dialog:addOption(0, getText("Nein","No"))
+	dialog:addOption(0, getText("Ja", "Yes"))
+	
+	User:requestSelectionDialog(dialog)	
 	
 end
