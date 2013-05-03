@@ -10,7 +10,8 @@ function UseItem(User, SourceItem,ltstate)
     if User.lastSpokenText == "alchemist" then
 	    User:setMagicType(3)
 		User:increaseAttrib("essence",30)
-	    return
+	    User:inform("You are no an alchemist.")
+		return
 	end
 	
 	

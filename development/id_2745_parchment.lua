@@ -78,7 +78,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 				StartBrewing(User, SourceItem,ltstate,true)
 			end
 		end
-		local dialog = SelectionDialog(getText("Rezept","Recipe"), getText("Wähle die Zutat aus, ab welcher das Rezept abgearbeitet werden soll.","Select the ingredient where you want to start to brew from."), callback)
+		local dialog = SelectionDialog(getText(User,"Rezept","Recipe"), getText(User,"Wähle die Zutat aus, ab welcher das Rezept abgearbeitet werden soll.","Select the ingredient where you want to start to brew from."), callback)
 		dialog:setCloseOnMove()
 		if #ingredientsList > 0 then
 			for i=1,#ingredientsList do
@@ -95,37 +95,41 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 						end		
 					end]]
 				else
-					dialog:addOption(ingredientsList[i], getText(world:getItemName(ingredientsList[i],Player.german),world:getItemName(ingredientsList[i],Player.english)))
+					dialog:addOption(ingredientsList[i], getText(User,world:getItemName(ingredientsList[i],Player.german),world:getItemName(ingredientsList[i],Player.english)))
 				end
 			end
 			User:requestSelectionDialog(dialog)
+			return
 		end
+	end	
+	
+	local data = {}
+	if not (User:countItemAt("all",ingredientsList[USER_POSITION_LIST[User.id]],data) > 0) then
+		User:inform("missing: "..ingredientsList[USER_POSITION_LIST[User.id]])
+		return
 	end	
 	
 	if (ltstate == Action.none) then
 		
-		local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(User, "plant", cauldron)
+		local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.base.alchemy.GetStartAction(User, "plant", cauldron)
 		
 		User:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
 		return
 	
 	end
 	
-	if User:countItemAt("all",ingredientsList[USER_POSITION_LIST[User.id]],{}) then
-		User:inform("missing: "..ingredientsList[USER_POSITION_LIST[User.id]])
-		return
-	end	
 	alchemy.base.herbs.BeginnBrewing(User,ingredientsList[USER_POSITION_LIST[User.id]],cauldron)
+	User:eraseItem(ingredientsList[USER_POSITION_LIST[User.id]],1,data)
 	USER_POSITION_LIST[User.id] = USER_POSITION_LIST[User.id]+1
 	
-	local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(User, "plant", cauldron)
+	local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.base.alchemy.GetStartAction(User, "plant", cauldron)
 	
-	--if USER_POSITION_LIST[User.id] == 5 then
-	--    User:inform("end")
-	--	return
-	--else
+	if USER_POSITION_LIST[User.id] == 5 then
+	    User:inform("end")
+		return
+    else
 		User:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
-	--end	
+	end	
 	
 end
 
@@ -151,6 +155,6 @@ function getIngredients(SourceItem)
     return ingredientsList
 end
 
-function getText(deText,enText) 
+function getText(User,deText,enText) 
     return base.common.base.common.GetNLS(User,deText,enText) 
 end
