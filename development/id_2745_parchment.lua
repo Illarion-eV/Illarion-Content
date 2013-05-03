@@ -120,12 +120,12 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	
 	local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(User, "plant", cauldron)
 	
-	--if USER_POSITION_LIST[User.id] == 5 then
-	--    User:inform("end")
-	--	return
-	--else
+	if USER_POSITION_LIST[User.id] == 5 then
+	    User:inform("end")
+		return
+    else
 		User:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
-	--end	
+	end	
 	
 end
 
