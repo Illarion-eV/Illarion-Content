@@ -119,6 +119,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	end
 	
 	alchemy.base.herbs.BeginnBrewing(User,ingredientsList[USER_POSITION_LIST[User.id]],cauldron)
+	world:eraseItem(ingredientsList[USER_POSITION_LIST[User.id]],1,data)
 	USER_POSITION_LIST[User.id] = USER_POSITION_LIST[User.id]+1
 	
 	local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.base.alchemy.GetStartAction(User, "plant", cauldron)
