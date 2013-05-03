@@ -104,7 +104,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	end	
 	
 	local data = {}
-	if User:countItemAt("all",ingredientsList[USER_POSITION_LIST[User.id]],data) > 0 then
+	if not User:countItemAt("all",ingredientsList[USER_POSITION_LIST[User.id]],data) > 0 then
 		User:inform("missing: "..ingredientsList[USER_POSITION_LIST[User.id]])
 		return
 	end	
