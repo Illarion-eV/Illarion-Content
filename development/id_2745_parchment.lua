@@ -104,7 +104,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	
 	if (ltstate == Action.none) then
 		
-		local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(User, "plant", cauldron)
+		local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.base.alchemy.GetStartAction(User, "plant", cauldron)
 		
 		User:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
 		return
@@ -118,7 +118,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	alchemy.base.herbs.BeginnBrewing(User,ingredientsList[USER_POSITION_LIST[User.id]],cauldron)
 	USER_POSITION_LIST[User.id] = USER_POSITION_LIST[User.id]+1
 	
-	local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(User, "plant", cauldron)
+	local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.base.alchemy.GetStartAction(User, "plant", cauldron)
 	
 	if USER_POSITION_LIST[User.id] == 5 then
 	    User:inform("end")
