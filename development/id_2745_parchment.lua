@@ -103,6 +103,11 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 		end
 	end	
 	
+	if User:countItemAt("all",ingredientsList[USER_POSITION_LIST[User.id]],data={}) then
+		User:inform("missing: "..ingredientsList[USER_POSITION_LIST[User.id]])
+		return
+	end	
+	
 	if (ltstate == Action.none) then
 		
 		local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.base.alchemy.GetStartAction(User, "plant", cauldron)
@@ -112,10 +117,6 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	
 	end
 	
-	if User:countItemAt("all",ingredientsList[USER_POSITION_LIST[User.id]],{}) then
-		User:inform("missing: "..ingredientsList[USER_POSITION_LIST[User.id]])
-		return
-	end	
 	alchemy.base.herbs.BeginnBrewing(User,ingredientsList[USER_POSITION_LIST[User.id]],cauldron)
 	USER_POSITION_LIST[User.id] = USER_POSITION_LIST[User.id]+1
 	
