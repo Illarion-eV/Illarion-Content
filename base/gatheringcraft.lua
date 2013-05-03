@@ -217,29 +217,6 @@ function GatheringCraft:GenWorkTime(User, toolItem)
     math.min(20,math.max(0,User:increaseAttrib(attribName, 0)));
   end
 
-  local skillBonus=0;
-  local timeBonus=0;
-  if(toolItem ~= nil) then
-    local gem1, str1, gem2, str2=base.common.GetBonusFromTool(toolItem);
-    if gem1==3 then     -- ruby modifies skill!
-      skillBonus=str1;
-    end
-    if gem2==3 then
-      skillBonus=skillBonus+str2;
-    end
-    if gem1==6 then     -- amethyst modifies time needed
-      timeBonus=str1;
-    end
-    if gem2==6 then
-      timeBonus=timeBonus+str2;
-    end
-  end
-  -- current max (2 gems, lvl 10): 20
-  skillBonus = math.min(20,math.max(0,skillBonus)) / 20;
-  timeBonus = math.min(20,math.max(0,timeBonus)) / 20;
-  -- now gem boni should range in [0,1]
-  -- currently: linear distribution
-
   --[[ DESCRIPTION
   Assume a gaussian distribution. The mean is determined by the skill.
   The standard deviation is determined by the attribute value.
@@ -261,15 +238,6 @@ function GatheringCraft:GenWorkTime(User, toolItem)
     maxTime = maxTime - maxTime*0.25*(qual/8);
   end
 
-  -- apply time bonus: reduce maxTime
-  if (timeBonus>0) then
-    maxTime = maxTime - math.ceil(maxTime*0.5*timeBonus);
-  end
-  -- apply skill bonus: increase skill
-  if (skillBonus>0 and skill<100) then
-    skill = skill + math.ceil(50*skillBonus);
-    skill = math.min(100,math.max(0,skill));
-  end
   -- mean of the gaussian is determined by the skill
   local mean = maxTime - (maxTime-minTime)*skill/100;
 

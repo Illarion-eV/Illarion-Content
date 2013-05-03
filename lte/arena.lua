@@ -53,7 +53,16 @@ function callEffect(arenaEffect, User)
 		local quest = base.arena.arenaInformations[arena].quest;
 		local points = User:getQuestProgress(quest);
 		base.arena.setRanklist(User, arena, points);
-		User:warp(base.arena.arenaInformations[arena].newPlayerPos);
+		if base.arena.arenaInformations[arena].newPlayerPos ~= nil then
+			User:warp(base.arena.arenaInformations[arena].newPlayerPos);
+		end
+        return false;
+    end
+	
+	if arenaEffect.numberCalled==300 then
+        base.common.InformNLS( User,
+        "Ihr habt zulange gebraucht um das Monster zu besiegen.",
+        "It took you too long to defeat the monster.");
         return false;
     end
 	

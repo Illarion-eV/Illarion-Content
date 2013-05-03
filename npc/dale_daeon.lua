@@ -361,14 +361,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ranklist");
-talkEntry:addResponse("#me hands your a piece of parchment: 'Well, well...'");
+talkEntry:addResponse("#me show you a piece of parchment: 'Look for yourself who the best ones are here.'");
 talkEntry:addConsequence(npc.base.consequence.arena.arena("list"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rangliste");
-talkEntry:addResponse("#me gibt dir ein Stück Papier: 'So, so...'");
+talkEntry:addResponse("#me zeigt dir ein Stück Pergament: 'Seht für euch selbst wer die Besten hier sind.'");
 talkEntry:addConsequence(npc.base.consequence.arena.arena("list"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
