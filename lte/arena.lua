@@ -28,7 +28,7 @@ function callEffect(arenaEffect, User)
     if (User:increaseAttrib("hitpoints",0) == 0) then
         base.common.InformNLS( User,
         "Ihr habt den Kampf verloren. Ihr bekommt keine Punkte.",
-        "You lost the fight. You gained no points.)");
+        "You lost the fight. You gained no points.");
         return false;
     end
 
