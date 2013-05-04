@@ -464,21 +464,23 @@ function ShowRecipe(User, ingredientsList, notMenu)
 	end
 	
 	dialog:addOption(0, getText("Zurück","Back"))
+	local counter = 0
 	if #ingredientsList > 0 then
-	    for i=1,#ingredientsList do
+	    counter = counter + 1
+		for i=1,#ingredientsList do
 		    if type(ingredientsList[i])=="string" then 
 				if string.find(ingredientsList[i],"bottle") then
-					dialog:addOption(164, getText("Abfüllen","Bottling"))
+					dialog:addOption(164, getText(counter..". Abfüllen",counter..". Bottling"))
 				else	
 				    local liquid, liquidList = StockEssenceList(ingredientsList[i])
 					if liquid == "stock" then
-					    dialog:addOption(331, getText("Sud","Stock"))
+					    dialog:addOption(331, getText(counter..". Sud",counter..". Stock"))
 					elseif liquid == "essence brew" then
-						dialog:addOption(liquidList[1], getText("Essenzgebräu","Essence brew"))
+						dialog:addOption(liquidList[1], getText(counter..". Essenzgebräu",counter..". Essence brew"))
 					end		
 			    end
 			else
-				dialog:addOption(ingredientsList[i], getText(world:getItemName(ingredientsList[i],Player.german),world:getItemName(ingredientsList[i],Player.english)))
+				dialog:addOption(ingredientsList[i], getText(counter..". "..world:getItemName(ingredientsList[i],Player.german),counter..". "..world:getItemName(ingredientsList[i],Player.english)))
 			end
 		end
 	end

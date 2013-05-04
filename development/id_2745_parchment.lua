@@ -4,35 +4,35 @@ require("alchemy.base.herbs")
 
 module("development.id_2745_parchment", package.seeall)
 
-
+-- important: do not remove the fourth parameter "checkVar". 
+-- it is important for alchemy
 function UseItem(User, SourceItem,ltstate,checkVar)
-User:inform("test")
-    -- alchemy recipe?
+
+    -- Check if it is an alchemy recipe. 
     if SourceItem:getData("alchemyRecipe") == "true" then
 	    AlchemyRecipe(User, SourceItem,ltstate,checkVar)
 		return
 	end	
 	
+	
+	
 end
 
 function AlchemyRecipe(User, SourceItem,ltstate,checkVar)
-
+    
+	
     if alchemy.base.alchemy.GetCauldronInfront(User) then 
-	    UseRecipe(User, SourceItem,ltstate,checkVar)
+	    -- The char wants to use the recipe infront of a cauldron.
+		UseRecipe(User, SourceItem,ltstate,checkVar)
 	else
-        ViewRecipe(User, SourceItem)
+        -- Not infront of a cauldron. 
+		ViewRecipe(User, SourceItem)
 	end	
 
 end
 
 function UseRecipe(User, SourceItem,ltstate,checkVar)
-    -- herbs ok
-	-- gemdust ok
-	-- water ok
-	-- empty bottle ok
-	-- stock ok
-	-- [red, pink, white, black, yellow, dark blue] ok
-	-- blue ok
+    
 	
 	-- is the char an alchemist?
 	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
@@ -41,6 +41,7 @@ function UseRecipe(User, SourceItem,ltstate,checkVar)
 		return
 	end
 	
+	-- proper attriutes?
 	if ( User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0) + User:increaseAttrib("intelligence",0) ) < 30 then 
 		User:inform("Verstand, ein gutes Auge und ein Gespür für die feinstofflichen Dinge - dir fehlt es daran, als dass du hier arbeiten könntest.",
 		            "Mind, good eyes and a feeling for the world of fine matter - with your lack of those, you are unable to work here."
@@ -48,6 +49,7 @@ function UseRecipe(User, SourceItem,ltstate,checkVar)
 		return
     end
 	
+	-- let's start!
 	StartBrewing(User, SourceItem,ltstate,checkVar)
 end
 
@@ -83,7 +85,6 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 		if #ingredientsList > 0 then
 			for i=1,#ingredientsList do
 				if type(ingredientsList[i])=="string" then 
-					--[[
 					if string.find(ingredientsList[i],"bottle") then
 						dialog:addOption(164, getText("Abfüllen","Bottling"))
 					else	
@@ -93,7 +94,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 						elseif liquid == "essence brew" then
 							dialog:addOption(liquidList[1], getText("Essenzgebräu","Essence brew"))
 						end		
-					end]]
+					end
 				else
 					dialog:addOption(ingredientsList[i], getText(User,world:getItemName(ingredientsList[i],Player.german),world:getItemName(ingredientsList[i],Player.english)))
 				end

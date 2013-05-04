@@ -22,14 +22,12 @@ end
 
 function EssenceBrewAnalysis(User, gem, brew, ltstate)
     local cauldron, bottle
+	local reGem, reGemdust, reCauldron, reBottle
 	if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
-		cauldron = brew
-		bottle = nil
+		reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron.id, nil) -- get gemdust id
 	else -- brew is a bottle
-		cauldron = nil
-		bottle = brew			
+		reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, nil bottle.id) -- get gemdust id		
 	end	
-	local reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron, bottle) -- get gemdust id
 	local analysisResultDE
 	local analysisResultEN
 	if gem.id ~= reGem then -- the gem used does not match the substance
@@ -58,16 +56,14 @@ end
 
 function PotionAnalysis(User, gem, brew, ltstate)
 	local cauldron, bottle, potionQuality, potionQualityDE, potionQualityEN
+	local reGem, reGemdust, reCauldron, reBottle
 	if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
-		cauldron = brew
-		bottle = nil
+		reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, brew.id, nil)
 		potionQuality = tonumber(brew:getData("potionQuality"))
 	else -- brew is a bottle
-		cauldron = nil
-		bottle = brew
+		reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, nil, brew.id)
 		potionQuality = brew.quality
 	end
-	local reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron, bottle) -- get gemdust id
 	local analysisResultDE
 	local analysisResultEN
 	if gem.id ~= reGem then -- the gem used does not match the substance

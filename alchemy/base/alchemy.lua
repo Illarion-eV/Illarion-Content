@@ -437,12 +437,11 @@ function generateTasteMessage(Character,dataZList)
     base.common.InformNLS(Character,textDe,textEn);
 end
 
-function CheckIfGemDust(SourceItem, User)
+function CheckIfGemDust(itemId, User)
 local retVal = nil;
 for i,checkId in pairs(gemDustList) do
-    theItem = SourceItem
-	if theItem.id == checkId then
-    retVal = theItem
+    if itemId == checkId then
+    retVal = itemId
     break;
     end
 end	
@@ -559,9 +558,9 @@ function FillFromTo(fromItem,toItem)
 	end
     local reGem, reDust, reCauldron, reBottle	
 	if fromItem.id >= 1008 and fromItem.id <= 1018 then
-	   reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
+	   reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem.id, nil)
 	else
-	    reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
+	    reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem.id)
 	end	
 	if toItem.id >= 1008 and toItem.id <= 1018 then
 		toItem.id = reCauldron
@@ -618,23 +617,23 @@ function SetQuality(User,Item)
 	Item:setData("potionQuality",quality*100+99)-- duarability is useless, we set it anway
 end
 
-function GemDustBottleCauldron(gem, gemdust, cauldron, bottle)
+function GemDustBottleCauldron(gemId, gemdustId, cauldronId, bottleId)
     -- this function returns matching gem id, gemdust id, cauldron id and bottle id
     -- only one parameter is needed; if there are more than one, only the first one will be taken into account
     local myList
 	local myValue
-    if gem then
+    if gemId then
 	    myList = gemList
-		myValue = gem.id
-	elseif gemdust then
+		myValue = gemId
+	elseif gemdustId then
 	    myList = gemDustList
-		myValue = gemdust.id
-	elseif cauldron then
+		myValue = gemdustId
+	elseif cauldronId then
 	    myList = cauldronList
-		myValue = cauldron.id
-    elseif bottle then
+		myValue = cauldronId
+    elseif bottleId then
         myList = bottleList	
-		myValue = bottle.id
+		myValue = bottleId
     else 
 	    return 
 	end
@@ -661,9 +660,9 @@ function CombineStockEssence( User, stock, essenceBrew)
 		-- we get the gem dust used as an ingredient; and the new cauldron id we need later
 		local reGem, ingredientGemdust, newCauldron, reBottle
 		if cauldron:getData("filledWith") == "essenceBrew" then
-		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew, nil)
+		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew.id, nil)
 		else
-			reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, essenceBrew)
+			reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, essenceBrew.id)
 		end
 		-- create our ingredients list
 		local myIngredients = {}
