@@ -1,5 +1,5 @@
 -- white dye (2683) + gray cloth (176) --> white cloth (178)
--- color dye + white cloth (178) --> colored cloth (see below for details)
+-- color dye + (white cloth (178) or grey cloth (176) --> colored cloth (see below for details)
 
 -- additional tool: dyeing rod (2781)
 
@@ -12,11 +12,11 @@ module("item.id_220_barrel", package.seeall)
 
 -- format: {dyeID, neededClothID, producedClothID}
 dyersList = {
-  {2678, 178, 175},  -- black
-  {2679, 178, 54},   -- green
-  {2680, 178, 179},  -- blue
-  {2681, 178, 174},  -- red
-  {2682, 178, 177},  -- yellow
+  {2678, {178, 176}, 175},  -- black
+  {2679, {178, 176}, 54},   -- green
+  {2680, {178, 176}, 179},  -- blue
+  {2681, {178, 176}, 174},  -- red
+  {2682, {178, 176}, 177},  -- yellow
   {2683, 176, 178}   -- white
 };
 
@@ -71,7 +71,7 @@ function UseItem(User, SourceItem, ltstate)
   
   local dye = nil;
   for _,d in pairs(dyersList) do 
-    if (User:countItemAt("all",d[1])>0 and User:countItemAt("all",d[2])>0) then
+    if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>0) or User:countItemAt("all",d[2][2])>0)) then
       dye = d;
       break;
     end
@@ -79,8 +79,8 @@ function UseItem(User, SourceItem, ltstate)
 
 	if (dye == nil) then -- check for items to work on
 		base.common.HighInformNLS( User, 
-		"Du brauchst weiße Farbe und grauen Stoff oder eine andere Farbe und weißen Stoff um zu färben.", 
-		"You need white dye and grey cloth or any other dye and white cloth for dyeing." );
+		"Du brauchst weiße Farbe und grauen Stoff oder eine andere Farbe und weißen oder grauen Stoff um zu färben.", 
+		"You need white dye and grey cloth or any other dye and white or grey cloth for dyeing." );
 		return;
 	end
 	
@@ -99,7 +99,11 @@ function UseItem(User, SourceItem, ltstate)
 
 	User:learn( dyeing.LeadSkill, dyeing.SavedWorkTime[User.id], dyeing.LearnLimit);
 	User:eraseItem( dye[1], 1 ); -- erase the item we're working on
-  User:eraseItem( dye[2], 1 ); -- erase the item we're working on
+	if dye[2][2] == nil then
+		User:eraseItem( dye[2][1], 1 ); -- erase the item we're working on
+	else
+		User:eraseItem( dye[2][2], 1 ); -- erase the item we're working on
+	end
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( dye[3], amount, 333, nil ); -- create the new produced items
 	User:createItem( 51, 1, 333, nil ); -- giving back the bucket
@@ -112,7 +116,7 @@ function UseItem(User, SourceItem, ltstate)
 	else -- character can still carry something
 	    dye = nil;
     for _,d in pairs(dyersList) do 
-      if (User:countItemAt("all",d[1])>0 and User:countItemAt("all",d[2])>0) then
+      if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>0) or User:countItemAt("all",d[2][2])>0)) then
         dye = d;
         break;
       end
