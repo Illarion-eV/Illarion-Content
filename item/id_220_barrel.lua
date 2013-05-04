@@ -71,7 +71,7 @@ function UseItem(User, SourceItem, ltstate)
   
   local dye = nil;
   for _,d in pairs(dyersList) do 
-    if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>0) or User:countItemAt("all",d[2][2])>0)) then
+    if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>0 or User:countItemAt("all",d[2][2])>0)) then
       dye = d;
       break;
     end
@@ -116,7 +116,7 @@ function UseItem(User, SourceItem, ltstate)
 	else -- character can still carry something
 	    dye = nil;
     for _,d in pairs(dyersList) do 
-      if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>0) or User:countItemAt("all",d[2][2])>0)) then
+      if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>0 or User:countItemAt("all",d[2][2])>0)) then
         dye = d;
         break;
       end
