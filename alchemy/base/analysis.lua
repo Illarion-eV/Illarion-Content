@@ -24,9 +24,9 @@ function EssenceBrewAnalysis(User, gem, brew, ltstate)
     local cauldron, bottle
 	local reGem, reGemdust, reCauldron, reBottle
 	if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
-		reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron.id, nil) -- get gemdust id
+		reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron.id, nil) 
 	else -- brew is a bottle
-		reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, nil bottle.id) -- get gemdust id		
+		reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, nil, bottle.id) 	
 	end	
 	local analysisResultDE
 	local analysisResultEN
