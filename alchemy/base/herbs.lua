@@ -120,10 +120,7 @@ function PlantInStock(User,plantId,cauldron)
 end
 
 function BrewingPlant(User,plantId,cauldron)
-    if not cauldron then 
-	    User:inform("missing cauldron")
-		return
-	end	
+    
 	if cauldron:getData("filledWith") == "potion" then -- potion in cauldron, failure
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
 		

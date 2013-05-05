@@ -126,6 +126,10 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	
 	end
 	
+	if cauldron:getData("etwas")=="" then
+	    User:inform("data check 1")
+	end	
+	
 	CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,ingredientsList,cauldron)
 	
 	USER_POSITION_LIST[User.id] = USER_POSITION_LIST[User.id]+1
