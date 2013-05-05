@@ -126,11 +126,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	
 	end
 	
-	if cauldron:getData("etwas")=="" then
-	    User:inform("data check 1")
-	end	
-	
-	CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,ingredientsList,cauldron)
+	CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
 	
 	USER_POSITION_LIST[User.id] = USER_POSITION_LIST[User.id]+1
 	
@@ -146,11 +142,7 @@ end
 
 function CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
 
-    if cauldron:getData("etwas")=="" then
-	    User:inform("data check 2")
-	end
-	
-	if deleteId then
+    if deleteId then
 	    if deleteId == 52 then -- water
 			local buckets = User:getItemList(deleteId) 
 			-- here, we could need a check if the bucket has no datas
@@ -162,11 +154,7 @@ function CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
 			User:eraseItem(deleteId,1,data)
 			
 		elseif alchemy.base.alchemy.getPlantSubstance(deleteId) or deleteId == 157 then -- plant/rotten tree bark
-            if cauldron:getData("etwas")=="" then
-				User:inform("data check 3")
-			end
-			
-			alchemy.base.herbs.BeginnBrewing(User,deleteId,cauldron)
+            alchemy.base.herbs.BeginnBrewing(User,deleteId,cauldron)
 			local data = {}
 			User:eraseItem(deleteId,1,data)
         end
