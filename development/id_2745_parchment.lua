@@ -262,8 +262,8 @@ function GetItem(User, ingredientsList)
 			deleteId = ingredientsList[USER_POSITION_LIST[User.id]]
 		end
         if not deleteId then
-			missingDe = "Dir fehlt: "..world:getItemName(ingredientsList[i],Player.german)
-			missingEn = "You don't have: "..world:getItemName(ingredientsList[i],Player.german)
+			missingDe = "Dir fehlt: "..world:getItemName(ingredientsList[USER_POSITION_LIST[User.id]],Player.german)
+			missingEn = "You don't have: "..world:getItemName(ingredientsList[USER_POSITION_LIST[User.id]],Player.german)
 		end
 	end
 	
