@@ -153,7 +153,7 @@ function CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
 			local data = {}
 			User:eraseItem(deleteId,1,data)
 			
-		elseif alchemy.base.alchemy.getPlantSubstance(ingredient) or ingredient == 157 then -- plant/rotten tree bark
+		elseif alchemy.base.alchemy.getPlantSubstance(deleteId) or deleteId == 157 then -- plant/rotten tree bark
             alchemy.base.herbs.BeginnBrewing(User,deleteId,cauldron)
 			local data = {}
 			User:eraseItem(deleteId,1,data)
