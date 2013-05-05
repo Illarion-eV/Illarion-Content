@@ -149,12 +149,12 @@ function CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
 			item.id_52_filledbucket.FillIn(User, buckets[1], cauldron)
 			
 		elseif alchemy.base.alchemy.CheckIfGemDust(deleteId) then	--gemdust
-			BrewingGemDust(User,deleteId,cauldron)
+			alchemy.base.gemdust.BrewingGemDust(User,deleteId,cauldron)
 			local data = {}
 			User:eraseItem(deleteId,1,data)
 			
 		elseif alchemy.base.alchemy.getPlantSubstance(ingredient) or ingredient == 157 then -- plant/rotten tree bark
-            BeginnBrewing(User,deleteId,cauldron)
+            alchemy.base.herbs.BeginnBrewing(User,deleteId,cauldron)
 			local data = {}
 			User:eraseItem(deleteId,1,data)
         end
