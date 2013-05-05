@@ -464,9 +464,9 @@ function ShowRecipe(User, ingredientsList, notMenu)
 	end
 	
 	dialog:addOption(0, getText("Zurück","Back"))
-	local counter = 0
 	if #ingredientsList > 0 then
-	    for i=1,#ingredientsList do
+	    local counter = 0
+		for i=1,#ingredientsList do
 		    counter = counter + 1
 			if type(ingredientsList[i])=="string" then 
 				if string.find(ingredientsList[i],"bottle") then

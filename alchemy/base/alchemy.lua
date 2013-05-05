@@ -391,6 +391,18 @@ function SplitData(User,theData)
 	return dataZList
 end
 
+function SubstanceDatasToList(theItem)
+    local substanceList = {}
+	for i=1,8 do
+	    local concentration = tonumber(theItem:getData(wirkstoff[i].."Concentration"))
+		if concentration ~= nil then
+			table.insert(substanceList,concentration)
+		end	
+	end
+	
+	return substanceList
+end
+
 
 function generateTasteMessage(Character,dataZList)
     local textDe = "Der Trank schmeckt ";

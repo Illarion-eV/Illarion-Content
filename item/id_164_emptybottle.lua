@@ -28,7 +28,7 @@ function UseItem(User, SourceItem, ltstate)
 		   return
 		end
 		
-		FillIntoCauldron(User, SourceItem, cauldron, ltstate)
+		FillIntoBottle(User, SourceItem, cauldron)
 	end	
 end
 
@@ -49,7 +49,7 @@ function CheckWaterEmpty(User, SourceItem, cauldron)
     return true
 end
 
-function FillIntoCauldron(User, SourceItem, cauldron)
+function FillIntoBottle(User, SourceItem, cauldron)
     
 	-- stock, essence brew or potion; fill it up
    if (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "essenceBrew") or (cauldron:getData("filledWith") == "potion") then  
