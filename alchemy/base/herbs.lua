@@ -47,7 +47,11 @@ function UseItem(User, SourceItem, ltstate)
 end
 
 function BeginnBrewing(User,plantId,cauldron)
-    local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(plantId, User)
+    if cauldron:getData("etwas")=="" then
+	    User:inform("data check 4")
+	end
+	
+	local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(plantId, User)
 	if isPlant then
 		BrewingPlant(User,plantId,cauldron)
 	elseif SourceItem.id == 157 then
@@ -120,7 +124,9 @@ function PlantInStock(User,plantId,cauldron)
 end
 
 function BrewingPlant(User,plantId,cauldron)
-    
+    if cauldron:getData("etwas")=="" then
+	    User:inform("data check 5")
+	end
 	if cauldron:getData("filledWith") == "potion" then -- potion in cauldron, failure
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
 		
