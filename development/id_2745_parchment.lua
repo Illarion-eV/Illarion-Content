@@ -258,6 +258,7 @@ function GetItem(User, ingredientsList)
 			end
 	    end		
 	else
+		local data = {}
 		if (User:countItemAt("all",ingredientsList[USER_POSITION_LIST[User.id]],data) > 0) then
 			deleteId = ingredientsList[USER_POSITION_LIST[User.id]]
 		end
