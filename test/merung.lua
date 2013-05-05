@@ -1,4 +1,4 @@
-require("development.recipe_creation")
+
 require("alchemy.base.brewing")
 
 -- UPDATE common SET com_script = 'test.merung' WHERE com_itemid = 1266;
@@ -15,7 +15,7 @@ function UseItem(User, SourceItem,ltstate)
 	end
 	
 	
-	development.recipe_creation.FirstMenu(User, ingredientsList)
+	
 end
 
 
