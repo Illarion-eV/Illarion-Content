@@ -618,7 +618,7 @@ function GetParchmentQuill(User)
 	end
 	if theItem then
 	    local data = {}
-		if User:countItem("body",3109,{}) > 0 then
+		if User:countItemAt("body",3109,{}) > 0 then
 		    return theItem
 		end
 	end
