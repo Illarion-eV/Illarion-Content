@@ -1,6 +1,6 @@
 require("base.common")
 require("alchemy.base.alchemy")
-require("development.id_2745_parchment")
+
 
 
 module("item.id_3109_open_pell",package.seeall)
@@ -327,14 +327,8 @@ function RecipeInform( User, SourceItem)
 end
 
 function UseItem(User, SourceItem, ltstate)
-    if isTestserver() then
-        User:inform("useitem, 3109")
-		if SourceItem:getData("alchemyRecipe") == "true" then
-		    development.id_2745_parchment.UseItem(User, SourceItem, ltstate,checkVar)
-			return
-		end
-    end		
-    if (SourceItem:getType()~=3) then -- no map item
+    
+	if (SourceItem:getType()~=3) then -- no map item
 	    return
 	end	
 

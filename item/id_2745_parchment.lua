@@ -6,7 +6,7 @@ require("alchemy.item.id_331_green_bottle")
 require("alchemy.base.gemdust")
 require("item.id_164_emptybottle")
 
-module("development.id_2745_parchment", package.seeall)
+module("item.id_2745_parchment", package.seeall)
 
 -- important: do not remove the fourth parameter "checkVar". 
 -- it is important for alchemy
@@ -23,6 +23,10 @@ function UseItem(User, SourceItem,ltstate,checkVar)
 	
 end
 
+
+
+---------------- ALCHEMY -------------------------------
+--------------------------------------------------------
 function AlchemyRecipe(User, SourceItem,ltstate,checkVar)
     
 	
@@ -295,4 +299,15 @@ end
 
 function getText(User,deText,enText) 
     return base.common.base.common.GetNLS(User,deText,enText) 
+end
+
+---------------- ALCHEMY END ---------------------------
+--------------------------------------------------------
+
+
+
+function LookAtItem(User, Item)
+
+	world:itemInform( User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE) );
+
 end

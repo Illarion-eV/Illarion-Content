@@ -1,8 +1,9 @@
 require("base.common")
 
 
-module("development.recipe_creation", package.seeall)
+module("alchemy.base.recipe_creation", package.seeall)
 
+-- called by item.id_463_quill
 function FirstMenu(User, ingredientsList)
     local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
     
@@ -553,6 +554,7 @@ function FinishRecipe(User, ingredientsList)
 	local parchment = GetParchmentQuill(User)
 	parchment = IsParchmentOK(User,parchment,ingredientsList)
 	if not parchment then
+		FirstMenu(User, ingredientsList)
 		return
 	end
 	
@@ -567,6 +569,7 @@ function FinishRecipe(User, ingredientsList)
 			local parchment = GetParchmentQuill(User)
 			parchment = IsParchmentOK(User,parchment,ingredientsList)
 			if not parchment then
+				FirstMenu(User, ingredientsList)
 				return
 			end
 			if parchment.number > 1 then
@@ -578,9 +581,9 @@ function FinishRecipe(User, ingredientsList)
 					data["ingredient"..i] = ingredientsList[i]
 				end
 				world:erase(parchment,1)
-				local notCreated = User:createItem(3109,1,333,data)
+				local notCreated = User:createItem(2745,1,333,data)
 				if notCreated > 0 then
-					world:createItemFromId(3109,notCreated,User.pos,true,333,data)
+					world:createItemFromId(2745,notCreated,User.pos,true,333,data)
 				end
 			else
 			    parchment:setData("descriptionDe","Alchemistisches Rezept: "..dialog:getInput())
@@ -604,14 +607,12 @@ end
 function IsParchmentOK(User,parchment,ingredientsList)
     if not parchment then
 		User:inform("Du musst eine Feder und ein leeres Pergament in den Händen halten, um das Rezept zu notieren.", "You have to hold a quill and a parchment in your hands to write the recipe.",Character.highPriority) 
-		FirstMenu(User, ingredientsList)
-		return
+		return nil
 	end
 
 	if parchment:getData("descriptionDe") ~= "" and parchment:getData("descriptionEn") ~= "" then
 	    User:inform("Du braucht ein leeres Pergament.","You need an empty parchment.")
-		FirstMenu(User, ingredientsList)
-		return
+		return nil
 	end
 	return parchment
 end
@@ -621,14 +622,14 @@ function GetParchmentQuill(User)
 	local itemB = User:getItemAt(6)
 	
 	local theItem
-	if itemA.id == 3109 and itemB.id == 1266 then
+	if itemA.id == 2745 and itemB.id == 463 then
 	    theItem = itemA
-	elseif itemA.id == 1266 and itemB.id == 3109 then
+	elseif itemA.id == 463 and itemB.id == 2745 then
 	    theItem = itemB
 	end
 	if theItem then
 	    local data = {}
-		if User:countItemAt("body",3109,{}) > 0 then
+		if User:countItemAt("body",2745,{}) > 0 then
 		    return theItem
 		end
 	end

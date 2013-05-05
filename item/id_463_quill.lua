@@ -2,16 +2,56 @@
 require("base.common")
 require("alchemy.base.alchemy")
 require("base.lookat")
+require("alchemy.base.recipe_creation")
 
 module("item.id_463_quill", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-    -- we check if the char holds a bottle to label it
-    local bottle = CheckIfBottleInHand(User)
-	if bottle then 
-	    WriteLabel(User,SourceItem)
+    
+	if not isTestserver() then
+		-- we check if the char holds a bottle to label it
+		local bottle = CheckIfBottleInHand(User)
+		if bottle then 
+			WriteLabel(User,SourceItem)
+		end
+		return
+    end
+	
+	if SourceItem.itempos ~= 5 and SourceItem.itempos ~= 6 then
+	    User:inform("Du musst die Schreibfeder in der Hand halten.","You have to hold the quill in your hand.",Character.lowPriority)
+		return
 	end	
+	
+	local callback = function(dialog) 
+		local success = dialog:getSuccess() 
+		if success then
+			local selected = dialog:getSelectedIndex()+1
+			if selected == 1 then
+			    if not CheckIfBottleInHand(User) then
+				    User:inform("Du brauchst eine Flasche, um diese zu beschrfiten.","You need a bottle if you want to label one.",Character.lowPriority)
+				    return
+                else
+                    WriteLabel(User,SourceItem)
+			    end
+			elseif selected == 2 then
+			    local parchment = alchemy.base.recipe_creation.GetParchmentQuill(User)
+				parchment = alchemy.base.recipe_creation.IsParchmentOK(User,parchment,ingredientsList)
+				if not parchment then
+					return
+				else
+				    alchemy.base.recipe_creation.FirstMenu(User, ingredientsList)
+				end	
+            end    			
+		end
+	end
 
+	local dialog = SelectionDialog(getText(User,"Schreibfeder","Quill") , getText(User,"Wähle aus, was du machen willst.","Select what you want to do.") , callback)
+	dialog:addOption(0, getText(User,"Trankflasche beschriften","Label potion bottle"))
+	dialog:addOption(0, getText(User,"Alchemierezept schreiben","Write an alchemy recipe"))
+
+	User:requestSelectionDialog(dialog)
+	
+	
 end
 
 function CheckIfBottleInHand(User)
@@ -29,7 +69,7 @@ function CheckIfBottleInHand(User)
 	return nil		
 end
 
-function WriteLabel (User,SourceItem)
+function WriteLabel(User,SourceItem)
     
 	local title
 	local infoText
@@ -63,4 +103,8 @@ function WriteLabel (User,SourceItem)
 	local dialog = InputDialog(title, infoText, false, 100, callback)
 	User:requestInputDialog(dialog)
 	
+end
+
+function getText(User,deText,enText) 
+    return base.common.base.common.GetNLS(User,deText,enText) 
 end

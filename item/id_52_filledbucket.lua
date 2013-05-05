@@ -182,7 +182,6 @@ function CreateEmptyBucket(User, SourceItem,amount, noRepeat) -- do not remove n
         else
 		    world:erase(SourceItem,1)
 			if noRepeat == nil then
-				User:inform("check it")
 				SourceItem.number = SourceItem.number-1
 				world:changeItem(SourceItem)
 				User:changeSource(SourceItem)
