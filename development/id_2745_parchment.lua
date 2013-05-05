@@ -130,7 +130,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	
 	USER_POSITION_LIST[User.id] = USER_POSITION_LIST[User.id]+1
 	
-	if USER_POSITION_LIST[User.id] == 5 then
+	if USER_POSITION_LIST[User.id] > #ingredientsList then
 	    User:inform("end")
 		return
     else
