@@ -97,10 +97,9 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	debug(dye[2][2].." "..dye[2][1])
 	User:learn( dyeing.LeadSkill, dyeing.SavedWorkTime[User.id], dyeing.LearnLimit);
 	User:eraseItem( dye[1], 1 ); -- erase the item we're working on
-	if dye[2][2] == nil or dye[2][2] == 0 then
+	if User:countItemAt("all",d[2][2]) == 0 then
 		User:eraseItem( dye[2][1], 1 ); -- erase the item we're working on
 	else
 		User:eraseItem( dye[2][2], 1 ); -- erase the item we're working on
