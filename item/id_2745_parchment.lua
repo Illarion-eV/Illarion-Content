@@ -266,6 +266,7 @@ function GetItem(User, ingredientsList)
 					    User:inform("current: "..currentList[k])
 					end	
 				    if currentList == neededList then
+						User:inform("Nevermind that shit. Here comes Mongo.")
 						deleteItem = bottleList[i]
 						break
 					end
