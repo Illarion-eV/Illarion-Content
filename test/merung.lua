@@ -20,7 +20,7 @@ function UseItem(User, SourceItem,ltstate)
 	
 	if User.lastSpokenText == "herbs" then
 	    --
-		for i=1,#HERB_LIST do then
+		for i=1,#HERB_LIST do
 		    User:createItem(HERB_LIST[i],20,333,nil)
 		end
 	end
