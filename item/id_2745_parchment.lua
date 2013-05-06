@@ -247,24 +247,17 @@ function GetItem(User, ingredientsList)
 				end
 			elseif liquid == "essence brew" then
 			    local neededId = table.remove(neededList,1)
-				User:inform("neededId: "..neededId)
-				for i=1,#neededList do
-				    User:inform(""..neededList[i])
-				end	
 				local bottleList = User:getItemList(neededId)
+				local currentList = {}
 				for i=1,#bottleList do
 				    if bottleList[i]:getData("filledWith")=="essenceBrew" then
-						local currentList = {}
 						for j=1,8 do
 							if bottleList[i]:getData("essenceHerb"..j) ~= "" then
 								table.insert(currentList,bottleList[i]:getData("essenceHerb"..j))
 							end
 						end
 				    end
-				    for k=1,#currentList do
-					    User:inform(""..currentList[k])
-					end	
-					if currentList == neededList then
+				    if currentList == neededList then
 						deleteItem = bottleList[i]
 						break
 					end
