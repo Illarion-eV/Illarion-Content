@@ -97,13 +97,13 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 				counter = counter + 1
 				if type(ingredientsList[i])=="string" then 
 					if string.find(ingredientsList[i],"bottle") then
-						dialog:addOption(164, getText(counter..". Abfüllen",counter..". Bottling"))
+						dialog:addOption(164, getText(User,counter..". Abfüllen",counter..". Bottling"))
 					else	
 						local liquid, liquidList = development.recipe_creation.StockEssenceList(ingredientsList[i])
 						if liquid == "stock" then
-							dialog:addOption(331, getText(counter..". Sud",counter..". Stock"))
+							dialog:addOption(331, getText(User,counter..". Sud",counter..". Stock"))
 						elseif liquid == "essence brew" then
-							dialog:addOption(liquidList[1], getText(counter..". Essenzgebräu",counter..". Essence brew"))
+							dialog:addOption(liquidList[1], getText(User,counter..". Essenzgebräu",counter..". Essence brew"))
 						end		
 					end
 				else
