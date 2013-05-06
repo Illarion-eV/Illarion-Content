@@ -99,7 +99,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 					if string.find(ingredientsList[i],"bottle") then
 						dialog:addOption(164, getText(User,counter..". Abfüllen",counter..". Bottling"))
 					else	
-						local liquid, liquidList = development.recipe_creation.StockEssenceList(ingredientsList[i])
+						local liquid, liquidList = alchemy.base.recipe_creation.StockEssenceList(ingredientsList[i])
 						if liquid == "stock" then
 							dialog:addOption(331, getText(User,counter..". Sud",counter..". Stock"))
 						elseif liquid == "essence brew" then
