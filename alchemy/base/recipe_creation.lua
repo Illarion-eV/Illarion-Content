@@ -606,7 +606,7 @@ end
 
 function IsParchmentOK(User,parchment,ingredientsList)
     if not parchment then
-		User:inform("Du musst eine Feder und ein leeres Pergament in den Händen halten, um das Rezept zu notieren.", "You have to hold a quill and a parchment in your hands to write the recipe.",Character.highPriority) 
+		User:inform("Du musst eine Feder und ein leeres Pergament in den Händen halten, um das Rezept zu notieren.", "You have to hold a quill and a parchment in your hands to write the recipe.") 
 		return nil
 	end
 
