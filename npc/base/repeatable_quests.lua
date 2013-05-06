@@ -5,7 +5,7 @@ module("npc.base.repeatable_quests", package.seeall)
 function checkIfTimesExpired(User, quest, monthToRepeat, dayToRepeat, hourToRepeat) 
 	local questState, questLastChanged = User:getQuestProgress(quest);
 	debug("lastChanged: "..questLastChanged)
-	local year, month, day, hour, minute, second = base.common.TimestampToDate(questLastChanged);
+	local year, month, day, hour, minute, second-- = base.time.getRLDateFromUnixTimestamp(questLastChanged);
 
 	debug("year: "..year.." month: "..month.." day: "..day.." hour: "..hour);
 	hour = hour + hourToRepeat;
