@@ -258,6 +258,9 @@ function GetItem(User, ingredientsList)
 							end
 						end
 				    end
+					for k=1,#currentList do
+					    User:inform(""..currentList[k])
+					end	
 				    if currentList == neededList then
 						deleteItem = bottleList[i]
 						break
