@@ -250,7 +250,8 @@ function GetItem(User, ingredientsList)
 				local bottleList = User:getItemList(neededId)
 				local currentList = {}
 				for i=1,#bottleList do
-				    if bottleList[i]:getData("filledWith")=="essenceBrew" then
+				    currentList = {}
+					if bottleList[i]:getData("filledWith")=="essenceBrew" then
 						for j=1,8 do
 							if bottleList[i]:getData("essenceHerb"..j) ~= "" then
 								table.insert(currentList,bottleList[i]:getData("essenceHerb"..j))
