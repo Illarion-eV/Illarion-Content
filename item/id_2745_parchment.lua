@@ -231,7 +231,7 @@ function GetItem(User, ingredientsList)
 				missingEn = "You don't have: empty bottle"
 			end	
 		else
-            local liquid, neededList = development.recipe_creation.StockEssenceList(ingredientsList[i])
+            local liquid, neededList = alchemy.base.recipe_creation.StockEssenceList(ingredientsList[i])
 			if liquid == "stock" then
 				local stockList = User:getItemList(164) 
 				for i=1,#stockList do
