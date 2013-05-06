@@ -210,7 +210,7 @@ function GetItem(User, ingredientsList)
 	    if string.find(ingredientsList[USER_POSITION_LIST[User.id]],"bottle") then
 		    local bottleList = User:getItemList(164) 
 				local bottleList = User:getItemList(164) 
-				if bottleList > 0 then	
+				if #bottleList > 0 then	
 					for i=1,#bottleList do
 						if not string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then -- first check for bottles without a label
 							deleteItem = bottleList[i]
