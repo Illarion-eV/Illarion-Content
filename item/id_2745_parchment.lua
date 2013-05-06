@@ -97,13 +97,13 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 				counter = counter + 1
 				if type(ingredientsList[i])=="string" then 
 					if string.find(ingredientsList[i],"bottle") then
-						dialog:addOption(164, getText(counter..". Abfüllen",counter..". Bottling"))
+						dialog:addOption(164, getText(User,counter..". Abfüllen",counter..". Bottling"))
 					else	
-						local liquid, liquidList = development.recipe_creation.StockEssenceList(ingredientsList[i])
+						local liquid, liquidList = alchemy.base.recipe_creation.StockEssenceList(ingredientsList[i])
 						if liquid == "stock" then
-							dialog:addOption(331, getText(counter..". Sud",counter..". Stock"))
+							dialog:addOption(331, getText(User,counter..". Sud",counter..". Stock"))
 						elseif liquid == "essence brew" then
-							dialog:addOption(liquidList[1], getText(counter..". Essenzgebräu",counter..". Essence brew"))
+							dialog:addOption(liquidList[1], getText(User,counter..". Essenzgebräu",counter..". Essence brew"))
 						end		
 					end
 				else
@@ -207,24 +207,31 @@ end
 function GetItem(User, ingredientsList)
     local deleteItem, deleteId, missingDe, missingEn
     if type(ingredientsList[USER_POSITION_LIST[User.id]])=="string" then 
-	    if string.find(ingredientsList[i],"bottle") then
-		    if (User:countItemAt("all",164,{}) > 0) then -- we have bottles with no datas at all
-			    deleteId = 164
-			else -- if no dataless bottles, we check if we have labeled bottles; they can be used, too. If a bottle has any othe datas, we dont use it. It could be a quest item.
+	    if string.find(ingredientsList[USER_POSITION_LIST[User.id]],"bottle") then
+		    local bottleList = User:getItemList(164) 
 				local bottleList = User:getItemList(164) 
-				for i=1,#bottleList do
-					if string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then 
-					    deleteItem = bottleList[i]
-						break
+				if #bottleList > 0 then	
+					for i=1,#bottleList do
+						if not string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then -- first check for bottles without a label
+							deleteItem = bottleList[i]
+							break
+						end
 					end
-				end
-			end
+					if not deleteItem then -- we havent found a bottle without a label; now we check for one with label
+						for i=1,#bottleList do
+							if not string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then -- first check for bottles without a label
+								deleteItem = bottleList[i]
+								break
+							end
+						end
+					end	
+				end	
 			if not (deleteItem or deleteId) then
 				missingDe = "Dir fehlt: leere Flasche"
 				missingEn = "You don't have: empty bottle"
 			end	
 		else
-            local liquid, neededList = development.recipe_creation.StockEssenceList(ingredientsList[i])
+            local liquid, neededList = alchemy.base.recipe_creation.StockEssenceList(ingredientsList[USER_POSITION_LIST[User.id]])
 			if liquid == "stock" then
 				local stockList = User:getItemList(164) 
 				for i=1,#stockList do
@@ -240,18 +247,27 @@ function GetItem(User, ingredientsList)
 				end
 			elseif liquid == "essence brew" then
 			    local neededId = table.remove(neededList,1)
+				User:inform("neededId: "..neededId)
 				local bottleList = User:getItemList(neededId)
+				local currentList = {}
+				for k=1,#neededList do
+					User:inform("needed: "..neededList[k])
+				end
 				for i=1,#bottleList do
-				    if bottleList[i]:getData("filledWith")=="essenceBrew" then
-						local currentList = {}
+				    currentList = {}
+					if bottleList[i]:getData("filledWith")=="essenceBrew" then
 						for j=1,8 do
 							if bottleList[i]:getData("essenceHerb"..j) ~= "" then
 								table.insert(currentList,bottleList[i]:getData("essenceHerb"..j))
 							end
 						end
-				    end   	
+					end
+					for k=1,#currentList do
+					    User:inform("current: "..currentList[k])
+					end	
 				    if currentList == neededList then
-					    deleteItem = bottleList[i]
+						User:inform("Nevermind that shit. Here comes Mongo.")
+						deleteItem = bottleList[i]
 						break
 					end
 				end
@@ -277,7 +293,7 @@ end
 
 function ViewRecipe(User, SourceItem)
     local ingredientsList = getIngredients(SourceItem)
-	development.recipe_creation.ShowRecipe(User, ingredientsList, true) 
+	alchemy.base.recipe_creation.ShowRecipe(User, ingredientsList, true) 
 end
 
 function getIngredients(SourceItem)
