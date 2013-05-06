@@ -247,6 +247,7 @@ function GetItem(User, ingredientsList)
 				end
 			elseif liquid == "essence brew" then
 			    local neededId = table.remove(neededList,1)
+				User:inform("neededId: "..neededId)
 				local bottleList = User:getItemList(neededId)
 				for i=1,#bottleList do
 				    if bottleList[i]:getData("filledWith")=="essenceBrew" then
@@ -256,11 +257,11 @@ function GetItem(User, ingredientsList)
 								table.insert(currentList,bottleList[i]:getData("essenceHerb"..j))
 							end
 						end
-				    end   	
-				    if currentList == neededList then
-					    deleteItem = bottleList[i]
-						break
-					end
+				    end
+				end
+				if currentList == neededList then
+					deleteItem = bottleList[i]
+					break
 				end
 				if not (deleteItem) then
 					missingDe = "Dir fehlt das entsprechende Essenzgebräu."
