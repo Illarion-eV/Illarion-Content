@@ -207,7 +207,7 @@ end
 function GetItem(User, ingredientsList)
     local deleteItem, deleteId, missingDe, missingEn
     if type(ingredientsList[USER_POSITION_LIST[User.id]])=="string" then 
-	    if string.find(ingredientsList[i],"bottle") then
+	    if string.find(ingredientsList[USER_POSITION_LIST[User.id],"bottle") then
 		    if (User:countItemAt("all",164,{}) > 0) then -- we have bottles with no datas at all
 			    deleteId = 164
 			else -- if no dataless bottles, we check if we have labeled bottles; they can be used, too. If a bottle has any othe datas, we dont use it. It could be a quest item.
