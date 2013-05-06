@@ -277,7 +277,7 @@ end
 
 function ViewRecipe(User, SourceItem)
     local ingredientsList = getIngredients(SourceItem)
-	development.recipe_creation.ShowRecipe(User, ingredientsList, true) 
+	alchemy.base.recipe_creation.ShowRecipe(User, ingredientsList, true) 
 end
 
 function getIngredients(SourceItem)
