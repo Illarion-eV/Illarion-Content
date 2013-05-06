@@ -247,12 +247,8 @@ function GetItem(User, ingredientsList)
 				end
 			elseif liquid == "essence brew" then
 			    local neededId = table.remove(neededList,1)
-				User:inform("neededId: "..neededId)
 				local bottleList = User:getItemList(neededId)
 				local currentList = {}
-				for k=1,#neededList do
-					User:inform("needed: "..neededList[k])
-				end
 				for i=1,#bottleList do
 				    currentList = {}
 					if bottleList[i]:getData("filledWith")=="essenceBrew" then
@@ -262,13 +258,21 @@ function GetItem(User, ingredientsList)
 							end
 						end
 					end
-					for k=1,#currentList do
-					    User:inform("current: "..currentList[k])
-					end	
-				    if currentList == neededList then
-						User:inform("Nevermind that shit. Here comes Mongo.")
-						deleteItem = bottleList[i]
-						break
+					if #currentList == #neededList then
+						if #currentList==0 then
+						    deleteItem = bottleList[i]
+							break
+						end	
+						local check = true
+						for k=1,#currentList do
+						    if not currentList[k]==neededList[k] then
+							    check = false
+								break
+							end
+						end
+						if check then
+							deleteItem = bottleList[i]
+						end	
 					end
 				end
 				if not (deleteItem) then
