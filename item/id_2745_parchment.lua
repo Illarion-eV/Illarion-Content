@@ -208,17 +208,24 @@ function GetItem(User, ingredientsList)
     local deleteItem, deleteId, missingDe, missingEn
     if type(ingredientsList[USER_POSITION_LIST[User.id]])=="string" then 
 	    if string.find(ingredientsList[USER_POSITION_LIST[User.id]],"bottle") then
-		    if (User:countItemAt("all",164,{}) > 0) then -- we have bottles with no datas at all
-			    deleteId = 164
-			else -- if no dataless bottles, we check if we have labeled bottles; they can be used, too. If a bottle has any othe datas, we dont use it. It could be a quest item.
+		    local bottleList = User:getItemList(164) 
 				local bottleList = User:getItemList(164) 
-				for i=1,#bottleList do
-					if string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then 
-					    deleteItem = bottleList[i]
-						break
+				if bottleList > 0 then	
+					for i=1,#bottleList do
+						if not string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then -- first check for bottles without a label
+							deleteItem = bottleList[i]
+							break
+						end
 					end
-				end
-			end
+					if not deleteItem then -- we havent found a bottle without a label; now we check for one with label
+						for i=1,#bottleList do
+							if not string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then -- first check for bottles without a label
+								deleteItem = bottleList[i]
+								break
+							end
+						end
+					end	
+				end	
 			if not (deleteItem or deleteId) then
 				missingDe = "Dir fehlt: leere Flasche"
 				missingEn = "You don't have: empty bottle"
