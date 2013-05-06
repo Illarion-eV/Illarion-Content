@@ -51,7 +51,7 @@ function BeginnBrewing(User,plantId,cauldron)
 	local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(plantId, User)
 	if isPlant then
 		BrewingPlant(User,plantId,cauldron)
-	elseif SourceItem.id == 157 then
+	elseif plantId == 157 then
 		BrewingFilter(User,cauldron)
 	end
  
