@@ -52,8 +52,8 @@ function FirstMenu(User, ingredientsList)
 end
 
 PLANT_CATS = {}
-PLANT_CATS["DE"] = {"Pilze"    ,"Beeren" ,"Blätter"}
-PLANT_CATS["EN"] = {"Mushrooms","Berries","Leaves"}
+PLANT_CATS["DE"] = {"Waldpflanzen"  ,"Wiesenpflanzen","Gebirgepflanzen","Wüstenpflanzen","Sumpfpflanzen","Wasserpflanzen","Schneepflanze","Multiterraten","Pilze"    ,"Agrarprodukte"}
+PLANT_CATS["EN"] = {"Forest plants" ,"Grass plants" ,"Mountain plants" ,"Desert plants" ,"Swamp plants" ,"Water plants"  ,"Snow plants"  ,"Multiterras"  ,"Mushrooms","Agricultural products"}
 
 function SelectPlantCategory(User, ingredientsList, currentEssenceList)
     local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
@@ -94,9 +94,16 @@ function SelectPlantCategory(User, ingredientsList, currentEssenceList)
 end
 
 PLANTS = {}
-PLANTS["Mushrooms"] = {158,159,160}
-PLANTS["Berries"]   = {142,143}
-PLANTS["Leaves"]    = {140,153,156}
+PLANTS["Forest plants"]         = {81 ,140,147,148,151,152,757,764,765,766,768}
+PLANTS["Grass plants"]          = {134,135,143,145,153,388,754,756,761}
+PLANTS["Mountain plants"]       = {141,144,752,755,758,762}
+PLANTS["Desert plants"]         = {137,142,146,156,199,769}
+PLANTS["Swamp plants"]          = {136,138,763}
+PLANTS["Water plants"]          = {155,767}
+PLANTS["Snow plants"]           = {760}
+PLANTS["Multiterras"]           = {15 ,80 ,133,149,157,302,753,759}
+PLANTS["Mushrooms"]             = {158,159,160,161,162,163}
+PLANTS["Agricultural products"] = {154,200,201,259,290,772,778,2493}
 
 function SelectPlant(User, ingredientsList, category, currentEssenceList)
     local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
