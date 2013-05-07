@@ -5,6 +5,7 @@
 require("gm.base.log")
 require("base.common")
 require("item.id_x_tinderbox")
+require("base.factions")
 
 module("gm.items.id_99_lockpicks", package.seeall)
 
@@ -150,11 +151,20 @@ function UseItem(User, SourceItem, ltstate)
 				return;
 			end
 			local chosenPlayer = players[dialog:getSelectedIndex()+1];
+      local factionInfo = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
+      factionInfo = factionInfo .. "\nChanged towns already (town count): " .. faction.towncnt;
+      if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
+        factionInfo = factionInfo .. "\nRank: " .. base.factions.townRanks[faction.tid][faction.rankTown].eRank .. "/" .. base.factions.townRanks[faction.tid][faction.rankTown].gRank;
+      else
+        factionInfo = factionInfo .. "\nRank: no rank " .. faction.rankTown;
+      end
+      factionInfo = factionInfo .. "\nExact rankpoints: " .. faction.rankpoints;
 			local mDialog = MessageDialog("Character Info for "..chosenPlayer.name, "HP: "..chosenPlayer:increaseAttrib("hitpoints", 0).." MP: "..chosenPlayer:increaseAttrib("mana", 0)..
 							"\nSTR: "..chosenPlayer:increaseAttrib("strength", 0).." CONST: "..chosenPlayer:increaseAttrib("constitution", 0).." DEX: "..chosenPlayer:increaseAttrib("dexterity", 0)..
 							"\nAGI: "..chosenPlayer:increaseAttrib("agility", 0).." WIL: "..chosenPlayer:increaseAttrib("willpower", 0).." PERC: "..chosenPlayer:increaseAttrib("perception", 0).." ESS: "..User:increaseAttrib("essence", 0)..
 							"\nMental Capacity: "..tostring(chosenPlayer:getMentalCapacity())..
-							"\nIdle for [s]: "..tostring(chosenPlayer:idleTime()), cbChoosePlayer)
+							"\nIdle for [s]: "..tostring(chosenPlayer:idleTime()) ..
+              "\n" .. factionInfo, cbChoosePlayer)
 			User:requestMessageDialog(mDialog)
 		end
 			--Dialog to choose the player
