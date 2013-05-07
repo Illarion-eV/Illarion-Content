@@ -151,6 +151,7 @@ function UseItem(User, SourceItem, ltstate)
 				return;
 			end
 			local chosenPlayer = players[dialog:getSelectedIndex()+1];
+      local faction = base.factions.getFaction(chosenPlayer);
       local factionInfo = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
       factionInfo = factionInfo .. "\nChanged towns already (town count): " .. faction.towncnt;
       if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
