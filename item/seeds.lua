@@ -100,34 +100,43 @@ function UseItem(User, SourceItem, ltstate)
 		base.common.TurnTo( User, TargetPos ); -- turn if necessary
 	end
   
-  -- should not stack plants on top of anything
-  if (world:isItemOnField(TargetPos)) then
-    base.common.HighInformNLS(User,
-    "Du kannst nur auf einem freien Feld Saatgut aussäen.",
-    "Sowing seeds is only possible at a free spot.");
-    return;
-  end
+	-- should not stack plants on top of anything
+	if (world:isItemOnField(TargetPos)) then
+		base.common.HighInformNLS(User,
+		"Du kannst nur auf einem freien Feld Saatgut aussäen.",
+		"Sowing seeds is only possible at a free spot.");
+		return;
+	end
 	
   -- only on farm land
 	local Field = world:getField( TargetPos )
-  local groundType = base.common.GetGroundType( Field:tile() );
-  if ( groundType ~= 1 ) then
-    base.common.HighInformNLS(User,
-    "Du kannst nur auf Ackerboden Saatgut aussäen.",
-    "Sowing seeds is only possible on farm land.");
-    return
-  end
+	local groundType = base.common.GetGroundType( Field:tile() );
+	if ( groundType ~= 1 ) then
+		base.common.HighInformNLS(User,
+			"Du kannst nur auf Ackerboden Saatgut aussäen.",
+		"Sowing seeds is only possible on farm land.");
+		return
+	end
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
 		User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
     -- this is no batch action => no emote message, only inform player
 		if farming.SavedWorkTime[User.id] > 15 then
-      base.common.InformNLS(User,
-      "Du säst Saatgut aus.",
-      "You sow seeds.");
-    end
+			base.common.InformNLS(User, "Du säst Saatgut aus.","You sow seeds.");
+		end
 		return
+	end
+	
+	local nextField = getFreeFieldPosition(User);
+	if (nextField~=nil) then  -- there are still seeds to be sown
+		base.common.TurnTo( User, nextField); -- turn
+		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
+		User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
+    else
+      base.common.HighInformNLS( User, 
+      "Es ist kein Feld mehr frei wo du etwas säen könntest.", 
+      "There is no field left where you could sow something." );
 	end
 
 	-- since we're here, we're working
