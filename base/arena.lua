@@ -46,6 +46,8 @@ function requestMonster(User, NPC)
 		local index = dialog:getSelectedIndex()+1;
 		local arena = getArena(User, NPC);
 		local paid = payforMonster(User, index, NPC)
+		local priceInCP;
+		local germanMoney, englishMoney;
 		
 		if paid then
 			if arenaInformations[arena].playerPos ~= nil then
@@ -66,13 +68,17 @@ function requestMonster(User, NPC)
 		sdMonster = SelectionDialog("Monsterlevel", "Wählt ein Monsterlevel gegen das Ihr kämpfen möchtet:", cbChooseLevel);
 		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
-			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkt(e))");
+			priceInCP = i * 1000;
+			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
+			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkt(e)) -"..englishMoney);
 		end
 	else
 		sdMonster = SelectionDialog("Monsterlevel", "Plaese choose a monsterlevel you wish to fight against:", cbChooseLevel);
 		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
-			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." point(s))");
+			priceInCP = i * 1000;
+			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
+			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." point(s)) -"..germanMoney);
 		end
 	end	
 	User:requestSelectionDialog(sdMonster);
