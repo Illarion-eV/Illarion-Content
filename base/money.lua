@@ -469,8 +469,12 @@ function MoneyToString(money)
 	local gstring = " ";
 	
 	if gp ~= 0 then -- at least one gold coin
-		estring = estring..gp.." gold coins";
-		gstring = gstring..gp.." Goldstücke";
+		estring = estring..gp.." gold coin";
+		gstring = gstring..gp.." Goldstück";
+		if gp > 1 then
+			estring = estring.."s";
+			gstring = gstring.."e";
+		end
 		if sp ~= 0 and cp ~= 0 then
 			estring = estring..", ";
 			gstring = gstring..", ";
@@ -481,8 +485,12 @@ function MoneyToString(money)
 	end
 	
 	if sp ~= 0 then -- at least one silver coin
-		estring = estring..sp.." silver coins";
-		gstring = gstring..sp.." Silberstücke";	
+		estring = estring..sp.." silver coin";
+		gstring = gstring..sp.." Silberstück";
+		if sp > 1 then
+			estring = estring.."s";
+			gstring = gstring.."e";
+		end		
 		if cp ~= 0 then
 			estring = estring.." and ";
 			gstring = gstring.." und ";
@@ -490,8 +498,12 @@ function MoneyToString(money)
 	end
 	
 	if cp ~= 0 then -- at least one copper coin
-		estring = estring..cp.." copper coins";
-		gstring = gstring..cp.." Kupferstücke";
+		estring = estring..cp.." copper coin";
+		gstring = gstring..cp.." Kupferstück";
+		if cp > 1 then
+			estring = estring.."s";
+			gstring = gstring.."e";
+		end	
 	end
 
     return gstring, estring;
