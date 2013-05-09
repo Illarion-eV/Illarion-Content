@@ -115,6 +115,7 @@ function spawnMonster(User, MonsterLevel, arena)
 	if isValidChar(monster) then
 		table.insert( arenaMonster[User.id], monster );
     end
+	monster.movepoints = 0;
 end
 
 function checkMonster(User)
