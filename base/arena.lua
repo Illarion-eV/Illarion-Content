@@ -2,7 +2,7 @@
 Script for the arena managers. Purpose: money sink, fame and glory
 
 Players can buy monsters to fight against. Depending on the monster strength, the price rises.
-For every defeated monster the player gets points (corresponding to the monsters strenght). 
+For every defeated monster the player gets points (corresponding to the monsters strength). 
 Monsters drop no loot. It is all only for the sake of fame and glory.
 
 The arena manager holds a list of the top ten players. Players from other factions can fight too, to
@@ -22,7 +22,7 @@ Level 3: Easy monsters award 3 points
 Level 4: Semistrong monsters award 5 points
 Level 5: Strong monster award 8 points
 Level 6: Really strong monsters award 13 points
-Level 7: Monsters for really, really good fighters 'heros' award 20 points
+Level 7: Monsters for really, really good fighters 'heroes' award 20 points
 ]]
 monsterIDsByLevel = {
 	{monsters = {991, 271, 1051, 582, 1071}, points = 1},
@@ -75,7 +75,7 @@ function requestMonster(User, NPC)
 			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkte) -"..germanMoney);
 		end
 	else
-		sdMonster = SelectionDialog("Monsterlevel", "Plaese choose a monsterlevel you wish to fight against:", cbChooseLevel);
+		sdMonster = SelectionDialog("Monsterlevel", "Plaese choose a monster level you wish to fight against:", cbChooseLevel);
 		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
 			priceInCP = i * priceBase;
@@ -190,7 +190,7 @@ function getRanklist(User, arena, message)
 		if found then
 			arenaList = sortTable(base.common.split(arenaEntry, ";"));
 		elseif found == false or table.getn(arenaList) ~= 10 then
-			User:inform("[ERROR] An error occured please contact a developer.")
+			User:inform("[ERROR] An error has occurred, please contact a developer.")
 		end
 	end
 	
@@ -230,7 +230,7 @@ function setRanklist(User, arena, points)
 	local town = arenaInformations[arena].town;
 	local quest = arenaInformations[arena].quest;
 	local newRanklist = {};
-	local arenaListName = "ArenaList"..town;
+	local arenaListName = "Arena List"..town;
 	local userInList, position = isUserInList(User, ranklist);
 
 	if tonumber(ranklist[table.getn(ranklist)]) > points then
@@ -274,7 +274,7 @@ function getArenastats(User, NPC)
 	local points = User:getQuestProgress(quest);
 	
 	gText="Ihr habt bereits "..points.." gesammelt. Weiter so!";
-	eText="You already earned "..points.." points. Keep it up!";
+	eText="You have already earnt "..points.." points. Keep it up!";
 	outText=base.common.GetNLS(User,gText,eText);
     NPC:talk(Character.say, outText);
 end
