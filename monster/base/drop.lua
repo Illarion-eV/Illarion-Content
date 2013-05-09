@@ -346,9 +346,6 @@ function CastHealing( Caster, rndTry, HealAmmount, Range, Effect, AP )
 
     other_monsters[ selected_monster ].movepoints = other_monsters[ selected_monster ].movepoints - AP;
 
-    base.common.TalkNLS(Caster, Character.say,
-    "#me murmelt eine mystische Formel und wird von einem warmen Leuchten umgeben.",
-    "#me mumbles a mystical formula and gets surrounded by a warm glowing.");
     return true;
 end
 
