@@ -38,7 +38,7 @@ arenaInformations = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPo
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Runewick", quest=802}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Galmair", quest=803}}
 					
-priceBase = 10000;
+priceBase = 9500;
 
 function requestMonster(User, NPC) 
 	local cbChooseLevel = function (dialog)
@@ -72,7 +72,7 @@ function requestMonster(User, NPC)
 		for i=1, #(monsterIDsByLevel) do
 			priceInCP = i * priceBase;
 			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
-			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkt(e)) -"..englishMoney);
+			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkte) -"..germanMoney);
 		end
 	else
 		sdMonster = SelectionDialog("Monsterlevel", "Plaese choose a monsterlevel you wish to fight against:", cbChooseLevel);
@@ -80,7 +80,7 @@ function requestMonster(User, NPC)
 		for i=1, #(monsterIDsByLevel) do
 			priceInCP = i * priceBase;
 			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
-			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." point(s)) -"..germanMoney);
+			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." points) -"..englishMoney);
 		end
 	end	
 	User:requestSelectionDialog(sdMonster);
