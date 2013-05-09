@@ -111,13 +111,11 @@ function spawnMonster(User, MonsterLevel, arena)
 	
     local monster;
 	world:gfx(31,arenaInformations[arena].monsterPos);
-	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformations[arena].monsterPos,10);
+	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformations[arena].monsterPos,0);
 	if isValidChar(monster) then
 		table.insert( arenaMonster[User.id], monster );
     end
-	for i=0, i < 1000 do --delay
-		monster.movepoints = 0;
-	end
+
 end
 
 function checkMonster(User)
