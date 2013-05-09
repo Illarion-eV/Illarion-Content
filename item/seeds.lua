@@ -129,14 +129,10 @@ function UseItem(User, SourceItem, ltstate)
 	end
 	
 	local nextField = getFreeFieldPosition(User);
-	if (nextField~=nil) then  -- there are still seeds to be sown
+	if (nextField~=nil) then  -- there are still free fields
 		base.common.TurnTo( User, nextField); -- turn
 		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
 		User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
-    else
-      base.common.HighInformNLS( User, 
-      "Es ist kein Feld mehr frei wo du etwas säen könntest.", 
-      "There is no field left where you could sow something." );
 	end
 
 	-- since we're here, we're working
