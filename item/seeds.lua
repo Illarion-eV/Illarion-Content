@@ -66,8 +66,7 @@ function UseItem(User, SourceItem, ltstate)
         return;
     end
 	
-	-- is the target position needed?
-	local TargetPos = base.common.GetFrontPosition(User);
+	local TargetPos = getFreeFieldPosition(User);
 
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
@@ -150,6 +149,33 @@ function UseItem(User, SourceItem, ltstate)
   end
 	world:createItemFromId( seedPlantList[SourceItem.id], 1, TargetPos, true, 333 ,{["amount"] = "" .. amount});
 	world:erase( SourceItem, 1 ); -- erase the seed
+end
+
+
+-- gets the free position for seeds
+function getFreeFieldPosition(User)
+	local frontField = base.common.GetFrontPosition(User);
+	local field = world:getField(frontField);
+	local groundType = base.common.GetGroundType(field:tile());
+	local itemOnField = world:isItemOnField(frontField);
+	
+	if not itemOnField and groundType == 1 then
+		return frontField;
+	end
+	local Radius = 1;
+	for x=-Radius,Radius do
+		for y=-Radius,Radius do 
+			local checkPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
+			if not world:isItemOnField(checkPos) then
+				field = world:getField(checkPos);
+				groundType = base.common.GetGroundType(field:tile())
+				if groundType == 1 then
+					return checkPos;
+				end
+			end
+		end
+	end
+	return nil;
 end
 
 -- some plants rot to seeds again, those have a different data value
