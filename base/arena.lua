@@ -264,6 +264,7 @@ function setRanklist(User, arena, points)
 	else
 		stringList = User.name..";"..points
 		ScriptVars:set(arenaListName, stringList)
+	end
 end
 
 function isUserInList(User, ranklist)
