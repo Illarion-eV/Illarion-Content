@@ -1,7 +1,18 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Dale Daeon                                               Cadomyr --
+-- NPC Job:  Arena Master                                                     --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  258, 663, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Lillian                                                          --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
 name = "Dale Daeon"
 race = human
 sex = male
-position = 258, 663, 0
+position = 263, 664, 0
 direction = south
 affiliation = "Cadomyr"
 job = "Arena Master"
@@ -9,6 +20,7 @@ job = "Arena Master"
 language = common
 language = human
 defaultLanguage = common
+autointroduce = on
 
 author = "Lillian"
 
@@ -37,9 +49,9 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Arenameister Dale Daeon. Schlüsselwörter: Hallo, Monster, Kämpfen, Rangliste, Punkte.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail! Time to prove yourself in the Arena of Cadomyr!" , "Greetings! Just get your sword and prove your strength against my beasts!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail! Time to prove yourself in the Arena of Cadomyr!", "Greetings! Just get your sword and prove your strength against my beasts!"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt! Es ist Zeit das ihr euch in der Arena von Cadoymr beweist!", "Grüße! Nehmt einfach euer Schwert und beweist euch gegen meine Biester!"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail! Time to prove yourself in the arena of Cadomyr!" , "Greetings! Just get your sword and prove your strength against my beasts!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail! Time to prove yourself in the arena of Cadomyr!", "Greetings! Just get your sword and prove your strength against my beasts!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt! Es ist Zeit das ihr euch in der Arena von Cadoymr beweist!", "Grüße! Nehmt einfach euer Schwert und beweist euch gegen meine Biester!"
 "Farewell", "Bye", "Fare well", "See you" -> "Go with pride in your heart, soldier!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehet mit Stolz im Herzen, Soldat!"
@@ -75,18 +87,18 @@ english, "Cadomyr" -> "Cadomyr is the only town I like to spend my time. People 
 "geschichte", "erzähl was", "erzähl etwas" -> "Schreibt eure eigene Geschichte indem ihr in meiner Arena kämpft."
 
 -- arena phrases
-town = cadomyr, "fight" -> "What beast would you like to fight against today?", request
-town = cadomyr, "kämpfen" -> "Gegen welches Biest wollt ihr heute kämpfen?", request
-town = cadomyr, "points" -> "#me looks at his list.", points
-town = cadomyr, "punkte" -> "#me schaut auf seine Liste.", points
+town = Cadomyr, "fight" -> "What beast would you like to fight against today?"
+town = Cadomyr, "kämpfen" -> "Gegen welches Biest wollt ihr heute kämpfen?"
+town = Cadomyr, "points" -> "#me looks at his list."
+town = Cadomyr, "punkte" -> "#me schaut auf seine Liste."
 "fight" -> "Only citizens of Cadomyr are allowed to fight here and prove their strength."
 "kämpfen" -> "Nur Bürger Cadomyrs dürfen hier kämpfen und ihre Kraft beweisen."
 "points" -> "As I see it, you do not belong to Cadomyr. I will not find you on my list then."
 "punkte" -> "Ihr gehört nicht zu Cadomyr wie ich sehe. Ihr werdet also auch nicht auf meiner Liste stehen."
-"ranklist" -> "#me shows you a piece of parchment, 'Look for yourself who the best ones are here.'", list
-"rangliste" -> "#me zeigt dir ein Stück Pergament: 'Seht für euch selbst wer die Besten hier sind.'", list
+"ranklist" -> "#me shows you a piece of parchment, 'Look for yourself who the best ones are here.'"
+"rangliste" -> "#me zeigt dir ein Stück Pergament: 'Seht für euch selbst wer die Besten hier sind.'"
 
---monster informations
+-- monster informations
 english, "beast", "monster" -> "There are several beasts roaming the lands as you might now. I found and captured a few for you to fight against."
 "biest", "monster" -> "Es gibt viele Biester die das Land durchstreifen, wie ihr sicher wisst. Ich habe ein paar gefunden und gefangen, damit ihr gegen sie kämpfen könnt."
 english, "dog", "wolves", "wolf" -> "Those four legged, furry creatures are quite easy to defeat with a sharp sword."
@@ -106,6 +118,6 @@ cycletext "Nieder mit den Feiglingen aus Galmair und Runewick!", "Down with the 
 cycletext "Für die Ehre des Ordens der Silberdragon und die alten Sitten streite ich.", "I fight for the honour of the Order of the Silver Dragon and the old customs."
 cycletext "Es ist nicht die Zeit der Worte, sondern die der Taten. Beweist euch gegen meine Biester!", "It is not the time for talk, but for deeds. Prove yourself against my beasts!"
 cycletext "#me hält sein reich verziehrtes Schwert fest in der Hand und schwingt es durch die Luft.", "#me holds his ornate sword firmly with one hand, swinging it idly through the air."
-cycletext "#me schreibt einige Worte ein in Leder einbebundenes Buch.","#me writes some words into a leather covered book."
+cycletext "#me schreibt einige Worte ein in Leder einbebundenes Buch.", "#me writes some words into a leather covered book."
 cycletext "Wir leben in merkwürdigen Zeiten...", "Strange times we live in..."
 cycletext "Bei Brágons heiligem Blut!", "By the holy blood of Brágon!"
