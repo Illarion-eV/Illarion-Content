@@ -184,14 +184,12 @@ function getRanklist(User, arena, message)
 	local list = " ";
 	local place = 2;
 	local arenaListName = "ArenaList"..town;
-	
-	for i=1, 5 do  -- get the top 5
-		found, arenaEntry = ScriptVars:find(arenaListName);
-		if found then
-			arenaList = sortTable(base.common.split(arenaEntry, ";"));
-		elseif found == false or table.getn(arenaList) ~= 10 then
-			User:inform("[ERROR] An error has occurred, please contact a developer.")
-		end
+	  
+	found, arenaEntry = ScriptVars:find(arenaListName); -- get the top 5
+	if found and arenaEntry ~= nil then
+		arenaList = sortTable(base.common.split(arenaEntry, ";"));
+	elseif found == false or table.getn(arenaList) ~= 10 then
+		User:inform(base.common.GetNLS(User, "Niemand hat hier bisher gekämpft.","No one fought here yet."));
 	end
 	
 	if message then
