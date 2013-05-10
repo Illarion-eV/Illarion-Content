@@ -186,37 +186,41 @@ function getRanklist(User, arena, message)
 	local arenaListName = "ArenaList"..town;
 	  
 	found, arenaEntry = ScriptVars:find(arenaListName); -- get the top 5
-	if found and arenaEntry ~= nil then
+	if found then
 		arenaList = sortTable(base.common.split(arenaEntry, ";"));
-	elseif found == false or table.getn(arenaList) ~= 10 or arenaEntry == nil then
+	elseif found == false or table.getn(arenaList) ~= 10 then
 		User:inform(base.common.GetNLS(User, "Niemand hat hier bisher gekämpft.","No one fought here yet."));
 		return;
 	end
 	
-	if message then
-		local mdList = function(dialog)
-			if (not dialog:getSuccess()) then
-				return;
+	if arenaList ~= nil then
+		if message then
+			local mdList = function(dialog)
+				if (not dialog:getSuccess()) then
+					return;
+				end
 			end
-		end
-		if User:getPlayerLanguage() == 0 then
-			list = "Platz 1: "..arenaList[1].." mit "..arenaList[2].." Punkten.\n";
-			for i=3,#(arenaList),2 do
-				list = list.."Platz "..place.." : "..arenaList[i].." mit "..arenaList[i+1].." Punkten.\n";
-				place = place +1;
+			if User:getPlayerLanguage() == 0 then
+				list = "Platz 1: "..arenaList[1].." mit "..arenaList[2].." Punkten.\n";
+				for i=3,#(arenaList),2 do
+					list = list.."Platz "..place.." : "..arenaList[i].." mit "..arenaList[i+1].." Punkten.\n";
+					place = place +1;
+				end
+				mdList = MessageDialog("Top Fünf Kämpfer des Reiches", list, nil);			
+			else
+				list = "Place 1: "..arenaList[1].." with "..arenaList[2].." points.\n";
+				for i=3, #(arenaList),2 do
+					list = list.."Place "..place.." : "..arenaList[i].." with "..arenaList[i+1].." points.\n";
+					place = place +1;
+				end
+				mdList = MessageDialog("Top five fighters of the realm", list, nil);
 			end
-			mdList = MessageDialog("Top Fünf Kämpfer des Reiches", list, nil);			
+			User:requestMessageDialog(mdList);
 		else
-			list = "Place 1: "..arenaList[1].." with "..arenaList[2].." points.\n";
-			for i=3, #(arenaList),2 do
-				list = list.."Place "..place.." : "..arenaList[i].." with "..arenaList[i+1].." points.\n";
-				place = place +1;
-			end
-			mdList = MessageDialog("Top five fighters of the realm", list, nil);
+			return arenaList;
 		end
-		User:requestMessageDialog(mdList);
 	else
-		return arenaList;
+		return;
 	end
 end
 

@@ -10,7 +10,7 @@ function UseItem(User, SourceItem, ltstate)
 	User:inform("Used!")
 
 	if(User.lastSpokenText == "del") then
-		ScriptVars:set("ArenaListCadomyr", "")
+		ScriptVars:set("ArenaListCadomyr", nil)
 	end
 	
 	if(User.lastSpokenText == "deldata") then
