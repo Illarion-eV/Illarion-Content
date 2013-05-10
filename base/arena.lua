@@ -188,7 +188,7 @@ function getRanklist(User, arena, message)
 	found, arenaEntry = ScriptVars:find(arenaListName); -- get the top 5
 	if found then
 		arenaList = sortTable(base.common.split(arenaEntry, ";"));
-	elseif found == false 
+	else
 		User:inform("[ERROR] An error has occurred, please contact a developer.")
 		return;
 	end
