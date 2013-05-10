@@ -67,6 +67,9 @@ function UseItem(User, SourceItem, ltstate)
     end
 	
 	local TargetPos = getFreeFieldPosition(User);
+	if TargetPos == nil then	
+		TargetPos = base.common.GetFrontPosition(User);
+	end
 
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
@@ -180,7 +183,7 @@ function getFreeFieldPosition(User)
 			end
 		end
 	end
-	return nil;
+	return;
 end
 
 -- some plants rot to seeds again, those have a different data value
