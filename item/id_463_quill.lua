@@ -8,14 +8,6 @@ module("item.id_463_quill", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
     
-	-- we check if the char holds a bottle to label it
-	local bottle = CheckIfBottleInHand(User)
-	if bottle then 
-		WriteLabel(User,SourceItem)
-	end
-	return
-    
-	
 	if SourceItem.itempos ~= 5 and SourceItem.itempos ~= 6 then
 	    User:inform("Du musst die Schreibfeder in der Hand halten.","You have to hold the quill in your hand.",Character.lowPriority)
 		return
