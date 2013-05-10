@@ -188,8 +188,9 @@ function getRanklist(User, arena, message)
 	found, arenaEntry = ScriptVars:find(arenaListName); -- get the top 5
 	if found and arenaEntry ~= nil then
 		arenaList = sortTable(base.common.split(arenaEntry, ";"));
-	elseif found == false or table.getn(arenaList) ~= 10 then
+	elseif found == false or table.getn(arenaList) ~= 10 or arenaEntry == nil then
 		User:inform(base.common.GetNLS(User, "Niemand hat hier bisher gekämpft.","No one fought here yet."));
+		return;
 	end
 	
 	if message then
