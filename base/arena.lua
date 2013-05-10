@@ -193,7 +193,7 @@ function getRanklist(User, arena, message)
 		return;
 	end
 	
-	if arenaEntry == "" or arenaEntry == nil then
+	if (arenaEntry == "" or arenaEntry == nil) and message then
 		User:inform(base.common.GetNLS(User, "Niemand hat hier bisher gekämpft.","No one fought here yet."));
 		return;
 	end
