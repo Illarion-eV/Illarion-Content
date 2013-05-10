@@ -188,7 +188,7 @@ function getRanklist(User, arena, message)
 	found, arenaEntry = ScriptVars:find(arenaListName); -- get the top 5
 	if found then
 		arenaList = sortTable(base.common.split(arenaEntry, ";"));
-	elseif found == false then
+	elseif found == false or arenaEntry == "" then
 		User:inform(base.common.GetNLS(User, "Niemand hat hier bisher gekämpft.","No one fought here yet."));
 		return;
 	end
@@ -237,7 +237,7 @@ function setRanklist(User, arena, points)
 	local arenaListName = "ArenaList"..town;
 	local userInList, position = isUserInList(User, ranklist);
 
-	if table.getn(ranklist) ~= 0 or ranklist ~= nil then
+	if tonumber(ranklist[table.getn(ranklist)]) ~= nil then
 		if tonumber(ranklist[table.getn(ranklist)]) > points then
 			return;
 		else
