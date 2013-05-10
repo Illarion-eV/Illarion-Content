@@ -5,6 +5,7 @@
 require("gm.base.log")
 require("base.common")
 require("item.id_x_tinderbox")
+require("base.factions")
 
 module("gm.items.id_99_lockpicks", package.seeall)
 
@@ -15,26 +16,42 @@ itemPos[0] = "Backpack"
 
 Location={};
 Coordina={};
-Location[1]="Cadomyr Market";
-Coordina[1]={130,600,0};
-Location[2]="Galmair Castle";
-Coordina[2]={360,230,0};
-Location[3]="Galmair Town";
-Coordina[3]={400,250,0};
-Location[4]="Galmair South";
-Coordina[4]={400,355,0};
-Location[5]="Runewick Bridge";
-Coordina[5]={844,822,0};
-Location[6] = "Cadomyr Throne";
-Coordina[6] = {120,545,0};
-Location[7] = "Cadomyr Mine";
-Coordina[7] = {130,700,0};
-Location[8] = "Arena";
-Coordina[8] = {600,400,0};
-Location[9]="Runewick Market";
-Coordina[9]={900,800,1};
-Location[10]="Poker";
+Location[1]="GM Castle";
+Coordina[1]={250,100,0};
+Location[2]="Hemp Necktie Inn";
+Coordina[2]={690,320,0};
+Location[3]="Cadomyr Palace of Her Majesty";
+Coordina[3]={122,521,0};
+Location[4]="Cadomyr Market";
+Coordina[4]={130,600,0};
+Location[5]="Galmair Crest";
+Coordina[5]={337,215,0};
+Location[6]="Galmair Town";
+Coordina[6]={400,250,0};
+Location[7]="Runewick Hall of Elara";
+Coordina[7]={898,775,2};
+Location[8]="Runewick Market";
+Coordina[8]={900,800,1};
+Location[9]="Cadomyr Cornerstone of Candour";
+Coordina[9]={130,700,0};
+Location[10]="Cadomyr Liberty Quarry";
+Coordina[10]={170,620,0};
+Location[11]="Cadomyr Blood Circle Arena";
+Coordina[11]={258,668,0};
+Location[10]="Galmair Balckhole Mine";
+Coordina[10]={338,157,-3};
+Location[12]="Galmair Malachite Mine";
+Coordina[12]={400,355,0};
+Location[10]="Galmair Game Room";
 Coordina[10]={250,290,-5};
+Location[13]="Runewick Yewdale";
+Coordina[13]={750,810,0};
+Location[14]="Runewick Lurnord Bridge";
+Coordina[14]={844,822,0};
+
+
+
+
 
 skillNames = {Character.alchemy,Character.carpentry,Character.concussionWeapons,Character.cookingAndBaking,Character.distanceWeapons,Character.dodge,
 			Character.farming,Character.firingBricks,Character.fishing,Character.flute,Character.gemcutting,Character.glassBlowing,Character.goldsmithing,
@@ -121,7 +138,7 @@ function UseItem(User, SourceItem, ltstate)
 		User:requestSelectionDialog(sdTeleport);
 		
 	elseif (SourceItem:getData("mode")=="Char Info") then
-		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
+		local playersTmp = world:getPlayersInRangeOf(User.pos, 7);
 		local players = {User};
 		for _,player in pairs(playersTmp) do 
 			if (player.id ~= User.id) then 
@@ -134,11 +151,21 @@ function UseItem(User, SourceItem, ltstate)
 				return;
 			end
 			local chosenPlayer = players[dialog:getSelectedIndex()+1];
+      local faction = base.factions.getFaction(chosenPlayer);
+      local factionInfo = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
+      factionInfo = factionInfo .. "\nChanged towns already (town count): " .. faction.towncnt;
+      if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
+        factionInfo = factionInfo .. "\nRank: " .. base.factions.townRanks[faction.tid][faction.rankTown].eRank .. "/" .. base.factions.townRanks[faction.tid][faction.rankTown].gRank;
+      else
+        factionInfo = factionInfo .. "\nRank: no rank " .. faction.rankTown;
+      end
+      factionInfo = factionInfo .. "\nExact rankpoints: " .. faction.rankpoints;
 			local mDialog = MessageDialog("Character Info for "..chosenPlayer.name, "HP: "..chosenPlayer:increaseAttrib("hitpoints", 0).." MP: "..chosenPlayer:increaseAttrib("mana", 0)..
 							"\nSTR: "..chosenPlayer:increaseAttrib("strength", 0).." CONST: "..chosenPlayer:increaseAttrib("constitution", 0).." DEX: "..chosenPlayer:increaseAttrib("dexterity", 0)..
 							"\nAGI: "..chosenPlayer:increaseAttrib("agility", 0).." WIL: "..chosenPlayer:increaseAttrib("willpower", 0).." PERC: "..chosenPlayer:increaseAttrib("perception", 0).." ESS: "..User:increaseAttrib("essence", 0)..
 							"\nMental Capacity: "..tostring(chosenPlayer:getMentalCapacity())..
-							"\nIdle for [s]: "..tostring(chosenPlayer:idleTime()), cbChoosePlayer)
+							"\nIdle for [s]: "..tostring(chosenPlayer:idleTime()) ..
+              "\n" .. factionInfo, cbChoosePlayer)
 			User:requestMessageDialog(mDialog)
 		end
 			--Dialog to choose the player

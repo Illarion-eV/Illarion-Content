@@ -161,7 +161,7 @@ talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addResponse("I'm fine. And you? How are you?");
-talkEntry:addResponse("I am happy. I'm always happy, except for the times then I'm sad.");
+talkEntry:addResponse("I am happy. I'm always happy, except for the times when I'm sad.");
 talkEntry:addResponse("I have no reason to complain. I'm fine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -399,7 +399,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("jakob");
 talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
-talkEntry:addResponse("Ah Jakob send you but you already ask me for something to do.");
+talkEntry:addResponse("Ah Jakob sent you, but you have already asked me for something to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -424,7 +424,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 6));
-talkEntry:addResponse("Ah Jakob send you but you already ask me for something to do.");
+talkEntry:addResponse("Ah Jakob sent you, but you have already asked me for something to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

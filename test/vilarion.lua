@@ -71,6 +71,10 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, ltstate)
+    if User.lastSpokenText == "itemtype" then
+         User:inform(type(Item))
+    end
+    
     if User.lastSpokenText == "setglobal" then
         User:inform("Player.english: " .. Player.english)
         Player.english = 42

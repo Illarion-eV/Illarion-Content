@@ -1,58 +1,34 @@
-require("development.recipe_creation")
+
 require("alchemy.base.brewing")
 
 -- UPDATE common SET com_script = 'test.merung' WHERE com_itemid = 1266;
 
 module("test.merung", package.seeall)
 
+HERB_LIST={15,80,154,200,201,259,290,302,772,778,2493,138,146,152,754,755,756,757,758,760,761,762,764,765,766,768,769,81,133,134,135,136,137,140,141,142,143,144,145,147,148,149,151,153,155,156,158,159,160,161,162,163,199,388,752,753,759,763,767}
+ 
+ 
+ 
+ 
 function UseItem(User, SourceItem,ltstate)
-	User:increaseAttrib("essence",30)
-	--development.recipe_creation.FirstMenu(User, ingredientsList)
-	User:teachMagic(3,0)
-	User:setMagicType(0)
-	User:setQuestProgress(350,0)
-	User:setQuestProgress(351,0)
-	User:setQuestProgress(352,0)
+    if User.lastSpokenText == "alchemist" then
+	    User:setMagicType(3)
+		User:increaseAttrib("essence",30)
+	    User:inform("You are now an alchemist.")
+		return
+	end
 	
-	User:inform(""..User:getQuestProgress(350))
-	User:inform(""..User:getQuestProgress(351))
-	User:inform(""..User:getQuestProgress(352))
-	User:inform(""..User:getMagicType())
-	User:inform(""..User:getMagicFlags(0))
-	
-	
-	--[[
-	if User.lastSpokenText == "rezept" then
-		if SourceItem:getType()==4 then
-			if SourceItem.itempos == 5 or SourceItem.itempos == 6 then
-				development.recipe_creation.FirstMenu(User, ingredientsList)
-			else
-				User:inform("Du musst ihn in die Hand nehmen","You have to hold it in your hands")
-			end
-		else
-			User:inform("Du musst ihn in die Hand nehmen","You have to hold it in your hands")
-		end	
-	end	
-	
-	if User.lastSpokenText == "brau" then
-		theItem = User:getItemAt(5)
-	    if theItem.id == 0 then
-            return
-        end
-		if (ltstate == Action.none) then
-		   User:startAction(50,21,5,15,25);
-		   return
-	    end
-		if ( ltstate == Action.abort ) then
-		    User:inform("Nevermind that shit. Here comes Mongo")
-	        return
-	    end
-		alchemy.base.brewing.UseItem(User, theItem)
-	end	
-    ]]        		
-	
+	if User.lastSpokenText == "herbs" then
+	    --
+		for i=1,#HERB_LIST do
+		    User:createItem(HERB_LIST[i],20,333,nil)
+		end
+	end
 	
 end
+
+
+
 
 function LookAtItem(player, item)
     

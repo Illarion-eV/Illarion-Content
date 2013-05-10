@@ -2,7 +2,7 @@
 Script for the arena managers. Purpose: money sink, fame and glory
 
 Players can buy monsters to fight against. Depending on the monster strength, the price rises.
-For every defeated monster the player gets points (corresponding to the monsters strenght). 
+For every defeated monster the player gets points (corresponding to the monsters strength). 
 Monsters drop no loot. It is all only for the sake of fame and glory.
 
 The arena manager holds a list of the top ten players. Players from other factions can fight too, to
@@ -13,7 +13,7 @@ author: Lillian
 ]]
 require("base.money")
 
-module("development.arena.base.arena", package.seeall)
+module("base.arena", package.seeall)
 
 --[[
 Level 1: Annoying monsters award 1 point
@@ -22,7 +22,7 @@ Level 3: Easy monsters award 3 points
 Level 4: Semistrong monsters award 5 points
 Level 5: Strong monster award 8 points
 Level 6: Really strong monsters award 13 points
-Level 7: Monsters for really, really good fighters 'heros' award 20 points
+Level 7: Monsters for really, really good fighters 'heroes' award 20 points
 ]]
 monsterIDsByLevel = {
 	{monsters = {991, 271, 1051, 582, 1071}, points = 1},
@@ -34,9 +34,11 @@ monsterIDsByLevel = {
 	{monsters = {534, 124, 562, 661, 853}, points = 20}
 }
 
-arenaInformations = {{playerPos=position(10,1,0), monsterPos=position(1,10,0), newPlayerPos=position(10,10,0), npcName="Repair Man", town="Cadomyr", quest=801}, 
+arenaInformations = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Runewick", quest=802}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Galmair", quest=803}}
+					
+priceBase = 10000;
 
 function requestMonster(User, NPC) 
 	local cbChooseLevel = function (dialog)
@@ -46,34 +48,46 @@ function requestMonster(User, NPC)
 		local index = dialog:getSelectedIndex()+1;
 		local arena = getArena(User, NPC);
 		local paid = payforMonster(User, index, NPC)
+		local priceInCP;
+		local germanMoney, englishMoney;
 		
 		if paid then
-			User:warp(arenaInformations[arena].playerPos);
+			if arenaInformations[arena].playerPos ~= nil then
+				User:warp(arenaInformations[arena].playerPos);
+			end
 			--add the effect to keep track of the monster
 			arenaEffect=LongTimeEffect(18,1);
 			arenaEffect:addValue("arenaID",arena);
 			arenaEffect:addValue("level",index);
-			User.effects:addEffect(arenaEffect);
+			if isValidChar(User) then
+				User.effects:addEffect(arenaEffect);
+			end
 		else
 			return;
 		end
 	end
 	if User:getPlayerLanguage() == 0 then
-		sdMonster = SelectionDialog("Monsterlevel", "Wählt ein Monsterlevel gegen das Ihr kämpfen möchtet:", cbChooseLevel);
+		sdMonster = SelectionDialog("Monsterstärke", "Wählt wie stark das Monster sein soll, gegen das Ihr kämpfen möchtet:", cbChooseLevel);
+		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
-			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkt(e))");
+			priceInCP = i * priceBase;
+			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
+			sdMonster:addOption(0,"Stärke "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkte) -"..germanMoney);
 		end
 	else
-		sdMonster = SelectionDialog("Monsterlevel", "Plaese choose a monsterlevel you wish to fight against:", cbChooseLevel);
+		sdMonster = SelectionDialog("Monster strength", "Please choose how strong the monster you wish to fight against should be:", cbChooseLevel);
+		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
-			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." point(s))");
+			priceInCP = i * priceBase;
+			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
+			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." points) -"..englishMoney);
 		end
 	end	
 	User:requestSelectionDialog(sdMonster);
 end
 
 function payforMonster(User, MonsterLevel, NPC)
-	local priceInCP = MonsterLevel * 1000;
+	local priceInCP = MonsterLevel * priceBase;
 	local germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
 	
 	if not base.money.CharHasMoney(User,priceInCP) then --not enough money!
@@ -97,7 +111,7 @@ function spawnMonster(User, MonsterLevel, arena)
 	
     local monster;
 	world:gfx(31,arenaInformations[arena].monsterPos);
-	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformations[arena].monsterPos,10);
+	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformations[arena].monsterPos,0);
 	if isValidChar(monster) then
 		table.insert( arenaMonster[User.id], monster );
     end
@@ -176,7 +190,7 @@ function getRanklist(User, arena, message)
 		if found then
 			arenaList = sortTable(base.common.split(arenaEntry, ";"));
 		elseif found == false or table.getn(arenaList) ~= 10 then
-			User:inform("[ERROR] An error occured please contact a developer.")
+			User:inform("[ERROR] An error has occurred, please contact a developer.")
 		end
 	end
 	
@@ -192,7 +206,7 @@ function getRanklist(User, arena, message)
 				list = list.."Platz "..place.." : "..arenaList[i].." mit "..arenaList[i+1].." Punkten.\n";
 				place = place +1;
 			end
-			mdList = MessageDialog("Top fünf Kämpfer des Reiches", list, nil);			
+			mdList = MessageDialog("Top Fünf Kämpfer des Reiches", list, nil);			
 		else
 			list = "Place 1: "..arenaList[1].." with "..arenaList[2].." points.\n";
 			for i=3, #(arenaList),2 do
@@ -260,7 +274,7 @@ function getArenastats(User, NPC)
 	local points = User:getQuestProgress(quest);
 	
 	gText="Ihr habt bereits "..points.." gesammelt. Weiter so!";
-	eText="You already earned "..points.." points. Keep it up!";
+	eText="You have already earnt "..points.." points. Keep it up!";
 	outText=base.common.GetNLS(User,gText,eText);
     NPC:talk(Character.say, outText);
 end

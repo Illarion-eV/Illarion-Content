@@ -28,7 +28,7 @@ function UseItem(User, SourceItem, ltstate)
 		   return
 		end
 		
-		FillIntoCauldron(User, SourceItem, cauldron, ltstate)
+		FillIntoBottle(User, SourceItem, cauldron)
 	end	
 end
 
@@ -49,11 +49,11 @@ function CheckWaterEmpty(User, SourceItem, cauldron)
     return true
 end
 
-function FillIntoCauldron(User, SourceItem, cauldron)
+function FillIntoBottle(User, SourceItem, cauldron)
     
 	-- stock, essence brew or potion; fill it up
    if (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "essenceBrew") or (cauldron:getData("filledWith") == "potion") then  
-		local reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron, nil, User)
+		local reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron.id, nil, User)
 		if SourceItem.number > 1 then -- stack! 
 			if cauldron:getData("filledWith") == "stock" then
 				local data = {}

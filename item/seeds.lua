@@ -66,8 +66,7 @@ function UseItem(User, SourceItem, ltstate)
         return;
     end
 	
-	-- is the target position needed?
-	local TargetPos = base.common.GetFrontPosition(User);
+	local TargetPos = getFreeFieldPosition(User);
 
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
@@ -101,34 +100,39 @@ function UseItem(User, SourceItem, ltstate)
 		base.common.TurnTo( User, TargetPos ); -- turn if necessary
 	end
   
-  -- should not stack plants on top of anything
-  if (world:isItemOnField(TargetPos)) then
-    base.common.HighInformNLS(User,
-    "Du kannst nur auf einem freien Feld Saatgut aussäen.",
-    "Sowing seeds is only possible at a free spot.");
-    return;
-  end
+	-- should not stack plants on top of anything
+	if (world:isItemOnField(TargetPos)) then
+		base.common.HighInformNLS(User,
+		"Du kannst nur auf einem freien Feld Saatgut aussäen.",
+		"Sowing seeds is only possible at a free spot.");
+		return;
+	end
 	
   -- only on farm land
 	local Field = world:getField( TargetPos )
-  local groundType = base.common.GetGroundType( Field:tile() );
-  if ( groundType ~= 1 ) then
-    base.common.HighInformNLS(User,
-    "Du kannst nur auf Ackerboden Saatgut aussäen.",
-    "Sowing seeds is only possible on farm land.");
-    return
-  end
+	local groundType = base.common.GetGroundType( Field:tile() );
+	if ( groundType ~= 1 ) then
+		base.common.HighInformNLS(User,
+			"Du kannst nur auf Ackerboden Saatgut aussäen.",
+		"Sowing seeds is only possible on farm land.");
+		return
+	end
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
 		User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
     -- this is no batch action => no emote message, only inform player
 		if farming.SavedWorkTime[User.id] > 15 then
-      base.common.InformNLS(User,
-      "Du säst Saatgut aus.",
-      "You sow seeds.");
-    end
+			base.common.InformNLS(User, "Du säst Saatgut aus.","You sow seeds.");
+		end
 		return
+	end
+	
+	local nextField = getFreeFieldPosition(User);
+	if (nextField~=nil) then  -- there are still free fields
+		base.common.TurnTo( User, nextField); -- turn
+		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
+		User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
 	end
 
 	-- since we're here, we're working
@@ -150,6 +154,33 @@ function UseItem(User, SourceItem, ltstate)
   end
 	world:createItemFromId( seedPlantList[SourceItem.id], 1, TargetPos, true, 333 ,{["amount"] = "" .. amount});
 	world:erase( SourceItem, 1 ); -- erase the seed
+end
+
+
+-- gets the free position for seeds
+function getFreeFieldPosition(User)
+	local frontField = base.common.GetFrontPosition(User);
+	local field = world:getField(frontField);
+	local groundType = base.common.GetGroundType(field:tile());
+	local itemOnField = world:isItemOnField(frontField);
+	
+	if not itemOnField and groundType == 1 then
+		return frontField;
+	end
+	local Radius = 1;
+	for x=-Radius,Radius do
+		for y=-Radius,Radius do 
+			local checkPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
+			if not world:isItemOnField(checkPos) then
+				field = world:getField(checkPos);
+				groundType = base.common.GetGroundType(field:tile())
+				if groundType == 1 then
+					return checkPos;
+				end
+			end
+		end
+	end
+	return nil;
 end
 
 -- some plants rot to seeds again, those have a different data value

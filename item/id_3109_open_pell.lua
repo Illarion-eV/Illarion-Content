@@ -1,6 +1,6 @@
 require("base.common")
 require("alchemy.base.alchemy")
-require("development.id_2745_parchment")
+
 
 
 module("item.id_3109_open_pell",package.seeall)
@@ -271,8 +271,9 @@ function RecipeInform( User, SourceItem)
     end
 
 	-- is the char an alchemist?
-	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Auf dem Schriftstück steht nur dir unverständliches Alchemistengeschwafel.","For you the document only appears to contain unintelligible alchemical gibberish.")
+	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
 	if not anAlchemist then
+		User:inform("Auf dem Schriftstück steht nur dir unverständliches Alchemistengeschwafel.","For you the document only appears to contain unintelligible alchemical gibberish.")
 		return
 	end
 	
@@ -326,13 +327,8 @@ function RecipeInform( User, SourceItem)
 end
 
 function UseItem(User, SourceItem, ltstate)
-    if isTestserver() then
-        if SourceItem:getData("alchemyRecipe") == "true" then
-		    development.id_2745_parchment.UseItem(User, SourceItem, ltstate)
-			return
-		end
-    end		
-    if (SourceItem:getType()~=3) then -- no map item
+    
+	if (SourceItem:getType()~=3) then -- no map item
 	    return
 	end	
 

@@ -75,7 +75,7 @@ english, "market" -> "Just follow the street to your right and go through the ga
 "markt" -> "Folgt einfach der Straße zur Eurer Rechten und geht durch das Tor. Ihr werdet den Marktplatz kaum übersehen können. Fragt Frizza dort drüben, wenn Ihr mehr über die Orte um Cadomyr herum wissen wollt."
 english, "Frizza" -> "She is right over there, just go over and talk to her. She knows a lot about Cadomyr."
 "Frizza" -> "Sie ist gleich dort drüben. Geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Cadomyr."
-"food", "eat" -> "You can find food all around you. There are fruits on the trees and bushes or you ask other people for something to eat."
+"food", "eat" -> "You can find food all around you. There are fruits on the trees and bushes or you can ask other people for something to eat."
 "essen", "nahrung" -> "Ihr könnt überall etwas zu essen finden. Früchte wachsen an Bäumen und Büschen, oder Ihr fragt andere Leute nach etwas zu essen."
 english, "fighting", "monster" -> "There are a few wild animals in the wilderness so be careful. If you want to train, ask around for a sparring partner."
 "kämpfen", "monster" -> "Es gibt einige wilde Tiere in der Wildness, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt nach einem Trainingspartner herum."
@@ -94,13 +94,13 @@ queststatus(703) = 1, town = Cadomyr, "task", "adventure", "order" -> "Please fi
 queststatus(703) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Sucht doch bitte Berri Firegold. Er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen: Er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück ich hab sicher noch etwas für Euch zu tun."
 
 -- Grakamesh
-queststatus(703) = 2, town = Cadomyr, english, "quest", "mission" -> queststatus(703) = 3, "You're back. Good. I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
+queststatus(703) = 2, town = Cadomyr, english, "quest", "mission" -> queststatus(703) = 3, "You're back. Good. I heard Grakamesh could use your help. You can find him right there at Sir Reginald's Tomb."
 queststatus(703) = 2, town = Cadomyr, "quest", "mission" -> queststatus(703) = 3, "Ihr seid zurück. Schön. Ich habe gehört, dass Grakamesh Eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
-queststatus(703) = 2, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 3, "You're back. Good. I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
+queststatus(703) = 2, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 3, "You're back. Good. I heard Grakamesh could use your help. You can find him right there at Sir Reginald's Tomb."
 queststatus(703) = 2, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 3, "Ihr seid zurück. Schön. Ich habe gehört, dass Grakamesh Eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
-queststatus(703) = 3, town = Cadomyr, english, "quest", "mission" -> "You're back. Good. I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
+queststatus(703) = 3, town = Cadomyr, english, "quest", "mission" -> "You're back. Good. I heard Grakamesh could use your help. You can find him right there at Sir Reginald's Tomb."
 queststatus(703) = 3, town = Cadomyr, "quest", "mission" -> "Ihr seid zurück. Schön. Ich habe gehört, dass Grakamesh Eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
-queststatus(703) = 3, town = Cadomyr, "task", "adventure", "order" -> "You're back. Good. I heard Grakamesh could need your help. You can find him right there at Sir Reginald's Tomb."
+queststatus(703) = 3, town = Cadomyr, "task", "adventure", "order" -> "You're back. Good. I heard Grakamesh could use your help. You can find him right there at Sir Reginald's Tomb."
 queststatus(703) = 3, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr seid zurück. Schön. Ich habe gehört, dass Grakamesh Eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden."
 
 -- Mirarie Bragolin

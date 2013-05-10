@@ -101,8 +101,9 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,ltstate)
     local cauldron = TargetItem
 	
 	-- is the char an alchemist?
-	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
 	if not anAlchemist then
+		User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
 		return
 	end
 		
@@ -112,7 +113,8 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,ltstate)
 	end
 	
 	if ( ltstate == Action.none ) then
-		User:startAction( 20, 21, 5, 0, 0)
+		local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.base.alchemy.GetStartAction(User, "water", cauldron)
+		User:startAction( duration,gfxId,gfxIntervall,sfxId,sfxIntervall)
 		return
 	end	
 	
@@ -121,7 +123,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,ltstate)
 end
 
 
-function FillIn(User, SourceItem, cauldron)
+function FillIn(User, SourceItem, cauldron, noRepeat) -- do not remove noRepeat
 
    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
 	if cauldron:getData("filledWith") == "water" then
@@ -159,12 +161,12 @@ function FillIn(User, SourceItem, cauldron)
 		cauldron:setData("filledWith","water")
 		cauldron.id = 1010
     end
-    CreateEmptyBucket(User, SourceItem, 1)
+    CreateEmptyBucket(User, SourceItem, 1, noRepeat)
 	world:changeItem(cauldron)
 
 end
 
-function CreateEmptyBucket(User, SourceItem,amount)
+function CreateEmptyBucket(User, SourceItem,amount, noRepeat) -- do not remove noRepeat
 	local notCreated = User:createItem( 51, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 51, notCreated, User.pos, true, 333, nil );
@@ -179,10 +181,12 @@ function CreateEmptyBucket(User, SourceItem,amount)
 			return
         else
 		    world:erase(SourceItem,1)
-			SourceItem.number = SourceItem.number-1
-			world:changeItem(SourceItem)
-			User:changeSource(SourceItem)
-			User:startAction( 20, 21, 5, 10, 25);
+			if noRepeat == nil then
+				SourceItem.number = SourceItem.number-1
+				world:changeItem(SourceItem)
+				User:changeSource(SourceItem)
+				User:startAction( 20, 21, 5, 10, 25);
+			end	
 		end	
 	end
 end

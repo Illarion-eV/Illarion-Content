@@ -69,13 +69,13 @@ english, "job" -> "I'm a glassz blower and bricksss maker, do you wantssz to hel
 "job" -> "Ich binss Glasssblässzer und Zzsiegelmacher, wollen du michssz helfen?"
 
 -- Quests
-queststatus(707) = 0, town = Cadomyr, english, "quest", "mission" -> "Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol ten clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you old sshovel of hiss for digging clay.", item(24, 1, 999), queststatus(707) = 1
+queststatus(707) = 0, town = Cadomyr, english, "quest", "mission" -> "Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol ten clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you an old sshovel of hiss for digging clay.", item(24, 1, 999), queststatus(707) = 1
 queststatus(707) = 0, town = Cadomyr, "quest", "mission" -> "Zsss, Aufgabe? Ja, Zlatxhol haben Aufgabe für dichsss. Bring Zlatxhol zehn Lehmssz! Du finden Lehm bei Flusssz wesstlich der Stadt. Hier haben alte Ssschaufel von Zlatxhol um Lehm zu graben.", item(24, 1, 999), queststatus(707) = 1
-queststatus(707) = 0, town = Cadomyr, "task", "adventure", "order" -> "Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol ten clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you old sshovel of hiss for digging clay.", item(24, 1, 999), queststatus(707) = 1
+queststatus(707) = 0, town = Cadomyr, "task", "adventure", "order" -> "Zsss, tasssk? Yesss, Zlatxhol has tasks for yous. Bring Zlatxhol ten clumps of clay. You can findz clay at the riverz west of here. Here, Zlatxhol givess you an old sshovel of hiss for digging clay.", item(24, 1, 999), queststatus(707) = 1
 queststatus(707) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zsss, Aufgabe? Ja, Zlatxhol haben Aufgabe für dichsss. Bring Zlatxhol zehn Lehmssz! Du finden Lehm bei Flusssz wesstlich der Stadt. Hier haben alte Ssschaufel von Zlatxhol um Lehm zu graben.", item(24, 1, 999), queststatus(707) = 1
-queststatus(707) = 1, item(26, all) > 9, town = Cadomyr, english, "quest", "mission", "clay" -> "Well done, thanks you. Pleasse keep clay for next tasssk of Zlatxhol.", queststatus(707) = 2
+queststatus(707) = 1, item(26, all) > 9, town = Cadomyr, english, "quest", "mission", "clay" -> "Well done, thanks you. Pleasse keep the clay for the next tasssk of Zlatxhol.", queststatus(707) = 2
 queststatus(707) = 1, item(26, all) > 9, town = Cadomyr, "quest", "mission", "lehm" -> "Gut gemacht, dankes. Bittes behalten Lehm für nächsste Aufgabe von Zlatxhol.", queststatus(707) = 2
-queststatus(707) = 1, item(26, all) > 9, town = Cadomyr, "task", "adventure", "order" -> "Well done, thanks you. Pleasse keep clay for next tasssk of Zlatxhol.", queststatus(707) = 2
+queststatus(707) = 1, item(26, all) > 9, town = Cadomyr, "task", "adventure", "order" -> "Well done, thanks you. Pleasse keep the clay for the next tasssk of Zlatxhol.", queststatus(707) = 2
 queststatus(707) = 1, item(26, all) > 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, dankes. Bittes behalten Lehm für nächsste Aufgabe von Zlatxhol.", queststatus(707) = 2
 queststatus(707) = 1, item(26, all) < 10, town = Cadomyr, english, ".+" -> "Zsss, Zlatxhol wantsss ten clumps of clay, that not enough clayssz. Come back when you have finished the taskz!"
 queststatus(707) = 1, item(26, all) < 10, town = Cadomyr, ".+" -> "Zsss, ichse haben wollten zehn Lehmss! Dasss nicht sssein zehn Lehm. Kommen zurück wenn fertig!"

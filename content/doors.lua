@@ -15,8 +15,8 @@ function initDoors()
 	AddDoor({352, 213, 0}, 101,"Treasury","Schatzkammer"); -- Don's treasury !create 2124 1 333 lockId=101
 	AddDoor({352, 214, 0}, 101,"Treasury","Schatzkammer"); -- Don's treasury !create 2124 1 333 lockId=101
 	AddDoor({352, 215, 0}, 101,"Treasury","Schatzkammer"); -- Don's treasury !create 2124 1 333 lockId=101
-	AddDoor({416, 249, 0}, false,"Galmair Towngate","Galmair Stadttor");
-	AddDoor({416, 250, 0}, false,"Galmair Towngate","Galmair Stadttor");
+	AddDoor({416, 249, 0}, 102,"Galmair Towngate","Galmair Stadttor", false);
+	AddDoor({416, 250, 0}, 102,"Galmair Towngate","Galmair Stadttor", false);
 
 
 	AddDoor({373, 322, 0}, 110,"House of Malachite","Malachite Haus"); -- guild house I !create 2145 1 333 lockId=110
@@ -33,65 +33,65 @@ function initDoors()
 	AddDoor({427, 221,-5}, 127,"Flat Sirani","Wohnung Sirani"); -- flat room VIII - 3p !create 2161 1 333 lockId=127
 	AddDoor({416, 216,-5}, 128,"Flat Zhambra","Wohnung Zhambra"); -- flat room IX - 3p !create 2161 1 333 lockId=128
 
-	AddDoor({342, 238,-6}, false,"Hog Dens","Schweinebaue"); -- Scoria Mine
-	AddDoor({342, 239,-6}, false,"Hog Dens","Schweinebaue"); -- Scoria Mine
-	AddDoor({385, 193,-6}, false,"Hog Dens","Schweinebaue"); -- Scoria Mine
-	AddDoor({386, 193,-6}, false,"Hog Dens","Schweinebaue"); -- Scoria Mine
-	AddDoor({381, 208,-6}, false,"Hog Dens","Schweinebaue"); -- Scoria Mine
-	AddDoor({381, 209,-6}, false,"Hog Dens","Schweinebaue"); -- Scoria Mine
-	AddDoor({344, 244,-6}, false,"Cameo Pit","Gemmenschacht"); -- Scoria Mine
-	AddDoor({344, 245,-6}, false,"Cameo Pit","Gemmenschacht"); -- Scoria Mine
-	AddDoor({392, 220,-6}, false,"Cameo Pit","Gemmenschacht"); -- Scoria Mine
-	AddDoor({393, 220,-6}, false,"Cameo Pit","Gemmenschacht"); -- Scoria Mine
-	AddDoor({382, 241,-6}, false,"Cameo Pit","Gemmenschacht"); -- Scoria Mine
-	AddDoor({383, 241,-6}, false,"Cameo Pit","Gemmenschacht"); -- Scoria Mine
-	AddDoor({343, 250,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
-	AddDoor({343, 251,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
-	AddDoor({385, 279,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
-	AddDoor({386, 279,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
-	AddDoor({382, 260,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
-	AddDoor({383, 260,-6}, false,"Temple of Ronagan","Tempel des Ronagan"); -- Scoria Mine
-	AddDoor({338, 253,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
-	AddDoor({339, 253,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
-	AddDoor({370, 292,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
-	AddDoor({370, 293,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
-	AddDoor({380, 325,-6}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
-	AddDoor({400, 327,-6}, false,"Winged Sow Taverne - Storeroom","Taverne zur Geflügelten Sau - Lagerraum"); -- Scoria Mine
-	AddDoor({342, 252, 0}, false,"Winged Sow Taverne","Taverne zur Geflügelten Sau"); -- Scoria Mine
-	AddDoor({332, 253,-6}, false,"Sewers","Abwasserschächte"); -- Scoria Mine
-	AddDoor({333, 253,-6}, false,"Sewers","Abwasserschächte"); -- Scoria Mine
-	AddDoor({327, 251,-6}, false,"Flicker Swale","Schimmersenke"); -- Scoria Mine
-	AddDoor({327, 252,-6}, false,"Flicker Swale","Schimmersenke"); -- Scoria Mine
-	AddDoor({248, 295,-6}, false,"Game room","Spielraum"); -- Scoria Mine
-	AddDoor({249, 295,-6}, false,"Game room","Spielraum"); -- Scoria Mine
-	AddDoor({249, 297,-5}, false,"Temple of Nargun","Tempel des Nargun"); -- Scoria Mine
-	AddDoor({250, 297,-5}, false,"Temple of Nargun","Tempel des Nargun"); -- Scoria Mine
+	AddDoor({342, 238,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
+	AddDoor({342, 239,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
+	AddDoor({385, 193,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
+	AddDoor({386, 193,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
+	AddDoor({381, 208,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
+	AddDoor({381, 209,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
+	AddDoor({344, 244,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
+	AddDoor({344, 245,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
+	AddDoor({392, 220,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
+	AddDoor({393, 220,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
+	AddDoor({382, 241,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
+	AddDoor({383, 241,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
+	AddDoor({343, 250,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
+	AddDoor({343, 251,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
+	AddDoor({385, 279,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
+	AddDoor({386, 279,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
+	AddDoor({382, 260,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
+	AddDoor({383, 260,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
+	AddDoor({338, 253,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
+	AddDoor({339, 253,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
+	AddDoor({370, 292,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
+	AddDoor({370, 293,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
+	AddDoor({380, 325,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
+	AddDoor({400, 327,-6}, 103,"Winged Sow Taverne - Storeroom","Taverne zur Geflügelten Sau - Lagerraum", false); -- Scoria Mine
+	AddDoor({342, 252, 0}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
+	AddDoor({332, 253,-6}, 103,"Sewers","Abwasserschächte", false); -- Scoria Mine
+	AddDoor({333, 253,-6}, 103,"Sewers","Abwasserschächte", false); -- Scoria Mine
+	AddDoor({327, 251,-6}, 103,"Flicker Swale","Schimmersenke", false); -- Scoria Mine
+	AddDoor({327, 252,-6}, 103,"Flicker Swale","Schimmersenke", false); -- Scoria Mine
+	AddDoor({248, 295,-6}, 103,"Game room","Spielraum", false); -- Scoria Mine
+	AddDoor({249, 295,-6}, 103,"Game room","Spielraum", false); -- Scoria Mine
+	AddDoor({249, 297,-5}, 103,"Temple of Nargun","Tempel des Nargun", false); -- Scoria Mine
+	AddDoor({250, 297,-5}, 103,"Temple of Nargun","Tempel des Nargun", false); -- Scoria Mine
 
-	AddDoor({367, 255, 0}, false,"Galmair's Crest","Galmairs Krone"); -- Galmair's Crest
-	AddDoor({368, 255, 0}, false,"Galmair's Crest","Galmairs Krone"); -- Galmair's Crest
-	AddDoor({367, 244, 0}, false,"Galmair's Crest","Galmairs Krone"); -- Galmair's Crest
-	AddDoor({368, 244, 0}, false,"Galmair's Crest","Galmairs Krone"); -- Galmair's Crest
-	AddDoor({355, 221, 0}, false,"Library","Bibilothek"); -- Galmair's Crest
-	AddDoor({370, 221, 0}, false,"Library","Bibilothek"); -- Galmair's Crest
-	AddDoor({370, 232, 0}, false,"Exchange + Kitchen","Wechselstube + Küche"); -- Galmair's Crest
-	AddDoor({364, 236, 0}, false,"Council Chamber","Konzil Kammer"); -- Galmair's Crest
-	AddDoor({348, 229, 0}, false,"Guilianni Residence","Guilianni Residenz"); -- Galmair's Crest
+	AddDoor({367, 255, 0}, 104,"Galmair's Crest","Galmairs Krone", false); -- Galmair's Crest
+	AddDoor({368, 255, 0}, 104,"Galmair's Crest","Galmairs Krone", false); -- Galmair's Crest
+	AddDoor({367, 244, 0}, 104,"Galmair's Crest","Galmairs Krone", false); -- Galmair's Crest
+	AddDoor({368, 244, 0}, 104,"Galmair's Crest","Galmairs Krone", false); -- Galmair's Crest
+	AddDoor({355, 221, 0}, 104,"Library","Bibilothek", false); -- Galmair's Crest
+	AddDoor({370, 221, 0}, 104,"Library","Bibilothek", false); -- Galmair's Crest
+	AddDoor({370, 232, 0}, 104,"Exchange + Kitchen","Wechselstube + Küche", false); -- Galmair's Crest
+	AddDoor({364, 236, 0}, 104,"Council Chamber","Konzil Kammer", false); -- Galmair's Crest
+	AddDoor({348, 229, 0}, 104,"Guilianni Residence","Guilianni Residenz", false); -- Galmair's Crest
 
-	AddDoor({308, 238, 1}, false,"Temple of Irmorom","Tempel des Irmorom"); 
-	AddDoor({309, 238, 1}, false,"Temple of Irmorom","Tempel des Irmorom");
-	AddDoor({378, 272, 0}, false,"Workshop","Werkstatt"); 
-	AddDoor({383, 284, 0}, false,"Workshop","Werkstatt");
-	AddDoor({408, 295, 0}, false,"Sleepy Bujhaar Inn","Gasthaus zum Schlafenden Bujhaar"); 
-	AddDoor({414, 298, 0}, false,"Bedroom","Schlafraum"); -- Sleepy Bujhaar Inn
-	AddDoor({412, 293, 1}, false,"Bedroom","Schlafraum"); -- Sleepy Bujhaar Inn
-	AddDoor({419, 296, 1}, false,"Bedroom","Schlafraum"); -- Sleepy Bujhaar Inn 
-	AddDoor({418, 301, 1}, false,"Balcony","Balkon"); -- Sleepy Bujhaar Inn
-	AddDoor({421, 290, 1}, false,"Bedroom","Schlafraum"); -- Sleepy Bujhaar Inn
-	AddDoor({404, 269, 1}, false,"Census office","Zensusbüro");
-	AddDoor({401, 263, 0}, false,"Herbs room","Kräuterkammer");
-	AddDoor({394, 247, 0}, false,"Guardroom","Wachstube");
-	AddDoor({391, 241, 0}, false,"Guardroom","Wachstube");
-	AddDoor({387, 246, 0}, false,"Debt-collector","Schuldeneintreiber");
+	AddDoor({308, 238, 1}, 104,"Temple of Irmorom","Tempel des Irmorom", false); 
+	AddDoor({309, 238, 1}, 104,"Temple of Irmorom","Tempel des Irmorom", false);
+	AddDoor({378, 272, 0}, 104,"Workshop","Werkstatt", false); 
+	AddDoor({383, 284, 0}, 104,"Workshop","Werkstatt", false);
+	AddDoor({408, 295, 0}, 104,"Sleepy Bujhaar Inn","Gasthaus zum Schlafenden Bujhaar", false); 
+	AddDoor({414, 298, 0}, 104,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
+	AddDoor({412, 293, 1}, 104,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
+	AddDoor({419, 296, 1}, 104,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn 
+	AddDoor({418, 301, 1}, 104,"Balcony","Balkon", false); -- Sleepy Bujhaar Inn
+	AddDoor({421, 290, 1}, 104,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
+	AddDoor({404, 269, 1}, 104,"Census office","Zensusbüro", false);
+	AddDoor({401, 263, 0}, 104,"Herbs room","Kräuterkammer", false);
+	AddDoor({394, 247, 0}, 104,"Guardroom","Wachstube", false);
+	AddDoor({391, 241, 0}, 104,"Guardroom","Wachstube", false);
+	AddDoor({387, 246, 0}, 104,"Debt-collector","Schuldeneintreiber", false);
 	-- Galmair end
     
 	-- Runewick 2xx
@@ -205,21 +205,21 @@ function initDoors()
 	AddDoor({128, 520, 0}, 300,"Royal Chamber","Königliche Kammer");
 	AddDoor({128, 519, 0}, 300,"Royal Chamber","Königliche Kammer");
 
-	AddDoor({ 96, 615, 1}, 310,"Villa Rosaline - Balcony","Villa Rosaline - Balkon");
-	AddDoor({ 94, 612, 0}, 310,"Villa Rosaline","Villa Rosaline");
-	AddDoor({ 94, 613, 0}, 310,"Villa Rosaline","Villa Rosaline");
-	AddDoor({ 88, 600, 1}, 311,"Villa Edward - Balcony","Villa Edward - Balkon");
-	AddDoor({ 90, 605, 0}, 311,"Villa Edward","Villa Edward");
-	AddDoor({ 91, 605, 0}, 311,"Villa Edward","Villa Edward");
-	AddDoor({ 93, 560, 0}, 312,"Villa Reginald","Villa Reginald");
+	AddDoor({ 96, 615, 1}, 310,"Villa Rosaline - Balcony","Villa Rosaline - Balkon"); --!create 3054 1 333 lockId=310
+	AddDoor({ 94, 612, 0}, 310,"Villa Rosaline","Villa Rosaline"); --!create 3054 1 333 lockId=310
+	AddDoor({ 94, 613, 0}, 310,"Villa Rosaline","Villa Rosaline"); --!create 3054 1 333 lockId=310
+	AddDoor({ 88, 600, 1}, 311,"Villa Edward - Balcony","Villa Edward - Balkon"); --!create 3054 1 333 lockId=311
+	AddDoor({ 90, 605, 0}, 311,"Villa Edward","Villa Edward"); --!create 3054 1 333 lockId=311
+	AddDoor({ 91, 605, 0}, 311,"Villa Edward","Villa Edward"); --!create 3054 1 333 lockId=311
+	AddDoor({ 93, 560, 0}, 312,"Villa Reginald","Villa Reginald"); --!create 3054 1 333 lockId=312
 
-	AddDoor({138, 604, 0}, 321,"Flat quarter - Faith & Obedience","Wohnungsquartier - Glaube & Gehorsam");
-	AddDoor({139, 604, 1}, 322,"Flat quarter - Honour & Lineage","Wohnungsquartier - Ehre & Abstammung");
-	AddDoor({137, 610, 0}, 323,"Flat quarter - Truth & Justice","Wohnungsquartier - Ehrlichkeit & Gerechtigkeit");
-	AddDoor({138, 610, 1}, 324,"Flat quarter - Courage","Wohnungsquartier - Courage");
-	AddDoor({136, 615, 0}, 325,"Flat quarter - Patriarchy","Wohnungsquartier - Patriarchat");
-	AddDoor({137, 615, 1}, 326,"Flat quarter - Property","Wohnungsquartier - Besitz");
-	AddDoor({144, 627, 1}, 320,"Flat quarter - Responsibility","Wohnungsquartier - Verantwortung");
+	AddDoor({138, 604, 0}, 321,"Flat quarter - Faith & Obedience","Wohnungsquartier - Glaube & Gehorsam"); --!create 2558 1 333 lockId=321
+	AddDoor({139, 604, 1}, 322,"Flat quarter - Honour & Lineage","Wohnungsquartier - Ehre & Abstammung"); --!create 2558 1 333 lockId=322
+	AddDoor({137, 610, 0}, 323,"Flat quarter - Truth & Justice","Wohnungsquartier - Ehrlichkeit & Gerechtigkeit"); --!create 2558 1 333 lockId=323
+	AddDoor({138, 610, 1}, 324,"Flat quarter - Courage","Wohnungsquartier - Courage"); --!create 2558 1 333 lockId=324
+	AddDoor({136, 615, 0}, 325,"Flat quarter - Patriarchy","Wohnungsquartier - Patriarchat"); --!create 2558 1 333 lockId=325
+	AddDoor({137, 615, 1}, 326,"Flat quarter - Property","Wohnungsquartier - Besitz"); --!create 2558 1 333 lockId=326
+	AddDoor({144, 627, 1}, 320,"Flat quarter - Responsibility","Wohnungsquartier - Verantwortung"); --!create 2558 1 333 lockId=320
 
 	AddDoor({116, 633, 0}, false,"Cadomyr Towngate","Cadomyr Stadttor");
 	AddDoor({115, 633, 0}, false,"Cadomyr Towngate","Cadomyr Stadttor");	

@@ -1,14 +1,29 @@
 require("base.common")
 require("base.factions")
 
--- UPDATE common SET com_script = 'test.lillian' WHERE com_itemid = 2697 ;
+-- UPDATE common SET com_script = 'test.lillian' WHERE com_itemid = 2697;
 
 module("test.lillian", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
+
+	User:inform("Used!")
+
+	if(User.lastSpokenText == "del") then
+		User:eraseItem(2,1)
+	end
 	
-	if(User.lastSpokenText == "dice") then
-		chooseNumberOfDice(User);
+	if(User.lastSpokenText == "deldata") then
+		User:eraseItem(2,1, {["descriptionDE"]="Gerstenmehl"})
+	end
+	
+	if(User.lastSpokenText == "delnil") then
+		User:eraseItem(2,1,nil)
+	end
+
+	if(User.lastSpokenText == "time") then
+		local questState, questLastChanged = User:getQuestProgress(666);
+		--base.time.getRLDateFromUnixTimestamp(questLastChanged)
 	end
 
 end
@@ -19,33 +34,4 @@ function LookAtItem(User, Item)
     return true    
 end
 
-function informAboutResult(User, numberOfDice)
-	local thrownNumbers = math.random(1,6);
-	
-	for i=1, numberOfDice-1 do
-		thrownNumbers = thrownNumbers..", "..math.random(1,6);
-	end
-		
-	local text = base.common.GetNLS(User,"#me wirft "..numberOfDice.." Würfel und wirft: "..thrownNumbers ,"#me throws "..numberOfDice.." dice and gets: "..thrownNumbers);
-	
-	User:talk(Character.say, text);
-end
 
-function chooseNumberOfDice(User)
-	local title = base.common.GetNLS(User,"Würfel", "Dice");
-	local text = base.common.GetNLS(User,"Bitte gibt ein, wieviele Würfel ihr zu werfen wünscht." , "Please type in how many dice you wish to throw.");
-
-	local cbInputDialog = function (dialog)
-		if (not dialog:getSuccess()) then
-			return;
-		end
-		local inputNumber = dialog:getInput();
-		if (string.find(inputNumber,"(%d+)") ~= nil) then
-			informAboutResult(User, inputNumber)
-		else
-			User:inform("Not a valid number. Please try again.");
-			User:requestInputDialog(InputDialog(title, text ,false, 255, cbInputDialog))
-		end
-	end
-	User:requestInputDialog(InputDialog(title, text ,false, 255, cbInputDialog))
-end

@@ -391,6 +391,18 @@ function SplitData(User,theData)
 	return dataZList
 end
 
+function SubstanceDatasToList(theItem)
+    local substanceList = {}
+	for i=1,8 do
+	    local concentration = tonumber(theItem:getData(wirkstoff[i].."Concentration"))
+		if concentration ~= nil then
+			table.insert(substanceList,concentration)
+		end	
+	end
+	
+	return substanceList
+end
+
 
 function generateTasteMessage(Character,dataZList)
     local textDe = "Der Trank schmeckt ";
@@ -437,12 +449,11 @@ function generateTasteMessage(Character,dataZList)
     base.common.InformNLS(Character,textDe,textEn);
 end
 
-function CheckIfGemDust(SourceItem, User)
+function CheckIfGemDust(itemId, User)
 local retVal = nil;
 for i,checkId in pairs(gemDustList) do
-    theItem = SourceItem
-	if theItem.id == checkId then
-    retVal = theItem
+    if itemId == checkId then
+    retVal = itemId
     break;
     end
 end	
@@ -470,10 +481,9 @@ function GetCauldronInfront(User,Item)
 	return retVal
 end
 
-function CheckIfAlchemist(User,textDE,textEN)
-    if (User:getMagicType() ~= 3) or (User:getMagicFlags(3) <= 0) then
-	    User:inform(textDE,textEN)
-		return false
+function CheckIfAlchemist(User)
+    if (User:getMagicType() ~= 3) then
+	    return false
 	else
         return true
     end		
@@ -560,9 +570,9 @@ function FillFromTo(fromItem,toItem)
 	end
     local reGem, reDust, reCauldron, reBottle	
 	if fromItem.id >= 1008 and fromItem.id <= 1018 then
-	   reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
+	   reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem.id, nil)
 	else
-	    reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
+	    reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem.id)
 	end	
 	if toItem.id >= 1008 and toItem.id <= 1018 then
 		toItem.id = reCauldron
@@ -572,8 +582,22 @@ function FillFromTo(fromItem,toItem)
     world:changeItem(toItem)	
 end
 
+function CheckExplosionAndCleanList(User)
+   local check = false
+	if USER_EXPLOSION_LIST then 
+		if USER_EXPLOSION_LIST[User.id] == true then
+			check = true
+		    USER_EXPLOSION_LIST[User.id] = nil  
+		end
+    end
+    return check	
+end
+
 function CauldronDestruction(User,cauldron,effectId)
-    
+    if USER_EXPLOSION_LIST == nil then -- note: it's global!
+		USER_EXPLOSION_LIST = {}
+	end
+	
 	if (effectId < 1) or (effectId > 3) or (effectId == nil) then
 	    effectId = 1
 	end
@@ -597,6 +621,7 @@ function CauldronDestruction(User,cauldron,effectId)
 			base.common.HighInformNLS(myVictims[i], "Du wirst von einer Explosion getroffen.", "You are hit by an explosion.")
 	    end			
 	end
+	USER_EXPLOSION_LIST[User.id] = true
 	RemoveAll(cauldron)
 	cauldron.id = 1008
 	world:changeItem(cauldron)
@@ -619,23 +644,23 @@ function SetQuality(User,Item)
 	Item:setData("potionQuality",quality*100+99)-- duarability is useless, we set it anway
 end
 
-function GemDustBottleCauldron(gem, gemdust, cauldron, bottle)
+function GemDustBottleCauldron(gemId, gemdustId, cauldronId, bottleId)
     -- this function returns matching gem id, gemdust id, cauldron id and bottle id
     -- only one parameter is needed; if there are more than one, only the first one will be taken into account
     local myList
 	local myValue
-    if gem then
+    if gemId then
 	    myList = gemList
-		myValue = gem.id
-	elseif gemdust then
+		myValue = gemId
+	elseif gemdustId then
 	    myList = gemDustList
-		myValue = gemdust.id
-	elseif cauldron then
+		myValue = gemdustId
+	elseif cauldronId then
 	    myList = cauldronList
-		myValue = cauldron.id
-    elseif bottle then
+		myValue = cauldronId
+    elseif bottleId then
         myList = bottleList	
-		myValue = bottle.id
+		myValue = bottleId
     else 
 	    return 
 	end
@@ -662,9 +687,9 @@ function CombineStockEssence( User, stock, essenceBrew)
 		-- we get the gem dust used as an ingredient; and the new cauldron id we need later
 		local reGem, ingredientGemdust, newCauldron, reBottle
 		if cauldron:getData("filledWith") == "essenceBrew" then
-		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew, nil)
+		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew.id, nil)
 		else
-			reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, essenceBrew)
+			reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, essenceBrew.id)
 		end
 		-- create our ingredients list
 		local myIngredients = {}
@@ -764,7 +789,6 @@ function FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 				end
 				
 		else -- nothing in the cauldron, we just fill in the essence brew
-			if isTestserver() then debug("before fillfromto") end
 			FillFromTo(SourceItem,cauldron)	
 		end
 		
@@ -805,30 +829,57 @@ function repairPotion(Item)
 end
 
 -- return a list containing values for actionStart
-function GetStartAction(User, SourceItem, cauldron)
-    
-	if SourceItem.id == 52 then -- bucket with water
-        return {20, 21, 5, 0, 0}
-	end
-
-    if SourceItem.id == 164 then -- empty bottle
-        return {20,21,5,15,25}
-	end
+--@param theIngredient can be: "water","bottle","plant","gemPowder","stock","essenceBrew","potion"; everything else gets a default value
+function GetStartAction(User, theIngredient, cauldron)
 	
-	local isPlant, ignoreIt = getPlantSubstance(SourceItem.id, User)
-    if isPlant  or SourceItem.id == 157 then -- plant or rotten tree bark
-	    return {50,21,5,15,25}
-	end
-
-	local isGemDust = CheckIfGemDust(SourceItem, User)
-	if isGemDust then -- gem poweder
-		return {80,21,5,0,0}
-	end
-
-	if (SourceItem:getData("filledWith")=="stock" and cauldron:getData("filledWith")=="essenceBrew") or (SourceItem:getData("filledWith")=="essenceBrew" and cauldron:getData("filledWith")=="stock") then
-		return { 80, 21, 5, 10, 45} -- we combine stock and essence brew
-	end
-    
-    return {20, 21, 5, 10, 45}	-- everything else: fill in stock, essence brew or potion
+	local duration = 0
+	local gfxId = 0
+	local gfxIntervall = 0
+	local sfxId = 0
+	local sfxIntervall = 0
 	
+	if theIngredient == "water" then -- bucket with water
+        duration = 20
+		gfxId = 21
+		gfxIntervall = 5 
+		sfxId = 0
+		sfxIntervall = 0
+		
+	elseif theIngredient == "bottle" then -- empty bottle
+        duration = 20
+		gfxId = 21
+		gfxIntervall = 5 
+		sfxId = 15
+		sfxIntervall = 25
+	
+	elseif theIngredient == "plant" then -- plant or rotten tree bark
+	    duration = 50
+		gfxId = 21
+		gfxIntervall = 5 
+		sfxId = 15
+		sfxIntervall = 25
+		
+	elseif theIngredient == "gemPowder" then -- gem powder
+		duration = 80
+		gfxId = 21
+		gfxIntervall = 5 
+		sfxId = 0
+		sfxIntervall = 0
+		
+	elseif (theIngredient == "stock" and cauldron:getData("filledWith")=="essenceBrew") or (theIngredient =="essenceBrew" and cauldron:getData("filledWith")=="stock") then
+		-- we combine stock and essence brew
+		duration = 80
+		gfxId = 21
+		gfxIntervall = 5 
+		sfxId = 10
+		sfxIntervall = 45
+		
+	elseif theIngredient == "stock" or theIngredient == "essenceBrew" or theIngredient == "potion" then
+	    duration = 20
+		gfxId = 21
+		gfxIntervall = 5 
+		sfxId = 10
+		sfxIntervall = 45
+    end
+	return duration,gfxId,gfxIntervall,sfxId,sfxIntervall
 end

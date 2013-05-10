@@ -110,7 +110,7 @@ talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Farebbas! Pray fer old oomie chief, Reginald, will yoos?");
 talkEntry:addResponse("Gud hunt!");
-talkEntry:addResponse("Can yoos bring me sum bananas when come back? Danks in advance.");
+talkEntry:addResponse("Can yoos bring mes sum bananas when yoos come back? Danks in advance.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -133,7 +133,7 @@ talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Farebbas! Pray fer old oomie chief, Reginald, will yoos?");
 talkEntry:addResponse("Gud hunt!");
-talkEntry:addResponse("Can yoos bring me sum bananas when come back? Danks in advance.");
+talkEntry:addResponse("Can yoos bring mes sum bananas when yoos come back? Danks in advance.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -201,7 +201,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("jakob");
 talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 4));
-talkEntry:addResponse("Ah Jakob send you but you already ask me for something to do.");
+talkEntry:addResponse("Ah Jakob sent yoos, but yoos have already asked me for something to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -226,7 +226,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 4));
-talkEntry:addResponse("Ah Jakob send you but you already ask me for something to do.");
+talkEntry:addResponse("Ah Jakob send yoos, but yoos have already asked me for something to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,6 +266,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(703, "=", 3));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("jakob");
+talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Sir Reginalds Gruft I"));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 1));
@@ -570,7 +572,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Sir Reginald's Tomb III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 20));
-talkEntry:addResponse("Cherga hab shown mes origin of all spooks while dancin'. Dere be restless ghost ob foe ob Reginald oomie, hauntin' in tomb, want take revenge or sumding. Banish dat and Reginald hab peace.");
+talkEntry:addResponse("Cherga hab shown mes origin of all spooks while dancin'. Dere be restless ghost ob foe ob Reginald oomie, hauntin' in tomb, wantin' revenge or sumding. Banish dat and Reginald hab peace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -590,7 +592,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Sir Reginald's Tomb III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 20));
-talkEntry:addResponse("Cherga hab shown mes origin of all spooks while dancin'. Dere be restless ghost ob foe ob Reginald oomie, hauntin' in tomb, want take revenge or sumding. Banish dat and Reginald hab peace.");
+talkEntry:addResponse("Cherga hab shown mes origin of all spooks while dancin'. Dere be restless ghost ob foe ob Reginald oomie, hauntin' in tomb, wantin' revenge or sumding. Banish dat and Reginald hab peace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1084,7 +1086,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Dere be lotsa gods, more den Grakamesh hab fingers. Mes honour dem all, but mes heart beats fer Brágon, god op fire, alone.");
+talkEntry:addResponse("Dere be lotsa gods, more den Grakamesh hab fingers. Mes honour dem all, but mes heart beats fer Brágon, God op fire, alone.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1227,8 +1229,8 @@ talkEntry:addResponse("Ich werdige tanzen, weiter für alte Oomie Häuptling.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schüttelt eine Rassel und beginnt zu singen.", "#me starts to rattle and sings.");
-talkingNPC:addCycleText("#me beginnt unrhythmisch zu tanzen.", "#me starts to dance arhythmically.");
-talkingNPC:addCycleText("#me schlägt seine Hände auf eine Trommel und singt: 'Heya, heya! Heya, heya!'", "#me slams his hands on a drum, singing: 'Heya, heya! Heya, heya!'");
+talkingNPC:addCycleText("#me beginnt unrhythmisch zu tanzen.", "#me starts to dance arrhythmically.");
+talkingNPC:addCycleText("#me schlägt seine Hände auf eine Trommel und singt: 'Heya, heya! Heya, heya!'", "#me slams his hands on a drum, singing, 'Heya, heya! Heya, heya!'");
 talkingNPC:addCycleText("Hurrda, hurrda! Hurrda, hurrda!", "Hurrda, hurrda! Hurrda, hurrda!");
 talkingNPC:addCycleText("Waka, waka, eh, eh!", "Waka, waka, eh, eh!");
 talkingNPC:addCycleText("Ich will tanzen, tanzen, solange nichts zu mir fällt, was besser wäre.", "Mes feel like dancin', dancin', even if mes find sumding bedduh to do.");
