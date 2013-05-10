@@ -118,7 +118,9 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	local deleteItem, deleteId, missingDe, missingEn = GetItem(User, ingredientsList)
 	
 	if missingDe then
-		User:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[User.id]..". Arbeitsschritt ab. "..missingDe, "You abort your work before the "..USER_POSITION_LIST[User.id]..". work step. "..missingEn)
+		if USER_POSITION_LIST[User.id] < #ingredientsList then
+			User:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[User.id]..". Arbeitsschritt ab. "..missingDe, "You abort your work before the "..USER_POSITION_LIST[User.id]..". work step. "..missingEn)
+		end
 		return
 	end    
 	
