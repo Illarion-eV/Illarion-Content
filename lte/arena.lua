@@ -47,7 +47,7 @@ function callEffect(arenaEffect, User)
 
     if base.arena.checkMonster( User ) then
         base.common.InformNLS( User,
-        "Ihr habt euren Gegner geschlagen und Punkte verdient.",
+        "Ihr habt Euren Gegner geschlagen und Punkte verdient.",
         "You defeated your enemy and gained points for it.");
 		base.arena.setArenastats(User, arena, base.arena.monsterIDsByLevel[level].points);
 		local quest = base.arena.arenaInformations[arena].quest;
@@ -62,7 +62,7 @@ function callEffect(arenaEffect, User)
 	
 	if arenaEffect.numberCalled==300 then
         base.common.InformNLS( User,
-        "Ihr habt zulange gebraucht um das Monster zu besiegen.",
+        "Ihr habt zulange gebraucht, um das Monster zu besiegen.",
         "It took you too long to defeat the monster.");
         return false;
     end

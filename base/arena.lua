@@ -67,15 +67,15 @@ function requestMonster(User, NPC)
 		end
 	end
 	if User:getPlayerLanguage() == 0 then
-		sdMonster = SelectionDialog("Monsterlevel", "Wählt ein Monsterlevel gegen das Ihr kämpfen möchtet:", cbChooseLevel);
+		sdMonster = SelectionDialog("Monsterstärke", "Wählt wie stark das Monster sein soll, gegen das Ihr kämpfen möchtet:", cbChooseLevel);
 		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
 			priceInCP = i * priceBase;
 			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
-			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkte) -"..germanMoney);
+			sdMonster:addOption(0,"Stärke "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkte) -"..germanMoney);
 		end
 	else
-		sdMonster = SelectionDialog("Monsterlevel", "Plaese choose a monster level you wish to fight against:", cbChooseLevel);
+		sdMonster = SelectionDialog("Monster strength", "Please choose how strong the monster you wish to fight against should be:", cbChooseLevel);
 		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
 			priceInCP = i * priceBase;
@@ -206,7 +206,7 @@ function getRanklist(User, arena, message)
 				list = list.."Platz "..place.." : "..arenaList[i].." mit "..arenaList[i+1].." Punkten.\n";
 				place = place +1;
 			end
-			mdList = MessageDialog("Top fünf Kämpfer des Reiches", list, nil);			
+			mdList = MessageDialog("Top Fünf Kämpfer des Reiches", list, nil);			
 		else
 			list = "Place 1: "..arenaList[1].." with "..arenaList[2].." points.\n";
 			for i=3, #(arenaList),2 do
