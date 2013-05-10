@@ -582,8 +582,22 @@ function FillFromTo(fromItem,toItem)
     world:changeItem(toItem)	
 end
 
+function CheckExplosionAndCleanList()
+   local check = false
+	if USER_EXPLOSION_LIST then 
+		if USER_EXPLOSION_LIST[User.id] == true then
+			check = true
+		    USER_EXPLOSION_LIST[User.id] = nil  
+		end
+    end
+    return check	
+end
+
 function CauldronDestruction(User,cauldron,effectId)
-    
+    if USER_EXPLOSION_LIST == nil then -- note: it's global!
+		USER_EXPLOSION_LIST = {}
+	end
+	
 	if (effectId < 1) or (effectId > 3) or (effectId == nil) then
 	    effectId = 1
 	end
@@ -607,6 +621,7 @@ function CauldronDestruction(User,cauldron,effectId)
 			base.common.HighInformNLS(myVictims[i], "Du wirst von einer Explosion getroffen.", "You are hit by an explosion.")
 	    end			
 	end
+	USER_EXPLOSION_LIST[User.id] = true
 	RemoveAll(cauldron)
 	cauldron.id = 1008
 	world:changeItem(cauldron)

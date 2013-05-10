@@ -120,7 +120,7 @@ function SelectPlant(User, ingredientsList, category, currentEssenceList)
 						return
 					end	
 					AddToRecipe(ingredientsList,PLANTS[category][selected-1])
-					User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(PLANTS[category][selected-1],Player.german),"Has beend added to the recipe: "..world:getItemName(PLANTS[category][selected-1],Player.english),Character.lowPriority)
+					User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(PLANTS[category][selected-1],Player.german),"Added to the recipe: "..world:getItemName(PLANTS[category][selected-1],Player.english),Character.lowPriority)
 					SelectPlant(User, ingredientsList, category)
 				else
 					if #currentEssenceList == 9 then
@@ -172,7 +172,7 @@ function SelectGemDust(User, ingredientsList)
 				    return
 				end	
 				AddToRecipe(ingredientsList,GEMPOWDERS[selected-1])
-				User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(GEMPOWDERS[selected-1],Player.german),"Has beend added to the recipe: "..world:getItemName(GEMPOWDERS[selected-1],Player.english),Character.lowPriority)
+				User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(GEMPOWDERS[selected-1],Player.german),"Added to the recipe: "..world:getItemName(GEMPOWDERS[selected-1],Player.english),Character.lowPriority)
 			    SelectGemDust(User, ingredientsList)
 			end 
 		else
@@ -198,7 +198,7 @@ function BottleFromCauldron(User, ingredientsList)
 		return
 	end	
 	AddToRecipe(ingredientsList,"bottle")
-	User:inform("Wurde dem Rezept hinzugefügt: Abfüllen","Has beend added to the recipe: Bottling",Character.lowPriority)
+	User:inform("Wurde dem Rezept hinzugefügt: Abfüllen","Added to the recipe: Bottling",Character.lowPriority)
 	FirstMenu(User, ingredientsList)
 end
 
@@ -248,7 +248,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 				    return
 				end	
 				AddToRecipe(ingredientsList,52)
-				User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(52,Player.german),"Has beend added to the recipe: "..world:getItemName(52,Player.english),Character.lowPriority)
+				User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(52,Player.german),"Added to the recipe: "..world:getItemName(52,Player.english),Character.lowPriority)
 				SelectFillIntoCauldron(User, ingredientsList)
 			elseif selected == 3 then
 			    SelectActiveSubstance(User, ingredientsList, {5,5,5,5,5,5,5,5})
@@ -299,7 +299,7 @@ function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 				SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 			else
 				AddToRecipe(ingredientsList,"essence "..base.common.join(currentEssenceList,";"))
-				User:inform("Wurde dem Rezept hinzugefügt: Essenzgebräu","Has beend added to the recipe: Essence brew",Character.lowPriority)
+				User:inform("Wurde dem Rezept hinzugefügt: Essenzgebräu","Added to the recipe: Essence brew",Character.lowPriority)
 				FirstMenu(User, ingredientsList)
 			end	
 		else
@@ -353,7 +353,7 @@ function SelectActiveSubstance(User, ingredientsList, currentConcentrations)
 			    SelectConcentration(User,ingredientsList,currentConcentrations, selected-1)
 			else
 			    AddToRecipe(ingredientsList,"stock "..base.common.join(currentConcentrations,";"))
-				User:inform("Wurde dem Rezept hinzugefügt: Sud","Has beend added to the recipe: Stock",Character.lowPriority)
+				User:inform("Wurde dem Rezept hinzugefügt: Sud","Added to the recipe: Stock",Character.lowPriority)
 				FirstMenu(User, ingredientsList)
 			end
 		else
@@ -448,12 +448,16 @@ function ShowRecipe(User, ingredientsList, notMenu)
 		local success = dialog:getSuccess() 
 		if success then
 			local selected = dialog:getSelectedIndex() + 1
-			-- check if infrotn of cauldron
-			-- else
+			local minus
+			if notMenu then
+			    minus = 1 
+			else
+			    minus = 2
+			end	
 			if selected == 1 and not notMenu then
 			    FirstMenu(User, ingredientsList)
-            elseif type(ingredientsList[selected-1])=="string" and not string.find(ingredientsList[selected-1],"bottle") then
-				ShowStockEssence(User, ingredientsList[selected-1], ingredientsList, notMenu)
+            elseif type(ingredientsList[selected-minus])=="string" and not string.find(ingredientsList[selected-minus],"bottle") then
+				ShowStockEssence(User, ingredientsList[selected-minus], ingredientsList, notMenu)
 			else
 				ShowRecipe(User, ingredientsList, notMenu) 
 			end	
@@ -466,12 +470,14 @@ function ShowRecipe(User, ingredientsList, notMenu)
 
 	local dialog
 	if not notMenu then
-		dialog = SelectionDialog(getText("Rezeptvorschau","Recipe preview"), getText("Hier wird deine bisherige Auswahl angezeigt. Wähle ein Essenzgebräu oder einen Sud aus, um Nähres über dessen Inhalt zu erfahren.","Here are your current choices shown. Select an essence brew or stock to get to know more about its content."), callback)
+		dialog = SelectionDialog(getText("Rezeptvorschau","Recipe preview"), getText("Hier wird deine bisherige Auswahl angezeigt. Wähle ein Essenzgebräu oder einen Sud aus, um Nähres über dessen Inhalt zu erfahren.","Here are your current choices. Select an essence brew or stock to get to know more about its content."), callback)
 	else
 	    dialog = SelectionDialog(getText("Rezept","Recipe"),getText("Wähle ein Essenzgebräu oder Sud aus, um Nähres über dessen Inhalt zu erfahren. Wenn du aber vor einem Kessel stehst, wähle eine Zutat aus, von welcher du das Brauen beginnen willst.","Select an essence brew or a stock to get to learn more about its content. But if there is an cauldron infront of you, select the ingredient where you want to start to brew from."),callback)
 	end
 	
-	dialog:addOption(0, getText("Zurück","Back"))
+	if not notMenu then
+		dialog:addOption(0, getText("Zurück","Back"))
+	end	
 	if #ingredientsList > 0 then
 	    local counter = 0
 		for i=1,#ingredientsList do
@@ -646,7 +652,7 @@ end
 function CheckAmount(ingredientsList)
 
 	if #ingredientsList > 59 then
-		User:inform("Das Pergament ist voll. Du kannst dies nicht mehr dem Rezept hinzufügen.","The parchment is full. You cannot add this to the recipe anymore.",Character.highPriority)
+		User:inform("Das Pergament ist voll. Du kannst dies nicht mehr dem Rezept hinzufügen.","The parchment is full. You cannot add to the recipe anymore.",Character.highPriority)
         return false
 	end
     return true	
