@@ -131,7 +131,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	end
 	
 	CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
-	if alchemy.base.alchemy.CheckExplosionAndCleanList() then
+	if alchemy.base.alchemy.CheckExplosionAndCleanList(User) then
 	    User:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[User.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[User.id]..". work step.")
 		return
 	end	
