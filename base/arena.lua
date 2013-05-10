@@ -195,7 +195,7 @@ function getRanklist(User, arena, message)
 	
 
 	if message then
-		if arenaList ~= {} then
+		if table.getn(arenaList) ~= 0 then
 			local mdList = function(dialog)
 				if (not dialog:getSuccess()) then
 					return;
@@ -237,7 +237,7 @@ function setRanklist(User, arena, points)
 	local arenaListName = "ArenaList"..town;
 	local userInList, position = isUserInList(User, ranklist);
 
-	if ranklist ~= {} then
+	if table.getn(ranklist) ~= 0 or ranklist ~= nil then
 		if tonumber(ranklist[table.getn(ranklist)]) > points then
 			return;
 		else
