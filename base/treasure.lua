@@ -293,7 +293,7 @@ module("base.treasure", package.seeall)
         local itemID;
         local i = 0;
         while true do
-            newPos=position(math.random(475,1000),math.random(0,650),0); --only in the wilderness, outside any homeland
+            newPos=position(math.random(475,925),math.random(50,650),0); --only in the wilderness, outside any homeland
             tileID = world:getField(newPos):tile();
             if tileID == 2 or tileID == 3 or tileID == 4 or tileID == 8 or tileID == 9 or tileID == 10 or tileID == 11 or tileID == 15 then -- only "non-urban" basic tiles 
                 if not world:isItemOnField(newPos) then
@@ -301,7 +301,7 @@ module("base.treasure", package.seeall)
                 end
             end
             i = i + 1;
-            if i == 40 then
+            if i == 100 then --aborting after 100 tries; ugly solution! 
                 return false;
             end
         end
