@@ -118,7 +118,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	local deleteItem, deleteId, missingDe, missingEn = GetItem(User, ingredientsList)
 	
 	if missingDe then
-		User:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[User.id]..". Arbeitsschritt ab. "..missingDe, "You abort your work before the "..USER_POSITION_LIST[User.id].." work step. "..missingEn)
+		User:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[User.id]..". Arbeitsschritt ab. "..missingDe, "You abort your work before the "..USER_POSITION_LIST[User.id]..". work step. "..missingEn)
 		return
 	end    
 	
@@ -131,12 +131,15 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 	end
 	
 	CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
-	if alchemy.base.alchemy.CheckExplosionAndCleanList then
-	    User:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[User.id]..". Arbeitsschritt ab. "..missingDe, "You abort your work before the "..USER_POSITION_LIST[User.id].." work step. "..missingEn)
-		return
-	end	
 	
 	USER_POSITION_LIST[User.id] = USER_POSITION_LIST[User.id]+1
+	
+	if alchemy.base.alchemy.CheckExplosionAndCleanList(User) then
+	    if USER_POSITION_LIST[User.id] < #ingredientsList then
+			User:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[User.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[User.id]..". work step.")
+		end
+		return
+	end	
 	
 	if USER_POSITION_LIST[User.id] > #ingredientsList then
 	    return

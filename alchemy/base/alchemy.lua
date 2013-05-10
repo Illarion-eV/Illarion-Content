@@ -582,7 +582,7 @@ function FillFromTo(fromItem,toItem)
     world:changeItem(toItem)	
 end
 
-function CheckExplosionAndCleanList()
+function CheckExplosionAndCleanList(User)
    local check = false
 	if USER_EXPLOSION_LIST then 
 		if USER_EXPLOSION_LIST[User.id] == true then
