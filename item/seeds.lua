@@ -183,7 +183,7 @@ function getFreeFieldPosition(User)
 			end
 		end
 	end
-	return;
+	return nil;
 end
 
 -- some plants rot to seeds again, those have a different data value
