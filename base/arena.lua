@@ -188,13 +188,14 @@ function getRanklist(User, arena, message)
 	found, arenaEntry = ScriptVars:find(arenaListName); -- get the top 5
 	if found then
 		arenaList = sortTable(base.common.split(arenaEntry, ";"));
-	elseif found == false or table.getn(arenaList) ~= 10 then
+	elseif found == false then
 		User:inform(base.common.GetNLS(User, "Niemand hat hier bisher gekämpft.","No one fought here yet."));
 		return;
 	end
 	
-	if arenaList ~= nil then
-		if message then
+
+	if message then
+		if arenaList ~= {} then
 			local mdList = function(dialog)
 				if (not dialog:getSuccess()) then
 					return;
@@ -217,10 +218,10 @@ function getRanklist(User, arena, message)
 			end
 			User:requestMessageDialog(mdList);
 		else
-			return arenaList;
+			return;
 		end
 	else
-		return;
+		return arenaList;
 	end
 end
 
@@ -236,29 +237,33 @@ function setRanklist(User, arena, points)
 	local arenaListName = "ArenaList"..town;
 	local userInList, position = isUserInList(User, ranklist);
 
-	if tonumber(ranklist[table.getn(ranklist)]) > points then
-		return;
-	else
-		for i=2, #(ranklist), 2 do
-			if tonumber(ranklist[i]) < points then
-				if not userInList then
-					table.insert(ranklist, i-1, points);
-					table.insert(ranklist, i-1, User.name);
-					table.remove(ranklist, table.getn(ranklist));
-					table.remove(ranklist, table.getn(ranklist));
-					break;
-				else
-					table.remove(ranklist, position);
-					table.remove(ranklist, position);
-					table.insert(ranklist, i-1, points);
-					table.insert(ranklist, i-1, User.name);
-					break;
+	if ranklist ~= {} then
+		if tonumber(ranklist[table.getn(ranklist)]) > points then
+			return;
+		else
+			for i=2, #(ranklist), 2 do
+				if tonumber(ranklist[i]) < points then
+					if not userInList then
+						table.insert(ranklist, i-1, points);
+						table.insert(ranklist, i-1, User.name);
+						table.remove(ranklist, table.getn(ranklist));
+						table.remove(ranklist, table.getn(ranklist));
+						break;
+					else
+						table.remove(ranklist, position);
+						table.remove(ranklist, position);
+						table.insert(ranklist, i-1, points);
+						table.insert(ranklist, i-1, User.name);
+						break;
+					end
 				end
 			end
+			stringList = base.common.join(ranklist, ";");
+			ScriptVars:set(arenaListName, stringList)
 		end
-		stringList = base.common.join(ranklist, ";");
+	else
+		stringList = User.name..";"..points
 		ScriptVars:set(arenaListName, stringList)
-	end
 end
 
 function isUserInList(User, ranklist)
