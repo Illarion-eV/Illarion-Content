@@ -209,8 +209,8 @@ ESSENCE_BREWS[59]["de"] = "Essenzgebräu auf Rubinstaubbasis"
 ESSENCE_BREWS[59]["en"] = "Essence brew based on ruby powder"
 
 ESSENCE_BREWS[165] = {}
-ESSENCE_BREWS[165]["de"] = "Essenzgebräu auf Saphirstaubbasis"
-ESSENCE_BREWS[165]["en"] = "Essence brew based on sapphire powder"
+ESSENCE_BREWS[165]["de"] = "Essenzgebräu auf Smaragdstaubbasis"
+ESSENCE_BREWS[165]["en"] = "Essence brew based on emerald powder"
 
 ESSENCE_BREWS[166] = {}
 ESSENCE_BREWS[166]["de"] = "Essenzgebräu auf Amethyststaubbasis"
