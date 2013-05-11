@@ -16,9 +16,9 @@ Title[ENGLISH] = "Priest of Bragon"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][5] = "Bringe Nobarg folgende Gegenstände: Ein reines Feuer, eine rote Priester Robe und einen Goldkelch. Er wird dir nur weiterhelfen wenn du alle drei Gegenstände gleichzeitig bringst."
+Description[GERMAN][5] = "Bringe Nobarg folgende Gegenstände: ein reines Feuer, eine rote Priesterrobe und einen Goldkelch. Er wird dir nur weiterhelfen, wenn du alle drei Gegenstände gleichzeitig bringst."
 Description[ENGLISH][5] = "Take the following items to Nobarg: a pure element of fire, a red priest robe and a golden goblet. He will only help when you deliver all three items together."
-Description[GERMAN][8] = "Nachdem du nun seine Aufgabe erfüllt hast, wird dir Nobarg deine Frage von Sir Fludnar Yednos beantworten. Stelle sie ihm daher, um die Antwort zu erhalten und um Quest 'Ork-Forscher' beenden zu können. Dieses Quest ist damit beendet."
+Description[GERMAN][8] = "Nachdem du nun seine Aufgabe erfüllt hast, wird dir Nobarg deine Frage von Sir Fludnar Yednos beantworten. Stelle sie ihm daher, um die Antwort zu erhalten und um die Quest 'Ork-Forscher' beenden zu können. Diese Quest ist damit beendet."
 Description[ENGLISH][8] = "Since you have accomplished his task, Nobarg will answer your question from Sir Fludnar Yednos. Ask him the question and he provide you with the answer you need. You can then continue with the quest 'Orc-Researcher'. This quest is over now."
 
 
