@@ -18,7 +18,7 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Bringe Tronuk eine volle Flasche Bier."
 Description[ENGLISH][1] = "Take Tronuk a full bottle beer."
-Description[GERMAN][2] = "Tronuk hat nun genug Bier aber vielleicht möchte er zu einem späteren Zeitpunkt nach einer weiteren Flasche verlangen."
+Description[GERMAN][2] = "Tronuk hat nun genug Bier, aber vielleicht möchte er zu einem späteren Zeitpunkt eine weitere Flasche."
 Description[ENGLISH][2] = "Tronuk has enough beer for now but he might want another bottle later on."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
