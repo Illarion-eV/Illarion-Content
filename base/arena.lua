@@ -239,9 +239,9 @@ function setRanklist(User, arena, points)
 	local quest = arenaInformations[arena].quest;
 	local newRanklist = {};
 	local arenaListName = "ArenaList"..town;
-	local userInList, position = isUserInList(User, ranklist);
 
 	if tonumber(ranklist[table.getn(ranklist)]) ~= nil then
+		local userInList, position = isUserInList(User, ranklist);
 		if tonumber(ranklist[table.getn(ranklist)]) > points then
 			return;
 		else
