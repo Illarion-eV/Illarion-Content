@@ -450,9 +450,9 @@ function ShowRecipe(User, ingredientsList, notMenu)
 			local selected = dialog:getSelectedIndex() + 1
 			local minus
 			if notMenu then
-			    minus = 1 
+			    minus = 0 
 			else
-			    minus = 2
+			    minus = 1
 			end	
 			if selected == 1 and not notMenu then
 			    FirstMenu(User, ingredientsList)
