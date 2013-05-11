@@ -34,7 +34,7 @@ monsterIDsByLevel = {
 	{monsters = {534, 124, 562, 661, 853}, points = 20}
 }
 
-arenaInformations = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801}, 
+arenaInformations = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr2", quest=801}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Runewick", quest=802}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Galmair", quest=803}}
 					
@@ -188,14 +188,14 @@ function getRanklist(User, arena, message)
 	found, arenaEntry = ScriptVars:find(arenaListName); -- get the top 5
 	if found then
 		arenaList = sortTable(base.common.split(arenaEntry, ";"));
-	else
-		User:inform("[ERROR] An error has occurred, please contact a developer.")
-		return;
+	elseif not found and message then
+		User:inform(base.common.GetNLS(User, "Niemand hat hier bisher gekämpft.","No one fought here yet."));
+		return {};
 	end
 	
 	if (arenaEntry == "" or arenaEntry == nil) and message then
 		User:inform(base.common.GetNLS(User, "Niemand hat hier bisher gekämpft.","No one fought here yet."));
-		return;
+		return {};
 	end
 
 	if message then
