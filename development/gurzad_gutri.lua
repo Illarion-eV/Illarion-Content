@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 369, 236, 0, 6, 'Gurzad Gutri', 'npc.gurzad_gutri', 0, 2, 2, 85, 107, 47, 255, 218, 185);
+VALUES (1, 369, 236, 0, 6, 'Gurzad Gutri', 'development.gurzad_gutri', 0, 2, 2, 85, 107, 47, 255, 218, 185);
 ---]]
 
 require("npc.base.basic")
@@ -27,7 +27,7 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
-module("npc.gurzad_gutri", package.seeall)
+module("development.gurzad_gutri", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -229,7 +229,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich bin mir nicht sicher, ob sich die aus Runewick ihre Finger mit den Aufträgen schmutzig machen würde, die in Galmair anfallen.");
+talkEntry:addResponse("Ich bin mir nicht sicher, ob sich die aus Runewick ihre Finger mit den Aufträgen schmutzig machen möchten, die in Galmair anfallen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -248,7 +248,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich bin mir nicht sicher, ob sich die aus Runewick ihre Finger mit den Aufträgen schmutzig machen würde, die in Galmair anfallen.");
+talkEntry:addResponse("Ich bin mir nicht sicher, ob sich die aus Runewick ihre Finger mit den Aufträgen schmutzig machen möchten, die in Galmair anfallen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -502,7 +502,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(152, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(316, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Ihr bekommt eine Schaufel. Du steigst in Don Valerio Guiliannis Ansehen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du bekommst eine Schaufel. Du steigst in Don Valerio Guiliannis Ansehen."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));

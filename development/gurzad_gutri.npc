@@ -106,9 +106,9 @@ town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir stehen in Ga
 
 -- town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->
 english, town = Runewick, "quest", "mission" -> "I'm not certain those from Runewick would want to get down and dirty in the hard tasks we Galmairians seek."
-town = Runewick, "quest", "mission" -> "Ich bin mir nicht sicher, ob sich die aus Runewick ihre Finger mit den Aufträgen schmutzig machen würde, die in Galmair anfallen."
+town = Runewick, "quest", "mission" -> "Ich bin mir nicht sicher, ob sich die aus Runewick ihre Finger mit den Aufträgen schmutzig machen möchten, die in Galmair anfallen."
 town = Runewick, "task", "adventure", "order" -> "I'm not certain those from Runewick would want to get down and dirty in the hard tasks we Galmairians seek."
-town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin mir nicht sicher, ob sich die aus Runewick ihre Finger mit den Aufträgen schmutzig machen würde, die in Galmair anfallen."
+town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin mir nicht sicher, ob sich die aus Runewick ihre Finger mit den Aufträgen schmutzig machen möchten, die in Galmair anfallen."
 
 -- Catching quest triggers of those who have to wait for a new quest
 queststatus(153) ~= 0, english, town = Galmair, "quest", "mission" -> "There is no work today, our storage is stocked up!", "It's good you want to help Galmair! But at the moment we have no work.", "You still want work? I have none, but you'll certainly find plenty from our citizens!"
@@ -146,7 +146,7 @@ queststatus(152) = 0, chance(5.26), town = Galmair, "Auftrag", "Aufgabe", "Abent
 
 -- Quest 2 solved, reward: shovel (24), 5 rankpoints, delay: 3h
 queststatus(152) = 2, item(316, all) > 19, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a shovel. You advance in Don Valerio Guilianni's favour."), deleteItem(316, 20), item(24, 1, 599), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Good job! Once again the storage is full. Here is a shovel so you may acquire as much sand as you need in the future!"
-queststatus(152) = 2, item(316, all) > 19, town = Galmair, ".*" -> inform("[Quest gelöst] Ihr bekommt eine Schaufel. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(316, 20), item(24, 1, 599), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Gute Arbeit! Das Lager ist wieder gefüllt. Hier nehmt diese Schaufel, damit Ihr auch in Zukunft Sand besorgen könnt!"
+queststatus(152) = 2, item(316, all) > 19, town = Galmair, ".*" -> inform("[Quest gelöst] Du bekommst eine Schaufel. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(316, 20), item(24, 1, 599), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Gute Arbeit! Das Lager ist wieder gefüllt. Hier nehmt diese Schaufel, damit Ihr auch in Zukunft Sand besorgen könnt!"
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(152) = 2, item(316, all) < 20, english, town = Galmair, "quest", "mission" -> "We need that sand! Be sure to return with twenty piles of quartz sand"
