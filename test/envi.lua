@@ -26,9 +26,10 @@ function MoveToField(char)
 		world:gfx(53,position(6,6,0));
         	world:createMonster(942,position(6,6,0),0);
 				local monsters = world:getMonstersInRangeOf(char.pos, 20);
+				char:inform("Hui!", "Hui!")
 				for _,monsters in ipairs(monsters) do
 					monsters:increaseAttrib("hitpoints", -10000)
-				char:inform("Hui!", "Hui!")
+
 				end
 		char:inform("Fertig!", "Done!")
 		elseif base.factions.getMembership(char) == 3 then
