@@ -24,7 +24,6 @@ Description[ENGLISH][2] = "Tronuk has enough beer for now but he might want anot
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(164, 621, 0)} -- Tronruk
-QuestTarget[2] = {position(164, 621, 0)} -- Tronruk
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2

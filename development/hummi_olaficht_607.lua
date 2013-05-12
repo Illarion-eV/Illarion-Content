@@ -28,10 +28,9 @@ Description[ENGLISH][4] = "Hummi does not have any other quests for you, just mo
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(681, 318, 0)} -- Hummi
+QuestTarget[1] = {position(164, 621, 0)} -- Tronruk
 QuestTarget[2] = {position(164, 621, 0)} -- Tronruk
-QuestTarget[3] = {position(164, 621, 0)} -- Tronruk
-QuestTarget[4] = {position(681, 318, 0)} -- Hummi
+QuestTarget[3] = {position(681, 318, 0)} -- Hummi
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 4
