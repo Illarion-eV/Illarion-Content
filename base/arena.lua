@@ -248,11 +248,17 @@ function setRanklist(User, arena, points)
 			for i=2, #(ranklist), 2 do
 				if tonumber(ranklist[i]) < points then
 					if not userInList then
-						table.insert(ranklist, i-1, points);
-						table.insert(ranklist, i-1, User.name);
-						table.remove(ranklist, table.getn(ranklist));
-						table.remove(ranklist, table.getn(ranklist));
-						break;
+						if table.getn(ranklist) < 5 then 
+							table.insert(ranklist, i-1, points);
+							table.insert(ranklist, i-1, User.name);
+							break;
+						else
+							table.insert(ranklist, i-1, points);
+							table.insert(ranklist, i-1, User.name);
+							table.remove(ranklist, table.getn(ranklist));
+							table.remove(ranklist, table.getn(ranklist));
+							break;
+						end
 					else
 						table.remove(ranklist, position);
 						table.remove(ranklist, position);
