@@ -11,6 +11,7 @@ function MoveToField(char)
 		return
 	end
 	if math.random(0,99)< 100  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
+		char:inform("LOL", "LOL")
 		if base.factions.getMembership(char) == 2 then
 		char:inform("Yeah!", "Yeah!")
 		world:gfx(41,position(5,5,0));
