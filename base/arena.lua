@@ -151,7 +151,7 @@ function killMonster(User)
 end
 
 function getRandomMonster(level) 
-	local randomNumber = base.common.NormalRnd2(1, table.getn(monsterIDsByLevel[level].monsters), 10);
+	local randomNumber = math.random(1, table.getn(monsterIDsByLevel[level].monsters));
 	return monsterIDsByLevel[level].monsters[randomNumber];
 end
 
@@ -242,7 +242,7 @@ function setRanklist(User, arena, points)
 
 	if tonumber(ranklist[table.getn(ranklist)]) ~= nil then
 		local userInList, position = isUserInList(User, ranklist);
-		if tonumber(ranklist[table.getn(ranklist)]) > points then
+		if tonumber(ranklist[table.getn(ranklist)]) > points and table.getn(ranklist) == 5 then
 			return;
 		else
 			for i=2, #(ranklist), 2 do
