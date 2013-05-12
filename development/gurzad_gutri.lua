@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 369, 236, 0, 6, 'Gurzad Gutri', 'development.gurzad_gutri', 0, 2, 2, 85, 107, 47, 255, 218, 185);
+VALUES (1, 369, 236, 0, 6, 'Gurzad Gutri', 'npc.gurzad_gutri', 0, 2, 2, 85, 107, 47, 255, 218, 185);
 ---]]
 
 require("npc.base.basic")
@@ -27,7 +27,7 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
-module("development.gurzad_gutri", package.seeall)
+module("npc.gurzad_gutri", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -55,7 +55,7 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Good day to ye, have ya come to contribute to Galmair's storage");
 talkEntry:addResponse("Greetings! This here be where the Don lives, so watch yourself.");
-talkEntry:addResponse("Hello there. This is where we sort out the storages for Galmair, I hope your here to help!");
+talkEntry:addResponse("Hello there. This is where we sort out the storage for Galmair, I hope you're here to help!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -84,7 +84,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Good day to ye, have ya come to contribute to Galmair's storage");
 talkEntry:addResponse("Greetings! This here be where the Don lives, so watch yourself.");
-talkEntry:addResponse("Hello there. This is where we sort out the storages for Galmair, I hope your here to help!");
+talkEntry:addResponse("Hello there. This is where we sort out the storage for Galmair, I hope you're here to help!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -166,7 +166,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am Gurzad Gutri! I have been tasked with the position of clerk to help maintain our stocks and storages, I expect ye want to help?");
+talkEntry:addResponse("I am Gurzad Gutri! I have been tasked with the position of clerk to help maintain our stocks and storage, I expect ye want to help?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -309,7 +309,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's Storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 1));
-talkEntry:addResponse("The Don had an appetite and snuck some fruits from the storage! We need to replace them. Bring me 5 strawberries!");
+talkEntry:addResponse("The Don had an appetite and snuck some fruits from the storage! We need to replace them. Bring me five strawberries!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -335,7 +335,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's Storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 1));
-talkEntry:addResponse("The Don had an appetite and snuck some fruits from the storage! We need to replace them. Bring me 5 strawberries!");
+talkEntry:addResponse("The Don had an appetite and snuck some fruits from the storage! We need to replace them. Bring me five strawberries!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -365,7 +365,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(151, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Good job! For now, the storage is set. You're payment is 2 silver.");
+talkEntry:addResponse("Good job! For now, the storage is set. Your payment is two silver.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -437,7 +437,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's Storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 2));
-talkEntry:addResponse("We always hold some sand in our storage for bartering deals with Cadomyr. Some of it was used up and we need to replace it. Get us 20 piles of quartz sand!");
+talkEntry:addResponse("We always hold some sand in our storage for bartering deals with Cadomyr. Some of it was used up and we need to replace it. Get twenty piles of quartz sand!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -463,7 +463,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's Storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 2));
-talkEntry:addResponse("We always hold some sand in our storage for bartering deals with Cadomyr. Some of it was used up and we need to replace it. Get us 20 piles of quartz sand!");
+talkEntry:addResponse("We always hold some sand in our storage for bartering deals with Cadomyr. Some of it was used up and we need to replace it. Get twenty piles of quartz sand!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -565,7 +565,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 3));
-talkEntry:addResponse("The Don recently had some new rings made for his personal collection! Now we are short some gems. I'll be needing ya to get me 3 cut rubies.");
+talkEntry:addResponse("The Don recently had some new rings made for his personal collection! Now we are short of some gems. I'll be needing ya to get me three cut rubies.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -591,7 +591,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 3));
-talkEntry:addResponse("The Don recently had some new rings made for his personal collection! Now we are short some gems. I'll be needing ya to get me 3 cut rubies.");
+talkEntry:addResponse("The Don recently had some new rings made for his personal collection! Now we are short of some gems. I'll be needing ya to get me three cut rubies.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -621,7 +621,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(46, 3, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Oy! Good work there! These will do just fine. Thank ya for the work, your payment is 6 silvers.");
+talkEntry:addResponse("Oi! Good work there! These will do just fine. Thank ya for the work, your payment is six silvers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -647,7 +647,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("We need those three rubies! What if the Don commisioned three more ruby ring? Be sure to come back with them.");
+talkEntry:addResponse("We need those three rubies! What if the Don commisioned three more ruby rings? Be sure to come back with them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -668,7 +668,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("We need those three rubies! What if the Don commisioned three more ruby ring? Be sure to come back with them.");
+talkEntry:addResponse("We need those three rubies! What if the Don commisioned three more ruby rings? Be sure to come back with them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -693,7 +693,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 4));
-talkEntry:addResponse("Oy! You're here just in time, a fight broke out and several windows shattered. We used up some of our stored glass and now need ten glass ingots to fill the gap.");
+talkEntry:addResponse("Oi! You're here just in time, a fight broke out and several windows were shattered. We used up some of our stored glass and now need ten glass ingots to fill the gap.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -719,7 +719,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 4));
-talkEntry:addResponse("Oy! You're here just in time, a fight broke out and several windows shattered. We used up some of our stored glass and now need ten glass ingots to fill the gap.");
+talkEntry:addResponse("Oi! You're here just in time, a fight broke out and several windows were shattered. We used up some of our stored glass and now need ten glass ingots to fill the gap.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -749,7 +749,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(41, 10, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Very good! With this we'll be able to replace the broken windows. Come back again to help with the storage! Until then, you're payment is 12 silvers.");
+talkEntry:addResponse("Very good! With this we'll be able to replace the broken windows. Come back again to help with the storage! Until then, you're payment is twelve silvers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -821,7 +821,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 5));
-talkEntry:addResponse("The Don was working a deal out with some merchants from a neihboring country. During the deals they broke out some smoking pipes. We'll need five more pipes to replace the ones the Don used!");
+talkEntry:addResponse("The Don was working a deal out with some merchants from a neighboring country. During the deals they broke out some smoking pipes. We'll need five more pipes to replace those the Don used!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -847,7 +847,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 5));
-talkEntry:addResponse("The Don was working a deal out with some merchants from a neihboring country. During the deals they broke out some smoking pipes. We'll need five more pipes to replace the ones the Don used!");
+talkEntry:addResponse("The Don was working a deal out with some merchants from a neighboring country. During the deals they broke out some smoking pipes. We'll need five more pipes to replace those the Don used!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1005,7 +1005,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(97, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Good work! Our mason's will make good use of these. You are rewarded a leather bag.");
+talkEntry:addResponse("Good work! Our masons will make good use of these. You are rewarded a leather bag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1031,7 +1031,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("The crafter's are complaining! We need those twenty bricks.");
+talkEntry:addResponse("The crafters are complaining! We need those twenty bricks.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1052,7 +1052,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("The crafter's are complaining! We need those twenty bricks.");
+talkEntry:addResponse("The crafters are complaining! We need those twenty bricks.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1077,7 +1077,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 7));
-talkEntry:addResponse("The Don has recently hired a new body guard. He has taken a longsword from the storage in order to arm this new guard. We must replace it! Please bring me one longsword.");
+talkEntry:addResponse("The Don has recently hired a new bodyguard. He has taken a longsword from the storage in order to arm this new guard. We must replace it! Please bring me one longsword.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1103,7 +1103,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 7));
-talkEntry:addResponse("The Don has recently hired a new body guard. He has taken a longsword from the storage in order to arm this new guard. We must replace it! Please bring me one longsword.");
+talkEntry:addResponse("The Don has recently hired a new bodyguard. He has taken a longsword from the storage in order to arm this new guard. We must replace it! Please bring me one longsword.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1127,13 +1127,13 @@ talkEntry:addCondition(npc.base.condition.item.item(2701, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 12 silver coins. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded twelve silver coins. You advance in Don Valerio Guilianni's favour."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2701, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Very good! This sword will do well. You're payment is 12 silvers.");
+talkEntry:addResponse("Very good! This sword will do well. Your payment is twelve silvers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1333,7 +1333,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 9));
-talkEntry:addResponse("#me stumbles as he looks up 'HEY! Hey you! *hic* Our damneded mugs shattered when we.. *hic* challenged the Don to a drinking game. But the game ain't over yet son! We.. *hic* need more mugs! How many? Uh... however this many is! He holds up all of his fingers.");
+talkEntry:addResponse("#me stumbles as he looks up 'HEY! Hey you! *hic* Our damn mugs shattered when we.. *hic* challenged the Don to a drinking game. But the game ain't over yet son! We.. *hic* need more mugs! How many? Uh... however this many is! He holds up all of his fingers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1359,7 +1359,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 9));
-talkEntry:addResponse("#me stumbles as he looks up 'HEY! Hey you! *hic* Our damneded mugs shattered when we.. *hic* challenged the Don to a drinking game. But the game ain't over yet son! We.. *hic* need more mugs! How many? Uh... however this many is! He holds up all of his fingers.");
+talkEntry:addResponse("#me stumbles as he looks up 'HEY! Hey you! *hic* Our damn mugs shattered when we.. *hic* challenged the Don to a drinking game. But the game ain't over yet son! We.. *hic* need more mugs! How many? Uh... however this many is! He holds up all of his fingers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1389,7 +1389,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1908, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("#me burps loudly as he takes the mugs 'OY!!! Ye brought these.. *hic* JUST in time! Here's some monies!' he then vomits in front of you and runs off");
+talkEntry:addResponse("#me burps loudly as he takes the mugs 'OI!!! Ye brought these.. *hic* JUST in time! Here's some monies!' and then vomits in front of you before running off");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1415,7 +1415,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Who are you!? OH! You're the guy!! OY! *Hic* We need them mugs! We need ten!");
+talkEntry:addResponse("Who are you!? OH! You're the guy!! OI! *Hic* We need them mugs! We need ten!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1436,7 +1436,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Who are you!? OH! You're the guy!! OY! *Hic* We need them mugs! We need ten!");
+talkEntry:addResponse("Who are you!? OH! You're the guy!! OI! *Hic* We need them mugs! We need ten!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1461,7 +1461,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 10));
-talkEntry:addResponse("Recently one of our candle moulds was used and broke as we had an order of candles to fill. The mould that broke from our storage so we must replace it! Bring me one candle mould.");
+talkEntry:addResponse("Recently one of our candle moulds was used and broke as we had an order of candles to fill. The mould that broke was from our storage so we must replace it! Bring me one candle mould.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1487,7 +1487,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 10));
-talkEntry:addResponse("Recently one of our candle moulds was used and broke as we had an order of candles to fill. The mould that broke from our storage so we must replace it! Bring me one candle mould.");
+talkEntry:addResponse("Recently one of our candle moulds was used and broke as we had an order of candles to fill. The mould that broke was from our storage so we must replace it! Bring me one candle mould.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1517,7 +1517,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(429, 1, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Ah this is perfect. Ye've done a good job! Here is your payment.");
+talkEntry:addResponse("Ah this is perfect. You've done a good job! Here is your payment.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1589,7 +1589,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's Storage."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 11));
-talkEntry:addResponse("The Don had a party for some merchants traveling through this land. We served some of our most famous soup! But the damned merchants left without returning the bowls! We need to replace them! Bring me twenty soup bowls.");
+talkEntry:addResponse("The Don had a party for some merchants travelling through this land. We served some of our most famous soup but the damn merchants left without returning the bowls! We need to replace them! Bring me twenty soup bowls.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1615,7 +1615,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's Storage."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 11));
-talkEntry:addResponse("The Don had a party for some merchants traveling through this land. We served some of our most famous soup! But the damned merchants left without returning the bowls! We need to replace them! Bring me twenty soup bowls.");
+talkEntry:addResponse("The Don had a party for some merchants travelling through this land. We served some of our most famous soup but the damn merchants left without returning the bowls! We need to replace them! Bring me twenty soup bowls.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1645,7 +1645,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(297, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("These will do great! Perhaps one day the Don will invite yourself to be a part of one of his parties. We received some extra equipment in our last order, so today I'll reward you with this dagger.");
+talkEntry:addResponse("These will do great! Perhaps one day the Don will invite you to be a part of one of his parties. We received some extra equipment in our last order, so today I'll reward you with this dagger.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1717,7 +1717,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 12));
-talkEntry:addResponse("The Don commisioned a new set of armor to be made. For this he took materials from our storage for the smith. We've been able to replace everything except leather since there are no pigs around. Please venture out and gather us ten dried leather.");
+talkEntry:addResponse("The Don commisioned a new set of armour to be made. For this he took materials from our storage for the smith. We've been able to replace everything except the leather since there are no pigs around. Please venture out and gather us ten pieces of dried leather.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1743,7 +1743,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 12));
-talkEntry:addResponse("The Don commisioned a new set of armor to be made. For this he took materials from our storage for the smith. We've been able to replace everything except leather since there are no pigs around. Please venture out and gather us ten dried leather.");
+talkEntry:addResponse("The Don commisioned a new set of armour to be made. For this he took materials from our storage for the smith. We've been able to replace everything except the leather since there are no pigs around. Please venture out and gather us ten pieces of dried leather.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1799,7 +1799,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Did you bring the leathers? Be sure that they are already dried! We have no use for raw leather. Make sure that you come back ten leather.");
+talkEntry:addResponse("Did you bring the leathers? Be sure that they are already dried! We have no use for raw leather. Make sure that you come back ten dried leather.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1820,7 +1820,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Did you bring the leathers? Be sure that they are already dried! We have no use for raw leather. Make sure that you come back ten leather.");
+talkEntry:addResponse("Did you bring the leathers? Be sure that they are already dried! We have no use for raw leather. Make sure that you come back ten dried leather.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1845,7 +1845,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 13));
-talkEntry:addResponse("The Don's personal golden goblet has been tarnished over the years, he's taken a new one from the storage. I'll need ya to go fetch a new golden goblet for the storage.");
+talkEntry:addResponse("The Don's personal golden goblet has been tarnished over the years, he's taken a new one from the storage. I'll need ya to go and fetch a new golden goblet for the storage.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1871,7 +1871,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 13));
-talkEntry:addResponse("The Don's personal golden goblet has been tarnished over the years, he's taken a new one from the storage. I'll need ya to go fetch a new golden goblet for the storage.");
+talkEntry:addResponse("The Don's personal golden goblet has been tarnished over the years, he's taken a new one from the storage. I'll need ya to go and fetch a new golden goblet for the storage.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1901,7 +1901,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(2744, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Ah! This is perfect. Good work, the Don will be pleased should he need another. Now that you provided a fine drinking goblet, youn are rewarded a fine smoking pipe!");
+talkEntry:addResponse("Ah! This is perfect. Good work, the Don will be pleased should he need another. Now that you have provided a fine drinking goblet, you are rewarded a fine smoking pipe!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2055,7 +2055,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Our storage is short one longbow! I need you to come back with one.");
+talkEntry:addResponse("Our storage is short of one longbow! I need you to come back with one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2076,7 +2076,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Our storage is short one longbow! I need you to come back with one.");
+talkEntry:addResponse("Our storage is short of one longbow! I need you to come back with one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2101,7 +2101,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 15));
-talkEntry:addResponse("One of our hunting parties went out again and brought back a good stock of meat for us! But they used quite a large amount of crossbow bolts. I need you to get me 100 crossbow bolts.");
+talkEntry:addResponse("One of our hunting parties went out again and brought back a good stock of meat for us! But they used quite a large amount of crossbow bolts. I need you to get me one hundred crossbow bolts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2127,7 +2127,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 15));
-talkEntry:addResponse("One of our hunting parties went out again and brought back a good stock of meat for us! But they used quite a large amount of crossbow bolts. I need you to get me 100 crossbow bolts.");
+talkEntry:addResponse("One of our hunting parties went out again and brought back a good stock of meat for us! But they used quite a large amount of crossbow bolts. I need you to get me one hundred crossbow bolts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2157,7 +2157,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(2780, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Aye! This is good. These will serve the Don well, whether its against a pack of wolves or our enemies. Good Work! Here is your reward.");
+talkEntry:addResponse("Aye! This is good. These will serve the Don well, whether it's against a pack of wolves or our enemies. Good Work! Here is your reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2183,7 +2183,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ye don't want our men going out unarmed do ya? Be sure to bring me 100 crossbow bolts.");
+talkEntry:addResponse("Ye don't want our men going out unarmed do ya? Be sure to bring me one hundred crossbow bolts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2204,7 +2204,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Ye don't want our men going out unarmed do ya? Be sure to bring me 100 crossbow bolts.");
+talkEntry:addResponse("Ye don't want our men going out unarmed do ya? Be sure to bring me one hundred crossbow bolts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2279,7 +2279,7 @@ talkEntry:addCondition(npc.base.condition.item.item(554, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 22 silver coins. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded twenty two silver coins. You advance in Don Valerio Guilianni's favour."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(554, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
@@ -2311,7 +2311,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Oy! That feast is today! We need those five venison dishes as soon as possible, don't come back without them!");
+talkEntry:addResponse("Oi! That feast is today! We need those five venison dishes as soon as possible, don't come back without them!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2332,7 +2332,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Oy! That feast is today! We need those five venison dishes as soon as possible, don't come back without them!");
+talkEntry:addResponse("Oi! That feast is today! We need those five venison dishes as soon as possible, don't come back without them!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2357,7 +2357,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 17));
-talkEntry:addResponse("Our alchemists are hard at work! They've recently taken some of our powders from the storage, therefore.... it must be replaced! Bring me 5 bags of sapphire powder.");
+talkEntry:addResponse("Our alchemists are hard at work! They've recently taken some of our powders from the storage, therefore.... they must be replaced! Bring me five bags of sapphire powder.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2383,7 +2383,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 17));
-talkEntry:addResponse("Our alchemists are hard at work! They've recently taken some of our powders from the storage, therefore.... it must be replaced! Bring me 5 bags of sapphire powder.");
+talkEntry:addResponse("Our alchemists are hard at work! They've recently taken some of our powders from the storage, therefore.... they must be replaced! Bring me five bags of sapphire powder.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2413,7 +2413,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(279, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Very good! These will do just fine. I'm sure the alchemist' will be pleased. Now that the storage is once again filled, here is your reward.");
+talkEntry:addResponse("Very good! These will do just fine. I'm sure the alchemists will be pleased. Now that the storage is once again filled, here is your reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2439,7 +2439,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I thought I gave you an order? Don't come back until you have the five sapphire powder.");
+talkEntry:addResponse("I thought I gave you an order? Don't come back until you have the five bags of sapphire powder.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2460,7 +2460,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I thought I gave you an order? Don't come back until you have the five sapphire powder.");
+talkEntry:addResponse("I thought I gave you an order? Don't come back until you have the five bags of sapphire powder.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2485,7 +2485,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 18));
-talkEntry:addResponse("#me grumbles 'Some of our smiths snuck in and snatched out some of our coal. I would've given it to them if they filled out a requsition order! Nonetheless, we are short and I need you to get me 15 coal ores.");
+talkEntry:addResponse("#me grumbles 'Some of our smiths snuck in and snatched some of our coal. I would've given it to them if they had filled out a requisition order! Nonetheless, we are short and I need you to get me fifteen lumps of coal.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2511,7 +2511,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 18));
-talkEntry:addResponse("#me grumbles 'Some of our smiths snuck in and snatched out some of our coal. I would've given it to them if they filled out a requsition order! Nonetheless, we are short and I need you to get me 15 coal ores.");
+talkEntry:addResponse("#me grumbles 'Some of our smiths snuck in and snatched some of our coal. I would've given it to them if they had filled out a requisition order! Nonetheless, we are short and I need you to get me fifteen lumps of coal.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2541,7 +2541,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 15, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Good work there! Good to know we got atleast someone reliable in this operation. Here is your payment.");
+talkEntry:addResponse("Good work there! Good to know we have at least someone reliable in this operation. Here is your payment.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2567,7 +2567,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("We need that coal! You never know when the Don is going to want something crafted. Be sure to come back with 15 coal ores.");
+talkEntry:addResponse("We need that coal! You never know when the Don is going to want something crafted. Be sure to come back with fifteen lumps of coal.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2588,7 +2588,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("We need that coal! You never know when the Don is going to want something crafted. Be sure to come back with 15 coal ores.");
+talkEntry:addResponse("We need that coal! You never know when the Don is going to want something crafted. Be sure to come back with fifteen lumps of coal.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2613,7 +2613,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 19));
-talkEntry:addResponse("The Don has taken a helmet from our storage to armor one of his new bodyguards. He's the Don so I've no say in the matter, but now we're short! I need you to go get me one pot helmet.");
+talkEntry:addResponse("The Don has taken a helmet from our storage to armour one of his new bodyguards. He's the Don so I've no say in the matter, but now we're short! I need you to go and get me one pot helmet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2639,7 +2639,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 19));
-talkEntry:addResponse("The Don has taken a helmet from our storage to armor one of his new bodyguards. He's the Don so I've no say in the matter, but now we're short! I need you to go get me one pot helmet.");
+talkEntry:addResponse("The Don has taken a helmet from our storage to armour one of his new bodyguards. He's the Don so I've no say in the matter, but now we're short! I need you to go and get me one pot helmet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2695,7 +2695,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("You came back without the helmet? I can't have the Don come to me and be short! Don't come back unless you have the one pot helmet.");
+talkEntry:addResponse("You came back without the helmet? I can't have the Don come to me and be short! Don't come back unless you have one pot helmet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2716,7 +2716,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("You came back without the helmet? I can't have the Don come to me and be short! Don't come back unless you have the one pot helmet.");
+talkEntry:addResponse("You came back without the helmet? I can't have the Don come to me and be short! Don't come back unless you have one pot helmet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2741,7 +2741,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 20));
-talkEntry:addResponse("The Don commissioned a ring to be made and use a gold nugget from the storage. It might only be a single nugget, but it must be replaced! I need you to get me one gold nugget.");
+talkEntry:addResponse("The Don commissioned a ring to be made and used a gold nugget from the storage. It might only be a single nugget, but it must be replaced! I need you to get me one gold nugget.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2767,7 +2767,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Stock up Galmair's storage."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 20));
-talkEntry:addResponse("The Don commissioned a ring to be made and use a gold nugget from the storage. It might only be a single nugget, but it must be replaced! I need you to get me one gold nugget.");
+talkEntry:addResponse("The Don commissioned a ring to be made and used a gold nugget from the storage. It might only be a single nugget, but it must be replaced! I need you to get me one gold nugget.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2895,8 +2895,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I oversee the Don's personal storage here in Galmair.");
-talkEntry:addResponse("As the Head Clerk for the Don, it's my duty to make sure that the Don's storage is always up to stock with his standards.");
-talkEntry:addResponse("The Don himself has appointed as the Head Clerk of his storage. Galmair is a well oiled mill! We are constantly at work, and because of this we need to make sure that our storage is always full!");
+talkEntry:addResponse("As the Head Clerk for the Don, it's my duty to make sure that the Don's storage is always well stocked to his standards.");
+talkEntry:addResponse("The Don himself has appointed me as the Head Clerk of his storage. Galmair is a well oiled mill! We are constantly at work, and because of this we need to make sure that our storage is always full!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2923,7 +2923,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Clerk");
-talkEntry:addResponse("Aye that's me. It's my duty to ensure that our storage is kept up to the standard.");
+talkEntry:addResponse("Aye that's me. It's my duty to ensure that our storage is kept up to standard.");
 talkEntry:addResponse("The Don needs a lot of things made for him! If I didn't do my job then a lot of his orders wouldn't be able to be filled.");
 talkEntry:addResponse("I am the Head Clerk! If not for me Galmair would not be as wealthy! Don't tell the Don I said that.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -2978,7 +2978,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("loyal");
-talkEntry:addResponse("I'm loyal to the Don of course! He showers us all in his wealth and riches and lets stay in his safety. Who wouldnt be loyal to him?");
+talkEntry:addResponse("I'm loyal to the Don of course! He showers us all in his wealth and riches and lets us stay in his safety. Who wouldnt be loyal to him?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2990,7 +2990,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("That damn elf talks too much! I'm getting up in years, so being around him a waste of my time!");
+talkEntry:addResponse("That damn elf talks too much! I'm getting on in years, so being around him a waste of my time!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3005,7 +3005,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("archmage");
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("That damn elf talks too much! I'm getting up in years, so being around him a waste of my time!");
+talkEntry:addResponse("That damn elf talks too much! I'm getting on in years, so being around him a waste of my time!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3035,7 +3035,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("She be a looker, thats for sure. The Don once proposed to her. I can't possibly fathom why anyone would turn down an offer from the Don though.");
+talkEntry:addResponse("She be a looker, that's for sure. The Don once proposed to her. I can't possibly fathom why anyone would turn down an offer from the Don though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3049,7 +3049,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Rosaline");
 talkEntry:addTrigger("Edwards");
-talkEntry:addResponse("She be a looker, thats for sure. The Don once proposed to her. I can't possibly fathom why anyone would turn down an offer from the Don though.");
+talkEntry:addResponse("She be a looker, that's for sure. The Don once proposed to her. I can't possibly fathom why anyone would turn down an offer from the Don though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3117,7 +3117,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("The god of trade and crafting! He is very important to us in Galmair and he watches over our deals and business. It's because of him we're so wealthy! Er.. And the Don of course!");
+talkEntry:addResponse("The God of trade and crafting! He is very important to us in Galmair and he watches over our deals and business. It's because of him we're so wealthy! Er.. And the Don of course!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3193,7 +3193,7 @@ talkingNPC:addCycleText("#me nimmt einen schnellen Schluck aus einem Flachmann, 
 talkingNPC:addCycleText("Gut, dass wir nicht in der Wüste leben! HAH!", "Good thing we don't live in a desert! HAH!");
 talkingNPC:addCycleText("Niemand ist mächtiger als der Don!", "No one is more powerful than the Don!");
 talkingNPC:addCycleText("Ich brauche EUCH... um für den Don zu arbeiten.", "I want YOU... to work for the Don.");
-talkingNPC:addCycleText("Kommt her! Ihr könnt mit dem Lager von Galmair helfen!", "C'mere! You can help Galmair's storage!");
+talkingNPC:addCycleText("Kommt her! Ihr könnt mit dem Lager von Galmair helfen!", "C'mere! You can help with Galmair's storage!");
 talkingNPC:addCycleText("Wenn Ihr reich werden wollt, seid Ihr an den richtigen Ort gekommen!", "If you want to become rich, you've come to the right place!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
