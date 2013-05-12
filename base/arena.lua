@@ -32,10 +32,10 @@ monsterIDsByLevel = {
 	{monsters = {311, 394, 551, 882, 1011}, points = 3},
 	{monsters = {141, 501, 552, 791, 872}, points = 4},
 	{monsters = {191, 492, 531, 411, 851}, points = 6},
-	{monsters = {121, 202, 491, 525, 852}, points = 8},
+	{monsters = {121, 201, 491, 525, 852}, points = 8},
 	{monsters = {534, 124, 562, 661, 853}, points = 13},
-	{monsters = {125, 205, 262, 631, 912}, points = 18},
-	{monsters = {302, 641, 911}, points = 21}
+	{monsters = {125, 132, 812, 195, 651}, points = 18},
+	{monsters = {302, 631, 641, 911, 912}, points = 21}
 }
 
 arenaInformations = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801}, 
