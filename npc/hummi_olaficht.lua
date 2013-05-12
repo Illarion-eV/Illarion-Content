@@ -106,6 +106,27 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(607, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Jag");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Tournament Champion' end] You receive one gold coin. Hummi does not have any other quests for you, just more information, but look for other NPCs with other quests."));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 5));
+talkEntry:addResponse("Here's another reward for you. With this money you should be able to buy some nice things.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(607, "=", 3));
+talkEntry:addTrigger("Jag");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Turniergewinner' Ende] Du hast eine Goldmünze erhalten. Hummi hat keine anderen Aufgaben für dich. Lediglich mehr Informationen. Aber suche nach weiteren Aufgaben bei anderen NPCs."));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 5));
+talkEntry:addResponse("Hier noch ein Lohn für dich. Mit dem Geld solltest du in der Lage sein dir ein paar schöne Sachen zu kaufen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(607, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Tournament Champion'] Tell him the name of the winner. The name started with a 'J'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 4));
@@ -1230,17 +1251,17 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick has four towers that loom over the land in the southeast. If you follow the path correctly you will have to cross a long narrow bridge and from there you should see the towers easily. They believe in wisdom and above all the advice of their Archmage, Elvaine Morgan. Use the teleporter book, choose 'Runewick' and you will be there.");
-talkEntry:addResponse("Their rivals from Cadomyr and Galmair call them arrogant smart arses who claim to know it all and try to keep a self-defined 'balance'. Don't ask me what all that means. *Giggles* Use the teleporter book, choose 'Runewick' and you will be there.");
-talkEntry:addResponse("Ah, Runewick, you should expect to find many types of craftsmen in that wondrous place: alchemists, candle makers, carpenters, lumberjacks, cooks, bakers, farmers, ehrb gatherers, tailors, tanners and dyers. Use the teleporter book, choose 'Runewick' and you will be there.");
+talkEntry:addResponse("Runewick has four towers that loom over the land in the southeast. If you follow the path correctly you will have to cross a long narrow bridge and from there you should see the towers easily. They believe in wisdom and above all the advice of their Archmage, Elvaine Morgan. Use the teleporter book, choose 'Runewick' and you will be there. Elesil Daelwon at the teleporter in Runewick will tell you more.");
+talkEntry:addResponse("Their rivals from Cadomyr and Galmair call them arrogant smart arses who claim to know it all and try to keep a self-defined 'balance'. Don't ask me what all that means. *Giggles* Use the teleporter book, choose 'Runewick' and you will be there. Elesil Daelwon at the teleporter in Runewick will tell you more.");
+talkEntry:addResponse("Ah, Runewick, you should expect to find many types of craftsmen in that wondrous place: alchemists, candle makers, carpenters, lumberjacks, cooks, bakers, farmers, ehrb gatherers, tailors, tanners and dyers. Use the teleporter book, choose 'Runewick' and you will be there. Elesil Daelwon at the teleporter in Runewick will tell you more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick hat vier Türme und kann im Südosten gefunden werden. Du musst eine lange schmalle Brücke zudem überqueren. Sie glauben zudem an Weisheit und den Rat ihres Erzmagier Elvaine Morgan. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Runewick' und du bist dort.");
-talkEntry:addResponse("Ihre Gegner aus Cadomyr und Galmair nennen sie arrogante Klugscheißer, welche behaupten alles zu wissen und versuchen eine selbst definierte 'Balance' zu halten. Frag mich nicht, was das ist. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Runewick' und du bist dort.");
-talkEntry:addResponse("Insbesondere folgende Handwerke können in Runewick gefunden werden: Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber und Färber. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Runewick' und du bist dort.");
+talkEntry:addResponse("Runewick hat vier Türme und kann im Südosten gefunden werden. Du musst eine lange schmalle Brücke zudem überqueren. Sie glauben zudem an Weisheit und den Rat ihres Erzmagier Elvaine Morgan. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Runewick' und du bist dort. Elesil Daelwon beim Teleporter in Runewick kann dir mehr erzählen.");
+talkEntry:addResponse("Ihre Gegner aus Cadomyr und Galmair nennen sie arrogante Klugscheißer, welche behaupten alles zu wissen und versuchen eine selbst definierte 'Balance' zu halten. Frag mich nicht, was das ist. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Runewick' und du bist dort. Elesil Daelwon beim Teleporter in Runewick kann dir mehr erzählen.");
+talkEntry:addResponse("Insbesondere folgende Handwerke können in Runewick gefunden werden: Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber und Färber. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Runewick' und du bist dort. Elesil Daelwon beim Teleporter in Runewick kann dir mehr erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1264,17 +1285,17 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair is located in the northwest and it consists of several halls and caves, very deep and amazing caves! With enough wealth you can become anything! Use the teleporter book, choose 'Galmair' and you will be there.");
-talkEntry:addResponse("Their rivals from Runewick and Cadomyr call them greedy and chaotic. They assume that people from Galmair would do anything to earn a coin. Use the teleporter book, choose 'Galmair' and you will be there.");
-talkEntry:addResponse("Galmair has always been known for its working class: blacksmiths, brick makers, masons, miners, and brewers. Use the teleporter book, choose 'Galmair' and you will be there.");
+talkEntry:addResponse("Galmair is located in the northwest and it consists of several halls and caves, very deep and amazing caves! With enough wealth you can become anything! Use the teleporter book, choose 'Galmair' and you will be there. Iradona Goldschein at the teleporter in Galmair will tell you more.");
+talkEntry:addResponse("Their rivals from Runewick and Cadomyr call them greedy and chaotic. They assume that people from Galmair would do anything to earn a coin. Use the teleporter book, choose 'Galmair' and you will be there. Iradona Goldschein at the teleporter in Galmair will tell you more.");
+talkEntry:addResponse("Galmair has always been known for its working class: blacksmiths, brick makers, masons, miners, and brewers. Use the teleporter book, choose 'Galmair' and you will be there. Iradona Goldschein at the teleporter in Galmair will tell you more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair ist irgendwo im Nordwesten und es besteht aus mehreren Hallen und Höhlen. Sehr tiefe und beeindruckende Höhlen. Wie dem auch sei, du kannst dort alles bekommen was du möchtest, solange du genügend Geld hast. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Galmair' und du bist dort.");
-talkEntry:addResponse("Bei ihren Gegner aus Runewick und Cadomyr sind sie als gierig und chaotisch verschrien. Die nehmen an, dass Leute aus Galmair würden alles für einige zusätzliche Münzen tun. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Galmair' und du bist dort.");
-talkEntry:addResponse("Insbesondere folgende Handwerke können in Galmair gefunden werden: Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Galmair' und du bist dort.");
+talkEntry:addResponse("Galmair ist irgendwo im Nordwesten und es besteht aus mehreren Hallen und Höhlen. Sehr tiefe und beeindruckende Höhlen. Wie dem auch sei, du kannst dort alles bekommen was du möchtest, solange du genügend Geld hast. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Galmair' und du bist dort. Iradona Goldschein beim Teleporter in Galmair kann dir mehr erzählen.");
+talkEntry:addResponse("Bei ihren Gegner aus Runewick und Cadomyr sind sie als gierig und chaotisch verschrien. Die nehmen an, dass Leute aus Galmair würden alles für einige zusätzliche Münzen tun. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Galmair' und du bist dort. Iradona Goldschein beim Teleporter in Galmair kann dir mehr erzählen.");
+talkEntry:addResponse("Insbesondere folgende Handwerke können in Galmair gefunden werden: Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Galmair' und du bist dort. Iradona Goldschein beim Teleporter in Galmair kann dir mehr erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1307,17 +1328,17 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr can be found nestled behind its formidable town walls in the midst of the desert to the southwest of this peninsula. They believe in honour and follow their Queen's orders without hesitation or fear. Use the teleporter book, choose 'Cadomyr' and you will be there.");
-talkEntry:addResponse("Cadomyr is the desert town to the southwest, just look for the high town walls. If you should venture there be prepared to follow the Queen's social order. *Giggles* In Runewick and Galmair they just call it the town of wannabe heroes! Use the teleporter book, choose 'Cadomyr' and you will be there.");
-talkEntry:addResponse("Cadomyr, the desert bastion for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders alike, lies to the southwest behind massive stone walls! However, Use the teleporter book, choose 'Cadomyr' and you will be there.");
+talkEntry:addResponse("Cadomyr can be found nestled behind its formidable town walls in the midst of the desert to the southwest of this peninsula. They believe in honour and follow their Queen's orders without hesitation or fear. Use the teleporter book, choose 'Cadomyr' and you will be there. Frizza at the teleporter in Cadomyr will tell you more.");
+talkEntry:addResponse("Cadomyr is the desert town to the southwest, just look for the high town walls. If you should venture there be prepared to follow the Queen's social order. *Giggles* In Runewick and Galmair they just call it the town of wannabe heroes! Use the teleporter book, choose 'Cadomyr' and you will be there. Frizza at the teleporter in Cadomyr will tell you more.");
+talkEntry:addResponse("Cadomyr, the desert bastion for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders alike, lies to the southwest behind massive stone walls! However, Use the teleporter book, choose 'Cadomyr' and you will be there. Frizza at the teleporter in Cadomyr will tell you more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr kann hinter einen großen Stadtmauer in der Wüste im südwestlichen Bereich der Halbinsel gefunden werden. Sie glauben dort an Ehre und ihre Königin, und sie sind ein sehr stolzen und furchtloses Volk. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Cadomyr' und du bist dort.");
-talkEntry:addResponse("Ihre Gegner aus Runewick und Galmair denken, dass Cadomyr ein Platz von möchte gern Helden sei, welche einem verrückten Kode der Ehre folgen und wo jeder weiß, welchen gottgegebenen 'Rang' er einnimmt. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Cadomyr' und du bist dort.");
-talkEntry:addResponse("Insbesondere folgende Handwerke können in Cadomyr gefunden werden: Fischer, Glasblässer, Gräber, Goldschmied, Edelsteinschleifer. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Cadomyr' und du bist dort.");
+talkEntry:addResponse("Cadomyr kann hinter einen großen Stadtmauer in der Wüste im südwestlichen Bereich der Halbinsel gefunden werden. Sie glauben dort an Ehre und ihre Königin, und sie sind ein sehr stolzen und furchtloses Volk. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Cadomyr' und du bist dort. Frizza beim Teleporter in Cadomyr kann dir mehr erzählen.");
+talkEntry:addResponse("Ihre Gegner aus Runewick und Galmair denken, dass Cadomyr ein Platz von möchte gern Helden sei, welche einem verrückten Kode der Ehre folgen und wo jeder weiß, welchen gottgegebenen 'Rang' er einnimmt. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Cadomyr' und du bist dort. Frizza beim Teleporter in Cadomyr kann dir mehr erzählen.");
+talkEntry:addResponse("Insbesondere folgende Handwerke können in Cadomyr gefunden werden: Fischer, Glasblässer, Gräber, Goldschmied, Edelsteinschleifer. Wie dem auch sei, verwende das Teleporterbuch, wähle 'Cadomyr' und du bist dort. Frizza beim Teleporter in Cadomyr kann dir mehr erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
