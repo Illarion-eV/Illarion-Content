@@ -331,7 +331,10 @@ Radius 15
 		AddStone( 9, 914 );
 		AddStone( 9, 232 );
 		AddStone( 9, 1245 );
-    			
+	AddArea( 9, position(425,226,0), 5 );
+		AddStone( 9, 914 );
+		AddStone( 9, 232 );
+		AddStone( 9, 1245 );    			
 
 
     InitDone = true;
