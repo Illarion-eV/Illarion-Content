@@ -71,4 +71,3 @@ function MoveToField(char)
 
 end
 
-function MoveToField(char)
