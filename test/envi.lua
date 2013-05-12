@@ -11,7 +11,6 @@ function MoveToField(char)
 		return
 	end
 	if math.random(0,99)< 100  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
-		if base.factions.getMembership(char) == 2 then
 		char:inform("Runewick!", "Runewick!")
 		world:gfx(41,position(5,5,0));
         	world:createMonster(921,position(5,5,0),0);
@@ -25,36 +24,15 @@ function MoveToField(char)
         	world:createMonster(941,position(6,5,0),0);
 		world:gfx(53,position(6,6,0));
         	world:createMonster(942,position(6,6,0),0);
+		if base.factions.getMembership(char) == 2 then
 			monsters = world:getMonstersInRangeOf(position(8,12,0), 20)
 			char:inform("Hui!", "Hui!")
 			monsters:increaseAttrib("hitpoints", -10000)
 		char:inform("Fertig!", "Done!")
-		elseif base.factions.getMembership(char) == 3 then
-		world:gfx(41,position(8,8,0));
-        	world:createMonster(1,position(8,8,0),0);
-				local monsters = world:getMonstersInRangeOf(char.pos, 15);
-				for _,monster in ipairs(monsters) do
-					monster:increaseAttrib("hitpoints", -10000)
-				end
-		char:inform("Yeah!", "Yeah!")
+		elseif base.factions.getMembership(char) == 0 then
+		char:inform("Ohoh, ein Hinterhalt für Vogelfreie!", "Ohoh, an ambush for outlaws!")
 		else
-        	world:gfx(41,position(10,11,0));
-		world:gfx(41,position(11,11,0));
-        	world:createMonster(101,position(10,11,0),0);
-        	world:createMonster(101,position(11,11,0),0);
-		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush2!")
-		world:gfx(41,position(12,12,0));
-        	world:createMonster(101,position(12,12,0),0); --mummified temple servant
-		world:gfx(41,position(10,13,0));
-        	world:createMonster(101,position(10,13,0),0); --Cherga's servant
-        	world:gfx(41,position(10,10,0));
-        	world:createMonster(101,position(10,10,0),0); --another mummy
-		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush3!")
-			if base.factions.getMembership(char) == 1 then
-			char:inform("Hui, du bist aus Cadomyr", "Hui, you are from Cadomyr")
-			else
-			char:inform("Hui, du bist nicht von Cadomyr", "Hui, you are not from Cadomyr")
-			end
+		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush!")
 		end
 	else
 			char:warp(position(8,16,0))
