@@ -54,7 +54,7 @@ function UseItem(User, SourceItem, ltstate)
 	
 end
 
-containerList = {97,320, 321, 799, 1367, 2830};
+containerList = {97,799};
 
 function CheckIfContainerPresent(User)
 	local containerItem;
