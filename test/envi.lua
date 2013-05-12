@@ -11,20 +11,19 @@ function MoveToField(char)
 		return
 	end
 	if math.random(0,99)< 100  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
-		char:inform("LOL", "LOL")
 		if base.factions.getMembership(char) == 2 then
 		char:inform("Yeah!", "Yeah!")
 		world:gfx(41,position(5,5,0));
         	world:createMonster(921,position(5,5,0),0);
-		world:gfx(41,position(6,6,0));
+		world:gfx(41,position(5,6,0));
         	world:createMonster(922,position(5,6,0),0);
-		world:gfx(41,position(5,5,0));
+		world:gfx(46,position(4,5,0));
         	world:createMonster(931,position(4,5,0),0);
-		world:gfx(41,position(6,6,0));
+		world:gfx(46,position(4,6,0));
         	world:createMonster(932,position(4,6,0),0);
-		world:gfx(41,position(5,5,0));
+		world:gfx(52,position(6,5,0));
         	world:createMonster(941,position(6,5,0),0);
-		world:gfx(41,position(6,6,0));
+		world:gfx(52,position(6,6,0));
         	world:createMonster(942,position(6,6,0),0);
 				local monsters = world:getMonstersInRangeOf(char.pos, 13);
 				for _,monster in ipairs(monsters) do
