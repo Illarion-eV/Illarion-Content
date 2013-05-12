@@ -25,7 +25,7 @@ function MoveToField(char)
         	world:createMonster(941,position(6,5,0),0);
 		world:gfx(53,position(6,6,0));
         	world:createMonster(942,position(6,6,0),0);
-			if world:getMonstersInRangeOf(8,12,0, 2) then
+			if world:getMonstersInRangeOf(position(8,12,0), 2) then
 			char:inform("Hui!", "Hui!")
 			char:increaseAttrib("hitpoints", -5000)
 			else
