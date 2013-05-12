@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 369, 236, 0, 6, 'Gurzad Gutri', 'npc.gurzad_gutri', 0, 2, 2, 85, 107, 47, 255, 218, 185);
+VALUES (1, 369, 236, 0, 6, 'Gurzad Gutri', 'development.gurzad_gutri', 0, 2, 2, 85, 107, 47, 255, 218, 185);
 ---]]
 
 require("npc.base.basic")
@@ -27,7 +27,7 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
-module("npc.gurzad_gutri", package.seeall)
+module("development.gurzad_gutri", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
