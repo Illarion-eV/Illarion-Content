@@ -310,7 +310,24 @@ Radius 15
 	------- Prison Mine - FERTIG ------
 	
 	----------- Digging Projects (temporarly) -----------
-	AddArea( 9, position(427,217,0), 4 );
+	----------- Galmair Tunnel Project -----------
+	AddArea( 9, position(427,206,0), 10 );
+		AddStone( 9, 914 );
+		AddStone( 9, 232 );
+		AddStone( 9, 1245 );
+	AddArea( 9, position(427,187,0), 10 );
+		AddStone( 9, 914 );
+		AddStone( 9, 232 );
+		AddStone( 9, 1245 );
+	AddArea( 9, position(410,187,0), 10 );
+		AddStone( 9, 914 );
+		AddStone( 9, 232 );
+		AddStone( 9, 1245 );
+	AddArea( 9, position(393,187,0), 10 );
+		AddStone( 9, 914 );
+		AddStone( 9, 232 );
+		AddStone( 9, 1245 );
+	AddArea( 9, position(393,169,0), 10 );
 		AddStone( 9, 914 );
 		AddStone( 9, 232 );
 		AddStone( 9, 1245 );
