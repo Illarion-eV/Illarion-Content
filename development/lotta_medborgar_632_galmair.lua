@@ -23,8 +23,7 @@ Description[ENGLISH][2] = "You now know where you can find Don Valerio Guilianni
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(393, 326, -5)} -- Lotta
-QuestTarget[2] = {position(337, 215, 0)} -- Don
+QuestTarget[1] = {position(337, 215, 0)} -- Don (It might confuse a newbie because the lower levels of Galmair are not on the same spot as the surface level)
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2
