@@ -23,8 +23,7 @@ Description[ENGLISH][2] = "You have found Ruzuss. If you like, you can talk with
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(121, 643, 0)} -- Frizza
-QuestTarget[2] = {position(126, 630, 0)} -- Ruzusss
+QuestTarget[1] = {position(126, 630, 0)} -- Ruzusss
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2

@@ -23,8 +23,7 @@ Description[ENGLISH][2] = "You now know where you can find Queen Rosaline Edward
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(126, 630, 0)} -- Ruzusss
-QuestTarget[2] = {position(122, 521, 0)} -- Queen
+QuestTarget[1] = {position(122, 521, 0)} -- Queen
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2
