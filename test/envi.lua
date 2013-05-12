@@ -66,6 +66,7 @@ function MoveToField(char)
 			world:gfx(13,char.pos);
 			char:increaseAttrib("hitpoints", -5000)
 	end
+end
 
 end
 
