@@ -194,7 +194,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("smith");
-talkEntry:addResponse("If you want to smith you need ingots and a hammer of course. Blacksmiths need a normal hammer, finesmiths need a finesmithing hammer though.");
+talkEntry:addResponse("If you want to smith you need ingots and a hammer of course. Blacksmiths need a normal hammer, finesmiths need a finesmithing hammer, though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -282,7 +282,7 @@ talkEntry:addTrigger("licavoli");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Could you bring me twenty pieces of iron ore from the Malachite Mine and also 20 lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore.");
+talkEntry:addResponse("Could you bring me twenty pieces of iron ore from the Malachite Mine and also twenty lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -311,7 +311,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Could you bring me twenty pieces of iron ore from the Malachite Mine and also 20 lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore.");
+talkEntry:addResponse("Could you bring me twenty pieces of iron ore from the Malachite Mine and also twenty lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

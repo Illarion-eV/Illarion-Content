@@ -224,7 +224,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("food");
 talkEntry:addTrigger("eat");
-talkEntry:addResponse("You can find food all around you. There are fruits on the trees and bushes, or you ask other people for something to eat.");
+talkEntry:addResponse("You can find food all around you. There are fruits on the trees and bushes, or you can ask other people for something to eat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -661,7 +661,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 11));
-talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the thron room in the palace and ask her for a task.");
+talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the throne room in the palace and ask her for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -682,7 +682,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 11));
-talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the thron room in the palace and ask her for a task.");
+talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the throne room in the palace and ask her for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -704,7 +704,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the thron room in the palace and ask her for a task.");
+talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the throne room in the palace and ask her for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -723,7 +723,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the thron room in the palace and ask her for a task.");
+talkEntry:addResponse("Gretel Goldhair, the treasurer, has a task for you. Please find her in the throne room in the palace and ask her for a task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
