@@ -26,7 +26,7 @@ function MoveToField(char)
         	world:createMonster(942,position(6,6,0),0);
 		if base.factions.getMembership(char) == 2 then
 			if world:getMonstersInRangeOf(position(9,7,0), 2) then
-			char:increaseAttrib("hitpoints", -10000)
+			char:increaseAttrib("hitpoints", -5000)
 			char:inform("Fertig!", "Done!")
 			else
 			world:gfx(37,char.pos);
