@@ -266,6 +266,12 @@ function setRanklist(User, arena, points)
 						table.insert(ranklist, i-1, User.name);
 						break;
 					end
+				else
+					if table.getn(ranklist) < 5 then 
+						table.insert(ranklist, i+1, points);
+						table.insert(ranklist, i+1, User.name);
+						break;
+					end
 				end
 			end
 			stringList = base.common.join(ranklist, ";");
