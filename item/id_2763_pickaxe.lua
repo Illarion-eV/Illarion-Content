@@ -311,23 +311,23 @@ Radius 15
 	
 	----------- Digging Projects (temporarly) -----------
 	----------- Galmair Tunnel Project -----------
-	AddArea( 91, position(427,206,0), 5 );
+	AddArea( 91, position(427,206,0), 10 );
 		AddStone( 91, 914 );
 		AddStone( 91, 232 );
 		AddStone( 91, 1245 );
-	AddArea( 92, position(427,187,0), 5 );
+	AddArea( 92, position(427,187,0), 10 );
 		AddStone( 92, 914 );
 		AddStone( 92, 232 );
 		AddStone( 92, 1245 );
-	AddArea( 93, position(410,187,0), 5 );
+	AddArea( 93, position(410,187,0), 10 );
 		AddStone( 93, 914 );
 		AddStone( 93, 232 );
 		AddStone( 93, 1245 );
-	AddArea( 94, position(393,187,0), 5 );
+	AddArea( 94, position(393,187,0), 10 );
 		AddStone( 94, 914 );
 		AddStone( 94, 232 );
 		AddStone( 94, 1245 );
-	AddArea( 95, position(393,169,0), 5 );
+	AddArea( 95, position(393,169,0), 10 );
 		AddStone( 95, 914 );
 		AddStone( 95, 232 );
 		AddStone( 95, 1245 );
