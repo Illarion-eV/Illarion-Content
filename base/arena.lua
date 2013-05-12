@@ -19,19 +19,23 @@ module("base.arena", package.seeall)
 Level 1: Annoying monsters award 1 point
 Level 2: Very easy monsters for noobs award 2 points
 Level 3: Easy monsters award 3 points
-Level 4: Semistrong monsters award 5 points
-Level 5: Strong monster award 8 points
-Level 6: Really strong monsters award 13 points
-Level 7: Monsters for really, really good fighters 'heroes' award 20 points
+Level 4: Semistrong monsters award 4 points
+Level 5: Strong monster award 6 points
+Level 6: Really strong monsters award 8 points
+Level 7: Monsters for really, really good fighters 'heroes' award 13 points
+Level 8: Monsters for group fights award 18 points 
+Level 9: Unbelieavable strong monsters for groups award 21 points
 ]]
 monsterIDsByLevel = {
 	{monsters = {991, 271, 1051, 582, 1071}, points = 1},
 	{monsters = {101, 196, 273, 602, 881}, points = 2},
 	{monsters = {311, 394, 551, 882, 1011}, points = 3},
-	{monsters = {141, 501, 552, 791, 872}, points = 5},
-	{monsters = {191, 492, 531, 411, 851}, points = 8},
-	{monsters = {121, 202, 491, 525, 852}, points = 13},
-	{monsters = {534, 124, 562, 661, 853}, points = 20}
+	{monsters = {141, 501, 552, 791, 872}, points = 4},
+	{monsters = {191, 492, 531, 411, 851}, points = 6},
+	{monsters = {121, 202, 491, 525, 852}, points = 8},
+	{monsters = {534, 124, 562, 661, 853}, points = 13},
+	{monsters = {125, 205, 262, 631, 912}, points = 18},
+	{monsters = {302, 641, 911}, points = 21}
 }
 
 arenaInformations = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801}, 
