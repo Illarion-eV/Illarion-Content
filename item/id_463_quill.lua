@@ -33,7 +33,6 @@ function UseItem(User, SourceItem, ltstate)
 				    alchemy.base.recipe_creation.FirstMenu(User, ingredientsList)
 				end
 			elseif selected == 3 then
-				User:inform("in selected == 3");
 			    if not CheckIfContainerPresent(User) then
 				    User:inform("Du brauchst eine Tasche, um diese zu beschrfiten.","You need a bag if you want to label one.",Character.lowPriority)
 				    return
