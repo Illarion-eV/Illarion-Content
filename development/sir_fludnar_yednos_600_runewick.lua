@@ -65,27 +65,27 @@ Description[ENGLISH][40] = "Your task for Sir Fludnar Yednos is over."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[11] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[12] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[13] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[14] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[15] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[16] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[17] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[18] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[19] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[20] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[21] = {position(475, 795, 0)} -- Nobarg
-QuestTarget[22] = {position(475, 795, 0)} -- Nobarg
-QuestTarget[23] = {position(475, 795, 0)} -- Nobarg
-QuestTarget[24] = {position(475, 795, 0)} -- Nobarg
-QuestTarget[25] = {position(475, 795, 0)} -- Nobarg
-QuestTarget[26] = {position(475, 795, 0)} -- Nobarg
-QuestTarget[27] = {position(475, 795, 0)} -- Nobarg
-QuestTarget[28] = {position(475, 795, 0)} -- Nobarg
-QuestTarget[29] = {position(475, 795, 0)} -- Nobarg
-QuestTarget[30] = {position(475, 795, 0)} -- Nobarg
-QuestTarget[40] = {position(896, 757, 1)} -- Sir Fludnar Yednos
+QuestTarget[11] = {position(475, 795, 0)} -- Nobarg
+QuestTarget[12] = {position(475, 795, 0)} -- Nobarg
+QuestTarget[13] = {position(475, 795, 0)} -- Nobarg
+QuestTarget[14] = {position(475, 795, 0)} -- Nobarg
+QuestTarget[15] = {position(475, 795, 0)} -- Nobarg
+QuestTarget[16] = {position(475, 795, 0)} -- Nobarg
+QuestTarget[17] = {position(475, 795, 0)} -- Nobarg
+QuestTarget[18] = {position(475, 795, 0)} -- Nobarg
+QuestTarget[19] = {position(475, 795, 0)} -- Nobarg
+QuestTarget[20] = {position(475, 795, 0)} -- Nobarg
+QuestTarget[21] = {position(896, 757, 1)} -- Sir Fludnar Yednos
+QuestTarget[22] = {position(896, 757, 1)} -- Sir Fludnar Yednos
+QuestTarget[23] = {position(896, 757, 1)} -- Sir Fludnar Yednos
+QuestTarget[24] = {position(896, 757, 1)} -- Sir Fludnar Yednos
+QuestTarget[25] = {position(896, 757, 1)} -- Sir Fludnar Yednos
+QuestTarget[26] = {position(896, 757, 1)} -- Sir Fludnar Yednos
+QuestTarget[27] = {position(896, 757, 1)} -- Sir Fludnar Yednos
+QuestTarget[28] = {position(896, 757, 1)} -- Sir Fludnar Yednos
+QuestTarget[29] = {position(896, 757, 1)} -- Sir Fludnar Yednos
+QuestTarget[30] = {position(896, 757, 1)} -- Sir Fludnar Yednos
+
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 40
