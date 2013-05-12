@@ -33,8 +33,8 @@ monsterIDsByLevel = {
 	{monsters = {141, 501, 552, 791, 872}, points = 4},
 	{monsters = {191, 492, 531, 411, 851}, points = 6},
 	{monsters = {121, 202, 491, 525, 852}, points = 8},
-	{monsters = {534, 124, 562, 661, 853}, points = 13}
-	{monsters = {125, 205, 262, 631, 912}, points = 18}
+	{monsters = {534, 124, 562, 661, 853}, points = 13},
+	{monsters = {125, 205, 262, 631, 912}, points = 18},
 	{monsters = {302, 641, 911}, points = 21}
 }
 
