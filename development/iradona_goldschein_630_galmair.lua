@@ -24,7 +24,8 @@ Description[ENGLISH][2] = "You have found Lotta. If you like, you can talk with 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 --QuestTarget[1] = {position(428, 248, 0)} -- Iradona
-QuestTarget[1] = {position(393, 326, -5)} -- Lotta
+QuestTarget[1] = {position(344, 249, 0)} -- entrance taverne (Scoria Mine)
+--QuestTarget[1] = {position(393, 326, -5)} -- Lotta (If set active, it would confuse a newbie because 
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2
