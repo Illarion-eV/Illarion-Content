@@ -66,6 +66,7 @@ function MoveFromField(char)
 			world:gfx(53,position(10,10,0)); 
 		else
 			world:gfx(2,position(11,11,0));		
+		end
 		end	
 	else
 		char:inform("Nix!", "Nix!")
