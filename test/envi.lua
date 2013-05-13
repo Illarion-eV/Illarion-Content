@@ -62,9 +62,9 @@ function MoveFromField(char)
 	if char:getType() ~= Character.player then
 		local test = world:getCharactersInRangeOf(char.pos, 30);
 		if test:getType() == Character.player and base.factions.getMembership(test) == 2 then
-			char:inform("lauft1!", "lauft1!")
+			world:gfx(53,position(10,10,0)); 
 		else
-			char:inform("lauft2!", "lauft2!")		
+			world:gfx(2,position(11,11,0));		
 		end	
 	else
 		char:inform("Nix!", "Nix!")
