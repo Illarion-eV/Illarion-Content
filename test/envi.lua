@@ -9,7 +9,7 @@ module("test.envi", package.seeall)
 
 
 
-function MoveToField(char)
+function MoveFromField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
 		return
 	end
