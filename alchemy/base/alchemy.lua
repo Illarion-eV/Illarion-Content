@@ -405,14 +405,12 @@ end
 
 -- probably, works only with lists containing no other lists
 -- todo: make it also possibel to check lists containing list(s)
-function CheckListsIfEqual(ListOne,ListTwo,User)
+function CheckListsIfEqual(ListOne,ListTwo)
     local check = true
 	if #ListOne == #ListTwo then
 	    for i=1,#ListOne do
-		    User:inform("needed: "..ListOne[i].." and current: "..ListTwo[i])
-			if ListOne[i] ~= ListTwo[i] then
-			    User:inform("not equal")
-				check = false
+		    if ListOne[i] ~= ListTwo[i] then
+			    check = false
 			    break
 			end
 		end

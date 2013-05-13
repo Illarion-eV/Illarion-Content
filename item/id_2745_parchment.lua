@@ -243,7 +243,7 @@ function GetItem(User, ingredientsList)
 				local stockList = User:getItemList(331) 
 				for i=1,#stockList do
 					local currentList = alchemy.base.alchemy.SubstanceDatasToList(stockList[i])
-					if alchemy.base.alchemy.CheckListsIfEqual(neededList,currentList,User) then
+					if alchemy.base.alchemy.CheckListsIfEqual(neededList,currentList) then
 					    deleteItem = stockList[i]   
 					end
 				end	
@@ -264,9 +264,8 @@ function GetItem(User, ingredientsList)
 							end
 						end
 					end
-					if alchemy.base.alchemy.CheckListsIfEqual(neededList,currentList,User) then
-					    User:inform("list check success")
-						deleteItem = bottleList[i]
+					if alchemy.base.alchemy.CheckListsIfEqual(neededList,currentList) then
+					    deleteItem = bottleList[i]
 					end
 				end
 				if not (deleteItem) then
