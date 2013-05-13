@@ -294,7 +294,7 @@ function UseItem(User, SourceItem, ltstate)
 			if index == 0 then
 				local monsters = world:getMonstersInRangeOf(User.pos, 3);
 				for _,monster in ipairs(monsters) do
-					monster:increaseAttrib("hitpoints", -10000)
+					monsters:increaseAttrib("hitpoints", -10000)
 				end
 			else
 				chosenPlayer = players[dialog:getSelectedIndex()];
