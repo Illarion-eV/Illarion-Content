@@ -411,7 +411,8 @@ function CheckListsIfEqual(ListOne,ListTwo,User)
 	    for i=1,#ListOne do
 		    User:inform("needed: "..ListOne[i].." and current: "..ListTwo[i])
 			if ListOne[i] ~= ListTwo[i] then
-			    check = false
+			    User:inform("not equal")
+				check = false
 			    break
 			end
 		end
