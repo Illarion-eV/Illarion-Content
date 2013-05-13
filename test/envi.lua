@@ -1,5 +1,6 @@
 -- INSERT INTO triggerfields VALUES (8,12,0,'test.envi');
 -- INSERT INTO triggerfields VALUES (8,16,0,'test.envi');
+-- INSERT INTO triggerfields VALUES (9,16,0,'test.envi');
 require("base.common")
 require("base.factions");
 module("test.envi", package.seeall)
