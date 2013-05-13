@@ -24,6 +24,8 @@ function MoveToField(char)
         	world:createMonster(941,position(6,5,0),0);
 		world:gfx(53,position(6,6,0));
         	world:createMonster(942,position(6,6,0),0);
+		else
+		return
 	end
 	if base.factions.getMembership(char) == 2 then
 			char:inform("funkt1!", "funkt1!")
