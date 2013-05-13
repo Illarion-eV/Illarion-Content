@@ -24,8 +24,6 @@ function MoveToField(char)
         	world:createMonster(941,position(6,5,0),0);
 		world:gfx(53,position(6,6,0));
         	world:createMonster(942,position(6,6,0),0);
-		else
-		return
 	end
 	if base.factions.getMembership(char) == 2 then
 			char:inform("funkt1!", "funkt1!")
@@ -44,7 +42,7 @@ function MoveToField(char)
 		else
 		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush!")
 	end
-	else
+--[[	else
 			char:warp(position(8,16,0))
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
@@ -52,7 +50,7 @@ function MoveToField(char)
 			world:makeSound(25,char.pos);			
 			world:gfx(13,char.pos);
 			char:increaseAttrib("hitpoints", -5000)
-	end
+	end ]]--
 
 end
 
