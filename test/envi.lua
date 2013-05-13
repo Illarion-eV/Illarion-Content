@@ -14,7 +14,6 @@ function MoveToField(char)
 		return
 	end
 	if math.random(0,99)< 100  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
-		char:inform("Oh nein, ein Hinterhalt!", "Oh no, an ambush!")
 		world:gfx(41,position(5,5,0));
         	world:createMonster(921,position(5,5,0),0);
 		world:gfx(41,position(5,6,0));
@@ -31,6 +30,7 @@ function MoveToField(char)
 --        	world:createMonster(942,position(8,16,0),0);
 		world:gfx(53,position(9,16,0));
         	world:createMonster(942,position(9,16,0),0);
+		char:inform("Oh nein, ein Hinterhalt!", "Oh no, an ambush!")
 	end
 --[[	if base.factions.getMembership(char) == 2 then
 			char:inform("funkt1!", "funkt1!")
