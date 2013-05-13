@@ -92,11 +92,10 @@ queststatus(71) = 0, "rute", "angel" -> "Brauchenss Angelrute, gehenss Fredericu
 "rute", "angel" -> "Habenss gebrochen die Rute? Brauchenss Ssschreiner."
 
 -- fix
--- Comment: OMG what is this!?
-queststatus(71) > 0, queststatus(703) = 11, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 12, "Ah Jakob send you but you already ask me for something to do."
-queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 12, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
-queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 12, "Ah Jakob send you but you already ask me for something to do."
-queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 12, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(71) > 0, queststatus(703) = 11, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 12, "Zss, Jakob sssend you but you already asssk me for sssomething to do."
+queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 12, "Zss, Jakob hats Euch geschickt aber Ihr habt mich bereitsss nach einer Aufgabe gefragt."
+queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 12, "Zss, Jakob sssend you but you already asssk me for sssomething to do."
+queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 12, "Zss, Jakob hats Euch geschickt aber Ihr habt mich bereitsss nach einer Aufgabe gefragt."
 
 -- 1st quest: Take a tool and gather 10 raw materials for 500cp.
 queststatus(71) = 0, queststatus(703) = 11, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> inform("[New quest] Cape Farewell I"), item(72, 1, 399), queststatus(71) = 1, queststatus(703) = 12, "Zerarisa hass hurt her claw, if you could collect ten trout for me, I give you coinsss."
