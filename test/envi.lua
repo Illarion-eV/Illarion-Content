@@ -75,5 +75,5 @@ function MoveFromField(char)
 		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush!")
 		end
 	end
-
+end
 end
