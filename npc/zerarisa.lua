@@ -181,7 +181,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
 talkEntry:addTrigger("rod");
-talkEntry:addResponse("You'll need a fissshing rod, you can get one from Fredericus, if the line breakss, you need thread to fix it.");
+talkEntry:addResponse("You'll need a fissshing rod, you can get one from Fredericus.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -189,20 +189,20 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
 talkEntry:addTrigger("rute");
 talkEntry:addTrigger("angel");
-talkEntry:addResponse("Brauchenss Angelrute, gehenss Fredericuss. Wennss Sschnur reiﬂenss, brauchensss Fadensss.");
+talkEntry:addResponse("Brauchenss Angelrute, gehenss Fredericuss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rod");
-talkEntry:addResponse("Broke your rod? If itss jusst the line, you can usse thread to fix it. If itss the wood, assk a carpenter for a new one.");
+talkEntry:addResponse("Broke your rod? Assk a carpenter for a new one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rute");
 talkEntry:addTrigger("angel");
-talkEntry:addResponse("Habenss gebrochen die Rute? Wennss die Schnur, brauchenss Faden. Wennss das Holzss, brauchenss Ssschreiner.");
+talkEntry:addResponse("Habenss gebrochen die Rute? Brauchenss Ssschreiner.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

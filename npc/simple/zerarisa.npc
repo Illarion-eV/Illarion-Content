@@ -86,12 +86,13 @@ english, "Ciao", "Adieu", "Au revoir" -> "Goodbye", "Farewell", "#me nods slowly
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich sindss Zerarisa, machenss du Aufgabe für michss?"
 
 -- Tool hints
-queststatus(71) = 0, "rod" -> "You'll need a fissshing rod, you can get one from Fredericus, if the line breakss, you need thread to fix it."
-queststatus(71) = 0, "rute", "angel" -> "Brauchenss Angelrute, gehenss Fredericuss. Wennss Sschnur reißenss, brauchensss Fadensss."
-"rod" -> "Broke your rod? If itss jusst the line, you can usse thread to fix it. If itss the wood, assk a carpenter for a new one."
-"rute", "angel" -> "Habenss gebrochen die Rute? Wennss die Schnur, brauchenss Faden. Wennss das Holzss, brauchenss Ssschreiner."
+queststatus(71) = 0, "rod" -> "You'll need a fissshing rod, you can get one from Fredericus."
+queststatus(71) = 0, "rute", "angel" -> "Brauchenss Angelrute, gehenss Fredericuss."
+"rod" -> "Broke your rod? Assk a carpenter for a new one."
+"rute", "angel" -> "Habenss gebrochen die Rute? Brauchenss Ssschreiner."
 
 -- fix
+-- Comment: OMG what is this!?
 queststatus(71) > 0, queststatus(703) = 11, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 12, "Ah Jakob send you but you already ask me for something to do."
 queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 12, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 12, "Ah Jakob send you but you already ask me for something to do."
