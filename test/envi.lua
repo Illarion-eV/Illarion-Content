@@ -69,7 +69,7 @@ function MoveFromField(char)
 		for i,player in ipairs(test) do
 		if base.factions.getMembership(player) == 3 then
 			world:gfx(53,position(10,10,0));
-			base.character.DeathAfterTime(char,10,51,1)
+			base.character.DeathAfterTime(char,15,0,1)
 			player:inform("Oh nein, ein Hinterhalt! Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir zu winken mit ihren Armbrüste. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Oh no, an ambush! Even before you are able to react, arrows shouting around you and take down your enemies. You look into the direction of the orgin of the arrows and see guards on the town wall of Galmair waving to you with their crossbows. Good you have paid your taxes to the Don and he protects you!")
 			local monsters = world:getMonstersInRangeOf(char.pos, 30);
 			--player:inform("Danke2!", "Thanks2!")
