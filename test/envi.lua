@@ -78,6 +78,7 @@ function MoveFromField(char)
 			--	mon:increaseAttrib("hitpoints", -10000)
 				base.character.DeathAfterTime(mon,10,51,1)
 			player:inform("Danke4!", "Thanks4!")
+			end
 			return
 		else
 			world:gfx(2,position(11,11,0));
