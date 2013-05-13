@@ -53,7 +53,7 @@ function MoveToField(char)
 
 end
 
-function MoveFromField(char)
+function MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
 		return
 	end
