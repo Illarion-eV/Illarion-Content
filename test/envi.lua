@@ -25,9 +25,12 @@ function MoveToField(char)
 		world:gfx(53,position(6,6,0));
         	world:createMonster(942,position(6,6,0),0);
 		if base.factions.getMembership(char) == 2 then
+			char:inform("funkt1!", "funkt1!")
 			local monsters = world:getMonstersInRangeOf(User.pos, 3);
 			for _,monster in ipairs(monsters) do
+			char:inform("funkt2!", "funkt2!")
 				monster:increaseAttrib("hitpoints", -10000)
+			char:inform("funkt3!", "funkt3!")
 			end
 		elseif base.factions.getMembership(char) == 0 then
 		char:inform("Ohoh, ein Hinterhalt für Vogelfreie!", "Ohoh, an ambush for outlaws!")
