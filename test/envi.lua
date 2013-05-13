@@ -60,7 +60,7 @@ end
 
 function MoveFromField(char)
 	if char:getType() ~= Character.player then
-		local test = world:getPlayerInRangeOf(char.pos, 30);
+		local test = world:getPlayersInRangeOf(char.pos, 30);
 		if base.factions.getMembership(test) == 2 then
 			world:gfx(53,position(10,10,0)); 
 		else
