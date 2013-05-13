@@ -59,23 +59,16 @@ end
 
 
 function MoveFromField(char)
-	if char:getType() ~= Character.player and base.factions.getMembership(char) == 2 then
+	if char:getType() ~= Character.player then
+		local test = world:getCharactersInRangeOf(char.pos, 30);
+		if test:getType() == Character.player and base.factions.getMembership(test) == 2 then
 			char:inform("lauft1!", "lauft1!")
-			local monsters = world:getMonstersInRangeOf(char.pos, 30);
-			char:inform("lauft2!", "lauft2!")
-			for i,mon in ipairs(monsters) do
-			char:inform("lauft3!", "lauft3!")
-				mon:increaseAttrib("hitpoints", -10000)
-			char:inform("lauft4!", "lauft4!")
-			end
-		elseif base.factions.getMembership(char) == 0 then
-		char:inform("Ohoh, ein Hinterhalt für Vogelfreie!", "Ohoh, an ambush for outlaws!")
-		world:gfx(53,position(10,10,0)); 
-		world:gfx(2,position(11,11,0));
-		world:gfx(46,position(10,10,0));
 		else
-		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush!")
-		end
+			char:inform("lauft2!", "lauft2!")		
+		end	
+	else
+		char:inform("Nix!", "Nix!")
+	end
 end
 
 
