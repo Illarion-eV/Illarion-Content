@@ -30,7 +30,7 @@ function MoveToField(char)
 			char:inform("funkt2!", "funkt2!")
 			for i,mon in ipairs(monsters) do
 			char:inform("funkt3!", "funkt3!")
-				monsters:increaseAttrib("hitpoints", -10000)
+				mon:increaseAttrib("hitpoints", -10000)
 			char:inform("funkt4!", "funkt4!")
 		--	for _,monster in ipairs(monsters) do
 		--	char:inform("funkt5!", "funkt5!")
