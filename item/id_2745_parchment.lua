@@ -260,7 +260,7 @@ function GetItem(User, ingredientsList)
 					if bottleList[i]:getData("filledWith")=="essenceBrew" then
 						for j=1,8 do
 							if bottleList[i]:getData("essenceHerb"..j) ~= "" then
-								table.insert(currentList,bottleList[i]:getData("essenceHerb"..j))
+								table.insert(currentList,tonumber(bottleList[i]:getData("essenceHerb"..j)))
 							end
 						end
 					end
