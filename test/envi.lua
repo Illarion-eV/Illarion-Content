@@ -68,7 +68,7 @@ function MoveFromField(char)
 		for i,player in ipairs(test) do
 		if base.factions.getMembership(player) == 2 then
 			world:gfx(53,position(10,10,0));
-			base.character.DeathAfterTime(char,20,51,1)
+			base.character.DeathAfterTime(char,10,51,1)
 			player:inform("Danke1!", "Thanks1!")
 			return
 		else
