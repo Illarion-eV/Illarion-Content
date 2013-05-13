@@ -238,21 +238,13 @@ function GetItem(User, ingredientsList)
 			end	
 		else
             local liquid, neededList = alchemy.base.recipe_creation.StockEssenceList(ingredientsList[USER_POSITION_LIST[User.id]])
-			for i=1,#neededList do 
-			    User:inform("needed: "..neededList[i])
-			end	
 			if liquid == "stock" then
-				local stockList = User:getItemList(164) 
+				local stockList = User:getItemList(331) 
 				for i=1,#stockList do
 					local currentList = alchemy.base.alchemy.SubstanceDatasToList(stockList[i])
-					for j=1,#currentList do 
-					    User:inform("current: "..currentList[j])
-					end	
-					if neededList == currentList then
-					    deleteItem = stockList[i]
-						break
+					if alchemy.base.alchemy.CheckListsIfEqual(neededList,currentList) then
+					    deleteItem = stockList[i]   
 					end
-				end
 				if not (deleteItem) then
 					missingDe = "Dir fehlt der entsprechende Sud."
 					missingEn = "Your don't have the proper stock."
@@ -270,21 +262,8 @@ function GetItem(User, ingredientsList)
 							end
 						end
 					end
-					if #currentList == #neededList then
-						if #currentList==0 then
-						    deleteItem = bottleList[i]
-							break
-						end	
-						local check = true
-						for k=1,#currentList do
-						    if not currentList[k]==neededList[k] then
-							    check = false
-								break
-							end
-						end
-						if check then
-							deleteItem = bottleList[i]
-						end	
+					if alchemy.base.alchemy.CheckListsIfEqual(neededList,currentList) then
+					    deleteItem = bottleList[i]
 					end
 				end
 				if not (deleteItem) then

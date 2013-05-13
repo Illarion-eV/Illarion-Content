@@ -403,6 +403,21 @@ function SubstanceDatasToList(theItem)
 	return substanceList
 end
 
+-- probably, works only with lists containing no other lists
+-- todo: make it also possibel to check lists containing list(s)
+function CheckListsIfEqual(ListOne,ListTwo)
+    local check = true
+	if #ListOne == #ListTwo then
+	    for i=1,#ListOne do
+		    if ListOne[i] ~= ListTwo[i] then
+			    check = false
+			    break
+			end
+		end
+	end
+    return check
+end
+
 
 function generateTasteMessage(Character,dataZList)
     local textDe = "Der Trank schmeckt ";
