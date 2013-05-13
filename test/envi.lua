@@ -63,7 +63,8 @@ function MoveFromField(char)
 		local test = world:getPlayersInRangeOf(char.pos, 30);
 		for i,player in ipairs(test) do
 		if base.factions.getMembership(player) == 2 then
-			world:gfx(53,position(10,10,0)); 
+			world:gfx(53,position(10,10,0));
+			char:increaseAttrib("hitpoints", -10000) 
 		else
 			world:gfx(2,position(11,11,0));		
 		end
