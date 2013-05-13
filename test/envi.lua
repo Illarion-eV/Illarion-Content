@@ -76,7 +76,7 @@ function MoveFromField(char)
 			for i,mon in ipairs(monsters) do
 			player:inform("Danke3!", "Thanks3!")
 			--	mon:increaseAttrib("hitpoints", -10000)
-				base.character.DeathAfterTime(mon,10,51,1)
+				base.character.DeathAfterTime(mon,20,51,1)
 			player:inform("Danke4!", "Thanks4!")
 			end
 			return
