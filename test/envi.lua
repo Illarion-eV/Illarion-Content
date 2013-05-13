@@ -32,7 +32,7 @@ function MoveToField(char)
 		world:gfx(53,position(9,16,0));
         	world:createMonster(942,position(9,16,0),0);
 	end
-	if base.factions.getMembership(char) == 2 then
+--[[	if base.factions.getMembership(char) == 2 then
 			char:inform("funkt1!", "funkt1!")
 			local monsters = world:getMonstersInRangeOf(char.pos, 30);
 			char:inform("funkt2!", "funkt2!")
@@ -49,7 +49,7 @@ function MoveToField(char)
 		world:gfx(46,position(10,10,0));
 		else
 		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush!")
-	end
+	end ]]--
 --[[	else
 			char:warp(position(8,16,0))
 			world:gfx(37,char.pos);
