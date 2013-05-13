@@ -87,6 +87,7 @@ function MoveFromField(char)
 		end	
 	else
 	return
+	end
 end
 
 --[[
