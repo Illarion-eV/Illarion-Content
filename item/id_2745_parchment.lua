@@ -175,6 +175,7 @@ function CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
 			
 		elseif deleteItem.id == 331 then -- stock
 			alchemy.item.id_331_green_bottle.FillStockIn(User,deleteItem, cauldron)
+			alchemy.base.alchemy.EmptyBottle(User,deleteItem)
 			
 		elseif alchemy.base.alchemy.CheckIfPotionBottle(deleteItem) then
 		    alchemy.base.alchemy.FillIntoCauldron(User,deleteItem,cauldron)
