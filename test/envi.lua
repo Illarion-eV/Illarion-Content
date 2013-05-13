@@ -3,6 +3,7 @@
 -- INSERT INTO triggerfields VALUES (9,16,0,'test.envi');
 require("base.common")
 require("base.factions");
+require("lte.deathaftertime");
 module("test.envi", package.seeall)
 
 
@@ -67,7 +68,7 @@ function MoveFromField(char)
 		for i,player in ipairs(test) do
 		if base.factions.getMembership(player) == 2 then
 			world:gfx(53,position(10,10,0));
-			char:increaseAttrib("hitpoints", -10000)
+			base.character.DeathAfterTime(char,20,51,1)
 			player:inform("Danke1!", "Thanks1!")
 			return
 		else
@@ -80,6 +81,26 @@ function MoveFromField(char)
 	end
 end
 
+--[[
+function MoveFromField(char)
+	if char:getType() ~= Character.player then
+		local test = world:getPlayersInRangeOf(char.pos, 10);
+		for i,player in ipairs(test) do
+		if base.factions.getMembership(player) == 2 then
+			world:gfx(53,position(10,10,0));
+			char:increaseAttrib("hitpoints", -10000)
+			player:inform("Danke1!", "Thanks1!")
+			return
+		else
+			world:gfx(2,position(11,11,0));
+			player:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush!")	
+		end
+		end	
+	else
+		char:inform("Nix!", "Nix!")
+	end
+end
+]]--
 
 --[[
 function MoveFromField(char)
