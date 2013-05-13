@@ -67,6 +67,7 @@ function MoveFromField(char)
 			world:gfx(53,position(10,10,0));
 			char:increaseAttrib("hitpoints", -10000)
 			player:inform("Danke1!", "Thanks1!")
+			end
 		else
 			world:gfx(2,position(11,11,0));
 			player:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush!")	
