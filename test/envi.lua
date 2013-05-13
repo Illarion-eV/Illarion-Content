@@ -27,8 +27,8 @@ function MoveToField(char)
         	world:createMonster(941,position(6,5,0),0);
 		world:gfx(53,position(6,6,0));
         	world:createMonster(942,position(6,6,0),0);
-		world:gfx(53,position(8,16,0));
-        	world:createMonster(942,position(8,16,0),0);
+--		world:gfx(53,position(8,16,0));
+--        	world:createMonster(942,position(8,16,0),0);
 		world:gfx(53,position(9,16,0));
         	world:createMonster(942,position(9,16,0),0);
 	end
