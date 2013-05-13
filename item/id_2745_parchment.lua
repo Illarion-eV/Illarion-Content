@@ -238,10 +238,16 @@ function GetItem(User, ingredientsList)
 			end	
 		else
             local liquid, neededList = alchemy.base.recipe_creation.StockEssenceList(ingredientsList[USER_POSITION_LIST[User.id]])
+			for i=1,#neededList do 
+			    User:inform("needed: "..neededList[i]
+			end	
 			if liquid == "stock" then
 				local stockList = User:getItemList(164) 
 				for i=1,#stockList do
 					local currentList = alchemy.base.alchemy.SubstanceDatasToList(stockList[i])
+					for j=1,#currentList do 
+					    User:inform("current: "..currentList[j])
+					end	
 					if neededList == currentList then
 					    deleteItem = stockList[i]
 						break
