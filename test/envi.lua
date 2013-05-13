@@ -9,7 +9,7 @@ module("test.envi", package.seeall)
 
 
 
-function MoveFromField(char)
+function MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
 		return
 	end
@@ -71,6 +71,13 @@ function MoveFromField(char)
 			world:gfx(53,position(10,10,0));
 			base.character.DeathAfterTime(char,10,51,1)
 			player:inform("Danke1!", "Thanks1!")
+			local monsters = world:getMonstersInRangeOf(char.pos, 30);
+			player:inform("Danke2!", "Thanks2!")
+			for i,mon in ipairs(monsters) do
+			player:inform("Danke3!", "Thanks3!")
+			--	mon:increaseAttrib("hitpoints", -10000)
+				base.character.DeathAfterTime(mon,10,51,1)
+			player:inform("Danke4!", "Thanks4!")
 			return
 		else
 			world:gfx(2,position(11,11,0));
