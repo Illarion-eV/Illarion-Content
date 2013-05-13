@@ -67,22 +67,22 @@ function MoveFromField(char)
 	if char:getType() ~= Character.player then
 		local test = world:getPlayersInRangeOf(char.pos, 10);
 		for i,player in ipairs(test) do
-		if base.factions.getMembership(player) == 2 then
+		if base.factions.getMembership(player) == 3 then
 			world:gfx(53,position(10,10,0));
 			base.character.DeathAfterTime(char,10,51,1)
-			player:inform("Oh nein, ein Hinterhalt! Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir zu winken mit ihren Armbrüste. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Oh no, an ambush! Even before you are able to react, arrows shouting around you and take down your enemies. You look into the direction of the orgin of the arrows and see the guards of the town wall of Galmair waving to you with their crossbows. Good you have paid your taxes to the Don and he protects you!")
+			player:inform("Oh nein, ein Hinterhalt! Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir zu winken mit ihren Armbrüste. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Oh no, an ambush! Even before you are able to react, arrows shouting around you and take down your enemies. You look into the direction of the orgin of the arrows and see guards on the town wall of Galmair waving to you with their crossbows. Good you have paid your taxes to the Don and he protects you!")
 			local monsters = world:getMonstersInRangeOf(char.pos, 30);
 			--player:inform("Danke2!", "Thanks2!")
 			for i,mon in ipairs(monsters) do
 			--player:inform("Danke3!", "Thanks3!")
 			--	mon:increaseAttrib("hitpoints", -10000)
-				base.character.DeathAfterTime(mon,20,51,1)
+				base.character.DeathAfterTime(mon,20,0,33)
 			--player:inform("Danke4!", "Thanks4!")
 			end
 			return
 		else
 			world:gfx(2,position(11,11,0));
-			player:inform("Oh nein, ein Hinterhalt! Du wirfst einen Blick zur Stadtmauer von Galmair und siehst die Wachen dort wie sie dich und dein Schicksal beobachten. Was, wenn du nur dem Don deine Steuern zahlen würdest?", "Oh no, an ambush! You look to the town wall of Galmair and see the guards on the wall watching your faith. What if you would pay your taxes to the Don?")	
+			player:inform("Oh nein, ein Hinterhalt! Du wirfst einen Blick zur Stadtmauer von Galmair und siehst die Wachen dort wie sie dich und dein Schicksal beobachten. Was, wenn du nur dem Don deine Steuern zahlen würdest?", "Oh no, an ambush! You look to the town wall of Galmair and see guards on the wall watching your faith. What if you would pay your taxes to the Don?")	
 		end
 		end	
 	else
