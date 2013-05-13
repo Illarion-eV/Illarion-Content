@@ -57,7 +57,7 @@ function MoveFromField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
 		return
 	end
-		if base.factions.getMembership(char) == 2 then
+	if base.factions.getMembership(char) == 2 then
 			char:inform("funkt1!", "funkt1!")
 			local monsters = world:getMonstersInRangeOf(char.pos, 30);
 			char:inform("funkt2!", "funkt2!")
@@ -74,14 +74,6 @@ function MoveFromField(char)
 		else
 		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush!")
 		end
-	else
-			char:warp(position(8,16,0))
-			world:gfx(37,char.pos);
-			world:makeSound(13,char.pos);
-			char:inform("Die krächzende Stimme meldet sich wieder: \"Keine Chance!\" Worauf eine Stimme aus dem Südwesten sagt: \"Lauf weg!\"", "The jagged voice says: \"No Chance!\". A voice from the southwest replies: \"Run away!\"")  
-			world:makeSound(25,char.pos);			
-			world:gfx(13,char.pos);
-			char:increaseAttrib("hitpoints", -5000)
 	end
 
 end
