@@ -28,6 +28,8 @@ function MoveToField(char)
         	world:createMonster(942,position(6,6,0),0);
 		world:gfx(53,position(8,16,0));
         	world:createMonster(942,position(8,16,0),0);
+		world:gfx(53,position(9,16,0));
+        	world:createMonster(942,position(9,16,0),0);
 	end
 	if base.factions.getMembership(char) == 2 then
 			char:inform("funkt1!", "funkt1!")
@@ -61,7 +63,7 @@ end
 
 function MoveFromField(char)
 	if char:getType() ~= Character.player then
-		local test = world:getPlayersInRangeOf(char.pos, 3);
+		local test = world:getPlayersInRangeOf(char.pos, 10);
 		for i,player in ipairs(test) do
 		if base.factions.getMembership(player) == 2 then
 			world:gfx(53,position(10,10,0));
