@@ -1,4 +1,5 @@
 -- INSERT INTO triggerfields VALUES (8,12,0,'test.envi');
+-- INSERT INTO triggerfields VALUES (8,16,0,'test.envi');
 require("base.common")
 require("base.factions");
 module("test.envi", package.seeall)
@@ -23,6 +24,8 @@ function MoveToField(char)
 		world:gfx(53,position(6,5,0));
         	world:createMonster(941,position(6,5,0),0);
 		world:gfx(53,position(6,6,0));
+        	world:createMonster(942,position(6,6,0),0);
+		world:gfx(53,position(8,16,0));
         	world:createMonster(942,position(6,6,0),0);
 	end
 	if base.factions.getMembership(char) == 2 then
@@ -53,6 +56,28 @@ function MoveToField(char)
 	end ]]--
 
 end
+
+
+function MoveFromField(char)
+	if char:getType() ~= Character.player and base.factions.getMembership(char) == 2 then
+			char:inform("lauft1!", "lauft1!")
+			local monsters = world:getMonstersInRangeOf(char.pos, 30);
+			char:inform("lauft2!", "lauft2!")
+			for i,mon in ipairs(monsters) do
+			char:inform("lauft3!", "lauft3!")
+				mon:increaseAttrib("hitpoints", -10000)
+			char:inform("lauft4!", "lauft4!")
+			end
+		elseif base.factions.getMembership(char) == 0 then
+		char:inform("Ohoh, ein Hinterhalt für Vogelfreie!", "Ohoh, an ambush for outlaws!")
+		world:gfx(53,position(10,10,0)); 
+		world:gfx(2,position(11,11,0));
+		world:gfx(46,position(10,10,0));
+		else
+		char:inform("Ohoh, ein Hinterhalt!", "Ohoh, an ambush!")
+		end
+end
+
 
 --[[
 function MoveFromField(char)
