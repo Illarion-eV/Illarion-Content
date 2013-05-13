@@ -38,7 +38,8 @@ function MoveToField(char)
 			char:inform("funkt2!", "funkt2!")
 			for i,mon in ipairs(monsters) do
 			char:inform("funkt3!", "funkt3!")
-				mon:increaseAttrib("hitpoints", -10000)
+			--	mon:increaseAttrib("hitpoints", -10000)
+				base.character.DeathAfterTime(mon,10,51,1)
 			char:inform("funkt4!", "funkt4!")
 			end
 		elseif base.factions.getMembership(char) == 0 then
