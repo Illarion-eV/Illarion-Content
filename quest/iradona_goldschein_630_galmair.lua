@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (630, 'quest.iradona_goldschein_630_galmair');
 
 require("base.common")
-module("development.iradona_goldschein_630_galmair", package.seeall)
+module("quest.iradona_goldschein_630_galmair", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english

@@ -1,29 +1,29 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (632, 'quest.lotta_medborgar_632_galmair');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (622, 'quest.numila_irunnleh_622_runewick');
 
 require("base.common")
-module("development.lotta_medborgar_632_galmair", package.seeall)
+module("quest.numila_irunnleh_622_runewick", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 Title = {}
-Title[GERMAN] = "Finde Don Valerio Guilianni in Galmair"
-Title[ENGLISH] = "Find Don Valerio Guilianni in Galmair"
+Title[GERMAN] = "Finde Erzmagier Elvaine Morgan"
+Title[ENGLISH] = "Find Archmage Elvaine Morgan"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde Don Valerio Guilianni und bringe ihm dein Geschenk."
-Description[ENGLISH][1] = "Find Don Valerio Guilianni and take him your gift."
-Description[GERMAN][2] = "Du weiﬂt nun wo Don Valerio Guilianni zu finden ist."
-Description[ENGLISH][2] = "You now know where you can find Don Valerio Guilianni."
+Description[GERMAN][1] = "Finde Erzmagier Elvaine Morgan und bringe ihm dein Geschenk."
+Description[ENGLISH][1] = "Find Archmage Elvaine Morgan and take him your gift."
+Description[GERMAN][2] = "Du weiﬂt nun wo Erzmagier Elvaine Morgan zu finden ist."
+Description[ENGLISH][2] = "You now know where you can find Archmage Elvaine Morgan."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(337, 215, 0)} -- Don (It might confuse a newbie because the lower levels of Galmair are not on the same spot as the surface level)
+QuestTarget[1] = {position(898, 775, 2)} -- Archmage
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2

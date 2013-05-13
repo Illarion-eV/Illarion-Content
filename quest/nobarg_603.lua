@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (603, 'quest.nobarg_603');
 
 require("base.common")
-module("development.nobarg_603", package.seeall)
+module("quest.nobarg_603", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english

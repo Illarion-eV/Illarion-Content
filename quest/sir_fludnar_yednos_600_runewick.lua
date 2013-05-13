@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (600, 'quest.sir_fludnar_yednos_600_runewick');
 
 require("base.common")
-module("development.sir_fludnar_yednos_600_runewick", package.seeall)
+module("quest.sir_fludnar_yednos_600_runewick", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
