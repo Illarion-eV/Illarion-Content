@@ -265,7 +265,8 @@ function GetItem(User, ingredientsList)
 						end
 					end
 					if alchemy.base.alchemy.CheckListsIfEqual(neededList,currentList,User) then
-					    deleteItem = bottleList[i]
+					    User:inform("list check success")
+						deleteItem = bottleList[i]
 					end
 				end
 				if not (deleteItem) then
