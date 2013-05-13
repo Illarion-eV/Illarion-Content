@@ -29,7 +29,7 @@ function MoveToField(char)
 --		world:gfx(53,position(8,16,0));
 --        	world:createMonster(942,position(8,16,0),0);
 		world:gfx(53,position(9,16,0));
-        	world:createMonster(math.random(1,10),position(9,16,0),0);
+        	world:createMonster(math.random(201,205),position(9,16,0),0);
 		char:inform("Oh nein, ein Hinterhalt!", "Oh no, an ambush!")
 	end
 --[[	if base.factions.getMembership(char) == 2 then
