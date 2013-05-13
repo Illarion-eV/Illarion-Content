@@ -245,6 +245,7 @@ function GetItem(User, ingredientsList)
 					if alchemy.base.alchemy.CheckListsIfEqual(neededList,currentList) then
 					    deleteItem = stockList[i]   
 					end
+				end	
 				if not (deleteItem) then
 					missingDe = "Dir fehlt der entsprechende Sud."
 					missingEn = "Your don't have the proper stock."
