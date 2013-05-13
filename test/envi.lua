@@ -26,7 +26,7 @@ function MoveToField(char)
         	world:createMonster(942,position(6,6,0),0);
 		if base.factions.getMembership(char) == 2 then
 			char:inform("funkt1!", "funkt1!")
-			local monsters = world:getMonstersInRangeOf(User.pos, 30);
+			local monsters = world:getMonstersInRangeOf(char.pos, 30);
 			char:inform("funkt2!", "funkt2!")
 			for _,monster in ipairs(monsters) do
 			char:inform("funkt3!", "funkt3!")
