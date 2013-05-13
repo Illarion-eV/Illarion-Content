@@ -32,10 +32,10 @@ function MoveToField(char)
 			char:inform("funkt3!", "funkt3!")
 				monster:increaseAttrib("hitpoints", -10000)
 			char:inform("funkt4!", "funkt4!")
-			for _,monster in ipairs(monsters) do
-			char:inform("funkt5!", "funkt5!")
-				monster:increaseAttrib("hitpoints", -10000)
-			char:inform("funkt6!", "funkt6!")
+		--	for _,monster in ipairs(monsters) do
+		--	char:inform("funkt5!", "funkt5!")
+		--		monster:increaseAttrib("hitpoints", -10000)
+		--	char:inform("funkt6!", "funkt6!")
 			end
 		elseif base.factions.getMembership(char) == 0 then
 		char:inform("Ohoh, ein Hinterhalt für Vogelfreie!", "Ohoh, an ambush for outlaws!")
