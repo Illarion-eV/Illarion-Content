@@ -2,7 +2,12 @@
 -- INSERT INTO triggerfields VALUES (8,16,0,'test.envi');
 -- INSERT INTO triggerfields VALUES (9,16,0,'test.envi');
 
--- INSERT INTO triggerfields VALUES (9,16,0,'triggerfield..envi');
+-- INSERT INTO triggerfields VALUES (479,250,0,'triggerfield.galmair_bridges_660');
+-- INSERT INTO triggerfields VALUES (479,249,0,'triggerfield.galmair_bridges_660');
+-- INSERT INTO triggerfields VALUES (474,247,0,'triggerfield.galmair_bridges_660');
+-- INSERT INTO triggerfields VALUES (498,201,0,'triggerfield.galmair_bridges_660');
+-- INSERT INTO triggerfields VALUES (497,201,0,'triggerfield.galmair_bridges_660');
+-- INSERT INTO triggerfields VALUES (496,207,0,'triggerfield.galmair_bridges_660');
 require("base.common")
 require("base.factions");
 require("lte.deathaftertime");
