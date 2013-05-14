@@ -70,13 +70,18 @@ function MoveFromField(char)
 		local test = world:getPlayersInRangeOf(char.pos, 10);
 		for i,player in ipairs(test) do
 		if base.factions.getMembership(player) == 3 then
+			if shutup ~= 0 then
+			return
+			else
 			base.character.DeathAfterTime(char,math.random(10,20),0,1)
 			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüste zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shouting around you and take down your enemies. You look into the direction of the orgin of the arrows and see guards on the town wall of Galmair waving to you with their crossbows. Good you have paid your taxes to the Don and he protects you!")
+			shutup = 1
 			local monsters = world:getMonstersInRangeOf(player.pos, 30);
-			for i,mon in ipairs(monsters) do
+				for i,mon in ipairs(monsters) do
 				base.character.DeathAfterTime(mon,math.random(10,20),0,33)
-			end
+				end
 			return
+			end
 		elseif shutup ~= 0 then
 			return
 			
