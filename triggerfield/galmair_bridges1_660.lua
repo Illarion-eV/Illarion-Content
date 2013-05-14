@@ -69,7 +69,6 @@ function MoveFromField(char)
 		local test = world:getPlayersInRangeOf(char.pos, 10);
 		for i,player in ipairs(test) do
 		if base.factions.getMembership(player) == 3 then
-			world:gfx(53,position(10,10,0));
 			base.character.DeathAfterTime(char,math.random(10,20),0,1)
 			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüste zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shouting around you and take down your enemies. You look into the direction of the orgin of the arrows and see guards on the town wall of Galmair waving to you with their crossbows. Good you have paid your taxes to the Don and he protects you!")
 			local monsters = world:getMonstersInRangeOf(player.pos, 30);
@@ -77,9 +76,12 @@ function MoveFromField(char)
 				base.character.DeathAfterTime(mon,math.random(10,20),0,33)
 			end
 			return
+		elseif test:getQuestProgress(661) ~= 0 then
+			return
+			end
 		else
-			world:gfx(2,position(11,11,0));
 			player:inform("Du wirfst einen Blick zur Stadtmauer von Galmair und siehst die Wachen dort wie sie dich und dein Schicksal beobachten. Was, wenn du nur dem Don deine Steuern zahlen würdest?", "You look to the town wall of Galmair and see guards on the wall watching your faith. What if you would pay your taxes to the Don?")	
+			test:setQuestProgress(661,5))
 		end
 		end	
 	else
