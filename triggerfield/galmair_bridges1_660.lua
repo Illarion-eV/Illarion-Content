@@ -32,6 +32,7 @@ function MoveToField(char)
 		return
 		end
     		Init(); --Initialising
+		local shutup = 0
 		local level = math.random(1,3)
 		local enemy1 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy2 = monster[level][math.random(1,table.getn(monster[level]))]
@@ -76,12 +77,12 @@ function MoveFromField(char)
 				base.character.DeathAfterTime(mon,math.random(10,20),0,33)
 			end
 			return
-		elseif char:getQuestProgress(661) ~= 0 then
+		elseif shutup ~= 0 then
 			return
 			
 		else
 			player:inform("Du wirfst einen Blick zur Stadtmauer von Galmair und siehst die Wachen dort wie sie dich und dein Schicksal beobachten. Was, wenn du nur dem Don deine Steuern zahlen würdest?", "You look to the town wall of Galmair and see guards on the wall watching your faith. What if you would pay your taxes to the Don?")	
-			char:setQuestProgress(661,5)
+			local shutup = 1
 		end
 		end	
 	else
