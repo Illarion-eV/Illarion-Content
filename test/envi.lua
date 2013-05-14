@@ -24,19 +24,25 @@ function MoveToField(char)
 	end
 	if math.random(0,99)< 100  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
     		Init(); --Initialising
-		local enemy = monster[math.random(1,3)]
+		local level = math.random(1,3)
+		local enemy1 = monster[level][math.random(1,table.getn(monster[level]))]
+		local enemy2 = monster[level][math.random(1,table.getn(monster[level]))]
+		local enemy3 = monster[level][math.random(1,table.getn(monster[level]))]
+		local enemy4 = monster[level][math.random(1,table.getn(monster[level]))]
+		local enemy5 = monster[level][math.random(1,table.getn(monster[level]))]
+		local enemy6 = monster[level][math.random(1,table.getn(monster[level]))]
 		world:gfx(41,position(5,5,0));
-        	world:createMonster(enemy,position(5,5,0),0);
+        	world:createMonster(enemy1,position(5,5,0),0);
 		world:gfx(41,position(5,6,0));
-        	world:createMonster(enemy,position(5,6,0),0);
+        	world:createMonster(enemy2,position(5,6,0),0);
 		world:gfx(46,position(4,5,0));
-        	world:createMonster(enemy,position(4,5,0),0);
+        	world:createMonster(enemy3,position(4,5,0),0);
 		world:gfx(46,position(4,6,0));
-        	world:createMonster(enemy,position(4,6,0),0);
+        	world:createMonster(enemy4,position(4,6,0),0);
 		world:gfx(53,position(6,5,0));
-        	world:createMonster(enemy,position(6,5,0),0);
+        	world:createMonster(enemy5,position(6,5,0),0);
 		world:gfx(53,position(6,6,0));
-        	world:createMonster(enemy,position(6,6,0),0);
+        	world:createMonster(enemy6,position(6,6,0),0);
 --		world:gfx(53,position(8,16,0));
 --        	world:createMonster(942,position(8,16,0),0);
 		world:gfx(53,position(9,16,0));
