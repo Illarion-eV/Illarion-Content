@@ -6,7 +6,7 @@ require("base.common")
 require("base.factions");
 require("lte.deathaftertime");
 require("lte.longterm_cooldown");
-module("triggerfield.galmair_bridges_2.envi", package.seeall)
+module("triggerfield.galmair_bridges2_660.envi", package.seeall)
 
 
 function Init()
