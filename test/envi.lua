@@ -1,9 +1,12 @@
 -- INSERT INTO triggerfields VALUES (8,12,0,'test.envi');
 -- INSERT INTO triggerfields VALUES (8,16,0,'test.envi');
 -- INSERT INTO triggerfields VALUES (9,16,0,'test.envi');
+
+-- INSERT INTO triggerfields VALUES (9,16,0,'triggerfield..envi');
 require("base.common")
 require("base.factions");
 require("lte.deathaftertime");
+require("lte.longterm_cooldown");
 module("test.envi", package.seeall)
 
 
@@ -20,6 +23,9 @@ end
 
 function MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
+		return
+	end
+	if char:getQuestProgress(660) ~= 0 then --
 		return
 	end
 	if math.random(0,99)< 100  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
