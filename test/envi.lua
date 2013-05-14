@@ -28,7 +28,7 @@ function MoveToField(char)
 	if char:getQuestProgress(660) ~= 0 then --
 		return
 	end
-	if math.random(0,99)< 100  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
+	if math.random(0,99)< 5  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
 		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) then
 		return
 		end
@@ -58,7 +58,7 @@ function MoveToField(char)
 		world:gfx(53,position(9,16,0));
         	world:createMonster(enemy7,position(9,16,0),0);
 		char:inform("Oh nein, ein Hinterhalt!", "Oh no, an ambush!")
-		char:setQuestProgress(660,5)
+		char:setQuestProgress(660,1)
 	end
 --[[	if base.factions.getMembership(char) == 2 then
 			char:inform("funkt1!", "funkt1!")
