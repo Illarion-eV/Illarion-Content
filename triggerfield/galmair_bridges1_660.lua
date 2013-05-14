@@ -78,7 +78,7 @@ function MoveFromField(char)
 			return
 		elseif test:getQuestProgress(661) ~= 0 then
 			return
-			end
+			
 		else
 			player:inform("Du wirfst einen Blick zur Stadtmauer von Galmair und siehst die Wachen dort wie sie dich und dein Schicksal beobachten. Was, wenn du nur dem Don deine Steuern zahlen würdest?", "You look to the town wall of Galmair and see guards on the wall watching your faith. What if you would pay your taxes to the Don?")	
 			test:setQuestProgress(661,5))
