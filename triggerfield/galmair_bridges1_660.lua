@@ -51,7 +51,7 @@ function MoveToField(char)
 char:inform("strong", "strong")
 			else
 char:inform("schwach", "schwach")
---		end
+			end
 			local level = math.random(1,16) --selection of all monsters for good fighter
 		local enemy1 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy2 = monster[level][math.random(1,table.getn(monster[level]))]
