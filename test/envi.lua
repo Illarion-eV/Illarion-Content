@@ -7,25 +7,36 @@ require("lte.deathaftertime");
 module("test.envi", package.seeall)
 
 
-
+function Init()
+    if InitDone then
+        return
+    end
+    monster={};
+    monster[1]=math.random(921,922); 
+    monster[2]=math.random(931,932); 
+    monster[3]=math.random(941,942); 
+	InitDone = true;
+end
 
 function MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
 		return
 	end
 	if math.random(0,99)< 100  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
+		local enemy = monster[math.random(1,3)]
+    		Init(); --Initialising
 		world:gfx(41,position(5,5,0));
-        	world:createMonster(921,position(5,5,0),0);
+        	world:createMonster(enemy,position(5,5,0),0);
 		world:gfx(41,position(5,6,0));
-        	world:createMonster(922,position(5,6,0),0);
+        	world:createMonster(enemy,position(5,6,0),0);
 		world:gfx(46,position(4,5,0));
-        	world:createMonster(931,position(4,5,0),0);
+        	world:createMonster(enemy,position(4,5,0),0);
 		world:gfx(46,position(4,6,0));
-        	world:createMonster(932,position(4,6,0),0);
+        	world:createMonster(enemy,position(4,6,0),0);
 		world:gfx(53,position(6,5,0));
-        	world:createMonster(941,position(6,5,0),0);
+        	world:createMonster(enemy,position(6,5,0),0);
 		world:gfx(53,position(6,6,0));
-        	world:createMonster(942,position(6,6,0),0);
+        	world:createMonster(enemy,position(6,6,0),0);
 --		world:gfx(53,position(8,16,0));
 --        	world:createMonster(942,position(8,16,0),0);
 		world:gfx(53,position(9,16,0));
