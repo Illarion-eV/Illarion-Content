@@ -31,6 +31,7 @@ function MoveToField(char)
 		local enemy4 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy5 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy6 = monster[level][math.random(1,table.getn(monster[level]))]
+		local enemy7 = monster[level][math.random(1,table.getn(monster[level]))]
 		world:gfx(41,position(5,5,0));
         	world:createMonster(enemy1,position(5,5,0),0);
 		world:gfx(41,position(5,6,0));
@@ -46,7 +47,7 @@ function MoveToField(char)
 --		world:gfx(53,position(8,16,0));
 --        	world:createMonster(942,position(8,16,0),0);
 		world:gfx(53,position(9,16,0));
-        	world:createMonster(math.random(201,205),position(9,16,0),0);
+        	world:createMonster(enemy7,position(9,16,0),0);
 		char:inform("Oh nein, ein Hinterhalt!", "Oh no, an ambush!")
 	end
 --[[	if base.factions.getMembership(char) == 2 then
