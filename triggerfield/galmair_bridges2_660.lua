@@ -60,6 +60,7 @@ function MoveToField(char)
 		char:inform("Oh nein, ein Hinterhalt!", "Oh no, an ambush!")
 		char:setQuestProgress(660,math.random(40,55))
 	end
+		char:inform("missed chance", "missed chance")  --for testing, remove it later
 end
 
 
