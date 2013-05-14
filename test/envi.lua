@@ -23,8 +23,8 @@ function MoveToField(char)
 		return
 	end
 	if math.random(0,99)< 100  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
-		local enemy = monster[math.random(1,3)]
     		Init(); --Initialising
+		local enemy = monster[math.random(1,3)]
 		world:gfx(41,position(5,5,0));
         	world:createMonster(enemy,position(5,5,0),0);
 		world:gfx(41,position(5,6,0));
