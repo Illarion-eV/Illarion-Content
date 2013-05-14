@@ -23,6 +23,9 @@ function MoveToField(char)
 		return
 	end
 	if math.random(0,99)< 100  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
+		if base.factions.getMembership(char) ~= 3 and char:getSkillValue("parry")<=30 then
+		return
+		end
     		Init(); --Initialising
 		local level = math.random(1,3)
 		local enemy1 = monster[level][math.random(1,table.getn(monster[level]))]
