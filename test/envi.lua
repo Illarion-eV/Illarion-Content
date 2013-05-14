@@ -87,7 +87,7 @@ function MoveToField(char)
 			world:gfx(13,char.pos);
 			char:increaseAttrib("hitpoints", -5000)
 	end ]]--
-
+		char:inform("missed chance", "missed chance")
 end
 
 
