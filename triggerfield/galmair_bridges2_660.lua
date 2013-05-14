@@ -52,7 +52,7 @@ function MoveToField(char)
 		world:gfx(53,position(498,205,0));
         	world:createMonster(enemy5,position(498,205,0),0);
 		world:gfx(53,position(497,206,0));
-        	world:createMonster(enemy6,position(497,206,0),0);
+        	world:createMonster(enemy6,position(497,205,0),0);
  		world:gfx(53,position(499,204,0));
          	world:createMonster(enemy7,position(499,204,0),0);
 		world:gfx(53,position(496,207,0));
