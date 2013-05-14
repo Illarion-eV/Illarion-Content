@@ -48,6 +48,7 @@ function MoveToField(char)
 		shutup = 0 --player should get message later
 		if (char:getSkill(Character.parry)<=70) then --check of skills of fighter
 			local level = math.random(1,11) --selection of lower monsters for average fighter
+			end
 			else
 			local level = math.random(1,16) --selection of all monsters for good fighter
 		end
