@@ -12,9 +12,9 @@ function Init()
         return
     end
     monster={};
-    monster[1]=math.random(921,922); 
-    monster[2]=math.random(1,5); 
-    monster[3]=math.random(201,205); 
+    monster[1]={921,922,931,932,941,942}; 
+    monster[2]={1,2,3,4,5}; 
+    monster[3]={201,202,203,204,205}; 
 	InitDone = true;
 end
 
