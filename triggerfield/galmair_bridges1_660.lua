@@ -27,7 +27,7 @@ function MoveToField(char)
 	if char:getQuestProgress(660) ~= 0 then --
 		return
 	end
-	if math.random(0,99)< 10  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
+	if math.random(0,99)< 100  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
 		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) then
 		return
 		end
