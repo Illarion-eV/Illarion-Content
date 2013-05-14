@@ -27,19 +27,14 @@ function MoveToField(char)
 		local enemy = monster[math.random(1,3)]
 		world:gfx(41,position(5,5,0));
         	world:createMonster(enemy,position(5,5,0),0);
-    		Init(); --Initialising
 		world:gfx(41,position(5,6,0));
         	world:createMonster(enemy,position(5,6,0),0);
-    		Init(); --Initialising
 		world:gfx(46,position(4,5,0));
         	world:createMonster(enemy,position(4,5,0),0);
-    		Init(); --Initialising
 		world:gfx(46,position(4,6,0));
         	world:createMonster(enemy,position(4,6,0),0);
-    		Init(); --Initialising
 		world:gfx(53,position(6,5,0));
         	world:createMonster(enemy,position(6,5,0),0);
-    		Init(); --Initialising
 		world:gfx(53,position(6,6,0));
         	world:createMonster(enemy,position(6,6,0),0);
 --		world:gfx(53,position(8,16,0));
