@@ -16,7 +16,7 @@ function Init()
     monster={}; ---monster, numbers are archers -> excluded currently
     monster[1]={1,2,3,4,5}; --human
     monster[2]={11,12,13,14}; --dwarf 15
-    monster[3]={21,22,23,24,}; --halfling 25
+    monster[3]={21,22,23,24}; --halfling 25
     monster[4]={31,32,33,34}; --elf 35
     monster[5]={41,42,43,45}; --orc 44
     monster[6]={51,53,53,54,55}; -- lizard 
@@ -48,7 +48,6 @@ function MoveToField(char)
 		shutup = 0 --player should get message later
 		if (char:getSkill(Character.parry)<=70) then --check of skills of fighter
 			local level = math.random(1,11) --selection of lower monsters for average fighter
-			end
 			else
 			local level = math.random(1,16) --selection of all monsters for good fighter
 		end
