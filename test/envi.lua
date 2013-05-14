@@ -69,14 +69,14 @@ function MoveFromField(char)
 		for i,player in ipairs(test) do
 		if base.factions.getMembership(player) == 3 then
 			world:gfx(53,position(10,10,0));
-			base.character.DeathAfterTime(char,14,0,1)
+			base.character.DeathAfterTime(char,math.random(10,20),0,1)
 			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir zu winken mit ihren Armbrüste. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shouting around you and take down your enemies. You look into the direction of the orgin of the arrows and see guards on the town wall of Galmair waving to you with their crossbows. Good you have paid your taxes to the Don and he protects you!")
 			local monsters = world:getMonstersInRangeOf(player.pos, 30);
 			--player:inform("Danke2!", "Thanks2!")
 			for i,mon in ipairs(monsters) do
 			--player:inform("Danke3!", "Thanks3!")
 			--	mon:increaseAttrib("hitpoints", -10000)
-				base.character.DeathAfterTime(mon,15,0,33)
+				base.character.DeathAfterTime(mon,math.random(10,20),0,33)
 			--player:inform("Danke4!", "Thanks4!")
 			end
 			return
