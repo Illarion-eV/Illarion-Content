@@ -76,12 +76,12 @@ function MoveFromField(char)
 				base.character.DeathAfterTime(mon,math.random(10,20),0,33)
 			end
 			return
-		elseif test:getQuestProgress(661) ~= 0 then
+		elseif char:getQuestProgress(661) ~= 0 then
 			return
 			
 		else
 			player:inform("Du wirfst einen Blick zur Stadtmauer von Galmair und siehst die Wachen dort wie sie dich und dein Schicksal beobachten. Was, wenn du nur dem Don deine Steuern zahlen würdest?", "You look to the town wall of Galmair and see guards on the wall watching your faith. What if you would pay your taxes to the Don?")	
-			test:setQuestProgress(661,5)
+			char:setQuestProgress(661,5)
 		end
 		end	
 	else
