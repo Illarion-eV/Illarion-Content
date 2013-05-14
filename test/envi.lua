@@ -58,6 +58,7 @@ function MoveToField(char)
 		world:gfx(53,position(9,16,0));
         	world:createMonster(enemy7,position(9,16,0),0);
 		char:inform("Oh nein, ein Hinterhalt!", "Oh no, an ambush!")
+		char:setQuestProgress(660,5)
 	end
 --[[	if base.factions.getMembership(char) == 2 then
 			char:inform("funkt1!", "funkt1!")
