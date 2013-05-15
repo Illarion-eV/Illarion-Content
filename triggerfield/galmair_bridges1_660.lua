@@ -40,7 +40,7 @@ function MoveToField(char)
 	if char:getQuestProgress(660) ~= 0 then --lte check
 		return
 	end
-	if math.random(0,99)< 10  and char:increaseAttrib("hitpoints",0)>1000 then --Chance of 10% and Hitpoints above 1000
+	if math.random(0,99)< 100  and char:increaseAttrib("hitpoints",0)>1000 then --Chance of 10% and Hitpoints above 1000
 		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) then --Newbie protection for non-Galmairian
 		return
 		end
