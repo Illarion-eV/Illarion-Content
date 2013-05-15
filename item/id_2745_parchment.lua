@@ -231,7 +231,7 @@ function GetItem(User, ingredientsList)
 						end
 					end
 				end	
-			if not (deleteItem or deleteId) then
+			if not (deleteItem) then
 				missingDe = "Dir fehlt: leere Flasche"
 				missingEn = "You don't have: empty bottle"
 			end	
