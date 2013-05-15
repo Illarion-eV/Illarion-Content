@@ -72,9 +72,10 @@ function MoveToField(char)
 		world:gfx(41,position(474,247,0));
         	world:createMonster(enemy8,position(474,247,0),0); --don't remove this one, it triggers the next function
 		char:inform("Oh nein, ein Hinterhalt!", "Oh no, an ambush!") --message for player
-		char:setQuestProgress(660,math.random(40,55)) --lte set
+		char:setQuestProgress(660,math.random(300,600)) --lte set
 	end
 --		char:inform("missed chance", "missed chance")	--for testing, remove it later
+		char:setQuestProgress(660,math.random(300,600)) --lte set
 end
 
 
@@ -82,7 +83,7 @@ function MoveFromField(char)
 	if shutup ~= 0 then --stop spam
 		return
 		end
-	hero = world:getPlayersInRangeOf(char.pos, 10); --lets see if there is a player around
+	hero = world:getPlayersInRangeOf(char.pos, 15); --lets see if there is a player around
 		for i,player in ipairs(hero) do
 		if base.factions.getMembership(player) == 3 then --check if galmairians are there
 			luckybunch = 1 --if non-galmairians are together with galmairians
@@ -95,8 +96,8 @@ function MoveFromField(char)
 			base.character.DeathAfterTime(char,math.random(10,20),0,1) --kill trigger monster
 			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüsten zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have paid your taxes to the Don and he protects you!")	--praise the don message for the player
 			shutup = 1 --stop spam in the future
-			player:setQuestProgress(660,math.random(40,55)) --lte set
-			local monsters = world:getMonstersInRangeOf(player.pos, 20); --get all monster in player range 
+			player:setQuestProgress(660,math.random(300,600)) --lte set for all players around
+			local monsters = world:getMonstersInRangeOf(player.pos, 10); --get all monster in player range 
 				for i,mon in ipairs(monsters) do
 				base.character.DeathAfterTime(mon,math.random(10,20),0,33) --kill all monsters
 				end
@@ -105,11 +106,11 @@ function MoveFromField(char)
 		elseif luckybunch ~= 0 then -- glamairians are here...lucky you
 			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair euch mit ihren Armbrüsten zuwinken. Gut, dass du jemanden dabei hattest, der dem Don Steuern zahlst und daher beschützt wird vom Don!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have someone with you who has paid taxes to the Don and is thus protected by the Don!")	--wäähh wrong faction but together with friends message for the player
 			shutup = 1 --stop spam in the future
-			player:setQuestProgress(660,math.random(40,55)) --lte set
+			player:setQuestProgress(660,math.random(300,600)) --lte set for all players around
 		else -- no galmairians are here...bad luck
 			player:inform("Du wirfst einen Blick zur Stadtmauer von Galmair und siehst die Wachen dort wie sie dich und dein Schicksal beobachten. Was, wenn du nur dem Don deine Steuern zahlen würdest?", "You look to the town wall of Galmair and see guards on the wall watching your fate. What if you had only paid your taxes to the Don?")	--wäähh wrong faction message for the player
 			shutup = 1 --stop spam in the future
-			player:setQuestProgress(660,math.random(40,55)) --lte set
+			player:setQuestProgress(660,math.random(300,600)) --lte set for all players around
 
 		end
 		end	
