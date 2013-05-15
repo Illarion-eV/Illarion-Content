@@ -87,7 +87,7 @@ function MoveFromField(char)
 	if shutup ~= 0 then --stop spam
 		return
 		end
-	local hero = world:getPlayersInRangeOf(char.pos, 10); --lets see if there is a player around
+	hero = world:getPlayersInRangeOf(char.pos, 10); --lets see if there is a player around
 		for i,player in ipairs(hero) do
 		if base.factions.getMembership(player) == 3 then
 			luckybunch = 1 --if non-galmairians are together with galmairians
@@ -95,7 +95,7 @@ function MoveFromField(char)
 			end
 		end
 	if char:getType() ~= Character.player then --monster start moving
-		local hero = world:getPlayersInRangeOf(char.pos, 10); --lets see if there is a player around
+	--	hero = world:getPlayersInRangeOf(char.pos, 10); --lets see if there is a player around
 		for i,player in ipairs(hero) do
 		if base.factions.getMembership(player) == 3 then
 	--		if shutup ~= 0 then --check if player has already got the message
