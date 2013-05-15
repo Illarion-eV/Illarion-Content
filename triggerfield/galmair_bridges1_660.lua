@@ -46,6 +46,7 @@ function MoveToField(char)
 		end
     		Init(); --Initialising monster list
 		shutup = 0 --player should get message later
+		luckybunch = 0 --player should get message later
 		if (char:getSkill(Character.parry)<=70) then --check of skills of fighter
 			level = math.random(1,11) --selection of lower monsters for average fighter
 			else
