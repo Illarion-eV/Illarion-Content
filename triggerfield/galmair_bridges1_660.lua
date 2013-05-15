@@ -9,10 +9,10 @@ require("lte.longterm_cooldown");
 module("triggerfield.galmair_bridges1_660", package.seeall)
 
 
-function Init()
-    if InitDone then
-        return
-    end
+--function Init()
+--    if InitDone then
+--        return
+--    end
     monster={}; ---monster, numbers are archers -> excluded currently
     monster[1]={1,2,3,4,5}; --human
     monster[2]={11,12,13,14}; --dwarf 15
@@ -30,8 +30,8 @@ function Init()
     monster[14]={851,852,853,861,862,863,871,872,873,881,882,883}; --hellhound
     monster[15]={62,63,64,65}; -- drow 61
     monster[16]={201,202,203,204}; --demon skeleton 205 
-	InitDone = true;
-end
+--	InitDone = true;
+--end
 
 function MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
@@ -44,7 +44,7 @@ function MoveToField(char)
 		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) then --Newbie protection for non-Galmairian
 		return
 		end
-    		Init(); --Initialising monster list
+--    		Init(); --Initialising monster list
 		shutup = 0 --player should get message later
 		luckybunch = 0 --we will see if there are galmairians here later
 		if (char:getSkill(Character.parry)<=70) then --check of skills of fighter
@@ -75,7 +75,7 @@ function MoveToField(char)
  		world:gfx(41,position(474,249,0));
          	world:createMonster(enemy7,position(474,249,0),0);
 		world:gfx(41,position(474,247,0));
-        	world:createMonster(enemy8,position(474,247,0),0);
+        	world:createMonster(enemy8,position(474,247,0),0); --don't remove this one, it triggers the next function
 		char:inform("Oh nein, ein Hinterhalt!", "Oh no, an ambush!") --message for player
 		char:setQuestProgress(660,math.random(40,55)) --lte set
 	end
@@ -95,12 +95,8 @@ function MoveFromField(char)
 			end
 		end
 	if char:getType() ~= Character.player then --monster start moving
-	--	hero = world:getPlayersInRangeOf(char.pos, 10); --lets see if there is a player around
 		for i,player in ipairs(hero) do
 		if base.factions.getMembership(player) == 3 then --check if galmairians are there
-	--		if shutup ~= 0 then --check if player has already got the message
-	--		return
-	--		else
 			base.character.DeathAfterTime(char,math.random(10,20),0,1) --kill trigger monster
 			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüsten zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have paid your taxes to the Don and he protects you!")	--praise the don message for the player
 			shutup = 1 --stop spam in the future
