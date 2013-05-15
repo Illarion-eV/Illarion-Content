@@ -12,6 +12,7 @@ require("base.common")
 require("base.factions");
 require("lte.deathaftertime");
 require("lte.longterm_cooldown");
+require("server.standardfighting");
 module("test.envi", package.seeall)
 
 
@@ -110,6 +111,7 @@ function MoveFromField(char)
 			--player:inform("Danke3!", "Thanks3!")
 			--	mon:increaseAttrib("hitpoints", -10000)
 				base.character.DeathAfterTime(mon,math.random(10,20),0,33)
+			        server.standardfighting.DropMuchBlood(char.pos);
 			--player:inform("Danke4!", "Thanks4!")
 			end
 			return
