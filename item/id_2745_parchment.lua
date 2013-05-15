@@ -219,6 +219,7 @@ function GetItem(User, ingredientsList)
 				local bottleList = User:getItemList(164) 
 				User:inform(""..#bottleList)
 				if #bottleList > 0 then	
+					User:inform("here")
 					deleteItem = bottleList[i] -- here, we take the first bottle we get
 					for i=1,#bottleList do
 						if not string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then -- now, we check if there is an empty bottle; we prefer those
