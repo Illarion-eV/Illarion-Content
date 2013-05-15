@@ -9,10 +9,7 @@ require("lte.longterm_cooldown");
 module("triggerfield.galmair_bridges2_660", package.seeall)
 
 
-function Init()
-    if InitDone then
-        return
-    end
+
     monster={}; ---monster, numbers are archers -> excluded currently
     monster[1]={1,2,3,4,5}; --human
     monster[2]={11,12,13,14}; --dwarf 15
@@ -20,7 +17,7 @@ function Init()
     monster[4]={31,32,33,34}; --elf 35
     monster[5]={41,42,43,45}; --orc 44
     monster[6]={51,53,53,54,55}; -- lizard 
-    monster[7]={91,92,93,95,791,792,801,811,812}; -- troll 94, 802
+    monster[7]={91,92,93,95,791,792,801,812}; -- troll 94,802,811
     monster[8]={101,102,103,104,106,151,152,171,172,173}; -- mummy
     monster[9]={111,112,113,114,115}; --skeleton
     monster[10]={921,922,931,932,941,942}; --rats
@@ -30,8 +27,7 @@ function Init()
     monster[14]={851,852,853,861,862,863,871,872,873,881,882,883}; --hellhound
     monster[15]={62,63,64,65}; -- drow 61
     monster[16]={201,202,203,204}; --demon skeleton 205 
-	InitDone = true;
-end
+
 
 function MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
@@ -44,7 +40,6 @@ function MoveToField(char)
 		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) then --Newbie protection for non-Galmairian
 		return
 		end
-    		Init(); --Initialising monster list
 		shutup = 0 --player should get message later
 		luckybunch = 0 --we will see if there are galmairians here later
 		if (char:getSkill(Character.parry)<=70) then --check of skills of fighter
