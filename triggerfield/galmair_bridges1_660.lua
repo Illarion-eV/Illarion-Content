@@ -98,6 +98,7 @@ function MoveFromField(char)
 			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüste zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have paid your taxes to the Don and he protects you!")	--praise the don message for the player
 			shutup = 1 --stop spam in the future
 			luckybunch = 1 --if non-galmairians are together with galmairians
+			player:setQuestProgress(660,math.random(40,55)) --lte set
 			local monsters = world:getMonstersInRangeOf(player.pos, 20); --get all monster in player range 
 				for i,mon in ipairs(monsters) do
 				base.character.DeathAfterTime(mon,math.random(10,20),0,33) --kill all monsters
@@ -105,12 +106,14 @@ function MoveFromField(char)
 			return
 			
 		elseif luckybunch == 0 then
-			player:inform("Du wirfst einen Blick zur Stadtmauer von Galmair und siehst die Wachen dort wie sie dich und dein Schicksal beobachten. Was, wenn du nur dem Don deine Steuern zahlen würdest?", "You look to the town wall of Galmair and see guards on the wall watching your fate. What if you had only paid your taxes to the Don?")	--wäähh wrong faction message for the player
-			shutup = 1 --stop spam in the future
-		else
 			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair euch mit ihren Armbrüste zuwinken. Gut, dass du jemanden dabei hattest, der dem Don Steuern zahlst und daher beschützt wird vom Don!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have someone with you who has paid taxes to the Don and is thus protected by the Don!")	--wäähh wrong faction but together with friends message for the player
 			shutup = 1 --stop spam in the future
 			player:setQuestProgress(660,math.random(40,55)) --lte set
+		else
+			player:inform("Du wirfst einen Blick zur Stadtmauer von Galmair und siehst die Wachen dort wie sie dich und dein Schicksal beobachten. Was, wenn du nur dem Don deine Steuern zahlen würdest?", "You look to the town wall of Galmair and see guards on the wall watching your fate. What if you had only paid your taxes to the Don?")	--wäähh wrong faction message for the player
+			shutup = 1 --stop spam in the future
+			player:setQuestProgress(660,math.random(40,55)) --lte set
+
 		end
 		end	
 	else
