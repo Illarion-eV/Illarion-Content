@@ -83,7 +83,7 @@ end
 
 
 function MoveFromField(char)
-	if shutup = 1 then
+	if shutup ~= 0 then
 		return
 		end
 	if char:getType() ~= Character.player then --monster start moving
@@ -95,7 +95,7 @@ function MoveFromField(char)
 	--		else
 			base.character.DeathAfterTime(char,math.random(10,20),0,1) --kill trigger monster
 			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüste zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have paid your taxes to the Don and he protects you!")	--praise the don message for the player
-	--		shutup = 1 --stop message for player
+			shutup = 1 --stop message for player
 			local monsters = world:getMonstersInRangeOf(player.pos, 20); --get all monster in player range 
 				for i,mon in ipairs(monsters) do
 				base.character.DeathAfterTime(mon,math.random(10,20),0,33) --kill all monsters
