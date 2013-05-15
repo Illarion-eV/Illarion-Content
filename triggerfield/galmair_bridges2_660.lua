@@ -47,10 +47,10 @@ function MoveToField(char)
     		Init(); --Initialising monster list
 		shutup = 0 --player should get message later
 		if (char:getSkill(Character.parry)<=70) then --check of skills of fighter
-			local level = math.random(1,11) --selection of lower monsters for average fighter
+			level = math.random(1,11) --selection of lower monsters for average fighter
 			else
-			local level = math.random(1,16) --selection of all monsters for good fighter
-		end
+			level = math.random(1,16) --selection of all monsters for good fighter
+			end
 		local enemy1 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy2 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy3 = monster[level][math.random(1,table.getn(monster[level]))]
@@ -63,17 +63,17 @@ function MoveToField(char)
         	world:createMonster(enemy1,position(499,197,0),0);
 		world:gfx(41,position(498,197,0));
         	world:createMonster(enemy2,position(498,197,0),0);
-		world:gfx(46,position(497,197,0));
+		world:gfx(41,position(497,197,0));
         	world:createMonster(enemy3,position(497,197,0),0);
-		world:gfx(46,position(496,198,0));
+		world:gfx(41,position(496,198,0));
         	world:createMonster(enemy4,position(496,198,0),0);
-		world:gfx(53,position(498,205,0));
+		world:gfx(41,position(498,205,0));
         	world:createMonster(enemy5,position(498,205,0),0);
-		world:gfx(53,position(497,206,0));
+		world:gfx(41,position(497,206,0));
         	world:createMonster(enemy6,position(497,206,0),0);
- 		world:gfx(53,position(499,204,0));
+ 		world:gfx(41,position(499,204,0));
          	world:createMonster(enemy7,position(499,204,0),0);
-		world:gfx(53,position(496,207,0));
+		world:gfx(41,position(496,207,0));
         	world:createMonster(enemy8,position(496,207,0),0);
 		char:inform("Oh nein, ein Hinterhalt!", "Oh no, an ambush!") --message for player
 		char:setQuestProgress(660,math.random(40,55)) --lte set

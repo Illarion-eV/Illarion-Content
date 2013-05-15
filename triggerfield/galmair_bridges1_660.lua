@@ -63,17 +63,17 @@ function MoveToField(char)
         	world:createMonster(enemy1,position(482,248,0),0);
 		world:gfx(41,position(483,249,0));
         	world:createMonster(enemy2,position(483,249,0),0);
-		world:gfx(46,position(483,250,0));
+		world:gfx(41,position(483,250,0));
         	world:createMonster(enemy3,position(483,250,0),0);
-		world:gfx(46,position(482,251,0));
+		world:gfx(41,position(482,251,0));
         	world:createMonster(enemy4,position(482,251,0),0);
-		world:gfx(53,position(475,251,0));
+		world:gfx(41,position(475,251,0));
         	world:createMonster(enemy5,position(475,251,0),0);
-		world:gfx(53,position(474,250,0));
+		world:gfx(41,position(474,250,0));
         	world:createMonster(enemy6,position(474,250,0),0);
- 		world:gfx(53,position(474,249,0));
+ 		world:gfx(41,position(474,249,0));
          	world:createMonster(enemy7,position(474,249,0),0);
-		world:gfx(53,position(474,247,0));
+		world:gfx(41,position(474,247,0));
         	world:createMonster(enemy8,position(474,247,0),0);
 		char:inform("Oh nein, ein Hinterhalt!", "Oh no, an ambush!") --message for player
 		char:setQuestProgress(660,math.random(40,55)) --lte set
