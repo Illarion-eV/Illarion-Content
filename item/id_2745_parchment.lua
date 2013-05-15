@@ -217,6 +217,7 @@ function GetItem(User, ingredientsList)
 	    if string.find(ingredientsList[USER_POSITION_LIST[User.id]],"bottle") then
 		    local bottleList = User:getItemList(164) 
 				local bottleList = User:getItemList(164) 
+				User:inform(""..#bottleList)
 				if #bottleList > 0 then	
 					deleteItem = bottleList[i] -- here, we take the first bottle we get
 					for i=1,#bottleList do
