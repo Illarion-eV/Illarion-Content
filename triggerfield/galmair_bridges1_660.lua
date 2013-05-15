@@ -110,6 +110,7 @@ function MoveFromField(char)
 		else
 			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair euch mit ihren Armbrüste zuwinken. Gut, dass du jemanden dabei hattest, der dem Don Steuern zahlst und daher beschützt wird vom Don!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have someone with you who has paid taxes to the Don and is thus protected by the Don!")	--wäähh wrong faction but together with friends message for the player
 			shutup = 1 --stop spam in the future
+			player:setQuestProgress(660,math.random(40,55)) --lte set
 		end
 		end	
 	else
