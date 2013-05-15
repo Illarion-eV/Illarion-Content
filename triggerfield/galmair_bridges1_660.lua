@@ -46,14 +46,11 @@ function MoveToField(char)
 		end
     		Init(); --Initialising monster list
 		shutup = 0 --player should get message later
-		if (char:getSkill(Character.parry)>=70) then --check of skills of fighter
---			local level = math.random(1,11) --selection of lower monsters for average fighter
-char:inform("strong", "strong")
+		if (char:getSkill(Character.parry)<=70) then --check of skills of fighter
+			level = math.random(1,11) --selection of lower monsters for average fighter
 			else
-char:inform("schwach", "schwach")
 			level = math.random(1,16) --selection of all monsters for good fighter
 			end
-
 		local enemy1 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy2 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy3 = monster[level][math.random(1,table.getn(monster[level]))]
