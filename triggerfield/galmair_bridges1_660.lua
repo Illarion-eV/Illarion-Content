@@ -101,13 +101,14 @@ function MoveFromField(char)
 				base.character.DeathAfterTime(mon,math.random(10,20),0,33) --kill all monsters
 				end
 			return
-			
+			--end
 --		elseif shutup ~= 0 then  --check if player has already got the message
 --			return
 			
 		else
 			player:inform("Du wirfst einen Blick zur Stadtmauer von Galmair und siehst die Wachen dort wie sie dich und dein Schicksal beobachten. Was, wenn du nur dem Don deine Steuern zahlen würdest?", "You look to the town wall of Galmair and see guards on the wall watching your fate. What if you had only paid your taxes to the Don?")	--wäähh wrong faction message for the player
 			shutup = 1 --stop message for player
+		end
 		end	
 	else
 	return
