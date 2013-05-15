@@ -101,7 +101,7 @@ function MoveFromField(char)
 				base.character.DeathAfterTime(mon,math.random(10,20),0,33) --kill all monsters
 				end
 			return
-			end
+			
 --		elseif shutup ~= 0 then  --check if player has already got the message
 --			return
 			
