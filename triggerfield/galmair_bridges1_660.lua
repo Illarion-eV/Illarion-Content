@@ -92,7 +92,6 @@ function MoveFromField(char)
 		if base.factions.getMembership(player) == 3 then
 			luckybunch = 1 --if non-galmairians are together with galmairians
 			else
-			return
 			end
 		end
 	if char:getType() ~= Character.player then --monster start moving
