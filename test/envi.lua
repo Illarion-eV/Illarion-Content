@@ -34,7 +34,7 @@ function MoveToField(char)
 	if char:getQuestProgress(660) ~= 0 then --
 		return
 	end
-	if math.random(0,99)< 5  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
+	if math.random(0,99)< 100  and char:increaseAttrib("hitpoints",0)>0 then --Chance of 10% and Hitpoints above
 		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) then
 		return
 		end
@@ -111,7 +111,7 @@ function MoveFromField(char)
 			--player:inform("Danke3!", "Thanks3!")
 			--	mon:increaseAttrib("hitpoints", -10000)
 				base.character.DeathAfterTime(mon,math.random(10,20),0,33)
-			        server.standardfighting.DropMuchBlood(char.pos);
+			        server.standardfighting.DropMuchBlood(mon.pos);
 			--player:inform("Danke4!", "Thanks4!")
 			end
 			return
