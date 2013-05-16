@@ -42,6 +42,13 @@ function MoveToField(char)
 	if char:getQuestProgress(660) ~= 0 then --lte check
 		return
 	end
+	if (char:getSkill(Character.punctureWeapons)>=40) or (char:getSkill(Character.distanceWeapons)>=40) or (char:getSkill(Character.slashingWeapons)>=40) or (char:getSkill(Character.concussionWeapons)>=40) or (char:getSkill(Character.wrestling)>=40) then --check if we have a fighter
+		fighter = 1
+		char:inform("fighter", "fighter")
+		else
+		char:inform("nonfighter", "nonfighter")
+		return
+	end
 	if base.factions.getMembership(char) == 3 then
 		chance = 101
 		char:inform("chance 20", "chance 20")
@@ -49,8 +56,9 @@ function MoveToField(char)
 		chance = 101
 		char:inform("chance 5", "chance 5")
 	end
-	if math.random(1,100)< chance  and char:increaseAttrib("hitpoints",0)>1000 then --Chance of 10% and Hitpoints above 1000
-		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) and (char:getSkill(Character.punctureWeapons)<=40) or (char:getSkill(Character.distanceWeapons)<=40) or (char:getSkill(Character.slashingWeapons)<=40) or (char:getSkill(Character.concussionWeapons)<=40) then --Newbie and non-fighter protection for non-Galmairian
+
+	if math.random(1,100)< chance  and char:increaseAttrib("hitpoints",0)>8000 then --Chance of 10% and Hitpoints above 8000
+		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) and  fighter ~= 0  then --Newbie and non-fighter protection for non-Galmairian
 		char:inform("not cool enough", "not cool enough")
 		return
 		end
