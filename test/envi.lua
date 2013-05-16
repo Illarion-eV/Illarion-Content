@@ -16,6 +16,19 @@ require("server.standardfighting");
 module("test.envi", package.seeall)
 
 
+lights={};
+lights[1]=2,46,53};
+
+function MoveToField(char)
+	repeat
+		i=i+1;
+		world:gfx(lights[1][math.random(1,table.getn(lights[1]))],position(math.random(1,10),math.random(1,10),0));
+	until (i==math.random(1,5))
+end
+
+
+--[[
+
     monster={}; ---monster, numbers are archers -> excluded currently
     monster[1]={1,2,3,4,5}; --human
     monster[2]={11,12,13,14}; --dwarf 15
@@ -100,6 +113,39 @@ function MoveToField(char)
 		char:setQuestProgress(660,math.random(300,600)) --lte set
 end
 
+
+
+
+function MoveFromField(char)
+	if char:getType() ~= Character.player then
+		local test = world:getPlayersInRangeOf(char.pos, 10);
+		for i,player in ipairs(test) do
+		if base.factions.getMembership(player) == 3 then
+			world:gfx(53,position(10,10,0));
+			base.character.DeathAfterTime(char,math.random(10,20),0,1)
+			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüste zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shouting around you and take down your enemies. You look into the direction of the orgin of the arrows and see guards on the town wall of Galmair waving to you with their crossbows. Good you have paid your taxes to the Don and he protects you!")
+			local monsters = world:getMonstersInRangeOf(player.pos, 30);
+			--player:inform("Danke2!", "Thanks2!")
+			for i,mon in ipairs(monsters) do
+			--player:inform("Danke3!", "Thanks3!")
+			--	mon:increaseAttrib("hitpoints", -10000)
+				base.character.DeathAfterTime(mon,math.random(10,20),0,33)
+			        server.standardfighting.DropMuchBlood(mon.pos);
+			--player:inform("Danke4!", "Thanks4!")
+			end
+			return
+		else
+			world:gfx(2,position(11,11,0));
+			player:inform("Du wirfst einen Blick zur Stadtmauer von Galmair und siehst die Wachen dort wie sie dich und dein Schicksal beobachten. Was, wenn du nur dem Don deine Steuern zahlen würdest?", "You look to the town wall of Galmair and see guards on the wall watching your faith. What if you would pay your taxes to the Don?")	
+		end
+		end	
+	else
+	return
+	end
+end ]]--
+
+----------------------------------------
+
 --[[function Init()
     if InitDone then
         return
@@ -179,35 +225,6 @@ function MoveToField(char)
 	end 
 		char:inform("missed chance", "missed chance")
 end]]--
-
-
-function MoveFromField(char)
-	if char:getType() ~= Character.player then
-		local test = world:getPlayersInRangeOf(char.pos, 10);
-		for i,player in ipairs(test) do
-		if base.factions.getMembership(player) == 3 then
-			world:gfx(53,position(10,10,0));
-			base.character.DeathAfterTime(char,math.random(10,20),0,1)
-			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüste zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shouting around you and take down your enemies. You look into the direction of the orgin of the arrows and see guards on the town wall of Galmair waving to you with their crossbows. Good you have paid your taxes to the Don and he protects you!")
-			local monsters = world:getMonstersInRangeOf(player.pos, 30);
-			--player:inform("Danke2!", "Thanks2!")
-			for i,mon in ipairs(monsters) do
-			--player:inform("Danke3!", "Thanks3!")
-			--	mon:increaseAttrib("hitpoints", -10000)
-				base.character.DeathAfterTime(mon,math.random(10,20),0,33)
-			        server.standardfighting.DropMuchBlood(mon.pos);
-			--player:inform("Danke4!", "Thanks4!")
-			end
-			return
-		else
-			world:gfx(2,position(11,11,0));
-			player:inform("Du wirfst einen Blick zur Stadtmauer von Galmair und siehst die Wachen dort wie sie dich und dein Schicksal beobachten. Was, wenn du nur dem Don deine Steuern zahlen würdest?", "You look to the town wall of Galmair and see guards on the wall watching your faith. What if you would pay your taxes to the Don?")	
-		end
-		end	
-	else
-	return
-	end
-end
 
 --[[
 function MoveFromField(char)
