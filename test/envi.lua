@@ -20,6 +20,7 @@ lights={};
 lights[1]={2,46,53};
 
 function MoveToField(char)
+	i=0;
 	repeat
 		i=i+1;
 		world:gfx(lights[1][math.random(1,table.getn(lights[1]))],position(math.random(1,10),math.random(1,10),0));
