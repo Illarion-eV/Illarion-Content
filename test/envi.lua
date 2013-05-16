@@ -46,6 +46,7 @@ function MoveToField(char)
 		fighter = 1
 		char:inform("fighter", "fighter")
 		else
+		fighter = 0
 		char:inform("nonfighter", "nonfighter")
 	end
 	if base.factions.getMembership(char) == 3 then
