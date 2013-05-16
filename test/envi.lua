@@ -58,7 +58,7 @@ function MoveToField(char)
 	end
 
 	if math.random(1,100)< chance  and char:increaseAttrib("hitpoints",0)>8000 then --Chance of 10% and Hitpoints above 8000
-		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) or  fighter ~= 1  then --Newbie and non-fighter protection for non-Galmairian
+		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) or  base.factions.getMembership(char) ~= 3 and fighter ~= 1  then --Newbie and non-fighter protection for non-Galmairian
 		char:inform("not cool enough", "not cool enough")
 		return
 		end
