@@ -168,9 +168,9 @@ function MoveToField(char)
 			world:makeSound(25,char.pos);			
 			world:gfx(13,char.pos);
 			char:increaseAttrib("hitpoints", -5000)
-	end ]]--
+	end 
 		char:inform("missed chance", "missed chance")
-end
+end]]--
 
 
 function MoveFromField(char)
