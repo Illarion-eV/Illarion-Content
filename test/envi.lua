@@ -23,8 +23,8 @@ function MoveToField(char)
 	i=0;
 	repeat
 		i=i+1;
-		world:gfx(lights[1][math.random(1,table.getn(lights[1]))],position(math.random(1,10),math.random(1,10),0));
-	until (i==math.random(1,5))
+		world:gfx(lights[1][math.random(1,table.getn(lights[1]))],position(math.random(5,15),math.random(5,15),0));
+	until (i==math.random(5,10))
 end
 
 
