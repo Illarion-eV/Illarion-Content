@@ -36,8 +36,13 @@ function MoveToField(char)
 	if char:getQuestProgress(660) ~= 0 then --lte check
 		return
 	end
-	if math.random(0,99)< 100  and char:increaseAttrib("hitpoints",0)>1000 then --Chance of 10% and Hitpoints above 1000
-		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) then --Newbie protection for non-Galmairian
+	if base.factions.getMembership(char) == 3 then
+		chance = 20
+		else
+		chance = 5
+	end
+	if math.random(1,100)< chance  and char:increaseAttrib("hitpoints",0)>8000 then --Chance of 10% and Hitpoints above 8000
+		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) and (char:getSkill(Character.punctureWeapons)<=40) or (char:getSkill(Character.distanceWeapons)<=40) or (char:getSkill(Character.slashingWeapons)<=40) or (char:getSkill(Character.concussionWeapons)<=40) then --Newbie and non-fighter protection for non-Galmairiann
 		return
 		end
 		shutup = 0 --player should get message later

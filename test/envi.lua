@@ -16,7 +16,83 @@ require("server.standardfighting");
 module("test.envi", package.seeall)
 
 
-function Init()
+    monster={}; ---monster, numbers are archers -> excluded currently
+    monster[1]={1,2,3,4,5}; --human
+    monster[2]={11,12,13,14}; --dwarf 15
+    monster[3]={21,22,23,24}; --halfling 25
+    monster[4]={31,32,33,34}; --elf 35
+    monster[5]={41,42,43,45}; --orc 44
+    monster[6]={51,53,53,54,55}; -- lizard 
+    monster[7]={91,92,93,95,791,792,801,812}; -- troll 94,802,811
+    monster[8]={101,102,103,104,106,151,152,171,172,173}; -- mummy
+    monster[9]={111,112,113,114,115}; --skeleton
+    monster[10]={921,922,931,932,941,942}; --rats
+    monster[11]={891,892,893,901,902,903}; --Imp
+    monster[12]={782,783}; --golden skeleton 784
+    monster[13]={301,311,321,331,341}; --golem 
+    monster[14]={851,852,853,861,862,863,871,872,873,881,882,883}; --hellhound
+    monster[15]={62,63,64,65}; -- drow 61
+    monster[16]={201,202,203,204}; --demon skeleton 205 
+
+
+function MoveToField(char)
+	if char:getType() ~= Character.player then --Monsters will be ingored
+		return
+	end
+	if char:getQuestProgress(660) ~= 0 then --lte check
+		return
+	end
+	if base.factions.getMembership(char) == 3 then
+		chance = 101
+		char:inform("chance 20", "chance 20")
+		else
+		chance = 101
+		char:inform("chance 5", "chance 5")
+	end
+	if math.random(1,100)< chance  and char:increaseAttrib("hitpoints",0)>1000 then --Chance of 10% and Hitpoints above 1000
+		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) and (char:getSkill(Character.punctureWeapons)<=40) or (char:getSkill(Character.distanceWeapons)<=40) or (char:getSkill(Character.slashingWeapons)<=40) or (char:getSkill(Character.concussionWeapons)<=40) then --Newbie and non-fighter protection for non-Galmairian
+		char:inform("not cool enough", "not cool enough")
+		return
+		end
+		shutup = 0 --player should get message later
+		luckybunch = 0 --we will see if there are galmairians here later
+		if (char:getSkill(Character.parry)<=70) then --check of skills of fighter
+			level = math.random(1,11) --selection of lower monsters for average fighter
+			else
+			level = math.random(1,16) --selection of all monsters for good fighter
+			end
+		local enemy1 = monster[level][math.random(1,table.getn(monster[level]))]
+		local enemy2 = monster[level][math.random(1,table.getn(monster[level]))]
+		local enemy3 = monster[level][math.random(1,table.getn(monster[level]))]
+		local enemy4 = monster[level][math.random(1,table.getn(monster[level]))]
+		local enemy5 = monster[level][math.random(1,table.getn(monster[level]))]
+		local enemy6 = monster[level][math.random(1,table.getn(monster[level]))]
+		local enemy7 = monster[level][math.random(1,table.getn(monster[level]))]
+		local enemy8 = monster[level][math.random(1,table.getn(monster[level]))]
+		world:gfx(41,position(5,5,0));
+        	world:createMonster(enemy1,position(5,5,0),0);
+		world:gfx(41,position(5,6,0));
+        	world:createMonster(enemy2,position(5,6,0),0);
+		world:gfx(46,position(4,5,0));
+        	world:createMonster(enemy3,position(4,5,0),0);
+		world:gfx(46,position(4,6,0));
+        	world:createMonster(enemy4,position(4,6,0),0);
+		world:gfx(53,position(6,5,0));
+        	world:createMonster(enemy5,position(6,5,0),0);
+		world:gfx(53,position(6,6,0));
+        	world:createMonster(enemy6,position(6,6,0),0);
+		world:gfx(53,position(8,16,0));
+        	world:createMonster(enemy7,position(8,16,0),0);
+		world:gfx(53,position(9,16,0));
+        	world:createMonster(enemy8,position(9,16,0),0); --don't remove this one, it triggers the next function
+		char:inform("Oh nein, ein Hinterhalt!", "Oh no, an ambush!") --message for player
+		char:setQuestProgress(660,math.random(300,600)) --lte set
+	end
+--		char:inform("missed chance", "missed chance")	--for testing, remove it later
+		char:setQuestProgress(660,math.random(300,600)) --lte set
+end
+
+--[[function Init()
     if InitDone then
         return
     end
@@ -65,7 +141,7 @@ function MoveToField(char)
         	world:createMonster(enemy7,position(9,16,0),0);
 		char:inform("Oh nein, ein Hinterhalt!", "Oh no, an ambush!")
 		char:setQuestProgress(660,1)
-	end
+	end ]]--
 --[[	if base.factions.getMembership(char) == 2 then
 			char:inform("funkt1!", "funkt1!")
 			local monsters = world:getMonstersInRangeOf(char.pos, 30);
