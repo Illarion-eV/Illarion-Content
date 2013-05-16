@@ -17,7 +17,7 @@ module("test.envi", package.seeall)
 
 
 lights={};
-lights[1]=2,46,53};
+lights[1]={2,46,53};
 
 function MoveToField(char)
 	repeat
