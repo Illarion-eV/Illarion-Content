@@ -20,7 +20,7 @@ module("triggerfield.galmair_bridges2_660", package.seeall)
     monster[7]={91,92,93,95,791,792,801,812}; -- troll 94,802,811
     monster[8]={101,102,103,104,106,151,152,171,172,173}; -- mummy
     monster[9]={111,112,113,114,115}; --skeleton
-    monster[10]={921,922,931,932,941,942}; --rats
+    monster[10]={921,922,932,941,942}; --rats 931
     monster[11]={891,892,893,901,902,903}; --Imp
     monster[12]={782,783}; --golden skeleton 784
     monster[13]={301,311,321,331,341}; --golem 
@@ -36,13 +36,18 @@ function MoveToField(char)
 	if char:getQuestProgress(660) ~= 0 then --lte check
 		return
 	end
-	if base.factions.getMembership(char) == 3 then
+	if base.factions.getMembership(char) == 3 then --set chance for Galmairians and non-Galmairians
 		chance = 20
 		else
 		chance = 5
 	end
-	if math.random(1,100)< chance  and char:increaseAttrib("hitpoints",0)>1000 then --Chance of 10% and Hitpoints above 1000
-		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) and (char:getSkill(Character.punctureWeapons)<=40) or (char:getSkill(Character.distanceWeapons)<=40) or (char:getSkill(Character.slashingWeapons)<=40) or (char:getSkill(Character.concussionWeapons)<=40) then --Newbie and non-fighter protection for non-Galmairian
+	if (char:getSkill(Character.punctureWeapons)>=40) or (char:getSkill(Character.distanceWeapons)>=40) or (char:getSkill(Character.slashingWeapons)>=40) or (char:getSkill(Character.concussionWeapons)>=40) or (char:getSkill(Character.wrestling)>=40) then --check if we have a non-galmairian fighter
+		fighter = 1
+		else
+		fighter = 0
+	end
+	if math.random(1,100)< chance  and char:increaseAttrib("hitpoints",0)>8000 then --Chance of 10% and Hitpoints above 8000
+		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) or  base.factions.getMembership(char) ~= 3 and fighter ~= 1  then --Newbie and non-fighter protection for non-Galmairian
 		return
 		end
 		shutup = 0 --player should get message later

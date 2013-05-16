@@ -26,7 +26,7 @@ module("test.envi", package.seeall)
     monster[7]={91,92,93,95,791,792,801,812}; -- troll 94,802,811
     monster[8]={101,102,103,104,106,151,152,171,172,173}; -- mummy
     monster[9]={111,112,113,114,115}; --skeleton
-    monster[10]={921,922,931,932,941,942}; --rats
+    monster[10]={921,922,932,941,942}; --rats 931
     monster[11]={891,892,893,901,902,903}; --Imp
     monster[12]={782,783}; --golden skeleton 784
     monster[13]={301,311,321,331,341}; --golem 
