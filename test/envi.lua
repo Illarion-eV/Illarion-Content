@@ -42,12 +42,11 @@ function MoveToField(char)
 	if char:getQuestProgress(660) ~= 0 then --lte check
 		return
 	end
-	if (char:getSkill(Character.punctureWeapons)>=40) or (char:getSkill(Character.distanceWeapons)>=40) or (char:getSkill(Character.slashingWeapons)>=40) or (char:getSkill(Character.concussionWeapons)>=40) or (char:getSkill(Character.wrestling)>=40) then --check if we have a fighter
+	if (char:getSkill(Character.punctureWeapons)>=40) or (char:getSkill(Character.distanceWeapons)>=40) or (char:getSkill(Character.slashingWeapons)>=40) or (char:getSkill(Character.concussionWeapons)>=40) or (char:getSkill(Character.wrestling)>=40) then --check if we have a non-galmairian fighter
 		fighter = 1
 		char:inform("fighter", "fighter")
 		else
 		char:inform("nonfighter", "nonfighter")
-		return
 	end
 	if base.factions.getMembership(char) == 3 then
 		chance = 101
