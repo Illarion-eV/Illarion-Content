@@ -24,7 +24,7 @@ Level 5: Strong monster award 6 points
 Level 6: Really strong monsters award 8 points
 Level 7: Monsters for really, really good fighters 'heroes' award 13 points
 Level 8: Monsters for group fights award 18 points 
-Level 9: Unbelieavable strong monsters for groups award 21 points
+Level 9: Unbelieavable strong monsters for 'groups' award 21 points
 ]]
 monsterIDsByLevel = {
 	{monsters = {991, 271, 1051, 582, 1071}, points = 1},
@@ -42,7 +42,7 @@ arenaInformations = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPo
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Runewick", quest=802}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Galmair", quest=803}}
 					
-priceBase = 10000;
+priceBase = 1000;
 
 function requestMonster(User, NPC) 
 	local cbChooseLevel = function (dialog)
@@ -82,7 +82,7 @@ function requestMonster(User, NPC)
 		sdMonster = SelectionDialog("Monster strength", "Please choose how strong the monster you wish to fight against should be:", cbChooseLevel);
 		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
-			priceInCP = i * priceBase;
+			priceInCP = i*i * priceBase;
 			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
 			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." points) -"..englishMoney);
 		end
@@ -91,7 +91,7 @@ function requestMonster(User, NPC)
 end
 
 function payforMonster(User, MonsterLevel, NPC)
-	local priceInCP = MonsterLevel * priceBase;
+	local priceInCP = MonsterLevel*MonsterLevel * priceBase;
 	local germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
 	
 	if not base.money.CharHasMoney(User,priceInCP) then --not enough money!
