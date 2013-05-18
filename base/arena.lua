@@ -76,7 +76,7 @@ function requestMonster(User, NPC)
 		for i=1, #(monsterIDsByLevel) do
 			priceInCP = i * priceBase;
 			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
-			sdMonster:addOption(0,"Stärke "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkte) -\n"..germanMoney);
+			sdMonster:addOption(61,"Stärke "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkte)\n"..germanMoney);
 		end
 	else
 		sdMonster = SelectionDialog("Monster strength", "Please choose how strong the monster you wish to fight against should be:", cbChooseLevel);
@@ -84,7 +84,7 @@ function requestMonster(User, NPC)
 		for i=1, #(monsterIDsByLevel) do
 			priceInCP = i*i * priceBase;
 			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
-			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." points) -\n"..englishMoney);
+			sdMonster:addOption(61,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." points)\n"..englishMoney);
 		end
 	end	
 	User:requestSelectionDialog(sdMonster);
