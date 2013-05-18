@@ -306,7 +306,8 @@ function UseItem(User, SourceItem)
           local infoText = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
           infoText = infoText .. "\nChanged towns already (town count): " .. faction.towncnt;
           if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
-            infoText = infoText .. "\nRank: " .. base.factions.townRanks[faction.tid][faction.rankTown].eRank .. "/" .. base.factions.townRanks[faction.tid][faction.rankTown].gRank;
+			local germanRank, englishRank = base.factions.getRank(chosenPlayer, true)
+            infoText = infoText .. "\nRank: " .. englishRank .. "/" .. germanRank;
           else
             infoText = infoText .. "\nRank: no rank " .. faction.rankTown;
           end
