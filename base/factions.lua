@@ -210,7 +210,6 @@ function getRank(player, bothFlag)
 			return gerRank, enRank;
 		end
 	else
-		debug(tostring(bothFlag))
 		if not bothFlag then
 			if player:getPlayerLanguage() == 0 then
 				return townRanks[tonumber(Faction.tid)+3][Faction.rankTown].gRank;
@@ -218,9 +217,8 @@ function getRank(player, bothFlag)
 				return townRanks[tonumber(Faction.tid)+3][Faction.rankTown].eRank;
 			end
 		else
-			local gerRank = townRanks[Faction.tid][Faction.rankTown].gRank;
-			local enRank = townRanks[Faction.tid][Faction.rankTown].eRank;
-			debug(gerRank.." "..enRank);
+			local gerRank = townRanks[Faction.tid+3][Faction.rankTown].gRank;
+			local enRank = townRanks[Faction.tid+3][Faction.rankTown].eRank;
 			return gerRank, enRank;
 		end
 	end
