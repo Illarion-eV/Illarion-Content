@@ -42,7 +42,7 @@ arenaInformations = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPo
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Runewick", quest=802}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Galmair", quest=803}}
 					
-priceBase = 2000;
+priceBase = 4000;
 
 function requestMonster(User, NPC) 
 	local cbChooseLevel = function (dialog)
