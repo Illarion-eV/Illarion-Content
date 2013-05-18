@@ -198,6 +198,7 @@ function getRank(player)
 	end
 
 	if (player:increaseAttrib("sex",0) == 0) then --male Ranks
+		debug(tostring(bothFlag))
 		if not bothFlag then
 			if player:getPlayerLanguage() == 0 then
 				return townRanks[Faction.tid][Faction.rankTown].gRank;
@@ -207,6 +208,7 @@ function getRank(player)
 		else
 			local gerRank = townRanks[Faction.tid][Faction.rankTown].gRank;
 			local enRank = townRanks[Faction.tid][Faction.rankTown].eRank
+			debug(gerRank.." "..enRank);
 			return gerRank, enRank;
 		end
 	else
