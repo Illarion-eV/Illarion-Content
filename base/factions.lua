@@ -205,7 +205,9 @@ function getRank(player)
 				return townRanks[Faction.tid][Faction.rankTown].eRank;
 			end
 		else
-			return townRanks[Faction.tid][Faction.rankTown].gRank, townRanks[Faction.tid][Faction.rankTown].eRank
+			local gerRank = townRanks[Faction.tid][Faction.rankTown].gRank;
+			local enRank = townRanks[Faction.tid][Faction.rankTown].eRank
+			return gerRank, enRank;
 		end
 	else
 		if not bothFlag then
@@ -215,7 +217,9 @@ function getRank(player)
 				return townRanks[tonumber(Faction.tid)+3][Faction.rankTown].eRank;
 			end
 		else
-			return townRanks[Faction.tid][Faction.rankTown].gRank, townRanks[Faction.tid][Faction.rankTown].eRank
+			local gerRank = townRanks[Faction.tid][Faction.rankTown].gRank;
+			local enRank = townRanks[Faction.tid][Faction.rankTown].eRank
+			return gerRank, enRank;
 		end
 	end
 end
