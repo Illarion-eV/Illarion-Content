@@ -188,8 +188,8 @@ end
 	
 	@return - name of the rank
 ]]
-function getRank(player)
-	local Faction = getFaction(player, bothFlag);
+function getRank(player, bothFlag)
+	local Faction = getFaction(player);
 	if (townRanks[Faction.tid] == nil) then
 		return "[ERROR: no ranks for " .. Faction.tid .. "]";
 	end
