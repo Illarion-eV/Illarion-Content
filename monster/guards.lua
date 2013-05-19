@@ -6,8 +6,8 @@ module("monster.guards", package.seeall)
 function initGuard(Guard)
     Guard:setAttrib("agility",10);
 
-    Guard:increaseSkill(1,"human language",100);
-    Guard:increaseSkill(1,"common language",100);
+    Guard:increaseSkill(Character.commonLanguage,100);
+    Guard:increaseSkill(Character.humanLanguage,100);
     Guard:talk(Character.say, "This is my script!");
     
     -- no more bad hair day!
