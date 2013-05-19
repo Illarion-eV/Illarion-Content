@@ -1,4 +1,5 @@
 require("base.common")
+require("base.hair")
 
 module("triggerfield.hairdresser", package.seeall)
 
