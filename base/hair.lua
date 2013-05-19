@@ -1,3 +1,5 @@
+module("base.hair", package.seeall)
+
 humanHairStyles = {
 	humanMaleHairStyle = {
 		{id=0, nameDe="Glatze", nameEn="Bald head"},
