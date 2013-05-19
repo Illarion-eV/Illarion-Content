@@ -112,15 +112,15 @@ function selectBeard(User, NPC)
 end
 
 hairColorSimple = {
-	{r= ,g= ,b= ,nameDe="Weißblond", nameEn="White blonde"},
-	{r= ,g= ,b= ,nameDe="Blond", nameEn="Blonde"},
-	{r= ,g= ,b= ,nameDe="Dunkelblond", nameEn="Dark blonde"},
-	{r= ,g= ,b= ,nameDe="Hellbraun", nameEn="Light brown"},
-	{r= ,g= ,b= ,nameDe="Braun", nameEn="Brown"},
-	{r= ,g= ,b= ,nameDe="Dunkelbraun", nameEn="Dark brown"},
-	{r= ,g= ,b= ,nameDe="Schwarz", nameEn="Black"},
-	{r= ,g= ,b= ,nameDe="Hellrot", nameEn="Light ginger"},
-	{r= ,g= ,b= ,nameDe="Dunkelrot", nameEn="Dark ginger"}
+	{r=1 ,g=1 ,b=1 ,nameDe="Weißblond", nameEn="White blonde"},
+	{r=2 ,g=2 ,b=2 ,nameDe="Blond", nameEn="Blonde"},
+	{r=3 ,g=3 ,b=3 ,nameDe="Dunkelblond", nameEn="Dark blonde"},
+	{r=4 ,g=4 ,b=4 ,nameDe="Hellbraun", nameEn="Light brown"},
+	{r=5 ,g=5 ,b=5 ,nameDe="Braun", nameEn="Brown"},
+	{r=6 ,g=6 ,b=6 ,nameDe="Dunkelbraun", nameEn="Dark brown"},
+	{r=7 ,g=7 ,b=7 ,nameDe="Schwarz", nameEn="Black"},
+	{r=8 ,g=8 ,b=8 ,nameDe="Hellrot", nameEn="Light ginger"},
+	{r=9 ,g=9 ,b=9 ,nameDe="Dunkelrot", nameEn="Dark ginger"}
 }
 
 function selectHaircolor(User, NPC)
