@@ -75,7 +75,7 @@ function selectHair(User, NPC)
 	dialog:setCloseOnMove();
 	local hairTable = base.hair.hairStyles[race][gender];
 	debug(race..gender);
-	debug(table.getn(hairTable);
+	debug(table.getn(hairTable));
 	for i=1, #(hairTable) do 
 		dialog:addOption(0, base.common.GetNLS(User, hairTable[i].nameDe, hairTable[i].nameEn));
 	end
