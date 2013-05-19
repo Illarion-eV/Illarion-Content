@@ -41,5 +41,4 @@ function UseItem(User, SourceItem)
 	
 	User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..gValue..".", "#me throws a coin in the air and catches it again. It shows "..eValue..".")
 	TimeList[User.id] = world:getTime("second");
-	end
 end
