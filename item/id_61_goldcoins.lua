@@ -12,22 +12,19 @@ if not InitTime then
 end
 
 function UseItem(User, SourceItem)
-	if ( SourceItem.number == 1 ) then  --works only with 1 coin
 
-    	if TimeList[User.id]~=nil then
-			if  ( (math.abs(world:getTime("second") - TimeList[User.id]) ) <=3) then  --1 Rl. second delay
-				return;
-			end
+   	if TimeList[User.id]~=nil then
+		if  ( (math.abs(world:getTime("second") - TimeList[User.id]) ) <=3) then  --1 Rl. second delay
+			return;
 		end
-      	TimeList[User.id] = world:getTime("second");
-		
-		if math.random(2) == 1 then	gValue = "Kopf"; eValue = "head";
-		else gValue = "Zahl"; eValue = "tail"; end    
-		
-		User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..gValue..".", "#me throws a coin in the air and catches it again. It shows "..eValue..".")
-
 	end
+   	TimeList[User.id] = world:getTime("second");
+		
+	if math.random(2) == 1 then	gValue = "Kopf"; eValue = "head";
+	else gValue = "Zahl"; eValue = "tail"; end    
 	
+	User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..gValue..".", "#me throws a coin in the air and catches it again. It shows "..eValue..".")
+
 	
 	if (User:isAdmin()) then
 	
