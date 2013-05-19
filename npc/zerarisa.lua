@@ -107,7 +107,7 @@ talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("May the rainsss be heavy and frequent.");
-talkEntry:addResponse("May the Ssea-Mother watch your path.");
+talkEntry:addResponse("May the ssea-Mother watch your path.");
 talkEntry:addResponse("Farewell, zsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -181,7 +181,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
 talkEntry:addTrigger("rod");
-talkEntry:addResponse("You'll need a fissshing rod, you can get one from Fredericus, if the line breakss, you need thread to fix it.");
+talkEntry:addResponse("You'll need a fissshing rod, you can get one from Fredericus.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -189,20 +189,20 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
 talkEntry:addTrigger("rute");
 talkEntry:addTrigger("angel");
-talkEntry:addResponse("Brauchenss Angelrute, gehenss Fredericuss. Wennss Sschnur reiﬂenss, brauchensss Fadensss.");
+talkEntry:addResponse("Brauchenss Angelrute, gehenss Fredericuss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rod");
-talkEntry:addResponse("Broke your rod? If itss jusst the line, you can usse thread to fix it. If itss the wood, assk a carpenter for a new one.");
+talkEntry:addResponse("Broke your rod? Assk a carpenter for a new one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rute");
 talkEntry:addTrigger("angel");
-talkEntry:addResponse("Habenss gebrochen die Rute? Wennss die Schnur, brauchenss Faden. Wennss das Holzss, brauchenss Ssschreiner.");
+talkEntry:addResponse("Habenss gebrochen die Rute? Brauchenss Ssschreiner.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -216,7 +216,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("jakob");
 talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 12));
-talkEntry:addResponse("Ah Jakob sssent you, but you have already assked me for sssomething to do.");
+talkEntry:addResponse("Zss, Jakob sssend you but you already asssk me for sssomething to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -229,7 +229,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("jakob");
 talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 12));
-talkEntry:addResponse("Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkEntry:addResponse("Zss, Jakob hats Euch geschickt aber Ihr habt mich bereitsss nach einer Aufgabe gefragt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -241,7 +241,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 12));
-talkEntry:addResponse("Ah Jakob sssent you, but you have already assked me for sssomething to do.");
+talkEntry:addResponse("Zss, Jakob sssend you but you already asssk me for sssomething to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -254,7 +254,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 12));
-talkEntry:addResponse("Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkEntry:addResponse("Zss, Jakob hats Euch geschickt aber Ihr habt mich bereitsss nach einer Aufgabe gefragt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -537,7 +537,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Cape Farewell II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 3));
-talkEntry:addResponse("Thankss for the troutss again, if you want you can catch twenty ssalmonss for me now.");
+talkEntry:addResponse("Thankss for troutss again, if you want you can catch twenty ssalmonss for me now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -558,7 +558,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Cape Farewell II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 3));
-talkEntry:addResponse("Thankss for the troutss again, if you want you can catch twenty ssalmonss for me now.");
+talkEntry:addResponse("Thankss for troutss again, if you want you can catch twenty ssalmonss for me now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1284,7 +1284,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Wizardss be mean, make thingsss not undersstandss.");
+talkEntry:addResponse("Wizard be mean, make thingsss not undersstandss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1298,7 +1298,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Wizardss be mean, make thingsss not undersstandss.");
+talkEntry:addResponse("Wizard be mean, make thingsss not undersstandss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1354,7 +1354,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Queen jussst, Queen pretty, isss not ssshe?");
+talkEntry:addResponse("Queen jussst, queen pretty, isss not ssshe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1368,7 +1368,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Queen jussst, Queen pretty, isss not ssshe?");
+talkEntry:addResponse("Queen jussst, queen pretty, isss not ssshe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1382,7 +1382,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Zss, Zerarisa living here. Queen jussst, Queen pretty, isss not ssshe?");
+talkEntry:addResponse("Zss, Zerarisa living here. Queen jussst, queen pretty, isss not ssshe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1435,7 +1435,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Have faith only in Mothersss, Zerarisa! Hail Zshhel?pheey?arrr!");
+talkEntry:addResponse("Have faith only in mothersss, Zerarisa! Hail Zshhel?pheey?arrr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1450,7 +1450,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("Mothersss caresss, Mothersss providesss. What wantss more?");
+talkEntry:addResponse("Mothersss caresss, mothersss providesss. What wantss more?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1522,7 +1522,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("What iss the yess for? If you want a job assk me for a job.");
-talkEntry:addResponse("You are very agreable persson, but if you want job, assk for job.");
+talkEntry:addResponse("You are very agreeable persson, but if you want job, assk for job.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1556,7 +1556,7 @@ talkingNPC:addCycleText("Zsss.", "Zsss.");
 talkingNPC:addCycleText("Zsss!", "Zsss!");
 talkingNPC:addCycleText("Zsss?", "Zsss?");
 talkingNPC:addCycleText("#me zischelt.", "#me hisses.");
-talkingNPC:addCycleText("Willkommens am Kap desss Abschiedsss!", "Welcome to Cape Farewell, zsss!");
+talkingNPC:addCycleText("Willkommens am Kap desss Abschiedsss!", "Welcome to Cape Farewell, zss!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(4);
 mainNPC:setDefaultLanguage(0);
