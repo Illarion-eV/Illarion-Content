@@ -25,27 +25,4 @@ function UseItem(User, SourceItem)
 	
 	User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..gValue..".", "#me throws a coin in the air and catches it again. It shows "..eValue..".")
 
-	
-	if (User:isAdmin()) then
-	
-		world:createItemFromId(10, 1 ,position (240,732,0),false, 0, 0);
-        world:createItemFromId(10, 1 ,position (240,722,0),false, 0, 0);
-        world:createItemFromId(10, 1 ,position (250,732,0),false, 0, 0);
-        world:createItemFromId(10, 1 ,position (250,722,0),false, 0, 0);
-        
-        User:inform("portale stehen nahe 240,732,0 rum");
-        
-		world:createItemFromId(434, 1 ,position (220,735,0),false, 333, 333);
-        world:createItemFromId(434, 1 ,position (220,737,0),false, 333, 333);
-        world:createItemFromId(434, 1 ,position (220,739,0),false, 333, 333);
-        world:createItemFromId(434, 1 ,position (220,741,0),false, 333, 333);
-        world:createItemFromId(434, 1 ,position (220,743,0),false, 333, 333);
-
-		world:createItemFromId(434, 1 ,position (33,20,0),false, 333, 333);    --elevator test
-		world:createItemFromId(434, 1 ,position (33,10,0),false, 333, 333);
-		
-        User:inform("hebel stehen nahe 220,735,0 rum");
-        
-        
-	end
 end
