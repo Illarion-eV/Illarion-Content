@@ -81,21 +81,21 @@ hairStyles[0] = humanHairStyles;
 --Beard sytles by race
 
 humanBeard = {
-	{id= , nameDe="Kein Bart", nameEn="No beard"},
-	{id= , nameDe="Backenbart", nameEn="Short beard"},
-	{id= , nameDe="Spitzbart", nameEn="Goatee Beard"},
-	{id= , nameDe="Bauschebart", nameEn="Square Beard"},
-	{id= , nameDe="Lincolnbart", nameEn="Thin Beard"},
-	{id= , nameDe="Vollbart", nameEn="Long Beard"},
-	{id= , nameDe="Kaptainsbart", nameEn="Mutton Chops"}
+	{id=0 , nameDe="Kein Bart", nameEn="No beard"},
+	{id=1 , nameDe="Backenbart", nameEn="Short beard"},
+	{id=3 , nameDe="Spitzbart", nameEn="Goatee Beard"},
+	{id=4 , nameDe="Bauschebart", nameEn="Square Beard"},
+	{id=5 , nameDe="Lincolnbart", nameEn="Thin Beard"},
+	{id=6 , nameDe="Vollbart", nameEn="Long Beard"},
+	{id=8 , nameDe="Kaptainsbart", nameEn="Mutton Chops"}
 
 }
 
 dwarfBeard = {
-	{id= , nameDe="Kein Bart", nameEn="No beard"},
-	{id= , nameDe="Backenbart", nameEn="Short beard"},
-	{id= , nameDe="Vollbart", nameEn="Long beard"},
-	{id= , nameDe="Rauschebart", nameEn="Long thick beard"}
+	{id=0 , nameDe="Kein Bart", nameEn="No beard"},
+	{id=1 , nameDe="Backenbart", nameEn="Short beard"},
+	{id=2 , nameDe="Vollbart", nameEn="Long beard"},
+	{id=4 , nameDe="Rauschebart", nameEn="Long thick beard"}
 }
 
 beardStyles = {dwarfBeard}
