@@ -74,8 +74,6 @@ function selectHair(User, NPC)
 	local dialog = SelectionDialog(base.common.GetNLS(User,"Friseur","Hair dresser"), base.common.GetNLS(User,"Bitte wähle aus, welche Frisur du haben möchtest.","Please select what hair style you wish to have."), callback);
 	dialog:setCloseOnMove();
 	local hairTable = base.hair.hairStyles[race][gender];
-	debug(race..gender);
-	debug(table.getn(hairTable));
 	for i=1, #(hairTable) do 
 		dialog:addOption(0, base.common.GetNLS(User, hairTable[i].nameDe, hairTable[i].nameEn));
 	end
