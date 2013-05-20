@@ -11,7 +11,7 @@ function UseItem(User, SourceItem, ltstate)
 	User:inform("Used!")
 
 	if(User.lastSpokenText == "time") then
-		npc.base.repeatable_quests.checkIfTimesExpired(User, 66, 0, 1, 0);
+		npc.base.repeatable_quests.checkIfTimesExpired(User, 1234, 0, 1, 0);
 	end
 
 end

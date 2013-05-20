@@ -13,9 +13,9 @@ function checkIfTimesExpired(User, quest, monthToRepeat, dayToRepeat, hourToRepe
 	
 	debug(d.."."..mo.."."..y.." "..h..":"..mi..":"..sec)
 	
-	if base.time.daysPerMonth(mo) == 28 then
+	if base.time.daysPerMonth[mo] == 28 then
 		month = monthToRepeat * 2419200;
-	elseif base.time.daysPerMonth(mo) == 31 then
+	elseif base.time.daysPerMonth[mo] == 31 then
 		month = monthToRepeat * 2678400;
 	else 
 		month = monthToRepeat * 2592000;
