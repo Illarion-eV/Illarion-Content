@@ -31,7 +31,7 @@ function getRLDateFromUnixTimestamp(timestamp)
 		end 
 	end
 	local hour=math.floor(math.fmod(timestamp,60*60*24)/3600) + 5 + (TIMEZONE) + (DST)
-	local minute= math.floor(math.fmod(timestamp,60*60*24)/60)
+	local minute= math.floor(math.fmod(timestamp,60*60*24)/60 - 120*(hour-DST))
 	local second= math.floor(math.fmod(math.fmod(timestamp,60*60*24),60))
 	return year, month, day, hour, minute, second;
 end
