@@ -31,10 +31,8 @@ function repairDialog(npcChar, speaker)
 	for i=17,0,-1 do 
 		local item = speaker:getItemAt(i);
 		if (item.id > 0) and (item.number == 1) and (getRepairPrice(item,speaker) ~= 0) then --only add items which are single items and repairable
-			if (item.id ~= base.money.GoldCoinsID and item.id ~= base.money.SilverCoinsID and item.id ~= base.money.CopperCoinsID) then --don't add money
-				table.insert(itemsOnChar, item);
-				table.insert(itemPosOnChar, itemPos[i])
-			end
+			table.insert(itemsOnChar, item);
+			table.insert(itemPosOnChar, itemPos[i])
 		end
 	end
 					
@@ -65,18 +63,20 @@ end
 --returns the price as string to repair the item according to playerlanguage or 0 if the price is 0
 function getRepairPrice(theItem, speaker)
 	local theItemStats=world:getItemStats(theItem);
-	local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
-	local toRepair=99-durability; --the amount of durability points that has to repaired
-	local price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
-	local gstring,estring;
-	
-	if price == 0 then
-		return price;
-	else
-		gstring,estring=base.money.MoneyToString(price)
+	if theItemStats.MaxStack ~= 1 then
+		local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
+		local toRepair=99-durability; --the amount of durability points that has to repaired
+		local price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
+		local gstring,estring;
+		
+		if price == 0 then
+			return price;
+		else
+			gstring,estring=base.money.MoneyToString(price)
+		end
+				
+		return base.common.GetNLS(speaker, gstring, estring)
 	end
-			
-	return base.common.GetNLS(speaker, gstring, estring)
 end
 
 -- Repairs theItem. The NPC speaks if the repair was successful or the char has not enough money
