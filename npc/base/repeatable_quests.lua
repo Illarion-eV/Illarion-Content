@@ -8,7 +8,7 @@ function checkIfTimesExpired(User, quest, monthToRepeat, dayToRepeat, hourToRepe
 	local month, day, hour;
 	local y, mo, d, h, mi, sec = base.time.getRLDateFromUnixTimestamp(questLastChanged);
 	
-	debug(d.."."..mo.."."..y.." "..h..":"..mi..":"..sec);
+	debug("LastChanged: "..questLastChanged)
 	
 	if base.time.daysPerMonth[mo] == 28 then
 		month = monthToRepeat * 2419200;
@@ -23,6 +23,9 @@ function checkIfTimesExpired(User, quest, monthToRepeat, dayToRepeat, hourToRepe
 	
 	local newTimestamp = questLastChanged + month + day + hour;
 	local currentTimestamp = world:getTime("unix");
+	
+	debug("Newtime: "..newTimestamp);
+	debug("Current: "..currentTimestamp);
 	
 	if newTimestamp >= currentTimestamp then
 		return true; 
