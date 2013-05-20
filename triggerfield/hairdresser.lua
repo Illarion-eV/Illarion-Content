@@ -133,7 +133,7 @@ function selectHaircolor(User, NPC)
 		blue = blue*1000;
 		green = green*1000;
 		
-		User:setQuestProgress(31,red..green..blue);
+		User:setQuestProgress(31,tonumber(red..green..blue));
 	end
 	
 	local callback = function(dialog) 
