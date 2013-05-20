@@ -67,7 +67,7 @@ function selectHair(User, NPC)
 		local success = dialog:getSuccess();
 		if success then
 			local selected = dialog:getSelectedIndex()+1;
-			User:setHair(base.hair.hairstyle[race][gender][selected].id)
+			User:setHair(base.hair.hairStyles[race][gender][selected].id)
 		end	
 	end
 
