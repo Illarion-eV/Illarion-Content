@@ -11,7 +11,7 @@ function MoveToField(User)
 	-- gets all npcs in a range of 2
 	local npcsInRange = world:getNPCSInRangeOf(User.pos, 2)
 	-- searches throug 2 loops, searching for the npc from the list that matches to the npc in range
-	for i, npcStruct in pairs(NPCList) do
+	for i, npcStruct in pairs(npcsInRange) do
 		for j=1, #(npcList) do
 			if npcStruct.name == npcList[j] then
 				local npc = npcStruct;
