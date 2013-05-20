@@ -17,7 +17,7 @@ dyersList = {
   {2680, {178, 176}, 179},  -- blue
   {2681, {178, 176}, 174},  -- red
   {2682, {178, 176}, 177},  -- yellow
-  {2683, 176, 178}   -- white
+  {2683, {176,0}, 178}   -- white
 };
 
 function UseItem(User, SourceItem, ltstate)
