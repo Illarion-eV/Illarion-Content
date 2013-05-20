@@ -3,24 +3,14 @@ require("base.hair")
 
 module("triggerfield.hairdresser", package.seeall)
 
--- searches for NPCs near the triggerfield with the given names
-npcList = {"Repair Man", "Name 2", "Name 3"}
-
-
 function MoveToField(User)
 	-- gets all npcs in a range of 2
 	local npcsInRange = world:getNPCSInRangeOf(User.pos, 2)
 	-- searches throug 2 loops, searching for the npc from the list that matches to the npc in range
 	for i, npcStruct in pairs(npcsInRange) do
 		for j=1, #(npcList) do
-			debug("NPC Name: "..npcStruct.name)
-			if npcStruct.name == npcList[j] then
-				local npc = npcStruct;
-				npc:talk(Character.say, "Deutsch", "English");
-			else
-				User:inform("[Error] The npc couldn't be found, please contact a developer.");
-				return;
-			end
+			local npc = npcStruct;
+			npc:talk(Character.say, "Deutsch", "English");
 		end
 	end
 
