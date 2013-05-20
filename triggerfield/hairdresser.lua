@@ -13,6 +13,7 @@ function MoveToField(User)
 	-- searches throug 2 loops, searching for the npc from the list that matches to the npc in range
 	for i, npcStruct in pairs(npcsInRange) do
 		for j=1, #(npcList) do
+			debug("NPC Name: "..npcStruct.name)
 			if npcStruct.name == npcList[j] then
 				local npc = npcStruct;
 				npc:talk(Character.say, "Deutsch", "English");
