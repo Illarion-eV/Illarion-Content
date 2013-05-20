@@ -1,13 +1,13 @@
 module("base.hair", package.seeall)
 
 humanHairStyles = {
-	humanMaleHairStyle = {
+	{
 		{id=0, nameDe="Glatze", nameEn="Bald head"},
 		{id=1, nameDe="Kurze Haare", nameEn="Short hair"},
 		{id=2, nameDe="Mittellange Haare", nameEn="Medium length hair"},
 		{id=3, nameDe="Lange Haare", nameEn="Long hair"}
 	},
-	humanFemaleHairStyle = {
+	{
 		{id=0, nameDe="Glatze", nameEn="Bald head"},
 		{id=1, nameDe="Mittellange Haare", nameEn="Medium length hair"},
 		{id=4, nameDe="Hochgesteckte Haare", nameEn="Pinned up hair"},
@@ -17,11 +17,11 @@ humanHairStyles = {
 }
 
 elfHairStyles = {
-	maleElfHairStyle = {
+	{
 		{id=1, nameDe="Kurze Haare", nameEn="Short hair"},
 		{id=2, nameDe="Mittellange Haare", nameEn="Medium length hair"}
 	},
-	femaleElfHairStyle = {
+	 {
 		{id=0, nameDe="Glatze", nameEn="Bald head"},
 		{id=1, nameDe="Mittellange Haare", nameEn="Medium length hair"},
 		{id=4, nameDe="Hochgesteckte Haare", nameEn="Pinned up hair"},
@@ -32,13 +32,13 @@ elfHairStyles = {
 }
 
 dwarfHairStyles = {
-	maleDwarfHairStyle = {
+	 {
 		{id=0, nameDe="Glatze", nameEn="Bald head"},
 		{id=1, nameDe="Kurze Haare", nameEn="Short hair"},
 		{id=2, nameDe="Lange Haare (1)", nameEn="Long hair (1)"},
 		{id=3, nameDe="Lange Haare (2)", nameEn="Long hair (2)"}
 	},
-	femaleDwarfHairStyle = {
+	{
 		{id=0, nameDe="Glatze", nameEn="Bald head"},
 		{id=1, nameDe="Zöpfe", nameEn="Braided hair"},
 		{id=4, nameDe="Hochgesteckte Haare", nameEn="Pinned up hair"},
@@ -49,11 +49,11 @@ dwarfHairStyles = {
 }
 
 halfingHairStyles = {
-	maleHalfingHairStyle = {
+	{
 		{id=1, nameDe="Kurze Haare", nameEn="Short hair"},
 		{id=2, nameDe="Mittellange Haare", nameEn="Medium length hair"}
 	},
-	femaleHalfingHairStyle = {
+	{
 		{id=1, nameDe="Mittellange, glatte Haare", nameEn="Medium length hair"},
 		{id=2, nameDe="Mittellange, buschige Haare", nameEn="Medium bushy hair"},
 		{id=4, nameDe="Hochgesteckte Haare", nameEn="Pinned up hair"},
@@ -63,7 +63,7 @@ halfingHairStyles = {
 }
 
 orcHairStyles = {
-	maleOrcHairStyle = {
+	{
 		{id=0, nameDe="Glatze", nameEn="Bald head"},
 		{id=1, nameDe="Kurze Haare", nameEn="Short hair"},
 		{id=2, nameDe="Pferdeschwanz", nameEn="Ponytail"},
@@ -71,7 +71,7 @@ orcHairStyles = {
 		{id=4, nameDe="Gewusel", nameEn="Messy hair"},
 		{id=5, nameDe="Langer Pferdeschwanz", nameEn="Long ponytail"},
 	},
-	femaleOrcHairStyle = {
+	{
 		{id=0, nameDe="Glatze", nameEn="Bald head"},
 	}
 }
