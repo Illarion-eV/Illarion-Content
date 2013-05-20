@@ -63,7 +63,7 @@ end
 --returns the price as string to repair the item according to playerlanguage or 0 if the price is 0
 function getRepairPrice(theItem, speaker)
 	local theItemStats=world:getItemStats(theItem);
-	if theItemStats.MaxStack ~= 1 then
+	if theItemStats.MaxStack == 1 then
 		local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 		local toRepair=99-durability; --the amount of durability points that has to repaired
 		local price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
@@ -77,6 +77,7 @@ function getRepairPrice(theItem, speaker)
 				
 		return base.common.GetNLS(speaker, gstring, estring)
 	end
+	return 0;
 end
 
 -- Repairs theItem. The NPC speaks if the repair was successful or the char has not enough money
