@@ -128,7 +128,7 @@ function selectHaircolor(User, NPC)
 	local originalHaircolor = User:getQuestProgress(31)
 	
 	if originalHaircolor == 0 then
-		local red, green, blue  = User:gethair();
+		local red, green, blue  = User:getHairColor();
 		red = red*1000;
 		blue = blue*1000;
 		green = green*1000;
