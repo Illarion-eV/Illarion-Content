@@ -16,12 +16,12 @@ local catId = dyemaking:addCategory("dyes", "Farbstoffe")
 
 
 --White Dye
-product = dyemaking:addProduct(catId, 2683, 0, 20, 20, 40)
+local product = dyemaking:addProduct(catId, 2683, 0, 20, 20, 40)
 product:addIngredient(161 , 3) -- herder's mushroom: 3x1
 product:addIngredient(52) -- Water bucket: 1x1 
         
 --Red Dye
-local product = dyemaking:addProduct(catId, 2681, 0, 20, 20, 40)
+product = dyemaking:addProduct(catId, 2681, 0, 20, 20, 40)
 product:addIngredient(302, 3) -- Cherries: 3x1
 product:addIngredient(52) -- Water bucket: 1x1
 
