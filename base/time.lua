@@ -3,7 +3,7 @@ require("base.common")
 module("base.time", package.seeall)
 
 daysPerMonth = {31,28,31,30,31,30,31,31,30,31,30,31}
-TIMEZONE=-2
+TIMEZONE=-5
 
 --[[
 	Converts a unix timestamp into the RL date
