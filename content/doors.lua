@@ -205,10 +205,10 @@ function initDoors()
 	AddDoor({128, 520, 0}, 300,"Royal Chamber","Königliche Kammer");
 	AddDoor({128, 519, 0}, 300,"Royal Chamber","Königliche Kammer");
 
-	AddDoor({ 96, 615, 1}, 310,"Villa Rosaline - Balcony","Villa Rosaline - Balkon"); --!create 3054 1 333 lockId=310
+	AddDoor({ 96, 615, 1}, false,"Villa Rosaline - Balcony","Villa Rosaline - Balkon"); --!create 3054 1 333 lockId=310
 	AddDoor({ 94, 612, 0}, 310,"Villa Rosaline","Villa Rosaline"); --!create 3054 1 333 lockId=310
 	AddDoor({ 94, 613, 0}, 310,"Villa Rosaline","Villa Rosaline"); --!create 3054 1 333 lockId=310
-	AddDoor({ 88, 600, 1}, 311,"Villa Edward - Balcony","Villa Edward - Balkon"); --!create 3054 1 333 lockId=311
+	AddDoor({ 88, 600, 1}, false,"Villa Edward - Balcony","Villa Edward - Balkon"); --!create 3054 1 333 lockId=311
 	AddDoor({ 90, 605, 0}, 311,"Villa Edward","Villa Edward"); --!create 3054 1 333 lockId=311
 	AddDoor({ 91, 605, 0}, 311,"Villa Edward","Villa Edward"); --!create 3054 1 333 lockId=311
 	AddDoor({ 93, 560, 0}, 312,"Villa Reginald","Villa Reginald"); --!create 3054 1 333 lockId=312
