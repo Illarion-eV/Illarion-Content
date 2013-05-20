@@ -76,7 +76,7 @@ itemShoes = 369
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss to you.", "Yess, greetingss.", "Greetsss."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
-"Farewell", "Bye", "Fare well", "See you" -> "May the rainsss be heavy and frequent.", "May the Ssea-Mother watch your path.", "Farewell, zsss."
+"Farewell", "Bye", "Fare well", "See you" -> "May the rainsss be heavy and frequent.", "May the ssea-Mother watch your path.", "Farewell, zsss."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mögenss Regen häufig und ssstark sssein.", "Mögenss die Meermutter dein Pfad leitenss.", "Abschied, zsss."
 english, "Ciao", "Adieu", "Au revoir" -> "Goodbye", "Farewell", "#me nods slowly: 'Goodbye'."
 "Ciao", "Adieu", "Au revoir" -> "Gut wiedersehensss.", "Abschied.", "#me nickt langsam: 'Gut wiedersehensss'."
@@ -86,16 +86,16 @@ english, "Ciao", "Adieu", "Au revoir" -> "Goodbye", "Farewell", "#me nods slowly
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich sindss Zerarisa, machenss du Aufgabe für michss?"
 
 -- Tool hints
-queststatus(71) = 0, "rod" -> "You'll need a fissshing rod, you can get one from Fredericus, if the line breakss, you need thread to fix it."
-queststatus(71) = 0, "rute", "angel" -> "Brauchenss Angelrute, gehenss Fredericuss. Wennss Sschnur reißenss, brauchensss Fadensss."
-"rod" -> "Broke your rod? If itss jusst the line, you can usse thread to fix it. If itss the wood, assk a carpenter for a new one."
-"rute", "angel" -> "Habenss gebrochen die Rute? Wennss die Schnur, brauchenss Faden. Wennss das Holzss, brauchenss Ssschreiner."
+queststatus(71) = 0, "rod" -> "You'll need a fissshing rod, you can get one from Fredericus."
+queststatus(71) = 0, "rute", "angel" -> "Brauchenss Angelrute, gehenss Fredericuss."
+"rod" -> "Broke your rod? Assk a carpenter for a new one."
+"rute", "angel" -> "Habenss gebrochen die Rute? Brauchenss Ssschreiner."
 
 -- fix
-queststatus(71) > 0, queststatus(703) = 11, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 12, "Ah Jakob sssent you, but you have already assked me for sssomething to do."
-queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 12, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
-queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 12, "Ah Jakob sssent you, but you have already assked me for sssomething to do."
-queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 12, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(71) > 0, queststatus(703) = 11, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 12, "Zss, Jakob sssend you but you already asssk me for sssomething to do."
+queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 12, "Zss, Jakob hats Euch geschickt aber Ihr habt mich bereitsss nach einer Aufgabe gefragt."
+queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 12, "Zss, Jakob sssend you but you already asssk me for sssomething to do."
+queststatus(71) > 0, queststatus(703) = 11, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 12, "Zss, Jakob hats Euch geschickt aber Ihr habt mich bereitsss nach einer Aufgabe gefragt."
 
 -- 1st quest: Take a tool and gather 10 raw materials for 500cp.
 queststatus(71) = 0, queststatus(703) = 11, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> inform("[New quest] Cape Farewell I"), item(72, 1, 399), queststatus(71) = 1, queststatus(703) = 12, "Zerarisa hass hurt her claw, if you could collect ten trout for me, I give you coinsss."
@@ -120,9 +120,9 @@ skill(fishing) < 90, queststatus(71) = 1, item(73, all) > 9, ".+" -> inform("[Qu
 queststatus(71) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(73, 10), queststatus(71) = 2, "Zerarisa dankenss für Forellen, nehmenss Silberss."
 
 -- 2nd quest: Gather 20 different raw materials for 10sp.
-queststatus(71) = 2, english, "quest", "mission" -> inform("[New quest] Cape Farewell II"), queststatus(71) = 3, "Thankss for the troutss again, if you want you can catch twenty ssalmonss for me now."
+queststatus(71) = 2, english, "quest", "mission" -> inform("[New quest] Cape Farewell II"), queststatus(71) = 3, "Thankss for troutss again, if you want you can catch twenty ssalmonss for me now."
 queststatus(71) = 2, "quest", "mission" -> inform("[Neues Quest] Kap des Abschiedes II"), queststatus(71) = 3, "Dankss für Forellen nochmalss, wollenss fangen zsswanzig Lachss nun für Zerarisa?"
-queststatus(71) = 2, "task", "adventure", "order" -> inform("[New quest] Cape Farewell II"), queststatus(71) = 3, "Thankss for the troutss again, if you want you can catch twenty ssalmonss for me now."
+queststatus(71) = 2, "task", "adventure", "order" -> inform("[New quest] Cape Farewell II"), queststatus(71) = 3, "Thankss for troutss again, if you want you can catch twenty ssalmonss for me now."
 queststatus(71) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Kap des Abschiedes II"), queststatus(71) = 3, "Dankss für Forellen nochmalss, wollenss fangen zsswanzig Lachss nun für Zerarisa?"
 queststatus(71) = 3, item(355, all) < 20, english, "quest", "mission" -> "Twenty ssalmonss for Zerarisa, and you get coinss.", "Zerarisa sstill waitss for her ssalmonss."
 queststatus(71) = 3, item(355, all) < 20, "quest", "mission" -> "Zsswanzigs Lachsess, kriegenss Münzssenss.", "Zerarisa immernoch wartenss für Lachsss."
@@ -200,9 +200,9 @@ english, "Gobaith", "Gobiath" -> "Zerarisa wished ssshe could dive down to forss
 "Kap", "Abschied" -> "Wir sindsss am Kap desss Abschiedesss, Zerarisa winkensss Landlinge auf Booten hier."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "Wizardss be mean, make thingsss not undersstandss."
+"archmage" -> "Wizard be mean, make thingsss not undersstandss."
 "Erzmagier" -> "Zauberer machenss Dingenss nicht verstehensss, gemein!"
-english, "Elvaine", "Morgan" -> "Wizardss be mean, make thingsss not undersstandss."
+english, "Elvaine", "Morgan" -> "Wizard be mean, make thingsss not undersstandss."
 "Elvaine", "Morgan" -> "Zauberer machenss Dingenss nicht verstehensss, gemein!"
 english, "Runewick" -> "Witchess be, wizardsss be. Runewick evilss!"
 "Runewick" -> "Hexenss sindss, Magier sindss. Runewick bössse!"
@@ -210,11 +210,11 @@ english, "Valerio", "Guilianni", "Don" -> "Owesss Zerarisa something, Zerarise o
 "Valerio", "Guilianni", "Don" -> "Ssschuldet Zerarisa wasss, Zerarisa schuldetss was. Eine Hand wässscht die anderess!"
 english, "Galmair" -> "Paying good, paying in time. Galmair goodss!"
 "Galmair" -> "Zahlenss gut, zahlenss pünktlich. Galmair gutss!"
-"Queen" -> "Queen jussst, Queen pretty, isss not ssshe?"
+"Queen" -> "Queen jussst, queen pretty, isss not ssshe?"
 "Königin" -> "Königin gerecht, Königin hübschss, nicht wahr?"
-english, "rosaline", "edwards" -> "Queen jussst, Queen pretty, isss not ssshe?"
+english, "rosaline", "edwards" -> "Queen jussst, queen pretty, isss not ssshe?"
 "rosaline", "edwards" -> "Königin gerecht, Königin hübschss, nicht wahr?"
-english, "Cadomyr" -> "Zss, Zerarisa living here. Queen jussst, Queen pretty, isss not ssshe?"
+english, "Cadomyr" -> "Zss, Zerarisa living here. Queen jussst, queen pretty, isss not ssshe?"
 "Cadomyr" -> "Zss, Zerarisa lebenss hier. Königin gerecht, Königin hübschss, nicht wahr?"
 
 -- Main land factions
@@ -226,9 +226,9 @@ english, "salkama" -> "Sssalkamar have funny name for realm, no?"
 "salkama" -> "Sssalkamar habenss witzig Namen für Reichsss, nein?"
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Have faith only in Mothersss, Zerarisa! Hail Zshhel–pheey–arrr!"
+"god" -> "Have faith only in mothersss, Zerarisa! Hail Zshhel–pheey–arrr!"
 "Gott", "Götter" -> "Habenss nur Glaube in Mutter, Zerarisa! Heil Zshhel–pheey–arrr!"
-english, "Tanora", "Zelphia" -> "Mothersss caresss, Mothersss providesss. What wantss more?"
+english, "Tanora", "Zelphia" -> "Mothersss caresss, mothersss providesss. What wantss more?"
 "Tanora", "Zelphia" -> "Mutter kümmertss, Mutter füttertss. Wasss wollenss mehr?"
 
 -- Catching typical NPC phrases
@@ -242,7 +242,7 @@ english, "Zerarisa" -> "Zerarisa have name, have claw, have tail! And you?"
 "Zerarisa" -> "Zerarisa habenss Namensss, habenss Klauensss, habensss Ssschwanzss. Und du?"
 "Dewy", "swamps" -> "Zss, Dewy Sswampss be Runewick landss. Go far, north, easst."
 "Morgentau", "Sumpf" -> "Zss, Morgentaussumpf seienss Runewickland. Gehenss weit, Nord, Osst."
-"Yes" -> "What iss the yess for? If you want a job assk me for a job.", "You are very agreable persson, but if you want job, assk for job."
+"Yes" -> "What iss the yess for? If you want a job assk me for a job.", "You are very agreeable persson, but if you want job, assk for job."
 "Ja" -> end, "Wass meinenss mit ja? Wollenss Aufgabe, fragenss Aufgabe.", "Seienss zssustimmaber wenn wollenss Aufgabe, fragenss Aufgabe."
 "No" -> "You isss not very nice?", "No, zss?"
 "Nein" -> "Du seienss nicht ssehr nett?", "Nein, zss?"
@@ -263,4 +263,4 @@ cycletext "Zsss.", "Zsss."
 cycletext "Zsss!", "Zsss!"
 cycletext "Zsss?", "Zsss?"
 cycletext "#me zischelt.", "#me hisses."
-cycletext "Willkommens am Kap desss Abschiedsss!", "Welcome to Cape Farewell, zsss!"
+cycletext "Willkommens am Kap desss Abschiedsss!", "Welcome to Cape Farewell, zss!"

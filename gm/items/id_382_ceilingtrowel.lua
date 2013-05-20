@@ -84,13 +84,13 @@ function UseItem(User, SourceItem)
     User:inform("User:countItemAt(\"belt\", "..countID..") = "..User:countItemAt("belt",countID));
     User:inform("User:countItemAt(\"body\", "..countID..") = "..User:countItemAt("body",countID));
     User:inform("User:countItemAt(\"backpack\", "..countID..") = "..User:countItemAt("backpack",countID));
-    User:inform("User:countItemAt(\"all\", "..countID..", 0) = "..User:countItemAt("all",countID, 0));
-    User:inform("User:countItemAt(\"belt\", "..countID..", 0) = "..User:countItemAt("belt",countID, 0));
-    User:inform("User:countItemAt(\"body\", "..countID..", 0) = "..User:countItemAt("body",countID, 0));
-    User:inform("User:countItemAt(\"backpack\", "..countID..", 0) = "..User:countItemAt("backpack",countID, 0));
+    User:inform("User:countItemAt(\"all\", "..countID..", 0) = "..User:countItemAt("all",countID));
+    User:inform("User:countItemAt(\"belt\", "..countID..", 0) = "..User:countItemAt("belt",countID));
+    User:inform("User:countItemAt(\"body\", "..countID..", 0) = "..User:countItemAt("body",countID));
+    User:inform("User:countItemAt(\"backpack\", "..countID..", 0) = "..User:countItemAt("backpack",countID));
     local Bag = User:getBackPack();
     User:inform("Bag:countItem("..countID..") = "..Bag:countItem(countID));
-    User:inform("Bag:countItem("..countID..", 0) = "..Bag:countItem(countID, 0));
+    User:inform("Bag:countItem("..countID..", 0) = "..Bag:countItem(countID));
   end
   if ((string.find(User.lastSpokenText,"show map")~=nil)) then
     User:inform("Okay, now showing map");
