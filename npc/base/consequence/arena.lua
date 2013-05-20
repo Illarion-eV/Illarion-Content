@@ -30,5 +30,7 @@ end;
 
 function _arena_helper_list(self, npcChar, player)
 	local arena = base.arena.getArena(player, npcChar);
-    base.arena.getRanklist(player, arena, true);
+	local town = base.arena.arenaInformations[arena].town;
+	local arenaListName = "ArenaList"..town;
+    base.ranklist.getRanklist(player, arenaListName, true);
 end;
