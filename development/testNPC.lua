@@ -47,14 +47,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.questtime.questtime(">", 1234, 0, 0, 1));
 talkEntry:addTrigger("Grüße");
-talkEntry:addResponse("Größer");
+talkEntry:addResponse("Neue Zeit größer als aktuelle Zeit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.questtime.questtime("<", 1234, 0, 0, 1));
 talkEntry:addTrigger("Grüße");
-talkEntry:addResponse("Kleiner");
+talkEntry:addResponse("Neue Zeit ist kleiner als aktuelle Zeit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
