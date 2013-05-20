@@ -3,7 +3,7 @@ require("base.common")
 module("base.time", package.seeall)
 
 daysPerMonth = {31,28,31,30,31,30,31,31,30,31,30,31}
-TIMEZONE=-5
+TIMEZONE=-2
 
 --[[
 	Converts a unix timestamp into the RL date
@@ -19,8 +19,8 @@ function getRLDateFromUnixTimestamp(timestamp)
 	local year=math.floor(1970+ timestamp /31556926)
 	local ds=((1970+timestamp/31556926)-year)*31556926
 	local month=math.floor(ds/2629743)+1
-	local d=math.floor(ds/86400)+1
-	local day=math.floor(((ds/2629743+1)-month)*daysPerMonth[month])+2
+	local d=math.floor(ds/86400)+2
+	local day=math.floor(((ds/2629743+1)-month)*daysPerMonth[month])
 	local DST=0;
 	
 	if(month==3)then 
@@ -32,7 +32,7 @@ function getRLDateFromUnixTimestamp(timestamp)
 			DST=0 else DST=1 
 		end 
 	end
-	local hour=math.floor(math.fmod(timestamp,60*60*24)/3600) + 7 + (TIMEZONE) + (DST)
+	local hour=math.floor(math.fmod(timestamp,60*60*24)/3600) + 5 + (TIMEZONE) + (DST)
 	local minute= math.floor(math.fmod(timestamp,60*60*24)/60 - 60*(hour-DST))
 	local second= math.floor(math.fmod(math.fmod(timestamp,60*60*24),60))
 	return year, month, day, hour, minute, second;
