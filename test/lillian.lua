@@ -1,5 +1,6 @@
 require("base.common")
 require("base.factions")
+require("npc.base.repeatable_quests")
 
 -- UPDATE common SET com_script = 'test.lillian' WHERE com_itemid = 2697;
 
@@ -9,20 +10,8 @@ function UseItem(User, SourceItem, ltstate)
 
 	User:inform("Used!")
 
-	if(User.lastSpokenText == "del") then
-		ScriptVars:set("ArenaListCadomyr", "")
-	end
-	
-	if(User.lastSpokenText == "deldata") then
-		User:eraseItem(2,1, {["descriptionDE"]="Gerstenmehl"})
-	end
-	
-	if(User.lastSpokenText == "delnil") then
-		User:eraseItem(2,1,nil)
-	end
-
 	if(User.lastSpokenText == "time") then
-		base.time.checkIfTimesExpired(User, 666, 0, 1, 0);
+		npc.base.repeatable_quests.checkIfTimesExpired(User, 66, 0, 1, 0);
 	end
 
 end
