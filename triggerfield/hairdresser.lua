@@ -11,14 +11,14 @@ function MoveToField(User)
 	-- gets all npcs in a range of 2
 	local npcsInRange = world:getNPCSInRangeOf(User.pos, 2)
 	-- searches throug 2 loops, searching for the npc from the list that matches to the npc in range
-	for i=1, #(npcList) do
-		for j=1, #(npc) do
-			-- then the npc was found, the npc gives out a text
-			if npcsInRange[j].name == npcList[i] then
-				local npc = npcsInRange[j];
+	for i, npcStruct in pairs(NPCList) do
+		for j=1, #(npcList) then
+			if npcStruct.name == npcList[j] then
+				local npc = npcStruct;
 				npc:talk(Character.say, "Deutsch", "English");
 			else
 				User:inform("[Error] The npc couldn't be found, please contact a developer.");
+				return;
 			end
 		end
 	end
@@ -26,6 +26,10 @@ function MoveToField(User)
 	-- call the function to get the first selectiondialog for selecting either change of hair style, beard style, hair color or original haircolor
 	selectChoice(User, npc);
 
+end
+
+function MoveFromField(User)
+	User:inform("Moved away.")
 end
 
 function selectChoice(User, NPC)
