@@ -19,8 +19,8 @@ function getRLDateFromUnixTimestamp(timestamp)
 	local year=math.floor(1970+ timestamp /31556926)
 	local ds=((1970+timestamp/31556926)-year)*31556926
 	local month=math.floor(ds/2629743)+1
-	local d=math.floor(ds/86400)+2
-	local day=math.floor(((ds/2629743+1)-month)*daysPerMonth[month])
+	local d=math.floor(ds/86400)+1
+	local day=math.floor(((ds/2629743+1)-month)*daysPerMonth[month])+2
 	local DST=0;
 	
 	if(month==3)then 
