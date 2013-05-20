@@ -145,6 +145,7 @@ function selectHaircolor(User, NPC)
 				-- check if hair color has ever been changed
 				if hairColor == 0 then
 					NPC:talk(Character.say, "Deutsch", "English");
+					return;
 				end
 				local r, g, b;
 				r = haircolor/1000000000;
