@@ -22,8 +22,7 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 	if(User.lastSpokenText == "time") then
-		local questState, questLastChanged = User:getQuestProgress(666);
-		--base.time.getRLDateFromUnixTimestamp(questLastChanged)
+		base.time.checkIfTimesExpired(User, 666, 0, 1, 0);
 	end
 
 end
