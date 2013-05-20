@@ -125,7 +125,7 @@ hairColorSimple = {
 }
 
 function selectHaircolor(User, NPC)
-	local originalHaircolor = User:getQuestProgress(31)
+	local originalHaircolor, tempTime = User:getQuestProgress(31)
 	
 	if originalHaircolor == 0 then
 		local red, green, blue  = User:getHairColor();
@@ -141,7 +141,7 @@ function selectHaircolor(User, NPC)
 		if success then
 			local selected = dialog:getSelectedIndex()
 			if selected == 0 then
-				local hairColor = User:getQuestProgress(31);
+				local hairColor, tempTime = User:getQuestProgress(31);
 				-- check if hair color has ever been changed
 				if hairColor == 0 then
 					NPC:talk(Character.say, "Deutsch", "English");
