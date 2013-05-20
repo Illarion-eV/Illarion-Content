@@ -159,7 +159,7 @@ function selectHaircolor(User, NPC)
 
 	local dialog = SelectionDialog(base.common.GetNLS(User,"Friseur","Hair dresser"), base.common.GetNLS(User,"Bitte wähle aus, welche Farbe du haben möchtest.","Please select what hair color you wish to have."), callback);
 	dialog:setCloseOnMove();
-	dialog:addOption(0, "Naturhaarfarbe", "Natural hair color")
+	dialog:addOption(0, base.common.GetNLS(User,"Naturhaarfarbe", "Natural hair color"));
 	for i=1, #(hairColorSimple) do
 		dialog:addOption(0, base.common.GetNLS(User,hairColorSimple[i].nameDe,hairColorSimple[i].nameEn));
 	end
