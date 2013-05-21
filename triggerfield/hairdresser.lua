@@ -1,25 +1,48 @@
 require("base.common")
 require("base.hair")
+require("base.money")
 
 module("triggerfield.hairdresser", package.seeall)
 
 function MoveToField(User)
-	-- gets all npcs in a range of 2
+	-- gets all npcs in a range of 1
 	local npcsInRange = world:getNPCSInRangeOf(User.pos, 1)
-	-- searches throug 2 loops, searching for the npc from the list that matches to the npc in range
+	-- gets the npcStruct to make the npc talk or whatever else
 	for i, npcStruct in pairs(npcsInRange) do
-		npcStruct:talk(Character.say, "Deutsch", "English");
+		npcStruct:talk(Character.say, "Willkommen, was möchtet Ihr gemacht haben?", "Welcome, what would you like to have done?");
 		-- call the function to get the first selectiondialog for selecting either change of hair style, beard style, hair color or original haircolor
 		selectChoice(User, npcStruct);
 	end
 end
 
 function MoveFromField(User)
-	User:inform("Moved away.")
+	-- gets all npcs in a range of 1
+	local npcsInRange = world:getNPCSInRangeOf(User.pos, 1)
+	-- gets the npcStruct to make the npc talk or whatever else
+	for i, npcStruct in pairs(npcsInRange) do
+		-- call the function to get the first selectiondialog for selecting either change of hair style, beard style, hair color or original haircolor
+		payForHairchange(User, npcStruct);
+	end
 end
 
+function payForHairchange(User, NPC)
+	local priceInCP = 100000;
+	local germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
+	
+	if not base.money.CharHasMoney(User,priceInCP) then --not enough money!
+		gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".";
+		eText="You don't have enough money with you! You'll need"..englishMoney..".";
+		outText=base.common.GetNLS(User,gText,eText);
+        NPC:talk(Character.say, outText);
+		return false;
+	end
+	base.money.TakeMoneyFromChar(User,priceInCP); --take money
+	User:inform("Ihr habt "..germanMoney.." bezahlt. Viel Dank und beehrt mich bald wieder!", "You paid"..englishMoney..". Thank you and please come back again!");
+	return true;
+end
+
+
 function selectChoice(User, NPC)
-	NPC:talk(Character.say, "Deutsch1", "English1");
 	local callback = function(dialog) 
 		local success = dialog:getSuccess() 
 		if success then
@@ -34,7 +57,7 @@ function selectChoice(User, NPC)
 		end
 	end
 
-	local dialog = SelectionDialog(base.common.GetNLS(User,"Friseur","Hair dresser"), base.common.GetNLS(User,"Bitte wähle aus, was du ändern möchtest.","Please select what you would like to change."), callback)
+	local dialog = SelectionDialog(base.common.GetNLS(User,"Friseur","Hair dresser"), base.common.GetNLS(User,"Bitte wähle aus, was du ändern möchtest. Alles kostet 1 Gold und es wird bezahlt wenn du das Feld verlässt.","Please select what you would like to change. Everything costs 1 gold and will be paid once you leave the field."), callback)
 	dialog:setCloseOnMove()
 	dialog:addOption(0, base.common.GetNLS(User, "Frisur","Hair style"))
 	dialog:addOption(0, base.common.GetNLS(User, "Bart","Beard"))
@@ -49,7 +72,7 @@ function selectHair(User, NPC)
 	
 	-- if character is a lizardman, say something and deny service
 	if race == 5 then
-		NPC:talk(Character.say, "Deutsch", "English");
+		NPC:talk(Character.say, "Ich werde Euren Kamm nicht färben oder schneiden.", "I won't cut or dye your ridge.");
 		return;
 	end
 		
@@ -74,16 +97,14 @@ end
 function selectBeard(User, NPC)
 	local race = User:getRace();
 	local gender = User:increaseAttrib("sex", 0)+1;
-	
-	debug(tostring(race))
 
 	-- if character is not human or dwarf, say something and deny service
 	if gender == 1 and (race ~= 0 and race ~= 1) then
-		NPC:talk(Character.say, "Deutsch", "Male but no Dwarf or Human.");
+		NPC:talk(Character.say, "Ich kann nichts schneiden, was nicht da ist.", "I can't cut something that isn't there.");
 		return;
 	-- if character is female, deny service
 	elseif gender ~= 1 then
-		NPC:talk(Character.say, "Deutsch", "Not male.");
+		NPC:talk(Character.say, "Ihr seid eine Frau. Frauen haben keinen Bart. Vielleicht Zwerginnen, aber den Schneide ich nicht.", "You're the woman. Women don't have beards. Maybe dwarfess but I won't cut those.");
 		return;
 	end
 
@@ -105,15 +126,15 @@ function selectBeard(User, NPC)
 end
 
 hairColorSimple = {
-	{r=1 ,g=1 ,b=1 ,nameDe="Weißblond", nameEn="White blonde"},
-	{r=2 ,g=2 ,b=2 ,nameDe="Blond", nameEn="Blonde"},
-	{r=3 ,g=3 ,b=3 ,nameDe="Dunkelblond", nameEn="Dark blonde"},
-	{r=4 ,g=4 ,b=4 ,nameDe="Hellbraun", nameEn="Light brown"},
-	{r=5 ,g=5 ,b=5 ,nameDe="Braun", nameEn="Brown"},
-	{r=6 ,g=6 ,b=6 ,nameDe="Dunkelbraun", nameEn="Dark brown"},
-	{r=7 ,g=7 ,b=7 ,nameDe="Schwarz", nameEn="Black"},
-	{r=8 ,g=8 ,b=8 ,nameDe="Hellrot", nameEn="Light ginger"},
-	{r=9 ,g=9 ,b=9 ,nameDe="Dunkelrot", nameEn="Dark ginger"}
+	{r=255 ,g=250 ,b=205 ,nameDe="Weißblond", nameEn="White blonde"},
+	{r=255 ,g=215 ,b=0 ,nameDe="Blond", nameEn="Blonde"},
+	{r=205 ,g=173 ,b=0 ,nameDe="Dunkelblond", nameEn="Dark blonde"},
+	{r=139 ,g=129 ,b=76 ,nameDe="Hellbraun", nameEn="Light brown"},
+	{r=139 ,g=69 ,b=19 ,nameDe="Braun", nameEn="Brown"},
+	{r=60 ,g=22 ,b=21 ,nameDe="Dunkelbraun", nameEn="Dark brown"},
+	{r=0 ,g=0 ,b=0 ,nameDe="Schwarz", nameEn="Black"},
+	{r=255 ,g=127 ,b=36 ,nameDe="Hellrot", nameEn="Light ginger"},
+	{r=205 ,g=51 ,b=51 ,nameDe="Dunkelrot", nameEn="Dark ginger"}
 }
 
 function selectHaircolor(User, NPC)
