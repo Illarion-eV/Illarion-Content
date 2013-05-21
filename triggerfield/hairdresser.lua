@@ -144,8 +144,8 @@ function selectHaircolor(User, NPC)
 				end
 				local r, g, b;
 				r = hairColor/1000000;
-				g = hairColor/100000;
-				b = hairColor/100;
+				g = (hairColor - r*1000000)/1000;
+				b = (hairColor - r*1000000 - g*1000);
 				
 				debug("r: "..r.." g: "..g.." b: "..b)
 				
