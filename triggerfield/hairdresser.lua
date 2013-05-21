@@ -78,7 +78,7 @@ function selectBeard(User, NPC)
 	debug(tostring(race))
 
 	-- if character is not human or dwarf, say something and deny service
-	if gender == 1 and (tostring(race) ~= "0" or tostring(race) ~= "1") then
+	if gender == 1 and (race ~= 0 and race ~= 1) then
 		NPC:talk(Character.say, "Deutsch", "Male but no Dwarf or Human.");
 		return;
 	-- if character is female, deny service
