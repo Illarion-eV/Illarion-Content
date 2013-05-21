@@ -122,13 +122,13 @@ function selectHaircolor(User, NPC)
 	
 	if originalHaircolor == 0 then
 		local red, green, blue  = User:getHairColor();
-		red = red*1000;
-		blue = blue*1000;
+		red = red*1000000;
 		green = green*1000;
+		blue = blue;
+
+		debug(red+green+blue)
 		
-		debug(red..green..blue)
-		
-		User:setQuestProgress(31,tonumber(red..green..blue));
+		User:setQuestProgress(31,tonumber(red+green+blue));
 	end
 	
 	local callback = function(dialog) 
@@ -143,7 +143,7 @@ function selectHaircolor(User, NPC)
 					return;
 				end
 				local r, g, b;
-				r = hairColor/100000000;
+				r = hairColor/1000000;
 				g = hairColor/100000;
 				b = hairColor/100;
 				
