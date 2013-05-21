@@ -12,6 +12,7 @@ function MoveToField(User)
 		npc:talk(Character.say, "Deutsch", "English");
 	end
 
+	npc:talk(Character.say, "Deutsch1", "English1");
 	-- call the function to get the first selectiondialog for selecting either change of hair style, beard style, hair color or original haircolor
 	selectChoice(User, npc);
 
@@ -22,7 +23,7 @@ function MoveFromField(User)
 end
 
 function selectChoice(User, NPC)
-
+	NPC:talk(Character.say, "Deutsch1", "English1");
 	local callback = function(dialog) 
 		local success = dialog:getSuccess() 
 		if success then
@@ -125,8 +126,6 @@ function selectHaircolor(User, NPC)
 		red = red*1000000;
 		green = green*1000;
 		blue = blue;
-
-		debug(tostring(red+green+blue))
 		
 		User:setQuestProgress(31,tonumber(red+green+blue));
 	end
@@ -137,17 +136,10 @@ function selectHaircolor(User, NPC)
 			local selected = dialog:getSelectedIndex()
 			if selected == 0 then
 				local hairColor = User:getQuestProgress(31);
-				-- check if hair color has ever been changed
-				if hairColor == 0 then
-					NPC:talk(Character.say, "Deutsch", "English");
-					return;
-				end
 				local r, g, b;
 				r = hairColor/1000000;
 				g = (hairColor - r*1000000)/1000;
 				b = (hairColor - r*1000000 - g*1000);
-				
-				debug("r: "..r.." g: "..g.." b: "..b)
 				
 				User:setHairColor(r, g, b);				
 			else
