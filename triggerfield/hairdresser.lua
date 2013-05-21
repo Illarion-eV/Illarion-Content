@@ -4,7 +4,7 @@ require("base.money")
 
 module("triggerfield.hairdresser", package.seeall)
 
-priceInCP = 100000;
+priceInCP = 10000;
 
 function MoveToField(User)
 	-- gets all npcs in a range of 1
@@ -17,7 +17,7 @@ function MoveToField(User)
 			eText="You don't have enough money with you! You'll need"..englishMoney..".";
 			outText=base.common.GetNLS(User,gText,eText);
 			npcStruct:talk(Character.say, outText);
-			return;
+			break;
 		end
 	
 		npcStruct:talk(Character.say, "Willkommen, was möchtet Ihr gemacht haben?", "Welcome, what would you like to have done?");
