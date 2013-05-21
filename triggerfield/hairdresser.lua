@@ -4,13 +4,24 @@ require("base.money")
 
 module("triggerfield.hairdresser", package.seeall)
 
+priceInCP = 100000;
+
 function MoveToField(User)
 	-- gets all npcs in a range of 1
 	local npcsInRange = world:getNPCSInRangeOf(User.pos, 1)
+	
 	-- gets the npcStruct to make the npc talk or whatever else
 	for i, npcStruct in pairs(npcsInRange) do
+		if not base.money.CharHasMoney(User,priceInCP) then --not enough money!
+			gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".";
+			eText="You don't have enough money with you! You'll need"..englishMoney..".";
+			outText=base.common.GetNLS(User,gText,eText);
+			npcStruct:talk(Character.say, outText);
+			return;
+		end
+	
 		npcStruct:talk(Character.say, "Willkommen, was möchtet Ihr gemacht haben?", "Welcome, what would you like to have done?");
-		-- call the function to get the first selectiondialog for selecting either change of hair style, beard style, hair color or original haircolor
+		-- call the function to get the first selectiondialog for selecting either change of hair style, beard style, hair color or original haircolor	
 		selectChoice(User, npcStruct);
 	end
 end
@@ -26,7 +37,6 @@ function MoveFromField(User)
 end
 
 function payForHairchange(User, NPC)
-	local priceInCP = 100000;
 	local germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
 	
 	if not base.money.CharHasMoney(User,priceInCP) then --not enough money!
@@ -34,7 +44,7 @@ function payForHairchange(User, NPC)
 		eText="You don't have enough money with you! You'll need"..englishMoney..".";
 		outText=base.common.GetNLS(User,gText,eText);
         NPC:talk(Character.say, outText);
-		return false;
+		return;
 	end
 	base.money.TakeMoneyFromChar(User,priceInCP); --take money
 	User:inform("Ihr habt "..germanMoney.." bezahlt. Viel Dank und beehrt mich bald wieder!", "You paid"..englishMoney..". Thank you and please come back again!");
