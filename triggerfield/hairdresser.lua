@@ -27,12 +27,23 @@ function MoveToField(User)
 end
 
 function MoveFromField(User)
-	-- gets all npcs in a range of 1
-	local npcsInRange = world:getNPCSInRangeOf(User.pos, 1)
-	-- gets the npcStruct to make the npc talk or whatever else
-	for i, npcStruct in pairs(npcsInRange) do
-		-- call the function to get the first selectiondialog for selecting either change of hair style, beard style, hair color or original haircolor
-		payForHairchange(User, npcStruct);
+	local currentHair = User:getHair();
+	local cRed, cGreen, cBlue = User:getHairColor();
+	local currentHaircolor = cRed*1000000 + cGreen*1000 + cBlue;
+	local currentBeard = User:getBeard();
+
+	local originalHaircolor = User:getQuestProgress(31);
+	local originalHair = User:getQuestProgress(32);
+	local originalBeard = User:getQuestProgress(33);
+
+	if (currentHair ~= originalHair) or (currentBeard ~= originalBeard) or (currentHaircolor ~= originalHaircolor) then
+		-- gets all npcs in a range of 1
+		local npcsInRange = world:getNPCSInRangeOf(User.pos, 1)
+		-- gets the npcStruct to make the npc talk or whatever else
+		for i, npcStruct in pairs(npcsInRange) do
+			-- call the function to get the first selectiondialog for selecting either change of hair style, beard style, hair color or original haircolor
+			payForHairchange(User, npcStruct);
+		end
 	end
 end
 
