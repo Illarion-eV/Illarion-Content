@@ -75,7 +75,7 @@ function selectBeard(User, NPC)
 	local race = User:getRace();
 	local gender = User:increaseAttrib("sex", 0)+1;
 	
-	debug(race)
+	debug(tostring(race))
 
 	-- if character is not human or dwarf, say something and deny service
 	if gender == 1 and (race ~= 0 or race ~= 1) then
