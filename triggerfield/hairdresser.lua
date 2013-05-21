@@ -98,8 +98,8 @@ function selectBeard(User, NPC)
 	local dialog = SelectionDialog(base.common.GetNLS(User,"Friseur","Hair dresser"), base.common.GetNLS(User,"Bitte wähle aus, welchen Bart du haben möchtest.","Please select what beard style you wish to have."), callback);
 	dialog:setCloseOnMove()
 	local beardTable = base.hair.beardStyles[race];
-	for i=1, #(beardStyles) do 
-		dialog:addOption(0, base.common.GetNLS(User, beardStyles[i].nameDe, beardStyles[i].nameEn))
+	for i=1, #(beardTable) do 
+		dialog:addOption(0, base.common.GetNLS(User, beardTable[i].nameDe, beardTable[i].nameEn))
 	end
 	User:requestSelectionDialog(dialog)
 end
