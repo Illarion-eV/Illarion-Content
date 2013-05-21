@@ -8,14 +8,10 @@ function MoveToField(User)
 	local npcsInRange = world:getNPCSInRangeOf(User.pos, 1)
 	-- searches throug 2 loops, searching for the npc from the list that matches to the npc in range
 	for i, npcStruct in pairs(npcsInRange) do
-		local npc = npcStruct;
-		npc:talk(Character.say, "Deutsch", "English");
+		npcStruct:talk(Character.say, "Deutsch", "English");
+		-- call the function to get the first selectiondialog for selecting either change of hair style, beard style, hair color or original haircolor
+		selectChoice(User, npcStruct);
 	end
-
-	npc:talk(Character.say, "Deutsch1", "English1");
-	-- call the function to get the first selectiondialog for selecting either change of hair style, beard style, hair color or original haircolor
-	selectChoice(User, npc);
-
 end
 
 function MoveFromField(User)
