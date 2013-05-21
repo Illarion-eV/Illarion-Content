@@ -143,9 +143,9 @@ function selectHaircolor(User, NPC)
 					return;
 				end
 				local r, g, b;
-				r = hairColor/1000000000;
-				g = hairColor/1000000;
-				b = hairColor/1000;
+				r = hairColor/100000000;
+				g = hairColor/100000;
+				b = hairColor/100;
 				User:setHairColor(r, g, b);				
 			else
 				User:setHairColor(hairColorSimple[selected].r, hairColorSimple[selected].g, hairColorSimple[selected].b);
