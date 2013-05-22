@@ -24,7 +24,6 @@ function InitPaintings()
     -- 8 = east wall wood picture
 
     --[[--Cadomyr
-    AddPicture({147,622,1},"","", 2,5); --flats
     AddPicture({147,616,1},"","", 4,5); --flats
     AddPicture({141,612,1},"","", 3,5); --flats
     AddPicture({145,608,1},"","", 1,5); --flats
