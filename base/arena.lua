@@ -12,6 +12,7 @@ author: Lillian
 
 ]]
 require("base.money")
+require("base.ranklist")
 
 module("base.arena", package.seeall)
 
@@ -166,124 +167,6 @@ function getArena(User, NPC)
 		else
 			return "";
 		end
-	end
-end
-
---[[
-gets the top 5 of the arena. Each ranklist entry contains the
-name of the character and the points. 
-The scriptVar is converted to a table for better handling and then shown
-in a messageDialog.
-
-ArenaList<town> format - "<name1>;<points1>;<name2>;<point2>..."
-message = true: displays a messagebox with the ranklist
-message = false: returns the ranklist table
-]]
-
-function getRanklist(User, arena, message)
-	local town = arenaInformations[arena].town;
-	local found = false;
-	local arenaEntry;
-	local arenaList = {};
-	local list = " ";
-	local place = 2;
-	local arenaListName = "ArenaList"..town;
-	  
-	found, arenaEntry = ScriptVars:find(arenaListName); -- get the top 5
-	if found then
-		arenaList = sortTable(base.common.split(arenaEntry, ";"));
-	elseif not found and message then
-		User:inform(base.common.GetNLS(User, "Niemand hat hier bisher gekämpft.","No one fought here yet."));
-		return {};
-	end
-	
-	if (arenaEntry == "" or arenaEntry == nil) and message then
-		User:inform(base.common.GetNLS(User, "Niemand hat hier bisher gekämpft.","No one fought here yet."));
-		return {};
-	end
-
-	if message then
-		if table.getn(arenaList) ~= 0 then
-			local mdList = function(dialog)
-				if (not dialog:getSuccess()) then
-					return;
-				end
-			end
-			if User:getPlayerLanguage() == 0 then
-				list = "Platz 1: "..arenaList[1].." mit "..arenaList[2].." Punkten.\n";
-				for i=3,#(arenaList),2 do
-					list = list.."Platz "..place.." : "..arenaList[i].." mit "..arenaList[i+1].." Punkten.\n";
-					place = place +1;
-				end
-				mdList = MessageDialog("Top Fünf Kämpfer des Reiches", list, nil);			
-			else
-				list = "Place 1: "..arenaList[1].." with "..arenaList[2].." points.\n";
-				for i=3, #(arenaList),2 do
-					list = list.."Place "..place.." : "..arenaList[i].." with "..arenaList[i+1].." points.\n";
-					place = place +1;
-				end
-				mdList = MessageDialog("Top five fighters of the realm", list, nil);
-			end
-			User:requestMessageDialog(mdList);
-		else
-			return;
-		end
-	else
-		return arenaList;
-	end
-end
-
---[[
-Saves the points of the player and if he reached the 
-top five, also saves the new top five.
-]]
-function setRanklist(User, arena, points) 
-	local ranklist = getRanklist(User, arena, false)
-	local town = arenaInformations[arena].town;
-	local quest = arenaInformations[arena].quest;
-	local newRanklist = {};
-	local arenaListName = "ArenaList"..town;
-
-	if tonumber(ranklist[table.getn(ranklist)]) ~= nil then
-		local userInList, position = isUserInList(User, ranklist);
-		if tonumber(ranklist[table.getn(ranklist)]) > points and table.getn(ranklist) == 5 then
-			return;
-		else
-			for i=2, #(ranklist), 2 do
-				if tonumber(ranklist[i]) < points then
-					if not userInList then
-						if table.getn(ranklist) <= 5 then 
-							table.insert(ranklist, i-1, points);
-							table.insert(ranklist, i-1, User.name);
-							break;
-						else
-							table.insert(ranklist, i-1, points);
-							table.insert(ranklist, i-1, User.name);
-							table.remove(ranklist, table.getn(ranklist));
-							table.remove(ranklist, table.getn(ranklist));
-							break;
-						end
-					else
-						table.remove(ranklist, position);
-						table.remove(ranklist, position);
-						table.insert(ranklist, i-1, points);
-						table.insert(ranklist, i-1, User.name);
-						break;
-					end
-				else
-					if table.getn(ranklist) <= 5 then 
-						table.insert(ranklist, i+1, points);
-						table.insert(ranklist, i+1, User.name);
-						break;
-					end
-				end
-			end
-			stringList = base.common.join(ranklist, ";");
-			ScriptVars:set(arenaListName, stringList)
-		end
-	else
-		stringList = User.name..";"..points
-		ScriptVars:set(arenaListName, stringList)
 	end
 end
 
