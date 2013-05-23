@@ -7,7 +7,7 @@ require("base.ranklist")
 module("item.id_661_lectern", package.seeall)
 
 function UseItem(User,SourceItem,ltstate)
-	if Item.pos == position(138, 551, 0) or Item.pos == position(358, 217, 0) or Item.pos == position(896, 761, 1) then
+	if SourceItem.pos == position(138, 551, 0) or SourceItem.pos == position(358, 217, 0) or SourceItem.pos == position(896, 761, 1) then
 		base.ranklist.getRanklist(User,"explorerRanklist", true);
 	end
 end
