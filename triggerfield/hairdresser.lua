@@ -11,6 +11,11 @@ function MoveToField(User)
 	local npcsInRange = world:getNPCSInRangeOf(User.pos, 1)
 	local germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
 	
+	User:setQuestProgress(32,User:getHair());
+	User:setQuestProgress(33,User:getBeard());
+	local haircolor = cRed*1000000 + cGreen*1000 + cBlue;
+	User:setQuestProgress(34,haircolor);
+	
 	-- gets the npcStruct to make the npc talk or whatever else
 	for i, npcStruct in pairs(npcsInRange) do
 		if not base.money.CharHasMoney(User,priceInCP) then --not enough money!
@@ -109,7 +114,6 @@ function selectHair(User, NPC)
 				selectChoice(User, NPC);
 			else
 				User:setHair(base.hair.hairStyles[race][gender][selected].id)
-				User:setQuestProgress(32,base.hair.hairStyles[race][gender][selected].id);
 				selectChoice(User, NPC);
 			end
 		end	
@@ -148,7 +152,6 @@ function selectBeard(User, NPC)
 				selectChoice(User, NPC);
 			else
 				User:setBeard(base.hair.beardStyles[race][selected].id);
-				User:setQuestProgress(33,base.hair.beardStyles[race][selected].id);
 				selectChoice(User, NPC);
 			end
 		end	
@@ -186,14 +189,6 @@ function selectHaircolor(User, NPC)
 		blue = blue;
 		
 		User:setQuestProgress(31,tonumber(red+green+blue));
-		User:setQuestProgress(34,tonumber(red+green+blue));
-	else
-		local red, green, blue  = User:getHairColor();
-		red = red*1000000;
-		green = green*1000;
-		blue = blue;
-	
-		User:setQuestProgress(34,tonumber(red+green+blue));
 	end
 	
 	local callback = function(dialog) 
