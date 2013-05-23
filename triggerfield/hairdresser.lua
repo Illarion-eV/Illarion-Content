@@ -199,6 +199,7 @@ function selectHaircolor(User, NPC)
 				selectChoice(User, NPC);
 			else
 				User:setHairColor(hairColorSimple[selected-1].r, hairColorSimple[selected-1].g, hairColorSimple[selected-1].b);
+				selectChoice(User, NPC);
 			end
 		end
 	end
