@@ -4,7 +4,7 @@ require("base.money")
 
 module("triggerfield.hairdresser", package.seeall)
 
-priceInCP = 10000;
+priceInCP = 50000;
 
 function MoveToField(User)
 	-- gets all npcs in a range of 1
@@ -38,14 +38,10 @@ function MoveFromField(User)
 	local cRed, cGreen, cBlue = User:getHairColor();
 	local currentHaircolor = cRed*1000000 + cGreen*1000 + cBlue;
 	local currentBeard = User:getBeard();
-	
-	debug("current. Hair: "..currentHair.."Haircolor: "..currentHaircolor.."Beard: "..currentBeard)
 
 	local originalHaircolor = User:getQuestProgress(34);
 	local originalHair = User:getQuestProgress(32);
 	local originalBeard = User:getQuestProgress(33);
-
-	debug("original. Hair: "..originalHair.."Haircolor: "..originalHaircolor.."Beard: "..originalHair)
 	
 	if (currentHair ~= originalHair) or (currentBeard ~= originalBeard) or (currentHaircolor ~= originalHaircolor) then
 		-- gets all npcs in a range of 1
@@ -88,7 +84,7 @@ function selectChoice(User, NPC)
 		end
 	end
 
-	local dialog = SelectionDialog(base.common.GetNLS(User,"Friseur","Hair dresser"), base.common.GetNLS(User,"Bitte wähle aus, was du ändern möchtest. Alles kostet 1 Gold und es wird bezahlt wenn du das Feld verlässt.","Please select what you would like to change. Everything costs 1 gold and will be paid once you leave the field."), callback)
+	local dialog = SelectionDialog(base.common.GetNLS(User,"Friseur","Hair dresser"), base.common.GetNLS(User,"Bitte wähle aus, was du ändern möchtest. Alles kostet 5 Gold und es wird bezahlt wenn du das Feld verlässt.","Please select what you would like to change. Everything costs 5 gold and will be paid once you leave the field."), callback)
 	dialog:setCloseOnMove()
 	dialog:addOption(0, base.common.GetNLS(User, "Frisur","Hair style"))
 	dialog:addOption(0, base.common.GetNLS(User, "Bart","Beard"))
