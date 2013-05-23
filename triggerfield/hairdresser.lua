@@ -109,6 +109,7 @@ function selectHair(User, NPC)
 				selectChoice(User, NPC);
 			else
 				User:setHair(base.hair.hairStyles[race][gender][selected].id)
+				User:setQuestProgress(32,base.hair.hairStyles[race][gender][selected].id);
 				selectChoice(User, NPC);
 			end
 		end	
@@ -147,6 +148,7 @@ function selectBeard(User, NPC)
 				selectChoice(User, NPC);
 			else
 				User:setBeard(base.hair.beardStyles[race][selected].id);
+				User:setQuestProgress(33,base.hair.beardStyles[race][selected].id);
 				selectChoice(User, NPC);
 			end
 		end	
