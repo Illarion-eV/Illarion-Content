@@ -13,7 +13,8 @@ function MoveToField(User)
 	
 	User:setQuestProgress(32,User:getHair());
 	User:setQuestProgress(33,User:getBeard());
-	local haircolor = cRed*1000000 + cGreen*1000 + cBlue;
+	local red, green, blue = User:getHairColor();
+	local haircolor = red*1000000 + green*1000 + blue;
 	User:setQuestProgress(34,haircolor);
 	
 	-- gets the npcStruct to make the npc talk or whatever else
