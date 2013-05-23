@@ -32,11 +32,15 @@ function MoveFromField(User)
 	local cRed, cGreen, cBlue = User:getHairColor();
 	local currentHaircolor = cRed*1000000 + cGreen*1000 + cBlue;
 	local currentBeard = User:getBeard();
+	
+	debug("current. Hair: "..currentHair.."Haircolor: "..currentHaircolor.."Beard: "..currentBeard)
 
-	local originalHaircolor = User:getQuestProgress(31);
+	local originalHaircolor = User:getQuestProgress(34);
 	local originalHair = User:getQuestProgress(32);
 	local originalBeard = User:getQuestProgress(33);
 
+	debug("original. Hair: "..originalHair.."Haircolor: "..originalHaircolor.."Beard: "..originalHair)
+	
 	if (currentHair ~= originalHair) or (currentBeard ~= originalBeard) or (currentHaircolor ~= originalHaircolor) then
 		-- gets all npcs in a range of 1
 		local npcsInRange = world:getNPCSInRangeOf(User.pos, 1)
@@ -180,6 +184,14 @@ function selectHaircolor(User, NPC)
 		blue = blue;
 		
 		User:setQuestProgress(31,tonumber(red+green+blue));
+		User:setQuestProgress(34,tonumber(red+green+blue));
+	else
+		local red, green, blue  = User:getHairColor();
+		red = red*1000000;
+		green = green*1000;
+		blue = blue;
+	
+		User:setQuestProgress(34,tonumber(red+green+blue));
 	end
 	
 	local callback = function(dialog) 
