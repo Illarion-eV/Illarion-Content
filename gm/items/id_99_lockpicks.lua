@@ -147,7 +147,7 @@ function UseItem(User, SourceItem, ltstate)
 			infos = player.name.." - "..englishRank.."/"..germanRank.." - "..base.factions.getRankpoints(player).."\n"
 		end
 		
-		local mDialog = MessageDialog(infos, nil)
+		local mDialog = MessageDialog("Factioninformations",infos, nil)
 		User:requestMessageDialog(mDialog)
 		
 	elseif (SourceItem:getData("mode")=="Char Info") then
