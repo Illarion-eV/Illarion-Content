@@ -145,6 +145,8 @@ function InitPotions()
 	setPotion(316, 446, 86386546, 140, 140, 140, 152, 146, false, false, false) 
 	potionName[317]	= {"Big Slime Barrier","Groﬂe Schleimbarriere"}
 	setPotion(317, 446, 76576456, 140, 140, 140, 140, 152, 152, 146, 146) 
+	potionName[318]	= {"Lennier's Dream","Lenniers Traum"}
+	setPotion(318, 446, 99999999, 146) 
 -- bombs end	
 	
 -- quality raiser

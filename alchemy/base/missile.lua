@@ -28,13 +28,17 @@ function fieldOfRadius1( Item )
 	return actionfield;
 end
 
-function fieldOfRadius2( Item )
+function fieldOfRadius2( Item, radius )
     local posi = Item.pos
 	local actionfield = { };
+	
+	if radius == nil then
+		radius = 2
+	end	
 
-    for x=-2,2 do
-        for y=-2,2 do
-            if math.abs(x) + math.abs(y) < 4 then
+    for x=(-1*radius),radius do
+        for y=(-1*radius),radius do
+            if math.abs(x) + math.abs(y) < radius*2 then
                 table.insert( actionfield, position( posi.x+x, posi.y+y, posi.z ) );
             end
         end
@@ -313,6 +317,14 @@ function selectCharacter( targetPosis )
     return finePosis[ math.random( 1, table.getn( finePosis ) ) ];
 end
 
+function fruitBomb(User, Item, targetArea)
+
+    for i, posi in pairs(targetArea) do
+        world:createItemFromId( 15, 1, posi, true, 333, nil )
+	end
+end
+
+
 ---- HITPOINT WURFBOMBEN ----
 
 -- Voller Hitpoint-Schaden auf 1er-Feld
@@ -412,6 +424,13 @@ end
 --Schleimbarriere auf 21er-Feld
 function effect_17(User,Item)
     createSlime(User, Item, (fieldOfRadius2( Item ) ) );
+end
+
+----- OTHERS -------
+
+--Create fruits and smell which allures insects
+function effect_17(User,Item)
+    fruitBomb(User, Item, fieldOfRadius2( Item, 4 ))
 end
 
 
