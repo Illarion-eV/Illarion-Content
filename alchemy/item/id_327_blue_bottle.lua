@@ -62,8 +62,7 @@ local potionEffectId = (tonumber(Item:getData("potionEffectId")))
 		world:gfx(36,Item.pos);
 		world:makeSound(5,Item.pos);
 		world:erase(Item,1);
-		USer:inform("boom")
-    end
+	end
 end
 
 function Drop(User,TargetItem)
