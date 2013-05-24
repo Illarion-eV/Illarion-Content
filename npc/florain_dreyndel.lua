@@ -43,7 +43,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 1));
-talkEntry:addResponse("Welcome to Runewick. Daniel Brock, a really good carpenter, is always willing to teach people in his craft. You can find him in the tower of air. Go over the bridge and through the bluw portal at the end to reach the marketplace, from there go to the south into the tower of air and down into the basement.");
+talkEntry:addResponse("Welcome to Runewick. Daniel Brock, a really good carpenter, is always willing to teach people in his craft. You can find him in the Tower of Air. Go over the bridge and through the blue portal at the end to reach the marketplace, from there go to the south into the Tower of Air and down into the basement.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -220,7 +220,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elesil");
 talkEntry:addTrigger("Dealwon");
-talkEntry:addResponse("She is right over there, just go over and talk to her. She knows alot about Runewick.");
+talkEntry:addResponse("She is right over there, just go over and talk to her. She knows a lot about Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -278,7 +278,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Daniel Brock, a really good carpenter, is always willing to teach people in his craft. You can find him in the tower of air. Go over the bridge and through the bluw portal at the end to reach the marketplace, from there go to the south into the tower of air and down into the basement.");
+talkEntry:addResponse("Daniel Brock, a really good carpenter, is always willing to teach people in his craft. You can find him in the Tower of Air. Go over the bridge and through the blue portal at the end to reach the marketplace, from there go to the south into the Tower of Air and down into the basement.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -295,7 +295,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Daniel Brock, a really good carpenter, is always willing to teach people in his craft. You can find him in the tower of air. Go over the bridge and through the bluw portal at the end to reach the marketplace, from there go to the south into the tower of air and down into the basement.");
+talkEntry:addResponse("Daniel Brock, a really good carpenter, is always willing to teach people in his craft. You can find him in the Tower of Air. Go over the bridge and through the blue portal at the end to reach the marketplace, from there go to the south into the Tower of Air and down into the basement.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -315,7 +315,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 3));
-talkEntry:addResponse("You're back. Good. Judith Tanner could teach you something about tailoring. Go to her in the tower of fire, it is to the north of the marketplace. There go into the basement and through the door to the south of the tavern. You will recognize her on the unusual color of her hair.");
+talkEntry:addResponse("You're back. Good. Judith Tanner could teach you something about tailoring. Go to her in the Tower of Fire, it is to the north of the marketplace. There go into the basement and through the door to the south of the tavern. You will recognize her by the unusual colour of her hair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -334,7 +334,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 3));
-talkEntry:addResponse("You're back. Good. Judith Tanner could teach you something about tailoring. Go to her in the tower of fire, it is to the north of the marketplace. There go into the basement and through the door to the south of the tavern. You will recognize her on the unusual color of her hair.");
+talkEntry:addResponse("You're back. Good. Judith Tanner could teach you something about tailoring. Go to her in the Tower of Fire, it is to the north of the marketplace. There go into the basement and through the door to the south of the tavern. You will recognize her by the unusual colour of her hair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -354,7 +354,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("You're back. Good. Judith Tanner could teach you something about tailoring. Go to her in the tower of fire, it is to the north of the marketplace. There go into the basement and through the door to the south of the tavern. You will recognize her on the unusual color of her hair.");
+talkEntry:addResponse("You're back. Good. Judith Tanner could teach you something about tailoring. Go to her in the Tower of Fire, it is to the north of the marketplace. There go into the basement and through the door to the south of the tavern. You will recognize her by the unusual colour of her hair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -371,7 +371,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("You're back. Good. Judith Tanner could teach you something about tailoring. Go to her in the tower of fire, it is to the north of the marketplace. There go into the basement and through the door to the south of the tavern. You will recognize her on the unusual color of her hair.");
+talkEntry:addResponse("You're back. Good. Judith Tanner could teach you something about tailoring. Go to her in the Tower of Fire, it is to the north of the marketplace. There go into the basement and through the door to the south of the tavern. You will recognize her by the unusual colour of her hair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -467,7 +467,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 7));
-talkEntry:addResponse("So I suppose you have already visited my friend Zassaria Riverbank and helped her? I heard Neiran El Nayale can teach you something. He can be found in the tower of fire on the upper floor.");
+talkEntry:addResponse("So I suppose you have already visited my friend Zassaria Riverbank and helped her? I heard Neiran El Nayale can teach you something. He can be found in the Tower of Fire on the upper floor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -486,7 +486,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 7));
-talkEntry:addResponse("So I suppose you have already visited my friend Zassaria Riverbank and helped her? I heard Neiran El Nayale can teach you something. He can be found in the tower of fire on the upper floor.");
+talkEntry:addResponse("So I suppose you have already visited my friend Zassaria Riverbank and helped her? I heard Neiran El Nayale can teach you something. He can be found in the Tower of Fire on the upper floor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -506,7 +506,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("So I suppose you have already visited my friend Zassaria Riverbank and helped her? I heard Neiran El Nayale can teach you something. He can be found in the tower of fire on the upper floor.");
+talkEntry:addResponse("So I suppose you have already visited my friend Zassaria Riverbank and helped her? I heard Neiran El Nayale can teach you something. He can be found in the Tower of Fire on the upper floor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -523,7 +523,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 7));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("So I suppose you have already visited my friend Zassaria Riverbank and helped her? I heard Neiran El Nayale can teach you something. He can be found in the tower of fire on the upper floor.");
+talkEntry:addResponse("So I suppose you have already visited my friend Zassaria Riverbank and helped her? I heard Neiran El Nayale can teach you something. He can be found in the Tower of Fire on the upper floor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -695,7 +695,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 13));
-talkEntry:addResponse("A little bird told me that the apprentice Madeline Clarbelis could use some help. You can find her easily. Just go back to the marketplace, through the tower of fire to the north and leave it over the bridge to the east into the tower of earth.");
+talkEntry:addResponse("A little bird told me that the apprentice Madeline Clarbelis could use some help. You can find her easily. Just go back to the marketplace, through the Tower of Fire to the north and leave it over the bridge to the east into the Tower of Earth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -714,7 +714,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 13));
-talkEntry:addResponse("A little bird told me that the apprentice Madeline Clarbelis could use some help. You can find her easily. Just go back to the marketplace through the tower of fire to the north and leave it over the bridge to the east into the tower of earth.");
+talkEntry:addResponse("A little bird told me that the apprentice Madeline Clarbelis could use some help. You can find her easily. Just go back to the marketplace through the Tower of Fire to the north and leave it over the bridge to the east into the Tower of Earth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -734,7 +734,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("A little bird told me that the apprentice Madeline Clarbelis could use some help. You can find her easily. Just go back to the marketplace, through the tower of fire to the north and leave it over the bridge to the east into the tower of earth.");
+talkEntry:addResponse("A little bird told me that the apprentice Madeline Clarbelis could use some help. You can find her easily. Just go back to the marketplace, through the Tower of Fire to the north and leave it over the bridge to the east into the Tower of Earth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -751,7 +751,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 13));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("A little bird told me that the apprentice Madeline Clarbelis could use some help. You can find her easily. Just go back to the marketplace, through the tower of fire to the north and leave it over the bridge to the east into the tower of earth.");
+talkEntry:addResponse("A little bird told me that the apprentice Madeline Clarbelis could use some help. You can find her easily. Just go back to the marketplace, through the Tower of Fire to the north and leave it over the bridge to the east into the Tower of Earth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -771,7 +771,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 15));
-talkEntry:addResponse("Uriel Urch, a retired soldier needs someone to keep him company and listen to his story. I'm sure he will reward you for your time. You can find him when you go into the northern tower of fire from the marketplace and down the flight of stairs.");
+talkEntry:addResponse("Uriel Urch, a retired soldier needs someone to keep him company and listen to his story. I'm sure he will reward you for your time. You can find him when you go into the northern Tower of Fire from the marketplace and down the flight of stairs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -790,7 +790,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 15));
-talkEntry:addResponse("Uriel Urch, a retired soldier needs someone to keep him company and listen to his story. I'm sure he will reward you for your time. You can find him when you go into the northern tower of fire from the marketplace and down the flight of stairs.");
+talkEntry:addResponse("Uriel Urch, a retired soldier needs someone to keep him company and listen to his story. I'm sure he will reward you for your time. You can find him when you go into the northern Tower of Fire from the marketplace and down the flight of stairs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -810,7 +810,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 15));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Uriel Urch, a retired soldier needs someone to keep him company and listen to his story. I'm sure he will reward you for your time. You can find him when you go into the northern tower of fire from the marketplace and down the flight of stairs.");
+talkEntry:addResponse("Uriel Urch, a retired soldier needs someone to keep him company and listen to his story. I'm sure he will reward you for your time. You can find him when you go into the northern Tower of Fire from the marketplace and down the flight of stairs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -827,7 +827,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 15));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Uriel Urch, a retired soldier needs someone to keep him company and listen to his story. I'm sure he will reward you for your time. You can find him when you go into the northern tower of fire from the marketplace and down the flight of stairs.");
+talkEntry:addResponse("Uriel Urch, a retired soldier needs someone to keep him company and listen to his story. I'm sure he will reward you for your time. You can find him when you go into the northern Tower of Fire from the marketplace and down the flight of stairs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -847,7 +847,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 17));
-talkEntry:addResponse("Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel, downstairs in the tower of fire north of the marketplace.");
+talkEntry:addResponse("Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel, downstairs in the Tower of Fire north of the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -866,7 +866,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 17));
-talkEntry:addResponse("Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel, downstairs in the tower of fire north of the marketplace.");
+talkEntry:addResponse("Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel, downstairs in the Tower of Fire north of the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -886,7 +886,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 17));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel, downstairs in the tower of fire north of the marketplace.");
+talkEntry:addResponse("Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel, downstairs in the Tower of Fire north of the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -903,7 +903,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 17));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel, downstairs in the tower of fire north of the marketplace.");
+talkEntry:addResponse("Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel, downstairs in the Fower of Fire north of the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -956,14 +956,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I cannot help you with that. Why not ask Elesil Dealwon over there, I'm sure she has the answer.");
+talkEntry:addResponse("I cannot help you with that. Why not ask Elesil Daelwon over there, I'm sure she has the answer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Elesil Dealwon dort drüben, ich bin mir sicher sie hat eine Antwort.");
+talkEntry:addResponse("Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Elesil Daelwon dort drüben, ich bin mir sicher sie hat eine Antwort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Willkommen in Runewick!", "Welcome to Runewick!");
