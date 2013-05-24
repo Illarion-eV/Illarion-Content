@@ -65,7 +65,7 @@ function chooseTypeOfDice(User)
 	local dialog = SelectionDialog(title, text, sdDice)
 
 	dialog:addOption(0, base.common.GetNLS(User, "W6 - Sechskantiger Würfel", "D6 - Sixsided dice"))
-	dialog:addOption(0, base.common.GetNLS(User, "W20 - Zwanzigkantiger Würfel", "D20 - Twentysided dice")
+	dialog:addOption(0, base.common.GetNLS(User, "W20 - Zwanzigkantiger Würfel", "D20 - Twentysided dice"))
 	
 	User:requestSelectionDialog(dialog)
 end
