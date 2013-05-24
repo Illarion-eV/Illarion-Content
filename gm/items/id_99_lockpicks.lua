@@ -62,7 +62,7 @@ function UseItem(User, SourceItem, ltstate)
 	
 	-- First check for mode change
 	if (string.find(User.lastSpokenText, "setmode")~=nil) then
-		local modes = {"Eraser", "Teleport", "Char Info", "Change skills","Get/ Set Queststatus", "Instant kill/ revive"}
+		local modes = {"Eraser", "Teleport","Faction info of chars in radius", "Char Info", "Change skills","Get/ Set Queststatus", "Instant kill/ revive"}
 		local cbSetMode = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
@@ -137,6 +137,19 @@ function UseItem(User, SourceItem, ltstate)
         end	
 		User:requestSelectionDialog(sdTeleport);
 		
+	elseif (SourceItem:getData("mode")=="Faction info of chars in radius")
+		local players = world:getPlayersInRangeOf(User.pos, 7);		
+		local infos = "";
+		local germanRank, englishRank 
+		
+		for _,player in ipairs(players) do
+			germanRank, englishRank = base.factions.getRank(player, true)
+			infos = player.name.." - "..englishRank.."/"..germanRank.." - "..base.factions.getRankpoints(player).."\n"
+		end
+		
+		local mDialog = MessageDialog(infos, nil)
+		User:requestMessageDialog(mDialog)
+		
 	elseif (SourceItem:getData("mode")=="Char Info") then
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 7);
 		local players = {User};
@@ -151,22 +164,22 @@ function UseItem(User, SourceItem, ltstate)
 				return;
 			end
 			local chosenPlayer = players[dialog:getSelectedIndex()+1];
-      local faction = base.factions.getFaction(chosenPlayer);
-      local factionInfo = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
-      factionInfo = factionInfo .. "\nChanged towns already (town count): " .. faction.towncnt;
-      if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
-		local germanRank, englishRank = base.factions.getRank(chosenPlayer, true)
-        factionInfo = factionInfo .. "\nRank: " .. englishRank .. "/" .. germanRank;
-      else
-        factionInfo = factionInfo .. "\nRank: no rank " .. faction.rankTown;
-      end
-      factionInfo = factionInfo .. "\nExact rankpoints: " .. faction.rankpoints;
+			local faction = base.factions.getFaction(chosenPlayer);
+			local factionInfo = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
+			factionInfo = factionInfo .. "\nChanged towns already (town count): " .. faction.towncnt;
+			if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
+				local germanRank, englishRank = base.factions.getRank(chosenPlayer, true)
+				factionInfo = factionInfo .. "\nRank: " .. englishRank .. "/" .. germanRank;
+			else
+				factionInfo = factionInfo .. "\nRank: no rank " .. faction.rankTown;
+			end
+			factionInfo = factionInfo .. "\nExact rankpoints: " .. faction.rankpoints;
 			local mDialog = MessageDialog("Character Info for "..chosenPlayer.name, "HP: "..chosenPlayer:increaseAttrib("hitpoints", 0).." MP: "..chosenPlayer:increaseAttrib("mana", 0)..
 							"\nSTR: "..chosenPlayer:increaseAttrib("strength", 0).." CONST: "..chosenPlayer:increaseAttrib("constitution", 0).." DEX: "..chosenPlayer:increaseAttrib("dexterity", 0)..
 							"\nAGI: "..chosenPlayer:increaseAttrib("agility", 0).." WIL: "..chosenPlayer:increaseAttrib("willpower", 0).." PERC: "..chosenPlayer:increaseAttrib("perception", 0).." ESS: "..User:increaseAttrib("essence", 0)..
 							"\nMental Capacity: "..tostring(chosenPlayer:getMentalCapacity())..
 							"\nIdle for [s]: "..tostring(chosenPlayer:idleTime()) ..
-              "\n" .. factionInfo, cbChoosePlayer)
+							"\n" .. factionInfo, cbChoosePlayer)
 			User:requestMessageDialog(mDialog)
 		end
 			--Dialog to choose the player
@@ -336,6 +349,9 @@ function LookAtItem(User,Item)
     elseif (Item:getData("mode")=="Teleport") then
         base.lookat.SetSpecialName(Item, "Dietriche (Teleport)","Lockpicks (Teleport)");
 		base.lookat.SetSpecialDescription(Item, "Ich  bin hier weg. Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche. ", "I'm out of here. Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
+	elseif (Item:getData("mode")=="Faction info of chars in radius") then
+		base.lookat.SetSpecialName(Item, "Dietriche (Fraktionsinfo von Chars in Radius)","Lockpicks (Faction info of chars in radius)");
+		base.lookat.SetSpecialDescription(Item, "Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
 	elseif (Item:getData("mode")=="Char Info") then
         base.lookat.SetSpecialName(Item, "Dietriche (Char Info)","Lockpicks (Char Info)");
 		base.lookat.SetSpecialDescription(Item, "Char Info. Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Char Info. Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
