@@ -36,7 +36,6 @@ function chooseNumberOfDice(User, typeOfDice)
 				informAboutResult(User, typeOfDice, inputNumber)
 			else
 				User:inform("Du kannst nur bis zu 6 Würfel werfen.", "You can only trow up to 6 dice.")
-				User:requestInputDialog(InputDialog(title, text ,false, 255, cbInputDialog))
 			end
 		else
 			User:inform("Not a valid number. Please try again.");
