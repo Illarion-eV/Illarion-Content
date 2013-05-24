@@ -15,6 +15,7 @@ function informAboutResult(User, typeOfDice, numberOfDice)
 		thrownNumbers = thrownNumbers..", "..math.random(1,typeOfDice);
 	end
 	
+	User:inform("Du wirfst "..numberOfDice.." Würfel und bekommst: "..thrownNumbers ,"You throw "..numberOfDice.." dice and get: "..thrownNumbers);
 	local playerInRange = world:getPlayersInRangeOf(User.pos, 3);
 	for _,player in pairs(playerInRange) do 
 		player:inform(User.name.." wirft "..numberOfDice.." Würfel und bekommt: "..thrownNumbers ,User.name.." throws "..numberOfDice.." dice and gets: "..thrownNumbers);		
@@ -32,7 +33,7 @@ function chooseNumberOfDice(User, typeOfDice)
 		end
 		local inputNumber = dialog:getInput();
 		if (string.find(inputNumber,"(%d+)") ~= nil) then
-			if inputNumber < 7 then 
+			if tonumber(inputNumber) < 7 then 
 				informAboutResult(User, typeOfDice, inputNumber)
 			else
 				User:inform("Du kannst nur bis zu 6 Würfel werfen.", "You can only trow up to 6 dice.")
