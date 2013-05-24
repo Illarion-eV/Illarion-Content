@@ -144,10 +144,10 @@ function UseItem(User, SourceItem, ltstate)
 		
 		for _,player in ipairs(players) do
 			germanRank, englishRank = base.factions.getRank(player, true)
-			infos = player.name.." - "..englishRank.."/"..germanRank.." - "..base.factions.getRankpoints(player).."\n"
+			infos = infos..player.name.." - "..englishRank.."/"..germanRank.." - "..base.factions.getRankpoints(player).."\n"
 		end
 		
-		local mDialog = MessageDialog("Factioninformations",infos, nil)
+		local mDialog = MessageDialog("Factioninformation",infos, nil)
 		User:requestMessageDialog(mDialog)
 		
 	elseif (SourceItem:getData("mode")=="Char Info") then
