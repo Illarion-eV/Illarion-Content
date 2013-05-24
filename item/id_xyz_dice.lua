@@ -15,7 +15,6 @@ function informAboutResult(User, typeOfDice, numberOfDice)
 		thrownNumbers = thrownNumbers..", "..math.random(1,typeOfDice);
 	end
 	
-	User:inform("Du wirfst "..numberOfDice.." Würfel und bekommst: "..thrownNumbers ,"You throw "..numberOfDice.." dice and get: "..thrownNumbers);
 	local playerInRange = world:getPlayersInRangeOf(User.pos, 3);
 	for _,player in pairs(playerInRange) do 
 		player:inform(User.name.." wirft "..numberOfDice.." Würfel und bekommt: "..thrownNumbers ,User.name.." throws "..numberOfDice.." dice and gets: "..thrownNumbers);		
@@ -41,7 +40,6 @@ function chooseNumberOfDice(User, typeOfDice)
 			end
 		else
 			User:inform("Not a valid number. Please try again.");
-			User:requestInputDialog(InputDialog(title, text ,false, 255, cbInputDialog))
 		end
 	end
 	User:requestInputDialog(InputDialog(title, text ,false, 255, cbInputDialog))
