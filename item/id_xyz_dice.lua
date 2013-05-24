@@ -5,8 +5,7 @@ require("base.common")
 module("item.id_xyz_dice", package.seeall);
 
 function UseItem(User, SourceItem, ltstate)
-	local typeOfDice = chooseTypeOfDice(User)
-	chooseNumberOfDice(User, typeOfDice);
+	chooseTypeOfDice(User)
 end
 
 function informAboutResult(User, typeOfDice, numberOfDice)
@@ -57,9 +56,9 @@ function chooseTypeOfDice(User)
 		end
 		local selected = dialog:getSelectedIndex();
 		if selected == 0 then
-			return 6;
+			chooseNumberOfDice(User, 6);
 		else
-			return 20;
+			chooseNumberOfDice(User, 20);
 		end
 	end
 	local dialog = SelectionDialog(title, text, sdDice)
