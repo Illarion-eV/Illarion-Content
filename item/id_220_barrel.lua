@@ -100,11 +100,11 @@ function UseItem(User, SourceItem, ltstate)
 	User:learn( dyeing.LeadSkill, dyeing.SavedWorkTime[User.id], dyeing.LearnLimit);
 	User:eraseItem( dye[1], 1 ); -- erase the item we're working on
 	if User:countItemAt("all",dye[2][2]) == 0 then
-		User:eraseItem( dye[2][1], 1 ); -- erase the item we're working on
+		User:eraseItem( dye[2][1], 5 ); -- erase the item we're working on
 	else
-		User:eraseItem( dye[2][2], 1 ); -- erase the item we're working on
+		User:eraseItem( dye[2][2], 5 ); -- erase the item we're working on
 	end
-	local amount = 1; -- set the amount of items that are produced
+	local amount = 5; -- set the amount of items that are produced
 	local notCreated = User:createItem( dye[3], amount, 333, nil ); -- create the new produced items
 	User:createItem( 51, 1, 333, nil ); -- giving back the bucket
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
