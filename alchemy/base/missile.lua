@@ -429,7 +429,7 @@ end
 ----- OTHERS -------
 
 --Create fruits and smell which allures insects
-function effect_17(User,Item)
+function effect_18(User,Item)
     fruitBomb(User, Item, fieldOfRadius2( Item, 4 ))
 end
 

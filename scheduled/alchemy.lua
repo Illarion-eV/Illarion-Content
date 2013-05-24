@@ -1,5 +1,5 @@
 
-module("scheduled.gaia", package.seeall)
+module("scheduled.alchemy", package.seeall)
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.alchemy', 5, 5, 'startAlchemy');
 
