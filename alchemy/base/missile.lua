@@ -325,12 +325,13 @@ function fruitBomb(User, Item, targetArea)
     local theField
 	local thePos
 	for i=1,tries do
-        thePos = targetArea[math.random(#targetArea)]
+        local rnd = math.random(#targetArea)
+		thePos = targetArea[rnd]
 		theField = world:getField(thePos)
 		if theField:isPassable() then
 		    world:createItemFromId(FRUITS_FLOWERS[math.random(#FRUITS_FLOWERS)],1,thePos,true,333,nil)
 		end
-        table.remove(targetArea,thePos)		
+        table.remove(targetArea,rnd)		
 	end
 end
 
