@@ -10,7 +10,7 @@ function CheckStone(Char,StoneNumber)
     retVal=false;
     StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
     StoneBaseOffset=math.mod(StoneNumber-1,32);  -- StoneNr inside range
-    HasStones=Char:getQuestProgress(StoneBase);
+    HasStones=Char:getQuestProgress(StoneBase)+2^31;
     GotStone=LuaAnd(2^(StoneNumber),HasStones);
     if GotStone>0 then
         retVal=true;
@@ -23,7 +23,7 @@ function CountStones(Char)
     StoneBase=130;
     StoneEnd=149;
     for i=StoneBase,StoneEnd do
-        stones=Char:getQuestProgress(i);
+        stones=Char:getQuestProgress(i)+2^31;
         while stones~=0 do
             nrStones=nrStones+math.mod(stones,2);
             stones=math.floor(stones/2);
@@ -36,6 +36,6 @@ function WriteStone(Char,StoneNumber)
     StoneBase=130+math.floor(StoneNumber/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
     StoneBaseOffset=math.mod(StoneNumber,32);  -- StoneNr inside range
     --Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
-    currentStones=Char:getQuestProgress(StoneBase);
-    Char:setQuestProgress(StoneBase,LuaOr(2^StoneBaseOffset,currentStones));
+    currentStones=Char:getQuestProgress(StoneBase)+2^31;
+    Char:setQuestProgress(StoneBase,LuaOr(2^StoneBaseOffset,currentStones)-2^31);
 end
