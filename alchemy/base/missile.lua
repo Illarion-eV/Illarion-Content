@@ -320,7 +320,9 @@ end
 function fruitBomb(User, Item, targetArea)
 
     for i, posi in pairs(targetArea) do
-        world:createItemFromId( 15, 1, posi, true, 333, nil )
+        if posi ~= Item.pos then
+			world:createItemFromId( 15, 1, posi, true, 333, nil )
+		end	
 	end
 end
 
