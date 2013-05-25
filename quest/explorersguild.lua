@@ -56,7 +56,7 @@ reward[750] = {{61,8},{2367,1},{2693,1},{2662,1},{559,10}} -- items worth 8 gold
 function getReward(Char)
 	local nrStones = CountStones(Char)
 	if reward[nrStones] ~= nil then
-		if table.getn(reward[nrStones][1]) == 1 then
+		if table.getn(reward[nrStones]) == 1 then
 			Char:createItem(reward[nrStones][1][1],reward[nrStones][1][2],333,nil);
 			Char:inform("Du hast 2 Silberstücke erhalten, da du den ersten Markierungsstein entdeckt hast. Weiter so!", "You received 2 silver coins for discovering the first marker stone. Keep it up!");
 		else
@@ -81,7 +81,7 @@ function rewardDialog(Char, nrStones)
 	
 	local itemName;
 	local language = Char:getPlayerLanguage();
-	for i=1, #(table.getn(reward[nrStones][1])) do
+	for i=1, #(table.getn(reward[nrStones])) do
 		itemName = world:getItemName(reward[nrStones][i][1],language);
 		dialog:addOption(reward[nrStones][i][1], reward[nrStones][i][2].." "..itemName);
 	end
