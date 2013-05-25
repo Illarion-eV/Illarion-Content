@@ -9,9 +9,13 @@ module("quest.explorersguild", package.seeall)
 function CheckStone(Char,StoneNumber)
     retVal=false;
     StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
+	Char:inform("Stonebase: "..StoneBase);
     StoneBaseOffset=math.mod(StoneNumber-1,32);  -- StoneNr inside range
+	Char:inform("Offset: "..StoneBaseOffset);
     HasStones=Char:getQuestProgress(StoneBase)+2^31;
-    GotStone=LuaAnd(2^(StoneNumber),HasStones);
+	Char:inform("HasStones: "..HasStones);
+    GotStone=LuaAnd(2^(StoneBaseOffset),HasStones);
+	
     if GotStone>0 then
         retVal=true;
     end
