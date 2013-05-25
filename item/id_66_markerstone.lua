@@ -13,6 +13,7 @@ function UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
 		if not quest.explorersguild.CheckStone(User,StoneNumber) then
 			DisplayText = base.common.GetNLS( User, "Du hast einen Markierungsstein der Abenteurer Gilde entdeckt; er trägt die Nummer "..stonedata,"You found a marker stone of the Explorers Guild; it has the number "..stonedata);
 			quest.explorersguild.WriteStone(User,tonumber(stonedata));
+			quest.explorersguild.getReward(User);
 			base.ranklist.setRanklist(User, "explorerRanklist", quest.explorersguild.CountStones(User));
 		else
 			DisplayText = base.common.GetNLS( User, "Du hast diesen Markierungsstein der Abenteurer Gilde bereits früher gefunden; er trägt die Nummer "..stonedata,"You have already found that marker stone of the Explorers Guild earlier; it has the number "..stonedata);
