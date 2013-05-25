@@ -317,12 +317,20 @@ function selectCharacter( targetPosis )
     return finePosis[ math.random( 1, table.getn( finePosis ) ) ];
 end
 
+FRUITS_FLOWERS = {15,80,81,143,148,144,147,151,199,302}
+
 function fruitBomb(User, Item, targetArea)
 
-    for i, posi in pairs(targetArea) do
-        if posi ~= Item.pos then
-			world:createItemFromId( 15, 1, posi, true, 333, nil )
-		end	
+    local tries = 10+(2*math.floor(Item.quality/100))
+    local theField
+	local thePos
+	for i=1,#tries do
+        thePos = math.random(#targetArea)
+		theField = world:getField(targetArea[randomPos])
+		if theField:isPassable() then
+		    world:createItemFromId(FRUITS_FLOWERS[math.random(#FRUITS_FLOWERS)],1,thePos,true,333,nil)
+		end
+        table.remove(targetArea,thePos)		
 	end
 end
 
