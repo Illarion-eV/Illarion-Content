@@ -12,7 +12,7 @@ humanHairStyles = {
 		{id=1, nameDe="Mittellange Haare", nameEn="Medium length hair"},
 		{id=4, nameDe="Hochgesteckte Haare", nameEn="Pinned up hair"},
 		{id=7, nameDe="Lange, offene Haare", nameEn="Long open hair"},
-		{id=8, nameDe="Lange ZÃ¶pfe", nameEn="Long braided hair"}
+		{id=8, nameDe="Lange Zöpfe", nameEn="Long braided hair"}
 	}
 }
 
@@ -40,7 +40,7 @@ dwarfHairStyles = {
 	},
 	{
 		{id=0, nameDe="Glatze", nameEn="Bald head"},
-		{id=1, nameDe="ZÃ¶pfe", nameEn="Braided hair"},
+		{id=1, nameDe="Zöpfe", nameEn="Braided hair"},
 		{id=4, nameDe="Hochgesteckte Haare", nameEn="Pinned up hair"},
 		{id=7, nameDe="Lange, offene Haare", nameEn="Long open hair"},
 		{id=9, nameDe="Pferdeschwanz", nameEn="Ponytail"}
@@ -67,17 +67,15 @@ orcHairStyles = {
 		{id=0, nameDe="Glatze", nameEn="Bald head"},
 		{id=1, nameDe="Kurze Haare", nameEn="Short hair"},
 		{id=2, nameDe="Pferdeschwanz", nameEn="Ponytail"},
-		{id=3, nameDe="GroÃŸes Gewusel", nameEn="Very messy hair"},
+		{id=3, nameDe="Großes Gewusel", nameEn="Very messy hair"},
 		{id=4, nameDe="Gewusel", nameEn="Messy hair"},
 		{id=5, nameDe="Langer Pferdeschwanz", nameEn="Long ponytail"}
 	},
 	{
 		{id=0, nameDe="Glatze", nameEn="Bald head"},
 		{id=1, nameDe="Kurze Haare", nameEn="Short hair"},
-		{id=2, nameDe="Pferdeschwanz", nameEn="Ponytail"},
-		{id=3, nameDe="GroÃŸes Gewusel", nameEn="Very messy hair"},
-		{id=4, nameDe="Gewusel", nameEn="Messy hair"},
-		{id=5, nameDe="Langer Pferdeschwanz", nameEn="Long ponytail"}
+		{id=4, nameDe="Hochgesteckte Haare", nameEn="Pinned up hair"},
+		{id=7, nameDe="Lange, offene Haare", nameEn="Long open hair"}
 	}
 }
 
