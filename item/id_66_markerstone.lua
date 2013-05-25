@@ -10,7 +10,7 @@ module("item.id_66_markerstone", package.seeall)
 function UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
 	local stonedata=SourceItem:getData("markerstone");
 	if (tonumber(stonedata)~=0) then
-		if not quest.explorersguild.CheckStone(User,StoneNumber) then
+		if not quest.explorersguild.CheckStone(User,tonumber(stonedata)) then
 			DisplayText = base.common.GetNLS( User, "Du hast einen Markierungsstein der Abenteurer Gilde entdeckt; er trägt die Nummer "..stonedata,"You found a marker stone of the Explorers Guild; it has the number "..stonedata);
 			quest.explorersguild.WriteStone(User,tonumber(stonedata));
 			quest.explorersguild.getReward(User);
@@ -25,7 +25,7 @@ end
 function LookAtItem(User,Item)
 	local stonedata=Item:getData("markerstone");
 	if (tonumber(stonedata)~=0) then
-		if not quest.explorersguild.CheckStone(User,StoneNumber) then
+		if not quest.explorersguild.CheckStone(User,tonumber(stonedata)) then
 			base.lookat.SetSpecialDescription( Item, "Ein Markierungsstein der Abenteurer Gilde.","A marker stone of the Explorers Guild.");
 		else
 			base.lookat.SetSpecialDescription( Item, "Du hast diesen Markierungsstein der Abenteurer Gilde bereits früher gefunden; er trägt die Nummer "..stonedata,"You have already found that marker stone of the Explorers Guild earlier; it has the number "..stonedata);
