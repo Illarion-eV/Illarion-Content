@@ -69,10 +69,15 @@ orcHairStyles = {
 		{id=2, nameDe="Pferdeschwanz", nameEn="Ponytail"},
 		{id=3, nameDe="Großes Gewusel", nameEn="Very messy hair"},
 		{id=4, nameDe="Gewusel", nameEn="Messy hair"},
-		{id=5, nameDe="Langer Pferdeschwanz", nameEn="Long ponytail"},
+		{id=5, nameDe="Langer Pferdeschwanz", nameEn="Long ponytail"}
 	},
 	{
 		{id=0, nameDe="Glatze", nameEn="Bald head"},
+		{id=1, nameDe="Kurze Haare", nameEn="Short hair"},
+		{id=2, nameDe="Pferdeschwanz", nameEn="Ponytail"},
+		{id=3, nameDe="Großes Gewusel", nameEn="Very messy hair"},
+		{id=4, nameDe="Gewusel", nameEn="Messy hair"},
+		{id=5, nameDe="Langer Pferdeschwanz", nameEn="Long ponytail"}
 	}
 }
 
