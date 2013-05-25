@@ -41,6 +41,7 @@ function WriteStone(Char,StoneNumber)
 end
 
 -- reward[x] = {y,z} - x = stones to have collected, y = item id , z= amount of y
+reward = {}
 reward[1] = {{3077, 2}}; -- 2 silver coins (3077)
 reward[5] = {{3077, 10},{49,1},{841,1},{463,1},{27,1}}; -- items worth 10 silver coins
 reward[10] = {{3077, 20},{455, 10},{21,20},{325,1},{230,1}} -- items worth 20 silver coins

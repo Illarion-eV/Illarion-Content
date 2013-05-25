@@ -8,8 +8,8 @@ require("base.ranklist")
 module("item.id_66_markerstone", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
-	local stonedata=Item:getData("markerstone");
-	if (stonedata~=0) then
+	local stonedata=SourceItem:getData("markerstone");
+	if (tonumber(stonedata)~=0) then
 		if not quest.explorersguild.CheckStone(User,StoneNumber) then
 			DisplayText = base.common.GetNLS( User, "Du hast einen Markierungsstein der Abenteurer Gilde entdeckt; er trägt die Nummer "..stonedata,"You found a marker stone of the Explorers Guild; it has the number "..stonedata);
 			quest.explorersguild.WriteStone(User,tonumber(stonedata));
@@ -24,7 +24,7 @@ end
 
 function LookAtItem(User,Item)
 	local stonedata=Item:getData("markerstone");
-	if (stonedata~=0) then
+	if (tonumber(stonedata)~=0) then
 		if not quest.explorersguild.CheckStone(User,StoneNumber) then
 			base.lookat.SetSpecialDescription( Item, "Ein Markierungsstein der Abenteurer Gilde.","A marker stone of the Explorers Guild.");
 		else
