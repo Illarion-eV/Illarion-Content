@@ -86,5 +86,5 @@ function rewardDialog(Char, nrStones)
 		dialog:addOption(reward[nrStones][i][1], reward[nrStones][i][2].." "..itemName);
 	end
 
-	User:requestSelectionDialog(dialog);
+	Char:requestSelectionDialog(dialog);
 end
