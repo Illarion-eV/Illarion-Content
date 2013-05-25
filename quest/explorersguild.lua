@@ -72,7 +72,7 @@ function rewardDialog(Char, nrStones)
 	local callback = function(dialog) 
 		local success = dialog:getSuccess() 
 		if success then
-			selected = dialog:getSelectedIndex() 
+			selected = dialog:getSelectedIndex()+1
 			Char:createItem(reward[nrStones][selected][1],reward[nrStones][selected][2], 800, nil);	
 		end
 	end
