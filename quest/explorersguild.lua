@@ -81,7 +81,7 @@ function rewardDialog(Char, nrStones)
 	
 	local itemName;
 	local language = Char:getPlayerLanguage();
-	for i=1, #(table.getn(reward[nrStones])) do
+	for i=1, #(reward[nrStones]) do
 		itemName = world:getItemName(reward[nrStones][i][1],language);
 		dialog:addOption(reward[nrStones][i][1], reward[nrStones][i][2].." "..itemName);
 	end
