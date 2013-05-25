@@ -46,7 +46,7 @@ function getRanklist(User, listName, showMessage)
 					list = list.."Platz "..place.." : "..listEntryTable[i].." mit "..listEntryTable[i+1].." Punkten.\n";
 					place = place +1;
 				end
-				mdList = MessageDialog("Top FÃ¼nf", list, nil);			
+				mdList = MessageDialog("Top Fünf", list, nil);			
 			else
 				list = "Place 1: "..listEntryTable[1].." with "..listEntryTable[2].." points.\n";
 				for i=3, #(listEntryTable),2 do
