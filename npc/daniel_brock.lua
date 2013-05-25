@@ -258,7 +258,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
-talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of applewood from the apple trees outside the city. Then return to the workshop and saw the pieces of applewood into boards at the workbench with the saw I'll give you, and show them to me.");
+talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -285,7 +285,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
-talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of applewood from the apple trees outside the city. Then return to the workshop and saw the pieces of applewood into boards at the workbench with the saw I'll give you, and show them to me.");
+talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -313,7 +313,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 1));
-talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of applewood from the apple trees outside the city. Then return to the workshop and saw the pieces of applewood into boards at the workbench with the saw I'll give you, and show them to me.");
+talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,7 +338,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 1));
-talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of applewood from the apple trees outside the city. Then return to the workshop and saw the pieces of applewood into boards at the workbench with the saw I'll give you, and show them to me.");
+talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -416,7 +416,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2716, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I wanted ten applewood boards, come back once you have fulfilled this task.");
+talkEntry:addResponse("I wanted ten deciduous wood boards, come back once you have fulfilled this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
