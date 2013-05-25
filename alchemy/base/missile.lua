@@ -324,7 +324,7 @@ function fruitBomb(User, Item, targetArea)
     local tries = 10+(2*math.floor(Item.quality/100))
     local theField
 	local thePos
-	for i=1,#tries do
+	for i=1,tries do
         thePos = math.random(#targetArea)
 		theField = world:getField(targetArea[randomPos])
 		if theField:isPassable() then
