@@ -64,7 +64,7 @@ function getRanklist(User, listName, showMessage)
 	end
 end
 
-
+maxEntries = 5
 --[[
 Saves the points of the player and if he reached the 
 top five, also saves the new top five.
@@ -80,13 +80,13 @@ function setRanklist(User, listName, points)
 
 	if newRanklist ~= nil then
 		local userInList, position = isUserInList(User, newRanklist);
-		if tonumber(newRanklist[#newRanklist].points) > points and #newRanklist == 10 then
+		if tonumber(newRanklist[#newRanklist].points) > points and #newRanklist == maxEntries then
 			return;
 		else
 			for i=1, #newRanklist do
 				if tonumber(newRanklist[i]).points < points then
 					if not userInList then
-						if #newRanklist <= 8 then 
+						if #newRanklist < maxEntries then 
 							table.insert(newRanklist, i-1, {["name"] = User.name; ["points"] = points});
 							break;
 						else
@@ -100,7 +100,7 @@ function setRanklist(User, listName, points)
 						break;
 					end
 				else
-					if #newRanklist <= 8 then 
+					if #newRanklist < maxEntries then 
 						table.insert(newRanklist, i+1, {["name"] = User.name; ["points"] = points});
 						break;
 					end
