@@ -137,8 +137,7 @@ function setRanklist(User, listName, points)
 end
 
 function compare(tableA, tableB)
-	debug("A: "..tableA.points.." B: "..tableB.points)
-	return tonumber(tableA.points) < tonumber(tableB.points);
+	return tonumber(tableA.points) > tonumber(tableB.points);
 end
 
 function convertTo2dTable(list)
