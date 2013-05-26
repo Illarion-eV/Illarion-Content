@@ -38,6 +38,7 @@ debug("In Checkstones")
 	debug("In Checkstones, after calculation")
 	--Char:inform("GotStone: "..GotStone);
     if GotStone>0 then
+		debug("RETURNING TRUE FROM CHECKSTONE")
         retVal=true;
     end
 	debug("after checkstones")

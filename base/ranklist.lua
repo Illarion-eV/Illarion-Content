@@ -74,12 +74,16 @@ function setRanklist(User, listName, points)
 	local newRanklist = {}
 	local joinedRanklist = {}
 	
+	User:inform("ranklist nr: "..#ranklist)
 	for i=1, #ranklist, 2 do 
 		table.insert(newRanklist, {["name"] = ranklist[i]; ["points"] = ranklist[i+1]}); 
+		User:inform("inserting "..ranklist[i])
 	end;
 
 	if #newRanklist ~= 0 then
 		local userInList, position = isUserInList(User, newRanklist);
+		debug("Number: "..#newRanklist)
+		debug("check this out: "..newRanklist[#newRanklist].name)
 		if tonumber(newRanklist[#newRanklist].points) > points and #newRanklist == maxEntries then
 			return;
 		else
