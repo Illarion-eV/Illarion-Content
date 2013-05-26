@@ -321,7 +321,8 @@ FRUITS_FLOWERS = {15,80,81,143,148,144,147,151,199,302}
 
 function fruitBomb(User, Item, targetArea)
 
-    local tries = 10+(2*math.floor(Item.quality/100))
+    local quality = math.floor(Item.quality/100)
+	local tries = 10+(2*quality)
     local theField
 	local thePos
 	for i=1,tries do
@@ -330,9 +331,12 @@ function fruitBomb(User, Item, targetArea)
 		theField = world:getField(thePos)
 		if theField:isPassable() and thePos~=Item.pos then
 		    world:createItemFromId(FRUITS_FLOWERS[math.random(#FRUITS_FLOWERS)],1,thePos,true,333,nil)
-		end
-        table.remove(targetArea,rnd)		
+		else
+			table.remove(targetArea,rnd)
+		end	
 	end
+	
+	scheduled.alchemy.bombExploded(targetArea,quality)
 end
 
 
