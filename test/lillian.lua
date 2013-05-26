@@ -9,6 +9,10 @@ module("test.lillian", package.seeall)
 function UseItem(User, SourceItem, ltstate)
 
 	User:inform("Used!")
+	
+	if(User.lastSpokenText == "del") then
+		ScriptVars:set("explorerRanklist", "")
+	end
 
 	if(User.lastSpokenText == "time") then
 		npc.base.repeatable_quests.checkIfTimesExpired(User, 1234, 0, 1, 0);
