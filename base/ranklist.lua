@@ -91,7 +91,7 @@ function setRanklist(User, listName, points)
 							break;
 						else
 							table.insert(newRanklist, i-1, {["name"] = User.name; ["points"] = points});
-							table.remove(newRanklist, #newRanklist));
+							table.remove(newRanklist, #newRanklist);
 							break;
 						end
 					else
