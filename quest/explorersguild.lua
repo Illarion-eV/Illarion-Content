@@ -87,7 +87,7 @@ function getReward(Char)
 	if reward[nrStones] ~= nil then
 		if table.getn(reward[nrStones]) == 1 then
 			Char:createItem(reward[nrStones][1][1],reward[nrStones][1][2],333,nil);
-			Char:inform("Du hast 2 Silberstücke erhalten, da du den ersten Markierungsstein entdeckt hast. Weiter so!", "You received 2 silver coins for discovering the first marker stone. Keep it up!");
+			Char:inform("Du hast 2 Silberstücke erhalten, da du den ersten Markierungsstein entdeckt hast. Weiter so!", "You have received two silver coins for discovering the first marker stone. Keep it up!");
 			Char:setQuestProgress(320,2)
 		else
 			rewardDialog(Char, nrStones)
@@ -97,7 +97,7 @@ end
 
 function rewardDialog(Char, nrStones)
 	local title = base.common.GetNLS(Char,"Entdeckergilde Belohnung","Explorerguild reward")
-	local text = base.common.GetNLS(Char,"Du hast "..nrStones.." Markierungssteine entdeckt, daher kannst du dir nun eine Belohnung aussuchen.", "You discovered "..nrStones.." marker stones, therefor you can pick a reward.")
+	local text = base.common.GetNLS(Char,"Du hast "..nrStones.." Markierungssteine entdeckt, daher kannst du dir nun eine Belohnung aussuchen.", "You discovered "..nrStones.." marker stones, therefore you can pick a reward.")
 	
 	local callback = function(dialog) 
 		local success = dialog:getSuccess() 
