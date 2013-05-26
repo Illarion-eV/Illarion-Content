@@ -100,8 +100,14 @@ function setRanklist(User, listName, points)
 						break;
 					end
 				else
-					if #ranklist < maxEntries then 
+					if not userInList then
+						if #ranklist < maxEntries then 
+							table.insert(ranklist, i+1, {["name"] = User.name; ["points"] = points});
+							break;
+						end
+					else
 						table.insert(ranklist, i+1, {["name"] = User.name; ["points"] = points});
+						table.remove(ranklist, position);
 						break;
 					end
 				end
