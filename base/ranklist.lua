@@ -124,7 +124,6 @@ function convertTo2dTable(list)
 	
 	for i=1, #list, 2 do 
 		table.insert(newTable, {["name"] = list[i]; ["points"] = list[i+1]}); 
-		User:inform("inserting "..list[i])
 	end;
 	return newTable;
 end
