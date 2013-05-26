@@ -69,7 +69,7 @@ function startAlchemyTest()
 
 end
 
-function bombExploded(theCenter, theTargetArea, theQuality)
+function bombExploded(theTargetArea, theQuality)
 
     local listPos
     if areaList == nil then
@@ -78,5 +78,5 @@ function bombExploded(theCenter, theTargetArea, theQuality)
 	else
         listPos=#areaList+1
     end
-	areaList[listPos] = {center=theCenter,targetArea=theTargetArea,counter=0,quality=theQuality}
+	areaList[listPos] = {targetArea=theTargetArea,counter=0,quality=theQuality}
 end
