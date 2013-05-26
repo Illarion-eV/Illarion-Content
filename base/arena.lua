@@ -39,7 +39,7 @@ monsterIDsByLevel = {
 	{monsters = {302, 631, 641, 911, 912}, points = 21}
 }
 
-arenaInformations = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801}, 
+arenaInformation = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Runewick", quest=802}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Galmair", quest=803}}
 					
@@ -57,8 +57,8 @@ function requestMonster(User, NPC)
 		local germanMoney, englishMoney;
 		
 		if paid then
-			if arenaInformations[arena].playerPos ~= nil then
-				User:warp(arenaInformations[arena].playerPos);
+			if arenaInformation[arena].playerPos ~= nil then
+				User:warp(arenaInformation[arena].playerPos);
 			end
 			--add the effect to keep track of the monster
 			arenaEffect=LongTimeEffect(18,1);
@@ -115,8 +115,8 @@ function spawnMonster(User, MonsterLevel, arena)
     end
 	
     local monster;
-	world:gfx(31,arenaInformations[arena].monsterPos);
-	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformations[arena].monsterPos,0);
+	world:gfx(31,arenaInformation[arena].monsterPos);
+	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformation[arena].monsterPos,0);
 	if isValidChar(monster) then
 		table.insert( arenaMonster[User.id], monster );
     end
@@ -161,8 +161,8 @@ function getRandomMonster(level)
 end
 
 function getArena(User, NPC)
-	for i=1, #(arenaInformations) do
-		if arenaInformations[i].npcName == NPC.name then
+	for i=1, #(arenaInformation) do
+		if arenaInformation[i].npcName == NPC.name then
 			return i;
 		else
 			return "";
@@ -182,7 +182,7 @@ end
 -- Returns the points of a present arena, which the player has earned so far
 function getArenastats(User, NPC)
 	local arena = getArena(User, NPC);
-	local quest = arenaInformations[arena].quest;
+	local quest = arenaInformation[arena].quest;
 	local points = User:getQuestProgress(quest);
 	
 	gText="Ihr habt bereits "..points.." gesammelt. Weiter so!";
@@ -192,7 +192,7 @@ function getArenastats(User, NPC)
 end
 
 function setArenastats(User, arena, points)
-	local quest = arenaInformations[arena].quest;
+	local quest = arenaInformation[arena].quest;
 	local oldPoints = User:getQuestProgress(quest);
 	
 	points = points + oldPoints;
