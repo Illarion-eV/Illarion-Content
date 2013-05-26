@@ -133,6 +133,7 @@ function convertToOneTable(list)
 	local joinedTable = {}
 
 	for i=1, #list do 
+		debug("List: "..i.." "..list[i].name.." "..list[i].points)
 		table.insert(joinedTable, list[i].name); 
 		table.insert(joinedTable, list[i].points); 
 	end;
