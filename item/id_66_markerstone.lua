@@ -8,6 +8,7 @@ require("base.ranklist")
 module("item.id_66_markerstone", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
+debug ("in use markerstone")
 	local stonedata=SourceItem:getData("markerstone");
 	if (tonumber(stonedata)~=0) then
 		if not quest.explorersguild.CheckStone(User,tonumber(stonedata)) then
@@ -20,9 +21,11 @@ function UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
 		end
 		User:inform(DisplayText);
     end
+debug ("after use markerstone")
 end
 
 function LookAtItem(User,Item)
+debug ("in lookat markerstone")
 	local stonedata=Item:getData("markerstone");
 	if (tonumber(stonedata)~=0) then
 		if not quest.explorersguild.CheckStone(User,tonumber(stonedata)) then
@@ -31,5 +34,6 @@ function LookAtItem(User,Item)
 			base.lookat.SetSpecialDescription( Item, "Du hast diesen Markierungsstein der Abenteurer Gilde bereits früher gefunden; er trägt die Nummer "..stonedata,"You have already found that marker stone of the Explorers' Guild earlier; it has the number "..stonedata);
 		end
     end
+	debug ("after lookat markerstone")
 	world:itemInform(User,Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE) );    
 end

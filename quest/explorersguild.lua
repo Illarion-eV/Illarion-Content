@@ -35,10 +35,12 @@ debug("In Checkstones")
 	--Char:inform("HasStones: "..HasStones);
 	--Char:inform("thisstone: "..2^(StoneBaseOffset));
     GotStone=LuaAnd(2^(StoneBaseOffset),HasStones);
+	debug("In Checkstones, after calculation")
 	--Char:inform("GotStone: "..GotStone);
     if GotStone>0 then
         retVal=true;
     end
+	debug("after checkstones")
     return retVal;
 end
 
@@ -49,11 +51,13 @@ function CountStones(Char)
     StoneEnd=149;
     for i=StoneBase,StoneEnd do
         stones=QuestprogressToStones(Char:getQuestProgress(i));
+		debug("In Countstones, questid "..i.." and stones "..stones)
         while stones~=0 do
             nrStones=nrStones+math.mod(stones,2);
             stones=math.floor(stones/2);
         end
     end
+	debug("after Countstones")
     return nrStones
 end
 
@@ -68,7 +72,7 @@ debug("In Writestone")
     --Char:inform("currently: "..currentStones);
 	Char:setQuestProgress(StoneBase,StoneToQuestprogress(LuaOr(2^StoneBaseOffset,currentStones)));
 	--Char:inform("new: "..(2^StoneBaseOffset).." in total: "..(LuaOr(2^StoneBaseOffset,currentStones)-2^31));
-	
+	debug("after writestones")
 	--Char:inform("CHeck: "..CheckStone(Char,StoneNumber));
 end
 
@@ -97,6 +101,7 @@ debug("In getreward")
 			rewardDialog(Char, nrStones)
 		end
 	end
+	debug("after getreward")
 end
 
 function rewardDialog(Char, nrStones)
