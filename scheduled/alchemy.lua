@@ -1,4 +1,4 @@
-
+require("base.common")
 module("scheduled.alchemy", package.seeall)
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.alchemy', 5, 5, 'startAlchemy');
@@ -70,8 +70,10 @@ function startAlchemyTest()
 end
 
 function bombExploded(theTargetArea, theQuality)
-
-    local listPos
+    local jupiter = base.common.CheckIfOnline("Jupiter")
+	if jupiter then jupiter:inform("test1") end
+    
+	local listPos
     if areaList == nil then
 	    areaList = {}
 		listPos = 1
