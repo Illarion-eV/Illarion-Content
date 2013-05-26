@@ -109,6 +109,7 @@ function setRanklist(User, listName, points)
 			
 			joinedRanklist = convertToOneTable(ranklist)
 			
+			
 			local stringList = base.common.join(joinedRanklist, ";");
 			debug("String after join:" ..stringList)
 			ScriptVars:set(listName, stringList)
@@ -135,6 +136,7 @@ function convertToOneTable(list)
 		table.insert(joinedTable, list[i].name); 
 		table.insert(joinedTable, list[i].points); 
 	end;
+	debug("JoinedTable "..joinedTable[1])
 	
 	return joinedTable;
 end

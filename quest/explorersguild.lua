@@ -24,7 +24,6 @@ function QuestprogressToStones(qpg)
 end
 
 function CheckStone(Char,StoneNumber)
-debug("In Checkstones")
     -- Char:inform("*** CHECK ***");
 	retVal=false;
     StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
@@ -35,18 +34,14 @@ debug("In Checkstones")
 	--Char:inform("HasStones: "..HasStones);
 	--Char:inform("thisstone: "..2^(StoneBaseOffset));
     GotStone=LuaAnd(2^(StoneBaseOffset),HasStones);
-	debug("In Checkstones, after calculation")
 	--Char:inform("GotStone: "..GotStone);
     if GotStone>0 then
-		debug("RETURNING TRUE FROM CHECKSTONE")
         retVal=true;
     end
-	debug("after checkstones")
     return retVal;
 end
 
 function CountStones(Char)
-	debug("In Countstones")
     nrStones=0;
     StoneBase=130;
     StoneEnd=149;
@@ -58,12 +53,10 @@ function CountStones(Char)
             stones=math.floor(stones/2);
         end
     end
-	debug("after Countstones")
     return nrStones
 end
 
 function WriteStone(Char,StoneNumber)
-debug("In Writestone")
     StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
 	--Char:inform("Base: "..StoneBase);
     StoneBaseOffset=math.mod(StoneNumber-1,32);  -- StoneNr inside range
@@ -73,7 +66,6 @@ debug("In Writestone")
     --Char:inform("currently: "..currentStones);
 	Char:setQuestProgress(StoneBase,StoneToQuestprogress(LuaOr(2^StoneBaseOffset,currentStones)));
 	--Char:inform("new: "..(2^StoneBaseOffset).." in total: "..(LuaOr(2^StoneBaseOffset,currentStones)-2^31));
-	debug("after writestones")
 	--Char:inform("CHeck: "..CheckStone(Char,StoneNumber));
 end
 
@@ -91,7 +83,6 @@ reward[500] = {{61,5},{2551,10},{2552,10},{2553,10},{2554,10}} -- items worth 5 
 reward[750] = {{61,8},{2367,1},{2693,1},{2662,1},{559,10}} -- items worth 8 gold coins
 
 function getReward(Char)
-debug("In getreward")
 	local nrStones = CountStones(Char)
 	if reward[nrStones] ~= nil then
 		if table.getn(reward[nrStones]) == 1 then
@@ -102,11 +93,9 @@ debug("In getreward")
 			rewardDialog(Char, nrStones)
 		end
 	end
-	debug("after getreward")
 end
 
 function rewardDialog(Char, nrStones)
-debug("In rewarddialog")
 	local title = base.common.GetNLS(Char,"Entdeckergilde Belohnung","Explorerguild reward")
 	local text = base.common.GetNLS(Char,"Du hast "..nrStones.." Markierungssteine entdeckt, daher kannst du dir nun eine Belohnung aussuchen.", "You discovered "..nrStones.." marker stones, therefore you can pick a reward.")
 	
