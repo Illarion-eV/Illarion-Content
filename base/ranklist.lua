@@ -92,9 +92,9 @@ function setRanklist(User, listName, points)
 			
 			table.sort(ranklist, compare)
 			
-			--while #ranklist > maxEntries do
-			--	table.remove(ranklist, #ranklist);
-			--end
+			while #ranklist > maxEntries do
+				table.remove(ranklist);
+			end
 			
 			joinedRanklist = convertToOneTable(ranklist)
 			
