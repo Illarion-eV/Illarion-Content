@@ -51,7 +51,7 @@ function CountStones(Char)
     StoneEnd=149;
     for i=StoneBase,StoneEnd do
         stones=QuestprogressToStones(Char:getQuestProgress(i));
-		debug("In Countstones, questid "..i.." and stones "..stones)
+		--debug("In Countstones, questid "..i.." and stones "..stones)
         while stones~=0 do
             nrStones=nrStones+math.mod(stones,2);
             stones=math.floor(stones/2);

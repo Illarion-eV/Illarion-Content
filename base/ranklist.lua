@@ -118,7 +118,9 @@ end
 
 function isUserInList(User, ranklist)
 	for i=1, #(ranklist), 2 do
+	debug("testing name ".. User.name.." against "..ranklist[i])
 		if ranklist[i] == User.name then
+		debug("FOUND A MATCH")
 			return true, i;
 		end
 	end	
