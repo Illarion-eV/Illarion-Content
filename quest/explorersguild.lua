@@ -8,7 +8,7 @@ require("base.common")
 module("quest.explorersguild", package.seeall)
 
 function StoneToQuestprogress(StoneNumber)
-	if StoneNumber<=2^31
+	if StoneNumber<=2^31 then
 		return StoneNumber
 	else
 		return 2^31-StoneNumber
