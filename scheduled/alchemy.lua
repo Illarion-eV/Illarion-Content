@@ -31,8 +31,12 @@ end
 
 function startAlchemyTest()
 
+    local jupiter = base.common.CheckIfOnline("Jupiter")
+	if jupiter then jupiter:inform("test2") end
+	
     if areaList == nil then
-	    return
+	    if jupiter then jupiter:inform("areaList is nil") end
+		return
 	end
 
 	for i=1,#areaList do
@@ -41,25 +45,25 @@ function startAlchemyTest()
 		    
 			if math.floor(areaList[i].counter/2) == areaList[i].counter/2 then
 			    
-			end	
-			 
-			local rnd = math.random(#areaList[i].targetArea)
-			thePos = areaList[i].targetArea[rnd]
-			theField = world:getField(thePos)
-			if theField:isPassable() then
-				local insects 
-				if math.random(2)==2 then
-				    insects = "wasps"
+			    local rnd = math.random(#areaList[i].targetArea)
+				thePos = areaList[i].targetArea[rnd]
+				theField = world:getField(thePos)
+				if theField:isPassable() then
+					local insects 
+					if math.random(2)==2 then
+						insects = "wasps"
+					else
+						insects = "beetles"
+					end
+					local monster = world:createMonster(INSECTS[insects]["id"][math.random(#INSECTS[insects]["id"])],thePos,-10);
 				else
-				    insects = "beetles"
-				end
-				local monster = world:createMonster(INSECTS[insects]["id"][math.random(#INSECTS[insects]["id"])],thePos,-10);
-			else
-				table.remove(areaList[i].targetArea,rnd)
-			end	
-			
-			if counter == (areaList[i].quality*2)+2 then
-			    areaList[i] = nil 
+					table.remove(areaList[i].targetArea,rnd)
+				end	
+				
+				if counter == (areaList[i].quality*2)+2 then
+					areaList[i] = nil 
+				end	
+				
 			end	
 			
 	    end
