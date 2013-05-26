@@ -7,17 +7,17 @@ require("base.common")
 module("quest.explorersguild", package.seeall)
 
 function CheckStone(Char,StoneNumber)
-    Char:inform("*** CHECK ***");
+    -- Char:inform("*** CHECK ***");
 	retVal=false;
     StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
-	Char:inform("Stonebase: "..StoneBase);
+	--Char:inform("Stonebase: "..StoneBase);
     StoneBaseOffset=math.mod(StoneNumber-1,32);  -- StoneNr inside range
-	Char:inform("Offset: "..StoneBaseOffset);
+	--Char:inform("Offset: "..StoneBaseOffset);
     HasStones=Char:getQuestProgress(StoneBase)+2^31;
-	Char:inform("HasStones: "..HasStones);
-	Char:inform("thisstone: "..2^(StoneBaseOffset));
+	--Char:inform("HasStones: "..HasStones);
+	--Char:inform("thisstone: "..2^(StoneBaseOffset));
     GotStone=LuaAnd(2^(StoneBaseOffset),HasStones);
-	Char:inform("GotStone: "..GotStone);
+	--Char:inform("GotStone: "..GotStone);
     if GotStone>0 then
         retVal=true;
     end
@@ -39,17 +39,17 @@ function CountStones(Char)
 end
 
 function WriteStone(Char,StoneNumber)
-    StoneBase=130+math.floor(StoneNumber/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
-	Char:inform("Base: "..StoneBase);
-    StoneBaseOffset=math.mod(StoneNumber,32);  -- StoneNr inside range
-    Char:inform("Offset: "..StoneBaseOffset);
+    StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
+	--Char:inform("Base: "..StoneBase);
+    StoneBaseOffset=math.mod(StoneNumber-1,32);  -- StoneNr inside range
+    --Char:inform("Offset: "..StoneBaseOffset);
 	--Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
     currentStones=Char:getQuestProgress(StoneBase)+2^31;
-    Char:inform("currently: "..currentStones);
+    --Char:inform("currently: "..currentStones);
 	Char:setQuestProgress(StoneBase,LuaOr(2^StoneBaseOffset,currentStones)-2^31);
-	Char:inform("new: "..(2^StoneBaseOffset).." in total: "..(LuaOr(2^StoneBaseOffset,currentStones)-2^31));
+	--Char:inform("new: "..(2^StoneBaseOffset).." in total: "..(LuaOr(2^StoneBaseOffset,currentStones)-2^31));
 	
-	Char:inform("CHeck: "..CheckStone(Char,StoneNumber));
+	--Char:inform("CHeck: "..CheckStone(Char,StoneNumber));
 end
 
 -- reward[x] = {y,z} - x = stones to have collected, y = item id , z= amount of y
