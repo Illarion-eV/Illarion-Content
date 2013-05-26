@@ -336,7 +336,7 @@ function fruitBomb(User, Item, targetArea)
 		end	
 	end
 	
-	scheduled.alchemy.bombExploded(Item.pos,targetArea,quality)
+	scheduled.alchemy.bombExploded(targetArea,quality)
 end
 
 
