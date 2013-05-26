@@ -78,7 +78,7 @@ function setRanklist(User, listName, points)
 		table.insert(newRanklist, {["name"] = ranklist[i]; ["points"] = ranklist[i+1]}); 
 	end;
 
-	if newRanklist ~= nil then
+	if #newRanklist ~= 0 then
 		local userInList, position = isUserInList(User, newRanklist);
 		if tonumber(newRanklist[#newRanklist].points) > points and #newRanklist == maxEntries then
 			return;
