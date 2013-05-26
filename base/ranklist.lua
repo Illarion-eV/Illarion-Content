@@ -76,6 +76,9 @@ function setRanklist(User, listName, points)
 	
 	for i=1, #ranklist, 2 do 
 		table.insert(newRanklist, {["name"] = ranklist[i]; ["points"] = ranklist[i+1]}); 
+		if ranklist[i+1]==nil then
+			debug ("RANKLIST NIL! name= "..ranklist[i])
+		end
 	end;
 
 	if newRanklist ~= nil then
