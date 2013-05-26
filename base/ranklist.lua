@@ -117,8 +117,9 @@ function setRanklist(User, listName, points)
 				table.insert(joinedRanklist, newRanklist[i].name); 
 			end;
 			
-			
+
 			local stringList = base.common.join(joinedRanklist, ";");
+			debug("String after join:" ..stringList)
 			ScriptVars:set(listName, stringList)
 		end
 	else
