@@ -83,6 +83,7 @@ function setRanklist(User, listName, points)
 
 	if newRanklist ~= nil then
 		local userInList, position = isUserInList(User, newRanklist);
+		debug("Number: "..#newRanklist)
 		debug("check this out: "..newRanklist[#newRanklist].name)
 		if tonumber(newRanklist[#newRanklist].points) > points and #newRanklist == maxEntries then
 			return;
