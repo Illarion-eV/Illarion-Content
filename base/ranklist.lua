@@ -89,7 +89,7 @@ function setRanklist(User, listName, points)
 			return;
 		else
 			for i=1, #newRanklist do
-				if tonumber(newRanklist[i]).points < points then
+				if tonumber(newRanklist[i].points) < points then
 					if not userInList then
 						if #newRanklist < maxEntries then 
 							table.insert(newRanklist, i-1, {["name"] = User.name; ["points"] = points});
