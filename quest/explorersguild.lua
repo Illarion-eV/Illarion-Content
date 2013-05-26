@@ -7,7 +7,7 @@ require("base.common")
 module("quest.explorersguild", package.seeall)
 
 function CheckStone(Char,StoneNumber)
-    Char:inform("*** CHECK ***");
+    -- Char:inform("*** CHECK ***");
 	retVal=false;
     StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
 	--Char:inform("Stonebase: "..StoneBase);
