@@ -109,7 +109,6 @@ function setRanklist(User, listName, points)
 			
 			joinedRanklist = convertToOneTable(ranklist)
 			
-			
 			local stringList = base.common.join(joinedRanklist, ";");
 			debug("String after join:" ..stringList)
 			ScriptVars:set(listName, stringList)
@@ -131,6 +130,8 @@ end
 
 function convertToOneTable(list)
 	local joinedTable = {}
+	
+	debug("lenght of list: "..#list)
 
 	for i=1, #list do 
 		debug("List: "..i.." "..list[i].name.." "..list[i].points)
