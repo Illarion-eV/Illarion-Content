@@ -86,6 +86,7 @@ reward[500] = {{61,5},{2551,10},{2552,10},{2553,10},{2554,10}} -- items worth 5 
 reward[750] = {{61,8},{2367,1},{2693,1},{2662,1},{559,10}} -- items worth 8 gold coins
 
 function getReward(Char)
+debug("In getreward")
 	local nrStones = CountStones(Char)
 	if reward[nrStones] ~= nil then
 		if table.getn(reward[nrStones]) == 1 then
@@ -99,6 +100,7 @@ function getReward(Char)
 end
 
 function rewardDialog(Char, nrStones)
+debug("In rewarddialog")
 	local title = base.common.GetNLS(Char,"Entdeckergilde Belohnung","Explorerguild reward")
 	local text = base.common.GetNLS(Char,"Du hast "..nrStones.." Markierungssteine entdeckt, daher kannst du dir nun eine Belohnung aussuchen.", "You discovered "..nrStones.." marker stones, therefore you can pick a reward.")
 	
