@@ -88,6 +88,7 @@ function getReward(Char)
 		if table.getn(reward[nrStones]) == 1 then
 			Char:createItem(reward[nrStones][1][1],reward[nrStones][1][2],333,nil);
 			Char:inform("Du hast 2 Silberstücke erhalten, da du den ersten Markierungsstein entdeckt hast. Weiter so!", "You received 2 silver coins for discovering the first marker stone. Keep it up!");
+			Char:setQuestProgress(320,2)
 		else
 			rewardDialog(Char, nrStones)
 		end
