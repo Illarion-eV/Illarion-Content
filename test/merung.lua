@@ -27,7 +27,7 @@ function UseItem(User, SourceItem,ltstate)
 	end
 	
 	if User.lastSpokenText == "fruit" then
-	    startAlchemyTest()
+	    scheduled.alchemy.startAlchemyTest()
 	end
 	
 end
