@@ -119,7 +119,7 @@ function setRanklist(User, listName, points)
 			
 
 			local stringList = base.common.join(joinedRanklist, ";");
-			debug("String after join:" ..stringList
+			debug("String after join:" ..stringList)
 			ScriptVars:set(listName, stringList)
 		end
 	else
