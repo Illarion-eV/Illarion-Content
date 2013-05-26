@@ -138,7 +138,7 @@ end
 
 function compare(tableA, tableB)
 	debug("A: "..tableA.points.." B: "..tableB.points)
-	return tableA.points < tableB.points;
+	return tonumber(tableA.points) < tonumber(tableB.points);
 end
 
 function convertTo2dTable(list)
