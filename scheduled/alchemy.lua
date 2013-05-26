@@ -58,7 +58,7 @@ function startAlchemyTest()
 				table.remove(areaList[i].targetArea,rnd)
 			end	
 			
-			if counter == (areaList[i].quality*2)+2
+			if counter == (areaList[i].quality*2)+2 then
 			    areaList[i] = nil 
 			end	
 			
