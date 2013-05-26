@@ -24,6 +24,7 @@ function QuestprogressToStones(qpg)
 end
 
 function CheckStone(Char,StoneNumber)
+debug("In Checkstones")
     -- Char:inform("*** CHECK ***");
 	retVal=false;
     StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
@@ -42,6 +43,7 @@ function CheckStone(Char,StoneNumber)
 end
 
 function CountStones(Char)
+	debug("In Countstones")
     nrStones=0;
     StoneBase=130;
     StoneEnd=149;
@@ -56,6 +58,7 @@ function CountStones(Char)
 end
 
 function WriteStone(Char,StoneNumber)
+debug("In Writestone")
     StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
 	--Char:inform("Base: "..StoneBase);
     StoneBaseOffset=math.mod(StoneNumber-1,32);  -- StoneNr inside range
