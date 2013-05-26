@@ -39,9 +39,9 @@ function CountStones(Char)
 end
 
 function WriteStone(Char,StoneNumber)
-    StoneBase=130+math.floor(StoneNumber/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
+    StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
 	Char:inform("Base: "..StoneBase);
-    StoneBaseOffset=math.mod(StoneNumber,32);  -- StoneNr inside range
+    StoneBaseOffset=math.mod(StoneNumber-1,32);  -- StoneNr inside range
     Char:inform("Offset: "..StoneBaseOffset);
 	--Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
     currentStones=Char:getQuestProgress(StoneBase)+2^31;
