@@ -83,7 +83,7 @@ function setRanklist(User, listName, points)
 		if tonumber(ranklist[#ranklist].points) > points and #ranklist == maxEntries then
 			return;
 		else
-			for i=1, #ranklist do
+			--[[for i=1, #ranklist do
 				if tonumber(ranklist[i].points) < points then
 					if not userInList then
 						if #ranklist < maxEntries then 
@@ -100,17 +100,28 @@ function setRanklist(User, listName, points)
 						break;
 					end
 				else
-					if not userInList then
-						if #ranklist < maxEntries then 
+					if #ranklist < maxEntries then 
+						if not userInList then
 							table.insert(ranklist, i+1, {["name"] = User.name; ["points"] = points});
 							break;
-						end
-					else
-						table.insert(ranklist, i+1, {["name"] = User.name; ["points"] = points});
-						table.remove(ranklist, position);
+						else
+							table.insert(ranklist, i+1, {["name"] = User.name; ["points"] = points});
+							table.remove(ranklist, position);
 						break;
 					end
 				end
+			end]]
+			if not userInList then
+				table.insert(ranklist, {["name"] = User.name; ["points"] = points});
+			else
+				table.remove(ranklist, position);
+				table.insert(ranklist, {["name"] = User.name; ["points"] = points});
+			end
+			
+			table.sort(ranklist, compare)
+			
+			while #ranklist > 5 do
+				table.remove(ranklist, #ranklist);
 			end
 			
 			joinedRanklist = convertToOneTable(ranklist)
@@ -123,6 +134,10 @@ function setRanklist(User, listName, points)
 		local stringList = User.name..";"..points
 		ScriptVars:set(listName, stringList)
 	end
+end
+
+function compare(tableA, tableB)
+	return tableA.points < tableB.points;
 end
 
 function convertTo2dTable(list)
