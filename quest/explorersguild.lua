@@ -1,10 +1,27 @@
 
 -- This module holds the core functions for the explorers guild.
 -- The questIDs start at 130 and go to 150.
--- Written by Martin
+-- Written by Martin and Lillian
+
 require("base.common")
 
 module("quest.explorersguild", package.seeall)
+
+function StoneToQuestprogress(StoneNumber)
+	if StoneNumber<=2^31
+		return StoneNumber
+	else
+		return 2^31-StoneNumber
+	end
+end
+
+function QuestprogressToStones(qpg)
+	if qpg<0 then
+		return 2^31-qpg
+	else
+		return qpg
+	end
+end
 
 function CheckStone(Char,StoneNumber)
     -- Char:inform("*** CHECK ***");
@@ -13,7 +30,7 @@ function CheckStone(Char,StoneNumber)
 	--Char:inform("Stonebase: "..StoneBase);
     StoneBaseOffset=math.mod(StoneNumber-1,32);  -- StoneNr inside range
 	--Char:inform("Offset: "..StoneBaseOffset);
-    HasStones=Char:getQuestProgress(StoneBase)+2^31;
+    HasStones=QuestprogressToStones(Char:getQuestProgress(StoneBase));
 	--Char:inform("HasStones: "..HasStones);
 	--Char:inform("thisstone: "..2^(StoneBaseOffset));
     GotStone=LuaAnd(2^(StoneBaseOffset),HasStones);
@@ -29,7 +46,7 @@ function CountStones(Char)
     StoneBase=130;
     StoneEnd=149;
     for i=StoneBase,StoneEnd do
-        stones=Char:getQuestProgress(i)+2^31;
+        stones=QuestprogressToStones(Char:getQuestProgress(i));
         while stones~=0 do
             nrStones=nrStones+math.mod(stones,2);
             stones=math.floor(stones/2);
@@ -44,9 +61,9 @@ function WriteStone(Char,StoneNumber)
     StoneBaseOffset=math.mod(StoneNumber-1,32);  -- StoneNr inside range
     --Char:inform("Offset: "..StoneBaseOffset);
 	--Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
-    currentStones=Char:getQuestProgress(StoneBase)+2^31;
+    currentStones=QuestprogressToStones(Char:getQuestProgress(StoneBase));
     --Char:inform("currently: "..currentStones);
-	Char:setQuestProgress(StoneBase,LuaOr(2^StoneBaseOffset,currentStones)-2^31);
+	Char:setQuestProgress(StoneBase,StoneToQuestprogress(LuaOr(2^StoneBaseOffset,currentStones)));
 	--Char:inform("new: "..(2^StoneBaseOffset).." in total: "..(LuaOr(2^StoneBaseOffset,currentStones)-2^31));
 	
 	--Char:inform("CHeck: "..CheckStone(Char,StoneNumber));
