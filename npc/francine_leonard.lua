@@ -327,7 +327,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(258, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(312, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(714, "=", 3));
-talkEntry:addResponse("You want another task? Alright, thresh the bundles of grain using this flail I give you, to produce grain. Once you have done that, make five sacks of flour using the wooden shovel I give you at the millstone over there left of me. Then return and show me the result.");
+talkEntry:addResponse("You want another task? Alright, thresh the bundles of grain using this flail I give you, to produce grain. Once you have done that, make five sacks of flour using the wooden shovel I give you at the millstone over there to the left of me. Then return and show me the result.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -352,7 +352,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(258, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(312, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(714, "=", 3));
-talkEntry:addResponse("You want another task? Alright, thresh the bundles of grain using this flail I give you, to produce grain. Once you have done that, make five sacks of flour using the wooden shovel I give you at the millstone over there left of me. Then return and show me the result.");
+talkEntry:addResponse("You want another task? Alright, thresh the bundles of grain using this flail I give you, to produce grain. Once you have done that, make five sacks of flour using the wooden shovel I give you at the millstone over there to the left of me. Then return and show me the result.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -575,7 +575,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(307, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(63, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(227, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(714, "=", 7));
-talkEntry:addResponse("Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and entrails if you kill pigs. Once you have that you will need a cooking spoon and a kettle like this one over there to cook at. I'll give you five pieces of pork, five lengths of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done.");
+talkEntry:addResponse("Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and entrails if you kill pigs. Once you have that you will need a cooking spoon and a kettle like the one over there to cook at. I'll give you five pieces of pork, five lengths of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -602,7 +602,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(307, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(63, 5, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(227, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(714, "=", 7));
-talkEntry:addResponse("Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and entrails if you kill pigs. Once you have that you will need a cooking spoon and a kettle like this one over there to cook at. I'll give you five pieces of pork, five lengths of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done.");
+talkEntry:addResponse("Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and entrails if you kill pigs. Once you have that you will need a cooking spoon and a kettle like the one over there to cook at. I'll give you five pieces of pork, five lengths of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

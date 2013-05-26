@@ -22,7 +22,7 @@ function getRanklist(User, listName, showMessage)
 
 	found, listEntryString = ScriptVars:find(listName); -- get the top 5
 	if found then
-		listEntryTable = sortTable(base.common.split(listEntryString, ";"));
+		listEntryTable = base.common.split(listEntryString, ";");
 	elseif not found and showMessage then
 		User:inform(base.common.GetNLS(User, "Die Liste ist leer.","The list is empty."));
 		return {};
@@ -46,7 +46,7 @@ function getRanklist(User, listName, showMessage)
 					list = list.."Platz "..place.." : "..listEntryTable[i].." mit "..listEntryTable[i+1].." Punkten.\n";
 					place = place +1;
 				end
-				mdList = MessageDialog("Top FÃ¼nf", list, nil);			
+				mdList = MessageDialog("Top Fünf", list, nil);			
 			else
 				list = "Place 1: "..listEntryTable[1].." with "..listEntryTable[2].." points.\n";
 				for i=3, #(listEntryTable),2 do
@@ -64,82 +64,76 @@ function getRanklist(User, listName, showMessage)
 	end
 end
 
-
+maxEntries = 5
 --[[
 Saves the points of the player and if he reached the 
 top five, also saves the new top five.
 ]]
 function setRanklist(User, listName, points) 
 	local ranklist = getRanklist(User, listName, false)
-	local newRanklist = {};
+	local newRanklist = {}
+	local joinedRanklist = {}
+	
+	User:inform("ranklist nr: "..#ranklist)
+	for i=1, #ranklist, 2 do 
+		table.insert(newRanklist, {["name"] = ranklist[i]; ["points"] = ranklist[i+1]}); 
+		User:inform("inserting "..ranklist[i])
+	end;
 
-	if tonumber(ranklist[table.getn(ranklist)]) ~= nil then
-		local userInList, position = isUserInList(User, ranklist);
-		if tonumber(ranklist[table.getn(ranklist)]) > points and table.getn(ranklist) == 5 then
+	if #newRanklist ~= 0 then
+		local userInList, position = isUserInList(User, newRanklist);
+		debug("Number: "..#newRanklist)
+		debug("check this out: "..newRanklist[#newRanklist].name)
+		debug("check this out - points: "..newRanklist[#newRanklist].points)
+		if tonumber(newRanklist[#newRanklist].points) > points and #newRanklist == maxEntries then
 			return;
 		else
-			for i=2, #(ranklist), 2 do
-				if tonumber(ranklist[i]) < points then
+			for i=1, #newRanklist do
+				if tonumber(newRanklist[i].points) < points then
 					if not userInList then
-						if table.getn(ranklist) <= 5 then 
-							table.insert(ranklist, i-1, points);
-							table.insert(ranklist, i-1, User.name);
+						if #newRanklist < maxEntries then 
+							table.insert(newRanklist, i-1, {["name"] = User.name; ["points"] = points});
 							break;
 						else
-							table.insert(ranklist, i-1, points);
-							table.insert(ranklist, i-1, User.name);
-							table.remove(ranklist, table.getn(ranklist));
-							table.remove(ranklist, table.getn(ranklist));
+							table.insert(newRanklist, i-1, {["name"] = User.name; ["points"] = points});
+							table.remove(newRanklist, #newRanklist);
 							break;
 						end
 					else
-						table.remove(ranklist, position);
-						table.remove(ranklist, position);
-						table.insert(ranklist, i-1, points);
-						table.insert(ranklist, i-1, User.name);
+						table.insert(newRanklist, i-1, {["name"] = User.name; ["points"] = points});
+						table.remove(newRanklist, position);
 						break;
 					end
 				else
-					if table.getn(ranklist) <= 5 then 
-						table.insert(ranklist, i+1, points);
-						table.insert(ranklist, i+1, User.name);
+					if #newRanklist < maxEntries then 
+						table.insert(newRanklist, i+1, {["name"] = User.name; ["points"] = points});
 						break;
 					end
 				end
 			end
-			stringList = base.common.join(ranklist, ";");
+			
+			for i=1, #newRanklist do 
+				table.insert(joinedRanklist, newRanklist[i].points); 
+				table.insert(joinedRanklist, newRanklist[i].name); 
+			end;
+			
+			
+			local stringList = base.common.join(joinedRanklist, ";");
 			ScriptVars:set(listName, stringList)
 		end
 	else
-		stringList = User.name..";"..points
+		local stringList = User.name..";"..points
 		ScriptVars:set(listName, stringList)
 	end
 end
 
 function isUserInList(User, ranklist)
-	for i=1, #(ranklist), 2 do
-		if ranklist[i] == User.name then
+	for i=1, #ranklist do
+		if ranklist[i].name == User.name then
+			debug("found "..User.name.." on position"..i);
 			return true, i;
 		end
 	end	
+	debug(User.name.." not found")
 	return false, 0;
-end
-
---Sorts a table deceanding by the value of every second entry
-function sortTable(inputTable)
-	local numberTable = {}
-	local sortedTable = {}
-	for i=2, #(inputTable), 2 do
-		table.insert(numberTable, inputTable[i]);
-	end	
-	table.sort(numberTable);
-	for i= 1, #(numberTable) do
-		for j=2, #(inputTable), 2 do
-			if inputTable[j] == numberTable[i] then
-				table.insert(sortedTable, 1, inputTable[j]);
-				table.insert(sortedTable, 1, inputTable[j-1]);
-			end
-		end
-	end
-	return sortedTable;
 end
