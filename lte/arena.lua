@@ -50,14 +50,14 @@ function callEffect(arenaEffect, User)
         "Ihr habt Euren Gegner geschlagen und Punkte verdient.",
         "You defeated your enemy and gained points for it.");
 		base.arena.setArenastats(User, arena, base.arena.monsterIDsByLevel[level].points);
-		local quest = base.arena.arenaInformations[arena].quest;
-		local town = base.arena.arenaInformations[arena].town;
+		local quest = base.arena.arenaInformation[arena].quest;
+		local town = base.arena.arenaInformation[arena].town;
 		local arenaListName = "ArenaList"..town;
 		local points = User:getQuestProgress(quest);
 		base.ranklist.setRanklist(User, arenaListName, points);
 		
-		if base.arena.arenaInformations[arena].newPlayerPos ~= nil then
-			User:warp(base.arena.arenaInformations[arena].newPlayerPos);
+		if base.arena.arenaInformation[arena].newPlayerPos ~= nil then
+			User:warp(base.arena.arenaInformation[arena].newPlayerPos);
 		end
         return false;
     end
