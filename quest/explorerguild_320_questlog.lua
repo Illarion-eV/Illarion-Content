@@ -11,7 +11,7 @@ ENGLISH = Player.english
 -- Insert the quest title here, in both languages
 Title = {}
 Title[GERMAN] = "Abenteurergilde"
-Title[ENGLISH] = "Explorers Guild"
+Title[ENGLISH] = "Explorers' Guild"
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
@@ -26,7 +26,7 @@ end
 
 function QuestDescription(user, status)
     local german = "Du hast bereits "..quest.explorersguild.CountStones(user).." Markierungssteine der Abenteurergilde gefunden. Weiter so!"
-    local english = "You have already found "..quest.explorersguild.CountStones(user).." marker stones of the Explorers Guild. Keep it up!"
+    local english = "You have already found "..quest.explorersguild.CountStones(user).." marker stones of the Explorers' Guild. Keep it up!"
 
     return base.common.GetNLS(user, german, english)
 end
