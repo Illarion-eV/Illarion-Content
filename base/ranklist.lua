@@ -84,6 +84,7 @@ function setRanklist(User, listName, points)
 		local userInList, position = isUserInList(User, newRanklist);
 		debug("Number: "..#newRanklist)
 		debug("check this out: "..newRanklist[#newRanklist].name)
+		debug("check this out - points: "..newRanklist[#newRanklist].points)
 		if tonumber(newRanklist[#newRanklist].points) > points and #newRanklist == maxEntries then
 			return;
 		else
