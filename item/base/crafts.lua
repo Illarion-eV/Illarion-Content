@@ -480,7 +480,7 @@ function Craft:checkMaterial(user, productId)
         local ingredient = product.ingredients[i]
 		local available;
 		
-		if ingredient.data ~= "" then
+		if ingredient.data[1] ~= nil then
 			debug("in with data")
 			available = user:countItemAt("all", ingredient.item, ingredient.data)
 			debug("available "..available);
