@@ -1194,13 +1194,14 @@ end
 Joins a table with a given pattern into a string.
 
 Usage: result = join({"Hans", "Dampf"},";") -> result = "Hans;Dampf"
+
+Deprecated Function.
+Use table.concat instead. 
+> table.concat({"foo", "bar"}, ";") -> "foo;bar"
 ]]
 function join(joinTable, pattern)
-	local joinString = joinTable[1];
-	for i=2, #(joinTable) do
-		joinString = joinString..pattern..joinTable[i];
-	end	
-	return joinString;
+	debug("DEPRECATED! Use table.concat instead");
+	return table.concat(joinTable, pattern);
 end
 
 --[[
