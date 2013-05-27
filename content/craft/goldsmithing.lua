@@ -184,7 +184,7 @@ catId = goldsmithing:addCategory("weapons", "Waffen")
 
 --Gilded Longsword
 product = goldsmithing:addProduct(catId, 84, 43, 63, 80, 160)
-product:addIngredient(2701,1, {craftedBy="Someone"}) -- Longsword: 1x1
+product:addIngredient(2701) -- Longsword: 1x1
 product:addIngredient(236, 2) -- Gold Ingot: 2x1
 
 --Coppered Longsword
