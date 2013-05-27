@@ -479,8 +479,6 @@ function Craft:checkMaterial(user, productId)
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
 		
-		debug("Data of Ingredient: "..ingredient.data)
-		
 		if ingredient.data ~= {} then
 			local available = user:countItemAt("all", ingredient.item, ingredient.data)
 		else
