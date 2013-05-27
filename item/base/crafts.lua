@@ -479,14 +479,14 @@ function Craft:checkMaterial(user, productId)
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
 		
-		if ingredient.data ~= nil then
-			debug("in with data")
-			local available = user:countItemAt("all", ingredient.item, ingredient.data)
-		else
+		--if ingredient.data ~= nil then
+			--debug("in with data")
+			--local available = user:countItemAt("all", ingredient.item, ingredient.data)
+		--else
 			debug("in without data")
 		    local available = user:countItemAt("all", ingredient.item)
 			debug("available "..available);
-		end
+		--end
         
         if available < ingredient.quantity then
             materialsAvailable = false
