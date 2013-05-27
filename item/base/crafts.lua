@@ -479,7 +479,7 @@ function Craft:checkMaterial(user, productId)
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
 		
-		if ingredient.data ~= {} then
+		if ingredient.data ~= nil then
 			debug("in with data")
 			local available = user:countItemAt("all", ingredient.item, ingredient.data)
 		else
