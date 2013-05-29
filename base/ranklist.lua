@@ -91,6 +91,10 @@ function setRanklist(User, listName, points)
 			end
 			
 			table.sort(ranklist, compare)
+			joinedRanklist = convertToOneTable(ranklist)
+			
+			local stringList = base.common.join(joinedRanklist, ";");
+			debug("String before deletion" ..stringList)
 			
 			while #ranklist > maxEntries do
 				table.remove(ranklist);
