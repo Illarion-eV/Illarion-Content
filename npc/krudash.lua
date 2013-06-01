@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -132,7 +132,7 @@ talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Farebas. Have a good sackin'!");
-talkEntry:addResponse("Slàn leibhslàn! Would say in the orcs tongue. Tagtha?");
+talkEntry:addResponse("Slàn leibhslàn! Would say in the orc's tongue. Tagtha?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -742,11 +742,11 @@ talkingNPC:addCycleText("#me kichert und nuschelt: 'Snu-snu...'", "#me chuckles 
 talkingNPC:addCycleText("#me krazt sich knurrend am Kopf.", "#me scratches her head with an annoyed snarl.");
 talkingNPC:addCycleText("#me nimmt einen Schluck aus einer kleinen schmuddeligen Flasche. Scharfer alkoholischer Dunst steigt in die Luft.", "#me takes a gulp from a grubby little bottle. A strong stench of alcohol fills the air.");
 talkingNPC:addCycleText("#me klappert in einem einfachen ansteckenden Rythmus auf dem Holztisch.", "#me taps out a simple, catchy rhythm on the wooden table.");
-talkingNPC:addCycleText("Hurr, kauft die dicksten Rüstungen von Krudash! Ich mach euch den besten Preis...", "Hurr, buy the thickest armor at Krudash! I make you the best price...");
+talkingNPC:addCycleText("Hurr, kauft die dicksten Rüstungen von Krudash! Ich mach euch den besten Preis...", "Hurr, buy the thickest armour from Krudash! I make you the best price...");
 talkingNPC:addCycleText("Schwerta! Äxte! Hämmer! Hossa, kauft ihr alles bei mir! Krudash!", "Swords! Axes! Hammers! Hossa, buy everything at Krudash's shop!");
-talkingNPC:addCycleText("Ich hab das reinste Erz! Und die besten Preise in ganz Galmair! Gosh!", "I hold the purest ore! And the best price in whole Galmair! Gosh!");
+talkingNPC:addCycleText("Ich hab das reinste Erz! Und die besten Preise in ganz Galmair! Gosh!", "I hold the purest ore! And the best price in the whole of Galmair! Gosh!");
 talkingNPC:addCycleText("Schmiede, Eisenbieger... mit Krudash's Werkzeug macht ihr die besten Stücke!", "Smiths, Iron workers... Krudash's tools make the best goods!");
-talkingNPC:addCycleText("#me hebt den Kopf und brüllt zur Werkstätte hinüber. 'Alize du dreckige kleine Snaga! Du sollst die Esse schürn! Taghta?'", "#me turns her head and yells at the forge. 'Alize, 'uh dirty little Snaga! Fan the fires! Taghta?'");
+talkingNPC:addCycleText("#me hebt den Kopf und brüllt zur Werkstätte hinüber. 'Alize du dreckige kleine Snaga! Du sollst die Esse schürn! Taghta?'", "#me turns her head and yells at the forge. 'Alize, 'uh dirty little snaga! Fan the fires! Taghta?'");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2697,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2710,"sell"));
