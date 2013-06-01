@@ -6,7 +6,7 @@ module("scheduled.alchemy", package.seeall)
 
 -- This script is used for character independet events lasting over some time
 
-
+--[[
 INSECTS = {}
 
 INSECTS["wasps"] = {}
@@ -22,13 +22,13 @@ INSECTS["beetles"]["id"] = {591,592,593,594}
 INSECTS["beetles"]["emotes"] = {}
 INSECTS["beetles"]["emotes"]["de"] = {}
 INSECTS["beetles"]["emotes"]["en"] = {}
-
+]]
 
 function startAlchemy()
 
 
 end
-
+--[[
 function startAlchemyTest()
 
     local jupiter = base.common.CheckIfOnline("Jupiter")
@@ -86,3 +86,4 @@ function bombExploded(theTargetArea, theQuality)
     end
 	areaList[listPos] = {targetArea=theTargetArea,counter=0,quality=theQuality}
 end
+]]
