@@ -101,9 +101,9 @@ english, "quest", "job", "problem" -> queststatus(304) = 1, "Aye, aye, I can't r
 german, "quest", "job", "problem" -> queststatus(304) = 1, "Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr! Du - Landratte! Geh Prandlin suchen und bring meen Holzbein zurück!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "Ch-h. I'm a ghost... Got no legs got no arms."
+"profession" -> "Ch-h. I'm a ghost... Got no legs, got no arms."
 "beruf" -> "Ch-h. Ich bin ein Geist... was soll ich groß arbeitn?"
-english, "job" -> "Ch-h. I'm a ghost... Got no legs got no arms."
+english, "job" -> "Ch-h. I'm a ghost... Got no legs, got no arms."
 "job" -> "Ch-h. Ich bin ein Geist... was soll ich groß arbeitn?"
 english, "Gobaith", "Gobiath" -> "I heard Gobaith had some trouble, whatever, it's backwater anyway."
 "Gobaith", "Gobiath" -> "Ich hab gehört um Gobaith stehts nicht gut. Naja. Iss sowieso n' Kaff. "
@@ -111,9 +111,9 @@ english, "Gobaith", "Gobiath" -> "I heard Gobaith had some trouble, whatever, it
 "mein Name" -> "Arr! Heldenhafte Taten erfordern wohl klingende Namen!"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"Skipper", "Captn", "Captain" -> "Aye-aye! Who doesn't know the famous tales of Peg Leg Jack? Ahoy, that's me! Even the God's called it a shame when they tied me to gallows."
+"Skipper", "Captn", "Captain" -> "Aye-aye! Who doesn't know the famous tales of Peg Leg Jack? Ahoy, that's me! Even the gods said it was a shame when they tied me to gallows."
 "Kaptn", "Kapitän", "Kapiten" -> "Aye-aye! Wer kenn nicht die Geschichtn vom berühmten Holzbein-Jack? Ahoi, das bin ich! Sogar die Götter fandens öd, als sie mich dann doch an den Galgen geknüpft haben."
-english, "prandlin" -> "Aye, old Prandlin lives somwhere in Runewick and awaits death while he's sleeping. Once he was a pirate hunter... but some day he grew to old. Before that though he managed to have me executed at gallows."
+english, "prandlin" -> "Aye, old Prandlin lives somwhere in Runewick and awaits death while he's sleeping. Once he was a pirate hunter... but some day he grew too old. Before that though he managed to have me executed at gallows."
 "prandlin" -> "Aye, der alte Prandlin lebt irgendwo in Runewick und wartet darauf nicht mehr aufwachen zu müssen. Früher hatter Piratn gejagt... irgendwann ist er zu alt dafür gewordn. Aye, aber davor hatte er noch Zeit mich an den Galgen zu bringen."
 
 -- Faction stuff
@@ -151,7 +151,7 @@ english, "Bragon", "Brágon" -> "Bragon 'nd his dragons! Ch-ch. their fire isn't
 "Bragon", "Brágon" -> "Bragon, und seine Drachen. Ch-ch. Mit Feuer ist nicht zu Spaßen."
 english, "Cherga" -> "Cherga! Why - WHY? Please take me with you - let me rest."
 "Cherga" -> "Cherga! Warum, warum nur? Warum lasst ihr mich hier versauern? Nehmt mich doch endlich mit."
-english, "Elara" -> "Condescension and arrogance were nevr much use to me. The Goddess of mages."
+english, "Elara" -> "Condescension and arrogance were never much use to me. The Goddess of mages."
 "Elara" -> "Besserwisserei und Klugscheißerei hab ich nie gebraucht. Die Göttin der Magier."
 english, "Eldan" -> "A clever, Old God, but do not question me about that."
 "Eldan" -> "Eldan? So ein alter kluger Gott. Aber fragt mich nicht darüber aus."
@@ -181,11 +181,11 @@ english, "Zhambra" -> "God of brotherhood and friendship. On the ship we have to
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Cha - no trading...", "Ch... leave me alone!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich handle nich.", "Ch... lass mich in Frieden."
-"tell something" -> "Aye... 'n a giant octopus ate my leg! It was so big it pulled the ship under the water! Arr, but I never give up. That I never have...", "Aye, I swear! I had five mermaids in the bed.", "Each girl in every harbour, that's the sailor's life, aye."
+"tell something" -> "Aye... 'n a giant octopus ate my leg! It was so big it pulled the ship under the water! Arr, but I never give up. That I never have...", "Aye, I swear! I had five mermaids in the bed.", "A girl in every harbour, that's the sailor's life, aye."
 "erzähl was", "erzähl etwas" -> "Aye... 'n rießiger Krake hat mein Bein gefressen. Er war so groß das er das ganze Schiff in die See gezogen hat. Arr. Aber Ich hab nich aufgegeben. Das hab ich nie gemacht...", "Aye, geschworen! Ich hatte schon fünf Meerjungfrauen im Bett! Ch-ch...", "In jedem hafn n' Mädl, jaja. Das ist das Seemannsleben!"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-english, "Julio", "Canaille" -> "Aye-aye! Who doesn't know the famous tales of Peg Leg Jack? Ahoy, that's me! Even the God's called it a shame when they tied me to gallows."
+english, "Julio", "Canaille" -> "Aye-aye! Who doesn't know the famous tales of Peg Leg Jack? Ahoy, that's me! Even the gods said it was a shame when they tied me to gallows."
 "Julio", "Canaille" -> "Aye-aye! Wer kenn nicht die Geschichtn vom berühmten Holzbein-Jack? Ahoi, das bin ich! Sogar die Götter fandens öd, als sie mich dann doch an den Galgen geknüpft haben."
 "Yes" -> "Ch-h!", "Aye! Get ready to board! Thie-hi!", "'Yes Captain!', you have to say... Got it?"
 "Ja" -> "Ch-h!", "Aye! Klar machen zum entern! Hä-hä-hä...", "Du sollst 'Ja, Kapitän!' sagen..."
