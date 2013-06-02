@@ -11,6 +11,7 @@ function UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
 	local stonedata=SourceItem:getData("markerstone");
 	if (tonumber(stonedata)~=0) then
 		if not quest.explorersguild.CheckStone(User,tonumber(stonedata)) then
+			debug("Stone used. stonedata: "..stonedata)
 			DisplayText = base.common.GetNLS( User, "Du hast einen Markierungsstein der Abenteurergilde entdeckt; er trägt die Nummer "..stonedata,"You found a marker stone of the Explorers' Guild; it has the number "..stonedata);
 			quest.explorersguild.WriteStone(User,tonumber(stonedata));
 			quest.explorersguild.getReward(User);
