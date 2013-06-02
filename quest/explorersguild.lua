@@ -64,9 +64,9 @@ function WriteStone(Char,StoneNumber)
 	--Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
     currentStones=QuestprogressToStones(Char:getQuestProgress(StoneBase));
     --Char:inform("currently: "..currentStones);
-	Char:inform("Merung inform: in WriteStone before setQstPrg")
+	Char:inform("Merung inform: in WriteStone before setQstPrg: " .. Char:getQuestProgress(StoneBase))
 	Char:setQuestProgress(StoneBase,StoneToQuestprogress(LuaOr(2^StoneBaseOffset,currentStones)));
-	Char:inform("Merung inform: in WriteStone after setQstPrg")
+	Char:inform("Merung inform: in WriteStone after setQstPrg :" .. Char:getQuestProgress(StoneBase))
 	--Char:inform("new: "..(2^StoneBaseOffset).." in total: "..(LuaOr(2^StoneBaseOffset,currentStones)-2^31));
 	--Char:inform("CHeck: "..CheckStone(Char,StoneNumber));
 end
