@@ -25,8 +25,8 @@ function QuestTitle(user)
 end
 
 function QuestDescription(user, status)
-    local german = "Du hast bereits "..quest.explorersguild.CountStones(user).." Markierungssteine der Abenteurergilde gefunden. Weiter so!"
-    local english = "You have already found "..quest.explorersguild.CountStones(user).." marker stones of the Explorers' Guild. Keep it up!"
+    local german = "Du hast bereits ".. quest.explorersguild.CountStones(user) .." Markierungssteine der Abenteurergilde gefunden. Weiter so!"
+    local english = "You have already found ".. quest.explorersguild.CountStones(user) .." marker stones of the Explorers' Guild. Keep it up!"
 
     return base.common.GetNLS(user, german, english)
 end
