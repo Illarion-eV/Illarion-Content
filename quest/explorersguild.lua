@@ -66,7 +66,7 @@ function WriteStone(Char,StoneNumber)
     Char:inform("currently: "..currentStones);
 	Char:setQuestProgress(StoneBase,StoneToQuestprogress(LuaOr(2^StoneBaseOffset,currentStones)));
 	Char:inform("new: "..(2^StoneBaseOffset).." in total: "..(LuaOr(2^StoneBaseOffset,currentStones)-2^31));
-	Char:inform("CHeck: "..CheckStone(Char,StoneNumber));
+	--Char:inform("CHeck: "..CheckStone(Char,StoneNumber));
 end
 
 -- reward[x] = {y,z} - x = stones to have collected, y = item id , z= amount of y
