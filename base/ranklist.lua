@@ -131,7 +131,7 @@ function convertToOneTable(list)
 	--debug("lenght of list: "..#list)
 
 	for i=1, #list do 
-		debug("List: "..i.." "..list[i].name.." "..list[i].points)
+		--debug("List: "..i.." "..list[i].name.." "..list[i].points)
 		table.insert(joinedTable, list[i].name); 
 		table.insert(joinedTable, list[i].points); 
 	end;
