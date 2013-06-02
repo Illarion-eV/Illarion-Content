@@ -19,6 +19,38 @@ module("test.envi", package.seeall)
 lights={};
 lights[1]={46,53};
 
+function MoveToField(Character)
+	createItemX=math.random(5,15);
+	i=0;
+	repeat
+	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
+		createItemID=0;
+		Character:inform("0", "0")
+		else
+		createItemID=1;
+		Character:inform("0", "0")
+		char:setQuestProgress(661,math.random(60,100)) --lte set
+	end
+		createItemAmount=math.random(5,10);
+		createItemY=math.random(5,15);
+		createItemZ=0;
+		createItemQual=333;
+		createAfter=math.random(1,20);
+		createGfx=lights[1][math.random(1,table.getn(lights[1]))];
+		createSound=0;
+
+		i=i+1;
+		base.character.CreateAfterTime (Character,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,crateSound)
+
+	until (i==createItemX)
+end
+
+
+
+--[[
+lights={};
+lights[1]={46,53};
+
 function MoveToField(char)
 	x=math.random(5,10);
 	i=0;
@@ -26,7 +58,15 @@ function MoveToField(char)
 		i=i+1;
 		world:gfx(lights[1][math.random(1,table.getn(lights[1]))],position(math.random(5,15),math.random(5,15),0));
 	until (i==x)
-end
+end ]]--
+
+
+--[[
+function MoveToField(char)
+	if char:getType() ~= Character.player then --Monsters will be ingored
+		world:makeSound(??,char.pos);
+	end	
+end ]]--
 
 
 --[[

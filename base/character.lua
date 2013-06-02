@@ -90,3 +90,36 @@ end
 function LogText(character)
 	return string.format("%s (%u)", character.name, character.id);
 end;
+
+-- Create item after a defined period of time
+-- @param Character The character (e.g. summoned monster) supposed to create
+-- @param createItemID The ID of the item supposed to create
+-- @param createItemAmount The amount the item is supposed to be created
+-- @param createItemX The X-position the item is supposed to be created
+-- @param createItemY The Y-position the item is supposed to be created
+-- @param createItemZ The Z-position the item is supposed to be created
+-- @param createItemQual The quality the item is supposed to be created
+-- @param createAfter The period of time after which the item is created in 1/10 sec
+-- @param createGfx The GFX shown on the created item, nil for no GFX
+-- @param createSound The sound played on created item, nil for no sound
+function CreateAfterTime(Character,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,createSound)
+	find, myEffect = Character.effects:find(80)
+	if find then 
+		return
+	else
+		myEffect = LongTimeEffect(80,createAfter)
+		myEffect:addValue("createItemID",createItemID)
+		myEffect:addValue("createItemAmount",createItemAmount)
+		myEffect:addValue("createItemX",createItemX)
+		myEffect:addValue("createItemY",createItemY)
+		myEffect:addValue("createItemZ",createItemZ)
+		myEffect:addValue("createItemQual",createItemQual)
+		if createGfx ~= nil then
+			myEffect:addValue("createGfx",createGfx)
+       		end
+		if createSound ~= nil then
+			myEffect:addValue("createSound",createSound)  
+		end
+		Character.effects:addEffect(myEffect)
+	end
+end
