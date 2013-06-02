@@ -73,13 +73,13 @@ function setRanklist(User, listName, points)
 	local ranklist = getRanklist(User, listName, false)
 	local joinedRanklist = {}
 	
-	User:inform("ranklist nr: "..#ranklist)
+	--User:inform("ranklist nr: "..#ranklist)
 
 	if #ranklist ~= 0 then
 		local userInList, position = isUserInList(User, ranklist);
-		debug("Number: "..#ranklist)
-		debug("check this out: "..ranklist[#ranklist].name)
-		debug("check this out - points: "..ranklist[#ranklist].points)
+		--debug("Number: "..#ranklist)
+		--debug("check this out: "..ranklist[#ranklist].name)
+		--debug("check this out - points: "..ranklist[#ranklist].points)
 		if tonumber(ranklist[#ranklist].points) > points and #ranklist == maxEntries then
 			return;
 		else
@@ -94,7 +94,7 @@ function setRanklist(User, listName, points)
 			joinedRanklist = convertToOneTable(ranklist)
 			
 			local stringList = base.common.join(joinedRanklist, ";");
-			debug("String before deletion" ..stringList)
+			--debug("String before deletion" ..stringList)
 			
 			while #ranklist > maxEntries do
 				table.remove(ranklist);
@@ -103,7 +103,7 @@ function setRanklist(User, listName, points)
 			joinedRanklist = convertToOneTable(ranklist)
 			
 			local stringList = base.common.join(joinedRanklist, ";");
-			debug("String after join:" ..stringList)
+			--debug("String after join:" ..stringList)
 			ScriptVars:set(listName, stringList)
 		end
 	else
@@ -128,14 +128,14 @@ end
 function convertToOneTable(list)
 	local joinedTable = {}
 	
-	debug("lenght of list: "..#list)
+	--debug("lenght of list: "..#list)
 
 	for i=1, #list do 
 		debug("List: "..i.." "..list[i].name.." "..list[i].points)
 		table.insert(joinedTable, list[i].name); 
 		table.insert(joinedTable, list[i].points); 
 	end;
-	debug("JoinedTable "..joinedTable[1])
+	--debug("JoinedTable "..joinedTable[1])
 	
 	return joinedTable;
 end
@@ -143,10 +143,10 @@ end
 function isUserInList(User, ranklist)
 	for i=1, #ranklist do
 		if ranklist[i].name == User.name then
-			debug("found "..User.name.." on position"..i);
+			--debug("found "..User.name.." on position"..i);
 			return true, i;
 		end
 	end	
-	debug(User.name.." not found")
+	--debug(User.name.." not found")
 	return false, 0;
 end

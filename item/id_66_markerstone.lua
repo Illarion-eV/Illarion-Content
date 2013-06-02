@@ -24,13 +24,13 @@ function UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
 end
 
 function LookAtItem(User,Item)
-	--[[local stonedata=Item:getData("markerstone");
+	local stonedata=Item:getData("markerstone");
 	if (tonumber(stonedata)~=0) then
 		if not quest.explorersguild.CheckStone(User,tonumber(stonedata)) then
 			base.lookat.SetSpecialDescription( Item, "Ein Markierungsstein der Abenteurergilde.","A marker stone of the Explorers' Guild.");
 		else
 			base.lookat.SetSpecialDescription( Item, "Du hast diesen Markierungsstein der Abenteurergilde bereits früher gefunden; er trägt die Nummer "..stonedata,"You have already found that marker stone of the Explorers' Guild earlier; it has the number "..stonedata);
 		end
-    end]]
+    end
 	world:itemInform(User,Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE) );    
 end
