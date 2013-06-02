@@ -25,7 +25,11 @@ function QuestTitle(user)
 end
 
 function QuestDescription(user, status)
-    local german = "Du hast bereits ".. countedStones .." Markierungssteine der Abenteurergilde gefunden. Weiter so!"
+    if countedStones == nil then
+		countedStones = quest.explorersguild.CountStones(user)
+	end	
+	
+	local german = "Du hast bereits ".. countedStones .." Markierungssteine der Abenteurergilde gefunden. Weiter so!"
     local english = "You have already found ".. countedStones .." marker stones of the Explorers' Guild. Keep it up!"
 
     return base.common.GetNLS(user, german, english)
@@ -39,7 +43,6 @@ function QuestFinalStatus()
     return FINAL_QUEST_STATUS
 end
 
-function setCounter()
+function setCounter(user)
     countedStones = quest.explorersguild.CountStones(user)
 end
-setCounter()
