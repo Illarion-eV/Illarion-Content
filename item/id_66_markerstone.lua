@@ -17,7 +17,7 @@ function UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
 			quest.explorersguild.WriteStone(User,tonumber(stonedata));
 			quest.explorersguild.getReward(User);
 			base.ranklist.setRanklist(User, "explorerRanklist", quest.explorersguild.CountStones(User));
-			quest.explorerguild_320_questlog.QuestDescription(User, nil)
+			quest.explorerguild_320_questlog.setCounter()
 		else
 			DisplayText = base.common.GetNLS( User, "Du hast diesen Markierungsstein der Abenteurergilde bereits früher gefunden; er trägt die Nummer "..stonedata..". Du hast bereits "..quest.explorersguild.CountStones(User).." dieser Steine gefunden.","You have already found that marker stone of the Explorers' Guild earlier; it has the number "..stonedata..". You have already found "..quest.explorersguild.CountStones(User).." of these stones.");
 		end
