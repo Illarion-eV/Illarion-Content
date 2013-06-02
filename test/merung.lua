@@ -30,6 +30,10 @@ function UseItem(User, SourceItem,ltstate)
 	    scheduled.alchemy.startAlchemyTest()
 	end
 	
+	if User.lastSpokenText == "cross" then
+		npc.yellowcross.nextCycle(User)
+	end
+	
 end
 
 
