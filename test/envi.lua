@@ -20,21 +20,21 @@ module("test.envi", package.seeall)
 lights={};
 lights[1]={46,53};
 
-function MoveToField(Character)
+function MoveToField(char)
 	createItemX=math.random(5,15);
 	i=0;
 	repeat
-	if Character:getQuestProgress(661) ~= 0 or Character:getType() ~= Character.player then --lte check and character is monster
+	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
 		createItemID=0;
-		Character:inform("null", "eins")
+		Character:inform("null", "nill")
 		elseif math.random(1,100) < 101 then
 		createItemID=0;
-		Character:inform("null, kein Glück", "null, bad luck")
-		Character:setQuestProgress(661,math.random(60,100)) --lte set
+		Character:inform("null, kein Glück", "nill, bad luck")
+		char:setQuestProgress(661,math.random(60,100)) --lte set
 		else
 		createItemID=1;
-		Character:inform("eins", "eins")
-		Character:setQuestProgress(661,math.random(60,100)) --lte set
+		Character:inform("one", "one")
+		char:setQuestProgress(661,math.random(60,100)) --lte set
 	end
 		createItemAmount=math.random(2,6);
 		createItemX=math.random(5,15);
