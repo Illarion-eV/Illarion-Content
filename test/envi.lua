@@ -46,7 +46,7 @@ function MoveToField(char)
 		createSound=0;
 
 		i=i+1;
-		base.character.CreateAfterTime (Character,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,crateSound)
+		base.character.CreateAfterTime (char,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,crateSound)
 
 	until (i==createItemX)
 end
