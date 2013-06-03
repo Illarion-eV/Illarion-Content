@@ -103,19 +103,19 @@ For gold and copper mines:
 For gold and merinium mines:
 1250: 10% Gold + 1% Merinium + 3% Topaz + 1% Diamond
 
-Coalmine/silver: Galmair "Dark Hole Mine" +10%iron&coal
+Coalmine/silver: Galmair "Dark Hole Mine" +10iron&coal+5silver
 Coordinates: 406,159,-3
 Radius 20
 
-Iron/gold/coppermine: Galmair "Malachite Mine" +10%iron
+Iron/gold/coppermine: Galmair "Malachite Mine" +10iron-2gold
 Coordinates: 420,371,0
 Radius 30
 
-Coalmine/silver: Cadomyr "Cornerstone of Candour" -10%iron&coal
+Coalmine/silver: Cadomyr "Cornerstone of Candour" -20iron-15coal
 Coordinates: 142,686,0
 Radius 15
 
-Iron/gold/coppermine: Cadomyr "Liberty Quarry" -10%iron
+Iron/gold/coppermine: Cadomyr "Liberty Quarry" -20iron
 Coordinates: 165,603,0
 Radius 15
 
@@ -123,7 +123,7 @@ Merinium/gold/coalmine/silver: Wilderness "Glittering Cave"
 Coordinates: 548,371,0
 Radius 15
 
-Coal/Iron/Gold/coppermine: Wilderness "Skewer Drift" +20%
+Coal/Iron/Gold/coppermine: Wilderness "Skewer Drift" +20
 Coordinates: 942,444,0
 Radius 15
 ]]--
@@ -145,7 +145,7 @@ Radius 15
     AddArea( 2, position(420,371,0), 30 );
     AddStone( 2, 232 );
     SetResource( 2, 232, 2536, 40); -- copper
-    SetResource( 2, 232, 234,  5); -- gold nuggets
+    SetResource( 2, 232, 234,  3); -- gold nuggets
 	SetResource( 2, 232, 254,  3); -- diamonds
 	SetResource( 2, 232, 251,  1); -- amethysts
     AddStone( 2, 914 );
@@ -164,12 +164,12 @@ Radius 15
 	--Cadomyr "Cornerstone of Candour"
 	AddArea( 3, position(142,686,0), 15 );
     AddStone( 3, 1245 );
-    SetResource( 3, 1245,  21, 50); -- coal
+    SetResource( 3, 1245,  21, 40); -- coal
     SetResource( 3, 1245, 1062,  5); -- silver
 	SetResource( 3, 1245,  252, 3); -- obsidian
     SetResource( 3, 1245,  255, 1); -- rubys
     AddStone( 3, 1246 );
-    SetResource( 3, 1246, 21,  30); -- coal
+    SetResource( 3, 1246, 21,  25); -- coal
     SetResource( 3, 1246, 1062,  5); -- silver
     SetResource( 3, 1246, 251,  3); -- amethysts
     SetResource( 3, 1246,  256,  1); -- emerald
@@ -182,11 +182,11 @@ Radius 15
 	SetResource( 4, 232, 254,  3); -- diamonds
 	SetResource( 4, 232, 251,  1); -- amethysts
     AddStone( 4, 914 );
-    SetResource( 4, 914,  22, 50); -- iron ore
+    SetResource( 4, 914,  22, 40); -- iron ore
 	SetResource( 4, 914,  255, 3); -- rubys
 	SetResource( 4, 914,  257, 1); -- topas
     AddStone( 4, 1273 );
-    SetResource( 4, 1273,  22, 30); -- iron ore
+    SetResource( 4, 1273,  22, 25); -- iron ore
 	SetResource( 4, 1273,  253, 3); -- sapphire
 	SetResource( 4, 1273,  252, 1); -- obsidian
 	AddStone( 4, 1276 );
