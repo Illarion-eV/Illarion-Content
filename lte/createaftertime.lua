@@ -10,7 +10,9 @@ function addEffect(Effect, Character)
 end
 
 function callEffect(Effect, Character)
-
+	if createItemTimeA ~= nil then
+		createItemTimeA=0
+	end
 	findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB")
 	if createItemTimeA<createItemTimeB then
 
