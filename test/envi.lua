@@ -59,6 +59,10 @@ lights={};
 lights[1]={46,53};
 
 function MoveToField(char)
+--	local createItemX=math.random(3,6);
+	local createItemX=3
+	local i=0;
+	repeat
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
 		createItemID=359;
 		char:inform("null", "nill")
@@ -81,8 +85,7 @@ function MoveToField(char)
 		createSound=0;
 
 		base.character.CreateAfterTime (char,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,createSound)
---		posOfItem = position(createItemX,createItemY,createItemZ)
---		world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil)
+	until (i==createItemX)
 end
 
 --[[
