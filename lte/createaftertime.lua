@@ -78,7 +78,7 @@ function callEffect(Effect, Character)
 	createItemTimeA=0
 	Character:inform("stop", "stop")
 	return false -- callEffect is only needed once, no return true necessary
---	end 
+	end 
 end
 
 function removeEffect(Effect,User)
