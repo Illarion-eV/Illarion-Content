@@ -82,9 +82,9 @@ function MoveToField(char)
 
 --		base.character.CreateAfterTime (char,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,crateSound)
 --		posOfItem = position(createItemX,createItemY,createItemZ)
-		posOfItem = position(10,10,0)		
+		posOfItem = position(12,12,0)		
 --		world:createItemFromId(createItemID,createItemAmount,posOfItem,true,createItemQual)
-		world:createItemFromId(52,1,posOfItem,true,999,0)
+		world:createItemFromId(51,1,posOfItem,true,999,0)
 end
 
 --[[
