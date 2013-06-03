@@ -21,7 +21,7 @@ lights={};
 lights[1]={46,53};
 
 function MoveToField(char)
-	createItemX=math.random(5,15);
+	createItemX=math.random(1,6);
 	i=0;
 	repeat
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
