@@ -60,10 +60,10 @@ lights[1]={46,53};
 
 function MoveToField(char)
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
-		createItemID=51;
+		createItemID=359;
 		char:inform("null", "nill")
 		elseif math.random(1,100) < 0 then
-		createItemID=51;
+		createItemID=359;
 		char:inform("null, kein Glück", "nill, bad luck")
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 		else
@@ -80,7 +80,7 @@ function MoveToField(char)
 		createGfx=lights[1][math.random(1,table.getn(lights[1]))];
 		createSound=0;
 
-		base.character.CreateAfterTime (char,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,crateSound)
+		base.character.CreateAfterTime (char,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,createSound)
 --		posOfItem = position(createItemX,createItemY,createItemZ)
 --		world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil)
 end

@@ -29,7 +29,7 @@ function callEffect(Effect, Character)
 	findCreateItemAmount, CreateItemAmount = Effect:findValue("createItemAmount")
 	findCreateItemQual, CreateItemQual = Effect:findValue("createItemQual")
 
-	world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
+	world:createItemFromId( createItemID, createItemAmount, position(createItemX,createItemY,createItemZ), true, createItemQual, nil) --creates item
    	return false -- callEffect is only needed once, no return true necessary
 end
 
