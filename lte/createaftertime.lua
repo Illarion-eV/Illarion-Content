@@ -10,8 +10,8 @@ function addEffect(Effect, Character)
 end
 
 function callEffect(Effect, Character)
-	if not createItemTimeD then
-		createItemTimeD=0
+	if not createItemTimeA then
+		createItemTimeA=0
 		Character:inform("test", "test")
 		else
 		end
@@ -23,12 +23,12 @@ function callEffect(Effect, Character)
 		end ]]--
 	Character:inform("test2", "test2")
 	findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB")
---	if createItemTimeA<createItemTimeB then
-	if createItemTimeD < 5 then
+ 	if createItemTimeA<createItemTimeB then
+--[[	if createItemTimeD < 5 then
 		createItemTimeD=createItemTimeD+1
 		Character:inform("test3", "test3")
 		else
-		end
+		end]]--
 	findCreateItemID, createItemID = Effect:findValue("createItemID")
 
 	findCreateItemAmountA, createItemAmountA = Effect:findValue("createItemAmountA")
@@ -65,16 +65,16 @@ function callEffect(Effect, Character)
 		world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
 		end
 
---	createItemTimeA=createItemTimeA+1
+	createItemTimeA=createItemTimeA+1
 
 	findCreateAfterA, createAfterA = Effect:findValue("createAfterA")
 	findCreateAfterB, createAfterB = Effect:findValue("createAfterB")
 	createAfter=math.random(createAfterA,createAfterB);
---[[	Effect.nextCalled = createAfter
+	Effect.nextCalled = createAfter
 	return true
 	else
 
-	createItemTimeA=0 ]]--
+	createItemTimeA=0 
 	return false -- callEffect is only needed once, no return true necessary
 --	end 
 end
