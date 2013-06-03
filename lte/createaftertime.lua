@@ -14,7 +14,8 @@ function callEffect(Effect, Character)
 		createItemTimeC=0
 		Character:inform("test", "test")
 		else
-		end 
+		end
+
 --[[	if createItemTimeA ~= nil then
 		createItemTimeA=0
 		Character:inform("test", "test")
@@ -23,7 +24,10 @@ function callEffect(Effect, Character)
 	Character:inform("test2", "test2")
 	findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB")
 --	if createItemTimeA<createItemTimeB then
-
+	if createItemTimeC < 5 then
+		Character:inform("test3", "test3")
+		else
+		end
 	findCreateItemID, createItemID = Effect:findValue("createItemID")
 
 	findCreateItemAmountA, createItemAmountA = Effect:findValue("createItemAmountA")
