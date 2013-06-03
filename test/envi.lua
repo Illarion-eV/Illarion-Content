@@ -50,7 +50,7 @@ function MoveToField(char)
 		createSound=0;
 		local i=i+1;
 		base.character.CreateAfterTime (char,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,createSound)
-	until (i==createItemX)
+	until (i==3)
 end
 
 --[[
