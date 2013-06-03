@@ -10,10 +10,10 @@ function addEffect(Effect, Character)
 end
 
 function callEffect(Effect, Character)
-	findCreateItemX, CreateItemX = Effect:findValue("createItemX")
-	findCreateItemY, CreateItemY = Effect:findValue("createItemZ")
-	findCreateItemZ, CreateItemZ = Effect:findValue("createItemY")
-	posOfItem = position(CreateItemX,CreateItemY,CreateItemZ)
+	findCreateItemX, createItemX = Effect:findValue("createItemX")
+	findCreateItemY, createItemY = Effect:findValue("createItemZ")
+	findCreateItemZ, createItemZ = Effect:findValue("createItemY")
+	posOfItem = position(createItemX,createItemY,createItemZ)
     
 	findCreateGfx, createGfx = Effect:findValue("createGfx")
   	if findCreateGfx then -- in case we defined a Gfx shown on the created item
