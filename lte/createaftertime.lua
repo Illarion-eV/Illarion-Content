@@ -10,11 +10,31 @@ function addEffect(Effect, Character)
 end
 
 function callEffect(Effect, Character)
-	findCreateItemX, createItemX = Effect:findValue("createItemX")
-	findCreateItemY, createItemY = Effect:findValue("createItemY")
-	findCreateItemZ, createItemZ = Effect:findValue("createItemZ")
+
+	findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB")
+	if createItemTimeA<createItemTimeB then
+
+	findCreateItemID, createItemID = Effect:findValue("createItemID")
+
+	findCreateItemAmountA, createItemAmountA = Effect:findValue("createItemAmountA")
+	findCreateItemAmountB, createItemAmountB = Effect:findValue("createItemAmountB")
+	createItemAmount=math.random(createItemAmountA,createItemAmountB)
+
+	findCreateItemXA, createItemXA = Effect:findValue("createItemXA")
+	findCreateItemXB, createItemXB = Effect:findValue("createItemXB")
+	findCreateItemYA, createItemYA = Effect:findValue("createItemYA")
+	findCreateItemYB, createItemYB = Effect:findValue("createItemYB")
+	findCreateItemZA, createItemZA = Effect:findValue("createItemZA")
+	findCreateItemZB, createItemZB = Effect:findValue("createItemZB")
+	createItemX=math.random(createItemXA,createItemXB)
+	createItemY=math.random(createItemYA,createItemYB)
+	createItemZ=math.random(createItemZA,createItemZB)
 	posOfItem = position(createItemX,createItemY,createItemZ)
-    
+
+	findCreateItemQualA, createItemQualA = Effect:findValue("createItemQualA")
+	findCreateItemQualB, createItemQualB = Effect:findValue("createItemQualB")
+	createItemQual=math.random(createItemQualA,createItemQualB);
+
 	findCreateGfx, createGfx = Effect:findValue("createGfx")
   	if findCreateGfx then -- in case we defined a Gfx shown on the created item
 		world:gfx(createGfx,posOfItem)
@@ -25,13 +45,23 @@ function callEffect(Effect, Character)
 		world:makeSound(createSound,posOfItem)
 	end
 
-	findCreateItemID, createItemID = Effect:findValue("createItemID")
-	findCreateItemAmount, createItemAmount = Effect:findValue("createItemAmount")
-	findCreateItemQual, createItemQual = Effect:findValue("createItemQual")
+
 	if createItemID ~= 0 then
 		world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
-		end   	
+		end
+
+	createItemTimeA=createItemTimeA+1
+
+	findCreateAfterA, createAfterA = Effect:findValue("createAfterA")
+	findCreateAfterB, createAfterB = Effect:findValue("createAfterB")
+	createAfter=math.random(createAfterA,createAfterB);
+	Effect.nextCalled = createAfter
+	return true
+	else
+
+	createItemTimeA=0
 	return false -- callEffect is only needed once, no return true necessary
+	end
 end
 
 function removeEffect(Effect,User)

@@ -21,13 +21,49 @@ lights={};
 lights[1]={46,53};
 
 function MoveToField(char)
+
+	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
+		createItemID=359;
+		char:inform("null", "nill")
+		elseif math.random(1,100) < 0 then
+		createItemID=359;
+		char:inform("null, kein Glück", "nill, bad luck")
+		char:setQuestProgress(661,math.random(60,100)) --lte set
+		else
+		createItemID=52;
+		char:inform("one", "one")
+		char:setQuestProgress(661,math.random(60,100)) --lte set
+	end
+		createItemTimeB=3;		
+		createItemAmountA=1;
+		createItemAmountB=1;
+		createItemXA=5;
+		createItemXB=12;
+		createItemYA=5;
+		createItemYB=12;
+		createItemZA=0;
+		createItemZB=0;
+		createItemQualA=999;
+		createItemQualB=999;
+		createAfterA=10;
+		createAfterB=30;
+		createGfx=lights[1][math.random(1,table.getn(lights[1]))];
+		createSound=0;
+
+		base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound)
+
+end
+
+
+--[[
+lights={};
+lights[1]={46,53};
+
+function MoveToField(char)
 --	local createItemX=math.random(3,6);
 	local createItemX=3
 	local i=0;
 	repeat
-	if i>10 then
-		return
-		end	
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
 		createItemID=359;
 		char:inform("null", "nill")
@@ -51,7 +87,7 @@ function MoveToField(char)
 		i=i+1;
 		base.character.CreateAfterTime (char,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,createSound)
 	until (i==3)
-end
+end ]]--
 
 --[[
 lights={};
