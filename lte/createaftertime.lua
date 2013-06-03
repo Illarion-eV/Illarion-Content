@@ -28,9 +28,10 @@ function callEffect(Effect, Character)
 	findCreateItemID, createItemID = Effect:findValue("createItemID")
 	findCreateItemAmount, createItemAmount = Effect:findValue("createItemAmount")
 	findCreateItemQual, createItemQual = Effect:findValue("createItemQual")
-
-	world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
-   	return false -- callEffect is only needed once, no return true necessary
+	if createItemID ~= 0 then
+		world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
+		end   	
+	return false -- callEffect is only needed once, no return true necessary
 end
 
 function removeEffect(Effect,User)
