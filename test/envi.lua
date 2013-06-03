@@ -27,24 +27,24 @@ function MoveToField(char)
 	local i=0;
 	repeat
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
-		createItemID=0;
+		createItemID=51;
 		char:inform("null", "nill")
 		elseif math.random(1,100) < 0 then
-		createItemID=0;
+		createItemID=51;
 		char:inform("null, kein Glück", "nill, bad luck")
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 		else
-		createItemID=1;
+		createItemID=52;
 		char:inform("one", "one")
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 	end
 		createItemAmount=1;
 --		createItemAmount=math.random(2,6);
-		createItemX=math.random(5,15);
-		createItemY=math.random(5,15);
+		createItemX=math.random(5,12);
+		createItemY=math.random(5,12);
 		createItemZ=0;
-		createItemQual=333;
-		createAfter=math.random(1,20);
+		createItemQual=999;
+		createAfter=math.random(1,10);
 		createGfx=lights[1][math.random(1,table.getn(lights[1]))];
 		createSound=0;
 
@@ -76,15 +76,13 @@ function MoveToField(char)
 		createItemY=math.random(5,12);
 		createItemZ=0;
 		createItemQual=999;
-		createAfter=math.random(1,20);
+		createAfter=math.random(1,10);
 		createGfx=lights[1][math.random(1,table.getn(lights[1]))];
 		createSound=0;
 
---		base.character.CreateAfterTime (char,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,crateSound)
+		base.character.CreateAfterTime (char,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,crateSound)
 --		posOfItem = position(createItemX,createItemY,createItemZ)
-		posOfItem = position(createItemX,createItemY,createItemZ)		
---		world:createItemFromId(createItemID,createItemAmount,posOfItem,true,createItemQual)
-		world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil)
+--		world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil)
 end
 
 --[[
