@@ -67,7 +67,7 @@ function MoveToField(char)
 		char:inform("null, kein Glück", "nill, bad luck")
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 		else
-		createItemID=1;
+		createItemID=51;
 		char:inform("one", "one")
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 	end
@@ -84,7 +84,7 @@ function MoveToField(char)
 --		posOfItem = position(createItemX,createItemY,createItemZ)
 		posOfItem = position(12,12,0)		
 --		world:createItemFromId(createItemID,createItemAmount,posOfItem,true,createItemQual)
-		world:createItemFromId( 52, 1, posOfItem, true, 999, nil)
+		world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil)
 end
 
 --[[
