@@ -75,14 +75,14 @@ function MoveToField(char)
 		createItemX=math.random(5,15);
 		createItemY=math.random(5,15);
 		createItemZ=0;
-		createItemQual=333;
+		createItemQual=999;
 		createAfter=math.random(1,20);
 		createGfx=lights[1][math.random(1,table.getn(lights[1]))];
 		createSound=0;
 
 --		base.character.CreateAfterTime (char,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,crateSound)
 --		posOfItem = position(createItemX,createItemY,createItemZ)
-		posOfItem = position(12,12,0)		
+		posOfItem = position(createItemX,createItemY,createItemZ)		
 --		world:createItemFromId(createItemID,createItemAmount,posOfItem,true,createItemQual)
 		world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil)
 end
