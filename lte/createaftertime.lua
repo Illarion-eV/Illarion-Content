@@ -10,11 +10,11 @@ function addEffect(Effect, Character)
 end
 
 function callEffect(Effect, Character)
---[[	if not createItemTimeA then
-		createItemTimeA=0
+	if not createItemTimeC then
+		createItemTimeC=0
 		Character:inform("test", "test")
 		else
-		end ]]--
+		end 
 --[[	if createItemTimeA ~= nil then
 		createItemTimeA=0
 		Character:inform("test", "test")
