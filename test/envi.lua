@@ -17,11 +17,13 @@ require("server.standardfighting");
 module("test.envi", package.seeall)
 
 
+--[[
+
 lights={};
 lights[1]={46,53};
 
 function MoveToField(char)
-	createItemX=math.random(1,6);
+	createItemX=math.random(3,6);
 	i=0;
 	repeat
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
@@ -36,7 +38,8 @@ function MoveToField(char)
 		char:inform("one", "one")
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 	end
-		createItemAmount=math.random(2,6);
+		createItemAmount=1;
+--		createItemAmount=math.random(2,6);
 		createItemX=math.random(5,15);
 		createItemY=math.random(5,15);
 		createItemZ=0;
@@ -49,8 +52,36 @@ function MoveToField(char)
 		base.character.CreateAfterTime (char,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,crateSound)
 
 	until (i==createItemX)
-end
+end ]]--
 
+
+lights={};
+lights[1]={46,53};
+
+function MoveToField(char)
+	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
+		createItemID=0;
+		char:inform("null", "nill")
+		elseif math.random(1,100) < 0 then
+		createItemID=0;
+		char:inform("null, kein Glück", "nill, bad luck")
+		char:setQuestProgress(661,math.random(60,100)) --lte set
+		else
+		createItemID=1;
+		char:inform("one", "one")
+		char:setQuestProgress(661,math.random(60,100)) --lte set
+	end
+		createItemAmount=1;
+		createItemX=math.random(5,15);
+		createItemY=math.random(5,15);
+		createItemZ=0;
+		createItemQual=333;
+		createAfter=math.random(1,20);
+		createGfx=lights[1][math.random(1,table.getn(lights[1]))];
+		createSound=0;
+
+		base.character.CreateAfterTime (char,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,crateSound)
+end
 
 
 --[[
