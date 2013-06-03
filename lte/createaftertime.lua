@@ -25,6 +25,7 @@ function callEffect(Effect, Character)
 	findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB")
 --	if createItemTimeA<createItemTimeB then
 	if createItemTimeD < 5 then
+		createItemTimeD+1
 		Character:inform("test3", "test3")
 		else
 		end
