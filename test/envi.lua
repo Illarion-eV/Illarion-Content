@@ -26,14 +26,14 @@ function MoveToField(Character)
 	repeat
 	if Character:getQuestProgress(661) ~= 0 or Character:getType() ~= Character.player then --lte check and character is monster
 		createItemID=0;
-		Character:inform("0", "0")
+		Character:inform("null", "eins")
 		elseif math.random(1,100) < 101 then
 		createItemID=0;
-		Character:inform("0, kein Glück", "0, bad luck")
+		Character:inform("null, kein Glück", "null, bad luck")
 		Character:setQuestProgress(661,math.random(60,100)) --lte set
 		else
 		createItemID=1;
-		Character:inform("1", "1")
+		Character:inform("eins", "eins")
 		Character:setQuestProgress(661,math.random(60,100)) --lte set
 	end
 		createItemAmount=math.random(2,6);
