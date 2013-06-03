@@ -84,7 +84,7 @@ function MoveToField(char)
 --		posOfItem = position(createItemX,createItemY,createItemZ)
 		posOfItem = position(12,12,0)		
 --		world:createItemFromId(createItemID,createItemAmount,posOfItem,true,createItemQual)
-		world:createItemFromId( 359, 1, position(300,300,0), true, 999, 0)
+		world:createItemFromId( 52, 1, posOfItem, true, 999, nil)
 end
 
 --[[
