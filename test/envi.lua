@@ -72,8 +72,8 @@ function MoveToField(char)
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 	end
 		createItemAmount=1;
-		createItemX=math.random(10,12);
-		createItemY=math.random(10,12);
+		createItemX=math.random(5,15);
+		createItemY=math.random(5,15);
 		createItemZ=0;
 		createItemQual=999;
 		createAfter=math.random(1,20);
