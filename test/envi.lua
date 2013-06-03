@@ -34,6 +34,7 @@ function MoveToField(char)
 		char:inform("one", "one")
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 	end
+		
 		createItemTimeB=3;		
 		createItemAmountA=1;
 		createItemAmountB=1;
