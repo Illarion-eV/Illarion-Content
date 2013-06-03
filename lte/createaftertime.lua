@@ -10,8 +10,8 @@ function addEffect(Effect, Character)
 end
 
 function callEffect(Effect, Character)
-	if not createItemTimeC then
-		createItemTimeC=0
+	if not createItemTimeD then
+		createItemTimeD=0
 		Character:inform("test", "test")
 		else
 		end
@@ -24,7 +24,7 @@ function callEffect(Effect, Character)
 	Character:inform("test2", "test2")
 	findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB")
 --	if createItemTimeA<createItemTimeB then
-	if createItemTimeC < 5 then
+	if createItemTimeD < 5 then
 		Character:inform("test3", "test3")
 		else
 		end
