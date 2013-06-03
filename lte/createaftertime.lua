@@ -29,6 +29,7 @@ function callEffect(Effect, Character)
 		Character:inform("test3", "test3")
 		else
 		end]]--
+	Character:inform("run", "run")
 	findCreateItemID, createItemID = Effect:findValue("createItemID")
 
 	findCreateItemAmountA, createItemAmountA = Effect:findValue("createItemAmountA")
@@ -74,7 +75,8 @@ function callEffect(Effect, Character)
 	return true
 	else
 
-	createItemTimeA=0 
+	createItemTimeA=0
+	Character:inform("stop", "stop")
 	return false -- callEffect is only needed once, no return true necessary
 --	end 
 end
