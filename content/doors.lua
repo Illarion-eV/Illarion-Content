@@ -154,11 +154,11 @@ function initDoors()
 	AddDoor({897, 834, 2}, false, "Dormitory", "Schlafsaal")
 	AddDoor({897, 835, 2}, false, "Dormitory", "Schlafsaal")
 
-	AddDoor({918, 832, 1}, false, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
-	AddDoor({918, 833, 1}, false, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
+	AddDoor({918, 832, 1}, 212, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
+	AddDoor({918, 833, 1}, 212, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
 
-	AddDoor({917, 834, 1}, false, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
-	AddDoor({916, 834, 1}, false, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
+	AddDoor({917, 834, 1}, 213, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
+	AddDoor({916, 834, 1}, 213, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
     
     --Tower of Earth 22x
     AddDoor({946, 763, 4}, 220,"Tower of Earth Apartment 1","Turm der Erde Appartement 1") -- 3 Persons
@@ -185,8 +185,8 @@ function initDoors()
 	AddDoor({949, 759, 3}, false, "Kettle Chamber", "Kesselkammer")
 	AddDoor({949, 760 ,3}, false, "Kettle Chamber", "Kesselkammer")
 
-	AddDoor({945, 769, 1}, false, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
-	AddDoor({946, 769, 1}, false, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
+	AddDoor({945, 769, 1}, 223, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
+	AddDoor({946, 769, 1}, 223, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
 	
 	-- Slums
 	AddDoor({900, 817, 0}, false, "Pit Latrine", "Scheiﬂhaus")
