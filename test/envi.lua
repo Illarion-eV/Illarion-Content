@@ -11,6 +11,7 @@
 require("base.common")
 require("base.factions");
 require("lte.deathaftertime");
+require("lte.createaftertime");
 require("lte.longterm_cooldown");
 require("server.standardfighting");
 module("test.envi", package.seeall)
@@ -26,7 +27,7 @@ function MoveToField(Character)
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
 		createItemID=0;
 		Character:inform("0", "0")
-		elseif math.random(1,100) < 11 then
+		elseif math.random(1,100) < 101 then
 		createItemID=0;
 		Character:inform("0, kein Glück", "0, bad luck")
 		char:setQuestProgress(661,math.random(60,100)) --lte set
@@ -35,7 +36,8 @@ function MoveToField(Character)
 		Character:inform("1", "1")
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 	end
-		createItemAmount=math.random(5,10);
+		createItemAmount=math.random(2,6);
+		createItemX=math.random(5,15);
 		createItemY=math.random(5,15);
 		createItemZ=0;
 		createItemQual=333;
