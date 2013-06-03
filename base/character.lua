@@ -107,6 +107,7 @@ function CreateAfterTime(Character,createItemTimeB,createItemID,createItemAmount
 	if find then 
 		return
 	else
+		createAfter=math.random(createAfterA,createAfterB);
 		myEffect = LongTimeEffect(80,createAfter)
 		myEffect:addValue("createItemTimeB",createItemTimeB)
 		myEffect:addValue("createItemID",createItemID)
