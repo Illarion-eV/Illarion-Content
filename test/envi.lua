@@ -48,7 +48,7 @@ function MoveToField(char)
 		createAfter=math.random(1,10);
 		createGfx=lights[1][math.random(1,table.getn(lights[1]))];
 		createSound=0;
-		local i=i+1;
+		i=i+1;
 		base.character.CreateAfterTime (char,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,createSound)
 	until (i==3)
 end
