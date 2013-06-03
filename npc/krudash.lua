@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -55,7 +55,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: buy, sell, trade, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"));
-talkEntry:addResponse("Me, Krudash sell and buy lots of stuff! Taghta?");
+talkEntry:addResponse("Me, Krudash, sell and buy lots of stuff! Taghta?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -76,7 +76,7 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Greebas. Do you need sumthing?");
 talkEntry:addResponse("Hurr! Be greeted.");
-talkEntry:addResponse("Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!");
+talkEntry:addResponse("Hurr. Me, Krudash, sell all you need. For good hack'n sack trip! Hehe!");
 talkEntry:addResponse("Latha math! Greetings-Greetings, mes mean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -108,7 +108,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Greebas. Do you need sumthing?");
 talkEntry:addResponse("Hurr! Be greeted.");
-talkEntry:addResponse("Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!");
+talkEntry:addResponse("Hurr. Me, Krudash, sell all you need. For good hack'n sack trip! Hehe!");
 talkEntry:addResponse("Latha math! Greetings-Greetings, mes mean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -132,7 +132,7 @@ talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Farebas. Have a good sackin'!");
-talkEntry:addResponse("Slàn leibhslàn! Would say in the orcs tongue. Tagtha?");
+talkEntry:addResponse("Slàn leibhslàn! Would say in the orcish tongue. Tagtha?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -153,7 +153,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Farebas. Have a good sackin'!");
-talkEntry:addResponse("Slàn leibhslàn! Would say the orcs tongue. Tagtha?");
+talkEntry:addResponse("Slàn leibhslàn! Would say in the orcish tongue. Tagtha?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -172,7 +172,7 @@ talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addResponse("Hurr. Mes alrighty! Good shop, good husband, good whelps.");
-talkEntry:addResponse("Uh! I'm a rich and mighty orc! Lot's of snagas are mine!");
+talkEntry:addResponse("Uh! I'm a rich and mighty orc! Lots of snagas are mine!");
 talkEntry:addResponse("Hrmpf!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -192,7 +192,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am Krudash, and this my Shop 'Hack'n Sack', sellin all stuff you need for good hack'n sack trip.");
+talkEntry:addResponse("I am Krudash, and this my shop, 'Hack'n Sack', selling all stuff you need for good hack'n sack trip.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,7 +316,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("ali[czs]");
 talkEntry:addTrigger("ali[czs]e");
 talkEntry:addResponse("Gâsh! Aliz' this weepy flimsy snaga! She complained again, huh? Listen! She's Krudash dirty snaga, so she has to follow Krudash's orders... and I'm Krudash!");
-talkEntry:addResponse("Don't worry about the girl, she isn't worth it. She has to become strong and proud, do a good job. Ye-hs, but shes just going around crying like the puniest of orclings...");
+talkEntry:addResponse("Don't worry about the girl, she isn't worth it. She has to become strong and proud, do a good job. Ye-hs, but she's just going around crying like the puniest of orclings...");
 talkEntry:addResponse("I bought her for a few coins, wasn't much money, no, but now she's snivelling and doesn't do a good job.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -378,7 +378,7 @@ talkEntry:addTrigger("olhja");
 talkEntry:addTrigger("ol'hja");
 talkEntry:addResponse("Hurr, its difficult to get good job, but Ol'hja became a scout for a band of mercenaries. Kj'at, that's a good job for an orc!");
 talkEntry:addResponse("Tagtha, have you met Ol'hja recently? She's a good orc, isn't she? All men want to become her husband, but she's very stubborn. A pighead, like a donkey! But her mommy is very proud, yes I am. Yes.");
-talkEntry:addResponse("Me Krudash isn't very skillful in the wild far away from town. Where would a gynkesh learn it, anyway? Ol'hja was taught by Mo'rurt, he's a great hunter. I would bet the best. Taghta?");
+talkEntry:addResponse("Me Krudash isn't very skillful in the wild far away from town. Where would a Gynkesh learn it, anyway? Ol'hja was taught by Mo'rurt, he's a great hunter. I would bet the best. Taghta?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -552,7 +552,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("If pigs walked on two legs... even the Gods couldn't tell them apart from the Cadomyrians. Gosch!");
+talkEntry:addResponse("If pigs walked on two legs... even the gods couldn't tell them apart from the Cadomyrians. Gosch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -742,11 +742,11 @@ talkingNPC:addCycleText("#me kichert und nuschelt: 'Snu-snu...'", "#me chuckles 
 talkingNPC:addCycleText("#me krazt sich knurrend am Kopf.", "#me scratches her head with an annoyed snarl.");
 talkingNPC:addCycleText("#me nimmt einen Schluck aus einer kleinen schmuddeligen Flasche. Scharfer alkoholischer Dunst steigt in die Luft.", "#me takes a gulp from a grubby little bottle. A strong stench of alcohol fills the air.");
 talkingNPC:addCycleText("#me klappert in einem einfachen ansteckenden Rythmus auf dem Holztisch.", "#me taps out a simple, catchy rhythm on the wooden table.");
-talkingNPC:addCycleText("Hurr, kauft die dicksten Rüstungen von Krudash! Ich mach euch den besten Preis...", "Hurr, buy the thickest armor at Krudash! I make you the best price...");
+talkingNPC:addCycleText("Hurr, kauft die dicksten Rüstungen von Krudash! Ich mach euch den besten Preis...", "Hurr, buy the thickest armour from Krudash! I make you the best price...");
 talkingNPC:addCycleText("Schwerta! Äxte! Hämmer! Hossa, kauft ihr alles bei mir! Krudash!", "Swords! Axes! Hammers! Hossa, buy everything at Krudash's shop!");
-talkingNPC:addCycleText("Ich hab das reinste Erz! Und die besten Preise in ganz Galmair! Gosh!", "I hold the purest ore! And the best price in whole Galmair! Gosh!");
+talkingNPC:addCycleText("Ich hab das reinste Erz! Und die besten Preise in ganz Galmair! Gosh!", "I hold the purest ore! And the best price in the whole of Galmair! Gosh!");
 talkingNPC:addCycleText("Schmiede, Eisenbieger... mit Krudash's Werkzeug macht ihr die besten Stücke!", "Smiths, Iron workers... Krudash's tools make the best goods!");
-talkingNPC:addCycleText("#me hebt den Kopf und brüllt zur Werkstätte hinüber. 'Alize du dreckige kleine Snaga! Du sollst die Esse schürn! Taghta?'", "#me turns her head and yells at the forge. 'Alize, 'uh dirty little Snaga! Fan the fires! Taghta?'");
+talkingNPC:addCycleText("#me hebt den Kopf und brüllt zur Werkstätte hinüber. 'Alize du dreckige kleine Snaga! Du sollst die Esse schürn! Taghta?'", "#me turns her head and yells at the forge. 'Alize, 'uh dirty little snaga! Fan the fires! Taghta?'");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2697,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2710,"sell"));

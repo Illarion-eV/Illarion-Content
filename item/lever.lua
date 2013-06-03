@@ -17,6 +17,7 @@ require("handler.warpplayer");
 require("handler.warpgroup");
 require("handler.createmonster");
 require("handler.eraseplayeritem")
+require("handler.createplayeritem")
 
 module("item.lever", package.seeall)
 

@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
 -- Author:   Lillian                                                          --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -190,7 +190,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("joey");
 talkEntry:addTrigger("licavoli");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 8));
-talkEntry:addResponse("Ah Joey send you but you already ask me for something to do.");
+talkEntry:addResponse("Ah Joey sent you here, but you have already asked me for something to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -215,7 +215,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 8));
-talkEntry:addResponse("Ah Joey send you but you already ask me for something to do.");
+talkEntry:addResponse("Ah Joey sent you here, but you have already asked me for something to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

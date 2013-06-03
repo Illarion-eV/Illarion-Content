@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (630, 'quest.iradona_goldschein_630_galmair');
 
 require("base.common")
-module("development.iradona_goldschein_630_galmair", package.seeall)
+module("quest.iradona_goldschein_630_galmair", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -23,8 +23,8 @@ Description[ENGLISH][2] = "You have found Lotta. If you like, you can talk with 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(681, 318, 0)} -- Iradona
-QuestTarget[2] = {position(393, 326, -5)} -- Lotta
+QuestTarget[1] = {position(344, 249, 0)} -- entrance taverne (Scoria Mine)
+--QuestTarget[1] = {position(393, 326, -5)} -- Lotta (If set active, it would confuse a newbie because the lower levels of Galmair are not on the same spot as the surface level)
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2

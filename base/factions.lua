@@ -188,7 +188,7 @@ end
 	
 	@return - name of the rank
 ]]
-function getRank(player)
+function getRank(player, bothFlag)
 	local Faction = getFaction(player);
 	if (townRanks[Faction.tid] == nil) then
 		return "[ERROR: no ranks for " .. Faction.tid .. "]";
@@ -198,16 +198,28 @@ function getRank(player)
 	end
 
 	if (player:increaseAttrib("sex",0) == 0) then --male Ranks
-		if player:getPlayerLanguage() == 0 then
-			return townRanks[Faction.tid][Faction.rankTown].gRank;
+		if not bothFlag then
+			if player:getPlayerLanguage() == 0 then
+				return townRanks[Faction.tid][Faction.rankTown].gRank;
+			else
+				return townRanks[Faction.tid][Faction.rankTown].eRank;
+			end
 		else
-			return townRanks[Faction.tid][Faction.rankTown].eRank;
+			local gerRank = townRanks[Faction.tid][Faction.rankTown].gRank;
+			local enRank = townRanks[Faction.tid][Faction.rankTown].eRank
+			return gerRank, enRank;
 		end
 	else
-		if player:getPlayerLanguage() == 0 then
-			return townRanks[tonumber(Faction.tid)+3][Faction.rankTown].gRank;
+		if not bothFlag then
+			if player:getPlayerLanguage() == 0 then
+				return townRanks[tonumber(Faction.tid)+3][Faction.rankTown].gRank;
+			else
+				return townRanks[tonumber(Faction.tid)+3][Faction.rankTown].eRank;
+			end
 		else
-			return townRanks[tonumber(Faction.tid)+3][Faction.rankTown].eRank;
+			local gerRank = townRanks[Faction.tid+3][Faction.rankTown].gRank;
+			local enRank = townRanks[Faction.tid+3][Faction.rankTown].eRank;
+			return gerRank, enRank;
 		end
 	end
 end

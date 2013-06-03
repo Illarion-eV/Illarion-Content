@@ -28,13 +28,17 @@ function fieldOfRadius1( Item )
 	return actionfield;
 end
 
-function fieldOfRadius2( Item )
+function fieldOfRadius2( Item, radius )
     local posi = Item.pos
 	local actionfield = { };
+	
+	if radius == nil then
+		radius = 2
+	end	
 
-    for x=-2,2 do
-        for y=-2,2 do
-            if math.abs(x) + math.abs(y) < 4 then
+    for x=(-1*radius),radius do
+        for y=(-1*radius),radius do
+            if math.abs(x) + math.abs(y) < radius*2 then
                 table.insert( actionfield, position( posi.x+x, posi.y+y, posi.z ) );
             end
         end
@@ -119,7 +123,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
 			if minDamage > Schaden then
 			    Schaden = minDamage
 			end	
-            if isTestserver() then Person:talk(Character.say, "-"..Schaden.." "..DamagedAttrib) end
+            
 			-- deal damage
 			Person:increaseAttrib( DamagedAttrib, -Schaden );
         end
@@ -313,6 +317,29 @@ function selectCharacter( targetPosis )
     return finePosis[ math.random( 1, table.getn( finePosis ) ) ];
 end
 
+FRUITS_FLOWERS = {15,80,81,143,148,144,147,151,199,302}
+
+function fruitBomb(User, Item, targetArea)
+
+    local quality = math.floor(Item.quality/100)
+	local tries = 10+(2*quality)
+    local theField
+	local thePos
+	for i=1,tries do
+        local rnd = math.random(#targetArea)
+		thePos = targetArea[rnd]
+		theField = world:getField(thePos)
+		if theField:isPassable() and thePos~=Item.pos then
+		    world:createItemFromId(FRUITS_FLOWERS[math.random(#FRUITS_FLOWERS)],1,thePos,true,333,nil)
+		else
+			table.remove(targetArea,rnd)
+		end	
+	end
+	
+	scheduled.alchemy.bombExploded(targetArea,quality)
+end
+
+
 ---- HITPOINT WURFBOMBEN ----
 
 -- Voller Hitpoint-Schaden auf 1er-Feld
@@ -412,6 +439,13 @@ end
 --Schleimbarriere auf 21er-Feld
 function effect_17(User,Item)
     createSlime(User, Item, (fieldOfRadius2( Item ) ) );
+end
+
+----- OTHERS -------
+
+--Create fruits and smell which allures insects
+function effect_18(User,Item)
+    fruitBomb(User, Item, fieldOfRadius2( Item, 4 ))
 end
 
 

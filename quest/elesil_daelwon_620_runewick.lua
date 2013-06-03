@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (620, 'quest.elesil_daelwon_620_runewick');
 
 require("base.common")
-module("development.elesil_daelwon_620_runewick", package.seeall)
+module("quest.elesil_daelwon_620_runewick", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -23,8 +23,7 @@ Description[ENGLISH][2] = "You have found Numila. If you like, you can talk with
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(790, 819, 0)} -- Elesil
-QuestTarget[2] = {position(942, 765, 1)} -- Numila
+QuestTarget[1] = {position(942, 765, 1)} -- Numila
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2

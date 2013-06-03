@@ -237,5 +237,11 @@ end
 
 
 function LookAtItem(User,Item)
+	local data = Item:getData("lockId");
+	
+	if tonumber(data) == 666 and User:isAdmin() then
+		base.lookat.SetSpecialDescription(Item, "Generalschlüssel", "Masterkey")
+	end
+
    world:itemInform( User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE) )
 end

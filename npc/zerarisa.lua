@@ -181,7 +181,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
 talkEntry:addTrigger("rod");
-talkEntry:addResponse("You'll need a fissshing rod, you can get one from Fredericus, if the line breakss, you need thread to fix it.");
+talkEntry:addResponse("You'll need a fissshing rod, you can get one from Fredericus.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -189,20 +189,20 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
 talkEntry:addTrigger("rute");
 talkEntry:addTrigger("angel");
-talkEntry:addResponse("Brauchenss Angelrute, gehenss Fredericuss. Wennss Sschnur reiﬂenss, brauchensss Fadensss.");
+talkEntry:addResponse("Brauchenss Angelrute, gehenss Fredericuss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rod");
-talkEntry:addResponse("Broke your rod? If itss jusst the line, you can usse thread to fix it. If itss the wood, assk a carpenter for a new one.");
+talkEntry:addResponse("Broke your rod? Assk a carpenter for a new one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rute");
 talkEntry:addTrigger("angel");
-talkEntry:addResponse("Habenss gebrochen die Rute? Wennss die Schnur, brauchenss Faden. Wennss das Holzss, brauchenss Ssschreiner.");
+talkEntry:addResponse("Habenss gebrochen die Rute? Brauchenss Ssschreiner.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -216,7 +216,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("jakob");
 talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 12));
-talkEntry:addResponse("Ah Jakob send you but you already ask me for something to do.");
+talkEntry:addResponse("Zss, Jakob sssent you, but you have already asssked me for sssomething to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -229,7 +229,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("jakob");
 talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 12));
-talkEntry:addResponse("Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkEntry:addResponse("Zss, Jakob hats Euch geschickt aber Ihr habt mich bereitsss nach einer Aufgabe gefragt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -241,7 +241,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 12));
-talkEntry:addResponse("Ah Jakob send you but you already ask me for something to do.");
+talkEntry:addResponse("Zss, Jakob sssent you, but you have already asssked me for sssomething to do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -254,7 +254,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 12));
-talkEntry:addResponse("Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt.");
+talkEntry:addResponse("Zss, Jakob hats Euch geschickt aber Ihr habt mich bereitsss nach einer Aufgabe gefragt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -537,7 +537,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Cape Farewell II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 3));
-talkEntry:addResponse("Thankss for troutss again, if you want you can catch twenty ssalmonss for me now.");
+talkEntry:addResponse("Thankss for the troutss again, if you want you can catch twenty ssalmonss for me now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -558,7 +558,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Cape Farewell II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 3));
-talkEntry:addResponse("Thankss for troutss again, if you want you can catch twenty ssalmonss for me now.");
+talkEntry:addResponse("Thankss for the troutss again, if you want you can catch twenty ssalmonss for me now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -631,7 +631,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
-talkEntry:addResponse("Thankss for ssalmonss, Zerarisa hass coinss for you.");
+talkEntry:addResponse("Thankss for the ssalmonss, Zerarisa hass coinss for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -646,7 +646,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
-talkEntry:addResponse("Thankss for ssalmonss, Zerarisa hass coinss for you.");
+talkEntry:addResponse("Thankss for the ssalmonss, Zerarisa hass coinss for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -691,7 +691,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.fishing, "+"
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 4));
-talkEntry:addResponse("Thankss for ssalmonss, Zerarisa hass coinss for you.");
+talkEntry:addResponse("Thankss for the ssalmonss, Zerarisa hass coinss for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -704,7 +704,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 4));
-talkEntry:addResponse("Thankss for ssalmonss, Zerarisa hass coinss for you.");
+talkEntry:addResponse("Thankss for the ssalmonss, Zerarisa hass coinss for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -785,7 +785,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Have you the five roasst trout? Catch five trout and smoke them at an oven.");
-talkEntry:addResponse("Zerarisa ssstill waitss for roasst trout, sshe wantss five.");
+talkEntry:addResponse("Zerarisa ssstill waitss for the roasst trout, sshe wantss five.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -806,7 +806,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addResponse("Have you the five roasst trout? Catch five trout and cook them at an oven.");
-talkEntry:addResponse("Zerarisa ssstill waitss for roasst trout, sshe wantss five.");
+talkEntry:addResponse("Zerarisa ssstill waitss for the roasst trout, sshe wantss five.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -946,7 +946,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Cape Farewell IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 7));
-talkEntry:addResponse("Do Zerarisa favour, go findss Henry, he'ss butcher in Dewy Sswampss, getss me ten piecess of leather from him.");
+talkEntry:addResponse("Do Zerarisa a favour, go findss Henry, he'ss a butcher in the Dewy Sswampss, getss me ten piecess of leather from him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -967,7 +967,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Cape Farewell IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 7));
-talkEntry:addResponse("Do Zerarisa favour, go findss Henryss, he'ss butcher in Dewy Swampss, getss me ten piecess of leather from him.");
+talkEntry:addResponse("Do Zerarisa a favour, go findss Henryss, he'ss a butcher in the Dewy Swampss, getss me ten piecess of leather from him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -990,7 +990,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("You findss Henry in Dewy Swampss? He owess me ten piecess of leather.");
-talkEntry:addResponse("Zerarisa sstill waitss for leather from Henry in Dewy Swampss.");
+talkEntry:addResponse("Zerarisa sstill waitss for the leather from Henry in Dewy Swampss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1011,7 +1011,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addResponse("You findss Henry in Dewy Swampss? He owess me ten piecess of leather.");
-talkEntry:addResponse("Zerarisa sstill waitss for leather from Henry in Dewy Swampss.");
+talkEntry:addResponse("Zerarisa sstill waitss for the leather from Henry in Dewy Swampss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

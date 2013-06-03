@@ -1,5 +1,6 @@
 
 require("alchemy.base.brewing")
+require("scheduled.alchemy")
 
 -- UPDATE common SET com_script = 'test.merung' WHERE com_itemid = 1266;
 
@@ -25,7 +26,17 @@ function UseItem(User, SourceItem,ltstate)
 		end
 	end
 	
+	if User.lastSpokenText == "fruit" then
+	    scheduled.alchemy.startAlchemyTest()
+	end
+	
+	if User.lastSpokenText == "cross" then
+		npc.yellowcross.nextCycle(User)
+	end
+	
 end
+
+
 
 
 

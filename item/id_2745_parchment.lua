@@ -175,6 +175,7 @@ function CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
 			
 		elseif deleteItem.id == 331 then -- stock
 			alchemy.item.id_331_green_bottle.FillStockIn(User,deleteItem, cauldron)
+			alchemy.base.alchemy.EmptyBottle(User,deleteItem)
 			
 		elseif alchemy.base.alchemy.CheckIfPotionBottle(deleteItem) then
 		    alchemy.base.alchemy.FillIntoCauldron(User,deleteItem,cauldron)
@@ -217,36 +218,28 @@ function GetItem(User, ingredientsList)
 		    local bottleList = User:getItemList(164) 
 				local bottleList = User:getItemList(164) 
 				if #bottleList > 0 then	
+					deleteItem = bottleList[1] -- here, we take the first bottle we get
 					for i=1,#bottleList do
-						if not string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then -- first check for bottles without a label
-							deleteItem = bottleList[i]
+						if not string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then -- now, we check if there is an empty bottle; we prefer those
+							deleteItem = bottleList[i] -- in case there is a empty, unlabeled bottle
 							break
 						end
 					end
-					if not deleteItem then -- we havent found a bottle without a label; now we check for one with label
-						for i=1,#bottleList do
-							if not string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then -- first check for bottles without a label
-								deleteItem = bottleList[i]
-								break
-							end
-						end
-					end	
 				end	
-			if not (deleteItem or deleteId) then
+			if not (deleteItem) then
 				missingDe = "Dir fehlt: leere Flasche"
 				missingEn = "You don't have: empty bottle"
 			end	
 		else
             local liquid, neededList = alchemy.base.recipe_creation.StockEssenceList(ingredientsList[USER_POSITION_LIST[User.id]])
 			if liquid == "stock" then
-				local stockList = User:getItemList(164) 
+				local stockList = User:getItemList(331) 
 				for i=1,#stockList do
 					local currentList = alchemy.base.alchemy.SubstanceDatasToList(stockList[i])
-					if neededList == currentList then
-					    deleteItem = stockList[i]
-						break
+					if alchemy.base.alchemy.CheckListsIfEqual(neededList,currentList) then
+					    deleteItem = stockList[i]   
 					end
-				end
+				end	
 				if not (deleteItem) then
 					missingDe = "Dir fehlt der entsprechende Sud."
 					missingEn = "Your don't have the proper stock."
@@ -260,25 +253,12 @@ function GetItem(User, ingredientsList)
 					if bottleList[i]:getData("filledWith")=="essenceBrew" then
 						for j=1,8 do
 							if bottleList[i]:getData("essenceHerb"..j) ~= "" then
-								table.insert(currentList,bottleList[i]:getData("essenceHerb"..j))
+								table.insert(currentList,tonumber(bottleList[i]:getData("essenceHerb"..j)))
 							end
 						end
 					end
-					if #currentList == #neededList then
-						if #currentList==0 then
-						    deleteItem = bottleList[i]
-							break
-						end	
-						local check = true
-						for k=1,#currentList do
-						    if not currentList[k]==neededList[k] then
-							    check = false
-								break
-							end
-						end
-						if check then
-							deleteItem = bottleList[i]
-						end	
+					if alchemy.base.alchemy.CheckListsIfEqual(neededList,currentList) then
+					    deleteItem = bottleList[i]
 					end
 				end
 				if not (deleteItem) then

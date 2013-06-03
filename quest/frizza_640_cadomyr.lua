@@ -1,30 +1,29 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (632, 'quest.lotta_medborgar_632_galmair');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (640, 'quest.frizza_640_cadomyr');
 
 require("base.common")
-module("development.lotta_medborgar_632_galmair", package.seeall)
+module("quest.frizza_640_cadomyr", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 Title = {}
-Title[GERMAN] = "Finde Don Valerio Guilianni in Galmair"
-Title[ENGLISH] = "Find Don Valerio Guilianni in Galmair"
+Title[GERMAN] = "Finde Ruzusss in Cadomyr"
+Title[ENGLISH] = "Find Ruzusss in Cadomyr"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde Don Valerio Guilianni und bringe ihm dein Geschenk."
-Description[ENGLISH][1] = "Find Don Valerio Guilianni and take him your gift."
-Description[GERMAN][2] = "Du weißt nun wo Don Valerio Guilianni zu finden ist."
-Description[ENGLISH][2] = "You now know where you can find Don Valerio Guilianni."
+Description[GERMAN][1] = "Finde Ruzusss in Cadomyr and sprich mit ihm."
+Description[ENGLISH][1] = "Find Ruzusss in Cadomyr and talk to him."
+Description[GERMAN][2] = "Du hast Ruzuss gefunden. Wenn du möchtest, kannst du nun mit ihm sprechen. Frage nach 'Hilfe' wenn du nicht weißt, wonach du fragen sollst!\nEr kann dir einiges über die südwestliche Karte von Illarion verraten."
+Description[ENGLISH][2] = "You have found Ruzuss. If you like, you can talk with him now. Ask for 'help' if you do not know what to say!\nHe can provide you with information about the south-western part of Illarion."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(393, 326, -5)} -- Lotta
-QuestTarget[2] = {position(337, 215, 0)} -- Don
+QuestTarget[1] = {position(126, 630, 0)} -- Ruzusss
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2

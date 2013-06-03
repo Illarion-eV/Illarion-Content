@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (605, 'quest.hummi_olaficht_605');
 
 require("base.common")
-module("development.hummi_olaficht_605", package.seeall)
+module("quest.hummi_olaficht_605", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -25,9 +25,8 @@ Description[ENGLISH][3] = "Have you already asked for and visited the two other 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(681, 318, 0)} -- Hummi
-QuestTarget[2] = {position(121, 643, 0)} -- Frizza
-QuestTarget[3] = {position(681, 318, 0)} -- Hummi
+QuestTarget[1] = {position(121, 643, 0)} -- Frizza
+QuestTarget[2] = {position(681, 318, 0)} -- Hummi
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 3

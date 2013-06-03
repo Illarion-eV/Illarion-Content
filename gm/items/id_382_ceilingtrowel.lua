@@ -84,13 +84,13 @@ function UseItem(User, SourceItem)
     User:inform("User:countItemAt(\"belt\", "..countID..") = "..User:countItemAt("belt",countID));
     User:inform("User:countItemAt(\"body\", "..countID..") = "..User:countItemAt("body",countID));
     User:inform("User:countItemAt(\"backpack\", "..countID..") = "..User:countItemAt("backpack",countID));
-    User:inform("User:countItemAt(\"all\", "..countID..", 0) = "..User:countItemAt("all",countID, 0));
-    User:inform("User:countItemAt(\"belt\", "..countID..", 0) = "..User:countItemAt("belt",countID, 0));
-    User:inform("User:countItemAt(\"body\", "..countID..", 0) = "..User:countItemAt("body",countID, 0));
-    User:inform("User:countItemAt(\"backpack\", "..countID..", 0) = "..User:countItemAt("backpack",countID, 0));
+    User:inform("User:countItemAt(\"all\", "..countID..", 0) = "..User:countItemAt("all",countID));
+    User:inform("User:countItemAt(\"belt\", "..countID..", 0) = "..User:countItemAt("belt",countID));
+    User:inform("User:countItemAt(\"body\", "..countID..", 0) = "..User:countItemAt("body",countID));
+    User:inform("User:countItemAt(\"backpack\", "..countID..", 0) = "..User:countItemAt("backpack",countID));
     local Bag = User:getBackPack();
     User:inform("Bag:countItem("..countID..") = "..Bag:countItem(countID));
-    User:inform("Bag:countItem("..countID..", 0) = "..Bag:countItem(countID, 0));
+    User:inform("Bag:countItem("..countID..", 0) = "..Bag:countItem(countID));
   end
   if ((string.find(User.lastSpokenText,"show map")~=nil)) then
     User:inform("Okay, now showing map");
@@ -306,7 +306,8 @@ function UseItem(User, SourceItem)
           local infoText = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
           infoText = infoText .. "\nChanged towns already (town count): " .. faction.towncnt;
           if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
-            infoText = infoText .. "\nRank: " .. base.factions.townRanks[faction.tid][faction.rankTown].eRank .. "/" .. base.factions.townRanks[faction.tid][faction.rankTown].gRank;
+			local germanRank, englishRank = base.factions.getRank(chosenPlayer, true)
+            infoText = infoText .. "\nRank: " .. englishRank .. "/" .. germanRank;
           else
             infoText = infoText .. "\nRank: no rank " .. faction.rankTown;
           end

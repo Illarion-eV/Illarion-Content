@@ -12,6 +12,7 @@ author: Lillian
 
 ]]
 require("base.money")
+require("base.ranklist")
 
 module("base.arena", package.seeall)
 
@@ -19,26 +20,30 @@ module("base.arena", package.seeall)
 Level 1: Annoying monsters award 1 point
 Level 2: Very easy monsters for noobs award 2 points
 Level 3: Easy monsters award 3 points
-Level 4: Semistrong monsters award 5 points
-Level 5: Strong monster award 8 points
-Level 6: Really strong monsters award 13 points
-Level 7: Monsters for really, really good fighters 'heroes' award 20 points
+Level 4: Semistrong monsters award 4 points
+Level 5: Strong monster award 6 points
+Level 6: Really strong monsters award 8 points
+Level 7: Monsters for really, really good fighters 'heroes' award 13 points
+Level 8: Monsters for group fights award 18 points 
+Level 9: Unbelieavable strong monsters for 'groups' award 21 points
 ]]
 monsterIDsByLevel = {
 	{monsters = {991, 271, 1051, 582, 1071}, points = 1},
 	{monsters = {101, 196, 273, 602, 881}, points = 2},
 	{monsters = {311, 394, 551, 882, 1011}, points = 3},
-	{monsters = {141, 501, 552, 791, 872}, points = 5},
-	{monsters = {191, 492, 531, 411, 851}, points = 8},
-	{monsters = {121, 202, 491, 525, 852}, points = 13},
-	{monsters = {534, 124, 562, 661, 853}, points = 20}
+	{monsters = {141, 501, 552, 791, 872}, points = 4},
+	{monsters = {191, 492, 531, 411, 851}, points = 6},
+	{monsters = {121, 201, 491, 525, 852}, points = 8},
+	{monsters = {534, 124, 562, 661, 853}, points = 13},
+	{monsters = {125, 132, 812, 195, 651}, points = 18},
+	{monsters = {302, 631, 641, 911, 912}, points = 21}
 }
 
-arenaInformations = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801}, 
+arenaInformation = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Runewick", quest=802}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Galmair", quest=803}}
 					
-priceBase = 10000;
+priceBase = 4000;
 
 function requestMonster(User, NPC) 
 	local cbChooseLevel = function (dialog)
@@ -52,8 +57,8 @@ function requestMonster(User, NPC)
 		local germanMoney, englishMoney;
 		
 		if paid then
-			if arenaInformations[arena].playerPos ~= nil then
-				User:warp(arenaInformations[arena].playerPos);
+			if arenaInformation[arena].playerPos ~= nil then
+				User:warp(arenaInformation[arena].playerPos);
 			end
 			--add the effect to keep track of the monster
 			arenaEffect=LongTimeEffect(18,1);
@@ -72,22 +77,22 @@ function requestMonster(User, NPC)
 		for i=1, #(monsterIDsByLevel) do
 			priceInCP = i * priceBase;
 			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
-			sdMonster:addOption(0,"Stärke "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkte) -"..germanMoney);
+			sdMonster:addOption(61,"Stärke "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkte)\n Preis:"..germanMoney);
 		end
 	else
 		sdMonster = SelectionDialog("Monster strength", "Please choose how strong the monster you wish to fight against should be:", cbChooseLevel);
 		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
-			priceInCP = i * priceBase;
+			priceInCP = i*i * priceBase;
 			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
-			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." points) -"..englishMoney);
+			sdMonster:addOption(61,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." points)\n Price:"..englishMoney);
 		end
 	end	
 	User:requestSelectionDialog(sdMonster);
 end
 
 function payforMonster(User, MonsterLevel, NPC)
-	local priceInCP = MonsterLevel * priceBase;
+	local priceInCP = MonsterLevel*MonsterLevel * priceBase;
 	local germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
 	
 	if not base.money.CharHasMoney(User,priceInCP) then --not enough money!
@@ -110,8 +115,8 @@ function spawnMonster(User, MonsterLevel, arena)
     end
 	
     local monster;
-	world:gfx(31,arenaInformations[arena].monsterPos);
-	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformations[arena].monsterPos,0);
+	world:gfx(31,arenaInformation[arena].monsterPos);
+	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformation[arena].monsterPos,0);
 	if isValidChar(monster) then
 		table.insert( arenaMonster[User.id], monster );
     end
@@ -151,123 +156,17 @@ function killMonster(User)
 end
 
 function getRandomMonster(level) 
-	local randomNumber = base.common.NormalRnd2(1, table.getn(monsterIDsByLevel[level].monsters), 10);
+	local randomNumber = math.random(1, table.getn(monsterIDsByLevel[level].monsters));
 	return monsterIDsByLevel[level].monsters[randomNumber];
 end
 
 function getArena(User, NPC)
-	for i=1, #(arenaInformations) do
-		if arenaInformations[i].npcName == NPC.name then
+	for i=1, #(arenaInformation) do
+		if arenaInformation[i].npcName == NPC.name then
 			return i;
 		else
 			return "";
 		end
-	end
-end
-
---[[
-gets the top 5 of the arena. Each ranklist entry contains the
-name of the character and the points. 
-The scriptVar is converted to a table for better handling and then shown
-in a messageDialog.
-
-ArenaList<town> format - "<name1>;<points1>;<name2>;<point2>..."
-message = true: displays a messagebox with the ranklist
-message = false: returns the ranklist table
-]]
-
-function getRanklist(User, arena, message)
-	local town = arenaInformations[arena].town;
-	local found = false;
-	local arenaEntry;
-	local arenaList = {};
-	local list = " ";
-	local place = 2;
-	local arenaListName = "ArenaList"..town;
-	  
-	found, arenaEntry = ScriptVars:find(arenaListName); -- get the top 5
-	if found then
-		arenaList = sortTable(base.common.split(arenaEntry, ";"));
-	elseif not found and message then
-		User:inform(base.common.GetNLS(User, "Niemand hat hier bisher gekämpft.","No one fought here yet."));
-		return {};
-	end
-	
-	if (arenaEntry == "" or arenaEntry == nil) and message then
-		User:inform(base.common.GetNLS(User, "Niemand hat hier bisher gekämpft.","No one fought here yet."));
-		return {};
-	end
-
-	if message then
-		if table.getn(arenaList) ~= 0 then
-			local mdList = function(dialog)
-				if (not dialog:getSuccess()) then
-					return;
-				end
-			end
-			if User:getPlayerLanguage() == 0 then
-				list = "Platz 1: "..arenaList[1].." mit "..arenaList[2].." Punkten.\n";
-				for i=3,#(arenaList),2 do
-					list = list.."Platz "..place.." : "..arenaList[i].." mit "..arenaList[i+1].." Punkten.\n";
-					place = place +1;
-				end
-				mdList = MessageDialog("Top Fünf Kämpfer des Reiches", list, nil);			
-			else
-				list = "Place 1: "..arenaList[1].." with "..arenaList[2].." points.\n";
-				for i=3, #(arenaList),2 do
-					list = list.."Place "..place.." : "..arenaList[i].." with "..arenaList[i+1].." points.\n";
-					place = place +1;
-				end
-				mdList = MessageDialog("Top five fighters of the realm", list, nil);
-			end
-			User:requestMessageDialog(mdList);
-		else
-			return;
-		end
-	else
-		return arenaList;
-	end
-end
-
---[[
-Saves the points of the player and if he reached the 
-top five, also saves the new top five.
-]]
-function setRanklist(User, arena, points) 
-	local ranklist = getRanklist(User, arena, false)
-	local town = arenaInformations[arena].town;
-	local quest = arenaInformations[arena].quest;
-	local newRanklist = {};
-	local arenaListName = "ArenaList"..town;
-
-	if tonumber(ranklist[table.getn(ranklist)]) ~= nil then
-		local userInList, position = isUserInList(User, ranklist);
-		if tonumber(ranklist[table.getn(ranklist)]) > points then
-			return;
-		else
-			for i=2, #(ranklist), 2 do
-				if tonumber(ranklist[i]) < points then
-					if not userInList then
-						table.insert(ranklist, i-1, points);
-						table.insert(ranklist, i-1, User.name);
-						table.remove(ranklist, table.getn(ranklist));
-						table.remove(ranklist, table.getn(ranklist));
-						break;
-					else
-						table.remove(ranklist, position);
-						table.remove(ranklist, position);
-						table.insert(ranklist, i-1, points);
-						table.insert(ranklist, i-1, User.name);
-						break;
-					end
-				end
-			end
-			stringList = base.common.join(ranklist, ";");
-			ScriptVars:set(arenaListName, stringList)
-		end
-	else
-		stringList = User.name..";"..points
-		ScriptVars:set(arenaListName, stringList)
 	end
 end
 
@@ -283,7 +182,7 @@ end
 -- Returns the points of a present arena, which the player has earned so far
 function getArenastats(User, NPC)
 	local arena = getArena(User, NPC);
-	local quest = arenaInformations[arena].quest;
+	local quest = arenaInformation[arena].quest;
 	local points = User:getQuestProgress(quest);
 	
 	gText="Ihr habt bereits "..points.." gesammelt. Weiter so!";
@@ -293,7 +192,7 @@ function getArenastats(User, NPC)
 end
 
 function setArenastats(User, arena, points)
-	local quest = arenaInformations[arena].quest;
+	local quest = arenaInformation[arena].quest;
 	local oldPoints = User:getQuestProgress(quest);
 	
 	points = points + oldPoints;

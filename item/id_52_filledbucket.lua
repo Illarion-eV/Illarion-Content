@@ -37,12 +37,10 @@ function UseItem(User, SourceItem, ltstate)
   
   -- look for fire
   local FireItem, bool = base.common.GetItemInArea(User.pos, 12, 1, true);
-  if (FireItem == nil or FireItem.wear == 255) then
-    local i = base.common.GetItemInArea(User.pos, 12, 1, true);
-    if (i ~= nil) then
-      FireItem = i;
-    end
+  if FireItem == nil then
+	    FireItem, bool = base.common.GetItemInArea(User.pos, 359, 1, true);
   end
+  
   if (FireItem ~= nil) then
     if not base.common.IsLookingAt( User, FireItem.pos ) then -- check looking direction
       base.common.TurnTo( User, FireItem.pos ); -- turn if necessary

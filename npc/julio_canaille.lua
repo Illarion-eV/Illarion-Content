@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -479,7 +479,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("Ch-h. I'm a ghost... Got no legs got no arms.");
+talkEntry:addResponse("Ch-h. I'm a ghost... Got no legs, got no arms.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,7 +492,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ch-h. I'm a ghost... Got no legs got no arms.");
+talkEntry:addResponse("Ch-h. I'm a ghost... Got no legs, got no arms.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -533,7 +533,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Skipper");
 talkEntry:addTrigger("Captn");
 talkEntry:addTrigger("Captain");
-talkEntry:addResponse("Aye-aye! Who doesn't know the famous tales of Peg Leg Jack? Ahoy, that's me! Even the God's called it a shame when they tied me to gallows.");
+talkEntry:addResponse("Aye-aye! Who doesn't know the famous tales of Peg Leg Jack? Ahoy, that's me! Even the gods said it was a shame when they tied me to gallows.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -548,7 +548,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("prandlin");
-talkEntry:addResponse("Aye, old Prandlin lives somwhere in Runewick and awaits death while he's sleeping. Once he was a pirate hunter... but some day he grew to old. Before that though he managed to have me executed at gallows.");
+talkEntry:addResponse("Aye, old Prandlin lives somwhere in Runewick and awaits death while he's sleeping. Once he was a pirate hunter... but some day he grew too old. Before that though he managed to have me executed at gallows.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -782,7 +782,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Condescension and arrogance were nevr much use to me. The Goddess of mages.");
+talkEntry:addResponse("Condescension and arrogance were never much use to me. The Goddess of mages.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -980,7 +980,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("Aye... 'n a giant octopus ate my leg! It was so big it pulled the ship under the water! Arr, but I never give up. That I never have...");
 talkEntry:addResponse("Aye, I swear! I had five mermaids in the bed.");
-talkEntry:addResponse("Each girl in every harbour, that's the sailor's life, aye.");
+talkEntry:addResponse("A girl in every harbour, that's the sailor's life, aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -997,7 +997,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Julio");
 talkEntry:addTrigger("Canaille");
-talkEntry:addResponse("Aye-aye! Who doesn't know the famous tales of Peg Leg Jack? Ahoy, that's me! Even the God's called it a shame when they tied me to gallows.");
+talkEntry:addResponse("Aye-aye! Who doesn't know the famous tales of Peg Leg Jack? Ahoy, that's me! Even the gods said it was a shame when they tied me to gallows.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

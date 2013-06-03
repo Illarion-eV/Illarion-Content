@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (652, 'quest.wulfgorda_652');
 
 require("base.common")
-module("development.wulfgorda_652", package.seeall)
+module("quest.wulfgorda_652", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -23,8 +23,7 @@ Description[ENGLISH][2] = "You have found Borgate. If you like, you can order a 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(685, 315, 0)} -- Wulfgorda
-QuestTarget[2] = {position(710, 313, 0)} -- Borgate
+QuestTarget[1] = {position(710, 313, 0)} -- Borgate
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2

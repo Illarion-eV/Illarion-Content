@@ -190,20 +190,20 @@ rank > 0, town = Cadomyr, sex = female, "rang" -> "Ihr seid noch ganz neu hier. 
 "rang" -> "Ich weiß nichts über Ränge in anderen Städten.", "Ich interessiere mich nur für das cadomyrische Statussystem."
 
 -- fix
-queststatus(150) > 0, queststatus(703) = 13, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 14, "Ah Jakob send you but you already ask me for something to do."
+queststatus(150) > 0, queststatus(703) = 13, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 14, "Ah Jakob sent you, but you have already asked me for something to do."
 queststatus(150) > 0, queststatus(703) = 13, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 14, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
-queststatus(150) > 0, queststatus(703) = 13, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 14, "Ah Jakob send you but you already ask me for something to do."
+queststatus(150) > 0, queststatus(703) = 13, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 14, "Ah Jakob sent you, but you have already asked me for something to do."
 queststatus(150) > 0, queststatus(703) = 13, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 14, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- 1st quest: bring Item 146 + desert sky capsule, for citizens of Cadomyr
-queststatus(150) = 0, queststatus(703) = 13, town = Cadomyr, english, "quest", "mission", "jakob", "lindorn" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, queststatus(703) = 14, "I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them fifteen desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?"
+queststatus(150) = 0, queststatus(703) = 13, town = Cadomyr, english, "quest", "mission", "jakob", "lindorn" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, queststatus(703) = 14, "I'd like to send my grandparents in Salkamar a present from Cadomyr. They both like gardening, so I'd like to send them fifteen desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?"
 queststatus(150) = 0, queststatus(703) = 13, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, queststatus(703) = 14, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
-queststatus(150) = 0, queststatus(703) = 13, town = Cadomyr, "task", "adventure", "order" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, queststatus(703) = 14, "I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them fifteen desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?"
+queststatus(150) = 0, queststatus(703) = 13, town = Cadomyr, "task", "adventure", "order" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, queststatus(703) = 14, "I'd like to send my grandparents in Salkamar a present from Cadomyr. They both like gardening, so I'd like to send them fifteen desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?"
 queststatus(150) = 0, queststatus(703) = 13, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, queststatus(703) = 14, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
 
-queststatus(150) = 0, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, "I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them fifteen desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?"
+queststatus(150) = 0, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, "I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them fifteen desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?"
 queststatus(150) = 0, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
-queststatus(150) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, "I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them fifteen desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?"
+queststatus(150) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, "I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them fifteen desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?"
 queststatus(150) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
 
 -- 1st quest solved, Reward: dagger (27)
@@ -233,15 +233,15 @@ english, "quest", "mission" -> "No, sorry. I have nothing to do for you. Why don
 "beruf" -> "Hier könnt Ihr Euch als Bürger eintragen lassen."
 english, "job" -> "You can get registered as citizen here."
 "job" -> "Hier könnt Ihr Euch als Bürger eintragen lassen."
-"tell something" -> "Sand can be used to make glass, but I like it just the way it is. This place is full of sand, it is on the streets, inside my shoes, even the air is filled with sand if the wind is blowing. If you don't like sand, don't go to the desert.", "I really like sand. Especially quartz sand."
+"tell something" -> "Sand can be used to make glass, but I like it just the way it is. This place is full of sand, it is on the streets, inside my shoes, even the air is filled with sand if the wind is blowing. If you don't like sand, don't go to the desert.", "I really like sand, especially quartz sand."
 "erzähl was", "erzähl etwas" -> "Sand kann man nutzen um Glas daraus zu machen, aber ich mag Sand so wie er ist. Dieser Ort ist voll von Sand, er ist auf den Straßen, in meinen Schuhen, selbst in der Luft ist Sand, wenn der Wind weht. Wer keinen Sand mag, sollte nicht in die Wüste gehen.", "Ich mag Sand sehr gerne, besonders Quartzsand."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "People go to shrines to pray to their gods. Usually they take a donation for the gods along."
+"god" -> "People go to shrines to pray to their gods. Usually they take a donation for the gods with them."
 "Gott", "Götter" -> "Die Leute gehen zu Tempeln der Götter um zu beten. Für gewöhnlich bringen sie eine Gabe an die Gottheit mit."
 
 -- Optional: Faction stuff
-"archmage" -> "I heard the Archmage does nothing but read books and study the arcane arts. If it's true he must be almost dead of starvation."
+"archmage" -> "I heard the Archmage does nothing but read books and study the arcane arts. If it's true he must be almost dead from starvation."
 "Erzmagier" -> "Ich habe gehört, der Erzmagier tut nichts außer Bücher zu lesen und die arkanen Künste zu studiere. Wenn das stimmt, dann muss er fast tot vor Hunger sein."
 english, "Elvaine", "Morgan" -> "I've heard the name before."
 "Elvaine", "Morgan" -> "Ich habe diesen Namen schon mal gehört."

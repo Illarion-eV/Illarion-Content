@@ -13,7 +13,7 @@ module("lte.newbieisland", package.seeall)
 	"[Tutorial] Wenn du das Tutorial überspringen möchtest, sage 'Tutorial überspringen' zu einem NPC.",
 	"[Tutorial] Brauchst du Hilfe? Schreibe '!gm Deine Frage' und drücke Return. Sobald ein Gamemaster verfügbar ist wird er dir helfen.",
 	"[Tutorial] Um laut zu rufen, schreibe #s vor deine Nachricht. Um zu flüstern, verwende #w. Für den 'Out-of-character'-Modus verwendest du #o.",
-	"[Tutorial] Ein Tutorial kann niemals die Hilfe anderer Spieler oder des Illarion-Teams ersetzen. Trete bitte dem offiziellen Illarion-Chat, der auf der Homepage verlinkt ist, und stell dich einfach mal vor.",
+	"[Tutorial] Ein Tutorial kann niemals die Hilfe anderer Spieler oder des Illarion-Teams ersetzen. Trete bitte dem offiziellen Illarion-Chat, der auf der Homepage verlinkt ist, bei und stell dich einfach mal vor.",
 	"[Tutorial] Klicke und halte die linke Maustaste auf ein weit entferntes Feld um zu laufen.",
 	"[Tutorial] Um deinen Charakter anderen Charakteren vorzustellen, schreibe #i in die Chatbox und drücke Return. Spieler in der näheren Umgebung werden so den Namen deines Charakters erfahren.",
 	"[Tutorial] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Eine List der wichtigsten Schlüsselwörter erhältst du als Antwort auf 'Hilfe'.",

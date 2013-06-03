@@ -564,7 +564,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 7));
-talkEntry:addResponse("Zss, now we make powder with the ssshiny gemsz. You go to the gem grinder again and make two bagsz of amethyssst powder from eight amethyssstsz for me, zsss!");
+talkEntry:addResponse("Zss, now we make powder from the ssshiny gemsz. You go to the gem grinder again and make two bagsz of amethyssst powder from eight amethyssstsz for me, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -585,7 +585,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(709, "=", 7));
-talkEntry:addResponse("Zss, now we make powder with the ssshiny gemsz. You go to the gem grinder again and make two bagsz of amethyssst powder from eight amethyssstsz for me, zsss!");
+talkEntry:addResponse("Zss, now we make powder from the ssshiny gemsz. You go to the gem grinder again and make two bagsz of amethyssst powder from eight amethyssstsz for me, zsss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -10,9 +10,9 @@ scriptPath="${scriptPath}/"
 tmpFile="${scriptPath}tmpLuac"
 if [ $UNIX_FLAG ]
 then
-	luacPath="${scriptPath}testserver/luac/luac"
+	luacPath="${scriptPath}luac/luac"
 else
-	luacPath="${scriptPath}testserver/luac/luac.exe"
+	luacPath="${scriptPath}luac/luac.exe"
 fi
 
 function syntaxCheckFile

@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (622, 'quest.numila_irunnleh_622_runewick');
 
 require("base.common")
-module("development.numila_irunnleh_622_runewick", package.seeall)
+module("quest.numila_irunnleh_622_runewick", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -23,8 +23,7 @@ Description[ENGLISH][2] = "You now know where you can find Archmage Elvaine Morg
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(942, 765, 1)} -- Numila
-QuestTarget[2] = {position(898, 775, 2)} -- Archmage
+QuestTarget[1] = {position(898, 775, 2)} -- Archmage
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2

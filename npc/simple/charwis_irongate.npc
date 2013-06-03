@@ -73,9 +73,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Irmorom be with you."
 -- A message Quest
 -- 1st quest starts, if you are citizen of Galmair
 -- fix
-queststatus(702) > 0, queststatus(712) = 7, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 8, "Ah Joey send you but you already ask me for something to do."
+queststatus(702) > 0, queststatus(712) = 7, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 8, "Ah Joey sent you here, but you have already asked me for something to do."
 queststatus(702) > 0, queststatus(712) = 7, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 8, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
-queststatus(702) > 0, queststatus(712) = 7, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 8, "Ah Joey send you but you already ask me for something to do."
+queststatus(702) > 0, queststatus(712) = 7, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 8, "Ah Joey sent you here, but you have already asked me for something to do."
 queststatus(702) > 0, queststatus(712) = 7, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 8, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
 
 queststatus(702) = 0, queststatus(712) = 7, english, town = Galmair, "quest", "mission" -> inform("[New quest] Message Delivery I"), queststatus(702) = 1, queststatus(712) = 8, "Could you help me? Nik Nilo asked me for a ruby some time ago. I found one whilst mining the other day. Could you tell him that he should talk to me?"
