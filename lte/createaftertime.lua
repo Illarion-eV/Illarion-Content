@@ -11,8 +11,8 @@ end
 
 function callEffect(Effect, Character)
 	findCreateItemX, createItemX = Effect:findValue("createItemX")
-	findCreateItemY, createItemY = Effect:findValue("createItemZ")
-	findCreateItemZ, createItemZ = Effect:findValue("createItemY")
+	findCreateItemY, createItemY = Effect:findValue("createItemY")
+	findCreateItemZ, createItemZ = Effect:findValue("createItemZ")
 	posOfItem = position(createItemX,createItemY,createItemZ)
     
 	findCreateGfx, createGfx = Effect:findValue("createGfx")
