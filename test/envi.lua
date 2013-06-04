@@ -24,15 +24,15 @@ function MoveToField(char)
 
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
 		createItemID=0;
-		char:inform("Info: Item: "..createItemID "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID "Quest#: " ..char:getQuestProgress(661))
+		char:inform("Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661))
 		elseif math.random(1,100) < 0 then
 		createItemID=0;
 		char:setQuestProgress(661,math.random(60,100)) --lte set
-		char:inform("Info: Item: "..createItemID "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID "Quest#: " ..char:getQuestProgress(661))
+		char:inform("Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661))
 		else
 		createItemID=52;
 		char:setQuestProgress(661,math.random(60,100)) --lte set
-		char:inform("Info: Item: "..createItemID "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID "Quest#: " ..char:getQuestProgress(661))
+		char:inform("Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661))
 	end
 	if createItemID==0 then	
 		createItemTimeB=math.random(2,10);
