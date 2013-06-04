@@ -104,7 +104,8 @@ end;
 -- @param createSound The sound played on created item, nil for no sound
 function CreateAfterTime(Character,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB)
 	find, myEffect = Character.effects:find(80)
-	if find then 
+	if find then
+		Character:inform("ingenting", "ingenting") 
 		return
 	else
 		createAfter=math.random(createAfterA,createAfterB);
