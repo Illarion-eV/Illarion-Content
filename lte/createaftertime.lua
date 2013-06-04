@@ -12,23 +12,11 @@ end
 function callEffect(Effect, Character)
 	if not createItemTimeA then
 		createItemTimeA=0
-		Character:inform("test", "test")
 		else
 		end
 
---[[	if createItemTimeA ~= nil then
-		createItemTimeA=0
-		Character:inform("test", "test")
-		else
-		end ]]--
-	Character:inform("test2", "test2")
 	findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB")
  	if createItemTimeA<createItemTimeB then
---[[	if createItemTimeD < 5 then
-		createItemTimeD=createItemTimeD+1
-		Character:inform("test3", "test3")
-		else
-		end]]--
 	Character:inform("run", "run")
 	findCreateItemID, createItemID = Effect:findValue("createItemID")
 
