@@ -18,9 +18,9 @@ function callEffect(Effect, Character)
 debug("createItemTimeA:"..createItemTimeA)
 debug("createItemTimeB:"..createItemTimeB)
  	if createItemTimeA<createItemTimeB then
-	local findCreateItemRepeatA, createItemRepeatA = Effect:findValue("createItemRepeatA")
-	local findCreateItemRepeatB, createItemRepeatB = Effect:findValue("createItemRepeatB")
-	local createItemRepeatX=math.random(createItemRepeatA,createItemRepeatB)
+	local findCreateRepeatA, createRepeatA = Effect:findValue("createRepeatA")
+	local findCreateRepeatB, createRepeatB = Effect:findValue("createRepeatB")
+	local createRepeatX=math.random(createRepeatA,createRepeatB)
 	local i=0;
 debug("createRepeatA:"..createRepeatA)
 debug("createRepeatB:"..createRepeatB)
