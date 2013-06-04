@@ -14,8 +14,8 @@ function callEffect(Effect, Character)
 		createItemTimeA=0
 		else
 		end
-debug("createItemTimeA:"..#createItemTimeA)
-debug("createItemTimeB:"..#createItemTimeB)
+debug("createItemTimeA:"..createItemTimeA)
+debug("createItemTimeB:"..createItemTimeB)
 	findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB")
  	if createItemTimeA<createItemTimeB then
 	local findCreateItemRepeatA, createItemRepeatA = Effect:findValue("createItemRepeatA")
