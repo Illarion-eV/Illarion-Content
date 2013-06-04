@@ -25,6 +25,7 @@ debug("createItemTimeB:"..createItemTimeB)
 debug("createRepeatA:"..createRepeatA)
 debug("createRepeatB:"..createRepeatB)
 debug("createRepeatX:"..createRepeatX)
+Character:inform("createRepeatX: "..createRepeatX,"createRepeatX: "..createRepeatX)
 debug("i:"..i)
 --	repeat
 --	i=i+1;
