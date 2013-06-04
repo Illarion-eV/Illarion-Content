@@ -16,6 +16,7 @@ require("lte.longterm_cooldown");
 require("server.standardfighting");
 module("test.envi", package.seeall)
 
+--[[
 
 lights={};
 lights[1]={46,53};
@@ -71,7 +72,7 @@ function MoveFromField(char)
 	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB)
 	char:inform("createItemTimeB: "..createItemTimeB,"createItemTimeB:"..createItemTimeB)
 end
-
+]]--
 
 --[[
 lights={};
@@ -121,12 +122,11 @@ function MoveToField(char)
 end ]]--
 
 
---[[
 function MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
-		world:makeSound(??,char.pos);
+		world:makeSound(26,char.pos);
 	end	
-end ]]--
+end
 
 
 --[[
