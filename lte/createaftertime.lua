@@ -14,18 +14,18 @@ function callEffect(Effect, Character)
 		createItemTimeA=0
 		else
 		end
+	findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB")
 debug("createItemTimeA:"..createItemTimeA)
 debug("createItemTimeB:"..createItemTimeB)
-	findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB")
  	if createItemTimeA<createItemTimeB then
 	local findCreateItemRepeatA, createItemRepeatA = Effect:findValue("createItemRepeatA")
 	local findCreateItemRepeatB, createItemRepeatB = Effect:findValue("createItemRepeatB")
 	local createItemRepeatX=math.random(createItemRepeatA,createItemRepeatB)
 	local i=0;
---debug("createItemRepeatA:"..#createItemRepeatA)
---debug("createItemRepeatB:"..#createItemRepeatB)
---debug("createItemRepeatX:"..#createItemRepeatX)
---debug("i:"..#i)
+debug("createItemRepeatA:"..createItemRepeatA)
+debug("createItemRepeatB:"..createItemRepeatB)
+debug("createItemRepeatX:"..createItemRepeatX)
+debug("i:"..#i)
 --	repeat
 --	i=i+1;
 	Character:inform("run", "run")
@@ -66,11 +66,11 @@ debug("createItemTimeB:"..createItemTimeB)
 		end
 
 	createItemTimeA=createItemTimeA+1
-debug("createItemTimeA:"..#createItemTimeA)
+debug("createItemTimeA:"..createItemTimeA)
 	findCreateAfterA, createAfterA = Effect:findValue("createAfterA")
 	findCreateAfterB, createAfterB = Effect:findValue("createAfterB")
 	createAfter=math.random(createAfterA,createAfterB);
-debug("createAfter:"..#createAfter)
+debug("createAfter:"..createAfter)
 	Effect.nextCalled = createAfter
 	return true
 	else
