@@ -34,24 +34,27 @@ function MoveToField(char)
 		char:inform("one", "one")
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 	end
-		
-		createItemTimeB=5;		
-		createItemAmountA=1;
-		createItemAmountB=1;
-		createItemXA=5;
-		createItemXB=12;
-		createItemYA=5;
-		createItemYB=12;
-		createItemZA=0;
-		createItemZB=0;
-		createItemQualA=999;
-		createItemQualB=999;
-		createAfterA=10;
-		createAfterB=30;
-		createGfx=lights[1][math.random(1,table.getn(lights[1]))];
-		createSound=0;
+	if createItemID=0 then	
+		createItemTimeB=random(2,10);
+		else
+		createItemTimeB=1
+		end		
+	createItemAmountA=1;
+	createItemAmountB=1;
+	createItemXA=5;
+	createItemXB=12;
+	createItemYA=5;
+	createItemYB=12;
+	createItemZA=0;
+	createItemZB=0;
+	createItemQualA=999;
+	createItemQualB=999;
+	createAfterA=10;
+	createAfterB=30;
+	createGfx=lights[1][math.random(1,table.getn(lights[1]))];
+	createSound=0;
 
-		base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound)
+	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound)
 
 end
 
