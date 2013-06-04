@@ -31,7 +31,7 @@ function callEffect(Effect, Character)
 	repeat
 	i=i+1;
 --Character:inform("i: "..i,"i: "..i)
-	Character:inform("run", "run")
+--	Character:inform("run", "run")
 	findCreateItemID, createItemID = Effect:findValue("createItemID")
 
 	findCreateItemAmountA, createItemAmountA = Effect:findValue("createItemAmountA")

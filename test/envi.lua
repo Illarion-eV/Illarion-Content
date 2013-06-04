@@ -25,22 +25,25 @@ function MoveToField(char)
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
 		createItemID=0;
 		createGfx=53
+		createRepeatB=5
 		char:inform("Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661))
 		elseif math.random(1,100) < 0 then
 		createItemID=0;
-		createGfx=53
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 		char:inform("Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661))
 		else
 		createItemID=52;
-		createGfx=46
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 		char:inform("Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661))
 	end
 	if createItemID==0 then	
 		createItemTimeB=math.random(2,10);
+		createGfx=53
+		createRepeatB=5
 		else
 		createItemTimeB=1
+		createGfx=46
+		createRepeatB=1
 		end		
 	createItemAmountA=1;
 	createItemAmountB=1;
@@ -53,7 +56,7 @@ function MoveToField(char)
 	createItemQualA=999;
 	createItemQualB=999;
 	createAfterA=20;
-	createAfterB=50;
+	createAfterB=100;
 --	createGfx=lights[1][math.random(1,table.getn(lights[1]))];
 --	createSound=nil;
 	createRepeatA=1
