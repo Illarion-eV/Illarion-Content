@@ -24,15 +24,15 @@ function MoveToField(char)
 
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
 		createItemID=0;
-		char:inform("Info: "..createItemID ..char:getQuestProgress(661),"Info: "..createItemID ..char:getQuestProgress(661))
+		char:inform("Info: Item: "..createItemID "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID "Quest#: " ..char:getQuestProgress(661))
 		elseif math.random(1,100) < 0 then
 		createItemID=0;
 		char:setQuestProgress(661,math.random(60,100)) --lte set
-		char:inform("Info: "..createItemID ..char:getQuestProgress(661),"Info: "..createItemID ..char:getQuestProgress(661))
+		char:inform("Info: Item: "..createItemID "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID "Quest#: " ..char:getQuestProgress(661))
 		else
 		createItemID=52;
 		char:setQuestProgress(661,math.random(60,100)) --lte set
-		char:inform("Info: "..createItemID ..char:getQuestProgress(661),"Info: "..createItemID ..char:getQuestProgress(661))
+		char:inform("Info: Item: "..createItemID "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID "Quest#: " ..char:getQuestProgress(661))
 	end
 	if createItemID==0 then	
 		createItemTimeB=math.random(2,10);
@@ -54,9 +54,9 @@ function MoveToField(char)
 	createGfx=lights[1][math.random(1,table.getn(lights[1]))];
 	createSound=nil;
 	createRepeatA=1
-	createRepeatB=3
-char:inform("createItemTimeB: "..createItemTimeB,"createItemTimeB:"..createItemTimeB)
-char:inform("RepeatB: "..createRepeatB,"RepeatB: "..createRepeatB)
+	createRepeatB=5
+--char:inform("createItemTimeB: "..createItemTimeB,"createItemTimeB:"..createItemTimeB)
+--char:inform("RepeatB: "..createRepeatB,"RepeatB: "..createRepeatB)
 	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB)
 
 end
