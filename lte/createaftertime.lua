@@ -21,7 +21,7 @@ function callEffect(Effect, Character)
 --	local findCreateItemRepeatB, createItemRepeatB = Effect:findValue("createItemRepeatB")
 --	local createItemRepeatX=math.random(createItemRepeatA,createItemRepeatB)
 --	local i=0;
-	repeat
+--	repeat
 --	i=i+1;
 	Character:inform("run", "run")
 	findCreateItemID, createItemID = Effect:findValue("createItemID")
