@@ -29,7 +29,7 @@ function MoveToField(char)
 		elseif math.random(1,100) < 91 then
 		createItemID=0;
 		char:setQuestProgress(661,math.random(60,100)) --lte set
-		char:inform("Es sieht nicht danach aus als würde eine Fee ein Element verlieren.", "It does not look like as a fairy would drop an element.")
+		char:inform("Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.", "It does not look like as any fairy would drop an element today.")
 		char:inform("Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661))
 		else
 		createItemID=52;
