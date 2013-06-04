@@ -37,7 +37,7 @@ function MoveToField(char)
 		char:inform("Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661))
 	end
 	if createItemID==0 then	
-		createItemTimeB=math.random(2,10);
+		createItemTimeB=math.random(5,20);
 		createGfx=53
 		createRepeatB=5
 		else
