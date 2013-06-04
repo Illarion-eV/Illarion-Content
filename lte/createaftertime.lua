@@ -27,8 +27,10 @@ debug("createRepeatB:"..createRepeatB)
 debug("createRepeatX:"..createRepeatX)
 Character:inform("createRepeatX: "..createRepeatX,"createRepeatX: "..createRepeatX)
 debug("i:"..i)
+Character:inform("i: "..i,"i: "..i)
 --	repeat
---	i=i+1;
+	i=i+1;
+Character:inform("i: "..i,"i: "..i)
 	Character:inform("run", "run")
 	findCreateItemID, createItemID = Effect:findValue("createItemID")
 
