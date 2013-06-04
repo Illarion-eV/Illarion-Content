@@ -25,7 +25,7 @@ debug("createItemTimeB:"..createItemTimeB)
 debug("createItemRepeatA:"..createItemRepeatA)
 debug("createItemRepeatB:"..createItemRepeatB)
 debug("createItemRepeatX:"..createItemRepeatX)
-debug("i:"..#i)
+debug("i:"..i)
 --	repeat
 --	i=i+1;
 	Character:inform("run", "run")
