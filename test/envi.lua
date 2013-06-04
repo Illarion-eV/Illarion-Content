@@ -55,7 +55,7 @@ function MoveToField(char)
 	createSound=nil;
 	createRepeatA=1
 	createRepeatB=3
-char:inform(..createRepeatB,..createRepeatB)
+char:inform(..createRepeatB..,..createRepeatB..)
 	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB)
 
 end
