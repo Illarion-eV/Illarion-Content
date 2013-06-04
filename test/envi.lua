@@ -60,7 +60,7 @@ function MoveToField(char)
 --	createGfx=lights[1][math.random(1,table.getn(lights[1]))];
 --	createSound=nil;
 	createRepeatA=1
-	createRepeatB=5
+--	createRepeatB=5
 --char:inform("createItemTimeB: "..createItemTimeB,"createItemTimeB:"..createItemTimeB)
 --char:inform("RepeatB: "..createRepeatB,"RepeatB: "..createRepeatB)
 	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB)
