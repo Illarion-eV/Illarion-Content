@@ -21,8 +21,6 @@ lights={};
 lights[1]={46,53};
 
 function MoveToField(char)
---	findCreateItemTimeA, createItemTimeA = Effect:findValue("createItemTimeA")
---	char:inform("createItemTimeA: "..createItemTimeA,"createItemTimeA: "..createItemTimeA)
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
 		createItemID=0;
 		createGfx=53
@@ -66,6 +64,10 @@ function MoveToField(char)
 --char:inform("RepeatB: "..createRepeatB,"RepeatB: "..createRepeatB)
 	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB)
 
+end
+
+function MoveFromField(char)
+	char:inform("createItemTimeB: "..createItemTimeB,"createItemTimeB:"..createItemTimeB)
 end
 
 
