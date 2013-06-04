@@ -35,7 +35,7 @@ function MoveToField(char)
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 	end
 	if createItemID==0 then	
-		createItemTimeB=random(2,10);
+		createItemTimeB=math.random(2,10);
 		else
 		createItemTimeB=1
 		end		
