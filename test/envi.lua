@@ -121,13 +121,13 @@ function MoveToField(char)
 	until (i==x)
 end ]]--
 
-
+--[[
 function MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
 		world:makeSound(26,char.pos);
 	end	
 end
-
+]]--
 
 --[[
 

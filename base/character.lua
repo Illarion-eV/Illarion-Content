@@ -92,14 +92,23 @@ function LogText(character)
 end;
 
 -- Create item after a defined period of time
--- @param Character The character (e.g. summoned monster) supposed to create
--- @param createItemID The ID of the item supposed to create
--- @param createItemAmount The amount the item is supposed to be created
--- @param createItemX The X-position the item is supposed to be created
--- @param createItemY The Y-position the item is supposed to be created
--- @param createItemZ The Z-position the item is supposed to be created
--- @param createItemQual The quality the item is supposed to be created
--- @param createAfter The period of time after which the item is created in 1/10 sec
+-- @param Character The character (e.g. summoned monster) that is supposed to create
+-- @param createItemTimeB How often the script shall run
+-- @param createItemID The ID of the item that is supposed to create
+-- @param createItemAmountA The min amount of the item that is supposed to be created
+-- @param createItemAmountB The max amount of the item that is supposed to be created
+-- @param createItemXA The min X-position of the item that is supposed to be created
+-- @param createItemXB The max X-position of the item that is supposed to be created
+-- @param createItemYA The min Y-position of the item that is supposed to be created
+-- @param createItemYB The max Y-position of the item that is supposed to be created
+-- @param createItemZA The min Z-position of the item that is supposed to be created
+-- @param createItemZB The max Z-position of the item that is supposed to be created
+-- @param createItemQualA The min quality of the item that is supposed to be created
+-- @param createItemQualB The max quality of the item that is supposed to be created
+-- @param createAfterA The min period of time after which the item is created in 1/10 sec
+-- @param createAfterB The max period of time after which the item is created in 1/10 sec
+-- @param createRepeatA The min repeat of the item that is supposed to be created
+-- @param createRepeatB The max repeat of the item that is supposed to be created
 -- @param createGfx The GFX shown on the created item, nil for no GFX
 -- @param createSound The sound played on created item, nil for no sound
 function CreateAfterTime(Character,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB)
