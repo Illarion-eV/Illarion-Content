@@ -22,9 +22,9 @@ debug("createItemTimeB:"..createItemTimeB)
 	local findCreateItemRepeatB, createItemRepeatB = Effect:findValue("createItemRepeatB")
 	local createItemRepeatX=math.random(createItemRepeatA,createItemRepeatB)
 	local i=0;
-debug("createItemRepeatA:"..createItemRepeatA)
-debug("createItemRepeatB:"..createItemRepeatB)
-debug("createItemRepeatX:"..createItemRepeatX)
+debug("createRepeatA:"..createRepeatA)
+debug("createRepeatB:"..createRepeatB)
+debug("createRepeatX:"..createRepeatX)
 debug("i:"..i)
 --	repeat
 --	i=i+1;
@@ -59,7 +59,7 @@ debug("i:"..i)
 	if findCreateSound then -- if we have defined a sound for the created item
 		world:makeSound(createSound,posOfItem)
 	end
---	until (i==createItemRepeatX)
+--	until (i==createRepeatX)
 
 	if createItemID ~= 0 then
 		world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
