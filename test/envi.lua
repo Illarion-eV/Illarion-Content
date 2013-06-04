@@ -49,8 +49,8 @@ function MoveToField(char)
 	createItemZB=0;
 	createItemQualA=999;
 	createItemQualB=999;
-	createAfterA=10;
-	createAfterB=30;
+	createAfterA=20;
+	createAfterB=50;
 	createGfx=lights[1][math.random(1,table.getn(lights[1]))];
 	createSound=0;
 	createItemRepeatA=1

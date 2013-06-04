@@ -17,12 +17,12 @@ function callEffect(Effect, Character)
 
 	findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB")
  	if createItemTimeA<createItemTimeB then
-	local findCreateItemRepeatA, createItemRepeatA = Effect:findValue("createItemRepeatA")
-	local findCreateItemRepeatB, createItemRepeatB = Effect:findValue("createItemRepeatB")
-	local createItemRepeatX=math.random(createItemRepeatA,createItemRepeatB)
-	local i=0;
+--	local findCreateItemRepeatA, createItemRepeatA = Effect:findValue("createItemRepeatA")
+--	local findCreateItemRepeatB, createItemRepeatB = Effect:findValue("createItemRepeatB")
+--	local createItemRepeatX=math.random(createItemRepeatA,createItemRepeatB)
+--	local i=0;
 	repeat
-	i=i+1;
+--	i=i+1;
 	Character:inform("run", "run")
 	findCreateItemID, createItemID = Effect:findValue("createItemID")
 
@@ -54,7 +54,7 @@ function callEffect(Effect, Character)
 	if findCreateSound then -- if we have defined a sound for the created item
 		world:makeSound(createSound,posOfItem)
 	end
-	until (i==createItemRepeatX)
+--	until (i==createItemRepeatX)
 
 	if createItemID ~= 0 then
 		world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
