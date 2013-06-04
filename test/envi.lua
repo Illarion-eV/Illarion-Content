@@ -53,8 +53,10 @@ function MoveToField(char)
 	createAfterB=30;
 	createGfx=lights[1][math.random(1,table.getn(lights[1]))];
 	createSound=0;
+	createItemRepeatA=1
+	createItemRepeatB=3
 
-	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound)
+	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createItemRepeatA,createItemRepeatB)
 
 end
 

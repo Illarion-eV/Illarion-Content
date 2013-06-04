@@ -102,7 +102,7 @@ end;
 -- @param createAfter The period of time after which the item is created in 1/10 sec
 -- @param createGfx The GFX shown on the created item, nil for no GFX
 -- @param createSound The sound played on created item, nil for no sound
-function CreateAfterTime(Character,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound)
+function CreateAfterTime(Character,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB)
 	find, myEffect = Character.effects:find(80)
 	if find then 
 		return
@@ -123,6 +123,8 @@ function CreateAfterTime(Character,createItemTimeB,createItemID,createItemAmount
 		myEffect:addValue("createItemQualB",createItemQualB)
 		myEffect:addValue("createAfterA",createAfterA)
 		myEffect:addValue("createAfterB",createAfterB)
+		myEffect:addValue("createRepeatA",createRepeatA)
+		myEffect:addValue("createRepeatB",createRepeatB)
 		if createGfx ~= nil then
 			myEffect:addValue("createGfx",createGfx)
        		end
