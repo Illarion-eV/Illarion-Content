@@ -28,7 +28,7 @@ debug("createRepeatX:"..createRepeatX)
 Character:inform("createRepeatX: "..createRepeatX,"createRepeatX: "..createRepeatX)
 debug("i:"..i)
 Character:inform("i: "..i,"i: "..i)
---	repeat
+	repeat
 	i=i+1;
 Character:inform("i: "..i,"i: "..i)
 	Character:inform("run", "run")
@@ -62,7 +62,7 @@ Character:inform("i: "..i,"i: "..i)
 	if findCreateSound then -- if we have defined a sound for the created item
 		world:makeSound(createSound,posOfItem)
 	end
---	until (i==createRepeatX)
+	until (i==createRepeatX)
 
 	if createItemID ~= 0 then
 		world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
