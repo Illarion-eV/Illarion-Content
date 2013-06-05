@@ -50,8 +50,8 @@ Character:inform("run1","run1")
 		else
 		end
 	findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB") --find variable
---debug("createItemTimeA:"..createItemTimeA)
---debug("createItemTimeB:"..createItemTimeB)
+debug("createItemTimeA:"..createItemTimeA)
+debug("createItemTimeB:"..createItemTimeB)
 Character:inform("run2","run2")
  	if createItemTimeA<createItemTimeB then --check if smaller; if yes than nextcall
 Character:inform("run3","run3")
