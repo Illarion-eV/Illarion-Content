@@ -114,7 +114,7 @@ end;
 -- @param createItemTextEN The English text shown on the created item, nil for no text
 -- @param createGfx The GFX shown on the created item, nil for no GFX
 -- @param createSound The sound played on created item, nil for no sound
-function CreateAfterTime(Character,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemTextDE,createItemTextEN,createItemPos)
+function CreateAfterTime(Character,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos)
 	find, myEffect = Character.effects:find(80)
 	if find then
 		return
@@ -140,12 +140,9 @@ function CreateAfterTime(Character,createItemTimeB,createItemID,createItemAmount
 		if createItemPos ~= nil then
 			myEffect:addValue("createItemPos",createItemPos)
 		end
-		if createItemTextDE ~= nil then
-			myEffect:addValue("createItemTextDE",createItemTextDE)
+		if createItemText ~= nil then
+			myEffect:addValue("createItemText",createItemText)
 		end
-		if createItemTextEN ~= nil then
-			myEffect:addValue("createItemTextEN",createItemTextEN)
-		end		
 		if createGfx ~= nil then
 			myEffect:addValue("createGfx",createGfx)
        		end

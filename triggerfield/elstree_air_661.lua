@@ -25,18 +25,12 @@ function MoveToField(char)
 		createItemTimeB=math.random(10,20);  --nothing, thus more lights appear
 		createGfx=53 --light (blue glitter)
 		createRepeatB=7 --up to five lights at same time
-		createItemTextDE=1
-		createItemTextEN=1
---		createItemTextDE="Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren."
---		createItemTextEN="It does not look like as any fairy would drop an element today."
+		createItemText=1 --select text-set 1 in .lte.createaftertime.lua
 		else
 		createItemTimeB=1 --yes, thus light onle one time
 		createGfx=46 --light (beam me up)
 		createRepeatB=1 --only one light
-		createItemTextDE=2
-		createItemTextEN=2
-		createItemTextDE=Ah! Eine Fee hat pure Luft verloren.
-		createItemTextEN=Ah! A fairy lost pure air.
+		createItemText=2 --select text-set 2 .lte.createaftertime.lua
 		end		
 	createItemAmountA=1; --amount of element min
 	createItemAmountB=1; --amount of element max
@@ -55,6 +49,6 @@ function MoveToField(char)
 	createRepeatA=3 --at least one repeat
 --	createRepeatB=5 --max repeat; moved to top
 	createItemPos=1 --check of position set
-	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemTextDE,createItemTextEN,createItemPos) -- call .lte.createaftertime
+	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos) -- call .lte.createaftertime
 
 end

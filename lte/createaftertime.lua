@@ -5,6 +5,34 @@
 require("base.common")
 module("lte.createaftertime", package.seeall)
 
+TextDE={};
+TextEN={};
+TextDE[1]="Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.";
+TextEN[1]="It does not look like as any fairy would drop an element today.";
+TextDE[2]="Ah! Eine Fee hat pure Luft verloren. Siehe mal:";
+TextEN[2]="Ah! A fairy lost pure air.";
+
+PosItemDE={};
+PosItemEN={};
+PosItemDE[1]="nordwestlich";
+PosItemEN[1]="northwest";
+PosItemDE[2]="südwestlich";
+PosItemEN[2]="southwest";
+PosItemDE[3]="nordöstlich";
+PosItemEN[3]="northeast";
+PosItemDE[4]="südöstlich";
+PosItemEN[4]="southeast";
+PosItemDE[5]="westlich";
+PosItemEN[5]="west";
+PosItemDE[6]="östlich";
+PosItemEN[6]="east";
+PosItemDE[7]="nördlich";
+PosItemEN[7]="north";
+PosItemDE[8]="südlich";
+PosItemEN[8]="south";
+PosItemDE[9]="unter deinen Beinen";
+PosItemEN[9]="underneath your feet";
+
 function addEffect(Effect, Character)               				
 
 end
@@ -76,33 +104,37 @@ function callEffect(Effect, Character)
 	else
 
 
-	findCreateItemTextDE, createItemTextDE = Effect:findValue("createItemTextDE") --find variable
-	findCreateItemTextEN, createItemTextEN = Effect:findValue("createItemTextEN") --find variable
-	if findCreateItemTextDE and findCreateItemTextEN then -- if we have defined a sound for the created item
-		Character:inform("Info "..createItemTextDE,"Info "..createItemTextEN)
-	end
-
 	findCreateItemPos, createItemPos = Effect:findValue("createItemPos") --find variable
 	if findCreateItemPos then -- if we have defined a sound for the created item
 		if createItemX < Character.pos.x and createItemY < Character.pos.y then
-			Character:inform("Nordwest","Northwest")	
+			PosItem=1	
 			elseif createItemX < Character.pos.x and createItemY > Character.pos.y then			
-			Character:inform("Südwest","Southwest")
+			PosItem=2
 			elseif createItemX > Character.pos.x and createItemY < Character.pos.y then
-			Character:inform("Nordost","Northeast")
+			PosItem=3
 			elseif createItemX > Character.pos.x and createItemY > Character.pos.y then
-			Character:inform("Südost","Southeast")
+			PosItem=4
 			elseif createItemX < Character.pos.x then
-			Character:inform("Westen","West")
+			PosItem=5
 			elseif createItemX > Character.pos.x then
-			Character:inform("Osten","East")
+			PosItem=6
 			elseif createItemY < Character.pos.y then
-			Character:inform("Norden","North")
+			PosItem=7
 			elseif createItemY > Character.pos.y then
-			Character:inform("Süden","South")
+			PosItem=8
 			else
-			Character:inform("Ups!","Ups!")
+			PosItem=9
 		end
+	end
+
+	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
+	if createItemText==1 then -- if we have defined a sound for the created item
+		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]);
+	end
+
+	if createItemText==2 then -- if we have defined a sound for the created item
+		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]);
+		base.common.InformNLS(Character,PosItemDE[PosItem],PosItemEN[PosItem]);
 	end
 
 	createItemTimeA=0  --prepare for next script call

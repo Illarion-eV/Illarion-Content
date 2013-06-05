@@ -44,7 +44,7 @@ function MoveToField(char)
 	if createItemID==0 then	--check if something will be created
 		createItemTimeB=math.random(10,20);  --nothing, thus more lights appear
 		createGfx=53 --light (blue glitter)
-		createRepeatB=5 --up to five lights at same time
+		createRepeatB=7 --up to five lights at same time
 		else
 		createItemTimeB=1 --yes, thus light onle one time
 		createGfx=46 --light (beam me up)
@@ -64,8 +64,9 @@ function MoveToField(char)
 	createAfterB=100; --delay max
 --	createGfx=nil; --gfx; moved to top
 --	createSound=nil; --sfx; moved to top
-	createRepeatA=1 --at least one repeat
+	createRepeatA=3 --at least one repeat
 --	createRepeatB=5 --max repeat; moved to top
+	createItemPos=1 --check of position set
 	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB) -- call .lte.createaftertime
 
 end
