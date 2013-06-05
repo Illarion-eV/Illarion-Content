@@ -139,7 +139,7 @@ function callEffect(Effect, Character)
 	end
 
 	if createItemText==2 then -- if we have defined a sound for the created item
-		Character:inform("" ..TextDE[createItemText].. " " ..PosItemDE[PosItem]"."," " ..TextEN[createItemText].. " " ..PosItemEN[PosItem] ".") --inform player about result and the direction
+		Character:inform("" ..TextDE[createItemText] " " ..PosItemDE[PosItem]"."," " ..TextEN[createItemText] " " ..PosItemEN[PosItem] ".") --inform player about result and the direction
 	end
 
 	createItemTimeA=0  --prepare for next script call
