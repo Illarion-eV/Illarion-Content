@@ -149,15 +149,16 @@ Character:inform("createItemX: "..createItemX,"createItemX:"..createItemX)
 Character:inform("createItemY: "..createItemY,"createItemY:"..createItemY)
 Character:inform("PoscreatedItemX: "..PoscreatedItemX,"PoscreatedItemX:"..PoscreatedItemX)
 Character:inform("PoscreatedItemY: "..PoscreatedItemY,"PoscreatedItemY:"..PoscreatedItemY)
-		findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
-		if createItemText==1 then -- if we have defined text1 for the created item
-			base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
-		end
-
-		if createItemText==2 or createItemText==3 or createItemText==4 or createItemText==5 then -- if we have defined text2..5 for the created item
-			Character:inform(""..TextDE[createItemText]..PosItemDE[PosItem],""..TextEN[createItemText]..PosItemEN[PosItem])--inform player about result and the direction
-		end
+	end	
+	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
+	if createItemText==1 then -- if we have defined text1 for the created item
+		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
 	end
+
+	if createItemText==2 or createItemText==3 or createItemText==4 or createItemText==5 then -- if we have defined text2..5 for the created item
+		Character:inform(""..TextDE[createItemText]..PosItemDE[PosItem],""..TextEN[createItemText]..PosItemEN[PosItem])--inform player about result and the direction
+	end
+	
 
 	createItemTimeA=0  --prepare for next script call
 	return false -- callEffect is only needed once, no return true necessary
@@ -185,7 +186,7 @@ Character:inform("run3b","run3b")
 --debug("i:"..i)
 		repeat
 		i=i+1; --counter
-		findCreateItemID, createItemID = Effect:findValue("createItemID") --find variable
+		findCreateItemIDB, createItemIDB = Effect:findValue("createItemIDB") --find variable
 
 		findCreateItemAmountA, createItemAmountA = Effect:findValue("createItemAmountA") --find variable
 		findCreateItemAmountB, createItemAmountB = Effect:findValue("createItemAmountB") --find variable
@@ -218,7 +219,7 @@ Character:inform("run3b","run3b")
 		end
 		until (i==createRepeatX) --stop repeat
 
-		if createItemID ~= 0 then --an item shall be created
+		if createItemIDB ~= 0 then --an item shall be created
 			PoscreatedItemX=createItemX
 			PoscreatedItemY=createItemY
 			world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
@@ -235,7 +236,7 @@ Character:inform("Info "..createItemID,"Info "..createItemID)
 		Effect.nextCalled = createAfter --set time for nextcall
 		return true --callEffect is needed again, return true necessary
 	
-	elseif createItemID ~= 0 then --provide information if something has been created
+	elseif createItemIDB ~= 0 then --provide information if something has been created
 		findCreateItemPos, createItemPos = Effect:findValue("createItemPos") --find variable
 		if findCreateItemPos then -- if we have defined a sound for the created item
 			if PoscreatedItemX < Character.pos.x and PoscreatedItemY < Character.pos.y then --set direction of created item based on player
@@ -262,14 +263,14 @@ Character:inform("createItemX: "..createItemX,"createItemX:"..createItemX)
 Character:inform("createItemY: "..createItemY,"createItemY:"..createItemY)
 Character:inform("PoscreatedItemX: "..PoscreatedItemX,"PoscreatedItemX:"..PoscreatedItemX)
 Character:inform("PoscreatedItemY: "..PoscreatedItemY,"PoscreatedItemY:"..PoscreatedItemY)
-		findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
-		if createItemText==1 then -- if we have defined text1 for the created item
-			base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
-		end
+	end
+	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
+	if createItemText==1 then -- if we have defined text1 for the created item
+		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
+	end
 
-		if createItemText==2 or createItemText==3 or createItemText==4 or createItemText==5 then -- if we have defined text2..5 for the created item
-			Character:inform(""..TextDE[createItemText]..PosItemDE[PosItem],""..TextEN[createItemText]..PosItemEN[PosItem])--inform player about result and the direction
-		end
+	if createItemText==2 or createItemText==3 or createItemText==4 or createItemText==5 then -- if we have defined text2..5 for the created item
+		Character:inform(""..TextDE[createItemText]..PosItemDE[PosItem],""..TextEN[createItemText]..PosItemEN[PosItem])--inform player about result and the direction
 	end
 
 	createItemTimeAA=0  --prepare for next script call
