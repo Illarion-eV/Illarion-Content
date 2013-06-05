@@ -11,26 +11,29 @@ module("triggerfield.elstree_air_661", package.seeall)
 
 function MoveToField(char)
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
+		RewardInElstree=0; --nothing will be created
 		elseif math.random(1,100) < 0 then --chance check if lte=0 and character is player
+		RewardInElstree=0; --no, thus nothing will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 --		char:inform("Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.", "It does not look like as any fairy would drop an element today.") --player get informed s/he missed chance
-		else 
-		createItemID=2551; --yes, thus pure air will be created
+		else
+		RewardInElstree=1; --yes, something will be created
+		createItemID=2551; --pure air will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 --		char:inform("Ah! Eine Fee hat pure Luft verloren.", "Ah! A fairy lost pure air.") --player get informed that fairy lost element
 	end
-	if createItemID~=0 then	--check if something will be created
-		createItemTimeB=1 --yes, thus light onle one time
-		createGfx=46 --light (beam me up)
-		createRepeatA=1 --only one light 
-		createRepeatB=1 --only one light
-		createItemText=2 --select text-set 2 .lte.createaftertime.lua
-		else
+	if RewardInElstree==0 then	--check if something will be created
 		createItemTimeB=math.random(10,20);  --nothing, thus more lights appear
 		createGfx=53 --light (blue glitter)
 		createRepeatA=3 --min three lights at the same time
 		createRepeatB=7 --up to five lights at the same time
 		createItemText=1 --select text-set 1 in .lte.createaftertime.lua
+		else
+		createItemTimeB=1 --yes, thus light onle one time
+		createGfx=46 --light (beam me up)
+		createRepeatA=1 --only one light 
+		createRepeatB=1 --only one light
+		createItemText=2 --select text-set 2 .lte.createaftertime.lua
 		end		
 	createItemAmountA=1; --amount of element min
 	createItemAmountB=1; --amount of element max
