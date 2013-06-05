@@ -106,7 +106,7 @@ function callEffect(Effect, Character)
 
 	findCreateItemPos, createItemPos = Effect:findValue("createItemPos") --find variable
 	if findCreateItemPos then -- if we have defined a sound for the created item
-		if createItemX < Character.pos.x and createItemY < Character.pos.y then
+		if createItemX < Character.pos.x and createItemY < Character.pos.y then --set direction of created item based on player
 			PosItem=1	
 			elseif createItemX < Character.pos.x and createItemY > Character.pos.y then			
 			PosItem=2
@@ -129,12 +129,12 @@ function callEffect(Effect, Character)
 
 	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
 	if createItemText==1 then -- if we have defined a sound for the created item
-		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]);
+		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
 	end
 
 	if createItemText==2 then -- if we have defined a sound for the created item
-		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]);
-		base.common.InformNLS(Character,PosItemDE[PosItem],PosItemEN[PosItem]);
+		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
+		base.common.InformNLS(Character,"test " PosItemDE[PosItem],"test " PosItemEN[PosItem]); --inform player about the direction
 	end
 
 	createItemTimeA=0  --prepare for next script call
