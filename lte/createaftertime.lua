@@ -44,6 +44,7 @@ function addEffect(Effect, Character)
 end
 
 function callEffect(Effect, Character)
+Character:inform("run1","run1")
 	if not createItemTimeA then --check if false
 		createItemTimeA=0 --set 0 if false
 		else
@@ -51,7 +52,9 @@ function callEffect(Effect, Character)
 	findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB") --find variable
 --debug("createItemTimeA:"..createItemTimeA)
 --debug("createItemTimeB:"..createItemTimeB)
+Character:inform("run2","run2")
  	if createItemTimeA<createItemTimeB then --check if smaller; if yes than nextcall
+Character:inform("run3","run3")
 	local findCreateRepeatA, createRepeatA = Effect:findValue("createRepeatA") --find variable
 	local findCreateRepeatB, createRepeatB = Effect:findValue("createRepeatB") --find variable
 	local createRepeatX=math.random(createRepeatA,createRepeatB) --create random value between variables
