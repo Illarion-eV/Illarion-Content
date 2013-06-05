@@ -20,24 +20,24 @@ TextEN[5]="Ah! A fairy lost pure water";
 
 PosItemDE={};
 PosItemEN={};
-PosItemDE[1]="nordwestlich von dir";
-PosItemEN[1]="northwest of you";
-PosItemDE[2]="südwestlich von dir";
-PosItemEN[2]="southwest of you";
-PosItemDE[3]="nordöstlich von dir";
-PosItemEN[3]="northeast of you";
-PosItemDE[4]="südöstlich von dir";
-PosItemEN[4]="southeast of you";
-PosItemDE[5]="westlich von dir";
-PosItemEN[5]="west of you";
-PosItemDE[6]="östlich von dir";
-PosItemEN[6]="east of you";
-PosItemDE[7]="nördlich von dir";
-PosItemEN[7]="north of you";
-PosItemDE[8]="südlich von dir";
-PosItemEN[8]="south of you";
-PosItemDE[9]="unter deinen Beinen";
-PosItemEN[9]="underneath your feet";
+PosItemDE[1]=" nordwestlich von dir.";
+PosItemEN[1]=" northwest of you.";
+PosItemDE[2]=" südwestlich von dir.";
+PosItemEN[2]=" southwest of you.";
+PosItemDE[3]=" nordöstlich von dir.";
+PosItemEN[3]=" northeast of you.";
+PosItemDE[4]=" südöstlich von dir.";
+PosItemEN[4]=" southeast of you.";
+PosItemDE[5]=" westlich von dir.";
+PosItemEN[5]=" west of you.";
+PosItemDE[6]=" östlich von dir.";
+PosItemEN[6]=" east of you.";
+PosItemDE[7]=" nördlich von dir.";
+PosItemEN[7]=" north of you.";
+PosItemDE[8]=" südlich von dir.";
+PosItemEN[8]=" south of you.";
+PosItemDE[9]=" unter deinen Beinen.";
+PosItemEN[9]=" underneath your feet.";
 
 function addEffect(Effect, Character)               				
 
@@ -139,7 +139,7 @@ function callEffect(Effect, Character)
 	end
 
 	if createItemText==2 then -- if we have defined a sound for the created item
-		Character:inform(""..TextDE[createItemText]" "..PosItemDE[PosItem],""..TextEN[createItemText]" "..PosItemEN[PosItem])--inform player about result and the direction
+		Character:inform(""..TextDE[createItemText]..PosItemDE[PosItem],""..TextEN[createItemText]..PosItemEN[PosItem])--inform player about result and the direction
 	end
 
 	createItemTimeA=0  --prepare for next script call
