@@ -47,29 +47,17 @@ function callEffect(Effect, Character)
 
 findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB") --find variable
 findCreateItemTimeBB, createItemTimeBB = Effect:findValue("createItemTimeBB") --find variable
-debug("createItemTimeB1:"..createItemTimeB)
-debug("createItemTimeBB1:"..createItemTimeBB)
 if createItemTimeB ~= 0 then
-debug("createItemTimeB2:"..createItemTimeB)
-Character:inform("run1","run1")
 	if not createItemTimeA then --check if false
 		createItemTimeA=0 --set 0 if false
 	else
 	end
 	local findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB") --find variable
-debug("createItemTimeA:"..createItemTimeA)
-debug("createItemTimeB3:"..createItemTimeB)
-Character:inform("run2","run2")
  	if createItemTimeA<createItemTimeB then --check if smaller; if yes than nextcall
-Character:inform("run3","run3")
 		local findCreateRepeatA, createRepeatA = Effect:findValue("createRepeatA") --find variable
 		local findCreateRepeatB, createRepeatB = Effect:findValue("createRepeatB") --find variable
 		local createRepeatX=math.random(createRepeatA,createRepeatB) --create random value between variables
 		local i=0; --ready for repeat
---debug("createRepeatA:"..createRepeatA)
---debug("createRepeatB:"..createRepeatB)
---debug("createRepeatX:"..createRepeatX)
---debug("i:"..i)
 		repeat
 			i=i+1; --counter
 			findCreateItemID, createItemID = Effect:findValue("createItemID") --find variable
@@ -88,8 +76,6 @@ Character:inform("run3","run3")
 			createItemY=math.random(createItemYA,createItemYB) --create random value between variables
 			createItemZ=math.random(createItemZA,createItemZB) --create random value between variables
 			posOfItem = position(createItemX,createItemY,createItemZ) --set value for position
---Character:inform("createItemX: "..createItemX,"createItemX:"..createItemX)
---Character:inform("createItemY: "..createItemY,"createItemY:"..createItemY)
 			findCreateItemQualA, createItemQualA = Effect:findValue("createItemQualA") --find variable
 			findCreateItemQualB, createItemQualB = Effect:findValue("createItemQualB") --find variable
 			createItemQual=math.random(createItemQualA,createItemQualB); --create random value between variables
@@ -109,46 +95,38 @@ Character:inform("run3","run3")
 			PoscreatedItemX=createItemX
 			PoscreatedItemY=createItemY
 			world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
-Character:inform("created","created")
-Character:inform("Info "..createItemID,"Info "..createItemID)
 		end
 
 		createItemTimeA=createItemTimeA+1 --counter for nextcall
---debug("createItemTimeA:"..createItemTimeA)
 		findCreateAfterA, createAfterA = Effect:findValue("createAfterA") --find variable
 		findCreateAfterB, createAfterB = Effect:findValue("createAfterB") --find variable
 		createAfter=math.random(createAfterA,createAfterB);  --create random value between variables
---debug("createAfter:"..createAfter)
 		Effect.nextCalled = createAfter --set time for nextcall
 		return true --callEffect is needed again, return true necessary
 
 	elseif createItemID ~= 0 then --provide information if something has been created
 		findCreateItemPos, createItemPos = Effect:findValue("createItemPos") --find variable
-		if findCreateItemPos then -- if we have defined a sound for the created item
-			if PoscreatedItemX < Character.pos.x and PoscreatedItemY < Character.pos.y then --set direction of created item based on player
+		if findCreateItemPos then -- if yes, position of item in relation to character will be checked
+			if PoscreatedItemX < Character.pos.x and PoscreatedItemY < Character.pos.y then
 				PosItem=1	
-				elseif PoscreatedItemX < Character.pos.x and PoscreatedItemY > Character.pos.y then			
+			elseif PoscreatedItemX < Character.pos.x and PoscreatedItemY > Character.pos.y then			
 				PosItem=2
-				elseif PoscreatedItemX > Character.pos.x and PoscreatedItemY < Character.pos.y then
+			elseif PoscreatedItemX > Character.pos.x and PoscreatedItemY < Character.pos.y then
 				PosItem=3
-				elseif PoscreatedItemX > Character.pos.x and PoscreatedItemY > Character.pos.y then
+			elseif PoscreatedItemX > Character.pos.x and PoscreatedItemY > Character.pos.y then
 				PosItem=4
-				elseif PoscreatedItemX < Character.pos.x then
+			elseif PoscreatedItemX < Character.pos.x then
 				PosItem=5
-				elseif PoscreatedItemX > Character.pos.x then
+			elseif PoscreatedItemX > Character.pos.x then
 				PosItem=6
-				elseif PoscreatedItemY < Character.pos.y then
+			elseif PoscreatedItemY < Character.pos.y then
 				PosItem=7
-				elseif PoscreatedItemY > Character.pos.y then
+			elseif PoscreatedItemY > Character.pos.y then
 				PosItem=8
-				else
+			else
 				PosItem=9
 			end
 		end
-Character:inform("createItemX: "..createItemX,"createItemX:"..createItemX)
-Character:inform("createItemY: "..createItemY,"createItemY:"..createItemY)
-Character:inform("PoscreatedItemX: "..PoscreatedItemX,"PoscreatedItemX:"..PoscreatedItemX)
-Character:inform("PoscreatedItemY: "..PoscreatedItemY,"PoscreatedItemY:"..PoscreatedItemY)
 	end	
 	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
 	if createItemText==1 then -- if we have defined text1 for the created item
@@ -164,26 +142,15 @@ Character:inform("PoscreatedItemY: "..PoscreatedItemY,"PoscreatedItemY:"..Poscre
 	return false -- callEffect is only needed once, no return true necessary
 
 elseif findCreateItemTimeBB then
-debug("createItemTimeBB2:"..createItemTimeBB)
-Character:inform("run1b","run1b")
 	if not createItemTimeAA then --check if false
 		createItemTimeAA=0 --set 0 if false
 		else
 	end
---	local findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB") --find variable
-debug("createItemTimeAA:"..createItemTimeAA)
-debug("createItemTimeBB3:"..createItemTimeBB)
-Character:inform("run2b","run2b")
  	if createItemTimeAA<createItemTimeBB then --check if smaller; if yes than nextcall
-Character:inform("run3b","run3b")
 		local findCreateRepeatA, createRepeatA = Effect:findValue("createRepeatA") --find variable
 		local findCreateRepeatB, createRepeatB = Effect:findValue("createRepeatB") --find variable
 		local createRepeatX=math.random(createRepeatA,createRepeatB) --create random value between variables
 		local i=0; --ready for repeat
---debug("createRepeatA:"..createRepeatA)
---debug("createRepeatB:"..createRepeatB)
---debug("createRepeatX:"..createRepeatX)
---debug("i:"..i)
 		repeat
 		i=i+1; --counter
 		findCreateItemIDB, createItemIDB = Effect:findValue("createItemIDB") --find variable
@@ -202,8 +169,6 @@ Character:inform("run3b","run3b")
 		createItemY=math.random(createItemYA,createItemYB) --create random value between variables
 		createItemZ=math.random(createItemZA,createItemZB) --create random value between variables
 		posOfItem = position(createItemX,createItemY,createItemZ) --set value for position
---Character:inform("createItemX: "..createItemX,"createItemX:"..createItemX)
---Character:inform("createItemY: "..createItemY,"createItemY:"..createItemY)
 		findCreateItemQualA, createItemQualA = Effect:findValue("createItemQualA") --find variable
 		findCreateItemQualB, createItemQualB = Effect:findValue("createItemQualB") --find variable
 		createItemQual=math.random(createItemQualA,createItemQualB); --create random value between variables
@@ -219,50 +184,42 @@ Character:inform("run3b","run3b")
 		end
 		until (i==createRepeatX) --stop repeat
 
-		if createItemIDB ~= 0 then --an item shall be created
+		if createItemIDB ~= 0 then --an item B shall be created
 			PoscreatedItemX=createItemX
 			PoscreatedItemY=createItemY
 			world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
-Character:inform("created","created")
-Character:inform("Info "..createItemID,"Info "..createItemID)
 		end
 
 		createItemTimeAA=createItemTimeAA+1 --counter for nextcall
---debug("createItemTimeA:"..createItemTimeA)
 		findCreateAfterA, createAfterA = Effect:findValue("createAfterA") --find variable
 		findCreateAfterB, createAfterB = Effect:findValue("createAfterB") --find variable
 		createAfter=math.random(createAfterA,createAfterB);  --create random value between variables
---debug("createAfter:"..createAfter)
 		Effect.nextCalled = createAfter --set time for nextcall
 		return true --callEffect is needed again, return true necessary
 	
-	elseif createItemIDB ~= 0 then --provide information if something has been created
+	elseif createItemIDB ~= 0 then --if item B has been created, get positionomething has been created
 		findCreateItemPos, createItemPos = Effect:findValue("createItemPos") --find variable
-		if findCreateItemPos then -- if we have defined a sound for the created item
-			if PoscreatedItemX < Character.pos.x and PoscreatedItemY < Character.pos.y then --set direction of created item based on player
+		if findCreateItemPos then -- if yes, position of item in relation to character will be checked
+			if PoscreatedItemX < Character.pos.x and PoscreatedItemY < Character.pos.y then
 				PosItem=1	
-				elseif PoscreatedItemX < Character.pos.x and PoscreatedItemY > Character.pos.y then			
+			elseif PoscreatedItemX < Character.pos.x and PoscreatedItemY > Character.pos.y then			
 				PosItem=2
-				elseif PoscreatedItemX > Character.pos.x and PoscreatedItemY < Character.pos.y then
+			elseif PoscreatedItemX > Character.pos.x and PoscreatedItemY < Character.pos.y then
 				PosItem=3
-				elseif PoscreatedItemX > Character.pos.x and PoscreatedItemY > Character.pos.y then
+			elseif PoscreatedItemX > Character.pos.x and PoscreatedItemY > Character.pos.y then
 				PosItem=4
-				elseif PoscreatedItemX < Character.pos.x then
+			elseif PoscreatedItemX < Character.pos.x then
 				PosItem=5
-				elseif PoscreatedItemX > Character.pos.x then
+			elseif PoscreatedItemX > Character.pos.x then
 				PosItem=6
-				elseif PoscreatedItemY < Character.pos.y then
+			elseif PoscreatedItemY < Character.pos.y then
 				PosItem=7
-				elseif PoscreatedItemY > Character.pos.y then
+			elseif PoscreatedItemY > Character.pos.y then
 				PosItem=8
-				else
+			else
 				PosItem=9
 			end
 		end
-Character:inform("createItemX: "..createItemX,"createItemX:"..createItemX)
-Character:inform("createItemY: "..createItemY,"createItemY:"..createItemY)
-Character:inform("PoscreatedItemX: "..PoscreatedItemX,"PoscreatedItemX:"..PoscreatedItemX)
-Character:inform("PoscreatedItemY: "..PoscreatedItemY,"PoscreatedItemY:"..PoscreatedItemY)
 	end
 	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
 	if createItemText==1 then -- if we have defined text1 for the created item
