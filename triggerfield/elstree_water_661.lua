@@ -58,7 +58,7 @@ function MoveToField(char)
 		createGfx=46 --light (beam me up)
 		createRepeatA=1 --only one light 
 		createRepeatB=1 --only one light
-		createItemText=2 --select text-set 2 .lte.createaftertime.lua
+		createItemText=5 --select text-set 5 .lte.createaftertime.lua
 		end		
 	createItemAmountA=1; --amount of element min
 	createItemAmountB=1; --amount of element max
