@@ -12,7 +12,7 @@ module("triggerfield.elstree_air_661", package.seeall)
 function MoveToField(char)
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
 		RewardInElstree=0; --nothing will be created
-		elseif math.random(1,100) < 0 then --chance check if lte=0 and character is player
+		elseif math.random(1,100) < 91 then --chance check if lte=0 and character is player
 		RewardInElstree=0; --no, thus nothing will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 --		char:inform("Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.", "It does not look like as any fairy would drop an element today.") --player get informed s/he missed chance
