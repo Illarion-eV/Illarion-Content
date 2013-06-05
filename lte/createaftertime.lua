@@ -275,7 +275,7 @@ Character:inform("PoscreatedItemY: "..PoscreatedItemY,"PoscreatedItemY:"..Poscre
 	createItemTimeAA=0  --prepare for next script call
 	return false -- callEffect is only needed once, no return true necessary
 	end
-end
+
 end
 
 function removeEffect(Effect,User)
