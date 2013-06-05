@@ -132,7 +132,7 @@ function callEffect(Effect, Character)
 			PosItem=9
 		end
 	end
-
+debug("createRepeatX:"..createRepeatX)
 	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
 	if createItemText==1 then -- if we have defined a sound for the created item
 		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
