@@ -84,21 +84,21 @@ function callEffect(Effect, Character)
 
 	findCreateItemPos, createItemPos = Effect:findValue("createItemPos") --find variable
 	if findCreateItemPos then -- if we have defined a sound for the created item
-		if createItemX > Character.pos.x and createItemY > Character.pos.y then
+		if createItemX < Character.pos.x and createItemY < Character.pos.y then
 			Character:inform("Nordwest","Northwest")	
-			elseif createItemX > Character.pos.x and createItemY < Character.pos.y then			
+			elseif createItemX < Character.pos.x and createItemY > Character.pos.y then			
 			Character:inform("Nordost","Northeast")
-			elseif createItemX < Character.pos.x and createItemY > Character.pos.y then
+			elseif createItemX > Character.pos.x and createItemY < Character.pos.y then
 			Character:inform("Südwest","Southwest")
-			elseif createItemX < Character.pos.x and createItemY < Character.pos.y then
+			elseif createItemX > Character.pos.x and createItemY > Character.pos.y then
 			Character:inform("Südost","Southeast")
-			elseif createItemX > Character.pos.x then
-			Character:inform("Norden","North")
 			elseif createItemX < Character.pos.x then
+			Character:inform("Norden","North")
+			elseif createItemX > Character.pos.x then
 			Character:inform("Süden","South")
-			elseif createItemY > Character.pos.y then
-			Character:inform("Westen","West")
 			elseif createItemY < Character.pos.y then
+			Character:inform("Westen","West")
+			elseif createItemY > Character.pos.y then
 			Character:inform("Osten","East")
 			else
 			Character:inform("Ups","Ups")
