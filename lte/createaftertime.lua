@@ -75,6 +75,12 @@ function callEffect(Effect, Character)
 	return true --callEffect is needed again, return true necessary
 	else
 
+	findCreateItemTextDE, createItemTextDE = Effect:findValue("createItemTextDE") --find variable
+	findCreateItemTextEN, createItemTextEN = Effect:findValue("createItemTextEN") --find variable
+	if findCreateItemTextDE and findCreateItemTextEN then -- if we have defined a sound for the created item
+		Character:inform("createItemTextDE", "createItemTextEN")
+	end
+
 	createItemTimeA=0  --prepare for next script call
 	return false -- callEffect is only needed once, no return true necessary
 	end 

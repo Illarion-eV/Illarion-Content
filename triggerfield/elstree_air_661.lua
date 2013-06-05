@@ -15,20 +15,24 @@ function MoveToField(char)
 		elseif math.random(1,100) < 0 then --chance check if lte=0 and character is player
 		createItemID=0; --no, thus nothing will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
-		char:inform("Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.", "It does not look like as any fairy would drop an element today.") --player get informed s/he missed chance
+--		char:inform("Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.", "It does not look like as any fairy would drop an element today.") --player get informed s/he missed chance
 		else 
 		createItemID=2551; --yes, thus pure air will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
-		char:inform("Ah! Eine Fee hat pure Luft verloren.", "Ah! A fairy lost pure air.") --player get informed that fairy lost element
+--		char:inform("Ah! Eine Fee hat pure Luft verloren.", "Ah! A fairy lost pure air.") --player get informed that fairy lost element
 	end
 	if createItemID==0 then	--check if something will be created
 		createItemTimeB=math.random(10,20);  --nothing, thus more lights appear
 		createGfx=53 --light (blue glitter)
 		createRepeatB=5 --up to five lights at same time
+		createItemTextDE="Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren."
+		createItemTextEN="It does not look like as any fairy would drop an element today."
 		else
 		createItemTimeB=1 --yes, thus light onle one time
 		createGfx=46 --light (beam me up)
 		createRepeatB=1 --only one light
+		createItemTextDE="Ah! Eine Fee hat pure Luft verloren."
+		createItemTextEN="Ah! A fairy lost pure air."
 		end		
 	createItemAmountA=1; --amount of element min
 	createItemAmountB=1; --amount of element max
