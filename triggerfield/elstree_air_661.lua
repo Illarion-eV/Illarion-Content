@@ -25,8 +25,10 @@ function MoveToField(char)
 		createItemTimeB=math.random(10,20);  --nothing, thus more lights appear
 		createGfx=53 --light (blue glitter)
 		createRepeatB=5 --up to five lights at same time
-		createItemTextDE="Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren."
-		createItemTextEN="It does not look like as any fairy would drop an element today."
+		createItemTextDE=1
+		createItemTextEN=1
+--		createItemTextDE="Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren."
+--		createItemTextEN="It does not look like as any fairy would drop an element today."
 		else
 		createItemTimeB=1 --yes, thus light onle one time
 		createGfx=46 --light (beam me up)
