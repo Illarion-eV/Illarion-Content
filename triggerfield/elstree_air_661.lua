@@ -31,8 +31,10 @@ function MoveToField(char)
 		createItemTimeB=1 --yes, thus light onle one time
 		createGfx=46 --light (beam me up)
 		createRepeatB=1 --only one light
-		createItemTextDE="Ah! Eine Fee hat pure Luft verloren."
-		createItemTextEN="Ah! A fairy lost pure air."
+		createItemTextDE=1
+		createItemTextEN=1
+--		createItemTextDE="Ah! Eine Fee hat pure Luft verloren."
+--		createItemTextEN="Ah! A fairy lost pure air."
 		end		
 	createItemAmountA=1; --amount of element min
 	createItemAmountB=1; --amount of element max
