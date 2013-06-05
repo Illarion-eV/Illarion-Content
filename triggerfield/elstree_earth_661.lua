@@ -44,6 +44,7 @@ function MoveToField(char)
 	end
 	if RewardInElstree==0 then	--check if something will be created
 		createItemTimeBB=math.random(10,20);  --use var2; nothing, thus more lights appear
+		createItemTimeB=0;
 		createGfx=53 --light (blue glitter)
 		createRepeatA=3 --min three lights at the same time
 		createRepeatB=7 --up to five lights at the same time
@@ -72,6 +73,6 @@ function MoveToField(char)
 --	createRepeatA=1 --min repeat; moved to top
 --	createRepeatB=5 --max repeat; moved to top
 	createItemPos=1 --check of position set
-	base.character.CreateAfterTime (char,createItemTimeB,createItemTimeBB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos) -- call .lte.createaftertime
+	base.character.CreateAfterTime (char,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos) -- call .lte.createaftertime
 
 end
