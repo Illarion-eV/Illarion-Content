@@ -49,7 +49,7 @@ Character:inform("run1","run1")
 		createItemTimeA=0 --set 0 if false
 		else
 		end
-	findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB") --find variable
+	local findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB") --find variable
 debug("createItemTimeA:"..createItemTimeA)
 debug("createItemTimeB:"..createItemTimeB)
 Character:inform("run2","run2")
