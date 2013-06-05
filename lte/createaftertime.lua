@@ -114,7 +114,7 @@ Character:inform("Info "..createItemID,"Info "..createItemID)
 	return true --callEffect is needed again, return true necessary
 	else
 
-
+	if createItemID ~= 0 then --provide information if something has been created
 	findCreateItemPos, createItemPos = Effect:findValue("createItemPos") --find variable
 	if findCreateItemPos then -- if we have defined a sound for the created item
 		if PoscreatedItemX < Character.pos.x and PoscreatedItemY < Character.pos.y then --set direction of created item based on player
@@ -148,6 +148,7 @@ Character:inform("PoscreatedItemY: "..PoscreatedItemY,"PoscreatedItemY:"..Poscre
 
 	if createItemText==2 or createItemText==3 or createItemText==4 or createItemText==5 then -- if we have defined a sound for the created item
 		Character:inform(""..TextDE[createItemText]..PosItemDE[PosItem],""..TextEN[createItemText]..PosItemEN[PosItem])--inform player about result and the direction
+	end
 	end
 
 	createItemTimeA=0  --prepare for next script call
