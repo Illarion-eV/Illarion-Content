@@ -99,6 +99,9 @@ function callEffect(Effect, Character)
 		PoscreatedItemX=createItemX
 		PoscreatedItemY=createItemY
 		world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
+Character:inform("created","created")
+Character:inform(..posOfItem,..posOfItem)
+Character:inform(..createItemID,..createItemID)
 		end
 
 	createItemTimeA=createItemTimeA+1 --counter for nextcall
