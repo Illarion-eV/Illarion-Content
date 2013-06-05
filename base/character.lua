@@ -123,14 +123,14 @@ Character:inform("found","found")
 	else
 		createAfter=math.random(createAfterA,createAfterB);
 		myEffect = LongTimeEffect(80,createAfter)
-		if createItemID ~= nil then
-		myEffect:addValue("createItemTimeB",createItemTimeB)
+		if createItemTimeB ~= nil then
+			myEffect:addValue("createItemTimeB",createItemTimeB)
+		end
+		if createItemTimeBB ~= nil then
+			myEffect:addValue("createItemTimeBB",createItemTimeBB)
 		end
 		if createItemID ~= nil then
-		myEffect:addValue("createItemTimeBB",createItemTimeBB)
-		end
-		if createItemID ~= nil then
-		myEffect:addValue("createItemID",createItemID)
+			myEffect:addValue("createItemID",createItemID)
 		end
 		myEffect:addValue("createItemAmountA",createItemAmountA)
 		myEffect:addValue("createItemAmountB",createItemAmountB)
