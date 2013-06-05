@@ -24,7 +24,7 @@ function MoveToField(char)
 	end
 	if RewardInElstree==0 then	--check if something will be created
 		createItemTimeBB=math.random(10,20);  --use var2; nothing, thus more lights appear
-		createItemTimeB=0
+		createItemTimeB=0;
 		createGfx=53 --light (blue glitter)
 		createRepeatA=3 --min three lights at the same time
 		createRepeatB=7 --up to five lights at the same time
