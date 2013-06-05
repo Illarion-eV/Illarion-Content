@@ -136,10 +136,10 @@ function CreateAfterTime(Character,createItemTimeB,createItemID,createItemAmount
 		myEffect:addValue("createAfterB",createAfterB)
 		myEffect:addValue("createRepeatA",createRepeatA)
 		myEffect:addValue("createRepeatB",createRepeatB)
-		if createGfx ~= nil then
+		if createItemTextDE ~= nil then
 			myEffect:addValue("createItemTextDE",createItemTextDE)
 		end
-		if createGfx ~= nil then
+		if createItemTextEN ~= nil then
 			myEffect:addValue("createItemTextEN",createItemTextEN)
 		end		
 		if createGfx ~= nil then
