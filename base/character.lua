@@ -109,11 +109,12 @@ end;
 -- @param createAfterB The max period of time after which the item is created in 1/10 sec
 -- @param createRepeatA The min repeat of the item that is supposed to be created
 -- @param createRepeatB The max repeat of the item that is supposed to be created
+-- @param createItemPos check position of item, nil for no check
 -- @param createItemTextDE The German text shown on the created item, nil for no text
 -- @param createItemTextEN The English text shown on the created item, nil for no text
 -- @param createGfx The GFX shown on the created item, nil for no GFX
 -- @param createSound The sound played on created item, nil for no sound
-function CreateAfterTime(Character,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemTextDE,createItemTextEN)
+function CreateAfterTime(Character,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemTextDE,createItemTextEN,createItemPos)
 	find, myEffect = Character.effects:find(80)
 	if find then
 		return
@@ -136,6 +137,9 @@ function CreateAfterTime(Character,createItemTimeB,createItemID,createItemAmount
 		myEffect:addValue("createAfterB",createAfterB)
 		myEffect:addValue("createRepeatA",createRepeatA)
 		myEffect:addValue("createRepeatB",createRepeatB)
+		if createItemPos ~= nil then
+			myEffect:addValue("createItemPos",createItemPos)
+		end
 		if createItemTextDE ~= nil then
 			myEffect:addValue("createItemTextDE",createItemTextDE)
 		end

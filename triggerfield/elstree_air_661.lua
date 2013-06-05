@@ -52,6 +52,7 @@ function MoveToField(char)
 --	createSound=nil; --sfx; moved to top
 	createRepeatA=1 --at least one repeat
 --	createRepeatB=5 --max repeat; moved to top
-	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemTextDE,createItemTextEN) -- call .lte.createaftertime
+	createItemPos=1 --check of position set
+	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemTextDE,createItemTextEN,createItemPos) -- call .lte.createaftertime
 
 end

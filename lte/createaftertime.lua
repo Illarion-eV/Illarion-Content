@@ -75,10 +75,22 @@ function callEffect(Effect, Character)
 	return true --callEffect is needed again, return true necessary
 	else
 
+
+	findCreateItemPos, createItemPos = Effect:findValue("createItemPos") --find variable
+	if findCreateItemPos then -- if we have defined a sound for the created item
+		if createItemX > Character.pos.x then	
+			Character:inform("Norden","North")
+			elseif createItemX < Character.pos.x then
+			Character:inform("Süden","South")
+			else
+			Character:inform("ups","ups")
+		end
+	end
+
 	findCreateItemTextDE, createItemTextDE = Effect:findValue("createItemTextDE") --find variable
 	findCreateItemTextEN, createItemTextEN = Effect:findValue("createItemTextEN") --find variable
 	if findCreateItemTextDE and findCreateItemTextEN then -- if we have defined a sound for the created item
-		Character:inform("createItemTextDE", "createItemTextEN")
+		Character:inform(..createItemTextDE,..createItemTextEN)
 	end
 
 	createItemTimeA=0  --prepare for next script call
