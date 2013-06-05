@@ -9,27 +9,33 @@ TextDE={};
 TextEN={};
 TextDE[1]="Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.";
 TextEN[1]="It does not look like as any fairy would drop an element today.";
-TextDE[2]="Ah! Eine Fee hat pure Luft verloren. Siehe mal:";
-TextEN[2]="Ah! A fairy lost pure air.";
+TextDE[2]="Ah! Eine Fee hat pure Luft verloren";
+TextEN[2]="Ah! A fairy lost pure air";
+TextDE[3]="Ah! Eine Fee hat pure Erde verloren";
+TextEN[3]="Ah! A fairy lost pure earth";
+TextDE[4]="Ah! Eine Fee hat pures Feurer verloren";
+TextEN[4]="Ah! A fairy lost pure fire";
+TextDE[5]="Ah! Eine Fee hat pures Wasser verloren";
+TextEN[5]="Ah! A fairy lost pure water";
 
 PosItemDE={};
 PosItemEN={};
-PosItemDE[1]="nordwestlich";
-PosItemEN[1]="northwest";
-PosItemDE[2]="südwestlich";
-PosItemEN[2]="southwest";
-PosItemDE[3]="nordöstlich";
-PosItemEN[3]="northeast";
-PosItemDE[4]="südöstlich";
-PosItemEN[4]="southeast";
-PosItemDE[5]="westlich";
-PosItemEN[5]="west";
-PosItemDE[6]="östlich";
-PosItemEN[6]="east";
-PosItemDE[7]="nördlich";
-PosItemEN[7]="north";
-PosItemDE[8]="südlich";
-PosItemEN[8]="south";
+PosItemDE[1]="nordwestlich von dir";
+PosItemEN[1]="northwest of you";
+PosItemDE[2]="südwestlich von dir";
+PosItemEN[2]="southwest of you";
+PosItemDE[3]="nordöstlich von dir";
+PosItemEN[3]="northeast of you";
+PosItemDE[4]="südöstlich von dir";
+PosItemEN[4]="southeast of you";
+PosItemDE[5]="westlich von dir";
+PosItemEN[5]="west of you";
+PosItemDE[6]="östlich von dir";
+PosItemEN[6]="east of you";
+PosItemDE[7]="nördlich von dir";
+PosItemEN[7]="north of you";
+PosItemDE[8]="südlich von dir";
+PosItemEN[8]="south of you";
 PosItemDE[9]="unter deinen Beinen";
 PosItemEN[9]="underneath your feet";
 
@@ -133,9 +139,7 @@ function callEffect(Effect, Character)
 	end
 
 	if createItemText==2 then -- if we have defined a sound for the created item
-		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
-		Character:inform(" " ..TextDE[createItemText]," " ..TextEN[createItemText])
-		base.common.InformNLS(Character,PosItemDE[PosItem],PosItemEN[PosItem]); --inform player about the direction
+		Character:inform("" ..TextDE[createItemText].. " " ..PosItemDE[PosItem]"."," " ..TextEN[createItemText].. " " ..PosItemEN[PosItem] ".") --inform player about result and the direction
 	end
 
 	createItemTimeA=0  --prepare for next script call
