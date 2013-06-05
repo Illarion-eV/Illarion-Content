@@ -19,6 +19,7 @@ function MoveToField(char)
 		else 
 		createItemID=2551; --yes, thus pure air will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
+		char:inform("Ah! Eine Fee hat pure Luft verloren.", "Ah! A fairy lost pure air.") --player get informed that fairy lost element
 	end
 	if createItemID==0 then	--check if something will be created
 		createItemTimeB=math.random(10,20);  --nothing, thus more lights appear

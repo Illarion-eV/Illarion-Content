@@ -39,6 +39,7 @@ function MoveToField(char)
 		else 
 		createItemID=2552; --yes, thus pure earth will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
+		char:inform("Ah! Eine Fee hat pure Erde verloren.", "Ah! A fairy lost pure earth.") --player get informed that fairy lost element
 	end
 	if createItemID==0 then	--check if something will be created
 		createItemTimeB=math.random(10,20);  --nothing, thus more lights appear

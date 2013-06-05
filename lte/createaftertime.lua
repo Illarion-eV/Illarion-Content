@@ -44,8 +44,8 @@ function callEffect(Effect, Character)
 	createItemY=math.random(createItemYA,createItemYB) --create random value between variables
 	createItemZ=math.random(createItemZA,createItemZB) --create random value between variables
 	posOfItem = position(createItemX,createItemY,createItemZ) --set value for position
-Character:inform("createItemX: "..createItemX,"createItemX:"..createItemX)
-Character:inform("createItemY: "..createItemY,"createItemY:"..createItemY)
+--Character:inform("createItemX: "..createItemX,"createItemX:"..createItemX)
+--Character:inform("createItemY: "..createItemY,"createItemY:"..createItemY)
 	findCreateItemQualA, createItemQualA = Effect:findValue("createItemQualA") --find variable
 	findCreateItemQualB, createItemQualB = Effect:findValue("createItemQualB") --find variable
 	createItemQual=math.random(createItemQualA,createItemQualB); --create random value between variables
