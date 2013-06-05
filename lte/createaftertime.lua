@@ -138,7 +138,7 @@ function callEffect(Effect, Character)
 		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
 	end
 
-	if createItemText==2 then -- if we have defined a sound for the created item
+	if createItemText==2 or createItemText==3 or createItemText==4 or createItemText==5 then -- if we have defined a sound for the created item
 		Character:inform(""..TextDE[createItemText]..PosItemDE[PosItem],""..TextEN[createItemText]..PosItemEN[PosItem])--inform player about result and the direction
 	end
 
