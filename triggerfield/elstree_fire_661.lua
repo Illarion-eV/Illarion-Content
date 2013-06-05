@@ -28,20 +28,24 @@ function MoveToField(char)
 		elseif math.random(1,100) < 0 then --chance check if lte=0 and character is player
 		createItemID=0; --no, thus nothing will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
-		char:inform("Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.", "It does not look like as any fairy would drop an element today.") --player get informed s/he missed chance
+--		char:inform("Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.", "It does not look like as any fairy would drop an element today.") --player get informed s/he missed chance
 		else 
 		createItemID=2553; --yes, thus pure fire will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
-		char:inform("Ah! Eine Fee hat pures Feuer verloren.", "Ah! A fairy lost pure fire.") --player get informed that fairy lost element
+--		char:inform("Ah! Eine Fee hat pures Feuer verloren.", "Ah! A fairy lost pure fire.") --player get informed that fairy lost element
 	end
 	if createItemID==0 then	--check if something will be created
 		createItemTimeB=math.random(10,20);  --nothing, thus more lights appear
 		createGfx=53 --light (blue glitter)
-		createRepeatB=7 --up to five lights at same time
+		createRepeatA=3 --min three lights at the same time
+		createRepeatB=7 --up to five lights at the same time
+		createItemText=1 --select text-set 1 in .lte.createaftertime.lua
 		else
 		createItemTimeB=1 --yes, thus light onle one time
 		createGfx=46 --light (beam me up)
+		createRepeatA=1 --only one light 
 		createRepeatB=1 --only one light
+		createItemText=2 --select text-set 2 .lte.createaftertime.lua
 		end		
 	createItemAmountA=1; --amount of element min
 	createItemAmountB=1; --amount of element max
@@ -57,9 +61,9 @@ function MoveToField(char)
 	createAfterB=100; --delay max
 --	createGfx=nil; --gfx; moved to top
 --	createSound=nil; --sfx; moved to top
-	createRepeatA=3 --at least one repeat
+--	createRepeatA=1 --min repeat; moved to top
 --	createRepeatB=5 --max repeat; moved to top
 	createItemPos=1 --check of position set
-	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB) -- call .lte.createaftertime
+	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos) -- call .lte.createaftertime
 
 end
