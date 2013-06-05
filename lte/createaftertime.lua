@@ -49,7 +49,7 @@ findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB") --fin
 findCreateItemTimeBB, createItemTimeBB = Effect:findValue("createItemTimeBB") --find variable
 debug("createItemTimeB1:"..createItemTimeB)
 debug("createItemTimeBB1:"..createItemTimeBB)
-if findCreateItemTimeB ~= 0 then
+if createItemTimeB ~= 0 then
 debug("createItemTimeB2:"..createItemTimeB)
 Character:inform("run1","run1")
 	if not createItemTimeA then --check if false
