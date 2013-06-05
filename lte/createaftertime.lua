@@ -87,21 +87,21 @@ function callEffect(Effect, Character)
 		if createItemX < Character.pos.x and createItemY < Character.pos.y then
 			Character:inform("Nordwest","Northwest")	
 			elseif createItemX < Character.pos.x and createItemY > Character.pos.y then			
-			Character:inform("Nordost","Northeast")
-			elseif createItemX > Character.pos.x and createItemY < Character.pos.y then
 			Character:inform("Südwest","Southwest")
+			elseif createItemX > Character.pos.x and createItemY < Character.pos.y then
+			Character:inform("Nordost","Northeast")
 			elseif createItemX > Character.pos.x and createItemY > Character.pos.y then
 			Character:inform("Südost","Southeast")
 			elseif createItemX < Character.pos.x then
-			Character:inform("Norden","North")
-			elseif createItemX > Character.pos.x then
-			Character:inform("Süden","South")
-			elseif createItemY < Character.pos.y then
 			Character:inform("Westen","West")
-			elseif createItemY > Character.pos.y then
+			elseif createItemX > Character.pos.x then
 			Character:inform("Osten","East")
+			elseif createItemY < Character.pos.y then
+			Character:inform("Norden","North")
+			elseif createItemY > Character.pos.y then
+			Character:inform("Süden","South")
 			else
-			Character:inform("Ups","Ups")
+			Character:inform("Ups!","Ups!")
 		end
 	end
 

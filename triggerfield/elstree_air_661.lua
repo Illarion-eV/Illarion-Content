@@ -24,7 +24,7 @@ function MoveToField(char)
 	if createItemID==0 then	--check if something will be created
 		createItemTimeB=math.random(10,20);  --nothing, thus more lights appear
 		createGfx=53 --light (blue glitter)
-		createRepeatB=5 --up to five lights at same time
+		createRepeatB=7 --up to five lights at same time
 		createItemTextDE=1
 		createItemTextEN=1
 --		createItemTextDE="Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren."
@@ -33,10 +33,10 @@ function MoveToField(char)
 		createItemTimeB=1 --yes, thus light onle one time
 		createGfx=46 --light (beam me up)
 		createRepeatB=1 --only one light
-		createItemTextDE=1
-		createItemTextEN=1
---		createItemTextDE="Ah! Eine Fee hat pure Luft verloren."
---		createItemTextEN="Ah! A fairy lost pure air."
+		createItemTextDE=2
+		createItemTextEN=2
+		createItemTextDE=Ah! Eine Fee hat pure Luft verloren.
+		createItemTextEN=Ah! A fairy lost pure air.
 		end		
 	createItemAmountA=1; --amount of element min
 	createItemAmountB=1; --amount of element max
@@ -52,7 +52,7 @@ function MoveToField(char)
 	createAfterB=100; --delay max
 --	createGfx=nil; --gfx; moved to top
 --	createSound=nil; --sfx; moved to top
-	createRepeatA=1 --at least one repeat
+	createRepeatA=3 --at least one repeat
 --	createRepeatB=5 --max repeat; moved to top
 	createItemPos=1 --check of position set
 	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemTextDE,createItemTextEN,createItemPos) -- call .lte.createaftertime
