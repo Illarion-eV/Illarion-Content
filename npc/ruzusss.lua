@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -21,6 +21,7 @@ require("npc.base.condition.quest")
 require("npc.base.condition.state")
 require("npc.base.condition.town")
 require("npc.base.consequence.attribute")
+require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
@@ -43,6 +44,31 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Ruzusss der Jäger. Schlüsselwörter: Auskunft, Information, Cadomyr, Orte."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(644, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End  'Find Ruzusss 2'] You receive 10 silver coins."));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(155, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(644, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Greetingsss. Finally you found me! I had already been informed about your visit. There, have some silver coins for finding me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(644, "=", 1));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 'Find Ruzusss 2'] Du hast 10 Silberstücke erhalten."));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(155, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(644, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Grüsssse. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -333,13 +359,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elstree Forest");
-talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda.");
+talkEntry:addResponse("Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda. However, fairies can be found there, who might drop some magical gems.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elstree Wald");
-talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda.");
+talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda. Wie dem auch sei, Feen können dort gefunden werden, welche womöglich magische Steine fallen lassen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -611,6 +637,29 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(624, "<", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Numila");
+talkEntry:addTrigger("Irunnleh");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Numila 2' started] Try to find Numila and take her the sibanac leaves to get your reward."));
+talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(624, "=", 1));
+talkEntry:addResponse("You can find her in Runewick and she knows several places in the southeast, thus around Runewick. Furthermore, you should take her these leaves here. *hands over some sibanac leaves*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(624, "<", 1));
+talkEntry:addTrigger("Numila");
+talkEntry:addTrigger("Irunnleh");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Numila 2' gestartet] Finde Numila und bringe ihr die Sibanacblätter um deine Belohnung zur erhalten."));
+talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(624, "=", 1));
+talkEntry:addResponse("Die findet man in Runewick und die kennt sämtliche Orte im Südwesten, sprich um Runewick. Des weiteren kannst du ihr auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Numila");
 talkEntry:addTrigger("Irunnleh");
@@ -711,10 +760,33 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(634, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Lotta");
 talkEntry:addTrigger("Medborgar");
-talkEntry:addResponse("You can find her in Galmair and ssshe knowsss ssseveral placesss in the northwest, thusss around Galmair.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Lotta 2' started] Try to find Lotta and take her the sibanac leaves to get your reward."));
+talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(634, "=", 1));
+talkEntry:addResponse("You can find her in Galmair and she knows several places in the northwest, thus around Galmair. Furthermore, you should take her these leaves here. *hands over some sibanac leaves*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(634, "<", 1));
+talkEntry:addTrigger("Lotta");
+talkEntry:addTrigger("Medborgar");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Lotta 2' gestartet] Finde Lotta und bringe ihr die Sibanacblätter um deine Belohnung zur erhalten."));
+talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(634, "=", 1));
+talkEntry:addResponse("Die findet man in Galmair und die kennt sämtliche Orte im Nordwesten, sprich um Galmair. Des weiteren kannst du ihr auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Lotta");
+talkEntry:addTrigger("Medborgar");
+talkEntry:addResponse("You can find her in Galmair and she knows several places in the northwest, thus around Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

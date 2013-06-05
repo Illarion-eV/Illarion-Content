@@ -59,10 +59,14 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Numila Irunnleh die Wissenschaftlerin. Schlüsselwörter: Auskunft, Information, Runewick, Orte.")
 
 -- Mandatory: General speech
+queststatus(624) = 1, english, ".*" -> inform("[Quest End  'Find Numila 2'] You receive 10 silver coins."), money + 1000, deleteItem(155, 10), queststatus(624) = 2, rankpoints + 5, "Hail Oldra. Finally you found me! I had already been informed about your visit. There, have some silver coins for finding me."
+queststatus(624) = 1, ".*" -> inform("[Quest Ende 'Find Numila 2'] Du hast 10 Silberstücke erhalten."), money + 1000, deleteItem(155, 10), queststatus(624) = 2, rankpoints + 5, "Heil Oldra. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen."
+
 queststatus(620) = 1, english, town = Runewick, ".*" -> inform("[Quest End 'Find Numila'] You received 10 silvercoins."), money + 1000, queststatus(620) = 2, rankpoints + 5, "Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers some silver coins and turns back to her book*"
 queststatus(620) = 1, town = Runewick, ".*" -> inform("[Quest Ende 'Finde Numila'] Du hast 10 Silberstücke erhalten."), money + 1000, queststatus(620) = 2, rankpoints + 5, "Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht einige Silbermünzen und wendet sich wieder ihrem Buch zu*"
 queststatus(620) = 1, english, ".*" -> inform("[Quest End 'Find Numila'] You received 10 silvercoins."), money + 1000, queststatus(620) = 2, "Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers some silver coins and turns back to her book*"
 queststatus(620) = 1, ".*" -> inform("[Quest Ende 'Finde Numila'] Du hast 10 Silberstücke erhalten."), money + 1000, queststatus(620) = 2, "Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht einige Silbermünzen und wendet sich wieder ihrem Buch zu*"
+
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail Oldra. *Turns back to her book*"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail Oldra. *Turns back to her book*"
@@ -100,8 +104,8 @@ english, "Illarion" -> inform("[Keywords] northeast, northwest, southwest, south
 "Südost" -> inform("[Schlüsselwörter] Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Fröhliche Lichtung, Oldras Turm, Feiglings letztes Gefecht, Nördlicher Außenposten, Ameisenhügelbach, Bärenhöhle, Adrons Versteck, Eibental"), "Ich habe Informationen zu folgenden Orten: Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Fröhliche Lichtung, Oldras Turm, Feiglings letztes Gefecht, Nördlicher Außenposten, Ameisenhügelbach, Bärenhöhle, Adrons Versteck, Eibental."
 
 -- northeast
-"Elstree Forest" -> "Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda."
-"Elstree Wald" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Elstree Forest" -> "Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda. However, fairies can be found there, who might drop some magical gems."
+"Elstree Wald" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda. Wie dem auch sei, Feen können dort gefunden werden, welche womöglich magische Steine fallen lassen."
 "Elstree Plain" -> "Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda."
 "Elstree Ebene" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Eastland" -> "Well, as I said, it is in the northeast and you had better ask someone who lives there, for example, Wulfgorda."
@@ -178,6 +182,8 @@ english, "Wulfgorda" -> "Wulfgorda is a hunter who knows almost every place in t
 "Einsame Berge" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
 "Galmair Plateau" -> "Well, as I said, it is in the northwest and you had better ask someone who lives there, for example, Lotta Medborgar in Galmair."
 "Galmair Hochebene" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
+queststatus(634) < 1, english, "Lotta", "Medborgar" -> inform("[New Quest 'Find Lotta 2' started] Try to find Lotta and take her the sibanac leaves to get your reward."), item(155, 10, 333), queststatus(634) = 1, "You can find her in Galmair and she knows several places in the northwest, thus around Galmair. Furthermore, you should take her these leaves here. *hands over some sibanac leaves*"
+queststatus(634) < 1, "Lotta", "Medborgar" -> inform("[Neues Quest 'Finde Lotta 2' gestartet] Finde Lotta und bringe ihr die Sibanacblätter um deine Belohnung zur erhalten."), item(155, 10, 333), queststatus(634) = 1, "Die findet man in Galmair und die kennt sämtliche Orte im Nordwesten, sprich um Galmair. Des weiteren kannst du ihr auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*"
 english, "Lotta", "Medborgar" -> "You can find her in Galmair and she knows several places in the northwest, thus around Galmair."
 "Lotta", "Medborgar" -> "Die findet man in Galmair und die kennt sämtliche Orte im Nordwesten, sprich um Galmair."
 
@@ -198,6 +204,8 @@ english, "Lotta", "Medborgar" -> "You can find her in Galmair and she knows seve
 "Katanbi Wüste" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
 english, "Katanbi Delta" -> "Well, as I said, it is in the southwest and you had better ask someone who lives there, for example, Ruzusss in Cadomyr."
 "Katanbi Delta" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+queststatus(644) < 1, english, "Ruzusss" -> inform("[New Quest 'Find Ruzusss 2' started] Try to find Ruzusss and take him the sibanac leaves to get your reward."), item(155, 10, 333), queststatus(644) = 1, "You can find him in Cadomyr and he knows several places in the southwest, thus around Cadomyr. Furthermore, you should take him these leaves here. *hands over some sibanac leaves*"
+queststatus(644) < 1, "Ruzusss" -> inform("[Neues Quest 'Finde Ruzusss 2' gestartet] Finde Ruzusss und bringe ihm die Sibanacblätter um deine Belohnung zur erhalten."), item(155, 10, 333), queststatus(644) = 1, "Den findet man in Cadomyr und der kennt sämtliche Orte im Südwesten, sprich um Cadomyr. Des weiteren kannst du ihm auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*"
 english, "Ruzusss" -> "You can find him in Cadomyr and he knows several places in the southwest, thus around Cadomyr."
 "Ruzusss" -> "Den findet man in Cadomyr und der kennt sämtliche Orte im Südwesten, sprich um Cadomyr."
 "Chapel Five" -> "The Chapel of the Five is at the southern end of the Border Mountains, on the eastern border of Katanbi Desert. Ask Ruzuss in Cadomyr if you cannot find it."

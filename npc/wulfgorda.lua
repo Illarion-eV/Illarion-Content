@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -303,13 +303,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elstree Forest");
-talkEntry:addResponse("The Elstree Forest is huge and wonderful forest south of the Dead Marsh. There, you will also find Elstree Lake, Fairy's Dance, the Sunken Tower of Mar'ku, Mount Liferoot, and in the south the Den of Thieves.");
+talkEntry:addResponse("The Elstree Forest is huge and wonderful forest south of the Dead Marsh. There, you will also find Elstree Lake, Fairy's Dance, the Sunken Tower of Mar'ku, Mount Liferoot, and in the south the Den of Thieves. If you have luck, some fairies drop magical stones for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elstree Wald");
-talkEntry:addResponse("Der Elstree Wald ist ein rießiger und wunderbarer Wald südlich vom Todes Sumpf. Dort findest du auch den Elstree See, den Feen Tanz, den Versunken Turm von Mar'ku, Berg Lebenswurzel, und im Süden die Diebeshöhle.");
+talkEntry:addResponse("Der Elstree Wald ist ein rießiger und wunderbarer Wald südlich vom Todes Sumpf. Dort findest du auch den Elstree See, den Feen Tanz, den Versunken Turm von Mar'ku, Berg Lebenswurzel, und im Süden die Diebeshöhle. Wenn du Glück hast, dann lassen die Feen dort den einen oder anderen magischen Stein für dich fallen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
