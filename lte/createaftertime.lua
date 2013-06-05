@@ -96,6 +96,8 @@ function callEffect(Effect, Character)
 	until (i==createRepeatX) --stop repeat
 
 	if createItemID ~= 0 then --an item shall be created
+		PoscreatedItemX=createItemX
+		PoscreatedItemY=createItemY
 		world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
 		end
 
@@ -112,21 +114,21 @@ function callEffect(Effect, Character)
 
 	findCreateItemPos, createItemPos = Effect:findValue("createItemPos") --find variable
 	if findCreateItemPos then -- if we have defined a sound for the created item
-		if createItemX < Character.pos.x and createItemY < Character.pos.y then --set direction of created item based on player
+		if PoscreatedItemX < Character.pos.x and PoscreatedItemY < Character.pos.y then --set direction of created item based on player
 			PosItem=1	
-			elseif createItemX < Character.pos.x and createItemY > Character.pos.y then			
+			elseif PoscreatedItemX < Character.pos.x and PoscreatedItemY > Character.pos.y then			
 			PosItem=2
-			elseif createItemX > Character.pos.x and createItemY < Character.pos.y then
+			elseif PoscreatedItemX > Character.pos.x and PoscreatedItemY < Character.pos.y then
 			PosItem=3
-			elseif createItemX > Character.pos.x and createItemY > Character.pos.y then
+			elseif PoscreatedItemX > Character.pos.x and PoscreatedItemY > Character.pos.y then
 			PosItem=4
-			elseif createItemX < Character.pos.x then
+			elseif PoscreatedItemX < Character.pos.x then
 			PosItem=5
-			elseif createItemX > Character.pos.x then
+			elseif PoscreatedItemX > Character.pos.x then
 			PosItem=6
-			elseif createItemY < Character.pos.y then
+			elseif PoscreatedItemY < Character.pos.y then
 			PosItem=7
-			elseif createItemY > Character.pos.y then
+			elseif PoscreatedItemY > Character.pos.y then
 			PosItem=8
 			else
 			PosItem=9
@@ -134,6 +136,8 @@ function callEffect(Effect, Character)
 	end
 Character:inform("createItemX: "..createItemX,"createItemX:"..createItemX)
 Character:inform("createItemY: "..createItemY,"createItemY:"..createItemY)
+Character:inform("PoscreatedItemX: "..PoscreatedItemX,"PoscreatedItemX:"..PoscreatedItemX)
+Character:inform("PoscreatedItemY: "..PoscreatedItemY,"PoscreatedItemY:"..PoscreatedItemY)
 	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
 	if createItemText==1 then -- if we have defined a sound for the created item
 		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
