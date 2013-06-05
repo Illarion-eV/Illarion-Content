@@ -104,7 +104,7 @@ if createItemTimeB ~= 0 then
 		Effect.nextCalled = createAfter --set time for nextcall
 		return true --callEffect is needed again, return true necessary
 
-	else --if createItemID ~= 0 then --provide information if something has been created
+	else
 		findCreateItemPos, createItemPos = Effect:findValue("createItemPos") --find variable
 		if findCreateItemPos then -- if yes, position of item in relation to character will be checked
 			if PoscreatedItemX < Character.pos.x and PoscreatedItemY < Character.pos.y then
@@ -197,7 +197,7 @@ elseif findCreateItemTimeBB then
 		Effect.nextCalled = createAfter --set time for nextcall
 		return true --callEffect is needed again, return true necessary
 	
-	else --if createItemIDB ~= 0 then --if item B has been created, get positionomething has been created
+	else
 		findCreateItemPos, createItemPos = Effect:findValue("createItemPos") --find variable
 		if findCreateItemPos then -- if yes, position of item in relation to character will be checked
 			if PoscreatedItemX < Character.pos.x and PoscreatedItemY < Character.pos.y then
