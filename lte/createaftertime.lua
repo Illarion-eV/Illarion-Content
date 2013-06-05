@@ -134,7 +134,8 @@ function callEffect(Effect, Character)
 
 	if createItemText==2 then -- if we have defined a sound for the created item
 		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
-		base.common.InformNLS(Character,"test " PosItemDE[PosItem],"test " PosItemEN[PosItem]); --inform player about the direction
+		Character:inform(" " TextDE[createItemText]," " TextEN[createItemText])
+		base.common.InformNLS(Character,PosItemDE[PosItem],PosItemEN[PosItem]); --inform player about the direction
 	end
 
 	createItemTimeA=0  --prepare for next script call
