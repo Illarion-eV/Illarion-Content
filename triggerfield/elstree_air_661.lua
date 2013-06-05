@@ -24,11 +24,13 @@ function MoveToField(char)
 	if createItemID==0 then	--check if something will be created
 		createItemTimeB=math.random(10,20);  --nothing, thus more lights appear
 		createGfx=53 --light (blue glitter)
-		createRepeatB=7 --up to five lights at same time
+		createRepeatA=3 --min three lights at the same time
+		createRepeatB=7 --up to five lights at the same time
 		createItemText=1 --select text-set 1 in .lte.createaftertime.lua
 		else
 		createItemTimeB=1 --yes, thus light onle one time
 		createGfx=46 --light (beam me up)
+		createRepeatA=1 --only one light 
 		createRepeatB=1 --only one light
 		createItemText=2 --select text-set 2 .lte.createaftertime.lua
 		end		
@@ -46,7 +48,7 @@ function MoveToField(char)
 	createAfterB=100; --delay max
 --	createGfx=nil; --gfx; moved to top
 --	createSound=nil; --sfx; moved to top
-	createRepeatA=3 --at least one repeat
+--	createRepeatA=1 --min repeat; moved to top
 --	createRepeatB=5 --max repeat; moved to top
 	createItemPos=1 --check of position set
 	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos) -- call .lte.createaftertime
