@@ -90,7 +90,7 @@ function callEffect(Effect, Character)
 	findCreateItemTextDE, createItemTextDE = Effect:findValue("createItemTextDE") --find variable
 	findCreateItemTextEN, createItemTextEN = Effect:findValue("createItemTextEN") --find variable
 	if findCreateItemTextDE and findCreateItemTextEN then -- if we have defined a sound for the created item
-		Character:inform(..createItemTextDE,..createItemTextEN)
+		Character:inform(""..createItemTextDE,""..createItemTextEN)
 	end
 
 	createItemTimeA=0  --prepare for next script call
