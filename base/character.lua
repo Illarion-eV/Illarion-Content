@@ -93,7 +93,8 @@ end;
 
 -- Create item after a defined period of time
 -- @param Character The character (e.g. summoned monster) that is supposed to create
--- @param createItemTimeB How often the script shall run
+-- @param createItemTimeB How often the script shall run with var1
+-- @param createItemTimeBB How often the script shall run with var2
 -- @param createItemID The ID of the item that is supposed to create
 -- @param createItemAmountA The min amount of the item that is supposed to be created
 -- @param createItemAmountB The max amount of the item that is supposed to be created
@@ -122,7 +123,12 @@ Character:inform("found","found")
 	else
 		createAfter=math.random(createAfterA,createAfterB);
 		myEffect = LongTimeEffect(80,createAfter)
+		if createItemID ~= nil then
 		myEffect:addValue("createItemTimeB",createItemTimeB)
+		end
+		if createItemID ~= nil then
+		myEffect:addValue("createItemTimeBB",createItemTimeBB)
+		end
 		if createItemID ~= nil then
 		myEffect:addValue("createItemID",createItemID)
 		end
