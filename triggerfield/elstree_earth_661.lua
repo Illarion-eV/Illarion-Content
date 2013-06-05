@@ -51,10 +51,10 @@ function MoveToField(char)
 		end		
 	createItemAmountA=1; --amount of element min
 	createItemAmountB=1; --amount of element max
-	createItemXA=820; --area X min
-	createItemXB=840; --area X max
-	createItemYA=470; --area Y min
-	createItemYB=490; --area Y max
+	createItemXA=823; --area X min
+	createItemXB=836; --area X max
+	createItemYA=473; --area Y min
+	createItemYB=488; --area Y max
 	createItemZA=0; --area Z min
 	createItemZB=0; --area z max
 	createItemQualA=999; --quality min
