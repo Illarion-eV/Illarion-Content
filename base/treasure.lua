@@ -124,7 +124,7 @@ module("base.treasure", package.seeall)
 		table.insert(treasurePositions,TargetPos)
 		treasureHunters[TargetPos] = {}
 		
-		local players = world:getPlayersInRangeOf(TargetPos,20)
+		local players = world:getPlayersInRangeOf(TargetPos,30)
 		for i=1,#players do
 			if players[i]:increaseAttrib("hitpoints",0) > 0 then
 				treasureHunters[TargetPos][players[i].id] = true
@@ -172,7 +172,7 @@ module("base.treasure", package.seeall)
 				break
 			end
 		end
-		local players = world:getPlayersInRangeOf(TargetPos,20)
+		local players = world:getPlayersInRangeOf(TargetPos,30)
 		for i=1,#players do
 			if players[i]:increaseAttrib("hitpoints",0) > 0 then
 				if treasureHunters[TargetPos][players[i].id] == true then
