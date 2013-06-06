@@ -110,14 +110,22 @@ module("base.treasure", package.seeall)
         return math.random(6,9)*100+math.random(50,99);
     end
     
-    treasureMonsters = {};
-
-    function SpawnMonsters( User, level )
+	treasurePostions = {};
+    treasureCategory = {};
+	treasureMonsters = {};
+	treasureHunters = {}
+	
+	function SpawnMonsters( User, level )
 	    TargetPos=User.pos; --attempt to fix a bug by Estralis
-        if not treasureMonsters[User.id] then
-            treasureMonsters[User.id] = {};
+        if not treasureMonsters[TargetPos] then
+            treasureMonsters[TargetPos] = {};
         end
         
+		if not treasureCategory[TargetPos] then
+            treasureCategory[TargetPos] = {};
+        end
+		treasureCategory = level
+		
         local monList = GetMonsterList( level );
         local newPos;
         local showMsgs = {};
@@ -134,24 +142,31 @@ module("base.treasure", package.seeall)
                         "The dragon gleams and shimmers in the air. It seems that it is 'just' an illusion." }
                     );
                 end
-                table.insert( treasureMonsters[User.id], mon );
+                
+				table.insert( treasureMonsters[TargetPos], mon );
             end
         end
     end
 
-    function CheckMonsters( User )
-        if not treasureMonsters[User.id] then
+    function CheckMonsters( TargetPos)
+        if not treasureMonsters[TargetPos] then
             return true;
         end
 
-        for i,mon in pairs(treasureMonsters[User.id]) do
+        for i,mon in pairs(treasureMonsters[TargetPos]) do
             if isValidChar(mon) then
                 if mon:increaseAttrib("hitpoints",0) > 0 then
                     return false;
                 end
             end
         end
-        treasureMonsters[User.id] = nil;
+        treasureMonsters[TargetPos] = nil;
+		for i=1,#treasurePostions do
+			if treasurePostions[i] == TargetPos then
+				table.remove(treasurePostions,i)
+				break
+			end
+		end
         return true;
     end
 
@@ -343,7 +358,7 @@ module("base.treasure", package.seeall)
             "Du gräbst den Schatz aus dem Boden aus und musst dabei leider feststellen, dass der Schatz einige Wächter hat.",
             "You dig the treasure out of the ground and realize that the treasure sadly has some guards." );
         end
-
+--[[
         local fndTreasure;
         local treasureEff;
         fndTreasure, treasureEff = User.effects:find(16);
@@ -359,7 +374,7 @@ module("base.treasure", package.seeall)
                 "Du hast schon einen Schatz ausgegraben und die Wächter noch nicht besiegt.",
                 "You already dug out a treasure and didn't overcome the guardians." );
             treasureEff.nextCalled =20;
-        end
+        end]]
         if ( mapItemNr > 0 ) then
             local thisBP=User:getBackPack();
             thisBP:takeItemNr(mapItemNr,255);

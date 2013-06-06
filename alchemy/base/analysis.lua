@@ -117,6 +117,13 @@ function AnalysisOfBrew(User, gem, brew, ltstate)
 		return
     end
 	
+	if ( User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0) + User:increaseAttrib("intelligence",0) ) < 30 then 
+		User:inform("Verstand, ein gutes Auge und ein Gespür für die feinstofflichen Dinge - dir fehlt es daran, als dass du hier arbeiten könntest.",
+		            "Mind, good eyes and a feeling for the world of fine matter - with your lack of those, you are unable to work here."
+	                )
+		return
+    end
+	
 	-- for every possible substance, we create the proper informs
     local analysisResultDE
 	local analysisResultEN
