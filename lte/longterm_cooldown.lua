@@ -16,6 +16,14 @@ function callEffect( Effect, Char ) -- Effect is called
 
     if Char:idleTime() < 300 then --absolutely no regeneration effect if the player is afk for more than five minutes
 
+		--Addition by Envi: Quest 661 (Elstree Forest)
+	    theQuestStatus=Char:getQuestProgress(661);
+	
+		if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
+			Char:setQuestProgress(661,theQuestStatus-1); --cooling!
+		end
+	    --Addition end
+
 		--Addition by Envi: Quest 660 (Galmair bridges)
 	    theQuestStatus=Char:getQuestProgress(660);
 	

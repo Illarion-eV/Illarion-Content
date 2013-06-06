@@ -16,7 +16,65 @@ require("lte.longterm_cooldown");
 require("server.standardfighting");
 module("test.envi", package.seeall)
 
+--[[
 
+lights={};
+lights[1]={46,53};
+
+function MoveToField(char)
+	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
+		createItemID=0;
+		createGfx=53
+		createRepeatB=5
+		char:inform("Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661))
+		elseif math.random(1,100) < 91 then
+		createItemID=0;
+		char:setQuestProgress(661,math.random(60,100)) --lte set
+		char:inform("Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.", "It does not look like as any fairy would drop an element today.")
+		char:inform("Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661))
+		else
+		createItemID=52;
+		char:setQuestProgress(661,math.random(60,100)) --lte set
+		char:inform("Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661),"Info: Item: "..createItemID.. "Quest#: " ..char:getQuestProgress(661))
+	end
+	if createItemID==0 then	
+		createItemTimeB=math.random(5,20);
+		createGfx=53
+		createRepeatB=5
+		else
+		createItemTimeB=1
+		createGfx=46
+		createRepeatB=1
+		end		
+	createItemAmountA=1;
+	createItemAmountB=1;
+	createItemXA=5;
+	createItemXB=12;
+	createItemYA=5;
+	createItemYB=12;
+	createItemZA=0;
+	createItemZB=0;
+	createItemQualA=999;
+	createItemQualB=999;
+	createAfterA=20;
+	createAfterB=100;
+--	createGfx=lights[1][math.random(1,table.getn(lights[1]))];
+--	createSound=nil;
+	createRepeatA=1
+--	createRepeatB=5
+--char:inform("createItemTimeB: "..createItemTimeB,"createItemTimeB:"..createItemTimeB)
+--char:inform("RepeatB: "..createRepeatB,"RepeatB: "..createRepeatB)
+	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB)
+
+end
+
+function MoveFromField(char)
+	base.character.CreateAfterTime (char,createItemTimeB,createItemID,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB)
+	char:inform("createItemTimeB: "..createItemTimeB,"createItemTimeB:"..createItemTimeB)
+end
+]]--
+
+--[[
 lights={};
 lights[1]={46,53};
 
@@ -25,9 +83,6 @@ function MoveToField(char)
 	local createItemX=3
 	local i=0;
 	repeat
-	if i>10 then
-		return
-		end	
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
 		createItemID=359;
 		char:inform("null", "nill")
@@ -48,10 +103,10 @@ function MoveToField(char)
 		createAfter=math.random(1,10);
 		createGfx=lights[1][math.random(1,table.getn(lights[1]))];
 		createSound=0;
-		local i=i+1;
+		i=i+1;
 		base.character.CreateAfterTime (char,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,createSound)
 	until (i==3)
-end
+end ]]--
 
 --[[
 lights={};
@@ -66,14 +121,13 @@ function MoveToField(char)
 	until (i==x)
 end ]]--
 
-
 --[[
 function MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
-		world:makeSound(??,char.pos);
+		world:makeSound(26,char.pos);
 	end	
-end ]]--
-
+end
+]]--
 
 --[[
 

@@ -61,6 +61,7 @@ itemShoes = 369
 -- Mandatory: General speech
 queststatus(650) = 1, english, ".*" -> inform("[Quest End  'Find Wulfgorda'] You receive 10 silver coins."), money + 1000, deleteItem(155, 10), queststatus(650) = 2, rankpoints + 5, "#me tips her helmet. 'Finally you found me! I had already been informed about your visit. There, have some silver coins for finding me."
 queststatus(650) = 1, ".*" -> inform("[Quest Ende 'Find Wulfgorda'] Du hast 10 Silberstücke erhalten."), money + 1000, deleteItem(155, 10), queststatus(650) = 2, rankpoints + 5, "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen."
+
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me tips her helmet."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me tippt auf ihren Helm."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me tips her helmet."
@@ -97,8 +98,8 @@ english, "Illarion" -> inform("[Keywords] Northeast, northwest, southwest, south
 "Südost" -> inform("[Schlüsselwörter] Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental, Numila Irunnleh."), "Ich habe Informationen zu folgenden Orten: Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental. Aber für ausführlichere Informationen frage Numila Irunnleh in Runewick."
 
 -- northeast
-"Elstree Forest" -> "The Elstree Forest is huge and wonderful forest south of the Dead Marsh. There, you will also find Elstree Lake, Fairy's Dance, the Sunken Tower of Mar'ku, Mount Liferoot, and in the south the Den of Thieves."
-"Elstree Wald" -> "Der Elstree Wald ist ein rießiger und wunderbarer Wald südlich vom Todes Sumpf. Dort findest du auch den Elstree See, den Feen Tanz, den Versunken Turm von Mar'ku, Berg Lebenswurzel, und im Süden die Diebeshöhle."
+"Elstree Forest" -> "The Elstree Forest is huge and wonderful forest south of the Dead Marsh. There, you will also find Elstree Lake, Fairy's Dance, the Sunken Tower of Mar'ku, Mount Liferoot, and in the south the Den of Thieves. If you have luck, some fairies drop magical stones for you."
+"Elstree Wald" -> "Der Elstree Wald ist ein rießiger und wunderbarer Wald südlich vom Todes Sumpf. Dort findest du auch den Elstree See, den Feen Tanz, den Versunken Turm von Mar'ku, Berg Lebenswurzel, und im Süden die Diebeshöhle. Wenn du Glück hast, dann lassen die Feen dort den einen oder anderen magischen Stein für dich fallen."
 "Elstree Plain" -> "It is between Igruk's cave and the Elstree Forest. You find Jarl's Longhouse and the Golden Hole there."
 "Elstree Ebene" -> "Die ist zwischen Igruk's Höhle und dem Elstree Wald. Du findest dort auch des Jarls Langhaus and das Goldene Loch."
 "Eastland" -> "You find it east from the Elstree Forest and there you can find Eastport, Twin Mountains, Paddock Farm, the Wonderland with the Wishing Fountain and the Naganorium."

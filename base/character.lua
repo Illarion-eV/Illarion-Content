@@ -92,28 +92,68 @@ function LogText(character)
 end;
 
 -- Create item after a defined period of time
--- @param Character The character (e.g. summoned monster) supposed to create
--- @param createItemID The ID of the item supposed to create
--- @param createItemAmount The amount the item is supposed to be created
--- @param createItemX The X-position the item is supposed to be created
--- @param createItemY The Y-position the item is supposed to be created
--- @param createItemZ The Z-position the item is supposed to be created
--- @param createItemQual The quality the item is supposed to be created
--- @param createAfter The period of time after which the item is created in 1/10 sec
+-- @param Character The character (e.g. summoned monster) that is supposed to create
+-- @param createItemTimeB How often the script shall run with var1
+-- @param createItemTimeBB How often the script shall run with var2
+-- @param createItemID The ID of the item that is supposed to create
+-- @param createItemAmountA The min amount of the item that is supposed to be created
+-- @param createItemAmountB The max amount of the item that is supposed to be created
+-- @param createItemXA The min X-position of the item that is supposed to be created
+-- @param createItemXB The max X-position of the item that is supposed to be created
+-- @param createItemYA The min Y-position of the item that is supposed to be created
+-- @param createItemYB The max Y-position of the item that is supposed to be created
+-- @param createItemZA The min Z-position of the item that is supposed to be created
+-- @param createItemZB The max Z-position of the item that is supposed to be created
+-- @param createItemQualA The min quality of the item that is supposed to be created
+-- @param createItemQualB The max quality of the item that is supposed to be created
+-- @param createAfterA The min period of time after which the item is created in 1/10 sec
+-- @param createAfterB The max period of time after which the item is created in 1/10 sec
+-- @param createRepeatA The min repeat of the item that is supposed to be created
+-- @param createRepeatB The max repeat of the item that is supposed to be created
+-- @param createItemPos check position of item, nil for no check
+-- @param createItemTextDE The German text shown on the created item, nil for no text
+-- @param createItemTextEN The English text shown on the created item, nil for no text
 -- @param createGfx The GFX shown on the created item, nil for no GFX
 -- @param createSound The sound played on created item, nil for no sound
-function CreateAfterTime(Character,createItemID,createItemAmount,createItemX,createItemY,createItemZ,createItemQual,createAfter,createGfx,createSound)
+function CreateAfterTime(Character,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos)
 	find, myEffect = Character.effects:find(80)
-	if find then 
+	if find then
 		return
 	else
+		createAfter=math.random(createAfterA,createAfterB);
 		myEffect = LongTimeEffect(80,createAfter)
-		myEffect:addValue("createItemID",createItemID)
-		myEffect:addValue("createItemAmount",createItemAmount)
-		myEffect:addValue("createItemX",createItemX)
-		myEffect:addValue("createItemY",createItemY)
-		myEffect:addValue("createItemZ",createItemZ)
-		myEffect:addValue("createItemQual",createItemQual)
+		if createItemTimeB ~= nil then
+			myEffect:addValue("createItemTimeB",createItemTimeB)
+		end
+		if createItemTimeBB ~= nil then
+			myEffect:addValue("createItemTimeBB",createItemTimeBB)
+		end
+		if createItemID ~= nil then
+			myEffect:addValue("createItemID",createItemID)
+		end
+		if createItemIDB ~= nil then
+			myEffect:addValue("createItemIDB",createItemIDB)
+		end
+		myEffect:addValue("createItemAmountA",createItemAmountA)
+		myEffect:addValue("createItemAmountB",createItemAmountB)
+		myEffect:addValue("createItemXA",createItemXA)
+		myEffect:addValue("createItemXB",createItemXB)
+		myEffect:addValue("createItemYA",createItemYA)
+		myEffect:addValue("createItemYB",createItemYB)
+		myEffect:addValue("createItemZA",createItemZA)
+		myEffect:addValue("createItemZB",createItemZB)
+		myEffect:addValue("createItemQualA",createItemQualA)
+		myEffect:addValue("createItemQualB",createItemQualB)
+		myEffect:addValue("createAfterA",createAfterA)
+		myEffect:addValue("createAfterB",createAfterB)
+		myEffect:addValue("createRepeatA",createRepeatA)
+		myEffect:addValue("createRepeatB",createRepeatB)
+		if createItemPos ~= nil then
+			myEffect:addValue("createItemPos",createItemPos)
+		end
+		if createItemText ~= nil then
+			myEffect:addValue("createItemText",createItemText)
+		end
 		if createGfx ~= nil then
 			myEffect:addValue("createGfx",createGfx)
        		end
