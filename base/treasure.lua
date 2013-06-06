@@ -165,7 +165,7 @@ module("base.treasure", package.seeall)
         treasureMonsters[TargetPos] = nil;
 		for i=1,#treasurePostions do
 			if treasurePostions[i] == TargetPos then
-				table.remove(treasurePostions,i)
+				table.remove(treasurePositions,i)
 				break
 			end
 		end
