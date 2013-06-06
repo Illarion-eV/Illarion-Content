@@ -110,7 +110,7 @@ module("base.treasure", package.seeall)
         return math.random(6,9)*100+math.random(50,99);
     end
     
-	treasurePostions = {};
+	treasurePositions = {};
     treasureCategory = {};
 	treasureMonsters = {};
 	treasureHunters = {}
@@ -124,7 +124,9 @@ module("base.treasure", package.seeall)
 		if not treasureCategory[TargetPos] then
             treasureCategory[TargetPos] = {};
         end
-		treasureCategory = level
+		treasureCategory[TargetPos] = level
+		
+		table.insert(treasurePositions,TargetPos)
 		
         local monList = GetMonsterList( level );
         local newPos;
@@ -352,8 +354,9 @@ module("base.treasure", package.seeall)
         end
 		
 		if treasureMonsters[TargetPos] ~= nil then
-			User:inform("Du findest in der bereits aufgewühlter Erde einen Zettel: 'Versuchs später nochmal.'",
+			User:inform("Du findest in der bereits aufgewühlten Erde einen Zettel: 'Versuchs später nochmal.'",
 				        "You find a note in the already searched through dirt: 'Try again later.'")
+			return
 		end
 
         if foundMessage then
