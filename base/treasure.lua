@@ -115,8 +115,8 @@ module("base.treasure", package.seeall)
 	treasureMonsters = {};
 	treasureHunters = {}
 	
-	function SpawnMonsters( User, level )
-	    TargetPos=User.pos; --attempt to fix a bug by Estralis
+	function SpawnMonsters( User, level, TargetPosition )
+	    TargetPos=TargetPosition
         if not treasureMonsters[TargetPos] then
             treasureMonsters[TargetPos] = {};
         end
@@ -384,7 +384,7 @@ module("base.treasure", package.seeall)
             treasureEff.nextCalled =20;
         end]]
         
-		SpawnMonsters( User, treasureLevel )
+		SpawnMonsters( User, treasureLevel, TargetPosition )
 
 	   if ( mapItemNr > 0 ) then
             local thisBP=User:getBackPack();
