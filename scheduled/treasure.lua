@@ -8,7 +8,7 @@ module("scheduled.treasure", package.seeall)
 
 function treasureCheck()
 
-    local treasurePositions = base.treasure.treasurePostions = {};
+    local treasurePositions = base.treasure.treasurePostions;
 
 	for i=1,#treasurePositions do
 	    local thePos = treasurePositions[i]
