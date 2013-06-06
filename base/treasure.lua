@@ -176,7 +176,7 @@ module("base.treasure", package.seeall)
 		for i=1,#players do
 			if players[i]:increaseAttrib("hitpoints",0) > 0 then
 				if treasureHunters[TargetPos][players[i].id] == true then
-					local old = players:getQuestProgress(60)
+					local old = players[i]:getQuestProgress(60)
 					players[i]:setQuestProgress(60,old+1)
 				end
 			end
