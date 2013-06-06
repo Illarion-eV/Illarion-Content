@@ -350,6 +350,11 @@ module("base.treasure", package.seeall)
             foundTreasureAt[mapPosCheck] = true;
             return true;
         end
+		
+		if treasureMonsters[TargetPos] ~= nil then
+			User:inform("Du findest in der bereits aufgewühlter Erde einen Zettel: 'Versuchs später nochmal.'",
+				        "You find a note in the already searched through dirt: 'Try again later.'")
+		end
 
         if foundMessage then
             User:inform( foundMessage );
@@ -375,7 +380,10 @@ module("base.treasure", package.seeall)
                 "You already dug out a treasure and didn't overcome the guardians." );
             treasureEff.nextCalled =20;
         end]]
-        if ( mapItemNr > 0 ) then
+        
+		SpawnMonsters( User, treasureLevel )
+
+	   if ( mapItemNr > 0 ) then
             local thisBP=User:getBackPack();
             thisBP:takeItemNr(mapItemNr,255);
         else
