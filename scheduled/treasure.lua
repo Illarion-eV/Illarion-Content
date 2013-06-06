@@ -1,4 +1,5 @@
 require("base.treasure")
+require("base.common")
 
 module("scheduled.treasure", package.seeall)
 
@@ -7,9 +8,10 @@ module("scheduled.treasure", package.seeall)
 
 
 function treasureCheck()
-
+    local Jupiter = base.common.CheckIfOnline("Jupiter")
     local treasurePositions = base.treasure.treasurePostions;
-
+    
+	if Jupiter then Jupiter:inform("length treasurePositions: " .. #treasurePositions) end
 	for i=1,#treasurePositions do
 	    local thePos = treasurePositions[i]
 		if base.treasure.CheckMonsters( thePos ) then
