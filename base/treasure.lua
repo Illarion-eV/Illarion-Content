@@ -117,16 +117,19 @@ module("base.treasure", package.seeall)
 	
 	function SpawnMonsters( User, level, TargetPosition )
 	    TargetPos=TargetPosition
-        if not treasureMonsters[TargetPos] then
-            treasureMonsters[TargetPos] = {};
-        end
         
-		if not treasureCategory[TargetPos] then
-            treasureCategory[TargetPos] = {};
-        end
-		treasureCategory[TargetPos] = level
-		
+		treasureMonsters[TargetPos] = {};
+        treasureCategory[TargetPos] = {};
+        treasureCategory[TargetPos] = level
 		table.insert(treasurePositions,TargetPos)
+		treasureHunters[TargetPos] = {}
+		
+		local players = world:getPlayersInRangeOf(TargetPos,20)
+		for i=1,#players do
+			if players[i]:increaseAttrib("hitpoints",0) > 0 then
+				treasureHunters[TargetPos][players[i].id] = true
+			end
+		end
 		
         local monList = GetMonsterList( level );
         local newPos;
@@ -169,6 +172,16 @@ module("base.treasure", package.seeall)
 				break
 			end
 		end
+		local players = world:getPlayersInRangeOf(TargetPos,20)
+		for i=1,#players do
+			if players[i]:increaseAttrib("hitpoints",0) > 0 then
+				if treasureHunters[TargetPos][players[i].id] == true then
+					players[i]:setQuestProgress(60,User:getQuestProgress(60)+1)
+				end
+			end
+		end
+		
+		treasureHunters[TargetPos] = nil
         return true;
     end
 
@@ -218,6 +231,8 @@ module("base.treasure", package.seeall)
 		else -- gold coins
 		    world:createItemFromId(61,math.random(math.ceil(0.05*level*level),math.ceil(0.15*level*level)),posi,true,333,nil);
 		end
+		
+		treasureCategory[posi] = nil
     end
 
     function getDistance( User, Item )

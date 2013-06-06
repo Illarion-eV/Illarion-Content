@@ -12,7 +12,11 @@ HERB_LIST={15,80,154,200,201,259,290,302,772,778,2493,138,146,152,754,755,756,75
  
  
 function UseItem(User, SourceItem,ltstate)
-    if User.lastSpokenText == "alchemist" then
+   if User.lastSpokenText == "schatz" then
+        User:inform(""..User:getQuestProgress(60))
+   end
+
+   if User.lastSpokenText == "alchemist" then
 	    User:setMagicType(3)
 		User:increaseAttrib("essence",30)
 	    User:inform("You are now an alchemist.")
