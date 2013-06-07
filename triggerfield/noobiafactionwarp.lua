@@ -33,7 +33,7 @@ function MoveToField(Character)
 		
 	elseif Character.pos == position(20,99,100) then --Runewick
 	
-	    destination = position(788,826,0);
+	    destination = position(836, 813, 0);
 	    factionID = 2;
 		
 	   	if Character:getPlayerLanguage() == 0 then

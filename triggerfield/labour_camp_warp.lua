@@ -53,7 +53,7 @@ function MoveToField(User)
 		if     Faction.tid == 1 then 
 		       dest = position(127,647,0) --cadomyr
 		elseif Faction.tid == 2 then 
-		       dest = position(788,826,0) --runewick
+		       dest = position(836, 813, 0) --runewick
 		elseif Faction.tid == 3 then 
 		       dest = position(424,245,0) --galmair
 		else 
