@@ -178,6 +178,8 @@ module("base.treasure", package.seeall)
 				if treasureHunters[TargetPos][players[i].id] == true then
 					local old = players[i]:getQuestProgress(60)
 					players[i]:setQuestProgress(60,old+1)
+					players[i]:inform("Die Wächter des Schatzes wurden besiegt. Gebt nicht alles auf einmal aus!",
+									 "The guardians of the treasure have been slain. Do not spend it all at once!")
 				end
 			end
 		end
