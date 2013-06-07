@@ -2,7 +2,7 @@
 -- NPC Name: Elesil Daelwon                                          Runewick --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  790, 819, 0            --
+-- NPC Race: elf                        NPC Position:  833, 815, 0            --
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
@@ -12,8 +12,8 @@
 name = "Elesil Daelwon"
 race = elf
 sex = female
-position = 790, 819, 0
-direction = west
+position = 833, 815, 0
+direction = south
 affiliation = "Runewick"
 job = "Informant"
 
