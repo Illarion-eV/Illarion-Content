@@ -116,7 +116,7 @@ function SelectPlant(User, ingredientsList, category, currentEssenceList)
 			    SelectPlantCategory(User, ingredientsList,currentEssenceList)
 			else
 				if currentEssenceList == nil then
-					if not CheckAmount(ingredientsList) then
+					if not CheckAmount(ingredientsList, User) then
 						return
 					end	
 					AddToRecipe(ingredientsList,PLANTS[category][selected-1])
@@ -168,7 +168,7 @@ function SelectGemDust(User, ingredientsList)
 			if selected == 1 then
 			    FirstMenu(User, ingredientsList)
 			else
-				if not CheckAmount(ingredientsList) then
+				if not CheckAmount(ingredientsList, User) then
 				    return
 				end	
 				AddToRecipe(ingredientsList,GEMPOWDERS[selected-1])
@@ -244,7 +244,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 			if selected == 1 then
 			    FirstMenu(User, ingredientsList)
 			elseif selected == 2 then 
-			    if not CheckAmount(ingredientsList) then
+			    if not CheckAmount(ingredientsList, User) then
 				    return
 				end	
 				AddToRecipe(ingredientsList,52)
@@ -253,7 +253,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 			elseif selected == 3 then
 			    SelectActiveSubstance(User, ingredientsList, {5,5,5,5,5,5,5,5})
 			else
-     			if not CheckAmount(ingredientsList) then
+     			if not CheckAmount(ingredientsList, User) then
 				    return
 				end
 				SelectEssenceBrewOption(User, ingredientsList, {ESSENCE_BREWS_IDS[selected-3]})
@@ -649,7 +649,7 @@ function GetParchmentQuill(User)
 	return nil
 end
 
-function CheckAmount(ingredientsList)
+function CheckAmount(ingredientsList, User)
 
 	if #ingredientsList > 59 then
 		User:inform("Das Pergament ist voll. Du kannst dies nicht mehr dem Rezept hinzufügen.","The parchment is full. You cannot add to the recipe anymore.",Character.highPriority)
