@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -200,7 +200,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(714, "=", 1));
-talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you, and show me ten bundles of grain.");
+talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields outside the city. Once the crop is ready, harvest the ripened grain with this scythe I give you, and show me ten bundles of grain.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -225,7 +225,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(259, 10, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(714, "=", 1));
-talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you, and show me ten bundles of grain.");
+talkEntry:addResponse("Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields outside the city. Once the crop is ready, harvest the ripened grain with this scythe I give you, and show me ten bundles of grain.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
