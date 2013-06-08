@@ -2,7 +2,7 @@
 -- NPC Name: Angelo Rothman                                           Galmair --
 -- NPC Job:  Arena Master                                                     --
 --                                                                            --
--- NPC Race: human                      NPC Position:  263, 664, 0            --
+-- NPC Race: human                      NPC Position:  345, 154, -7            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 263, 664, 0, 4, 'Angelo Rothman', 'npc.angelo_rothman', 0, 1, 2, 40, 200, 130, 19, 186, 182);
+VALUES (0, 345, 154, -7, 4, 'Angelo Rothman', 'npc.angelo_rothman', 0, 1, 2, 143, 143, 143, 217, 154, 123);
 ---]]
 
 require("npc.base.basic")
