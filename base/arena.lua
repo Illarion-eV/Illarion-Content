@@ -40,8 +40,8 @@ monsterIDsByLevel = {
 }
 
 arenaInformation = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801}, 
-					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Runewick", quest=802}, 
-					{playerPos=position(0,0,0), monsterPos=position(0,0,0), newPlayerPos=position(0,0,0), npcName="Test", town="Galmair", quest=803}}
+					{playerPos=nil, monsterPos=position(995,784,-3), newPlayerPos=nil, npcName="Manuel Salan", town="Runewick", quest=802}, 
+					{playerPos=nil, monsterPos=position(337,160,-7), newPlayerPos=nil, npcName="Angelo Rothman", town="Galmair", quest=803}}
 					
 priceBase = 4000;
 
