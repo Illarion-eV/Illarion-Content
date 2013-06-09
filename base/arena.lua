@@ -50,6 +50,10 @@ function requestMonster(User, NPC)
 		if (not dialog:getSuccess()) then
 			return;
         end
+		if not checkLte(User,NPC) then
+			return
+		end
+		
 		local index = dialog:getSelectedIndex()+1;
 		local arena = getArena(User, NPC);
 		local paid = payforMonster(User, index, NPC)
@@ -214,4 +218,14 @@ function sortTable(inputTable)
 		end
 	end
 	return sortedTable;
+end
+
+function checkLte(User,NPC) 
+
+	local foundEffect, myEffect = User.effects:find(arenaEffect)
+	if foundEffect then
+		NPC:talk(Character.say,"Besiegt erstmal die erste Kreatur, bevor Ihr eine zweite verlangt!","Finish the first creature before you demand a second one!")
+	    return false
+	end
+	return true
 end
