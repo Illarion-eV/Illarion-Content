@@ -55,7 +55,6 @@ function requestMonster(User, NPC)
 		local paid = payforMonster(User, index, NPC)
 		local priceInCP;
 		local germanMoney, englishMoney;
-		User:inform("arena: " .. arena)
 		if paid then
 			if arenaInformation[arena].playerPos ~= nil then
 				User:warp(arenaInformation[arena].playerPos);
@@ -161,16 +160,12 @@ function getRandomMonster(level)
 end
 
 function getArena(User, NPC)
-	User:inform("theNpc: "..NPC.name)
 	for i=1, #(arenaInformation) do
-		User:inform("checkNpc: " .. arenaInformation[i].npcName)
 		if arenaInformation[i].npcName == NPC.name then
-			User:inform("i: "..i)
 			return i;
-		else
-			return "";
 		end
 	end
+	return "";
 end
 
 function isUserInList(User, ranklist)
