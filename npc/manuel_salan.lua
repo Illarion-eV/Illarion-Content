@@ -404,7 +404,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#mes prunkvolle Rüstung zeigt das Wappen von Runewick.", "#me's shining armour shows the coat of arms of Runewick.");
 talkingNPC:addCycleText("#me hält sein reich verziehrtes Schwert fest in der Hand und schwingt es durch die Luft.", "#me holds his ornate sword firmly with one hand, swinging it idly through the air.");
-talkingNPC:addCycleText("#me schreibt einige Worte in ein in Leder einbebundenes Buch.", "#me writes some words into a leather covered book.");
+talkingNPC:addCycleText("#me schreibt einige Worte in ein in Leder gebundenes Buch.", "#me writes some words into a leather covered book.");
 talkingNPC:addCycleText("Wir leben in merkwürdigen Zeiten...", "Strange times we live in...");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);

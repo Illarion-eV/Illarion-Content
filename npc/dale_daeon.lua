@@ -405,7 +405,7 @@ talkingNPC:addCycleText("Nieder mit den Feiglingen aus Galmair und Runewick!", "
 talkingNPC:addCycleText("Für die Ehre des Ordens der Silberdragon und die alten Sitten streite ich.", "I fight for the honour of the Order of the Silver Dragon and the old customs.");
 talkingNPC:addCycleText("Es ist nicht die Zeit der Worte, sondern die der Taten. Beweist Euch gegen meine Biester!", "It is not the time for talk, but for deeds. Prove yourself against my beasts!");
 talkingNPC:addCycleText("#me hält sein reich verziehrtes Schwert fest in der Hand und schwingt es durch die Luft.", "#me holds his ornate sword firmly with one hand, swinging it idly through the air.");
-talkingNPC:addCycleText("#me schreibt einige Worte in ein in Leder einbebundenes Buch.", "#me writes some words into a leather covered book.");
+talkingNPC:addCycleText("#me schreibt einige Worte in ein in Leder gebundenes Buch.", "#me writes some words into a leather covered book.");
 talkingNPC:addCycleText("Wir leben in merkwürdigen Zeiten...", "Strange times we live in...");
 talkingNPC:addCycleText("Bei Brágons heiligem Blut!", "By the holy blood of Brágon!");
 mainNPC:addLanguage(0);
