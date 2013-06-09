@@ -162,7 +162,9 @@ function getRandomMonster(level)
 end
 
 function getArena(User, NPC)
+	User:inform("theNpc: "..NPC.name)
 	for i=1, #(arenaInformation) do
+		User:inform("checkNpc: " .. arenaInformation[i].npcName)
 		if arenaInformation[i].npcName == NPC.name then
 			return i;
 		else
