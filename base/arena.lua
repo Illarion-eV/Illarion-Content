@@ -166,6 +166,7 @@ function getArena(User, NPC)
 	for i=1, #(arenaInformation) do
 		User:inform("checkNpc: " .. arenaInformation[i].npcName)
 		if arenaInformation[i].npcName == NPC.name then
+			User:inform("i: "..i)
 			return i;
 		else
 			return "";
