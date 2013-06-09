@@ -50,9 +50,6 @@ function requestMonster(User, NPC)
 		if (not dialog:getSuccess()) then
 			return;
         end
-		if not checkLte(User,NPC) then
-			return
-		end
 		
 		local index = dialog:getSelectedIndex()+1;
 		local arena = getArena(User, NPC);
@@ -74,6 +71,11 @@ function requestMonster(User, NPC)
 			return;
 		end
 	end
+	
+	if not checkLte(User,NPC) then
+		return
+	end
+	
 	if User:getPlayerLanguage() == 0 then
 		sdMonster = SelectionDialog("Monsterstärke", "Wählt wie stark das Monster sein soll, gegen das Ihr kämpfen möchtet:", cbChooseLevel);
 		sdMonster:setCloseOnMove();
