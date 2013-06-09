@@ -55,8 +55,7 @@ function requestMonster(User, NPC)
 		local paid = payforMonster(User, index, NPC)
 		local priceInCP;
 		local germanMoney, englishMoney;
-		User:inform("npc name: " .. NPC.name)
-		User:inform("arean: " .. arena)
+		User:inform("arena: " .. arena)
 		if paid then
 			if arenaInformation[arena].playerPos ~= nil then
 				User:warp(arenaInformation[arena].playerPos);
