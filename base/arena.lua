@@ -222,7 +222,7 @@ end
 
 function checkLte(User,NPC) 
 
-	local foundEffect, myEffect = User.effects:find(arenaEffect)
+	local foundEffect, myEffect = User.effects:find(18)
 	if foundEffect then
 		NPC:talk(Character.say,"Besiegt erstmal die erste Kreatur, bevor Ihr eine zweite verlangt!","Finish the first creature before you demand a second one!")
 	    return false
