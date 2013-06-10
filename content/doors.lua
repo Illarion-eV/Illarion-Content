@@ -39,27 +39,28 @@ function initDoors()
 	AddDoor({342, 239,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
 	AddDoor({385, 193,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
 	AddDoor({386, 193,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
-	AddDoor({381, 208,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
-	AddDoor({381, 209,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
-	AddDoor({363, 206,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
-	AddDoor({362, 206,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
+	AddDoor({381, 208,-6}, 103,"Hog Dens-Cameo Pit","Schweinebaue-Gemmenschacht", false); -- Scoria Mine
+	AddDoor({381, 209,-6}, 103,"Hog Dens-Cameo Pit","Schweinebaue-Gemmenschacht", false); -- Scoria Mine
+	AddDoor({363, 206,-6}, 103,"Hog Dens-Arena","Schweinebaue-Arena", false); -- Scoria Mine
+	AddDoor({362, 206,-6}, 103,"Hog Dens-Arena","Schweinebaue-Arena", false); -- Scoria Mine
 	AddDoor({344, 244,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
 	AddDoor({344, 245,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
-	AddDoor({392, 220,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
-	AddDoor({393, 220,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
-	AddDoor({382, 241,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
-	AddDoor({383, 241,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
+	AddDoor({392, 220,-6}, 103,"Cameo Pit-Hog Dens","Gemmenschacht-Schweinebaue", false); -- Scoria Mine
+	AddDoor({393, 220,-6}, 103,"Cameo Pit-Hog Dens","Gemmenschacht-Schweinebaue", false); -- Scoria Mine
+	AddDoor({382, 241,-6}, 103,"Cameo Pit-Temple of Ronagan","Gemmenschacht-Tempel des Ronagan", false); -- Scoria Mine
+	AddDoor({383, 241,-6}, 103,"Cameo Pit-Temple of Ronagan","Gemmenschacht-Tempel des Ronagan", false); -- Scoria Mine
 	AddDoor({343, 250,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
 	AddDoor({343, 251,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
-	AddDoor({385, 279,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
-	AddDoor({386, 279,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
-	AddDoor({382, 260,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
-	AddDoor({383, 260,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
+	AddDoor({385, 279,-6}, 103,"Temple of Ronagan-Winged Sow Taverne","Tempel des Ronagan-Taverne zur Geflügelten Sau", false); -- Scoria Mine
+	AddDoor({386, 279,-6}, 103,"Temple of Ronagan-Winged Sow Taverne","Tempel des Ronagan-Taverne zur Geflügelten Sau", false); -- Scoria Mine
+	AddDoor({382, 260,-6}, 103,"Temple of Ronagan-Cameo Pit","Tempel des Ronagan-Gemmenschacht", false); -- Scoria Mine
+	AddDoor({383, 260,-6}, 103,"Temple of Ronagan-Cameo Pit","Tempel des Ronagan-Gemmenschacht", false); -- Scoria Mine
 	AddDoor({338, 253,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
 	AddDoor({339, 253,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
-	AddDoor({370, 292,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
-	AddDoor({370, 293,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
+	AddDoor({370, 292,-6}, 103,"Winged Sow Taverne-Temple of Ronagan","Taverne zur Geflügelten Sau-Tempel des Ronagan", false); -- Scoria Mine
+	AddDoor({370, 293,-6}, 103,"Winged Sow Taverne-Temple of Ronagan","Taverne zur Geflügelten Sau-Tempel des Ronagan", false); -- Scoria Mine
 	AddDoor({380, 325,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
+	AddDoor({379, 325,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
 	AddDoor({400, 327,-6}, 103,"Winged Sow Taverne - Storeroom","Taverne zur Geflügelten Sau - Lagerraum", false); -- Scoria Mine
 	AddDoor({342, 252, 0}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
 	AddDoor({332, 253,-6}, 103,"Sewers","Abwasserschächte", false); -- Scoria Mine
@@ -71,8 +72,8 @@ function initDoors()
 	AddDoor({249, 297,-5}, 103,"Temple of Nargun","Tempel des Nargun", false); -- Scoria Mine
 	AddDoor({250, 297,-5}, 103,"Temple of Nargun","Tempel des Nargun", false); -- Scoria Mine
 	AddDoor({346, 160,-7}, 103,"Arena","Arena", false); -- Scoria Mine
-	AddDoor({336, 194,-6}, 103,"Arena","Arena", false); -- Scoria Mine
-	AddDoor({336, 195,-6}, 103,"Arena","Arena", false); -- Scoria Mine
+	AddDoor({336, 194,-6}, 103,"Arena-Hog Dens","Arena-Schweinebaue", false); -- Scoria Mine
+	AddDoor({336, 195,-6}, 103,"Arena-Hog Dens","Arena-Schweinebaue", false); -- Scoria Mine
 	AddDoor({335, 238,-6}, 103,"Arena","Arena", false); -- Scoria Mine
 	AddDoor({334, 238,-6}, 103,"Arena","Arena", false); -- Scoria Mine
 
