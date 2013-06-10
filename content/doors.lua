@@ -20,6 +20,8 @@ function initDoors()
 
 
 	AddDoor({373, 322, 0}, 110,"House of Malachite","Malachite Haus"); -- guild house I !create 2145 1 333 lockId=110
+	AddDoor({374, 311, 0}, 110,"House of Malachite-Bathroom","Malachite Haus-Toilette"); -- guild house I !create 2145 1 333 lockId=110
+	AddDoor({374, 314, 0}, 110,"House of Malachite-Bathroom","Malachite Haus-Badezimmer"); -- guild house I !create 2145 1 333 lockId=110
 	AddDoor({301, 280, 0}, 111,"Villa Goldvein","Villa Goldader"); -- guild house II !create 2145 1 333 lockId=111
 	AddDoor({304, 274, 0}, 111,"Villa Goldvein","Villa Goldader"); -- guild house II !create 2145 1 333 lockId=111
 
@@ -39,6 +41,8 @@ function initDoors()
 	AddDoor({386, 193,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
 	AddDoor({381, 208,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
 	AddDoor({381, 209,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
+	AddDoor({363, 206,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
+	AddDoor({362, 206,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
 	AddDoor({344, 244,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
 	AddDoor({344, 245,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
 	AddDoor({392, 220,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
@@ -66,6 +70,11 @@ function initDoors()
 	AddDoor({249, 295,-6}, 103,"Game room","Spielraum", false); -- Scoria Mine
 	AddDoor({249, 297,-5}, 103,"Temple of Nargun","Tempel des Nargun", false); -- Scoria Mine
 	AddDoor({250, 297,-5}, 103,"Temple of Nargun","Tempel des Nargun", false); -- Scoria Mine
+	AddDoor({346, 160,-7}, 103,"Arena","Arena", false); -- Scoria Mine
+	AddDoor({336, 194,-6}, 103,"Arena","Arena", false); -- Scoria Mine
+	AddDoor({336, 195,-6}, 103,"Arena","Arena", false); -- Scoria Mine
+	AddDoor({335, 238,-6}, 103,"Arena","Arena", false); -- Scoria Mine
+	AddDoor({334, 238,-6}, 103,"Arena","Arena", false); -- Scoria Mine
 
 	AddDoor({367, 255, 0}, 104,"Galmair's Crest","Galmairs Krone", false); -- Galmair's Crest
 	AddDoor({368, 255, 0}, 104,"Galmair's Crest","Galmairs Krone", false); -- Galmair's Crest

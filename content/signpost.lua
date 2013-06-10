@@ -105,7 +105,7 @@ function InitWegweiser()
     AddWeg({398,249,0},"Dunkle Gasse","Dark Alley",0,0);
     AddWeg({392,249,0},"Wachstube","Guardroom",0,0);
     AddWeg({389,248,0},"Schuldeneintreiber","Debt-collector",0,0);
-    AddWeg({369,259,0},"Galmairs Krone (Guilianni-Residenz, Konzil Kammer, Goldträume, Schatzkammer und  Bibliothek)","Galmair's Crest (Guilianni-Residence, Council Chamber, Golden Dreams, Treasury, Library",0,0);
+    AddWeg({369,259,0},"Galmairs Krone (Guilianni-Residenz, Konzil Kammer, Goldträume, Schatzkammer und  Bibliothek), Arena","Galmair's Crest (Guilianni-Residence, Council Chamber, Golden Dreams, Treasury, Library), Arena",0,0);
     AddWeg({343,259,0},"Taverne zur Geflügelten Sau","The Winged Sow Tavern",0,0);
     AddWeg({351,268,0},"Markt","Market",2,0);
     AddWeg({372,279,0},"Markt","Market",6,0);
@@ -129,6 +129,7 @@ function InitWegweiser()
     AddWeg({417,385,0},"Galmair","Galmair",0,0);
 
     AddWeg({337,248,-6},"Taverne zur Geflügelten Sau","The Winged Sow Tavern",4,0);-- Scoria Mine
+    AddWeg({336,238,-6},"Arena","Arena",0,0);-- Scoria Mine
     AddWeg({338,238,-6},"Schweinebaue","Hog Dens",2,0);-- Scoria Mine
     AddWeg({338,243,-6},"Gemmenschacht","Cameo Pit",2,0);-- Scoria Mine
     AddWeg({339,248,-6},"Ronagans Tempel - Achtung, überflutet!","Temple of Ronagan - Attention, flooded!",2,0);-- Scoria Mine
