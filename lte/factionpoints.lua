@@ -4,6 +4,7 @@
 
 
 require("base.common")
+require("base.factions")
 module("lte.factionpoints", package.seeall)
 
 TextDE={};
@@ -18,18 +19,27 @@ PosItemDE[1]=" nordwestlich von dir.";
 PosItemEN[1]=" northwest of you.";
 
 
-function addEffect(Effect, Character)               				
+function addEffect(Effect, Char)               				
+    	Effect:addValue("10",0)
+end
+
+function callEffect(Effect, Char)
+	theQuestStatus=Char:getQuestProgress(2000)
+			char:inform("theQuestStatus: "..theQuestStatus,"theQuestStatus:"..theQuestStatus)
+	theFactionPoints=Char:getFaction(Char)
+	if theQuestStatus > 0 then
+		Char:setQuestProgress(2000,theQuestStatus-1)
+			char:inform("theQuestStatus: "..theQuestStatus,"theQuestStatus:"..theQuestStatus)
+
+	end
+	Effect.nextCalled = 600 --Effect gets called each 5 minutes
+	return true;
+end
+
+function removeEffect(Effect,Char)
 
 end
 
-function callEffect(Effect, Character)
-
-end
-
-function removeEffect(Effect,User)
-
-end
-
-function loadEffect(Effect,User)                  			
+function loadEffect(Effect,Char)                  			
 
 end

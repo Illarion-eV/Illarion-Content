@@ -88,6 +88,80 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "ENGLISH1.", "ENGLISH2.", "E
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
+"test"-> queststatus(2000) = 1, "queststatus 2000 set to 1"
+
+-- Catching quest triggers of other factions' members. Outlaws are ignored.
+english, town = Cadomyr, "quest", "mission" -> "In Galmair, we stand on our own feet! We are not in need of the Queen's assistance!"
+town = Cadomyr, "quest", "mission" -> "Wir stehen in Galmair auf eigenen Füßen! Wir benötigen keine Unterstützung von der Königin!"
+town = Cadomyr, "task", "adventure", "order" -> "In Galmair, we stand on our own feet! We are not in need of the Queen's assistance!"
+town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir stehen in Galmair auf eigenen Füßen! Wir benötigen keine Unterstützung von der Königin!"
+
+-- town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->
+english, town = Runewick, "quest", "mission" -> "I'm not certain those from Runewick would want to get down and dirty in the hard tasks we Galmairians seek."
+town = Runewick, "quest", "mission" -> "Ich bin mir nicht sicher, ob sich die aus Runewick ihre Finger mit den Aufträgen schmutzig machen möchten, die in Galmair anfallen."
+town = Runewick, "task", "adventure", "order" -> "I'm not certain those from Runewick would want to get down and dirty in the hard tasks we Galmairians seek."
+town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin mir nicht sicher, ob sich die aus Runewick ihre Finger mit den Aufträgen schmutzig machen möchten, die in Galmair anfallen."
+
+-- Catching quest triggers of those who have to wait for a new quest
+queststatus(153) ~= 0, english, town = Galmair, "quest", "mission" -> "There is no work today, our storage is stocked up!", "It's good you want to help Galmair! But at the moment we have no work.", "You still want work? I have none, but you'll certainly find plenty from our citizens!"
+queststatus(153) ~= 0, town = Galmair, "quest", "mission" -> "Heute gibt es keine Arbeit mehr, das Lager ist voll!", "Es ist gut, dass Ihr Galmair weiterbringen wollt! Momentan gibt es jedoch nichts für Euch zu tun.", "Ihr wollt noch mehr Arbeit? Ich habe momentan keine, aber Ihr findet sicher noch welche bei anderen Bewohnern Galmairs!"
+queststatus(153) ~= 0, town = Galmair, "task", "adventure", "order" -> "There is no work today, our storage is stocked up!", "It's good you want to help Galmair! But at the moment we have no work.", "You still want work? I have none, but you'll certainly find plenty from our citizens!"
+queststatus(153) ~= 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Heute gibt es keine Arbeit mehr, das Lager ist voll!", "Es ist gut, dass Ihr Galmair weiterbringen wollt! Momentan gibt es jedoch nichts für Euch zu tun.", "Ihr wollt noch mehr Arbeit? Ich habe momentan keine, aber Ihr findet sicher noch welche bei anderen Bewohnern Galmairs!"
+
+-- queststatus(153) ~= 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->
+
+-- A quest is chosen at random!
+-- Delay works like this: Set queststatus (120) to delay time [minutes]/5. Example: 2 hours = 120 minutes -> queststatus(153) = 24
+
+-- 1: Quest 1 taken, get 5 strawberries, reward: 20cp, 5 rankpoints
+-- Quest 1: Gather five strawberries (151)
+queststatus(152) = 0, english, chance(5.0), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's Storage"), queststatus(152) = 1, "The Don had an appetite and snuck some fruits from the storage! We need to replace them. Bring me five strawberries!"
+queststatus(152) = 0, german, chance(5.0), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 1, "Der Don hatte heute Heißhunger auf Erdbeeren und hat einige aus dem Lager genommen. Wir müssen sie ersetzen. Bringt mir fünf Erdbeeren!"
+queststatus(152) = 0, chance(5.0), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's Storage"), queststatus(152) = 1, "The Don had an appetite and snuck some fruits from the storage! We need to replace them. Bring me five strawberries!"
+queststatus(152) = 0, chance(5.0), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 1, "Der Don hatte heute Heißhunger auf Erdbeeren und hat einige aus dem Lager genommen. Wir müssen sie ersetzen. Bringt mir fünf Erdbeeren!"
+
+-- Quest 1 solved, reward: 20cp, 5 rankpoints, delay: 5h
+queststatus(152) = 1, item(151, all) > 4, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded two silver coins. You advance in Don Valerio Guilianni's favour."), money + 200, deleteItem(151, 5), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Good job! For now, the storage is set. Your payment is two silver."
+queststatus(152) = 1, item(151, all) > 4, town = Galmair, ".*" -> inform("[Quest gelöst] Du wirst mit zwei Silbermünzen belohnt. Du steigst in Don Valerio Guiliannis Ansehen."), money + 200, deleteItem(151, 5), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Gute Arbeit! Für den Moment ist das Lager voll. Eure Bezahlung sind zwei Silbermünzen."
+
+-- Quest 1 taken but not solved, repeat the instructions
+queststatus(152) = 1, item(151, all) < 5, english, town = Galmair, "quest", "mission" -> "Oy! I will not have the storage records be inaccurate, be sure to come back with the five strawberries!"
+queststatus(152) = 1, item(151, all) < 5, town = Galmair, "quest", "mission" -> "Hey, ich werde nicht zulassen, dass die Lagerbestände Lücken aufweisen! Stellt sicher, dass Ihr mir fünf Erdbeeren bringt!"
+queststatus(152) = 1, item(151, all) < 5, town = Galmair, "task", "adventure", "order" -> "Oy! I will not have the storage records be inaccurate, be sure to come back with the five strawberries!"
+queststatus(152) = 1, item(151, all) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hey, ich werde nicht zulassen, dass die Lagerbestände Lücken aufweisen! Stellt sicher, dass Ihr mir fünf Erdbeeren bringt!"
+
+-- 2: Quest 2 taken, get 20 quartz sand (316), reward: shovel (24), 5 rankpoints
+queststatus(152) = 0, english, chance(50.26), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's Storage"), queststatus(152) = 2, "We always hold some sand in our storage for bartering deals with Cadomyr. Some of it was used up and we need to replace it. Get twenty piles of quartz sand!"
+queststatus(152) = 0, german, chance(50.26), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 2, "Wir haben immer etwas Sand im Lager, falls wir mit Cadomyr verhandeln wollen. Es wurde vor Kurzem etwas Sand verbraucht, also muss er ersetzt werden. Bringt mir 20 Haufen Quarzsand!"
+queststatus(152) = 0, chance(50.26), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's Storage"), queststatus(152) = 2, "We always hold some sand in our storage for bartering deals with Cadomyr. Some of it was used up and we need to replace it. Get twenty piles of quartz sand!"
+queststatus(152) = 0, chance(50.26), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 2, "Wir haben immer etwas Sand im Lager, falls wir mit Cadomyr verhandeln wollen. Es wurde vor Kurzem etwas Sand verbraucht, also muss er ersetzt werden. Bringt mir 20 Haufen Quarzsand!"
+
+-- Quest 2 solved, reward: shovel (24), 5 rankpoints, delay: 3h
+queststatus(152) = 2, item(316, all) > 19, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a shovel. You advance in Don Valerio Guilianni's favour."), deleteItem(316, 20), item(24, 1, 599), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Good job! Once again the storage is full. Here is a shovel so you may acquire as much sand as you need in the future!"
+queststatus(152) = 2, item(316, all) > 19, town = Galmair, ".*" -> inform("[Quest gelöst] Du bekommst eine Schaufel. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(316, 20), item(24, 1, 599), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Gute Arbeit! Das Lager ist wieder gefüllt. Hier nehmt diese Schaufel, damit Ihr auch in Zukunft Sand besorgen könnt!"
+
+-- Quest 2 taken but not solved, repeat the instructions
+queststatus(152) = 2, item(316, all) < 20, english, town = Galmair, "quest", "mission" -> "We need that sand! Be sure to return with twenty piles of quartz sand"
+queststatus(152) = 2, item(316, all) < 20, town = Galmair, "quest", "mission" -> "Wir brauchen diesen Sand! Stellt sicher, dass Ihr mir 20 Haufen Quarzsand besorgt!"
+queststatus(152) = 2, item(316, all) < 20, town = Galmair, "task", "adventure", "order" -> "We need that sand! Be sure to return with twenty piles of quartz sand"
+queststatus(152) = 2, item(316, all) < 20, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir brauchen diesen Sand! Stellt sicher, dass Ihr mir 20 Haufen Quarzsand besorgt!"
+
+-- Quest 20: Gather a gold nugget (234)
+queststatus(152) = 0, english, chance(100.0), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 20, "The Don commissioned a ring to be made and used a gold nugget from the storage. It might only be a single nugget, but it must be replaced! I need you to get me one gold nugget."
+queststatus(152) = 0, german, chance(100.0), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 20, "Der Don hat einen Ring in Auftrag gegeben und dafür wurde ein Goldnugget aus dem Lager verwendet. Es ist vielleicht nur ein einziges Nugget, aber es muss dennoch ersetzt werden! Bring mir ein Goldnugget."
+queststatus(152) = 0, chance(100.0), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 20, "The Don commissioned a ring to be made and used a gold nugget from the storage. It might only be a single nugget, but it must be replaced! I need you to get me one gold nugget."
+queststatus(152) = 0, chance(100.0), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 20, "Der Don hat einen Ring in Auftrag gegeben und dafür wurde ein Goldnugget aus dem Lager verwendet. Es ist vielleicht nur ein einziges Nugget, aber es muss dennoch ersetzt werden! Bring mir ein Goldnugget."
+
+-- Quest 20 solved, reward: 50cp, 5 rankpoints, delay: 4h
+queststatus(152) = 20, item(234, all) > 0, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded five silver coins. You advance in Don Valerio Guilianni's favour."), money + 500, deleteItem(234, 1), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Aha! Perfect! I'll just store this away and once again the Don's storage is full! Good work, here is your payment."
+queststatus(152) = 20, item(234, all) > 0, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst fünf Silbermünzen. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 500, deleteItem(234, 1), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Aha! Perfekt! Ich werde es einlagern. Wieder einmal ist das Lager des Dons gefüllt! Gute Arbeit, hier ist Euer Lohn."
+
+-- Quest 20 taken but not solved, repeat the instructions
+queststatus(152) = 20, item(234, all) < 1, english, town = Galmair, "quest", "mission" -> "Have you brought it? No!? Well don't return until you have one gold nugget for me!"
+queststatus(152) = 20, item(234, all) < 1, town = Galmair, "quest", "mission" -> "Bringt Ihr mir das Nugget? Nein?! Kommt nicht wieder, bevor Ihr nicht ein Goldnugget für mich habt!"
+queststatus(152) = 20, item(234, all) < 1, town = Galmair, "task", "adventure", "order" -> "Have you brought it? No!? Well don't return until you have one gold nugget for me!"
+queststatus(152) = 20, item(234, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bringt Ihr mir das Nugget? Nein?! Kommt nicht wieder, bevor Ihr nicht ein Goldnugget für mich habt!"
+
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
