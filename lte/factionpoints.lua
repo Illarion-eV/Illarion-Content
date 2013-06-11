@@ -19,7 +19,7 @@ PosItemDE[1]=" nordwestlich von dir.";
 PosItemEN[1]=" northwest of you.";
 
 
-function addEffect(Effect, Char)               				
+function addEffect(Effect, Character)               				
     	Effect:addValue("10",0)
 end
 
@@ -36,10 +36,10 @@ function callEffect(Effect, Char)
 	return true;
 end
 
-function removeEffect(Effect,Char)
+function removeEffect(Effect,Character)
 
 end
 
-function loadEffect(Effect,Char)                  			
+function loadEffect(Effect,Character)                  			
 
 end
