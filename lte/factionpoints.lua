@@ -27,12 +27,13 @@ function callEffect(Effect, Char)
 	theQuestStatus=Char:getQuestProgress(2000)
 			char:inform("theQuestStatus: "..theQuestStatus,"theQuestStatus:"..theQuestStatus)
 	theFactionPoints=Char:getFaction(Char)
+			char:inform("theFactionPoints: "..theFactionPoints,"theFactionPoints:"..theFactionPoints)
 	if theQuestStatus > 0 then
 		Char:setQuestProgress(2000,theQuestStatus-1)
 			char:inform("theQuestStatus: "..theQuestStatus,"theQuestStatus:"..theQuestStatus)
 
 	end
-	Effect.nextCalled = 600 --Effect gets called each 5 minutes
+	Effect.nextCalled = 600 --Effect gets called each minute
 	return true;
 end
 
