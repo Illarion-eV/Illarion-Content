@@ -29,7 +29,7 @@ require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
-module("npc.envi_versuch", package.seeall)
+module("development.envi_versuch", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
