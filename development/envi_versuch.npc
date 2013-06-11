@@ -169,10 +169,10 @@ queststatus(152) = 20, item(234, all) < 1, town = Galmair, "Auftrag", "Aufgabe",
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", trade
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-english, "quest", "mission" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--english, "quest", "mission" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
