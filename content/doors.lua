@@ -92,11 +92,11 @@ function initDoors()
 	AddDoor({378, 272, 0}, 104,"Workshop","Werkstatt", false); 
 	AddDoor({383, 284, 0}, 104,"Workshop","Werkstatt", false);
 	AddDoor({408, 295, 0}, 104,"Sleepy Bujhaar Inn","Gasthaus zum Schlafenden Bujhaar", false); 
-	AddDoor({414, 298, 0}, 104,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
-	AddDoor({412, 293, 1}, 104,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
-	AddDoor({419, 296, 1}, 104,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn 
-	AddDoor({418, 301, 1}, 104,"Balcony","Balkon", false); -- Sleepy Bujhaar Inn
-	AddDoor({421, 290, 1}, 104,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
+	AddDoor({414, 298, 0}, 112,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
+	AddDoor({412, 293, 1}, 113,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
+	AddDoor({419, 296, 1}, 113,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn 
+	AddDoor({418, 301, 1}, 114,"Balcony","Balkon", false); -- Sleepy Bujhaar Inn
+	AddDoor({421, 290, 1}, 115,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
 	AddDoor({404, 269, 1}, 104,"Census office","Zensusbüro", false);
 	AddDoor({401, 263, 0}, 104,"Herbs room","Kräuterkammer", false);
 	AddDoor({394, 247, 0}, 104,"Guardroom","Wachstube", false);
