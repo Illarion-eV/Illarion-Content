@@ -52,9 +52,11 @@ function callEffect(Effect, Char)
 
 	if theQuestStatus > 0 then
 		Char:setQuestProgress(2000,theQuestStatus-1)
-			theQuestStatus=Char:getQuestProgress(2000)
+		theQuestStatus=Char:getQuestProgress(2000)
 			Char:inform("theQuestStatus: "..theQuestStatus,"theQuestStatus:"..theQuestStatus)
-
+		Char:setRankpoints(Char,theRankpoints+5)
+		theRankpoints=base.factions.getRankpoints(Char)
+			Char:inform("theRankpoints: "..theRankpoints,"theRankpoints:"..theRankpoints)
 	end
 	Effect.nextCalled = 600 --Effect gets called each minute
 	return true;
