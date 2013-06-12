@@ -16,6 +16,15 @@ require("lte.longterm_cooldown");
 require("server.standardfighting");
 module("test.envi", package.seeall)
 
+
+function MoveToField(char)
+	find, reg_effect = char.effects:find(81);
+	if not find then
+		char.effects:addEffect( LongTimeEffect(81,10) );
+	end
+end
+
+
 --[[
 
 lights={};
