@@ -54,7 +54,7 @@ function callEffect(Effect, Char)
 		Char:setQuestProgress(2000,theQuestStatus-1)
 		theQuestStatus=Char:getQuestProgress(2000)
 			Char:inform("theQuestStatus: "..theQuestStatus,"theQuestStatus:"..theQuestStatus)
-		Char:base.factions.setRankpoints(Char,theRankpoints+5)
+		Char:setRankpoints(Char,theRankpoints+5)
 		theRankpoints=base.factions.getRankpoints(Char)
 			Char:inform("theRankpoints: "..theRankpoints,"theRankpoints:"..theRankpoints)
 	end
