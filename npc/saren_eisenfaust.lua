@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Someone                                                          --
 --           & Rincewind                                                      --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -830,7 +830,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.item.item(124, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", 9, nil));
-talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
@@ -851,7 +851,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.item.item(124, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", 9, nil));
-talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
@@ -872,7 +872,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.item.item(124, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", 9, nil));
-talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
@@ -894,7 +894,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.item.item(124, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", 9, nil));
-talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
@@ -1477,7 +1477,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("Das Schmieden ist das Handwerk des Zwergenvolkes, Irmorom hat uns lange vor allen anderen gelehrt, dass Brágons Flammen härtes Eisen biegsam und formbar machen.");
 talkEntry:addResponse("Irmorom der göttliche Handwerker, lehrte einst den Zwergen das schmieden, und in hundert Jahr langer Geschichte sollten wir lernen Edelsteine und Runen in mächtigen Waffen und Rüstungen einzufassen.");
-talkEntry:addResponse("Irmorom war der erste Schmied und da ihm die fliessigen Zwerge das liebste Volk waren vermachte er dieses Handwerk den Zwergen.");
+talkEntry:addResponse("Irmorom war der erste Schmied und da ihm die fleissigen Zwerge das liebste Volk waren vermachte er dieses Handwerk den Zwergen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1598,12 +1598,12 @@ talkingNPC:addCycleText("#me brummt leise etwas in seinen Bart.", "#me grumbles 
 talkingNPC:addCycleText("#me streicht mit zusammengeniffenen Augen über sein Hemd aus Pferdehaar, etwas Staub löst sich daraus und schwebt zu Boden.", "#me pats his shirt made of horse-hair. Some dust gets released and sinks to the ground.");
 talkingNPC:addCycleText("#me grinst breit, ein goldener Zahn blitzt hervor.", "#me shows a broad grin, a golden tooth is shown for a second.");
 talkingNPC:addCycleText("#me pfeift die Melodie eines alten Bergwerkliedes.", "#me whistles the tune of an old miner's song.");
-talkingNPC:addCycleText("#me kartzt sich an der knubbeligen Nase.", "#me scratches his knobby nose.");
+talkingNPC:addCycleText("#me kratzt sich an der knubbeligen Nase.", "#me scratches his knobby nose.");
 talkingNPC:addCycleText("#me blickt mit zusammengeniffenen Augen in den Himmel.", "#me glances to the sky with narrowed eyes.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein in Fällen gekleideter Zwerg, stolz trägt er seinen prächtigen Bart zur Schau.", "A proud looking dwarf, dressed in fur has an enormous beard.");
+mainNPC:setLookat("Ein in Fellen gekleideter Zwerg, stolz trägt er seinen prächtigen Bart zur Schau.", "A proud looking dwarf, dressed in fur has an enormous beard.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Don't touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
