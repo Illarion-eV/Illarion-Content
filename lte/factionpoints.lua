@@ -29,6 +29,8 @@ function callEffect(Effect, Char)
 
 	theMembership=base.factions.getMembership(Char)
 			Char:inform("theMembership: "..theMembership,"theMembership:"..theMembership)
+	theRankpoints=base.factions.getRankpoints(Char)
+			Char:inform("theRankpoints: "..theRankpoints,"theRankpoints:"..theRankpoints)
 --[[	findTheFactionPoints, theFactionPoints = Effect:findValue("getRankpoints")
 --	theFactionPoints=Char:getFaction(Char)
 			Char:inform("theFactionPoints: "..theFactionPoints,"theFactionPoints:"..theFactionPoints)
