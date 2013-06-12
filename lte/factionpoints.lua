@@ -26,8 +26,10 @@ end
 function callEffect(Effect, Char)
 	theQuestStatus=Char:getQuestProgress(2000)
 			Char:inform("theQuestStatus: "..theQuestStatus,"theQuestStatus:"..theQuestStatus)
-	theFactionPoints=Char:getFaction(Char)
-			Char:inform("theFactionPoints: "..theFactionPoints,"theFactionPoints:"..theFactionPoints)
+	findTheFactionPoints, theFactionPoints = Effect:findValue("getRankpoints")
+
+--	theFactionPoints=Char:getFaction(Char)
+--			Char:inform("theFactionPoints: "..theFactionPoints,"theFactionPoints:"..theFactionPoints)
 	if theQuestStatus > 0 then
 		Char:setQuestProgress(2000,theQuestStatus-1)
 			Char:inform("theQuestStatus: "..theQuestStatus,"theQuestStatus:"..theQuestStatus)
