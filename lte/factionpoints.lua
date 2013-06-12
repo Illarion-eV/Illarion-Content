@@ -27,8 +27,8 @@ function callEffect(Effect, Char)
 	theQuestStatus=Char:getQuestProgress(2000)
 			Char:inform("theQuestStatus: "..theQuestStatus,"theQuestStatus:"..theQuestStatus)
 
-	theFactionPoints=base.factions.getMembership(Char)
-
+	theMembership=base.factions.getMembership(Char)
+			Char:inform("theMembership: "..theMembership,"theMembership:"..theMembership)
 --[[	findTheFactionPoints, theFactionPoints = Effect:findValue("getRankpoints")
 --	theFactionPoints=Char:getFaction(Char)
 			Char:inform("theFactionPoints: "..theFactionPoints,"theFactionPoints:"..theFactionPoints)
