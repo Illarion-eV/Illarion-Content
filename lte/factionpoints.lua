@@ -26,7 +26,10 @@ end
 function callEffect(Effect, Char)
 	theQuestStatus=Char:getQuestProgress(2000)
 			Char:inform("theQuestStatus: "..theQuestStatus,"theQuestStatus:"..theQuestStatus)
-	findTheFactionPoints, theFactionPoints = Effect:findValue("getRankpoints")
+
+	theFactionPoints=base.factions.getMembership(Char)
+
+--[[	findTheFactionPoints, theFactionPoints = Effect:findValue("getRankpoints")
 --	theFactionPoints=Char:getFaction(Char)
 			Char:inform("theFactionPoints: "..theFactionPoints,"theFactionPoints:"..theFactionPoints)
 	findTheSpecialFactionPoints, theSpecialFactionPoints = Effect:findValue("getSpecialRank")
@@ -35,6 +38,8 @@ function callEffect(Effect, Char)
 			Char:inform("theFaction: "..theFaction,"theFaction:"..theFaction)
 	findTheMembership, theMembership = Effect:findValue("getMembership")
 			Char:inform("theMembership: "..theMembership,"theMembership:"..theMembership)
+]]--
+
 	if theQuestStatus > 0 then
 		Char:setQuestProgress(2000,theQuestStatus-1)
 			theQuestStatus=Char:getQuestProgress(2000)
