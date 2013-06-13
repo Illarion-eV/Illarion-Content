@@ -94,6 +94,7 @@ function DrinkPotion(User,SourceItem)
 			local findCounter,counterBlack = myEffect:findValue("counterBlack")
 			if findNewRace then
 				if LteNewRace == newRace then
+					User:inform("LteNewRace == newRace")
 					local duration = 3 -- to be replaced with a formula with the potion's quality being the changeabale varibale
 					if duration > counterBlack then -- same transformation, but the new potion will last longer
 						myEffect:addValue("counterBlack",duration)
