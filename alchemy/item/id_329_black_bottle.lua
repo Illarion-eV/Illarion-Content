@@ -84,12 +84,13 @@ function DrinkPotion(User,SourceItem)
 	    local oldHair = User:getHair()
 	    local oldBeard = User:getBeard()
 	    local oldHeight = User:increaseAttrib("body_height",0)
-		
+		User:inform("check 1")
 		-- check if there is already a an effect
 		local  find, myEffect = User.effects:find(329)
 		local findOldRace, findOldHeight
 		if find then
-		    local  findNewRace, LteNewRace = myEffect:findValue("newRace")
+		    User:inform("check 2")
+			local  findNewRace, LteNewRace = myEffect:findValue("newRace")
 			local findCounter,counterBlack = myEffect:findValue("counterBlack")
 			if findNewRace then
 				if LteNewRace == newRace then
