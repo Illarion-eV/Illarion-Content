@@ -62,6 +62,7 @@ function callEffect(Effect, Char)
 	end
 	Effect.nextCalled = 600 --Effect gets called each minute
 	return true;
+	return false;
 end
 
 function removeEffect(Effect,Character)
