@@ -116,5 +116,5 @@ english, "dog", "wolves", "wolf" -> "Those four legged, furry creatures are quit
 
 cycletext "#mes prunkvolle Rüstung zeigt das Wappen von Runewick.", "#me's shining armour shows the coat of arms of Runewick."
 cycletext "#me hält sein reich verziehrtes Schwert fest in der Hand und schwingt es durch die Luft.", "#me holds his ornate sword firmly with one hand, swinging it idly through the air."
-cycletext "#me schreibt einige Worte in ein in Leder einbebundenes Buch.", "#me writes some words into a leather covered book."
+cycletext "#me schreibt einige Worte in ein in Leder gebundenes Buch.", "#me writes some words into a leather covered book."
 cycletext "Wir leben in merkwürdigen Zeiten...", "Strange times we live in..."

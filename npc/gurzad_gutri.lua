@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Salathe, Tyan                                                    --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -295,7 +295,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Heute gibt es keine Arbeit mehr, das Lager ist voll!");
-talkEntry:addResponse("Es ist gut, dass Ihr Galmair weiterbringen möchtet! Momentan gibt es jedoch nichts für Euch zu tun.");
+talkEntry:addResponse("Es ist gut, dass Ihr Galmair weiterbringen wollt! Momentan gibt es jedoch nichts für Euch zu tun.");
 talkEntry:addResponse("Ihr wollt noch mehr Arbeit? Ich habe momentan keine, aber Ihr findet sicher noch welche bei anderen Bewohnern Galmairs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -872,7 +872,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a golden ring. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2744, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2744, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 36));
@@ -887,7 +887,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2744, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Goldring. Du steigst in Don Valerio Guiliannis Ansehen."));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2744, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2744, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 36));
@@ -1532,7 +1532,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(429, 1, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Ah, das ist perfekt. Ihr habt gute Arbeit geleistet. Nehmt diese Münzen als Entlohnung.");
+talkEntry:addResponse("Ah, das ist perfekt. Ihr habt gute Arbeit geleistet, nehmt diese Münzen als Entlohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1769,7 +1769,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded sixteen silver coins. You advance in Don Valerio Guilianni's favour."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1600));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2547, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2547, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
@@ -1784,7 +1784,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 16 Silbermünzen. Du steigst in Don Valerio Guiliannis Ansehen."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1600));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2547, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2547, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
@@ -1927,28 +1927,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("It doesn't seem like you brought the goblet? Don't come back until you've got one golden goblet for me!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(152, "=", 13));
-talkEntry:addCondition(npc.base.condition.item.item(224, "all", "<", 1, nil));
-talkEntry:addCondition(npc.base.condition.town.town(3));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Es sieht nicht so aus, als hättet Ihr einen Kelch mitgebracht? Kommt nicht noch mal ohne einen goldenen Kelch wieder!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(152, "=", 13));
-talkEntry:addCondition(npc.base.condition.item.item(224, "all", "<", 1, nil));
-talkEntry:addCondition(npc.base.condition.town.town(3));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("order");
-talkEntry:addResponse("It doesn't seem like you brought the goblet? Don't come back until you've got one golden goblet for me!");
+talkEntry:addResponse("It doesnt seem like you brought the goblet? Don't come back until you've got one golden goblet for me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2110,18 +2089,6 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Unserem Lager fehlt ein Langbogen! Kommt erst wieder zurück, wenn Ihr einen habt.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(152, "=", 14));
-talkEntry:addCondition(npc.base.condition.item.item(2708, "all", "<", 1, nil));
-talkEntry:addCondition(npc.base.condition.town.town(3));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Unserm Lager fehlt immer noch ein Langbogen! Kommt nicht noch mal ohne einen Langbogen wieder.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2441,7 +2408,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a sapphire ring. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(446, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(446, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(279, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 48));
@@ -2456,7 +2423,7 @@ talkEntry:addCondition(npc.base.condition.item.item(446, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Saphirring. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(446, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(446, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(279, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 48));
@@ -2558,7 +2525,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Stocke Galmairs Vorräte auf."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 18));
-talkEntry:addResponse("#me grummelt. 'Einige unserer Schmiede haben sich hier eingeschlichen und etwas Kohle genommen. Ohne Genehmigung hätte ich sie ihnen nie gegeben! Egal, wir sind nun knapp an Kohle und müssen nachbessern. Bringt mir 15 Kohlebrocken.");
+talkEntry:addResponse("#me grummelt. 'Einige unserer Schmiede haben sich hier eingeschlichen und etwas Kohle genommen. Ohne Genehmigung hätte ich sie ihnen nie gegeben! Egal, wir sind nun knapp an Kohle und müssen nachbessern. Bringt mit 15 Kohlebrocken.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2943,23 +2910,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("job");
-talkEntry:addResponse("I oversee the Don's personal storage here in Galmair.");
-talkEntry:addResponse("As the Head Clerk for the Don, it's my duty to make sure that the Don's storage is always up to stock with his standards.");
-talkEntry:addResponse("The Don himself has appointed as the Head Clerk of his storage. Galmair is a well oiled mill! We are constantly at work, and because of this we need to make sure that our storage is always full!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich überschaue das persönliche Lager des Dons hier in Galmair.");
-talkEntry:addResponse("Als Lagerchef des Dons ist es meine Aufgabe, dafür zu sorgen, dass das Lager stets gut gefüllt ist.");
-talkEntry:addResponse("Der Don persönlich hat mich als seinen Lagerchef eingesetzt. Galmair ist eine gut geölte Mühle! Wir sind immer bei der Arbeit und daher müssen wir stets sicherstellen, dass das Lager gut gefüllt ist!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addResponse("Gobaith? Never been. I've heard some stories from the locals... That Troll's Bane sounds a lot like Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -2968,18 +2918,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addResponse("Auf Gobaith? Bin ich nie gewesen. Aber man hört so einige Geschichten von den Leuten hier... dieses Troll's Bane klingt ziemlich so wie Galmair.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("my name");
-talkEntry:addResponse("Very well. I am sure you can do good deeds in the name of Galmair. As clerk, I have to take care of many things and you can do your share.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Wunderbar. Ich bin mir sicher, ihr könnt viele gute Taten für Galmair vollbringen. Als Sekretär kümmere ich mich um viele Angelegenheiten und ihr könnt euren Teil dazu beitragen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3051,12 +2989,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("loyal");
-talkEntry:addResponse("Natürlich bin ich dem Don gegenüber loyal! Er badet uns alle in Reichtümern und hält uns sicher. Wer würde nicht zu ihm loyal sein?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
 talkEntry:addResponse("That damn elf talks too much! I'm getting on in years, so being around him a waste of my time!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -3065,12 +2997,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
 talkEntry:addResponse("Dieser verdammte Elf redet einfach zu viel! Ich werde langsam alt, um meine Zeit mit so was zu verschwenden!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Dieser verdammte Elf redet einfach zu viel! Ich werde langsam alt, also ist um ihn herum zu sein eine Zeitverschwendung für mich!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3087,12 +3013,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addResponse("Dieser verdammte Elf redet einfach zu viel! Ich werde langsam alt, um meine Zeit mit so was zu verschwenden!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick? Ich gebe zu, es hat einiges an Handwerksfähigkeit gebraucht, um diese Stadt zu bauen... aber das ist auch alles!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3163,13 +3083,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Nunja, Galmair ist hier, wo wir leben! Die beste Stadt in diesen Landen... und auch die reichste.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Rosaline");
-talkEntry:addTrigger("Edwards");
-talkEntry:addResponse("Sie ist ein Hingucker, keine Frage. Der Don hat mal um ihre Hand angehalten. Ich kann nicht verstehen, warum irgendjemand den Don so zurückweisen würde, wie sie es tat...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

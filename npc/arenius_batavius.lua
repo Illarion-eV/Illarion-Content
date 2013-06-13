@@ -1587,7 +1587,7 @@ talkingNPC:addCycleText("Es ist nicht die Zeit der Worte, sondern die der Taten.
 talkingNPC:addCycleText("#me streicht über sein verletztes Bein.", "#me strokes his bruised leg.");
 talkingNPC:addCycleText("Fremder, hättet ihr einen Augenblick Zeit...", "Stranger, please, a moment of your time...");
 talkingNPC:addCycleText("#me hält sein reich verziehrtes Schwert fest in der Hand und schwingt es durch die Luft.", "#me holds his ornate sword firmly with one hand, swinging it idly into the air.");
-talkingNPC:addCycleText("#me schreibt einige Worte ein in Leder einbebundenes Buch und versteckt es hinterher sorgfältig unter seiner Robe.", "#me writes some words into a leather covered book, carefully tucking it under his robe afterwards.");
+talkingNPC:addCycleText("#me schreibt einige Worte ein in Leder gebundenes Buch und versteckt es hinterher sorgfältig unter seiner Robe.", "#me writes some words into a leather covered book, carefully tucking it under his robe afterwards.");
 talkingNPC:addCycleText("Wir leben in merkwürdigen Zeiten...", "Strange times we live in...");
 talkingNPC:addCycleText("Verdammte Kultisten! Wenn ich nur...", "Blasted cultists... if only I weren't...");
 talkingNPC:addCycleText("Bei Brágons heiligem Blut!", "By the holy blood of Brágon!");

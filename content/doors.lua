@@ -20,6 +20,8 @@ function initDoors()
 
 
 	AddDoor({373, 322, 0}, 110,"House of Malachite","Malachite Haus"); -- guild house I !create 2145 1 333 lockId=110
+	AddDoor({374, 311, 0}, 110,"House of Malachite-Bathroom","Malachite Haus-Toilette"); -- guild house I !create 2145 1 333 lockId=110
+	AddDoor({374, 314, 0}, 110,"House of Malachite-Bathroom","Malachite Haus-Badezimmer"); -- guild house I !create 2145 1 333 lockId=110
 	AddDoor({301, 280, 0}, 111,"Villa Goldvein","Villa Goldader"); -- guild house II !create 2145 1 333 lockId=111
 	AddDoor({304, 274, 0}, 111,"Villa Goldvein","Villa Goldader"); -- guild house II !create 2145 1 333 lockId=111
 
@@ -37,25 +39,28 @@ function initDoors()
 	AddDoor({342, 239,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
 	AddDoor({385, 193,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
 	AddDoor({386, 193,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
-	AddDoor({381, 208,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
-	AddDoor({381, 209,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
+	AddDoor({381, 208,-6}, 103,"Hog Dens-Cameo Pit","Schweinebaue-Gemmenschacht", false); -- Scoria Mine
+	AddDoor({381, 209,-6}, 103,"Hog Dens-Cameo Pit","Schweinebaue-Gemmenschacht", false); -- Scoria Mine
+	AddDoor({363, 206,-6}, 103,"Hog Dens-Arena","Schweinebaue-Arena", false); -- Scoria Mine
+	AddDoor({362, 206,-6}, 103,"Hog Dens-Arena","Schweinebaue-Arena", false); -- Scoria Mine
 	AddDoor({344, 244,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
 	AddDoor({344, 245,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
-	AddDoor({392, 220,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
-	AddDoor({393, 220,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
-	AddDoor({382, 241,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
-	AddDoor({383, 241,-6}, 103,"Cameo Pit","Gemmenschacht", false); -- Scoria Mine
+	AddDoor({392, 220,-6}, 103,"Cameo Pit-Hog Dens","Gemmenschacht-Schweinebaue", false); -- Scoria Mine
+	AddDoor({393, 220,-6}, 103,"Cameo Pit-Hog Dens","Gemmenschacht-Schweinebaue", false); -- Scoria Mine
+	AddDoor({382, 241,-6}, 103,"Cameo Pit-Temple of Ronagan","Gemmenschacht-Tempel des Ronagan", false); -- Scoria Mine
+	AddDoor({383, 241,-6}, 103,"Cameo Pit-Temple of Ronagan","Gemmenschacht-Tempel des Ronagan", false); -- Scoria Mine
 	AddDoor({343, 250,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
 	AddDoor({343, 251,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
-	AddDoor({385, 279,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
-	AddDoor({386, 279,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
-	AddDoor({382, 260,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
-	AddDoor({383, 260,-6}, 103,"Temple of Ronagan","Tempel des Ronagan", false); -- Scoria Mine
+	AddDoor({385, 279,-6}, 103,"Temple of Ronagan-Winged Sow Taverne","Tempel des Ronagan-Taverne zur Geflügelten Sau", false); -- Scoria Mine
+	AddDoor({386, 279,-6}, 103,"Temple of Ronagan-Winged Sow Taverne","Tempel des Ronagan-Taverne zur Geflügelten Sau", false); -- Scoria Mine
+	AddDoor({382, 260,-6}, 103,"Temple of Ronagan-Cameo Pit","Tempel des Ronagan-Gemmenschacht", false); -- Scoria Mine
+	AddDoor({383, 260,-6}, 103,"Temple of Ronagan-Cameo Pit","Tempel des Ronagan-Gemmenschacht", false); -- Scoria Mine
 	AddDoor({338, 253,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
 	AddDoor({339, 253,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
-	AddDoor({370, 292,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
-	AddDoor({370, 293,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
+	AddDoor({370, 292,-6}, 103,"Winged Sow Taverne-Temple of Ronagan","Taverne zur Geflügelten Sau-Tempel des Ronagan", false); -- Scoria Mine
+	AddDoor({370, 293,-6}, 103,"Winged Sow Taverne-Temple of Ronagan","Taverne zur Geflügelten Sau-Tempel des Ronagan", false); -- Scoria Mine
 	AddDoor({380, 325,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
+	AddDoor({379, 325,-6}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
 	AddDoor({400, 327,-6}, 103,"Winged Sow Taverne - Storeroom","Taverne zur Geflügelten Sau - Lagerraum", false); -- Scoria Mine
 	AddDoor({342, 252, 0}, 103,"Winged Sow Taverne","Taverne zur Geflügelten Sau", false); -- Scoria Mine
 	AddDoor({332, 253,-6}, 103,"Sewers","Abwasserschächte", false); -- Scoria Mine
@@ -66,6 +71,11 @@ function initDoors()
 	AddDoor({249, 295,-6}, 103,"Game room","Spielraum", false); -- Scoria Mine
 	AddDoor({249, 297,-5}, 103,"Temple of Nargun","Tempel des Nargun", false); -- Scoria Mine
 	AddDoor({250, 297,-5}, 103,"Temple of Nargun","Tempel des Nargun", false); -- Scoria Mine
+	AddDoor({346, 160,-7}, 103,"Arena","Arena", false); -- Scoria Mine
+	AddDoor({336, 194,-6}, 103,"Arena-Hog Dens","Arena-Schweinebaue", false); -- Scoria Mine
+	AddDoor({336, 195,-6}, 103,"Arena-Hog Dens","Arena-Schweinebaue", false); -- Scoria Mine
+	AddDoor({335, 238,-6}, 103,"Arena","Arena", false); -- Scoria Mine
+	AddDoor({334, 238,-6}, 103,"Arena","Arena", false); -- Scoria Mine
 
 	AddDoor({367, 255, 0}, 104,"Galmair's Crest","Galmairs Krone", false); -- Galmair's Crest
 	AddDoor({368, 255, 0}, 104,"Galmair's Crest","Galmairs Krone", false); -- Galmair's Crest
@@ -82,11 +92,11 @@ function initDoors()
 	AddDoor({378, 272, 0}, 104,"Workshop","Werkstatt", false); 
 	AddDoor({383, 284, 0}, 104,"Workshop","Werkstatt", false);
 	AddDoor({408, 295, 0}, 104,"Sleepy Bujhaar Inn","Gasthaus zum Schlafenden Bujhaar", false); 
-	AddDoor({414, 298, 0}, 104,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
-	AddDoor({412, 293, 1}, 104,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
-	AddDoor({419, 296, 1}, 104,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn 
-	AddDoor({418, 301, 1}, 104,"Balcony","Balkon", false); -- Sleepy Bujhaar Inn
-	AddDoor({421, 290, 1}, 104,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
+	AddDoor({414, 298, 0}, 112,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
+	AddDoor({412, 293, 1}, 113,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
+	AddDoor({419, 296, 1}, 113,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn 
+	AddDoor({418, 301, 1}, 114,"Balcony","Balkon", false); -- Sleepy Bujhaar Inn
+	AddDoor({421, 290, 1}, 115,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
 	AddDoor({404, 269, 1}, 104,"Census office","Zensusbüro", false);
 	AddDoor({401, 263, 0}, 104,"Herbs room","Kräuterkammer", false);
 	AddDoor({394, 247, 0}, 104,"Guardroom","Wachstube", false);
