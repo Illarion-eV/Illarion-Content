@@ -1035,7 +1035,52 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, ">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, ">", 0));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, ">", 0));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
+talkEntry:addResponse("Arr? I don't have anything for you to do!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, ">", 0));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
+talkEntry:addResponse("Arr? Ich hab nix für dich zu tun!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=>", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -1044,7 +1089,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=>", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!");
@@ -1052,7 +1097,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=>", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("Arr? I don't have anything for you to do, you are not from Galmair!");
@@ -1060,47 +1105,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=>", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, du kommst nicht aus Galmair!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 80));
-talkEntry:addCondition(npc.base.condition.quest.quest(81, ">", 0));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? I don't have anything for you to do, leave me alone now!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 80));
-talkEntry:addCondition(npc.base.condition.quest.quest(81, ">", 0));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, lass mich in Ruhe!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 80));
-talkEntry:addCondition(npc.base.condition.quest.quest(81, ">", 0));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't have anything for you to do, leave me alone now!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 80));
-talkEntry:addCondition(npc.base.condition.quest.quest(81, ">", 0));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addResponse("Arr? Ich hab nix für dich zu tun, lass mich in Ruhe!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

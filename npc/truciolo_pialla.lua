@@ -694,7 +694,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2544, "all", "<", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Nun, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles");
+talkEntry:addResponse("Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -711,7 +711,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2952, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Nun, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles");
+talkEntry:addResponse("Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -728,7 +728,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(545, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Nun, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles");
+talkEntry:addResponse("Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -745,7 +745,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(39, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Nun, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles");
+talkEntry:addResponse("Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1036,7 +1036,52 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 0));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.carpentry, "=>", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(670, ">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 8));
+talkEntry:addResponse("Sorry? I don't have anything for you to do!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.carpentry, "=>", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(670, ">", 0));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 8));
+talkEntry:addResponse("Wie bitte? Ich habe nichts für dich zu tun!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.carpentry, "=>", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(670, ">", 0));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 8));
+talkEntry:addResponse("Sorry? I don't have anything for you to do!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.carpentry, "=>", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(670, ">", 0));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 8));
+talkEntry:addResponse("Wie bitte? Ich habe nichts für dich zu tun!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(670, "=>", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -1045,7 +1090,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(670, "=>", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Nein! Ich habe nichts für dich zu tun, du kommst nicht aus Galmair!");
@@ -1053,7 +1098,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(670, "=>", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("No! I don't have anything for you to do, you are not from Galmair!");
@@ -1061,47 +1106,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(670, "=>", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addResponse("Nein! Ich habe nichts für dich zu tun, du kommst nicht aus Galmair!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.carpentry, "=>", 80));
-talkEntry:addCondition(npc.base.condition.quest.quest(670, ">", 0));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Sorry? I don't have anything for you to do, leave me alone now!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.carpentry, "=>", 80));
-talkEntry:addCondition(npc.base.condition.quest.quest(670, ">", 0));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Wie bitte? Ich habe nichts mehr für dich zu tun, lass mich in Ruhe!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.carpentry, "=>", 80));
-talkEntry:addCondition(npc.base.condition.quest.quest(670, ">", 0));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Sorry? I don't have anything for you to do, leave me alone now!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(Character.carpentry, "=>", 80));
-talkEntry:addCondition(npc.base.condition.quest.quest(670, ">", 0));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addResponse("Wie bitte? Ich habe nichts mehr für dich zu tun, lass mich in Ruhe!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

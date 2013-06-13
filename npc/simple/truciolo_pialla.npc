@@ -120,13 +120,13 @@ queststatus(670) = 5, skill(carpentry) >= 60, item(2544, all) > 3, item(2952, al
 queststatus(670) = 5, skill(carpentry) >= 60, item(2544, all) > 3, item(2952, all) > 9, item(545, all) > 9, item(39, all) > 4, town = Galmair, ".+" -> inform("[Quest erfüllt!] Es gibt aber noch mehr zu tun."), "Da bist du ja endlich. Aber ehrlich, diese Totenköpfe verdienen noch etwas mehr Strenge. Aber fürs Erste sollte es reichen.", deleteitem(2544, 4), deleteitem(2952, 10), deleteitem(545, 10), deleteitem(39, 5), queststatus(670) = 6, rankpoints + 5
 queststatus(670) = 5, skill(carpentry) < 60, item(2544, all) > 3, item(2952, all) > 9, item(545, all) > 9, item(39, all) > 4, english, town = Galmair, ".+" -> inform("[Quest finished!] You feel like you really learnt something. Further tasks are waiting for you."), "Finally, you're back, I was starting to worry about you. Now watch how I drill the hole.", skill(carpentry) + 2, deleteitem(2544, 4), deleteitem(2952, 10), deleteitem(545, 10), deleteitem(39, 5), queststatus(670) = 6, rankpoints + 5
 queststatus(670) = 5, skill(carpentry) < 60, item(2544, all) > 3, item(2952, all) > 9, item(545, all) > 9, item(39, all) > 4, town = Galmair, ".+" -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du etwas dazu gelernt. Es gibt aber noch mehr zu tun."), "Da bist du ja endlich. Ich hatte mir schon Sorgen gemacht. Nun pass aber auf, wie man die Löcher richtig bohrt.", skill(carpentry) + 2, deleteitem(2544, 4), deleteitem(2952, 10), deleteitem(545, 10), deleteitem(39, 5), queststatus(670) = 6, rankpoints + 5
-queststatus(670) = 5, item(2544, all) < 4, english, ".+" -> "Nun, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles"
+queststatus(670) = 5, item(2544, all) < 4, english, ".+" -> "Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles"
 queststatus(670) = 5, item(2544, all) < 4, ".+" -> "Na, fehlt da nicht noch was? Ich sagte 10 Kirschholzbretter, 10 Holzteller, 5 Schädelstäbe und 4 große Griffe!"
-queststatus(670) = 5, item(2952, all) < 10, english, ".+" -> "Nun, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles"
+queststatus(670) = 5, item(2952, all) < 10, english, ".+" -> "Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles"
 queststatus(670) = 5, item(2952, all) < 10, ".+" -> "Na, fehlt da nicht noch was? Ich sagte 10 Kirschholzbretter, 10 Holzteller, 5 Schädelstäbe und 4 große Griffe!"
-queststatus(670) = 5, item(545, all) < 10, english, ".+" -> "Nun, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles"
+queststatus(670) = 5, item(545, all) < 10, english, ".+" -> "Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles"
 queststatus(670) = 5, item(545, all) < 10, ".+" -> "Na, fehlt da nicht noch was? Ich sagte 10 Kirschholzbretter, 10 Holzteller, 5 Schädelstäbe und 4 große Griffe!"
-queststatus(670) = 5, item(39, all) < 5, english, ".+" -> "Nun, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles"
+queststatus(670) = 5, item(39, all) < 5, english, ".+" -> "Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles"
 queststatus(670) = 5, item(39, all) < 5, ".+" -> "Na, fehlt da nicht noch was? Ich sagte 10 Kirschholzbretter, 10 Holzteller, 5 Schädelstäbe und 4 große Griffe!"
 
 -- 4th quest
@@ -156,14 +156,14 @@ queststatus(670) = 0, skill(carpentry) >= 80, english, town = Galmair, "quest", 
 queststatus(670) = 0, skill(carpentry) >= 80, town = Galmair, "quest", "mission" -> "Wie bitte? Ich habe nichts für dich zu tun!"
 queststatus(670) = 0, skill(carpentry) >= 80, town = Galmair, "task", "adventure" -> "Sorry? I don't have anything for you to do!"
 queststatus(670) = 0, skill(carpentry) >= 80, town = Galmair, "Auftrag", "Aufgabe" -> "Wie bitte? Ich habe nichts für dich zu tun!"
-queststatus(670) = 0, english, "quest", "mission" -> "No! I don't have anything for you to do, you are not from Galmair!"
-queststatus(670) = 0, "quest", "mission" -> "Nein! Ich habe nichts für dich zu tun, du kommst nicht aus Galmair!"
-queststatus(670) = 0, "task", "adventure" -> "No! I don't have anything for you to do, you are not from Galmair!"
-queststatus(670) = 0, "Auftrag", "Aufgabe" -> "Nein! Ich habe nichts für dich zu tun, du kommst nicht aus Galmair!"
-queststatus(670) > 0, skill(carpentry) >= 80, english, "quest", "mission" -> "Sorry? I don't have anything for you to do, leave me alone now!"
-queststatus(670) > 0, skill(carpentry) >= 80, "quest", "mission" -> "Wie bitte? Ich habe nichts mehr für dich zu tun, lass mich in Ruhe!"
-queststatus(670) > 0, skill(carpentry) >= 80, "task", "adventure" -> "Sorry? I don't have anything for you to do, leave me alone now!"
-queststatus(670) > 0, skill(carpentry) >= 80, "Auftrag", "Aufgabe" -> "Wie bitte? Ich habe nichts mehr für dich zu tun, lass mich in Ruhe!"
+queststatus(670) > 0, skill(carpentry) >= 80, english, town = Galmair, "quest", "mission" -> "Sorry? I don't have anything for you to do!", queststatus(670) = 8
+queststatus(670) > 0, skill(carpentry) >= 80, town = Galmair, "quest", "mission" -> "Wie bitte? Ich habe nichts für dich zu tun!", queststatus(670) = 8
+queststatus(670) > 0, skill(carpentry) >= 80, town = Galmair, "task", "adventure" -> "Sorry? I don't have anything for you to do!", queststatus(670) = 8
+queststatus(670) > 0, skill(carpentry) >= 80, town = Galmair, "Auftrag", "Aufgabe" -> "Wie bitte? Ich habe nichts für dich zu tun!", queststatus(670) = 8
+queststatus(670) >= 0, english, "quest", "mission" -> "No! I don't have anything for you to do, you are not from Galmair!"
+queststatus(670) >= 0, "quest", "mission" -> "Nein! Ich habe nichts für dich zu tun, du kommst nicht aus Galmair!"
+queststatus(670) >= 0, "task", "adventure" -> "No! I don't have anything for you to do, you are not from Galmair!"
+queststatus(670) >= 0, "Auftrag", "Aufgabe" -> "Nein! Ich habe nichts für dich zu tun, du kommst nicht aus Galmair!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "You ask what my profession is? I'm a carver, for sure the best in town.", "I'm a carver and you?"
