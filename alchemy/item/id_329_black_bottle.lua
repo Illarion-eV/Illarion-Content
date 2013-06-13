@@ -56,7 +56,7 @@ ListHairFemale[4] = {1,7,8}
 ListHairFemale[5] = {1,2,3,4,5,6}
 
 function DrinkPotion(User,SourceItem)
-    
+    User:inform("drinkPotion")
     potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
     
 	if potionEffectId == 0 or potionEffectId == nil  then -- no effect	

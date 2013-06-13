@@ -416,6 +416,8 @@ function CheckListsIfEqual(ListOne,ListTwo)
 			    break
 			end
 		end
+	else
+		check = false
 	end
     return check
 end
@@ -466,7 +468,7 @@ function generateTasteMessage(Character,dataZList)
     base.common.InformNLS(Character,textDe,textEn);
 end
 
-function CheckIfGemDust(itemId, User)
+function CheckIfGemDust(itemId)
 local retVal = nil;
 for i,checkId in pairs(gemDustList) do
     if itemId == checkId then
@@ -475,6 +477,13 @@ for i,checkId in pairs(gemDustList) do
     end
 end	
 return retVal
+end
+
+function CheckIfPlant(itemId)
+	if plantList[itemId] ~= nil or itemId = 157 then
+		return true
+	end
+	return false
 end
 
 function CheckIfPotionBottle(SourceItem, User)
