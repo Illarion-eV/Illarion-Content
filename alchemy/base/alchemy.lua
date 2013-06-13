@@ -480,7 +480,7 @@ return retVal
 end
 
 function CheckIfPlant(itemId)
-	if plantList[itemId] ~= nil or itemId = 157 then
+	if plantList[itemId] ~= nil or itemId == 157 then
 		return true
 	end
 	return false
