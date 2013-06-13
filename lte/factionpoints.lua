@@ -61,7 +61,7 @@ function callEffect(Effect, Char)
 			Char:inform("theRankpoints: "..theRankpoints,"theRankpoints:"..theRankpoints)
 	end
 	Effect.nextCalled = 600 --Effect gets called each minute
-	return true;
+--	return true;
 	return false;
 end
 
