@@ -35,10 +35,10 @@ Description[ENGLISH][8] = "You have fulfilled all tasks of Truciolo Pialla."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {333, 258, 0}
-QuestTarget[3] = {333, 258, 0}
-QuestTarget[5] = {333, 258, 0}
-QuestTarget[7] = {333, 258, 0}
+QuestTarget[1] = {338, 268, 0}
+QuestTarget[3] = {338, 268, 0}
+QuestTarget[5] = {338, 268, 0}
+QuestTarget[7] = {338, 268, 0}
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 8
