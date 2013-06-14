@@ -520,7 +520,7 @@ debug("test10")
 debug("modifier"..modifier)
 debug("value"..value)
 debug("faction"..faction)
-debug("radius"..radius)
+
 	if modifier == "add" then
 debug("test20")
 		text = "added";
