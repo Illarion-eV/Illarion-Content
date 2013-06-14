@@ -541,15 +541,23 @@ debug("test70")
 	player_list=world:getPlayersInRangeOf(User.pos, radius);
 debug("test80")
 	if player_list[1]~=nil then
+debug("test90")
 		for i=1, #(player_list) do
+debug("test100")
 			Factionvalues = base.factions.getFaction(player_list[i]);
+debug("test110")
 			if faction == nil or faction == 99 then
+debug("test120")
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
 				User:inform("You just "..text.." "..value.." rankpoints to everyone in a radius of ".. radius..".");
+debug("test121")
 			elseif tonumber(faction) == tonumber(Factionvalues.tid) then
+debug("test130")
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
 				User:inform("You just "..text.." "..value.." rankpoints to members of the faction "..base.factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".");
+debug("test131")
 			else
+debug("test140")
 				return;
 			end	
 		end
