@@ -429,27 +429,27 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yewdale");
-talkEntry:addResponse("This place here is Yewdale. For more details ask Numila Irunnleh.");
+talkEntry:addResponse("For more details of Yewdale ask Numila Irunnleh.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eibental");
-talkEntry:addResponse("Dieser Ort hier ist Eibental. Befragt hierzu Numila Irunnleh um nähere Information zu erhalten .");
+talkEntry:addResponse("Befragt Numila Irunnleh um nähere Information über das Eibental zu erhalten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Garden Eldan");
 talkEntry:addTrigger("Eldan Garden");
-talkEntry:addResponse("The Garden of Eldan is a place which inspires us with wisdom. You can find it if you walk through the portal into the town, on the other side of the Lurnord Bridge, and then take the red portal. There you will also find a shrine dedicated to Eldan.");
+talkEntry:addResponse("The Garden of Eldan is a place which inspires us with wisdom. You can find it if you walk through the portal into the town, on the other side of the Lurnord Bridge behind me, and then take the red portal. There you will also find a shrine dedicated to Eldan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Garten Eldan");
 talkEntry:addTrigger("Eldan Garten");
-talkEntry:addResponse("Der Garten des Eldan ist ein Ort der uns mit Weisheit inspiriert. Ihr findet ihn wenn ihr in die Stadt durch das Portal an der anderen Seite der Lurnord Brücke reist und dann durch das nächste, rote, Portal tretet. Dort findet ihr auch einen Schrein für Eldan.");
+talkEntry:addResponse("Der Garten des Eldan ist ein Ort der uns mit Weisheit inspiriert. Ihr findet ihn wenn ihr in die Stadt durch das Portal nach der Brücke hinter mir reist und dann durch das nächste, rote, Portal tretet. Dort findet ihr auch einen Schrein für Eldan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -880,14 +880,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hinterland");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutter Camp, Twin Eyes Islands, Oldra's Column, Mermaid, Lurnord bridge"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Fire of Triumph, Holy Oak, Twin Eyes Islands, Oldra's Column, Mermaid, Lurnord bridge"));
 talkEntry:addResponse("The Hinterland of Runewick contains the following locations: Fire of Triumph, Holy Oak, Woodcutter's Camp, Twin Eyes Islands, Oldra's Column, Lurnord bridge and Mermaid");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hinterland");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Feuer des Triumphes, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninseln, Oldras Säule, Meerjungfrau, Lurnord Brücke"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Feuer des Triumphes, Heilige Eiche, Zwillingsaugeninseln, Oldras Säule, Meerjungfrau, Lurnord Brücke"));
 talkEntry:addResponse("Das Hinterland von Runewick enthält folgende Orte: Feuer des Triumphes, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninseln, Oldras Säule, Lurnord Brücke und Meerjungfrau");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -895,26 +895,26 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fire Triumph");
 talkEntry:addTrigger("Triumph Fire");
-talkEntry:addResponse("It can be found o the north after the Lurnord Bridge and the Holy Oak. This place reminds us of our involvement and victory in a campaign between Cadomyr and Galmair. Unfortunately, some actions went wrong.");
+talkEntry:addResponse("It can be found on the north after the Lurnord Bridge *points behind her* and the Holy Oak. This place reminds us of our involvement and victory in a campaign between Cadomyr and Galmair. Unfortunately, some actions went wrong.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Feuer Triumph");
 talkEntry:addTrigger("Triumph Feuer");
-talkEntry:addResponse("Dieser Ort kann nördlich nach der Lurnord Brücke und der Heiligen Eiche gefunden werden und erinnert an unsere Einflussnahme und unseren Sieg in einer Auseinandersetzung zwischen Cadomyr und Galmair. Leider ging einiges schief.");
+talkEntry:addResponse("Dieser Ort kann nördlich nach der Lurnord Brücke *deutet hinter sich* und der Heiligen Eiche gefunden werden und erinnert an unsere Einflussnahme und unseren Sieg in einer Auseinandersetzung zwischen Cadomyr und Galmair. Leider ging einiges schief.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Holy Oak");
-talkEntry:addResponse("This is a holy and very old tree found to the north after the Lurnord Bridge. You will find more information there.");
+talkEntry:addResponse("This is a holy and very old tree found to the north after the Lurnord Bridge *points behind her*. You will find more information there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Heilige Eiche");
-talkEntry:addResponse("Das ist ein heiliger und sehr alter Baum nördlich nach der Lurnord Brücke. Dort werdet ihr weitere Informationen finden.");
+talkEntry:addResponse("Das ist ein heiliger und sehr alter Baum nördlich nach der Lurnord Brücke *deutet hinter sich*. Dort werdet ihr weitere Informationen finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -945,25 +945,25 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mermaid");
-talkEntry:addResponse("Just follow the west coast to the south after the Lurnord Bridge and you will find this place with a statue of a beautiful woman. This place is also used by fishers who are waiting to get in touch with the mermaid.");
+talkEntry:addResponse("Just follow the west coast to the south after the Lurnord Bridge *points behind her* and you will find this place with a statue of a beautiful woman. This place is also used by fishers who are waiting to get in touch with the mermaid.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Meerjungfrau");
-talkEntry:addResponse("Folget der Westküste in den Süden nach der Lurnord Brücke und ihr werdet diesen Ort mit einer Statue einer schönen Frau finden. Dieser Ort wird auch von vielen Fischern verwendet, die auf die Meerjungfrau warten.");
+talkEntry:addResponse("Folget der Westküste in den Süden nach der Lurnord Brücke *deutet hinter sich* und ihr werdet diesen Ort mit einer Statue einer schönen Frau finden. Dieser Ort wird auch von vielen Fischern verwendet, die auf die Meerjungfrau warten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lurnord bridge");
-talkEntry:addResponse("This is the bridge between Runewick and Yewdale here *points at the bridge*. It was destroyed years ago after a war with Galmair and rebuilt by a friend of mine who left afterwards. Lunord was his name.");
+talkEntry:addResponse("This is the bridge between Runewick and Yewdale *points at the bridge*. It was destroyed years ago after a war with Galmair and rebuilt by a friend of mine who left afterwards. Lunord was his name.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lurnord Brücke");
-talkEntry:addResponse("Das ist die Brücke zwischen Runewick und hier dem Eibental *zeigt zur Brücke*. Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welcher nun gegangen ist. Sein Name war Lunord.");
+talkEntry:addResponse("Das ist die Brücke zwischen Runewick und dem Eibental *zeigt zur Brücke*. Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welcher nun gegangen ist. Sein Name war Lunord.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
