@@ -517,6 +517,10 @@ end
 function ChangeRankpoints(User,modifier,value,faction,radius)
 	--check if the points shall be added or removed
 debug("test10")
+debug("modifier"..modifier)
+debug("value"..value)
+debug("faction"..faction)
+debug("radius"..radius)
 	if modifier == "add" then
 debug("test20")
 		text = "added";
