@@ -2,7 +2,7 @@
 -- NPC Name: Elesil Daelwon                                          Runewick --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  833, 815, 0            --
+-- NPC Race: elf                        NPC Position:  839, 816, 0            --
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
@@ -12,8 +12,8 @@
 name = "Elesil Daelwon"
 race = elf
 sex = female
-position = 833, 815, 0
-direction = south
+position = 839, 816, 0
+direction = west
 affiliation = "Runewick"
 job = "Informant"
 
@@ -205,8 +205,6 @@ english, "Hinterland" -> inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutte
 "Feuer Triumph", "Triumph Feuer" -> "Dieser Ort kann nördlich nach der Lurnord Brücke und der Heiligen Eiche gefunden werden und erinnert an unsere Einflussnahme und unseren Sieg in einer Auseinandersetzung zwischen Cadomyr und Galmair. Leider ging einiges schief."
 "Holy Oak" -> "This is a holy and very old tree found to the north after the Lurnord Bridge. You will find more information there."
 "Heilige Eiche" -> "Das ist ein heiliger und sehr alter Baum nördlich nach der Lurnord Brücke. Dort werdet ihr weitere Informationen finden."
-"Woodcutter's Camp","Woodcutters Camp" -> "This place can be found to the south after the Lurnord Bridge and is a camp for lumberjacks."
-"Holzfäller Lager" -> "Dieser Ort kann südlich nach der Lurnord Brücke gefunden werden und ist ein Lager für Holzfäller."
 "Twin Eyes" -> "This place is far south of here *points first to the bridge and then to the south*. Two islands, which... uhh... I forget, but you will find what you want to know there."
 "Zwillingsaugen" -> "Dieser Ort ist ganz im Süden *zeigt erst zur Brücke und dann in den Süden*. Zwei Inseln, welche...uhh... ich hab es vergessen, aber ihr werdet herausfinden was ihr zu wissen wünscht."
 "Oldra's Column","Oldras Column" -> "This place can be found to the south of here *points first to the bridge and then to the south*. Some information about Oldra and what she likes awaits you. Look for the column and trees over there."

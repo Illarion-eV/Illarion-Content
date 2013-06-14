@@ -2,8 +2,8 @@
 -- NPC Name: Elesil Daelwon                                          Runewick --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  833, 815, 0            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: elf                        NPC Position:  839, 816, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                Illarion easyNPC Editor 1.02 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 833, 815, 0, 4, 'Elesil Daelwon', 'npc.elesil_daelwon', 1, 7, 0, 25, 25, 112, 230, 230, 250);
+VALUES (3, 839, 816, 0, 6, 'Elesil Daelwon', 'npc.elesil_daelwon', 1, 7, 0, 25, 25, 112, 230, 230, 250);
 ---]]
 
 require("npc.base.basic")
@@ -915,19 +915,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Heilige Eiche");
 talkEntry:addResponse("Das ist ein heiliger und sehr alter Baum nördlich nach der Lurnord Brücke. Dort werdet ihr weitere Informationen finden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Woodcutter's Camp");
-talkEntry:addTrigger("Woodcutters Camp");
-talkEntry:addResponse("This place can be found to the south after the Lurnord Bridge and is a camp for lumberjacks.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Holzfäller Lager");
-talkEntry:addResponse("Dieser Ort kann südlich nach der Lurnord Brücke gefunden werden und ist ein Lager für Holzfäller.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
