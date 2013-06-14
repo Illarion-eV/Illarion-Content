@@ -346,15 +346,27 @@ function UseItem(User, SourceItem)
 			faction=tonumber(faction)
 			radius=tonumber(radius);
             ChangeRankpoints(User,modifier,value,faction,radius);
+debug("modifier"..modifier)
+debug("value"..value)
+debug("faction"..faction)
+debug("radius"..radius)
 		  elseif (string.find(inputString,"(%a+) (%d+) (%d+)") ~= nil) then
             a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+)");
 			faction=tonumber(faction)
             value=tonumber(value);
             ChangeRankpoints(User,modifier,value,faction,radius);
+debug("modifier"..modifier)
+debug("value"..value)
+debug("faction"..faction)
+debug("radius"..radius)
 		  elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
             a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)");
             value=tonumber(value);
             ChangeRankpoints(User,modifier,value,faction,radius);
+debug("modifier"..modifier)
+debug("value"..value)
+debug("faction"..faction)
+debug("radius"..radius)
           else
             User:inform("Sorry, I didn't understand you.");
             User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
