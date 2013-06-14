@@ -355,26 +355,17 @@ debug("radius"..radius)
 			faction=tonumber(faction)
             value=tonumber(value);
             ChangeRankpoints(User,modifier,value,faction,radius);
-debug("modifier"..modifier)
-debug("value"..value)
-debug("faction"..faction)
-debug("radius"..radius)
 		  elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
             a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)");
             value=tonumber(value);
             ChangeRankpoints(User,modifier,value,faction,radius);
-debug("modifier"..modifier)
-debug("value"..value)
-debug("faction"..faction)
-debug("radius"..radius)
           else
             User:inform("Sorry, I didn't understand you.");
             User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
           end
         end
-debug("test1")
         User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
-debug("test2")      
+   
 	  
 	  -- guard modes
 	  elseif (ind == 2) then 
@@ -516,56 +507,31 @@ end
 
 function ChangeRankpoints(User,modifier,value,faction,radius)
 	--check if the points shall be added or removed
-debug("test10")
-debug("modifier"..modifier)
-debug("value"..value)
-debug("faction"..faction)
-
 	if modifier == "add" then
-debug("test20")
 		text = "added";
 		playerText = {"steigt.","advance"};
-debug("test21")
 	elseif modifier == "sub" then
-debug("test30")		
 		text = "removed";
 		playerText = {"sinkt.","decline"};
 		value = -value;
-debug("test31")
 	else
-debug("test40")
 		return;
 	end
-debug("test50")
 	if radius == nil then
 		radius = 5;
-debug("test60")
-debug("radius"..radius)
 	end
-debug("test70")
 	player_list=world:getPlayersInRangeOf(User.pos, radius);
-debug("test80")
 	if player_list[1]~=nil then
-debug("test90")
 		for i=1, #(player_list) do
-debug("test100")
-debug("faction"..faction)
 			Factionvalues = base.factions.getFaction(player_list[i]);
-debug("test110")
-debug("faction"..faction)
 			if faction == nil or faction == 99 then
-debug("test120")
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
 				User:inform("You just "..text.." "..value.." rankpoints to everyone in a radius of ".. radius..".");
-debug("test121")
 			elseif tonumber(faction) == tonumber(Factionvalues.tid) then
-debug("test130")
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
 				User:inform("You just "..text.." "..value.." rankpoints to members of the faction "..base.factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".");
-debug("test131")
 			else
-debug("test140")
---				return;
+--				return;  --bad return, since it would break up as soon someone does not fulfill requirements even if there are more players to be checked.
 			end	
 		end
 	end	
