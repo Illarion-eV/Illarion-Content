@@ -548,8 +548,10 @@ debug("test80")
 debug("test90")
 		for i=1, #(player_list) do
 debug("test100")
+debug("faction"..faction)
 			Factionvalues = base.factions.getFaction(player_list[i]);
 debug("test110")
+debug("faction"..faction)
 			if faction == nil or faction == 99 then
 debug("test120")
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
