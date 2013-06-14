@@ -516,17 +516,23 @@ end
 
 function ChangeRankpoints(User,modifier,value,faction,radius)
 	--check if the points shall be added or removed
+debug("test10")
 	if modifier == "add" then
+debug("test20")
 		text = "added";
 		playerText = {"steigt.","advance"};
+debug("test21")
 	elseif modifier == "sub" then
+debug("test30")		
 		text = "removed";
 		playerText = {"sinkt.","decline"};
 		value = -value;
+debug("test31")
 	else
+debug("test40")
 		return;
 	end
-	
+debug("test50")
 	if radius == nil then
 		radius = 5;
 	end
