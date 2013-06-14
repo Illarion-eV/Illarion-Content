@@ -36,8 +36,7 @@ function callEffect(Effect,User)
 		  
 		   if counterBlack == 0 then
 				-- the effect counter is down to zero; we change the char back
-			    TransformBack(Effect,User) 
-		        return false
+			    return false
 		   end
 	   end   
    end
@@ -47,6 +46,7 @@ function callEffect(Effect,User)
 end
 
 function removeEffect(Effect,User)         
+    TransformBack(Effect,User)
 end
 
 function loadEffect(Effect,User)
