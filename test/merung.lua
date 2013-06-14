@@ -38,6 +38,16 @@ function UseItem(User, SourceItem,ltstate)
 		npc.yellowcross.nextCycle(User)
 	end
 	
+	if User.lastSpokenText == "lte" then
+	    local  find, myEffect = User.effects:find(329)
+		if find then
+			local effectRemoved = User.effects:removeEffect(329)
+			if effectRemoved then 
+				User:inform("lte 329 removed")
+			end
+		end
+	end
+	
 end
 
 
