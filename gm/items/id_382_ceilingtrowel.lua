@@ -540,6 +540,7 @@ debug("test50")
 	if radius == nil then
 		radius = 5;
 debug("test60")
+debug("radius"..radius)
 	end
 debug("test70")
 	player_list=world:getPlayersInRangeOf(User.pos, radius);
