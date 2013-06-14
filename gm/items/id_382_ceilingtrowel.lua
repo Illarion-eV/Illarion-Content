@@ -540,7 +540,6 @@ debug("test60")
 debug("test70")
 	player_list=world:getPlayersInRangeOf(User.pos, radius);
 debug("test80")
-debug("player_list"..player_list[1])
 	if player_list[1]~=nil then
 debug("test90")
 		for i=1, #(player_list) do
