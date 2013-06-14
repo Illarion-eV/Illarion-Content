@@ -535,9 +535,11 @@ debug("test40")
 debug("test50")
 	if radius == nil then
 		radius = 5;
+debug("test60")
 	end
-	
+debug("test70")
 	player_list=world:getPlayersInRangeOf(User.pos, radius);
+debug("test80")
 	if player_list[1]~=nil then
 		for i=1, #(player_list) do
 			Factionvalues = base.factions.getFaction(player_list[i]);
