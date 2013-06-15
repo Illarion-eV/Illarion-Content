@@ -55,7 +55,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Greeting, what do you want?");
-talkEntry:addResponse("The five with you, may I help you?");
+talkEntry:addResponse("The Five with you, may I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -102,7 +102,7 @@ talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("By by, take care.");
-talkEntry:addResponse("The five with you!");
+talkEntry:addResponse("The Five with you!");
 talkEntry:addResponse("Until next time!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -125,7 +125,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("By by, take care.");
-talkEntry:addResponse("The five with you!");
+talkEntry:addResponse("The Five with you!");
 talkEntry:addResponse("Until next time!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -190,7 +190,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 1));
-talkEntry:addResponse("I could help you if you want to become a carver as well, but first bring me 10 pieces applewood, along with 10 boughs, and don't forget to bring a saw. Here is a hatchet for you to get the wood.");
+talkEntry:addResponse("I could help you if you want to become a carver as well, but first bring me ten pieces deciduous wood, along with ten boughs, and don't forget to bring a saw. Here is a hatchet for you to get the wood.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -215,7 +215,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 1));
-talkEntry:addResponse("I could help you if you want to become a carver as well, but first bring me 10 pieces applewood, along with 10 boughs, and don't forget to bring a saw. Here is a hatchet for you to get the wood.");
+talkEntry:addResponse("I could help you if you want to become a carver as well, but first bring me ten pieces deciduous wood, along with ten boughs, and don't forget to bring a saw. Here is a hatchet for you to get the wood.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,7 +316,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2560, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Sorry, if you try to trick me, I won't help you. I want 10 pieces of apple wood, 10 boughs and a saw!");
+talkEntry:addResponse("Sorry, if you try to trick me, I won't help you. I want ten pieces of deciduous wood, ten boughs and a saw!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -333,7 +333,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(56, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Sorry, if you try to trick me, I won't help you. I want 10 pieces of apple wood, 10 boughs and a saw!");
+talkEntry:addResponse("Sorry, if you try to trick me, I won't help you. I want ten pieces of deciduous wood, ten boughs and a saw!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -350,7 +350,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(9, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Sorry, if you try to trick me, I won't help you. I want 10 pieces of apple wood, 10 boughs and a saw!");
+talkEntry:addResponse("Sorry, if you try to trick me, I won't help you. I want ten pieces of deciduous wood, ten boughs and a saw!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -370,7 +370,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 3));
-talkEntry:addResponse("Sure, I have a task for you if you are interested. I need 15 naldor boards, new carving tools, a cooking spoon and 5 conifer woods!");
+talkEntry:addResponse("Sure, I have a task for you if you are interested. I need fifteen naldor boards, new carving tools, a cooking spoon and five conifer logs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -391,7 +391,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 3));
-talkEntry:addResponse("Sure, I have a task for you if you are interested. I need 15 naldor wooden boards, new carving tools, a cooking spoon and 5 conifer woods!");
+talkEntry:addResponse("Sure, I have a task for you if you are interested. I need fifteen naldor wooden boards, new carving tools, a cooking spoon and five conifer logs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -496,7 +496,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(546, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Are you sure? You're supposed to bring me 15 naldor boards, new carving tools, a cooking spoon and 5 conifer woods. Not that hard to memorise, is it?");
+talkEntry:addResponse("Are you sure? You're supposed to bring me fifteen naldor boards, new carving tools, a cooking spoon and five conifer logs. Not that hard to memorise, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -513,7 +513,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(3, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Are you sure? You're supposed to bring me 15 naldor boards, new carving tools, a cooking spoon and 5 conifer woods. Not that hard to memorise, is it?");
+talkEntry:addResponse("Are you sure? You're supposed to bring me fifteen naldor boards, new carving tools, a cooking spoon and five conifer logs. Not that hard to memorise, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -530,7 +530,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(227, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Are you sure? You're supposed to bring me 15 naldor boards, new carving tools, a cooking spoon and 5 conifer woods. Not that hard to memorise, is it?");
+talkEntry:addResponse("Are you sure? You're supposed to bring me fifteen naldor boards, new carving tools, a cooking spoon and five conifer logs. Not that hard to memorise, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -547,7 +547,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2752, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Are you sure? You're supposed to bring me 15 naldor boards, new carving tools, a cooking spoon and 5 conifer woods. Not that hard to memorise, is it?");
+talkEntry:addResponse("Are you sure? You're supposed to bring me fifteen naldor boards, new carving tools, a cooking spoon and five conifer logs. Not that hard to memorise, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -567,7 +567,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 5));
-talkEntry:addResponse("Sure, I have another task for you if you are interested. Bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles.");
+talkEntry:addResponse("Sure, I have another task for you if you are interested. Bring me ten cherry wood boards, ten wooden plates, five skull staffs and four large handles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -589,7 +589,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 5));
-talkEntry:addResponse("Sure, I have another task for you if you are interested. Bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles.");
+talkEntry:addResponse("Sure, I have another task for you if you are interested. Bring me ten cherry wood boards, ten wooden plates, five skull staffs and five large handles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,7 +694,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2544, "all", "<", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles");
+talkEntry:addResponse("Well, there are still some things missing. You are supposed to bring me ten cherry wood boards, ten wooden plates, five skull staffs and four large handles");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -711,7 +711,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2952, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles");
+talkEntry:addResponse("Well, there are still some things missing. You are supposed to bring me ten cherry wood boards, ten wooden plates, five skull staffs and four large handles");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -728,7 +728,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(545, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles");
+talkEntry:addResponse("Well, there are still some things missing. You are supposed to bring me ten cherry wood boards, ten wooden plates, five skull staffs and four large handles");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -745,7 +745,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(39, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles");
+talkEntry:addResponse("Well, there are still some things missing. You are supposed to bring me ten cherry wood boards, ten wooden plates, five skull staffs and four large handles");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -765,7 +765,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 7));
-talkEntry:addResponse("You are looking for some more work? I could need help! I need 150 arrows, 10 buckets, 10 harps and 2 wands.");
+talkEntry:addResponse("You are looking for some more work? I could need help! I need 150 arrows, ten buckets, ten harps and two wands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -787,7 +787,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 7));
-talkEntry:addResponse("You are looking for some more work? I could need help! I need 150 arrows, 10 buckets, 10 harps and 2 wands.");
+talkEntry:addResponse("You are looking for some more work? I could need help! I need 150 arrows, ten buckets, ten harps and two wands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -893,7 +893,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 150, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 150 arrows, 10 buckets, 10 harps and 2 wands.");
+talkEntry:addResponse("You were supposed to bring me 150 arrows, ten buckets, ten harps and two wands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -910,7 +910,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(332, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 150 arrows, 10 buckets, 10 harps and 2 wands.");
+talkEntry:addResponse("You were supposed to bring me 150 arrows, ten buckets, ten harps and two wands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -927,7 +927,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(51, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 150 arrows, 10 buckets, 10 harps and 2 wands.");
+talkEntry:addResponse("You were supposed to bring me 150 arrows, ten buckets, ten harps and two wands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -944,7 +944,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(323, "all", "<", 2, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 150 arrows, 10 buckets, 10 harps and 2 wands.");
+talkEntry:addResponse("You were supposed to bring me 150 arrows, ten buckets, ten harps and two wands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -962,7 +962,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I must sorry, I don't have anything else for you to do. Leave me alone now!");
+talkEntry:addResponse("I'm sorry, I don't have anything else for you to do. Leave me alone now!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -980,7 +980,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 8));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("I must sorry, I don't have anything else for you to do. Leave me alone now!");
+talkEntry:addResponse("I'm sorry, I don't have anything else for you to do. Leave me alone now!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1174,45 +1174,45 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("dwarf");
 talkEntry:addTrigger("dwarv");
-talkEntry:addResponse("This is the town of dwarves. But dwarves have no real feeling for wood. A real dwarf works in the smithy or the mines and by the wooden things he need.,");
+talkEntry:addResponse("This is the town of dwarves, but dwarves have no real feeling for wood. A real dwarf works in the smithy or the mines and buys the wooden things he needs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("elf");
-talkEntry:addResponse("Nobody else made ever fine wooden items. And you know, each famous dwarven sword has a handle, made by elves.");
+talkEntry:addResponse("Nobody else ever made such fine wooden items. As you know, each famous dwarven sword has a handle, made by elves.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("elve");
-talkEntry:addResponse("Nobody else made ever fine wooden items. And you know, each famous dwarven sword has a handle, made by elves.");
+talkEntry:addResponse("Nobody else ever made such fine wooden items. As you know, each famous dwarven sword has a handle, made by elves.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("forest");
-talkEntry:addResponse("I love the forest, even if there live quite dangerous monsters. But I love a warm and safe bed as well. Sleeping in trees is no mine");
+talkEntry:addResponse("I love the forest, even if quite dangerous monsters live there. I love a warm and safe bed as well though so you won't find me sleeping in trees.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("smith");
-talkEntry:addResponse("A smith needs a hammer, and handles course. He can by everything at the market. Or he ask a carver.");
+talkEntry:addResponse("A smith needs a hammer, and handles of course. He can buy everything at the market, or he can ask a carver.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("carver");
 talkEntry:addResponse("A carver needs a saw, carving tools and a slicer, and wood of course. Saw the wood to boards. There is a workbench in the workshop. Got it?");
-talkEntry:addResponse("Search for the workbench to start. There is one in the workshop.");
+talkEntry:addResponse("Search for the workbench to start with, there is one in the workshop.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("hatchet");
-talkEntry:addResponse("You can cut any tree with it, a merchant can surely sell you one if you lose yours.");
+talkEntry:addResponse("You can cut any tree with it. A merchant can surely sell you one if you lose yours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1290,7 +1290,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick is the city full of them mage-folk right? Don't like them much.");
+talkEntry:addResponse("Runewick is that city full of them mage-folk right? Don't like them much.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1306,7 +1306,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addResponse("Well, nothing much to say. He's the leader of Galmair and does a really good job.");
-talkEntry:addResponse("What would you say? Why do I carve this statuette here with his face currently.");
+talkEntry:addResponse("What would you say? Why am I carving this statuette here with his face?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1334,7 +1334,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Don't know her personally but wouldn't mind if she really is as good looking as they say. Hear she's a harsh leader though.");
+talkEntry:addResponse("Don't know her personally, but wouldn't mind if she really is as good looking as they say. I hear she's a harsh leader though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1348,7 +1348,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Don't know her personally but wouldn't mind if she really is as good looking as they say. Hear she's a harsh leader though.");
+talkEntry:addResponse("Don't know her personally, but wouldn't mind if she really is as good looking as they say. I hear she's a harsh leader though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1362,7 +1362,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Well, a little hot there but the Queen is supposed to be good looking, wouldn't mind if she came here.");
+talkEntry:addResponse("Well, it's a little hot there but the Queen is supposed to be good looking, wouldn't mind if she came here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1375,7 +1375,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the silverlake forest!");
+talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the Silverlake Forest?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1389,7 +1389,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the silverlake forest!");
+talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the Silverlake Forest?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1403,7 +1403,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the silverlake forest!");
+talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the Silverlake Forest?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1415,10 +1415,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("siverlake");
-talkEntry:addResponse("I can't remember to eat anything more delicious than a silversee sturgeon. But you need the right receipt.");
-talkEntry:addResponse("Around the silverlake live a number od Elven clans. It is told that anybody who walks around the see in a dark new moon night get blessed by the five.");
-talkEntry:addResponse("The best carvers come out of the forest around the silverlake. Fome may hundread years now.");
-talkEntry:addResponse("Humans, dwarves and lizardmen don't visit us often. I can't say they are welcome.");
+talkEntry:addResponse("I can't remember eating anything more delicious than a Silverlake sturgeon, but you need the right receipe.");
+talkEntry:addResponse("Around the Silverlake live a number of elven clans. It is said that anybody who walks around the lake on a dark, new moon night will be blessed by the Five.");
+talkEntry:addResponse("The best carvers come out of the forest around the Silverlake, and so it has been for hundreds of years now.");
+talkEntry:addResponse("Humans, dwarves and lizardmen don't visit us often, I can't say they are welcome.");
 talkEntry:addResponse("No we have no animals. There are enough wild animals to hunt in the forest and the rivers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1435,7 +1435,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("I follow the five old, create the world as we know nowadays.");
+talkEntry:addResponse("I follow the Five, the Elders Gods that created the world as we know nowadays.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1450,7 +1450,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("The flame of Brágon warms the living as a part of the five.");
+talkEntry:addResponse("The flame of Brágon warms the living as a part of the Five.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1467,7 +1467,7 @@ talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addResponse("Do I look like a merchant? I don't think so!");
-talkEntry:addResponse("Nein, I don't buy anything and I won't ever sell something to you!");
+talkEntry:addResponse("No, I don't buy anything and I won't ever sell anything to you!");
 talkEntry:addResponse("Maybe some other time, not today.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1478,7 +1478,7 @@ talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
 talkEntry:addResponse("Sehe ich aus wie ein Händler, ich denke nicht!");
-talkEntry:addResponse("No, ich kaufe und verkaufe nichts. Erst recht nicht an dich!");
+talkEntry:addResponse("Nein, ich kaufe und verkaufe nichts. Erst recht nicht an dich!");
 talkEntry:addResponse("Ein ander mal vielleicht, heute nich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1486,8 +1486,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("No, it's a fairy tale that the figure is in the wood if I start working. In reality, it's in my head.");
-talkEntry:addResponse("They say in the swamps of Gynk exists a tree with marvelous wood. Some of the best sculptures are made from. This one is a just simple Naldor. I'd pay a lot, if I could get so fine wood even here.");
-talkEntry:addResponse("I'd bet the Don will cut his hair in the moment, I finished this statuette. And tell me, how I should cut the hair on wood?");
+talkEntry:addResponse("They say in the swamps of Gynk there exists a tree with marvelous wood. Some of the best sculptures are made from it. This one is a just simple Naldor. I'd pay a lot, if I could get such fine wood here.");
+talkEntry:addResponse("I'd bet the Don will cut his hair in a moment, I've finished this statuette. So tell me, how I should cut the hair on the wood?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1538,7 +1538,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("What did you say? I hope I didn't hear you correctly!");
-talkEntry:addResponse("You say no... no to me, who do you think your speaking to?");
+talkEntry:addResponse("You say no... no to me, who do you think you're speaking to?");
 talkEntry:addResponse("With that attitude, you won't become a good carver.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1557,7 +1557,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Eh..what did you just say about my brothers and sisters?");
 talkEntry:addResponse("What are you jabbering about?");
-talkEntry:addResponse("No, I don't wanna buy that!");
+talkEntry:addResponse("No, I don't want to buy that!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1571,19 +1571,19 @@ talkEntry:addResponse("Nein, ich will das nicht kaufen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me streicht sich über seine langen Haare.", "#me untangles his long hair.");
-talkingNPC:addCycleText("#me blickt sich mistrauisch um und schaut auf ein Bild des Don.", "#me looks around suspiciously then he looks to a picture of the Don.");
+talkingNPC:addCycleText("#me blickt sich mistrauisch um und schaut auf ein Bild des Don.", "#me looks around suspiciously and then he looks to a picture of the Don.");
 talkingNPC:addCycleText("#me nimmt eine Flasche aus seiner Tasche und trinkt einen Schluck", "#me pulls a bottle from his bag and takes a swig.");
-talkingNPC:addCycleText("#me wischt sich mit dem Handrücken über die Stirn.", "#me wipes with his hand over his forehead.");
+talkingNPC:addCycleText("#me wischt sich mit dem Handrücken über die Stirn.", "#me wipes his hand over his forehead.");
 talkingNPC:addCycleText("#me brummt leise etwas vor sich hin.", "#me grumbles something to himself.");
-talkingNPC:addCycleText("#me streicht mit zusammengeniffenen Augen über seine Arbeit. Etwas Staub löst sich daraus und schwebt zu Boden.", "#me pats the wooden pice he is working on. Some dust gets released and sinks to the ground.");
-talkingNPC:addCycleText("#me lächelt verträumt.", "#me dreamy smiles.");
-talkingNPC:addCycleText("#me pfeift die Melodie eines alten elfischen Schlachtliedes.", "#me whistles the tune of an old even battle song.");
+talkingNPC:addCycleText("#me streicht mit zusammengeniffenen Augen über seine Arbeit. Etwas Staub löst sich daraus und schwebt zu Boden.", "#me pats the piece of wood he is working on. Some dust gets released and sinks to the ground.");
+talkingNPC:addCycleText("#me lächelt verträumt.", "#me smiles dreamily.");
+talkingNPC:addCycleText("#me pfeift die Melodie eines alten elfischen Schlachtliedes.", "#me whistles the tune of an old battle song.");
 talkingNPC:addCycleText("#me schaut sich einen besonders langen Span an.", "#me examines a very long splinter.");
 talkingNPC:addCycleText("#me blickt mit zusammengeniffenen Augen in den Himmel.", "#me glances to the sky with narrowed eyes.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(3);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein in seine Arbeit vertiefter Elf schnitzt an einer Statue, die den Don darstellen könnte.", "A crafting elf, carving on a wooden statue that looks like the Don itself.");
+mainNPC:setLookat("Ein in seine Arbeit vertiefter Elf schnitzt an einer Statue, die den Don darstellen könnte.", "A crafting elf, carving a wooden statue that looks like the Don himself.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Don't touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 830);

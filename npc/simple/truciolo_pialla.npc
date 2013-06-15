@@ -25,7 +25,7 @@ autointroduce = on
 author = "Baylamon & envi"
 
 lookatDE = "Ein in seine Arbeit vertiefter Elf schnitzt an einer Statue, die den Don darstellen könnte."
-lookatUS = "A crafting elf, carving on a wooden statue that looks like the Don itself."
+lookatUS = "A crafting elf, carving a wooden statue that looks like the Don himself."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Don't touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -64,13 +64,13 @@ itemShoes = 697
 "Hilfe" -> "[Spielhilfe] Dieser NPC ist der Schnitzer Truciolo Pialla. Schlüsselwörter: Aufgaben, Holz, Messer, Erzähl was, Wald."
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeting, what do you want?", "The five with you, may I help you?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeting, what do you want?", "The Five with you, may I help you?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße dich.", "Die Fünf mit dir, kann ich dir irgendwie helfen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "What do you want? Oh sorry, Greetings!", "Ja ja."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Was? Oh entschuldigt, natürlich. Grüßt Euch!", "Ja ja."
-"Farewell", "Bye", "Fare well", "See you" -> "By by, take care.", "The five with you!", "Until next time!"
+"Farewell", "Bye", "Fare well", "See you" -> "By by, take care.", "The Five with you!", "Until next time!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Tschüss.", "Die Fünf mit dir!", "Man sieht sich."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "By by, take care.", "The five with you!", "Until next time!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "By by, take care.", "The Five with you!", "Until next time!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Tschüss.", "Die Fünf mit dir!", "Man sieht sich."
 "How are you", "How feel", "How do you do" -> "Can't say anything's bothering me and you?", "So-so, but I'm fine right now."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann nicht klagen und du?", "Ganz gut und selbst?", "Mal so, mal so, aber gerade geht es mir ganz gut."
@@ -78,79 +78,79 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "By by, take care.", "The fi
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der Schnitzer Truciolo und wer bist du?", "Man nennt mich Truciolo und wie nennt man dich?"
 
 -- 1st quest
-queststatus(670) = 0, skill(carpentry) < 80, english, town = Galmair, "quest", "mission" -> "I could help you if you want to become a carver as well, but first bring me 10 pieces applewood, along with 10 boughs, and don't forget to bring a saw. Here is a hatchet for you to get the wood.", item(74, 1, 399), queststatus(670) = 1
+queststatus(670) = 0, skill(carpentry) < 80, english, town = Galmair, "quest", "mission" -> "I could help you if you want to become a carver as well, but first bring me ten pieces deciduous wood, along with ten boughs, and don't forget to bring a saw. Here is a hatchet for you to get the wood.", item(74, 1, 399), queststatus(670) = 1
 queststatus(670) = 0, skill(carpentry) < 80, town = Galmair, "quest", "mission" -> "Ich kann dir helfen, falls du Holzschnitzer werden willst. Aber zuerst brauchen wir 10 Scheite Apfelholz sowie 10 Äste. Und natürlich sollten wir eine Säge haben. Hier hast du ein Beil für das Holz.", item(74, 1, 399), queststatus(670) = 1
-queststatus(670) = 0, skill(carpentry) < 80, town = Galmair, "smith", "task", "adventure" -> "I could help you if you want to become a carver as well, but first bring me 10 pieces applewood, along with 10 boughs, and don't forget to bring a saw. Here is a hatchet for you to get the wood.", item(74, 1, 399), queststatus(670) = 1
+queststatus(670) = 0, skill(carpentry) < 80, town = Galmair, "smith", "task", "adventure" -> "I could help you if you want to become a carver as well, but first bring me ten pieces deciduous wood, along with ten boughs, and don't forget to bring a saw. Here is a hatchet for you to get the wood.", item(74, 1, 399), queststatus(670) = 1
 queststatus(670) = 0, skill(carpentry) < 80, town = Galmair, "Schmied", "Auftrag", "Aufgabe", "Abenteuer" -> "Ich kann dir helfen, falls du Holzschnitzer werden willst. Aber zuerst brauchen wir 10 Scheite Apfelholz sowie 10 Äste. Und natürlich sollten wir eine Säge haben. Hier hast du ein Beil für das Holz.", item(74, 1, 399), queststatus(670) = 1
 queststatus(670) = 1, skill(carpentry) >= 20, item(2560, all) > 9, item(56, all) > 9, item(9, all) > 0, german, town = Galmair, ".+" -> inform("[Quest erfüllt!] Es gibt aber noch mehr zu tun."), "Sehr schön, gut gemacht!", deleteItem(2560, 10), deleteItem(56, 10), deleteItem(9, 1), queststatus(670) = 2, rankpoints + 5
 queststatus(670) = 1, skill(carpentry) >= 20, item(2560, all) > 9, item(56, all) > 9, item(9, all) > 0, english, town = Galmair, ".+" -> inform("[Quest finished!] Further tasks are waiting for you."), "Thank you, well done!", deleteItem(2560, 10), deleteItem(56, 10), deleteItem(9, 1), queststatus(670) = 2, rankpoints + 5
 queststatus(670) = 1, skill(carpentry) < 20, item(2560, all) > 9, item(56, all) > 9, item(9, all) > 0, german, town = Galmair, ".+" -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du etwas dazu gelernt. Es gibt aber noch mehr zu tun."), "Sehr schön, gut gemacht. Jetzt schau mir gut zu, damit du auch etwas lernst!", skill(carpentry) + 2, deleteitem(2560, 10), deleteitem(56, 10), deleteitem(9, 1), queststatus(670) = 2, rankpoints + 5
 queststatus(670) = 1, skill(carpentry) < 20, item(2560, all) > 9, item(56, all) > 9, item(9, all) > 0, english, town = Galmair, ".+" -> inform("[Quest finished!] You feel like you really learnt something. Further tasks are waiting for you."), "Well, good job. Now watch me, so that you actually learn something!", skill(carpentry) + 2, deleteitem(2560, 10), deleteitem(56, 10), deleteitem(9, 1), queststatus(670) = 2, rankpoints + 5
-queststatus(670) = 1, item(2560, all) < 10, english, ".+" -> "Sorry, if you try to trick me, I won't help you. I want 10 pieces of apple wood, 10 boughs and a saw!"
+queststatus(670) = 1, item(2560, all) < 10, english, ".+" -> "Sorry, if you try to trick me, I won't help you. I want ten pieces of deciduous wood, ten boughs and a saw!"
 queststatus(670) = 1, item(2560, all) < 10, ".+" -> "Na na, wenn du dir mit mir einen Spaß erlauben willst, werd ich dir nicht helfen. Ich wollte 10 Scheite Apfelholz, 10 Äste und eine Säge!"
-queststatus(670) = 1, item(56, all) < 10, english, ".+" -> "Sorry, if you try to trick me, I won't help you. I want 10 pieces of apple wood, 10 boughs and a saw!"
+queststatus(670) = 1, item(56, all) < 10, english, ".+" -> "Sorry, if you try to trick me, I won't help you. I want ten pieces of deciduous wood, ten boughs and a saw!"
 queststatus(670) = 1, item(56, all) < 10, ".+" -> "Na na, wenn du dir mit mir einen Spaß erlauben willst, werd ich dir nicht helfen. Ich wollte 10 Scheite Apfelholz, 10 Äste und eine Säge!"
-queststatus(670) = 1, item(9, all) < 1, english, ".+" -> "Sorry, if you try to trick me, I won't help you. I want 10 pieces of apple wood, 10 boughs and a saw!"
+queststatus(670) = 1, item(9, all) < 1, english, ".+" -> "Sorry, if you try to trick me, I won't help you. I want ten pieces of deciduous wood, ten boughs and a saw!"
 queststatus(670) = 1, item(9, all) < 1, ".+" -> "Na na, wenn du dir mit mir einen Spaß erlauben willst, werd ich dir nicht helfen. Ich wollte 10 Scheite Apfelholz, 10 Äste und eine Säge!"
 
 -- 2nd quest
-queststatus(670) = 2, skill(carpentry) < 80, english, town = Galmair, "quest", "mission" -> "Sure, I have a task for you if you are interested. I need 15 naldor boards, new carving tools, a cooking spoon and 5 conifer woods!", queststatus(670) = 3
+queststatus(670) = 2, skill(carpentry) < 80, english, town = Galmair, "quest", "mission" -> "Sure, I have a task for you if you are interested. I need fifteen naldor boards, new carving tools, a cooking spoon and five conifer logs!", queststatus(670) = 3
 queststatus(670) = 2, skill(carpentry) < 80, town = Galmair, "quest" -> "Sicher hätte ich etwas für dich zu tun, wenn du willst. 15 Naldorbretter, einen Satz neuer Schnitzmesser, einen Kochlöffel und 5 Nadelholzscheite brauch ich!", queststatus(670) = 3
-queststatus(670) = 2, skill(carpentry) < 80, town = Galmair, "task", "adventure" -> "Sure, I have a task for you if you are interested. I need 15 naldor wooden boards, new carving tools, a cooking spoon and 5 conifer woods!", queststatus(670) = 3
+queststatus(670) = 2, skill(carpentry) < 80, town = Galmair, "task", "adventure" -> "Sure, I have a task for you if you are interested. I need fifteen naldor wooden boards, new carving tools, a cooking spoon and five conifer logs!", queststatus(670) = 3
 queststatus(670) = 2, skill(carpentry) < 80, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Sicher hätte ich etwas für dich zu tun, wenn du willst. 15 Naldorbretter, einen Satz neuer Schnitzmesser, einen Kochlöffel und 5 Nadelholzscheite brauch ich!", queststatus(670) = 3
 queststatus(670) = 3, skill(carpentry) >= 40, item(546, all) > 14, item(3, all) > 4, item(227, all) > 0, item(2752, all) > 0, english, town = Galmair, ".+" -> inform("[Quest finished!] Further tasks are waiting for you."), "Looks good, it's everything that I wanted you to bring me, well done!", deleteitem(546, 15), deleteitem(3, 5), deleteitem(227, 1), deleteitem(2752, 1), queststatus(670) = 4, rankpoints + 5
 queststatus(670) = 3, skill(carpentry) >= 40, item(546, all) > 14, item(3, all) > 4, item(227, all) > 0, item(2752, all) > 0, town = Galmair, ".+" -> inform("[Quest erfüllt!] Es gibt aber noch mehr zu tun."), "Sieht gut aus. Alles, was ich brauche, ist dabei. Gut gemacht!", deleteitem(546, 15), deleteitem(3, 5), deleteitem(227, 1), deleteitem(2752, 1), queststatus(670) = 4, rankpoints + 5
 queststatus(670) = 3, skill(carpentry) < 40, item(546, all) > 14, item(3, all) > 4, item(227, all) > 0, item(2752, all) > 0, english, town = Galmair, ".+" -> inform("[Quest finished!] You feel like you really learnt something. Further tasks are waiting for you."), "Looks good. It's everything that I wanted you to bring. Looks as if you could really feel wood.", skill(carpentry) + 2, deleteitem(546, 15), deleteitem(3, 5), deleteitem(227, 1), deleteitem(2752, 1), queststatus(670) = 4, rankpoints + 5
 queststatus(670) = 3, skill(carpentry) < 40, item(546, all) > 14, item(3, all) > 4, item(227, all) > 0, item(2752, all) > 0, town = Galmair, ".+" -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du etwas dazu gelernt. Es gibt aber noch mehr zu tun."), "Sehr schön. Alles da, was ich von dir verlangt hab. Du scheinst, mit Holz gut umgehen zu können.", skill(carpentry) + 2, deleteitem(546, 15), deleteitem(3, 5), deleteitem(227, 1), deleteitem(2752, 1), queststatus(670) = 4, rankpoints + 5
-queststatus(670) = 3, item(546, all) < 15, english, ".+" -> "Are you sure? You're supposed to bring me 15 naldor boards, new carving tools, a cooking spoon and 5 conifer woods. Not that hard to memorise, is it?"
+queststatus(670) = 3, item(546, all) < 15, english, ".+" -> "Are you sure? You're supposed to bring me fifteen naldor boards, new carving tools, a cooking spoon and five conifer logs. Not that hard to memorise, is it?"
 queststatus(670) = 3, item(546, all) < 15, ".+" -> "Du sollst mir 15 Naldorbretter, einen Satz neuer Schnitzmesser, einen Kochlöffel und 5 Nadelholzscheite bringen. Das kann doch nicht so schwer zu merken sein oder?"
-queststatus(670) = 3, item(3, all) < 5, english, ".+" -> "Are you sure? You're supposed to bring me 15 naldor boards, new carving tools, a cooking spoon and 5 conifer woods. Not that hard to memorise, is it?"
+queststatus(670) = 3, item(3, all) < 5, english, ".+" -> "Are you sure? You're supposed to bring me fifteen naldor boards, new carving tools, a cooking spoon and five conifer logs. Not that hard to memorise, is it?"
 queststatus(670) = 3, item(3, all) < 5, ".+" -> "Du sollst mir 15 Naldorbretter, einen Satz neuer Schnitzmesser, einen Kochlöffel und 5 Nadelholzscheite bringen. Das kann doch nicht so schwer zu merken sein oder?"
-queststatus(670) = 3, item(227, all) < 1, english, ".+" -> "Are you sure? You're supposed to bring me 15 naldor boards, new carving tools, a cooking spoon and 5 conifer woods. Not that hard to memorise, is it?"
+queststatus(670) = 3, item(227, all) < 1, english, ".+" -> "Are you sure? You're supposed to bring me fifteen naldor boards, new carving tools, a cooking spoon and five conifer logs. Not that hard to memorise, is it?"
 queststatus(670) = 3, item(227, all) < 1, ".+" -> "Du sollst mir 15 Naldorbretter, einen Satz neuer Schnitzmesser, einen Kochlöffel und 5 Nadelholzscheite bringen. Das kann doch nicht so schwer zu merken sein oder?"
-queststatus(670) = 3, item(2752, all) < 1, english, ".+" -> "Are you sure? You're supposed to bring me 15 naldor boards, new carving tools, a cooking spoon and 5 conifer woods. Not that hard to memorise, is it?"
+queststatus(670) = 3, item(2752, all) < 1, english, ".+" -> "Are you sure? You're supposed to bring me fifteen naldor boards, new carving tools, a cooking spoon and five conifer logs. Not that hard to memorise, is it?"
 queststatus(670) = 3, item(2752, all) < 1, ".+" -> "Du sollst mir 15 Naldorbretter, einen Satz neuer Schnitzmesser, einen Kochlöffel und 5 Nadelholzscheite bringen. Das kann doch nicht so schwer zu merken sein oder?"
 
 -- 3rd quest
-queststatus(670) = 4, skill(carpentry) < 80, english, town = Galmair, "quest", "mission" -> "Sure, I have another task for you if you are interested. Bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles.", queststatus(670) = 5
+queststatus(670) = 4, skill(carpentry) < 80, english, town = Galmair, "quest", "mission" -> "Sure, I have another task for you if you are interested. Bring me ten cherry wood boards, ten wooden plates, five skull staffs and four large handles.", queststatus(670) = 5
 queststatus(670) = 4, skill(carpentry) < 80, town = Galmair, "quest", "mission" -> "Sehr gerne. Bring mir 10 Kirschholzbretter, 10 Holzteller, 5 Schädelstäbe und 4 große Griffe.", queststatus(670) = 5
-queststatus(670) = 4, skill(carpentry) < 80, town = Galmair, "task", "adventure" -> "Sure, I have another task for you if you are interested. Bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles.", queststatus(670) = 5
+queststatus(670) = 4, skill(carpentry) < 80, town = Galmair, "task", "adventure" -> "Sure, I have another task for you if you are interested. Bring me ten cherry wood boards, ten wooden plates, five skull staffs and five large handles.", queststatus(670) = 5
 queststatus(670) = 4, skill(carpentry) < 80, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Sehr gerne. Bring mir 10 Kirschholzbretter, 10 Holzteller, 5 Schädelstäbe und 4 große Griffe.", queststatus(670) = 5
 queststatus(670) = 5, skill(carpentry) >= 60, item(2544, all) > 3, item(2952, all) > 9, item(545, all) > 9, item(39, all) > 4, english, town = Galmair, ".+" -> inform("[Quest finished!] Further tasks are waiting for you."), "Finally, you're back. Thanks for your help! But next time take more care about the skulls. They do not looks like real ones.", deleteitem(2544, 4), deleteitem(2952, 10), deleteitem(545, 10), deleteitem(39, 5), queststatus(670) = 6, rankpoints + 5
 queststatus(670) = 5, skill(carpentry) >= 60, item(2544, all) > 3, item(2952, all) > 9, item(545, all) > 9, item(39, all) > 4, town = Galmair, ".+" -> inform("[Quest erfüllt!] Es gibt aber noch mehr zu tun."), "Da bist du ja endlich. Aber ehrlich, diese Totenköpfe verdienen noch etwas mehr Strenge. Aber fürs Erste sollte es reichen.", deleteitem(2544, 4), deleteitem(2952, 10), deleteitem(545, 10), deleteitem(39, 5), queststatus(670) = 6, rankpoints + 5
 queststatus(670) = 5, skill(carpentry) < 60, item(2544, all) > 3, item(2952, all) > 9, item(545, all) > 9, item(39, all) > 4, english, town = Galmair, ".+" -> inform("[Quest finished!] You feel like you really learnt something. Further tasks are waiting for you."), "Finally, you're back, I was starting to worry about you. Now watch how I drill the hole.", skill(carpentry) + 2, deleteitem(2544, 4), deleteitem(2952, 10), deleteitem(545, 10), deleteitem(39, 5), queststatus(670) = 6, rankpoints + 5
 queststatus(670) = 5, skill(carpentry) < 60, item(2544, all) > 3, item(2952, all) > 9, item(545, all) > 9, item(39, all) > 4, town = Galmair, ".+" -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du etwas dazu gelernt. Es gibt aber noch mehr zu tun."), "Da bist du ja endlich. Ich hatte mir schon Sorgen gemacht. Nun pass aber auf, wie man die Löcher richtig bohrt.", skill(carpentry) + 2, deleteitem(2544, 4), deleteitem(2952, 10), deleteitem(545, 10), deleteitem(39, 5), queststatus(670) = 6, rankpoints + 5
-queststatus(670) = 5, item(2544, all) < 4, english, ".+" -> "Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles"
+queststatus(670) = 5, item(2544, all) < 4, english, ".+" -> "Well, there are still some things missing. You are supposed to bring me ten cherry wood boards, ten wooden plates, five skull staffs and four large handles"
 queststatus(670) = 5, item(2544, all) < 4, ".+" -> "Na, fehlt da nicht noch was? Ich sagte 10 Kirschholzbretter, 10 Holzteller, 5 Schädelstäbe und 4 große Griffe!"
-queststatus(670) = 5, item(2952, all) < 10, english, ".+" -> "Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles"
+queststatus(670) = 5, item(2952, all) < 10, english, ".+" -> "Well, there are still some things missing. You are supposed to bring me ten cherry wood boards, ten wooden plates, five skull staffs and four large handles"
 queststatus(670) = 5, item(2952, all) < 10, ".+" -> "Na, fehlt da nicht noch was? Ich sagte 10 Kirschholzbretter, 10 Holzteller, 5 Schädelstäbe und 4 große Griffe!"
-queststatus(670) = 5, item(545, all) < 10, english, ".+" -> "Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles"
+queststatus(670) = 5, item(545, all) < 10, english, ".+" -> "Well, there are still some things missing. You are supposed to bring me ten cherry wood boards, ten wooden plates, five skull staffs and four large handles"
 queststatus(670) = 5, item(545, all) < 10, ".+" -> "Na, fehlt da nicht noch was? Ich sagte 10 Kirschholzbretter, 10 Holzteller, 5 Schädelstäbe und 4 große Griffe!"
-queststatus(670) = 5, item(39, all) < 5, english, ".+" -> "Well, there are still some things missing. You are supposed to bring me 10 cherry wood boards, 10 wooden plates, 5 skull staffs and 4 large handles"
+queststatus(670) = 5, item(39, all) < 5, english, ".+" -> "Well, there are still some things missing. You are supposed to bring me ten cherry wood boards, ten wooden plates, five skull staffs and four large handles"
 queststatus(670) = 5, item(39, all) < 5, ".+" -> "Na, fehlt da nicht noch was? Ich sagte 10 Kirschholzbretter, 10 Holzteller, 5 Schädelstäbe und 4 große Griffe!"
 
 -- 4th quest
-queststatus(670) = 6, skill(carpentry) < 80, english, town = Galmair, "quest", "mission" -> "You are looking for some more work? I could need help! I need 150 arrows, 10 buckets, 10 harps and 2 wands.", queststatus(670) = 7
+queststatus(670) = 6, skill(carpentry) < 80, english, town = Galmair, "quest", "mission" -> "You are looking for some more work? I could need help! I need 150 arrows, ten buckets, ten harps and two wands.", queststatus(670) = 7
 queststatus(670) = 6, skill(carpentry) < 80, town = Galmair, "quest", "mission" -> "Du suchst noch eine Aufgabe? Damit kann ich helfen! Ich brauche 150 Pfeile, 10 Eimer, 10 Harfen und 2 Zauberstäbe.", queststatus(670) = 7
-queststatus(670) = 6, skill(carpentry) < 80, town = Galmair, "task", "adventure" -> "You are looking for some more work? I could need help! I need 150 arrows, 10 buckets, 10 harps and 2 wands.", queststatus(670) = 7
+queststatus(670) = 6, skill(carpentry) < 80, town = Galmair, "task", "adventure" -> "You are looking for some more work? I could need help! I need 150 arrows, ten buckets, ten harps and two wands.", queststatus(670) = 7
 queststatus(670) = 6, skill(carpentry) < 80, town = Galmair, "Auftrag", "Aufgabe" -> "Du suchst noch eine Aufgabe? Damit kann ich helfen! Ich brauche 150 Pfeile, 10 Eimer, 10 Harfen und 2 Zauberstäbe.", queststatus(670) = 7
 queststatus(670) = 7, skill(carpentry) >= 80, item(64, all) > 149, item(332, all) > 9, item(51, all) > 9, item(323, all) > 1, english, town = Galmair, ".+" -> inform("[Quest finished!] This NPC has no other tasks for you."), "Well done, thank you very much!", deleteitem(64, 150), deleteitem(332, 10), deleteitem(51, 10), deleteitem(323, 2), queststatus(670) = 8, rankpoints + 5
 queststatus(670) = 7, skill(carpentry) >= 80, item(64, all) > 149, item(332, all) > 9, item(51, all) > 9, item(323, all) > 1, german, town = Galmair, ".+" -> inform("[Quest erfüllt!] Dieser NPC hat nichts mehr für dich zu tun."), "Sehr gut gemacht. Ich wusste, man kann sich auf dich verlassen.", deleteitem(64, 150), deleteitem(332, 10), deleteitem(51, 10), deleteitem(323, 2), queststatus(670) = 8, rankpoints + 5
 queststatus(670) = 7, skill(carpentry) < 80, item(64, all) > 149, item(332, all) > 9, item(51, all) > 9, item(323, all) > 1, english, town = Galmair, ".+" -> inform("[Quest finished!] You feel like you really learnt something. This NPC has no other tasks for you."), "Well done. Now that I know I can count on you, watch closely here and see how this is supposed to be done!", skill(carpentry) + 2, deleteitem(64, 150), deleteitem(332, 10), deleteitem(51, 10), deleteitem(323, 2), queststatus(670) = 8, rankpoints + 5
 queststatus(670) = 7, skill(carpentry) < 80, item(64, all) > 149, item(332, all) > 9, item(51, all) > 9, item(323, all) > 1, german, town = Galmair, ".+" -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du etwas dazu gelernt. Dieser NPC hat nichts mehr für dich zu tun."), "Sehr gut gemacht. Ich wusste, man kann sich auf dich verlassen. Nun sperr die Augen weit auf und beobachte wie ich dat hier schmiede!", skill(carpentry) + 2, deleteitem(64, 150), deleteitem(332, 10), deleteitem(51, 10), deleteitem(323, 2), queststatus(670) = 8, rankpoints + 5
-queststatus(670) = 7, item(64, all) < 150, english, ".+" -> "You were supposed to bring me 150 arrows, 10 buckets, 10 harps and 2 wands."
+queststatus(670) = 7, item(64, all) < 150, english, ".+" -> "You were supposed to bring me 150 arrows, ten buckets, ten harps and two wands."
 queststatus(670) = 7, item(64, all) < 150, ".+" -> "Die Sachen, die du mir bringen solltest, waren 150 Pfeile, 10 Eimer, 10 Harfen und 2 Zauberstäbe."
-queststatus(670) = 7, item(332, all) < 10, english, ".+" -> "You were supposed to bring me 150 arrows, 10 buckets, 10 harps and 2 wands."
+queststatus(670) = 7, item(332, all) < 10, english, ".+" -> "You were supposed to bring me 150 arrows, ten buckets, ten harps and two wands."
 queststatus(670) = 7, item(332, all) < 10, ".+" -> "Die Sachen, die du mir bringen solltest, waren 150 Pfeile, 10 Eimer, 10 Harfen und 2 Zauberstäbe."
-queststatus(670) = 7, item(51, all) < 10, english, ".+" -> "You were supposed to bring me 150 arrows, 10 buckets, 10 harps and 2 wands."
+queststatus(670) = 7, item(51, all) < 10, english, ".+" -> "You were supposed to bring me 150 arrows, ten buckets, ten harps and two wands."
 queststatus(670) = 7, item(51, all) < 10, ".+" -> "Die Sachen, die du mir bringen solltest, waren 150 Pfeile, 10 Eimer, 10 Harfen und 2 Zauberstäbe."
-queststatus(670) = 7, item(323, all) < 2, english, ".+" -> "You were supposed to bring me 150 arrows, 10 buckets, 10 harps and 2 wands."
+queststatus(670) = 7, item(323, all) < 2, english, ".+" -> "You were supposed to bring me 150 arrows, ten buckets, ten harps and two wands."
 queststatus(670) = 7, item(323, all) < 2, ".+" -> "Die Sachen, die du mir bringen solltest, waren 150 Pfeile, 10 Eimer, 10 Harfen und 2 Zauberstäbe."
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(670) = 8, english, town = Galmair, "quest", "mission" -> "I must sorry, I don't have anything else for you to do. Leave me alone now!"
+queststatus(670) = 8, english, town = Galmair, "quest", "mission" -> "I'm sorry, I don't have anything else for you to do. Leave me alone now!"
 queststatus(670) = 8, town = Galmair, "quest", "mission" -> "Leider nein, ich habe nichts mehr für dich zu tun. Lass mich nun in Ruhe!"
-queststatus(670) = 8, town = Galmair, "task", "adventure" -> "I must sorry, I don't have anything else for you to do. Leave me alone now!"
+queststatus(670) = 8, town = Galmair, "task", "adventure" -> "I'm sorry, I don't have anything else for you to do. Leave me alone now!"
 queststatus(670) = 8, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Leider nein, ich habe nichts mehr für dich zu tun. Lass mich nun in Ruhe!"
 queststatus(670) = 0, skill(carpentry) >= 80, english, town = Galmair, "quest", "mission" -> "Sorry? I don't have anything for you to do!"
 queststatus(670) = 0, skill(carpentry) >= 80, town = Galmair, "quest", "mission" -> "Wie bitte? Ich habe nichts für dich zu tun!"
@@ -176,13 +176,13 @@ english, "Gobaith", "Gobiath" -> "Gobaith? Never heard about. Where shall it be?
 "mein Name" -> "Aha. Freut mich deine Bekanntschaft zu machn.", "Soso? Na, dann - wie kann ich dir helfen?"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"dwarf","dwarv" -> "This is the town of dwarves. But dwarves have no real feeling for wood. A real dwarf works in the smithy or the mines and by the wooden things he need.,"
-english, "elf" -> "Nobody else made ever fine wooden items. And you know, each famous dwarven sword has a handle, made by elves."
-"elve" -> "Nobody else made ever fine wooden items. And you know, each famous dwarven sword has a handle, made by elves."
-"forest" -> "I love the forest, even if there live quite dangerous monsters. But I love a warm and safe bed as well. Sleeping in trees is no mine"
-"smith" -> "A smith needs a hammer, and handles course. He can by everything at the market. Or he ask a carver."
-"carver" -> "A carver needs a saw, carving tools and a slicer, and wood of course. Saw the wood to boards. There is a workbench in the workshop. Got it?", "Search for the workbench to start. There is one in the workshop."
-"hatchet" -> "You can cut any tree with it, a merchant can surely sell you one if you lose yours."
+"dwarf","dwarv" -> "This is the town of dwarves, but dwarves have no real feeling for wood. A real dwarf works in the smithy or the mines and buys the wooden things he needs."
+english, "elf" -> "Nobody else ever made such fine wooden items. As you know, each famous dwarven sword has a handle, made by elves."
+"elve" -> "Nobody else ever made such fine wooden items. As you know, each famous dwarven sword has a handle, made by elves."
+"forest" -> "I love the forest, even if quite dangerous monsters live there. I love a warm and safe bed as well though so you won't find me sleeping in trees."
+"smith" -> "A smith needs a hammer, and handles of course. He can buy everything at the market, or he can ask a carver."
+"carver" -> "A carver needs a saw, carving tools and a slicer, and wood of course. Saw the wood to boards. There is a workbench in the workshop. Got it?", "Search for the workbench to start with, there is one in the workshop."
+"hatchet" -> "You can cut any tree with it. A merchant can surely sell you one if you lose yours."
 "beil" -> "Damit kannst du Bäume fällen und an Holz kommen. Ein Händler kann dir sicher eines verkaufen wenn du deines verlierst."
 "schnitzer" -> "Ein Holzschnitzer braucht eine Säge, Schnitzmesser und einen Hobel. Und Holz natürlich. Das kann man alles am Markt kaufen. Zuerst sägst du das Holz zu Brettern. Und aus denen werden dann die tollsten Dinge.", "Du musst zu einer Werkbank gehen, wenn du schnitzen willst. Du findest eine in der Werkstatt."
 "wald" -> "Ich liebe die Stille der Wälder. Aber hier gibt es so viele Monster. Und ich habe auch gerne ein trockenes und warmes Bett."
@@ -196,39 +196,39 @@ english, "elf" -> "Nobody else made ever fine wooden items. And you know, each f
 "Erzmagier" -> "Kenn ich nicht, wer soll denn das sein?"
 english, "Elvaine", "Morgan" -> "Don't know him, who's that supposed to be?"
 "Elvaine", "Morgan" -> "Kenn ich nicht, wer soll denn das sein?"
-english, "Runewick" -> "Runewick is the city full of them mage-folk right? Don't like them much."
+english, "Runewick" -> "Runewick is that city full of them mage-folk right? Don't like them much."
 "Runewick" -> "Runewick ist die Stadt mit diesem Magierpack, stimmts? Mag die nicht besonders."
-english, "Valerio", "Guilianni", "Don" -> "Well, nothing much to say. He's the leader of Galmair and does a really good job.", "What would you say? Why do I carve this statuette here with his face currently."
+english, "Valerio", "Guilianni", "Don" -> "Well, nothing much to say. He's the leader of Galmair and does a really good job.", "What would you say? Why am I carving this statuette here with his face?"
 "Valerio", "Guilianni", "Don" -> "Nun, gibt nicht viel zu sagen. Er ist der Anführer von Galmair und macht seine Arbeit sehr gut.", "Ja was meinst du, warum ich diese Statue mit seinem Antlitz gerade schnitze?"
 english, "Galmair" -> "Fine town, really fine town you know... but only if you have enough silver coins in your pocket, you know what I mean?"
 "Galmair" -> "Tolle Stadt, wirklich tolle Stadt weißt du. Aber nur wenn du genug Silbermünzen in der Tasche hast, weißt du was ich meine?"
-"Queen" -> "Don't know her personally but wouldn't mind if she really is as good looking as they say. Hear she's a harsh leader though."
+"Queen" -> "Don't know her personally, but wouldn't mind if she really is as good looking as they say. I hear she's a harsh leader though."
 "Königin" -> "Kenn die nicht persönlich, aber ich würde mich nicht weigern, wenn sie wirklich so gut aussieht, wie man sagt. Man sagt auch, dass sie eine taffe Herrscherin is."
-english, "rosaline", "edwards" -> "Don't know her personally but wouldn't mind if she really is as good looking as they say. Hear she's a harsh leader though."
+english, "rosaline", "edwards" -> "Don't know her personally, but wouldn't mind if she really is as good looking as they say. I hear she's a harsh leader though."
 "rosaline", "edwards" -> "Kenn die nicht persönlich, aber ich würde mich nicht weigern, wenn sie wirklich so gut aussieht, wie man sagt. Man sagt auch, dass sie eine taffe Herrscherin is."
-english, "Cadomyr" -> "Well, a little hot there but the Queen is supposed to be good looking, wouldn't mind if she came here."
+english, "Cadomyr" -> "Well, it's a little hot there but the Queen is supposed to be good looking, wouldn't mind if she came here."
 "Cadomyr" -> "Nun, ein bisschen warm dort, aber die Königin soll gutaussehen. Würde nichts dagegen haben, wenn sie mal herkommt."
 
 -- Main land factions
-english, "albar" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the silverlake forest!"
+english, "albar" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the Silverlake Forest?"
 "albar" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht interssiert ihr Euch dafür über meine Heimat zu sprechen, den Silberseewald."
-english, "gynk", "gync" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the silverlake forest!"
+english, "gynk", "gync" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the Silverlake Forest?"
 "gync", "gynk" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht interssiert ihr Euch dafür über meine Heimat zu sprechen, den Silberseewald."
-english, "salkama" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the silverlake forest!"
+english, "salkama" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the Silverlake Forest?"
 "salkama" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber veilleicht interssiert ihr Euch dafür über meine Heimat zu sprechen, den Silberseewald."
-"siverlake" -> "I can't remember to eat anything more delicious than a silversee sturgeon. But you need the right receipt.", "Around the silverlake live a number od Elven clans. It is told that anybody who walks around the see in a dark new moon night get blessed by the five.", "The best carvers come out of the forest around the silverlake. Fome may hundread years now.", "Humans, dwarves and lizardmen don't visit us often. I can't say they are welcome.", "No we have no animals. There are enough wild animals to hunt in the forest and the rivers."
+"siverlake" -> "I can't remember eating anything more delicious than a Silverlake sturgeon, but you need the right receipe.", "Around the Silverlake live a number of elven clans. It is said that anybody who walks around the lake on a dark, new moon night will be blessed by the Five.", "The best carvers come out of the forest around the Silverlake, and so it has been for hundreds of years now.", "Humans, dwarves and lizardmen don't visit us often, I can't say they are welcome.", "No we have no animals. There are enough wild animals to hunt in the forest and the rivers."
 "Silbersee" -> "Es gibt nichts Besseres zu essen als einen gedünsteten Silberseestör. Aber man brauch die richtigen Zutaten.", "Rund um den Silbersee leben viele Elfenclans. Es wird gesagt, dass jemand, der in einer Neumondnacht allein um den See geht, von den Göttern gesegnet wird.", "Die besten Schnitzer kommen aus den Wäldern um den Silbersee. Und das schon seit hunderten von Jahren.", "Menschen, Zwerge oder Echsenmenschen finden selten zu uns. Und wir sehen sie auch nicht so gerne dort.", "Nein, wir züchten dort keine Tiere. In den Wäldern und Flüssen lebt genug jagdbares Wild."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "I follow the five old, create the world as we know nowadays."
+"god" -> "I follow the Five, the Elders Gods that created the world as we know nowadays."
 "Gott", "Götter" -> "Die Fünf mögen mit Euch sein. Huldigen wir denen, die die Welt wie wir sie heute kennen erschaffen haben."
-english, "Bragon", "Brágon" -> "The flame of Brágon warms the living as a part of the five."
+english, "Bragon", "Brágon" -> "The flame of Brágon warms the living as a part of the Five."
 "Bragon", "Brágon" -> "Die Flamme Brágons wärmt die Völker als Teil des Segens der Fünf."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Do I look like a merchant? I don't think so!", "Nein, I don't buy anything and I won't ever sell something to you!", "Maybe some other time, not today."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Sehe ich aus wie ein Händler, ich denke nicht!", "No, ich kaufe und verkaufe nichts. Erst recht nicht an dich!", "Ein ander mal vielleicht, heute nich."
-"tell something" -> "No, it's a fairy tale that the figure is in the wood if I start working. In reality, it's in my head.", "They say in the swamps of Gynk exists a tree with marvelous wood. Some of the best sculptures are made from. This one is a just simple Naldor. I'd pay a lot, if I could get so fine wood even here.", "I'd bet the Don will cut his hair in the moment, I finished this statuette. And tell me, how I should cut the hair on wood?"
+"what sell", "what buy", "list wares", "price of" -> "Do I look like a merchant? I don't think so!", "No, I don't buy anything and I won't ever sell anything to you!", "Maybe some other time, not today."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Sehe ich aus wie ein Händler, ich denke nicht!", "Nein, ich kaufe und verkaufe nichts. Erst recht nicht an dich!", "Ein ander mal vielleicht, heute nich."
+"tell something" -> "No, it's a fairy tale that the figure is in the wood if I start working. In reality, it's in my head.", "They say in the swamps of Gynk there exists a tree with marvelous wood. Some of the best sculptures are made from it. This one is a just simple Naldor. I'd pay a lot, if I could get such fine wood here.", "I'd bet the Don will cut his hair in a moment, I've finished this statuette. So tell me, how I should cut the hair on the wood?"
 "erzähl was", "erzähl etwas" -> "Wenn ich anfange zu arbeiten, ist die Figur, die ich schnitze, nicht im Holz drin, sondern sie ist in meinem Kopf.", "Es heißt in den Sümpfen Galmairs wächst ein erstaunlicher Baum. Sein Holz ist das Beste, was sich Bildschnitzer vorstellen können. Ich würde einiges dafür geben, könnte ich davon etwas haben.", "Ich möchte fast wetten der Don lässt sich an dem Tag die Haare schneiden, an dem ich sein Bildnis fertig habe. Nur sagt, wie soll ich die Haare aus Holz schneiden?"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
@@ -236,11 +236,11 @@ english, "Truciolo", "Pialla" -> "What's up?", "Sorry?", "#me nods once and rais
 "Truciolo", "Pialla" -> "Ja?", "Was wollt ihr?", "#me nickt dir zu und zieht eine Braue hoch."
 "Yes" -> "Sure, then go and collect those things I asked you for.", "If you say so.", "Alright, have fun!"
 "Ja" -> "Aber nun mal los. Mach dich auf den Weg und sammel was ich von dir wollte!", "Na wenn du meinst", "Ist gut, viel Vergnügen!"
-"No" -> "What did you say? I hope I didn't hear you correctly!", "You say no... no to me, who do you think your speaking to?", "With that attitude, you won't become a good carver."
+"No" -> "What did you say? I hope I didn't hear you correctly!", "You say no... no to me, who do you think you're speaking to?", "With that attitude, you won't become a good carver."
 "Nein" -> "Was sagst du da. Ich hoffe ich habe mich verhört?!", "Du sagst Nein...nein zu mir? Was denkst du mit wem du sprichst?!", "Dann nicht. So wird nie was aus dir!"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Eh..what did you just say about my brothers and sisters?", "What are you jabbering about?", "No, I don't wanna buy that!"
+english, chance(20.0), ".*" -> "Eh..what did you just say about my brothers and sisters?", "What are you jabbering about?", "No, I don't want to buy that!"
 german, chance(20.0), ".*" -> "Eh..was hast du grad über meine Geschwister gesagt?", "Was quasselst du da?", "Nein, ich will das nicht kaufen!"
 
 ------------------------------------------------------------------------------AC
@@ -249,12 +249,12 @@ german, chance(20.0), ".*" -> "Eh..was hast du grad über meine Geschwister gesa
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me streicht sich über seine langen Haare.", "#me untangles his long hair."
-cycletext "#me blickt sich mistrauisch um und schaut auf ein Bild des Don.", "#me looks around suspiciously then he looks to a picture of the Don."
+cycletext "#me blickt sich mistrauisch um und schaut auf ein Bild des Don.", "#me looks around suspiciously and then he looks to a picture of the Don."
 cycletext "#me nimmt eine Flasche aus seiner Tasche und trinkt einen Schluck", "#me pulls a bottle from his bag and takes a swig."
-cycletext "#me wischt sich mit dem Handrücken über die Stirn.", "#me wipes with his hand over his forehead."
+cycletext "#me wischt sich mit dem Handrücken über die Stirn.", "#me wipes his hand over his forehead."
 cycletext "#me brummt leise etwas vor sich hin.", "#me grumbles something to himself."
-cycletext "#me streicht mit zusammengeniffenen Augen über seine Arbeit. Etwas Staub löst sich daraus und schwebt zu Boden.", "#me pats the wooden pice he is working on. Some dust gets released and sinks to the ground."
-cycletext "#me lächelt verträumt.", "#me dreamy smiles."
-cycletext "#me pfeift die Melodie eines alten elfischen Schlachtliedes.", "#me whistles the tune of an old even battle song."
+cycletext "#me streicht mit zusammengeniffenen Augen über seine Arbeit. Etwas Staub löst sich daraus und schwebt zu Boden.", "#me pats the piece of wood he is working on. Some dust gets released and sinks to the ground."
+cycletext "#me lächelt verträumt.", "#me smiles dreamily."
+cycletext "#me pfeift die Melodie eines alten elfischen Schlachtliedes.", "#me whistles the tune of an old battle song."
 cycletext "#me schaut sich einen besonders langen Span an.", "#me examines a very long splinter."
 cycletext "#me blickt mit zusammengeniffenen Augen in den Himmel.", "#me glances to the sky with narrowed eyes."
