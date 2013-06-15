@@ -190,7 +190,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 1));
-talkEntry:addResponse("I could help you if you want to become a carver as well, but first bring me ten pieces deciduous wood, along with ten boughs, and don't forget to bring a saw. Here is a hatchet for you to get the wood.");
+talkEntry:addResponse("I could help you if you want to become a carver as well, but first bring me ten logs of apple wood, along with ten boughs, and don't forget to bring a saw. Here is a hatchet for you to get the wood.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -215,7 +215,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 1));
-talkEntry:addResponse("I could help you if you want to become a carver as well, but first bring me ten pieces deciduous wood, along with ten boughs, and don't forget to bring a saw. Here is a hatchet for you to get the wood.");
+talkEntry:addResponse("I could help you if you want to become a carver as well, but first bring me ten logs of apple wood, along with ten boughs, and don't forget to bring a saw. Here is a hatchet for you to get the wood.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,7 +316,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2560, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Sorry, if you try to trick me, I won't help you. I want ten pieces of deciduous wood, ten boughs and a saw!");
+talkEntry:addResponse("Sorry, if you try to trick me, I won't help you. I want ten logs of apple wood, ten boughs and a saw!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -333,7 +333,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(56, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Sorry, if you try to trick me, I won't help you. I want ten pieces of deciduous wood, ten boughs and a saw!");
+talkEntry:addResponse("Sorry, if you try to trick me, I won't help you. I want ten logs of apple wood, ten boughs and a saw!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -350,7 +350,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(670, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(9, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Sorry, if you try to trick me, I won't help you. I want ten pieces of deciduous wood, ten boughs and a saw!");
+talkEntry:addResponse("Sorry, if you try to trick me, I won't help you. I want ten logs of apple wood, ten boughs and a saw!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -765,7 +765,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 7));
-talkEntry:addResponse("You are looking for some more work? I could need help! I need 150 arrows, ten buckets, ten harps and two wands.");
+talkEntry:addResponse("You are looking for some more work? I could use the help! I need 150 arrows, ten buckets, ten harps and two wands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -787,7 +787,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(670, "=", 7));
-talkEntry:addResponse("You are looking for some more work? I could need help! I need 150 arrows, ten buckets, ten harps and two wands.");
+talkEntry:addResponse("You are looking for some more work? I could use the help! I need 150 arrows, ten buckets, ten harps and two wands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
