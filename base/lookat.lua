@@ -138,12 +138,12 @@ function GenerateLookAt(user, item, material)
 		local weaponfound, weapon = world:getWeaponStruct(item.id);
 
 		if(weaponfound) then
-			lookAt.weaponType =	weapon.Type;
+			--lookAt.weaponType =	weapon.Type;
 			lookAt.level = weapon.Level;
 		end;
 
 		if(armourfound) then
-			lookAt.armorType = armour.Type;
+			--lookAt.armorType = armour.Type;
 			lookAt.level = armour.Level;
 		end;
 
