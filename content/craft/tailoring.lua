@@ -687,7 +687,7 @@ product:addIngredient(50, 1); -- Thread
 product = tailoring:addProduct(catId, 2760, 20, 40, 60, 120)
 product:addIngredient(50, 10) -- Thread: 10x1
 
-elseif
+else
 	local catId = tailoring:addCategory("hats", "Hüte") --headware
 
 --Slouch Hat

@@ -284,7 +284,7 @@ product:addIngredient(2550, 4); -- Copper Ingot
 
 
 
-elseif
+else
 	local catId = goldsmithing:addCategory("miscellaneous", "Verschiedenes") -- Random Stuff
 
 --Goblet
