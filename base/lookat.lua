@@ -143,7 +143,7 @@ function GenerateLookAt(user, item, material)
 		end;
 
 		if(armourfound) then
-			lookAt.armorType = armour;
+			--lookAt.armorType = armour.Type;
 			lookAt.level = armour.Level;
 		end;
 
