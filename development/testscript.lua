@@ -187,9 +187,9 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 		ArmourLevel = armour.PunctureArmor;
 	end;]]
 
-	--if(Globals.HittedItem.Level>Defender.DefenseSkill) then
-		--armourValue = armourValue/Noobmessupmalus;
-	--end
+	if(armour.Level>Defender.DefenseSkill) then
+		armourValue = armourValue/Noobmessupmalus;
+	end
 
 	local Rarity = NotNil(tonumber(Globals.HittedItem:getData("RareArmour")));
 
@@ -206,8 +206,47 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 		armourValue=0;
 	end;
 
+	--Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
+	local ArmourDefenseScalingFactor = 2;
+	local GeneralScalingFactor = 2.5;
+
     armourfound, armour = world:getNaturalArmor(Defender.Race);
-    if armourfound then
+	if armourfound then
+		if (Attacker.AttackKind == 0 or Attacker.AttackKind == 2) then --wrestling/conc
+			if (armour.Type==2) then -- Light armour
+				armourValue = armourValue + armour.Level;
+			elseif(armour.Type==3) then -- Medium armour
+				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
+			elseif(armour.Type==4) then -- Heavy armour
+				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor);
+			elseif(armour.Type==1) then -- General armour
+				armourValue = armourValue + armour.Level/GeneralScalingFactor;
+			end;
+		elseif (Attacker.AttackKind == 1) then -- Slash
+			if (armour.Type==2) then -- Light armour
+				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
+			elseif(armour.Type==3) then -- Medium armour
+				armourValue = armourValue + armour.Level;
+			elseif(armour.Type==4) then -- Heavy armour
+				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor);
+			elseif(armour.Type==1) then -- General armour
+				armourValue = armourValue + armour.Level/GeneralScalingFactor;
+			end;
+		elseif (Attacker.AttackKind == 3 or Attacker.AttackKind == 4) then -- Puncture
+			if (armour.Type==2) then -- Light armour
+				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor);
+			elseif(armour.Type==3) then -- Medium armour
+				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
+			elseif(armour.Type==4) then -- Heavy armour
+				armourValue = armourValue + armour.Level;
+			elseif(armour.Type==1) then -- General armour
+				armourValue = armourValue + armour.Level/GeneralScalingFactor;
+			end;
+		end;
+	end;
+
+
+    --[[if armourfound then
         if (Attacker.AttackKind == 0) then --wrestling
             armourValue = armourValue + armour.thrustArmor;
         elseif (Attacker.AttackKind == 1) then --slashing
@@ -219,7 +258,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         elseif (Attacker.AttackKind == 4) then --distance
             armourValue = armourValue + armour.punctureArmor;
         end;
-    end;
+    end;]]
 
 	-- This Armour Scaling Factor (ASF) is important. You can think of it like this:
 	-- If ASF = 5, the top armour in the game is 5x as good as the worst armour in the game
@@ -433,6 +472,13 @@ function CalculateDamage(Attacker, Globals)
         BaseDamage = content.fighting.GetWrestlingAttack( Attacker.Race ) * 10;
     end;
  
+	-- Noob messup malus
+	local Noobmessupmalus = 5; -- Amount that armour value is divided by if your skill isn't high enough to use this armour.
+
+	if(Attacker.Weapon.Level>Attacker.skill) then
+		BaseDamage = BaseDamage/Noobmessupmalus;
+	end
+
     StrengthBonus = (Attacker.strength - 6) * 3;
     PerceptionBonus = (Attacker.perception - 6) * 1;
     DexterityBonus = (Attacker.dexterity - 6) * 1;
@@ -903,9 +949,11 @@ function GetArmourType(Defender, Globals)
     end;
 
 
-	--local armourtype = armour.ArmourType;
+	local armourtype = armour.Type;
 
-	local highestvalue=armour.PunctureArmor;
+	--Previous method for discerning armour type
+
+	--[[local highestvalue=armour.PunctureArmor;
 	local armourtype=1;
 
 	if(armour.StrokeArmor>highestvalue) then
@@ -958,16 +1006,16 @@ function GetArmourType(Defender, Globals)
 				armourtype = 3;
 			end;
 		end;
-	end;
+	end;]]
 
 
-	if armourtype == 1 then
+	if armourtype == 4 then
 		-- Heavy is good against punc
 		Defender["DefenseSkillName"] = Character.heavyArmour;
-	elseif armourtype == 2 then
+	elseif armourtype == 3 then
 		-- Medium is good against slash/stroke
 		Defender["DefenseSkillName"] = Character.mediumArmour;
-	elseif armourtype == 3 then
+	elseif armourtype == 2 then
 		-- Light is good against conc/thrust
 		Defender["DefenseSkillName"] = Character.lightArmour;
 	else
