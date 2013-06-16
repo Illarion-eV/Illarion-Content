@@ -143,6 +143,19 @@ function GenerateLookAt(user, item, material)
 		end;
 
 		if(armourfound) then
+			if armour.Type == 0 then
+				lookAt.armourType = ArmorStruct.clothing;
+			elseif armour.Type == 1 then
+				lookAt.armourType = ArmorStruct.general;
+			elseif armour.Type == 2 then
+				lookAt.armourType = ArmorStruct.light;
+			elseif armour.Type == 3 then
+				lookAt.armourType = ArmorStruct.medium;
+			elseif armour.Type == 4 then
+				lookAt.armourType = ArmorStruct.heavy;
+			elseif armour.Type == 5 then
+				lookAt.armourType = ArmorStruct.jewellery;
+			end;
 			--lookAt.armorType = armour.Type;
 			lookAt.level = armour.Level;
 		end;
