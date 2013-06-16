@@ -133,6 +133,20 @@ function GenerateLookAt(user, item, material)
             lookAt.durabilityValue = itemDura + 1;
 		end
 
+		local armourfound, armour = world:getArmorStruct(item.id);
+
+		local weaponfound, weapon = world:getWeaponStruct(item.id);
+
+		if(weaponfound) then
+			lookAt.weaponType =	weapon.Type;
+			lookAt.level = weapon.Level;
+		end;
+
+		if(armourfound) then
+			lookAt.armorType = armour.Type;
+			lookAt.level = armour.Level;
+		end;
+
 		lookAt.diamondLevel = GetGemLevel(item, "magicalDiamond");
 		lookAt.emeraldLevel = GetGemLevel(item, "magicalEmerald");
 		lookAt.rubyLevel = GetGemLevel(item, "magicalRuby");
