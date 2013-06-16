@@ -1020,7 +1020,7 @@ function GetArmourType(Defender, Globals)
 		Defender["DefenseSkillName"] = Character.lightArmour;
 	else
 		Defender["DefenseSkillName"] = false;
-		Defender["DefenseSkill"] = false;
+		Defender["DefenseSkill"] = 0;
 		return false;
 	end;
 
