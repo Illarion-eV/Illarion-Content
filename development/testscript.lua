@@ -176,8 +176,8 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 
 	--Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
 	
-	local ArmourDefenseScalingFactor = 2;
-	local GeneralScalingFactor = 2.5;
+	local ArmourDefenseScalingFactor = 2.2;
+	local GeneralScalingFactor = 2.8;
 
 	if armourfound then
 		skillmod = 1-Defender.DefenseSkill/250;
@@ -271,7 +271,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     end;
 
 
-    Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 150);
+    Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 140);
 
 	Globals.Damage = skillmod*Globals.Damage;
 
@@ -500,7 +500,7 @@ function CalculateDamage(Attacker, Globals)
 	end;
 
 	--The Global Damage Factor (GDF). Adjust this to change how much damage is done per hit on all attacks.
-	local GlobalDamageFactor = 1/150;
+	local GlobalDamageFactor = 1/180;
 
     Globals["Damage"] = GlobalDamageFactor*BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus);
    
