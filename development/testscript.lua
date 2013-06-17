@@ -700,7 +700,7 @@ function HitChanceFlux(Attacker, Defender, Globals)
         parryChance = parryChance + (defenderdefense) / 5; --0-20% bonus by the weapon/shield
 		parryChance = parryChance * qualitymod;
 
-		if(parryItem.Level>Defender.parry) then
+		if(parryWeapon.Level>Defender.parry) then
 			parryChance = parryChance/5;
 		end
 
