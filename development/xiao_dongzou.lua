@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 251, 291, -6, 6, 'Xiao Dongzou', 'development.xiao_dongzou', 0, 4, 0, 255, 230, 119, 255, 231, 196);
+VALUES (0, 251, 291, -6, 6, 'Xiao Dongzou', 'npc.xiao_dongzou', 0, 4, 0, 255, 230, 119, 255, 231, 196);
 ---]]
 
 require("npc.base.basic")
@@ -69,7 +69,7 @@ talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Seid gegrüßt!");
 talkEntry:addResponse("Nargun zum Gruße, wollen wir ein Spielchen wagen?");
-talkEntry:addResponse("Ich freu mich euch zu sehen. Komm wir lassen die Würfel tanzen.");
+talkEntry:addResponse("Ich freue mich, dich zu sehen. Komm, wir lassen die Würfel tanzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -90,9 +90,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Was wollt ihr? Ein Spielchen, da kann ich nicht nein sagen");
+talkEntry:addResponse("Was wollt ihr? Ein Spielchen? Da kann ich nicht Nein sagen");
 talkEntry:addResponse("Grüße.");
-talkEntry:addResponse("Hallo, glaubt mir auch euch bringen die Würfel Glück");
+talkEntry:addResponse("Hallo. Glaubt mir, auch dir bringen die Würfel Glück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -125,7 +125,7 @@ talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Machs gut und komm wieder.");
 talkEntry:addResponse("Nargun mit dir!");
 talkEntry:addResponse("Man sieht sich.");
-talkEntry:addResponse("Ihr wollt doch nicht wirklich schon gehen?");
+talkEntry:addResponse("Du willst doch nicht wirklich schon gehen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -143,7 +143,7 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("Ich kann nich klagen und du?");
+talkEntry:addResponse("Ich kann nicht klagen und du?");
 talkEntry:addResponse("Ganz gut und selbst?");
 talkEntry:addResponse("Mal so, mal so, aber gerade geht es mir ganz gut.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -170,15 +170,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rule");
-talkEntry:addResponse("Quite simple. You select a side of the dice or a coin. If it is shown you won. Otherwise I get the money. Rolling the dice you can win 5 and a half silver for each silver you put on the table. With the coin you get 2 silver for each silver stake.");
+talkEntry:addResponse("Quite simple. There are two games. The dice game and the coin game. For the coin game, you select a side. If it is shown, you win two silver for each silver stake. Otherwise I get the money. In the dice game, you also select a side. You can win five and a half silver for each silver you put on the table.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("regel");
-talkEntry:addResponse("Ganz einfach. Du wählst eine Seite der Münze oder eine Seite des Würfels. Zeigt sich dies, hast du gewonnen. Ansonsten bekomme ich das Geld. Mit Würfeln bekommst du fünf einhalb Silber für jeden Silber Einsatz. Mit der Münze gibt es 2 Silber für jedes eingesetzte Silberstück.");
+talkEntry:addResponse("Ganz einfach. Es gibt zwei Spiele. Das Würfelspiel und das Münzspiel. Für das Münzspiel, du wählst eine Seite der Münze. Zeigt sich diese, gewinnst du zwei Stück Silber für jedes eingesetzte Silberstück. Ansonsten bekomme ich das Geld. Beim Würfeln bekommst du fünf und ein halbes Silber für jedes Silber Einsatz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -186,67 +185,66 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(679, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("stop");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game] No game started."));
-talkEntry:addResponse("What at nargun we should stop? We don't play at the moment.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game] No game started yet."));
+talkEntry:addResponse("What at Nargun, why should we stop now? We don't play at the moment.");
 talkEntry:addResponse("As you demand, let's stop before we start. That's Nargun like.");
-talkEntry:addResponse("Come on, let's roll the dice. Just a single game for a lone siver.");
+talkEntry:addResponse("Come on, let's roll the dice. Just a single game for a single silver.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(679, "=", 0));
 talkEntry:addTrigger("stop");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spiel] kein Spiel angefangen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spiel] Noch kein Spiel begonnen."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(679, "=", 1));
 talkEntry:addResponse("Ich versteh nicht, warum wir aufhören sollen. Wir haben doch noch gar nicht angefangen?");
 talkEntry:addResponse("Wie du willst. Hören wir auf bevor wir angefangen haben. So was gefällt Nargun.");
-talkEntry:addResponse("Oh nein, warum nicht ein klitzekleines Spiel um einen einsames Silberstück?");
+talkEntry:addResponse("Oh nein, warum nicht ein klitzekleines Spiel um ein einsames Silberstück?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(679, "=", 0));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("dice");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game] You start a dice game. Use 'single'(1 silver), 'few'(10 silver) or 'many'(1 Gold) coins or 'no'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Dice Game] You have started a dice game. Use 'single' (1 silver), 'few' (10 silver) or 'many' (1 Gold) for your stake or 'stop' in order to quit."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(679, "=", 1));
-talkEntry:addResponse("Rolling the dice is what you want. Fine, for how many coins we should play?");
-talkEntry:addResponse("A good choice. How many silver you'll put on the desk?");
-talkEntry:addResponse("I love dices even if I lose. How much?");
+talkEntry:addResponse("Rolling the dice is what you want. Fine, for how many coins shall we play?");
+talkEntry:addResponse("A good choice. How many silver will you put on the desk?");
+talkEntry:addResponse("I love to dice even if I lose. How much do you set?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(679, "=", 0));
 talkEntry:addTrigger("würfel");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spiel] Du hast ein Würfelspiel angefangen. Sage ob du um 'wenig'(1Silber), 'normal'(10 Silber) oder 'viel'(1 Gold) oder 'kein' Geld spielen willst."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Würfelspiel] Du hast ein Würfelspiel angefangen. Sage, ob du um 'wenig' (1 Silber), 'normal' (10 Silber) oder 'viel' (1 Gold) spielen möchtest oder 'stop', um das Spiel zu beenden."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(679, "=", 1));
-talkEntry:addResponse("Einmal die Würfel tanzen lassen? Nichts leichter als das. Wie viel werdet ihr setzen?");
-talkEntry:addResponse("Immer ein gute Wahl. Um wieviel ?");
-talkEntry:addResponse("Ach wie liebe ich das Spiel. Wieviel?");
+talkEntry:addResponse("Einmal die Würfel tanzen lassen? Nichts leichter als das. Wie viel wirst du setzen?");
+talkEntry:addResponse("Immer eine gute Wahl. Um wie viel spielen wir?");
+talkEntry:addResponse("Ach, wie liebe ich das Spiel. Wie viel willst du setzen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(679, "=", 0));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("flip");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game] You start a coin game. Use 'single'(1 silver), 'few'(10 silver) or 'many'(1 Gold) coins or break with 'stop' or 'no'."));
+talkEntry:addTrigger("coin");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Coin Game] You have started a coin game. Use 'single' (1 silver), 'few' (10 silver) or 'many' (1 Gold) for your stake or 'stop' in order to quit."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(679, "=", 100));
-talkEntry:addResponse("Flipping the coin is what you want. Fine, for how many coins we should play?");
-talkEntry:addResponse("A good choice. How many silver you'll put on the desk?");
-talkEntry:addResponse("I love flipping the coin even if I lose. How much?");
+talkEntry:addResponse("Flipping the coin is what you want. Fine, for how many coins shall we play?");
+talkEntry:addResponse("A good choice. How many silver will you put on the desk?");
+talkEntry:addResponse("I love flipping the coin even if I lose. How much do you set?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(679, "=", 0));
-talkEntry:addTrigger("Münze");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spiel] Du hast ein Münzenspiel angefangen. Sage ob du um 'wenig'(1Silber), 'normal'(10 Silber) oder 'viel'(1 Gold) Geld oder 'nein' oder 'stop' um abzubrechen."));
+talkEntry:addTrigger("Münz");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Münzspiel] Du hast ein Münzspiel angefangen. Sage, ob du um 'wenig' (1 Silber), 'normal' (10 Silber) oder 'viel' (1 Gold) spielen möchtest oder 'stop', um das Spiel zu beenden."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(679, "=", 100));
-talkEntry:addResponse("Einmal die Münze werfen? Nichts leichter als das. Wie viel werdet ihr setzen?");
-talkEntry:addResponse("Immer ein gute Wahl. Um wieviel ?");
-talkEntry:addResponse("Ach wie liebe ich das Spiel. Wieviel?");
+talkEntry:addResponse("Einmal die Münze werfen? Nichts leichter als das. Wie viel willst du setzen?");
+talkEntry:addResponse("Immer eine gute Wahl. Um wie viel spielen wir?");
+talkEntry:addResponse("Ach, wie liebe ich dieses Spiel. Wie viel willst du setzen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2666,7 +2664,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tar");
 talkEntry:addTrigger("feather");
-talkEntry:addResponse("Don't start that old story. What I can do, if that stupid farmer sits down the mirror in his back?");
+talkEntry:addResponse("Don't start that old story. What can I do, if that stupid farmer sits himself infront of the mirror?");
 talkEntry:addResponse("Getting tared and feathered is not an experience, I want to share with anybody.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2675,7 +2673,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Teer");
 talkEntry:addTrigger("Feder");
 talkEntry:addResponse("Fang nicht mit der alten Geschichte an. Was kann ich dafür, dass der Bauer sich vor den Spiegel gesetzt hatte?");
-talkEntry:addResponse("Ich möchte mit keinem teilen, der geteert und geferdert wird.");
+talkEntry:addResponse("Ich möchte mit keinem tauschen, der geteert und gefedert wird.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2683,7 +2681,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("cheat");
 talkEntry:addTrigger("honest");
 talkEntry:addResponse("I don't ceat. I'm a honest gambler.");
-talkEntry:addResponse("Cheating is for beginners. And you arn't one, am I right?");
+talkEntry:addResponse("Cheating is for beginners. And you aren't one, am I right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2692,13 +2690,13 @@ talkEntry:addTrigger("betrug");
 talkEntry:addTrigger("betrüg");
 talkEntry:addTrigger("ehrlich");
 talkEntry:addResponse("Ich betrüg doch nicht. Ich bin ein ehrlicher Spieler");
-talkEntry:addResponse("Anfänger betrügen weil sie nicht spielen können. Aber du bist ja keiner, oder?");
+talkEntry:addResponse("Anfänger betrügen, weil sie nicht spielen können. Aber du bist ja keiner, oder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beginner");
-talkEntry:addResponse("Everybody has to start at any time.");
+talkEntry:addResponse("We all start small.");
 talkEntry:addResponse("It's never too late");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2712,7 +2710,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("money");
-talkEntry:addResponse("You can't eat it, so you can play for. If you loose you will not starve.");
+talkEntry:addResponse("You can't eat it, so you can use it for gambling. If you loose you will not starve.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2725,26 +2723,26 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("luck");
 talkEntry:addResponse("Nargun is responsible for your luck. But you have to praise him. Maybe with a little game.");
-talkEntry:addResponse("With a little luck you could multiply the size of your purse!");
+talkEntry:addResponse("With a little luck, you could multiply your wealth!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("glück");
 talkEntry:addResponse("Nargun ist verantwortlich für dein Glück. Aber nur, wenn du ihn ehrst. Zum Beispiel mit einem kleinen Spielchen.");
-talkEntry:addResponse("Mit etwas Glück kannst du den Umfang deiner Geldbörse vervielfachen.");
+talkEntry:addResponse("Mit etwas Glück kannst du den Inhalt deiner Geldbörse vervielfachen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("The Archmage is far away. And he do not play, except with mage. The result you can study at the collapsed tower.");
+talkEntry:addResponse("The Archmage is far away. And he does not play, except with magic. You can see the result on the collapsed tower.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Der Erzmagier ist weit weg. Und der spielt höchstens mit Magie. Was dabei rauskommt, kannst du an dem eingestürzten Turm sehen.");
+talkEntry:addResponse("Der Erzmagier ist weit weg. Und er spielt höchstens mit Magie. Was dabei rauskommt, kannst du an dem eingestürzten Turm sehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2752,14 +2750,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("The Archmage is far away. And he do not play, except with mage. The result you can study at the collapsed tower.");
+talkEntry:addResponse("The Archmage is far away. And he does not play, except with magic. You can see the result on the collapsed tower.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Der Erzmagier ist weit weg. Und der spielt höchstens mit Magie. Was dabei rauskommt, kannst du an dem eingestürzten Turm sehen.");
+talkEntry:addResponse("Der Erzmagier ist weit weg. Und er spielt höchstens mit Magie. Was dabei rauskommt, kannst du an dem eingestürzten Turm sehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2772,7 +2770,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick ist im Südosten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach dne Wegschildern. Schlaue Leute würden sich das Geld für den Teleporter bei einem Spielchen verdienen..");
+talkEntry:addResponse("Runewick ist im Südosten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach den Wegschildern. Schlaue Leute würden sich das Geld für den Teleporter bei einem Spielchen verdienen..");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2781,7 +2779,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("The Don don't like to loose money. I have no idea if we are legal or not. But it doesn't matter.");
+talkEntry:addResponse("The Don doesn't like to loose money. I have no idea if this is legal or not. But it doesn't matter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2789,7 +2787,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Der Don verliert nur ungern. Ich weiß nicht mal ob das, was wir machen legal ist. Aber das ist auch egal.");
+talkEntry:addResponse("Der Don verliert nur ungern. Ich weiß nicht mal ob das, was wir machen, legal ist. Aber das ist auch egal.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2808,13 +2806,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("The Queen plays with gems and mirrors. She's much too proud to play for money. If you want to see her I have to send you into the desert.");
+talkEntry:addResponse("The Queen plays with gems and mirrors. She's much too proud to play for money. If you want to see her, I have to send you into the desert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("Der Königin spielt mit Edelsteinen und Spiegeln. Sie ist viel zu vornehm um um Geld zu spielen. Wenn du sie sehen willst, müsste ich dich in die Wüste schicken.");
+talkEntry:addResponse("Die Königin spielt mit Edelsteinen und Spiegeln. Sie ist viel zu vornehm, um für Geld zu spielen. Wenn du sie sehen willst, müsste ich dich in die Wüste schicken.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2822,14 +2820,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("The Queen plays with gems and mirrors. She's much too proud to play for money. If you want to see her I have to send you into the desert.");
+talkEntry:addResponse("The Queen plays with gems and mirrors. She's much too proud to play for money. If you want to see her, I have to send you into the desert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Der Königin spielt mit Edelsteinen und Spiegeln. Sie ist viel zu vornehm um um Geld zu spielen. Wenn du sie sehen willst, müsste ich dich in die Wüste schicken.");
+talkEntry:addResponse("Die Königin spielt mit Edelsteinen und Spiegeln. Sie ist viel zu vornehm, um für Geld zu spielen. Wenn du sie sehen willst, müsste ich dich in die Wüste schicken.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2842,7 +2840,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr ist im Südwesten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach dne Wegschildern. Schlaue Leute würden sich das Geld für den Teleporter bei einem Spielchen verdienen..");
+talkEntry:addResponse("Cadomyr ist im Südwesten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach den Wegschildern. Schlaue Leute würden sich das Geld für den Teleporter bei einem Spielchen verdienen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2850,35 +2848,35 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("nargun");
 talkEntry:addResponse("We should praise him. How about a game?");
-talkEntry:addResponse("I really can't understand why people do not praise him. He's the one, who decide if anything might happen or not. Nothing begins without the hand of Nargun. By the way, we could begin a game.");
-talkEntry:addResponse("Have you ever think about what would happen, if Nargun no destroy the mage structures into chaos again? You couldn't walk around without stepping in any endless lasting spell.");
+talkEntry:addResponse("I really can't understand why people do not praise him. He's the one, who decides if anything might happen or not. Nothing begins without the help of Nargun. By the way, we could begin a game.");
+talkEntry:addResponse("Have you ever thought about what would happen if Nargun does not turn arcane structures back again into chaos? You couldn't walk around without stepping in any endless lasting spell.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("nargun");
 talkEntry:addResponse("Ihn sollte man preisen. Warum nicht mit einem Spielchen?");
-talkEntry:addResponse("Ehrlich, ich kann nicht verstehen, warum die Leute ihn nicht ehren wollen. Er entscheidet, ob irgendetwas passiert oder auch nicht. Es gibt keinen Anfang, bei dem Nargun nicht seine Finger im Spiel hat. Apropo Spiel, wollen wir eins wagen?");
-talkEntry:addResponse("Hast du dir jemals versucht vorzustellen was passiert, wenn Nargun nicht die magischen Konstrukte wieder in Chaos verwandeln würde? Wir könneten vor immerwährenden Zaubersprüchen keinen Schritt gehen.");
+talkEntry:addResponse("Ehrlich, ich kann nicht verstehen, warum die Leute ihn nicht ehren wollen. Er entscheidet, ob irgendetwas passiert oder auch nicht. Es gibt keinen Anfang, bei dem Nargun nicht seine Finger im Spiel hat. Apropos Spiel, wollen wir eins wagen?");
+talkEntry:addResponse("Hast du dir jemals versucht vorzustellen was passiert, wenn Nargun nicht die magischen Konstrukte wieder in Chaos verwandeln würde? Wir könnten vor immerwährenden Zaubersprüchen keinen Schritt gehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("temple");
-talkEntry:addResponse("Narguns temple is in Galmair. It's not far away from here.");
+talkEntry:addResponse("Nargun's temple is in Galmair. It's not far away from here. *He grins and points to the top.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tempel");
-talkEntry:addResponse("Narguns Tempel ist in Galmair, unweit von hier.");
+talkEntry:addResponse("Narguns Tempel ist in Galmair, unweit von hier. *Er grinst und zeigt nach oben*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("If you want to know something about the gods beside Nargun, then look for priests or ask in one of the towns.");
+talkEntry:addResponse("If you want to know something about gods beside Nargun, then look for priests or ask in one of the towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2891,13 +2889,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Fine... you want want a game? Dice or coin?");
+talkEntry:addResponse("Fine... do you want to play a game? Dice or coin?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Schön... und ihr wollt ein Spielchen? Würfel oder Münze?");
+talkEntry:addResponse("Schön... und willst du ein Spiel wagen? Würfel oder Münze?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2917,13 +2915,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("A bit more precise, please!");
-talkEntry:addResponse("These ansher Nargun would like.");
+talkEntry:addResponse("Nargun would like this answer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("Etwas konkreter wenn ich bitten darf!");
+talkEntry:addResponse("Etwas konkreter, wenn ich bitten darf!");
 talkEntry:addResponse("Eine Antwort, die Nargun gefallen würde.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2931,13 +2929,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("A bit more precise, please!");
-talkEntry:addResponse("These answer Nargun would like.");
+talkEntry:addResponse("Nargun would like this answer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("Etwas konkreter wenn ich bitten darf!");
+talkEntry:addResponse("Etwas konkreter, wenn ich bitten darf!");
 talkEntry:addResponse("Eine Antwort, die Nargun gefallen würde.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2946,7 +2944,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Pitch-and-toss ... let's nargun decide if we play!");
+talkEntry:addResponse("Pitch-and-toss ... let's Nargun decide if we play!");
 talkEntry:addResponse("The luck favours yourself. Why not try to roll the dice?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2955,11 +2953,11 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Kopf oder Zahl ... lasst Nargun entscheiden ob ihr spielt.");
-talkEntry:addResponse("Das Glück ist auf Eurer Seite. Warum nicht einfach mal würfeln?");
+talkEntry:addResponse("Kopf oder Zahl ... lasst Nargun entscheiden, ob du spielst.");
+talkEntry:addResponse("Das Glück ist auf deiner Seite. Warum nicht einfach mal würfeln?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Kommt und versucht Euer Glück. Es wird euer Schaden nicht sein!", "Come and play. You will win, I'm sure.");
+talkingNPC:addCycleText("Kommt und versuch dein Glück. Es wird dein Schaden nicht sein!", "Come and play. You will win, I'm sure.");
 talkingNPC:addCycleText("#me spielt mit einem Würfel.", "#me plays with a dice.");
 talkingNPC:addCycleText("#me mischt ein Kartendeck.", "#me mixes some cards.");
 talkingNPC:addCycleText("#me wirft eine Münze.", "#me flips a coin.");
@@ -2970,7 +2968,7 @@ talkingNPC:addCycleText("#me zählt verstohlen ein paar Münzen.", "#me covertly c
 talkingNPC:addCycleText("#me untersucht einen Würfel.", "#me examines a dice.");
 talkingNPC:addCycleText("#me würfelt für sich selber.", "#me rolls the dice for himself.");
 talkingNPC:addCycleText("#me schaut sich unbeteiligt die Leute an.", "#me examines the people around.");
-talkingNPC:addCycleText("#me stapelt einige Münzen vor sich", "#me staples some coins in front of himself on the table");
+talkingNPC:addCycleText("#me stapelt einige Münzen vor sich", "#me staples some coins in front of himself on the table.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
