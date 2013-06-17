@@ -1289,7 +1289,7 @@ function HandleMovepoints(Attacker, Globals)
 	end;
 
 	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints));
-    --Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
+    Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
 	
 	Globals["AP"] = reduceFightpoints;
 
