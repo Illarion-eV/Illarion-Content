@@ -270,7 +270,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         end;
     end;
 
-	
+	Defender.Char:inform("Armour value is now "..armourValue);
 
     Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 250);
 
