@@ -212,6 +212,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 
     armourfound, armour = world:getNaturalArmor(Defender.Race);
 	if armourfound then
+		Defender.Char:inform("Armour value preop is "..armour.Level);
 		if (Attacker.AttackKind == 0 or Attacker.AttackKind == 2) then --wrestling/conc
 			if (armour.Type==2) then -- Light armour
 				armourValue = armourValue + armour.Level;
@@ -268,7 +269,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 		armourValue = (100/ArmourScalingFactor) + armourValue*(1-1/ArmourScalingFactor);
 	end
 
-	Defender.Char:inform("Armour value is "..armourValue);
+	Defender.Char:inform("Armour value postop is "..armourValue);
 
     Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 250);
 
