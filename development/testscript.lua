@@ -176,7 +176,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 
 	--Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
 	
-	local ArmourDefenseScalingFactor = 2.2;
+	local ArmourDefenseScalingFactor = 2;
 	local GeneralScalingFactor = 2.8;
 
 	if armourfound then
@@ -700,9 +700,9 @@ function HitChanceFlux(Attacker, Defender, Globals)
         parryChance = parryChance + (defenderdefense) / 5; --0-20% bonus by the weapon/shield
 		parryChance = parryChance * qualitymod;
 
-		--if(parryItem.Level>Defender.parry) then
-			--parryChance = parryChance/5;
-		--end
+		if(parryItem.Level>Defender.parry) then
+			parryChance = parryChance/5;
+		end
 
 		parryChance = math.min(math.max(parryChance,5),95); -- Min and max parry are 5% and 95% respectively
 		
