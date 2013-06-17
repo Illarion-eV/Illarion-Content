@@ -157,7 +157,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 	local armourValue = 0;
 
 	local skillmod = 1;
-	local qualitymod = 0.91+0.02*math.floor(Globals.HittedItem.quality/100);
+	local qualitymod = 0.82+0.02*math.floor(Globals.HittedItem.quality/100);
 
     --[[if armourfound then
 		skillmod = 1-Defender.DefenseSkill/250;
@@ -273,7 +273,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 
 	Defender.Char:inform("Original damage "..Globals.Damage);
 
-    Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 100);
+    Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 150);
 
 	Defender.Char:inform("Damage post armour reduction "..Globals.Damage);
 
