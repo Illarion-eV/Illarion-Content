@@ -174,6 +174,9 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         end;
     end;]]
 
+	local ArmourDefenseScalingFactor = 2;
+	local GeneralScalingFactor = 2.5;
+
 	if armourfound then
 		skillmod = 1-Defender.DefenseSkill/250;
 		if (Attacker.AttackKind == 0 or Attacker.AttackKind == 2) then --wrestling/conc
@@ -242,8 +245,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 	end;
 
 	--Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
-	local ArmourDefenseScalingFactor = 2;
-	local GeneralScalingFactor = 2.5;
+	
 
     armourfound, armour = world:getNaturalArmor(Defender.Race);
 
@@ -268,8 +270,6 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 	if(armourValue>0) then
 		armourValue = (100/ArmourScalingFactor) + armourValue*(1-1/ArmourScalingFactor);
 	end
-
-	Defender.Char:inform("Armour value postop is "..armourValue);
 
     Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 250);
 
