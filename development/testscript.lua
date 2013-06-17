@@ -174,6 +174,8 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         end;
     end;]]
 
+	--Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
+	
 	local ArmourDefenseScalingFactor = 2;
 	local GeneralScalingFactor = 2.5;
 
@@ -244,8 +246,13 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 		armourValue=0;
 	end;
 
-	--Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
-	
+	-- This Armour Scaling Factor (ASF) is important. You can think of it like this:
+	-- If ASF = 5, the top armour in the game is 5x as good as the worst armour in the game
+	local ArmourScalingFactor = 5;
+
+	if(armourValue>0) then
+		armourValue = (100/ArmourScalingFactor) + armourValue*(1-1/ArmourScalingFactor);
+	end
 
     armourfound, armour = world:getNaturalArmor(Defender.Race);
 
@@ -263,13 +270,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         end;
     end;
 
-	-- This Armour Scaling Factor (ASF) is important. You can think of it like this:
-	-- If ASF = 5, the top armour in the game is 5x as good as the worst armour in the game
-	local ArmourScalingFactor = 5;
-
-	if(armourValue>0) then
-		armourValue = (100/ArmourScalingFactor) + armourValue*(1-1/ArmourScalingFactor);
-	end
+	
 
     Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 250);
 
