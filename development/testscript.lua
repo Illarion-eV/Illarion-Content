@@ -159,7 +159,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 	local skillmod = 1;
 	local qualitymod = 0.91+0.02*math.floor(Globals.HittedItem.quality/100);
 
-    if armourfound then
+    --[[if armourfound then
 		skillmod = 1-Defender.DefenseSkill/250;
         if (Attacker.AttackKind == 0) then --wrestling
             armourValue = armour.ThrustArmor;
@@ -172,7 +172,42 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         elseif (Attacker.AttackKind == 4) then --distance
             armourValue = armour.PunctureArmor;
         end;
-    end;
+    end;]]
+
+	if armourfound then
+		skillmod = 1-Defender.DefenseSkill/250;
+		if (Attacker.AttackKind == 0 or Attacker.AttackKind == 2) then --wrestling/conc
+			if (armour.Type==2) then -- Light armour
+				armourValue = armour.Level;
+			elseif(armour.Type==3) then -- Medium armour
+				armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
+			elseif(armour.Type==4) then -- Heavy armour
+				armourValue = armour.Level/(ArmourDefenseScalingFactor);
+			elseif(armour.Type==1) then -- General armour
+				armourValue = armour.Level/GeneralScalingFactor;
+			end;
+		elseif (Attacker.AttackKind == 1) then -- Slash
+			if (armour.Type==2) then -- Light armour
+				armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
+			elseif(armour.Type==3) then -- Medium armour
+				armourValue = armour.Level;
+			elseif(armour.Type==4) then -- Heavy armour
+				armourValue = armour.Level/(ArmourDefenseScalingFactor);
+			elseif(armour.Type==1) then -- General armour
+				armourValue = armour.Level/GeneralScalingFactor;
+			end;
+		elseif (Attacker.AttackKind == 3 or Attacker.AttackKind == 4) then -- Puncture
+			if (armour.Type==2) then -- Light armour
+				armourValue = armour.Level/(ArmourDefenseScalingFactor);
+			elseif(armour.Type==3) then -- Medium armour
+				armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
+			elseif(armour.Type==4) then -- Heavy armour
+				armourValue = armour.Level;
+			elseif(armour.Type==1) then -- General armour
+				armourValue = armour.Level/GeneralScalingFactor;
+			end;
+		end;
+	end;
 
 	local Noobmessupmalus = 5; -- Amount that armour value is divided by if your skill isn't high enough to use this armour.
 	--No level implemented yet, for now derive it from the armour value.
@@ -211,43 +246,8 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 	local GeneralScalingFactor = 2.5;
 
     armourfound, armour = world:getNaturalArmor(Defender.Race);
-	if armourfound then
-		Defender.Char:inform("Armour value preop is "..armour.Level);
-		if (Attacker.AttackKind == 0 or Attacker.AttackKind == 2) then --wrestling/conc
-			if (armour.Type==2) then -- Light armour
-				armourValue = armourValue + armour.Level;
-			elseif(armour.Type==3) then -- Medium armour
-				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
-			elseif(armour.Type==4) then -- Heavy armour
-				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor);
-			elseif(armour.Type==1) then -- General armour
-				armourValue = armourValue + armour.Level/GeneralScalingFactor;
-			end;
-		elseif (Attacker.AttackKind == 1) then -- Slash
-			if (armour.Type==2) then -- Light armour
-				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
-			elseif(armour.Type==3) then -- Medium armour
-				armourValue = armourValue + armour.Level;
-			elseif(armour.Type==4) then -- Heavy armour
-				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor);
-			elseif(armour.Type==1) then -- General armour
-				armourValue = armourValue + armour.Level/GeneralScalingFactor;
-			end;
-		elseif (Attacker.AttackKind == 3 or Attacker.AttackKind == 4) then -- Puncture
-			if (armour.Type==2) then -- Light armour
-				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor);
-			elseif(armour.Type==3) then -- Medium armour
-				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
-			elseif(armour.Type==4) then -- Heavy armour
-				armourValue = armourValue + armour.Level;
-			elseif(armour.Type==1) then -- General armour
-				armourValue = armourValue + armour.Level/GeneralScalingFactor;
-			end;
-		end;
-	end;
 
-
-    --[[if armourfound then
+    if armourfound then
         if (Attacker.AttackKind == 0) then --wrestling
             armourValue = armourValue + armour.thrustArmor;
         elseif (Attacker.AttackKind == 1) then --slashing
@@ -259,7 +259,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         elseif (Attacker.AttackKind == 4) then --distance
             armourValue = armourValue + armour.punctureArmor;
         end;
-    end;]]
+    end;
 
 	-- This Armour Scaling Factor (ASF) is important. You can think of it like this:
 	-- If ASF = 5, the top armour in the game is 5x as good as the worst armour in the game
