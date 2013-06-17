@@ -264,7 +264,9 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 	-- If ASF = 5, the top armour in the game is 5x as good as the worst armour in the game
 	local ArmourScalingFactor = 5;
 
-	armourValue = (100/ArmourScalingFactor) + armourValue*(1-1/ArmourScalingFactor);
+	if(armourValue>0) then
+		armourValue = (100/ArmourScalingFactor) + armourValue*(1-1/ArmourScalingFactor);
+	end
 
 	Defender.Char:inform("Armour value is "..armourValue);
 
