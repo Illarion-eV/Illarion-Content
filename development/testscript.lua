@@ -495,7 +495,7 @@ function CalculateDamage(Attacker, Globals)
 	end;
 
 	--The Global Damage Factor (GDF). Adjust this to change how much damage is done per hit on all attacks.
-	local GlobalDamageFactor = 1/200;
+	local GlobalDamageFactor = 1/300;
 
     Globals["Damage"] = GlobalDamageFactor*BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus);
    
@@ -509,7 +509,7 @@ end;
 
 function CauseDamage(Attacker, Defender, Globals)
 
-	Globals.Damage=Globals.Damage*(math.random(8,12)/10); --Damage is randomised: 80-120%
+	Globals.Damage=Globals.Damage*(math.random(9,10)/10); --Damage is randomised: 80-120%
 	
 	Globals.Damage=math.min(Globals.Damage,4999); --Damage is capped at 4999 Hitpoints to prevent "one hit kills"
 	
