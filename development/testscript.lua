@@ -266,6 +266,8 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 
 	armourValue = (100/ArmourScalingFactor) + armourValue*(1-1/ArmourScalingFactor);
 
+	Defender.Char:inform("Armour value is "..armourValue);
+
     Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 250);
 
 	Globals.Damage = skillmod*Globals.Damage;
