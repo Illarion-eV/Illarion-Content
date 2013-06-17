@@ -66,28 +66,28 @@ itemShoes = 369
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you!", "Nargun bless you, do you want a game?", "I'm always pleased to see a lucky face. Let's roll the dice!"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt!", "Nargun zum Gruße, wollen wir ein Spielchen wagen?", "Ich freu mich euch zu sehen. Komm wir lassen die Würfel tanzen."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt!", "Nargun zum Gruße, wollen wir ein Spielchen wagen?", "Ich freue mich, dich zu sehen. Komm, wir lassen die Würfel tanzen."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "What do you want. A game? I can't refuse that.", "Greetings.", "Hello, I'd say rolling the dice is a good choice for you today."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Was wollt ihr? Ein Spielchen, da kann ich nicht nein sagen", "Grüße.", "Hallo, glaubt mir auch euch bringen die Würfel Glück"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Was wollt ihr? Ein Spielchen? Da kann ich nicht Nein sagen", "Grüße.", "Hallo. Glaubt mir, auch dir bringen die Würfel Glück."
 english, "Ciao", "Adieu", "Au revoir", "Farebba", "Farewell", "Bye", "Fare well", "See you" -> "Take care and come back.", "Nargun with you!", "Until next time!", "You really don't want to leave yet."
-"Ciao", "Adieu", "Au revoir", "Farebba", "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Machs gut und komm wieder.", "Nargun mit dir!", "Man sieht sich.", "Ihr wollt doch nicht wirklich schon gehen?"
+"Ciao", "Adieu", "Au revoir", "Farebba", "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Machs gut und komm wieder.", "Nargun mit dir!", "Man sieht sich.", "Du willst doch nicht wirklich schon gehen?"
 "How are you", "How feel", "How do you do" -> "Can't say anything's bothering me and ya?", "So-so, but I'm fine right now."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann nich klagen und du?", "Ganz gut und selbst?", "Mal so, mal so, aber gerade geht es mir ganz gut."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann nicht klagen und du?", "Ganz gut und selbst?", "Mal so, mal so, aber gerade geht es mir ganz gut."
 "your name", "who are you", "who art thou" -> "I'm Xiao and who are you?", "I'm called Xiao, Xiao Gongyou, and what's your name?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der Xiao und wer bist du?", "Man nennt mich Xiao, Xiao Gongyou und wie nennt man dich?"
 
 -- Quest related
-english, "rule" -> "Quite simple. You select a side of the dice or a coin. If it is shown you won. Otherwise I get the money. Rolling the dice you can win 5 and a half silver for each silver you put on the table. With the coin you get 2 silver for each silver stake."
-"regel" -> "Ganz einfach. Du wählst eine Seite der Münze oder eine Seite des Würfels. Zeigt sich dies, hast du gewonnen. Ansonsten bekomme ich das Geld. Mit Würfeln bekommst du fünf einhalb Silber für jeden Silber Einsatz. Mit der Münze gibt es 2 Silber für jedes eingesetzte Silberstück."
+"rule" -> "Quite simple. There are two games. The dice game and the coin game. For the coin game, you select a side. If it is shown, you win two silver for each silver stake. Otherwise I get the money. In the dice game, you also select a side. You can win five and a half silver for each silver you put on the table."
+"regel" -> "Ganz einfach. Es gibt zwei Spiele. Das Würfelspiel und das Münzspiel. Für das Münzspiel, du wählst eine Seite der Münze. Zeigt sich diese, gewinnst du zwei Stück Silber für jedes eingesetzte Silberstück. Ansonsten bekomme ich das Geld. Beim Würfeln bekommst du fünf und ein halbes Silber für jedes Silber Einsatz."
 -- abort at queststatus 0
-queststatus(679) = 0, english, "stop" -> inform("[Game] No game started."), "What at nargun we should stop? We don't play at the moment.", "As you demand, let's stop before we start. That's Nargun like.", "Come on, let's roll the dice. Just a single game for a lone siver."
-queststatus(679) = 0, "stop" -> inform("[Spiel] kein Spiel angefangen."), queststatus(679) = 1, "Ich versteh nicht, warum wir aufhören sollen. Wir haben doch noch gar nicht angefangen?", "Wie du willst. Hören wir auf bevor wir angefangen haben. So was gefällt Nargun.", "Oh nein, warum nicht ein klitzekleines Spiel um einen einsames Silberstück?"
--- dice
-queststatus(679) = 0, english, "dice" -> inform("[Game] You start a dice game. Use 'single'(1 silver), 'few'(10 silver) or 'many'(1 Gold) coins or 'no'."), queststatus(679) = 1, "Rolling the dice is what you want. Fine, for how many coins we should play?", "A good choice. How many silver you'll put on the desk?", "I love dices even if I lose. How much?"
-queststatus(679) = 0, "würfel" -> inform("[Spiel] Du hast ein Würfelspiel angefangen. Sage ob du um 'wenig'(1Silber), 'normal'(10 Silber) oder 'viel'(1 Gold) oder 'kein' Geld spielen willst."), queststatus(679) = 1, "Einmal die Würfel tanzen lassen? Nichts leichter als das. Wie viel werdet ihr setzen?", "Immer ein gute Wahl. Um wieviel ?", "Ach wie liebe ich das Spiel. Wieviel?"
--- coin
-queststatus(679) = 0, english, "flip" -> inform("[Game] You start a coin game. Use 'single'(1 silver), 'few'(10 silver) or 'many'(1 Gold) coins or break with 'stop' or 'no'."), queststatus(679) = 100, "Flipping the coin is what you want. Fine, for how many coins we should play?", "A good choice. How many silver you'll put on the desk?", "I love flipping the coin even if I lose. How much?"
-queststatus(679) = 0, "Münze" -> inform("[Spiel] Du hast ein Münzenspiel angefangen. Sage ob du um 'wenig'(1Silber), 'normal'(10 Silber) oder 'viel'(1 Gold) Geld oder 'nein' oder 'stop' um abzubrechen."), queststatus(679) = 100, "Einmal die Münze werfen? Nichts leichter als das. Wie viel werdet ihr setzen?", "Immer ein gute Wahl. Um wieviel ?", "Ach wie liebe ich das Spiel. Wieviel?"
+queststatus(679) = 0, english, "stop" -> inform("[Game] No game started yet."), "What at Nargun, why should we stop now? We don't play at the moment.", "As you demand, let's stop before we start. That's Nargun like.", "Come on, let's roll the dice. Just a single game for a single silver."
+queststatus(679) = 0, "stop" -> inform("[Spiel] Noch kein Spiel begonnen."), queststatus(679) = 1, "Ich versteh nicht, warum wir aufhören sollen. Wir haben doch noch gar nicht angefangen?", "Wie du willst. Hören wir auf bevor wir angefangen haben. So was gefällt Nargun.", "Oh nein, warum nicht ein klitzekleines Spiel um ein einsames Silberstück?"
+-- start dice game
+queststatus(679) = 0, "dice" -> inform("[Dice Game] You have started a dice game. Use 'single' (1 silver), 'few' (10 silver) or 'many' (1 Gold) for your stake or 'stop' in order to quit."), queststatus(679) = 1, "Rolling the dice is what you want. Fine, for how many coins shall we play?", "A good choice. How many silver will you put on the desk?", "I love to dice even if I lose. How much do you set?"
+queststatus(679) = 0, "würfel" -> inform("[Würfelspiel] Du hast ein Würfelspiel angefangen. Sage, ob du um 'wenig' (1 Silber), 'normal' (10 Silber) oder 'viel' (1 Gold) spielen möchtest oder 'stop', um das Spiel zu beenden."), queststatus(679) = 1, "Einmal die Würfel tanzen lassen? Nichts leichter als das. Wie viel wirst du setzen?", "Immer eine gute Wahl. Um wie viel spielen wir?", "Ach, wie liebe ich das Spiel. Wie viel willst du setzen?"
+-- start coin game
+queststatus(679) = 0, "flip",  "coin"-> inform("[Coin Game] You have started a coin game. Use 'single' (1 silver), 'few' (10 silver) or 'many' (1 Gold) for your stake or 'stop' in order to quit."), queststatus(679) = 100, "Flipping the coin is what you want. Fine, for how many coins shall we play?", "A good choice. How many silver will you put on the desk?", "I love flipping the coin even if I lose. How much do you set?"
+queststatus(679) = 0, "Münz" -> inform("[Münzspiel] Du hast ein Münzspiel angefangen. Sage, ob du um 'wenig' (1 Silber), 'normal' (10 Silber) oder 'viel' (1 Gold) spielen möchtest oder 'stop', um das Spiel zu beenden."), queststatus(679) = 100, "Einmal die Münze werfen? Nichts leichter als das. Wie viel willst du setzen?", "Immer eine gute Wahl. Um wie viel spielen wir?", "Ach, wie liebe ich dieses Spiel. Wie viel willst du setzen?"
 
 -- dice part
 -- dice select the stake
@@ -299,63 +299,63 @@ queststatus(679) = 103, english, ".*" -> inform("[Game] open. Use 'heads','tails
 queststatus(679) = 103, ".*" -> inform("[Spiel] offen. Sage 'Kopf','Zahl','Rand' oder brich mit 'stop' oder 'ende' ab."), "Es geht doch nur um Gold. Was willst du?", "Was ist jetzt dein Tip, Kopf oder Zahl?"
 
 -- game related
-"tar", "feather" -> "Don't start that old story. What I can do, if that stupid farmer sits down the mirror in his back?", "Getting tared and feathered is not an experience, I want to share with anybody."
-"Teer", "Feder" -> "Fang nicht mit der alten Geschichte an. Was kann ich dafür, dass der Bauer sich vor den Spiegel gesetzt hatte?", "Ich möchte mit keinem teilen, der geteert und geferdert wird."
-"cheat", "honest" -> "I don't ceat. I'm a honest gambler.", "Cheating is for beginners. And you arn't one, am I right?"
-"betrug", "betrüg", "ehrlich" -> "Ich betrüg doch nicht. Ich bin ein ehrlicher Spieler", "Anfänger betrügen weil sie nicht spielen können. Aber du bist ja keiner, oder?"
-"beginner" -> "Everybody has to start at any time.", "It's never too late"
+"tar", "feather" -> "Don't start that old story. What can I do, if that stupid farmer sits himself infront of the mirror?", "Getting tared and feathered is not an experience, I want to share with anybody."
+"Teer", "Feder" -> "Fang nicht mit der alten Geschichte an. Was kann ich dafür, dass der Bauer sich vor den Spiegel gesetzt hatte?", "Ich möchte mit keinem tauschen, der geteert und gefedert wird."
+"cheat", "honest" -> "I don't ceat. I'm a honest gambler.", "Cheating is for beginners. And you aren't one, am I right?"
+"betrug", "betrüg", "ehrlich" -> "Ich betrüg doch nicht. Ich bin ein ehrlicher Spieler", "Anfänger betrügen, weil sie nicht spielen können. Aber du bist ja keiner, oder?"
+"beginner" -> "We all start small.", "It's never too late"
 "anfänger" -> "Jeder fängt mal klein an.", "Es iss nie zuspät anzufangen."
-"money" -> "You can't eat it, so you can play for. If you loose you will not starve."
+"money" -> "You can't eat it, so you can use it for gambling. If you loose you will not starve."
 "geld" -> "Du kannst es nicht essen also ist es kein Problem, wenn du es verspielst. Du wirst trotzdem nicht hungern."
-"luck" -> "Nargun is responsible for your luck. But you have to praise him. Maybe with a little game.", "With a little luck you could multiply the size of your purse!"
-"glück" -> "Nargun ist verantwortlich für dein Glück. Aber nur, wenn du ihn ehrst. Zum Beispiel mit einem kleinen Spielchen.", "Mit etwas Glück kannst du den Umfang deiner Geldbörse vervielfachen."
+"luck" -> "Nargun is responsible for your luck. But you have to praise him. Maybe with a little game.", "With a little luck, you could multiply your wealth!"
+"glück" -> "Nargun ist verantwortlich für dein Glück. Aber nur, wenn du ihn ehrst. Zum Beispiel mit einem kleinen Spielchen.", "Mit etwas Glück kannst du den Inhalt deiner Geldbörse vervielfachen."
 
 -- Faction stuff
-"archmage" -> "The Archmage is far away. And he do not play, except with mage. The result you can study at the collapsed tower."
-"Erzmagier" -> "Der Erzmagier ist weit weg. Und der spielt höchstens mit Magie. Was dabei rauskommt, kannst du an dem eingestürzten Turm sehen."
-english, "Elvaine", "Morgan" -> "The Archmage is far away. And he do not play, except with mage. The result you can study at the collapsed tower."
-"Elvaine", "Morgan" -> "Der Erzmagier ist weit weg. Und der spielt höchstens mit Magie. Was dabei rauskommt, kannst du an dem eingestürzten Turm sehen."
+"archmage" -> "The Archmage is far away. And he does not play, except with magic. You can see the result on the collapsed tower."
+"Erzmagier" -> "Der Erzmagier ist weit weg. Und er spielt höchstens mit Magie. Was dabei rauskommt, kannst du an dem eingestürzten Turm sehen."
+english, "Elvaine", "Morgan" -> "The Archmage is far away. And he does not play, except with magic. You can see the result on the collapsed tower."
+"Elvaine", "Morgan" -> "Der Erzmagier ist weit weg. Und er spielt höchstens mit Magie. Was dabei rauskommt, kannst du an dem eingestürzten Turm sehen."
 english, "Runewick" -> "Runewick is in the southeast. If you are stupid enough and want to walk there, look for the signposts at least. Smart people earn money for the teleporter with a little game."
-"Runewick" -> "Runewick ist im Südosten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach dne Wegschildern. Schlaue Leute würden sich das Geld für den Teleporter bei einem Spielchen verdienen.."
-english, "Valerio", "Guilianni", "Don" -> "The Don don't like to loose money. I have no idea if we are legal or not. But it doesn't matter."
-"Valerio", "Guilianni", "Don" -> "Der Don verliert nur ungern. Ich weiß nicht mal ob das, was wir machen legal ist. Aber das ist auch egal."
+"Runewick" -> "Runewick ist im Südosten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach den Wegschildern. Schlaue Leute würden sich das Geld für den Teleporter bei einem Spielchen verdienen.."
+english, "Valerio", "Guilianni", "Don" -> "The Don doesn't like to loose money. I have no idea if this is legal or not. But it doesn't matter."
+"Valerio", "Guilianni", "Don" -> "Der Don verliert nur ungern. Ich weiß nicht mal ob das, was wir machen, legal ist. Aber das ist auch egal."
 english, "Galmair" -> "We are in Galmair."
 "Galmair" -> "Wir sind in Galmair."
-"Queen" -> "The Queen plays with gems and mirrors. She's much too proud to play for money. If you want to see her I have to send you into the desert."
-"Königin" -> "Der Königin spielt mit Edelsteinen und Spiegeln. Sie ist viel zu vornehm um um Geld zu spielen. Wenn du sie sehen willst, müsste ich dich in die Wüste schicken."
-english, "rosaline", "edwards" -> "The Queen plays with gems and mirrors. She's much too proud to play for money. If you want to see her I have to send you into the desert."
-"rosaline", "edwards" -> "Der Königin spielt mit Edelsteinen und Spiegeln. Sie ist viel zu vornehm um um Geld zu spielen. Wenn du sie sehen willst, müsste ich dich in die Wüste schicken."
+"Queen" -> "The Queen plays with gems and mirrors. She's much too proud to play for money. If you want to see her, I have to send you into the desert."
+"Königin" -> "Die Königin spielt mit Edelsteinen und Spiegeln. Sie ist viel zu vornehm, um für Geld zu spielen. Wenn du sie sehen willst, müsste ich dich in die Wüste schicken."
+english, "rosaline", "edwards" -> "The Queen plays with gems and mirrors. She's much too proud to play for money. If you want to see her, I have to send you into the desert."
+"rosaline", "edwards" -> "Die Königin spielt mit Edelsteinen und Spiegeln. Sie ist viel zu vornehm, um für Geld zu spielen. Wenn du sie sehen willst, müsste ich dich in die Wüste schicken."
 english, "Cadomyr" -> "Cadomyr is in the southwest. If you are stupid enough and want to walk there, look for the signposts at least. Smart people earn money for the teleporter with a little game."
-"Cadomyr" -> "Cadomyr ist im Südwesten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach dne Wegschildern. Schlaue Leute würden sich das Geld für den Teleporter bei einem Spielchen verdienen.."
+"Cadomyr" -> "Cadomyr ist im Südwesten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach den Wegschildern. Schlaue Leute würden sich das Geld für den Teleporter bei einem Spielchen verdienen."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-english, "nargun" -> "We should praise him. How about a game?", "I really can't understand why people do not praise him. He's the one, who decide if anything might happen or not. Nothing begins without the hand of Nargun. By the way, we could begin a game.", "Have you ever think about what would happen, if Nargun no destroy the mage structures into chaos again? You couldn't walk around without stepping in any endless lasting spell."
-"nargun" -> "Ihn sollte man preisen. Warum nicht mit einem Spielchen?","Ehrlich, ich kann nicht verstehen, warum die Leute ihn nicht ehren wollen. Er entscheidet, ob irgendetwas passiert oder auch nicht. Es gibt keinen Anfang, bei dem Nargun nicht seine Finger im Spiel hat. Apropo Spiel, wollen wir eins wagen?","Hast du dir jemals versucht vorzustellen was passiert, wenn Nargun nicht die magischen Konstrukte wieder in Chaos verwandeln würde? Wir könneten vor immerwährenden Zaubersprüchen keinen Schritt gehen."
-english, "temple" -> "Narguns temple is in Galmair. It's not far away from here."
-"Tempel" -> "Narguns Tempel ist in Galmair, unweit von hier."
-"god" -> "If you want to know something about the gods beside Nargun, then look for priests or ask in one of the towns."
+english, "nargun" -> "We should praise him. How about a game?", "I really can't understand why people do not praise him. He's the one, who decides if anything might happen or not. Nothing begins without the help of Nargun. By the way, we could begin a game.", "Have you ever thought about what would happen if Nargun does not turn arcane structures back again into chaos? You couldn't walk around without stepping in any endless lasting spell."
+"nargun" -> "Ihn sollte man preisen. Warum nicht mit einem Spielchen?","Ehrlich, ich kann nicht verstehen, warum die Leute ihn nicht ehren wollen. Er entscheidet, ob irgendetwas passiert oder auch nicht. Es gibt keinen Anfang, bei dem Nargun nicht seine Finger im Spiel hat. Apropos Spiel, wollen wir eins wagen?","Hast du dir jemals versucht vorzustellen was passiert, wenn Nargun nicht die magischen Konstrukte wieder in Chaos verwandeln würde? Wir könnten vor immerwährenden Zaubersprüchen keinen Schritt gehen."
+english, "temple" -> "Nargun's temple is in Galmair. It's not far away from here. *He grins and points to the top."
+"Tempel" -> "Narguns Tempel ist in Galmair, unweit von hier. *Er grinst und zeigt nach oben*"
+"god" -> "If you want to know something about gods beside Nargun, then look for priests or ask in one of the towns."
 "Gott", "Götter" -> "Wenn du etwas über die anderen Götter neben Nargun wissen möchtest, dann suche einen Priester oder frage jemanden in den Städten."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
-"my name" -> "Fine... you want want a game? Dice or coin?"
-"mein Name" -> "Schön... und ihr wollt ein Spielchen? Würfel oder Münze?"
+"my name" -> "Fine... do you want to play a game? Dice or coin?"
+"mein Name" -> "Schön... und willst du ein Spiel wagen? Würfel oder Münze?"
 english, "Xiao Gongzou" -> "Yes, that is my name. But how about a game?"
 "Xiao Gongzou" -> "Ja, das ist mein Name. Aber warum wollen wir nicht ein Spielchen wagen?"
-"Yes" -> "A bit more precise, please!", "These ansher Nargun would like."
-"Ja" -> "Etwas konkreter wenn ich bitten darf!", "Eine Antwort, die Nargun gefallen würde."
-"No" -> "A bit more precise, please!", "These answer Nargun would like."
-"Nein" -> "Etwas konkreter wenn ich bitten darf!", "Eine Antwort, die Nargun gefallen würde."
+"Yes" -> "A bit more precise, please!", "Nargun would like this answer."
+"Ja" -> "Etwas konkreter, wenn ich bitten darf!", "Eine Antwort, die Nargun gefallen würde."
+"No" -> "A bit more precise, please!", "Nargun would like this answer."
+"Nein" -> "Etwas konkreter, wenn ich bitten darf!", "Eine Antwort, die Nargun gefallen würde."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Pitch-and-toss ... let's nargun decide if we play!", "The luck favours yourself. Why not try to roll the dice?"
-german, chance(20.0), ".*" -> "Kopf oder Zahl ... lasst Nargun entscheiden ob ihr spielt.", "Das Glück ist auf Eurer Seite. Warum nicht einfach mal würfeln?"
+english, chance(20.0), ".*" -> "Pitch-and-toss ... let's Nargun decide if we play!", "The luck favours yourself. Why not try to roll the dice?"
+german, chance(20.0), ".*" -> "Kopf oder Zahl ... lasst Nargun entscheiden, ob du spielst.", "Das Glück ist auf deiner Seite. Warum nicht einfach mal würfeln?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Kommt und versucht Euer Glück. Es wird euer Schaden nicht sein!", "Come and play. You will win, I'm sure."
+cycletext "Kommt und versuch dein Glück. Es wird dein Schaden nicht sein!", "Come and play. You will win, I'm sure."
 cycletext "#me spielt mit einem Würfel.", "#me plays with a dice."
 cycletext "#me mischt ein Kartendeck.", "#me mixes some cards."
 cycletext "#me wirft eine Münze.", "#me flips a coin."
@@ -366,4 +366,4 @@ cycletext "#me zählt verstohlen ein paar Münzen.", "#me covertly counts some c
 cycletext "#me untersucht einen Würfel.", "#me examines a dice."
 cycletext "#me würfelt für sich selber.", "#me rolls the dice for himself."
 cycletext "#me schaut sich unbeteiligt die Leute an.", "#me examines the people around."
-cycletext "#me stapelt einige Münzen vor sich", "#me staples some coins in front of himself on the table"
+cycletext "#me stapelt einige Münzen vor sich", "#me staples some coins in front of himself on the table."
