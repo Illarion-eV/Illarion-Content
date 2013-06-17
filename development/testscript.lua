@@ -273,7 +273,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 
 	Defender.Char:inform("Original damage "..Globals.Damage);
 
-    Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 250);
+    Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 100);
 
 	Defender.Char:inform("Damage post armour reduction "..Globals.Damage);
 
