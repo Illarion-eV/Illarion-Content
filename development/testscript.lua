@@ -496,7 +496,7 @@ function CalculateDamage(Attacker, Globals)
 
 	--Crit bonus
 	if Globals.criticalHit>0 then
-		CritBonus=1.2;
+		CritBonus=1.5;
 	end;
 
 	--The Global Damage Factor (GDF). Adjust this to change how much damage is done per hit on all attacks.
