@@ -134,7 +134,7 @@ function onAttack(Attacker, Defender)
     ShowEffects(Attacker, Defender, Globals);
     
     -- Teach the attacker the skill he earned for his success
-    LearnSuccess(Attacker, Defender, APreduction)
+    LearnSuccess(Attacker, Defender, APreduction, Globals)
 end;
 
 --------------------------------------------------------------------------------
@@ -718,11 +718,13 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	end;
 
 	if ParrySuccess then
-		LearnParry(Attacker, Defender, Globals.AP)
-		PlayParrySound(Attacker, Defender)
-		Defender.Char:performAnimation(9);
-		WeaponDegrade(Attacker, Defender, parryItem);
-		Counter(Attacker,Defender);
+		if(parryWeapon.Level<=Defender.parry) then
+			LearnParry(Attacker, Defender, Globals.AP)
+		end
+			PlayParrySound(Attacker, Defender)
+			Defender.Char:performAnimation(9);
+			WeaponDegrade(Attacker, Defender, parryItem);
+			Counter(Attacker,Defender);
 		return false;
 	else
 		return true;
@@ -1301,17 +1303,26 @@ end;
 -- attack skill as well as the tactics skill.
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
-function LearnSuccess(Attacker, Defender, AP)
+function LearnSuccess(Attacker, Defender, AP, Globals)
 --debug("          NOW LEARNING att: "..Attacker.Skillname..", "..(AP/3)..", "..(math.max(Defender.dodge, Defender.parry) + 20));
 	if not Defender.DefenseSkillName then
 		if Attacker.Skillname then
-			Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.parry) + 20);
+			if(Attacker.WeaponLevel<=Attacker.skill) then
+				Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Defender.parry,Attacker.WeaponLevel) + 20);
+			end
 		end
 	else
 		if Attacker.Skillname then
-			Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.DefenseSkill, Defender.parry) + 20);
+			Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Attacker.WeaponLevel,math.max(Defender.DefenseSkill, Defender.parry)) + 20);
 		end
-		Defender.Char:learn(Defender.DefenseSkillName,AP/2,Attacker.skill+20);
+
+		local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
+
+		if(armourfound) then
+			if(armour.Level<=Defender.DefenseSkill) then
+				Defender.Char:learn(Defender.DefenseSkillName,AP/2,math.min(armour.Level,Attacker.skill)+20);
+			end
+		end
 	end;
     
 --debug("          DONE LEARNING");    
