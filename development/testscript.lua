@@ -271,15 +271,9 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     end;
 
 
-	Defender.Char:inform("Original damage "..Globals.Damage);
-
     Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 150);
 
-	Defender.Char:inform("Damage post armour reduction "..Globals.Damage);
-
 	Globals.Damage = skillmod*Globals.Damage;
-
-	Defender.Char:inform("Damage post skill reduction "..Globals.Damage);
 
     Globals.Damage = math.max(0, Globals.Damage);
 end;
@@ -506,7 +500,7 @@ function CalculateDamage(Attacker, Globals)
 	end;
 
 	--The Global Damage Factor (GDF). Adjust this to change how much damage is done per hit on all attacks.
-	local GlobalDamageFactor = 1/250;
+	local GlobalDamageFactor = 1/150;
 
     Globals["Damage"] = GlobalDamageFactor*BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus);
    
