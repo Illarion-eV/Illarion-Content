@@ -418,7 +418,8 @@ function MergeSkill(User)
 
 		if success then
 					selected = dialog:getSelectedIndex()
-					local newskillValue = math.floor((User:getSkill(25)+User:getSkill(23))/2);
+					--local newskillValue = math.floor((User:getSkill(25)+User:getSkill(23))/2);
+					local newskillValue = User:getSkill(23);
 					local skillValue=User:getSkill(targetSkill[selected+1]); --reading the skill points
      			    User:increaseSkill(targetSkill[selected+1],newskillValue-skillValue); 
 					User:increaseSkill(25,-User:getSkill(25)); 

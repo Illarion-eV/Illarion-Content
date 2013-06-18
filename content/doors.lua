@@ -280,6 +280,9 @@ function initDoors()
     --AddDoor( -44, 143, -8,  X07) -- Irundar Castle - Storage Room
     --AddDoor( -49, 142, -8,  X08); -- Irundar Castle - Tower
 	
+	--Warlocks Well
+	AddDoor({558, 556, -6}, 901,"Tor","Gate");
+	AddDoor({559, 556, -6}, 901,"Tor","Gate");
 end
 
 function AddDoor(posList,lockId, lookAtEN, lookAtDE, lockedOnreload)

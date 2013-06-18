@@ -134,7 +134,7 @@ function onAttack(Attacker, Defender)
     ShowEffects(Attacker, Defender, Globals);
     
     -- Teach the attacker the skill he earned for his success
-    LearnSuccess(Attacker, Defender, APreduction)
+    LearnSuccess(Attacker, Defender, APreduction, Globals)
 end;
 
 --------------------------------------------------------------------------------
@@ -157,9 +157,9 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 	local armourValue = 0;
 
 	local skillmod = 1;
-	local qualitymod = 0.91+0.02*math.floor(Globals.HittedItem.quality/100);
+	local qualitymod = 0.82+0.02*math.floor(Globals.HittedItem.quality/100);
 
-    if armourfound then
+    --[[if armourfound then
 		skillmod = 1-Defender.DefenseSkill/250;
         if (Attacker.AttackKind == 0) then --wrestling
             armourValue = armour.ThrustArmor;
@@ -172,7 +172,47 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         elseif (Attacker.AttackKind == 4) then --distance
             armourValue = armour.PunctureArmor;
         end;
-    end;
+    end;]]
+
+	--Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
+	
+	local ArmourDefenseScalingFactor = 2;
+	local GeneralScalingFactor = 2.8;
+
+	if armourfound then
+		skillmod = 1-Defender.DefenseSkill/250;
+		if (Attacker.AttackKind == 0 or Attacker.AttackKind == 2) then --wrestling/conc
+			if (armour.Type==2) then -- Light armour
+				armourValue = armour.Level;
+			elseif(armour.Type==3) then -- Medium armour
+				armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
+			elseif(armour.Type==4) then -- Heavy armour
+				armourValue = armour.Level/(ArmourDefenseScalingFactor);
+			elseif(armour.Type==1) then -- General armour
+				armourValue = armour.Level/GeneralScalingFactor;
+			end;
+		elseif (Attacker.AttackKind == 1) then -- Slash
+			if (armour.Type==2) then -- Light armour
+				armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
+			elseif(armour.Type==3) then -- Medium armour
+				armourValue = armour.Level;
+			elseif(armour.Type==4) then -- Heavy armour
+				armourValue = armour.Level/(ArmourDefenseScalingFactor);
+			elseif(armour.Type==1) then -- General armour
+				armourValue = armour.Level/GeneralScalingFactor;
+			end;
+		elseif (Attacker.AttackKind == 3 or Attacker.AttackKind == 4) then -- Puncture
+			if (armour.Type==2) then -- Light armour
+				armourValue = armour.Level/(ArmourDefenseScalingFactor);
+			elseif(armour.Type==3) then -- Medium armour
+				armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
+			elseif(armour.Type==4) then -- Heavy armour
+				armourValue = armour.Level;
+			elseif(armour.Type==1) then -- General armour
+				armourValue = armour.Level/GeneralScalingFactor;
+			end;
+		end;
+	end;
 
 	local Noobmessupmalus = 5; -- Amount that armour value is divided by if your skill isn't high enough to use this armour.
 	--No level implemented yet, for now derive it from the armour value.
@@ -206,47 +246,17 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 		armourValue=0;
 	end;
 
-	--Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
-	local ArmourDefenseScalingFactor = 2;
-	local GeneralScalingFactor = 2.5;
+	-- This Armour Scaling Factor (ASF) is important. You can think of it like this:
+	-- If ASF = 5, the top armour in the game is 5x as good as the worst armour in the game
+	local ArmourScalingFactor = 5;
+
+	if(armourValue>0) then
+		armourValue = (100/ArmourScalingFactor) + armourValue*(1-1/ArmourScalingFactor);
+	end
 
     armourfound, armour = world:getNaturalArmor(Defender.Race);
-	if armourfound then
-		if (Attacker.AttackKind == 0 or Attacker.AttackKind == 2) then --wrestling/conc
-			if (armour.Type==2) then -- Light armour
-				armourValue = armourValue + armour.Level;
-			elseif(armour.Type==3) then -- Medium armour
-				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
-			elseif(armour.Type==4) then -- Heavy armour
-				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor);
-			elseif(armour.Type==1) then -- General armour
-				armourValue = armourValue + armour.Level/GeneralScalingFactor;
-			end;
-		elseif (Attacker.AttackKind == 1) then -- Slash
-			if (armour.Type==2) then -- Light armour
-				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
-			elseif(armour.Type==3) then -- Medium armour
-				armourValue = armourValue + armour.Level;
-			elseif(armour.Type==4) then -- Heavy armour
-				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor);
-			elseif(armour.Type==1) then -- General armour
-				armourValue = armourValue + armour.Level/GeneralScalingFactor;
-			end;
-		elseif (Attacker.AttackKind == 3 or Attacker.AttackKind == 4) then -- Puncture
-			if (armour.Type==2) then -- Light armour
-				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor);
-			elseif(armour.Type==3) then -- Medium armour
-				armourValue = armourValue + armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
-			elseif(armour.Type==4) then -- Heavy armour
-				armourValue = armourValue + armour.Level;
-			elseif(armour.Type==1) then -- General armour
-				armourValue = armourValue + armour.Level/GeneralScalingFactor;
-			end;
-		end;
-	end;
 
-
-    --[[if armourfound then
+    if armourfound then
         if (Attacker.AttackKind == 0) then --wrestling
             armourValue = armourValue + armour.thrustArmor;
         elseif (Attacker.AttackKind == 1) then --slashing
@@ -258,15 +268,10 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         elseif (Attacker.AttackKind == 4) then --distance
             armourValue = armourValue + armour.punctureArmor;
         end;
-    end;]]
+    end;
 
-	-- This Armour Scaling Factor (ASF) is important. You can think of it like this:
-	-- If ASF = 5, the top armour in the game is 5x as good as the worst armour in the game
-	local ArmourScalingFactor = 5;
 
-	armourValue = (100/ArmourScalingFactor) + armourValue*(1-1/ArmourScalingFactor);
-
-    Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 250);
+    Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 140);
 
 	Globals.Damage = skillmod*Globals.Damage;
 
@@ -491,11 +496,11 @@ function CalculateDamage(Attacker, Globals)
 
 	--Crit bonus
 	if Globals.criticalHit>0 then
-		CritBonus=2;
+		CritBonus=1.5;
 	end;
 
 	--The Global Damage Factor (GDF). Adjust this to change how much damage is done per hit on all attacks.
-	local GlobalDamageFactor = 1/100;
+	local GlobalDamageFactor = 1/180;
 
     Globals["Damage"] = GlobalDamageFactor*BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus);
    
@@ -509,7 +514,7 @@ end;
 
 function CauseDamage(Attacker, Defender, Globals)
 
-	Globals.Damage=Globals.Damage*(math.random(8,12)/10); --Damage is randomised: 80-120%
+	Globals.Damage=Globals.Damage*(math.random(9,10)/10); --Damage is randomised: 80-120%
 	
 	Globals.Damage=math.min(Globals.Damage,4999); --Damage is capped at 4999 Hitpoints to prevent "one hit kills"
 	
@@ -695,9 +700,9 @@ function HitChanceFlux(Attacker, Defender, Globals)
         parryChance = parryChance + (defenderdefense) / 5; --0-20% bonus by the weapon/shield
 		parryChance = parryChance * qualitymod;
 
-		--if(parryItem.Level>Defender.parry) then
-			--parryChance = parryChance/5;
-		--end
+		if(parryWeapon.Level>Defender.parry) then
+			parryChance = parryChance/5;
+		end
 
 		parryChance = math.min(math.max(parryChance,5),95); -- Min and max parry are 5% and 95% respectively
 		
@@ -713,11 +718,13 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	end;
 
 	if ParrySuccess then
-		LearnParry(Attacker, Defender, Globals.AP)
-		PlayParrySound(Attacker, Defender)
-		Defender.Char:performAnimation(9);
-		WeaponDegrade(Attacker, Defender, parryItem);
-		Counter(Attacker,Defender);
+		if(parryWeapon.Level<=Defender.parry) then
+			LearnParry(Attacker, Defender, Globals.AP)
+		end
+			PlayParrySound(Attacker, Defender)
+			Defender.Char:performAnimation(9);
+			WeaponDegrade(Attacker, Defender, parryItem);
+			Counter(Attacker,Defender);
 		return false;
 	else
 		return true;
@@ -1020,7 +1027,7 @@ function GetArmourType(Defender, Globals)
 		Defender["DefenseSkillName"] = Character.lightArmour;
 	else
 		Defender["DefenseSkillName"] = false;
-		Defender["DefenseSkill"] = false;
+		Defender["DefenseSkill"] = 0;
 		return false;
 	end;
 
@@ -1296,17 +1303,26 @@ end;
 -- attack skill as well as the tactics skill.
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
-function LearnSuccess(Attacker, Defender, AP)
+function LearnSuccess(Attacker, Defender, AP, Globals)
 --debug("          NOW LEARNING att: "..Attacker.Skillname..", "..(AP/3)..", "..(math.max(Defender.dodge, Defender.parry) + 20));
 	if not Defender.DefenseSkillName then
 		if Attacker.Skillname then
-			Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.parry) + 20);
+			if(Attacker.Weapon.Level<=Attacker.skill) then
+				Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Defender.parry,Attacker.Weapon.Level) + 20);
+			end
 		end
 	else
 		if Attacker.Skillname then
-			Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.DefenseSkill, Defender.parry) + 20);
+			Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Attacker.Weapon.Level,math.max(Defender.DefenseSkill, Defender.parry)) + 20);
 		end
-		Defender.Char:learn(Defender.DefenseSkillName,AP/2,Attacker.skill+20);
+
+		local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
+
+		if(armourfound) then
+			if(armour.Level<=Defender.DefenseSkill) then
+				Defender.Char:learn(Defender.DefenseSkillName,AP/2,math.min(armour.Level,Attacker.skill)+20);
+			end
+		end
 	end;
     
 --debug("          DONE LEARNING");    
