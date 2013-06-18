@@ -48,6 +48,14 @@ function callEffect( Effect, Char ) -- Effect is called
 		end
 	    --Addition end
 		
+		--Addition by Estralis: Quest 160/161 (Runewick daily missions)
+	    theQuestStatus=Char:getQuestProgress(161);
+	
+		if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
+			Char:setQuestProgress(161,theQuestStatus-1); --cooling!
+		end
+	    --Addition end
+		
 		--Addition by Estralis: Quest 127/128/129 Caravan of Honour (Phillip Molitor) Cooldown
 	    theQuestStatus=Char:getQuestProgress(129);
 	
