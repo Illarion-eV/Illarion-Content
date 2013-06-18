@@ -144,7 +144,7 @@ function UseItem(User, SourceItem, ltstate)
 		
 		for _,player in ipairs(players) do
 			germanRank, englishRank = base.factions.getRank(player, true)
-				if germanRank, englishRank = nil then
+				if germanRank = nil or englishRank = nil then
 					germanRank = "Vogelfrei"
 					englishRank = "Outlaw"
 				end
