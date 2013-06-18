@@ -1307,13 +1307,13 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 --debug("          NOW LEARNING att: "..Attacker.Skillname..", "..(AP/3)..", "..(math.max(Defender.dodge, Defender.parry) + 20));
 	if not Defender.DefenseSkillName then
 		if Attacker.Skillname then
-			if(Attacker.WeaponLevel<=Attacker.skill) then
-				Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Defender.parry,Attacker.WeaponLevel) + 20);
+			if(Attacker.Weapon.Level<=Attacker.skill) then
+				Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Defender.parry,Attacker.Weapon.Level) + 20);
 			end
 		end
 	else
 		if Attacker.Skillname then
-			Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Attacker.WeaponLevel,math.max(Defender.DefenseSkill, Defender.parry)) + 20);
+			Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Attacker.Weapon.Level,math.max(Defender.DefenseSkill, Defender.parry)) + 20);
 		end
 
 		local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
