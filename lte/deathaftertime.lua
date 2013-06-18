@@ -20,6 +20,14 @@ function callEffect(Effect, Character)
    if findDeathSound then -- if we have defined a sound for the death
         world:makeSound(deathSound,posOfVic)
    end
+   findBlood, blood = Effect:findValue("blood")
+   if findBlood then
+	    if not world:isItemOnField(posOfVic) then
+			Blood = world:createItemFromId(3101, 1, posOfVic, true, 333, nil)
+			Blood.wear = 2
+			world:changeItem(Blood)
+		end
+    end
    Character:increaseAttrib("hitpoints",-10000) -- die!
    return false
 -- callEffect is only needed once, no return true necessary

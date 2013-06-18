@@ -68,7 +68,8 @@ end;
 -- @param deathAfter The period of time after which the character dies in 1/10 sec
 -- @param deathGfx The GFX shown on the characters' death, nil for no GFX
 -- @param deathSound The sound played on characters' death, nil for no sound
-function DeathAfterTime(Character,deathAfter,deathGfx,deathSound)
+-- @param blood Boolean determining if blood is dropped or not
+function DeathAfterTime(Character,deathAfter,deathGfx,deathSound,blood)
     find, myEffect = Character.effects:find(36)
 	if find then 
 	    return
@@ -79,7 +80,10 @@ function DeathAfterTime(Character,deathAfter,deathGfx,deathSound)
         end
 		if deathSound ~= nil then
 		    myEffect:addValue("deathSound",deathSound)  
-		end	  
+		end	 
+	    if blood then
+			myEffect:addValue("blood",1)
+		end
 		Character.effects:addEffect(myEffect)
     end
 end	
