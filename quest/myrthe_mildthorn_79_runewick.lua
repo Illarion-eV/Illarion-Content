@@ -54,10 +54,10 @@ Description[GERMAN][18] =  "Kehre zurück zu Myrthe Mildthorn und berichte ihr vo
 Description[ENGLISH][18] = "Return to Myrthe Mildthorn and tell her about the dogs."
 Description[GERMAN][19] = "Kehre zurück zu Myrthe Mildthorn und frage, ob sie noch eine Aufgabe für dich hat."
 Description[ENGLISH][19] = "Go back to Myrthe Mildthorn, she is sure to have another task for you." 
-Description[GERMAN][20] = "Gehe in den Wald und suche die Spinne. Wenn man bedenkt dass Myrthe ein halbling ist wird diese riesige Spinne vielleicht doch nicht so groß sein. Bedenke, dass Spinnen sich auch etwas weiter nördlich befinden können."
-Description[ENGLISH][20] = "Go to woods and search for the spider. Considering Myrthe being a halfing this giant spider might not be that big. Keep in mind that spiders are moving so maybe you should search north of the cave as well."
+Description[GERMAN][20] = "Gehe in den Wald und sucht die Spinne. Wenn man bedenkt dass Myrthe ein halbling ist wird diese riesige Spinne vielleicht doch nicht so groß sein. Bedenke dass Spinnen sich auch etwas weiter nördlich zu suchen."
+Description[ENGLISH][20] = "Go to woods and search the spider. Considering Myrthe being a halfing this giant spider might not be that big. Keep in mind that spiders are moving so maybe you should search north of the web as well."
 Description[GERMAN][21] = "Du hast alle Aufgaben von Myrthe Mildthorn erfüllt."
-Description[ENGLISH][12] = "You have fulfilled all the tasks for Myrthe Mildthorn." 
+Description[ENGLISH][21] = "You have fulfilled all the tasks for Myrthe Mildthorn." 
 
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
