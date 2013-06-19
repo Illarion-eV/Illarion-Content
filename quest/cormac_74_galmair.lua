@@ -18,7 +18,7 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Cormac ist immer noch durstig. Bring ihm einen vollen Krug Bier."
 Description[ENGLISH][1] = "Cormac is still thirsty so bring him a full mug of beer."
-Description[GERMAN][2] = "Jetzt fühlt sich Cormac ein bisschen gesprächiger. Du kannst ihm nun alle Fragen stellen die du hast."
+Description[GERMAN][2] = "Jetzt fühlt sich Cormac ein bisschen gesprächiger. Du kannst ihm nun alle Fragen stellen, die du hast."
 Description[ENGLISH][2] = "Now Cormac is feeling a bit more talkative you can ask him any questions you might have."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
