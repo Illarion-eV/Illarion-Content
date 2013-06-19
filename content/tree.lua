@@ -36,7 +36,7 @@ function InitTree()
 	AddTree({752,378,0},"","", 1,5); ]]--
 	--Galmair
 	AddTree({376,288,0},"Der Schleimige Setzling - Dieser Säumling verbreitet nicht nur einen üblen Geruch, sondern ist auch mit Schleim überzogen, welcher von ihm heruntertropft.","The Glutinous Seedling - This seedling does not only bruits a bad smell but is also covered by slime, which drops down.", 12,0);
-	AddTree({3,3,0},"Der Schleimige Setzling - Dieser Säumling verbreitet nicht nur einen üblen Geruch, sondern ist auch mit Schleim überzogen, welcher von ihm heruntertropft.","The Glutinous Seedling - This seedling does not only bruits a bad smell but is also covered by slime, which drops down.", 1,0);
+	AddTree({4,4,0},"Der Schleimige Setzling - Dieser Säumling verbreitet nicht nur einen üblen Geruch, sondern ist auch mit Schleim überzogen, welcher von ihm heruntertropft.","The Glutinous Seedling - This seedling does not only bruits a bad smell but is also covered by slime, which drops down.", 12,0);
 	--Gnuremground
 --[[	AddTree({578,708,0},"","", 1,5);
 	AddTree({576,712,0},"","", 1,5);
