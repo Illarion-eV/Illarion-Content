@@ -19,9 +19,9 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Gehe in die Gruft und entzünde mindestens eines der Ehrenlichter, dann kehre zu Gregor Remethar zurück."
-Description[ENGLISH][1] = "Go to the crypt and enlighten at leanst one of the lights infront of the unrs, then return back to Gregor Remethar."
+Description[ENGLISH][1] = "Go to the crypt and light at leanst one of the lights infront of the unrs, then return to Gregor Remethar."
 Description[GERMAN][2] = "Gehe in die Gruft und entzünde mindestens eines der Ehrenlichter erneut, dann kehre zu Gregor Remethar zurück."
-Description[ENGLISH][2] = "Go to the crypt and enlighten at leanst one of the lights infront of the unrs again, then return back to Gregor Remethar."
+Description[ENGLISH][2] = "Go to the crypt and light at leanst one of the lights infront of the unrs again, then return to Gregor Remethar."
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

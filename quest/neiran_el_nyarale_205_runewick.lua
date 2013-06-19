@@ -19,7 +19,7 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Spende Gegenstände oder Münzen für die Schatzkammer Runewicks. Lege dafür den Gegenstand auf das markierte Feld neben Neiran. Kehre dann zu Neiran el Nyarale zurück."
-Description[ENGLISH][1] = "Donate items or coins for runewick Treasury. Put the item on the bordered area next to Neiran. Than go back to Neiran el Nyarale."
+Description[ENGLISH][1] = "Donate items or coins for Runewicks treasury. Put the item on the bordered area next to Neiran. Than go back to Neiran el Nyarale."
 Description[GERMAN][2] = "Du hast schon einmal für Runewick gespendet, dies sollte dich aber nicht davon abhalten, weiter Gegenstände oder Münzen für deine Stadt zu spenden."
 Description[ENGLISH][2] = "You have already donated to Runewick. But nevertheless you can donate more items or coins for your town." 
 
