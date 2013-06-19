@@ -969,7 +969,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(644, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Ruzusss");
+talkEntry:addTrigger("Ruzus");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest 'Find Ruzusss 2' started] Try to find Ruzusss and take him the sibanac leaves to get your reward."));
 talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(644, "=", 1));
@@ -979,7 +979,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(644, "<", 1));
-talkEntry:addTrigger("Ruzusss");
+talkEntry:addTrigger("Ruzus");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest 'Finde Ruzusss 2' gestartet] Finde Ruzusss und bringe ihm die Sibanacblätter um deine Belohnung zur erhalten."));
 talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(644, "=", 1));
@@ -989,13 +989,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Ruzusss");
+talkEntry:addTrigger("Ruzus");
 talkEntry:addResponse("You can find him in Cadomyr and he knows several places in the southwest, thus around Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ruzusss");
+talkEntry:addTrigger("Ruzus");
 talkEntry:addResponse("Den findet man in Cadomyr und der kennt sämtliche Orte im Südwesten, sprich um Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
