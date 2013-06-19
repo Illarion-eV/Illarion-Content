@@ -27,6 +27,16 @@ function callEffect(Effect, Character)
 			Blood.wear = 2
 			world:changeItem(Blood)
 		end
+		for x=-1,1 do
+			for y=-1,1 do
+				local bloodPos=position( posOfVic.x+x, posOfVic.y+y, posOfVic.z ) )
+				if not world:isItemOnField(bloodPos) then
+					Blood = world:createItemFromId(3101, 1, bloodPos, true, 333, nil)
+					Blood.wear = 2
+					world:changeItem(Blood)
+				end
+			end
+		end
     end
    Character:increaseAttrib("hitpoints",-10000) -- die!
    return false
