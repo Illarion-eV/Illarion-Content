@@ -33,11 +33,11 @@ Description[ENGLISH][6] = "You have fulfilled all the tasks for Lilith Needlehan
     
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(852, 792, 0), position(894, 762, 0} -- Sheeps
+QuestTarget[1] = {position(852, 792, 0), position(894, 762, 0)} -- Sheeps
 QuestTarget[2] = {position(894, 762, 0)} -- Lilith Needlehand 
-QuestTarget[3] = {position(911, 783, 0), position(894, 762, 0} -- spinning wheel
+QuestTarget[3] = {position(911, 783, 0), position(894, 762, 0)} -- spinning wheel
 QuestTarget[4] = {position(894, 762, 0)} -- Lilith Needlehand 
-QuestTarget[5] = {position(909, 778, 0), position(894, 762, 0} -- barrel
+QuestTarget[5] = {position(909, 778, 0), position(894, 762, 0)} -- barrel
 QuestTarget[6] = {position(894, 762, 0)} -- Lilith Needlehand 
      
 -- Insert the quest status which is reached at the end of the quest

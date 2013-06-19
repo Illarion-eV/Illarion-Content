@@ -35,7 +35,7 @@ QuestTarget[4] = {position(941, 790, 0)}
 
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 
+FINAL_QUEST_STATUS = 4
 
 
 function QuestTitle(user)
