@@ -8,8 +8,8 @@ ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 Title = {}
-Title[GERMAN] = "Finde Borgate Northoff im Gasthaus zur Hanfschlinge (Spinnen Maul)"
-Title[ENGLISH] = "Find Borgate Northoff in the Hemp Necktie Inn (Spider's Mouth)"
+Title[GERMAN] = "Der Spieler von Galmair"
+Title[ENGLISH] = "The Gambler from Galmair"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
@@ -18,8 +18,21 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sage Xiao ob du um 'wenig'(1Silber), 'normal'(10 Silber) oder 'viel' (1 Gold) Geld spielen willst."
 Description[ENGLISH][1] = "Tell Xiao for how much you want to play. Use 'single'(1 silver), 'few'(10 silver) or 'many'(1 Gold) coins."
-Description[GERMAN][2] = "Du hast Borgate gefunden. Da kannst nun das eine oder andere Bier bei ihm bestellen, wenn du magst."
-Description[ENGLISH][2] = "You have found Borgate. If you like, you can order a beer from him now."
+Description[GERMAN][10] = "Würfelspiel um ein Silberstück.\nSage '1', '2' ... '6' für deine Auswahl oder brich das Spiel ab mit 'Stop' oder 'Ende'."
+Description[ENGLISH][10] = "Dice game for one silver coin.\nUse '1', '2' ... '6' to start or break up the game by using 'stop' or 'end'."
+Description[GERMAN][20] = "Würfelspiel um zehn Silberstücks.\nSage '1', '2' ... '6' für deine Auswahl oder brich das Spiel ab mit 'Stop' oder 'Ende'."
+Description[ENGLISH][20] = "Dice game for ten silver coins.\nUse '1', '2' ... '6' to start or break up the game by using 'stop' or 'end'."
+Description[GERMAN][30] = "Würfelspiel um ein Goldstück.\nSage '1', '2' ... '6' für deine Auswahl oder brich das Spiel ab mit 'Stop' oder 'Ende'."
+Description[ENGLISH][30] = "Dice game for one gold coin.\nUse '1', '2' ... '6' to start or break up the game by using 'stop' or 'end'."
+Description[GERMAN][100] = "Sage Xiao ob du um 'wenig'(1Silber), 'normal'(10 Silber) oder 'viel' (1 Gold) Geld spielen willst."
+Description[ENGLISH][100] = "Tell Xiao for how much you want to play. Use 'single'(1 silver), 'few'(10 silver) or 'many'(1 Gold) coins."
+Description[GERMAN][101] = "Münzspiel um ein Silberstück.\nSage 'Kopf', 'Zahl', 'Rand' oder brich das Spiel ab mit 'Stop' oder 'Ende'."
+Description[ENGLISH][101] = "Coin game for one silver coin.\nUse 'heads', 'tails', 'other' or break up the game by using 'stop' or 'end'."
+Description[GERMAN][102] = "Münzspiel um zehn Silberstücke.\nSage 'Kopf', 'Zahl', 'Rand' oder brich das Spiel ab mit 'Stop' oder 'Ende'."
+Description[ENGLISH][102] = "Coin game for ten silver coins.\nUse 'heads', 'tails', 'other' or break up the game by using 'stop' or 'end'."
+Description[GERMAN][103] = "Münzspiel um ein Goldstück.\nSage 'Kopf', 'Zahl', 'Rand' oder brich das Spiel ab mit 'Stop' oder 'Ende'."
+Description[ENGLISH][103] = "Coin game for one gold coin.\nUse 'heads', 'tails', 'other' or break up the game by using 'stop' or 'end'."
+
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
