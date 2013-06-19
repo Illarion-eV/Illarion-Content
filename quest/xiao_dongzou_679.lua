@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (679, 'npc.xiao_dongzou_679');
 
 require("base.common")
-module("npc.xiao_dongzou_679", package.seeall)
+module("quest.xiao_dongzou_679", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
