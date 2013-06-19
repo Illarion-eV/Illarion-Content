@@ -619,7 +619,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 11));
-talkEntry:addResponse("Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just north of here on the other side of the hedge.");
+talkEntry:addResponse("Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just north of here on the other side of the bridge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -628,7 +628,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 10));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 11));
-talkEntry:addResponse("Nana Winterbutter, eine größartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich nördlich von hier finden, auf der anderen Seite der Hecke.");
+talkEntry:addResponse("Nana Winterbutter, eine größartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich nördlich von hier finden, auf der anderen Seite der Brücke.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -638,7 +638,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 11));
-talkEntry:addResponse("Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just north of here on the other side of the hedge.");
+talkEntry:addResponse("Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just north of here on the other side of the bridge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -649,7 +649,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 11));
-talkEntry:addResponse("Nana Winterbutter, eine größartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich nördlich von hier finden, auf der anderen Seite der Hecke.");
+talkEntry:addResponse("Nana Winterbutter, eine größartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich nördlich von hier finden, auf der anderen Seite der Brücke.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -658,7 +658,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 11));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just north of here on the other side of the hedge.");
+talkEntry:addResponse("Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just north of here on the other side of the bridge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -666,7 +666,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 11));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Nana Winterbutter, eine größartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich nördlich von hier finden, auf der anderen Seite der Hecke.");
+talkEntry:addResponse("Nana Winterbutter, eine größartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich nördlich von hier finden, auf der anderen Seite der Brücke.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -675,7 +675,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 11));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just north of here on the other side of the hedge.");
+talkEntry:addResponse("Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just north of here on the other side of the bridge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -685,7 +685,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Nana Winterbutter, eine größartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich nördlich von hier finden, auf der anderen Seite der Hecke.");
+talkEntry:addResponse("Nana Winterbutter, eine größartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich nördlich von hier finden, auf der anderen Seite der Brücke.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
