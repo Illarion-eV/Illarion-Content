@@ -832,7 +832,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Dice Game] Use '1', '2' ... '6' for your selection or break up the game by using 'stop' or 'end'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(679, "=", 30));
-talkEntry:addResponse("What's your tip now? One, two, two, three, four, five or six?");
+talkEntry:addResponse("What's your tip now? One, two, three, four, five or six?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1315,7 +1315,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Dice Game] Use '1', '2' ... '6' for your selection or break up the game by using 'stop' or 'end'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(679, "=", 30));
-talkEntry:addResponse("What's your tip now? One, two, two, three, four, five or six?");
+talkEntry:addResponse("What's your tip now? One, two, three, four, five or six?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1736,7 +1736,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Dice Game] Use '1', '2' ... '6' for your selection or break up the game by using 'stop' or 'end'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(679, "=", 30));
-talkEntry:addResponse("What's your tip now? One, two, two, three, four, five or six?");
+talkEntry:addResponse("What's your tip now? One, two, three, four, five or six?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
