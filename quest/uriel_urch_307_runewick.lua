@@ -16,19 +16,19 @@ Title[ENGLISH] = "Tales and Swords"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Besorge einen Bierkrug und bringe ihn Uriel. Du kannst einen Bierkrug vom HÃ¤ndler kaufen oder fÃ¼lle Bier aus einer Flasche in einen leeren Krug. Bier kann man mit einen KochlÃ¶ffel am Weinfass herstellen."
+Description[GERMAN][1] = "Besorge einen Bierkrug und bringe ihn Uriel. Du kannst einen Bierkrug vom Händler kaufen oder fülle Bier aus einer Flasche in einen leeren Krug. Bier kann man mit einen Kochlöffel am Weinfass herstellen."
 Description[ENGLISH][1] = "Produce a beer mug and bring it to Uriel. Yu can buy a beer mug from a merchant or fill beer from a bottle into a mug. You can brew beer with a cooking spoon on a wine barrel."
 Description[GERMAN][2] = "Frag doch Uriel nach seiner Geschichte."
 Description[ENGLISH][2] = "Ask Uriel for his story."
-Description[GERMAN][3] = "Besorge noch einen Bierkrug und bringe ihn Uriel. Du kannst einen Bierkrug vom HÃ¤ndler kaufen oder fÃ¼lle Bier aus einer Flasche in einen leeren Krug. Bier kann man am Weinfass herstellen."
+Description[GERMAN][3] = "Besorge noch einen Bierkrug und bringe ihn Uriel. Du kannst einen Bierkrug vom Händler kaufen oder fülle Bier aus einer Flasche in einen leeren Krug. Bier kann man am Weinfass herstellen."
 Description[ENGLISH][3] = "Produce a beer mug and bring it to Uriel. Yu can buy a beer mug from a merchant or fill beer from a bottle into a mug. You can brew beer with a cooking spoon on a wine barrel."
 Description[GERMAN][4] = "Frag doch Uriel nach seiner Geschichte."
 Description[ENGLISH][4] = "Ask Uriel for his story."
-Description[GERMAN][5] = "Besorge noch einen Bierkrug und bringe ihn Uriel. Du kannst einen Bierkrug vom HÃ¤ndler kaufen oder fÃ¼lle Bier aus einer Flasche in einen leeren Krug. Bier kann man am Weinfass herstellen."
+Description[GERMAN][5] = "Besorge noch einen Bierkrug und bringe ihn Uriel. Du kannst einen Bierkrug vom Händler kaufen oder fülle Bier aus einer Flasche in einen leeren Krug. Bier kann man am Weinfass herstellen."
 Description[ENGLISH][5] = "Produce a beer mug and bring it to Uriel. Yu can buy a beer mug from a merchant or fill beer from a bottle into a mug. You can brew beer with a cooking spoon on a wine barrel."
 Description[GERMAN][6] = "Spreche Uriel noch einmal an."
 Description[ENGLISH][6] = "Talk to Uriel once more."
-Description[GERMAN][7] = "Du hast Uriel Bier gebracht und seiner Geschichte gelauscht. Danke dafÃ¼r."
+Description[GERMAN][7] = "Du hast Uriel Bier gebracht und seiner Geschichte gelauscht. Danke dafür."
 Description[ENGLISH][7] = "You have bought beer to Uriel and have listened his story. Thanks for that."
 
 

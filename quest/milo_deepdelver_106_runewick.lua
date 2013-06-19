@@ -16,9 +16,9 @@ Title[ENGLISH] = "Milo's ox"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Besorge zehn Karotten und bringe sie Milo. Du kannst sie entweder am Feld anbauen oder beim HÃ¤ndler kaufen."
+Description[GERMAN][1] = "Besorge zehn Karotten und bringe sie Milo. Du kannst sie entweder am Feld anbauen oder beim Händler kaufen."
 Description[ENGLISH][1] = "Produce ten carrots and bring them back to Milo. You can plant seeds on the fields or buy them from a merchant."
-Description[GERMAN][2] = "Du hast Milo seine Karotten gebracht. Jetzt kann er nach Hause zurÃ¼ck kehren."
+Description[GERMAN][2] = "Du hast Milo seine Karotten gebracht. Jetzt kann er nach Hause zurück kehren."
 Description[ENGLISH][2] = "You brought Milo the carrots. Now he can go home." 
 
  

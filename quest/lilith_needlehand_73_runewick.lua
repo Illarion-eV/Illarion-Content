@@ -3,6 +3,8 @@
 require("base.common")
 module("quest.lilith_needlehand_73_runewick", package.seeall)
      
+	 
+	 
 GERMAN = Player.german
 ENGLISH = Player.english
      

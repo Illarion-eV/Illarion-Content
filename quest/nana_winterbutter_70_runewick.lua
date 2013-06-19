@@ -1,11 +1,12 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (70, 'quest.nana_ninterbutter_70_runewick');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (70, 'quest.nana_winterbutter_70_runewick');
      
 require("base.common")
-module("quest.nana_ninterbutter_70_runewick", package.seeall)
+module("quest.nana_winterbutter_70_runewick", package.seeall)
      
 GERMAN = Player.german
 ENGLISH = Player.english
      
+	 
 -- Insert the quest title here, in both languages
 Title = {}
 Title[GERMAN] = "Eibenthal"
@@ -16,21 +17,21 @@ Title[ENGLISH] = "Yewdale"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Baue Getreide an und bringe Nana zehn GetreidebÃ¼ndel. SÃ¤he dafÃ¼r Getreide auf dem Feld an und ernte das fertige Getreide mit einer Sense."
+Description[GERMAN][1] = "Baue Getreide an und bringe Nana zehn Getreidebündel. Sähe dafür Getreide auf dem Feld an und ernte das fertige Getreide mit einer Sense."
 Description[ENGLISH][1] = "Produce ten bundles of grain and bring them back to Nana. You can seed grain on the fields and harvest the ripen grain with a scythe."
-Description[GERMAN][2] = "Kehre zurÃ¼ck zu Nana Winterbutter und frage, ob sie noch eine Aufgabe fÃ¼r dich hat."
+Description[GERMAN][2] = "Kehre zurück zu Nana Winterbutter und frage, ob sie noch eine Aufgabe für dich hat."
 Description[ENGLISH][2] = "Go back to Nana Winterbutter, she is sure to have another task for you." 
 Description[GERMAN][3] = "Besorge zwanzig Tomaten und bringe sie Nana. Tomaten kann man am Feld anpflanzen und mit der Sichel ernten."
 Description[ENGLISH][3] = "Produce twenty tomatos and bring them back to Nana. You can plant tomato seeds on the fields and harvest the ripen plants with a sickle." 
-Description[GERMAN][4] = "Kehre zurÃ¼ck zu Nana Winterbutter und frage, ob sie noch eine Aufgabe fÃ¼r dich hat."
+Description[GERMAN][4] = "Kehre zurück zu Nana Winterbutter und frage, ob sie noch eine Aufgabe für dich hat."
 Description[ENGLISH][4] = "Go back to Nana Winterbutter, she is sure to have another task for you."  
-Description[GERMAN][5] = "Besorge fÃ¼nf Zwiebeln und bringe sie Nana. Zwiebeln kann man am Feld anpflanzen und mit der Sichel ernten."
+Description[GERMAN][5] = "Besorge fünf Zwiebeln und bringe sie Nana. Zwiebeln kann man am Feld anpflanzen und mit der Sichel ernten."
 Description[ENGLISH][5] = "Produce five onions and bring them back to Nana. You can plant onion seeds on the fields and harvest the ripen plants with a sickle."  
-Description[GERMAN][6] = "Kehre zurÃ¼ck zu Nana Winterbutter und frage, ob sie noch eine Aufgabe fÃ¼r dich hat."
+Description[GERMAN][6] = "Kehre zurück zu Nana Winterbutter und frage, ob sie noch eine Aufgabe für dich hat."
 Description[ENGLISH][6] = "Go back to Nana Winterbutter, she is sure to have another task for you." 
 Description[GERMAN][7] = "Besorge zehn Fische und bringe sie Nana. Stelle dich ans Wasser und benutze die Angel um Fische zu fangen."
 Description[ENGLISH][7] = "Produce ten fishes and bring them back to Nana. Place yourself next to the water and use a fishing rod to fish."
-Description[GERMAN][8] = "Du hast alle Aufgaben von Nana Winterbutter erfÃ¼llt."
+Description[GERMAN][8] = "Du hast alle Aufgaben von Nana Winterbutter erfüllt."
 Description[ENGLISH][8] = "You have fulfilled all the tasks for Nana Winterbutter." 
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

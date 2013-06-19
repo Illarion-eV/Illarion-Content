@@ -6,7 +6,9 @@ module("quest.gregor_remethar_105_runewick", package.seeall)
 GERMAN = Player.german
 ENGLISH = Player.english
 
+
 -- Insert the quest title here, in both languages
+
 Title = {}
 Title[GERMAN] = "Ein Licht am Ende des Tunnels"
 Title[ENGLISH] = "A light at the end of the tunnel"

@@ -6,6 +6,8 @@ module("quest.baldo_proudtoe_118_runewick", package.seeall)
 GERMAN = Player.german
 ENGLISH = Player.english
 
+
+
 -- Insert the quest title here, in both languages
 Title = {}
 Title[GERMAN] = "Die Gärten von Runewick"
