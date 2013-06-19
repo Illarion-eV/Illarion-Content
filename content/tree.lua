@@ -25,6 +25,7 @@ function InitTree()
     -- 9 = autum tree
     --10 = spring tree
     --11 = summer tree
+    --12 = eldan seedling
  
     --Adron's Covert
 	AddTree({734,764,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);
@@ -32,9 +33,11 @@ function InitTree()
 	AddTree({754,764,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);
 	AddTree({754,770,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, chop, chop!", 6,5);
 	--[[--Bramus REst
-	AddTree({752,378,0},"","", 1,5);
+	AddTree({752,378,0},"","", 1,5); ]]--
+	--Galmair
+	AddTree({376,288,0},"Der Schleimige Setzling - Dieser Säumling verbreitet nicht nur einen üblen Geruch, sondern ist auch mit Schleim überzogen, welcher von ihm heruntertropft.","The Glutinous Seedling - This seedling does not only bruits a bad smell but is also covered by slime, which drops down.", 12,0);
 	--Gnuremground
-	AddTree({578,708,0},"","", 1,5);
+--[[	AddTree({578,708,0},"","", 1,5);
 	AddTree({576,712,0},"","", 1,5);
 	AddTree({568,714,0},"","", 1,5);
 	AddTree({565,712,0},"","", 1,5);
@@ -115,5 +118,7 @@ function DirToItemID(Value)
 	return 962
     elseif (Value==41) then
 	return 963
+    elseif (Value==42) then
+	return 589
 	end
 end

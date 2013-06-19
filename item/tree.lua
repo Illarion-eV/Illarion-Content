@@ -7,7 +7,7 @@ require("alchemy.base.teacher")
 
 module("item.tree", package.seeall)
 
--- UPDATE common SET com_script='item.tree' WHERE com_itemid IN (308, 586, 1804, 1807, 1808, 1809, 1817, 960, 961, 962, 963);
+-- UPDATE common SET com_script='item.tree' WHERE com_itemid IN (308, 586, 1804, 1807, 1808, 1809, 1817, 960, 961, 962, 963, 589);
 
 function UseItem(User, SourceItem, ltstate)
     -- alchemy stuff
