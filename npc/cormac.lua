@@ -351,7 +351,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Galmair"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 1));
-talkEntry:addResponse("Hol' mir mal 'ne Flasche Bier sonst streik ich hier!");
+talkEntry:addResponse("Hol' mir mal 'nen Krug Bier sonst streik ich hier!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -409,7 +409,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Frage");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Galmair"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 1));
-talkEntry:addResponse("Hol' mir mal 'ne Flasche Bier sonst streik ich hier!");
+talkEntry:addResponse("Hol' mir mal 'nen Krug Bier sonst streik ich hier!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
