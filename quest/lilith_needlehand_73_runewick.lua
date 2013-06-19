@@ -1,7 +1,7 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (73, 'quest.Lilith_Needlehand_73_runewick');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (73, 'quest.lilith_needlehand_73_runewick');
      
 require("base.common")
-module("quest.Lilith_Needlehand_73_runewick", package.seeall)
+module("quest.lilith_needlehand_73_runewick", package.seeall)
      
 GERMAN = Player.german
 ENGLISH = Player.english

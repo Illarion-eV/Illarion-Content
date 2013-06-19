@@ -1,7 +1,7 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (70, 'quest.Nana_Winterbutter_70_runewick');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (70, 'quest.nana_ninterbutter_70_runewick');
      
 require("base.common")
-module("quest.Nana_Winterbutter_70_runewick", package.seeall)
+module("quest.nana_ninterbutter_70_runewick", package.seeall)
      
 GERMAN = Player.german
 ENGLISH = Player.english
