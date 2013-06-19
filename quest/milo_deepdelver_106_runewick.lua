@@ -1,4 +1,4 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (73, 'quest.milo_deepdelver_106_runewick');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (106, 'quest.milo_deepdelver_106_runewick');
      
 require("base.common")
 module("quest.milo_deepdelver_106_runewick", package.seeall)

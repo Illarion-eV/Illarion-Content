@@ -1,4 +1,4 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (118, 'quest.gregor_remethar_105_runewick');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (105, 'quest.gregor_remethar_105_runewick');
 
 require("base.common")
 module("quest.gregor_remethar_105_runewick", package.seeall)
