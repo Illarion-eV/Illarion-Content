@@ -7,6 +7,7 @@ module("quest.madeline_clarbelis_333_runewick", package.seeall)
 GERMAN = Player.german
 ENGLISH = Player.english
      
+	
 -- Insert the quest title here, in both languages
 Title = {}
 Title[GERMAN] = "Der faule Lehrling"
@@ -18,8 +19,8 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[ENGLISH][1] = "Bring four foot leaf from fern on grass and two firnisblossom from a flower in the wood. "
-Description[GERMAN][1] = "Besorge vier Fussblatt und zwei Firnisblüten. Fussblatt findest Du im Farn auf Gras und Firnisblüte in einer Blume im Wald. "
-Description[GERMAN][2] = "Du hast die Aufgabe von Madeline Clarbelis erfüllt."
+Description[GERMAN][1] = "Besorge vier Fussblatt und zwei Firnisbl?ten. Fussblatt findest Du im Farn auf Gras und Firnisbl?te in einer Blume im Wald. "
+Description[GERMAN][2] = "Du hast die Aufgabe von Madeline Clarbelis erf?llt."
 Description[ENGLISH][2] = "You have fulfilled the task of Madeline Clarbelis." 
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
