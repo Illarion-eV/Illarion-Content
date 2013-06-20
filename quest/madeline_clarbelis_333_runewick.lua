@@ -1,8 +1,9 @@
-﻿-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (333, 'quest.madeline_clarbelis_333_runewick');
-     
+﻿-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (113, 'quest.madeline_clarbelis_333_runewick');
+
 require("base.common")
-module("quest.madeline_clarbelis_333_runewick", package.seeall)
-     
+module("quest.madeline_clarbelis_333_runewick", package.seeall)	
+	
+	
 GERMAN = Player.german
 ENGLISH = Player.english
      
