@@ -1,4 +1,4 @@
-ï»¿-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (113, 'quest.madeline_clarbelis_333_runewick');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (333, 'quest.madeline_clarbelis_333_runewick');
 
 require("base.common")
 module("quest.madeline_clarbelis_333_runewick", package.seeall)	
@@ -19,8 +19,8 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[ENGLISH][1] = "Bring four foot leaf from fern on grass and two firnisblossom from a flower in the wood. "
-Description[GERMAN][1] = "Besorge vier Fussblatt und zwei Firnisbl?ten. Fussblatt findest Du im Farn auf Gras und Firnisbl?te in einer Blume im Wald. "
-Description[GERMAN][2] = "Du hast die Aufgabe von Madeline Clarbelis erf?llt."
+Description[GERMAN][1] = "Besorge vier Fussblatt und zwei Firnisblüten. Fussblatt findest Du im Farn auf Gras und Firnisblüten in einer Blume im Wald. "
+Description[GERMAN][2] = "Du hast die Aufgabe von Madeline Clarbelis erfüllt."
 Description[ENGLISH][2] = "You have fulfilled the task of Madeline Clarbelis." 
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
