@@ -17,9 +17,9 @@ require("server.standardfighting");
 module("test.envi", package.seeall)
 
 licenceRunewickPos={};
-licenceRunewickPos[X]={20,10};
-licenceRunewickPos[Y]={10,10};
-licenceRunewickPos[Z]={0,0};
+licenceRunewickPosX={20,10};
+licenceRunewickPosY={10,10};
+licenceRunewickPosZ={0,0};
 
 function MovetoField(char)
 	base.common.InformNLS(char,"Noch nicht.","Not yet.");
@@ -34,8 +34,8 @@ function licence(char)
 	else
 		char:inform("Faction: "..getMembership(char),"Faction: "..getMembership(char))
 		char:inform("Quest812: "..char:getQuestProgress(812),"Quest812: "..char:getQuestProgress(812))
-		for i = 1,table.getn(licenceRunewickPos[X]) do
-			local licenceRunewickDistance = char:distanceMetricToPosition ( licenceRunewickPos[X][i], licenceRunewickPos[X][i], licenceRunewickPos[Z][i] )			
+		for i = 1,table.getn(licenceRunewickPosX) do
+			local licenceRunewickDistance = char:distanceMetricToPosition ( licenceRunewickPosX[i], licenceRunewickPosX[i], licenceRunewickPosZ[i] )			
 			if licenceRunewickDistance < 5 then
 				char:inform("Range: Yes, in range" ..licenceRunewickPos[X][i] "," ..licenceRunewickPos[X][i] "," ..licenceRunewickPos[Z][i],"Range: Yes, in range" ..licenceRunewickPos[X][i] "," ..licenceRunewickPos[X][i] "," ..licenceRunewickPos[Z][i])
 				base.common.InformNLS(char,"Du solltest eine Lizenz erwerbern.","You should purchase a licence.");
