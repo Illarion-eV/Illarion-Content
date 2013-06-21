@@ -110,7 +110,7 @@ function PotionAnalysis(User, gem, brew, ltstate)
 end
 
 function AnalysisOfBrew(User, gem, brew, ltstate)
-
+User:inform("debug")
     local isAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
 	if not isAlchemist then
         User:inform("Nur jene, die die Kunst der Alchemie beherrschen vermögen zu analysieren.","Only those who have been introduced to the art of alchemy are able to analyse.")
@@ -123,7 +123,7 @@ function AnalysisOfBrew(User, gem, brew, ltstate)
 	                )
 		return
     end
-	
+	User:inform("debug 2")
 	-- for every possible substance, we create the proper informs
     local analysisResultDE
 	local analysisResultEN
