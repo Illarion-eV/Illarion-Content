@@ -207,10 +207,10 @@ town=cadomyr, "rosaline", "edwards" -> "Ihr solltet ihr nicht mitteilen, dass du
 "Königin" -> "Interessiert ihr euch wirklich für sie?"
 english, "rosaline", "edwards" -> "Do you really care about her?"
 "rosaline", "edwards" -> "Interessiert ihr euch wirklich für sie?"
-english, sex = male, "Cadomyr" -> "Cadomyr? If you want to become Baron, I can help you."
-sex = male, "Cadomyr" -> "Cadomyr? Wenn ihr Baron werden möchtet, dann kann ich euch dabei helfen."
-english, sex = female, "Cadomyr" -> "Cadomyr? If you want to become Baroness, I can help you."
-sex = female, "Cadomyr" -> "Cadomyr? Wenn ihr Baronin werden möchtet, dann kann ich euch dabei helfen."
+english, sex=male, "Cadomyr" -> "Cadomyr? If you want to become Baron, I can help you."
+sex=male, "Cadomyr" -> "Cadomyr? Wenn ihr Baron werden möchtet, dann kann ich euch dabei helfen."
+english, sex=female, "Cadomyr" -> "Cadomyr? If you want to become Baroness, I can help you."
+sex=female, "Cadomyr" -> "Cadomyr? Wenn ihr Baronin werden möchtet, dann kann ich euch dabei helfen."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "#w Psst, nice name. To your information. I counterfeit documents. Interested? Say 'deal' and I will 'promote' you to the next rank of your town. Say 'counterfeit' and I provide you with more details."
