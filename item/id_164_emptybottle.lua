@@ -124,7 +124,7 @@ function GetSlimeFromTree(User, SourceItem)
 		data.filledWith="meraldilised slime"
 		User:createItem(327, 1, 0, data)
 	else
-	    SourceItem.id = 372
+	    SourceItem.id = 327
 		SourceItem:setData("filledWith","meraldilised slime")
 		world:changeItem(SourceItem)
 	end
