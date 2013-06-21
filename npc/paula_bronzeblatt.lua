@@ -220,7 +220,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("deal");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader] You received a map for a small treasure."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader] You received a treasure map. You will have to go to the surface in order to read it."));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 300));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
@@ -230,7 +230,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("deal");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler] Du hast eine Karte für einen kleinen Schatz erhalten."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler] Du hast eine Schatzkarte erhalten. Um sie lesen zu können, wirst du nach oben gehen müssen."));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 300));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
