@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -306,7 +306,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Fischen für Echsen"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 1));
 talkEntry:addResponse("Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie müsssen roh sssein. Kochen verdirbt das Esssen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -316,7 +316,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak II"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Fishing For Lizards"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 1));
 talkEntry:addResponse("Zss. You wisssh to help Kaitza? He isss ssso hungry. Pleassse, bring me ten trout. Zey mussst be raw, cooking ruinsss ze fisssh.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -327,7 +327,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Fischen für Echsen"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 1));
 talkEntry:addResponse("Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie müsssen roh sssein. Kochen verdirbt das Esssen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -411,7 +411,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Fischen für Echsen II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 3));
 talkEntry:addResponse("Ja. Szzz. Die Forellen waren ausssgesprochen lecker, Zss. Jetzzzt möchte Kaitza ein paar Lachsssfische verspeisssen. Bringt mir fünf Sssstück.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -432,7 +432,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Fischen für Echsen II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 3));
 talkEntry:addResponse("Ja. Szzz. Die Forellen waren ausssgesprochen lecker, Zss. Jetzzzt möchte Kaitza ein paar Lachsssfische verspeisssen. Bringt mir fünf Sssstück.");
 talkingNPC:addTalkingEntry(talkEntry);

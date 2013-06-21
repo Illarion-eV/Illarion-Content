@@ -108,9 +108,9 @@ queststatus(333) = 9, item(281, all) > 0, ".+" -> inform("[Quest gelöst] Du erh
 
 -- Give out quest 2
 queststatus(335) = 0, english, "quest", "mission" -> inform("[New quest] Fishing For Lizards"), queststatus(335) = 1, "Zss. You wisssh to help Kaitza? He isss ssso hungry. Pleassse, bring me ten trout. Zey mussst be raw, cooking ruinsss ze fisssh."
-queststatus(335) = 0, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(335) = 1, "Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie müsssen roh sssein. Kochen verdirbt das Esssen."
-queststatus(335) = 0, "task", "adventure" -> inform("[New quest] The Ghost Oak II"), queststatus(335) = 1, "Zss. You wisssh to help Kaitza? He isss ssso hungry. Pleassse, bring me ten trout. Zey mussst be raw, cooking ruinsss ze fisssh."
-queststatus(335) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(335) = 1, "Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie müsssen roh sssein. Kochen verdirbt das Esssen."
+queststatus(335) = 0, "quest", "mission" -> inform("[Neues Quest] Fischen für Echsen"), queststatus(335) = 1, "Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie müsssen roh sssein. Kochen verdirbt das Esssen."
+queststatus(335) = 0, "task", "adventure" -> inform("[New quest] Fishing For Lizards"), queststatus(335) = 1, "Zss. You wisssh to help Kaitza? He isss ssso hungry. Pleassse, bring me ten trout. Zey mussst be raw, cooking ruinsss ze fisssh."
+queststatus(335) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Fischen für Echsen"), queststatus(335) = 1, "Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie müsssen roh sssein. Kochen verdirbt das Esssen."
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(335) = 1, item(73, all) < 10, english, "quest", "mission" -> "Zss. Sstill hungry. Bring me ten trout, Kaitza will pay. Zss."
@@ -126,9 +126,9 @@ queststatus(335) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelöst] Du erh�
 
 -- Give out quest 3
 queststatus(335) = 2, english, "quest", "mission" -> inform("[New quest] Fishing For Lizards II"), queststatus(335) = 3, "Yesss. Ze trout wasss mossst deliciousss. Now, Kaitza wantsss sssome sssalmon. Zsss. Bring me five of zem."
-queststatus(335) = 2, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche III"), queststatus(335) = 3, "Ja. Szzz. Die Forellen waren ausssgesprochen lecker, Zss. Jetzzzt möchte Kaitza ein paar Lachsssfische verspeisssen. Bringt mir fünf Sssstück."
+queststatus(335) = 2, "quest", "mission" -> inform("[Neues Quest] Fischen für Echsen II"), queststatus(335) = 3, "Ja. Szzz. Die Forellen waren ausssgesprochen lecker, Zss. Jetzzzt möchte Kaitza ein paar Lachsssfische verspeisssen. Bringt mir fünf Sssstück."
 queststatus(335) = 2, "task", "adventure" -> inform("[New quest] Fishing For Lizards II"), queststatus(335) = 3, "Yesss. Ze trout wasss mossst deliciousss. Now, Kaitza wantsss sssome sssalmon. Zsss. Bring me five of zem."
-queststatus(335) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche III"), queststatus(335) = 3, "Ja. Szzz. Die Forellen waren ausssgesprochen lecker, Zss. Jetzzzt möchte Kaitza ein paar Lachsssfische verspeisssen. Bringt mir fünf Sssstück."
+queststatus(335) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Fischen für Echsen II"), queststatus(335) = 3, "Ja. Szzz. Die Forellen waren ausssgesprochen lecker, Zss. Jetzzzt möchte Kaitza ein paar Lachsssfische verspeisssen. Bringt mir fünf Sssstück."
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(335) = 3, item(355, all) < 5, english, "quest", "mission" -> "Pleassse, you mussst bring Kaitza five deliciousss sssalmon. Do not cook zem, zey mussst be raw."

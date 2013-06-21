@@ -29,8 +29,16 @@ function UseItem(User, SourceItem, ltstate)
 		end
 		
 		FillIntoBottle(User, SourceItem, cauldron)
-	end	
+	end
+
+	-- The Glutinous Tree
+	local frontItem = base.common.GetFrontItem(User)
+	if frontItem.id == 589 and frontItem.pos == position(376,288,0) then
+	    GetSlimeFromTree(User, SourceItem)
+	end
+	
 end
+
 
 function CheckWaterEmpty(User, SourceItem, cauldron)
 
@@ -97,5 +105,28 @@ function FillIntoBottle(User, SourceItem, cauldron)
 	end
 	world:changeItem(cauldron)
 	world:makeSound(10,cauldron.pos)
+	
+end
+
+function GetSlimeFromTree(User, SourceItem)
+	
+    if ( ltstate == Action.abort ) then
+		return
+	end
+	
+	if (ltstate == Action.none) then
+	   User:startAction(50,21,5,0,0);
+	   return
+	end
+	
+	if SourceItem.number > 1 then
+		local data = {}
+		data.filledWith="meraldilised slime"
+		User:createItem(327, 1, 0, data)
+	else
+	    SourceItem.id = 372
+		SourceItem:setData("filledWith","meraldilised slime")
+		world:changeItem(SourceItem)
+	end
 	
 end
