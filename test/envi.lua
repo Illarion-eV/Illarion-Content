@@ -23,7 +23,7 @@ licenceRunewickPosZ={0,0};
 
 function MovetoField(char)
 	base.common.InformNLS(char,"Noch nicht.","Not yet.");
-	licence(char)
+--	licence(char)
 	base.common.InformNLS(char,"So weit so gut.","So far so good.");
 end
 
