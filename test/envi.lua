@@ -28,7 +28,7 @@ function MovetoField(char)
 --	licence(char)
  	base.common.InformNLS(char,"So weit so gut.","So far so good.");
 end
-
+--[[
 function licence(char)
 	if base.factions.getMembership(char) == 2 or char:getQuestProgress(812) > 0 then
 		char:inform("Faction: "..getMembership(char),"Faction: "..getMembership(char))
@@ -47,7 +47,7 @@ function licence(char)
 		end
 	end	
 end
-
+]]--
 
 --[[
 
