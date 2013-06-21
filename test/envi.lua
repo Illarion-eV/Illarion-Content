@@ -40,7 +40,7 @@ function licence(char)
 				char:inform("Range: Yes, in range" ..licenceRunewickPos[X][i] ..licenceRunewickPos[X][i] ..licenceRunewickPos[Z][i],"Range: Yes, in range" ..licenceRunewickPos[X][i] "," ..licenceRunewickPos[X][i] "," ..licenceRunewickPos[Z][i])
 				base.common.InformNLS(char,"Du solltest eine Lizenz erwerbern.","You should purchase a licence.");
 			else
-				char:inform("Range: No, out of range"licenceRunewickPos[X][i] licenceRunewickPos[X][i] licenceRunewickPos[Z][i],"Range: No, out of range" licenceRunewickPos[X][i] "," licenceRunewickPos[X][i] "," licenceRunewickPos[Z][i])
+				char:inform("Range: No, out of range" ..licenceRunewickPos[X][i].. ..licenceRunewickPos[X][i].. ..licenceRunewickPos[Z][i],"Range: No, out of range" ..licenceRunewickPos[X][i].. ..licenceRunewickPos[X][i].. ..licenceRunewickPos[Z][i])
 			end
 		end
 	end	
