@@ -28,6 +28,7 @@ Description[ENGLISH][2] = "You have already donated to Runewick. But nevertheles
 QuestTarget = {}
 QuestTarget[1] = {position(897, 779, 2), position(897, 781, 2)} 
 QuestTarget[2] = {position(897, 781, 2)}
+
      
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2

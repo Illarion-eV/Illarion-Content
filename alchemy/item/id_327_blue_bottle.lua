@@ -141,7 +141,12 @@ end
 function UseItem(User, SourceItem, ltstate)
     -- repair potion in case it's broken
 	alchemy.base.alchemy.repairPotion(SourceItem)
-	-- repair end	
+	-- repair end
+
+	if SourceItem:getData("filledWith")=="meraldilised slime" then
+	    User:inform("Die Öffnung der Flasche ist verklebt, so dass nichts des zähflüssigen Inhalts heraus kommt.",
+		            "The opening of the bottle is clotted, so that nothing of its semifluid content can flow out.")
+	end
 	
 	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else

@@ -131,6 +131,10 @@ function AnalysisOfBrew(User, gem, brew, ltstate)
 	    analysisResultDE = "Substanz: Wasser"
 		analysisResultEN = "Substance: Water"
 		
+	elseif brew:getData("filledWith")=="meraldilised slime" then
+		analysisResultDE = "Substanz: Meraldilierter Schleim"
+		analysisResultEN = "Substance: Meraldilised Slime"
+		
 	elseif brew:getData("filledWith") == "stock" then
 	    analysisResultDE, analysisResultEN = StockAnalysis(User, gem, brew, ltstate)
 		
@@ -162,14 +166,14 @@ function CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
 		-- repair potion in case it's broken
 		alchemy.base.alchemy.repairPotion(brew)
 		-- repair end
-		if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") then
+		if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or SourceItem:getData("filledWith")=="meraldilised slime" then
 	        AnalysisOfBrew(User, SourceItem, brew, ltstate)
 		else	
 	        local brew = User:getItemAt(6)
 			-- repair potion in case it's broken
 			alchemy.base.alchemy.repairPotion(brew)
 			-- repair end
-			if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") then
+			if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or SourceItem:getData("filledWith")=="meraldilised slime" then
 				AnalysisOfBrew(User, SourceItem, brew, ltstate)
 			end
         end
