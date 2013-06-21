@@ -110,7 +110,7 @@ function PotionAnalysis(User, gem, brew, ltstate)
 end
 
 function AnalysisOfBrew(User, gem, brew, ltstate)
-User:inform("debug")
+
     local isAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
 	if not isAlchemist then
         User:inform("Nur jene, die die Kunst der Alchemie beherrschen vermögen zu analysieren.","Only those who have been introduced to the art of alchemy are able to analyse.")
@@ -123,7 +123,7 @@ User:inform("debug")
 	                )
 		return
     end
-	User:inform("debug 2")
+	
 	-- for every possible substance, we create the proper informs
     local analysisResultDE
 	local analysisResultEN
@@ -166,14 +166,14 @@ function CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
 		-- repair potion in case it's broken
 		alchemy.base.alchemy.repairPotion(brew)
 		-- repair end
-		if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or SourceItem:getData("filledWith")=="meraldilised slime" then
+		if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or brew:getData("filledWith")=="meraldilised slime" then
 	        AnalysisOfBrew(User, SourceItem, brew, ltstate)
 		else	
 	        local brew = User:getItemAt(6)
 			-- repair potion in case it's broken
 			alchemy.base.alchemy.repairPotion(brew)
 			-- repair end
-			if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or SourceItem:getData("filledWith")=="meraldilised slime" then
+			if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or brew:getData("filledWith")=="meraldilised slime" then
 				AnalysisOfBrew(User, SourceItem, brew, ltstate)
 			end
         end
