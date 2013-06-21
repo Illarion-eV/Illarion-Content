@@ -388,7 +388,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 6));
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("Fälsch");
-talkEntry:addResponse("#w hr wollt den nächsten Rang für nur 300 Goldmünzen haben? Sagt 'deal' und ihr könnt es als erledigt ansehen.");
+talkEntry:addResponse("#w Ihr wollt den nächsten Rang für nur 300 Goldmünzen haben? Sagt 'deal' und ihr könnt es als erledigt ansehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
