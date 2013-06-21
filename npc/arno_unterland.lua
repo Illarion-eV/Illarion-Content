@@ -1121,8 +1121,8 @@ talkingNPC:addCycleText("#me zählt die Münzen auf seinem Tisch.", "#me counts hi
 talkingNPC:addCycleText("#me beobachtet die Anwesenden.", " observers the audience.");
 talkingNPC:addCycleText("#me isst von seinem Wurstteller.", "#me eats from his plate with sausages.");
 talkingNPC:addCycleText("#me stappelt seine Pergamentrollen.", "#me piles up his pells.");
-talkingNPC:addCycleText("Zu mir, wer eine Sicherheitskopie benötigt", "To me, if you need a backup copy.");
-talkingNPC:addCycleText("#me murmelt zu ihm selbst.", "#me mutters to himself");
+talkingNPC:addCycleText("Zu mir, wer eine Sicherheitskopie benötigt.", "To me, if you need a backup copy.");
+talkingNPC:addCycleText("#me murmelt zu ihm selbst.", "#me mutters to himself.");
 talkingNPC:addCycleText("Ob Galmair, ob Cadomyr, ob Runewick...mich interessiert das nicht solange der Preis stimmt.", "#Whether Galmair, whether Cadomyr, whether Runewick...I don't care as long as you pay enough.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
