@@ -16,12 +16,34 @@ require("lte.longterm_cooldown");
 require("server.standardfighting");
 module("test.envi", package.seeall)
 
+licenceRunewickPos={};
+licenceRunewickPos[X]={20,10};
+licenceRunewickPos[Y]={10,10};
+licenceRunewickPos[Z]={0,0};
 
-function MoveToField(char)
-	find, reg_effect = char.effects:find(81);
-	if not find then
-		char.effects:addEffect( LongTimeEffect(81,10) );
-	end
+function MovetoField(char)
+	base.common.InformNLS(char,"Noch nicht.","Not yet.");
+	licence(char)
+	base.common.InformNLS(char,"So weit so gut.","So far so good.");
+end
+
+function licence(char)
+	if base.factions.getMembership(char) == 2 or char:getQuestProgress(812) > 0 then
+		char:inform("Faction: "..getMembership(char),"Faction: "..getMembership(char))
+		char:inform("Quest812: "..char:getQuestProgress(812),"Quest812: "..char:getQuestProgress(812))
+	else
+		char:inform("Faction: "..getMembership(char),"Faction: "..getMembership(char))
+		char:inform("Quest812: "..char:getQuestProgress(812),"Quest812: "..char:getQuestProgress(812))
+		for i = 1,table.getn(licenceRunewickPos[X]) do
+			local licenceRunewickDistance = char:distanceMetricToPosition ( licenceRunewickPos[X][i], licenceRunewickPos[X][i], licenceRunewickPos[Z][i] )			
+			if licenceRunewickDistance < 5 then
+				char:inform("Range: Yes, in range"licenceRunewickPos[X][i] licenceRunewickPos[X][i] licenceRunewickPos[Z][i],"Range: Yes, in range" licenceRunewickPos[X][i] "," licenceRunewickPos[X][i] "," licenceRunewickPos[Z][i])
+				base.common.InformNLS(char,"Du solltest eine Lizenz erwerbern.","You should purchase a licence.");
+			else
+				char:inform("Range: No, out of range"licenceRunewickPos[X][i] licenceRunewickPos[X][i] licenceRunewickPos[Z][i],"Range: No, out of range" licenceRunewickPos[X][i] "," licenceRunewickPos[X][i] "," licenceRunewickPos[Z][i])
+			end
+		end
+	end	
 end
 
 
