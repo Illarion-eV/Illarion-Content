@@ -90,8 +90,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "ENGLISH1.", "ENGLISH2.", "E
 
 "test"-> queststatus(2000) = 1, "queststatus 2000 set to 1"
 
-queststatus(613) > 0, english, "deal" -> inform ("[Treasure map-trader] Currently, there is not map for available. You will be informed as soon as there is one available for you."), "Arrr, I do not have any for you today. Please come another day. I will send you a dove when I have one for you."
-queststatus(613) > 0, "deal" -> inform ("[Schatzkarten-Händler] Es gibt für dich vorerst keine weitere Karte zu erwerben. Du wirst über eine Nachricht informiert, wenn es für dich wieder möglich ist."), "Arrr, ich habe keine für dich heute. Bitte komm an einen anderen Tag. Ich werde dir eine Taube zukommen lassen, wenn ich wieder welche für dich habe."
+queststatus(613) ~= 0, english, "deal" -> inform ("[Treasure map-trader] Currently, there is not map for available. You will be informed as soon as there is one available for you."), "Arrr, I do not have any for you today. Please come another day. I will send you a dove when I have one for you."
+queststatus(613) ~= 0, "deal" -> inform ("[Schatzkarten-Händler] Es gibt für dich vorerst keine weitere Karte zu erwerben. Du wirst über eine Nachricht informiert, wenn es für dich wieder möglich ist."), "Arrr, ich habe keine für dich heute. Bitte komm an einen anderen Tag. Ich werde dir eine Taube zukommen lassen, wenn ich wieder welche für dich habe."
 english, money<10000, "deal" -> "Get enough coins first. You need ten gold."
 money<10000, "deal" -> "Du benötigst ausreichend Münzen. Zehn Goldstücke, um genau zu sein."
 english, chance(11.0), "deal" -> money - 10000, inform ("[Treasure map-trader] Bad luck, you got a fake map. Maybe you have more luck next time."), item (505,1,333), queststatus(613) = 170, "#me hands you a treasure map and smirks. 'Welcome at the black market.'"

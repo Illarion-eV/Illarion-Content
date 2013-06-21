@@ -18,6 +18,7 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
+require("npc.base.condition.money")
 require("npc.base.condition.quest")
 require("npc.base.condition.town")
 require("npc.base.consequence.deleteitem")
@@ -27,6 +28,7 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.trade")
+require("npc.base.consequence.treasure")
 require("npc.base.talk")
 require("npc.base.trade")
 module("development.envi_versuch", package.seeall)
@@ -190,6 +192,293 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("test");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(2000, "=", 1));
 talkEntry:addResponse("queststatus 2000 set to 1");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(613, "~=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader] Currently, there is not map for available. You will be informed as soon as there is one available for you."));
+talkEntry:addResponse("Arrr, I do not have any for you today. Please come another day. I will send you a dove when I have one for you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(613, "~=", 0));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler] Es gibt für dich vorerst keine weitere Karte zu erwerben. Du wirst über eine Nachricht informiert, wenn es für dich wieder möglich ist."));
+talkEntry:addResponse("Arrr, ich habe keine für dich heute. Bitte komm an einen anderen Tag. Ich werde dir eine Taube zukommen lassen, wenn ich wieder welche für dich habe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.money.money("<", 10000));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("deal");
+talkEntry:addResponse("Get enough coins first. You need ten gold.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.money.money("<", 10000));
+talkEntry:addTrigger("deal");
+talkEntry:addResponse("Du benötigst ausreichend Münzen. Zehn Goldstücke, um genau zu sein.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(11.0));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader] Bad luck, you got a fake map. Maybe you have more luck next time."));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.item.item(505, 1, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 170));
+talkEntry:addResponse("#me hands you a treasure map and smirks. 'Welcome at the black market.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(11.0));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler] Pech, du hast eine Fälschung erhalten. Viellecht hast du mehr Glück beim nächsten Mal."));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.item.item(505, 1, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 170));
+talkEntry:addResponse("#me reicht dir eine Schatzkarte und grinst. 'Willkommen am Schwarzmarkt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(12.1));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 200));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(1));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(12.1));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 200));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(1));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(13.5));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 230));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(2));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(13.5));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 230));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(2));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(15.3));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 260));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(3));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(15.3));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 260));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(3));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(17.7));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 290));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(4));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(17.7));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 290));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(4));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(21.0));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 320));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(5));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(21.0));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 320));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(5));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(26.0));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 350));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(6));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(26.0));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 350));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(6));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(34.3));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 380));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(7));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(34.3));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 380));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(7));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(51.0));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 410));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(51.0));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 410));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(100.0));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 410));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(9));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(100.0));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler]"));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 410));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(9));
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader] Something went wrong. Please try again."));
+talkEntry:addResponse("What did you say? Can you repeat it?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler] Irgendetwas ist schief gelaufen. Bitte versuche es nochmals."));
+talkEntry:addResponse("Was hast du gesagt? Kannst du es wiederholen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
