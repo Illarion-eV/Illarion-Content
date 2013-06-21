@@ -16,6 +16,30 @@ function callEffect( Effect, Char ) -- Effect is called
 
     if Char:idleTime() < 300 then --absolutely no regeneration effect if the player is afk for more than five minutes
 
+		--Addition by Envi: Quest 613 (Paula Bronzeblatt)
+	    theQuestStatus=Char:getQuestProgress(613);
+	
+		if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
+			Char:setQuestProgress(613,theQuestStatus-1); --cooling!
+			if theQuestStatus = 1 then --only for this quest. the player should know when he can do it again.
+				base.common.InformNLS(Char,"Eine Taube wirft ein Pergamentstück neben dir ab. Du liest: 'Ich sollte morgen wieder eine Schatzkarte für dich haben. -Paula Bronzeblatt'","A dove drops a parchment next to you. You read: 'I should have another treasure map for you tomorrow. -Paula Bronzeblatt'"); 
+			end
+		end
+	    --Addition end
+
+
+		--Addition by Envi: Quest 614 (Arno Unterland)
+	    theQuestStatus=Char:getQuestProgress(614);
+	
+		if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
+			Char:setQuestProgress(614,theQuestStatus-1); --cooling!
+			if theQuestStatus = 1 then --only for this quest. the player should know when he can do it again.
+				base.common.InformNLS(Char,"Eine Taube wirft ein Pergamentstück neben dir ab. Du liest: 'Morgen können wir wieder was drehen. Kommt vorbei! -Arno Unterland'","A dove drops a parchment next to you. You read: 'Tomorrow, we can do it again. Visit me! -Arno Unterland'"); 
+			end
+		end
+	    --Addition end
+
+
 		--Addition by Envi: Quest 661 (Elstree Forest)
 	    theQuestStatus=Char:getQuestProgress(661);
 	

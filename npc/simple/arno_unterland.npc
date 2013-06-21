@@ -133,12 +133,13 @@ talkMode=whisper, rank>6, "counterfeit" -> "#w I am sorry but I cannot do anythi
 talkMode=whisper, rank>6, "Fälsch" -> "#w Es tut mir leid aber ich kann nichts für euch tun. In eurem Fall würde es sehr leicht auffallen was wir hier machen."
 
 -- Check for the deal
+-- uses longterm_cooldown.lua
 english, talkMode=talk,"deal" -> "#w Whisper! Can't believe it."
 talkMode=talk,"deal" -> "#w Flüstert! Darf doch nicht wahr sein."
 english, talkMode=shout, "deal" -> "#w Whisper! Can't believe it."
 talkMode=shout, "deal" -> "#w Flüstert! Darf doch nicht wahr sein."
-queststatus(613) ~= 0, english, talkMode=whisper, "deal" -> "#w Wait, I think the last time we modified your documents was too recently. Let's wait for more time. I will send you a dove when it should work."
-queststatus(613) ~= 0, talkMode=whisper, "deal" -> "#w Wartet. Ich denke, das letzte Mal, dass wir eure Dokumente modifiziert haben, ist noch nicht allzu lange her. Lasst uns noch ein wenig warten. Ich werde euch eine Taube zukommen lassen sobald es funktionieren sollte."
+queststatus(614) ~= 0, english, talkMode=whisper, "deal" -> "#w Wait, I think the last time we modified your documents was too recently. Let's wait for more time. I will send you a dove when it should work."
+queststatus(614) ~= 0, talkMode=whisper, "deal" -> "#w Wartet. Ich denke, das letzte Mal, dass wir eure Dokumente modifiziert haben, ist noch nicht allzu lange her. Lasst uns noch ein wenig warten. Ich werde euch eine Taube zukommen lassen sobald es funktionieren sollte."
 english, talkMode=whisper, rank>6, "deal" -> "#w I am sorry but I cannot do anything for you. In your case they would easily find out what we are doing here."
 talkMode=whisper, rank>6, "deal" -> "#w Es tut mir leid aber ich kann nichts für euch tun. In eurem Fall würde es sehr leicht auffallen was wir hier machen."
 english, talkMode=whisper, rank<1, money<500000, "deal" -> "#w You need to bring more money. I want to have 50 goldcoins.  Otherwise I do not do it for you."
@@ -157,20 +158,23 @@ english, talkMode=whisper, rank<7, rank>5, money<4000000, "deal" -> "#w You need
 talkMode=whisper, rank<7, rank>5, money<4000000, "deal" -> "#w Ihr müsst mehr Geld mitbringen. Ich möchte 400 Goldmünzen für meinen Service haben. Ansonsten mache ich es nicht für euch."
 
 -- Finish the deal
-english, talkMode=whisper, rank<1, "deal" -> rankpoints + 100, "#w 50 goldcoins and there we go, my friend. I hope we see each other soon."
-talkMode=whisper, rank<1, "deal" -> rankpoints + 100, "#w 50 Goldmünzen und ist es schon passiert. Ich hoffe wir sehen uns bald wieder."
-english, talkMode=whisper, rank<2, rank>0, "deal" -> rankpoints + 100, "#w 100 goldcoins and there we go. I hope we see each other soon."
-talkMode=whisper, rank<2, rank>0, "deal" -> rankpoints + 100, "#w 100 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder."
-english, talkMode=whisper, rank<3, rank>1, "deal" -> rankpoints + 100, "#w 150 goldcoins and there we go. I hope we see each other soon."
-talkMode=whisper, rank<3, rank>1, "deal" -> rankpoints + 100, "#w 150 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder."
-english, talkMode=whisper, rank<4, rank>2, "deal" -> rankpoints + 100, "#w 200 goldcoins and there we go. I hope we see each other soon."
-talkMode=whisper, rank<4, rank>2, "deal" -> rankpoints + 100, "#w 200 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder."
-english, talkMode=whisper, rank<5, rank>3, "deal" -> rankpoints + 100, "#w 250 goldcoins and there we go. I hope we see each other soon."
-talkMode=whisper, rank<5, rank>3, "deal" -> rankpoints + 100, "#w 250 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder."
-english, talkMode=whisper, rank<6, rank>4, "deal" -> rankpoints + 100, "#w 300 goldcoins and there we go. I hope we see each other soon."
-talkMode=whisper, rank<6, rank>4, "deal" -> rankpoints + 100, "#w 300 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder."
-english, talkMode=whisper, rank<7, rank>5, "deal" -> rankpoints + 100, "#w 400 goldcoins and there we go. Unfortunatelly, I cannot help you in the future. It would be to risky."
-talkMode=whisper, rank<7, rank>5, "deal" -> rankpoints + 100, "#w 400 Goldmünzen und schon ist es passiert. Leider kann ich euch in Zukunft nicht mehr helfen. Es wäre zu riskant."
+-- uses longterm_cooldown.lua
+english, talkMode=whisper, town=none, "deal" -> money-500000, queststatus(614) = 500, "#w 50 goldcoins and I got you, hobo. Did you forget that you do not have ranks over there at the Hemp Necktie Inn? He, he."
+talkMode=whisper, town=none, "deal" -> money-500000, queststatus(614) = 500, "#w 50 Goldmünzen und ich hab dich, Penner. Hast du vergessen, dass ihr keine Ränge da drüben beim Gasthof zur Hanfschlinge habt? He, he."
+english, talkMode=whisper, rank<1, "deal" -> rankpoints + 100, money-500000, queststatus(614) = 500, "#w 50 goldcoins and there we go, my friend. I hope we see each other soon."
+talkMode=whisper, rank<1, "deal" -> rankpoints + 100, money-500000, queststatus(614) = 500, "#w 50 Goldmünzen und ist es schon passiert. Ich hoffe wir sehen uns bald wieder."
+english, talkMode=whisper, rank<2, rank>0, "deal" -> rankpoints + 100, money-1000000, queststatus(614) = 500, "#w 100 goldcoins and there we go. I hope we see each other soon."
+talkMode=whisper, rank<2, rank>0, "deal" -> rankpoints + 100, money-1000000, queststatus(614) = 500, "#w 100 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder."
+english, talkMode=whisper, rank<3, rank>1, "deal" -> rankpoints + 100, money-1500000, queststatus(614) = 500, "#w 150 goldcoins and there we go. I hope we see each other soon."
+talkMode=whisper, rank<3, rank>1, "deal" -> rankpoints + 100, money-1500000, queststatus(614) = 500, "#w 150 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder."
+english, talkMode=whisper, rank<4, rank>2, "deal" -> rankpoints + 100, money-2000000, queststatus(614) = 500, "#w 200 goldcoins and there we go. I hope we see each other soon."
+talkMode=whisper, rank<4, rank>2, "deal" -> rankpoints + 100, money-2000000, queststatus(614) = 500, "#w 200 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder."
+english, talkMode=whisper, rank<5, rank>3, "deal" -> rankpoints + 100, money-2500000, queststatus(614) = 500, "#w 250 goldcoins and there we go. I hope we see each other soon."
+talkMode=whisper, rank<5, rank>3, "deal" -> rankpoints + 100, money-2500000, queststatus(614) = 500, "#w 250 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder."
+english, talkMode=whisper, rank<6, rank>4, "deal" -> rankpoints + 100, money-3000000, queststatus(614) = 500, "#w 300 goldcoins and there we go. I hope we see each other soon."
+talkMode=whisper, rank<6, rank>4, "deal" -> rankpoints + 100, money-3000000, queststatus(614) = 500, "#w 300 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder."
+english, talkMode=whisper, rank<7, rank>5, "deal" -> rankpoints + 100, money-4000000, queststatus(614) = 500, "#w 400 goldcoins and there we go. Unfortunatelly, I cannot help you in the future. It would be to risky."
+talkMode=whisper, rank<7, rank>5, "deal" -> rankpoints + 100, money-4000000, queststatus(614) = 500, "#w 400 Goldmünzen und schon ist es passiert. Leider kann ich euch in Zukunft nicht mehr helfen. Es wäre zu riskant."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "People like me prefer praying to only to one god. Ronagan."
@@ -220,7 +224,7 @@ english, "Arno", "Unterland" -> "This is my name. Do you want my service?"
 english, chance(20.0), ".*" -> "#w Psst, I counterfeit documents. Interested? Say 'deal' and I will 'promote' you to the next rank of your town. Say 'counterfeit' and I provide you with more details."
 german, chance(20.0), ".*" -> "#w Psst, ich fälsche Dokumente. Interessiert? Sagt 'Deal' und ich werde euch zum nächsten Rang eurer Stadt verhelfen. Sagt 'Fälschung' und ich werde euch in die Details einweihen."
 
-------------------------------------------------------------------------------AC
+-------------------------------------, queststatus(613) = 300-----------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
