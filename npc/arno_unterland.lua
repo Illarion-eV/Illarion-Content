@@ -3,7 +3,7 @@
 -- NPC Job:  counterfeiter                                                    --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  252, 298, -6           --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                Illarion easyNPC Editor 1.02 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 252, 298, -6, 4, 'Arno Unterland', 'npc.arno_unterland', 1, 6, 0, 0, 0, 0, 232, 232, 232);
+VALUES (0, 252, 298, -6, 4, 'Arno Unterland', 'npc.arno_unterland', 0, 6, 0, 0, 0, 0, 232, 232, 232);
 ---]]
 
 require("npc.base.basic")
@@ -20,7 +20,6 @@ require("npc.base.condition.language")
 require("npc.base.condition.money")
 require("npc.base.condition.quest")
 require("npc.base.condition.rank")
-require("npc.base.condition.sex")
 require("npc.base.condition.talkmode")
 require("npc.base.condition.town")
 require("npc.base.consequence.inform")
@@ -867,17 +866,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("Runewick? If you want to become Docent, I can help you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick? If you want to become Docent, I can help you.");
+talkEntry:addResponse("Runewick? Wenn ihr Dozent oder Dozentin werden möchtet, dann kann ich euch dabei helfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -919,17 +915,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Galmair? If you want to become Patrician, I can help you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair? If you want to become Patrician, I can help you.");
+talkEntry:addResponse("Galmair? Wenn ihr Patrizier oder Patrizierin werden möchtet, dann kann ich euch dabei helfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -993,17 +986,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr? If you want to become Baron, I can help you.");
+talkEntry:addResponse("Cadomyr? If you want to become Baron or Baroness, I can help you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr? If you want to become Baroness, I can help you.");
+talkEntry:addResponse("Cadomyr? Wenn ihr Baron oder Baronin werden möchtet, dann kann ich euch dabei helfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
