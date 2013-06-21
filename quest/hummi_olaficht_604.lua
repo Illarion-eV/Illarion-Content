@@ -25,7 +25,7 @@ Description[ENGLISH][3] = "Have you already asked for and visited the two other 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(790, 819, 0)} -- Elesil
+QuestTarget[1] = {position(839, 816, 0)} -- Elesil
 QuestTarget[2] = {position(681, 318, 0)} -- Hummi
 
 -- Insert the quest status which is reached at the end of the quest

@@ -56,23 +56,23 @@ Description[ENGLISH][18] = "Florain Dreyndel cannot help you any further now. Ju
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(904, 827, 0)} -- Daniel
-QuestTarget[2] = {position(786, 823, 0)} -- Florain
+QuestTarget[2] = {position(833, 815, 0)} -- Florain
 QuestTarget[3] = {position(905, 780, 0)} -- Judith
-QuestTarget[4] = {position(786, 823, 0)} -- Florain
+QuestTarget[4] = {position(833, 815, 0)} -- Florain
 QuestTarget[5] = {position(900, 800, 1)} -- Zassaria
-QuestTarget[6] = {position(786, 823, 0)} -- Florain
+QuestTarget[6] = {position(833, 815, 0)} -- Florain
 QuestTarget[7] = {position(897, 781, 2 )} -- Neiran
-QuestTarget[8] = {position(786, 823, 0)} -- Florain
+QuestTarget[8] = {position(833, 815, 0)} -- Florain
 QuestTarget[9] = {position(941, 790, 0)} -- Baldo
-QuestTarget[10] = {position(786, 823, 0)} -- Florain
+QuestTarget[10] = {position(833, 815, 0)} -- Florain
 QuestTarget[11] = {position(791, 798, 0)} -- Nana
-QuestTarget[12] = {position(786, 823, 0)} -- Florain
+QuestTarget[12] = {position(833, 815, 0)} -- Florain
 QuestTarget[13] = {position(951, 766, 1)} -- Madeline
-QuestTarget[14] = {position(786, 823, 0)} -- Florain
+QuestTarget[14] = {position(833, 815, 0)} -- Florain
 QuestTarget[15] = {position(902, 773, 0)} -- Uriel
-QuestTarget[16] = {position(786, 823, 0)} -- Florain
+QuestTarget[16] = {position(833, 815, 0)} -- Florain
 QuestTarget[17] = {position(893, 756, 0)} -- Lilith
-QuestTarget[18] = {position(786, 823, 0)} -- Florain
+QuestTarget[18] = {position(833, 815, 0)} -- Florain
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 18
