@@ -144,8 +144,8 @@ function UseItem(User, SourceItem, ltstate)
 	-- repair end
 
 	if SourceItem:getData("filledWith")=="meraldilised slime" then
-	    User:inform("Die Öffnung der Flasche ist verklebt, so dass nichts des zähflüssigen Inhalts heraus kommt.",
-		            "The opening of the bottle is clotted, so that nothing of its semifluid content can flow out.")
+	    User:inform("Die Öffnung der Flasche ist von Klumpen verklebt, wodurch der zähflüssige Inhalt nicht ausfließen kann.",
+		            "The opening of the bottle is clotted by gobs, so that its semifluid content cannot flow out.")
 	end
 	
 	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
