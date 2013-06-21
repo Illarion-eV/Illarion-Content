@@ -166,7 +166,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(613, "~=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("deal");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader] Currently, there is not map for available. You will be informed as soon as there is one available for you."));
-talkEntry:addResponse("Arrr, I do not have any for you today. Please come another day. I will send you a dove when I have one for you.");
+talkEntry:addResponse("Arrr, I do not have any for you today. Please come back on another day. I will send you a dove when I have one for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -174,7 +174,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(613, "~=", 0));
 talkEntry:addTrigger("deal");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schatzkarten-Händler] Es gibt für dich vorerst keine weitere Karte zu erwerben. Du wirst über eine Nachricht informiert, wenn es für dich wieder möglich ist."));
-talkEntry:addResponse("Arrr, ich habe keine für dich heute. Bitte komm an einen anderen Tag. Ich werde dir eine Taube zukommen lassen, wenn ich wieder welche für dich habe.");
+talkEntry:addResponse("Arrr, ich habe heute keine für dich. Bitte komm an einen anderen Tag wieder. Ich werde dir eine Taube zukommen lassen, wenn ich wieder welche für dich habe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
