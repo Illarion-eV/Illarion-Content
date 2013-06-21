@@ -189,9 +189,79 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("test");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(2000, "=", 1));
-talkEntry:addResponse("queststatus 2000 set to 1");
+talkEntry:addTrigger("test1");
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(1));
+talkEntry:addResponse("karte1");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("test2");
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(2));
+talkEntry:addResponse("karte2");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("test3");
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(3));
+talkEntry:addResponse("karte3");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("test4");
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(4));
+talkEntry:addResponse("karte4");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("test5");
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(5));
+talkEntry:addResponse("karte5");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("test6");
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(6));
+talkEntry:addResponse("karte6");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("test7");
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(7));
+talkEntry:addResponse("karte7");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("test8");
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
+talkEntry:addResponse("karte8");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("test9");
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(9));
+talkEntry:addResponse("karte9");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("test10");
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(10));
+talkEntry:addResponse("karte10");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("test0");
+talkEntry:addConsequence(npc.base.consequence.item.item(505, 1, 333, nil));
+talkEntry:addResponse("karte0");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
