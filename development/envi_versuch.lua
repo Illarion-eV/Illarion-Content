@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (93, 10, 20, 0, 4, 'Envi Versuch', 'npc.envi_versuch', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (1, 10, 20, 0, 4, 'Envi Versuch', 'npc.envi_versuch', 0, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -29,7 +29,7 @@ require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
-module("development.envi_versuch", package.seeall)
+module("npc.envi_versuch", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
