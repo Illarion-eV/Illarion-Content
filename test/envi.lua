@@ -26,7 +26,7 @@ function MovetoField(char)
 --	base.common.InformNLS(char,"Noch nicht.","Not yet.");
 --	player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüsten zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have paid your taxes to the Don and he protects you!")
 --	licence(char)
---	base.common.InformNLS(char,"So weit so gut.","So far so good.");
+ 	base.common.InformNLS(char,"So weit so gut.","So far so good.");
 end
 
 function licence(char)
