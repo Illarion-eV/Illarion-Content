@@ -15,12 +15,12 @@ require("lte.createaftertime");
 require("lte.longterm_cooldown");
 require("server.standardfighting");
 module("test.envi", package.seeall)
-
+--[[
 licenceRunewickPos={};
 licenceRunewickPos[1]={20,10};
 licenceRunewickPos[2]={10,10};
 licenceRunewickPos[3]={0,0};
-
+]]--
 function MovetoField(char)
 	debug("Test ")
 --	base.common.InformNLS(char,"Noch nicht.","Not yet.");
