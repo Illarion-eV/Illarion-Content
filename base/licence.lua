@@ -58,4 +58,5 @@ function licenceCheck(char)
 			return
 		end
 	end
+	stopcraftingnolicence = false
 end
