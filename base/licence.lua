@@ -22,6 +22,7 @@ function licence(char)
 			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
 				local licencerequired = "1"
+				local licenceQuestID = "811"
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
 				licenceCheck(char)
 			end
@@ -32,6 +33,7 @@ function licence(char)
 			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
 				local licencerequired = "2"
+				local licenceQuestID = "812"
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
 				licenceCheck(char)
 			end
@@ -42,6 +44,7 @@ function licence(char)
 			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
 				local licencerequired = "3"
+				local licenceQuestID = "813"
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
 				licenceCheck(char)
 			end
@@ -50,14 +53,15 @@ function licence(char)
 end
 
 function licenceCheck(char)
-	char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
+	char:inform("licenceQuestID: " ..licenceQuestID,"licenceQuestID: " ..licenceQuestID)
+	char:inform("licenceQuestID: " ..licenceQuestID,"licenceQuestID: " ..licenceQuestID)
 	if base.factions.getMembership(char) == 0 or base.factions.getRankpoints(char) >=100 then
-		if base.factions.getMembership(char) == licencerequired or char:getQuestProgress(81 licencerequired) > 0 or char:getQuestProgress(81 licencerequired) > 0 or char:getQuestProgress(81 licencerequired) > 0 then	
+		if base.factions.getMembership(char) == licencerequired or char:getQuestProgress(licenceQuestID) > 0 then	
 			base.common.InformNLS(char,"Du hast eine Lizenz.","You habe a licence.");
 		else
 			base.common.InformNLS(char,"Du solltest eine Lizenz erwerbern.","You should purchase a licence.");
 		end
 		char:inform("Faction: " ..base.factions.getMembership(char),"Faction: " ..base.factions.getMembership(char))
-		char:inform("Quest Status: " ..char:getQuestProgress(81 licencerequired),"Quest Status: " ..char:getQuestProgress(81 licencerequired))
+		char:inform("Quest Status: " ..char:getQuestProgress(licenceQuestID),"Quest Status: " ..char:getQuestProgress(licenceQuestID))
 	end
 end
