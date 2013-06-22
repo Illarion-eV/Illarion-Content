@@ -103,7 +103,7 @@ queststatus(679) = 1, english, ".*" -> inform("[Dice Game] game aborted."), ques
 queststatus(679) = 1, ".*" -> inform("[Würfelspiel] Spiel abgebrochen."), queststatus(679) = 0, "Wie schade. Du hättest eine Menge Geld gewinnen können.", "Bist du dir sicher?", "Ach komm schon, nur ein Spielchen, bitte."
 
 -- dice 1 silver
-queststatus(679) = 10, english, "stop", "end" -> inform("[Dice Game] Game aborted."), queststatus(679) = 0, "You kept blowing hot and cold about the game, my friend.", "#me shrugs and puts the dice away.", "Usually, I wouldn't agree, but you are right. A single silver isn't enough."
+queststatus(679) = 10, english, "stop", "end" -> inform("[Dice Game] Game aborted."), queststatus(679) = 0, "You keep blowing hot and cold about the game, my friend.", "#me shrugs and puts the dice away.", "Usually, I wouldn't agree, but you are right. A single silver isn't enough."
 queststatus(679) = 10, "stop", "end" -> inform("[Würfelspiel] Spiel abgebrochen."), queststatus(679) = 0, "Weißt du überhaupt, was du willst?", "Da kann man wohl nichts machen.", "Na ja, du hast ja recht. Mit einem Silber kann man keinen Staat machen."
 queststatus(679) = 10, english, "1", "2", "3", "4", "5", "6", money<100 -> inform("[Dice Game] Game aborted."), queststatus(679) = 0, "We don't play for apples and eggs.", "Earn some money and come back!", "Do you want to betray me?", "Gaming is not for beggars!"
 queststatus(679) = 10, "1", "2", "3", "4", "5", "6", money<100 -> inform("[Würfelspiel] Spiel abgebrochen."), queststatus(679) = 0, "Ich spiel nicht fürn Apfel und nen Ei.", "Verdien erst mal ein paar Münzen!", "Willst du mich betrügen?", "Bettler sollten nicht spielen!"
