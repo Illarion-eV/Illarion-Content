@@ -53,7 +53,7 @@ function licence(char)
 end
 
 function licenceCheck(char)
-	char:inform("licenceQuestID: " ..licenceQuestID,"licenceQuestID: " ..licenceQuestID)
+	char:inform("licencerequired: " ..licencerequired,"licencerequired: " ..licencerequired)
 	char:inform("licenceQuestID: " ..licenceQuestID,"licenceQuestID: " ..licenceQuestID)
 	if base.factions.getMembership(char) == 0 or base.factions.getRankpoints(char) >=100 then
 		if base.factions.getMembership(char) == licencerequired or char:getQuestProgress(licenceQuestID) > 0 then	
