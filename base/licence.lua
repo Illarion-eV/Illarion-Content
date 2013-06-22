@@ -3,16 +3,58 @@ require("base.factions")
 
 module("base.licence", package.seeall)
 
-licenceGalmairPos={position(383,276,0),position(408,263,0),position(376,233,0)}; --Galmair workshop, alchemy hous, kitchen (Crest)
+licencePos={}
+licencePos[1]={position(150,700,0)}; --Cadomyr
+licencePos[2]={position(900,900,0)}; --Runewick
+licencePos[3]={position(383,276,0),position(408,263,0),position(376,233,0)}; --Galmair workshop, alchemy hous, 
+
+
+--licenceGalmairPos={position(383,276,0),position(408,263,0),position(376,233,0)}; --Galmair workshop, alchemy hous, kitchen (Crest)
 --licenceGalmairPos[1]="383,276,0"; --Galmair workshop
 --licenceGalmairPos[2]=408,263,0;	--Galmair alchemy hous
 --licenceGalmairPos[3]={position(376,233,0)}	--Galmair kitchen (Crest)
 
 function licence(char)
+	for x= 1,3 do
+		for i= 1,1 do --Cadomyr
+			local licencePos = licencePos[x][i]
+			local licenceGalmairDistance = char:distanceMetricToPosition (licenceGalmairPos)
+			if licenceGalmairDistance < 11 then
+				local licencerequired = "yes"
+				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
+			else
+				local licencerequired = "no"
+			end
+		end
+		for i= 1,1 do --Runewick
+			local licencePos = licencePos[x][i]
+			local licenceDistance = char:distanceMetricToPosition (licencePos)
+			if licenceGalmairDistance < 11 then
+				local licencerequired = "yes"
+				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
+			else
+				local licencerequired = "no"
+			end
+		end
+		for i= 1,3 do --Galmair
+			local licencePos = licencePos[x][i]
+			local licenceDistance = char:distanceMetricToPosition (licencePos)
+			if licenceGalmairDistance < 11 then
+				local licencerequired = "yes"
+				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
+			else
+				local licencerequired = "no"
+			end
+		end
+	end
+end
+
+function licencecheck(char)
+	local faction = base.factions.getMembership(char)
 
 	for i = 1,3 do	--set second number according to Galmairs sum of positions (current 3)
 		char:inform("i: " ..i,"i: " ..i)
-		local licenceGalmairPos = licenceGalmairPos[i]
+		local licenceGalmairPos = licenceGalmairPos[faction][i]
 		local licenceGalmairDistance = char:distanceMetricToPosition (licenceGalmairPos)
 --		local licenceGalmairDistance = char:distanceMetricToPosition (position(383,276,0))
 		if licenceGalmairDistance < 11 then
