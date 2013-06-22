@@ -43,8 +43,8 @@ function licence(char)
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
 			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
-				licencerequired = "3"
-				licenceQuestID = "813"
+				licencerequired = 3
+				licenceQuestID = 813
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
 				licenceCheck(char)
 			end
