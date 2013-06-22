@@ -746,7 +746,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("licence");
 talkEntry:addTrigger("license");
-talkEntry:addResponse("There is no need for you buy a licence, since you are citizen.");
+talkEntry:addResponse("There is no need for you to buy a licence, since you are citizen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -804,7 +804,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("alpha");
 talkEntry:addTrigger("beta");
 talkEntry:addTrigger("gamma");
-talkEntry:addResponse("There is no need for you buy a licence, since you are citizen.");
+talkEntry:addResponse("There is no need for you to buy a licence, since you are citizen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
