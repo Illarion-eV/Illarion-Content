@@ -45,7 +45,7 @@ OreList = {
 CoalItem = CreateItem(21);
 
 function UseItem(User, SourceItem, ltstate)
-	base.licence(); --checks if user is citizen or has a licence
+	base.licence(User); --checks if user is citizen or has a licence
 	content.gathering.InitGathering();
 	local oremelting = content.gathering.oremelting;
 	
