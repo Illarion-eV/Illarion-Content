@@ -796,7 +796,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("lizenz");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Lizenz] Du kannst zwischen 'Alpha', 'Beta' und 'Gamma' wählen. Alpha kostet eine Goldmünze und erlaubt dir die Nutzung der Geräte für eine Echtzeit-Stunde. Beta kostet zwei Goldmünzen für vier Echtzeit-Stunden. Gamma kostet drei Goldmünzen für acht Echtzeit-Stunden. Sage den Namen des Typen, um zu bestellen. Du kannst mehrere gleichzeitig kaufen. Diese werden dann summiert."));
-talkEntry:addResponse("Ich verkaufe drei Arten von Lizenzen. 'Alpha', 'Beta' und 'Gamma'. Mit Alpha ist es möglich, für nur eine Goldmünze unsere Geräte für eine Stunde zu nutzen. Mit Beta ist es möglich, für nur zwei Goldmünzen unsere Geräte für neun Stunden zu nutzen. Und mit Gamma ist es möglich, für nur drei Goldmünzen unsere Geräte für einen Tag zu nutzen. Welche möchtet ihr?");
+talkEntry:addResponse("Ich verkaufe drei Arten von Lizenzen. 'Alpha', 'Beta' und 'Gamma'. Mit Alpha ist es möglich, unsere Geräte für eine Stunde zu einem Preis von einer Goldmünze zu nutzen. Mit Beta ist es möglich, unsere Geräte für neun Stunden zu einem Preis von zwei Goldmünzen zu nutzen. Und mit Gamma ist es möglich, unsere Geräte für einen Tag zu einem Preis von zwei Goldmünzen zu nutzen. Welche möchtet ihr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
