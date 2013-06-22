@@ -67,5 +67,3 @@ end
 function QuestFinalStatus()
     return FINAL_QUEST_STATUS
 end
-AL_QUEST_STATUS
-end
