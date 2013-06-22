@@ -19,7 +19,6 @@ function licence(char)
 		for i= 1,AmountCad do
 			local licencePos = licencePosCad[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
-			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
 				licencerequired = 1
 				licenceQuestID = 811
@@ -31,7 +30,6 @@ function licence(char)
 		for i= 1,AmountRun do
 			local licencePos = licencePosRun[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
-			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
 				licencerequired = 2
 				licenceQuestID = 812
@@ -43,7 +41,6 @@ function licence(char)
 		for i= 1,AmountGal do
 			local licencePos = licencePosGal[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
-			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
 				licencerequired = 3
 				licenceQuestID = 813
