@@ -1781,7 +1781,7 @@ talkEntry:addTrigger("single");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Coin Game] Flipping coin for one silver. Use 'heads', 'tails', 'other' or break up the game by using 'stop' or 'end'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(679, "=", 101));
 talkEntry:addResponse("Not much, but a win is a win. What's your tip?");
-talkEntry:addResponse("Heads is great but tails is more than fine. Which side of the coin will be visible?");
+talkEntry:addResponse("A high number is great but a small one is more than fine. Which side of the coin will be visible?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
