@@ -9,7 +9,7 @@ licenceGalmairPos={position(383,276,0),position(408,263,0),position(376,233,0)};
 --licenceGalmairPos[3]={position(376,233,0)}	--Galmair kitchen (Crest)
 
 function licence(char)
-	local i = 1
+	local i = 3
 	base.common.InformNLS(char,"test","test");
 	char:inform("i: " ..i,"i: " ..i)
 	local licenceGalmairPos = licenceGalmairPos[i]
@@ -25,7 +25,6 @@ function licence(char)
 			else
 				base.common.InformNLS(char,"Du solltest eine Lizenz erwerbern.","You should purchase a licence.");
 			end
---			local getMembershiplicence = base.factions.getMembership(char)	
 			char:inform("Faction: " ..base.factions.getMembership(char),"Faction: " ..base.factions.getMembership(char))
 			char:inform("Quest812: " ..char:getQuestProgress(812),"Quest812: " ..char:getQuestProgress(812))
 		else
