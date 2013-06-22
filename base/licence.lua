@@ -25,8 +25,9 @@ function licence(char)
 			else
 				base.common.InformNLS(char,"Du solltest eine Lizenz erwerbern.","You should purchase a licence.");
 			end
-			char:inform("Faction: "..getMembership(char),"Faction: "..getMembership(char))
-			char:inform("Quest812: "..char:getQuestProgress(812),"Quest812: "..char:getQuestProgress(812))
+--			local getMembershiplicence = base.factions.getMembership(char)	
+			char:inform("Faction: " ..base.factions.getMembership(char),"Faction: " ..base.factions.getMembership(char))
+			char:inform("Quest812: " ..char:getQuestProgress(812),"Quest812: " ..char:getQuestProgress(812))
 		else
 --			char:inform("Range: No, out of range" ..licenceGalmairPos,"Range: No, out of range" ..licenceGalmairPos)
 			char:inform("Range: No, out of range","Range: No, out of range")
