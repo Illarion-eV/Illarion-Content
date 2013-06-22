@@ -47,7 +47,10 @@ CoalItem = CreateItem(21);
 function UseItem(User, SourceItem, ltstate)
 	base.licence.licence(User); --checks if user is citizen or has a licence, future
 	if stopcraftingnolicence then
+	base.common.InformNLS(char,"ja","yes")
 	return
+	else
+	base.common.InformNLS(char,"nein","no")
 	end
 	content.gathering.InitGathering();
 	local oremelting = content.gathering.oremelting;
