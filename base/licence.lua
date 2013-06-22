@@ -23,7 +23,6 @@ function licence(char)
 			if licenceDistance < 11 then
 				licencerequired = 1
 				licenceQuestID = 811
-				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
 				licenceCheck(char)
 			end
 		end
@@ -34,7 +33,6 @@ function licence(char)
 			if licenceDistance < 11 then
 				licencerequired = 2
 				licenceQuestID = 812
-				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
 				licenceCheck(char)
 			end
 		end
@@ -45,10 +43,13 @@ function licence(char)
 			if licenceDistance < 11 then
 				licencerequired = 3
 				licenceQuestID = 813
-				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
 				licenceCheck(char)
 			end
 		end
+	local testCad = table.getn(licencePosCad)
+	local testGal = table.getn(licencePosGal)
+	char:inform("testCad: " ..testCad,"testCad: " ..testCad)
+	char:inform("testGal: " ..testGal,"testGal: " ..testGal)
 --	end
 end
 
@@ -56,7 +57,7 @@ function licenceCheck(char)
 	char:inform("licencerequired: " ..licencerequired,"licencerequired: " ..licencerequired)
 	char:inform("licenceQuestID: " ..licenceQuestID,"licenceQuestID: " ..licenceQuestID)
 	if base.factions.getMembership(char) == 0 or base.factions.getRankpoints(char) >=100 then
-		if base.factions.getMembership(char) == licencerequired or char:getQuestProgress(81 licencerequired) > 0 then	
+		if base.factions.getMembership(char) == licencerequired or char:getQuestProgress(licenceQuestID) > 0 then	
 			base.common.InformNLS(char,"Du hast eine Lizenz.","You habe a licence.");
 		else
 			base.common.InformNLS(char,"Du solltest eine Lizenz erwerbern.","You should purchase a licence.");
