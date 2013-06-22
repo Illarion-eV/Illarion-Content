@@ -56,7 +56,7 @@ function licenceCheck(char)
 	if base.factions.getMembership(char) == 0 or base.factions.getRankpoints(char) >=100 then
 		if base.factions.getMembership(char) == licencerequired or char:getQuestProgress(licenceQuestID) > 0 then	
 		else
-			base.common.InformNLS(char,"Du besitzt keine Lizenz fÃ¼r die Verwendung der GerÃ¤te. Gehe ins ZensurbÃ¼ro, um dort eine zu erwerben und um die GerÃ¤te dieser Stadt zu verwenden.","You do not have a licence for the usage of static tools. Go to the census office and purchase one in order to be able to use static tools of this town.");
+			base.common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Geräte dieser Stadt. Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu könnnen oder werde Bürger dieser Stadt.","You do not have a licence for the usage of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become its citizen.");
 			return
 		end
 	end
