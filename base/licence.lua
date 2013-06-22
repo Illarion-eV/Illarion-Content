@@ -9,7 +9,7 @@ licenceGalmairPos[2]=408,263,0;	--Galmair alchemy hous
 licenceGalmairPos[3]=376,233,0;	--Galmair kitchen (Crest)
 
 function licence(char)
-	local i = 2
+	local i = 1
 	base.common.InformNLS(char,"test","test");
 	char:inform("i: " ..i,"i: " ..i)
 --	for i = 1,3 do	--set second number according to Galmairs sum of positions (current 3)
