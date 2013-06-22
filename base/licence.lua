@@ -6,14 +6,14 @@ module("base.licence", package.seeall)
 licenceGalmairPos={};
 licenceGalmairPos[1]="383,276,0"; --Galmair workshop
 licenceGalmairPos[2]=408,263,0;	--Galmair alchemy hous
-licenceGalmairPos[3]=376,233,0;	--Galmair kitchen (Crest)
+licenceGalmairPos[3]={position(376,233,0)}	--Galmair kitchen (Crest)
 
 function licence(char)
-	local i = 1
+	local i = 3
 	base.common.InformNLS(char,"test","test");
 	char:inform("i: " ..i,"i: " ..i)
 --	for i = 1,3 do	--set second number according to Galmairs sum of positions (current 3)
-		local licenceGalmairDistance = char:distanceMetricToPosition (position(licenceGalmairPos[i]))
+		local licenceGalmairDistance = char:distanceMetricToPosition (licenceGalmairPos[i])
 --		local licenceGalmairDistance = char:distanceMetricToPosition (position(383,276,0))
 		if licenceGalmairDistance < 11 then
 			char:inform("Range: Yes, in range" ..licenceGalmairPos[i],"Range: Yes, in range" ..licenceGalmairPos[i])
