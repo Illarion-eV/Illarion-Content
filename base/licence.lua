@@ -9,7 +9,7 @@ licenceGalmairPos[2]=408,263,0;	--Galmair alchemy hous
 licenceGalmairPos[3]={position(376,233,0)}	--Galmair kitchen (Crest)
 
 function licence(char)
-	local i = 1
+	local i = 2
 	base.common.InformNLS(char,"test","test");
 	char:inform("i: " ..i,"i: " ..i)
 	char:inform("licenceGalmairPos: " ..licenceGalmairPos[i],"licenceGalmairPos: " ..licenceGalmairPos[i])
