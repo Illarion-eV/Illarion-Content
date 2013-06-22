@@ -15,12 +15,12 @@ require("lte.createaftertime");
 require("lte.longterm_cooldown");
 require("server.standardfighting");
 module("test.envi", package.seeall)
---[[
-licenceRunewickPos={};
-licenceRunewickPos[1]={20,10};
-licenceRunewickPos[2]={10,10};
-licenceRunewickPos[3]={0,0};
-]]--
+
+licenceGalmairPos={};
+licenceGalmairPos[1]=20,10,0;
+licenceGalmairPos[2]=10,10,0;
+licenceGalmairPos[3]=0,10,0;
+
 function MovetoField(char)
 	debug("Test ")
 --	base.common.InformNLS(char,"Noch nicht.","Not yet.");
@@ -28,26 +28,27 @@ function MovetoField(char)
 --	licence(char)
  	base.common.InformNLS(char,"So weit so gut.","So far so good.");
 end
---[[
+
 function licence(char)
-	if base.factions.getMembership(char) == 2 or char:getQuestProgress(812) > 0 then
-		char:inform("Faction: "..getMembership(char),"Faction: "..getMembership(char))
-		char:inform("Quest812: "..char:getQuestProgress(812),"Quest812: "..char:getQuestProgress(812))
-	else
-		char:inform("Faction: "..getMembership(char),"Faction: "..getMembership(char))
-		char:inform("Quest812: "..char:getQuestProgress(812),"Quest812: "..char:getQuestProgress(812))
-		for i = 1,table.getn(licenceRunewickPos[1]) do
-			local licenceRunewickDistance = char:distanceMetricToPosition ( licenceRunewickPos[2][i], licenceRunewickPos[2][i], licenceRunewickPos[3][i] )			
-			if licenceRunewickDistance < 5 then
-				char:inform("Range: Yes, in range" ..licenceRunewickPos[1][i] "," ..licenceRunewickPos[2][i] "," ..licenceRunewickPos[3][i],"Range: Yes, in range" ..licenceRunewickPos[1][i] "," ..licenceRunewickPos[2][i] "," ..licenceRunewickPos[3][i])
+	for i = 1,3 do
+		local licenceGalmairDistance = char:distanceMetricToPosition (licenceGalmairPos[i])
+		if licenceGalmairDistance < 10 then
+			char:inform("Range: Yes, in range" ..licenceGalmairPos[i],"Range: Yes, in range" ..licenceGalmairPos[i])
+			if base.factions.getMembership(char) ~= 3 or char:getQuestProgress(812) ~= 0 then
+				char:inform("Faction: "..getMembership(char),"Faction: "..getMembership(char))
+				char:inform("Quest812: "..char:getQuestProgress(812),"Quest812: "..char:getQuestProgress(812))			
 				base.common.InformNLS(char,"Du solltest eine Lizenz erwerbern.","You should purchase a licence.");
 			else
-				char:inform("Range: No, out of range" ..licenceRunewickPos[1][i] "," ..licenceRunewickPos[2][i] "," ..licenceRunewickPos[3][i],"Range: No, out of range" ..licenceRunewickPos[1][i] "," ..licenceRunewickPos[2][i] "," ..licenceRunewickPos[3][i])
+				char:inform("Faction: "..getMembership(char),"Faction: "..getMembership(char))
+				char:inform("Quest812: "..char:getQuestProgress(812),"Quest812: "..char:getQuestProgress(812))
+				base.common.InformNLS(char,"Du hast eine Lizenz.","You habe a licence.");
 			end
+		else
+			char:inform("Range: No, out of range" ..licenceGalmairPos[i],"Range: No, out of range" ..licenceGalmairPos[i])
 		end
-	end	
+	end
 end
-]]--
+
 
 --[[
 
