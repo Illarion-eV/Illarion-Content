@@ -54,7 +54,7 @@ function licenceCheck(char)
 		if base.factions.getMembership(char) == licencerequired or char:getQuestProgress(licenceQuestID) > 0 then	
 			stopcraftingnolicence = false
 		else
-			base.common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Geräte dieser Stadt. Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the usage of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become its citizen.");
+			base.common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Geräte dieser Stadt. Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the use of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become a citizen.");
 			stopcraftingnolicence = true 
 			return
 		end
