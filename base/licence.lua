@@ -3,13 +3,13 @@ require("base.factions")
 
 module("base.licence", package.seeall)
 
-licenceGalmairPos={};
-licenceGalmairPos[1]="383,276,0"; --Galmair workshop
-licenceGalmairPos[2]=408,263,0;	--Galmair alchemy hous
-licenceGalmairPos[3]={position(376,233,0)}	--Galmair kitchen (Crest)
+licenceGalmairPos={position(383,276,0),position(408,263,0),position(376,233,0)};
+--licenceGalmairPos[1]="383,276,0"; --Galmair workshop
+--licenceGalmairPos[2]=408,263,0;	--Galmair alchemy hous
+--licenceGalmairPos[3]={position(376,233,0)}	--Galmair kitchen (Crest)
 
 function licence(char)
-	local i = 3
+	local i = 1
 	base.common.InformNLS(char,"test","test");
 	char:inform("i: " ..i,"i: " ..i)
 	local licenceGalmairPos = licenceGalmairPos[i]
