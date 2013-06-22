@@ -15,9 +15,9 @@ licencePos[3]={position(383,276,0),position(408,263,0),position(376,233,0)}; --G
 --licenceGalmairPos[3]={position(376,233,0)}	--Galmair kitchen (Crest)
 
 function licence(char)
-	for x= 1,3 do
+--	for x= 1,3 do
 		for i= 1,1 do --Cadomyr
-			local licencePos = licencePos[x][i]
+			local licencePos = licencePos[1][i]
 			local licenceGalmairDistance = char:distanceMetricToPosition (licenceGalmairPos)
 			if licenceGalmairDistance < 11 then
 				local licencerequired = "yes"
@@ -27,7 +27,7 @@ function licence(char)
 			end
 		end
 		for i= 1,1 do --Runewick
-			local licencePos = licencePos[x][i]
+			local licencePos = licencePos[2][i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
 			if licenceGalmairDistance < 11 then
 				local licencerequired = "yes"
@@ -37,7 +37,7 @@ function licence(char)
 			end
 		end
 		for i= 1,3 do --Galmair
-			local licencePos = licencePos[x][i]
+			local licencePos = licencePos[3][i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
 			if licenceGalmairDistance < 11 then
 				local licencerequired = "yes"
@@ -46,7 +46,7 @@ function licence(char)
 				local licencerequired = "no"
 			end
 		end
-	end
+--	end
 end
 
 function licencecheck(char)
