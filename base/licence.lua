@@ -19,6 +19,7 @@ function licence(char)
 		for i= 1,1 do --Cadomyr
 			local licencePos = licencePosCad[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
+			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
 				local licencerequired = "yes"
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
@@ -29,6 +30,7 @@ function licence(char)
 		for i= 1,1 do --Runewick
 			local licencePos = licencePosRun[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
+			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
 				local licencerequired = "yes"
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
@@ -39,6 +41,7 @@ function licence(char)
 		for i= 1,3 do --Galmair
 			local licencePos = licencePosGal[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
+			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
 				local licencerequired = "yes"
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
