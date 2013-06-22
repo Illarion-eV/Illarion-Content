@@ -21,8 +21,8 @@ function licence(char)
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
 			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
-				licencerequired = "1"
-				licenceQuestID = "811"
+				licencerequired = 1
+				licenceQuestID = 811
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
 				licenceCheck(char)
 			end
@@ -32,8 +32,8 @@ function licence(char)
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
 			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
-				licencerequired = "2"
-				licenceQuestID = "812"
+				licencerequired = 2
+				licenceQuestID = 812
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
 				licenceCheck(char)
 			end
@@ -56,7 +56,7 @@ function licenceCheck(char)
 	char:inform("licencerequired: " ..licencerequired,"licencerequired: " ..licencerequired)
 	char:inform("licenceQuestID: " ..licenceQuestID,"licenceQuestID: " ..licenceQuestID)
 	if base.factions.getMembership(char) == 0 or base.factions.getRankpoints(char) >=100 then
-		if base.factions.getMembership(char) == licencerequired or char:getQuestProgress(813) > 0 then	
+		if base.factions.getMembership(char) == licencerequired or char:getQuestProgress(81 licencerequired) > 0 then	
 			base.common.InformNLS(char,"Du hast eine Lizenz.","You habe a licence.");
 		else
 			base.common.InformNLS(char,"Du solltest eine Lizenz erwerbern.","You should purchase a licence.");
