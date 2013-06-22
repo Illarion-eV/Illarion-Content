@@ -369,7 +369,7 @@ talkEntry:addTrigger("stop");
 talkEntry:addTrigger("end");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Dice Game] Game aborted."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(679, "=", 0));
-talkEntry:addResponse("You kept blowing hot and cold about the game, my friend.");
+talkEntry:addResponse("You keep blowing hot and cold about the game, my friend.");
 talkEntry:addResponse("#me shrugs and puts the dice away.");
 talkEntry:addResponse("Usually, I wouldn't agree, but you are right. A single silver isn't enough.");
 talkingNPC:addTalkingEntry(talkEntry);
