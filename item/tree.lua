@@ -45,7 +45,6 @@ function LookAtItem(User,Item)
 				if (Item.pos == signpos) then
                    	if (UserPer >= signPerception[tablePosition][i]) then
 						lookAt.description = base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name))
-						lookAt.
 					else
 						lookAt.description = base.common.GetNLS(User,"Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.","You recognise something, but you cannot read it, because you are too blind.")
 					end
