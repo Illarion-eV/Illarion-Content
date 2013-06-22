@@ -13,7 +13,7 @@ function licence(char)
 	base.common.InformNLS(char,"test","test");
 	char:inform("i: " ..i,"i: " ..i)
 	local licenceGalmairPos = licenceGalmairPos[i]
-	char:inform("licenceGalmairPos: " ..licenceGalmairPos[i],"licenceGalmairPos: " ..licenceGalmairPos[i])
+	char:inform("licenceGalmairPos: " ..licenceGalmairPos,"licenceGalmairPos: " ..licenceGalmairPos)
 --	for i = 1,3 do	--set second number according to Galmairs sum of positions (current 3)
 		local licenceGalmairDistance = char:distanceMetricToPosition (licenceGalmairPos)
 --		local licenceGalmairDistance = char:distanceMetricToPosition (position(383,276,0))
