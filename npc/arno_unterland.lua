@@ -867,7 +867,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Ihr solltet ihm nicht mitteilen, dass du hier Geschäfte mit mir machst.");
+talkEntry:addResponse("Du solltet ihm nicht mitteilen, dass du hier Geschäfte mit mir machst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -884,7 +884,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Ihr solltet ihm nicht mitteilen, dass du hier Geschäfte mit mir machst.");
+talkEntry:addResponse("Du solltet ihm nicht mitteilen, dass du hier Geschäfte mit mir machst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -987,7 +987,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("Ihr solltet ihr nicht mitteilen, dass du hier Geschäfte mit mir machst.");
+talkEntry:addResponse("Du solltet ihr nicht mitteilen, dass du hier Geschäfte mit mir machst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1004,7 +1004,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Ihr solltet ihr nicht mitteilen, dass du hier Geschäfte mit mir machst.");
+talkEntry:addResponse("Du solltet ihr nicht mitteilen, dass du hier Geschäfte mit mir machst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
