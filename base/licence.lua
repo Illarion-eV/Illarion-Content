@@ -18,7 +18,7 @@ function licence(char)
 --	for x= 1,3 do
 		for i= 1,1 do --Cadomyr
 			local licencePos = licencePosCad[i]
-			local licenceGalmairDistance = char:distanceMetricToPosition (licenceGalmairPos)
+			local licenceGalmairDistance = char:distanceMetricToPosition (licencePos)
 			if licenceGalmairDistance < 11 then
 				local licencerequired = "yes"
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
