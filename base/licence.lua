@@ -21,8 +21,8 @@ function licence(char)
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
 			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
-				local licencerequired = "1"
-				local licenceQuestID = "811"
+				licencerequired = "1"
+				licenceQuestID = "811"
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
 				licenceCheck(char)
 			end
@@ -32,8 +32,8 @@ function licence(char)
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
 			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
-				local licencerequired = "2"
-				local licenceQuestID = "812"
+				licencerequired = "2"
+				licenceQuestID = "812"
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
 				licenceCheck(char)
 			end
@@ -43,8 +43,8 @@ function licence(char)
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
 			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
-				local licencerequired = "3"
-				local licenceQuestID = "813"
+				licencerequired = "3"
+				licenceQuestID = "813"
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
 				licenceCheck(char)
 			end
