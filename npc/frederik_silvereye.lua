@@ -767,8 +767,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
 talkEntry:addCondition(npc.base.condition.rank.rank("<", 100));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("licence");
 talkEntry:addTrigger("license");
 talkEntry:addResponse("You look as you are quite new here. Thus, you can use our tools for free currently.");
@@ -776,8 +777,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
 talkEntry:addCondition(npc.base.condition.rank.rank("<", 100));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("lizenz");
 talkEntry:addResponse("Ihr wirkt als würdet ihr neu hier sein. Daher könnt ihr unsere Geräte zurzeit frei benutzen.");
 talkingNPC:addTalkingEntry(talkEntry);
