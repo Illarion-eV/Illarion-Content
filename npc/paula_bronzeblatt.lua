@@ -51,7 +51,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("Hello, hello. Do you like to buy a tresure map? I sell them for only ten gold coins. Say 'deal' and it belongs to you.");
+talkEntry:addResponse("Hello, hello. Would you like to buy a treasure map? I sell them for just ten gold coins. Say 'deal' and it belongs to you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -76,7 +76,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hello, hello. Do you like to buy a tresure map? I sell them for only ten gold coins. Say 'deal' and it belongs to you.");
+talkEntry:addResponse("Hello, hello. Would you like to buy a treasure map? I sell them for just ten gold coins. Say 'deal' and it belongs to you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -130,7 +130,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Fine, and you? Interested in buying a treasure map? I sell them for only ten gold coins. Say 'deal' and it belongs to you.");
+talkEntry:addResponse("Fine, and you? Interested in buying a treasure map? I sell them for just ten gold coins. Say 'deal' and it belongs to you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -147,7 +147,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("My name is Paula and I sell treasure maps. I sell them for only ten gold coins. Say 'deal' and it belongs to you.");
+talkEntry:addResponse("My name is Paula and I sell treasure maps. I sell them for just ten gold coins. Say 'deal' and it belongs to you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -165,8 +165,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(613, "~=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("deal");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader] Currently, there is not map for available. You will be informed as soon as there is one available for you."));
-talkEntry:addResponse("Arrr, I do not have any for you today. Please come back on another day. I will send you a dove when I have one for you.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader] Currently, there is no map for available. You will be informed as soon as there is one available for you."));
+talkEntry:addResponse("Arrr, I do not have any for you today. Please come back another day. I will send you a dove when I have one for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -197,11 +197,11 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(11.0));
 talkEntry:addTrigger("deal");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader] Bad luck, you received a fake map. Maybe you have more luck next time."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Treasure map-trader] Bad luck, you received a fake map. Maybe you will have more luck next time."));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100000));
 talkEntry:addConsequence(npc.base.consequence.item.item(505, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(613, "=", 200));
-talkEntry:addResponse("#me hands over a treasure map and gloats. 'Welcome at the black market.'");
+talkEntry:addResponse("#me hands over a treasure map and gloats. 'Welcome to the black market.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -272,7 +272,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am treasure map seller. Don't ask me where I get them from. It is my secret and I would not tell you anyway.");
+talkEntry:addResponse("I am a treasure map seller. Don't ask me where I get them from. It is my secret and I would not tell you anyway.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -285,7 +285,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am treasure map seller. Don't ask me where I get them from. It is my secret and I would not tell you anyway.");
+talkEntry:addResponse("I am a treasure map seller. Don't ask me where I get them from. It is my secret and I would not tell you anyway.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -324,7 +324,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("For some of my treasure maps, you will need the help of our gods. If you like to know more about gods than you should ask others. In particular priests.");
+talkEntry:addResponse("For some of my treasure maps, you will need the help of our gods. If you want to know more about gods then you should ask others, in particular priests.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -380,7 +380,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("#w Among us, he might have killed his own father. So be careful!");
+talkEntry:addResponse("#w Just between us, he might have killed his own father. So be careful!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -447,7 +447,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Do you want to buy one of my treasure maps for only ten gold coins. Say 'deal' and it is yours!");
+talkEntry:addResponse("Do you want to buy one of my treasure maps for just ten gold coins. Say 'deal' and it is yours!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -463,7 +463,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Paula");
 talkEntry:addTrigger("Bronzeblatt");
-talkEntry:addResponse("Yes, this is my name. But do you want to buy my treasure map for only ten gold coins. Say 'deal' and it is yours!");
+talkEntry:addResponse("Yes, this is my name, but do you want to buy my treasure map for just ten gold coins? Say 'deal' and it is yours!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -476,7 +476,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Yes, you like to buy my treasure map for only ten gold coins? Say 'deal' and it belongs to you.");
+talkEntry:addResponse("Yes, you want to buy my treasure map for just ten gold coins? Say 'deal' and it belongs to you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -488,7 +488,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("No, you do not like to buy my treasure map for only ten gold coins? You should change your mind.");
+talkEntry:addResponse("No, you do not want to buy my treasure map for only ten gold coins? You should change your mind.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -516,12 +516,12 @@ end;
 talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches her head.");
 talkingNPC:addCycleText("#me zählt ihre Schatzkarten.", "#me counts her treasure maps.");
 talkingNPC:addCycleText("Wo der Schatz nur liegen wird? Irgendwo im Südwesten.", "Where might this treasue be hidden?. Somewhere in the southwest.");
-talkingNPC:addCycleText("Schatzkarten zu verkaufen! Schatzkarten zu verkaufen!", "Treasure maps for sell! Treasure maps for sell!");
+talkingNPC:addCycleText("Schatzkarten zu verkaufen! Schatzkarten zu verkaufen!", "Treasure maps for sale! Treasure maps for sale!");
 talkingNPC:addCycleText("Nur zehn Goldstücke für eine Schatzkarte!", "Only ten gold coins for one treasure map!");
 talkingNPC:addCycleText("#me untersucht ihre Schatzkarten", "#me examines her treasure maps.");
-talkingNPC:addCycleText("Wer hat noch nicht? Wer will noch einmal? Schatzkarten zu verkaufen!", "Who has not yet? Who wants again? Treasure maps for sell!");
+talkingNPC:addCycleText("Wer hat noch nicht? Wer will noch einmal? Schatzkarten zu verkaufen!", "Who has not yet? Who wants again? Treasure maps for sale!");
 talkingNPC:addCycleText("#me nickt leicht ein.", "#me falls asleep.");
-talkingNPC:addCycleText("#me spielt gelangweilt mit einer Münze.", "#me playes bored with a coin");
+talkingNPC:addCycleText("#me spielt gelangweilt mit einer Münze.", "#me plays with a coin, bored.");
 talkingNPC:addCycleText("#me lässt ihre Finge knacken.", "#me cracks her fingers.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
