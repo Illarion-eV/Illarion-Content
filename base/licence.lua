@@ -16,61 +16,48 @@ licencePosGal={position(383,276,0),position(408,263,0),position(376,233,0)}; --G
 
 function licence(char)
 --	for x= 1,3 do
-		for i= 1,1 do --Cadomyr
+		for i= 1,1 do --Cadomyr, set second number according to sum of positions (current 1)
 			local licencePos = licencePosCad[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
 			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
-				local licencerequired = "yes"
+				local licencerequired = "1"
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
-			else
-				local licencerequired = "no"
+				licenceCheck(char)
 			end
 		end
-		for i= 1,1 do --Runewick
+		for i= 1,1 do --Runewick, set second number according to sum of positions (current 1)
 			local licencePos = licencePosRun[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
 			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
-				local licencerequired = "yes"
+				local licencerequired = "2"
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
-			else
-				local licencerequired = "no"
+				licenceCheck(char)
 			end
 		end
-		for i= 1,3 do --Galmair
+		for i= 1,3 do --Galmair, set second number according to sum of positions (current 3)
 			local licencePos = licencePosGal[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
 			char:inform("Distance: " ..licenceDistance,"Distance: " ..licenceDistance)
 			if licenceDistance < 11 then
-				local licencerequired = "yes"
+				local licencerequired = "3"
 				char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
-			else
-				local licencerequired = "no"
+				licenceCheck(char)
 			end
 		end
 --	end
 end
 
-function licencecheck(char)
-	local faction = base.factions.getMembership(char)
-
-	for i = 1,3 do	--set second number according to Galmairs sum of positions (current 3)
-		char:inform("i: " ..i,"i: " ..i)
-		local licenceGalmairPos = licenceGalmairPos[faction][i]
-		local licenceGalmairDistance = char:distanceMetricToPosition (licenceGalmairPos)
---		local licenceGalmairDistance = char:distanceMetricToPosition (position(383,276,0))
-		if licenceGalmairDistance < 11 then
-			char:inform("Range: Yes, in range","Range: Yes, in range")	
-			if base.factions.getMembership(char) == 3 or char:getQuestProgress(812) > 0 then	
-				base.common.InformNLS(char,"Du hast eine Lizenz.","You habe a licence.");
-			else
-				base.common.InformNLS(char,"Du solltest eine Lizenz erwerbern.","You should purchase a licence.");
-			end
-			char:inform("Faction: " ..base.factions.getMembership(char),"Faction: " ..base.factions.getMembership(char))
-			char:inform("Quest812: " ..char:getQuestProgress(812),"Quest812: " ..char:getQuestProgress(812))
+function licenceCheck(char)
+	char:inform("Required: " ..licencerequired,"Required: " ..licencerequired)
+	if base.factions.getMembership(char) == 0 or base.factions.getRankpoints(char) >=100 then
+		if base.factions.getMembership(char) == licencerequired or char:getQuestProgress(81 licencerequired) > 0 or char:getQuestProgress(81 licencerequired) > 0 or char:getQuestProgress(81 licencerequired) > 0 then	
+			base.common.InformNLS(char,"Du hast eine Lizenz.","You habe a licence.");
 		else
-			char:inform("Range: No, out of range","Range: No, out of range")
+			base.common.InformNLS(char,"Du solltest eine Lizenz erwerbern.","You should purchase a licence.");
 		end
+		char:inform("Faction: " ..base.factions.getMembership(char),"Faction: " ..base.factions.getMembership(char))
+		char:inform("Quest Status: " ..char:getQuestProgress(81 licencerequired),"Quest Status: " ..char:getQuestProgress(81 licencerequired))
 	end
 end
