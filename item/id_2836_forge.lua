@@ -14,6 +14,7 @@
 -- UPDATE common SET com_objectafterrot=2836 WHERE com_itemid = 2835;
 
 require("base.common")
+require("base.licence")
 require("content.gathering")
 
 module("item.id_2836_forge", package.seeall)
@@ -44,6 +45,11 @@ OreList = {
 CoalItem = CreateItem(21);
 
 function UseItem(User, SourceItem, ltstate)
+--[[	base.licence.licence(User); --checks if user is citizen or has a licence
+	if base.licence.stopcraftingnolicence then -- avoids crafting if user is neither citizen nor has a licence
+		return
+		else
+	end ]]--
 	content.gathering.InitGathering();
 	local oremelting = content.gathering.oremelting;
 	

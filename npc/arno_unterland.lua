@@ -3,7 +3,7 @@
 -- NPC Job:  counterfeiter                                                    --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  252, 298, -6           --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                Illarion easyNPC Editor 1.02 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 252, 298, -6, 4, 'Arno Unterland', 'npc.arno_unterland', 1, 6, 0, 0, 0, 0, 232, 232, 232);
+VALUES (0, 252, 298, -6, 4, 'Arno Unterland', 'npc.arno_unterland', 0, 6, 0, 0, 0, 0, 232, 232, 232);
 ---]]
 
 require("npc.base.basic")
@@ -20,10 +20,11 @@ require("npc.base.condition.language")
 require("npc.base.condition.money")
 require("npc.base.condition.quest")
 require("npc.base.condition.rank")
-require("npc.base.condition.sex")
 require("npc.base.condition.talkmode")
 require("npc.base.condition.town")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.money")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
 module("npc.arno_unterland", package.seeall)
@@ -131,7 +132,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("#w Psst. Very good, haven't get caught yet counterfeiting documents.");
+talkEntry:addResponse("#w Psst. Very good, haven't got caught yet counterfeiting documents.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -167,7 +168,7 @@ talkEntry:addTrigger("sell");
 talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
-talkEntry:addResponse("#w Psst. I sell counterfeited documents. Interested? Say 'deal' and I will help you to the next rank of your town. Say 'counterfeit' and I provide you with more details.");
+talkEntry:addResponse("#w Psst. I sell counterfeited documents. Interested? Say 'deal' and I will help you to the next rank of your town. Say 'counterfeit' and I will provide you with more details.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -183,7 +184,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("buy");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("#w Psst. I do not buy anything but I sell counterfeited documents. Interested? Say 'deal' and I will 'promote' you to the next rank of your town. Say 'counterfeit' and I provide you with more details.");
+talkEntry:addResponse("#w Psst. I do not buy anything but I sell counterfeited documents. Interested? Say 'deal' and I will 'promote' you to the next rank of your town. Say 'counterfeit' and I will provide you with more details.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -196,7 +197,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("#w Psst, I counterfeit documents. Interested? Say 'deal' and I will 'promote' you to the next rank of your town. Say 'counterfeit' and I provide you with more details.");
+talkEntry:addResponse("#w Psst, I counterfeit documents. Interested? Say 'deal' and I will promote you to the next rank of your town. Say 'counterfeit' and I provide you with more details.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -209,7 +210,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("#w Psst, I counterfeit documents. Interested? Say 'deal' and I will 'promote' you to the next rank of your town. Say 'counterfeit' and I provide you with more details.");
+talkEntry:addResponse("#w Psst, I counterfeit documents. Interested? Say 'deal' and I will promote you to the next rank of your town. Say 'counterfeit' and I provide you with more details.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -221,7 +222,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("#w Psst, I counterfeit documents. Interested? Say 'deal' and I will 'promote' you to the next rank of your town. Say 'counterfeit' and I provide you with more details.");
+talkEntry:addResponse("#w Psst, I counterfeit documents. Interested? Say 'deal' and I will promote you to the next rank of your town. Say 'counterfeit' and I provide you with more details.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -262,7 +263,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("say"));
 talkEntry:addTrigger("counterfeit");
-talkEntry:addResponse("What is that? I do not know what you are talking about *mutters 'Not so loud. Wisper! Not everybody needs to know it.'*");
+talkEntry:addResponse("What is that? I do not know what you are talking about. *mutters 'Not so loud. Whisper! Not everybody needs to know it.'*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -276,7 +277,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("yell"));
 talkEntry:addTrigger("counterfeit");
-talkEntry:addResponse("What is that? I do not know what you are talking about *mutters 'Not so loud. Wisper! Not everybody needs to know it.'*");
+talkEntry:addResponse("What is that? I do not know what you are talking about. *mutters 'Not so loud. Whisper! Not everybody needs to know it.'*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -291,7 +292,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.rank.rank("<", 1));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("counterfeit");
-talkEntry:addResponse("#w Do you want to get the next rank for only 50 goldcoins? Say 'deal' and consider it as done.");
+talkEntry:addResponse("#w Do you want to get the next rank for only 50 gold coins? Say 'deal' and consider it done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -308,7 +309,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 2));
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("counterfeit");
-talkEntry:addResponse("#w Do you want to get the next rank for only 100 goldcoins? Say 'deal' and consider it as done.");
+talkEntry:addResponse("#w Do you want to get the next rank for only 100 gold coins? Say 'deal' and consider it done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -326,7 +327,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 3));
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("counterfeit");
-talkEntry:addResponse("#w Do you want to get the next rank for only 150 goldcoins? Say 'deal' and consider it as done.");
+talkEntry:addResponse("#w Do you want to get the next rank for only 150 gold coins? Say 'deal' and consider it done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -344,7 +345,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 4));
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("counterfeit");
-talkEntry:addResponse("#w Do you want to get the next rank for only 200 goldcoins? Say 'deal' and consider it as done.");
+talkEntry:addResponse("#w Do you want to get the next rank for only 200 gold coins? Say 'deal' and consider it done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -362,7 +363,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 5));
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("counterfeit");
-talkEntry:addResponse("#w Do you want to get the next rank for only 250 goldcoins? Say 'deal' and consider it as done.");
+talkEntry:addResponse("#w Do you want to get the next rank for only 250 gold coins? Say 'deal' and consider it done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -380,7 +381,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 6));
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("counterfeit");
-talkEntry:addResponse("#w Do you want to get the next rank for only 300 goldcoins? Say 'deal' and consider it as done.");
+talkEntry:addResponse("#w Do you want to get the next rank for only 300 gold coins? Say 'deal' and consider it done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -389,7 +390,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 6));
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("Fälsch");
-talkEntry:addResponse("#w hr wollt den nächsten Rang für nur 300 Goldmünzen haben? Sagt 'deal' und ihr könnt es als erledigt ansehen.");
+talkEntry:addResponse("#w Ihr wollt den nächsten Rang für nur 300 Goldmünzen haben? Sagt 'deal' und ihr könnt es als erledigt ansehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -398,7 +399,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 7));
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("counterfeit");
-talkEntry:addResponse("#w Do you want to get the next rank for only 400 goldcoins? Say 'deal' and consider it as done.");
+talkEntry:addResponse("#w Do you want to get the next rank for only 400 gold coins? Say 'deal' and consider it done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -458,7 +459,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(613, "~=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(614, "~=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
@@ -467,7 +468,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(613, "~=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(614, "~=", 0));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
 talkEntry:addResponse("#w Wartet. Ich denke, das letzte Mal, dass wir eure Dokumente modifiziert haben, ist noch nicht allzu lange her. Lasst uns noch ein wenig warten. Ich werde euch eine Taube zukommen lassen sobald es funktionieren sollte.");
@@ -497,7 +498,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
-talkEntry:addResponse("#w You need to bring more money. I want to have 50 goldcoins.  Otherwise I do not do it for you.");
+talkEntry:addResponse("#w You need to bring more money. I want 50 gold coins, otherwise I will not do it for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -517,7 +518,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
-talkEntry:addResponse("#w You need to bring more money. I want to have 100 goldcoins.  Otherwise I do not do it for you.");
+talkEntry:addResponse("#w You need to bring more money. I want 100 gold coins, otherwise I will not do it for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -538,7 +539,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
-talkEntry:addResponse("#w You need to bring more money. I want to have 150 goldcoins.  Otherwise I do not do it for you.");
+talkEntry:addResponse("#w You need to bring more money. I want 150 gold coins, otherwise I will not do it for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -559,7 +560,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
-talkEntry:addResponse("#w You need to bring more money. I want to have 200 goldcoins.  Otherwise I do not do it for you.");
+talkEntry:addResponse("#w You need to bring more money. I want 200 gold coins, otherwise I will not do it for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -580,7 +581,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
-talkEntry:addResponse("#w You need to bring more money. I want to have 250 goldcoins.  Otherwise I do not do it for you.");
+talkEntry:addResponse("#w You need to bring more money. I want 250 gold coins, otherwise I will not do it for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -601,7 +602,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
-talkEntry:addResponse("#w You need to bring more money. I want to have 300 goldcoins.  Otherwise I do not do it for you.");
+talkEntry:addResponse("#w You need to bring more money. I want 300 gold coins, otherwise I will not do it for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -622,7 +623,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
-talkEntry:addResponse("#w You need to bring more money. I want to have 400 goldcoins. Otherwise I do not do it for you.");
+talkEntry:addResponse("#w You need to bring more money. I want 400 gold coins, otherwise I will not do it for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -637,12 +638,35 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(0));
+talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 500000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
+talkEntry:addResponse("#w 50 gold coins and I got you, hobo. Did you forget that you do not have ranks over there at the Hemp Necktie Inn? He, he.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(0));
+talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
+talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 500000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
+talkEntry:addResponse("#w 50 Goldmünzen und ich hab dich, Penner. Hast du vergessen, dass ihr keine Ränge da drüben beim Gasthof zur Hanfschlinge habt? He, he.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.rank.rank("<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 500000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 100));
-talkEntry:addResponse("#w 50 goldcoins and there we go, my friend. I hope we see each other soon.");
+talkEntry:addResponse("#w 50 gold coins and there we go, my friend. I hope we see each other soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -650,6 +674,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.rank.rank("<", 1));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 500000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 100));
 talkEntry:addResponse("#w 50 Goldmünzen und ist es schon passiert. Ich hoffe wir sehen uns bald wieder.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -661,8 +687,10 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 100));
-talkEntry:addResponse("#w 100 goldcoins and there we go. I hope we see each other soon.");
+talkEntry:addResponse("#w 100 gold coins and there we go. I hope we see each other soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -671,6 +699,8 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 2));
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 100));
 talkEntry:addResponse("#w 100 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -682,8 +712,10 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 1500000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 100));
-talkEntry:addResponse("#w 150 goldcoins and there we go. I hope we see each other soon.");
+talkEntry:addResponse("#w 150 gold coins and there we go. I hope we see each other soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -692,6 +724,8 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 3));
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 1500000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 100));
 talkEntry:addResponse("#w 150 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -703,8 +737,10 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 2000000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 100));
-talkEntry:addResponse("#w 200 goldcoins and there we go. I hope we see each other soon.");
+talkEntry:addResponse("#w 200 gold coins and there we go. I hope we see each other soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -713,6 +749,8 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 4));
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 2000000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 100));
 talkEntry:addResponse("#w 200 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -724,8 +762,10 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 2500000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 100));
-talkEntry:addResponse("#w 250 goldcoins and there we go. I hope we see each other soon.");
+talkEntry:addResponse("#w 250 gold coins and there we go. I hope we see each other soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -734,6 +774,8 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 5));
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 2500000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 100));
 talkEntry:addResponse("#w 250 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -745,8 +787,10 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 3000000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 100));
-talkEntry:addResponse("#w 300 goldcoins and there we go. I hope we see each other soon.");
+talkEntry:addResponse("#w 300 gold coins and there we go. I hope we see each other soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -755,6 +799,8 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 6));
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 3000000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 100));
 talkEntry:addResponse("#w 300 Goldmünzen und schon ist es passiert. Ich hoffe wir sehen uns bald wieder.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -766,8 +812,10 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 4000000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 100));
-talkEntry:addResponse("#w 400 goldcoins and there we go. Unfortunatelly, I cannot help you in the future. It would be to risky.");
+talkEntry:addResponse("#w 400 gold coins and there we go. Unfortunately, I cannot help you in the future. It would be to risky.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -776,6 +824,8 @@ talkEntry:addCondition(npc.base.condition.rank.rank("<", 7));
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
 talkEntry:addTrigger("deal");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 4000000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(614, "=", 500));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 100));
 talkEntry:addResponse("#w 400 Goldmünzen und schon ist es passiert. Leider kann ich euch in Zukunft nicht mehr helfen. Es wäre zu riskant.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -783,7 +833,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("People like me prefer praying to only to one god. Ronagan.");
+talkEntry:addResponse("People like me prefer praying to only to one god, Ronagan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -797,7 +847,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("I hope he helps us that noone figures out what we are doing down here.");
+talkEntry:addResponse("I hope he helps us so that noone figures out what we are doing down here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -810,14 +860,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("You should not tell him that you made some business with me.");
+talkEntry:addResponse("You should not tell him that you did some business with me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Ihr solltet ihm nicht mitteilen, dass du hier Geschäfte mit mir machst.");
+talkEntry:addResponse("Du solltet ihm nicht mitteilen, dass du hier Geschäfte mit mir machst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -826,7 +876,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("You should not tell him that you made some business with me.");
+talkEntry:addResponse("You should not tell him that you did some business with me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -834,7 +884,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Ihr solltet ihm nicht mitteilen, dass du hier Geschäfte mit mir machst.");
+talkEntry:addResponse("Du solltet ihm nicht mitteilen, dass du hier Geschäfte mit mir machst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -867,17 +917,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick? If you want to become Docent, I can help you.");
+talkEntry:addResponse("Runewick? If you want to become a Docent, I can help you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick? If you want to become Docent, I can help you.");
+talkEntry:addResponse("Runewick? Wenn ihr Dozent oder Dozentin werden möchtet, dann kann ich euch dabei helfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -919,31 +966,28 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair? If you want to become Patrician, I can help you.");
+talkEntry:addResponse("Galmair? If you want to become a Patrician, I can help you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair? If you want to become Patrician, I can help you.");
+talkEntry:addResponse("Galmair? Wenn ihr Patrizier oder Patrizierin werden möchtet, dann kann ich euch dabei helfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("You should not tell her that you made some business with me.");
+talkEntry:addResponse("You should not tell her that you did some business with me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("Ihr solltet ihr nicht mitteilen, dass du hier Geschäfte mit mir machst.");
+talkEntry:addResponse("Du solltet ihr nicht mitteilen, dass du hier Geschäfte mit mir machst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -952,7 +996,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("You should not tell her that you made some business with me.");
+talkEntry:addResponse("You should not tell her that you did some business with me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -960,7 +1004,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Ihr solltet ihr nicht mitteilen, dass du hier Geschäfte mit mir machst.");
+talkEntry:addResponse("Du solltet ihr nicht mitteilen, dass du hier Geschäfte mit mir machst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -993,23 +1037,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr? If you want to become Baron, I can help you.");
+talkEntry:addResponse("Cadomyr? If you want to become Baron or Baroness, I can help you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr? If you want to become Baroness, I can help you.");
+talkEntry:addResponse("Cadomyr? Wenn ihr Baron oder Baronin werden möchtet, dann kann ich euch dabei helfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("#w Psst, nice name. To your information. I counterfeit documents. Interested? Say 'deal' and I will 'promote' you to the next rank of your town. Say 'counterfeit' and I provide you with more details.");
+talkEntry:addResponse("#w Psst, nice name. For your information, I counterfeit documents. Interested? Say 'deal' and I will promote you to the next rank of your town. Say 'counterfeit' and I will provide you with more details.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1048,7 +1089,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("Well, but do not tell it anyone else.");
+talkEntry:addResponse("Well, do not tell anyone else.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1062,7 +1103,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("#w Psst, I counterfeit documents. Interested? Say 'deal' and I will 'promote' you to the next rank of your town. Say 'counterfeit' and I provide you with more details.");
+talkEntry:addResponse("#w Psst, I counterfeit documents. Interested? Say 'deal' and I will promote you to the next rank of your town. Say 'counterfeit' and I provide you with more details.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1077,11 +1118,11 @@ talkingNPC:addCycleText("Wer benötigt Sicherheitskopien ihrer Dokumente.", "Who 
 talkingNPC:addCycleText("Wer benötigt Sicherheitskopien seiner Dokumente.", "Who needs a backup copy of his documents?");
 talkingNPC:addCycleText("#me schaut herum, bevor er weiter schreibt.", "#me looks around before he continues to write.");
 talkingNPC:addCycleText("#me zählt die Münzen auf seinem Tisch.", "#me counts his coins on his table.");
-talkingNPC:addCycleText("#me beobachtet die Anwesenden.", " observers the audience.");
-talkingNPC:addCycleText("#me isst von seinem Wurstteller.", "#me eats from his plate with sausages.");
+talkingNPC:addCycleText("#me beobachtet die Anwesenden.", "#me observes the audience.");
+talkingNPC:addCycleText("#me isst von seinem Wurstteller.", "#me eats from his plate of sausages.");
 talkingNPC:addCycleText("#me stappelt seine Pergamentrollen.", "#me piles up his pells.");
-talkingNPC:addCycleText("Zu mir, wer eine Sicherheitskopie benötigt", "To me, if you need a backup copy.");
-talkingNPC:addCycleText("#me murmelt zu ihm selbst.", "#me mutters to himself");
+talkingNPC:addCycleText("Zu mir, wer eine Sicherheitskopie benötigt.", "To me, if you need a backup copy.");
+talkingNPC:addCycleText("#me murmelt zu ihm selbst.", "#me mutters to himself.");
 talkingNPC:addCycleText("Ob Galmair, ob Cadomyr, ob Runewick...mich interessiert das nicht solange der Preis stimmt.", "#Whether Galmair, whether Cadomyr, whether Runewick...I don't care as long as you pay enough.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);

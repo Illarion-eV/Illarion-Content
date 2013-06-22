@@ -16,11 +16,36 @@ require("lte.longterm_cooldown");
 require("server.standardfighting");
 module("test.envi", package.seeall)
 
+licenceGalmairPos={};
+licenceGalmairPos[1]=20,10,0;
+licenceGalmairPos[2]=10,10,0;
+licenceGalmairPos[3]=0,10,0;
 
-function MoveToField(char)
-	find, reg_effect = char.effects:find(81);
-	if not find then
-		char.effects:addEffect( LongTimeEffect(81,10) );
+function MovetoField(char)
+	debug("Test ")
+--	base.common.InformNLS(char,"Noch nicht.","Not yet.");
+--	player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüsten zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have paid your taxes to the Don and he protects you!")
+--	licence(char)
+ 	base.common.InformNLS(char,"So weit so gut.","So far so good.");
+end
+
+function licence(char)
+	for i = 1,3 do
+		local licenceGalmairDistance = char:distanceMetricToPosition (licenceGalmairPos[i])
+		if licenceGalmairDistance < 10 then
+			char:inform("Range: Yes, in range" ..licenceGalmairPos[i],"Range: Yes, in range" ..licenceGalmairPos[i])
+			if base.factions.getMembership(char) ~= 3 or char:getQuestProgress(812) ~= 0 then
+				char:inform("Faction: "..getMembership(char),"Faction: "..getMembership(char))
+				char:inform("Quest812: "..char:getQuestProgress(812),"Quest812: "..char:getQuestProgress(812))			
+				base.common.InformNLS(char,"Du solltest eine Lizenz erwerbern.","You should purchase a licence.");
+			else
+				char:inform("Faction: "..getMembership(char),"Faction: "..getMembership(char))
+				char:inform("Quest812: "..char:getQuestProgress(812),"Quest812: "..char:getQuestProgress(812))
+				base.common.InformNLS(char,"Du hast eine Lizenz.","You habe a licence.");
+			end
+		else
+			char:inform("Range: No, out of range" ..licenceGalmairPos[i],"Range: No, out of range" ..licenceGalmairPos[i])
+		end
 	end
 end
 
