@@ -27,7 +27,9 @@ function LookAtItem(User,Item)
 	-- alchemy end
 	
 	-- fetching local references
-    local signTextDe     = content.tree.signTextDe;
+    local signNameDe     = content.tree.signNameDe
+	local signNameEn     = content.tree.signNameEn
+	local signTextDe     = content.tree.signTextDe;
     local signTextEn     = content.tree.signTextEn;
     local signCoo        = content.tree.signCoo;
     local signItemId     = content.tree.signItemId;
@@ -41,7 +43,7 @@ function LookAtItem(User,Item)
 		if (signCoo[tablePosition] ~= nil) then
 			for i, signpos in pairs(signCoo[tablePosition]) do
 				if (Item.pos == signpos) then
-                   			if (UserPer >= signPerception[tablePosition][i]) then
+                   	if (UserPer >= signPerception[tablePosition][i]) then
 						lookAt.description = base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name))
 					else
 						lookAt.description = base.common.GetNLS(User,"Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.","You recognise something, but you cannot read it, because you are too blind.")

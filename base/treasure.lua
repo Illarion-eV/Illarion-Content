@@ -371,7 +371,7 @@ module("base.treasure", package.seeall)
             return true;
         end
 		
-		if treasureMonsters[TargetPos] ~= nil then
+		if treasureMonsters[TargetPosition] ~= nil then
 			User:inform("Du findest in der bereits aufgewühlten Erde einen Zettel: 'Versuchs später nochmal.'",
 				        "You find a note in the already searched through dirt: 'Try again later.'")
 			return
