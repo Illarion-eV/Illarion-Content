@@ -30,7 +30,7 @@ Description[ENGLISH][5] = "Produce five onions and bring them back to Nana. You 
 Description[GERMAN][6] = "Kehre zurück zu Nana Winterbutter und frage, ob sie noch eine Aufgabe für dich hat."
 Description[ENGLISH][6] = "Go back to Nana Winterbutter, she is sure to have another task for you." 
 Description[GERMAN][7] = "Besorge zehn Fische und bringe sie Nana. Stelle dich ans Wasser und benutze die Angel um Fische zu fangen."
-Description[ENGLISH][7] = "Produce ten fishes and bring them back to Nana. Place yourself next to the water and use a fishing rod to fish."
+Description[ENGLISH][7] = "Obtain ten fish and bring them back to Nana. To fish, place yourself next to the water and use a fishing rod."
 Description[GERMAN][8] = "Du hast alle Aufgaben von Nana Winterbutter erfüllt."
 Description[ENGLISH][8] = "You have fulfilled all the tasks for Nana Winterbutter." 
  

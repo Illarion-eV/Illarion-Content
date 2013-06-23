@@ -19,11 +19,11 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammel zehn Äpfel und bringe diese Baldo Proudtoe im Garten. Um Äpfel zu sammeln stelle dich vor einen Apfelbaum und benutze diesen."
-Description[ENGLISH][1] = "Collect ten apples for Baldo Proudtoe in the Garden. You should start by collecting apples by standing infront of an appletree and use the appletree."
+Description[ENGLISH][1] = "Collect ten apples for Baldo Proudtoe in the Garden. You should start collecting apples by standing in front of an apple tree and using the tree."
 Description[GERMAN][2] = "Geh zu Baldo Proudtoe, der sich im Garten aufhält. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go back to Baldo Proudtoe in the Garden, he is sure to have another task for you."
 Description[GERMAN][3] = "Sammel zehn Weintrauben und bringe diese Baldo Proudtoe im Garten. Um Weintrauben zu sammeln stelle dich vor einen Strauch und benutze diesen."
-Description[ENGLISH][3] = "Collect ten grapes for Baldo Proudtoe in the Garden. You should start by collecting grapes by standing infront of an bush and use the bush."
+Description[ENGLISH][3] = "Collect ten grapes for Baldo Proudtoe in the Garden. You should start collecting grapes by standing in front of a vine and using the plant."
 Description[GERMAN][4] = "Du hast alle Aufgaben von Baldo Proudtoe erfüllt."
 Description[ENGLISH][4] = "You have fulfilled all the tasks for Baldo Proudtoe."
 

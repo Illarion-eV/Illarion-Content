@@ -17,11 +17,11 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Besorge zehn Bündel Getreide und bringe sie Alexis. Du kannst Getreide auf einem Feld anbauen und mit einer Sense ernten oder die Getreidebündel bei einem Händler kaufen."
-Description[ENGLISH][1] = "Produce ten bundles of grain and bring them to Alexis. You can grow grain on a field and harvest it with a scythe or buy the bundles of grain from a merchant."
+Description[ENGLISH][1] = "Obtain ten bundles of grain and take them to Alexis. You can grow grain on a field and harvest it with a scythe or buy the bundles of grain from a merchant."
 Description[GERMAN][2] = "Geh zu Alexis Dostas, der sich in den Stallungen von Cadomyr aufhält. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][2] = "Go back to Alexis Dostas in the stables of Cadomyr, he certainly have another task for you."
+Description[ENGLISH][2] = "Go back to Alexis Dostas in the stables of Cadomyr, he is certain to have another task for you."
 Description[GERMAN][3] = "Besorge zehn Karotten und bringe sie Alexis. Du kannst Karotten auf einem Feld anbauen und mit einer Sichel ernten oder die Karotten bei einem Händler kaufen."
-Description[ENGLISH][3] = "Produce ten carrots and bring them to Alexis. You can grow carrots on a field and harvest it with a sickle or buy the carrots from a merchant."
+Description[ENGLISH][3] = "Obtain ten carrots and take them to Alexis. You can grow carrots on a field and harvest them with a sickle or buy the carrots from a merchant."
 Description[GERMAN][4] = "Du hast alle Aufgaben von Alexis Dostas erfüllt."
 Description[ENGLISH][4] = "You have fulfilled all the tasks for Alexis Dostas."
 

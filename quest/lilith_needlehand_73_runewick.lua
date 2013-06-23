@@ -23,11 +23,11 @@ Description[ENGLISH][1] = "Collect twenty bundles of wool and bring them back to
 Description[GERMAN][2] = "Kehre zurück zu Lilith Needlehand und frage, ob sie noch eine Aufgabe für dich hat."
 Description[ENGLISH][2] = "Go back to Lilith Needlehand, she is sure to have another task for you." 
 Description[GERMAN][3] = "Besorge fünfzehn Spulen Garn und bringe sie zurück zu Lilith. Garn kannst du mit einer Schere am Spinnrad aus Wolle oder Sibanac herstellen."
-Description[ENGLISH][3] = "Produce fifteen bobbins of thread and bring them back to Lilith. You can produce thread out of wool or sibanac leaf by using a spinning wheel with scissors." 
+Description[ENGLISH][3] = "Produce fifteen bobbins of thread and bring them back to Lilith. You can produce thread from wool or sibanac leaves by using a spinning wheel whilst holding scissors." 
 Description[GERMAN][4] = "Kehre zurück zu Lilith Needlehand und frage, ob sie noch eine Aufgabe für dich hat."
 Description[ENGLISH][4] = "Go back to Lilith Needlehand, she is sure to have another task for you."  
 Description[GERMAN][5] = "Besorge fünf Bahnen roten Stoff und bringe sie zurück zu Lilith. Du kannst weißen oder grauen Stoff mit einen Farbeimer und einen Färbestab an einen Fass einfärben."
-Description[ENGLISH][5] = "Produce five bolts of red cloth and bring them back to Lilith. You can dye white or gray cloth with a dyeing rod and a bucket red dye, when you stand infront of a barral." 
+Description[ENGLISH][5] = "Produce five bolts of red cloth and bring them back to Lilith. You can dye white or grey cloth with a dyeing rod and a bucket red dye, when you stand in front of a barrel." 
 Description[GERMAN][6] = "Du hast alle Aufgaben von Lilith Needlehand erfüllt."
 Description[ENGLISH][6] = "You have fulfilled all the tasks for Lilith Needlehand." 
 

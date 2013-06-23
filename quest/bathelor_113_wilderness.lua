@@ -17,11 +17,11 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Gehe zu jeden einzelnen Schrein der Fünf in ihren Tempel."
-Description[ENGLISH][1] = "Go to each of the shrines in the temple of the Five."
+Description[ENGLISH][1] = "Go to each of the shrines in the Temple of the Five."
 Description[GERMAN][2] = "Geh zu Bathelor, am Lagerfeuer westlich des Tempels der Fünf. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][2] = "Go back to Bathelor, on the campfire west of the temple of the Five, he is sure to have another task for you."
+Description[ENGLISH][2] = "Go back to Bathelor at the campfire, west of the Temple of the Five, he is sure to have another task for you."
 Description[GERMAN][3] = " Besorge zehn Scheite Naldorholz und bring sie Bathelor. Fülle hierfür einen Naldorbaum mit einen Beil."
-Description[ENGLISH][3] = "Produce ten logs of naldor wood and bring them to Bathelor. Cut down a naldor tree with a hatchet."
+Description[ENGLISH][3] = "Obtain ten logs of naldor wood and bring them to Bathelor. You can cut down a naldor tree with a hatchet."
 Description[GERMAN][4] = "Du hast alle Aufgaben von Bathelor erfällt. Lobet Brágon!"
 Description[ENGLISH][4] = "You have fulfilled all the tasks for Bathelor. Praise Brágon!"
 
