@@ -8,6 +8,7 @@
 -- UPDATE common SET com_script='item.id_724_workbench' WHERE com_itemid IN (724,725);
 
 require("base.common")
+require("base.licence")
 require("content.gathering")
 
 module("item.id_724_workbench", package.seeall)
@@ -29,6 +30,11 @@ function CreateCraftItem(sourceItem, productItem)
 end
 
 function UseItem(User, SourceItem, ltstate)
+	base.licence.licence(User); --checks if user is citizen or has a licence
+	if base.licence.stopcraftingnolicence then -- avoids crafting if user is neither citizen nor has a licence
+		return
+		else
+	end
 	content.gathering.InitGathering();
 	local boardproducing = content.gathering.boardproducing;
   
