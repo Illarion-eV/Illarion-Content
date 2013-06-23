@@ -170,7 +170,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("My name is Frederik Silvereye, I take care of the new arrivals of this place.");
+talkEntry:addResponse("My name is Frederik Silvereye, I take care of the new arrivals in this place.");
 talkEntry:addResponse("I'm Frederik Silvereye, I am the notary of Galmair.");
 talkEntry:addResponse("You can call me Frederik Silvereye, as notary of this town I could put you on the citizen list of this beautiful place.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -297,7 +297,7 @@ talkEntry:addTrigger("terminating citizen ship");
 talkEntry:addTrigger("leave");
 talkEntry:addTrigger("leaving");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 1));
-talkEntry:addResponse("Oh, you no longer want to be citizen of Galmair?");
+talkEntry:addResponse("Oh, you no longer want to be a citizen of Galmair?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -318,7 +318,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("yes");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "0"));
-talkEntry:addResponse("You are no longer citizen of Galmair. Go elsewhere.");
+talkEntry:addResponse("You are no longer a citizen of Galmair. Go elsewhere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -368,7 +368,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Tycoon %CHARNAME, be welcome. Is is truly a honour to see you!");
+talkEntry:addResponse("Tycoon %CHARNAME, be welcome. It is truly an honour to see you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -378,7 +378,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Tycoon %CHARNAME, be welcome. Is is truly a honour to see you.!");
+talkEntry:addResponse("Tycoon %CHARNAME, be welcome. It is truly an honour to see you.!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -406,7 +406,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Magnate, be welcome. Is is a honour to see you.");
+talkEntry:addResponse("Magnate, be welcome. It is an honour to see you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -416,7 +416,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Magnate, be welcome. Is is a honour to see you.");
+talkEntry:addResponse("Magnate, be welcome. It is an honour to see you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -482,7 +482,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, patrician %CHARNAME!");
+talkEntry:addResponse("Greetings to you, Patrician %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,7 +492,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, patrician %CHARNAME!");
+talkEntry:addResponse("Greetings to you, Patrician %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -520,7 +520,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, financier %CHARNAME!");
+talkEntry:addResponse("Greetings to you, Financier %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -530,7 +530,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, financier %CHARNAME!");
+talkEntry:addResponse("Greetings to you, Financier %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -558,7 +558,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, merchant!");
+talkEntry:addResponse("Greetings to you, Merchant!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -568,7 +568,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, merchant!");
+talkEntry:addResponse("Greetings to you, Merchant!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -746,7 +746,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("licence");
 talkEntry:addTrigger("license");
-talkEntry:addResponse("There is no need for you to buy a licence, since you are citizen.");
+talkEntry:addResponse("There is no need for you to buy a licence, since you are a citizen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -772,7 +772,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("licence");
 talkEntry:addTrigger("license");
-talkEntry:addResponse("You look as you are quite new here. Thus, you can use our tools for free currently.");
+talkEntry:addResponse("You look as though you are quite new here, thus, you can currently use our tools for free.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -788,8 +788,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("licence");
 talkEntry:addTrigger("license");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Licence] You can choose between 'Alpha', 'Beta' and 'Gamma'. Alpha costs one gold coin and allows you to use the tools for one real time hour. Beta costs two gold coins for three real time hours. Gamma costs three gold coins for eight real time hours. Say the name of the typ in order to buy it. You can buy several at the same time. They will be added to each other."));
-talkEntry:addResponse("I sell three kinds of licences. 'Alpha', 'Beta' and 'Gamma'. Alpha allows you to use our static tools for one hour and costs only one gold coin. Beta allows you to use our static tools for nine hours and costs only two gold coin. Gamma allows you to use our static tools for one day and costs only three gold coin. Which one do you want?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Licence] You can choose between 'Alpha', 'Beta' and 'Gamma' licences. Alpha costs one gold coin and allow you to use the tools for one real time hour. Beta costs two gold coins for three real time hours. Gamma costs three gold coins for eight real time hours. Say the name of the type of licence you want in order to buy it. You can buy several at the same time. They will be added to each other."));
+talkEntry:addResponse("I sell three kinds of licences. 'Alpha', 'Beta' and 'Gamma'. Alpha allows you to use our static tools for one hour and costs only one gold coin. Beta allows you to use our static tools for nine hours and costs only two gold coins. Gamma allows you to use our static tools for one day and costs only three gold coins. Which one do you want?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -806,7 +806,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("alpha");
 talkEntry:addTrigger("beta");
 talkEntry:addTrigger("gamma");
-talkEntry:addResponse("There is no need for you to buy a licence, since you are citizen.");
+talkEntry:addResponse("There is no need for you to buy a licence, since you are a citizen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -834,7 +834,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.money.money("<", 10000));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("alpha");
-talkEntry:addResponse("You need more money in order to buy licence 'Alpha'. One gold as a matter of fact.");
+talkEntry:addResponse("You need more money in order to buy licence 'Alpha', one gold as a matter of fact.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -849,10 +849,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(813, ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("alpha");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Licence purchased] You bought licence 'Alpha' for one gold coin. You can use the static tools of this town for additional three real time hours. The time has been added to your time left."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Licence purchased] You bought licence 'Alpha' for one gold coin. You can use the static tools of this town for an additional three real time hours. The time has been added to your time left."));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(813, "+", 12));
-talkEntry:addResponse("You are free to use our tools for additional three hours.");
+talkEntry:addResponse("You are free to use our tools for an additional three hours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -889,7 +889,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.money.money("<", 20000));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("beta");
-talkEntry:addResponse("You need more money in order to buy licence 'Beta'. Two gold coins as a matter of fact.");
+talkEntry:addResponse("You need more money in order to buy licence 'Beta', two gold coins as a matter of fact.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -904,10 +904,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(813, ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("beta");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Licence purchased] You bought licence 'Beta' for two gold coins. You can use the static tools of this town for additional nine real time hours. The time has been added to your time left."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Licence purchased] You bought licence 'Beta' for two gold coins. You can use the static tools of this town for an additional nine real time hours. The time has been added to your time left."));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 20000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(813, "+", 36));
-talkEntry:addResponse("You are free to use our tools for additional nine hours.");
+talkEntry:addResponse("You are free to use our tools for an additional nine hours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -944,7 +944,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.money.money("<", 30000));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gamma");
-talkEntry:addResponse("You need more money in order to buy licence 'Gamma'. Three gold coins as a matter of fact.");
+talkEntry:addResponse("You need more money in order to buy licence 'Gamma', three gold coins as a matter of fact.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -959,7 +959,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(813, ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gamma");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Licence purchased] You bought licence 'Gamma' for three gold coins. You can use the static tools of this town for additional eight real time hours. The time has been added to your time left."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Licence purchased] You bought licence 'Gamma' for three gold coins. You can use the static tools of this town for an additional eight real time hours. The time has been added to your time left."));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 30000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(813, "+", 96));
 talkEntry:addResponse("You are free to use our tools for an additional day.");
