@@ -8,11 +8,17 @@
 -- UPDATE common SET com_script='item.id_313_glassmeltoven' WHERE com_itemid IN (313);
 
 require("base.common")
+require("base.licence")
 require("content.gathering")
 
 module("item.id_313_glassmeltoven", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
+	base.licence.licence(User); --checks if user is citizen or has a licence
+	if base.licence.stopcraftingnolicence then -- avoids crafting if user is neither citizen nor has a licence
+		return
+		else
+	end
   content.gathering.InitGathering();
   if (User:countItemAt("all",311)==0 and User:countItemAt("all",734)==0) then
     -- no tool at all

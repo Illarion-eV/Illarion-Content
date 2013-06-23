@@ -5,6 +5,7 @@
 -- UPDATE common SET com_script='item.id_305_smokingoven' WHERE com_itemid IN (305,304);
 
 require("base.common")
+require("base.licence")
 require("content.gathering")
 
 module("item.id_305_smokingoven", package.seeall)
@@ -32,6 +33,11 @@ craftList = {
 };
 
 function UseItem(User, SourceItem, ltstate)
+	base.licence.licence(User); --checks if user is citizen or has a licence
+	if base.licence.stopcraftingnolicence then -- avoids crafting if user is neither citizen nor has a licence
+		return
+		else
+	end
 	content.gathering.InitGathering();
 	local smokefood = content.gathering.smokefood;
   

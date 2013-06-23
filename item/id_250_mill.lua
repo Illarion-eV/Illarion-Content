@@ -5,11 +5,17 @@
 -- UPDATE common SET com_script='item.id_250_mill' WHERE com_itemid IN (250);
 
 require("base.common")
+require("base.licence")
 require("content.gathering")
 
 module("item.id_250_mill", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
+	base.licence.licence(User); --checks if user is citizen or has a licence
+	if base.licence.stopcraftingnolicence then -- avoids crafting if user is neither citizen nor has a licence
+		return
+		else
+	end
 	content.gathering.InitGathering();
 	local graingrinding = content.gathering.graingrinding;
 
