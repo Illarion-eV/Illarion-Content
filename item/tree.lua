@@ -43,8 +43,7 @@ function LookAtItem(User,Item)
 		if (signCoo[tablePosition] ~= nil) then
 			for i, signpos in pairs(signCoo[tablePosition]) do
 				if (Item.pos == signpos) then
-                   	Item:setData("nameDe",signNameDe[tablePosition][i])
-					Item:setData("nameEn",signNameEn[tablePosition][i])
+                   	lookAt.name = base.common.GetNLS(User, signNameDe[tablePosition][i],signNameEn[tablePosition][i])
 					if (UserPer >= signPerception[tablePosition][i]) then
 						lookAt.description = base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name))
 					else
