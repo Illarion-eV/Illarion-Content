@@ -17,7 +17,7 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Besorge einen Glas mit Wein und bringe es Zaida. Du kannst ein Glas mit Wein vom Händler kaufen oder fülle Wein aus einer Flasche in ein leeres Glas. Wein kann man mit einen Kochlöffel am Weinfass herstellen."
-Description[ENGLISH][1] = "Get a glass of wine and bring it to Zaida. You can buy a glass of wine from a merchant or fill wine from a bottle into a mug. You can make wine with a cooking spoon on a wine barrel."
+Description[ENGLISH][1] = "Get a glass of wine and take it to Zaida. You can buy a glass of wine from a merchant or pour wine from a bottle into a glass. You can make wine using a cooking spoon at a wine barrel."
 Description[GERMAN][2] = "Rede mit Zaida, sie kann dir einiges Erzählen."
 Description[ENGLISH][2] = "Talk to Zaida, she can tell you a lot."
 
