@@ -55,7 +55,7 @@ function licenceCheck(char)
 			stopcraftingnolicence = false --craft-script does not stop later
 		else
 			base.common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Geräte dieser Stadt. Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the use of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become a citizen."); --player gets info to buy licence
-			stopcraftingnolicence = false -- craft-script stops later; set to true as soon as NPCs are ready
+			stopcraftingnolicence = true -- craft-script stops later; set to true as soon as NPCs are ready
 			return
 		end
 	else
