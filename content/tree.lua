@@ -12,7 +12,7 @@ function InitTree()
    
     ---------------- Bï¿½UME ----------------
 
-    --AddTree({X,Y,Z},german text,english text, type, needed value of perception);
+    --AddTree({X,Y,Z},german name, english name, german text,english text, type, needed value of perception);
     --typs:
     -- 1 = fri tree
     -- 2 = cachdern tree
@@ -35,7 +35,7 @@ function InitTree()
 	--[[--Bramus REst
 	AddTree({752,378,0},nil,nil,"","", 1,5); ]]--
 	--Galmair
-	AddTree({376,288,0},nil,nil,"Der Schleimige Setzling - Dieser Säumling verbreitet nicht nur einen üblen Geruch, sondern ist auch mit Schleim überzogen, welcher von ihm heruntertropft.","The Glutinous Seedling - This seedling does not only bruits a bad smell but is also covered by slime, which drops down.", 12,0);
+	AddTree({376,288,0},"Der Schleimige Setzling","The Glutinous Seedling","Dieser Säumling verbreitet nicht nur einen üblen Geruch, sondern ist auch mit Schleim überzogen, welcher von ihm heruntertropft.","This seedling does not only bruits a bad smell but is also covered by slime, which drops down.", 12,0);
 	--Gnuremground
 --[[	AddTree({578,708,0},nil,nil,"","", 1,5);
 	AddTree({576,712,0},nil,nil,"","", 1,5);
@@ -80,7 +80,7 @@ function CheckAndPlaceItem(Posi,ItemID)
     local tree
 	if world:isItemOnField(Posi) then
         if ( world:getItemOnField(Posi).id ~= ItemID ) then
-            tre = world:createItemFromId(ItemID,1,Posi,true,333,nil);
+            tree = world:createItemFromId(ItemID,1,Posi,true,333,nil);
         end
     else
         tree = world:createItemFromId(ItemID,1,Posi,true,333,nil);
