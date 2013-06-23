@@ -1,7 +1,7 @@
 -- UPDATE common SET com_script='item.id_23_smithinghammer' WHERE com_itemid IN (23);
 
-require("base.licence")
 require("content.craft.smithing")
+require("base.licence")
 require("base.lookat")
 
 module("item.id_23_smithinghammer", package.seeall)

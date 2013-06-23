@@ -1,5 +1,5 @@
-require("base.licence")
 require("content.craft.smithing")
+require("base.licence")
 
 module("item.id_172_anvil", package.seeall)
 
