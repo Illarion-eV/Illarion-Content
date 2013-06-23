@@ -18,11 +18,11 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Besorge zehn Forellen und bringe sie zu Kaitza. Stelle dich ans Wasser und benutze die Angel um Fische zu fangen."
-Description[ENGLISH][1] = "Produce ten trouts and bring them back to Kaitza. Place yourself next to the water and use a fishing rod to fish."
+Description[ENGLISH][1] = "Obtain ten trout and take them back to Kaitza. To fish, place yourself next to the water and use a fishing rod."
 Description[GERMAN][2] = "Kehre zurück zu Kaitza und frage, ob er noch eine Aufgabe für dich hat."
-Description[ENGLISH][2] = "Go back to Kaitza, he certainly have another task for you." 
+Description[ENGLISH][2] = "Go back to Kaitza, he will certainly have another task for you." 
 Description[GERMAN][3] = "Besorge fünf Lachse und bringe sie zu Kaitza. Stelle dich ans Wasser und benutze die Angel um Fische zu fangen."
-Description[ENGLISH][3] = "Produce five salmon and bring them back to Kaitza. Place yourself next to the water and use a fishing rod to fish."
+Description[ENGLISH][3] = "Obtain five salmon and take them back to Kaitza. To fish, place yourself next to the water and use a fishing rod."
 Description[GERMAN][4] = "Du hast alle Aufgaben von Kaitza erfüllt."
 Description[ENGLISH][4] = "You have fulfilled all the tasks for Kaitza." 
 
