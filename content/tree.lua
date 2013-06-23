@@ -1,7 +1,9 @@
 module("content.tree", package.seeall)
 --UNDER CONSTRUCTION by envi--
 function InitTree()
-    signTextDe={};
+    signNameDe = {};
+	signNameEn= {};
+	signTextDe={};
     signTextEn={};
     signCoo={};
     signItemId={};
