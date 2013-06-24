@@ -4,9 +4,9 @@ require("base.factions")
 module("base.licence", package.seeall)
 
 
-licencePosCad={position(130,580,0)}; --Cadomyr
-licencePosRun={position(850,800,0),position(850,800,1),position(850,800,3)}; --Runewick
-licencePosGal={position(400,300,0),position(391,329,-6)}; --Galmair 
+licencePosCad={position(105,550,0),position(105,595,0)}; --Cadomyr
+licencePosRun={position(910,800,0),position(790,800,0),position(870,890,0),position(910,800,1),position(910,800,3)}; --Runewick
+licencePosGal={position(360,235,0),position(345,280,0),position(390,330,-6),position(400,220,-6)}; --Galmair 
 
 
 function licence(char)
@@ -14,7 +14,7 @@ function licence(char)
 		for i= 1,AmountCad do --loop for each tool-position (cadomyr)
 			local licencePos = licencePosCad[i] --get coordinates from table
 			local licenceDistance = char:distanceMetricToPosition (licencePos) --get distance from player
-			if licenceDistance < 151 then --check if player is in range of tool
+			if licenceDistance < 56 then --check if player is in range of tool
 				licencerequired = 1 --set faction id for licenceCheck(char)
 				licenceQuestID = 811 --set quest id for licenceCheck(char)
 				return licenceCheck(char) --run licenceCheck(char) and return state to craft-id-script
@@ -25,7 +25,7 @@ function licence(char)
 		for i= 1,AmountRun do
 			local licencePos = licencePosRun[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
-			if licenceDistance < 151 then
+			if licenceDistance < 66 then
 				licencerequired = 2
 				licenceQuestID = 812
 				return licenceCheck(char)
@@ -36,7 +36,7 @@ function licence(char)
 		for i= 1,AmountGal do
 			local licencePos = licencePosGal[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
-			if licenceDistance < 151 then
+			if licenceDistance < 81 then
 				licencerequired = 3
 				licenceQuestID = 813
 				return licenceCheck(char)
