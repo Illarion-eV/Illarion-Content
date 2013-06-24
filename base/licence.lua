@@ -60,6 +60,6 @@ function licenceCheck(char)
 		end
 	else
 	local stopcraftingnolicence = false --craft-script does not stop later
-	return false
+--	return false
 	end
 end

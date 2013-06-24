@@ -45,12 +45,9 @@ OreList = {
 CoalItem = CreateItem(21);
 
 function UseItem(User, SourceItem, ltstate)
---	base.licence.licence(User); --checks if user is citizen or has a licence
-	if base.licence.licence(User) then -- avoids crafting if user is neither citizen nor has a licence
---	User:inform("createItemTimeB: "..base.licence.licence(User),"createItemTimeB:"..base.licence.licence(User))
-		return
+	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+		return -- avoids crafting if user is neither citizen nor has a licence
 	else
---	User:inform("createItemTimeB: "..base.licence.licence(User),"createItemTimeB:"..base.licence.licence(User))
 
 	end
 	content.gathering.InitGathering();
