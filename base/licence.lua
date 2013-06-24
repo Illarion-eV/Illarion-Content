@@ -4,8 +4,8 @@ require("base.factions")
 module("base.licence", package.seeall)
 
 
-licencePosCad={position(150,550,0)}; --Cadomyr
-licencePosRun={position(830,850,0),position(830,850,1),position(830,850,3)}; --Runewick
+licencePosCad={position(130,580,0)}; --Cadomyr
+licencePosRun={position(930,800,0),position(930,800,1),position(930,800,3)}; --Runewick
 licencePosGal={position(400,300,0),position(391,329,-6)}; --Galmair 
 
 
