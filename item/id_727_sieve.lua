@@ -7,10 +7,15 @@
 -- UPDATE common SET com_script='item.id_727_sieve' WHERE com_itemid IN (727);
 
 require("base.common")
+require("base.licence")
 
 module("item.id_727_sieve", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
+	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+		return -- avoids crafting if user is neither citizen nor has a licence
+	end
+
 	content.gathering.InitGathering();
 	local sieving = content.gathering.sieving;
 

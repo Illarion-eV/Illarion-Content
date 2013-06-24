@@ -7,10 +7,15 @@
 require("base.common")
 require("content.gathering")
 require("item.general.wood")
+require("base.licence")
 
 module("item.id_429_candlemold", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
+	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+		return -- avoids crafting if user is neither citizen nor has a licence
+	end
+
 	content.gathering.InitGathering();
 	local candleproducing = content.gathering.candleproducing;
 	

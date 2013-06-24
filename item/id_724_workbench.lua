@@ -30,11 +30,10 @@ function CreateCraftItem(sourceItem, productItem)
 end
 
 function UseItem(User, SourceItem, ltstate)
-	base.licence.licence(User); --checks if user is citizen or has a licence
-	if base.licence.stopcraftingnolicence then -- avoids crafting if user is neither citizen nor has a licence
-		return
-		else
+	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+		return -- avoids crafting if user is neither citizen nor has a licence
 	end
+
 	content.gathering.InitGathering();
 	local boardproducing = content.gathering.boardproducing;
   

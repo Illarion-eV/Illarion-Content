@@ -5,11 +5,16 @@
 -- UPDATE common SET com_script='item.id_118_rollingpin' WHERE com_itemid IN (118);
 
 require("base.common")
+require("base.licence")
 require("item.general.wood")
 
 module("item.id_118_rollingpin", package.seeall);
 
 function UseItem(User, SourceItem, ltstate)
+	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+		return -- avoids crafting if user is neither citizen nor has a licence
+	end
+
 	content.gathering.InitGathering();
 	local doughproducing = content.gathering.doughproducing;
   if (TableList == nil) then

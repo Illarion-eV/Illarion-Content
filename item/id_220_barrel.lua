@@ -7,6 +7,7 @@
 
 require("base.common")
 require("content.gathering")
+require("base.licence")
 
 module("item.id_220_barrel", package.seeall)
 
@@ -21,6 +22,10 @@ dyersList = {
 };
 
 function UseItem(User, SourceItem, ltstate)
+	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+		return -- avoids crafting if user is neither citizen nor has a licence
+	end
+
 	content.gathering.InitGathering();
 	local dyeing = content.gathering.dyeing;
 
