@@ -6,12 +6,12 @@ module("base.licence", package.seeall)
 --licencePos={}
 licencePosCad={position(150,700,0)}; --Cadomyr
 licencePosRun={position(900,900,0)}; --Runewick
-licencePosGal={position(383,276,0),position(408,263,0),position(376,233,0)}; --Galmair workshop, alchemy hous, kitchen (Crest)
+licencePosGal={position(400,300,0),position(391,329,-6)}; --Galmair workshop, alchemy hous, kitchen (Crest), taverne, camp
 
 
 --licenceGalmairPos={position(383,276,0),position(408,263,0),position(376,233,0)}; --Galmair workshop, alchemy hous, kitchen (Crest)
---licenceGalmairPos[1]="383,276,0"; --Galmair workshop
---licenceGalmairPos[2]=408,263,0;	--Galmair alchemy hous
+--licenceGalmairPos[1]="383,276,0"; --Galmair workshop ,position(383,276,0),position(333,260,0)
+--licenceGalmairPos[2]=408,263,0;	--Galmair alchemy hous ,position(408,263,0),position(376,233,0),position(305,298,0)
 --licenceGalmairPos[3]={position(376,233,0)}	--Galmair kitchen (Crest)
 
 function licence(char)
@@ -19,7 +19,7 @@ function licence(char)
 		for i= 1,AmountCad do --loop for each tool-position (cadomyr)
 			local licencePos = licencePosCad[i] --get coordinates from table
 			local licenceDistance = char:distanceMetricToPosition (licencePos) --get distance from player
-			if licenceDistance < 15 then --check if player is in range of tool
+			if licenceDistance < 151 then --check if player is in range of tool
 				licencerequired = 1 --set faction id for licenceCheck(char)
 				licenceQuestID = 811 --set quest id for licenceCheck(char)
 				return licenceCheck(char) --run licenceCheck(char)
@@ -30,7 +30,7 @@ function licence(char)
 		for i= 1,AmountRun do
 			local licencePos = licencePosRun[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
-			if licenceDistance < 15 then
+			if licenceDistance < 151 then
 				licencerequired = 2
 				licenceQuestID = 812
 				return licenceCheck(char)
@@ -41,7 +41,7 @@ function licence(char)
 		for i= 1,AmountGal do
 			local licencePos = licencePosGal[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
-			if licenceDistance < 15 then
+			if licenceDistance < 151 then
 				licencerequired = 3
 				licenceQuestID = 813
 				return licenceCheck(char)
