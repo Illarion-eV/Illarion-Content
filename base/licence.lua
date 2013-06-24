@@ -3,16 +3,11 @@ require("base.factions")
 
 module("base.licence", package.seeall)
 
---licencePos={}
-licencePosCad={position(150,700,0)}; --Cadomyr
-licencePosRun={position(900,900,0)}; --Runewick
-licencePosGal={position(400,300,0),position(391,329,-6)}; --Galmair workshop, alchemy hous, kitchen (Crest), taverne, camp
 
+licencePosCad={position(150,550,0)}; --Cadomyr
+licencePosRun={position(830,850,0),position(830,850,1),position(830,850,3)}; --Runewick
+licencePosGal={position(400,300,0),position(391,329,-6)}; --Galmair 
 
---licenceGalmairPos={position(383,276,0),position(408,263,0),position(376,233,0)}; --Galmair workshop, alchemy hous, kitchen (Crest)
---licenceGalmairPos[1]="383,276,0"; --Galmair workshop ,position(383,276,0),position(333,260,0)
---licenceGalmairPos[2]=408,263,0;	--Galmair alchemy hous ,position(408,263,0),position(376,233,0),position(305,298,0)
---licenceGalmairPos[3]={position(376,233,0)}	--Galmair kitchen (Crest)
 
 function licence(char)
 		local AmountCad = table.getn(licencePosCad)	--Cadomyr
@@ -22,7 +17,7 @@ function licence(char)
 			if licenceDistance < 151 then --check if player is in range of tool
 				licencerequired = 1 --set faction id for licenceCheck(char)
 				licenceQuestID = 811 --set quest id for licenceCheck(char)
-				return licenceCheck(char) --run licenceCheck(char)
+				return licenceCheck(char) --run licenceCheck(char) and return state to craft-id-script
 			end
 		end
 
@@ -53,10 +48,9 @@ function licenceCheck(char)
 	if base.factions.getMembership(char) == 0 or base.factions.getRankpoints(char) >=100 then --check if player is outlaw or at least rank 2, anyone else will be ignored
 		if base.factions.getMembership(char) == licencerequired or char:getQuestProgress(licenceQuestID) > 0 then --check if player is member of the right faction or has licence	
 		else
---			base.common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Geräte dieser Stadt. Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the use of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become a citizen."); --player gets info to buy licence
+			base.common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Geräte dieser Stadt. Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the use of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become a citizen."); --player gets info to buy licence
 
-			return false --craft-script stops later; set to true as soon as NPCs are ready
+			return true --craft-script stops later; set to true as soon as NPCs are ready
 		end
-	else
 	end
 end
