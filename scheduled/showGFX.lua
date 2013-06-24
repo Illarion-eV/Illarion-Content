@@ -23,7 +23,7 @@ function CreateGFX()
 	world:gfx(11,myPos)
 	if world:isCharacterOnField(myPos) then
 		myChar = world:getCharacterOnField(myPos)
-		myChar:talk(Character.say, "#mes Füße werden von einem großen Schleimtropfen, der sich vom schleimigen Setzling gelöst hat, getrofefen.","#me's feet are hit by a big drop of slime, which has come off from the glutinous seedling.")
+		myChar:talk(Character.say, "#mes Füße werden von einem großen Schleimtropfen, der sich vom schleimigen Setzling gelöst hat, getroffen.","#me's feet are hit by a big drop of slime, which has come off from the glutinous seedling.")
 	else
         SpawnSlime(myPos)	
 	end
