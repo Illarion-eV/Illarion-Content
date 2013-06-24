@@ -59,7 +59,7 @@ function checkSlime(ListSlime)
 		return true
 	end
 	
-	if not ListSlime.Monster:increaseAttrib("hitpoints") > 0 then
+	if not ListSlime.Monster:increaseAttrib("hitpoints",0) > 0 then
 	    if (ListSlime.Time - world:getTime("unix")) >= 15 then
 			return true
 		end
