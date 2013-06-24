@@ -5,7 +5,7 @@ module("base.licence", package.seeall)
 
 
 licencePosCad={position(130,580,0)}; --Cadomyr
-licencePosRun={position(930,800,0),position(930,800,1),position(930,800,3)}; --Runewick
+licencePosRun={position(850,800,0),position(850,800,1),position(850,800,3)}; --Runewick
 licencePosGal={position(400,300,0),position(391,329,-6)}; --Galmair 
 
 
