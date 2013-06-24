@@ -1,4 +1,5 @@
 require("base.common")
+require("base.character")
 
 module("scheduled.showGFX", package.seeall)
 
@@ -43,7 +44,7 @@ end
 function CreateSlime(ListSlime,thePos,slimeNumber)
 	local mon = world:createMonster(615,thePos,-10)
     ListSlime.Monster = mon
-	DeathAfterTime(mon,50,11,9,false)
+	base.character.DeathAfterTime(mon,50,11,9,false)
 	find, Effect = mon.effects:find(36)
 	if not find then
 		debug("Error: Effect not found.")
