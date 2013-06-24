@@ -47,6 +47,7 @@ CoalItem = CreateItem(21);
 function UseItem(User, SourceItem, ltstate)
 --	base.licence.licence(User); --checks if user is citizen or has a licence
 	if base.licence.licence(User) then -- avoids crafting if user is neither citizen nor has a licence
+	User:inform("createItemTimeB: "..base.licence.licence(User),"createItemTimeB:"..base.licence.licence(User))
 		return
 	end
 	content.gathering.InitGathering();
