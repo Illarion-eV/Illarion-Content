@@ -10,17 +10,17 @@ function addEffect(Effect, Character)
 end
 
 function callEffect(Effect, Character) 
-  posOfVic = Character.pos
+  local posOfVic = Character.pos
     
-  findDeathGfx, deathGfx = Effect:findValue("deathGfx")
+  local findDeathGfx, deathGfx = Effect:findValue("deathGfx")
   if findDeathGfx then -- in case we defined a Gfx shown on his death
 		world:gfx(deathGfx,posOfVic)
    end
-   findDeathSound, deathSound = Effect:findValue("deathSound")
+   local findDeathSound, deathSound = Effect:findValue("deathSound")
    if findDeathSound then -- if we have defined a sound for the death
         world:makeSound(deathSound,posOfVic)
    end
-   findBlood, blood = Effect:findValue("blood")
+   local findBlood, blood = Effect:findValue("blood")
    if findBlood then
 	    if not world:isItemOnField(posOfVic) then
 			Blood = world:createItemFromId(3101, 1, posOfVic, true, 333, nil)
@@ -38,9 +38,21 @@ function callEffect(Effect, Character)
 			end
 		end
     end
+	
+	-- Glutinous Seedling: slime check
+	local find, slimeNumber = Effect:findValue("GlutinousSeedling")
+	if find then
+		TheGlutinousSeedling(slimeNumber)
+	end
+	-- Glutinous Seedling end
+	
    Character:increaseAttrib("hitpoints",-10000) -- die!
    return false
 -- callEffect is only needed once, no return true necessary
+end
+
+function TheGlutinousSeedling(slimeNumber)
+	scheduled.showGFX.SlimeList["Slime"..slimeNumber].Time = world:getTime("unix")
 end
 
 function removeEffect(Effect,User)

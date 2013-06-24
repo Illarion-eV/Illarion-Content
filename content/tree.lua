@@ -89,7 +89,6 @@ function CheckAndPlaceItem(Posi,ItemID)
     end
 	if tree then
 		tree.wear = 255
-		tree.Weight = 30000
 		world:changeItem(tree)
 	end
 end
