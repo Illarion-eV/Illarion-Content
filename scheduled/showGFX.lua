@@ -22,8 +22,10 @@ function CreateGFX()
 	local myPos = position(376+math.random(-1,1), 288+math.random(-1,1), 0)
 	world:gfx(11,myPos)
 	if world:isCharacterOnField(myPos) then
-		myChar = world:getCharacterOnField(myPos)
-		myChar:talk(Character.say, "#mes Füße werden von einem großen Schleimtropfen, der sich vom schleimigen Setzling gelöst hat, getroffen.","#me's feet are hit by a big drop of slime, which has come off from the glutinous seedling.")
+		local myChar = world:getCharacterOnField(myPos)
+		if base.character.IsPlayer(myChar) then
+			myChar:talk(Character.say, "#mes Füße werden von einem großen Schleimtropfen, der sich vom schleimigen Setzling gelöst hat, getroffen.","#me's feet are hit by a big drop of slime, which has come off from the glutinous seedling.")
+		end
 	else
         SpawnSlime(myPos)	
 	end
