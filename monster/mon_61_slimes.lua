@@ -216,7 +216,7 @@ if (MonID==611) then --Stinky Slime, Level: 3, Armourtype: cloth, Weapontype: wr
 		if find then
 			scheduled.showGFX.SlimeList["Slime"..slimeNumber].Time = world:getTime("unix")
 			scheduled.showGFX.SlimeList["Slime"..slimeNumber].Monster = false
-		    local effectRemoved = User.effects:removeEffect(36)
+		    local effectRemoved = Monster.effects:removeEffect(36)
 		end
 	end
 	-- Glutinous Seedling end
