@@ -43,8 +43,8 @@ end
 
 function CreateSlime(ListSlime,thePos,slimeNumber)
 	local mon = world:createMonster(615,thePos,-10)
-    ListSlime.Monster = mon
-	base.character.DeathAfterTime(mon,72000,11,9,false)
+    ListSlime.Monster = true
+	base.character.DeathAfterTime(mon,18000,11,9,false)
 	find, Effect = mon.effects:find(36)
 	if not find then
 		debug("Error: Effect not found.")
@@ -59,13 +59,9 @@ function checkSlime(ListSlime)
 		return true
 	end
 	
-	if isValidChar(ListSlime.Monster) == false then
-		return true
-	else
-		if not ListSlime.Monster:increaseAttrib("hitpoints",0) > 0 then
-			if (ListSlime.Time - world:getTime("unix")) >= 3600 then
-				return true
-			end
+	if ListSlime.Monster == false then
+		if (ListSlime.Time - world:getTime("unix")) >= 900 then
+			return true
 		end
 	end
 	return false

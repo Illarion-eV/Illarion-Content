@@ -3,6 +3,7 @@ require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
 require("monster.base.kills")
+require("scheduled.showGFX")
 module("monster.mon_61_slimes", package.seeall)
 
 
@@ -207,4 +208,16 @@ if (MonID==611) then --Stinky Slime, Level: 3, Armourtype: cloth, Weapontype: wr
 
     end
     monster.base.drop.Dropping(Monster);
+	
+	-- Glutinous Seedling
+	local foundEffect, Effect = Monster.effects:find(36)
+	if foundEffect then
+		local find, slimeNumber = Effect:findValue("GlutinousSeedling")
+		if find then
+			scheduled.showGFX.SlimeList["Slime"..slimeNumber].Time = world:getTime("unix")
+			scheduled.showGFX.SlimeList["Slime"..slimeNumber].Monster = false
+		    local effectRemoved = User.effects:removeEffect(36)
+		end
+	end
+	-- Glutinous Seedling end
 end

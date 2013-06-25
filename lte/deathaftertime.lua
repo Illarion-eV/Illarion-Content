@@ -3,6 +3,7 @@
 -- see base.character.DeathAfterTime(Character,deathAfter,deathGfx,deathSound)
 
 require("base.common")
+require("scheduled.showGFX")
 module("lte.deathaftertime", package.seeall)
 
 function addEffect(Effect, Character)               				
@@ -53,6 +54,7 @@ end
 
 function TheGlutinousSeedling(slimeNumber)
 	scheduled.showGFX.SlimeList["Slime"..slimeNumber].Time = world:getTime("unix")
+	scheduled.showGFX.SlimeList["Slime"..slimeNumber].Monster = false
 end
 
 function removeEffect(Effect,User)
