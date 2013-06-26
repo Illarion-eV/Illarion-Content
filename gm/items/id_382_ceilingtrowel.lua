@@ -202,61 +202,60 @@ function UseItem(User, SourceItem)
   --[[
   Licence
   ]]
-  elseif (SourceItem:getData("mode")=="licence") then  --licence system
-     local cbLicence = function (dialog)
+  if (SourceItem:getData("mode")=="licence") then  --licence system
+     	local cbLicence = function (dialog)
 	if (not dialog:getSuccess()) then
 	        return;
 	end
 	local ind = dialog:getSelectedIndex();	
 	if (ind == 0) then
-
-        local factionIds = {0,1,2,3};
-        local cbFirstFaction = function (dialog)
-          if (not dialog:getSuccess()) then
-            return;
-          end
-          local firstFaction = factionIds[dialog:getSelectedIndex()+1];
-          local guards = npc.base.guards_static;
-          local modeStrings = {};
-          modeStrings[guards.ACTION_NONE] = "Permission to use";
-          modeStrings[guards.ACTION_PASSIVE] = "Admission is restricted";
-          local modeValues = {guards.ACTION_NONE, guards.ACTION_PASSIVE};
-          local cbSecondFaction = function (dialog)
-            if (not dialog:getSuccess()) then
-              return;
-            end
-            local secondFaction = factionIds[dialog:getSelectedIndex()+1];
-            local cbSetMode = function (dialog)
-              if (not dialog:getSuccess()) then
-                return;
-              end
-              local mode = modeValues[dialog:getSelectedIndex()+1];
-              guards.SetMode(firstFaction, secondFaction, mode);
-            end
-            local sd = SelectionDialog("Set licence", "Set licence of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
-            for _,m in ipairs(modeValues) do 
-              sd:addOption(0,modeStrings[m]);
-            end
-            User:requestSelectionDialog(sd);
-          end
-          local sd = SelectionDialog("Licence", "Set licence of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
-          for _,f in ipairs(factionIds) do 
-            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[guards.GetModeByFaction(firstFaction, f)]);
-          end
-          User:requestSelectionDialog(sd);
-        end
-        local sd = SelectionDialog("Get/Set licence", "For which faction do you want to get/set values?", cbFirstFaction);
-        for _,f in ipairs(factionIds) do 
-          sd:addOption(0,base.factions.getTownNameByID(f));
-        end
+	        local factionIds = {0,1,2,3};
+	        local cbFirstFaction = function (dialog)
+		if (not dialog:getSuccess()) then
+			return;
+		end
+		local firstFaction = factionIds[dialog:getSelectedIndex()+1];
+		local guards = npc.base.guards_static;
+		local modeStrings = {};
+		modeStrings[guards.ACTION_NONE] = "Permission to use";
+		modeStrings[guards.ACTION_PASSIVE] = "Admission is restricted";
+		local modeValues = {guards.ACTION_NONE, guards.ACTION_PASSIVE};
+		local cbSecondFaction = function (dialog)
+		if (not dialog:getSuccess()) then
+			return;
+		end
+		local secondFaction = factionIds[dialog:getSelectedIndex()+1];
+		local cbSetMode = function (dialog)
+		if (not dialog:getSuccess()) then
+			return;
+		end
+		local mode = modeValues[dialog:getSelectedIndex()+1];
+		guards.SetMode(firstFaction, secondFaction, mode);
+	end
+	local sd = SelectionDialog("Set licence", "Set licence of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
+	for _,m in ipairs(modeValues) do 
+		sd:addOption(0,modeStrings[m]);
+	end
+	User:requestSelectionDialog(sd);
+	end
+	local sd = SelectionDialog("Licence", "Set licence of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
+	for _,f in ipairs(factionIds) do 
+		sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[guards.GetModeByFaction(firstFaction, f)]);
+	end
+	User:requestSelectionDialog(sd);
+	end
+	local sd = SelectionDialog("Get/Set licence", "For which faction do you want to get/set values?", cbFirstFaction);
+	for _,f in ipairs(factionIds) do 
+		sd:addOption(0,base.factions.getTownNameByID(f));
+	end
         User:requestSelectionDialog(sd);
-      end
-    end
+	end
+	end
 	local sd = SelectionDialog("What do you want to do about licence?", "", cbLicence);
 	sd:addOption(0,"Get/Set licence values for ...");
 	User:requestSelectionDialog(sd);
    end
-  end
+
 
   --[[
   All the faction stuff
