@@ -3,7 +3,8 @@
 require("gm.base.log")
 require("base.factions")
 require("base.common")
-require("npc.base.guards_static");
+require("npc.base.guards_static")
+require("base.licence")
 
 module("gm.items.id_382_ceilingtrowel", package.seeall, package.seeall(gm.base.log))
 
@@ -417,41 +418,41 @@ debug("radius"..radius)
 	  -- licence
 	elseif (ind == 3) then
         local factionIds = {0,1,2,3};
-        local cbFirstFaction = function (dialog)
+        local cbFirstLicence = function (dialog)
           if (not dialog:getSuccess()) then
             return;
           end
-          local firstFaction = factionIds[dialog:getSelectedIndex()+1];
+          local FirstLicence = factionIds[dialog:getSelectedIndex()+1];
           local licence = base.licence; -- not done yet
-          local modeStrings = {};
-          modeStrings[licence.PERMISSION_NONE] = "Permission for static tools is restricted";
-          modeStrings[licence.PERMISSION_ACTIVE] = "Permission for static tools is granted";
-          local modeValues = {licence.PERMISSION_NONE, licence.PERMISSION_ACTIVE};
-          local cbSecondFaction = function (dialog)
+          local licenceStrings = {};
+          licenceStrings[licence.PERMISSION_NONE] = "Permission for static tools is restricted";
+          licenceStrings[licence.PERMISSION_ACTIVE] = "Permission for static tools is granted";
+          local licenceValues = {licence.PERMISSION_NONE, licence.PERMISSION_ACTIVE};
+          local cbSecondLicence = function (dialog)
             if (not dialog:getSuccess()) then
               return;
             end
-            local secondFaction = factionIds[dialog:getSelectedIndex()+1];
-            local cbSetMode = function (dialog)
+            local SecondLicence = factionIds[dialog:getSelectedIndex()+1];
+            local cbSetLicence = function (dialog)
               if (not dialog:getSuccess()) then
                 return;
               end
-              local mode = modeValues[dialog:getSelectedIndex()+1];
-              licence.SetMode(firstFaction, secondFaction, mode); --not done yet
+              local licence = licenceValues[dialog:getSelectedIndex()+1];
+              licence.SetLicence(FirstLicence, SecondLicence, licence); --not done yet
             end
-            local sd = SelectionDialog("Set licence", "Set licence of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
-            for _,m in ipairs(modeValues) do 
-              sd:addOption(0,modeStrings[m]);
+            local sd = SelectionDialog("Set licence", "Set licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to " .. base.factions.getTownNameByID(SecondLicence) .. " to ...", cbSetLicence);
+            for _,m in ipairs(licenceValues) do 
+              sd:addOption(0,licenceStrings[m]);
             end
             User:requestSelectionDialog(sd);
           end
-          local sd = SelectionDialog("Licence", "Set licence of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
+          local sd = SelectionDialog("Licence", "Set licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to ...", cbSecondLicence);
           for _,f in ipairs(factionIds) do 
-            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[licence.GetModeByFaction(firstFaction, f)]); --not done yet
+            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. licenceStrings[licence.GetLicenceByFaction(FirstLicence, f)]); --not done yet
           end
           User:requestSelectionDialog(sd);
         end
-        local sd = SelectionDialog("Get/Set licence", "For which faction do you want to get/set values?", cbFirstFaction);
+        local sd = SelectionDialog("Get/Set licence", "For which faction do you want to get/set values?", cbFirstLicence);
         for _,f in ipairs(factionIds) do 
           sd:addOption(0,base.factions.getTownNameByID(f));
         end
