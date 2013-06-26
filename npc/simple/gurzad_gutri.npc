@@ -236,19 +236,19 @@ queststatus(152) = 7, item(2701, all) < 1, town = Galmair, "Auftrag", "Aufgabe",
 
 -- 8: Quest 8 taken, get 15 firnis blossoms (148), reward: mushroom soup (2456), 5 rankpoints
 queststatus(152) = 0, english, chance(7.69), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 8, "The Don commisioned a number of potions to be made and our alchemists took out a bunch of herbs. We are now short and I need you to get fifteen firnis blossoms for the storage."
-queststatus(152) = 0, german, chance(7.69), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 8, "Der Don hat unsere Alchemisten einige Tränke brauen lassen. Nun fehlen uns ein paar Kräuter. Bringt mit 15 Firnisblumen."
+queststatus(152) = 0, german, chance(7.69), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 8, "Der Don hat unsere Alchemisten einige Tränke brauen lassen. Nun fehlen uns ein paar Kräuter. Bringt mit 15 Firnisblüten."
 queststatus(152) = 0, chance(7.69), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 8, "The Don commisioned a number of potions to be made and our alchemists took out a bunch of herbs. We are now short and I need you to get fifteen firnis blossoms for the storage."
-queststatus(152) = 0, chance(7.69), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 8, "Der Don hat unsere Alchemisten einige Tränke brauen lassen. Nun fehlen uns ein paar Kräuter. Bringt mit 15 Firnisblumen."
+queststatus(152) = 0, chance(7.69), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 8, "Der Don hat unsere Alchemisten einige Tränke brauen lassen. Nun fehlen uns ein paar Kräuter. Bringt mit 15 Firnisblüten."
 
 -- Quest 8 solved, reward: mushroom soup (2456), 5 rankpoints, delay: 5h
 queststatus(152) = 8, item(148, all) > 14, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a bowl of mushroom soup. You advance in Don Valerio Guilianni's favour."), deleteItem(148, 15), item(2456, 1, 599), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Aha good work! Digging in the dirt must have worn you down, here is some mushroom soup to get you back into shape!"
-queststatus(152) = 8, item(148, all) > 14, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst eine Schüssel mit Pilzsuppe. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(148, 15), item(2456, 1, 599), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Aha, gute Arbeit! Im Dreck nach Blumen zu suchen muss anstrengend sein. Hier nehmt diese Pilzsuppe und stärkt Euch wieder."
+queststatus(152) = 8, item(148, all) > 14, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst eine Schüssel mit Pilzsuppe. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(148, 15), item(2456, 1, 599), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Aha, gute Arbeit! Im Dreck nach Blüten zu suchen muss anstrengend sein. Hier nehmt diese Pilzsuppe und stärkt Euch wieder."
 
 -- Quest 8 taken but not solved, repeat the instructions
 queststatus(152) = 8, item(148, all) < 15, english, town = Galmair, "quest", "mission" -> "The storage must be filled! When you return, I expect you will have the fifteen firnis blossoms."
-queststatus(152) = 8, item(148, all) < 15, town = Galmair, "quest", "mission" -> "Was macht Ihr hier? Kommt erst wieder, wenn Ihr die 15 Firnisblumen habt!"
+queststatus(152) = 8, item(148, all) < 15, town = Galmair, "quest", "mission" -> "Was macht Ihr hier? Kommt erst wieder, wenn Ihr die 15 Firnisblüten habt!"
 queststatus(152) = 8, item(148, all) < 15, town = Galmair, "task", "adventure", "order" -> "The storage must be filled! When you return, I expect you will have the fifteen firnis blossoms."
-queststatus(152) = 8, item(148, all) < 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Was macht Ihr hier? Kommt erst wieder, wenn Ihr die 15 Firnisblumen habt!"
+queststatus(152) = 8, item(148, all) < 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Was macht Ihr hier? Kommt erst wieder, wenn Ihr die 15 Firnisblüten habt!"
 
 -- 9: Quest 9 taken, get 10 glass mugs (1908), reward: 160cp, 5 rankpoints
 queststatus(152) = 0, english, chance(8.33), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 9, "#me stumbles as he looks up 'HEY! Hey you! *hic* Our damn mugs shattered when we.. *hic* challenged the Don to a drinking game. But the game ain't over yet son! We.. *hic* need more mugs! How many? Uh... however this many is! He holds up all of his fingers."

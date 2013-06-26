@@ -1218,7 +1218,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Stocke Galmairs Vorräte auf"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 8));
-talkEntry:addResponse("Der Don hat unsere Alchemisten einige Tränke brauen lassen. Nun fehlen uns ein paar Kräuter. Bringt mit 15 Firnisblumen.");
+talkEntry:addResponse("Der Don hat unsere Alchemisten einige Tränke brauen lassen. Nun fehlen uns ein paar Kräuter. Bringt mit 15 Firnisblüten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1245,7 +1245,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Stocke Galmairs Vorräte auf"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 8));
-talkEntry:addResponse("Der Don hat unsere Alchemisten einige Tränke brauen lassen. Nun fehlen uns ein paar Kräuter. Bringt mit 15 Firnisblumen.");
+talkEntry:addResponse("Der Don hat unsere Alchemisten einige Tränke brauen lassen. Nun fehlen uns ein paar Kräuter. Bringt mit 15 Firnisblüten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1276,7 +1276,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(2456, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(152, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(153, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Aha, gute Arbeit! Im Dreck nach Blumen zu suchen muss anstrengend sein. Hier nehmt diese Pilzsuppe und stärkt Euch wieder.");
+talkEntry:addResponse("Aha, gute Arbeit! Im Dreck nach Blüten zu suchen muss anstrengend sein. Hier nehmt diese Pilzsuppe und stärkt Euch wieder.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1297,7 +1297,7 @@ talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Was macht Ihr hier? Kommt erst wieder, wenn Ihr die 15 Firnisblumen habt!");
+talkEntry:addResponse("Was macht Ihr hier? Kommt erst wieder, wenn Ihr die 15 Firnisblüten habt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1320,7 +1320,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Was macht Ihr hier? Kommt erst wieder, wenn Ihr die 15 Firnisblumen habt!");
+talkEntry:addResponse("Was macht Ihr hier? Kommt erst wieder, wenn Ihr die 15 Firnisblüten habt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
