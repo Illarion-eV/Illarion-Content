@@ -418,7 +418,7 @@ debug("radius"..radius)
 	User:requestSelectionDialog(sd);
    end
 	end
-   
+   end
 	  
 	  -- guard modes
 	  elseif (ind == 3) then 
