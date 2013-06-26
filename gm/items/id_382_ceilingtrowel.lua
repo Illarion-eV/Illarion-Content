@@ -471,6 +471,7 @@ debug("radius"..radius)
     User:requestSelectionDialog(sd);
   end
 end
+end
 
 function guardInfo(chosenPlayer)
     local guardModes = {"None","Passive","Hostile","Aggressive","Let always pass"}
