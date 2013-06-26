@@ -411,7 +411,7 @@ debug("radius"..radius)
           sd:addOption(0,base.factions.getTownNameByID(f));
         end
         User:requestSelectionDialog(sd);
-      end
+     
 
 
   --[[
