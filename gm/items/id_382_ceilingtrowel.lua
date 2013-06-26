@@ -416,9 +416,7 @@ debug("radius"..radius)
 	local sd = SelectionDialog("What do you want to do about licence?", "", cbLicence);
 	sd:addOption(0,"Get/Set licence values for ...");
 	User:requestSelectionDialog(sd);
-   end
-	end
-   end
+
 	  
 	  -- guard modes
 	  elseif (ind == 3) then 
