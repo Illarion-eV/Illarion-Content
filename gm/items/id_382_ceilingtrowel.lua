@@ -256,7 +256,7 @@ function UseItem(User, SourceItem)
 	sd:addOption(0,"Get/Set licence values for ...");
 	User:requestSelectionDialog(sd);
    end
-
+  end
 
   --[[
   All the faction stuff
