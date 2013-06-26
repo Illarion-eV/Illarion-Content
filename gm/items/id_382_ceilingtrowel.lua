@@ -501,6 +501,7 @@ debug("radius"..radius)
     local sd = SelectionDialog("What do you want to do about factions?", "", cbFaction);
     sd:addOption(0,"Get/Set faction values for ...");
     sd:addOption(0,"Add/Subtract rankpoints in radius");
+    sd:addOption(0,"Get/Set licence");
     sd:addOption(0,"Get/Set guard modes");
     User:requestSelectionDialog(sd);
   end
