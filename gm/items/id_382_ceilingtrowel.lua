@@ -447,7 +447,7 @@ debug("radius"..radius)
           end
           local sd = SelectionDialog("Licence", "Set licence of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
           for _,f in ipairs(factionIds) do 
-            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[guards.GetModeByFaction(firstFaction, f)]);
+            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[licence.GetModeByFaction(firstFaction, f)]); --not done yet
           end
           User:requestSelectionDialog(sd);
         end
