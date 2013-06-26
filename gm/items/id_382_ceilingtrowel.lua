@@ -367,19 +367,19 @@ debug("radius"..radius)
         end
         User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
 
-	  -- rankpoints in radius
-	elseif (ind == 2) then --licence
+	  -- licence
+	elseif (ind == 2) then
         local factionIds = {0,1,2,3};
         local cbFirstFaction = function (dialog)
           if (not dialog:getSuccess()) then
             return;
           end
           local firstFaction = factionIds[dialog:getSelectedIndex()+1];
-          local guards = npc.base.guards_static;
+          local licence = base.licence; -- not done yet
           local modeStrings = {};
-          modeStrings[guards.ACTION_NONE] = "Permission granted";
-          modeStrings[guards.ACTION_PASSIVE] = "Admission is restricted";
-          local modeValues = {guards.ACTION_NONE, guards.ACTION_PASSIVE};
+          modeStrings[licence.PERMISSION_NONE] = "Permission for static tools is restricted";
+          modeStrings[licence.PERMISSION_ACTIVE] = "Permission for static tools is granted";
+          local modeValues = {licence.PERMISSION_NONE, licence.PERMISSION_ACTIVE};
           local cbSecondFaction = function (dialog)
             if (not dialog:getSuccess()) then
               return;
@@ -390,7 +390,7 @@ debug("radius"..radius)
                 return;
               end
               local mode = modeValues[dialog:getSelectedIndex()+1];
-              guards.SetMode(firstFaction, secondFaction, mode);
+              licence.SetMode(firstFaction, secondFaction, mode); --not done yet
             end
             local sd = SelectionDialog("Set licence", "Set licence of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
             for _,m in ipairs(modeValues) do 
@@ -461,7 +461,7 @@ debug("radius"..radius)
     local sd = SelectionDialog("What do you want to do about factions?", "", cbFaction);
     sd:addOption(0,"Get/Set faction values for ...");
     sd:addOption(0,"Add/Subtract rankpoints in radius");
-    sd:addOption(0,"Get/Set licence");
+    sd:addOption(0,"Get/Set licence --not working yet; mustn't use it! otherwise guards mode are messed");
     sd:addOption(0,"Get/Set guard modes");
     User:requestSelectionDialog(sd);
   end
