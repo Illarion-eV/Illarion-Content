@@ -738,7 +738,21 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich Rumtreiber!");
+talkEntry:addResponse("Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich, du Rumtreiberin!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("I do not know about other ranks of other towns.");
+talkEntry:addResponse("I am not interested in other systems, only the Galmairian one.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Ich weiß nichts über Ränge in anderen Städten.");
+talkEntry:addResponse("Ich interessiere mich nur für das galmairanische Statussystem.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -795,7 +809,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("lizenz");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Lizenz] Du kannst zwischen 'Alpha', 'Beta' und 'Gamma' wählen. Alpha kostet eine Goldmünze und erlaubt dir die Nutzung der Geräte für eine Echtzeit-Stunde. Beta kostet zwei Goldmünzen für vier Echtzeit-Stunden. Gamma kostet drei Goldmünzen für acht Echtzeit-Stunden. Sage den Namen des Typen, um zu bestellen. Du kannst mehrere gleichzeitig kaufen. Diese werden dann summiert."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Lizenz] Du kannst zwischen 'Alpha', 'Beta' und 'Gamma' wählen. Alpha kostet eine Goldmünze und erlaubt dir die Nutzung der Geräte für eine Echtzeit-Stunde. Beta kostet zwei Goldmünzen für drei Echtzeit-Stunden. Gamma kostet drei Goldmünzen für acht Echtzeit-Stunden. Sage den Namen des Typen, um zu bestellen. Du kannst mehrere gleichzeitig kaufen. Diese werden dann summiert."));
 talkEntry:addResponse("Ich verkaufe drei Arten von Lizenzen. 'Alpha', 'Beta' und 'Gamma'. Mit Alpha ist es möglich, unsere Geräte für drei Stunden zu einem Preis von nur einer Goldmünze zu nutzen. Mit Beta ist es möglich, unsere Geräte für neun Stunden zu einem Preis von nur zwei Goldmünzen zu nutzen. Und mit Gamma ist es möglich, unsere Geräte für einen Tag zu einem Preis von nur drei Goldmünzen zu nutzen. Welche möchtet ihr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1038,7 +1052,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin der Notar Galmairs und tu all das was ein Notar so tut.");
+talkEntry:addResponse("Ich bin der Notar Galmairs und tue all das was ein Notar so tut.");
 talkEntry:addResponse("Ich kümmere mich um die Neuankömmlinge in Galmair, ich bin hier der Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1053,7 +1067,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin der Notar Galmairs und tu all das was ein Notar so tut.");
+talkEntry:addResponse("Ich bin der Notar Galmairs und tue all das was ein Notar so tut.");
 talkEntry:addResponse("Ich kümmere mich um die Neuankömmlinge in Galmair, ich bin hier der Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1081,7 +1095,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Ich freu mich Euch kennenzulernen.");
+talkEntry:addResponse("Ich freue mich Euch kennenzulernen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

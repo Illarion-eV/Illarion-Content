@@ -84,7 +84,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Welcome! Interested in a higher ran
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Lebt wohl!"
 "How are you", "How feel", "How do you do" -> "#w Psst. Very good, haven't got caught yet counterfeiting documents."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "#w Psst. Sehr gut, ich wurde immer noch nicht erwischt beim Fälschen von Dokumenten."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "#w Psst. Sehr gut, ich wurde noch nie beim Fälschen von Dokumenten erwischt."
 "your name", "who are you", "who art thou" -> "#w Psst. Arno Unterland, famous for counterfeiting documents. *grins*"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#w Psst. Arno Unterland, berühmt für das Fälschen von Dokumenten. *grinst*"
 
@@ -135,9 +135,9 @@ talkMode=whisper, rank>6, "Fälsch" -> "#w Es tut mir leid aber ich kann nichts 
 -- Check for the deal
 -- uses longterm_cooldown.lua
 english, talkMode=talk,"deal" -> "#w Whisper! Can't believe it."
-talkMode=talk,"deal" -> "#w Flüstert! Darf doch nicht wahr sein."
+talkMode=talk,"deal" -> "#w Flüstert! Das darf doch nicht wahr sein."
 english, talkMode=shout, "deal" -> "#w Whisper! Can't believe it."
-talkMode=shout, "deal" -> "#w Flüstert! Darf doch nicht wahr sein."
+talkMode=shout, "deal" -> "#w Flüstert! Das darf doch nicht wahr sein."
 queststatus(614) ~= 0, english, talkMode=whisper, "deal" -> "#w Wait, I think the last time we modified your documents was too recently. Let's wait for more time. I will send you a dove when it should work."
 queststatus(614) ~= 0, talkMode=whisper, "deal" -> "#w Wartet. Ich denke, das letzte Mal, dass wir eure Dokumente modifiziert haben, ist noch nicht allzu lange her. Lasst uns noch ein wenig warten. Ich werde euch eine Taube zukommen lassen sobald es funktionieren sollte."
 english, talkMode=whisper, rank>6, "deal" -> "#w I am sorry but I cannot do anything for you. In your case they would easily find out what we are doing here."
@@ -218,13 +218,13 @@ english, "Arno", "Unterland" -> "This is my name. Do you want my service?"
 "Yes" -> "So, then show me your documents."
 "Ja" -> "Dann zeigt mir mal eure Dokumente."
 "No" -> "Well, do not tell anyone else."
-"Nein" -> "Schon gut, aber nichts weitersagen."
+"Nein" -> "Schon gut, aber nicht weitersagen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "#w Psst, I counterfeit documents. Interested? Say 'deal' and I will promote you to the next rank of your town. Say 'counterfeit' and I provide you with more details."
 german, chance(20.0), ".*" -> "#w Psst, ich fälsche Dokumente. Interessiert? Sagt 'Deal' und ich werde euch zum nächsten Rang eurer Stadt verhelfen. Sagt 'Fälschung' und ich werde euch in die Details einweihen."
 
--------------------------------------, queststatus(613) = 300-----------------------------------------AC
+------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
@@ -237,5 +237,5 @@ cycletext "#me beobachtet die Anwesenden.", "#me observes the audience."
 cycletext "#me isst von seinem Wurstteller.", "#me eats from his plate of sausages."
 cycletext "#me stappelt seine Pergamentrollen.", "#me piles up his pells."
 cycletext "Zu mir, wer eine Sicherheitskopie benötigt.", "To me, if you need a backup copy."
-cycletext "#me murmelt zu ihm selbst.", "#me mutters to himself."
+cycletext "#me murmelt zu sich selbst.", "#me mutters to himself."
 cycletext "Ob Galmair, ob Cadomyr, ob Runewick...mich interessiert das nicht solange der Preis stimmt.", "#Whether Galmair, whether Cadomyr, whether Runewick...I don't care as long as you pay enough."

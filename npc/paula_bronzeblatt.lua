@@ -413,7 +413,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("Mir wurde gesagt, sie trägt ständig eine Maske, das sie gar nicht so schön ist, wie sie alle glauben lässt.");
+talkEntry:addResponse("Mir wurde gesagt, sie trägt ständig eine Maske und das sie gar nicht so schön ist, wie sie alle glauben lässt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -428,7 +428,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Mir wurde gesagt, sie trägt ständig eine Maske, das sie gar nicht so schön ist, wie sie alle glauben lässt.");
+talkEntry:addResponse("Mir wurde gesagt, sie trägt ständig eine Maske und das sie gar nicht so schön ist, wie sie alle glauben lässt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
