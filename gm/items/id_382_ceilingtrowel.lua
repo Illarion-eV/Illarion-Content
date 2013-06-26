@@ -369,7 +369,7 @@ debug("radius"..radius)
 
   --[[
   Licence
-  ]]
+
 	elseif (ind == 2) then --licence
 	        local factionIds = {0,1,2,3};
 	        local cbFirstFaction = function (dialog)
@@ -416,7 +416,7 @@ debug("radius"..radius)
 	local sd = SelectionDialog("What do you want to do about licence?", "", cbLicence);
 	sd:addOption(0,"Get/Set licence values for ...");
 	User:requestSelectionDialog(sd);
-
+]]
 	  
 	  -- guard modes
 	  elseif (ind == 3) then 
@@ -471,7 +471,7 @@ debug("radius"..radius)
     User:requestSelectionDialog(sd);
   end
 end
-end
+
 
 function guardInfo(chosenPlayer)
     local guardModes = {"None","Passive","Hostile","Aggressive","Let always pass"}
