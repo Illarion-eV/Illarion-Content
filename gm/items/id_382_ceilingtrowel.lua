@@ -367,53 +367,9 @@ debug("radius"..radius)
         end
         User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
 
-	  -- licence
-	elseif (ind == 2) then
-        local factionIds = {0,1,2,3};
-        local cbFirstFaction = function (dialog)
-          if (not dialog:getSuccess()) then
-            return;
-          end
-          local firstFaction = factionIds[dialog:getSelectedIndex()+1];
-          local licence = base.licence; -- not done yet
-          local modeStrings = {};
-          modeStrings[licence.PERMISSION_NONE] = "Permission for static tools is restricted";
-          modeStrings[licence.PERMISSION_ACTIVE] = "Permission for static tools is granted";
-          local modeValues = {licence.PERMISSION_NONE, licence.PERMISSION_ACTIVE};
-          local cbSecondFaction = function (dialog)
-            if (not dialog:getSuccess()) then
-              return;
-            end
-            local secondFaction = factionIds[dialog:getSelectedIndex()+1];
-            local cbSetMode = function (dialog)
-              if (not dialog:getSuccess()) then
-                return;
-              end
-              local mode = modeValues[dialog:getSelectedIndex()+1];
-              licence.SetMode(firstFaction, secondFaction, mode); --not done yet
-            end
-            local sd = SelectionDialog("Set licence", "Set licence of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
-            for _,m in ipairs(modeValues) do 
-              sd:addOption(0,modeStrings[m]);
-            end
-            User:requestSelectionDialog(sd);
-          end
-          local sd = SelectionDialog("Licence", "Set licence of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
-          for _,f in ipairs(factionIds) do 
-            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[guards.GetModeByFaction(firstFaction, f)]);
-          end
-          User:requestSelectionDialog(sd);
-        end
-        local sd = SelectionDialog("Get/Set licence", "For which faction do you want to get/set values?", cbFirstFaction);
-        for _,f in ipairs(factionIds) do 
-          sd:addOption(0,base.factions.getTownNameByID(f));
-        end
-        User:requestSelectionDialog(sd);
-     
-
 
 	  -- guard modes
-	  elseif (ind == 3) then 
+	  elseif (ind == 2) then 
         local factionIds = {0,1,2,3};
         local cbFirstFaction = function (dialog)
           if (not dialog:getSuccess()) then
@@ -456,13 +412,59 @@ debug("radius"..radius)
           sd:addOption(0,base.factions.getTownNameByID(f));
         end
         User:requestSelectionDialog(sd);
+
+
+	  -- licence
+	elseif (ind == 3) then
+        local factionIds = {0,1,2,3};
+        local cbFirstFaction = function (dialog)
+          if (not dialog:getSuccess()) then
+            return;
+          end
+          local firstFaction = factionIds[dialog:getSelectedIndex()+1];
+          local licence = base.licence; -- not done yet
+          local modeStrings = {};
+          modeStrings[licence.PERMISSION_NONE] = "Permission for static tools is restricted";
+          modeStrings[licence.PERMISSION_ACTIVE] = "Permission for static tools is granted";
+          local modeValues = {licence.PERMISSION_NONE, licence.PERMISSION_ACTIVE};
+          local cbSecondFaction = function (dialog)
+            if (not dialog:getSuccess()) then
+              return;
+            end
+            local secondFaction = factionIds[dialog:getSelectedIndex()+1];
+            local cbSetMode = function (dialog)
+              if (not dialog:getSuccess()) then
+                return;
+              end
+              local mode = modeValues[dialog:getSelectedIndex()+1];
+              licence.SetMode(firstFaction, secondFaction, mode); --not done yet
+            end
+            local sd = SelectionDialog("Set licence", "Set licence of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
+            for _,m in ipairs(modeValues) do 
+              sd:addOption(0,modeStrings[m]);
+            end
+            User:requestSelectionDialog(sd);
+          end
+          local sd = SelectionDialog("Licence", "Set licence of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
+          for _,f in ipairs(factionIds) do 
+            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[guards.GetModeByFaction(firstFaction, f)]);
+          end
+          User:requestSelectionDialog(sd);
+        end
+        local sd = SelectionDialog("Get/Set licence", "For which faction do you want to get/set values?", cbFirstFaction);
+        for _,f in ipairs(factionIds) do 
+          sd:addOption(0,base.factions.getTownNameByID(f));
+        end
+        User:requestSelectionDialog(sd);
+     
+
       end
     end
     local sd = SelectionDialog("What do you want to do about factions?", "", cbFaction);
     sd:addOption(0,"Get/Set faction values for ...");
     sd:addOption(0,"Add/Subtract rankpoints in radius");
-    sd:addOption(0,"Get/Set licence --not working yet; mustn't use it! otherwise guards mode are messed");
     sd:addOption(0,"Get/Set guard modes");
+    sd:addOption(0,"Get/Set licence --not working yet; don't use it");
     User:requestSelectionDialog(sd);
   end
 end
