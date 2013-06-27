@@ -99,7 +99,6 @@ end
 function SetLicence(thisFaction, otherFaction, newLicence)
 	-- get licence for all factions
 debug("newLicence: "..newLicence) --debug
-debug("newLicence: "..newLicence,"newLicence:"..newLicence) --debug
 	local found, licenceAll = ScriptVars:find("Licence_".. thisFaction);
 	local oldLicence = 0;
 	if not found then
@@ -109,21 +108,21 @@ debug("newLicence: "..newLicence,"newLicence:"..newLicence) --debug
 	else
 		-- calculate the old licence for the otherFaction
 		oldLicence = licenceAll % (10^(otherFaction+1));
-debug("oldLicence: "..oldLicence,"oldLicence:"..oldLicence) --debug
+debug("oldLicence: "..oldLicence) --debug
 		oldLicence = math.floor(oldLicence / 10^otherFaction);
-debug("oldLicence: "..oldLicence,"oldLicence:"..oldLicence) --debug
+debug("oldLicence: "..oldLicence) --debug
 	end
 	-- subtract old licence
 	licenceAll = licenceAll - (oldLicence * 10^(otherFaction));
-debug("modeAll: "..modeAll,"modeAll:"..modeAll) --debug
+debug("modeAll: "..modeAll) --debug
 	-- add new licence
 	licenceAll = licenceAll + (newLicence * 10^(otherFaction));
-debug("modeAll: "..modeAll,"modeAll:"..modeAll) --debug
+debug("modeAll: "..modeAll) --debug
 	-- set ScriptVar again
 	licenceAll = math.max(0,math.min(9999, licenceAll)); -- must not be negative & exceed 9999 (3 towns + outcasts)
-debug("modeAll: "..modeAll,"modeAll:"..modeAll) --debug
+debug("modeAll: "..modeAll) --debug
 	ScriptVars:set("Licence_".. thisFaction, licenceAll);
-debug("licence: ".."Licence_".. thisFaction,"licence:".."Licence_".. thisFaction) --debug
+debug("licence: ".."Licence_".. thisFaction) --debug
 end
 
 --- initialize the licence for all factions, only the current faction gets access
