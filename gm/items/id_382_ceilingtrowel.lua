@@ -438,9 +438,9 @@ debug("radius"..radius)
               if (not dialog:getSuccess()) then
                 return;
               end
-              local licence = licenceValues[dialog:getSelectedIndex()+1];
-	User:inform("licence: "..licence,"licence:"..licence) --debug
-              licence.SetLicence(FirstLicence, SecondLicence, licence); --not done yet
+              local newlicence = licenceValues[dialog:getSelectedIndex()+1];
+	User:newinform("licence: "..newlicence,"licence:"..newlicence) --debug
+              licence.SetLicence(FirstLicence, SecondLicence, newlicence); --not done yet
             end
             local sd = SelectionDialog("Set licence", "Set licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to " .. base.factions.getTownNameByID(SecondLicence) .. " to ...", cbSetLicence);
             for _,m in ipairs(licenceValues) do 
