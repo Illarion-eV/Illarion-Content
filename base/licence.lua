@@ -98,6 +98,7 @@ end
 -- @param newLicence The new licence, e.g. PERMISSIOM_NONE
 function SetLicence(thisFaction, otherFaction, newLicence)
 	-- get licence for all factions
+debug("newLicence: "..newLicence) --debug
 debug("newLicence: "..newLicence,"newLicence:"..newLicence) --debug
 	local found, licenceAll = ScriptVars:find("Licence_".. thisFaction);
 	local oldLicence = 0;
