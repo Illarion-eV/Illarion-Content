@@ -49,7 +49,7 @@ end
 
 function licenceCheck(char)
 	if base.factions.getMembership(char) == 0 or base.factions.getRankpoints(char) >=100 then --check if player is outlaw or at least rank 2, anyone else will be ignored
-		if base.factions.getMembership(char) == licencerequired or char:getQuestProgress(licenceQuestID) > 0 then --check if player is member of the right faction or has licence	
+		if ((base.factions.getMembership(char) == licencerequired) or (char:getQuestProgress(licenceQuestID) > 0) or (GetLicenceByFaction(licencerequired, base.factions.getFaction(char).tid) == PERMISSION_ACTIVE)) then --check if player is member of the right faction or has licence	
 		else
 			base.common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Geräte dieser Stadt. Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the use of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become a citizen."); --player gets info to buy licence
 
@@ -67,14 +67,14 @@ end
 -- @param char The character whose faction is to be checked
 -- @param thisFaction The faction ID of the static tool
 function GetLicence(char, thisFaction)
-	if char:isAdmin() and not char.name=="Jupiter" then
-		return PERMISSION_NONE;
-	end
+--	if char:isAdmin() and not char.name=="Jupiter" then
+--		return PERMISSION_NONE;
+--	end
 	
 --	local individualLicence = GetIndividualLicence(char, thisFaction) 
 	local f = base.factions.getFaction(char).tid;
 	local factionLicence = GetLicenceByFaction(thisFaction, f);
-debug("factionLicence: "..factionLicence) --debug
+--debug("factionLicence: "..factionLicence) --debug
 	return math.max(individualLicence, factionLicence)
 end
 
@@ -89,9 +89,9 @@ function GetLicenceByFaction(thisFaction, otherFaction)
 		return GetLicenceByFaction(thisFaction, otherFaction);
 	end
 	licence = licence % (10^(otherFaction+1));
-debug("licence: "..licence) --debug
+--debug("licence: "..licence) --debug
 	licence = math.floor(licence / 10^otherFaction);
-debug("licence: "..licence) --debug
+--debug("licence: "..licence) --debug
 	return licence;
 end
 
