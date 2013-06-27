@@ -114,13 +114,13 @@ debug("oldLicence: "..oldLicence) --debug
 	end
 	-- subtract old licence
 	licenceAll = licenceAll - (oldLicence * 10^(otherFaction));
-debug("modeAll: "..modeAll) --debug
+debug("licenceAll: "..licenceAll) --debug
 	-- add new licence
 	licenceAll = licenceAll + (newLicence * 10^(otherFaction));
-debug("modeAll: "..modeAll) --debug
+debug("licenceAll: "..licenceAll) --debug
 	-- set ScriptVar again
 	licenceAll = math.max(0,math.min(9999, licenceAll)); -- must not be negative & exceed 9999 (3 towns + outcasts)
-debug("modeAll: "..modeAll) --debug
+debug("licenceAll: "..licenceAll) --debug
 	ScriptVars:set("Licence_".. thisFaction, licenceAll);
 debug("licence: ".."Licence_".. thisFaction) --debug
 end
