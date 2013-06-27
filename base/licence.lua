@@ -49,7 +49,7 @@ end
 
 function licenceCheck(char)
 	if base.factions.getMembership(char) == 0 or base.factions.getRankpoints(char) >=100 then --check if player is outlaw or at least rank 2, anyone else will be ignored
-		if ((base.factions.getMembership(char) == licencerequired) or (char:getQuestProgress(licenceQuestID) > 0) or (GetLicenceByFaction(licencerequired, base.factions.getFaction(char).tid) == PERMISSION_ACTIVE)) then --check if player is member of the right faction or has licence	
+		if ((base.factions.getMembership(char) == licencerequired) or (char:getQuestProgress(licenceQuestID) > 0) or (GetLicenceByFaction(licencerequired, base.factions.getFaction(char).tid) == PERMISSION_ACTIVE)) then --check if player is member of the right faction or has licence or his/her faction has permission	
 		else
 			base.common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Geräte dieser Stadt. Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the use of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become a citizen."); --player gets info to buy licence
 
@@ -57,9 +57,6 @@ function licenceCheck(char)
 		end
 	end
 end
-
-
----test----
 
 
 
@@ -74,13 +71,12 @@ function GetLicence(char, thisFaction)
 --	local individualLicence = GetIndividualLicence(char, thisFaction) 
 	local f = base.factions.getFaction(char).tid;
 	local factionLicence = GetLicenceByFaction(thisFaction, f);
---debug("factionLicence: "..factionLicence) --debug
 	return math.max(individualLicence, factionLicence)
 end
 
 
 --- get the licence for this faction by the other (hostile) faction
--- @param thisFaction The faction ID of the guard
+-- @param thisFaction The faction ID of the static tool
 -- @param otherFaction The faction ID that is to be checked
 function GetLicenceByFaction(thisFaction, otherFaction)
 	local found, licence = ScriptVars:find("Licence_".. thisFaction);
@@ -89,19 +85,17 @@ function GetLicenceByFaction(thisFaction, otherFaction)
 		return GetLicenceByFaction(thisFaction, otherFaction);
 	end
 	licence = licence % (10^(otherFaction+1));
---debug("licence: "..licence) --debug
 	licence = math.floor(licence / 10^otherFaction);
 --debug("licence: "..licence) --debug
 	return licence;
 end
 
 --- set the licence for all guards of this faction
--- @param thisFaction The faction ID of the guard
+-- @param thisFaction The faction ID of the static tool
 -- @param otherFaction The faction ID whose licence is to be changed
 -- @param newLicence The new licence, e.g. PERMISSIOM_NONE
 function SetLicence(thisFaction, otherFaction, newLicence)
 	-- get licence for all factions
---debug("newLicence: "..newLicence) --debug
 	local found, licenceAll = ScriptVars:find("Licence_".. thisFaction);
 	local oldLicence = 0;
 	if not found then
@@ -111,21 +105,15 @@ function SetLicence(thisFaction, otherFaction, newLicence)
 	else
 		-- calculate the old licence for the otherFaction
 		oldLicence = licenceAll % (10^(otherFaction+1));
---debug("oldLicence: "..oldLicence) --debug
 		oldLicence = math.floor(oldLicence / 10^otherFaction);
---debug("oldLicence: "..oldLicence) --debug
 	end
 	-- subtract old licence
 	licenceAll = licenceAll - (oldLicence * 10^(otherFaction));
---debug("licenceAll: "..licenceAll) --debug
 	-- add new licence
 	licenceAll = licenceAll + (newLicence * 10^(otherFaction));
---debug("licenceAll: "..licenceAll) --debug
 	-- set ScriptVar again
 	licenceAll = math.max(0,math.min(9999, licenceAll)); -- must not be negative & exceed 9999 (3 towns + outcasts)
---debug("licenceAll: "..licenceAll) --debug
 	ScriptVars:set("Licence_".. thisFaction, licenceAll);
---debug("licence: ".."Licence_".. thisFaction) --debug
 end
 
 --- initialize the licence for all factions, only the current faction gets access
