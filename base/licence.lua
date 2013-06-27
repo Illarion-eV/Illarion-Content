@@ -98,6 +98,7 @@ end
 -- @param newLicence The new licence, e.g. PERMISSIOM_NONE
 function SetLicence(thisFaction, otherFaction, newLicence)
 	-- get licence for all factions
+char:inform("newLicence: "..newLicence,"newLicence:"..newLicence) --debug
 	local found, licenceAll = ScriptVars:find("Licence_".. thisFaction);
 	local oldLicence = 0;
 	if not found then
@@ -107,15 +108,21 @@ function SetLicence(thisFaction, otherFaction, newLicence)
 	else
 		-- calculate the old licence for the otherFaction
 		oldLicence = licenceAll % (10^(otherFaction+1));
+User:inform("oldLicence: "..oldLicence,"oldLicence:"..oldLicence) --debug
 		oldLicence = math.floor(oldLicence / 10^otherFaction);
+User:inform("oldLicence: "..oldLicence,"oldLicence:"..oldLicence) --debug
 	end
 	-- subtract old licence
 	licenceAll = licenceAll - (oldLicence * 10^(otherFaction));
+User:inform("modeAll: "..modeAll,"modeAll:"..modeAll) --debug
 	-- add new licence
 	licenceAll = licenceAll + (newLicence * 10^(otherFaction));
+User:inform("modeAll: "..modeAll,"modeAll:"..modeAll) --debug
 	-- set ScriptVar again
 	licenceAll = math.max(0,math.min(9999, licenceAll)); -- must not be negative & exceed 9999 (3 towns + outcasts)
+User:inform("modeAll: "..modeAll,"modeAll:"..modeAll) --debug
 	ScriptVars:set("Licence_".. thisFaction, licenceAll);
+User:inform("licence: ".."Licence_".. thisFaction,"licence:".."Licence_".. thisFaction) --debug
 end
 
 --- initialize the licence for all factions, only the current faction gets access
