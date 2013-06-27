@@ -129,6 +129,7 @@ end
 -- @param newMode The new mode, e.g. ACTION_NONE
 function SetMode(thisFaction, otherFaction, newMode)
 	-- get mode for all factions
+User:inform("newMode: "..newMode,"newMode:"..newMode) --debug
 	local found, modeAll = ScriptVars:find("Mode_".. thisFaction);
 	local oldMode = 0;
 	if not found then
@@ -138,15 +139,21 @@ function SetMode(thisFaction, otherFaction, newMode)
 	else
 		-- calculate the old mode for the otherFaction
 		oldMode = modeAll % (10^(otherFaction+1));
+User:inform("oldMode: "..oldMode,"oldMode:"..oldMode) --debug
 		oldMode = math.floor(oldMode / 10^otherFaction);
+User:inform("oldMode: "..oldMode,"oldMode:"..oldMode) --debug
 	end
 	-- subtract old mode
 	modeAll = modeAll - (oldMode * 10^(otherFaction));
+User:inform("modeAll: "..modeAll,"modeAll:"..modeAll) --debug
 	-- add new mode
 	modeAll = modeAll + (newMode * 10^(otherFaction));
+User:inform("modeAll: "..modeAll,"modeAll:"..modeAll) --debug
 	-- set ScriptVar again
 	modeAll = math.max(0,math.min(9999, modeAll)); -- must not be negative & exceed 9999 (3 towns + outcasts)
+User:inform("modeAll: "..modeAll,"modeAll:"..modeAll) --debug
 	ScriptVars:set("Mode_".. thisFaction, modeAll);
+User:inform("licence: ".."Mode_".. thisFaction,"licence:".."Mode_".. thisFaction) --debug
 end
 
 --- initialize the mode for all factions, only the current faction gets access
