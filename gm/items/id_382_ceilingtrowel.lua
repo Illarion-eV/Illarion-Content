@@ -394,6 +394,7 @@ debug("radius"..radius)
                 return;
               end
               local mode = modeValues[dialog:getSelectedIndex()+1];
+	User:inform("mode: "..mode,"mode:"..mode) --debug
               guards.SetMode(firstFaction, secondFaction, mode);
             end
             local sd = SelectionDialog("Set guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
