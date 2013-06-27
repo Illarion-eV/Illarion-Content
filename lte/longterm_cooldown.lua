@@ -31,7 +31,7 @@ function callEffect( Effect, Char ) -- Effect is called
 	    theQuestStatus=Char:getQuestProgress(812);
 	
 		if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
-			Char:setQuestProgress(811,theQuestStatus-1); --cooling!
+			Char:setQuestProgress(812,theQuestStatus-1); --cooling!
 			if theQuestStatus == 1 then --only for this quest. the player should know when he can do it again.
 				base.common.InformNLS(Char,"Deine Lizenz für die Benutzung der Geräte von Runewick ist abgelaufen. Du kannst sie im Zensusbüro von Runewick erneuern.","Your licence Runewick's static tools has expired. You can get a new one at the census office of Runewick."); 
 			end
