@@ -74,6 +74,7 @@ function GetLicence(char, thisFaction)
 --	local individualLicence = GetIndividualLicence(char, thisFaction) 
 	local f = base.factions.getFaction(char).tid;
 	local factionLicence = GetLicenceByFaction(thisFaction, f);
+debug("factionLicence: "..factionLicence) --debug
 	return math.max(individualLicence, factionLicence)
 end
 
@@ -88,7 +89,9 @@ function GetLicenceByFaction(thisFaction, otherFaction)
 		return GetLicenceByFaction(thisFaction, otherFaction);
 	end
 	licence = licence % (10^(otherFaction+1));
+debug("licence: "..licence) --debug
 	licence = math.floor(licence / 10^otherFaction);
+debug("licence: "..licence) --debug
 	return licence;
 end
 
@@ -120,7 +123,7 @@ function SetLicence(thisFaction, otherFaction, newLicence)
 --debug("licenceAll: "..licenceAll) --debug
 	-- set ScriptVar again
 	licenceAll = math.max(0,math.min(9999, licenceAll)); -- must not be negative & exceed 9999 (3 towns + outcasts)
-debug("licenceAll: "..licenceAll) --debug
+--debug("licenceAll: "..licenceAll) --debug
 	ScriptVars:set("Licence_".. thisFaction, licenceAll);
 --debug("licence: ".."Licence_".. thisFaction) --debug
 end
