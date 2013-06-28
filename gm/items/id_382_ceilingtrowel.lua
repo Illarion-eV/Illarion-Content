@@ -3,7 +3,8 @@
 require("gm.base.log")
 require("base.factions")
 require("base.common")
-require("npc.base.guards_static");
+require("npc.base.guards_static")
+require("base.licence")
 
 module("gm.items.id_382_ceilingtrowel", package.seeall, package.seeall(gm.base.log))
 
@@ -198,7 +199,8 @@ function UseItem(User, SourceItem)
         currWeather.percipitation_type=2;
     end
     world:setWeather(currWeather);
-	
+
+
   --[[
   All the faction stuff
   ]]
@@ -365,8 +367,8 @@ debug("radius"..radius)
           end
         end
         User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
-   
-	  
+
+
 	  -- guard modes
 	  elseif (ind == 2) then 
         local factionIds = {0,1,2,3};
@@ -411,15 +413,64 @@ debug("radius"..radius)
           sd:addOption(0,base.factions.getTownNameByID(f));
         end
         User:requestSelectionDialog(sd);
+
+
+	  -- licence
+	elseif (ind == 3) then
+        local factionIds = {0,1,2,3};
+        local cbFirstLicence = function (dialog)
+          if (not dialog:getSuccess()) then
+            return;
+          end
+          local FirstLicence = factionIds[dialog:getSelectedIndex()+1];
+          local licence = base.licence; -- not done yet
+          local licenceStrings = {};
+          licenceStrings[licence.PERMISSION_NONE] = "Permission for static tools is restricted";
+          licenceStrings[licence.PERMISSION_ACTIVE] = "Permission for static tools is granted";
+          local licenceValues = {licence.PERMISSION_NONE, licence.PERMISSION_ACTIVE};
+          local cbSecondLicence = function (dialog)
+            if (not dialog:getSuccess()) then
+              return;
+            end
+            local SecondLicence = factionIds[dialog:getSelectedIndex()+1];
+            local cbSetLicence = function (dialog)
+              if (not dialog:getSuccess()) then
+                return;
+              end
+              local newlicence = licenceValues[dialog:getSelectedIndex()+1];
+--	User:inform("licence: "..newlicence,"licence:"..newlicence) --debug
+              licence.SetLicence(FirstLicence, SecondLicence, newlicence); --not done yet
+            end
+            local sd = SelectionDialog("Set licence", "Set licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to " .. base.factions.getTownNameByID(SecondLicence) .. " to ...", cbSetLicence);
+            for _,m in ipairs(licenceValues) do 
+              sd:addOption(0,licenceStrings[m]);
+            end
+            User:requestSelectionDialog(sd);
+          end
+          local sd = SelectionDialog("Licence", "Set licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to ...", cbSecondLicence);
+          for _,f in ipairs(factionIds) do 
+            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. licenceStrings[licence.GetLicenceByFaction(FirstLicence, f)]); --not done yet
+          end
+          User:requestSelectionDialog(sd);
+        end
+        local sd = SelectionDialog("Get/Set licence", "For which faction do you want to get/set values?", cbFirstLicence);
+        for _,f in ipairs(factionIds) do 
+          sd:addOption(0,base.factions.getTownNameByID(f));
+        end
+        User:requestSelectionDialog(sd);
+     
+
       end
     end
     local sd = SelectionDialog("What do you want to do about factions?", "", cbFaction);
     sd:addOption(0,"Get/Set faction values for ...");
     sd:addOption(0,"Add/Subtract rankpoints in radius");
     sd:addOption(0,"Get/Set guard modes");
+    sd:addOption(0,"Get/Set licence");
     User:requestSelectionDialog(sd);
   end
 end
+
 
 function guardInfo(chosenPlayer)
     local guardModes = {"None","Passive","Hostile","Aggressive","Let always pass"}

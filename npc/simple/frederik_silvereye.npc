@@ -160,7 +160,11 @@ rank > 1, town = Galmair, sex = female, "rang" -> "Du bist bloß eine Gehilfin. 
 rank > 0, english, town = Galmair, sex = male, "rank" -> "You are new here. You are not well known. Make an effort and become rich, tramp!"
 rank > 0, english, town = Galmair, sex = female, "rank" -> "You are new here. You are not well known. Make an effort and become rich, tramp!"
 rank > 0, town = Galmair, sex = male, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich, du Rumtreiber!"
-rank > 0, town = Galmair, sex = female, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich Rumtreiber!"
+rank > 0, town = Galmair, sex = female, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich, du Rumtreiberin!"
+
+-- saying Rank without beeing a member of Cadomyr
+"rank" -> "I do not know about other ranks of other towns.", "I am not interested in other systems, only the Galmairian one."
+"rang" -> "Ich weiß nichts über Ränge in anderen Städten.", "Ich interessiere mich nur für das galmairanische Statussystem."
 
 -- licence
 "licence","license", town = Galmair -> "There is no need for you to buy a licence, since you are a citizen."
@@ -169,7 +173,7 @@ rank > 0, town = Galmair, sex = female, "rang" -> "Du bist noch ganz neu hier. D
 "licence","license", town = Cadomyr, town = Runewick, rank < 100 -> "You look as though you are quite new here, thus, you can currently use our tools for free."
 "lizenz", town = Cadomyr, town = Runewick, rank < 100 -> "Ihr wirkt als würdet ihr neu hier sein. Daher könnt ihr unsere Geräte zurzeit frei benutzen."
 "licence","license" -> inform("[Licence] You can choose between 'Alpha', 'Beta' and 'Gamma' licences. Alpha costs one gold coin and allow you to use the tools for one real time hour. Beta costs two gold coins for three real time hours. Gamma costs three gold coins for eight real time hours. Say the name of the type of licence you want in order to buy it. You can buy several at the same time. They will be added to each other."), "I sell three kinds of licences. 'Alpha', 'Beta' and 'Gamma'. Alpha allows you to use our static tools for thee hours and costs only one gold coin. Beta allows you to use our static tools for nine hours and costs only two gold coins. Gamma allows you to use our static tools for one day and costs only three gold coins. Which one do you want?"
-"lizenz" -> inform("Lizenz] Du kannst zwischen 'Alpha', 'Beta' und 'Gamma' wählen. Alpha kostet eine Goldmünze und erlaubt dir die Nutzung der Geräte für eine Echtzeit-Stunde. Beta kostet zwei Goldmünzen für vier Echtzeit-Stunden. Gamma kostet drei Goldmünzen für acht Echtzeit-Stunden. Sage den Namen des Typen, um zu bestellen. Du kannst mehrere gleichzeitig kaufen. Diese werden dann summiert."), "Ich verkaufe drei Arten von Lizenzen. 'Alpha', 'Beta' und 'Gamma'. Mit Alpha ist es möglich, unsere Geräte für drei Stunden zu einem Preis von nur einer Goldmünze zu nutzen. Mit Beta ist es möglich, unsere Geräte für neun Stunden zu einem Preis von nur zwei Goldmünzen zu nutzen. Und mit Gamma ist es möglich, unsere Geräte für einen Tag zu einem Preis von nur drei Goldmünzen zu nutzen. Welche möchtet ihr?"
+"lizenz" -> inform("Lizenz] Du kannst zwischen 'Alpha', 'Beta' und 'Gamma' wählen. Alpha kostet eine Goldmünze und erlaubt dir die Nutzung der Geräte für eine Echtzeit-Stunde. Beta kostet zwei Goldmünzen für drei Echtzeit-Stunden. Gamma kostet drei Goldmünzen für acht Echtzeit-Stunden. Sage den Namen des Typen, um zu bestellen. Du kannst mehrere gleichzeitig kaufen. Diese werden dann summiert."), "Ich verkaufe drei Arten von Lizenzen. 'Alpha', 'Beta' und 'Gamma'. Mit Alpha ist es möglich, unsere Geräte für drei Stunden zu einem Preis von nur einer Goldmünze zu nutzen. Mit Beta ist es möglich, unsere Geräte für neun Stunden zu einem Preis von nur zwei Goldmünzen zu nutzen. Und mit Gamma ist es möglich, unsere Geräte für einen Tag zu einem Preis von nur drei Goldmünzen zu nutzen. Welche möchtet ihr?"
 "alpha", "beta", "gamma", town = Galmair, english -> "There is no need for you to buy a licence, since you are a citizen."
 "alpha", "beta", "gamma", town = Galmair, sex = male -> "Ihr benötigt keine Lizenz, da ihr Bürger dieser Stadt seid."
 "alpha", "beta", "gamma", town = Galmair, sex = female -> "Ihr benötigt keine Lizenz, da ihr Bürgerin dieser Stadt seid."
@@ -200,13 +204,13 @@ english, "quest", "mission" -> "At the moment I have everything, but thanks for 
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the notary of Galmair and do all the stuff a notary does.", "I take care of the new arrivals in Galmair, I am the notary here."
-"beruf" -> "Ich bin der Notar Galmairs und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Galmair, ich bin hier der Notar."
+"beruf" -> "Ich bin der Notar Galmairs und tue all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Galmair, ich bin hier der Notar."
 english, "job" -> "I am the notary of Galmair and do all the stuff a notary does.", "I take care of the new arrivals in Galmair, I am the notary here."
-"job" -> "Ich bin der Notar Galmairs und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Galmair, ich bin hier der Notar."
+"job" -> "Ich bin der Notar Galmairs und tue all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Galmair, ich bin hier der Notar."
 english, "Gobaith", "Gobiath" -> "Never heard of that. Is it something to eat?"
 "Gobaith", "Gobiath" -> "Nie davon gehört. Ist es etwas zu Essen?"
 "my name" -> "It's a pleasure to meet you."
-"mein Name" -> "Ich freu mich Euch kennenzulernen."
+"mein Name" -> "Ich freue mich Euch kennenzulernen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "chair" -> "I like my chair!"

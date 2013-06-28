@@ -141,7 +141,7 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("#w Psst. Sehr gut, ich wurde immer noch nicht erwischt beim Fälschen von Dokumenten.");
+talkEntry:addResponse("#w Psst. Sehr gut, ich wurde noch nie beim Fälschen von Dokumenten erwischt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -439,7 +439,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("say"));
 talkEntry:addTrigger("deal");
-talkEntry:addResponse("#w Flüstert! Darf doch nicht wahr sein.");
+talkEntry:addResponse("#w Flüstert! Das darf doch nicht wahr sein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -454,7 +454,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.talkmode.talkmode("yell"));
 talkEntry:addTrigger("deal");
-talkEntry:addResponse("#w Flüstert! Darf doch nicht wahr sein.");
+talkEntry:addResponse("#w Flüstert! Das darf doch nicht wahr sein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1095,7 +1095,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("Schon gut, aber nichts weitersagen.");
+talkEntry:addResponse("Schon gut, aber nicht weitersagen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1122,7 +1122,7 @@ talkingNPC:addCycleText("#me beobachtet die Anwesenden.", "#me observes the audi
 talkingNPC:addCycleText("#me isst von seinem Wurstteller.", "#me eats from his plate of sausages.");
 talkingNPC:addCycleText("#me stappelt seine Pergamentrollen.", "#me piles up his pells.");
 talkingNPC:addCycleText("Zu mir, wer eine Sicherheitskopie benötigt.", "To me, if you need a backup copy.");
-talkingNPC:addCycleText("#me murmelt zu ihm selbst.", "#me mutters to himself.");
+talkingNPC:addCycleText("#me murmelt zu sich selbst.", "#me mutters to himself.");
 talkingNPC:addCycleText("Ob Galmair, ob Cadomyr, ob Runewick...mich interessiert das nicht solange der Preis stimmt.", "#Whether Galmair, whether Cadomyr, whether Runewick...I don't care as long as you pay enough.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
