@@ -50,7 +50,7 @@ function UseItem(User, SourceItem,ltstate)
 	
 	local found, _, Value = string.find(User.lastSpokenText, "mp (%d+)")
 	if found then
-		User.movepoints = User.movepoints + Value
+		User.movepoints = User.movepoints - Value
 		User:inform("mp : "..User.movepoints)
 	end
 	
