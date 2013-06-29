@@ -19,7 +19,7 @@ function LookAtItem(User,Item)
 	-- Salavesh end
 	
 	-- ferries
-	if (Item.pos == position(870,285,0)) then
+	if (Item.pos == ferrySourceItemPos) then
 		lookAt = FerryLookAt(User, Item)
 	end
 	-- ferries end
@@ -81,7 +81,7 @@ function UseItem(User, SourceItem)
 	-- Salavesh end
 
 	-- ferries
-	if (SourceItem.pos == position(870,285,0)) then
+	if (SourceItem.pos == ferrySourceItemPos) then
 		Ferry(User, SourceItem)
 	end
 	-- ferries end
@@ -146,20 +146,23 @@ function StaticTeleporter(User, SourceItem)
 	User:requestSelectionDialog(dialog)
 end
 
-ferrySouthDE={"Cadomyr Hafen","Cadomyr Verlorener Hafen","Einsame Inseln","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}
-ferrySouthEN={"Cadomyr Harbour","Cadomyr Lost Harbour","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"}
-ferrySouthEvilDE={"Cadomyr Hafen","Cadomyr Verlorener Hafen","Einsame Inseln","Runewick Hafen","Ostland Hafen","Nördlicher Hafen","Böser Fels"}
-ferrySouthEvilEN={"Cadomyr Harbour","Cadomyr Lost Harbour","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour","Evilrock"}
-ferryNorthDE={"Galmair Hafen","Nördliche Inseln Ra","Nördliche Inseln Hept","Nördliche Inseln Yeg"}
-ferryNorthEN={"Galmair Harbour","Northern Islands Ra","Northern Islands Hept","Northern Islands Yeg"}
 
-ferryItemSouth={2701,229,229,105,229,229}
-ferryItemSouthPlus={2701,229,229,105,229,229,229}
-ferryItemNorth={61,229,229,299}
+ferrySourceItemPos={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0),position(987,257,0),position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 
-ferryTargetPosSouth={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0)}
-ferryTargetPosSouthPlus={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0),position(987,257,0)}
-ferryTargetPosNorth={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
+ferryDE[1]={"Cadomyr Hafen","Cadomyr Verlorener Hafen","Einsame Inseln","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}
+ferryEN[1]={"Cadomyr Harbour","Cadomyr Lost Harbour","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"}
+ferryDE[7]={"Cadomyr Hafen","Cadomyr Verlorener Hafen","Einsame Inseln","Runewick Hafen","Ostland Hafen","Nördlicher Hafen","Böser Fels"}
+ferryEN[7]={"Cadomyr Harbour","Cadomyr Lost Harbour","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour","Evilrock"}
+ferryDE[8]={"Galmair Hafen","Nördliche Inseln Ra","Nördliche Inseln Hept","Nördliche Inseln Yeg"}
+ferryEN[8]={"Galmair Harbour","Northern Islands Ra","Northern Islands Hept","Northern Islands Yeg"}
+
+ferryItem[1]={2701,229,229,105,229,229}
+ferryItem[7]={2701,229,229,105,229,229,229}
+ferryItem[8]North={61,229,229,299}
+
+ferryTargetPos[1]={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0)}
+ferryTargetPos[7]={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0),position(987,257,0)}
+ferryTargetPos[8]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 
 function Ferry(User, SourceItem)
 
@@ -188,7 +191,7 @@ function Ferry(User, SourceItem)
 					world:gfx(1,User.pos)
 					world:makeSound(9,User.pos);
 						
-					User:handler.warpgroup.warpGroup(position(870,286,0),5, position(451,95,0), 42 )	
+					handler.warpgroup.warpGroup(position(870,286,0),5, position(451,95,0), 42 )	
 --					User:warp(targetPos[selected+1])
 					world:gfx(11,User.pos)
 					world:makeSound(9,User.pos);
