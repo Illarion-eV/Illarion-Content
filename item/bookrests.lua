@@ -39,12 +39,12 @@ end
 
 function FerryLookAt(User, Item)
 	local lookAt = ItemLookAt();
-	lookAt.rareness = ItemLookAt.rareItem;
+--	lookAt.rareness = ItemLookAt.rareItem;
 	if (User:getPlayerLanguage()==0) then
-		lookAt.name = "Südliche Fähre";
+		lookAt.name = "Fähre";
 		lookAt.description = "Wer mit möchte, sollte sich schnellsten auf dem Steg einfinden."
 	else
-		lookAt.name = "Southern Ferry";
+		lookAt.name = "Ferry";
 		lookAt.description = "Anyone who likes to join should gather on the jetty."
 	end
 	return lookAt
