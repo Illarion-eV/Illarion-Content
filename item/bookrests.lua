@@ -19,8 +19,11 @@ function LookAtItem(User,Item)
 	-- Salavesh end
 	
 	-- ferries
-	if (Item.pos == {position(888,485,0),position(870,285,0)}) then
-		lookAt = FerryLookAt(User, Item)
+	local Amountferry = table.getn(ferrySourceItemPos)	
+	for i = 1,Amountferry do	
+		if (Item.pos == ferrySourceItemPos) then
+			lookAt = FerryLookAt(User, Item)
+		end
 	end
 	-- ferries end
 
@@ -81,8 +84,11 @@ function UseItem(User, SourceItem)
 	-- Salavesh end
 
 	-- ferries
-	if (SourceItem.pos == ferrySourceItemPos) then
-		Ferry(User, SourceItem)
+	local Amountferry = table.getn(ferrySourceItemPos)	
+	for i = 1,Amountferry do
+		if (SourceItem.pos == ferrySourceItemPos) then
+			Ferry(User, SourceItem)
+		end	
 	end
 	-- ferries end
 	
