@@ -168,13 +168,13 @@ function Ferry(User, SourceItem)
 
     local names
 	if  User:getPlayerLanguage() == Player.german then
-		names = ferrySouthDE
+		names = ferryDE[1]
 	else
-		names = ferrySouthEN
+		names = ferryEN[1]
 	end
-	local items = ferryItemSouth
-	local targetPos = ferryTargetPosSouth
-	
+	local items = ferryItem[1]
+	local targetPos = ferryTargetPos[1]
+	DE
 	local callback = function(dialog)
 	
 		success = dialog:getSuccess()
