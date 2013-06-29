@@ -149,8 +149,8 @@ end
 
 ferrySourceItemPos={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0),position(987,257,0),position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 
-ferryDE[1]={"Cadomyr Hafen","Cadomyr Verlorener Hafen","Einsame Inseln","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}
-ferryEN[1]={"Cadomyr Harbour","Cadomyr Lost Harbour","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"}
+--ferryDE[1]={"Cadomyr Hafen","Cadomyr Verlorener Hafen","Einsame Inseln","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}
+--ferryEN[1]={"Cadomyr Harbour","Cadomyr Lost Harbour","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"}
 ferryDE[7]={"Cadomyr Hafen","Cadomyr Verlorener Hafen","Einsame Inseln","Runewick Hafen","Ostland Hafen","Nördlicher Hafen","Böser Fels"}
 ferryEN[7]={"Cadomyr Harbour","Cadomyr Lost Harbour","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour","Evilrock"}
 ferryDE[8]={"Galmair Hafen","Nördliche Inseln Ra","Nördliche Inseln Hept","Nördliche Inseln Yeg"}
@@ -168,12 +168,12 @@ function Ferry(User, SourceItem)
 
     local names
 	if  User:getPlayerLanguage() == Player.german then
-		names = ferryDE[1]
+		names = ferryDE[7]
 	else
-		names = ferryEN[1]
+		names = ferryEN[7]
 	end
-	local items = ferryItem[1]
-	local targetPos = ferryTargetPos[1]
+	local items = ferryItem[7]
+	local targetPos = ferryTargetPos[7]
 	
 	local callback = function(dialog)
 	
