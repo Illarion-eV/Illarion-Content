@@ -19,7 +19,7 @@ function LookAtItem(User,Item)
 	-- Salavesh end
 	
 	-- ferries
-	if (Item.pos == position(888,485,0)) then
+	if (Item.pos == {position(888,485,0),position(870,285,0)}) then
 		lookAt = FerryLookAt(User, Item)
 	end
 	-- ferries end
