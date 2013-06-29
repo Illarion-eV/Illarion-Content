@@ -218,8 +218,8 @@ function Ferry(User, SourceItem)
 			names = ferryEN[j]
 		end
 
-		local items = ferryItem[j]
-		local targetPos = ferryTargetPos[j]
+		items = ferryItem[j]
+		targetPos = ferryTargetPos[j]
            end
 	end
 --User:inform("names: "..names,"names: "..names)
