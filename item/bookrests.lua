@@ -174,7 +174,7 @@ function Ferry(User, SourceItem)
 	end
 	local items = ferryItem[1]
 	local targetPos = ferryTargetPos[1]
-	DE
+	
 	local callback = function(dialog)
 	
 		success = dialog:getSuccess()
