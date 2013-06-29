@@ -21,7 +21,7 @@ function LookAtItem(User,Item)
 	-- ferries
 	local Amountferry = table.getn(ferrySourceItemPos)	
 	for i = 1,Amountferry do	
-		if (Item.pos == ferrySourceItemPos) then
+		if (Item.pos == ferrySourceItemPos[i]) then
 			lookAt = FerryLookAt(User, Item)
 		end
 	end
@@ -86,7 +86,7 @@ function UseItem(User, SourceItem)
 	-- ferries
 	local Amountferry = table.getn(ferrySourceItemPos)	
 	for i = 1,Amountferry do
-		if (SourceItem.pos == ferrySourceItemPos) then
+		if (SourceItem.pos == ferrySourceItemPos[i]) then
 			Ferry(User, SourceItem)
 		end	
 	end
