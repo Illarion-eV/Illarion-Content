@@ -175,16 +175,21 @@ ferryTargetPos[7]={position(101,790,0), position(105,833,0),position(616,859,0),
 ferryTargetPos[8]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 
 function Ferry(User, SourceItem)
-User:inform("i: "..i,"i: "..i)
-    local names
-	if  User:getPlayerLanguage() == Player.german then
-		names = ferryDE[7]
-	else
-		names = ferryEN[7]
-	end
-	local items = ferryItem[7]
-	local targetPos = ferryTargetPos[7]
-	
+
+	local names
+	local Amountferry = table.getn(ferrySourceItemPos)	
+	for i = 1,Amountferry do
+	   if (SourceItem.pos == ferrySourceItemPos[i]) then
+		if  User:getPlayerLanguage() == Player.german then
+			names = ferryDE[i]
+		else
+			names = ferryEN[i]
+		end
+
+		local items = ferryItem[i]
+		local targetPos = ferryTargetPos[i]
+           end
+	end	
 	local callback = function(dialog)
 	
 		success = dialog:getSuccess()
