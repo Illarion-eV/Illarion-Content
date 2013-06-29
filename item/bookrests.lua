@@ -186,8 +186,8 @@ function Ferry(User, SourceItem)
 			names = ferryEN[i]
 		end
 
-		local items = ferryItem[i]
-		local targetPos = ferryTargetPos[i]
+		items = ferryItem[i]
+		targetPos = ferryTargetPos[i]
            end
 	end	
 	local callback = function(dialog)
