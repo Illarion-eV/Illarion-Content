@@ -177,7 +177,7 @@ function Ferry(User, SourceItem)
 		success = dialog:getSuccess()
 		if success then
 			selected = dialog:getSelectedIndex()
-			if  base.money.CharHasMoney(User,1000) then
+			if  base.money.CharHasMoney(User,10000) then
 				
 				if (targetPos[selected+1].x - SourceItem.pos.x) * (targetPos[selected+1].x - SourceItem.pos.x) < 10 then
 					User:inform("Ihr befindet euch bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
