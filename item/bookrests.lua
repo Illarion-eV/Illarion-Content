@@ -159,20 +159,20 @@ ferryDE={}
 ferryEN={}
 ferryDE[1]={"Cadomyr Hafen","Cadomyr Verlorener Hafen","Einsame Inseln","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}
 ferryEN[1]={"Cadomyr Harbour","Cadomyr Lost Harbour","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"}
-ferryDE[7]={"Cadomyr Hafen","Cadomyr Verlorener Hafen","Einsame Inseln","Runewick Hafen","Ostland Hafen","Nördlicher Hafen","Böser Fels"}
-ferryEN[7]={"Cadomyr Harbour","Cadomyr Lost Harbour","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour","Evilrock"}
-ferryDE[8]={"Galmair Hafen","Nördliche Inseln Ra","Nördliche Inseln Hept","Nördliche Inseln Yeg"}
-ferryEN[8]={"Galmair Harbour","Northern Islands Ra","Northern Islands Hept","Northern Islands Yeg"}
+ferryDE[2]={"Cadomyr Hafen","Cadomyr Verlorener Hafen","Einsame Inseln","Runewick Hafen","Ostland Hafen","Nördlicher Hafen","Böser Fels"}
+ferryEN[2]={"Cadomyr Harbour","Cadomyr Lost Harbour","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour","Evilrock"}
+ferryDE[3]={"Galmair Hafen","Nördliche Inseln Ra","Nördliche Inseln Hept","Nördliche Inseln Yeg"}
+ferryEN[3]={"Galmair Harbour","Northern Islands Ra","Northern Islands Hept","Northern Islands Yeg"}
 
 ferryItem={}
 ferryItem[1]={2701,229,229,105,229,229}
-ferryItem[7]={2701,229,229,105,229,229,229}
-ferryItem[8]={61,229,229,299}
+ferryItem[2]={2701,229,229,105,229,229,229}
+ferryItem[3]={61,229,229,299}
 
 ferryTargetPos={}
 ferryTargetPos[1]={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0)}
-ferryTargetPos[7]={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0),position(987,257,0)}
-ferryTargetPos[8]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[2]={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0),position(987,257,0)}
+ferryTargetPos[3]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 
 function Ferry(User, SourceItem)
 
