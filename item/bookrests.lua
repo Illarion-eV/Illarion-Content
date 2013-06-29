@@ -175,7 +175,7 @@ ferryTargetPos[7]={position(101,790,0), position(105,833,0),position(616,859,0),
 ferryTargetPos[8]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 
 function Ferry(User, SourceItem)
-char:inform("i: "..i,"i: "..i)
+User:inform("i: "..i,"i: "..i)
     local names
 	if  User:getPlayerLanguage() == Player.german then
 		names = ferryDE[7]
