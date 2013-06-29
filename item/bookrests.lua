@@ -186,10 +186,14 @@ function Ferry(User, SourceItem)
 			names = ferryEN[i]
 		end
 
-		items = ferryItem[i]
-		targetPos = ferryTargetPos[i]
+		local items = ferryItem[i]
+		local targetPos = ferryTargetPos[i]
            end
-	end	
+	end
+char:inform("names: "..names,"names: "..names)
+char:inform("items: "..items,"items: "..items)
+char:inform("targetPos: "..targetPos,"targetPos: "..targetPos)
+	
 	local callback = function(dialog)
 	
 		success = dialog:getSuccess()
