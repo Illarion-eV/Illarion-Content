@@ -162,7 +162,7 @@ rank > 0, english, town = Runewick, sex = female, "rank" -> "You are new here. Y
 rank > 0, town = Runewick, sex = male, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Sei so frei und bleibe in Runewick um mehr zu lernen, Novize!"
 rank > 0, town = Runewick, sex = female, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Sei so frei und bleibe in Runewick um mehr zu lernen, Novizin!"
 
--- saying Rank without beeing a member of Cadomyr
+-- saying Rank without beeing a member of Runewick
 "rank" -> "I do not know about other ranks of other towns.", "I am not interested in other systems, only the Runewickian one."
 "rang" -> "Ich weiß nichts über Ränge in anderen Städten.", "Ich interessiere mich nur für das runewickische Statussystem."
 

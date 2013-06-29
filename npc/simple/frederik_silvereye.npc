@@ -162,7 +162,7 @@ rank > 0, english, town = Galmair, sex = female, "rank" -> "You are new here. Yo
 rank > 0, town = Galmair, sex = male, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich, du Rumtreiber!"
 rank > 0, town = Galmair, sex = female, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich, du Rumtreiberin!"
 
--- saying Rank without beeing a member of Cadomyr
+-- saying Rank without beeing a member of Galmair
 "rank" -> "I do not know about other ranks of other towns.", "I am not interested in other systems, only the Galmairian one."
 "rang" -> "Ich weiß nichts über Ränge in anderen Städten.", "Ich interessiere mich nur für das galmairanische Statussystem."
 
