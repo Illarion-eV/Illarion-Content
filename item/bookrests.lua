@@ -239,13 +239,13 @@ function Ferry(User, SourceItem)
 				
 					User:inform("Ihr habt euch dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
 					base.money.TakeMoneyFromChar(User,10000)
-					world:gfx(1,User.pos)
-					world:makeSound(9,User.pos);
+--					world:gfx(1,User.pos)
+--					world:makeSound(9,User.pos);
 						
 					handler.warpgroup.warpGroup(SourceItem.pos, 5, position(1,1,0), 42 )	
 --					User:warp(targetPos[selected+1])
-					world:gfx(11,User.pos)
-					world:makeSound(9,User.pos);
+--					world:gfx(11,User.pos)
+--					world:makeSound(9,User.pos);
 				end
 			else
 				User:inform("Ihr habt nicht genug Geld für diese Reise. Die Reise kostet ein Goldstück für eine Überfahrt.", "You don't have enough money for this journey. The journey costs one gold coin for one passage.")
