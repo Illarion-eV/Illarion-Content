@@ -17,6 +17,12 @@ function LookAtItem(User,Item)
 	end
 	-- Salavesh end
 	
+	-- ferries
+	if (Item.pos == position(870,285,0)) then
+		lookAt = FerryLookAt(User, Item)
+	end
+	-- ferries end
+
 	-- static teleporter
 	if Item:getData("staticTeleporter") ~= "" then
 		lookAt = StaticTeleporterLookAt(User, Item)
@@ -28,6 +34,20 @@ function LookAtItem(User,Item)
 	else
 	    world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
 	end	
+end
+
+
+function FerryLookAt(User, Item)
+	local lookAt = ItemLookAt();
+	lookAt.rareness = ItemLookAt.rareItem;
+	if (User:getPlayerLanguage()==0) then
+		lookAt.name = "Südliche Fähre";
+		lookAt.description = "Wer mit möchte, sollte sich schnellsten auf dem Steg einfinden."
+	else
+		lookAt.name = "Southern Ferry";
+		lookAt.description = "Anyone who likes to join should gather on the jetty."
+	end
+	return lookAt
 end
 
 function StaticTeleporterLookAt(User, Item)
