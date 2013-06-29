@@ -210,16 +210,16 @@ function Ferry(User, SourceItem)
 
 	local names
 	local Amountferry = table.getn(ferrySourceItemPos)	
-	for i = 1,Amountferry do
-	   if (SourceItem.pos == ferrySourceItemPos[i]) then
+	for j = 1,Amountferry do
+	   if (SourceItem.pos == ferrySourceItemPos[j]) then
 		if  User:getPlayerLanguage() == Player.german then
-			names = ferryDE[i]
+			names = ferryDE[j]
 		else
-			names = ferryEN[i]
+			names = ferryEN[j]
 		end
 
-		local items = ferryItem[i]
-		local targetPos = ferryTargetPos[i]
+		local items = ferryItem[j]
+		local targetPos = ferryTargetPos[j]
            end
 	end
 --User:inform("names: "..names,"names: "..names)
