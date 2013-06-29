@@ -188,7 +188,7 @@ function Ferry(User, SourceItem)
 					world:gfx(1,User.pos)
 					world:makeSound(9,User.pos);
 						
-					handler.warpgroup.warpGroup(position(870,285,0),5, position(451,95,0), 42 )	
+					handler.warpgroup.warpGroup(position(870,286,0),5, position(451,95,0), 42 )	
 --					User:warp(targetPos[selected+1])
 					world:gfx(11,User.pos)
 					world:makeSound(9,User.pos);
