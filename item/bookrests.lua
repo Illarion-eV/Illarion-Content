@@ -190,9 +190,9 @@ function Ferry(User, SourceItem)
 		local targetPos = ferryTargetPos[i]
            end
 	end
-char:inform("names: "..names,"names: "..names)
-char:inform("items: "..items,"items: "..items)
-char:inform("targetPos: "..targetPos,"targetPos: "..targetPos)
+--User:inform("names: "..names,"names: "..names)
+--User:inform("items: "..items,"items: "..items)
+--User:inform("targetPos: "..targetPos,"targetPos: "..targetPos)
 	
 	local callback = function(dialog)
 	
