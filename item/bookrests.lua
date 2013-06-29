@@ -158,7 +158,7 @@ ferryEN[8]={"Galmair Harbour","Northern Islands Ra","Northern Islands Hept","Nor
 
 ferryItem[1]={2701,229,229,105,229,229}
 ferryItem[7]={2701,229,229,105,229,229,229}
-ferryItem[8]North={61,229,229,299}
+ferryItem[8]={61,229,229,299}
 
 ferryTargetPos[1]={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0)}
 ferryTargetPos[7]={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0),position(987,257,0)}
