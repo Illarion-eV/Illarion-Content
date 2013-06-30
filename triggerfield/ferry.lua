@@ -159,7 +159,7 @@ User:inform("targetPos: ","targetPos: ")
 --					base.money.TakeMoneyFromChar(User,10000)
 
 
-					travler = world:getPlayersInRangeOf(SourceItem.pos, 5); 
+					travler = world:getPlayersInRangeOf(User.pos, 5); 
 					for i,player in ipairs(travler) do
 						player:inform("Du hast dich dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
 						world:gfx(1,player.pos)
