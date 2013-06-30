@@ -54,8 +54,8 @@ function MoveFromField(char)
 	createItemYB=78; --area Y max
 	createItemZA=0; --area Z min
 	createItemZB=0; --area z max
-	createItemQualA=999; --quality min
-	createItemQualB=999; --quality max
+	createItemQualA=333; --quality min
+	createItemQualB=333; --quality max
 	createAfterA=10; --delay min
 	createAfterB=200; --delay max
 --User:inform("items: "..createItemIDB,"items: "..createItemIDB)
@@ -66,5 +66,5 @@ function MoveFromField(char)
 --	createRepeatB=5 --max repeat; moved to top
 	createItemPos=1 --check of position set
 	base.character.CreateAfterTime (char,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos) -- call .lte.createaftertime
-world:createItemFromId( 359, createItemAmountB, position(364,49,0), true, createItemQualB, nil)
+world:createItemFromId( createItemIDB, createItemAmountB, position(364,50,0), true, createItemQualB, nil)
 end
