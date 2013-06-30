@@ -36,8 +36,8 @@ function MoveFromField(char)
 		createItemTimeB=0;
 		createItemIDB=359; --fire flame will be created
 		createGfx=44 --light (fire)
-		createRepeatA=3 --min three lights at the same time
-		createRepeatB=7 --up to five lights at the same time
+		createRepeatA=2 --min three lights at the same time
+		createRepeatB=5 --up to five lights at the same time
 		createItemText=nil --select text-set 1 in .lte.createaftertime.lua
 		else
 		createItemTimeB=1 --use var1; yes, thus light onle one time
@@ -56,15 +56,12 @@ function MoveFromField(char)
 	createItemZB=0; --area z max
 	createItemQualA=333; --quality min
 	createItemQualB=333; --quality max
-	createAfterA=10; --delay min
-	createAfterB=200; --delay max
---User:inform("items: "..createItemIDB,"items: "..createItemIDB)
---User:inform("items: "..createItemID,"items: "..createItemID)
+	createAfterA=50; --delay min
+	createAfterB=500; --delay max
 --	createGfx=nil; --gfx; moved to top
 --	createSound=nil; --sfx; moved to top
 --	createRepeatA=1 --min repeat; moved to top
 --	createRepeatB=5 --max repeat; moved to top
 	createItemPos=1 --check of position set
-	base.character.CreateAfterTime (char,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos) -- call .lte.createaftertime
-world:createItemFromId( createItemIDB, createItemAmountB, position(364,50,0), true, createItemQualB, nil)
+	base.character.CreateAfterTime (char,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos) 
 end

@@ -152,36 +152,36 @@ elseif findCreateItemTimeBB then
 		local createRepeatX=math.random(createRepeatA,createRepeatB) --create random value between variables
 		local i=0; --ready for repeat
 		repeat
-		i=i+1; --counter
-		findCreateItemIDB, createItemIDB = Effect:findValue("createItemIDB") --find variable
+			i=i+1; --counter
+			findCreateItemIDB, createItemIDB = Effect:findValue("createItemIDB") --find variable
 
-		findCreateItemAmountA, createItemAmountA = Effect:findValue("createItemAmountA") --find variable
-		findCreateItemAmountB, createItemAmountB = Effect:findValue("createItemAmountB") --find variable
-		createItemAmount=math.random(createItemAmountA,createItemAmountB) --create random value between variables
+			findCreateItemAmountA, createItemAmountA = Effect:findValue("createItemAmountA") --find variable
+			findCreateItemAmountB, createItemAmountB = Effect:findValue("createItemAmountB") --find variable
+			createItemAmount=math.random(createItemAmountA,createItemAmountB) --create random value between variables
 
-		findCreateItemXA, createItemXA = Effect:findValue("createItemXA") --find variable
-		findCreateItemXB, createItemXB = Effect:findValue("createItemXB") --find variable
-		findCreateItemYA, createItemYA = Effect:findValue("createItemYA") --find variable
-		findCreateItemYB, createItemYB = Effect:findValue("createItemYB") --find variable
-		findCreateItemZA, createItemZA = Effect:findValue("createItemZA") --find variable
-		findCreateItemZB, createItemZB = Effect:findValue("createItemZB") --find variable
-		createItemX=math.random(createItemXA,createItemXB) --create random value between variables
-		createItemY=math.random(createItemYA,createItemYB) --create random value between variables
-		createItemZ=math.random(createItemZA,createItemZB) --create random value between variables
-		posOfItem = position(createItemX,createItemY,createItemZ) --set value for position
-		findCreateItemQualA, createItemQualA = Effect:findValue("createItemQualA") --find variable
-		findCreateItemQualB, createItemQualB = Effect:findValue("createItemQualB") --find variable
-		createItemQual=math.random(createItemQualA,createItemQualB); --create random value between variables
+			findCreateItemXA, createItemXA = Effect:findValue("createItemXA") --find variable
+			findCreateItemXB, createItemXB = Effect:findValue("createItemXB") --find variable
+			findCreateItemYA, createItemYA = Effect:findValue("createItemYA") --find variable
+			findCreateItemYB, createItemYB = Effect:findValue("createItemYB") --find variable
+			findCreateItemZA, createItemZA = Effect:findValue("createItemZA") --find variable
+			findCreateItemZB, createItemZB = Effect:findValue("createItemZB") --find variable
+			createItemX=math.random(createItemXA,createItemXB) --create random value between variables
+			createItemY=math.random(createItemYA,createItemYB) --create random value between variables
+			createItemZ=math.random(createItemZA,createItemZB) --create random value between variables
+			posOfItem = position(createItemX,createItemY,createItemZ) --set value for position
+			findCreateItemQualA, createItemQualA = Effect:findValue("createItemQualA") --find variable
+			findCreateItemQualB, createItemQualB = Effect:findValue("createItemQualB") --find variable
+			createItemQual=math.random(createItemQualA,createItemQualB); --create random value between variables
 
-		findCreateGfx, createGfx = Effect:findValue("createGfx") --find variable
-  		if findCreateGfx then -- in case we defined a Gfx shown on the created item
-			world:gfx(createGfx,posOfItem) --create gfx
-		end
+			findCreateGfx, createGfx = Effect:findValue("createGfx") --find variable
+  			if findCreateGfx then -- in case we defined a Gfx shown on the created item
+				world:gfx(createGfx,posOfItem) --create gfx
+			end
 
-		findCreateSound, createSound = Effect:findValue("createSound") --find variable
-		if findCreateSound then -- if we have defined a sound for the created item
-			world:makeSound(createSound,posOfItem) --create sfx
-		end
+			findCreateSound, createSound = Effect:findValue("createSound") --find variable
+			if findCreateSound then -- if we have defined a sound for the created item
+				world:makeSound(createSound,posOfItem) --create sfx
+			end
 		until (i==createRepeatX) --stop repeat
 
 		if createItemIDB ~= 0 then --an item B shall be created
