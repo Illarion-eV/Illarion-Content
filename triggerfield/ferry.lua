@@ -25,7 +25,7 @@
 -- INSERT INTO triggerfields VALUES (289,283,0,'triggerfield.ferry');
 
 require("base.common")
-require("handler.warpgroup");
+
 
 module("triggerfield.ferry", package.seeall)
 
@@ -124,8 +124,8 @@ ferryTargetPos[19]={position(451,95,0), position(364,49,0),position(415,85,0),po
 ferryTargetPos[20]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 ferryTargetPos[21]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 
-function movetofield(User, SourceItem)
-
+function movetofield(User)
+ User:inform("targetPos1: ","targetPos1: ")
 	local names
 	local Amountferry = table.getn(ferrySourcePos)	
 	for j = 1,Amountferry do
