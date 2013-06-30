@@ -237,12 +237,13 @@ function Ferry(User, SourceItem)
 					User:inform("Ihr befindet euch bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
 				else
 				
-					User:inform("Ihr habt euch dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
+
 					base.money.TakeMoneyFromChar(User,10000)
 
 
 					travler = world:getPlayersInRangeOf(SourceItem.pos, 5); 
 					for i,player in ipairs(travler) do
+						player:inform("Ihr habt euch dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
 						world:gfx(1,player.pos)
 						world:makeSound(9,player.pos);
 						player:warp(targetPos[selected+1])
