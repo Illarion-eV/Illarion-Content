@@ -187,7 +187,7 @@ elseif findCreateItemTimeBB then
 		if createItemIDB ~= 0 then --an item B shall be created
 			PoscreatedItemX=createItemX
 			PoscreatedItemY=createItemY
-			world:createItemFromId( createItemIDB, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
+			world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
 		end
 
 		createItemTimeAA=createItemTimeAA+1 --counter for nextcall
@@ -233,8 +233,6 @@ elseif findCreateItemTimeBB then
 	createItemTimeAA=0  --prepare for next script call
 	return false -- callEffect is only needed once, no return true necessary
 end
-User:inform("items: "..createItemIDB,"items: "..createItemIDB)
-User:inform("items: "..createItemID,"items: "..createItemID)
 end
 
 function removeEffect(Effect,User)
