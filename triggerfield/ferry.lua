@@ -129,7 +129,7 @@ function movetofield(User)
 	local names
 	local Amountferry = table.getn(ferrySourcePos)	
 	for j = 1,Amountferry do
-	   if (User.pos == ferrySourceItemPos[j]) then
+	   if (User.pos == ferrySourcePos[j]) then
 		if  User:getPlayerLanguage() == Player.german then
 			names = ferryDE[j]
 		else
