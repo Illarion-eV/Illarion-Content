@@ -58,6 +58,8 @@ function MoveFromField(char)
 	createItemQualB=999; --quality max
 	createAfterA=10; --delay min
 	createAfterB=200; --delay max
+User:inform("items: "..createItemIDB,"items: "..createItemIDB)
+User:inform("items: "..createItemID,"items: "..createItemID)
 --	createGfx=nil; --gfx; moved to top
 --	createSound=nil; --sfx; moved to top
 --	createRepeatA=1 --min repeat; moved to top

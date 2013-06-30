@@ -233,6 +233,8 @@ elseif findCreateItemTimeBB then
 	createItemTimeAA=0  --prepare for next script call
 	return false -- callEffect is only needed once, no return true necessary
 end
+User:inform("items: "..createItemIDB,"items: "..createItemIDB)
+User:inform("items: "..createItemID,"items: "..createItemID)
 end
 
 function removeEffect(Effect,User)
