@@ -306,6 +306,16 @@ function InitWegweiser()
     AddWeg({610,386,0},"Funkelhöhle","Glittering Cave",6,0);
     AddWeg({610,387,0},"Elfenruinen, Schlangenkopfberg, Todes Schneise, Glühende Wälder, Wichtkanal, Wachwald, Katanbi Wüste, Cadomyr","Elven Ruins, Mount Snakehead, Death Swath, Glowing Forest, Wight Canal, Sentry Forest, Katanbi Desert, Cadomyr",4,0);
 
+    AddWeg({613,863,0},"Cadomyr Hafen, Runewick Hafen","Cadomyr Harbour, Runewick Harbour",4,0);
+    AddWeg({613,855,0},"Cadomyr Hafen, Runewick Hafen","Cadomyr Harbour, Runewick Harbour",0,0);
+    AddWeg({986,257,0},"Nördlicher Hafen","Northern Harbour",4,0);
+    AddWeg({104,833,0},"Cadomyr Hafen","Cadomyr Harbour",4,0);
+    AddWeg({361,51,0},"Galmair Hafen, Nördliche Inseln","Galmair Harbour, Northern Islands",6,0);
+    AddWeg({367,51,0},"Galmair Hafen, Nördliche Inseln","Galmair Harbour, Northern Islands",2,0);
+    AddWeg({412,86,0},"Galmair Hafen, Nördliche Inseln","Galmair Harbour, Northern Islands",6,0);
+    AddWeg({419,86,0},"Galmair Hafen, Nördliche Inseln","Galmair Harbour, Northern Islands",2,0);
+    AddWeg({475,35,0},"Galmair Hafen, Nördliche Inseln","Galmair Harbour, Northern Islands",6,0);
+    AddWeg({482,35,0},"Galmair Hafen, Nördliche Inseln","Galmair Harbour, Northern Islands",2,0);
 
 end
 
