@@ -31,7 +31,7 @@ module("triggerfield.ferry", package.seeall)
 
 
 
-ferrySourcePos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,865,0),position(615,865,0),position(616,865,0),position(105,833,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0)}
+ferrySourcePos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,855,0),position(615,855,0),position(616,855,0),position(105,833,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0)}
 
 ferryDE={}
 ferryEN={}
@@ -124,7 +124,7 @@ ferryTargetPos[19]={position(451,95,0), position(364,49,0),position(415,85,0),po
 ferryTargetPos[20]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 ferryTargetPos[21]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 
-function MoveToField(User, SourceItem)
+function MoveToField(User)
 -- User:inform("targetPos1: ","targetPos1: ")
 	local names
 	local Amountferry = table.getn(ferrySourcePos)	
@@ -151,7 +151,7 @@ User:inform("targetPos: ","targetPos: ")
 			selected = dialog:getSelectedIndex()
 --			if  base.money.CharHasMoney(User,10000) then
 				
-				if (targetPos[selected+1].x - SourceItem.pos.x) * (targetPos[selected+1].x - SourceItem.pos.x) < 10 then
+				if (targetPos[selected+1].x - User.pos.x) * (targetPos[selected+1].x - User.pos.x) < 10 then
 					User:inform("Du befindest dich bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
 				else
 				
