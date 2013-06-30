@@ -30,12 +30,10 @@ createNorthItemXB={369,461,501}
 createNorthItemYA={59,49,7}
 createNorthItemYB={78,79,30}
 
-function MoveToField(char)
+function MoveFromField(char)
 	for i = 1,3 do
 		local AmountPos = table.getn(NorthPos[i])
 		for j = 1,AmountPos do
-			char:inform("items: "..i,"items: "..i)
-			char:inform("items: "..j,"items: "..j)
 	   		if (char.pos == NorthPos[i][j]) then
 				NorthitemsID = createNorthItemID[i]
 				NorthItemIDB = createNorthItemIDB[i]
@@ -43,6 +41,8 @@ function MoveToField(char)
 				NorthItemXB = createNorthItemXB[i]
 				NorthItemYA = createNorthItemYA[i]
 				NorthItemYB = createNorthItemYB[i]
+				char:inform("we got: "..i,"we got: "..i)
+				char:inform("we got: "..j,"we got: "..j)
        			end
 		end
 	end	
