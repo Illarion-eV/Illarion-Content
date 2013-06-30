@@ -27,7 +27,7 @@
 require("base.common")
 require("handler.warpgroup");
 
-module("triggerfield.ferry")
+module("triggerfield.ferry", package.seeall)
 
 
 
