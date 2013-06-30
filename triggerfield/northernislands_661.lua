@@ -36,7 +36,7 @@ function MoveToField(char)
 		for j = 1,AmountPos do
 			char:inform("items: "..i,"items: "..i)
 			char:inform("items: "..j,"items: "..j)
-	   		if (char.pos == Northpos[1][j]) then
+	   		if (char.pos == NorthPos[i][j]) then
 				NorthitemsID = createNorthItemID[i]
 				NorthItemIDB = createNorthItemIDB[i]
 				NorthItemXA = createNorthItemXA[i]
