@@ -142,7 +142,7 @@ function movetofield(User, SourceItem)
 	end
 --User:inform("names: "..names,"names: "..names)
 --User:inform("items: "..items,"items: "..items)
---User:inform("targetPos: "..targetPos,"targetPos: "..targetPos)
+ User:inform("targetPos: ","targetPos: ")
 	
 	local callback = function(dialog)
 	
