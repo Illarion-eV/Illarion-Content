@@ -153,7 +153,7 @@ function StaticTeleporter(User, SourceItem)
 end
 
 
-ferrySourceItemPos={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0),position(987,257,0),position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
+ferrySourceItemPos={position(101,790,0), position(105,833,0),position(616,859,0),position(727,809,0),position(888,485,0),position(870,285,0),position(987,257,0),position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 
 ferryDE={}
 ferryEN={}
@@ -194,12 +194,12 @@ ferryItem[10]={61,229,229,299}
 ferryItem[11]={61,229,229,299}
 
 ferryTargetPos={}
-ferryTargetPos[1]={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0)}
-ferryTargetPos[2]={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0)}
-ferryTargetPos[3]={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0)}
-ferryTargetPos[4]={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0)}
-ferryTargetPos[5]={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0)}
-ferryTargetPos[6]={position(101,790,0), position(105,833,0),position(616,859,0),position(726,809,0),position(888,485,0),position(870,285,0),position(987,257,0)}
+ferryTargetPos[1]={position(101,790,0), position(105,833,0),position(616,859,0),position(727,809,0),position(888,485,0),position(870,285,0)}
+ferryTargetPos[2]={position(101,790,0), position(105,833,0),position(616,859,0),position(727,809,0),position(888,485,0),position(870,285,0)}
+ferryTargetPos[3]={position(101,790,0), position(105,833,0),position(616,859,0),position(727,809,0),position(888,485,0),position(870,285,0)}
+ferryTargetPos[4]={position(101,790,0), position(105,833,0),position(616,859,0),position(727,809,0),position(888,485,0),position(870,285,0)}
+ferryTargetPos[5]={position(101,790,0), position(105,833,0),position(616,859,0),position(727,809,0),position(888,485,0),position(870,285,0)}
+ferryTargetPos[6]={position(101,790,0), position(105,833,0),position(616,859,0),position(727,809,0),position(888,485,0),position(870,285,0),position(987,257,0)}
 ferryTargetPos[7]={position(870,285,0),position(987,257,0)}
 ferryTargetPos[8]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 ferryTargetPos[9]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
