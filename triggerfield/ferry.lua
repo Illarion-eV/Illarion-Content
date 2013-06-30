@@ -151,7 +151,7 @@ User:inform("targetPos: ","targetPos: ")
 			selected = dialog:getSelectedIndex()
 --			if  base.money.CharHasMoney(User,10000) then
 				
-				if (targetPos[selected+1].x - User.pos.x) * (targetPos[selected+1].x - User.pos.x) < 10 then
+				if (targetPos[selected+1].x - User.pos.x) * (targetPos[selected+1].x - User.pos.x) < 6 then
 					User:inform("Du befindest dich bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
 				else
 				
