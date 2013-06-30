@@ -30,7 +30,7 @@ createNorthItemXB={369,461,501}
 createNorthItemYA={59,49,7}
 createNorthItemYB={78,79,30}
 
-function MoveFromField(char)
+function MoveToField(char)
 	for i = 1,3 do
 		local AmountPos = table.getn(NorthPos[i])
 		for j = 1,AmountPos do
