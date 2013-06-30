@@ -124,12 +124,12 @@ ferryTargetPos[19]={position(451,95,0), position(364,49,0),position(415,85,0),po
 ferryTargetPos[20]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 ferryTargetPos[21]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 
-function movetofield(User, SourceItem)
+function movetofield(User)
 
 	local names
 	local Amountferry = table.getn(ferrySourceItemPos)	
 	for j = 1,Amountferry do
-	   if (SourceItem.pos == ferrySourceItemPos[j]) then
+	   if (User.pos == ferrySourceItemPos[j]) then
 		if  User:getPlayerLanguage() == Player.german then
 			names = ferryDE[j]
 		else
