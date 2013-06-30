@@ -124,7 +124,7 @@ ferryTargetPos[19]={position(451,95,0), position(364,49,0),position(415,85,0),po
 ferryTargetPos[20]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 ferryTargetPos[21]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 
-function movetofield(User)
+function MoveToField(User)
  User:inform("targetPos1: ","targetPos1: ")
 	local names
 	local Amountferry = table.getn(ferrySourcePos)	
