@@ -31,7 +31,7 @@ module("triggerfield.ferry")
 
 
 
---ferrySourceItemPos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,865,0),position(615,865,0),position(616,865,0),position(105,833,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0)}
+ferrySourcePos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,865,0),position(615,865,0),position(616,865,0),position(105,833,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0)}
 
 ferryDE={}
 ferryEN={}
@@ -127,7 +127,7 @@ ferryTargetPos[21]={position(451,95,0), position(364,49,0),position(415,85,0),po
 function movetofield(User)
 
 	local names
-	local Amountferry = table.getn(ferrySourceItemPos)	
+	local Amountferry = table.getn(ferrySourcePos)	
 	for j = 1,Amountferry do
 	   if (User.pos == ferrySourceItemPos[j]) then
 		if  User:getPlayerLanguage() == Player.german then
