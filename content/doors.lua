@@ -71,7 +71,7 @@ function initDoors()
 	AddDoor({249, 295,-6}, 103,"Game room","Spielraum", false); -- Scoria Mine
 	AddDoor({249, 297,-5}, 103,"Temple of Nargun","Tempel des Nargun", false); -- Scoria Mine
 	AddDoor({250, 297,-5}, 103,"Temple of Nargun","Tempel des Nargun", false); -- Scoria Mine
-	AddDoor({346, 160,-7}, 103,"Arena","Arena", false); -- Scoria Mine
+--	AddDoor({346, 160,-7}, 103,"Arena","Arena", false); -- Scoria Mine
 	AddDoor({336, 194,-6}, 103,"Arena-Hog Dens","Arena-Schweinebaue", false); -- Scoria Mine
 	AddDoor({336, 195,-6}, 103,"Arena-Hog Dens","Arena-Schweinebaue", false); -- Scoria Mine
 	AddDoor({335, 238,-6}, 103,"Arena","Arena", false); -- Scoria Mine

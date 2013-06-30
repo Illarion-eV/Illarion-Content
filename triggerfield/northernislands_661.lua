@@ -23,6 +23,7 @@ function MoveFromField(char)
 		RewardInNorth=0; --nothing will be created
 		elseif math.random(1,100) < 96 then --chance check if lte=0 and character is player
 		RewardInNorth=0; --no, thus nothing will be created
+		createItemID=359; --fire flame will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 --		char:inform("Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.", "It does not look like as any fairy would drop an element today.") --player get informed s/he missed chance
 		else
