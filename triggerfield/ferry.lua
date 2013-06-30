@@ -188,7 +188,7 @@ function movetofield(User)
 	else
 		dialog = SelectionDialog("Ferry", "Choose a destination.", callback)
 	end
-	dialog:setCloseOnMove()
+--	dialog:setCloseOnMove()
 	
 	for i=1,#items do
 		dialog:addOption(items[i], names[i])
