@@ -177,10 +177,10 @@ ferryItem[4]={2701,105,2760,308,915}
 ferryItem[5]={61,359,360,372,474}
 
 ferryTargetPos={}
-ferryTargetPos[1]={position(102,790,0), position(105,833,0),position(616,859,0),position(728,809,0),position(888,486,0),position(870,286,0)}
-ferryTargetPos[2]={position(102,790,0), position(105,833,0),position(616,859,0),position(728,809,0),position(888,486,0),position(870,286,0)}
+ferryTargetPos[1]={position(102,790,0), position(105,832,0),position(616,859,0),position(728,809,0),position(888,486,0),position(870,286,0)}
+ferryTargetPos[2]={position(102,790,0), position(105,832,0),position(616,859,0),position(728,809,0),position(888,486,0),position(870,286,0)}
 ferryTargetPos[3]={position(102,790,0),position(728,809,0),position(888,486,0),position(870,286,0)}
-ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),position(870,286,0),position(987,257,0)}
+ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),position(870,286,0),position(987,256,0)}
 ferryTargetPos[5]={position(450,95,0), position(364,49,0),position(415,85,0),position(478,34,0),position(682,45,0)}
 
 
