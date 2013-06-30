@@ -187,7 +187,7 @@ elseif findCreateItemTimeBB then
 		if createItemIDB ~= 0 then --an item B shall be created
 			PoscreatedItemX=createItemX
 			PoscreatedItemY=createItemY
-			world:createItemFromId( createItemID, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
+			world:createItemFromId( createItemIDB, createItemAmount, posOfItem, true, createItemQual, nil) --creates item
 		end
 
 		createItemTimeAA=createItemTimeAA+1 --counter for nextcall
