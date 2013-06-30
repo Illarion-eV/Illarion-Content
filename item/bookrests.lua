@@ -245,7 +245,7 @@ function Ferry(User, SourceItem)
 					for i,player in ipairs(travler) do
 						world:gfx(1,User.pos)
 						world:makeSound(9,User.pos);
-						travler:warp(targetPos[selected+1])
+						User:warp(targetPos[selected+1])
 						world:gfx(11,User.pos)
 						world:makeSound(9,User.pos);	
 					end
