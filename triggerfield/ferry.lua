@@ -85,7 +85,7 @@ ferryItem[3]={2701,3099,105}
 ferryItem[4]={2701,3099,105}
 ferryItem[5]={2701,3099,105}
 ferryItem[6]={2701,3099,105}
-ferryItem[7]={2701,272,105}
+ferryItem[7]={2701,272}
 ferryItem[8]={308,915}
 ferryItem[9]={308,915}
 ferryItem[10]={61,359,360,372}
@@ -102,30 +102,30 @@ ferryItem[20]={61,359,360,372}
 ferryItem[21]={61,359,360,372}
 
 ferryTargetPos={}
-ferryTargetPos[1]={position(101,790,0), position(616,859,0),position(727,809,0)}
-ferryTargetPos[2]={position(101,790,0), position(616,859,0),position(727,809,0)}
-ferryTargetPos[3]={position(101,790,0), position(616,859,0),position(727,809,0)}
-ferryTargetPos[4]={position(101,790,0), position(616,859,0),position(727,809,0)}
-ferryTargetPos[5]={position(101,790,0), position(616,859,0),position(727,809,0)}
-ferryTargetPos[6]={position(101,790,0), position(616,859,0),position(727,809,0)}
-ferryTargetPos[7]={position(101,790,0), position(105,833,0),position(727,809,0)}
+ferryTargetPos[1]={position(102,790,0),position(616,859,0),position(728,809,0)}
+ferryTargetPos[2]={position(102,790,0),position(616,859,0),position(728,809,0)}
+ferryTargetPos[3]={position(102,790,0),position(616,859,0),position(728,809,0)}
+ferryTargetPos[4]={position(102,790,0),position(616,859,0),position(728,809,0)}
+ferryTargetPos[5]={position(102,790,0),position(616,859,0),position(728,809,0)}
+ferryTargetPos[6]={position(102,790,0),position(616,859,0),position(728,809,0)}
+ferryTargetPos[7]={position(102,790,0),position(105,833,0)}
 ferryTargetPos[8]={position(870,285,0),position(987,257,0)}
 ferryTargetPos[9]={position(870,285,0),position(987,257,0)}
-ferryTargetPos[10]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[11]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[12]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[13]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[14]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[15]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[16]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[17]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[18]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[19]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[20]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[21]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[10]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[11]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[12]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[13]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[14]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[15]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[16]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[17]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[18]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[19]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[20]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[21]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0)}
 
 function MoveToField(User)
--- User:inform("targetPos1: ","targetPos1: ")
+ User:inform("targetPos1: ","targetPos1: ")
 	local names
 	local Amountferry = table.getn(ferrySourcePos)	
 	for j = 1,Amountferry do
