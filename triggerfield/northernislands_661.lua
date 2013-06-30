@@ -34,6 +34,8 @@ function MoveToField(char)
 	for i = 1,3 do
 		local AmountPos = table.getn(NorthPos[i])
 		for j = 1,AmountPos do
+			User:inform("items: "..i,"items: "..i)
+			User:inform("items: "..j,"items: "..j)
 	   		if (char.pos == Northpos[i][j]) then
 				NorthitemsID = createNorthItemID[i]
 				NorthItemIDB = createNorthItemIDB[i]
