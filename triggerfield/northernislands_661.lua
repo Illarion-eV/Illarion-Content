@@ -18,7 +18,32 @@ require("lte.longterm_cooldown");
 module("triggerfield.northernislands_661", package.seeall)
 
 
+NorthPos={}
+NorthPos[1]={position(364,49,0),position(363,56,0),position(364,56,0),position(363,65,0),position(360,73,0),position(356,71,0),position(359,66,0)}
+NorthPos[2]={position(415,85,0),position(415,79,0),position(416,79,0)}
+NorthPos[3]={position(478,34,0),position(478,30,0),position(479,30,0)}
+
+createNorthItemID={2553,2554,2551}
+createNorthItemIDB={359,360,372}
+createNorthItemXA={354,410,477}
+createNorthItemXB={369,461,501}
+createNorthItemYA={59,49,7}
+createNorthItemYB={78,79,30}
+
 function MoveFromField(char)
+	for i = 1,3 do
+		local AmountPos = table.getn(NorthPos[i])
+		for j = 1,AmountPos do
+	   		if (char.pos == Northpos[i][j]) then
+				NorthitemsID = createNorthItemID[i]
+				NorthItemIDB = createNorthItemIDB[i]
+				NorthItemXA = createNorthItemXA[i]
+				NorthItemXB = createNorthItemXB[i]
+				NorthItemYA = createNorthItemYA[i]
+				NorthItemYB = createNorthItemYB[i]
+       			end
+		end
+	end	
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
 		RewardInNorth=0; --nothing will be created
 		elseif math.random(1,100) < 96 then --chance check if lte=0 and character is player
@@ -27,14 +52,14 @@ function MoveFromField(char)
 --		char:inform("Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.", "It does not look like as any fairy would drop an element today.") --player get informed s/he missed chance
 		else
 		RewardInNorth=1; --yes, something will be created
-		createItemID=2553; --pure fire will be created
+		createItemID=NorthitemsID; --pure element will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
 		char:inform("Ist das dort ein pures Feuer? Du solltest nachsehen gehen.", "Is this a pure fire there? You should take a look.") --player get informed about element
 	end
 	if RewardInNorth==0 then	--check if something will be created
 		createItemTimeBB=math.random(5,20);  --use var2; nothing, thus more lights appear
 		createItemTimeB=0;
-		createItemIDB=359; --fire flame will be created
+		createItemIDB=NorthItemIDB; -- flame will be created
 		createGfx=44 --light (fire)
 		createRepeatA=2 --min three lights at the same time
 		createRepeatB=5 --up to five lights at the same time
@@ -48,10 +73,10 @@ function MoveFromField(char)
 		end		
 	createItemAmountA=1; --amount of element min
 	createItemAmountB=1; --amount of element max
-	createItemXA=354; --area X min
-	createItemXB=369; --area X max
-	createItemYA=59; --area Y min
-	createItemYB=78; --area Y max
+	createItemXA=NorthItemXA; --area X min
+	createItemXB=NorthItemXB; --area X max
+	createItemYA=NorthItemYA; --area Y min
+	createItemYB=NorthItemYB; --area Y max
 	createItemZA=0; --area Z min
 	createItemZB=0; --area z max
 	createItemQualA=333; --quality min
