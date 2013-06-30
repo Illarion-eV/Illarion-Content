@@ -135,7 +135,7 @@ function MoveToField(User, SourceItem)
 		else
 			names = ferryEN[j]
 		end
-
+User:inform("targetPos: ","targetPos: ")
 		items = ferryItem[j]
 		targetPos = ferryTargetPos[j]
            end
@@ -190,8 +190,8 @@ function MoveToField(User, SourceItem)
 	end
 	dialog:setCloseOnMove()
 	
-	for k=1,#items do
-		dialog:addOption(items[k], names[k])
+	for i=1,#items do
+		dialog:addOption(items[i], names[i])
 	end
 	User:requestSelectionDialog(dialog)
 end
