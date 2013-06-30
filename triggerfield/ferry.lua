@@ -190,8 +190,8 @@ function MoveToField(User, SourceItem)
 	end
 	dialog:setCloseOnMove()
 	
-	for i=1,#items do
-		dialog:addOption(items[i], names[i])
+	for k=1,#items do
+		dialog:addOption(items[k], names[k])
 	end
 	User:requestSelectionDialog(dialog)
 end
