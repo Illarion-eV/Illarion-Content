@@ -34,7 +34,7 @@ function MoveFromField(char)
 	if RewardInNorth==0 then	--check if something will be created
 		createItemTimeBB=math.random(5,20);  --use var2; nothing, thus more lights appear
 		createItemTimeB=0;
-		createItemID=359; --fire flame will be created
+		createItemIDB=359; --fire flame will be created
 		createGfx=44 --light (fire)
 		createRepeatA=3 --min three lights at the same time
 		createRepeatB=7 --up to five lights at the same time
