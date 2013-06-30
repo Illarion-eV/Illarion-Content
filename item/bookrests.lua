@@ -243,11 +243,11 @@ function Ferry(User, SourceItem)
 
 					travler = world:getPlayersInRangeOf(SourceItem.pos, 5); 
 					for i,player in ipairs(travler) do
-						world:gfx(1,User.pos)
-						world:makeSound(9,User.pos);
+						world:gfx(1,player.pos)
+						world:makeSound(9,player.pos);
 						player:warp(targetPos[selected+1])
-						world:gfx(11,User.pos)
-						world:makeSound(9,User.pos);	
+						world:gfx(11,player.pos)
+						world:makeSound(9,player.pos);	
 					end
 
 						
