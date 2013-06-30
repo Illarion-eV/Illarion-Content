@@ -58,7 +58,7 @@ function MoveFromField(char)
 		char:inform("Ist das dort ein pures Element? Du solltest nachsehen gehen.", "Is this a pure element there? You should take a look.") --player get informed about element
 	end
 	if RewardInNorth==0 then	--check if something will be created
-		createItemTimeBB=math.random(5,20);  --use var2; nothing, thus more lights appear
+		createItemTimeBB=math.random(5,10);  --use var2; nothing, thus more lights appear
 		createItemTimeB=0;
 		createItemIDB=NorthItemIDB; -- flame will be created
 		createGfx=NorthGfx --light 
@@ -83,7 +83,7 @@ function MoveFromField(char)
 	createItemQualA=333; --quality min
 	createItemQualB=333; --quality max
 	createAfterA=50; --delay min
-	createAfterB=500; --delay max
+	createAfterB=1500; --delay max
 --	createGfx=nil; --gfx; moved to top
 --	createSound=nil; --sfx; moved to top
 --	createRepeatA=1 --min repeat; moved to top
