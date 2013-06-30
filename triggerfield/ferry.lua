@@ -124,8 +124,8 @@ ferryTargetPos[19]={position(451,95,0), position(364,49,0),position(415,85,0),po
 ferryTargetPos[20]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 ferryTargetPos[21]={position(451,95,0), position(364,49,0),position(415,85,0),position(478,34,0)}
 
-function MoveToField(User)
- User:inform("targetPos1: ","targetPos1: ")
+function MoveToField(User, SourceItem)
+-- User:inform("targetPos1: ","targetPos1: ")
 	local names
 	local Amountferry = table.getn(ferrySourcePos)	
 	for j = 1,Amountferry do
@@ -142,7 +142,7 @@ function MoveToField(User)
 	end
 --User:inform("names: "..names,"names: "..names)
 --User:inform("items: "..items,"items: "..items)
- User:inform("targetPos: ","targetPos: ")
+-- User:inform("targetPos: ","targetPos: ")
 	
 	local callback = function(dialog)
 	
@@ -188,7 +188,7 @@ function MoveToField(User)
 	else
 		dialog = SelectionDialog("Ferry", "Choose a destination.", callback)
 	end
---	dialog:setCloseOnMove()
+	dialog:setCloseOnMove()
 	
 	for i=1,#items do
 		dialog:addOption(items[i], names[i])
