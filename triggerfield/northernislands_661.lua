@@ -66,5 +66,5 @@ function MoveFromField(char)
 --	createRepeatB=5 --max repeat; moved to top
 	createItemPos=1 --check of position set
 	base.character.CreateAfterTime (char,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos) -- call .lte.createaftertime
-world:createItemFromId( createItemIDB, createItemAmount, position(364,49,0), true, createItemQual, nil)
+world:createItemFromId( 359, createItemAmountB, position(364,49,0), true, createItemQualB, nil)
 end
