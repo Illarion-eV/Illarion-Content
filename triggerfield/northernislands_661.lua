@@ -25,6 +25,7 @@ NorthPos[3]={position(478,34,0),position(478,30,0),position(479,30,0)}
 
 createNorthItemID={2553,2554,2551}
 createNorthItemIDB={359,360,372}
+createNorthGfx={9,4,8}
 createNorthItemXA={354,410,477}
 createNorthItemXB={369,461,501}
 createNorthItemYA={59,49,7}
@@ -37,12 +38,11 @@ function MoveFromField(char)
 	   		if (char.pos == NorthPos[i][j]) then
 				NorthitemsID = createNorthItemID[i]
 				NorthItemIDB = createNorthItemIDB[i]
+				NorthGfx = createNorthGfx[i]
 				NorthItemXA = createNorthItemXA[i]
 				NorthItemXB = createNorthItemXB[i]
 				NorthItemYA = createNorthItemYA[i]
 				NorthItemYB = createNorthItemYB[i]
-				char:inform("we got: "..i,"we got: "..i)
-				char:inform("we got: "..j,"we got: "..j)
        			end
 		end
 	end	
@@ -51,27 +51,26 @@ function MoveFromField(char)
 		elseif math.random(1,100) < 96 then --chance check if lte=0 and character is player
 		RewardInNorth=0; --no, thus nothing will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
---		char:inform("Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.", "It does not look like as any fairy would drop an element today.") --player get informed s/he missed chance
 		else
 		RewardInNorth=1; --yes, something will be created
 		createItemID=NorthitemsID; --pure element will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
-		char:inform("Ist das dort ein pures Feuer? Du solltest nachsehen gehen.", "Is this a pure fire there? You should take a look.") --player get informed about element
+		char:inform("Ist das dort ein pures Element? Du solltest nachsehen gehen.", "Is this a pure element there? You should take a look.") --player get informed about element
 	end
 	if RewardInNorth==0 then	--check if something will be created
 		createItemTimeBB=math.random(5,20);  --use var2; nothing, thus more lights appear
 		createItemTimeB=0;
 		createItemIDB=NorthItemIDB; -- flame will be created
-		createGfx=44 --light (fire)
+		createGfx=NorthGfx --light 
 		createRepeatA=2 --min three lights at the same time
 		createRepeatB=5 --up to five lights at the same time
-		createItemText=nil --select text-set 1 in .lte.createaftertime.lua
+		createItemText=nil --no text-set 1 in .lte.createaftertime.lua
 		else
 		createItemTimeB=1 --use var1; yes, thus light onle one time
 		createGfx=46 --light (beam me up)
 		createRepeatA=1 --only one light 
 		createRepeatB=1 --only one light
-		createItemText=nil --select text-set 2 .lte.createaftertime.lua
+		createItemText=nil --no text-set 2 .lte.createaftertime.lua
 		end		
 	createItemAmountA=1; --amount of element min
 	createItemAmountB=1; --amount of element max
