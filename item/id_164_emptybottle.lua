@@ -14,6 +14,10 @@ function UseItem(User, SourceItem, ltstate)
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
     if cauldron then
 	
+		if base.licence.licence(User) then --checks if user is citizen or has a licence 
+			return -- avoids crafting if user is neither citizen nor has a licence
+		end
+		
 		if not CheckWaterEmpty(User, SourceItem, cauldron) then
 		    return
 		end	

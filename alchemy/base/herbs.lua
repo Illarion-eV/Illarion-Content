@@ -13,7 +13,11 @@ function UseItem(User, SourceItem, ltstate)
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
     if cauldron then
 	  
-        -- is the char an alchemist?
+        if base.licence.licence(User) then --checks if user is citizen or has a licence 
+			return -- avoids crafting if user is neither citizen nor has a licence
+		end
+		
+		-- is the char an alchemist?
 	    local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
 		if not anAlchemist then
 		    User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")

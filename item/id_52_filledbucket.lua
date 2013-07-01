@@ -105,6 +105,10 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,ltstate)
 		return
 	end
 		
+	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+		return -- avoids crafting if user is neither citizen nor has a licence
+	end
+	
 	if ( ltstate == Action.abort ) then
 	   base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	   return
