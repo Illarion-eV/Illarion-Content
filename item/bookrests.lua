@@ -1,5 +1,5 @@
 require("base.common")
---require("base.pirates")
+require("base.pirates")
 
 -- UPDATE common SET com_script='item.bookrests' WHERE com_itemid = 3104;
 -- UPDATE common SET com_script='item.bookrests' WHERE com_itemid = 3105;
