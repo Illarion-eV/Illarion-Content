@@ -1,5 +1,5 @@
 require("base.common")
---require("base.pirates")
+require("base.pirates")
 
 -- UPDATE common SET com_script='item.bookrests' WHERE com_itemid = 3104;
 -- UPDATE common SET com_script='item.bookrests' WHERE com_itemid = 3105;
@@ -217,21 +217,14 @@ function Ferry(User, SourceItem)
 				
 
 					base.money.TakeMoneyFromChar(User,10000)
+					travler = world:getPlayersInRangeOf(SourceItem.pos, 5); 
+					if math.random(1,100)< 51 then
 
-					if math.random(1,100)< 26 then
-
-					for i,player in ipairs(travler) do
-						player:inform("Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", "Pirates are coming closer to your ship. You can choose between following options.")
-						world:gfx(1,player.pos)
-						world:makeSound(9,player.pos);
-						player:warp(position(352,870,1))
-						world:gfx(11,player.pos)
-						world:makeSound(9,player.pos);	
-					end
+						base.pirates.piratesattack(User)
 
  					else
 
-					travler = world:getPlayersInRangeOf(SourceItem.pos, 5); 
+
 					for i,player in ipairs(travler) do
 						player:inform("Du hast dich dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
 						world:gfx(1,player.pos)
