@@ -3,7 +3,9 @@ require("base.common")
 
 module("base.pirates", package.seeall)
 
-
+optionsDE={"Kämpfe","Flieh","Zahl"}
+optionsEN={"Fight","Fly","Pay"}
+--[[
 optionsDE={}
 optionsDE[1]={"Kämpfe"}
 optionsDE[2]={"Flieh"}
@@ -12,7 +14,7 @@ optionsEN={}
 optionsEN[1]={"Fight"}
 optionsEN[2]={"Fly"}
 optionsEN[3]={"Pay"}
-
+]]--
 
 function piratesattack(User,SourceItem,travler)
 	User:inform("names: ","names: ")
@@ -40,6 +42,9 @@ function piratesattack(User,SourceItem,travler)
 		success = dialog:getSuccess()
 		if success then
 			selected = dialog:getSelectedIndex()
+			User:inform("lauftDE","lauftEN")
+		else
+			User:inform("lauftDE nicht","lauftEN nicht")
 		end
 	end
 	local dialog
