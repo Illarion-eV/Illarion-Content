@@ -37,9 +37,10 @@ function piratesattack(User,SourceItem,travler)
 
 
 	local callback = function(dialog)
-	success = dialog:getSuccess()
-	if success then
-		selected = dialog:getSelectedIndex()
+		success = dialog:getSuccess()
+		if success then
+			selected = dialog:getSelectedIndex()
+		end
 	end
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
