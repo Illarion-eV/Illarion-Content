@@ -220,7 +220,7 @@ function Ferry(User, SourceItem)
  
 					if math.random(1,100)< 51 then
 
-						base.pirates.piratesattack(User)
+						base.pirates.piratesattack(User,SourceItem)
 
  					else
 
