@@ -218,6 +218,18 @@ function Ferry(User, SourceItem)
 
 					base.money.TakeMoneyFromChar(User,10000)
 
+					if math.random(1,100)< 26 then
+
+					for i,player in ipairs(travler) do
+						player:inform("Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", "Pirates are coming closer to your ship. You can choose between following options.")
+						world:gfx(1,player.pos)
+						world:makeSound(9,player.pos);
+						player:warp(352,870,1)
+						world:gfx(11,player.pos)
+						world:makeSound(9,player.pos);	
+					end
+
+ 					else
 
 					travler = world:getPlayersInRangeOf(SourceItem.pos, 5); 
 					for i,player in ipairs(travler) do
@@ -228,7 +240,7 @@ function Ferry(User, SourceItem)
 						world:gfx(11,player.pos)
 						world:makeSound(9,player.pos);	
 					end
-
+					end
 						
 --					handler.warpgroup.warpGroup(SourceItem.pos, 5, position(1,1,0), 42 )	
 --					User:warp(targetPos[selected+1])
