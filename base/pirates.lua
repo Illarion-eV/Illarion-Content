@@ -5,16 +5,8 @@ module("base.pirates", package.seeall)
 
 optionsDE={"Kämpfe","Flieh","Zahl"}
 optionsEN={"Fight","Fly","Pay"}
---[[
-optionsDE={}
-optionsDE[1]={"Kämpfe"}
-optionsDE[2]={"Flieh"}
-optionsDE[3]={"Zahl"}
-optionsEN={}
-optionsEN[1]={"Fight"}
-optionsEN[2]={"Fly"}
-optionsEN[3]={"Pay"}
-]]--
+
+items={1,1,1}
 
 function piratesattack(User,SourceItem,travler)
 	User:inform("names: ","names: ")
@@ -55,8 +47,8 @@ function piratesattack(User,SourceItem,travler)
 	end
 	dialog:setCloseOnMove()
 	
-	for i=1,3 do
-		dialog:addOption(1,options[i])
+	for i=1,Amountoptions do
+		dialog:addOption(items[i],options[i])
 	end
 	User:requestSelectionDialog(dialog)
 end
