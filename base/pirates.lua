@@ -6,7 +6,7 @@ module("base.pirates", package.seeall)
 
 function piratesattack(User)
   User:inform("names: ","names: ")
-	--[[				for i,player in ipairs(item.bookrests.Ferry.travler) do
+					for i,player in ipairs(item.bookrests.Ferry.travler) do
 						player:inform("Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", "Pirates are coming closer to your ship. You can choose between following options.")
 						world:gfx(1,player.pos)
 						world:makeSound(9,player.pos);
@@ -15,5 +15,5 @@ function piratesattack(User)
 						world:makeSound(9,player.pos);	
 					end
 
-]]--
+
 end
