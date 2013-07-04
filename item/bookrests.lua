@@ -224,7 +224,7 @@ function Ferry(User, SourceItem)
 						player:inform("Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", "Pirates are coming closer to your ship. You can choose between following options.")
 						world:gfx(1,player.pos)
 						world:makeSound(9,player.pos);
-						player:warp(352,870,1)
+						player:warp(position(352,870,1))
 						world:gfx(11,player.pos)
 						world:makeSound(9,player.pos);	
 					end
