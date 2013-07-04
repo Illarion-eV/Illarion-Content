@@ -4,7 +4,7 @@ require("base.common")
 module("base.pirates", package.seeall)
 
 
-function piratesattack(User)
+function piratesattack(User,SourceItem)
   User:inform("names: ","names: ")
 travler = world:getPlayersInRangeOf(SourceItem.pos, 5);
 					for i,player in ipairs(travler) do
