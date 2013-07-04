@@ -220,7 +220,7 @@ function Ferry(User, SourceItem)
 					travler = world:getPlayersInRangeOf(SourceItem.pos, 5); 
 					if math.random(1,100)< 51 then
 
-						base.pirates.piratesattack()
+						base.pirates.piratesattack(User)
 
  					else
 
