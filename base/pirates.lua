@@ -37,17 +37,22 @@ function piratesattack(User,SourceItem,travler)
 			return;
 		end
 --		if success then
+			User:inform("uffff1","uffff1")
 			selected = dialog:getSelectedIndex()
+			User:inform("uffff2","uffff2")
       			if (selected == 0) then
 				User:inform("lauftDE1","lauftEN1")
 			elseif (selected == 1) then
 				User:inform("lauftDE2","lauftEN2")
 			elseif (selected == 2) then 
 				User:inform("lauftDE3","lauftEN3")
+			else
+			User:inform("uffff3","uffff3")
 			end
 --		else
 --			User:inform("lauftDE nicht","lauftEN nicht")
 --		end
+			User:inform("uffff4","uffff4")
 	end
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
