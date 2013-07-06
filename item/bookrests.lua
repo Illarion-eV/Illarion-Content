@@ -224,19 +224,6 @@ function Ferry(User, SourceItem)
 
 						base.pirates.piratesattack(User,SourceItem,travler)
 
-User:requestSelectionDialog(dialog)
-	local callback = function(dialog)
-	debug("..selected ")
-		success = dialog:getSuccess() 
-		if success then
-			selected = dialog:getSelectedIndex() 
-			User:inform("Success, you selected option "..selected+1) 
-		else
-			User:inform("Selection aborted!") 
-		end
-	debug("..selected2 ")
-	end
-
  					else
 
 
