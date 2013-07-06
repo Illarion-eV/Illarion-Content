@@ -31,8 +31,11 @@ function piratesattack(User,SourceItem,travler)
 
 
 	local callback = function(dialog)
-		success = dialog:getSuccess()
-		if success then
+--		success = dialog:getSuccess()
+		if (not dialog:getSuccess()) then
+			return;
+		end
+--		if success then
 			selected = dialog:getSelectedIndex()
       			if (selected == 0) then
 				User:inform("lauftDE1","lauftEN1")
@@ -41,9 +44,9 @@ function piratesattack(User,SourceItem,travler)
 			elseif (selected == 2) then 
 				User:inform("lauftDE3","lauftEN3")
 			end
-		else
-			User:inform("lauftDE nicht","lauftEN nicht")
-		end
+--		else
+--			User:inform("lauftDE nicht","lauftEN nicht")
+--		end
 	end
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
