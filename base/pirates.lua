@@ -34,12 +34,11 @@ function piratesattack(User,SourceItem,travler)
 		success = dialog:getSuccess()
 		if success then
 			selected = dialog:getSelectedIndex()
-      			local ind = dialog:getSelectedIndex();
-      			if (ind == 0) then
+      			if (selected == 0) then
 				User:inform("lauftDE1","lauftEN1")
-			elseif (ind == 1) then
+			elseif (selected == 1) then
 				User:inform("lauftDE2","lauftEN2")
-			elseif (ind == 2) then 
+			elseif (selected == 2) then 
 				User:inform("lauftDE3","lauftEN3")
 			end
 		else
