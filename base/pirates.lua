@@ -31,7 +31,9 @@ function piratesattack(User,SourceItem,travler)
 
 
 	local callback = function(dialog)
+	debug("..selected ")
 		success = dialog:getSuccess()
+	debug("..selected ")
 		if success then
 			selected = dialog:getSelectedIndex()
 			debug("..selected "..selected)
