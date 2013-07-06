@@ -30,7 +30,7 @@ function piratesattack(User,SourceItem,travler)
 	end
 
 
-	local callback = function(dialog)
+	callback = function(dialog)
 	debug("..selected ")
 		success = dialog:getSuccess() 
 		if success then
