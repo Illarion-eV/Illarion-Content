@@ -87,7 +87,9 @@ function UseItem(User, SourceItem)
 	local Amountferry = table.getn(ferrySourceItemPos)	
 	for i = 1,Amountferry do
 		if (SourceItem.pos == ferrySourceItemPos[i]) then
-			Ferry(User, SourceItem)
+--			Ferry(User, SourceItem)
+			travler = world:getPlayersInRangeOf(SourceItem.pos, 5);
+			base.pirates.piratesattack(User,SourceItem,travler)
 		end	
 	end
 	-- ferries end
@@ -219,9 +221,9 @@ function Ferry(User, SourceItem)
 					base.money.TakeMoneyFromChar(User,10000)
 					travler = world:getPlayersInRangeOf(SourceItem.pos, 5); 
 					if math.random(1,100)< 91 then
-debug("..selected ")
+
 						base.pirates.piratesattack(User,SourceItem,travler)
-debug("..selected2 ")
+
  					else
 
 
