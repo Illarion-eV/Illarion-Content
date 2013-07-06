@@ -45,12 +45,12 @@ function piratesattack(User,SourceItem,travler)
 		dialog = SelectionDialog("Piraten Angriff", "Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", callback)
 	else
 		dialog = SelectionDialog("Pirates attack", "Pirates are coming closer to your ship. You can choose between following options.", callback)
+	debug("..selected ")
 	end
 	dialog:setCloseOnMove()
 	
-	for i=1,3 do
+	for i=1,Amountoptions do
 		dialog:addOption(items[i],options[i])
-	debug("..selected ")
 	end
 	User:requestSelectionDialog(dialog)
 end
