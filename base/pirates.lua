@@ -30,7 +30,8 @@ function piratesattack(User,SourceItem,travler)
 	end
 
 
-	local callback = function(dialog) 
+	local callback = function(dialog)
+	debug("..selected ")
 		success = dialog:getSuccess() 
 		if success then
 			selected = dialog:getSelectedIndex() 
@@ -38,6 +39,7 @@ function piratesattack(User,SourceItem,travler)
 		else
 			User:inform("Selection aborted!") 
 		end
+	debug("..selected2 ")
 	end
 --	debug("..selected ")
 	local dialog
