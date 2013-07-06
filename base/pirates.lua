@@ -54,15 +54,4 @@ function piratesattack(User,SourceItem,travler)
 		dialog:addOption(items[i],options[i])
 	end
 	User:requestSelectionDialog(dialog)
-	local callback = function(dialog)
-	debug("..selected ")
-		success = dialog:getSuccess() 
-		if success then
-			selected = dialog:getSelectedIndex() 
-			User:inform("Success, you selected option "..selected+1) 
-		else
-			User:inform("Selection aborted!") 
-		end
-	debug("..selected2 ")
-	end
 end
