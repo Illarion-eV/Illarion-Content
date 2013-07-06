@@ -218,9 +218,10 @@ function Ferry(User, SourceItem)
 
 					base.money.TakeMoneyFromChar(User,10000)
 					travler = world:getPlayersInRangeOf(SourceItem.pos, 5); 
-					if math.random(1,100)< 51 then
+					if math.random(1,100)< 81 then
 debug("..selected ")
-						base.pirates.piratesattack(User,SourceItem,travler)
+--						base.pirates.piratesattack(User,SourceItem,travler)
+piratesattack(User,SourceItem,travler)
 debug("..selected2 ")
  					else
 
@@ -257,6 +258,60 @@ debug("..selected2 ")
 	
 	for i=1,#items do
 		dialog:addOption(items[i], names[i])
+	end
+	User:requestSelectionDialog(dialog)
+end
+
+
+
+
+optionsDE={"Kämpfe","Flieh","Zahl"}
+optionsEN={"Fight","Flee","Pay"}
+
+items={1,53,61}
+
+function piratesattack(User,SourceItem,travler)
+	User:inform("names: ","names: ")
+	for i,player in ipairs(travler) do
+		player:inform("Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", "Pirates are coming closer to your ship. You can choose between following options.")
+		world:gfx(1,player.pos)
+		world:makeSound(9,player.pos);
+		player:warp(position(352,870,1))
+		world:gfx(11,player.pos)
+		world:makeSound(9,player.pos);	
+	end
+
+	local options
+	local Amountoptions = table.getn(optionsDE)	
+	for j = 1,Amountoptions do
+	   	if  User:getPlayerLanguage() == Player.german then
+			options = optionsDE
+		else
+			options = optionsEN
+		end
+	end
+
+
+	local callback = function(dialog) 
+		success = dialog:getSuccess() 
+		if success then
+			selected = dialog:getSelectedIndex() 
+			User:inform("Success, you selected option "..selected+1) 
+		else
+			User:inform("Selection aborted!") 
+		end
+	end
+--	debug("..selected ")
+	local dialog
+	if User:getPlayerLanguage() == Player.german then
+		dialog = SelectionDialog("Piraten Angriff", "Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", callback)
+	else
+		dialog = SelectionDialog("Pirates attack", "Pirates are coming closer to your ship. You can choose between following options.", callback)
+	end
+	dialog:setCloseOnMove()
+	
+	for i=1,Amountoptions do
+		dialog:addOption(items[i],options[i])
 	end
 	User:requestSelectionDialog(dialog)
 end
