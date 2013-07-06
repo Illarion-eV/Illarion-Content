@@ -48,7 +48,7 @@ function piratesattack(User,SourceItem,travler)
 	]]	else
 			User:inform("lauftDE nicht","lauftEN nicht")
 		end
-			User:inform("uffff4","uffff4")
+	--		User:inform("uffff4","uffff4")
 	end
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
