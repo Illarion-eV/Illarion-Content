@@ -6,7 +6,7 @@ module("base.pirates", package.seeall)
 optionsDE={"Kämpfe","Flieh","Zahl"}
 optionsEN={"Fight","Flee","Pay"}
 
-items={1,1,1}
+items={1,53,61}
 
 function piratesattack(User,SourceItem,travler)
 	User:inform("names: ","names: ")
@@ -19,7 +19,7 @@ function piratesattack(User,SourceItem,travler)
 		world:makeSound(9,player.pos);	
 	end
 
-	local options
+--	local options
 	local Amountoptions = table.getn(optionsDE)	
 	for j = 1,Amountoptions do
 	   	if  User:getPlayerLanguage() == Player.german then
@@ -31,7 +31,6 @@ function piratesattack(User,SourceItem,travler)
 
 
 	local callback = function(dialog)
-	debug("..selected "..selected)
 		success = dialog:getSuccess()
 		if success then
 			selected = dialog:getSelectedIndex()
@@ -53,4 +52,5 @@ function piratesattack(User,SourceItem,travler)
 		dialog:addOption(items[i],options[i])
 	end
 	User:requestSelectionDialog(dialog)
+	debug("..selected "..selected)
 end
