@@ -219,9 +219,9 @@ function Ferry(User, SourceItem)
 					base.money.TakeMoneyFromChar(User,10000)
 					travler = world:getPlayersInRangeOf(SourceItem.pos, 5); 
 					if math.random(1,100)< 51 then
-
+debug("..selected ")
 						base.pirates.piratesattack(User,SourceItem,travler)
-
+debug("..selected2 ")
  					else
 
 
