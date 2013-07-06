@@ -33,6 +33,7 @@ function piratesattack(User,SourceItem,travler)
 	local callback = function(dialog)
 --		success = dialog:getSuccess()
 		if (not dialog:getSuccess()) then
+			User:inform("uffff3","uffff3")
 			return;
 		end
 --		if success then
