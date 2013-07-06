@@ -41,6 +41,7 @@ function piratesattack(User,SourceItem,travler)
 				User:inform("lauftDE2","lauftEN2")
 			elseif (ind == 2) then 
 				User:inform("lauftDE3","lauftEN3")
+			end
 		else
 			User:inform("lauftDE nicht","lauftEN nicht")
 		end
