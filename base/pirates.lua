@@ -53,5 +53,5 @@ function piratesattack(User,SourceItem,travler)
 	for i=1,Amountoptions do
 		dialog:addOption(items[i],options[i])
 	end
-	User:requestSelectionDialog(dialog)
+--	User:requestSelectionDialog(dialog)
 end

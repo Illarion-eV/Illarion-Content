@@ -224,7 +224,7 @@ function Ferry(User, SourceItem)
 
 						base.pirates.piratesattack(User,SourceItem,travler)
 
-
+User:requestSelectionDialog(dialog)
 	local callback = function(dialog)
 	debug("..selected ")
 		success = dialog:getSuccess() 
