@@ -50,7 +50,7 @@ function piratesattack(User,SourceItem,travler)
 	
 	for i=1,Amountoptions do
 		dialog:addOption(items[i],options[i])
+	debug("..selected "..selected)
 	end
 	User:requestSelectionDialog(dialog)
-	debug("..selected "..selected)
 end
