@@ -48,7 +48,7 @@ function piratesattack(User,SourceItem,travler)
 	end
 	dialog:setCloseOnMove()
 	
-	for i=1,Amountoptions do
+	for i=1,3 do
 		dialog:addOption(items[i],options[i])
 	debug("..selected ")
 	end
