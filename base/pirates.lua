@@ -36,7 +36,7 @@ function piratesattack(User,SourceItem,travler)
 			User:inform("uffff1","uffff1")
 			selected = dialog:getSelectedIndex()
 			User:inform("uffff2","uffff2")
-      			if (selected == 0) then
+     --[[ 			if (selected == 0) then
 				User:inform("lauftDE1","lauftEN1")
 			elseif (selected == 1) then
 				User:inform("lauftDE2","lauftEN2")
@@ -45,7 +45,7 @@ function piratesattack(User,SourceItem,travler)
 			else
 			User:inform("uffff3","uffff3")
 			end
-		else
+	]]	else
 			User:inform("lauftDE nicht","lauftEN nicht")
 		end
 			User:inform("uffff4","uffff4")
