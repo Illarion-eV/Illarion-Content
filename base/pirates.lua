@@ -6,7 +6,7 @@ module("base.pirates", package.seeall)
 optionsDE={"Kämpfe","Flieh","Zahl"}
 optionsEN={"Fight","Flee","Pay"}
 
-items={1,53,61}
+items={1,1,1}
 
 function piratesattack(User,SourceItem,travler)
 	User:inform("names: ","names: ")
