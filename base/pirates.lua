@@ -19,7 +19,7 @@ function piratesattack(User,SourceItem,travler)
 		world:makeSound(9,player.pos);	
 	end
 
---	local options
+	local options
 	local Amountoptions = table.getn(optionsDE)	
 	for j = 1,Amountoptions do
 	   	if  User:getPlayerLanguage() == Player.german then
