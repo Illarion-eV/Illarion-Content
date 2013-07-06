@@ -29,7 +29,7 @@ function piratesattack(User,SourceItem,travler)
 		end
 	end
 
-
+--[[
 	local callback = function(dialog)
 	debug("..selected ")
 		success = dialog:getSuccess()
@@ -41,7 +41,7 @@ function piratesattack(User,SourceItem,travler)
 		else
 			User:inform("lauftDE nicht","lauftEN nicht")
 		end
-	end
+	end ]]
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
 		dialog = SelectionDialog("Piraten Angriff", "Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", callback)
