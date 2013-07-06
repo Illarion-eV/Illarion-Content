@@ -34,6 +34,7 @@ function piratesattack(User,SourceItem,travler)
 		success = dialog:getSuccess()
 		if success then
 			selected = dialog:getSelectedIndex()
+			debug("..selected "..selected)
 			User:inform("lauftDE","lauftEN")
 		else
 			User:inform("lauftDE nicht","lauftEN nicht")
