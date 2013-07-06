@@ -31,12 +31,8 @@ function piratesattack(User,SourceItem,travler)
 
 
 	local callback = function(dialog)
---		success = dialog:getSuccess()
-		if (not dialog:getSuccess()) then
-			User:inform("uffff3","uffff3")
-			return;
-		end
---		if success then
+		success = dialog:getSuccess()
+		if success then
 			User:inform("uffff1","uffff1")
 			selected = dialog:getSelectedIndex()
 			User:inform("uffff2","uffff2")
@@ -49,9 +45,9 @@ function piratesattack(User,SourceItem,travler)
 			else
 			User:inform("uffff3","uffff3")
 			end
---		else
---			User:inform("lauftDE nicht","lauftEN nicht")
---		end
+		else
+			User:inform("lauftDE nicht","lauftEN nicht")
+		end
 			User:inform("uffff4","uffff4")
 	end
 	local dialog
