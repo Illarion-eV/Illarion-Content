@@ -186,6 +186,11 @@ ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),p
 ferryTargetPos[5]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0),position(682,45,0)}
 
 
+optionsDE={"Kämpfe","Flieh","Zahl"}
+optionsEN={"Fight","Flee","Pay"}
+
+items={1,53,61}
+
 function Ferry(User, SourceItem)
 
 	local names
