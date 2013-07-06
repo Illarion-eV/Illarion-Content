@@ -87,9 +87,9 @@ function UseItem(User, SourceItem)
 	local Amountferry = table.getn(ferrySourceItemPos)	
 	for i = 1,Amountferry do
 		if (SourceItem.pos == ferrySourceItemPos[i]) then
---			Ferry(User, SourceItem)
-			travler = world:getPlayersInRangeOf(SourceItem.pos, 5);
-			base.pirates.piratesattack(User,SourceItem,travler)
+			Ferry(User, SourceItem)
+--			travler = world:getPlayersInRangeOf(SourceItem.pos, 5);
+--			base.pirates.piratesattack(User,SourceItem,travler)
 		end	
 	end
 	-- ferries end
