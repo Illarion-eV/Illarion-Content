@@ -90,7 +90,7 @@ for i,player in ipairs(travler) do
 	end
 
 
-						piratesAttack(User)
+	--					piratesAttack(User)
 
 
  					else
