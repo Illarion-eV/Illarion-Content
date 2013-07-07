@@ -45,7 +45,6 @@ pirateItem={1,53,61}
 
 
 function Ferry(User, SourceItem)
-
 	local names
 	local Amountferry = table.getn(ferrySourceItemPos)	
 	for j = 1,Amountferry do
@@ -60,10 +59,7 @@ function Ferry(User, SourceItem)
 		targetPos = ferryTargetPos[j]
            end
 	end
---User:inform("names: "..names,"names: "..names)
---User:inform("items: "..items,"items: "..items)
---User:inform("targetPos: "..targetPos,"targetPos: "..targetPos)
-	
+
 	local callback = function(dialog)
 	
 		success = dialog:getSuccess()
@@ -74,8 +70,6 @@ function Ferry(User, SourceItem)
 				if (targetPos[selected+1].x - SourceItem.pos.x) * (targetPos[selected+1].x - SourceItem.pos.x) < 10 then
 					User:inform("Du befindest dich bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
 				else
-				
-
 					base.money.TakeMoneyFromChar(User,10000)
 					travler = world:getPlayersInRangeOf(SourceItem.pos, 5); 
 					if math.random(1,100)< 91 then
@@ -98,11 +92,6 @@ function Ferry(User, SourceItem)
 							world:makeSound(9,player.pos);	
 						end
 					end
-						
---					handler.warpgroup.warpGroup(SourceItem.pos, 5, position(1,1,0), 42 )	
---					User:warp(targetPos[selected+1])
---					world:gfx(11,User.pos)
---					world:makeSound(9,User.pos);
 				end
 			else
 				User:inform("Du hast nicht genug Geld für diese Reise. Die Reise kostet ein Goldstück für eine Überfahrt.", "You don't have enough money for this journey. The journey costs one gold coin for one passage.")
@@ -175,13 +164,19 @@ function piratesAttack(User)
 	User:requestSelectionDialog(dialog)
 end
 
+
+
 function piratesFight(User)
 	User:inform("Fight!")
 end
 
+
+
 function piratesFlee(User)
 	User:inform("Flee!")
 end
+
+
 
 function piratesPay(User)
 	User:inform("Pay!")
