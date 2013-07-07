@@ -140,7 +140,7 @@ function piratesAttack(User,SourceItem,travler)
 	end
 
 	local options
-	local Amountoptions = table.getn(optionsDE)	
+	local Amountoptions = table.getn(pirateOptionsDE)	
 	for j = 1,Amountoptions do
 	   	if  User:getPlayerLanguage() == Player.german then
 			pirateOptions = pirateOptionsDE
