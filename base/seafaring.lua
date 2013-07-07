@@ -151,11 +151,11 @@ function piratesAttack(User)
 			local selected = dialog:getSelectedIndex() 
 			User:inform("Success, you selected option "..selected+1)
 			if (selected == 0) then
-				User:inform("Fight!")
+				piratesFight(User)
 			elseif (selected == 1) then
-				User:inform("Run!")
+				piratesFlee(User)
 			elseif (selected == 2) then
-				User:inform("Pay!")
+				piratesPay(User)
 			end
 		else
 			User:inform("Selection aborted!") 
@@ -173,4 +173,16 @@ function piratesAttack(User)
 		dialog:addOption(pirateItem[i],pirateOptions[i])
 	end
 	User:requestSelectionDialog(dialog)
+end
+
+function piratesFight(User)
+	User:inform("Fight!")
+end
+
+function piratesFlee(User)
+	User:inform("Flee!")
+end
+
+function piratesPay(User)
+	User:inform("Pay!")
 end
