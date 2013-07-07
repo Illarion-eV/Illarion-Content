@@ -30,11 +30,11 @@ function piratesattack(User,SourceItem,travler)
 	end
 
 
-	local callpirat = function(dialog)
+	local callpirat = function(dialog2)
 	debug("..selected ")
-		success = dialog:getSuccess() 
+		success = dialog2:getSuccess() 
 		if success then
-			selected = dialog:getSelectedIndex() 
+			selected = dialog2:getSelectedIndex() 
 			User:inform("Success, you selected option "..selected+1) 
 		else
 			User:inform("Selection aborted!") 
@@ -42,16 +42,16 @@ function piratesattack(User,SourceItem,travler)
 	debug("..selected2 ")
 	end
 --	debug("..selected ")
-	local dialog
+	local dialog2
 	if User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Piraten Angriff", "Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", callpirat)
+		dialog2 = SelectionDialog("Piraten Angriff", "Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", callpirat)
 	else
-		dialog = SelectionDialog("Pirates attack", "Pirates are coming closer to your ship. You can choose between following options.", callpirat)
+		dialog2 = SelectionDialog("Pirates attack", "Pirates are coming closer to your ship. You can choose between following options.", callpirat)
 	end
-	dialog:setCloseOnMove()
+	dialog2:setCloseOnMove()
 	
 	for i=1,Amountoptions do
-		dialog:addOption(items[i],options[i])
+		dialog2:addOption(items[i],options[i])
 	end
-	User:requestSelectionDialog(dialog)
+	User:requestSelectionDialog(dialog2)
 end
