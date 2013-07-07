@@ -50,7 +50,7 @@ function piratesattack(User,SourceItem,travler)
 	end
 	dialog2:setCloseOnMove()
 	
-	for i=n,Amountoptions do
+	for n=1,Amountoptions do
 		dialog2:addOption(items[n],options[n])
 	end
 	User:requestSelectionDialog(dialog2)
