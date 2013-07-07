@@ -79,7 +79,7 @@ function Ferry(User, SourceItem)
 					base.money.TakeMoneyFromChar(User,10000)
 					travler = world:getPlayersInRangeOf(SourceItem.pos, 5); 
 					if math.random(1,100)< 91 then
-
+piratesAttack(User)
 for i,player in ipairs(travler) do
 		player:inform("Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", "Pirates are coming closer to your ship. You can choose between following options.")
 		world:gfx(1,player.pos)
@@ -169,9 +169,7 @@ function piratesAttack(User)
 		else
 			User:inform("Selection aborted!") 
 		end
-	debug("..selected2 ")
 	end
---	debug("..selected ")
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
 		dialog = SelectionDialog("Piraten Angriff", "Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", callback)
