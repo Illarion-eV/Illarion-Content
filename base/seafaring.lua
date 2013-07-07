@@ -38,8 +38,8 @@ ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),p
 ferryTargetPos[5]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0),position(682,45,0)}
 
 
-pirateOptionsDE={"Kämpfe","Flieh","Zahl"}
-pirateOptionsEN={"Fight","Flee","Pay"}
+pirateOptionsDE={"Kämpfe gegen die Piraten","Fliehe vor den Piraten (25% Erfolgschance, ansonsten wartet der Kampf)","Zahle zehn Goldstücke, um verschont zu bleiben."}
+pirateOptionsEN={"Fight against the pirates","Flee from the pirates (25% chance of success. Otherwise you have to fight)","Pay ten gold coins in order to be spared"}
 
 pirateItem={1,53,61}
 
@@ -81,7 +81,7 @@ function Ferry(User, SourceItem)
 					if math.random(1,100)< 91 then
 						piratesAttack(User)
 						for i,player in ipairs(travler) do
-							player:inform("Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", "Pirates are coming closer to your ship. You can choose between following options.")
+							player:inform("Piraten nähern sich dem Schiff. Folgende Möglichkeiten stehen zur Wahl: Kämpfen, fliehen oder zehn Goldstücke zahlen.", "Pirates are coming closer to your ship. You can choose between following options: fight, free or pay ten gold coins.")
 							world:gfx(1,player.pos)
 							world:makeSound(9,player.pos);
 							player:warp(position(352,870,1))
@@ -163,7 +163,7 @@ function piratesAttack(User)
 	end
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Piraten Angriff", "Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", callback)
+		dialog = SelectionDialog("Piraten Angriff", "Piraten nähern sich dem Schiff. Folgende Möglichkeiten zur Wahl:", callback)
 	else
 		dialog = SelectionDialog("Pirates attack", "Pirates are coming closer to your ship. You can choose between following options.", callback)
 	end
