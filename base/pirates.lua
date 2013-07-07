@@ -21,7 +21,7 @@ function piratesattack(User,SourceItem,travler)
 
 	local options
 	local Amountoptions = table.getn(optionsDE)	
-	for j = 1,Amountoptions do
+	for m = 1,Amountoptions do
 	   	if  User:getPlayerLanguage() == Player.german then
 			options = optionsDE
 		else
@@ -50,8 +50,8 @@ function piratesattack(User,SourceItem,travler)
 	end
 	dialog2:setCloseOnMove()
 	
-	for i=1,Amountoptions do
-		dialog2:addOption(items[i],options[i])
+	for i=n,Amountoptions do
+		dialog2:addOption(items[n],options[n])
 	end
 	User:requestSelectionDialog(dialog2)
 end
