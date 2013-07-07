@@ -232,12 +232,12 @@ german, chance(20.0), ".*" -> "Ich bin in erster Linie eine Wache Galmairs.", "E
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Nun, ihr kennt ja die Geschichten über Recht und Unrecht. Gavin glaubt sogar daran.", "Well you know those stories about right and wrong. Gavin is the one of the ones who believes that."
+cycletext "Nun, ihr kennt ja die Geschichten über Recht und Unrecht. Gavin glaubt sogar daran.", "Well you know those stories about right and wrong. Gavin is one of the ones who believes in them."
 cycletext "Geht geordnet weiter, danke.", "Please pass in an orderly fashion. Thank you."
 cycletext "Ihr da! Macht keinen Ärger.", "Hey you! Don't cause any trouble."
 cycletext "Mir ist so langweilig. Ich wünscht, wir Wachen dürften im Dienst trinken.", "I'm so bored. I wish we could drink at work."
-cycletext "Ich bin so hungrig. Ich frage mich, was Gavin wohl heute wieder kocht.", "So very very hungry. I wonder what Gavin is cooking tonight."
-cycletext "Roar, ich mach alles mit meinem Morgenstern platt.", "Roar, I will crush anyone with my morning star."
+cycletext "Ich bin so hungrig. Ich frage mich, was Gavin wohl heute wieder kocht.", "So very very hungry. I wonder what Gavin is cooking tonight?"
+cycletext "Roar, ich mach alles mit meinem Morgenstern platt.", "Roar! I will crush anyone with my morning star."
 cycletext "Ich brauche keinen Mann.", "I'm not looking for a man."
 cycletext "In der Bürgerwehr zu sein ist der beste Beruf von allen.", "Civil watch is the best job ever."
 cycletext "Aye, Galvin hat immer recht.", "Aye, Gavin is always right."

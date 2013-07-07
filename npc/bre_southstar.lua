@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -20,7 +20,6 @@ require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
-require("npc.base.guards_static")
 module("npc.bre_southstar", package.seeall)
 
 function initNpc()
@@ -667,12 +666,12 @@ talkEntry:addResponse("Lungert hier nicht so rum!");
 talkEntry:addResponse("Rein oder raus?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Nun, ihr kennt ja die Geschichten über Recht und Unrecht. Gavin glaubt sogar daran.", "Well you know those stories about right and wrong. Gavin is the one of the ones who believes that.");
+talkingNPC:addCycleText("Nun, ihr kennt ja die Geschichten über Recht und Unrecht. Gavin glaubt sogar daran.", "Well you know those stories about right and wrong. Gavin is one of the ones who believes in them.");
 talkingNPC:addCycleText("Geht geordnet weiter, danke.", "Please pass in an orderly fashion. Thank you.");
 talkingNPC:addCycleText("Ihr da! Macht keinen Ärger.", "Hey you! Don't cause any trouble.");
 talkingNPC:addCycleText("Mir ist so langweilig. Ich wünscht, wir Wachen dürften im Dienst trinken.", "I'm so bored. I wish we could drink at work.");
-talkingNPC:addCycleText("Ich bin so hungrig. Ich frage mich, was Gavin wohl heute wieder kocht.", "So very very hungry. I wonder what Gavin is cooking tonight.");
-talkingNPC:addCycleText("Roar, ich mach alles mit meinem Morgenstern platt.", "Roar, I will crush anyone with my morning star.");
+talkingNPC:addCycleText("Ich bin so hungrig. Ich frage mich, was Gavin wohl heute wieder kocht.", "So very very hungry. I wonder what Gavin is cooking tonight?");
+talkingNPC:addCycleText("Roar, ich mach alles mit meinem Morgenstern platt.", "Roar! I will crush anyone with my morning star.");
 talkingNPC:addCycleText("Ich brauche keinen Mann.", "I'm not looking for a man.");
 talkingNPC:addCycleText("In der Bürgerwehr zu sein ist der beste Beruf von allen.", "Civil watch is the best job ever.");
 talkingNPC:addCycleText("Aye, Galvin hat immer recht.", "Aye, Gavin is always right.");
@@ -697,12 +696,9 @@ mainNPC:initDone();
 end;
 
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
-function nextCycle(npcChar)
-  mainNPC:nextCycle(npcChar);
-  npc.base.guards_static.NextCycle(npcChar);
-end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
