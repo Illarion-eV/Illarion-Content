@@ -223,7 +223,7 @@ function Ferry(User, SourceItem)
 					if math.random(1,100)< 91 then
 
 						base.pirates.piratesattack(User,SourceItem,travler)
-
+User:inform("Success, you selected option "..selected+1)
  					else
 
 
