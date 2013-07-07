@@ -30,7 +30,7 @@ function piratesattack(User,SourceItem,travler)
 	end
 
 
-	local callback = function(dialog)
+	local callpirat = function(dialog)
 	debug("..selected ")
 		success = dialog:getSuccess() 
 		if success then
@@ -44,9 +44,9 @@ function piratesattack(User,SourceItem,travler)
 --	debug("..selected ")
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Piraten Angriff", "Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", callback)
+		dialog = SelectionDialog("Piraten Angriff", "Piraten nähern sich eurem Schiff, dir stehen folgende Möglichkeiten zur Wahl.", callpirat)
 	else
-		dialog = SelectionDialog("Pirates attack", "Pirates are coming closer to your ship. You can choose between following options.", callback)
+		dialog = SelectionDialog("Pirates attack", "Pirates are coming closer to your ship. You can choose between following options.", callpirat)
 	end
 	dialog:setCloseOnMove()
 	
