@@ -917,16 +917,21 @@ function CheckRange(AttackerStruct, Defender)
 			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
 				if (world:getField(newposition):isPassable()) then
 					--Defender:inform(newposition.x .. " " .. newposition.y .." ".. newposition.z);
+					debug("Should be adding waypoint for archer monster at position: " .. newposition.x .. ", " .. newposition.y ..", ".. newposition.z);
 					AttackerStruct.Char.waypoints:addWaypoint(newposition);
 					AttackerStruct.Char:setOnRoute(true);
+					debug("Setting archer monster onto its route");
 				else
+					debug("Setting archer monster off its route (#1)");
 					AttackerStruct.Char:setOnRoute(false);
 				end;
 			else
+				debug("Setting archer monster off its route (#2)");
 				AttackerStruct.Char:setOnRoute(false);
 			end;	
 				
 		else
+			debug("Setting archer monster off its route (#3)");
 			AttackerStruct.Char:setOnRoute(false);
 		end;
 	end
