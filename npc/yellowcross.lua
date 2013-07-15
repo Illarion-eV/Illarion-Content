@@ -6,7 +6,7 @@ module("npc.yellowcross", package.seeall)
 
 function nextCycle(thisNPC)
 
-    EffectArea = 3;
+    EffectArea = 5;
 
     -- Suche nach Monstern
     local monsters = world:getMonstersInRangeOf(thisNPC.pos,EffectArea+2) -- Suche Nach Monstern zum Wegschleudern
@@ -24,6 +24,7 @@ function nextCycle(thisNPC)
             monster:warp(newPos); -- guten Flug!
             monster.movepoints=monster.movepoints - 20; -- Monster festhalten
             CreateLineofFligth(thisNPC.pos,monster.pos,1); -- Fluglinie Zeichnen
+			monster:setOnRoute(false); -- Cancels waypoints so it doesn't keep walking back to the cross if it's an archer.
         end
     end
     -- Monster Fertig

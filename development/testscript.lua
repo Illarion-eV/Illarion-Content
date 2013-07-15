@@ -179,39 +179,46 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 	local ArmourDefenseScalingFactor = 2;
 	local GeneralScalingFactor = 2.8;
 
-	if armourfound then
-		skillmod = 1-Defender.DefenseSkill/250;
-		if (Attacker.AttackKind == 0 or Attacker.AttackKind == 2) then --wrestling/conc
-			if (armour.Type==2) then -- Light armour
-				armourValue = armour.Level;
-			elseif(armour.Type==3) then -- Medium armour
-				armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
-			elseif(armour.Type==4) then -- Heavy armour
-				armourValue = armour.Level/(ArmourDefenseScalingFactor);
-			elseif(armour.Type==1) then -- General armour
-				armourValue = armour.Level/GeneralScalingFactor;
-			end;
-		elseif (Attacker.AttackKind == 1) then -- Slash
-			if (armour.Type==2) then -- Light armour
-				armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
-			elseif(armour.Type==3) then -- Medium armour
-				armourValue = armour.Level;
-			elseif(armour.Type==4) then -- Heavy armour
-				armourValue = armour.Level/(ArmourDefenseScalingFactor);
-			elseif(armour.Type==1) then -- General armour
-				armourValue = armour.Level/GeneralScalingFactor;
-			end;
-		elseif (Attacker.AttackKind == 3 or Attacker.AttackKind == 4) then -- Puncture
-			if (armour.Type==2) then -- Light armour
-				armourValue = armour.Level/(ArmourDefenseScalingFactor);
-			elseif(armour.Type==3) then -- Medium armour
-				armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
-			elseif(armour.Type==4) then -- Heavy armour
-				armourValue = armour.Level;
-			elseif(armour.Type==1) then -- General armour
-				armourValue = armour.Level/GeneralScalingFactor;
+	if not (Defender.Char:getType() == 1) then --if not monster
+
+		if armourfound then
+			skillmod = 1-Defender.DefenseSkill/250;
+			if (Attacker.AttackKind == 0 or Attacker.AttackKind == 2) then --wrestling/conc
+				if (armour.Type==2) then -- Light armour
+					armourValue = armour.Level;
+				elseif(armour.Type==3) then -- Medium armour
+					armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
+				elseif(armour.Type==4) then -- Heavy armour
+					armourValue = armour.Level/(ArmourDefenseScalingFactor);
+				elseif(armour.Type==1) then -- General armour
+					armourValue = armour.Level/GeneralScalingFactor;
+				end;
+			elseif (Attacker.AttackKind == 1) then -- Slash
+				if (armour.Type==2) then -- Light armour
+					armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
+				elseif(armour.Type==3) then -- Medium armour
+					armourValue = armour.Level;
+				elseif(armour.Type==4) then -- Heavy armour
+					armourValue = armour.Level/(ArmourDefenseScalingFactor);
+				elseif(armour.Type==1) then -- General armour
+					armourValue = armour.Level/GeneralScalingFactor;
+				end;
+			elseif (Attacker.AttackKind == 3 or Attacker.AttackKind == 4) then -- Puncture
+				if (armour.Type==2) then -- Light armour
+					armourValue = armour.Level/(ArmourDefenseScalingFactor);
+				elseif(armour.Type==3) then -- Medium armour
+					armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
+				elseif(armour.Type==4) then -- Heavy armour
+					armourValue = armour.Level;
+				elseif(armour.Type==1) then -- General armour
+					armourValue = armour.Level/GeneralScalingFactor;
+				end;
 			end;
 		end;
+	else
+		local thingvalue=NotNil(Defender.Char:getSkill(Character.wrestling));
+		skillmod = 1-thingvalue/250;
+		armourValue = thingvalue;
 	end;
 
 	local Noobmessupmalus = 5; -- Amount that armour value is divided by if your skill isn't high enough to use this armour.
@@ -227,7 +234,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 		ArmourLevel = armour.PunctureArmor;
 	end;]]
 
-	if(armour.Level>Defender.DefenseSkill) then
+	if(armour.Level>Defender.DefenseSkill and not Defender.Char:getType() == 1 ) then
 		armourValue = armourValue/Noobmessupmalus;
 	end
 
@@ -254,22 +261,22 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 		armourValue = (100/ArmourScalingFactor) + armourValue*(1-1/ArmourScalingFactor);
 	end
 
+	--Race armour for monsters
     armourfound, armour = world:getNaturalArmor(Defender.Race);
 
-    if armourfound then
-        if (Attacker.AttackKind == 0) then --wrestling
-            armourValue = armourValue + armour.thrustArmor;
-        elseif (Attacker.AttackKind == 1) then --slashing
-            armourValue = armourValue + armour.strokeArmor;
-        elseif (Attacker.AttackKind == 2) then --concussion
-            armourValue = armourValue + armour.thrustArmor;
-        elseif (Attacker.AttackKind == 3) then --puncture
-            armourValue = armourValue + armour.punctureArmor;
-        elseif (Attacker.AttackKind == 4) then --distance
-            armourValue = armourValue + armour.punctureArmor;
-        end;
-    end;
-
+		if armourfound then
+			if (Attacker.AttackKind == 0) then --wrestling
+				armourValue = armourValue + armour.thrustArmor;
+			elseif (Attacker.AttackKind == 1) then --slashing
+				armourValue = armourValue + armour.strokeArmor;
+			elseif (Attacker.AttackKind == 2) then --concussion
+				armourValue = armourValue + armour.thrustArmor;
+			elseif (Attacker.AttackKind == 3) then --puncture
+				armourValue = armourValue + armour.punctureArmor;
+			elseif (Attacker.AttackKind == 4) then --distance
+				armourValue = armourValue + armour.punctureArmor;
+			end;
+		end;
 
     Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 140);
 
@@ -480,7 +487,7 @@ function CalculateDamage(Attacker, Globals)
 	-- Noob messup malus
 	local Noobmessupmalus = 5; -- Amount that armour value is divided by if your skill isn't high enough to use this armour.
 
-	if(Attacker.Weapon.Level>Attacker.skill) then
+	if(Attacker.Weapon.Level>Attacker.skill and not Attacker.Char:getType() == 1 ) then
 		BaseDamage = BaseDamage/Noobmessupmalus;
 	end
 
@@ -700,7 +707,7 @@ function HitChanceFlux(Attacker, Defender, Globals)
         parryChance = parryChance + (defenderdefense) / 5; --0-20% bonus by the weapon/shield
 		parryChance = parryChance * qualitymod;
 
-		if(parryWeapon.Level>Defender.parry) then
+		if(parryWeapon.Level>Defender.parry and not Attacker.Char:getType() == 1 ) then
 			parryChance = parryChance/5;
 		end
 
@@ -780,11 +787,155 @@ end;
 function CheckRange(AttackerStruct, Defender)
 	local distance = AttackerStruct.Char:distanceMetric(Defender);
 
+	if(AttackerStruct.AttackKind == 4 and  AttackerStruct.Char:getType() == 1) then -- if a monster with a bow and large distance
+		if(distance<=4) then
+			AttackerStruct.Char.waypoints:clear();
+
+			local workingpoint = 5-distance;
+			local workingpointb = workingpoint-1;
+
+			local workingpointc = workingpoint+2;
+			local workingpointd = workingpointc-1;
+
+			--Look behind
+			local newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y,AttackerStruct.Char.pos.z);
+			
+			local isdiagonal = ((math.abs(Defender.pos.x-AttackerStruct.Char.pos.x)>0) and (math.abs(Defender.pos.y-AttackerStruct.Char.pos.y)>0))
+
+			if not(isdiagonal) then	
+
+				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+					if not (world:getField(newposition):isPassable()) then
+						newposition = position(Defender.pos.x+1,Defender.pos.y-1,AttackerStruct.Char.pos.z)
+					end;
+				else
+					newposition = position(Defender.pos.x+1,Defender.pos.y-1,AttackerStruct.Char.pos.z)
+				end;
+
+				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+					if not (world:getField(newposition):isPassable()) then
+						newposition = position(Defender.pos.x-1,Defender.pos.y+1,AttackerStruct.Char.pos.z)
+					end;
+				else
+					newposition = position(Defender.pos.x-1,Defender.pos.y+1,AttackerStruct.Char.pos.z)
+				end;
+
+				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+					if not (world:getField(newposition):isPassable()) then
+						newposition = position(Defender.pos.x+1,Defender.pos.y+1,AttackerStruct.Char.pos.z)
+					end;
+				else
+					newposition = position(Defender.pos.x+1,Defender.pos.y+1,AttackerStruct.Char.pos.z)
+				end;
+
+				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+					if not (world:getField(newposition):isPassable()) then
+						newposition = position(Defender.pos.x-1,Defender.pos.y-1,AttackerStruct.Char.pos.z)
+					end;
+				else
+					newposition = position(Defender.pos.x-1,Defender.pos.y-1,AttackerStruct.Char.pos.z)
+				end;
+
+			else
+
+				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+					if not (world:getField(newposition):isPassable()) then
+						newposition = position(Defender.pos.x,Defender.pos.y+1,AttackerStruct.Char.pos.z)
+					end;
+				else
+					newposition = position(Defender.pos.x,Defender.pos.y+1,AttackerStruct.Char.pos.z)
+				end;
+
+				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+					if not (world:getField(newposition):isPassable()) then
+						newposition = position(Defender.pos.x-1,Defender.pos.y,AttackerStruct.Char.pos.z)
+					end;
+				else
+					newposition = position(Defender.pos.x-1,Defender.pos.y,AttackerStruct.Char.pos.z)
+				end;
+
+				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+					if not (world:getField(newposition):isPassable()) then
+						newposition = position(Defender.pos.x,Defender.pos.y-1,AttackerStruct.Char.pos.z)
+					end;
+				else
+					newposition = position(Defender.pos.x,Defender.pos.y-1,AttackerStruct.Char.pos.z)
+				end;
+
+				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+					if not (world:getField(newposition):isPassable()) then
+						newposition = position(Defender.pos.x+1,Defender.pos.y,AttackerStruct.Char.pos.z)
+					end;
+				else
+					newposition = position(Defender.pos.x+1,Defender.pos.y,AttackerStruct.Char.pos.z)
+				end;
+
+			end;
+
+			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+				if not (world:getField(newposition):isPassable()) then
+					newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x+2,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y+2,AttackerStruct.Char.pos.z)
+				end;
+			else
+				newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x+2,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y+2,AttackerStruct.Char.pos.z)
+			end;
+
+			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+				if not (world:getField(newposition):isPassable()) then
+					newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x-2,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y-2,AttackerStruct.Char.pos.z)
+				end;
+			else
+				newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x-2,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y-2,AttackerStruct.Char.pos.z)
+			end;
+			
+			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+				if not (world:getField(newposition):isPassable()) then
+					newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x-2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y-2,AttackerStruct.Char.pos.z)
+				end;
+			else
+				newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x-2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y-2,AttackerStruct.Char.pos.z)
+			end;
+
+			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+				if not (world:getField(newposition):isPassable()) then
+					newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x+2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y+2,AttackerStruct.Char.pos.z)
+				end;
+			else	
+				newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x+2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y+2,AttackerStruct.Char.pos.z)
+			end;
+
+			--Look forward
+			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+				if not (world:getField(newposition):isPassable()) then
+					newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y,AttackerStruct.Char.pos.z)
+				end;
+			else
+				newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y,AttackerStruct.Char.pos.z)
+			end;
+
+				
+			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+				if (world:getField(newposition):isPassable()) then
+					--Defender:inform(newposition.x .. " " .. newposition.y .." ".. newposition.z);
+					AttackerStruct.Char.waypoints:addWaypoint(newposition);
+					AttackerStruct.Char:setOnRoute(true);
+				else
+					AttackerStruct.Char:setOnRoute(false);
+				end;
+			else
+				AttackerStruct.Char:setOnRoute(false);
+			end;	
+				
+		else
+			AttackerStruct.Char:setOnRoute(false);
+		end;
+	end
+
     if distance > 1 then
         blockList = world:LoS( AttackerStruct.Char.pos, Defender.pos )
 		local next = next	-- make next-iterator local		
         if (next(blockList)~=nil) then	-- see if there is a "next" (first) object in blockList!
-			return false;				-- something blocks
+				return false;				-- something blocks
 		end
     end
 
@@ -1078,39 +1229,74 @@ function Specials(Attacker, Defender, Globals)
 
 	local hisher =  base.common.GetGenderText(Attacker.Char,"his","her");
 	local seinihr = base.common.GetGenderText(Attacker.Char,"sein","ihr");
-
-	if(Globals.criticalHit==1) then -- 1HS
-		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me schwingt "..seinihr.."e Klinge und teilt rasch zwei Hiebe aus.",
-            "#me sweeps "..hisher.." blade, dealing two blows in rapid succession.");
-	elseif(Globals.criticalHit==2) then -- 1HC
-		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me schwingt "..seinihr.."e Waffe mit solcher Kraft, dass diese nicht pariert werden kann.",
-            "#me swings "..hisher.." weapon with such force that it cannot be blocked.");
-	elseif(Globals.criticalHit==3) then -- 1HP
-		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me rammt "..seinihr.."e Klinge schnell in den Rücken "..seinihr.."es Gegners.",
-            "#me slams "..hisher.." blade quickly into "..hisher.." opponent's back.");
-	elseif(Globals.criticalHit==4) then -- 2HS
-		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me führ einen gewaltigen Hieb aus und schlägt "..seinihr.."en Gegner zurück.",
-            "#me delivers a mighty swing, knocking back "..hisher.." opponent.");
-	elseif(Globals.criticalHit==5) then -- 2HC
-		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me lässt "..seinihr.."e Waffe mit gewaltiger Kraft nach unten fahren so dass "..seinihr.." Gegner benommen ist.",
-            "#me brings down "..hisher.." weapon with great force, stunning "..hisher.." foe.");
-	elseif(Globals.criticalHit==6) then -- 2HP
-		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me stößt "..seinihr.."e Waffe mit einem kraftvollen Stich nach vorne.",
-            "#me thrusts "..hisher.." weapon with a powerful, piercing attack.");
-	elseif(Globals.criticalHit==7) then -- Dist
-		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me zielt genau und beginnt auf "..seinihr.."en Gegner präzise und kraftvoll einzustechen.",
-            "#me takes careful aim, hitting "..hisher.." target with precision and power.");
-	elseif(Globals.criticalHit==8) then -- Wrest
-		base.common.TalkNLS(Attacker.Char, Character.say,
-            "#me führt einen extrem schnellen Hieb gegen "..seinihr.."en Gegner.",
-            "#me strikes out extremely quickly, dealing a powerful blow to "..hisher.." opponent.");
+	if(Defender.Char:getType() == 1) then
+		if(Globals.criticalHit==1) then -- 1HS
+            base.common.TalkNLS(Attacker.Char, Character.say,
+                    "#me schlägt schnell zu und teilt rasch zwei Hiebe aus.",
+                    "#me quickly strikes, dealing two blows in rapid succession.");
+        elseif(Globals.criticalHit==2) then -- 1HC
+            base.common.TalkNLS(Attacker.Char, Character.say,
+                    "#me greift mit solcher Kraft an, dass der Angriff nicht pariert werden kann.",
+                    "#me attacks with such force that it cannot be blocked.");
+        elseif(Globals.criticalHit==3) then -- 1HP
+            base.common.TalkNLS(Attacker.Char, Character.say,
+                    "#me führt eine schmerzhafte Attacke gegen den Rücken aus.",
+                    "#me delivers a painful back attack.");
+        elseif(Globals.criticalHit==4) then -- 2HS
+            base.common.TalkNLS(Attacker.Char, Character.say,
+                    "#me führ einen gewaltigen Hieb aus und schlägt "..seinihr.."en Gegner zurück.",
+                    "#me delivers a broad attack, knocking back "..hisher.." opponent.");
+        elseif(Globals.criticalHit==5) then -- 2HC
+            base.common.TalkNLS(Attacker.Char, Character.say,
+                    "#me greift mit großer Kraft an und setzt "..seinihr.."en Gegner außer Gefecht.",
+                    "#me attacks with great force, stunning "..hisher.." foe.");
+        elseif(Globals.criticalHit==6) then -- 2HP
+            base.common.TalkNLS(Attacker.Char, Character.say,
+                    "#me stößt vor und landert einen durchbohrenden Treffer.",
+                    "#me thrusts out, delivering a powerful, piercing attack.");
+        elseif(Globals.criticalHit==7) then -- Dist
+            base.common.TalkNLS(Attacker.Char, Character.say,
+                    "#me zielt genau und beginnt "..seinihr.."en Gegner präzise und kraftvoll anzugreifen.",
+                    "#me takes careful aim, hitting "..hisher.." target with precision and power.");
+        elseif(Globals.criticalHit==8) then -- Wrest
+            base.common.TalkNLS(Attacker.Char, Character.say,
+                    "#me führt einen extrem schnellen Hieb gegen "..seinihr.."en Gegner.",
+                    "#me strikes out extremely quickly, dealing a powerful blow to "..hisher.." opponent.");
+		end;
+	else
+		if(Globals.criticalHit==1) then -- 1HS
+			base.common.TalkNLS(Attacker.Char, Character.say,
+				"#me schwingt "..seinihr.."e Klinge und teilt rasch zwei Hiebe aus.",
+				"#me sweeps "..hisher.." blade, dealing two blows in rapid succession.");
+		elseif(Globals.criticalHit==2) then -- 1HC
+			base.common.TalkNLS(Attacker.Char, Character.say,
+				"#me schwingt "..seinihr.."e Waffe mit solcher Kraft, dass diese nicht pariert werden kann.",
+				"#me swings "..hisher.." weapon with such force that it cannot be blocked.");
+		elseif(Globals.criticalHit==3) then -- 1HP
+			base.common.TalkNLS(Attacker.Char, Character.say,
+				"#me rammt "..seinihr.."e Klinge schnell in den Rücken "..seinihr.."es Gegners.",
+				"#me slams "..hisher.." blade quickly into "..hisher.." opponent's back.");
+		elseif(Globals.criticalHit==4) then -- 2HS
+			base.common.TalkNLS(Attacker.Char, Character.say,
+				"#me führ einen gewaltigen Hieb aus und schlägt "..seinihr.."en Gegner zurück.",
+				"#me delivers a mighty swing, knocking back "..hisher.." opponent.");
+		elseif(Globals.criticalHit==5) then -- 2HC
+			base.common.TalkNLS(Attacker.Char, Character.say,
+				"#me lässt "..seinihr.."e Waffe mit gewaltiger Kraft nach unten fahren so dass "..seinihr.." Gegner benommen ist.",
+				"#me brings down "..hisher.." weapon with great force, stunning "..hisher.." foe.");
+		elseif(Globals.criticalHit==6) then -- 2HP
+			base.common.TalkNLS(Attacker.Char, Character.say,
+				"#me stößt "..seinihr.."e Waffe mit einem kraftvollen Stich nach vorne.",
+				"#me thrusts "..hisher.." weapon with a powerful, piercing attack.");
+		elseif(Globals.criticalHit==7) then -- Dist
+			base.common.TalkNLS(Attacker.Char, Character.say,
+				"#me zielt genau und beginnt auf "..seinihr.."en Gegner präzise und kraftvoll einzustechen.",
+				"#me takes careful aim, hitting "..hisher.." target with precision and power.");
+		elseif(Globals.criticalHit==8) then -- Wrest
+			base.common.TalkNLS(Attacker.Char, Character.say,
+				"#me führt einen extrem schnellen Hieb gegen "..seinihr.."en Gegner.",
+				"#me strikes out extremely quickly, dealing a powerful blow to "..hisher.." opponent.");
+		end;
 	end;
 
 	if(Globals.criticalHit==4) then
@@ -1347,6 +1533,13 @@ function NotNil(val)
         return 0;
     end
     return val;
+end
+
+function NoNils(val)
+    if val==nil then
+        return false;
+    end
+    return true;
 end
 
 
