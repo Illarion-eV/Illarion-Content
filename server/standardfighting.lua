@@ -235,7 +235,7 @@ function CalculateDamage(Attacker, Globals)
     GemBonus = base.gems.getGemBonus(Attacker.WeaponItem);
 
     -- Base damage was far too high for the new combat speed, you could get murked too fast.
-    Globals["Damage"] = 0.6 * BaseDamage * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)/100;
+    Globals["Damage"] = 0.3 * BaseDamage * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)/100;
     
 end;
 
