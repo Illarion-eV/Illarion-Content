@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -186,6 +186,7 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkEntry:addResponse("My frimy name is Laramir Silverwood.");
 talkEntry:addResponse("My name is Laramir Silverwood, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -198,7 +199,7 @@ talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heiﬂt");
 talkEntry:addResponse("Mein Freund, ich heiﬂe Laramir Silverwood.");
-talkEntry:addResponse("Mein Name ist Laramir silverwood, my friend.");
+talkEntry:addResponse("Mein Name ist Laramir silverwood, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -206,6 +207,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkEntry:addResponse("My frithere is nothing I could ask you to do, but I'm thankful for your concern.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -222,6 +224,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkEntry:addResponse("My frithere is nothing I could ask you to do, but I'm thankful for your concern.");
 talkingNPC:addTalkingEntry(talkEntry);

@@ -106,15 +106,15 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell, my friend.", "Sta
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Lebt wohl, mein Freund.", "Pass auf dich auf, mein Freund.", "Mögen die Götter dich beschützen, mein Freund."
 "How are you", "How feel", "How do you do" -> "Thank you for asking, my friend. I feel fine, and you?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage, mein Freund. Ich fühle mich gut. Und du?"
-"your name", "who are you", "who art thou" -> end, "My frimy name is Laramir Silverwood.", "My name is Laramir Silverwood, my friend."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Freund, ich heiße Laramir Silverwood.", "Mein Name ist Laramir silverwood, my friend."
+"your name", "who are you", "who art thou" -> end, "My friend, my name is Laramir Silverwood.", "My name is Laramir Silverwood, my friend."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Freund, ich heiße Laramir Silverwood.", "Mein Name ist Laramir silverwood, mein Freund."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-english, "quest", "mission" -> end, "My frithere is nothing I could ask you to do, but I'm thankful for your concern."
+english, "quest", "mission" -> end, "My friend, there is nothing I could ask you to do, but I'm thankful for your concern."
 "quest", "mission" -> "Mein Freund, es gibt nichts um was ich dich bitten könnte. Aber ich bin dankbar für deine Sorge."
-"task", "adventure", "order" -> end, "My frithere is nothing I could ask you to do, but I'm thankful for your concern."
+"task", "adventure", "order" -> end, "My friend, there is nothing I could ask you to do, but I'm thankful for your concern."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Mein Freund, es gibt nichts um was ich dich bitten könnte. Aber ich bin dankbar für deine Sorge."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
