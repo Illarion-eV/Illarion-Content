@@ -186,7 +186,6 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
-talkEntry:addResponse("My frimy name is Laramir Silverwood.");
 talkEntry:addResponse("My name is Laramir Silverwood, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
