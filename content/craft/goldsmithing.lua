@@ -17,6 +17,7 @@ goldsmithing:addActiveTool(172, 13) -- anvil with glowing metal
 
 --------------------------------------------------------------------------------------------
 
+
 local catId = goldsmithing:addCategory("miscellaneous", "Verschiedenes") -- Random Stuff
 
 --Goblet
@@ -280,4 +281,3 @@ product = goldsmithing:addProduct(catId, 398, 35, 55, 82, 165, 1);
 product:addIngredient(2530); -- Dagger Handle
 
 product:addIngredient(2550, 4); -- Copper Ingot
-end;
