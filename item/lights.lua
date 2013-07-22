@@ -281,7 +281,6 @@ return
 end
    
 function LookAtItem(User, Item)
-	User:inform("here i am to save the day")
 	local ItemName = world:getItemName(Item.id, User:getPlayerLanguage());
 	local TimeLeftI;
 	if(LightsOn[Item.id]) then
