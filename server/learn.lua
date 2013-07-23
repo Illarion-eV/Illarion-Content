@@ -46,9 +46,8 @@ function learn(user, skill, actionPoints, learnLimit)
 			--[[
 			--If you want to debug... But there is no bug here!
 			
-			if isTestserver() then
 			    user:inform("actionPoints="..actionPoints..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease.."!");
-			end]]
+			]]
 			
 			while minorIncrease>0 do --for the rare case that an action results in two swirlies, we have this loop
 			
