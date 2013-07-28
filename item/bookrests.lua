@@ -46,10 +46,10 @@ function FerryLookAt(User, Item)
 --	lookAt.rareness = ItemLookAt.rareItem;
 	if (User:getPlayerLanguage()==0) then
 		lookAt.name = "Fähre";
-		lookAt.description = "Wer mit möchte, sollte sich schnellsten hier in der Nähe sammeln."
+		lookAt.description = "Wer mit möchte, sollte sich schnellsten auf dem Steg einfinden."
 	else
 		lookAt.name = "Ferry";
-		lookAt.description = "Anyone who likes to join should gather here."
+		lookAt.description = "Anyone who likes to join should gather on the jetty."
 	end
 	return lookAt
 end
