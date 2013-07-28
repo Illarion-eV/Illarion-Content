@@ -124,7 +124,7 @@ end
 -- @param thisFaction The faction ID of the current faction
 function InitLicence(thisFaction)
 	ScriptVars:set("Licence_".. thisFaction, 0);
-	SetLicence(thisFaction, thisFaction, PERMISSIOM_NONE);
+	SetLicence(thisFaction, thisFaction, PERMISSIOM_ACTIVE);
 	local factions = {0,1,2,3};
 	for _,f in pairs(factions) do
 		if (thisFaction ~= f) then
