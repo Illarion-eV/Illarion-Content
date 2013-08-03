@@ -191,9 +191,9 @@ function GenerateLookAt(user, item, material)
 					end;
 				else
 					if(isGerman) then
-						lookAt.description = lookAt.description..germanstring..germanlevel..germanwarning;
+						lookAt.description = lookAt.description.." "..germanstring..germanlevel..germanwarning;
 					else
-						lookAt.description = lookAt.description..extrastring..typestring..levelstring..warningstring;
+						lookAt.description = lookAt.description.." "..extrastring..typestring..levelstring..warningstring;
 					end;
 				end;
 			end;
@@ -257,9 +257,9 @@ function GenerateLookAt(user, item, material)
 					end;
 				else
 					if(isGerman) then
-						lookAt.description = lookAt.description..germanstring..germanlevel..germanwarning;
+						lookAt.description = lookAt.description.." "..germanstring..germanlevel..germanwarning;
 					else
-						lookAt.description = lookAt.description..extrastring..typestring..levelstring..warningstring;
+						lookAt.description = lookAt.description.." "..extrastring..typestring..levelstring..warningstring;
 					end;
 				end;
 			end;
