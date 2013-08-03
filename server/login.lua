@@ -181,13 +181,13 @@ function onLogin( player )
 		end
 	end
 
-	if isTestserver() then
+	--if isTestserver() then
 
 		if player:getSkill(25)>0 or player:getSkill(23)>0 then
 			MergeSkillInform(player);
 		end
 
-	end
+	--end
 
 	--Noobia handling
 	if (base.common.IsOnNoobia(player.pos)) then --On Noobia
@@ -415,7 +415,7 @@ function MergeSkill(User)
 	local callback = function(dialog)
 
 		success = dialog:getSuccess()
-
+		
 		if success then
 					selected = dialog:getSelectedIndex()
 					--local newskillValue = math.floor((User:getSkill(25)+User:getSkill(23))/2);

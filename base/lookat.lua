@@ -139,25 +139,130 @@ function GenerateLookAt(user, item, material)
 
 		if(weaponfound) then
 			--lookAt.weaponType =	weapon.Type;
-			lookAt.level = weapon.Level;
+			--lookAt.level = weapon.Level;
+
+			local extrastring = "This weapon's type is ";
+			local levelstring = " and its level is ".. weapon.Level..".";
+			local typestring = "";
+
+			local germanstring =  "Dies ist eine "
+			local germanlevel = "Sie hat das Level "..weapon.Level..".";
+
+			local weaponSkill = 100;
+
+			if(weapon.WeaponType==14) then
+				weaponSkill = user:getSkill(Character.parry);
+				extrastring = "This shield's level is "..weapon.Level..".";
+				germanstring = "";
+				levelstring = "";
+			elseif(weapon.WeaponType==1 or weapon.WeaponType==4) then -- slash
+				typestring = "slashing"
+				germanstring =  germanstring.."Hiebwaffe. ";
+				weaponSkill = user:getSkill(Character.slashingWeapons);
+			elseif(weapon.WeaponType==2 or weapon.WeaponType==5) then -- conc
+				typestring = "blunt"
+				germanstring =  germanstring.."Schlagwaffe. ";
+				weaponSkill = user:getSkill(Character.concussionWeapons);
+			elseif(weapon.WeaponType==3 or weapon.WeaponType==6) then -- punc
+				typestring = "stabbing"
+				germanstring =  germanstring.."Stichwaffe. ";
+				weaponSkill = user:getSkill(Character.punctureWeapons);
+			elseif(weapon.WeaponType==7) then --ranged
+				typestring = "ranged"
+				germanstring =  germanstring.."Distanzwaffe. ";
+				weaponSkill = user:getSkill(Character.distanceWeapons);
+			end;
+
+			local warningstring = "";
+			local germanwarning = "";			
+
+			if(weapon.Level>weaponSkill) then
+				warningstring = " You don't feel skilled enough to use it effectively.";
+				germanwarning  = " Du fühlst dich nicht erfahren genug, um diese Waffe effektiv zu führen.";
+			end;
+
+			if(weapon.WeaponType~=10 and weapon.WeaponType~=11 and weapon.WeaponType~=12) then 
+
+				if(base.common.IsNilOrEmpty(lookAt.description)) then
+					if(isGerman) then
+						lookAt.description = germanstring..germanlevel..germanwarning;
+					else
+						lookAt.description = extrastring..typestring..levelstring..warningstring;
+					end;
+				else
+					if(isGerman) then
+						lookAt.description = lookAt.description..germanstring..germanlevel..germanwarning;
+					else
+						lookAt.description = lookAt.description..extrastring..typestring..levelstring..warningstring;
+					end;
+				end;
+			end;
 		end;
 
 		if(armourfound) then
+
+			local extrastring = "This armour's type is ";
+			local typestring = "";
+
+			local germanstring =  "Dies ist eine "
+			local germanlevel = "Sie hat das Level "..weapon.Level..".";
+
+			local armourSkill = 100;
+
 			if armour.Type == 0 then
-				lookAt.armourType = ArmorStruct.clothing;
+				--lookAt.armourType = ArmorStruct.clothing;
+				typestring = "clothing"
 			elseif armour.Type == 1 then
-				lookAt.armourType = ArmorStruct.general;
+				--lookAt.armourType = ArmorStruct.general;
+				typestring = "general"
 			elseif armour.Type == 2 then
-				lookAt.armourType = ArmorStruct.light;
+				--lookAt.armourType = ArmorStruct.light;
+				typestring = "light"
+				germanstring =  germanstring.."Leichte Rüstung. "
+				armourSkill = user:getSkill(Character.lightArmour);
 			elseif armour.Type == 3 then
-				lookAt.armourType = ArmorStruct.medium;
+				--lookAt.armourType = ArmorStruct.medium;
+				typestring = "medium"
+				germanstring =  germanstring.."Mittlere Rüstung. "
+				armourSkill = user:getSkill(Character.mediumArmour);
 			elseif armour.Type == 4 then
-				lookAt.armourType = ArmorStruct.heavy;
+				--lookAt.armourType = ArmorStruct.heavy;
+				typestring = "heavy"
+				germanstring =  germanstring.."Schwere Rüstung. "
+				armourSkill = user:getSkill(Character.heavyArmour);
 			elseif armour.Type == 5 then
-				lookAt.armourType = ArmorStruct.jewellery;
+				--lookAt.armourType = ArmorStruct.jewellery;
+				typestring = "jewellery"
 			end;
+
+			local levelstring = " and its level is ".. armour.Level..".";
+
+			local warningstring = "";
+			local germanwarning = "";
+
+			if(armour.Level>armourSkill) then
+				warningstring = " You don't feel skilled enough to use it effectively.";
+				germanwarning  = " Du fühlst dich nicht erfahren genug, um diese Waffe effektiv zu führen.";
+			end;
+
 			--lookAt.armorType = armour.Type;
-			lookAt.level = armour.Level;
+			--lookAt.level = armour.Level;
+
+			if ( armour.Type ~= 0 and armour.Type ~=5) then
+				if(base.common.IsNilOrEmpty(lookAt.description)) then
+					if(isGerman) then
+						lookAt.description = germanstring..germanlevel..germanwarning;
+					else
+						lookAt.description = extrastring..typestring..levelstring..warningstring;
+					end;
+				else
+					if(isGerman) then
+						lookAt.description = lookAt.description..germanstring..germanlevel..germanwarning;
+					else
+						lookAt.description = lookAt.description..extrastring..typestring..levelstring..warningstring;
+					end;
+				end;
+			end;
 		end;
 
 		lookAt.diamondLevel = GetGemLevel(item, "magicalDiamond");

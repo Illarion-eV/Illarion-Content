@@ -317,8 +317,10 @@ function Craft:loadDialog(dialog, user)
         if productRequirement <= skill then
 			
 			local continue = true;
-			if isTestserver() then
+			--[[if isTestserver() then
 				
+				Don't delete this. It's necessary for the unique items.
+
 				local special = product.data.RareWeapon;
 				if(special==nil) then
 					special = product.data.RareArmour;
@@ -341,7 +343,7 @@ function Craft:loadDialog(dialog, user)
 					end
 				end
 
-			end
+			end]]
 
 			if(continue) then
 				dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
