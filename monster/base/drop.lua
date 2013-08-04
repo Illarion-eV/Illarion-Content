@@ -119,7 +119,8 @@ function Dropping(Char)
 					end
                     Item=world:createItemFromId(values[1],values[2],Char.pos,true,values[3], values[4]) -- Do not create items with old data
 					
-					if isTestserver() then
+					--This will become the rare artifacts system
+					--[[if isTestserver() then
 						local armourfound, armour;
 						armourfound, armour = world:getArmorStruct(values[1]);
 						local weaponfound, weapon;
@@ -130,7 +131,7 @@ function Dropping(Char)
 						elseif weaponfound then
 							RareWeapons(Item);
 						end
-					end;
+					end;]]
 
 					-- values[1]=ID, values[2]=amount, values[3]=quality, values[4]=data
                 end
