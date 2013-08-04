@@ -114,6 +114,9 @@ function SetLicence(thisFaction, otherFaction, newLicence)
 	-- subtract old licence
 	licenceAll = licenceAll - (oldLicence * 10^(otherFaction));
 	-- add new licence
+	if newLicence == nil then --check if newLicence has a value and set it to 1 in case it does not. this will enable crafting then.
+		local newLicence = 1
+	end 
 	licenceAll = licenceAll + (newLicence * 10^(otherFaction));
 	-- set ScriptVar again
 	licenceAll = math.max(0,math.min(9999, licenceAll)); -- must not be negative & exceed 9999 (3 towns + outcasts)
