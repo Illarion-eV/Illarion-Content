@@ -313,7 +313,7 @@ function getEffect_2(Character,Runde)
          xpos = xpos -1
       end
 
-      Character:setAttrib("faceto",richtung)
+      Character:turn(richtung)
 --    Grafik für Erbrochenes?
 --    Würge-Sound wäre nicht schlecht
       Character:talk(Character.say, "#me muss sich übergeben.", "#me has to vomit.")
@@ -367,7 +367,7 @@ function getEffect_4(Character,Runde)
      if richtung > 6 then richtung = 0 end
 
 --    Körper drehen, Schritte machen
-      Character:setAttrib("faceto",richtung)
+      Character:turn(richtung)
       Character:move(richtung, true);
 
 	  -- inform every 30sec

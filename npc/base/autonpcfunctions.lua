@@ -796,7 +796,7 @@ function TurnAround()
         thisNPC:warp( centerPos );
     else
         selectedDir = math.random( table.getn( possDirs ) );
-        thisNPC:setAttrib( "faceto", possDirs[ selectedDir ] );
+        thisNPC:turn( possDirs[ selectedDir ] );
     end
 end
 
@@ -863,7 +863,7 @@ function TurnToPlayer( player )
     end
     faceTo = thisNPC:getFaceTo();
     if ( faceTo ~= newFaceTo ) then
-        thisNPC:setAttrib( "faceto", newFaceTo );
+        thisNPC:turn( newFaceTo );
     end
 end
 

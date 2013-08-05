@@ -190,7 +190,7 @@ function DrinkPotion(User,SourceItem)
 			 User:setSkinColor(newSkincolor1,newSkincolor2,newSkincolor3)
 			 User:setHairColor(newHaircolor1,newHaircolor2,newHaircolor3)
 		  end
-		  User:setAttrib("racetyp",newRace)
+		  User:setRace(newRace)
 		  User:setAttrib("body_height",newHeight)
 		  
 		  -- to make the changes visible

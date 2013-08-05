@@ -14,7 +14,7 @@ function addEffect(Effect, Char)
 	
 	if effectType >= 1 and effectType <= 4 then
 		Effect:addValue("saveRace", Char:getRace() );
-		Char:setAttrib("racetyp", PN_FriendlyRaces[math.random(1,table.getn(PN_FriendlyRaces))]);
+		Char:setRace(PN_FriendlyRaces[math.random(1,table.getn(PN_FriendlyRaces))]);
 		world:gfx(31,Char.pos);
 		base.common.InformNLS(Char,
 			"Du fühlst dich auf einmal so seltsam distanziert von deinem Körper.",
@@ -39,7 +39,7 @@ function removeEffect(Effect, Char)
 		if not foundSaveRace then
 			saveRace = 0;
 		end
-		Char:setAttrib("racetyp", saveRace);
+		Char:setRace(saveRace);
 		world:gfx(31,Char.pos);
 		local gText, eText = "", "";
 		if effectType == 1 then

@@ -568,14 +568,14 @@ function Craft:turnToTool(user)
         local staticTool = base.common.GetFrontItemID(user, right)
 
         if self.tool[staticTool] then
-            user:setAttrib("faceto", right)
+            user:turn(right)
             return true
         end
 
         staticTool = base.common.GetFrontItemID(user, left)
 
         if self.tool[staticTool] then
-            user:setAttrib("faceto", left)
+            user:turn(left)
             return true
         end
 

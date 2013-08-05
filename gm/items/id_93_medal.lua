@@ -105,7 +105,7 @@ function UseItemWithField(User,SourceItem,TargetPos)
 					a, b, modifier, id = string.find(inputString,"(%a+) (%d+)");
 					id = tonumber(id);
 					if modifier == "race" then
-						chosenPlayer:setAttrib("racetyp",id);
+						chosenPlayer:setRace(id);
 					elseif modifier == "beard" then
 						chosenPlayer:setBeard(id);
 					elseif modifier == "hair" then

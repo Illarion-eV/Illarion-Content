@@ -163,7 +163,7 @@ function RotateTo(newDir)
         end
         if not (ShipPart[2].pos == NeedPos) then
             ShipPart[2]:forceWarp(NeedPos);
-            ShipPart[2]:setAttrib("faceto",newDir);
+            ShipPart[2]:turn(newDir);
         end
     end
     for i, PassPart in pairs(PassangerMask) do
@@ -180,7 +180,7 @@ function RotateTo(newDir)
             if not (Passangers[i].pos == NeedPos) then
                 if Passangers[i]:isInRangeToPosition(NeedPos,15) then
                     Passangers[i]:forceWarp(NeedPos);
-                    Passangers[i]:setAttrib("faceto",newDir);
+                    Passangers[i]:turn(newDir);
                 else
                     Passangers[i] = nil;
                 end
@@ -204,7 +204,7 @@ function InitShipPos(Dir)
         end
         if not (ShipPart[2].pos == NeedPos) then
             ShipPart[2]:forceWarp(NeedPos);
-            ShipPart[2]:setAttrib("faceto",Dir);
+            ShipPart[2]:turn(Dir);
         end
     end
 end

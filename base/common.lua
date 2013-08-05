@@ -148,7 +148,7 @@ function TurnTo(User, Location)
     local newDir = GetDirection(User.pos, Location);
 
     if (newDir ~= oldDir) then
-        User:setAttrib("faceto", newDir);
+        User:turn(newDir);
     end;
 end;
 

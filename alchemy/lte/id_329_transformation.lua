@@ -75,7 +75,7 @@ function loadEffect(Effect,User)
 			local finnNewRace, newRace = Effect:findValue("newRace")
 			local finnNewHeight, newHeight = Effect:findValue("newHeight")
 			
-			User:setAttrib("racetyp",newRace)
+			User:setRace(newRace)
 			User:setAttrib("body_height",newHeight) 
             User:increaseAttrib("hitpoints",-10) -- to make the effect vissible
 	        User:increaseAttrib("hitpoints",10)
@@ -106,6 +106,6 @@ function TransformBack(Effect,User)
     local findOldRace, oldRace = Effect:findValue("oldRace")
 	local findOldHeight, oldHeight = Effect:findValue("oldHeight")
 	
-    User:setAttrib("racetyp",oldRace)
+    User:setRace(oldRace)
 	User:setAttrib("body_height",oldHeight) 
  end
