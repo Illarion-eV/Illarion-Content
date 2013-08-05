@@ -377,7 +377,7 @@ function GetRaceGenderText( Language, Character )
 		descriptionEnglish={"human","dwarf","halfling","elf","orc","lizard","human lady","dwarven maid","halfling lady","elven lady","orcess","female lizard"};
 	end
 	
-	race=Character:increaseAttrib("racetyp",0);
+	race=Character:getRace();
 	gender=Character:increaseAttrib("sex",0);
 	
 	if Language == 0 then
