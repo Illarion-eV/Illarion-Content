@@ -1,5 +1,5 @@
 require("base.common")
-require("base.seafaring")
+-- require("base.seafaring")
 
 -- UPDATE common SET com_script='item.bookrests' WHERE com_itemid = 3104;
 -- UPDATE common SET com_script='item.bookrests' WHERE com_itemid = 3105;
@@ -18,7 +18,7 @@ function LookAtItem(User,Item)
 	end
 	-- Salavesh end
 	
-	-- ferries
+--[[	-- ferries
 	local Amountferry = table.getn(base.seafaring.ferrySourceItemPos)	
 	for i = 1,Amountferry do	
 		if (Item.pos == base.seafaring.ferrySourceItemPos[i]) then
@@ -26,7 +26,7 @@ function LookAtItem(User,Item)
 		end
 	end
 	-- ferries end
-
+]]
 	-- static teleporter
 	if Item:getData("staticTeleporter") ~= "" then
 		lookAt = StaticTeleporterLookAt(User, Item)
@@ -40,20 +40,20 @@ function LookAtItem(User,Item)
 	end	
 end
 
-
+--[[
 function FerryLookAt(User, Item)
 	local lookAt = ItemLookAt();
 --	lookAt.rareness = ItemLookAt.rareItem;
 	if (User:getPlayerLanguage()==0) then
 		lookAt.name = "Fähre";
-		lookAt.description = "Wer mit möchte, sollte sich schnellsten hier in der Nähe sammeln."
+		lookAt.description = "Wer mit möchte, sollte sich schnellsten hier in der Nähe (innerhalb 5 Tiles) sammeln."
 	else
 		lookAt.name = "Ferry";
-		lookAt.description = "Anyone who likes to join should gather here."
+		lookAt.description = "Anyone who likes to join should gather here (within 5 tiles)."
 	end
 	return lookAt
 end
-
+]]
 function StaticTeleporterLookAt(User, Item)
 	
 	local lookAt = ItemLookAt();
@@ -82,7 +82,7 @@ function UseItem(User, SourceItem)
 	    User:sendBook(201);
 	end
 	-- Salavesh end
-
+--[[
 	-- ferries
 	local Amountferry = table.getn(base.seafaring.ferrySourceItemPos)	
 	for i = 1,Amountferry do
@@ -91,7 +91,7 @@ function UseItem(User, SourceItem)
 		end	
 	end
 	-- ferries end
-	
+]]	
 	-- static teleporter
 	if SourceItem:getData("staticTeleporter") ~= "" then
 	    StaticTeleporter(User, SourceItem)
