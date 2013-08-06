@@ -1257,7 +1257,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 1));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich bin mit der Arbeit sehr beschäftigt, könntet ich Euch bitten, fünf Wüstenhimmelskapseln für mich zu finden?");
+talkEntry:addResponse("Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten, fünf Wüstenhimmelskapseln für mich zu finden?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1278,7 +1278,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich bin mit der Arbeit sehr beschäftigt, könntet ich Euch bitten, fünf Wüstenhimmelskapseln für mich zu finden?");
+talkEntry:addResponse("Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten, fünf Wüstenhimmelskapseln für mich zu finden?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

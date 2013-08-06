@@ -608,7 +608,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Im Dienste Runewicks"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(160, "=", 3));
-talkEntry:addResponse("Bei der letzten Feier zur ehren Adrons sind ein paar Gläser zu Bruch gegangen. Könntest du mir 5 Glaskrüge bringen?");
+talkEntry:addResponse("Bei der letzten Feier zur Ehren Adrons sind ein paar Gläser zu Bruch gegangen. Könntest du mir 5 Glaskrüge bringen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -635,7 +635,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Im Dienste Runewicks"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(160, "=", 3));
-talkEntry:addResponse("Bei der letzten Feier zur ehren Adrons sind ein paar Gläser zu Bruch gegangen. Könntest du mir 5 Glaskrüge bringen?");
+talkEntry:addResponse("Bei der letzten Feier zur Ehren Adrons sind ein paar Gläser zu Bruch gegangen. Könntest du mir 5 Glaskrüge bringen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3596,7 +3596,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Verwaltung");
-talkEntry:addResponse("Ich verwalte diese Stadt, eine wichtige Aufgabe. Es muss alles dort sein wo es gebraucht wird und die Türme müssen entstandgehalten werden.");
+talkEntry:addResponse("Ich verwalte diese Stadt, eine wichtige Aufgabe. Es muss alles dort sein, wo es gebraucht wird und die Türme müssen instandgehalten werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

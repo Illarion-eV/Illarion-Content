@@ -242,9 +242,9 @@ queststatus(150) = 1, item(146, all) > 4, town = Cadomyr, "quest", "mission", "A
 
 -- 1st quest not solved, repeat the instructions
 queststatus(150) = 1, english, town = Cadomyr, "quest", "mission" -> "I'm still busy working, so could I ask you to go and find fifteen desert sky capsule for me, please?"
-queststatus(150) = 1, town = Cadomyr, "quest", "mission" -> "Ich bin mit der Arbeit sehr beschäftigt, könntet ich Euch bitten, fünfzehn Wüstenhimmelskapseln für mich zu finden?"
+queststatus(150) = 1, town = Cadomyr, "quest", "mission" -> "Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten, fünf Wüstenhimmelskapseln für mich zu finden?"
 queststatus(150) = 1, town = Cadomyr, "task", "adventure", "order" -> "I'm still busy working, so could I ask you to go and find fifteen desert sky capsule for me, please?"
-queststatus(150) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin mit der Arbeit sehr beschäftigt, könntet ich Euch bitten, fünfzehn Wüstenhimmelskapseln für mich zu finden?"
+queststatus(150) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten, fünf Wüstenhimmelskapseln für mich zu finden?"
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(150) = 2, english, town = Cadomyr, "quest", "mission" -> "Thanks again for your help."

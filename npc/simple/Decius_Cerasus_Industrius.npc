@@ -137,9 +137,9 @@ queststatus(160) = 2, item(164, all) < 5, town = Runewick, "Auftrag", "Aufgabe",
 -- 3: Quest 3 taken, get 5 glass mugs , reward: 1 Silver , 3 rankpoints
 -- Quest 3: Gather 5 glass mugs (1908)
 queststatus(160) = 0, english, chance(5.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 3, "During the last celebration to Adron's honour some glasses were broken. Can you bring me 5 glass mugs ?"
-queststatus(160) = 0, german, chance(5.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 3, "Bei der letzten Feier zur ehren Adrons sind ein paar Gläser zu Bruch gegangen. Könntest du mir 5 Glaskrüge bringen?"
+queststatus(160) = 0, german, chance(5.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 3, "Bei der letzten Feier zur Ehren Adrons sind ein paar Gläser zu Bruch gegangen. Könntest du mir 5 Glaskrüge bringen?"
 queststatus(160) = 0, chance(5.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 3, "During the last celebration to Adron's honour some glasses were broken. Can you bring me 5 glass mugs ?"
-queststatus(160) = 0, chance(5.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 3, "Bei der letzten Feier zur ehren Adrons sind ein paar Gläser zu Bruch gegangen. Könntest du mir 5 Glaskrüge bringen?"
+queststatus(160) = 0, chance(5.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 3, "Bei der letzten Feier zur Ehren Adrons sind ein paar Gläser zu Bruch gegangen. Könntest du mir 5 Glaskrüge bringen?"
 
 -- Quest 3 solved, reward: 1 Silver, 3 rankpoints, delay: 5h
 queststatus(160) = 3, item(1908, all) > 4, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a silver coin. You advance in archmage Elvaine Morgans favour."), money + 100, deleteItem(1908, 5), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Thank you, they will be able to celebrate the next mass with this."
@@ -537,7 +537,7 @@ english, "Gobaith", "Gobiath" -> "Ask a mapper or someone else. I have no time t
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "management" -> "I manage the town, an important business. Everything have to be on the right place and the towers have to be kept in a good condition."
-"Verwaltung" -> "Ich verwalte diese Stadt, eine wichtige Aufgabe. Es muss alles dort sein wo es gebraucht wird und die Türme müssen entstandgehalten werden."
+"Verwaltung" -> "Ich verwalte diese Stadt, eine wichtige Aufgabe. Es muss alles dort sein, wo es gebraucht wird und die Türme müssen instandgehalten werden."
 "tower" -> "Runewick consists of four towers. The fire tower, the wind tower, the earth tower and the water tower.", "Runewick consists of four towers. One for each of the high arts."
 "Türme" -> "Runewick besteht aus vier Türmen. Den Feuerturm, Windturm, Erdturm und Wasserturm.", "Runewick besteht aus vier Türmen. Für jeden der hohen Künste einer."
 "magic" -> "One of the high arts. Best ask a mage or our archmage when he has time.", "Once the fire tower was dedicated to it because sometimes things liked to catch fire."
