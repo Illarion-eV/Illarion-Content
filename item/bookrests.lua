@@ -46,10 +46,10 @@ function FerryLookAt(User, Item)
 --	lookAt.rareness = ItemLookAt.rareItem;
 	if (User:getPlayerLanguage()==0) then
 		lookAt.name = "Fähre";
-		lookAt.description = "Wer mit möchte, sollte sich schnellsten auf dem Steg einfinden."
+		lookAt.description = "Wer mit möchte, sollte sich schnellsten hier in der Nähe sammeln."
 	else
 		lookAt.name = "Ferry";
-		lookAt.description = "Anyone who likes to join should gather on the jetty."
+		lookAt.description = "Anyone who likes to join should gather here."
 	end
 	return lookAt
 end
@@ -88,9 +88,6 @@ function UseItem(User, SourceItem)
 	for i = 1,Amountferry do
 		if (SourceItem.pos == base.seafaring.ferrySourceItemPos[i]) then
 			base.seafaring.Ferry(User, SourceItem)
---			Ferry(User, SourceItem)
---			travler = world:getPlayersInRangeOf(SourceItem.pos, 5);
---			base.pirates.piratesattack(User,SourceItem,travler)
 		end	
 	end
 	-- ferries end
