@@ -16,8 +16,8 @@ Title[ENGLISH] = "Present from Cadomyr"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Besorge fünfzehn Wüstenhimmelskapseln und bringe sie Reret. Du findest sie zufällig in der Wüste. Also halte die Augen offen."
-Description[ENGLISH][1] = "Find fifteen desert sky capsules and bring them to Reret. You can find them random in the desert. So keep your eyes peeled."
+Description[GERMAN][1] = "Besorge fünf Wüstenhimmelskapseln und bringe sie Reret. Du findest sie zufällig in der Wüste. Also halte die Augen offen."
+Description[ENGLISH][1] = "Find five desert sky capsules and bring them to Reret. You can find them randomly in the desert. So keep your eyes peeled."
 Description[GERMAN][2] = "Du hast alle Aufgaben von Reret Odohir erfüllt."
 Description[ENGLISH][2] = "You have fulfilled all the tasks for Reret Odohir."
 

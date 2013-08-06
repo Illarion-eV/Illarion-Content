@@ -1108,7 +1108,7 @@ talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 14));
-talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. They both like gardening, so I'd like to send them fifteen desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?");
+talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. They both like gardening, so I'd like to send them five desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1137,7 +1137,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 14));
-talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. They both like gardening, so I'd like to send them fifteen desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?");
+talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. They both like gardening, so I'd like to send them five desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1164,7 +1164,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
-talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them fifteen desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?");
+talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1187,7 +1187,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
-talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them fifteen desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?");
+talkEntry:addResponse("I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1206,7 +1206,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 14, nil));
+talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -1225,7 +1225,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 14, nil));
+talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -1248,7 +1248,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I'm still busy working, so could I ask you to go and find fifteen desert sky capsule for me, please?");
+talkEntry:addResponse("I'm still busy working, so could I ask you to go and find five desert sky capsule for me, please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1257,7 +1257,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 1));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich bin mit der Arbeit sehr beschäftigt, könntet ich Euch bitten, fünfzehn Wüstenhimmelskapseln für mich zu finden?");
+talkEntry:addResponse("Ich bin mit der Arbeit sehr beschäftigt, könntet ich Euch bitten, fünf Wüstenhimmelskapseln für mich zu finden?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1267,7 +1267,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I'm still busy working, so could I ask you to go and find fifteen desert sky capsule for me, please?");
+talkEntry:addResponse("I'm still busy working, so could I ask you to go and find five desert sky capsule for me, please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1278,7 +1278,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich bin mit der Arbeit sehr beschäftigt, könntet ich Euch bitten, fünfzehn Wüstenhimmelskapseln für mich zu finden?");
+talkEntry:addResponse("Ich bin mit der Arbeit sehr beschäftigt, könntet ich Euch bitten, fünf Wüstenhimmelskapseln für mich zu finden?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
