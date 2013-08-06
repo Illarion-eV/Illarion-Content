@@ -9,7 +9,7 @@ VALUES (0, 355, 254, 0, 4, 'Trainer Cloud McGoughey', 'npc.attribute_trainer', 0
 
 
 require("base.money")
-module("npc.attrib", package.seeall)
+module("npc.attribute_trainer", package.seeall)
 
 init = false;
 
