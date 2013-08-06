@@ -18,24 +18,26 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Gehe zu jeden einzelnen Schrein der Fünf in ihren Tempel."
 Description[ENGLISH][1] = "Go to each of the shrines in the Temple of the Five."
-Description[GERMAN][2] = "Geh zu Bathelor, am Lagerfeuer westlich des Tempels der Fünf. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][2] = "Go back to Bathelor at the campfire, west of the Temple of the Five, he is sure to have another task for you."
-Description[GERMAN][3] = " Besorge zehn Scheite Naldorholz und bring sie Bathelor. Fülle hierfür einen Naldorbaum mit einen Beil."
-Description[ENGLISH][3] = "Obtain ten logs of naldor wood and bring them to Bathelor. You can cut down a naldor tree with a hatchet."
-Description[GERMAN][4] = "Du hast alle Aufgaben von Bathelor erfällt. Lobet Brágon!"
-Description[ENGLISH][4] = "You have fulfilled all the tasks for Bathelor. Praise Brágon!"
-
+Description[GERMAN][2] = "Du hast jeden der Schreine der Fünf in ihrem Tempel besucht. Gehe zu Bathelor und berichte ihm."
+Description[ENGLISH][2] = "You visited every shrine. Go back to Bathelor."
+Description[GERMAN][3] = "Geh zu Bathelor, am Lagerfeuer westlich des Tempels der Fünf. Er hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][3] = "Go back to Bathelor at the campfire, west of the Temple of the Five, he is sure to have another task for you."
+Description[GERMAN][4] = " Besorge zehn Scheite Naldorholz und bring sie Bathelor. Fälle hierfür einen Naldorbaum mit einen Beil."
+Description[ENGLISH][4] = "Obtain ten logs of naldor wood and bring them to Bathelor. You can cut down a naldor tree with a hatchet."
+Description[GERMAN][5] = "Du hast alle Aufgaben von Bathelor erfällt. Lobet Brágon!"
+Description[ENGLISH][5] = "You have fulfilled all the tasks for Bathelor. Praise Brágon!"
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(549, 138, 0), position(551, 133, 0), position(556, 135, 0), position(556, 141, 0), position(551, 143, 0), position(519, 128, 0)} -- Shrines
 QuestTarget[2] = {position(519, 128, 0)} 
-QuestTarget[3] = {position(519, 128, 0), position(511, 119, 0)} -- tree
-QuestTarget[4] = {position(519, 128, 0)} 
+QuestTarget[3] = {position(519, 128, 0)} 
+QuestTarget[4] = {position(519, 128, 0), position(511, 119, 0)} -- tree
+QuestTarget[5] = {position(519, 128, 0)} 
 
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 4
+FINAL_QUEST_STATUS = 5
 
 
 function QuestTitle(user)
