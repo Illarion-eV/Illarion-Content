@@ -18,20 +18,23 @@ Title[ENGLISH] = "Runewick Treasury"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Spende Gegenstände oder Münzen für die Schatzkammer Runewicks. Lege dafür den Gegenstand auf das markierte Feld neben Neiran. Kehre dann zu Neiran el Nyarale zurück."
-Description[ENGLISH][1] = "Donate items or coins to Runewick's treasury. Put the item on the bordered area next to Neiran. Then go back to Neiran el Nyarale."
-Description[GERMAN][2] = "Du hast schon einmal für Runewick gespendet, dies sollte dich aber nicht davon abhalten, weiter Gegenstände oder Münzen für deine Stadt zu spenden."
-Description[ENGLISH][2] = "You have already donated to Runewick but nevertheless you can always donate more items or coins to your town." 
+Description[GERMAN][1] = "Spende Gegenstände oder Münzen für die Schatzkammer Runewicks. Lege dafür den Gegenstand auf das markierte Feld neben Neiran."
+Description[ENGLISH][1] = "Donate items or coins to Runewick's treasury. Put the item on the bordered area next to Neiran."
+Description[GERMAN][2] =  "Kehre zu Neiran el Nyarale zurück."
+Description[ENGLISH][2] =  "Go back to Neiran el Nyarale."
+Description[GERMAN][3] = "Du hast schon einmal für Runewick gespendet, dies sollte dich aber nicht davon abhalten, weiter Gegenstände oder Münzen für deine Stadt zu spenden."
+Description[ENGLISH][3] = "You have already donated to Runewick but nevertheless you can always donate more items or coins to your town." 
 
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(897, 779, 2), position(897, 781, 2)} 
 QuestTarget[2] = {position(897, 781, 2)}
+QuestTarget[3] = {position(897, 781, 2)}
 
      
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 2
+FINAL_QUEST_STATUS = 3
      
      
 function QuestTitle(user)
