@@ -17,21 +17,21 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammel zehn rohe Steine und bringe diese Bruno. Du kannst rohe Steine entweder beim Händler kaufen oder in der Mine finden. Nimm hierfür eine Spitzhacke in die Hand und benutzt sie, während du vor einem Stein stehst."
-Description[ENGLISH][1] = "Collect ten raw stones and bring them to Bruno. You can buy raw stones from a merchant or find them in a mine. Therefor use the pick-axe in your hand, while standing in front of a stone."
+Description[ENGLISH][1] = "Collect ten raw stones and bring them to Bruno. You can buy raw stones from a merchant or find them in a mine. Just position yourself in front of a stone and use your pickaxe inhand."
 Description[GERMAN][2] = "Geh zu Bruno Blackhole in der Malachitmine bei Galmair. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][2] = "Go back to Bruno Blackhole in the Malachite Mine near Galmair, he certainly have another task for you."
+Description[ENGLISH][2] = "Go back to Bruno Blackhole in the Malachite Mine near Galmair, he certainly has another task for you."
 Description[GERMAN][3] = "Sammel zwanzig Brocken Kupfererz und bringe diese Bruno. Du kannst Kupfererz entweder beim Händler kaufen oder in der Mine finden. Nimm hierfür eine Spitzhacke in die Hand und benutzt sie, während du vor einem Stein stehst."
-Description[ENGLISH][3] = "Collect twenty pieces of copper ore and bring them to Bruno. You can buy copper ore from a merchant or find them in a mine. Therefor use the pick-axe in your hand, while standing in front of a stone."
+Description[ENGLISH][3] = "Collect twenty pieces of copper ore and bring them to Bruno. You can buy copper ore from a merchant or find them in a mine. Just position yourself in front of a stone and use your pickaxe inhand."
 Description[GERMAN][4] = "Geh zu Bruno Blackhole in der Malachitmine bei Galmair. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][4] = "Go back to Bruno Blackhole in the Malachite Mine near Galmair, he certainly have another task for you."
+Description[ENGLISH][4] = "Go back to Bruno Blackhole in the Malachite Mine near Galmair, he certainly has another task for you."
 Description[GERMAN][5] = "Sammel fünf Goldnuggets und bringe diese Bruno. Du kannst sie entweder beim Händler kaufen oder in der Mine finden. Nimm hierfür eine Spitzhacke in die Hand und benutzt sie, während du vor einem Stein stehst."
-Description[ENGLISH][5] = "Collect five gold nuggets and bring them back to Bruno. You can buy them from a merchant or find them in a mine. Therefor use the pick-axe in your hand, while standing in front of a stone."
+Description[ENGLISH][5] = "Collect five gold nuggets and bring them back to Bruno. You can buy them from a merchant or find them in a mine. Just position yourself in front of a stone and use your pickaxe inhand."
 Description[GERMAN][6] = "Geh zu Bruno Blackhole in der Malachitmine bei Galmair. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][6] = "Go back to Bruno Blackhole in the Malachite Mine near Galmair, he certainly have another task for you."
+Description[ENGLISH][6] = "Go back to Bruno Blackhole in the Malachite Mine near Galmair, he certainly has another task for you."
 Description[GERMAN][7] = "Sammel zehnmal Jungfernkraut und bringe diese Bruno. Nimm eine Sichel in die Hand und benutzt sie, während du vor eine Blume stehst, die auf Steinboden wächst. Du kannst auch Raban, den Kräuterkundigen, um Hilfe fragen."
-Description[ENGLISH][7] = "Collect ten virgin weeds and bring them to Bruno. Use the sickle in your hand, while standing in front of a flower on stony soil. You can ask Raban, the herbalist, if you need help."
+Description[ENGLISH][7] = "Collect ten virgin weeds and bring them to Bruno. Use the sickle in your hand, while standing in front of a flower on stony ground. You can ask Raban, the herbalist, if you need help."
 Description[GERMAN][8] = "Du hast alle Aufgaben von Bruno erfüllt."
-Description[ENGLISH][8] = "You have fulfilled all the tasks for Bruno."
+Description[ENGLISH][8] = "You have fulfilled all of Brunon's tasks."
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

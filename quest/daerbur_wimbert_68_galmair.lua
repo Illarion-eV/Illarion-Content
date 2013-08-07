@@ -36,14 +36,14 @@ Description[ENGLISH][8] = "You have fulfilled all the tasks for Daerbur."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(92, 160, -3), position(366, 275, 0), position(395, 160, -3)} 
-QuestTarget[2] = {position(92, 160, -3)} 
-QuestTarget[3] = {position(92, 160, -3), position(366, 275, 0), position(395, 160, -3)} 
-QuestTarget[4] = {position(92, 160, -3)} 
-QuestTarget[5] = {position(92, 160, -3), position(395, 160, -3)} 
-QuestTarget[6] = {position(92, 160, -3)} 
-QuestTarget[7] = {position(92, 160, -3), position(367, 277, 0), position(415, 148, 0)} 
-QuestTarget[8] = {position(92, 160, -3)} 
+QuestTarget[1] = {position(392, 160, -3), position(366, 275, 0), position(395, 160, -3)} 
+QuestTarget[2] = {position(392, 160, -3)} 
+QuestTarget[3] = {position(392, 160, -3), position(366, 275, 0), position(395, 160, -3)} 
+QuestTarget[4] = {position(392, 160, -3)} 
+QuestTarget[5] = {position(392, 160, -3), position(395, 160, -3)} 
+QuestTarget[6] = {position(392, 160, -3)} 
+QuestTarget[7] = {position(392, 160, -3), position(367, 277, 0), position(415, 148, 0)} 
+QuestTarget[8] = {position(392, 160, -3)} 
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 8
