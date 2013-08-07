@@ -7,6 +7,7 @@
 
 require("base.common")
 require("alchemy.base.alchemy")
+require("base.licence")
 
 module("item.id_52_filledbucket", package.seeall)
 

@@ -1,6 +1,8 @@
 -- analysis
 
 require("alchemy.base.alchemy")
+require("base.licence")
+
 module("alchemy.base.analysis", package.seeall)
 
 function StockAnalysis(User, gem, brew, ltstate)

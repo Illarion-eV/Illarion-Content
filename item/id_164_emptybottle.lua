@@ -4,6 +4,7 @@
 
 require("base.common")
 require("alchemy.base.alchemy")
+require("base.licence")
 
 module("item.id_164_emptybottle", package.seeall)
 

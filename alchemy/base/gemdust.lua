@@ -2,7 +2,8 @@
 -- alchemy system: using gemdust infront of a cauldron - creating essence brew or enchant a stock
 
 require("base.common")
-require("alchemy.base.alchemy")
+require("alchemy.base.alchemy")7
+require("base.licence")
 
 module("alchemy.base.gemdust", package.seeall)
 

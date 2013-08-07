@@ -1,6 +1,7 @@
 -- ds_base_alchemy.lua
 
 require("base.common");
+require("base.licence")
 module("alchemy.base.alchemy", package.seeall)
 
 function InitAlchemy()
