@@ -93,7 +93,7 @@ function setRanklist(User, listName, points)
 			table.sort(ranklist, compare)
 			joinedRanklist = convertToOneTable(ranklist)
 			
-			local stringList = base.common.join(joinedRanklist, ";");
+			local stringList = table.concat(joinedRanklist, ";");
 			--debug("String before deletion" ..stringList)
 			
 			while #ranklist > maxEntries do
@@ -102,7 +102,7 @@ function setRanklist(User, listName, points)
 			
 			joinedRanklist = convertToOneTable(ranklist)
 			
-			local stringList = base.common.join(joinedRanklist, ";");
+			local stringList = table.concat(joinedRanklist, ";");
 			--debug("String after join:" ..stringList)
 			ScriptVars:set(listName, stringList)
 		end
