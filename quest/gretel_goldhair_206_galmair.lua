@@ -17,11 +17,11 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Spende Gegenstände oder Münzen für die Schatzkammer Galmairs. Lege dafür den Gegenstand auf das markierte Feld neben Gretel."
-Description[ENGLISH][1] = "Donate items or coins for Galmair Treasury. Put the item on the bordered area next to Gretel."
+Description[ENGLISH][1] = "Donate items or coins for the Galmair Treasury. Put the item(s) or coin(s) on the bordered area next to Gretel."
 Description[GERMAN][2] = "Kehre zu Gretel Goldhair zurück."
 Description[ENGLISH][2] = "Return to Gretel Goldhair."
 Description[GERMAN][3] = "Du hast schon einmal für Galmair gespendet, dies sollte dich aber nicht davon abhalten, weiter Gegenstände oder Münzen für deine Stadt zu spenden."
-Description[ENGLISH][3] = "You have already donated to Galmair. But nevertheless you can donate more items or coins for your town." 
+Description[ENGLISH][3] = "You have already donated to Galmair. But nevertheless you can donate more items or coins if you like!"
 
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
