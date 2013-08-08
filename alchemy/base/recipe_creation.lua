@@ -298,7 +298,7 @@ function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 				end
 				SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 			else
-				AddToRecipe(ingredientsList,"essence "..base.common.join(currentEssenceList,";"))
+				AddToRecipe(ingredientsList,"essence "..table.concat(currentEssenceList,";"))
 				User:inform("Wurde dem Rezept hinzugefügt: Essenzgebräu","Added to the recipe: Essence brew",Character.lowPriority)
 				FirstMenu(User, ingredientsList)
 			end	
@@ -352,7 +352,7 @@ function SelectActiveSubstance(User, ingredientsList, currentConcentrations)
 			elseif selected >= 2 and selected <= 9 then
 			    SelectConcentration(User,ingredientsList,currentConcentrations, selected-1)
 			else
-			    AddToRecipe(ingredientsList,"stock "..base.common.join(currentConcentrations,";"))
+			    AddToRecipe(ingredientsList,"stock "..table.concat(currentConcentrations,";"))
 				User:inform("Wurde dem Rezept hinzugefügt: Sud","Added to the recipe: Stock",Character.lowPriority)
 				FirstMenu(User, ingredientsList)
 			end

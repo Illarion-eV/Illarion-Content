@@ -1198,19 +1198,6 @@ function split(str, pat)
 	return t;
 end
 
---[[
-Joins a table with a given pattern into a string.
-
-Usage: result = join({"Hans", "Dampf"},";") -> result = "Hans;Dampf"
-
-Deprecated Function.
-Use table.concat instead. 
-> table.concat({"foo", "bar"}, ";") -> "foo;bar"
-]]
-function join(joinTable, pattern)
-	debug("DEPRECATED! Use table.concat instead");
-	return table.concat(joinTable, pattern);
-end
 
 --[[
     Split_number
