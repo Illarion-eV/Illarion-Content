@@ -18,10 +18,10 @@ Title[ENGLISH] = "The Lazy Apprentice"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[ENGLISH][1] = "Bring four foot leaf from fern on grass and two firnisblossom from a flower in the wood. "
-Description[GERMAN][1] = "Besorge vier Fussblatt und zwei Firnisblüten. Fussblatt findest Du im Farn auf Gras und Firnisblüten in einer Blume im Wald. "
+Description[ENGLISH][1] =  "Pick four foot leaves from ferns in the grass and two firnis blossoms from the flowering plants in the woods."
+Description[GERMAN][1] = "Besorge vier Fussblatt und zwei Firnisblüten. Fussblatt findest du im Farn der auf Gras wächst und Firnisblüten in Blumen die im Wald wachsen. "
 Description[GERMAN][2] = "Du hast die Aufgabe von Madeline Clarbelis erfüllt."
-Description[ENGLISH][2] = "You have fulfilled the task of Madeline Clarbelis." 
+Description[ENGLISH][2] = "You have fulfilled the task for Madeline Clarbelis."
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
