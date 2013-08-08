@@ -105,14 +105,14 @@ queststatus(4) > 0, queststatus(4) < 7, "task", "adventure" -> "Oh, please, will
 queststatus(4) > 0, queststatus(4) < 7, "Auftrag", "Aufgabe", "Abenteuer" -> "Oh, würdet ihr bitte ein halbes Dutzend Wildschweine im Elsbaumwald jagen gehen? Meine Kinder flehen um etwas zu essen und jeden Tag muss ich sie aufs Neue enttäuschen."
 
 -- Too few items
-queststatus(4) = 7, item(307, all) < 6, english, "quest", "mission" -> "Did you perhaps forget the pork in the forest? Please, quick, fetch it. My children will thank you."
-queststatus(4) = 7, item(307, all) < 6, "quest", "mission" -> "Habt ihr etwa das Fleisch der Wildschweine im Wald vergessen? Bitte, lauft, und holt es! Meine Kinder werden es euch danken."
-queststatus(4) = 7, item(307, all) < 6, "task", "adventure" -> "Did you perhaps forget the pork in the forest? Please, quick, fetch it. My children will thank you."
-queststatus(4) = 7, item(307, all) < 6, "Auftrag", "Aufgabe", "Abenteuer" -> "Habt ihr etwa das Fleisch der Wildschweine im Wald vergessen? Bitte, lauft, und holt es! Meine Kinder werden es euch danken."
+queststatus(4) = 7, item(307, all) < 3, english, "quest", "mission" -> "Did you perhaps forget the pork in the forest? Please, quick, fetch it. My children will thank you."
+queststatus(4) = 7, item(307, all) < 3, "quest", "mission" -> "Habt ihr etwa das Fleisch der Wildschweine im Wald vergessen? Bitte, lauft, und holt es! Meine Kinder werden es euch danken."
+queststatus(4) = 7, item(307, all) < 3, "task", "adventure" -> "Did you perhaps forget the pork in the forest? Please, quick, fetch it. My children will thank you."
+queststatus(4) = 7, item(307, all) < 3, "Auftrag", "Aufgabe", "Abenteuer" -> "Habt ihr etwa das Fleisch der Wildschweine im Wald vergessen? Bitte, lauft, und holt es! Meine Kinder werden es euch danken."
 
 -- Quest 1 solved, reward: 250 arrows
-queststatus(4) = 7, item(307, all) > 5, english, ".+" -> inform("[Quest solved] You are awarded 250 arrows."), deleteItem(307, 6), item(64, 250, 333), queststatus(4) = 8, "Thank you very, very much for the food. Pork will silence the bellies of my children, at least for some days. Take this quiver of arrows, it will help you when hunting."
-queststatus(4) = 7, item(307, all) > 5, ".+" -> inform("[Quest gelöst] Du erhältst 250 Pfeile."), deleteItem(307, 6), item(64, 250, 333), queststatus(4) = 8, "Vielen, vielen Dank. Dieses Fleisch wird das Magenknurren meiner Kinder wenigstens für ein paar Tage besänftigen. Hier, nehmt diesen Köcher voll Pfeile, sie werden euch auf der Jagd gute Dienste erweisen."
+queststatus(4) = 7, item(307, all) > 2, english, ".+" -> inform("[Quest solved] You are awarded 250 arrows."), deleteItem(307, 6), item(64, 250, 333), queststatus(4) = 8, "Thank you very, very much for the food. Pork will silence the bellies of my children, at least for some days. Take this quiver of arrows, it will help you when hunting."
+queststatus(4) = 7, item(307, all) > 2, ".+" -> inform("[Quest gelöst] Du erhältst 250 Pfeile."), deleteItem(307, 6), item(64, 250, 333), queststatus(4) = 8, "Vielen, vielen Dank. Dieses Fleisch wird das Magenknurren meiner Kinder wenigstens für ein paar Tage besänftigen. Hier, nehmt diesen Köcher voll Pfeile, sie werden euch auf der Jagd gute Dienste erweisen."
 
 -- 2nd quest: Kill 12 cows, provide 12 steaks (2940)
 
@@ -131,10 +131,10 @@ queststatus(4) > 8, queststatus(4) < 21, "task", "adventure" -> "You can find bu
 queststatus(4) > 8, queststatus(4) < 21, "Auftrag", "Aufgabe", "Abenteuer" -> "Ihr könnt Rinder im Elsbaumwald finden. Bitte, rettet meine Familie vor dem Verhungern."
 
 -- Too few items
-queststatus(4) = 21, item(2940, all) < 12, english, "quest", "mission" -> "Slaying animals and leaving the meat for the carrion crows? How dare you! I beg you, on behalf of my children, every piece of meat can save a human's life."
-queststatus(4) = 21, item(2940, all) < 12, "quest", "mission" -> "Viele Tiere getötet, aber das Fleisch den Krähen überlassen? Ist dem so! Ich flehe euch an, im Namen meiner Kinder, jeder Bissen Fleisch kann ein Menschenleben retten."
-queststatus(4) = 21, item(2940, all) < 12, "task", "adventure" -> "Slaying animals and leaving the meat for the carrion crows? How dare you! I beg you, on behalf of my children, every piece of meat can save a human's life."
-queststatus(4) = 21, item(2940, all) < 12, "Auftrag", "Aufgabe", "Abenteuer" -> "Viele Tiere getötet, aber das Fleisch den Krähen überlassen? Ist dem so! Ich flehe euch an, im Namen meiner Kinder, jeder Bissen Fleisch kann ein Menschenleben retten."
+queststatus(4) = 21, item(2940, all) < 6, english, "quest", "mission" -> "Slaying animals and leaving the meat for the carrion crows? How dare you! I beg you, on behalf of my children, every piece of meat can save a human's life."
+queststatus(4) = 21, item(2940, all) < 6, "quest", "mission" -> "Viele Tiere getötet, aber das Fleisch den Krähen überlassen? Ist dem so! Ich flehe euch an, im Namen meiner Kinder, jeder Bissen Fleisch kann ein Menschenleben retten."
+queststatus(4) = 21, item(2940, all) < 6, "task", "adventure" -> "Slaying animals and leaving the meat for the carrion crows? How dare you! I beg you, on behalf of my children, every piece of meat can save a human's life."
+queststatus(4) = 21, item(2940, all) < 6, "Auftrag", "Aufgabe", "Abenteuer" -> "Viele Tiere getötet, aber das Fleisch den Krähen überlassen? Ist dem so! Ich flehe euch an, im Namen meiner Kinder, jeder Bissen Fleisch kann ein Menschenleben retten."
 
 -- Quest 2 solved, reward: Golden ring, copper goblet, emerald amulet, 200cp
 queststatus(4) = 21, item(2940, all) > 11, english, ".+" -> inform("[Quest solved] You are awarded a golden ring, a copper goblet, an emerald amulet and 20 silver coins."), money + 2000, deleteItem(2940, 12), item(235, 1, 666), item(1840, 1, 666), item(62, 1, 666), queststatus(4) = 22, "How great! You brought enough meat for my whole family. Here, I... found a bag with precious things. You can have it as a reward."
