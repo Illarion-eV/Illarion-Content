@@ -19,9 +19,12 @@ Description[ENGLISH] = {}
 Description[GERMAN][1] = "Tolle lange Beschreibung die angezeigt wird wenn man Queststatus 1 erreicht, auch was man wo machen muss ..."
 Description[ENGLISH][1] = "Cool long description which is displayed when you reach quest status 1, also mention what to do where now ..."
 
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = position(1, 2, 3) OR Start = {1, 2, 3}
+
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(1, 2, 3), position(4, 5, 6)} oder QuestTarget[1] = {{1, 2, 3}, {4, 5, 6}}
+QuestTarget[1] = {position(1, 2, 3), position(4, 5, 6)} OR QuestTarget[1] = {{1, 2, 3}, {4, 5, 6}}
 
 
 -- Insert the quest status which is reached at the end of the quest
@@ -37,6 +40,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
 
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
 
 function QuestTargets(user, status)
