@@ -24,6 +24,10 @@ Description[GERMAN][2] = "Gehe in die Gruft und entzünde mindestens eines der Eh
 Description[ENGLISH][2] = "Go to the crypt and light at least one of the lamps in front of the urns again, then return to Gregor Remethar."
 
 
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {907, 804, 0}
+
+
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(907, 804, 0), position(906, 825, -3), position(906, 823, -3)} -- Lights
@@ -44,6 +48,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
 
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
 
 function QuestTargets(user, status)

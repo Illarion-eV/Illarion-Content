@@ -27,6 +27,9 @@ Description[ENGLISH][4] = "Obtain ten logs of naldor wood and bring them to Bath
 Description[GERMAN][5] = "Du hast alle Aufgaben von Bathelor erfällt. Lobet Brágon!"
 Description[ENGLISH][5] = "You have fulfilled all the tasks for Bathelor. Praise Brágon!"
 
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {519, 128, 0}
+
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(549, 138, 0), position(551, 133, 0), position(556, 135, 0), position(556, 141, 0), position(551, 143, 0), position(519, 128, 0)} -- Shrines
@@ -49,6 +52,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
 
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
 
 function QuestTargets(user, status)

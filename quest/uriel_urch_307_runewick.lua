@@ -32,6 +32,11 @@ Description[GERMAN][7] = "Du hast Uriel Bier gebracht und seiner Geschichte gela
 Description[ENGLISH][7] = "You have brought beer to Uriel and have listened his story. Thanks for that."
 
 
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {902, 773, 0}
+
+
+
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(902, 773, 0), position(899, 772, 0), position (906, 841, 0)}
@@ -56,6 +61,10 @@ function QuestDescription(user, status)
 
     return base.common.GetNLS(user, german, english)
 end
+
+function QuestStart()
+    return Start
+	end
 
 function QuestTargets(user, status)
     return QuestTarget[status]

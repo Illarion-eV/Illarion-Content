@@ -22,6 +22,10 @@ Description[GERMAN][8] = "Nachdem du nun seine Aufgabe erfüllt hast, wird dir No
 Description[ENGLISH][8] = "Since you have accomplished his task, Nobarg will answer your question from Sir Fludnar Yednos. Ask him the question and he will provide you with the answer you need. You can then continue with the quest 'Orc-Researcher'. This quest is over now."
 
 
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {}
+
+
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[5] = {position(475, 795, 0)} -- Nobarg
@@ -40,6 +44,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
 
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
 
 function QuestTargets(user, status)

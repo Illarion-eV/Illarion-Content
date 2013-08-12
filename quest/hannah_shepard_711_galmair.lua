@@ -34,6 +34,10 @@ Description[GERMAN][8] = "Du hast alle Aufgaben von Hannah Shepard erfüllt."
 Description[ENGLISH][8] = "You have fulfilled all the tasks for Hannah Shepard."
 
 
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {434, 257, 0}
+
+
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(434, 257, 0), position(430, 261, 0)} -- Fields
@@ -58,6 +62,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
 
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
 
 function QuestTargets(user, status)

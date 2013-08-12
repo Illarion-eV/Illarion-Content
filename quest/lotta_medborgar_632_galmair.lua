@@ -21,6 +21,10 @@ Description[ENGLISH][1] = "Find Don Valerio Guilianni and take him your gift."
 Description[GERMAN][2] = "Du weiﬂt nun wo Don Valerio Guilianni zu finden ist."
 Description[ENGLISH][2] = "You now know where you can find Don Valerio Guilianni."
 
+
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {393, 326, -5}
+
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(337, 215, 0)} -- Don (It might confuse a newbie because the lower levels of Galmair are not on the same spot as the surface level)
@@ -38,6 +42,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
 
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
 
 function QuestTargets(user, status)

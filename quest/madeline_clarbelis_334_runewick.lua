@@ -22,6 +22,10 @@ Description[ENGLISH][1] =  "Pick four foot leaves from ferns in the grass and tw
 Description[GERMAN][1] = "Besorge vier Fussblatt und zwei Firnisblüten. Fussblatt findest du im Farn der auf Gras wächst und Firnisblüten in Blumen die im Wald wachsen. "
 Description[GERMAN][2] = "Du hast die Aufgabe von Madeline Clarbelis erfüllt."
 Description[ENGLISH][2] = "You have fulfilled the task for Madeline Clarbelis."
+
+
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {951, 766, 1}
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
@@ -42,6 +46,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
      
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
      
 function QuestTargets(user, status)

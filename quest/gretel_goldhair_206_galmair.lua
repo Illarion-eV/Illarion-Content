@@ -23,6 +23,10 @@ Description[ENGLISH][2] = "Return to Gretel Goldhair."
 Description[GERMAN][3] = "Du hast schon einmal für Galmair gespendet, dies sollte dich aber nicht davon abhalten, weiter Gegenstände oder Münzen für deine Stadt zu spenden."
 Description[ENGLISH][3] = "You have already donated to Galmair. But nevertheless you can donate more items or coins if you like!"
 
+
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {341, 218, 0}
+
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
@@ -43,6 +47,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
      
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
      
 function QuestTargets(user, status)

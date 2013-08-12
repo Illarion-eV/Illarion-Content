@@ -21,6 +21,9 @@ Description[ENGLISH][1] = "Get a glass of wine and take it to Zaida. You can buy
 Description[GERMAN][2] = "Rede mit Zaida, sie kann dir einiges Erzählen."
 Description[ENGLISH][2] = "Talk to Zaida, she can tell you a lot."
 
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {900, 768, 0}
+
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(900, 768, 0), position(899, 772, 0), position (906, 841, 0)} -- Händler, Weinfass
@@ -40,6 +43,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
 
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
 
 function QuestTargets(user, status)

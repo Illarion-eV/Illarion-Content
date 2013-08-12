@@ -21,6 +21,10 @@ Description[ENGLISH][1] = "Try to find Ruzusss in Cadomyr and take him the siban
 Description[GERMAN][2] = "Du hast Ruzusss gefunden. Wenn du möchtest, kannst du nun mit ihm sprechen. Frage ihn nach 'Hilfe' wenn du nicht weißt, wonach du fragen sollst!\nEr kann dir einiges über die südwestliche Karte von Illarion verraten."
 Description[ENGLISH][2] = "You have found Ruzusss. If you like, you can talk with him now. Ask for 'help' if you do not know what to say!\nHe can provide you with information about the south-western part of Illarion."
 
+
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {}
+
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(126, 630, 0)} -- Ruzusss
@@ -38,6 +42,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
 
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
 
 function QuestTargets(user, status)

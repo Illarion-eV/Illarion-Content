@@ -62,6 +62,10 @@ Description[GERMAN][40] = "Deine Aufgabe für Sir Fludnar Yednos ist beendet."
 Description[ENGLISH][40] = "Your task for Sir Fludnar Yednos is over."
 
 
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {896, 757, 1}
+
+
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
@@ -100,6 +104,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
 
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
 
 function QuestTargets(user, status)

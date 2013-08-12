@@ -28,6 +28,10 @@ Description[GERMAN][5] = "Hummi hat keine anderen Aufgaben für dich. Lediglich m
 Description[ENGLISH][5] = "Hummi does not have any other quests for you, just more information. However, you can look for other NPCs with quests for you."
 
 
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {681, 318, 0}
+
+
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(164, 621, 0)} -- Tronruk
@@ -48,6 +52,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
 
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
 
 function QuestTargets(user, status)

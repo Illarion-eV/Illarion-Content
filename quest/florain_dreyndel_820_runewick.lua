@@ -53,6 +53,10 @@ Description[ENGLISH][17] = "Go to Lilith Needlehand and ask her for a task. She 
 Description[GERMAN][18] = "Florain Dreyndel kannn dir nun nicht mehr weiterhelfen. Frage einfach jeden, den du triffst nach Aufgaben und du wirst gut zurecktkommen."
 Description[ENGLISH][18] = "Florain Dreyndel cannot help you any further now. Just ask everyone you meet for tasks and you will get around just fine."
 
+
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {833, 815, 0}
+
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(904, 827, 0)} -- Daniel
@@ -87,6 +91,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
 
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
 
 function QuestTargets(user, status)

@@ -33,10 +33,12 @@ Description[ENGLISH][102] = "Coin game for ten silver coins.\nUse 'heads', 'tail
 Description[GERMAN][103] = "Münzspiel um ein Goldstück.\nSage 'Kopf', 'Zahl', 'Rand' oder brich das Spiel ab mit 'Stop' oder 'Ende'."
 Description[ENGLISH][103] = "Coin game for one gold coin.\nUse 'heads', 'tails', 'other' or break up the game by using 'stop' or 'end'."
 
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {251, 291, -6}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(710, 313, 0)} -- Borgate
+QuestTarget[1] = {position(251, 291, -6)} -- Xiao Dongzou
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 2
@@ -52,6 +54,11 @@ function QuestDescription(user, status)
 
     return base.common.GetNLS(user, german, english)
 end
+
+function QuestStart()
+    return Start
+end
+
 
 function QuestTargets(user, status)
     return QuestTarget[status]

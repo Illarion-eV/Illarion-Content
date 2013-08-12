@@ -26,6 +26,10 @@ Description[ENGLISH][3] = "Obtain five salmon and take them back to Kaitza. To f
 Description[GERMAN][4] = "Du hast alle Aufgaben von Kaitza erfüllt."
 Description[ENGLISH][4] = "You have fulfilled all the tasks for Kaitza." 
 
+
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {841, 743, 0}
+
    
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
@@ -48,6 +52,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
      
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
      
 function QuestTargets(user, status)
