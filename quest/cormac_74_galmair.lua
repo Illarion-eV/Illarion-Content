@@ -8,7 +8,7 @@ ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 Title = {}
-Title[GERMAN] = "Der Schw√§tzer von Galmair"
+Title[GERMAN] = "Der Schw‰tzer von Galmair"
 Title[ENGLISH] = "Galmair's Gossiper"
 
 -- Insert an extensive description of each status here, in both languages
@@ -18,7 +18,7 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Cormac ist immer noch durstig. Bring ihm einen vollen Krug Bier."
 Description[ENGLISH][1] = "Cormac is still thirsty so bring him a full mug of beer."
-Description[GERMAN][2] = "Jetzt f√ºhlt sich Cormac ein bisschen gespr√§chiger. Du kannst ihm nun alle Fragen stellen, die du hast."
+Description[GERMAN][2] = "Jetzt f¸hlt sich Cormac ein bisschen gespr‰chiger. Du kannst ihm nun alle Fragen stellen, die du hast."
 Description[ENGLISH][2] = "Now Cormac is feeling a bit more talkative you can ask him any questions you might have."
 
 
