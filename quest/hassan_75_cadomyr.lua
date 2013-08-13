@@ -8,7 +8,7 @@ ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 Title = {}
-Title[GERMAN] = "Der Schw√§tzer von Cadomyr"
+Title[GERMAN] = "Der Schw‰tzer von Cadomyr"
 Title[ENGLISH] = "Cadomyr's Gossiper"
 
 -- Insert an extensive description of each status here, in both languages
@@ -16,14 +16,14 @@ Title[ENGLISH] = "Cadomyr's Gossiper"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Besorge ein Glas mit Wein und bringe es Hassan. Du kannst ein Glas mit Wein vom H√§ndler kaufen oder f√ºlle Wein aus einer Flasche in ein leeres Glas."
+Description[GERMAN][1] = "Besorge ein Glas mit Wein und bringe es Hassan. Du kannst ein Glas mit Wein vom H‰ndler kaufen oder f¸lle Wein aus einer Flasche in ein leeres Glas."
 Description[ENGLISH][1] = "Produce a glass with wine and bring it to Hassan. You can buy a glass with wine from a merchant or fill wine from a bottle into a glass."
-Description[GERMAN][2] = "Rede mit Hassan, er kann dir einiges erz√§hlen."
+Description[GERMAN][2] = "Rede mit Hassan, er kann dir einiges erz‰hlen."
 Description[ENGLISH][2] = "Talk to Hassan, he can tell you a lot."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(110, 574, 0), position(113, 574, 0)} -- H√§ndler
+QuestTarget[1] = {position(110, 574, 0), position(113, 574, 0)} -- H‰ndler
 QuestTarget[2] = {position(110, 574, 0)} 
 
 

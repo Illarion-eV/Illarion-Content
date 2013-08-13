@@ -16,11 +16,11 @@ Title[ENGLISH] = "Galmair Treasury"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Spende GegenstÃ¤nde oder MÃ¼nzen fÃ¼r die Schatzkammer Galmairs. Lege dafÃ¼r den Gegenstand auf das markierte Feld neben Gretel."
+Description[GERMAN][1] = "Spende Gegenstände oder Münzen für die Schatzkammer Galmairs. Lege dafür den Gegenstand auf das markierte Feld neben Gretel."
 Description[ENGLISH][1] = "Donate items or coins for the Galmair Treasury. Put the item(s) or coin(s) on the bordered area next to Gretel."
-Description[GERMAN][2] = "Kehre zu Gretel Goldhair zurÃ¼ck."
+Description[GERMAN][2] = "Kehre zu Gretel Goldhair zurück."
 Description[ENGLISH][2] = "Return to Gretel Goldhair."
-Description[GERMAN][3] = "Du hast schon einmal fÃ¼r Galmair gespendet, dies sollte dich aber nicht davon abhalten, weiter GegenstÃ¤nde oder MÃ¼nzen fÃ¼r deine Stadt zu spenden."
+Description[GERMAN][3] = "Du hast schon einmal für Galmair gespendet, dies sollte dich aber nicht davon abhalten, weiter Gegenstände oder Münzen für deine Stadt zu spenden."
 Description[ENGLISH][3] = "You have already donated to Galmair. But nevertheless you can donate more items or coins if you like!"
 
 

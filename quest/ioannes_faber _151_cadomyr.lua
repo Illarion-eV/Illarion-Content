@@ -16,11 +16,11 @@ Title[ENGLISH] = "Cadomyr Treasury"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Spende GegenstÃ¤nde oder MÃ¼nzen fÃ¼r die Schatzkammer Cadomyrs. Lege dafÃ¼r den Gegenstand auf das markierte Feld neben dem Thron von KÃ¶nigin Rosaline Edwards."
+Description[GERMAN][1] = "Spende Gegenstände oder Münzen für die Schatzkammer Cadomyrs. Lege dafür den Gegenstand auf das markierte Feld neben dem Thron von Königin Rosaline Edwards."
 Description[ENGLISH][1] = "Donate items or coins for Cadomyr Treasury. Put the item on the bordered area next to throne of queen Rosaline Edwards."
-Description[GERMAN][2] = "Kehre zu Ioannes Faber zurÃ¼ck."
+Description[GERMAN][2] = "Kehre zu Ioannes Faber zurück."
 Description[ENGLISH][2] = "Return to Ioannes Faber."
-Description[GERMAN][3] = "Du hast schon einmal fÃ¼r Cadomyr gespendet, dies sollte dich aber nicht davon abhalten, weiter GegenstÃ¤nde oder MÃ¼nzen fÃ¼r deine Stadt zu spenden."
+Description[GERMAN][3] = "Du hast schon einmal für Cadomyr gespendet, dies sollte dich aber nicht davon abhalten, weiter Gegenstände oder Münzen für deine Stadt zu spenden."
 Description[ENGLISH][3] = "You have already donated to Cadomyr. But nevertheless you can donate more items or coins for your town." 
 
  
