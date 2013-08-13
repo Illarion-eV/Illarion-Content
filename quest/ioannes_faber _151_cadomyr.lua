@@ -28,7 +28,7 @@ Description[ENGLISH][3] = "You have already donated to Cadomyr. But nevertheless
 QuestTarget = {}
 QuestTarget[1] = {position(116, 520, 0)} 
 QuestTarget[2] = {position(129, 529, 0)}
-QuestTarget[3] = {position(129, 529, 0), position(116, 520, 0)}
+QuestTarget[3] = {position(129, 529, 0), (116, 520, 0)}
      
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 3
