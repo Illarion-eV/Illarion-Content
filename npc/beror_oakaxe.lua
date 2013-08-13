@@ -1043,7 +1043,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(334, 1, nil)
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2559, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(315, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(20, 1, 999, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 333, {["gemLevel"] = "2"}));
+talkEntry:addConsequence(npc.base.consequence.item.item(197, 1, 333, {["gemLevel"] = "2"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 18));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkEntry:addResponse("Du bist wahrhaftig ein selbstloser Ritter Cadomyrs. Trage fortan das Wappen Cadomyrs auf deinem Schild, der Schild eines Ritters. Ich salutiere vor dir!");

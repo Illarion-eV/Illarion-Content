@@ -63,7 +63,7 @@ Description[ENGLISH][22] = "You have fulfilled all tasks for Grakamesh."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {131, 638, 0}
+Start = {133, 638, 0}
 
 
 
