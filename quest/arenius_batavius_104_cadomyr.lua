@@ -16,7 +16,7 @@ Title[ENGLISH] = "The Errant Crusade"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Besorge sechs weißŸe Stoffbahnen und bringe sie Arenius. Du kannst sie bei einem Händler kaufen oder mit einer Schere in der Hand am Webstuhl herstellen."
+Description[GERMAN][1] = "Besorge sechs weiße Stoffbahnen und bringe sie Arenius. Du kannst sie bei einem Händler kaufen oder mit einer Schere in der Hand am Webstuhl herstellen."
 Description[ENGLISH][1] = "Produce six bolts of white cloth and bring them to Arenius. You can buy them from a merchant or produce them by using a needle in your hand, whilst standing in front of a weaving loom."
 Description[GERMAN][2] = "Gehe zu Arenius Batavius, der sich am Gasthaus 'Seeufer' in Cadomyr aufhält. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go back to Arenius Batavius next to the Inn 'Lakeshore' in Cadomyr, he certainly have another task for you."
@@ -87,6 +87,11 @@ Description[ENGLISH][34] = "Return to Arenius Batavius."
 Description[GERMAN][35] = "Du hast alle Aufgaben von Arenius Batavius erfüllt."
 Description[ENGLISH][35] = "You have fulfilled all tasks for Arenius Batavius."
 
+
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {85, 587, 0}
+
+
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(85, 587, 0), position(113, 611, 0), position(141, 576, 0)} 
@@ -139,6 +144,10 @@ function QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
 
     return base.common.GetNLS(user, german, english)
+end
+
+function QuestStart()
+    return Start
 end
 
 function QuestTargets(user, status)
