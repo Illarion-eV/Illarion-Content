@@ -42,6 +42,25 @@ function QuestDescription(user, status)
     return base.common.GetNLS(user, german, english)
 end
 
+-- Availability of the quest
+-- Possible values: Player.questAvailable (yellow quest marker "!")
+--                  Player.questWillBeAvailable (grey quest marker "!")
+--                  Player.questNotAvailable (no quest marker)
+-- If the quest could be available soon (e.g. missing skill) return Player.questWillBeAvailable
+-- and if the player tries to accept the quest, inform them what exactly is missing to do so.
+-- If the quest will not be available (wrong town, too much skill already, etc.) return
+-- Player.questNotAvailable.
+-- The function below is the server default. It will be used if this entry point is not defined.
+--[[
+function QuestAvailability(user, status)
+    if status == 0 then
+        return Player.questAvailable
+    else
+        return Player.questNotAvailable
+    end
+end
+--]]
+
 function QuestStart()
     return Start
 end
