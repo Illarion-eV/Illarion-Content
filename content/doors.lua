@@ -25,9 +25,9 @@ function initDoors()
 	AddDoor({301, 280, 0}, 111,"Villa Goldvein","Villa Goldader"); -- guild house II !create 2145 1 333 lockId=111
 	AddDoor({304, 274, 0}, 111,"Villa Goldvein","Villa Goldader"); -- guild house II !create 2145 1 333 lockId=111
 
-	AddDoor({416, 217,-6}, 120,"Flat Adron","Wohnung Adron"); -- flat room I - 2p !create 2161 1 333 lockId=120
+	AddDoor({416, 217,-6}, 120,"Flat Irmorom","Wohnung Irmorom"); -- flat room I - 2p !create 2161 1 333 lockId=120
 	AddDoor({425, 222,-6}, 121,"Flat Elara","Wohnung Elara"); -- flat room II - 3p !create 2161 1 333 lockId=121
-	AddDoor({424, 231,-6}, 122,"Flat Irmorom","Wohnung Irmorom"); -- flat room III - 1p !create 2161 1 333 lockId=122
+	AddDoor({424, 231,-6}, 122,"Flat Adron","Wohnung Adron"); -- flat room III - 1p !create 2161 1 333 lockId=122
 	AddDoor({423, 241,-6}, 123,"Flat Malachin","Wohnung Malachin"); -- flat room IV - 2p !create 2161 1 333 lockId=123
 	AddDoor({416, 239,-6}, 124,"Flat Oldra","Wohnung Oldra"); -- flat room V - 4p !create 2161 1 333 lockId=124
 	AddDoor({425, 241,-5}, 125,"Flat Nargun","Wohnung Nargun"); -- flat room VI - 2p !create 2161 1 333 lockId=125
