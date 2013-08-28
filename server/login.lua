@@ -343,8 +343,6 @@ function PayOutWage(Recipient,town)
 					local randomGem=math.random(1,2);
 --					local maxGemLevel=math.floor(RankedWage^(1/3))
 					local maxGemLevel = math.floor(math.log(RankedWage)/math.log(3)) + 1
-debug("RankedWage0: "..RankedWage)
-debug("maxGemLevel: "..maxGemLevel)
 					local gemLevel= base.common.Limit(math.random(1,maxGemLevel), 1, 10)
 					
 					local gemsByTown={};
