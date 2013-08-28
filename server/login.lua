@@ -169,7 +169,7 @@ function onLogin( player )
 	end
 	
 	--Taxes (has to be redone by "someone")
-    if not player:isAdmin()  and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
+	if not player:isAdmin()  and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
 		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
 			-- So let there be taxes!
 			local taxText = payTaxes(player);
@@ -341,7 +341,10 @@ function PayOutWage(Recipient,town)
 				endname="";
 				while RankedWage>0 do
 					local randomGem=math.random(1,2);
-					local maxGemLevel=math.floor(RankedWage^(1/3))
+--					local maxGemLevel=math.floor(RankedWage^(1/3))
+					local maxGemLevel = math.floor(math.log(RankedWage)/math.log(3)) + 1
+debug("RankedWage0: "..RankedWage)
+debug("maxGemLevel: "..maxGemLevel)
 					local gemLevel= base.common.Limit(math.random(1,maxGemLevel), 1, 10)
 					
 					local gemsByTown={};
@@ -370,7 +373,9 @@ function PayOutWage(Recipient,town)
 							"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 							"You can't carry any more and the rest drops to the ground.");
 					end
-					RankedWage=RankedWage-gemLevel^3;
+
+--					RankedWage=RankedWage-gemLevel^3;
+					RankedWage=RankedWage-3^(gemLevel-1)
 				end
 			
 				infText = base.common.GetNLS(Recipient, 
