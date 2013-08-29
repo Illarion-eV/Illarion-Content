@@ -20,7 +20,7 @@ Description[GERMAN][1] = "Spende Gegenstände oder Münzen für die Schatzkammer Ca
 Description[ENGLISH][1] = "Donate items or coins for Cadomyr Treasury. Put the item on the bordered area next to throne of queen Rosaline Edwards."
 Description[GERMAN][2] = "Kehre zu Ioannes Faber zurück."
 Description[ENGLISH][2] = "Return to Ioannes Faber."
-Description[GERMAN][3] = "Du hast schon einmal für Cadomyr gespendet, dies sollte dich aber nicht davon abhalten, weiter Gegenstände oder Münzen für deine Stadt zu spenden."
+Description[GERMAN][3] = "Du hast schon einmal für Cadomyr gespendet. Dies sollte dich aber nicht davon abhalten, weiter Gegenstände oder Münzen für deine Stadt zu spenden."
 Description[ENGLISH][3] = "You have already donated to Cadomyr. But nevertheless you can donate more items or coins for your town." 
 
 
