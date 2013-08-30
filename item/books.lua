@@ -1,4 +1,5 @@
 require("base.common");
+require("item.id_266_bookshelf")
 module("item.books", package.seeall)
 
 -- UPDATE common SET com_script='item.books' WHERE com_itemid = 2622;
@@ -30,6 +31,14 @@ function UseItem(User, SourceItem)
 	    User:sendBook(101)
 	end	
 	-- alchemy end
+	if SourceItem:getData("bookId")~="" then
+		local bookId =tonumber( SourceItem:getData("bookId"))
+		if bookId == nil then
+			return
+		end
+		
+		User:sendBook(bookdId)
+	end
 	
 	-- old data! 
 	--[[	if (User:getSkill(bookLanguage[SourceItem.data]) >= bookMinimumLanguage) then
@@ -42,5 +51,11 @@ function UseItem(User, SourceItem)
 end
 
 function LookAtItem(User,Item)
-    world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
+    if Item:getData("bookId")~="" then
+		local bookId =tonumber( Item:getData("bookId"))
+		if item.id_266_bookshelf.books[bookId] ~= nil then
+			base.lookat.SetSpecialName(Item,item.id_266_bookshelf.books[bookId].german,item.id_266_bookshelf.books[bookId].english)
+		end
+	end
+	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
 end   
