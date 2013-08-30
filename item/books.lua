@@ -36,8 +36,9 @@ function UseItem(User, SourceItem)
 		if bookId == nil then
 			return
 		end
-		
-		User:sendBook(bookdId)
+		if item.id_266_bookshelf.books[bookId] ~= nil then
+			User:sendBook(bookId)
+		end
 	end
 	
 	-- old data! 
@@ -53,8 +54,10 @@ end
 function LookAtItem(User,Item)
     if Item:getData("bookId")~="" then
 		local bookId =tonumber( Item:getData("bookId"))
-		if item.id_266_bookshelf.books[bookId] ~= nil then
-			base.lookat.SetSpecialName(Item,item.id_266_bookshelf.books[bookId].german,item.id_266_bookshelf.books[bookId].english)
+		if bookId ~= nil then
+			if item.id_266_bookshelf.books[bookId] ~= nil then
+				base.lookat.SetSpecialName(Item,item.id_266_bookshelf.books[bookId].german,item.id_266_bookshelf.books[bookId].english)
+			end
 		end
 	end
 	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
