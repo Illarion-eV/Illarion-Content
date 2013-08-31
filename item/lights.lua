@@ -294,22 +294,22 @@ function LookAtItem(User, Item)
 	end
 	
 	if(TimeLeftI == 255) then
-		TimeLeft = base.common.GetNLS(User, "nie", "never");
+		TimeLeft = base.common.GetNLS(User, "Sie wird nie ausbrennen.", "It will never burn down.");
 	elseif (TimeLeftI == 0) then
-		TimeLeft = base.common.GetNLS(User, "sofort", "immediately");
+		TimeLeft = base.common.GetNLS(User, "Sie wird sofort ausbrennen.", "It will burn down immediately.");
 	elseif (TimeLeftI == 1) then
-		TimeLeft = base.common.GetNLS(User, "demnächst", "anytime soon");
+		TimeLeft = base.common.GetNLS(User, "Sie wird demnächst ausbrennen.", "It will burn down anytime soon.");
 	elseif (TimeLeftI == 2) then
-		TimeLeft = base.common.GetNLS(User, "bald", "soon");	
+		TimeLeft = base.common.GetNLS(User, "Sie wird bald ausbrennen.", "It will burn down soon.");	
 	elseif (TimeLeftI <= 4) then
-		TimeLeft = base.common.GetNLS(User, "nach einer Weile", "in a while");
+		TimeLeft = base.common.GetNLS(User, "Sie wird nach einer Weile ausbrennen.", "It will burn down in a while.");
 	elseif (TimeLeftI <= PORTABLE_WEAR) then
-		TimeLeft = base.common.GetNLS(User, "nicht allzu bald", "not anytime soon");
+		TimeLeft = base.common.GetNLS(User, "Sie wird nicht allzu bald ausbrennen.", "It will not burn down anytime soon.");
 	elseif (TimeLeftI >= PORTABLE_WEAR) then
-		TimeLeft = base.common.GetNLS(User, "nach langer Zeit", "in a long time");
+		TimeLeft = base.common.GetNLS(User, "Sie wird nach langer Zeit ausbrennen.", "It will burn down in a long time.");
 	end	
 	
-	base.lookat.SetSpecialDescription(Item, "Sie wird "..TimeLeft.." ausbrennen.", "It will burn down "..TimeLeft..".");
+	base.lookat.SetSpecialDescription(Item, TimeLeft, TimeLeft);
 	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 end
 
