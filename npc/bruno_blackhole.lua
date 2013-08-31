@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1369,25 +1369,25 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Raban");
-talkEntry:addResponse("Raban is most likely at his grove in the south. He never leaves the places and talks to his plants all day long.");
+talkEntry:addResponse("Raban is most likely at his grove in the northeast. He never leaves the places and talks to his plants all day long.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Raban");
-talkEntry:addResponse("Raban ist wahrscheinlich in seinem Hain im Süden. Er verlässt den Platz nie und spricht den ganzen Tag zu seinen Pflanzen.");
+talkEntry:addResponse("Raban ist wahrscheinlich in seinem Hain im Nordosten. Er verlässt den Platz nie und spricht den ganzen Tag zu seinen Pflanzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("grove");
-talkEntry:addResponse("Raban's grove is in the forest in the south, I used to get lost between all those trees.");
+talkEntry:addResponse("Raban's grove is in the forest in the northeast, I used to get lost between all those trees.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hain");
-talkEntry:addResponse("Rabans Hain ist im Wald im Süden. Ich verlauf mich immer zwischen all diesen Bäumen.");
+talkEntry:addResponse("Rabans Hain ist im Wald im Nordosten. Ich verlauf mich immer zwischen all diesen Bäumen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
