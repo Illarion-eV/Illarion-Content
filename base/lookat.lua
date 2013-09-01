@@ -205,7 +205,7 @@ function GenerateLookAt(user, item, material)
 			local typestring = "";
 
 			local germanstring =  "Dies ist eine "
-			local germanlevel = "Sie hat das Level "..weapon.Level..".";
+			local germanlevel = "Sie hat das Level "..armour.Level..".";
 
 			local armourSkill = 100;
 
