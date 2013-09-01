@@ -242,7 +242,7 @@ function GenerateLookAt(user, item, material)
 
 			if(armour.Level>armourSkill) then
 				warningstring = " You don't feel skilled enough to use it effectively.";
-				germanwarning  = " Du fühlst dich nicht erfahren genug, um diese Waffe effektiv zu führen.";
+				germanwarning  = " Du fühlst dich nicht erfahren genug, um diese Rüstung effektiv zu nutzen.";
 			end;
 
 			--lookAt.armorType = armour.Type;
