@@ -74,41 +74,44 @@ function setRanklist(User, listName, points)
 	local joinedRanklist = {}
 	
 	--User:inform("ranklist nr: "..#ranklist)
-
-	if #ranklist ~= 0 then
-		local userInList, position = isUserInList(User, ranklist);
-		--debug("Number: "..#ranklist)
-		--debug("check this out: "..ranklist[#ranklist].name)
-		--debug("check this out - points: "..ranklist[#ranklist].points)
-		if tonumber(ranklist[#ranklist].points) > points and #ranklist == maxEntries then
-			return;
-		else
-			if not userInList then
-				table.insert(ranklist, {["name"] = User.name; ["points"] = points});
+	if User:isAdmin() then
+		return;
+	else
+		if #ranklist ~= 0 then
+			local userInList, position = isUserInList(User, ranklist);
+			--debug("Number: "..#ranklist)
+			--debug("check this out: "..ranklist[#ranklist].name)
+			--debug("check this out - points: "..ranklist[#ranklist].points)
+			if tonumber(ranklist[#ranklist].points) > points and #ranklist == maxEntries then
+				return;
 			else
-				table.remove(ranklist, position);
-				table.insert(ranklist, {["name"] = User.name; ["points"] = points});
+				if not userInList then
+					table.insert(ranklist, {["name"] = User.name; ["points"] = points});
+				else
+					table.remove(ranklist, position);
+					table.insert(ranklist, {["name"] = User.name; ["points"] = points});
+				end
+				
+				table.sort(ranklist, compare)
+				joinedRanklist = convertToOneTable(ranklist)
+				
+				local stringList = table.concat(joinedRanklist, ";");
+				--debug("String before deletion" ..stringList)
+				
+				while #ranklist > maxEntries do
+					table.remove(ranklist);
+				end
+				
+				joinedRanklist = convertToOneTable(ranklist)
+				
+				local stringList = table.concat(joinedRanklist, ";");
+				--debug("String after join:" ..stringList)
+				ScriptVars:set(listName, stringList)
 			end
-			
-			table.sort(ranklist, compare)
-			joinedRanklist = convertToOneTable(ranklist)
-			
-			local stringList = table.concat(joinedRanklist, ";");
-			--debug("String before deletion" ..stringList)
-			
-			while #ranklist > maxEntries do
-				table.remove(ranklist);
-			end
-			
-			joinedRanklist = convertToOneTable(ranklist)
-			
-			local stringList = table.concat(joinedRanklist, ";");
-			--debug("String after join:" ..stringList)
+		else
+			local stringList = User.name..";"..points
 			ScriptVars:set(listName, stringList)
 		end
-	else
-		local stringList = User.name..";"..points
-		ScriptVars:set(listName, stringList)
 	end
 end
 
