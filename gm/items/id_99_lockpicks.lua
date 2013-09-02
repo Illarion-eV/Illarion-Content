@@ -55,7 +55,8 @@ Coordina[14]={844,822,0};
 
 skillNames = {Character.alchemy,Character.carpentry,Character.concussionWeapons,Character.cookingAndBaking,Character.distanceWeapons,Character.dodge,
 			Character.farming,Character.firingBricks,Character.fishing,Character.flute,Character.gemcutting,Character.glassBlowing,Character.goldsmithing,
-			Character.harp,Character.herblore,Character.horn,Character.lute,Character.mining,Character.parry,Character.punctureWeapons,Character.slashingWeapons,
+			Character.harp,Character.heavyArmour,Character.herblore,Character.horn,Character.lightArmour,Character.lute,Character.mediumArmour,
+			Character.mining,Character.parry,Character.punctureWeapons,Character.slashingWeapons,
 			Character.smithing,Character.tailoring,Character.woodcutting,Character.wrestling}
 
 function UseItem(User, SourceItem, ltstate)
