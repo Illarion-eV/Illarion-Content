@@ -1,8 +1,8 @@
--- UPDATE common SET com_script = 'item.id_xyz_dice' WHERE com_itemid = xyz ;
+-- UPDATE common SET com_script = 'item.id_1059_dice' WHERE com_itemid = 1059 ;
 
 require("base.common")
 
-module("item.id_xyz_dice", package.seeall);
+module("item.id_1059_dice", package.seeall);
 
 function UseItem(User, SourceItem, ltstate)
 	chooseTypeOfDice(User)
@@ -32,13 +32,18 @@ function chooseNumberOfDice(User, typeOfDice)
 		end
 		local inputNumber = dialog:getInput();
 		if (string.find(inputNumber,"(%d+)") ~= nil) then
-			if tonumber(inputNumber) < 7 then 
+			if tonumber(inputNumber) <= 0 then
+				User:inform("Du musst mindestens einen Würfel werfen.","You have to trow at least one dice.")
+				chooseNumberOfDice(User, typeOfDice)
+			elseif tonumber(inputNumber) > 0 and tonumber(inputNumber) < 7 then 
 				informAboutResult(User, typeOfDice, inputNumber)
 			else
 				User:inform("Du kannst nur bis zu 6 Würfel werfen.", "You can only trow up to 6 dice.")
+				chooseNumberOfDice(User, typeOfDice)
 			end
 		else
 			User:inform("Not a valid number. Please try again.");
+			chooseNumberOfDice(User, typeOfDice)
 		end
 	end
 	User:requestInputDialog(InputDialog(title, text ,false, 255, cbInputDialog))
