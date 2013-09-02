@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -282,7 +282,7 @@ talkEntry:addTrigger("licavoli");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Could you bring me twenty pieces of iron ore from the Malachite Mine and also twenty lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore.");
+talkEntry:addResponse("Could you bring me 10 pieces of iron ore from the Malachite Mine and also 10 lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -297,7 +297,7 @@ talkEntry:addTrigger("licavoli");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Kannst du mir 20 Brocken Eisenerz von der Malachitmine und außerdem noch 20 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folge der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen.");
+talkEntry:addResponse("Kannst du mir 10 Brocken Eisenerz von der Malachitmine und außerdem noch 10 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folge der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -311,7 +311,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Could you bring me twenty pieces of iron ore from the Malachite Mine and also twenty lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore.");
+talkEntry:addResponse("Could you bring me 10 pieces of iron ore from the Malachite Mine and also 10 lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -326,7 +326,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(712, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Kannst du mir 20 Brocken Eisenerz von der Malachitmine und außerdem noch 20 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folge der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen.");
+talkEntry:addResponse("Kannst du mir 10 Brocken Eisenerz von der Malachitmine und außerdem noch 10 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folge der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,7 +338,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Could you bring me twenty pieces of iron ore from the Malachite Mine and also twenty lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore.");
+talkEntry:addResponse("Could you bring me 10 pieces of iron ore from the Malachite Mine and also 10 lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -349,7 +349,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Kannst du mir 20 Brocken Eisenerz von der Malachitmine und außerdem noch 20 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen.");
+talkEntry:addResponse("Kannst du mir 10 Brocken Eisenerz von der Malachitmine und außerdem noch 10 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -361,7 +361,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Could you bring me twenty pieces of iron ore from the Malachite Mine and also twenty lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore.");
+talkEntry:addResponse("Could you bring me 10 pieces of iron ore from the Malachite Mine and also 10 lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -374,22 +374,20 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 1));
-talkEntry:addResponse("Kannst du mir 20 Brocken Eisenerz von der Malachitmine und außerdem noch 20 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen.");
+talkEntry:addResponse("Kannst du mir 10 Brocken Eisenerz von der Malachitmine und außerdem noch 10 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
-talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 19, nil));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("coal");
 talkEntry:addTrigger("iron");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 2));
 talkEntry:addResponse("Well done, thank you. I'll take ten pieces of ore and ten lumps of coal. You can keep the other ten for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -397,15 +395,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
-talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 19, nil));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("kohle");
 talkEntry:addTrigger("eisen");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 2));
 talkEntry:addResponse("Gut gemacht, danke. Ich nehme zehn Stück vom Erz und zehn von der Kohle. Den Rest kannst du für die nächste Aufgabe behalten.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -413,14 +409,12 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
-talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 19, nil));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 2));
 talkEntry:addResponse("Well done, thank you. I'll take ten pieces of ore and ten lumps of coal. You can keep the other ten for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -428,15 +422,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
-talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 19, nil));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(708, "=", 2));
 talkEntry:addResponse("Gut gemacht, danke. Ich nehme zehn Stück vom Erz und zehn von der Kohle. Den Rest kannst du für die nächste Aufgabe behalten.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -444,39 +436,39 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, nil));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me twenty pieces of iron ore and twenty lumps of coal?");
+talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me 10 pieces of iron ore and 10 lumps of coal?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, nil));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 20 Eisenerze sowie 20 Kohleklumpen von dir. Hast du das vergessen?");
+talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 10 Eisenerze sowie 10 Kohleklumpen von dir. Hast du das vergessen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 20, nil));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me twenty pieces of iron ore and twenty lumps of coal?");
+talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me 10 pieces of iron ore and 10 lumps of coal?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(708, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 20, nil));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 20 Eisenerze und 20 Kohleklumpen von dir. Hast du das vergessen?");
+talkEntry:addResponse("Da fehlt aber noch etwas. Ich wollte 10 Eisenerze und 10 Kohleklumpen von dir. Hast du das vergessen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -296,7 +296,7 @@ talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Could you bring me twenty pieces of iron ore from the 'Liberty Quarry' and also twenty lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore.");
+talkEntry:addResponse("Could you bring me 10 pieces of iron ore from the 'Liberty Quarry' and also 10 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -311,7 +311,7 @@ talkEntry:addTrigger("lindorn");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Könntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln.");
+talkEntry:addResponse("Könntet Ihr mir 10 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 10 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -325,7 +325,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Could you bring me twenty pieces of iron ore from the 'Liberty Quarry' and also twenty lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore.");
+talkEntry:addResponse("Could you bring me 10 pieces of iron ore from the 'Liberty Quarry' and also 10 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -340,7 +340,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(703, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Könntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln.");
+talkEntry:addResponse("Könntet Ihr mir 10 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 10 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -352,7 +352,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Could you bring me ten pieces of iron ore from the 'Liberty Quarry' and also ten lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore.");
+talkEntry:addResponse("Could you bring me 10 pieces of iron ore from the 'Liberty Quarry' and also 10 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,7 +375,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(704, "=", 1));
-talkEntry:addResponse("Could you bring me ten pieces of iron ore from the 'Liberty Quarry' and also ten lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore.");
+talkEntry:addResponse("Could you bring me 10 pieces of iron ore from the 'Liberty Quarry' and also 10 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -454,7 +454,7 @@ talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me ten pieces of iron ore and ten lumps of coal?");
+talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me 10 pieces of iron ore and 10 lumps of coal?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -473,7 +473,7 @@ talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me ten pieces of iron ore and ten lumps of coal?");
+talkEntry:addResponse("That's not everything I was looking for. Did you forget that I told you to bring me 10 pieces of iron ore and 10 lumps of coal?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

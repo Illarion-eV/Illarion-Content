@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 name = "Berri Firegold"
@@ -46,87 +46,95 @@ itemShoes = 679
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Berri Firegold the smith. Keywords: quest, mine, smithing, craft")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Berri Firegold der Schmied. SchlÃ¼sselwÃ¶rter: Quest, Mine, schmieden, Handwerk")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Berri Firegold der Schmied. Schlüsselwörter: Quest, Mine, schmieden, Handwerk")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, can I help you?", "Nice to meet you, I'm Berri Firegold."
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Berri Firegold."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Berri Firegold."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, can I help you?", "Nice to meet you, I'm Berri Firegold."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Berri Firegold"
 "Farewell", "Bye", "Fare well", "See you" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen" -> "Ich wÃ¼nsche Euch noch einen schÃ¶nen Tag.", "Ich hoffe, wir sehen uns wieder. Auf bald!"
+"Tschüß", "Tschüss", "Wiedersehen" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe, wir sehen uns wieder. Auf bald!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich wÃ¼nsche Euch noch einen schÃ¶nen Tag.", "Ich hoffe, wir sehen uns wieder. Auf bald!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe, wir sehen uns wieder. Auf bald!"
 "How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke fÃ¼r die Nachfrage."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke für die Nachfrage."
 "your name", "who are you", "who art thou" -> "I'm Berri Firegold, who are you?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Berri Firegold. Wer bist du?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Berri Firegold. Wer bist du?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a smith of course, maybe I'll have a little task for you later."
-"beruf" -> "Ich bin natÃ¼rlich ein Schmied. Vielleicht habe ich spÃ¤ter eine kleine Aufgabe fÃ¼r Euch."
+"beruf" -> "Ich bin natürlich ein Schmied. Vielleicht habe ich später eine kleine Aufgabe für Euch."
 english, "job" -> "I'm a smith of course, maybe I'll have a little task for you later."
-"job" -> "Ich bin natÃ¼rlich ein Schmied. Vielleicht habe ich spÃ¤ter eine kleine Aufgabe fÃ¼r Euch."
+"job" -> "Ich bin natürlich ein Schmied. Vielleicht habe ich später eine kleine Aufgabe für Euch."
 
 -- help triggers
 english, "mine" -> "If you leave the town and follow the street to the south you will reach the 'Cornerstone of Candour', you can find coal there. If you leave the town and go northeast you will reach the 'Liberty Quarry', you can find iron and copper ore there, and sometimes even gold nuggets."
-german, "mine" -> "Wenn Ihr die Stadt verlasst und nach SÃ¼den der StraÃŸe folgt, erreicht Ihr den 'Grundstein der Aufrichtigkeit'. Dort kÃ¶nnt Ihr Kohle finden. Wenn Ihr die Stadt verlasst und nach Nordosten geht, erreicht Ihr den 'Freiheitsbruch'. Dort findet Ihr Eisen- und Kupfererz und manchmal sogar Goldnuggets."
+german, "mine" -> "Wenn Ihr die Stadt verlasst und nach Süden der Straße folgt, erreicht Ihr den 'Grundstein der Aufrichtigkeit'. Dort könnt Ihr Kohle finden. Wenn Ihr die Stadt verlasst und nach Nordosten geht, erreicht Ihr den 'Freiheitsbruch'. Dort findet Ihr Eisen- und Kupfererz und manchmal sogar Goldnuggets."
 english, "smith" -> "If you want to smith you need ingots and a hammer of course. Blacksmiths need a normal hammer, finesmiths need a finesmithing hammer though."
-"schmied" -> "Wenn Ihr schmieden wollt, dann braucht Ihr Barren und natÃ¼rlich einen Hammer. Schmiede benutzen einen gewÃ¶hnlichen Hammer. Goldschmiede dagegen brauchen einen Feinschmiedehammer."
+"schmied" -> "Wenn Ihr schmieden wollt, dann braucht Ihr Barren und natürlich einen Hammer. Schmiede benutzen einen gewöhnlichen Hammer. Goldschmiede dagegen brauchen einen Feinschmiedehammer."
 english, "craft" -> "If you need help with smithing, ask me for a task. If you prefer glass blowing or brick making talk to Zlatxhol at the oven over there. You can ask Lilli Gallfing behind me in the other room if you want to know more about tailoring. If you don't like any of these crafts you can talk with Gerry Deloid, he can teach you the basics of candle making."
-german, "hand" -> "Wenn Ihr Hilfe beim Schmieden braucht, fragt mich nach einer Aufgabe. Wollt Ihr lieber etwas Ã¼ber das Glasblasen oder Ziegelmachen lernen, dann fragt Zlatxhol da vorne. Liegt Euch das Schneiderhandwerk eher, dann fragt Lilli Gallfing hinter mir im anderen Raum. Falls Ihr jedoch am Kerzenmachen interessiert seid, dann geht durch die Schneiderei hinaus und sprecht Gerry Deloid an."
+german, "hand" -> "Wenn Ihr Hilfe beim Schmieden braucht, fragt mich nach einer Aufgabe. Wollt Ihr lieber etwas über das Glasblasen oder Ziegelmachen lernen, dann fragt Zlatxhol da vorne. Liegt Euch das Schneiderhandwerk eher, dann fragt Lilli Gallfing hinter mir im anderen Raum. Falls Ihr jedoch am Kerzenmachen interessiert seid, dann geht durch die Schneiderei hinaus und sprecht Gerry Deloid an."
 
 -- Quests
 queststatus(703) = 1, queststatus(704) > 0, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 2, "Ah Jakob sent you, but you have already asked me for something to do. If you want to learn more about glass blowing or brick making talk to Zlatxhol at the oven over there. You can ask Lilli Gallfing behind me in the other room if you want to know more about tailoring. If you don't like any of these crafts you can talk to Gerry Deloid, he can teach you the basics of candle making."
-queststatus(704) > 0, queststatus(703) = 1, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 2, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt. Wollt Ihr mehr Ã¼ber das Glasblasen oder Ziegelmachen lernen, dann fragt Zlatxhol da vorne. Liegt euch das Schneiderhandwerk eher, dann fragt Lilli Gallfing hinter mir im anderen Raum. Falls Ihr jedoch am Kerzenmachen interessiert seid, dann geht durch die Schneiderei hinaus und sprecht Gerry Deloid an."
+queststatus(704) > 0, queststatus(703) = 1, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 2, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt. Wollt Ihr mehr über das Glasblasen oder Ziegelmachen lernen, dann fragt Zlatxhol da vorne. Liegt euch das Schneiderhandwerk eher, dann fragt Lilli Gallfing hinter mir im anderen Raum. Falls Ihr jedoch am Kerzenmachen interessiert seid, dann geht durch die Schneiderei hinaus und sprecht Gerry Deloid an."
 queststatus(704) > 0, queststatus(703) = 1, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 2, "Ah Jakob sent you, but you have already asked me for something to do. If you want to learn more about glass blowing or brick making talk to Zlatxhol at the oven over there. You can ask Lilli Gallfing behind me in the other room if you want to know more about tailoring. If you don't like any of these crafts you can talk to Gerry Deloid, he can teach you the basics of candle making."
-queststatus(704) > 0, queststatus(703) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 2, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt. Wollt Ihr mehr Ã¼ber das Glasblasen oder Ziegelmachen lernen, dann fragt Zlatxhol da vorne. Liegt euch das Schneiderhandwerk eher, dann fragt Lilli Gallfing hinter mir im anderen Raum. Falls Ihr jedoch am Kerzenmachen interessiert seid, dann geht durch die Schneiderei hinaus und sprecht Gerry Deloid an."
-queststatus(704) = 0, queststatus(703) = 1, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> item(2763, 1, 777), queststatus(703) = 2, queststatus(704) = 1, "Could you bring me twenty pieces of iron ore from the 'Liberty Quarry' and also twenty lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore."
-queststatus(704) = 0, queststatus(703) = 1, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> item(2763, 1, 777), queststatus(703) = 2, queststatus(704) = 1, "KÃ¶nntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, auÃŸerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im SÃ¼den, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln."
-queststatus(704) = 0, queststatus(703) = 1, town = Cadomyr, "task", "adventure", "order" -> item(2763, 1, 777), queststatus(703) = 2, queststatus(704) = 1, "Could you bring me twenty pieces of iron ore from the 'Liberty Quarry' and also twenty lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore."
-queststatus(704) = 0, queststatus(703) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2763, 1, 777), queststatus(703) = 2, queststatus(704) = 1, "KÃ¶nntet Ihr mir 20 Eisenerze vom 'Freiheitsbruch' bringen, auÃŸerdem noch 20 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im SÃ¼den, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln."
-queststatus(704) = 0, english, town = Cadomyr, "quest", "mission" -> item(2763, 1, 555), queststatus(704) = 1, "Could you bring me ten pieces of iron ore from the 'Liberty Quarry' and also ten lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore."
-queststatus(704) = 0, town = Cadomyr, "quest", "mission" -> item(2763, 1, 555), queststatus(704) = 1, "KÃ¶nntet Ihr mir 10 Eisenerze vom 'Freiheitsbruch' bringen, auÃŸerdem noch 10 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im SÃ¼den, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln."
-queststatus(704) = 0, town = Cadomyr, "task", "adventure", "order" -> item(2763, 1, 555), queststatus(704) = 1, "Could you bring me ten pieces of iron ore from the 'Liberty Quarry' and also ten lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore."
-queststatus(704) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2763, 1, 555), queststatus(704) = 1, "KÃ¶nntet Ihr mir 10 Eisenerze vom 'Freiheitsbruch' bringen, auÃŸerdem noch 10 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im SÃ¼den, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln."
+queststatus(704) > 0, queststatus(703) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 2, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt. Wollt Ihr mehr über das Glasblasen oder Ziegelmachen lernen, dann fragt Zlatxhol da vorne. Liegt euch das Schneiderhandwerk eher, dann fragt Lilli Gallfing hinter mir im anderen Raum. Falls Ihr jedoch am Kerzenmachen interessiert seid, dann geht durch die Schneiderei hinaus und sprecht Gerry Deloid an."
+queststatus(704) = 0, queststatus(703) = 1, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> item(2763, 1, 777), queststatus(703) = 2, queststatus(704) = 1, "Could you bring me 10 pieces of iron ore from the 'Liberty Quarry' and also 10 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore."
+queststatus(704) = 0, queststatus(703) = 1, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> item(2763, 1, 777), queststatus(703) = 2, queststatus(704) = 1, "Könntet Ihr mir 10 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 10 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln."
+queststatus(704) = 0, queststatus(703) = 1, town = Cadomyr, "task", "adventure", "order" -> item(2763, 1, 777), queststatus(703) = 2, queststatus(704) = 1, "Could you bring me 10 pieces of iron ore from the 'Liberty Quarry' and also 10 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore."
+queststatus(704) = 0, queststatus(703) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2763, 1, 777), queststatus(703) = 2, queststatus(704) = 1, "Könntet Ihr mir 10 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 10 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln."
+
+-- first quest without newbie questgiver
+queststatus(704) = 0, english, town = Cadomyr, "quest", "mission" -> item(2763, 1, 555), queststatus(704) = 1, "Could you bring me 10 pieces of iron ore from the 'Liberty Quarry' and also 10 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore."
+queststatus(704) = 0, town = Cadomyr, "quest", "mission" -> item(2763, 1, 555), queststatus(704) = 1, "Könntet Ihr mir 10 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 10 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln."
+queststatus(704) = 0, town = Cadomyr, "task", "adventure", "order" -> item(2763, 1, 555), queststatus(704) = 1, "Could you bring me 10 pieces of iron ore from the 'Liberty Quarry' and also 10 lumps of coal from the 'Cornerstone of Candour'? The 'Liberty Quarry' is northeast and the 'Cornerstone of Candour' south as you leave the city. Here's a pick-axe to mine the ore."
+queststatus(704) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2763, 1, 555), queststatus(704) = 1, "Könntet Ihr mir 10 Eisenerze vom 'Freiheitsbruch' bringen, außerdem noch 10 Klumpen Kohle von der Mine 'Grundstein der Aufrichtigkeit'? Den 'Freiheitsbruch' findet Ihr im Nordosten und den 'Grundstein der Aufrichtigkeit' im Süden, wenn Ihr die Stadt verlasst. Hier habt Ihr eine Spitzhacke, um das Erz zu sammeln."
+
+-- not enough stuff
 queststatus(704) = 1, item(21, all) > 9, item(22, all) > 9, english, town = Cadomyr, "quest", "mission", "coal", "iron" -> queststatus(704) = 2, "Well done, thank you. You can keep it for your next task."
-queststatus(704) = 1, item(21, all) > 9, item(22, all) > 9, town = Cadomyr, "quest", "mission", "kohle", "eisen" -> queststatus(704) = 2, "Gut gemacht, danke. Behaltet sie fÃ¼r die nÃ¤chste Aufgabe."
+queststatus(704) = 1, item(21, all) > 9, item(22, all) > 9, town = Cadomyr, "quest", "mission", "kohle", "eisen" -> queststatus(704) = 2, "Gut gemacht, danke. Behaltet sie für die nächste Aufgabe."
 queststatus(704) = 1, item(21, all) > 9, item(22, all) > 9, town = Cadomyr, "task", "adventure", "order" -> queststatus(704) = 2, "Well done, thank you. You can keep it for your next task."
-queststatus(704) = 1, item(21, all) > 9, item(22, all) > 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(704) = 2, "Gut gemacht, danke. Behaltet sie fÃ¼r die nÃ¤chste Aufgabe."
-queststatus(704) = 1, item(21, all) < 10, english, town = Cadomyr, ".+" -> "That's not everything I was looking for. Did you forget that I told you to bring me ten pieces of iron ore and ten lumps of coal?"
+queststatus(704) = 1, item(21, all) > 9, item(22, all) > 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(704) = 2, "Gut gemacht, danke. Behaltet sie für die nächste Aufgabe."
+
+-- first quest solved
+queststatus(704) = 1, item(21, all) < 10, english, town = Cadomyr, ".+" -> "That's not everything I was looking for. Did you forget that I told you to bring me 10 pieces of iron ore and 10 lumps of coal?"
 queststatus(704) = 1, item(21, all) < 10, town = Cadomyr, ".+" -> "Da fehlt aber noch etwas. Ich wollte 10 Eisenerze sowie 10 Kohleklumpen von Euch. Habt Ihr das vergessen?"
-queststatus(704) = 1, item(22, all) < 10, english, town = Cadomyr, ".+" -> "That's not everything I was looking for. Did you forget that I told you to bring me ten pieces of iron ore and ten lumps of coal?"
+queststatus(704) = 1, item(22, all) < 10, english, town = Cadomyr, ".+" -> "That's not everything I was looking for. Did you forget that I told you to bring me 10 pieces of iron ore and 10 lumps of coal?"
 queststatus(704) = 1, item(22, all) < 10, town = Cadomyr, ".+" -> "Da fehlt aber noch etwas. Ich wollte 10 Eisenerze sowie 10 Kohleklumpen von Euch Habt Ihr das vergessen?"
+
+-- second quest
 queststatus(704) = 2, english, town = Cadomyr, "quest", "mission" -> item(2751, 1, 333), queststatus(704) = 3, "I have another task for you, indeed. Could you smelt me ten iron ingots at the furnace over there? Here I'll even give you the crucible-pincers for smelting the ore."
-queststatus(704) = 2, town = Cadomyr, "quest", "mission" -> item(2751, 1, 333), queststatus(704) = 3, "Ich hÃ¤tte einen weitere Aufgabe fÃ¼r Euch, in der Tat. KÃ¶nntet Ihr mir 10 Eisenbarren bei der Esse dort drÃ¼ben schmelzen? Hier, ich gebe Euch sogar eine Tiegelzange zum schmelzen."
+queststatus(704) = 2, town = Cadomyr, "quest", "mission" -> item(2751, 1, 333), queststatus(704) = 3, "Ich hätte einen weitere Aufgabe für Euch, in der Tat. Könntet Ihr mir 10 Eisenbarren bei der Esse dort drüben schmelzen? Hier, ich gebe Euch sogar eine Tiegelzange zum schmelzen."
 queststatus(704) = 2, town = Cadomyr, "task", "adventure", "order" -> item(2751, 1, 333), queststatus(704) = 3, "I have another task for you, indeed. Could you smelt me ten iron ingots at the furnace over there? Here I'll even give you the crucible-pincers for smelting the ore."
-queststatus(704) = 2, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2751, 1, 333), queststatus(704) = 3, "Ich hÃ¤tte einen weitere Aufgabe fÃ¼r Euch, in der Tat. KÃ¶nntet Ihr mir 10 Eisenbarren bei der Esse dort drÃ¼ben schmelzen? Hier, ich gebe Euch sogar eine Tiegelzange zum schmelzen."
+queststatus(704) = 2, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2751, 1, 333), queststatus(704) = 3, "Ich hätte einen weitere Aufgabe für Euch, in der Tat. Könntet Ihr mir 10 Eisenbarren bei der Esse dort drüben schmelzen? Hier, ich gebe Euch sogar eine Tiegelzange zum schmelzen."
 queststatus(704) = 3, item(2535, all) > 9, english, town = Cadomyr, "quest", "mission", "iron", "ingots" -> queststatus(704) = 4, "Well done. Please keep the iron ingots for your next task."
-queststatus(704) = 3, item(2535, all) > 9, town = Cadomyr, "quest", "mission", "eisen", "barren" -> queststatus(704) = 4, "Gut gemacht. Bitte behaltet die Eisenbarren fÃ¼r Eure nÃ¤chste Aufgabe."
+queststatus(704) = 3, item(2535, all) > 9, town = Cadomyr, "quest", "mission", "eisen", "barren" -> queststatus(704) = 4, "Gut gemacht. Bitte behaltet die Eisenbarren für Eure nächste Aufgabe."
 queststatus(704) = 3, item(2535, all) > 9, town = Cadomyr, "task", "adventure", "order" -> queststatus(704) = 4, "Well done. Please keep the iron ingots for your next task."
-queststatus(704) = 3, item(2535, all) > 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(704) = 4, "Gut gemacht. Bitte behaltet die Eisenbarren fÃ¼r Eure nÃ¤chste Aufgabe"
+queststatus(704) = 3, item(2535, all) > 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(704) = 4, "Gut gemacht. Bitte behaltet die Eisenbarren für Eure nächste Aufgabe"
 queststatus(704) = 3, item(2535, all) < 10, english, town = Cadomyr, ".+" -> "That's not ten iron ingots yet. Please come back later when you've finished the task."
 queststatus(704) = 3, item(2535, all) < 10, town = Cadomyr, ".+" -> "Das sind noch keine 10 Eisenbarren, die ich von Euch wollte. Kommt wieder, wenn Ihr die Aufgabe erledigt habt."
 queststatus(704) = 4, english, town = Cadomyr, "quest", "mission" -> item(23, 1, 555), item(122, 1, 555), queststatus(704) = 5, "You want another task? Well alright. Could you smith me five pins and five goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handle is for finesmithing. Here I'll give you one of each kind so you can practise a little bit."
-queststatus(704) = 4, town = Cadomyr, "quest", "mission" -> item(23, 1, 555), item(122, 1, 555), queststatus(704) = 5, "Ihr wollt noch eine weitere Aufgabe? Nun gut, meinetwegen. Bitte stellt mir 5 NÃ¤gel sowie 5 Kelche her. Der Hammer mit dem gelben Griff ist fÃ¼r das Schmieden gedacht. Der mit dem roten Griff fÃ¼r das Feinschmieden. Hier ich gebe Euch jeweils einen zum Ã¼ben."
+queststatus(704) = 4, town = Cadomyr, "quest", "mission" -> item(23, 1, 555), item(122, 1, 555), queststatus(704) = 5, "Ihr wollt noch eine weitere Aufgabe? Nun gut, meinetwegen. Bitte stellt mir 5 Nägel sowie 5 Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht. Der mit dem roten Griff für das Feinschmieden. Hier ich gebe Euch jeweils einen zum üben."
 queststatus(704) = 4, town = Cadomyr, "task", "adventure", "order" -> item(23, 1, 555), item(122, 1, 555), queststatus(704) = 5, "You want another task? Well alright. Could you smith me five pins and five goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handle is for finesmithing. Here I'll give you one of each kind so you can practise a little bit."
-queststatus(704) = 4, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(23, 1, 555), item(122, 1, 555), queststatus(704) = 5, "Ihr wollt noch eine weitere Aufgabe? Nun gut, meinetwegen. Bitte stellt mir 5 NÃ¤gel sowie 5 Kelche her. Der Hammer mit dem gelben Griff ist fÃ¼r das Schmieden gedacht. Der mit dem roten Griff fÃ¼r das Feinschmieden. Hier ich gebe Euch jeweils einen zum Ã¼ben."
+queststatus(704) = 4, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(23, 1, 555), item(122, 1, 555), queststatus(704) = 5, "Ihr wollt noch eine weitere Aufgabe? Nun gut, meinetwegen. Bitte stellt mir 5 Nägel sowie 5 Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht. Der mit dem roten Griff für das Feinschmieden. Hier ich gebe Euch jeweils einen zum üben."
 queststatus(704) = 5, item(2738, all) > 4, item(1858, all) > 4, english, town = Cadomyr, "quest", "mission", "pin", "goblet" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(704) = 6, "Well done, thank you very much. I don't think you need my help any longer, good luck!"
-queststatus(704) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Cadomyr, "quest", "mission", "nÃ¤gel", "kelch" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(704) = 6, "Gut gemacht, vielen Dank. Ich denke, Ihr kommt nun auch ohne meine Hilfe zurecht."
+queststatus(704) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Cadomyr, "quest", "mission", "nägel", "kelch" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(704) = 6, "Gut gemacht, vielen Dank. Ich denke, Ihr kommt nun auch ohne meine Hilfe zurecht."
 queststatus(704) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Cadomyr, "task", "adventure", "order" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(704) = 6, "Well done, thank you very much. I don't think you need my help any longer, good luck!"
 queststatus(704) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(704) = 6, "Gut gemacht, vielen Dank. Ich denke, Ihr kommt nun auch ohne meine Hilfe zurecht."
 queststatus(704) = 5, item(2738, all) < 5, english, town = Cadomyr, ".+" -> "You haven't solved the task yet. Please come back again if you have five pins and five goblets for me."
-queststatus(704) = 5, item(2738, all) < 5, town = Cadomyr, ".+" -> "Ihr habt die Aufgabe noch nicht erfÃ¼llt, wie ich sehe. Bitte bringt mir 5 NÃ¤gel und 5 Kelche."
+queststatus(704) = 5, item(2738, all) < 5, town = Cadomyr, ".+" -> "Ihr habt die Aufgabe noch nicht erfüllt, wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche."
 queststatus(704) = 5, item(1858, all) < 5, english, town = Cadomyr, ".+" -> "You haven't solved the task yet. Please come back again if you have five pins and five goblets for me."
-queststatus(704) = 5, item(1858, all) < 5, town = Cadomyr, ".+" -> "Ihr habt die Aufgabe noch nicht erfÃ¼llt, wie ich sehe. Bitte bringt mir 5 NÃ¤gel und 5 Kelche."
+queststatus(704) = 5, item(1858, all) < 5, town = Cadomyr, ".+" -> "Ihr habt die Aufgabe noch nicht erfüllt, wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 queststatus(704) = 6, english, town = Cadomyr, ".*" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(704) = 6, german, town = Cadomyr, ".*" -> "Ich habe nichts weiter fÃ¼r Euch zu tun. Aber danke nochmals fÃ¼r Eure Hilfe!"
+queststatus(704) = 6, german, town = Cadomyr, ".*" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
 queststatus(704) < 6, english, town = Cadomyr, ".*" -> "I could use some help, just ask me for a task."
-queststatus(704) < 6, german, town = Cadomyr, ".*" -> "Ich kÃ¶nnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas fÃ¼r Euch zu tun."
+queststatus(704) < 6, german, town = Cadomyr, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
 english, ".*" -> "You are not a citizen of Cadomyr. I don't have anything for you to do."
-german, ".*" -> "Ihr scheint kein BÃ¼rger Cadomyr zu sein. Ich habe nichts fÃ¼r Euch zu tun."
+german, ".*" -> "Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -134,8 +142,8 @@ german, ".*" -> "Ihr scheint kein BÃ¼rger Cadomyr zu sein. Ich habe nichts fÃ¼r 
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
-cycletext "#me streicht sich Ã¼ber seinen Bart.", "#me runs a hand over his beard."
+cycletext "#me streicht sich über seinen Bart.", "#me runs a hand over his beard."
 cycletext "Wenn Ihr Hilfe beim schmieden braucht, dann fragt nur mich!", "If you need any help smithing, just ask me!"
-cycletext "#me gÃ¤hnt verhalten.", "#me yawns restrained."
+cycletext "#me gähnt verhalten.", "#me yawns restrained."
 cycletext "Ein Bier! Bringt mir ein Bier!", "A beer, bring me a beer!"
 cycletext "#me grummelt.", "#me grumbles."
