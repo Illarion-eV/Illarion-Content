@@ -106,6 +106,20 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 	if not base.common.FitForWork( User ) then -- check minimal food points
+		if (SourceItem.id == 2835) then --turn it off
+			SourceItem.id = 2836;
+			SourceItem.wear = 255;
+			world:changeItem(SourceItem);
+			User:changeSource(SourceItem);
+		end
+		
+		if (SourceItem.id == 2834) then
+			SourceItem.id = 2837;
+			SourceItem.wear = 255;
+			world:changeItem(SourceItem);
+			User:changeSource(SourceItem);
+		end
+		
 		return
 	end
 
