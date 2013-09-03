@@ -435,11 +435,13 @@ module("base.treasure", package.seeall)
 		for i=1,17 do
             myItem = User:getItemAt( i );
             if myItem.id == 505 then
-			    local MapData = {myItem:getData("MapPosX"),myItem:getData("MapPosY"),myItem:getData("MapPosZ")}
-		        local MapPosition = base.common.DataToPosition( MapData )
-			    if MapPosition == neededPosition then
-                    return true, myItem, 0;
-                end
+				if myItem:getData("MapPosX") ~= "" and myItem:getData("MapPosY")  ~= "" and myItem:getData("MapPosZ") ~= "" then --valid treasure map
+					local MapData = {myItem:getData("MapPosX"),myItem:getData("MapPosY"),myItem:getData("MapPosZ")}
+					local MapPosition = base.common.DataToPosition( MapData )
+					if MapPosition == neededPosition then
+						return true, myItem, 0;
+					end
+				end
 			end
         end
 
@@ -456,11 +458,13 @@ module("base.treasure", package.seeall)
             worked,myItem,thisCont=theBackpack:viewItemNr(i);
             if worked then
                 if myItem.id == 505 then
-					local MapData = {myItem:getData("MapPosX"),myItem:getData("MapPosY"),myItem:getData("MapPosZ")}
-					local MapPosition = base.common.DataToPosition( MapData )
-				    if MapPosition == neededPosition then
-                        return true, myItem, i;
-                    end
+					if myItem:getData("MapPosX") ~= "" and myItem:getData("MapPosY")  ~= "" and myItem:getData("MapPosZ") ~= "" then --valid treasure map
+						local MapData = {myItem:getData("MapPosX"),myItem:getData("MapPosY"),myItem:getData("MapPosZ")}
+						local MapPosition = base.common.DataToPosition( MapData )
+						if MapPosition == neededPosition then
+							return true, myItem, i;
+						end
+					end
                 end
 		   end
         until not worked;
