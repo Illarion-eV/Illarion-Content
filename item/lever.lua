@@ -48,15 +48,15 @@ function init()
 	dronrul1:bind(1, handler.createsound.createSound(position(442,754,-3),22));
 	--dronrul1.bind(1, handler.sendmessage.sendMessage(position(442,754,-3), "Der Hebel bewegt sich und das Loch in der Wand gegenüber schließt sich.", "The lever moves and the hole in the wall on the opposite side closes.", 4));
 	
-	--[[-- Levers to spawn Bridge to pirate Isle
+	-- Levers to spawn Bridge to pirate Isle
 	killerhuhn = base.lever.Lever(position(54,602,0),false);
-	killerhuhn:bind(0, handler.createmonster.createMonster(position(50,604,0),5,40));
+	--[[killerhuhn:bind(0, handler.createmonster.createMonster(position(50,604,0),5,40));
 	killerhuhn:bind(0, handler.createitem.createItem(position(49,604,0),5, 123, 1));
 	killerhuhn:bind(1, handler.createmonster.createMonster(position(50,604,0),12,40));
-	killerhuhn:bind(1, handler.deleteitem.deleteItem(position(49,604,0),613));
+	killerhuhn:bind(1, handler.deleteitem.deleteItem(position(49,604,0),613));]]
 	
 	ki1 = base.lever.Lever(position(54,603,0),false);
-	ki1:bind(0, handler.settile.setTile(position(49,604,0), 4));
+	--[[ki1:bind(0, handler.settile.setTile(position(49,604,0), 4));
 	ki1:bind(1, handler.settile.setTile(position(49,604,0), 6));]]
 	
 	ki2 = base.lever.Lever(position(54,604,0),false);
