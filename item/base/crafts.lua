@@ -136,6 +136,7 @@ function Craft:addProduct(categoryId, itemId, difficulty, learnLimit, minTime, m
 end
 
 function Craft:showDialog(user, source)
+
     if not self:allowCrafting(user, source) then
         if self.fallbackCraft then
             self.fallbackCraft:showDialog(user, source)
@@ -148,7 +149,11 @@ function Craft:showDialog(user, source)
         local result = dialog:getResult()
         if result == CraftingDialog.playerCrafts then
             local productId = dialog:getCraftableId()
-            local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId)
+			local neededFood = 0
+			local foodOK = false
+			local product = self.products[productId]
+			foodOK, neededFood = self:checkRequiredFood(user, product.foodConsumption, product.difficulty)
+			local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK
             if canWork then
                 self:swapToActiveItem(user)
             end
