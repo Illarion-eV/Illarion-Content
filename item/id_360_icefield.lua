@@ -14,6 +14,14 @@ function CharacterOnField(User)
     if (AffectedRaces==nil) then
         IniFireField();
     end
+	
+	--immune
+	if User:getType()==Character.monster then
+		if User:getMonsterType() == 681 then
+			return
+		end
+	end
+	
 	-- Eisflamme auf dem Feld suchen
 	-- !!Eventuell gibt es Probleme, wenn sich mehrere Flammen auf einem Feld befinden!!
 	local Items = base.common.GetItemsOnField(User.pos);

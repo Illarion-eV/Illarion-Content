@@ -21,6 +21,14 @@ function CharacterOnField(User)  -- geht los wenn ein Char auf das Feld tritt
     if (User:increaseAttrib("hitpoints",0) == 0) then
         return
     end
+	
+	--immune
+	if User:getType()==Character.monster then
+		if User:getMonsterType() == 651 then
+			return
+		end
+	end
+	
 	-- Flamme auf dem Feld suchen
 	-- !!Eventuell gibt es Probleme, wenn sich mehrere Flammen auf einem Feld befinden!!
 	local Items = base.common.GetItemsOnField(User.pos);
