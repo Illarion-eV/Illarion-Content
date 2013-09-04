@@ -76,9 +76,11 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
         if ( Foodvalue >= maxFoodvalue/12 ) and Char:getType()==Character.player then -- Schnelles HP regenerieren mit FP
 			Hitpoints = math.min( maxHitpoints, Hitpoints + 50 + ( 350 * ( Const / 20 ) ) );  -- Lebenspunkte steigen bei Konst 10 in 3 Minuten und 42 Sekunden von 0 auf 10000
             Foodvalue = Foodvalue - math.min(200,(10000-Hitpoints) * ( 10 / Const ) );                     -- Nahrungspunkte fallen in 12 Minute und 30 Sekunden von 60000 auf 30000
-        elseif (Foodvalue ~= 0) or Char:getType()==Character.monster then  -- Langsame Regeneration ohne FP
+        elseif (Foodvalue ~= 0) and Char:getType()==Character.player then  -- Langsame Regeneration ohne FP
             Hitpoints = math.min( maxHitpoints, Hitpoints + 10 * 5 );  -- Lebenspunkte steigen in 16 Minuten und 40 Sekunden von 0 auf 10000
-        end
+        elseif Char:getType()==Character.monster then -- monster healing
+			Hitpoints = math.min( maxHitpoints, Hitpoints + 50 * 5 ) 
+		end
     end
     if ((Race ~= 10) and (Race ~= 11) and (Race ~= 20) and (Race ~= 26) and (Race ~= 29) and not Char:isAdmin()) and Char:getType()==Character.player then -- Wenn der Charakter nicht Untot und nicht GM - Hunger
         if ( Foodvalue == 0 ) then -- Keine Nahrung mehr - Verhungern
