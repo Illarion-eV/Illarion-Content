@@ -386,15 +386,15 @@ catId = tailoring:addCategory("chest armour", "Brustrüstungen") --Chest armours
 
 -- full leather armour           
 product = tailoring:addProduct(catId, 362, 99, 100, 178, 357, 1);
-product:addIngredient(1547, 15); -- Leather
+product:addIngredient(2547, 15); -- Leather
 
-product:addIngredient(1586, 9); -- Fur
+product:addIngredient(2586, 9); -- Fur
 
 product:addIngredient(176, 6); -- Grey Cloth
 
 product:addIngredient(50, 5); -- Thread
 
-product:addIngredient(1571); -- Merinium Ingot
+product:addIngredient(2571); -- Merinium Ingot
 
 product:addIngredient(2554); -- Pure Water
 
@@ -644,7 +644,7 @@ product:addIngredient(176, 3); -- Grey Cloth
 
 product:addIngredient(50, 4); -- Thread
 
-product:addIngredient(1571); -- Merinium Ingot
+product:addIngredient(2571); -- Merinium Ingot
 
 -- fur boots                     
 product = tailoring:addProduct(catId, 697, 70, 90, 135, 270, 1);

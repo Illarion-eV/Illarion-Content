@@ -104,7 +104,7 @@ product:addIngredient(56); -- Bough
 
 
 --Big sword handle
-product = carving:addProduct(catId, 2858, 52, 72, 108, 216, 1);
+product = carving:addProduct(catId, 2585, 52, 72, 108, 216, 1);
 product:addIngredient(56); -- Bough
 
 product:addIngredient(2547); -- Leather
