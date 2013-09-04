@@ -73,14 +73,14 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
 
     -----------------------HITPOINTS ANFANG-----------------------------------
     if ( Hitpoints < maxHitpoints and Poisonvalue == 0 ) then -- HP nicht voll und nicht vergiftet - Regeneration
-        if ( Foodvalue >= maxFoodvalue/12 ) and not Char:getType()==Character.monster then -- Schnelles HP regenerieren mit FP
-            Hitpoints = math.min( maxHitpoints, Hitpoints + 50 + ( 350 * ( Const / 20 ) ) );  -- Lebenspunkte steigen bei Konst 10 in 3 Minuten und 42 Sekunden von 0 auf 10000
+        if ( Foodvalue >= maxFoodvalue/12 ) and Char:getType()==Character.player then -- Schnelles HP regenerieren mit FP
+			Hitpoints = math.min( maxHitpoints, Hitpoints + 50 + ( 350 * ( Const / 20 ) ) );  -- Lebenspunkte steigen bei Konst 10 in 3 Minuten und 42 Sekunden von 0 auf 10000
             Foodvalue = Foodvalue - math.min(200,(10000-Hitpoints) * ( 10 / Const ) );                     -- Nahrungspunkte fallen in 12 Minute und 30 Sekunden von 60000 auf 30000
         elseif (Foodvalue ~= 0) or Char:getType()==Character.monster then  -- Langsame Regeneration ohne FP
             Hitpoints = math.min( maxHitpoints, Hitpoints + 10 * 5 );  -- Lebenspunkte steigen in 16 Minuten und 40 Sekunden von 0 auf 10000
         end
     end
-    if ((Race ~= 10) and (Race ~= 11) and (Race ~= 20) and (Race ~= 26) and (Race ~= 29) and not Char:isAdmin()) and not Char:getType()==Character.monster then -- Wenn der Charakter nicht Untot und nicht GM - Hunger
+    if ((Race ~= 10) and (Race ~= 11) and (Race ~= 20) and (Race ~= 26) and (Race ~= 29) and not Char:isAdmin()) and Char:getType()==Character.player then -- Wenn der Charakter nicht Untot und nicht GM - Hunger
         if ( Foodvalue == 0 ) then -- Keine Nahrung mehr - Verhungern
             Hitpoints = math.max(0,Hitpoints - 30 * 5); -- Lebenspunkte sinken in 5 Minuten und 33 Sekunden von 10000 auf 0
             if ( Hitpoints > 0 ) then -- HP Verlust aber kein Tod
@@ -138,7 +138,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
     -----------------------HITPOINTS FERTIG-----------------------------------
 
     -----------------------MANAPOINTS ANFANG----------------------------------
-    if ( ( Char:getMagicType( ) == 0 ) and ( Char:getMagicFlags( 0 ) > 0 ) ) and not Char:getType()==Character.monster then -- Charakter ist Magier
+    if ( ( Char:getMagicType( ) == 0 ) and ( Char:getMagicFlags( 0 ) > 0 ) ) and Char:getType()==Character.player then -- Charakter ist Magier
         if ( Manapoints < maxManapoints ) then -- MP nicht voll - Regeneration
 
             local RegBoni = 100;
@@ -193,7 +193,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
     -----------------------MANAPOINTS FERTIG----------------------------------
 
     -----------------------FOODPOINTS ANFANG----------------------------------
-    if ((Race ~= 10) and (Race ~= 11) and (Race ~= 20) and (Race ~= 26) and (Race ~= 29)) and not Char:getType()==Character.monster then -- Wenn der Charakter nicht Untot - Hunger
+    if ((Race ~= 10) and (Race ~= 11) and (Race ~= 20) and (Race ~= 26) and (Race ~= 29)) and Char:getType()==Character.player then -- Wenn der Charakter nicht Untot - Hunger
         if (Char:isAdmin() == false) then
             if ( Foodvalue > 0 ) then -- Nahrung vorhanden - Hunger verbrauch
                 Foodvalue = math.max( 0, Foodvalue - 1 * 5 ); -- Nahrungspunkte fallen in 16 Stunden und 40 Minuten von 60000 auf 0;
