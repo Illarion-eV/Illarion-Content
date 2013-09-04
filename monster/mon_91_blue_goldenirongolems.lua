@@ -21,8 +21,9 @@ end
 
 function onSpawn(Monster)
     
+	-- Regeneration for high level monsters >= level 7
 	local MonID=Monster:getMonsterType() 
-	if MonID == 911 then
+	if MonID == 911 or MonID == 912 then -- Merinium Golem, Gold Golem
 		local find, reg_effect = Monster.effects:find(2);
 		if not find then
 			Monster.effects:addEffect( LongTimeEffect(2,10) );

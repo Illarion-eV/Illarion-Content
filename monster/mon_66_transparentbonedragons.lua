@@ -18,6 +18,18 @@ msgs:addMessage("#me knurrt.", "#me growls.");
 
 end
 
+function onSpawn(Monster)
+    
+	-- Regeneration for high level monsters >= level 7
+	local MonID=Monster:getMonsterType() 
+	if MonID == 661 then --Nightmare Dragon
+		local find, reg_effect = Monster.effects:find(2);
+		if not find then
+			Monster.effects:addEffect( LongTimeEffect(2,10) );
+		end
+	end
+end
+
 function enemyNear(Monster,Enemy)
 
     if init==nil then

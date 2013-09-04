@@ -20,6 +20,7 @@ end
 
 function onSpawn(Monster)
     
+	-- Regeneration for high level monsters >= level 7
 	local MonID=Monster:getMonsterType() 
 	if MonID == 631 then
 		local find, reg_effect = Monster.effects:find(2);

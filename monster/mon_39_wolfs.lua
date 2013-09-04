@@ -31,17 +31,6 @@ msgs:addMessage("#mes Schwanz streckt sich hinter seinem Körper gerade aus.", "#
 
 end
 
-function onSpawn(Monster)
-    
-	local MonID=Monster:getMonsterType() 
-	if MonID == 391 then
-		local find, reg_effect = Monster.effects:find(2);
-		if not find then
-			Monster.effects:addEffect( LongTimeEffect(2,10) );
-		end
-	end
-end
-
 function enemyNear(Monster,Enemy)
 
     if init==nil then
