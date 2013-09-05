@@ -97,7 +97,7 @@ product:addIngredient(45) -- Emerald: 1x1
 --Topas Amulet
 product = goldsmithing:addProduct(catId, 83, 75, 95, 75, 150)
 product:addIngredient(2550) -- Copper Ingot: 1x1
-product:addIngredient(236) -- Gold Ingot: 1x1
+product:addIngredient(236,2) -- Gold Ingot: 1x2
 product:addIngredient(198) -- Topas: 1x1
 
 --Charm of the Icebird

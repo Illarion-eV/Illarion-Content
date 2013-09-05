@@ -29,39 +29,43 @@ product:addIngredient(176, 2) -- Grey Cloth: 2x1
 product:addIngredient(50, 2*2) -- Thread: 2x2
 product:addIngredient(175) -- Black Cloth: 1x1
 
---Green Hat w Feather
+--Green Hat with Feather
 product = tailoring:addProduct(catId, 831, 44, 64, 80, 160)
 product:addIngredient(175) -- Black Cloth: 1x1
 product:addIngredient(50, 2*2) -- Thread: 2x2
-product:addIngredient(54, 2) -- Green Cloth: 2x1
+product:addIngredient(54, 3) -- Green Cloth: 3x1
 
 --Red Hat with Feather
 product = tailoring:addProduct(catId, 832, 49, 69, 85, 170)
 product:addIngredient(175) -- Black Cloth: 1x1
-product:addIngredient(50, 2*2) -- Thread: 2x2
-product:addIngredient(174, 2) -- Red Cloth: 2x1
+product:addIngredient(50, 3*2) -- Thread: 3x2
+product:addIngredient(174, 3) -- Red Cloth: 3x1
 
 --Yellow Hat with Feather
 product = tailoring:addProduct(catId, 829, 53, 73, 90, 180)
 product:addIngredient(175) -- Black Cloth: 1x1
 product:addIngredient(50, 2*2) -- Thread: 2x2
 product:addIngredient(177, 2) -- Yellow Cloth: 2x1
+product:addIngredient(198) -- Topaz: 1x1
 
 --Blue hat with Feather
 product = tailoring:addProduct(catId, 828, 58, 78, 95, 190)
 product:addIngredient(175) -- Black Cloth: 1x1
 product:addIngredient(50, 2*2) -- Thread: 2x2
 product:addIngredient(179, 2) -- Blue Cloth: 2x1
+product:addIngredient(284) -- Sapphire: 1x1
 
 --Red Wizard Hat
 product = tailoring:addProduct(catId, 358, 62, 82, 120, 240)
 product:addIngredient(174, 3) -- Red Cloth: 3x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
+product:addIngredient(46) -- Ruby: 1x1
 
 --Blue wizard hat
 product = tailoring:addProduct(catId, 357, 67, 87, 132, 264)
 product:addIngredient(179, 3) -- Blue Cloth: 3x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
+product:addIngredient(284,2) -- Sapphire: 2x1
 
 --Colourful Wizard Hat
 product = tailoring:addProduct(catId, 370, 71, 91, 207, 414)
@@ -467,52 +471,59 @@ product:addIngredient(50, 5*2) -- Thread: 5x2
 
 --Black Priest Robe
 product = tailoring:addProduct(catId, 2420, 59, 79, 160, 320)
-product:addIngredient(175, 4) -- Black Cloth: 4x1
+product:addIngredient(175, 5) -- Black Cloth: 5x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
 
 --Novice Mage Robe
 product = tailoring:addProduct(catId, 547, 62, 82, 160, 320)
-product:addIngredient(174, 3) -- Red Cloth: 3x1
+product:addIngredient(174, 4) -- Red Cloth: 4x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
-product:addIngredient(177) -- Yellow Cloth: 1x1
+product:addIngredient(177,2) -- Yellow Cloth: 2x1
 
 --Red Priest Robe
 product = tailoring:addProduct(catId, 2419, 65, 85, 168, 336)
 product:addIngredient(174, 4) -- Red Cloth: 4x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
+product:addIngredient(46) -- Ruby: 1x1
 
 --Red Mage Robe
 product = tailoring:addProduct(catId, 2377, 68, 88, 176, 352)
 product:addIngredient(174, 3) -- Red Cloth: 3x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
 product:addIngredient(177) -- Yellow Cloth: 1x1
+product:addIngredient(46) -- Ruby: 1x1
 
 --Yellow Robe
 product = tailoring:addProduct(catId, 195, 71, 91, 184, 368)
-product:addIngredient(177, 4) -- Yellow Cloth: 4x1
+product:addIngredient(177, 3) -- Yellow Cloth: 3x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
+product:addIngredient(198, 2) -- Topaz: 2x1
 
 --Yellow Priest Robe
 product = tailoring:addProduct(catId, 368, 73, 93, 184, 368)
 product:addIngredient(177, 3) -- Yellow Cloth: 3x1
-product:addIngredient(50, 4*2) -- Thread: 4x2
+product:addIngredient(50, 3*2) -- Thread: 3x2
 product:addIngredient(178) -- White Cloth: 1x1
+product:addIngredient(198, 2) -- Topaz: 2x1
 
 --Brown Priest Robe
 product = tailoring:addProduct(catId, 2416, 76, 96, 192, 384)
 product:addIngredient(174, 2) -- Red Cloth: 2x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
 product:addIngredient(177, 2) -- Yellow Cloth: 2x1
+product:addIngredient(46, 2) -- Ruby: 2x1
 
 --Blue Robe
 product = tailoring:addProduct(catId, 193, 79, 99, 200, 400)
 product:addIngredient(179, 4) -- Blue Cloth: 4x1
-product:addIngredient(50, 4*2) -- Thread: 4x2
+product:addIngredient(50, 5*2) -- Thread: 5x2
+product:addIngredient(284, 2) -- Sapphire: 1x2
 
 --Blue Coat
 product = tailoring:addProduct(catId, 2380, 82, 100, 250, 500)
 product:addIngredient(179, 5) -- Blue Cloth: 5x1
 product:addIngredient(50, 5*2) -- Thread: 5x2
+product:addIngredient(284, 2) -- Sapphire: 1x2
 
 --Mage Robe
 product = tailoring:addProduct(catId, 548, 84, 100, 416, 832)

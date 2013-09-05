@@ -89,7 +89,7 @@ product:addIngredient(2543) -- Conifer Wooden Boards: 1x1
 
 --Large Handle
 product = carving:addProduct(catId, 2544, 18, 38, 9, 18)
-product:addIngredient(56) -- Bough: 1x1
+product:addIngredient(56,2) -- Bough: 1x1
 
 --Long Staff Handle
 product = carving:addProduct(catId, 2573, 10, 50, 14, 28)
@@ -322,10 +322,10 @@ catId = carving:addCategory("wands", "Zauberstäbe") --Wands
 
 --Wand
 product = carving:addProduct(catId, 323, 40, 60, 75, 150)
-product:addIngredient(56) -- Bough: 1x1
+product:addIngredient(56,2) -- Bough: 1x2
 product:addIngredient(545, 2) -- Cherry Wooden Boards: 2x1
 product:addIngredient(2527) -- Large Ornated Staff Handle: 1x1
-product:addIngredient(46) -- Ruby: 1x1
+product:addIngredient(46,2) -- Ruby: 1x2
 
 --Wand of Earth
 product = carving:addProduct(catId, 2782, 60, 80, 180, 360)
