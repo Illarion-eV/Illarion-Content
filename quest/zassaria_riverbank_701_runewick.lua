@@ -1,6 +1,7 @@
 -- INSERT INTO quests SET qst_script = 'quest.zassaria_riverbank_701_runewick' WHERE qst_id = 701;
 
 require("base.common")
+require("base.factions")
 module("quest.zassaria_riverbank_701_runewick", package.seeall)
 
 GERMAN = Player.german
@@ -93,4 +94,12 @@ end
 
 function QuestFinalStatus()
     return FINAL_QUEST_STATUS
+end
+
+function QuestAvailability(user, status)
+    if base.factions.getMembership(user) == base.factions.runewick and status == 0 then
+        return Player.questAvailable
+    else
+        return Player.questNotAvailable
+    end
 end

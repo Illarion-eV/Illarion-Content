@@ -3,9 +3,9 @@ require("base.money")
 --THE EDITABLE PART FOR NEW TOWNS IS SOME LINES BELOW
 
 -- NOTE: town IDs for:
---- Cadomyr: 1
---- Runewick: 2
---- Galmair: 3
+cadomyr = 1
+runewick = 2
+galmair = 3
 
 module("base.factions", package.seeall)
 
@@ -137,11 +137,11 @@ if not InitFaction then
 --AddAdditionalTownName(German Trigger, English Trigger)
 
 AddTown(0,"None");
-AddTown(1,"Cadomyr");
+AddTown(cadomyr,"Cadomyr");
 --AddTownMainKey(1,2121, 333, 5030);
 --AddTownJailKey(12,2121, 333, 5031);
-AddTown(2,"Runewick");
-AddTown(3,"Galmair");
+AddTown(runewick,"Runewick");
+AddTown(galmair,"Galmair");
 
 
 end
