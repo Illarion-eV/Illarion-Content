@@ -42,7 +42,7 @@ function chooseNumberOfDice(User, typeOfDice)
 				chooseNumberOfDice(User, typeOfDice)
 			end
 		else
-			User:inform("Not a valid number. Please try again.");
+			User:inform("Dies ist keine gültige Zahl. Bitte versuch es erneut.","Not a valid number. Please try again.");
 			chooseNumberOfDice(User, typeOfDice)
 		end
 	end
