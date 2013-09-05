@@ -11,16 +11,16 @@ VALUES (0, 355, 254, 0, 4, 'Trainer Cloud McGoughey', 'npc.attribute_trainer', 0
 require("base.money")
 module("npc.attribute_trainer", package.seeall)
 
-init = false;
+init = {};
 
 function nextCycle(npc)
-    if not init then
+    if not init[npc.id] then
         npc:createAtPos(3, 458, 1)
         npc:createAtPos(11, 195, 1)
         npc:createAtPos(5, 2622, 1)
         npc:createAtPos(9, 460, 1)
         npc:createAtPos(10, 369, 1)
-        init = true
+        init[npc.id] = true
     end
 end
 
