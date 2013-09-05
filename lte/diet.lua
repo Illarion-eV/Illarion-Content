@@ -96,6 +96,7 @@ function InformPlayer(dietEffect, Character)
     end
     if (buffAmount == 1) then
       local attrib = item.food.BUFFS[buffType][1];
+	  Character:setAttrib(attrib,Character:increaseAttrib(attrib,0)+1);
       local gText = "[Ernährung] Durch das gute Essen erhöht sich vorübergehend folgendes Attribut um 1: ";
       if (GermanAttributes[attrib] ~= nil) then
         gText = gText .. GermanAttributes[attrib];
@@ -109,6 +110,7 @@ function InformPlayer(dietEffect, Character)
       local gText = "[Ernährung] Durch das gute Essen erhöhen sich vorübergehend folgende Attribute um 1: ";
       local eText = "[Diet] Due to your good food, the following attributes are temporarily increased by 1: ";
       local attrib = item.food.BUFFS[buffType][1];
+	  Character:setAttrib(attrib,Character:increaseAttrib(attrib,0)+1);
       eText = eText .. attrib;
       if (GermanAttributes[attrib] ~= nil) then
         gText = gText .. GermanAttributes[attrib];
@@ -116,6 +118,7 @@ function InformPlayer(dietEffect, Character)
         gText = gText .. attrib;
       end
       attrib = item.food.BUFFS[buffType][2];
+	  Character:setAttrib(attrib,Character:increaseAttrib(attrib,0)+1);
       eText = eText .. " and " .. attrib;
       if (GermanAttributes[attrib] ~= nil) then
         gText = gText .. " und " .. GermanAttributes[attrib];
