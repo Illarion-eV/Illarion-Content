@@ -133,7 +133,7 @@ if (MonID==821) then --Bog Body, Level: 4, Armourtype: light, Weapontype: slashi
         --Category 3: Special Loot
 
         local done=monster.base.drop.AddDropItem(2701,1,20,(100*math.random(2,3)+math.random(22,33)),0,3); --longsword
-        if not done then done=monster.base.drop.AddDropItem(2447,1,10,(100*math.random(2,3)+math.random(22,33)),0,3); end --mosiac shield
+        if not done then done=monster.base.drop.AddDropItem(17,1,10,(100*math.random(2,3)+math.random(22,33)),0,3); end --mosiac shield
         if not done then done=monster.base.drop.AddDropItem(445,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --wooden sword
         if not done then done=monster.base.drop.AddDropItem(398,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --copperd dagger
         if not done then done=monster.base.drop.AddDropItem(823,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --grey trousers
