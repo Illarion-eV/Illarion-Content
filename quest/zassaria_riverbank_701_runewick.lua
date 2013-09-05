@@ -97,11 +97,9 @@ function QuestFinalStatus()
 end
 
 function QuestAvailability(user, status)
-    if base.factions.getMembership(user) ~= 2 or status == 15 then
-        return Player.questNotAvailable
-    elseif status == 1 or status == 4 or status == 7 or status == 10 or status == 13 then
-		return Player.questWillBeAvailable
-	else
+    if base.factions.getMembership(user) == base.factions.runewick and status == 0 then
         return Player.questAvailable
+    else
+        return Player.questNotAvailable
     end
 end
