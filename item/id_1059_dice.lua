@@ -11,13 +11,30 @@ end
 function informAboutResult(User, typeOfDice, numberOfDice)
 	local thrownNumbers = math.random(1,typeOfDice);
 	
+	local diceTypeEn, diceTypeDe
+	if typeOfDice == 6 then
+		diceTypeEn = "sixsided"
+		if numberOfDice > 1 then
+			diceTypeDe = "sechsseitige"
+		else
+			diceTypeDe = "sechsseitiger"
+		end
+	else
+		diceTypeEn = "twentysided"
+		if numberOfDice > 1 then
+			diceTypeDe = "zwanzigseitige"
+		else
+			diceTypeDe = "zwanzigseitiger"
+		end
+	end	
+	
 	for i=1, numberOfDice-1 do
 		thrownNumbers = thrownNumbers..", "..math.random(1,typeOfDice);
 	end
 	
 	local playerInRange = world:getPlayersInRangeOf(User.pos, 3);
 	for _,player in pairs(playerInRange) do 
-		player:inform(User.name.." wirft "..numberOfDice.." Würfel und bekommt: "..thrownNumbers ,User.name.." throws "..numberOfDice.." dice and gets: "..thrownNumbers);		
+		player:inform(User.name.." wirft "..numberOfDice.." "..diceTypeDe.." Würfel und bekommt: "..thrownNumbers ,User.name.." throws "..numberOfDice.." "..diceTypeEn.." dice and gets: "..thrownNumbers);		
 	end
 		
 end
@@ -66,8 +83,8 @@ function chooseTypeOfDice(User)
 	end
 	local dialog = SelectionDialog(title, text, sdDice)
 
-	dialog:addOption(0, base.common.GetNLS(User, "W6 - Sechskantiger Würfel", "D6 - Sixsided dice"))
-	dialog:addOption(0, base.common.GetNLS(User, "W20 - Zwanzigkantiger Würfel", "D20 - Twentysided dice"))
+	dialog:addOption(0, base.common.GetNLS(User, "W6 - Sechsseitiger Würfel", "D6 - Sixsided dice"))
+	dialog:addOption(0, base.common.GetNLS(User, "W20 - Zwanzigseiiger Würfel", "D20 - Twentysided dice"))
 	
 	User:requestSelectionDialog(dialog)
 end
