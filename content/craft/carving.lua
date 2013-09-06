@@ -159,6 +159,15 @@ product:addIngredient(2535); -- Iron Ingot
 
 catId = carving:addCategory("weapons", "Waffen") --weapons
 
+--Battle Staff
+product = carving:addProduct(catId, 207, 99, 100, 175, 340)
+product:addIngredient(56) -- Bough: 1x1
+product:addIngredient(546, 2) -- Naldor Wooden Boards: 2x1
+product:addIngredient(2573) -- Large Staff Handle: 1x1
+product:addIngredient(762) -- gold crak herb
+product:addIngredient(2571, 2) -- Merinium Ingot: 2x1
+product:addIngredient(2552); -- Pure Earthx1
+
 -- ornate mage's staff        								
 product = carving:addProduct(catId, 208, 92, 100, 168, 336, 1);								
 product:addIngredient(2573); -- Large Staff Handle

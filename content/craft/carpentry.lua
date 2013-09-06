@@ -70,6 +70,26 @@ product:addIngredient(2716) -- Apple Wooden Boards: 1x1
 
 catId = carpentry:addCategory("bows", "Bögen") --bows
 
+--Crossbow
+product = carpentry:addProduct(catId, 70, 99, 100, 250, 500)
+product:addIngredient(546, 6) -- Naldor Wooden Boards: 6x1
+product:addIngredient(2717, 2) -- pins and cotters 2x1
+product:addIngredient(50, 2) -- Thread: 2x1
+product:addIngredient(2535) -- Iron Ingots: 1x1
+product:addIngredient(283, 2) -- Blackstone
+product:addIngredient(2571) -- Merinium Ingot 2x1
+product:addIngredient(2552); -- Pure Earthx1
+
+--Elven Composite Longbow
+product = carpentry:addProduct(catId, 2718, 90, 100, 154, 308)
+product:addIngredient(546, 5) -- Naldor Wooden Boards: 5x1
+product:addIngredient(50, 2) -- Thread: 2x1
+product:addIngredient(2571,2); -- Merinium Ingot 2x1
+product:addIngredient(448, 2); -- Emerald Powder
+product:addIngredient(284); -- Sapphire
+product:addIngredient(2551) -- Pure Air: 1x1
+
+
 -- elven shortbow             
 product = carpentry:addProduct(catId, 2685, 80, 100, 150, 300, 1);
 product:addIngredient(546, 3); -- Naldor Wood Boards
@@ -172,6 +192,25 @@ product:addIngredient(545, 5) -- Cherry Wooden Boards: 5x1
 product:addIngredient(50, 3) -- Thread: 3x1
 
 catId = carpentry:addCategory("shields", "Schilde") --shields
+
+
+--Mosaic shield
+product = carpentry:addProduct(catId, 2447, 99, 100, 500, 756)
+product:addIngredient(2543, 6) -- Conifer Wooden Boards: 6x1
+product:addIngredient(2547, 3) -- Leather: 3x1
+product:addIngredient(104) -- Silver Ingot
+product:addIngredient(2553) -- Pure fire
+product:addIngredient(46, 3) -- Ruby: 3x1
+product:addIngredient(2571,2) -- Merinium Ingot 2x1
+
+
+--Cloud Shield
+product = carpentry:addProduct(catId, 2439, 99, 100, 480, 960)
+product:addIngredient(2543, 6) -- Conifer Wooden Boards: 6x1
+product:addIngredient(2547, 3) -- Leather: 3x1
+product:addIngredient(2554) -- Pure Water: 1x1
+product:addIngredient(285, 5) -- Diamond: 5x1
+product:addIngredient(2571,2) -- Merinium Ingot 2x1
 
 -- shield of the sky          
 product = carpentry:addProduct(catId, 2284, 96, 100, 174, 348, 1);
