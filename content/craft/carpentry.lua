@@ -90,7 +90,7 @@ product:addIngredient(197); -- Amethyst
 
 -- ebony wood bow             
 product = carpentry:addProduct(catId, 2780, 70, 90, 135, 270, 1);
-product:addIngredient(2548, 4); -- Naldor Wood Board
+product:addIngredient(546, 4); -- Naldor Wood Board
 
 product:addIngredient(545, 3); -- Cherry Wood Boards
 
