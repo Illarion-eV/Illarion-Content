@@ -625,7 +625,7 @@ talkingNPC:addCycleText("#me hohlt tief Luft und seufzt leise: 'H-hm! Tannenholz
 talkingNPC:addCycleText("#me lächelt sanft und sein faltiges Gesicht wirkt dabei wie eine große Rosine.", "#me smiles softly, his wrinkled face appearing like a big raisin.");
 talkingNPC:addCycleText("#me streicht mit der Hand über verschiedene hölzerne Dinge welche ihn umgeben.", "#me runs a hand over a few different wooden things which surround him.");
 talkingNPC:addCycleText("Rosen sind Rot, Veilchen sind Blau, ich mag den Himmel, und meine Frau. - Hab mein Holz, was braucht ein Halbling mehr? Darauf bin ich stolz.", "Roses are red, violets are blue, I like the sky and my wife too. I've got my wood, what else does a halfling need? I'm proud of it.");
-talkingNPC:addCycleText("#me verängt mit einem Lächeln die Augen und mustert seine Umgebung.", "#me blinks with one eye and inspects his surrounding.");
+talkingNPC:addCycleText("#me verengt mit einem Lächeln die Augen und mustert seine Umgebung.", "#me blinks with one eye and inspects his surrounding.");
 talkingNPC:addCycleText("#me lehnt sich zufrieden lächelnd zurück.", "#me leans back, smiling contently.");
 talkingNPC:addCycleText("#me steckt seine Hand in die Tasche neben dem Stuhl und zieht ein Brötchen heraus. Dann beginnt er daran zu knabbern.", "#me puts his hand into the bag near his chair, pulling out a bread roll, and starts nibbling on it.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(9,"sell"));
