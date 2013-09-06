@@ -315,6 +315,16 @@ product:addIngredient(2547, 7); -- Leather
 
 product:addIngredient(176, 7); -- Grey Cloth
 
+-- albarian steel plate          
+product = smithing:addProduct(catId, 2369, 68, 88, 132, 264, 1);
+product:addIngredient(2535, 12); -- Iron Ingot
+
+product:addIngredient(2550, 4); -- Copper Ingot
+
+product:addIngredient(2547, 4); -- Leather
+
+product:addIngredient(176, 4); -- Grey Cloth
+
 -- lizard armour                 
 product = smithing:addProduct(catId, 696, 52, 72, 108, 216, 1);
 product:addIngredient(2535, 7); -- Iron Ingot
@@ -428,16 +438,6 @@ product:addIngredient(2535, 8); -- Iron Ingot
 product:addIngredient(2550, 5); -- Copper Ingot
 
 product:addIngredient(2547, 3); -- Leather
-
--- albarian steel plate          
-product = smithing:addProduct(catId, 2369, 68, 88, 132, 264, 1);
-product:addIngredient(2535, 12); -- Iron Ingot
-
-product:addIngredient(2550, 4); -- Copper Ingot
-
-product:addIngredient(2547, 4); -- Leather
-
-product:addIngredient(176, 4); -- Grey Cloth
 
 -- dwarven metal gloves          
 product = smithing:addProduct(catId, 529, 46, 66, 99, 198, 1);
