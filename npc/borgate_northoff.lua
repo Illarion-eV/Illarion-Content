@@ -782,6 +782,7 @@ talkingNPC:addCycleText("#me wischt über die Theke.", "#me wipes the counter.");
 talkingNPC:addCycleText("#me trinkt ein Bier", "#me gulps down a beer.");
 talkingNPC:addCycleText("#me wischt seine Hände in die Hosen.", "#me cleans his hands by rubbing them against his trousers.");
 talkingNPC:addCycleText("#me brummt eine langsame Meldoie.", "#me grumbles a slow melody.");
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1059,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(164,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(191,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(224,"sell"));
