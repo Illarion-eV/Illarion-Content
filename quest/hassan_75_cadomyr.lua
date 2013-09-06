@@ -17,7 +17,7 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Besorge ein Glas mit Wein und bringe es Hassan. Du kannst ein Glas mit Wein vom Händler kaufen oder fülle Wein aus einer Flasche in ein leeres Glas."
-Description[ENGLISH][1] = "Produce a glass with wine and bring it to Hassan. You can buy a glass with wine from a merchant or fill wine from a bottle into a glass."
+Description[ENGLISH][1] = "Produce a glass with wine and bring it to Hassan. You can buy a 'glass with wine' from a merchant or fill wine from a bottle into a 'glass'."
 Description[GERMAN][2] = "Rede mit Hassan. Er kann dir einiges erzählen."
 Description[ENGLISH][2] = "Talk to Hassan, he can tell you a lot."
 
