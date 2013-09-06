@@ -196,9 +196,9 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
         --Category 3: Weapon
 
         local done=monster.base.drop.AddDropItem(76,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --mage's staff
-        if not done then done=monster.base.drop.AddDropItem(208,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --ornate mage's staff
+        if not done then done=monster.base.drop.AddDropItem(1044,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --ornate mage's staff
         if not done then done=monster.base.drop.AddDropItem(323,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --wand
-        if not done then done=monster.base.drop.AddDropItem(207,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --battle staff
+        if not done then done=monster.base.drop.AddDropItem(209,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --battle staff
         if not done then done=monster.base.drop.AddDropItem(39,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --skull staff
 
         --Category 4: Perma Loot
@@ -212,7 +212,7 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
         local done=monster.base.drop.AddDropItem(2363,1,20,(100*math.random(6,7)+math.random(66,77)),0,1); --nightplate
         if not done then done=monster.base.drop.AddDropItem(326,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --steel boots
         if not done then done=monster.base.drop.AddDropItem(2393,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --heavy plate armor
-        if not done then done=monster.base.drop.AddDropItem(185,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --black visor helmet
+        if not done then done=monster.base.drop.AddDropItem(184,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --black visor helmet
         if not done then done=monster.base.drop.AddDropItem(2111,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --blue steel greaves
 
         --Category 2: Special loot
@@ -258,7 +258,7 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
         local done=monster.base.drop.AddDropItem(231,1,20,(100*math.random(6,7)+math.random(66,77)),0,3); --morning star
         if not done then done=monster.base.drop.AddDropItem(2737,1,10,(100*math.random(6,7)+math.random(66,77)),0,3); end --morning star
         if not done then done=monster.base.drop.AddDropItem(226,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --warhammer
-        if not done then done=monster.base.drop.AddDropItem(207,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --battle staff
+        if not done then done=monster.base.drop.AddDropItem(209,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --battle staff
         if not done then done=monster.base.drop.AddDropItem(230,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --mace
 
         --Category 4: Perma Loot
@@ -284,8 +284,8 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
 
         --Category 3: Weapon
 
-        local done=monster.base.drop.AddDropItem(207,1,20,(100*math.random(7,8)+math.random(77,88)),0,3); --battle staff
-        if not done then done=monster.base.drop.AddDropItem(208,1,10,(100*math.random(7,8)+math.random(77,88)),0,3); end --ornate mage's staff
+        local done=monster.base.drop.AddDropItem(209,1,20,(100*math.random(7,8)+math.random(77,88)),0,3); --battle staff
+        if not done then done=monster.base.drop.AddDropItem(1044,1,10,(100*math.random(7,8)+math.random(77,88)),0,3); end --ornate mage's staff
         if not done then done=monster.base.drop.AddDropItem(2551,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --pure air
         if not done then done=monster.base.drop.AddDropItem(2782,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --wand of earth
         if not done then done=monster.base.drop.AddDropItem(2783,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --wand of fire

@@ -198,7 +198,7 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
         local done=monster.base.drop.AddDropItem(53,1,20,(100*math.random(6,7)+math.random(66,77)),0,2); --leather boots
         if not done then done=monster.base.drop.AddDropItem(366,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --leather legs
         if not done then done=monster.base.drop.AddDropItem(363,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --leather scale armor
-        if not done then done=monster.base.drop.AddDropItem(362,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --light hunting armor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --light hunting armor
         if not done then done=monster.base.drop.AddDropItem(324,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --chain helmet
 
         --Category 3: Mianly weapons

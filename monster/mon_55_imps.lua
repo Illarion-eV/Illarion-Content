@@ -102,7 +102,7 @@ if (MonID==551) then --Imp, Level: 3, Armourtype: light, Weapontype: slashing
         if not done then done=monster.base.drop.AddDropItem(186,1,10,(100*math.random(2,3)+math.random(22,33)),0,1); end --round metal shield
         if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --half leather armor
         if not done then done=monster.base.drop.AddDropItem(366,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --leather legs
-        if not done then done=monster.base.drop.AddDropItem(362,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --full leatherarmor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --half leather armor
 
         --Category 2: Special Loot
 
@@ -131,7 +131,7 @@ if (MonID==551) then --Imp, Level: 3, Armourtype: light, Weapontype: slashing
         local done=monster.base.drop.AddDropItem(17,1,20,(100*math.random(3,4)+math.random(33,44)),0,1); --wooden shield
         if not done then done=monster.base.drop.AddDropItem(367,1,10,(100*math.random(3,4)+math.random(33,44)),0,1); end --short leather legs
         if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --half leather armor
-        if not done then done=monster.base.drop.AddDropItem(364,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --light hunting armor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --half leather armor
         if not done then done=monster.base.drop.AddDropItem(53,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --leather boots
 
         --Category 2: Plants

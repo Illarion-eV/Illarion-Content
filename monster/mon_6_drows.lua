@@ -163,7 +163,7 @@ function onDeath(Monster)
         --Category 1: Armor
 
         local done=monster.base.drop.AddDropItem(95,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --heraldic shield
-        if not done then done=monster.base.drop.AddDropItem(2286,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --flame helmet
+        if not done then done=monster.base.drop.AddDropItem(2287,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --albarian soldier's helmet
         if not done then done=monster.base.drop.AddDropItem(2402,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow armor
         if not done then done=monster.base.drop.AddDropItem(2303,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow helmet
         if not done then done=monster.base.drop.AddDropItem(2403,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --elven silversteel armor
@@ -211,7 +211,7 @@ function onDeath(Monster)
         local done=monster.base.drop.AddDropItem(209,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --elven mage's staff
         if not done then done=monster.base.drop.AddDropItem(57,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --simple mage's staff
         if not done then done=monster.base.drop.AddDropItem(76,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --mage's staff
-        if not done then done=monster.base.drop.AddDropItem(208,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --ornate mage's staff
+        if not done then done=monster.base.drop.AddDropItem(1044,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --ornate mage's staff
         if not done then done=monster.base.drop.AddDropItem(39,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --skull staff
 
         --Category 4: Perma Loot
@@ -240,7 +240,7 @@ function onDeath(Monster)
 
         local done=monster.base.drop.AddDropItem(40,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --cleric's staff
         if not done then done=monster.base.drop.AddDropItem(39,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --skull staff
-        if not done then done=monster.base.drop.AddDropItem(207,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --battle staff
+        if not done then done=monster.base.drop.AddDropItem(209,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --battle staff
         if not done then done=monster.base.drop.AddDropItem(2664,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --club
         if not done then done=monster.base.drop.AddDropItem(230,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --mace
 

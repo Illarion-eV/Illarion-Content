@@ -142,7 +142,7 @@ if (MonID==941) then --Crazy Rat Alchemist, Level: 2, Armourtype: cloth, Weapont
 
         local done=monster.base.drop.AddDropItem(40,1,20,(100*math.random(2,3)+math.random(22,33)),0,3); --cleric's staff
         if not done then done=monster.base.drop.AddDropItem(76,1,10,(100*math.random(2,3)+math.random(22,33)),0,3); end --mage's staff
-        if not done then done=monster.base.drop.AddDropItem(208,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --ornate mage's staff
+        if not done then done=monster.base.drop.AddDropItem(1044,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --ornate mage's staff
         if not done then done=monster.base.drop.AddDropItem(39,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --skull staff
         if not done then done=monster.base.drop.AddDropItem(230,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --mace
 

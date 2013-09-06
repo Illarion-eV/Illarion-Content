@@ -111,7 +111,7 @@ function onDeath(Monster)
         --Category 1: Armor
 
         local done=monster.base.drop.AddDropItem(2194,1,20,(100*math.random(4,5)+math.random(44,55)),0,1); --short hardwood greaves
-        if not done then done=monster.base.drop.AddDropItem(2286,1,10,(100*math.random(4,5)+math.random(44,55)),0,1); end --flame helmet
+        if not done then done=monster.base.drop.AddDropItem(2287,1,10,(100*math.random(4,5)+math.random(44,55)),0,1); end --albarian soldier's helmet
         if not done then done=monster.base.drop.AddDropItem(2367,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --albarian noble's armor
         if not done then done=monster.base.drop.AddDropItem(2388,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --red steel shield
         if not done then done=monster.base.drop.AddDropItem(101,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --chain shirt
@@ -173,8 +173,8 @@ function onDeath(Monster)
         local done=monster.base.drop.AddDropItem(369,1,20,(100*math.random(3,4)+math.random(33,44)),0,1); --leather shoes
         if not done then done=monster.base.drop.AddDropItem(367,1,10,(100*math.random(3,4)+math.random(33,44)),0,1); end --short leather legs
         if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --half leather armor
-        if not done then done=monster.base.drop.AddDropItem(364,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --light hunting armor
-        if not done then done=monster.base.drop.AddDropItem(362,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --full leatherarmor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --half leather armor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --half leather armor
 
         --Category 2: Special loot
 
@@ -200,10 +200,10 @@ function onDeath(Monster)
 
         --Category 1: Armor
 
-        local done=monster.base.drop.AddDropItem(2113,1,20,(100*math.random(4,5)+math.random(44,55)),0,1); --fur trousers
+        local done=monster.base.drop.AddDropItem(366,1,20,(100*math.random(4,5)+math.random(44,55)),0,1); --fur trousers
         if not done then done=monster.base.drop.AddDropItem(48,1,10,(100*math.random(4,5)+math.random(44,55)),0,1); end --leather gloves
-        if not done then done=monster.base.drop.AddDropItem(364,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --light hunting armor
-        if not done then done=monster.base.drop.AddDropItem(362,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --full leatherarmor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --half leather armor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --half leather armor
         if not done then done=monster.base.drop.AddDropItem(2407,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --light blue breastplate
 
         --Category 2: Special loot

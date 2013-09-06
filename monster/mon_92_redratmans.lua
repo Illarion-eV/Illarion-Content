@@ -89,9 +89,9 @@ if (MonID==921) then --Sewerrat, Level: 2, Armourtype: cloth, Weapontype: slashi
 
         local done=monster.base.drop.AddDropItem(697,1,20,(100*math.random(1,2)+math.random(11,22)),0,1); --fur boots
         if not done then done=monster.base.drop.AddDropItem(19,1,10,(100*math.random(1,2)+math.random(11,22)),0,1); end --metal shield
-        if not done then done=monster.base.drop.AddDropItem(2113,1,1,(100*math.random(1,2)+math.random(11,22)),0,1); end --fur trousers
+        if not done then done=monster.base.drop.AddDropItem(366,1,1,(100*math.random(1,2)+math.random(11,22)),0,1); end --fur trousers
         if not done then done=monster.base.drop.AddDropItem(364,1,1,(100*math.random(1,2)+math.random(11,22)),0,1); end --light hunting armor
-        if not done then done=monster.base.drop.AddDropItem(362,1,1,(100*math.random(1,2)+math.random(11,22)),0,1); end --full leatherarmor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(1,2)+math.random(11,22)),0,1); end --half leather armor
 
         --Category 2: Special Loot
 

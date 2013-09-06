@@ -120,7 +120,7 @@ function onDeath(Monster)
 
         --Category 1: Armor
 
-        local done=monster.base.drop.AddDropItem(2291,1,20,(100*math.random(4,5)+math.random(44,55)),0,1); --salkamaerian paladin's helmet
+        local done=monster.base.drop.AddDropItem(2441,1,20,(100*math.random(4,5)+math.random(44,55)),0,1); --salkamaerian paladin's helmet
         if not done then done=monster.base.drop.AddDropItem(2194,1,10,(100*math.random(4,5)+math.random(44,55)),0,1); end --short hardwood greaves
         if not done then done=monster.base.drop.AddDropItem(2365,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --salkamaerian officer's armor
         if not done then done=monster.base.drop.AddDropItem(2360,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --Lor-Angur guardian's armor
@@ -150,7 +150,7 @@ function onDeath(Monster)
 
         --Category 1: Armor
 
-        local done=monster.base.drop.AddDropItem(528,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --salkamarian steel gloves
+        local done=monster.base.drop.AddDropItem(530,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --albarian steel gloves
         if not done then done=monster.base.drop.AddDropItem(186,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --round metal shield
         if not done then done=monster.base.drop.AddDropItem(699,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --salkamaerian steel boots
         if not done then done=monster.base.drop.AddDropItem(2364,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --steel plate
@@ -198,7 +198,7 @@ function onDeath(Monster)
 
         local done=monster.base.drop.AddDropItem(57,1,20,(100*math.random(4,5)+math.random(44,55)),0,3); --simple mage's staff
         if not done then done=monster.base.drop.AddDropItem(76,1,10,(100*math.random(4,5)+math.random(44,55)),0,3); end --mage's staff
-        if not done then done=monster.base.drop.AddDropItem(208,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --ornate mage's staff
+        if not done then done=monster.base.drop.AddDropItem(1044,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --ornate mage's staff
         if not done then done=monster.base.drop.AddDropItem(2664,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --club
         if not done then done=monster.base.drop.AddDropItem(39,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --skull staff
 
@@ -241,10 +241,10 @@ function onDeath(Monster)
         --Category 1: Armor
 
         local done=monster.base.drop.AddDropItem(527,1,20,(100*math.random(3,4)+math.random(33,44)),0,1); --serinjah leather gloves
-        if not done then done=monster.base.drop.AddDropItem(698,1,10,(100*math.random(3,4)+math.random(33,44)),0,1); end --serinjah leather boots
+        if not done then done=monster.base.drop.AddDropItem(697,1,10,(100*math.random(3,4)+math.random(33,44)),0,1); end --fur boots
         if not done then done=monster.base.drop.AddDropItem(363,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --leather scale armor
         if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --half leather armor
-        if not done then done=monster.base.drop.AddDropItem(364,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --light hunting armor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --half leather armor
 
         --Category 2: Special loot
 

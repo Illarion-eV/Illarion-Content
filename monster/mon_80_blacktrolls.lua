@@ -95,8 +95,8 @@ function onDeath(Monster)
 
         local done=monster.base.drop.AddDropItem(367,1,20,(100*math.random(4,5)+math.random(44,55)),0,1); --short leather legs
         if not done then done=monster.base.drop.AddDropItem(20,1,10,(100*math.random(4,5)+math.random(44,55)),0,1); end --large metal shield
-        if not done then done=monster.base.drop.AddDropItem(364,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --light hunting armor
-        if not done then done=monster.base.drop.AddDropItem(362,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --full leatherarmor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --half leather armor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --full leatherarmor
         if not done then done=monster.base.drop.AddDropItem(697,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --fur boots
 
         --Category 2: Special loot
@@ -125,8 +125,8 @@ function onDeath(Monster)
 
         local done=monster.base.drop.AddDropItem(366,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --leather legs
         if not done then done=monster.base.drop.AddDropItem(53,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --light hunting armor
-        if not done then done=monster.base.drop.AddDropItem(364,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --light hunting armor
-        if not done then done=monster.base.drop.AddDropItem(362,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --full leather armor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --half leather armor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --full leather armor
         if not done then done=monster.base.drop.AddDropItem(2407,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --light blue breastplate
 
         --Category 2: Special loot

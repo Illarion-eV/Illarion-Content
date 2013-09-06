@@ -130,7 +130,7 @@ if (MonID==731) then --Dead King, Level: 7, Armourtype: medium, Weapontype: slas
         --Category 1: Armor
 
         local done=monster.base.drop.AddDropItem(2367,1,20,(100*math.random(6,7)+math.random(66,77)),0,1); --albarian noble's armor
-        if not done then done=monster.base.drop.AddDropItem(2291,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --salkamaerian paladin's helmet
+        if not done then done=monster.base.drop.AddDropItem(2441,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --salkamaerian paladin's helmet
         if not done then done=monster.base.drop.AddDropItem(2287,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --albarian  soldier's helmet
         if not done then done=monster.base.drop.AddDropItem(2193,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --hardwood greaves
         if not done then done=monster.base.drop.AddDropItem(2284,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --shield of the sky

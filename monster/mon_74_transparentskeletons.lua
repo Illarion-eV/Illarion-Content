@@ -148,7 +148,7 @@ function onDeath(Monster)
 
         local done=monster.base.drop.AddDropItem(2114,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --short fur trousers
         if not done then done=monster.base.drop.AddDropItem(2448,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --legionaire's tower shield 
-        if not done then done=monster.base.drop.AddDropItem(362,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --full leatherarmor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --full leatherarmor
         if not done then done=monster.base.drop.AddDropItem(2407,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --light blue breastplate
         if not done then done=monster.base.drop.AddDropItem(697,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --fur boots
 

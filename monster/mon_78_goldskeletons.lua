@@ -122,7 +122,7 @@ function onDeath(Monster)
 
         local done=monster.base.drop.AddDropItem(2737,1,20,(100*math.random(4,5)+math.random(44,55)),0,3); --morning star
         if not done then done=monster.base.drop.AddDropItem(2664,1,10,(100*math.random(4,5)+math.random(44,55)),0,3); end --club
-        if not done then done=monster.base.drop.AddDropItem(207,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --battle staff
+        if not done then done=monster.base.drop.AddDropItem(209,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --battle staff
         if not done then done=monster.base.drop.AddDropItem(226,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --warhammer
         if not done then done=monster.base.drop.AddDropItem(230,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --mace
 
@@ -154,7 +154,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(76,1,10,(100*math.random(4,5)+math.random(44,55)),0,3); end --mage's staff
         if not done then done=monster.base.drop.AddDropItem(39,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --skull staff
         if not done then done=monster.base.drop.AddDropItem(40,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --cleric's staff
-        if not done then done=monster.base.drop.AddDropItem(208,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --ornate mage's staff
+        if not done then done=monster.base.drop.AddDropItem(1044,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --ornate mage's staff
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins

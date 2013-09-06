@@ -117,7 +117,7 @@ if (MonID==891) then --Fireimp, Level: 2, Armourtype: light, Weapontype: punctur
         local done=monster.base.drop.AddDropItem(17,1,20,(100*math.random(2,3)+math.random(22,33)),0,1); --wooden shield
         if not done then done=monster.base.drop.AddDropItem(367,1,10,(100*math.random(2,3)+math.random(22,33)),0,1); end --short leather legs
         if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --half leather armor
-        if not done then done=monster.base.drop.AddDropItem(364,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --light hunting armor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --half leather armor
         if not done then done=monster.base.drop.AddDropItem(53,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --leather boots
 
         --Category 2: Plants

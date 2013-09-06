@@ -131,7 +131,7 @@ if (MonID==841) then --Coffinguard, Level: 4, Armourtype: heavy, Weapontype: con
 
         local done=monster.base.drop.AddDropItem(2760,1,20,(100*math.random(4,5)+math.random(44,55)),0,1); --rope
         if not done then done=monster.base.drop.AddDropItem(53,1,10,(100*math.random(4,5)+math.random(44,55)),0,1); end --leather boots
-        if not done then done=monster.base.drop.AddDropItem(362,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --full leather armor
+        if not done then done=monster.base.drop.AddDropItem(365,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --half leather armor
         if not done then done=monster.base.drop.AddDropItem(2407,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --light blue breastplate
         if not done then done=monster.base.drop.AddDropItem(194,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --black robe
 
