@@ -1256,7 +1256,7 @@ function Specials(Attacker, Defender, Globals)
                     "#me thrusts out, delivering a powerful, piercing attack.");
         elseif(Globals.criticalHit==7) then -- Dist
             base.common.TalkNLS(Attacker.Char, Character.say,
-                    "#me zielt genau und beginnt "..seinihr.."en Gegner präzise und kraftvoll anzugreifen.",
+                    "#me zielt etwas länger uns er trifft dadurch sein Ziel an einer ungeschützen Stelle.",
                     "#me takes careful aim, hitting "..hisher.." target with precision and power.");
         elseif(Globals.criticalHit==8) then -- Wrest
             base.common.TalkNLS(Attacker.Char, Character.say,
@@ -1290,7 +1290,7 @@ function Specials(Attacker, Defender, Globals)
 				"#me thrusts "..hisher.." weapon with a powerful, piercing attack.");
 		elseif(Globals.criticalHit==7) then -- Dist
 			base.common.TalkNLS(Attacker.Char, Character.say,
-				"#me zielt genau und beginnt auf "..seinihr.."en Gegner präzise und kraftvoll einzustechen.",
+				"#me zielt etwas länger und trifft dadurch sein Ziel an einer ungeschützen Stelle.",
 				"#me takes careful aim, hitting "..hisher.." target with precision and power.");
 		elseif(Globals.criticalHit==8) then -- Wrest
 			base.common.TalkNLS(Attacker.Char, Character.say,

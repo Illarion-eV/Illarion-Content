@@ -141,7 +141,7 @@ function onDeath(Monster)
 
         local done=monster.base.drop.AddDropItem(237,20,20,(100*math.random(5,6)+math.random(55,66)),0,3); --bolt
         if not done then done=monster.base.drop.AddDropItem(549,20,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --poisoned arrows
-        if not done then done=monster.base.drop.AddDropItem(70,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --crossbow
+        if not done then done=monster.base.drop.AddDropItem(2708,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --longbow
         if not done then done=monster.base.drop.AddDropItem(65,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --short bow
         if not done then done=monster.base.drop.AddDropItem(2708,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --long bow
 
