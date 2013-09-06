@@ -1429,7 +1429,7 @@ end;
 -- @param Attacker The table that stores the data of the attacking char
 -- @return true in case the attack is good to go
 function HandleAmmunition(Attacker)
-    if (Attacker.Char:getType() == 1) then -- Monsters do not use ammo
+    if (Attacker.Char:getType() == Character.monster) then -- Monsters do not use ammo
         return true;
     end;
     
