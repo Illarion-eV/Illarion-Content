@@ -96,6 +96,8 @@ product:addIngredient(545, 3); -- Cherry Wood Boards
 
 product:addIngredient(50, 3); -- Thread
 
+product:addIngredient(45, 2); -- Emerald
+
 
 -- long bow                   
 product = carpentry:addProduct(catId, 2708, 68, 88, 132, 264, 1);
@@ -103,7 +105,9 @@ product:addIngredient(546, 3); -- Naldor Wood Boards
 
 product:addIngredient(2716, 3); -- Deciduous Wood Boards
 
-product:addIngredient(50, 2); -- Thread
+product:addIngredient(50, 4); -- Thread
+
+product:addIngredient(283, 1); -- Blackstone
 
 -- fire hunter's bow          
 product = carpentry:addProduct(catId, 2727, 58, 78, 117, 234, 1);
