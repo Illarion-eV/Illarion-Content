@@ -181,13 +181,9 @@ function onLogin( player )
 		end
 	end
 
-	--if isTestserver() then
-
-		if player:getSkill(25)>0 or player:getSkill(23)>0 then
-			MergeSkillInform(player);
-		end
-
-	--end
+	if player:getSkill(Character.tactics) > 0 or player:getSkill(Character.dodge) > 0 then
+		MergeSkillInform(player);
+	end
 
 	--Noobia handling
 	if (base.common.IsOnNoobia(player.pos)) then --On Noobia
@@ -390,9 +386,9 @@ function MergeSkillInform(User)
 	
 
 		local infText = base.common.GetNLS(User, 
-						"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.",
-						"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option.");
-		local title = base.common.GetNLS(User,"New Armour Skills","New Armour Skills")
+						"Illarion hat neue Rüstungsfertigkeiten. Deine alten Fertigkeiten Ausweichen und Taktik werden in eine Rüstungsfertigkeit deiner Wahl konvertiert. Bitte wähle eine Option:",
+						"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option:");
+		local title = base.common.GetNLS(User,"Neue Rüstungsfertigkeiten","New Armour Skills")
 	
 		local closeTrib=function(onClose)
 			MergeSkill(User);
@@ -412,8 +408,8 @@ function MergeSkill(User)
 	else
 		names = {"Light Armour","Medium Armour","Heavy Armour"}
 	end
-	local items = {364,2403,2390}
-	local targetSkill = {38,39,40}
+	local items = {364, 2403, 2390}
+	local targetSkill = {Character.lightArmour, Character.mediumArmour, Character.heavyArmour}
 	
 	local callback = function(dialog)
 
@@ -421,25 +417,23 @@ function MergeSkill(User)
 		
 		if success then
 					selected = dialog:getSelectedIndex()
-					--local newskillValue = math.floor((User:getSkill(25)+User:getSkill(23))/2);
-					local newskillValue = User:getSkill(23);
-					local skillValue=User:getSkill(targetSkill[selected+1]); --reading the skill points
+				    local newskillValue = math.floor((User:getSkill(25)+User:getSkill(23))/2);
+					local skillValue = User:getSkill(targetSkill[selected+1]); --reading the skill points
      			    User:increaseSkill(targetSkill[selected+1],newskillValue-skillValue); 
-					User:increaseSkill(25,-User:getSkill(25)); 
-					User:increaseSkill(23,-User:getSkill(23)); 
-					User:setQuestProgress(154,1); --Remember that we already spammed the player
-					User:inform("You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.", "You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.")
+					User:increaseSkill(Character.dodge,-User:getSkill(Character.dodge)); 
+					User:increaseSkill(Character.tactics,-User:getSkill(Character.tactics)); 
+					User:inform("Du hast " ..names[selected+1].. " ausgewählt. Drücke 'C' um deine Fertigkeiten zu überprüfen.", "You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.")
 					world:gfx(46,User.pos)
 					world:makeSound(13,User.pos);
 		else
-			User:inform("Please choose a skill.", "Please choose a skill.");		
+			User:inform("Bitte wähle eine Fertigkeit.", "Please choose a skill.");		
 			MergeSkill(User);
 		end
 	end
 		
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("New Armour Skill", "Which armour skill will you use?", callback)
+		dialog = SelectionDialog("Neue Rüstungsfertigkeiten", "Welche Rüstungsfertigkeit wirst du nutzen?", callback)
 	else
 		dialog = SelectionDialog("New Armour Skill", "Which armour skill will you use?", callback)
 	end
