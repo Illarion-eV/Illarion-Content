@@ -70,6 +70,10 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 		return
 	end
 	
+	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+		return -- avoids crafting if user is neither citizen nor has a licence
+	end
+	
 	if ( ltstate == Action.abort ) then
 		User:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[User.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[User.id].." work step.")
 		return
