@@ -115,7 +115,7 @@ function SetLicence(thisFaction, otherFaction, newLicence)
 	licenceAll = licenceAll - (oldLicence * 10^(otherFaction));
 	-- add new licence
 	if newLicence == nil then --check if newLicence has a value and set it to 1 in case it does not. this will enable crafting then.
-		local newLicence = 1
+		newLicence = 1
 	end 
 	licenceAll = licenceAll + (newLicence * 10^(otherFaction));
 	-- set ScriptVar again
