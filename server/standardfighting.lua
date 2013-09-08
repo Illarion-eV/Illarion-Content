@@ -1229,7 +1229,7 @@ function Specials(Attacker, Defender, Globals)
 
 	local hisher =  base.common.GetGenderText(Attacker.Char,"his","her");
 	local seinihr = base.common.GetGenderText(Attacker.Char,"sein","ihr");
-	if(Defender.Char:getType() == 1) then
+	if(Defender.Char:getType() == Character.monster) then
 		if(Globals.criticalHit==1) then -- 1HS
             base.common.TalkNLS(Attacker.Char, Character.say,
                     "#me schlägt schnell zu und teilt rasch zwei Hiebe aus.",
