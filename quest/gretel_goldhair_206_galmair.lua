@@ -1,6 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (206, 'quest.gretel_goldhair_206_galmair');
      
 require("base.common")
+require("base.factions")
 module("quest.gretel_goldhair_206_galmair", package.seeall)
      
 GERMAN = Player.german
@@ -59,4 +60,12 @@ end
      
 function QuestFinalStatus()
     return FINAL_QUEST_STATUS
+end
+
+function QuestAvailability(user, status)
+    if base.factions.isGalmairCitizen(user) and status == 0 then
+        return Player.questAvailable
+    else
+        return Player.questNotAvailable
+    end
 end

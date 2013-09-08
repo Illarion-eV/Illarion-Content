@@ -1,6 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (IDQUEST, 'quest.truciolo_pialla_670_galmair');
 
 require("base.common")
+require("base.factions")
 module("quest.truciolo_pialla_670_galmair", package.seeall)
 
 GERMAN = Player.german
@@ -69,4 +70,12 @@ end
 
 function QuestFinalStatus()
     return FINAL_QUEST_STATUS
+end
+
+function QuestAvailability(user, status)
+    if base.factions.isGalmairCitizen(user) and user:getSkill(Character.carpentry) < 80 and status == 0 then
+        return Player.questAvailable
+    else
+        return Player.questNotAvailable
+    end
 end

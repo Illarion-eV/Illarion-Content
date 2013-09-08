@@ -2,6 +2,7 @@
      
 	 
 require("base.common")
+require("base.factions")
 module("quest.neiran_el_nyarale_205_runewick", package.seeall)
      
 	 
@@ -62,4 +63,12 @@ end
      
 function QuestFinalStatus()
     return FINAL_QUEST_STATUS
+end
+
+function QuestAvailability(user, status)
+    if base.factions.isRunewickCitizen(user) and status == 0 then
+        return Player.questAvailable
+    else
+        return Player.questNotAvailable
+    end
 end
