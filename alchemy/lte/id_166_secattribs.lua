@@ -22,10 +22,15 @@ function callEffect(Effect,User)
     local findManaDe,manaDecrease = Effect:findValue("manaDecrease")
     local findFoodlevelDe,foodlevelDecrease = Effect:findValue("foodlevelDecrease")
     local findPoisonvalueDe,poisonvalueDecrease = Effect:findValue("poisonvalueDecrease")
+	
+	if User:increaseAttrib("hitpoints",0) == 0 then
+		return false
+	end
     
 	if findCounter then 
        if counterPink > 0 then
-           if findHitpointsIn then
+           
+		   if findHitpointsIn then
               User:increaseAttrib("hitpoints",hitpointsIncrease);
            end
            if findManaIn then   
