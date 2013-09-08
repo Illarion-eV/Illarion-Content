@@ -1,6 +1,7 @@
 -- INSERT INTO quests SET qst_script = 'quest.charwis_irongate_702_galmair' WHERE qst_id = 702;
 
 require("base.common")
+require("base.factions")
 module("quest.charwis_irongate_702_galmair", package.seeall)
 
 GERMAN = Player.german
@@ -94,4 +95,12 @@ end
 
 function QuestFinalStatus()
     return FINAL_QUEST_STATUS
+end
+
+function QuestAvailability(user, status)
+    if base.factions.isGalmairCitizen(user) and status == 0 then
+        return Player.questAvailable
+    else
+        return Player.questNotAvailable
+    end
 end

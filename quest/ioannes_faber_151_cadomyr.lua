@@ -1,7 +1,8 @@
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (151, 'quest.ioannes_faber _151_cadomyr');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (151, 'quest.ioannes_faber_151_cadomyr');
      
 require("base.common")
-module("quest.ioannes_faber _151_cadomyr", package.seeall)
+require("base.factions")
+module("quest.ioannes_faber_151_cadomyr", package.seeall)
      
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -60,4 +61,12 @@ end
      
 function QuestFinalStatus()
     return FINAL_QUEST_STATUS
+end
+
+function QuestAvailability(user, status)
+    if base.factions.isCadomyrCitizen(user) and status == 0 then
+        return Player.questAvailable
+    else
+        return Player.questNotAvailable
+    end
 end

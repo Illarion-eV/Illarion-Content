@@ -1,6 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (707, 'quest.zlatxhol_707_cadomyr');
 
 require("base.common")
+require("base.factions")
 module("quest.zlatxhol_707_cadomyr", package.seeall)
 
 GERMAN = Player.german
@@ -80,4 +81,12 @@ end
 
 function QuestFinalStatus()
     return FINAL_QUEST_STATUS
+end
+
+function QuestAvailability(user, status)
+    if base.factions.isCadomyrCitizen(user) and status == 0 then
+        return Player.questAvailable
+    else
+        return Player.questNotAvailable
+    end
 end

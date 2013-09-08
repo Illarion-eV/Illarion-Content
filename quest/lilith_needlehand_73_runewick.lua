@@ -1,6 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (73, 'quest.lilith_needlehand_73_runewick');
      
 require("base.common")
+require("base.factions")
 module("quest.lilith_needlehand_73_runewick", package.seeall)
      
 	 
@@ -73,3 +74,10 @@ function QuestFinalStatus()
     return FINAL_QUEST_STATUS
 end
 
+function QuestAvailability(user, status)
+    if base.factions.isRunewickCitizen(user) and status == 0 then
+        return Player.questAvailable
+    else
+        return Player.questNotAvailable
+    end
+end

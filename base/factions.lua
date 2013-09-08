@@ -172,6 +172,18 @@ function getMembership(player)
 	return player:getQuestProgress(199);
 end
 
+function isCadomyrCitizen(player)
+    return getMembership(player) == cadomyr
+end
+
+function isGalmairCitizen(player)
+    return getMembership(player) == galmair
+end
+
+function isRunewickCitizen(player)
+    return getMembership(player) == runewick
+end
+
 --[[
 	returns the name of the town the char is a member of
 	@player - characterStruct
