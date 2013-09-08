@@ -404,9 +404,9 @@ function MergeSkill(User)
 	
     local names
 	if  User:getPlayerLanguage() == Player.german then
-		names = {"Leichte Rüstungen","Mittlere Rüstungen","Schwere Rüstungen"}
+		names = {"Leichte Rüstungen (gut gegen Schlagwaffen)","Mittlere Rüstungen (gut gegen Hiebwaffen)","Schwere Rüstungen (gut gegen Stichwaffen)"}
 	else
-		names = {"Light Armour","Medium Armour","Heavy Armour"}
+		names = {"Light Armour (good against concussion weapons)","Medium Armour (good against slashing weapons)","Heavy Armour (good against puncture weapons)"}
 	end
 	local items = {364, 2403, 2390}
 	local targetSkill = {Character.lightArmour, Character.mediumArmour, Character.heavyArmour}
