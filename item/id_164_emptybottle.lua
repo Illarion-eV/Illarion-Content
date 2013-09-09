@@ -23,6 +23,10 @@ function UseItem(User, SourceItem, ltstate)
 		    return
 		end	
 		
+		if not alchemy.base.alchemy.checkFood(User) then
+			return
+		end
+		
 		if ( ltstate == Action.abort ) then
 			base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 		   return
@@ -34,6 +38,7 @@ function UseItem(User, SourceItem, ltstate)
 		end
 		
 		FillIntoBottle(User, SourceItem, cauldron)
+		alchemy.base.alchemy.lowerFood(User)
 	end
 
 	-- The Glutinous Tree
