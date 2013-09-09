@@ -480,6 +480,19 @@ end
 return retVal
 end
 
+FOOD_NEEDED = 250
+
+function checkFood(User)
+	if not base.common.FitForHardWork(User, FOOD_NEEDED) then
+		return false
+	end
+	return true
+end
+
+function lowerFood(User)
+	base.common.GetHungry(User, FOOD_NEEDED)
+end
+
 function CheckIfPlant(itemId)
 	if plantList[itemId] ~= nil or itemId == 157 then
 		return true
@@ -781,6 +794,10 @@ function FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 	   
     if base.licence.licence(User) then --checks if user is citizen or has a licence 
 		return -- avoids crafting if user is neither citizen nor has a licence
+	end
+	
+	if not alchemy.base.alchemy.checkFood(User) then
+		return
 	end
 	
 	if ( ltstate == Action.abort ) then

@@ -29,7 +29,11 @@ function UseItem(User, SourceItem, ltstate)
 			-- is the char an alchemist?
 	        local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
 			if not anAlchemist then
-				User:inform("Auf dem Schriftstück steht nur dir unverständliches Alchemistengeschwafel.","For you the document only appears to contain unintelligible alchemical gibberish.")
+				User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+				return
+			end
+			
+			if not alchemy.base.alchemy.checkFood(User) then
 				return
 			end
 		
@@ -50,6 +54,7 @@ function UseItem(User, SourceItem, ltstate)
 
 			FillStockIn(User,SourceItem,cauldron)
 			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
+			alchemy.base.alchemy.lowerFood(User)
 		else
 		    DrinkIt(User, SourceItem)
 			alchemy.base.alchemy.EmptyBottle(User,SourceItem)

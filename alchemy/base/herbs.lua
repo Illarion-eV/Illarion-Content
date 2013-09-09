@@ -31,6 +31,10 @@ function UseItem(User, SourceItem, ltstate)
 	                )
 		    return
         end
+		
+		if not alchemy.base.alchemy.checkFood(User) then
+			return
+		end
 
         if ( ltstate == Action.abort ) then
 		    base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
@@ -44,7 +48,8 @@ function UseItem(User, SourceItem, ltstate)
 	    end
 		
 		BeginnBrewing(User,SourceItem.id,cauldron)
-		world:erase(SourceItem,1)	
+		world:erase(SourceItem,1)
+		alchemy.base.alchemy.lowerFood(User)
 	else
 	    -- not infront of cauldron, maybe do something else with herbs
         return
