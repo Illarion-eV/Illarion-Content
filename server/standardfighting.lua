@@ -187,9 +187,9 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 				if (armour.Type==2) then -- Light armour
 					armourValue = armour.Level;
 				elseif(armour.Type==3) then -- Medium armour
-					armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
-				elseif(armour.Type==4) then -- Heavy armour
 					armourValue = armour.Level/(ArmourDefenseScalingFactor);
+				elseif(armour.Type==4) then -- Heavy armour
+					armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor);
 				elseif(armour.Type==1) then -- General armour
 					armourValue = armour.Level/GeneralScalingFactor;
 				end;
