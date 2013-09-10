@@ -14,14 +14,14 @@ function informAboutResult(User, typeOfDice, numberOfDice)
 	local diceTypeEn, diceTypeDe
 	if typeOfDice == 6 then
 		diceTypeEn = "sixsided"
-		if numberOfDice > 1 then
+		if tonumber(numberOfDice) > 1 then
 			diceTypeDe = "sechsseitige"
 		else
 			diceTypeDe = "sechsseitiger"
 		end
 	else
 		diceTypeEn = "twentysided"
-		if numberOfDice > 1 then
+		if tonumber(numberOfDice) > 1 then
 			diceTypeDe = "zwanzigseitige"
 		else
 			diceTypeDe = "zwanzigseitiger"
