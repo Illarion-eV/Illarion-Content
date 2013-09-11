@@ -42,7 +42,7 @@ product:addRemnant(51) -- Schritt 4: Eimer mit Wasser(52) 1x
 ------------------ FLASCHE MIT BIER - FERTIG --------------------------
 
 ------------------- FLASCHE MIT WEIN - 2500 ---------------------------
-product = brewing:addProduct(catId, 2500, 47, 65, 80, 160, 2)
+product = brewing:addProduct(catId, 2500, 47, 65, 80, 160)
 product:addIngredient(2498) -- Schritt 5: leere Flasche(2498) 1x
 product:addIngredient(388, 3) -- Schritte 1 - 3: Weinbeeren(388) 2x
 product:addIngredient(52)
