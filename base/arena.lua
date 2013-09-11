@@ -28,22 +28,20 @@ Level 8: Monsters for group fights award 18 points
 Level 9: Unbelieavable strong monsters for 'groups' award 21 points
 ]]
 monsterIDsByLevel = {
-	{monsters = {991, 271, 1051, 582, 1071}, points = 1},
-	{monsters = {101, 196, 273, 602, 881}, points = 2},
-	{monsters = {311, 394, 551, 882, 1011}, points = 3},
-	{monsters = {141, 501, 552, 791, 872}, points = 4},
-	{monsters = {191, 492, 531, 411, 851}, points = 6},
-	{monsters = {121, 201, 491, 525, 852}, points = 8},
-	{monsters = {534, 124, 562, 661, 853}, points = 13},
-	{monsters = {125, 132, 812, 195, 651}, points = 18},
-	{monsters = {302, 631, 641, 911, 912}, points = 21}
+	{monsters = {991, 271, 1051, 582, 1071}, points = 1, price=4000},
+	{monsters = {101, 196, 273, 602, 881}, points = 2, price= 7960},
+	{monsters = {311, 394, 551, 882, 1011}, points = 3, price=11940},
+	{monsters = {141, 501, 552, 791, 872}, points = 4, price=15904},
+	{monsters = {191, 492, 531, 411, 851}, points = 6, price=23856},
+	{monsters = {121, 201, 491, 525, 852}, points = 8, price=31808},
+	{monsters = {534, 124, 562, 661, 853}, points = 13, price=51636},
+	{monsters = {125, 132, 812, 195, 651}, points = 18, price=71496},
+	{monsters = {302, 631, 641, 911, 912}, points = 21, price=83412}
 }
 
 arenaInformation = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801}, 
 					{playerPos=nil, monsterPos=position(995,784,-3), newPlayerPos=nil, npcName="Manuel Salan", town="Runewick", quest=802}, 
 					{playerPos=nil, monsterPos=position(334,160,-6), newPlayerPos=nil, npcName="Angelo Rothman", town="Galmair", quest=803}}
-					
-priceBase = 4000;
 
 function requestMonster(User, NPC) 
 	local cbChooseLevel = function (dialog)
@@ -80,7 +78,7 @@ function requestMonster(User, NPC)
 		sdMonster = SelectionDialog("Monsterstärke", "Wählt wie stark das Monster sein soll, gegen das Ihr kämpfen möchtet:", cbChooseLevel);
 		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
-			priceInCP = i*i*priceBase;
+			priceInCP = monsterIDsByLevel[i].price;
 			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
 			sdMonster:addOption(61,"Stärke "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkte)\n Preis:"..germanMoney);
 		end
@@ -88,7 +86,7 @@ function requestMonster(User, NPC)
 		sdMonster = SelectionDialog("Monster strength", "Please choose how strong the monster you wish to fight against should be:", cbChooseLevel);
 		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
-			priceInCP = i*i * priceBase;
+			priceInCP = monsterIDsByLevel[i].price;
 			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
 			sdMonster:addOption(61,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." points)\n Price:"..englishMoney);
 		end
@@ -97,7 +95,7 @@ function requestMonster(User, NPC)
 end
 
 function payforMonster(User, MonsterLevel, NPC)
-	local priceInCP = MonsterLevel*MonsterLevel * priceBase;
+	local priceInCP = monsterIDsByLevel[MonsterLevel].price;
 	local germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
 	
 	if not base.money.CharHasMoney(User,priceInCP) then --not enough money!
@@ -230,4 +228,44 @@ function checkLte(User,NPC)
 	    return false
 	end
 	return true
+end
+
+-- reward[x] = {y,z} - x = stones to have collected, y = item id , z= amount of y
+reward = {{61,8},{2367,1},{2693,1},{2662,1},{559,10},{193,1},{2685,1},{559,7},{2360,1},{2551,10},{2552,10},{2553,10},{2554,10}}
+
+function getReward(User, quest)
+	local numberOfRewards = User:getQuestProgress(quest+2)
+	local currentPoints = User:getQuestProgress(quest)
+	local pointsNeededForNewReward = 50;
+	
+	User:inform("points: "..currentPoints.. " "..pointsNeededForNewReward*(numberOfRewards+1))
+	
+	if  currentPoints >= pointsNeededForNewReward*(numberOfRewards+1) then
+		User:setQuestProgress(quest+2, numberOfRewards+1);
+		rewardDialog(User, currentPoints)
+	end
+end
+
+function rewardDialog(User, points)
+	local title = base.common.GetNLS(User,"Arena Belohnung","Arena reward")
+	local text = base.common.GetNLS(User,"Du hast "..points.." Punkte gesammelt, daher kannst du dir nun eine Belohnung aussuchen.", "You earned "..points.." points, therefore you can pick a reward.")
+	
+	local callback = function(dialog) 
+		local success = dialog:getSuccess() 
+		if success then
+			selected = dialog:getSelectedIndex()+1
+			User:createItem(reward[selected][1],reward[selected][2], 800, nil);	
+		end
+	end
+
+	local dialog = SelectionDialog(title, text, callback);
+	
+	local itemName;
+	local language = User:getPlayerLanguage();
+	for i=1, #(reward) do
+		itemName = world:getItemName(reward[i][1],language);
+		dialog:addOption(reward[i][1], reward[i][2].." "..itemName);
+	end
+
+	User:requestSelectionDialog(dialog);
 end

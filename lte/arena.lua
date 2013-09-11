@@ -51,10 +51,12 @@ function callEffect(arenaEffect, User)
         "You defeated your enemy and gained points for it.");
 		base.arena.setArenastats(User, arena, base.arena.monsterIDsByLevel[level].points);
 		local quest = base.arena.arenaInformation[arena].quest;
+		base.arena.getReward(User, quest)
 		local town = base.arena.arenaInformation[arena].town;
 		local arenaListName = "ArenaList"..town;
 		local points = User:getQuestProgress(quest);
 		base.ranklist.setRanklist(User, arenaListName, points);
+
 		
 		if base.arena.arenaInformation[arena].newPlayerPos ~= nil then
 			User:warp(base.arena.arenaInformation[arena].newPlayerPos);
