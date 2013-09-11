@@ -112,9 +112,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell, my friend.", "Sta
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-english, "quest", "mission" -> end, "My frithere is nothing I could ask you to do, but I'm thankful for your concern."
+english, "quest", "mission" -> end, "My friend there is nothing I could ask you to do, but I'm thankful for your concern."
 "quest", "mission" -> "Mein Freund, es gibt nichts um was ich dich bitten könnte. Aber ich bin dankbar für deine Sorge."
-"task", "adventure", "order" -> end, "My frithere is nothing I could ask you to do, but I'm thankful for your concern."
+"task", "adventure", "order" -> end, "My friend there is nothing I could ask you to do, but I'm thankful for your concern."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Mein Freund, es gibt nichts um was ich dich bitten könnte. Aber ich bin dankbar für deine Sorge."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!

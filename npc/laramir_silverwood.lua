@@ -206,7 +206,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
-talkEntry:addResponse("My frithere is nothing I could ask you to do, but I'm thankful for your concern.");
+talkEntry:addResponse("My friend there is nothing I could ask you to do, but I'm thankful for your concern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -222,7 +222,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
-talkEntry:addResponse("My frithere is nothing I could ask you to do, but I'm thankful for your concern.");
+talkEntry:addResponse("My friend there is nothing I could ask you to do, but I'm thankful for your concern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
