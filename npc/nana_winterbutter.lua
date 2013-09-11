@@ -692,7 +692,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+"
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
-talkEntry:addResponse("Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.");
+talkEntry:addResponse("Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Silbermünzen. Aber mein Gericht ist noch nicht fertig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -704,7 +704,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
-talkEntry:addResponse("Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.");
+talkEntry:addResponse("Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Silbermünzen. Aber mein Gericht ist noch nicht fertig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
