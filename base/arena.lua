@@ -29,14 +29,14 @@ Level 9: Unbelieavable strong monsters for 'groups' award 21 points
 ]]
 monsterIDsByLevel = {
 	{monsters = {991, 271, 1051, 582, 1071}, points = 1, price=4000},
-	{monsters = {101, 196, 273, 602, 881}, points = 2, price= 7960},
-	{monsters = {311, 394, 551, 882, 1011}, points = 3, price=11940},
-	{monsters = {141, 501, 552, 791, 872}, points = 4, price=15904},
-	{monsters = {191, 492, 531, 411, 851}, points = 6, price=23856},
-	{monsters = {121, 201, 491, 525, 852}, points = 8, price=31808},
-	{monsters = {534, 124, 562, 661, 853}, points = 13, price=51636},
-	{monsters = {125, 132, 812, 195, 651}, points = 18, price=71496},
-	{monsters = {302, 631, 641, 911, 912}, points = 21, price=83412}
+	{monsters = {101, 196, 273, 602, 881}, points = 2, price= 7800},
+	{monsters = {311, 394, 551, 882, 1011}, points = 3, price=11000},
+	{monsters = {141, 501, 552, 791, 872}, points = 4, price=14000},
+	{monsters = {191, 492, 531, 411, 851}, points = 6, price=19200},
+	{monsters = {121, 201, 491, 525, 852}, points = 8, price=23200},
+	{monsters = {534, 124, 562, 661, 853}, points = 13, price=35100},
+	{monsters = {125, 205, 912, 262, 691}, points = 18, price=43200},
+	{monsters = {302, 641, 911}, points = 23, price=46000}
 }
 
 arenaInformation = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801}, 
@@ -231,7 +231,7 @@ function checkLte(User,NPC)
 end
 
 -- reward[x] = {y,z} - x = stones to have collected, y = item id , z= amount of y
-reward = {{61,8},{2367,1},{2693,1},{2662,1},{559,10},{193,1},{2685,1},{559,7},{2360,1},{2551,10},{2552,10},{2553,10},{2554,10}}
+reward = {{61,15},{446,69},{447,103},{448,52},{449,69},{450,103},{451,52},{452,42},{2571,1}}
 
 function getReward(User, quest)
 	local numberOfRewards = User:getQuestProgress(quest+2)
