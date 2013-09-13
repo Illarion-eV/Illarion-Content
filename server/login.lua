@@ -12,8 +12,8 @@ module("server.login", package.seeall);
 --German
 messageG={};
 messageG[1]="[Tipp] Leichte Rüstungen aus Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen.";
-messageG[2]="[Tipp] Mittlere Rüstungen wie Kettenhemden schützen sehr gut gegen Hiebwaffen aber schlecht gegen Stich und Distanzwaffen.";
-messageG[3]="[Tipp] Schwere Rüstungen wie Plattenpanzer schützen sehr gut gegen Stich und Distanzwaffen aber schlecht gegen stumpfe Waffen.";
+messageG[2]="[Tipp] Mittlere Rüstungen wie Kettenhemden schützen sehr gut gegen Hiebwaffen aber schlecht gegen Stich- und Distanzwaffen.";
+messageG[3]="[Tipp] Schwere Rüstungen wie Plattenpanzer schützen sehr gut gegen Stich- und Distanzwaffen aber schlecht gegen stumpfe Waffen.";
 messageG[4]="[Tipp] Wir spielen miteinander, nicht gegeneinander. Viel Spaß beim Spielen!";
 messageG[5]="[Tipp] Bitte besuche uns auch im IRC-Chat: #illarion auf Quakenet.";
 messageG[6]="[Tipp] Im Forum sind viele interessante Diskussion und Informationen zu finden. Meld dich gleich an!";
@@ -42,7 +42,7 @@ messageG[28]="[Tipp] Gegenstände von geringer Haltbarkeit drohen zu zerbrechen. 
 messageG[29]="[Tipp] Fernwaffen werden nicht umsonst so genannt: stark auf Distanz; nutzlos im Nahkampf.";
 messageG[30]="[Tipp] Hiebwaffen sind gut gegen leichte Rüstungen, aber schlecht gegen mittlere Rüstungen.";
 messageG[31]="[Tipp] Stichwaffen sind gut gegen mittlere Rüstungen, aber schlecht gegen schwere Rüstungen.";
-messageG[32]="[Tipp] Stumpfe Waffen sind gute gegen schwere Rüstungen, aber schlecht gegen leichte Rüstungen.";
+messageG[32]="[Tipp] Stumpfe Waffen sind gut gegen schwere Rüstungen, aber schlecht gegen leichte Rüstungen.";
 messageG[33]="[Tipp] Ein Silberstück entspricht einhundert Kupferstücken. Einhundert Silberstücke entsprechen einem Goldstück.";
 messageG[34]="[Tipp] Die besten Alchemisten	leben in Runewick.";
 messageG[35]="[Tipp] Die besten Kerzenzieher leben in Runewick.";
@@ -111,7 +111,7 @@ messageE[27]="[Hint] There are some monsters which you should avoid while advent
 messageE[28]="[Hint] Items of low durability might break any time. A specialist can repair them.";
 messageE[29]="[Hint] Ranged weapons have their name for a reason; they are useful for distant targets, but useless in a melee.";
 messageE[30]="[Hint] Slashing weapons are good against light armour but bad against medium armour.";
-messageE[31]="[Hint] Stabbing weapons are good against medium armour but bad against heavey armour.";
+messageE[31]="[Hint] Stabbing weapons are good against medium armour but bad against heavy armour.";
 messageE[32]="[Hint] Blunt weapons are good against heavy armour but bad against light armour.";
 messageE[33]="[Hint] A single silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin.";
 messageE[34]="[Hint] The best alchemists are living in Runewick.";
@@ -404,9 +404,9 @@ function MergeSkill(User)
 	
     local names
 	if  User:getPlayerLanguage() == Player.german then
-		names = {"Leichte Rüstungen (gut gegen Schlagwaffen aber schlecht gegen Hiebwaffen)","Mittlere Rüstungen (gut gegen Hiebwaffen aber schlecht gegen Stich und Distanzwaffen)","Schwere Rüstungen (gut gegen Stich und Distanzwaffen aber schlecht gegen Schlagwaffen)"}
+		names = {"Leichte Rüstungen (gut gegen Schlagwaffen aber schlecht gegen Hiebwaffen)","Mittlere Rüstungen (gut gegen Hiebwaffen aber schlecht gegen Stich- und Distanzwaffen)","Schwere Rüstungen (gut gegen Stich- und Distanzwaffen aber schlecht gegen Schlagwaffen)"}
 	else
-		names = {"Light Armour (good against concussion, bad against slashing weapons)","Medium Armour (good against slashing, bad against puncture/distance weapons)","Heavy Armour (good against puncture/distance , bad against concussion weapons)"}
+		names = {"Light Armour (good against concussion weapons, bad against slashing weapons)","Medium Armour (good against slashing weapons, bad against puncture/distance weapons)","Heavy Armour (good against puncture/distance weapons, bad against concussion weapons)"}
 	end
 	local items = {364, 2403, 2390}
 	local targetSkill = {Character.lightArmour, Character.mediumArmour, Character.heavyArmour}
