@@ -1,6 +1,7 @@
 -- UPDATE common SET com_script='item.id_266_bookshelf' WHERE com_itemid IN (266, 267);
 
 require("base.common")
+require("base.lookat")
 
 module("item.id_266_bookshelf", package.seeall)
 
