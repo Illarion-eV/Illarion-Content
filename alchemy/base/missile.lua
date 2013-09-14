@@ -28,7 +28,7 @@ function fieldOfRadius1( Item )
 	return actionfield;
 end
 
-function fieldOfRadius2( Item, radius )
+function fieldOfRadius( Item, radius )
     local posi = Item.pos
 	local actionfield = { };
 	
@@ -322,7 +322,7 @@ FRUITS_FLOWERS = {15,80,81,143,148,144,147,151,199,302}
 function fruitBomb(User, Item, targetArea)
 
     local quality = math.floor(Item.quality/100)
-	local tries = 10+(2*quality)
+	local tries = #targetArea/7+(2*quality)
     local theField
 	local thePos
 	for i=1,tries do
@@ -336,7 +336,22 @@ function fruitBomb(User, Item, targetArea)
 		end	
 	end
 	
-	scheduled.alchemy.bombExploded(targetArea,quality)
+	local sa = scheduled.alchemy
+	
+	local found = false
+	for i=1,#sa.CENTRES do
+		if sa.CENTRES[i] == Item.pos then
+			found = true
+		end
+	end
+	
+	if not found then
+		table.insert(sa.CENTRES,Item.pos)
+		sa.CENTER[Item.pos] = {}
+	end
+	
+	table.insert(sa.CENTER[Item.pos],{quality, 0, targetArea})
+	
 end
 
 
@@ -360,12 +375,12 @@ end
 
 -- Voller Hitpoint-Schaden auf 21er-Feld
 function effect_4(User,Item)
-    causeDamage(User, Item, fieldOfRadius2( Item ), "hitpoints", { "strength", "constitution" }, 12, 5 );
+    causeDamage(User, Item, fieldOfRadius( Item ), "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Aufgeteilter Hitpoint-Schaden auf 21er Feld
 function effect_5(User,Item)
-    local hitArea = fieldOfRadius2( Item );
+    local hitArea = fieldOfRadius( Item );
     causeDamage(User, Item, hitArea, "hitpoints", { "strength", "constitution" }, 12, 5, 1/countCharacters( hitArea ) );
 end
 
@@ -390,12 +405,12 @@ end
 
 -- Voller Mana-Schaden auf 21er-Feld
 function effect_9(User,Item)
-    causeDamage(User, Item, (fieldOfRadius2( Item ) ), "mana", { "willpower", "essence" }, 4, 5 );
+    causeDamage(User, Item, (fieldOfRadius( Item ) ), "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Aufgeteilter Mana-Schaden auf 21er Feld
 function effect_10(User,Item)
-    local hitArea = (fieldOfRadius2( Item ) );
+    local hitArea = (fieldOfRadius( Item ) );
     causeDamage(User, Item, hitArea, "mana", { "willpower", "essence" }, 4, 5, 1/countCharacters( hitArea ) );
 end
 
@@ -420,12 +435,12 @@ end
 
 -- Voller Sattmacher-Schaden auf 21er-Feld
 function effect_14(User,Item)
-    causeDamage(User, Item, (fieldOfRadius2( Item ) ), "foodlevel", { "constitution", "agility" }, 4, 5, 6 );
+    causeDamage(User, Item, (fieldOfRadius( Item ) ), "foodlevel", { "constitution", "agility" }, 4, 5, 6 );
 end
 
 -- Aufgeteilter Sattmacher-Schaden auf 21er Feld
 function effect_15(User,Item)
-    local hitArea = (fieldOfRadius2( Item ) );
+    local hitArea = (fieldOfRadius( Item ) );
     causeDamage(User, Item, hitArea, "foodlevel", { "constitution", "agility" }, 4, 5, 6/countCharacters( hitArea ) );
 end
 
@@ -438,14 +453,14 @@ end
 
 --Schleimbarriere auf 21er-Feld
 function effect_17(User,Item)
-    createSlime(User, Item, (fieldOfRadius2( Item ) ) );
+    createSlime(User, Item, (fieldOfRadius( Item ) ) );
 end
 
 ----- OTHERS -------
 
 --Create fruits and smell which allures insects
 function effect_18(User,Item)
-    fruitBomb(User, Item, fieldOfRadius2( Item, 4 ))
+    fruitBomb(User, Item, fieldOfRadius( Item, 6 ))
 end
 
 
@@ -477,7 +492,7 @@ end
 
 --Aufgeteilter Haltbarkeits-Schaden auf Rüstungen auf 21er Feld
 function effect_36557188(User,Item)
-    local hitArea = (fieldOfRadius2( Item ) );
+    local hitArea = (fieldOfRadius( Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "armor" );
 end
 
@@ -506,7 +521,7 @@ end
 
 --Aufgeteilter Qualitäts-Schaden auf Rüstungen auf 21er Feld
 function effect_26372612(User,Item)
-    local hitArea = (fieldOfRadius2( Item ) );
+    local hitArea = (fieldOfRadius( Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "armor" );
 end
 
@@ -536,7 +551,7 @@ end
 
 --Aufgeteilter Haltbarkeits-Schaden auf Waffen auf 21er Feld
 function effect_32185872(User,Item)
-    local hitArea = (fieldOfRadius2( Item ) );
+    local hitArea = (fieldOfRadius( Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "weapon" );
 end
 
@@ -565,7 +580,7 @@ end
 
 --Aufgeteilter Qualitäts-Schaden auf Waffen auf 21er Feld
 function effect_32812622(User,Item)
-    local hitArea = ( fieldOfRadius2( Item ) );
+    local hitArea = ( fieldOfRadius( Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "weapon" );
 end
 
@@ -594,7 +609,7 @@ end
 
 --Aufgeteilter Haltbarkeits-Schaden auf Holzitems auf 21er Feld
 function effect_88343542(User,Item)
-    local hitArea =  ( fieldOfRadius2( Item ) );
+    local hitArea =  ( fieldOfRadius( Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "wood" );
 end
 
@@ -623,7 +638,7 @@ end
 
 --Aufgeteilter Qualitäts-Schaden auf Holzitems auf 21er Feld
 function effect_69657293(User,Item)
-    local hitArea = ( fieldOfRadius2( Item ) );
+    local hitArea = ( fieldOfRadius( Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "wood" );
 end]]
 
