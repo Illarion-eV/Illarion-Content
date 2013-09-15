@@ -151,51 +151,43 @@ messageE[66]="[Hint] To split a stack of items, hold shift while moving it.";
 
 -- messages of the day - END
 
-function isNewPlayer(user) 
-	return user.id == 1 
-end
+function welcomeNewPlayer(player)
+    if not player:isNewPlayer() then
+        player:setQuestProgress(851, 0) -- reset session check for newbie welcome dialog
+        return
+    end
 
-function welcomeNewbie(player)
-	
 	local onlinePlayers = world:getPlayersOnline()
 	for i=1,#onlinePlayers do
-		if not isNewPlayer(user) then
+	    local user = onlinePlayers[i]
+	    
+		if not user:isNewPlayer() then
 			
-			if onlinePlayers[i]:getQuestProgress(851) == 0 then
+			if user:getQuestProgress(851) == 0 then
 			
-				local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+				local getText = function(deText,enText) return base.common.base.common.GetNLS(user, deText, enText) end
     
 				local callback = function(dialog) 
 					local success = dialog:getSuccess() 
 					if success then
 						local selected = dialog:getSelectedIndex()+1
 						if selected == 1 then
-							local counter
-							while counter < 20 do
-								local target = position(player.pos.x+math.random(-3,3),player.pos.y+math.random(-3,3),player.pos.z)
-								local field = world:getField(target)
-								if field:isPassable() then
-									onlinePlayers[i]:warp(target)
-									onlinePlayers[i]:setQuestProgress(850,onlinePlayers[i]:getQuestProgress(850)+1)
-									counter = 20
-								else
-									counter + 1
-								end
-							end
+							user:warp(player.pos)
+							world:gfx(46, player.pos)
+							user:setQuestProgress(850, user:getQuestProgress(850)+1)
 						elseif selected == 2 then
 							-- nothing
 						elseif selected == 3 then
-							onlinePlayers[i]:setQuestProgress(851,1)
+							user:setQuestProgress(851,1)
 						end	
 					end
 				end
 
-				local dialog = SelectionDialog(getText("Ein neuer Spieler!","A new player!"), getText("Ein neuer Spieler hat eingeloggt! Möchtest du ihm helfen?","A new player has logged in! Do you want to help him?"), callback)
-				dialog:addOption(0, getText("Teleportier mich zu ihm. Ich will helfen!","Warp me to him, let me help"))
-				dialog:addOption(0, getText("Nicht jetzt", "Not now"))
-				dialog:addOption(0, getText("Nicht für diese Sitzung","Not for this session"))
-				User:requestSelectionDialog(dialog)
-				
+				local dialog = SelectionDialog(getText("Ein neuer Spieler!","A new player!"), getText("Ein neuer Spieler hat Illarion betreten! Möchtest du deine Hilfe anbieten?", "A new player has entered Illarion! Do you want to offer your help?"), callback)
+				dialog:addOption(0, getText("Teleportier mich zu ihm. Ich will helfen!","Warp me to him, let me help!"))
+				dialog:addOption(0, getText("Nicht jetzt.", "Not now."))
+				dialog:addOption(0, getText("Nicht für diese Sitzung.","Not for this session."))
+				user:requestSelectionDialog(dialog)
 			end
 		end
 	end
@@ -203,11 +195,7 @@ end
 
 function onLogin( player )
 
-	if isNewPlayer(player) then
-	   welcomeNewbie(player)
-	end
-	
-	onlinePlayer[i]:setQuestProgress(851,0) -- reset session check for newbie welcome dialog
+	welcomeNewPlayer(player)
 	
 	world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
 
