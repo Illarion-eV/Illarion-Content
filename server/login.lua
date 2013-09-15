@@ -151,9 +151,53 @@ messageE[66]="[Hint] To split a stack of items, hold shift while moving it.";
 
 -- messages of the day - END
 
+function welcomeNewPlayer(player)
+    if not player:isNewPlayer() then
+        player:setQuestProgress(851, 0) -- reset session check for newbie welcome dialog
+        return
+    end
+
+	local onlinePlayers = world:getPlayersOnline()
+	for i=1,#onlinePlayers do
+	    local user = onlinePlayers[i]
+	    
+		if not user:isNewPlayer() then
+			
+			if user:getQuestProgress(851) == 0 then
+			
+				local getText = function(deText,enText) return base.common.base.common.GetNLS(user, deText, enText) end
+    
+				local callback = function(dialog) 
+					local success = dialog:getSuccess() 
+					if success then
+						local selected = dialog:getSelectedIndex()+1
+						if selected == 1 then
+							user:warp(player.pos)
+							world:gfx(46, player.pos)
+							user:setQuestProgress(850, user:getQuestProgress(850)+1)
+						elseif selected == 2 then
+							-- nothing
+						elseif selected == 3 then
+							user:setQuestProgress(851,1)
+						end	
+					end
+				end
+
+				local dialog = SelectionDialog(getText("Ein neuer Spieler!","A new player!"), getText("Ein neuer Spieler hat Illarion betreten! Möchtest du deine Hilfe anbieten?", "A new player has entered Illarion! Do you want to offer your help?"), callback)
+				dialog:addOption(0, getText("Teleportier mich zu ihm. Ich will helfen!","Warp me to him, let me help!"))
+				dialog:addOption(0, getText("Nicht jetzt.", "Not now."))
+				dialog:addOption(0, getText("Nicht für diese Sitzung.","Not for this session."))
+				user:requestSelectionDialog(dialog)
+			end
+		end
+	end
+end
+
 function onLogin( player )
 
-    world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
+	welcomeNewPlayer(player)
+	
+	world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
 
 	--General welcome message
     players=world:getPlayersOnline(); --Reading all players online so we can count them
