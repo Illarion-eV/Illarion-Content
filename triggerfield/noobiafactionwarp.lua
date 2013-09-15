@@ -11,14 +11,20 @@ module("triggerfield.noobiafactionwarp", package.seeall)
 
 function MoveToField(Character)
 
-    -- Cadomyr: 127 647 0
+	-- Cadomyr: 127 647 0
     -- Runewick: 788 826 0
     -- Galmair: 424 245 0
 	
     -- we define our destination
 	
+	find, myEffect = Character.effects:find(13) 
+	local oldPlayer 
+	if not find then
+		oldPlayer = true
+	end
+	
 	local destination, factionID, dialogNewbieText, dialogNewbieTaskText, dialogNewbieTaskTitle
-	if Character.pos == position(56,96,100) then --Cadomyr
+	if Character.pos == position(56,96,100) and not oldPlayer then --Cadomyr
 	
 	    destination = position(127,647,0);
 		factionID = 1;
@@ -31,7 +37,7 @@ function MoveToField(Character)
 			dialogNewbieTaskText = "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Jakob Lindorn is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!"
 	    end	
 		
-	elseif Character.pos == position(20,99,100) then --Runewick
+	elseif Character.pos == position(20,99,100) and not oldPlayer then --Runewick
 	
 	    destination = position(836, 813, 0);
 	    factionID = 2;
@@ -44,7 +50,7 @@ function MoveToField(Character)
 			dialogNewbieTaskText = "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Florain Dreyndel is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!"
 	    end	
 		
-    elseif Character.pos == position(40,111,100) then --Galmair
+    elseif Character.pos == position(40,111,100) and not oldPlayer then --Galmair
 	
 	    destination = position(424,245,0);
 	    factionID = 3;
@@ -66,8 +72,8 @@ function MoveToField(Character)
     world:gfx(41,Character.pos);
 	
 	FactionCheck = base.factions.getFaction(Character);
-	                                                            -- "Jupiter" check for testing. Merung
-	if (not Character:isAdmin() and not (FactionCheck.tid~=0)) or Character.name == "Jupiter" then -- admins and chars who are already members of a faction are unaffected and just warped 
+	                                                           
+	if (not Character:isAdmin() and not (FactionCheck.tid~=0)) and not oldPlayer then -- admins and chars who are already members of a faction are unaffected and just warped 
 	    
 		-- We delete some items, if the char has more than one of them
 		local DeleteList = {23,391,2763} --hammer, torch, pick-axe
