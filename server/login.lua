@@ -161,7 +161,7 @@ function welcomeNewbie(player)
 	for i=1,#onlinePlayers do
 		if not isNewPlayer(user) then
 			
-			if onlinePlayer[i]:getQuestProgress(851) == 0 then
+			if onlinePlayers[i]:getQuestProgress(851) == 0 then
 			
 				local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
     
@@ -175,8 +175,8 @@ function welcomeNewbie(player)
 								local target = position(player.pos.x+math.random(-3,3),player.pos.y+math.random(-3,3),player.pos.z)
 								local field = world:getField(target)
 								if field:isPassable() then
-									onlinePlayer[i]:warp(target)
-									onlinePlayer[i]:setQuestProgress(850,onlinePlayer[i]:getQuestProgress(850)+1)
+									onlinePlayers[i]:warp(target)
+									onlinePlayers[i]:setQuestProgress(850,onlinePlayers[i]:getQuestProgress(850)+1)
 									counter = 20
 								else
 									counter + 1
@@ -185,7 +185,7 @@ function welcomeNewbie(player)
 						elseif selected == 2 then
 							-- nothing
 						elseif selected == 3 then
-							onlinePlayer[i]:setQuestProgress(851,1)
+							onlinePlayers[i]:setQuestProgress(851,1)
 						end	
 					end
 				end
@@ -197,14 +197,14 @@ function welcomeNewbie(player)
 				User:requestSelectionDialog(dialog)
 				
 			end
-		end 
+		end
 	end
 end
 
 function onLogin( player )
 
 	if isNewPlayer(player) then
-	   -- welcomeNewbie(player)
+	   welcomeNewbie(player)
 	end
 	
 	onlinePlayer[i]:setQuestProgress(851,0) -- reset session check for newbie welcome dialog
