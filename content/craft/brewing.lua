@@ -14,7 +14,7 @@ brewing = item.base.crafts.Craft:new{
 
 brewing:addTool(339) -- barrel
 
-local catId = brewing:addCategory("light alcohol", "Leichter Alkohol") -- Bierflasche(2501), Leichte Alkoholika 
+local catId = brewing:addCategory("Light alcohol", "Leichter Alkohol") -- Bierflasche(2501), Leichte Alkoholika 
 
 ------------------- FLASCHE MIT CIDER - 2499 -------------------------- 
 local product = brewing:addProduct(catId, 2499, 0, 20, 25, 50)
@@ -49,7 +49,7 @@ product:addIngredient(52)
 product:addRemnant(51) -- Schritt 4: Eimer mit Wasser(52) 1x
 ------------------ FLASCHE MIT WEIN - FERTIG --------------------------       
 
-catId = brewing:addCategory("strong alcohol", "Harter Alkohol") -- Das harte Zeug 
+catId = brewing:addCategory("Strong alcohol", "Harter Alkohol") -- Das harte Zeug 
 
 ------------------- FLASCHE MIT RUM - 517 ---------------------------
 product = brewing:addProduct(catId, 517, 52, 70, 102, 204)
@@ -78,14 +78,6 @@ product:addIngredient(52)
 product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
 ------------------- FLASCHE MIT BÄRENTÖTER - FERTIG ---------------------------
 
-------------------- FLASCHE MIT ELBENWEIN - 1318 ---------------------------
-product = brewing:addProduct(catId, 1318, 87, 100, 135, 270)
-product:addIngredient(1317) -- Schritt 6: leere Flasche(1317) 1x
-product:addIngredient(759, 2) -- Schritt 1 - 2: Nüsse(759) x1
-product:addIngredient(80, 3) -- Schritt 3: Beeren(81) x3
-product:addIngredient(2529, 2) -- Schritt 4: Honig(2529) x2
-------------------- FLASCHE MIT ELBENWEIN - FERTIG ---------------------------
-
 ------------------- FLASCHE MIT KIRSCHSCHNAPS - 1319 ---------------------------
 product = brewing:addProduct(catId, 1319, 77, 95, 144, 288)
 product:addIngredient(1317) -- Schritt 6: leere Flasche(1317) 1x
@@ -94,7 +86,42 @@ product:addIngredient(52)
 product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
 ------------------- FLASCHE MIT KIRSCHSCHNAPS - FERTIG ---------------------------
 
-catId = brewing:addCategory("juices", "Säfte") -- Tee, Smoothies, Saft :p
+------------------- FLASCHE MIT ELBENWEIN - 1318 ---------------------------
+product = brewing:addProduct(catId, 1318, 87, 100, 135, 270)
+product:addIngredient(1317) -- Schritt 6: leere Flasche(1317) 1x
+product:addIngredient(759, 2) -- Schritt 1 - 2: Nüsse(759) x1
+product:addIngredient(80, 3) -- Schritt 3: Beeren(81) x3
+product:addIngredient(2529, 2) -- Schritt 4: Honig(2529) x2
+------------------- FLASCHE MIT ELBENWEIN - FERTIG ---------------------------
+
+catId = brewing:addCategory("Juices", "Säfte") -- Tee, Smoothies, Saft :p
+
+------------------- FLASCHE MIT JUNGFERNKRAUTTEE - 787 --------------------------- 
+product = brewing:addProduct(catId, 787, 29, 45, 110, 220)
+product:addIngredient(790) -- Schritt 6: leere Flasche(790) 1x
+product:addIngredient(144, 3*2) -- Schritt 1 - 3: Jungfernkraut(144) 2x
+product:addIngredient(147, 2) -- Schritt 4: Brombeeren(147) 2x
+product:addIngredient(2529) -- Schritt 5: Honig(2529) x1
+product:addIngredient(52)
+product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
+------------------- FLASCHE MIT TEE - FERTIG --------------------------- 
+
+------------------- FLASCHE MIT KOHLSAFT - 786 ---------------------------
+product = brewing:addProduct(catId, 786, 33, 50, 72, 144)
+product:addIngredient(790) -- Schritt 6: leere Flasche(790) 1x
+product:addIngredient(290, 4*2) -- Schritt 1 - 4: Kohl(290) 2x
+product:addIngredient(52)
+product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
+------------------- FLASCHE MIT KOHLSAFT - FERTIG ---------------------------
+
+------------------- FLASCHE MIT KAROTTENSAFT - 788 ---------------------------
+product = brewing:addProduct(catId, 788, 57, 75, 114, 228)
+product:addIngredient(790) -- Schritt 6: leere Flasche(790) 1x
+product:addIngredient(2493, 3*2) -- Schritt 1 - 3: Karotten(2493) 2x
+product:addIngredient(778) -- Schritt 4: Zuckerrohr(778) 1x
+product:addIngredient(52)
+product:addRemnant(51) -- Schritt 7: Eimer mit Wasser(52) 1x
+------------------- FLASCHE MIT KAROTTENSAFT - FERTIG ---------------------------
 
 ------------------- FLASCHE MIT BROMBEERSAFT - 783 Dunkelblau ---------------------------
 product = brewing:addProduct(catId, 783, 63, 85, 126, 252)
@@ -114,42 +141,6 @@ product:addIngredient(52)
 product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
 ------------------- FLASCHE MIT MANDARINENSAFT - FERTIG ---------------------------
 
-------------------- FLASCHE MIT BANANENSAFT - 785 ---------------------------
-product = brewing:addProduct(catId, 785, 78, 100, 150, 300)
-product:addIngredient(790) -- Schritt 6: leere Flasche(790) 1x
-product:addIngredient(80, 3*2) -- Schritt 1 - 3: Bananen(80) 2x
-product:addIngredient(778) -- Schritt 4: Zuckerrohr(778) 1x
-product:addIngredient(52)
-product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
-------------------- FLASCHE MIT BANANENSAFT - FERTIG ---------------------------
-
-------------------- FLASCHE MIT KOHLSAFT - 786 ---------------------------
-product = brewing:addProduct(catId, 786, 33, 50, 72, 144)
-product:addIngredient(790) -- Schritt 6: leere Flasche(790) 1x
-product:addIngredient(290, 4*2) -- Schritt 1 - 4: Kohl(290) 2x
-product:addIngredient(52)
-product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
-------------------- FLASCHE MIT KOHLSAFT - FERTIG ---------------------------
-
-------------------- FLASCHE MIT JUNGFERNKRAUTTEE - 787 --------------------------- 
-product = brewing:addProduct(catId, 787, 29, 45, 110, 220)
-product:addIngredient(790) -- Schritt 6: leere Flasche(790) 1x
-product:addIngredient(144, 3*2) -- Schritt 1 - 3: Jungfernkraut(144) 2x
-product:addIngredient(147, 2) -- Schritt 4: Brombeeren(147) 2x
-product:addIngredient(2529) -- Schritt 5: Honig(2529) x1
-product:addIngredient(52)
-product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
-------------------- FLASCHE MIT TEE - FERTIG --------------------------- 
-
-------------------- FLASCHE MIT KAROTTENSAFT - 788 ---------------------------
-product = brewing:addProduct(catId, 788, 57, 75, 114, 228)
-product:addIngredient(790) -- Schritt 6: leere Flasche(790) 1x
-product:addIngredient(2493, 3*2) -- Schritt 1 - 3: Karotten(2493) 2x
-product:addIngredient(778) -- Schritt 4: Zuckerrohr(778) 1x
-product:addIngredient(52)
-product:addRemnant(51) -- Schritt 7: Eimer mit Wasser(52) 1x
-------------------- FLASCHE MIT KAROTTENSAFT - FERTIG ---------------------------
-
 ------------------- FLASCHE MIT ERDBEERSAFT - 789 ---------------------------
 product = brewing:addProduct(catId, 789, 73, 95, 144, 288)
 product:addIngredient(790) -- Schritt 6: leere Flasche(790) 1x
@@ -158,6 +149,15 @@ product:addIngredient(778) -- Schritt 4: Zuckerrohr(778) 1x
 product:addIngredient(52)
 product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
 ------------------- FLASCHE MIT ERDBEERSAFT - FERTIG ---------------------------
+
+------------------- FLASCHE MIT BANANENSAFT - 785 ---------------------------
+product = brewing:addProduct(catId, 785, 78, 100, 150, 300)
+product:addIngredient(790) -- Schritt 6: leere Flasche(790) 1x
+product:addIngredient(80, 3*2) -- Schritt 1 - 3: Bananen(80) 2x
+product:addIngredient(778) -- Schritt 4: Zuckerrohr(778) 1x
+product:addIngredient(52)
+product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
+------------------- FLASCHE MIT BANANENSAFT - FERTIG ---------------------------
 
 ------------------- FLASCHE MIT TRAUBENSAFT - 791 ---------------------------
 product = brewing:addProduct(catId, 791, 83, 100, 150, 300)

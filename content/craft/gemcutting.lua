@@ -12,8 +12,8 @@ gemcutting = item.base.crafts.Craft:new{
 
 gemcutting:addTool(270)  -- cutting stone
 
-local catGems = gemcutting:addCategory("gems", "Edelsteine")
-local catDust = gemcutting:addCategory("gem dust", "Edelsteinstaub")
+local catGems = gemcutting:addCategory("Gems", "Edelsteine")
+local catDust = gemcutting:addCategory("Gem dust", "Edelsteinstaub")
 
 ---------------- AMETHYST - 197 ----------------
 local product = gemcutting:addProduct(catGems, 197, 0, 40, 10, 20)

@@ -14,7 +14,7 @@ baking:addTool( 120 ); -- baking oven
 
 --------------------------------------------------------------------------------------------
 
-local catId = baking:addCategory("baked goods", "Backwaren")
+local catId = baking:addCategory("Baked goods", "Backwaren")
 
 ---------------- BREAD ROLL - 191 ----------------------
 local product = baking:addProduct(catId, 191, 0, 20, 5, 10)

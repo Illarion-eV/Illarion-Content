@@ -12,7 +12,7 @@ dyemaking = item.base.crafts.Craft:new{
 
 dyemaking:addTool(12) -- camp fire
 
-local catId = dyemaking:addCategory("dyes", "Farbstoffe")
+local catId = dyemaking:addCategory("Dyes", "Farbstoffe")
 
 
 --White Dye
