@@ -51,6 +51,11 @@ product:addIngredient(41, 3) -- Glass Ingot: 3x
 product:addIngredient(197) -- Amethyst: 1x
 product:addIngredient(46) -- Ruby: 1x
 
+--Glass Dagger
+product = glassblowing:addProduct(catId, 2672, 75, 95, 120, 240)
+product:addIngredient(41, 3) -- Glass Ingot: 3x
+product:addIngredient(448, 1) -- Emerald dust
+
 --Glass Mug
 product = glassblowing:addProduct(catId, 1908, 60, 90, 20, 40)
 product:addIngredient(41, 2) -- Glass Ingot: 2x
