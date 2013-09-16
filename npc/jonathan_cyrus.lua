@@ -665,6 +665,7 @@ talkingNPC:addCycleText("Bierkrüge für Zwergenbier, feinste Kelche für Elfenwein
 talkingNPC:addCycleText("Das transparente Gold Cadomyrs: Glas!", "The transparent gold of Cadomyr: Glass!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(311,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(312,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2672,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(164,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(315,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1317,"sell"));
@@ -682,6 +683,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(391,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(431,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(311,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(312,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2672,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(164,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(315,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1317,"buyPrimary"));
