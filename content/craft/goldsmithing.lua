@@ -299,7 +299,9 @@ product:addIngredient(2550, 6); -- Copper
 
 -- coppered battle axe        
 product = goldsmithing:addProduct(catId, 192, 45, 65, 97, 195, 1);
-product:addIngredient(2629); -- Light Battleaxe
+product:addIngredient(2525); -- Axe Handle
+
+product:addIngredient(2535, 5); -- Iron Ingot 
 
 product:addIngredient(2550, 5); -- Copper Ingot
 
