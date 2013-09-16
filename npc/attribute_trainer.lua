@@ -29,6 +29,10 @@ function useNPC(npc, user)
 end
 
 function receiveText(npc, ttype, text, user)
+    if not npc:isInRange(user, 2) then
+        return
+    end
+
     if string.match(text, "[Hh]elp") then
         user:inform("[Help] This NPC is a trainer. Ask him for training to change your basic attributes permanently, for a small fee of course.")
         return
