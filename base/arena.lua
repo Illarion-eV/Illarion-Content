@@ -111,18 +111,34 @@ function payforMonster(User, MonsterLevel, NPC)
 end
 
 arenaMonster = {}
+arenaMonsterByMonsterId = {}
 
 function spawnMonster(User, MonsterLevel, arena)
     if not arenaMonster[User.id] then
 		arenaMonster[User.id] = {};
     end
 	
-    local monster;
+	local monster;
 	world:gfx(31,arenaInformation[arena].monsterPos);
 	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformation[arena].monsterPos,0);
 	if isValidChar(monster) then
 		table.insert( arenaMonster[User.id], monster );
-    end
+		
+		if not arenaMonsterByMonsterId[monster.id] then
+			arenaMonsterByMonsterId[monster.id] = {};
+		end
+		table.insert( arenaMonsterByMonsterId[monster.id], true )
+	end
+end
+
+function isArenaMonster(monster)
+	
+	
+	if arenaMonsterByMonsterId[monster.id] ~= nil then
+		return arenaMonsterByMonsterId[monster.id][1]
+	end
+	return nil
+
 end
 
 function checkMonster(User)
@@ -237,8 +253,6 @@ function getReward(User, quest)
 	local numberOfRewards = User:getQuestProgress(quest+2)
 	local currentPoints = User:getQuestProgress(quest)
 	local pointsNeededForNewReward = 50;
-	
-	User:inform("points: "..currentPoints.. " "..pointsNeededForNewReward*(numberOfRewards+1))
 	
 	if  currentPoints >= pointsNeededForNewReward*(numberOfRewards+1) then
 		User:setQuestProgress(quest+2, numberOfRewards+1);

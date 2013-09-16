@@ -3,6 +3,7 @@ require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
 require("monster.base.kills")
+require("base.arena")
 module("monster.mon_89_redimps", package.seeall)
 
 
@@ -75,7 +76,11 @@ function onCasted(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
-function onDeath(Monster)    
+function onDeath(Monster)
+
+    if base.arena.isArenaMonster(Monster) then
+        return
+    end    
 
 
     monster.base.drop.ClearDropping();

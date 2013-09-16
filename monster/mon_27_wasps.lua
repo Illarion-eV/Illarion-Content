@@ -3,6 +3,7 @@ require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
 require("monster.base.kills")
+require("base.arena")
 module("monster.mon_27_wasps", package.seeall)
 
 
@@ -85,6 +86,10 @@ end
 
 
 function onDeath(Monster)
+
+    if base.arena.isArenaMonster(Monster) then
+        return
+    end
 
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();

@@ -4,6 +4,7 @@ require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
 require("monster.base.kills")
+require("base.arena")
 module("monster.mon_20_demonskeletons", package.seeall)
 
 
@@ -127,6 +128,10 @@ function onCasted(Monster,Enemy)
 end
 
 function onDeath(Monster)
+
+    if base.arena.isArenaMonster(Monster) then
+        return
+    end
 
 	
     if killer and killer[Monster.id] ~= nil then
