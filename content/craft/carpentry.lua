@@ -76,9 +76,10 @@ product:addIngredient(546, 6) -- Naldor Wooden Boards: 6x1
 product:addIngredient(2717, 2) -- pins and cotters 2x1
 product:addIngredient(50, 2) -- Thread: 2x1
 product:addIngredient(2535) -- Iron Ingots: 1x1
-product:addIngredient(283, 2) -- Blackstone
-product:addIngredient(2571) -- Merinium Ingot 2x1
-product:addIngredient(2552); -- Pure Earthx1
+product:addIngredient(283, 2) -- Blackstone 2x1
+product:addIngredient(2571) -- Merinium Ingot 1x1
+product:addIngredient(2552); -- Pure Earth 1x1
+product:addIngredient(2551) -- Pure Air: 1x1
 
 --Elven Composite Longbow
 product = carpentry:addProduct(catId, 2718, 90, 100, 154, 308)
