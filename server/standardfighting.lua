@@ -425,7 +425,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		"Du solltest aufhören dein kaputtes Artefakt zu verwenden bevor es zerbricht!",
 		"You should stop wielding your broken artifact before it shatters!");
 
-	elseif (base.common.Chance(1, 20)) then
+	elseif (base.common.Chance(1, 60)) then
 		local durability = math.mod(ParryWeapon.quality, 100);
 		local quality = (ParryWeapon.quality - durability) / 100;
     
