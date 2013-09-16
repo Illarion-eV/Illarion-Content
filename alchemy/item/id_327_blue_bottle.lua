@@ -53,8 +53,8 @@ local potionEffectId = (tonumber(Item:getData("potionEffectId")))
 			alchemy.base.missile.effect_16( User, Item );
 		elseif (potionEffectId == 317) then 
 			alchemy.base.missile.effect_17( User, Item );
-		--elseif (potionEffectId == 318) then 
-		    --alchemy.base.missile.effect_18( User, Item );
+		elseif (potionEffectId == 318) then 
+		    alchemy.base.missile.effect_18( User, Item );
 		else
 			-- unbekannter Trank
 		end
