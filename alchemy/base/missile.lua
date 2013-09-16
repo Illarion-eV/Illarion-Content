@@ -11,6 +11,7 @@
 
 
 require("base.common")
+require("scheduled.alchemy")
 
 module("alchemy.base.missile", package.seeall);
 
@@ -335,22 +336,38 @@ function fruitBomb(User, Item, targetArea)
 			table.remove(targetArea,rnd)
 		end	
 	end
+	for i=1, math.floor(tries/2) do 
+		world:gfx(52, targetArea[math.random(#targetArea)])
+	end
 	
 	local sa = scheduled.alchemy
-	
+	local posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
 	local found = false
-	for i=1,#sa.CENTRES do
-		if sa.CENTRES[i] == Item.pos then
+	for i=1,#sa.CENTERS do
+		if sa.CENTERS[i] == posAsString then
 			found = true
 		end
 	end
 	
 	if not found then
-		table.insert(sa.CENTRES,Item.pos)
-		sa.CENTER[Item.pos] = {}
+		table.insert(sa.CENTERS,posAsString)
+		sa.CENTER[posAsString] = {}
 	end
 	
-	table.insert(sa.CENTER[Item.pos],{quality, 0, targetArea})
+	quality = quality/2
+	if quality % 2 ~= 0 then
+		if math.floor(2)==1 then
+			quality = quality + 1
+		end
+	end
+	quality = math.floor(quality)
+	
+	table.insert(sa.CENTER[posAsString],{quality, 0, targetArea})
+	
+	local players = world:getPlayersInRangeOf(Item.pos,9)
+	for i=1,#players do
+		players[i]:inform("Ein süßlicher Duft, der an Blumen und Früchten erinnert, breitet sich aus.", "A sweet scent, reminding one of flowers and fruits, starts to spread.")
+	end
 	
 end
 

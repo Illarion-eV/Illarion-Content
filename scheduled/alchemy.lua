@@ -18,6 +18,7 @@ WASPS["emotes"]["en"] = {"#me comes closer humming, drawn in by the sweet smell.
 -- conatining all center points
 CENTERS = {} 
 
+-- get active bomb information by center position
 CENTER = {}
 
 
@@ -38,47 +39,59 @@ function fruitBombInsectsSpawning()
 		return
 	end
 	
+	local removeCounterCENTERS = 0
 	for i=1,#CENTERS do
 		
-		local theCenter = CENTERS[i]
+		local theCenter = CENTERS[i-removeCounterCENTERS]
 		
+		local removeCounterCENTER = 0
 		for j=1,#CENTER[theCenter] do
 		
-			local quality = CENTER[theCenter][j][1]
-			local counter = CENTER[theCenter][j][2]
-			local targetArea = CENTER[theCenter][j][3]
+			local quality = CENTER[theCenter][j-removeCounterCENTER][1]
+			local counter = CENTER[theCenter][j-removeCounterCENTER][2]
+			local targetArea = CENTER[theCenter][j-removeCounterCENTER][3]
 			
 			local removeAt = quality*2
-		
+			
 			if counter >= 2 then
 				
-				if math.floor(counter/2) == counter/2 then -- even numbers
+				if counter % 2 == 0 then -- even numbers
 					
 					local checkedCounter = 1
-					local check
+					local check = false
 					while check == false do
-						local thePos == targetArea[checkedCounter]
+						local thePos = targetArea[math.random(1,#targetArea)]
 						local theField = world:getField(thePos)
 						if theField:isPassable() then
-							local wasp = world:createMonster(WASPS["id"][math.random(1,#WASPS["id"])],posi,-20)
+							local wasp = world:createMonster(WASPS["id"][math.random(1,#WASPS["id"])],thePos,-20)
+							world:gfx(7, thePos)
+							if counter == 2 then
+								local players = world:getPlayersInRangeOf(thePos,9)
+								for i=1,#players do
+									players[i]:inform("Ein Summen ist zu vernehmen. Wespen werden von dem Duft angelockt!", "A buzzing can be heard and gets closer. Wasps are allured by the sweet scent.")
+								end
+							end
 							if math.random(1,2)==1 or counter == 2 then
 								local rnd = math.random(1,#WASPS["emotes"]["de"])
 								wasp:talk(Character.say,WASPS["emotes"]["de"][rnd],WASPS["emotes"]["en"][rnd])
 							end
 							check = true
-						elseif checkedCounter == #targetArea -- we have checked the whole area, no free position; abort
+						elseif checkedCounter == #targetArea then -- we have checked the whole area, no free position; abort
 							check = true
 						end
 					end	
 				end
 			end
-			counter = counter + 1
+			CENTER[theCenter][j-removeCounterCENTER][2] = counter + 1
 			if counter == removeAt then
-				table.remove(
+				table.remove(CENTER[theCenter],j)
 			end
 		end
 		
-		
-	  
-
+		if #CENTER[theCenter] == 0 then
+			table.remove(CENTERS,i)
+		end
+	end
+	
+	
 end
