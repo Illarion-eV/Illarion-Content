@@ -321,7 +321,13 @@ end
 FRUITS_FLOWERS = {15,80,81,143,148,144,147,151,199,302}
 
 function fruitBomb(User, Item, targetArea)
-
+	local sa = scheduled.alchemy
+	local posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
+	if sa.CENTER[posAsString] then
+		world:gfx(1,Item.pos)
+		return
+	end
+	
     local quality = math.floor(Item.quality/100)
 	local tries = #targetArea/7+(2*quality)
     local theField
@@ -366,7 +372,7 @@ function fruitBomb(User, Item, targetArea)
 	
 	local players = world:getPlayersInRangeOf(Item.pos,9)
 	for i=1,#players do
-		players[i]:inform("Ein süßlicher Duft, der an Blumen und Früchten erinnert, breitet sich aus.", "A sweet scent, reminding one of flowers and fruits, starts to spread.")
+		players[i]:inform("Ein süßlicher Duft, der an Blumen und Früchte erinnert, breitet sich aus.", "A sweet scent, reminding one of flowers and fruits, starts to spread.")
 	end
 	
 end
