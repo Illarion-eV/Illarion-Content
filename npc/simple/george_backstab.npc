@@ -1,0 +1,172 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: George Backstab                                             None --
+-- NPC Job:  Prisoner     			                                      --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  354,872,0              --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   envi			                                           	   --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "George Backstab"
+race = human
+sex = male
+position = 354, 872, 0
+direction = south
+affiliation = "None"
+job = "Prisoner"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Envi"
+
+lookatDE = "Dieser NPC ist George Backstab der Gefangene."
+lookatUS = "This NPC is George Backstab the Prisoner."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 0
+beardID = 5
+colorHair = 28, 28, 28
+colorSkin = 255, 99, 71
+itemHead = 0
+itemChest = 0
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 34
+itemShoes = 0
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+-- sellItems = 1, 2, 3
+-- buyPrimaryItems = 1
+-- buySecondaryItems = 2, 3
+
+-- Template Version 1.08, 10/18/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- TRADING
+-- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is George Backstab the Prisoner. Keywords: prision, liberate, door, escape.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist George Backstab der Gefangene. Schlüsselwörter: Gefängnis, befreien, Tür, Flucht.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Don't waste time but open the door and liberate me."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Verschwende keine Zeit, sondern öffne die Tür und befreie mich."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Don't waste time but open the door and liberate me."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Verschwende keine Zeit, sondern öffne die Tür und befreie mich."
+"Farewell", "Bye", "Fare well", "See you" -> "#s Don't leave me alone here! Open the door at least!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lass mich nicht alleine hier! Öffne die Tür wenigstens!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#s Don't leave me alone here! Open the door at least!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Lass mich nicht alleine hier! Öffne die Tür wenigstens!"
+"How are you", "How feel", "How do you do" -> "Bad of course. How would you feel if you would be inprisioned?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Schlecht natürlich. Wie würdest du dich fühlen, wenn du eingeperrt wärst?"
+"your name", "who are you", "who art thou" -> "George Backstab and now open the door!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "George Backstab und nun öffne die Tür!"
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "Are you kidding me? Don't you see I am prisioner?"
+"beruf" -> "Bist du so dumm? Siehst du nicht, dass ich Gefangener bin?"
+english, "job" -> "Are you kidding me? Don't you see I am prisioner?"
+"job" -> "Bist du so dumm? Siehst du nicht, dass ich Gefangener bin?"
+"tell something" -> "Don't waste time but open the door and liberate me."
+"erzähl was", "erzähl etwas" -> "Verschwende keine Zeit, sondern öffne die Tür und befreie mich."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"door" -> "Don't waste time but open the door and liberate me."
+"liberat" -> "Please liberate me from this prision by opening the door. They keep me imprisioned despite I haven't done anything."
+"prison" -> "I don't wana be any longer in this prison. Open the door and let me escape!"
+"escape" -> "Help me to escape by opening the door and I will also help you."
+"open" -> "Is it open? I cannot see it because the sun hinders me."
+"tür" -> "Verschwende keine Zeit, sondern öffne die Tür und befreie mich."
+"befrei" -> "Bitte befreit mich aus diesem Gefängnis durch das öffnen der Tür. Die halten mich gefangen, obwohl nichts getan habe."
+"Gefängnis" -> "Ich will nicht mehr länger in diesem Gefängnis sein. Öffne die Tür und lass mich flüchten."
+"Gefangen" -> "Ich will nicht mehr länger in diesem Gefängnis sein. Öffne die Tür und lass mich flüchten"
+"Flucht" -> "Hilf mir bei der Flucht durch das öffnen dieser Tür und ich werde dir auch helfen."
+"offen" -> "Ist sie schon offen? Ich sehe das nicht. Die Sonne spiegelt so."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "In my position only Nargun or Ronagan can help me."
+"Gott", "Götter" -> "In meiner Position können mir nur noch Nargun und Ronagan helfen."
+english, "religion" -> "In my position only Nargun or Ronagan can help me."
+"religion" -> "In meiner Position können mir nur noch Nargun und Ronagan helfen."
+"faith" -> "In my position only Nargun or Ronagan can help me."
+"Glaube" -> "In meiner Position können mir nur noch Nargun und Ronagan helfen."
+english, "Nargun", "Nargún", "Nargùn" -> "I am sure, one day he will come and rescue me."
+"Nargun", "Nargún", "Nargùn" -> "Ich bin mir sicher, eines Tages wird er kommen und mich befreien."
+english, "Ronagan" -> "I am sure, one day he will come and rescue me."
+"Ronagan" -> "Ich bin mir sicher, eines Tages wird er kommen und mich befreien."
+
+-- Optional: Faction stuff
+"archmage" -> "A bastard as those two others. He does not want me as a free man and let me imprison every time."
+"Erzmagier" -> "Ein Bastard wie die beiden anderen. Er will mich nicht frei sehen und lässt mich immer wieder einfangen."
+english, "Elvaine", "Morgan" -> "A bastard as those two others. He does not want me as a free man and let me imprison every time."
+"Elvaine", "Morgan" -> "Ein Bastard wie die beiden anderen. Er will mich nicht frei sehen und lässt mich immer wieder einfangen."
+english, "Runewick" -> "From me to you, they are dump as nuts."
+"Runewick" -> "Von mir zu dir, die sind dummer als es erlaubt ist."
+english, "Valerio", "Guilianni", "Don" -> "A bastard as those two others. He does not want me as a free man and let me imprison every time."
+"Valerio", "Guilianni", "Don" -> "Ein Bastard wie die beiden anderen. Er will mich nicht frei sehen und lässt mich immer wieder einfangen."
+english, "Galmair" -> "Do they still think they are rich?"
+"Galmair" -> "Glauben die noch immer, dass sie reich sind?"
+"Queen" -> "A bastard as those two others. He does not want me as a free man and let me imprison every time."
+"Königin" -> "Ein Bastard wie die beiden anderen. Sie will mich nicht frei sehen und lässt mich immer wieder einfangen."
+english, "rosaline", "edwards" -> "A bastard as those two others. She does not want me as a free man and let me imprison every time."
+"rosaline", "edwards" -> "Ein Bastard wie die beiden anderen. Sie will mich nicht frei sehen und lässt mich immer wieder einfangen."
+english, "Cadomyr" -> "Believe me. Greatest cowards ever!"
+"Cadomyr" -> "Glaub mir. Die größten Feiglinge, die es je gegeben hat."
+
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+"my name" -> "Can you open the door please?"
+"mein Name" -> "Kannst du die Tür bitte öffnen?"
+english, "George", "Backstab" -> "Oh, you know my name. Can you open the door please?"
+"George", "Backstab" -> "Oh, du kennest meinen Namen. Kannst du die Tür bitte öffnen?"
+"Yes" -> "I don't care. Open this damn door!"
+"Ja" -> "Mir egal. Mach diese verdammte Tür auf!"
+"No" -> "I don't care. Open this damn door!"
+"Nein" -> "Mir egal. Mach diese verdammte Tür auf!"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "Damn! Open this door. We can talk afterwards."
+german, chance(20.0), ".*" -> "Die Tür sollst du aufmachen, verdammt! Den Rest können wir später bereden."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#s Die kommen, die kommen! Öffne meine Tür und helfe dir beim Überleben!", "#s They are coming, they are coming. Open the door and I will help you to survive!"
+cycletext "Die Tür sollst du aufmachen, verdammt!", "Damn! Open this door."
+cycletext "#s Mach diese verdammte Tür auf!", "#s Open this damn door!"
+cycletext "Hilfst du mir, helfe ich dir. Mach diese verdammte Tür auf!", "If you help me, I help you. Open this damn door!"
+cycletext "Die werden euch alle aufschlitzen. Mach lieber die Tür auf, damit ich dir helfen kann.", "They will kill you all. Open the door that I can help you."
+cycletext "#me rüttelt an der Tür.", "#me knocks against the door."
+cycletext "#me seufzt beängstigt.", "#me sighs afraid."
+cycletext "#me stöhnt erschöpft.", "#me groans exchausted"
+cycletext "#s Lasst mich gehen! Lasst...mich...gehen!", "#s Let me go! Let...me...go!"
+cycletext "#s Ihr verdammten Söhne und Töchter! Lasst mich hier nicht alleine!", "#s You damn sons and daughters! Don't let me alone here!"

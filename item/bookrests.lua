@@ -1,5 +1,5 @@
 require("base.common")
--- require("base.seafaring")
+require("base.seafaring")
 
 -- UPDATE common SET com_script='item.bookrests' WHERE com_itemid = 3104;
 -- UPDATE common SET com_script='item.bookrests' WHERE com_itemid = 3105;
@@ -17,8 +17,14 @@ function LookAtItem(User,Item)
 		lookAt = SalaveshLookAt(User, Item)
 	end
 	-- Salavesh end
-	
---[[	-- ferries
+
+	-- Bookrest for Evilrock
+	if (Item.pos == position(974,172,0)) then
+		lookAt = EvilrockLookAt(User, Item)
+	end
+	-- ferries end	
+
+	-- Bookrest for ferry
 	local Amountferry = table.getn(base.seafaring.ferrySourceItemPos)	
 	for i = 1,Amountferry do	
 		if (Item.pos == base.seafaring.ferrySourceItemPos[i]) then
@@ -26,7 +32,7 @@ function LookAtItem(User,Item)
 		end
 	end
 	-- ferries end
-]]
+
 	-- static teleporter
 	if Item:getData("staticTeleporter") ~= "" then
 		lookAt = StaticTeleporterLookAt(User, Item)
@@ -40,7 +46,6 @@ function LookAtItem(User,Item)
 	end	
 end
 
---[[
 function FerryLookAt(User, Item)
 	local lookAt = ItemLookAt();
 --	lookAt.rareness = ItemLookAt.rareItem;
@@ -53,11 +58,26 @@ function FerryLookAt(User, Item)
 	end
 	return lookAt
 end
-]]
+
 function StaticTeleporterLookAt(User, Item)
 	
 	local lookAt = ItemLookAt();
 	lookAt.name = "Teleporter";
+	return lookAt
+end
+
+function EvilrockLookAt(User, Item)
+    
+	local lookAt = ItemLookAt();
+	lookAt.rareness = ItemLookAt.rareItem;
+		
+	if (User:getPlayerLanguage()==0) then
+		lookAt.name = "Schaltpult";
+		lookAt.description = "Wo es wohl hinführen wird, falls du es betätigen würdest?"
+	else
+		lookAt.name = "Control Panel";
+		lookAt.description = "Where might it lead if you use it?"
+	end
 	return lookAt
 end
 
@@ -82,7 +102,18 @@ function UseItem(User, SourceItem)
 	    User:sendBook(201);
 	end
 	-- Salavesh end
---[[
+
+	-- Bookrest for the Evilrock!
+	if (SourceItem.pos == position(974,172,0)) then
+		local controlpannel = world:getPlayersInRangeOf(position(974,172,0), 8)
+		for i,player in ipairs(controlpannel) do
+			player:inform("Du hörst ein Klicken, aber nichts passiert.", "You hear a clicking but nothing happens.")
+			world:makeSound(9,player.pos)
+		end
+	end
+	-- Evilrock end
+
+
 	-- ferries
 	local Amountferry = table.getn(base.seafaring.ferrySourceItemPos)	
 	for i = 1,Amountferry do
@@ -91,7 +122,7 @@ function UseItem(User, SourceItem)
 		end	
 	end
 	-- ferries end
-]]	
+
 	-- static teleporter
 	if SourceItem:getData("staticTeleporter") ~= "" then
 	    StaticTeleporter(User, SourceItem)

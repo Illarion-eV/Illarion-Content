@@ -423,7 +423,7 @@ debug("radius"..radius)
             return;
           end
           local FirstLicence = factionIds[dialog:getSelectedIndex()+1];
-          local licence = base.licence; -- not done yet
+          local licence = base.licence;
           local licenceStrings = {};
           licenceStrings[licence.PERMISSION_NONE] = "Permission for static tools is restricted";
           licenceStrings[licence.PERMISSION_ACTIVE] = "Permission for static tools is granted";
@@ -438,8 +438,7 @@ debug("radius"..radius)
                 return;
               end
               local newLicence = licenceValues[dialog:getSelectedIndex()+1];
---	User:inform("licence: "..newLicence,"licence:"..newLicence) --debug
-              licence.SetLicence(FirstLicence, SecondLicence, newLicence); --not done yet
+              licence.SetLicence(FirstLicence, SecondLicence, newLicence); 
             end
             local sd = SelectionDialog("Set licence", "Set licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to " .. base.factions.getTownNameByID(SecondLicence) .. " to ...", cbSetLicence);
             for _,m in ipairs(licenceValues) do 
@@ -449,7 +448,7 @@ debug("radius"..radius)
           end
           local sd = SelectionDialog("Licence", "Set licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to ...", cbSecondLicence);
           for _,f in ipairs(factionIds) do 
-            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. licenceStrings[licence.GetLicenceByFaction(FirstLicence, f)]); --not done yet
+            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. licenceStrings[licence.GetLicenceByFaction(FirstLicence, f)]); 
           end
           User:requestSelectionDialog(sd);
         end

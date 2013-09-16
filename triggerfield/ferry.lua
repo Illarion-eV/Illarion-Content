@@ -23,6 +23,9 @@
 -- INSERT INTO triggerfields VALUES (275,275,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (288,292,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (289,283,0,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (79,979,0,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (79,980,0,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (79,981,0,'triggerfield.ferry');
 
 require("base.common")
 
@@ -31,7 +34,7 @@ module("triggerfield.ferry", package.seeall)
 
 
 
-ferrySourcePos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,855,0),position(615,855,0),position(616,855,0),position(105,833,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0)}
+ferrySourcePos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,855,0),position(615,855,0),position(616,855,0),position(105,833,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0),position(79,979,0),position(79,980,0),position(79,981,0),position(289,283,0),position(275,275,0),position(288,292,0),position(274,275,0)}
 
 ferryDE={}
 ferryEN={}
@@ -77,6 +80,20 @@ ferryDE[20]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg
 ferryEN[20]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg"}
 ferryDE[21]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg"}
 ferryEN[21]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg"}
+ferryDE[22]={"Cadomyr Hafen","Runewick Hafen"}
+ferryEN[22]={"Cadomyr Harbour","Runewick Harbour"}
+ferryDE[23]={"Cadomyr Hafen","Runewick Hafen"}
+ferryEN[23]={"Cadomyr Harbour","Runewick Harbour"}
+ferryDE[24]={"Cadomyr Hafen","Runewick Hafen"}
+ferryEN[24]={"Cadomyr Harbour","Runewick Harbour"}
+ferryDE[25]={"Quelle der Träume - Höhle"}
+ferryEN[25]={"Well of dreams - Cave"}
+ferryDE[26]={"Galmair"}
+ferryEN[26]={"Galmair"}
+ferryDE[27]={"Quelle der Träume - Höhle"}
+ferryEN[27]={"Well of dreams - Cave"}
+ferryDE[28]={"Galmair"}
+ferryEN[28]={"Galmair"}
 
 ferryItem={}
 ferryItem[1]={2701,105}
@@ -100,6 +117,13 @@ ferryItem[18]={61,360,372}
 ferryItem[19]={61,360,372}
 ferryItem[20]={61,360,372}
 ferryItem[21]={61,360,372}
+ferryItem[22]={2701,105}
+ferryItem[23]={2701,105}
+ferryItem[24]={2701,105}
+ferryItem[25]={61}
+ferryItem[26]={61}
+ferryItem[27]={61}
+ferryItem[28]={61}
 
 ferryTargetPos={}
 ferryTargetPos[1]={position(102,790,0),position(728,809,0)}
@@ -123,12 +147,36 @@ ferryTargetPos[18]={position(450,95,0),position(415,85,0),position(478,34,0)}
 ferryTargetPos[19]={position(450,95,0),position(415,85,0),position(478,34,0)}
 ferryTargetPos[20]={position(450,95,0),position(415,85,0),position(478,34,0)}
 ferryTargetPos[21]={position(450,95,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[22]={position(102,790,0),position(728,809,0)}
+ferryTargetPos[23]={position(102,790,0),position(728,809,0)}
+ferryTargetPos[24]={position(102,790,0),position(728,809,0)}
+ferryTargetPos[25]={position(275,274,0)}
+ferryTargetPos[26]={position(290,283,0)}
+ferryTargetPos[27]={position(274,274,0)}
+ferryTargetPos[28]={position(289,292,0)}
+
+noChoiceAndWrapDirectly={25,26,27,28}
 
 function MoveToField(User)
 	local names
-	local Amountferry = table.getn(ferrySourcePos)	
+	local Amountferry = table.getn(ferrySourcePos)
+	local AmountWrapDirectly = 4
 	for j = 1,Amountferry do
+--[[	   for n = 1,AmountWrapDirectly do
+		if j == noChoiceAndWrapDirectly[n] then
+			if (User.pos == ferrySourcePos[j]) then
+				User:warp(ferryTargetPos[j][1])
+				return
+			end
+		end
+	   end]]
 	   if (User.pos == ferrySourcePos[j]) then
+		for _,n in ipairs(noChoiceAndWrapDirectly) do
+			if j == n then
+				User:warp(ferryTargetPos[j][1])
+				return
+			end
+		end
 		if  User:getPlayerLanguage() == Player.german then
 			names = ferryDE[j]
 		else
