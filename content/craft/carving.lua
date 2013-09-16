@@ -140,6 +140,10 @@ product:addIngredient(2547); -- Leather
 
 product:addIngredient(2535); -- Iron Ingot
 
+--Dagger Handle
+product = carving:addProduct(catId, 2530, 20, 40, 40, 80)
+product:addIngredient(56) -- Bough: 1x1
+
 --mace handle
 product = carving:addProduct(catId, 2548, 6, 26, 39, 78, 1);
 product:addIngredient(2786); -- Branch
