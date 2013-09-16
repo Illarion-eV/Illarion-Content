@@ -24,7 +24,7 @@ function MoveToField(Character)
 	end
 	
 	local destination, factionID, dialogNewbieText, dialogNewbieTaskText, dialogNewbieTaskTitle
-	if Character.pos == position(56,96,100) and not oldPlayer then --Cadomyr
+	if Character.pos == position(56,96,100) then --Cadomyr
 	
 	    destination = position(127,647,0);
 		factionID = 1;
@@ -37,7 +37,7 @@ function MoveToField(Character)
 			dialogNewbieTaskText = "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Jakob Lindorn is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!"
 	    end	
 		
-	elseif Character.pos == position(20,99,100) and not oldPlayer then --Runewick
+	elseif Character.pos == position(20,99,100) then --Runewick
 	
 	    destination = position(836, 813, 0);
 	    factionID = 2;
@@ -50,7 +50,7 @@ function MoveToField(Character)
 			dialogNewbieTaskText = "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Florain Dreyndel is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!"
 	    end	
 		
-    elseif Character.pos == position(40,111,100) and not oldPlayer then --Galmair
+    elseif Character.pos == position(40,111,100) then --Galmair
 	
 	    destination = position(424,245,0);
 	    factionID = 3;
