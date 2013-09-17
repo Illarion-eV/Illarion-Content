@@ -5,6 +5,7 @@ require("item.id_52_filledbucket")
 require("alchemy.item.id_331_green_bottle")
 require("alchemy.base.gemdust")
 require("item.id_164_emptybottle")
+require("triggerfield.potionToTeacher")
 
 module("item.id_2745_parchment", package.seeall)
 
@@ -19,14 +20,126 @@ function UseItem(User, SourceItem,ltstate,checkVar)
 		return
 	end	
 	
-	
+	if SourceItem:getData("TeachLenniersDream")=="true" then
+		LearnLenniersDream(User)
+	end
 	
 end
 
 
-
 ---------------- ALCHEMY -------------------------------
 --------------------------------------------------------
+function LearnLenniersDream(User)
+
+	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+	if not anAlchemist then
+		User:inform("Ihr scheint nur seltsames Gekritzel zu stehen.","Only strange scribbling can be seen here.")
+		return
+	end
+	
+	local foundEffect, myEffect = User.effects:find(59);
+	if foundEffect then
+		local findsight, sightpotion = myEffect:findValue("sightpotion")
+		if findsight then
+			if sightpotion == User:getQuestProgress(860) then
+				TeachLenniersDream(User)
+				return
+			end
+		end
+	end
+  
+    TaskToLearn(User)
+end
+
+function TeachLenniersDream(User)
+
+
+	local callback = function(dialog) 
+		triggerfield.potionToTeacher.TellRecipe(User, 318)
+	end
+	
+	local stockDe, stockEn = GenerateStockDescription(User)
+	
+	textDE = "Als du deinen Blick auf die wirren Zeilen richtest, beginnen sie sich zu ordnen. Das unleserliche Chaos weicht langsam einer Ordnung." 
+	textEN = "As you look at the confusing lines, they start to arrange themselves. The unreadable chaos is replaced by order."
+	
+	
+	if User:getPlayerLanguage() == 0 then
+	    dialog = MessageDialog("Was steht da wohl?", textDE, callback)
+	else
+      	dialog = MessageDialog("What could be written here?", textEN, callback)
+	end
+    User:requestMessageDialog(dialog)
+
+end
+
+function GenerateStockConcentration()
+	
+	local stockList = {1,1,1,1,1,1,1,1}
+	local add = 43
+	if Random.uniform(1,2)==1 then
+		add = 21
+	end
+	
+    while add > 0 do
+	    local check = false 
+		while check == false do
+			local rnd = Random.uniform(1,8)
+			if stockList[rnd] < 9 then
+				stockList[rnd] = stockList[rnd]+1
+				add = add - 1
+				check = true
+			end
+		end
+	end
+	return stockList	
+end
+
+function GetStockFromQueststatus(User)
+	
+	if User:getQuestProgress(860) == 0 then
+		local stockList
+		stockList = GenerateStockConcentration()
+		User:setQuestProgress(860,alchemy.base.alchemy.DataListToNumber(stockList))
+	end
+	return alchemy.base.alchemy.SplitData(User,User:getQuestProgress(860))
+end
+
+function GenerateStockDescription(User)
+    
+	local stockList = GetStockFromQueststatus(User)
+	local de = ""
+	local en = ""
+	for i=1,#stockList do
+		de = de .. alchemy.base.alchemy.wirkung_de[stockList[i]] .. " "..alchemy.base.alchemy.wirkstoff[i] 
+		en = en .. alchemy.base.alchemy.wirkung_en[stockList[i]] .. " "..alchemy.base.alchemy.wirkstoff[i] 
+		if i ~= 8 then
+			de = de .. ", "
+			en = en .. ", "
+		end
+	end
+	return de, en
+end
+
+function TaskToLearn(User)
+
+	local callback = function(dialog) end
+	
+	local stockDe, stockEn = GenerateStockDescription(User)
+	
+	textDE = "Die Zeilen auf dem Pergament sind verschwommen und scheinen sich ständig zu bewegen. Nur ein paar Zeilen, lassen sich lesen:\n\n\nNeugierig, was hier steht? Nun, dann flößt Euch das folgende Gebräu ein und ich verrate Euch das Geheimnis:\nEin Trank, der zum einen aus einem Essenzgebräu auf Rubinstaubbasis (essenzierte Kräuter: Wutbeere, Wutbeere, Regenkraut, Tagtraum, Fliegenpilz) besteht und zum anderen aus einem Sud mit folgenden Konzentrationen: " .. stockDe 
+	textEN = "The writing on this parchment is blurry and the lines seem to be constantly moving. Only the following lines can be read:\n\n\nAre you curious what might be written here? Well, swallow the following potion and I will tell you the secret:\nA potion made from an essence brew based on ruby powder (containing: anger berry, anger berry, rain weed, daydream, toadstool) and from a stock having the following concentrations: " .. stockEn
+	
+	
+	if User:getPlayerLanguage() == 0 then
+	    dialog = MessageDialog("Was steht da wohl?", textDE, callback)
+	else
+      	dialog = MessageDialog("What could be written here?", textEN, callback)
+	end
+    User:requestMessageDialog(dialog)
+
+end
+
 function AlchemyRecipe(User, SourceItem,ltstate,checkVar)
     
 	

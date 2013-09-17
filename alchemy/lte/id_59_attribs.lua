@@ -15,30 +15,42 @@ end
 
 function callEffect(Effect,User)
     -- callEffect is only called once; we just need to return false
-	base.common.InformNLS( User, "Du fühlst, dass der Stärkungstrank seine Wirkung verliert.", "You feel that the strengthening potion looses its effect.")
+	local find_i,sight = Effect:findValue("sightpotion")
+	if find then
+	    base.common.InformNLS( User, "Deine Augen fühlen sich wieder normal an.", "Your eyes feel normal again.")
+	else
+		base.common.InformNLS( User, "Du fühlst, dass der Stärkungstrank seine Wirkung verliert.", "You feel that the strengthening potion looses its effect.")
+	end
 	return false
 
 end
 
 function removeEffect(Effect,User)
     -- restore the attributes
-	local find_i, attrib_i, attribValue
-	for i=1,8 do
-		find_i,attrib_i = Effect:findValue(""..attribList[i])
-		if find_i then
-			attribValue = attrib_i - 5 
-			User:increaseAttrib(attribList[i],-attribValue);
+	
+	local find_i,sight = Effect:findValue("sightpotion")
+	if not find then
+		local find_i, attrib_i, attribValue
+		for i=1,8 do
+			find_i,attrib_i = Effect:findValue(""..attribList[i])
+			if find_i then
+				attribValue = attrib_i - 5 
+				User:increaseAttrib(attribList[i],-attribValue);
+			end
 		end
 	end
 end
 
 function loadEffect(Effect,User)
     -- login, we have to change the attributes again
-	local find_i, attrib_i
-	for i=1,8 do
-		find_i,attrib_i = Effect:findValue(""..attribList[i])
-		if find_i then
-			User:increaseAttrib(attribList[i],attrib_i - 5)
-		end	
+	local find_i,sight = Effect:findValue("sightpotion")
+	if not find then
+		local find_i, attrib_i
+		for i=1,8 do
+			find_i,attrib_i = Effect:findValue(""..attribList[i])
+			if find_i then
+				User:increaseAttrib(attribList[i],attrib_i - 5)
+			end	
+		end
 	end
 end

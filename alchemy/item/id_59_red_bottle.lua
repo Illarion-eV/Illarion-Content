@@ -32,9 +32,15 @@ function DrinkPotion(User,SourceItem)
 		  -- there is already an effect, we remove it
 		local foundEffect, myEffect = User.effects:find(59);
 		if foundEffect then
-			local effectRemoved = User.effects:removeEffect(59)
-		    base.common.InformNLS(User, "Du spürst, dass der alte Stärkungstrank seine Wirkung verliert und wie der neue zu wirken einsetzt.", 
-		    "You feel that the old strengthening potion looses its effect and how the new one takes effect.")
+			local findsight, sightpotion = myEffect:findValue("sightpotion")
+			if findsight then
+				base.common.InformNLS(User, "Deine Augen fühlen sich wieder normal an und der Stärkungstrank beginnt zu wirken.", 
+				"Your eyes feel normal again and the strengthening potions starts to take effect.")
+			else
+			    base.common.InformNLS(User, "Du spürst, dass der alte Stärkungstrank seine Wirkung verliert und wie der neue zu wirken einsetzt.", 
+				"You feel that the old strengthening potion looses its effect and how the new one takes effect.")
+			end
+		    local effectRemoved = User.effects:removeEffect(59)
 		end
 		local myEffectDuration = math.floor(SourceItem.quality/100)*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
 		local myEffect=LongTimeEffect(59,myEffectDuration) -- new effect
@@ -72,7 +78,24 @@ function DrinkPotion(User,SourceItem)
 		if not foundEffect then
 		   User.effects:addEffect( myEffect )
 		end
-    else
+    elseif potionEffectId >= 5911111111 and potionEffectId <= 5999999999 then
+		local foundEffect, myEffect = User.effects:find(59);
+		if foundEffect then
+			local effectRemoved = User.effects:removeEffect(59)
+		    base.common.InformNLS(User, "Du spürst, dass der Trank seine Wirkung verliert. Deine Augen beginnen sich seltsam anzufühlen.", 
+		    "You feel that the old potion looses its effect. You eyes start to feel strange.")
+		end
+		local myEffectDuration = math.floor(SourceItem.quality/100)*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
+		local myEffect=LongTimeEffect(59,myEffectDuration) -- new effect
+		
+		myEffect:addValue("sightpotion",potionEffectId-5900000000)
+		
+		local foundEffect, checkedEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
+		if not foundEffect then
+		   User.effects:addEffect( myEffect )
+		end
+	
+	else
 	    -- something else
 	end	
 end

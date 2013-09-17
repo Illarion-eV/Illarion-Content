@@ -13,7 +13,7 @@ WASPS["id"] = {271,272,273,274}
 --'Wasp','Hornet','Wasp Queen','Wasp Drone'
 WASPS["emotes"] = {}
 WASPS["emotes"]["de"] = {"#me kommt vom süßen Geruch angelockt summend angeschworren.", "#me fliegt dem Duft folgend daher.", "#me kommt angerauscht und fliegt zu der Quelle des süßen Geruchs.","#me stürtzt mit ausgestreckten Fühlern zum Ursprung des Duftes."}
-WASPS["emotes"]["en"] = {"#me comes closer humming, drawn in by the sweet smell.","#me flies along, following the sweet scent.","#me rushes to the source of the sweet smell.","#me descents with stretched out antennas to the source of the scent."}
+WASPS["emotes"]["en"] = {"#me comes closer humming, drawn in by the sweet smell.","#me flies along, following the sweet scent.","#me rushes to the source of the sweet smell.","#me moves with stretched out antennas to the source of the scent."}
 
 -- conatining all center points
 CENTERS = {} 

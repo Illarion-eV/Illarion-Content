@@ -97,7 +97,10 @@ function PotionAnalysis(User, gem, brew, ltstate)
 					analysisResultEN = analysisResultEN..""..conListEN[myCon].." "..wirkstoff[i].."\n"
 				end			
 			end
-		else 
+		elseif potionEffectId >= 5911111111 and potionEffectId <= 5999999999 then
+		    analysisResultDE = analysisResultDE.."Sichtungstrank"
+			analysisResultEN = analysisResultEN.."Sighting potion"
+		else
 			effectList = alchemy.base.alchemy.potionName
 			local potionEffectEN = effectList[potionEffectId][1]
 			local potionEffectDE = effectList[potionEffectId][2]

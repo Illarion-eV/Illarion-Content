@@ -146,8 +146,8 @@ function InitPotions()
 	setPotion(316, 446, 86386546, 140, 140, 140, 152, 146, false, false, false) 
 	potionName[317]	= {"Big Slime Barrier","Große Schleimbarriere"}
 	setPotion(317, 446, 76576456, 140, 140, 140, 140, 152, 152, 146, 146) 
-	--potionName[318]	= {"Lennier's Dream","Lenniers Traum"}
-	--setPotion(318, 446, 99999999, 146) 
+	potionName[318]	= {"Lennier's Dream","Lenniers Traum"}
+	setPotion(318, 446, 57932798, 765,146,146,146,148,15,151,764) 
 -- bombs end	
 	
 -- quality raiser
@@ -392,6 +392,14 @@ function SplitData(User,theData)
 		dataZList[i] = myData
     end
 	return dataZList
+end
+
+function DataListToNumber(dataList)
+	theData = 0
+	for i=1,8 do
+		theData = theData + dataList[i]*10^(8-i)
+	end
+	return theData
 end
 
 function SubstanceDatasToList(theItem)
@@ -759,10 +767,21 @@ function CombineStockEssence( User, stock, essenceBrew)
 		    -- potion kind is primary or secondary attributes AND there was no plant in the essence brew -> stock concentration determines the effect
 			effectID = stockConc
 		else
-            effectID = getPotion(myIngredients[1],myIngredients[2],myIngredients[3],myIngredients[4],myIngredients[5],myIngredients[6],myIngredients[7],myIngredients[8],myIngredients[9],myIngredients[10])		
+            if ingredientGemdust == 447 then
+				if myIngredients[3] == 136 and myIngredients[4] == 136 and myIngredients[5] == 761 and myIngredients[6] == 765 and myIngredients[7] == 159 then
+					debug("stockCocn is "..stockConc)
+					effectID = 59*100000000+stockConc
+					debug("eefctID is "..effectID)
+				else
+				    effectID = getPotion(myIngredients[1],myIngredients[2],myIngredients[3],myIngredients[4],myIngredients[5],myIngredients[6],myIngredients[7],myIngredients[8],myIngredients[9],myIngredients[10])	
+				end	
+			else
+				effectID = getPotion(myIngredients[1],myIngredients[2],myIngredients[3],myIngredients[4],myIngredients[5],myIngredients[6],myIngredients[7],myIngredients[8],myIngredients[9],myIngredients[10])		
+			end
 		end
 		-- check if char is able to combine
-		if effectID > 0 then
+		effectID = tonumber(effectID)
+		if effectID >= 1000 and effectID <= 1999 then
 			if User:getQuestProgress(effectID+1000) == 0 then
 				User:inform("Du versuchst die Gebräue zu verbinden, doch sie scheinen sich nicht vermischen zu wollen. Scheinbar beherrscht du diesen Trank noch nicht richtig.",
 							"You try to combine the brews but they just don't admix. It seem that you haven't learned how to create this potion properly.")
@@ -773,9 +792,11 @@ function CombineStockEssence( User, stock, essenceBrew)
 		RemoveAll(cauldron)
 		SetQuality(User,cauldron)
 		cauldron.id = newCauldron
-		cauldron:setData("potionEffectId", effectID)
+		debug("effect id 2: "..effectID)
+		cauldron:setData("potionEffectId", ""..effectID)
 		cauldron:setData("filledWith", "potion")
 		world:changeItem(cauldron)
+		debug("effect id after adding: "..cauldron:getData("potionEffectId"))
 		world:makeSound(13,cauldron.pos)
 		world:gfx(52,cauldron.pos)
 	    -- and learn!
