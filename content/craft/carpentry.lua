@@ -196,7 +196,7 @@ catId = carpentry:addCategory("Shields", "Schilde") --shields
 
 
 --Mosaic shield
-product = carpentry:addProduct(catId, 2447, 100, 100, 500, 756)
+product = carpentry:addProduct(catId, 2447, 99, 100, 500, 756)
 product:addIngredient(2543, 6) -- Conifer Wooden Boards: 6x1
 product:addIngredient(2547, 3) -- Leather: 3x1
 product:addIngredient(104) -- Silver Ingot
