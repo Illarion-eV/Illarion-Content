@@ -84,7 +84,7 @@ function UseItemWoolCutting( User, SourceItem, ltstate, Sheep )
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User,SourceItem);
-		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 2, 20);
 		User:talk(Character.say, "#me beginnt ein Schaf zu scheren.", "#me starts to shear a sheep.")
 		-- make sure the sheep doesn't move away
 		Sheep.movepoints = math.min(Sheep.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
@@ -163,7 +163,7 @@ function UseItemEntrailsCutting( User, SourceItem, ltstate )
 	
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		entrailscutting.SavedWorkTime[User.id] = entrailscutting:GenWorkTime(User,SourceItem);
-		User:startAction( entrailscutting.SavedWorkTime[User.id], 0, 0, 2, 20);
+		User:startAction( entrailscutting.SavedWorkTime[User.id], 0, 0, 0, 0);
 		User:talk(Character.say, "#me beginnt Eingeweide zu zerschneiden.", "#me starts to cut entrails.")
 		return
 	end
