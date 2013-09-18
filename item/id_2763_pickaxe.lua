@@ -484,7 +484,7 @@ function UseItem(User, SourceItem, ltstate)
   
   if ( ltstate == Action.none ) then -- currently not working -> let's go
     mining.SavedWorkTime[User.id] = mining:GenWorkTime(User,SourceItem);
-    User:startAction( mining.SavedWorkTime[User.id], 0, 0, 0, 0);
+    User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
     User:talk(Character.say, "#me beginnt mit einer Spitzhacke auf den Stein zu schlagen.", "#me starts to hit the stone with a pick-axe.")
 	User:performAnimation(14);
     return
@@ -512,7 +512,7 @@ function UseItem(User, SourceItem, ltstate)
     rock = getRock(User, areaId);
     if (rock ~= nil) then  -- there are still items we can work on
       mining.SavedWorkTime[User.id] = mining:GenWorkTime(User,SourceItem);
-      User:startAction( mining.SavedWorkTime[User.id], 0, 0, 0, 0);
+      User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
     else -- no items left (as the rock is still okay, this should never happen... handle it anyway)
       base.common.HighInformNLS(User,
       "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",

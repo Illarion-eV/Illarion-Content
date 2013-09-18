@@ -9,7 +9,7 @@ smithing = item.base.crafts.Craft:new{
                       leadSkill = Character.smithing,
                       defaultFoodConsumption = 300,
                       sfx = 8,
-                      sfxDuration = 15,
+                      sfxDuration = 27,
                     }
 
 smithing:addTool(172); -- anvil

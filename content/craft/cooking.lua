@@ -9,8 +9,8 @@ cooking = item.base.crafts.Craft:new{
                      handTool = 227,
                      leadSkill = Character.cookingAndBaking,
                      defaultFoodConsumption = 100,
-                     sfx = 7,
-                     sfxDuration = 15,
+                     sfx = 15,
+                     sfxDuration = 40,
                      fallbackCraft = content.craft.brewing.brewing,
                    };
 

@@ -8,7 +8,7 @@ goldsmithing = item.base.crafts.Craft:new{
                       handTool = 122,
                       leadSkill = Character.goldsmithing,
                       defaultFoodConsumption = 300,
-                      sfx = 8,
+                      sfx = 17,
                       sfxDuration = 15,
                     };
                     
