@@ -33,8 +33,9 @@ function informAboutResult(User, typeOfDice, numberOfDice)
 	end
 	
 	local playerInRange = world:getPlayersInRangeOf(User.pos, 3);
+	User:talk(Character.say,"#me würfelt.","#me throws dice.")
 	for _,player in pairs(playerInRange) do 
-		player:inform(User.name.." wirft "..numberOfDice.." "..diceTypeDe.." Würfel und bekommt: "..thrownNumbers ,User.name.." throws "..numberOfDice.." "..diceTypeEn.." dice and gets: "..thrownNumbers);		
+		player:inform(numberOfDice.." "..diceTypeDe.." Würfel wurden gewürfelt und sie zeigen: "..thrownNumbers ,numberOfDice.." "..diceTypeEn.." dice are trown and they show: "..thrownNumbers);		
 	end
 		
 end
