@@ -21,6 +21,8 @@ function PutItemOnField(Item,User)
 		    town = "Runewick"
 		elseif FactionImpr == 3 then 
 		    town = "Galmair"
+		elseif FactionImpr == 0 then 
+		    town = "None"
 		end	
 
         local workLoad = User:getQuestProgress(25)
@@ -30,7 +32,10 @@ function PutItemOnField(Item,User)
 			itemNumberPay = base.common.Limit(workLoad-Item.number,0,nil) -- we do only count the items a char has to deliver
 			local payToFaction = itemNumberPay*theItemStats.Worth*0.1 -- 10% of teh value
 			
-			base.townTreasure.ChangeTownTreasure(town,payToFaction) -- add to the town treasure
+			if town ~= "None" then	
+				base.townTreasure.ChangeTownTreasure(town,payToFaction) -- add to the town treasure
+			end
+			
 		-- BUGGY INFORM
 		--	log(string.format("[prison mine] %s donated %u %s (%u). Faction wealth increased by %d copper to %d copper.",
 			--	base.character.LogText(User), Item.number, world:getItemName(Item.id,Player.english), Item.id, payToFaction, base.townTreasure.GetTownTreasure(FactionName)));
