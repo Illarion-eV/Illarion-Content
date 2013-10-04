@@ -4,6 +4,7 @@ require("monster.base.quests")
 require("base.messages");
 require("monster.base.kills")
 require("base.arena")
+require("base.common")
 module("monster.mon_27_wasps", package.seeall)
 
 
@@ -102,8 +103,6 @@ function onDeath(Monster)
         CreateCircle(44,1000,Monster.pos,1,true);
         world:gfx(36,Monster.pos);
         world:makeSound(5,Monster.pos);
-        --HitChar(SourceItem.pos,3000,Monster.pos);
-
     end
     monster.base.drop.Dropping(Monster);
 end
@@ -153,8 +152,11 @@ function HitChar(Posi,Hitpoints,CenterPos)
             end
         end
                 
-        if (Posi == CenterPos) then
-            Character:warp(position(Character.pos.x+math.random(-9,9),Character.pos.y+math.random(-9,9),Character.pos.z));
+        if (Posi == CenterPos) then			
+			local posX = Character.pos.x+math.random(-9,9)
+			local posY = Character.pos.y+math.random(-9,9)		
+			local LoS = world:LoS(Character.pos, position(posX,posY,Character.pos.z))
+            Character:warp(position(posX,posY,Character.pos.z));
         else
             local Distance = Character:distanceMetricToPosition(CenterPos);
             local Diffx = CenterPos.x - Character.pos.x;
@@ -166,7 +168,48 @@ function HitChar(Posi,Hitpoints,CenterPos)
                 Diffx = 2*Diffx;
                 Diffy = 2*Diffy;
             end
-            Character:warp(position(Character.pos.x-Diffx,Character.pos.y-Diffy,Character.pos.z));
+			local posX = Character.pos.x-Diffx
+			local posY = Character.pos.y-Diffy
+			local listOfStuff = world:LoS(Character.pos, position(posX,posY,Character.pos.z))
+			
+			if listOfStuff ~= nil then
+				for i, listEntry in pairs(listOfStuff) do
+					local itemPos = listEntry.OBJECT.pos
+					local field = world:getField(itemPos)
+					
+					-- something not passable is in the way, recalculate position
+					if not field:isPassable() then 
+						local phi = base.common.GetPhi(Character.pos, itemPos);
+						if (phi < math.pi / 8) then
+							posX = itemPos.x - 1
+						elseif (phi < 3 * math.pi / 8) then
+							posX = itemPos.x - 1
+							posY = itemPos.y - 1
+						elseif (phi < 5 * math.pi / 8) then
+							posY = itemPos.y - 1
+						elseif (phi < 7 * math.pi / 8) then
+							posX = itemPos.x + 1
+							posY = itemPos.y - 1
+						elseif (phi < 9 * math.pi / 8) then
+							posX = itemPos.x + 1
+						elseif (phi < 11 * math.pi / 8) then
+							posX = itemPos.x + 1
+							posY = itemPos.y + 1
+						elseif (phi < 13 * math.pi / 8) then
+							posY = itemPos.y + 1
+						elseif (phi < 15 * math.pi / 8) then
+							posX = itemPos.x - 1
+							posY = itemPos.y + 1
+						else
+							posX = itemPos.x - 1
+						end;
+						Character:warp(position(posX,posY,Character.pos.z));
+						return;
+					end
+				end
+			end
+			Character:warp(position(posX,posY,Character.pos.z));
+            
         end
         base.common.InformNLS(Character,
         "Getroffen von der Detonation wirst du davon geschleudert.",
