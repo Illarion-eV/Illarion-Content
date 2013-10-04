@@ -39,6 +39,13 @@ function UseItem(User, SourceItem, ltstate)
                 else
                     WriteContainerLabel(User,SourceItem)
 			    end
+			elseif selected == 4 then
+				if User:countItem(164) == 0 then
+					User:inform("Du brauchst Flaschen von denen du das Etikett entfernen kannst.","You need bottles to remove labels.",Character.lowPriority)
+				    return
+				else
+					removeLabel(User)
+				end
             end    			
 		end
 	end
@@ -47,6 +54,7 @@ function UseItem(User, SourceItem, ltstate)
 	dialog:addOption(0, getText(User,"Trankflasche beschriften","Label potion bottle"))
 	dialog:addOption(0, getText(User,"Alchemierezept schreiben","Write an alchemy recipe"))
 	dialog:addOption(0, getText(User,"Tasche beschriften","Label bag"))
+	dialog:addOption(0, getText(User,"Flaschenetikett entfernen","Remove label of potion bottle"))
 
 	User:requestSelectionDialog(dialog)
 	
@@ -141,6 +149,21 @@ function WriteLabel(User,SourceItem)
 	local dialog = InputDialog(title, infoText, false, 100, callback)
 	User:requestInputDialog(dialog)
 	
+end
+
+function removeLabel(User) 
+	local itemList = User:getItemList(164);
+	
+	for item=1, #itemList do
+		base.lookat.UnsetSpecialDescription(itemList[item]);
+		world:changeItem(itemList[item]);
+	end
+	
+	if #itemList == 1 then
+		User:inform("Du hast von "..#itemList.." Flasche das Etikett entfernt.","You removed the label of "..#itemList.." bottle.");
+	else
+		User:inform("Du hast von "..#itemList.." Flaschen die Etiketten entfernt.","You removed the labels of "..#itemList.." bottles.");
+	end
 end
 
 function getText(User,deText,enText) 
