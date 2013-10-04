@@ -75,7 +75,7 @@ function UseItem(User, SourceItem)
 							"The empty bottle is broken and no longer usable.");
 							world:erase(SourceItem,1);
 						else
-							world:swap(SoourceItem,food[3],333)
+							world:swap(SourceItem,food[3],333)
 						end
 					end
 
