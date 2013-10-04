@@ -34,7 +34,9 @@ function UseItem(User, SourceItem)
     local itemId = tonumber(value);
     local itemQual = 333;
     local itemData = nil
-    world:createItemFromId(itemId, 1, target, true, itemQual, itemData);
+    local newItem = world:createItemFromId(itemId, 1, target, true, itemQual, itemData);
+	newItem.wear = 255;
+	world:changeItem(newItem);
 end;
 --[[ -- seems to be a useless function. 
 function UseItemWithField(User,SourceItem,TargetPos)
