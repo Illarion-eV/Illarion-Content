@@ -139,7 +139,7 @@ function UseItem(User, SourceItem, ltstate)
 		User:requestSelectionDialog(sdTeleport);
 		
 	elseif (SourceItem:getData("mode")=="Faction info of chars in radius") then
-		local players = world:getPlayersInRangeOf(User.pos, 7);		
+		local players = world:getPlayersInRangeOf(User.pos, 15);		
 		local infos = "";
 		local germanRank, englishRank 
 		
