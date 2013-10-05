@@ -11,6 +11,7 @@ require("item.lever")
 require("content.areas")
 require("alchemy.base.alchemy")
 require("content.tree")
+require("content.rentrooms")
 
 module("server.reload", package.seeall)
 
@@ -28,6 +29,7 @@ function onReload()
 	-- logToFile("end onReload");
     item.lever.init();
 	content.areas.Init();
+	content.rentrooms.initRooms()
     
     return true;
 end
