@@ -22,7 +22,7 @@ function UseItem(User, SourceItem, ltstate)
     WaterIntoCauldron(User,SourceItem,TargetItem,ltstate);
     return;
   end
-  
+
   -- look for forge
   TargetItem = base.common.GetItemInArea(User.pos, 2835, 1, true);
   if (TargetItem ~= nil) then
@@ -35,13 +35,13 @@ function UseItem(User, SourceItem, ltstate)
 	CreateEmptyBucket(User, SourceItem,1)
     return;
   end
-  
+
   -- look for fire
   local FireItem, bool = base.common.GetItemInArea(User.pos, 12, 1, true);
   if FireItem == nil then
 	    FireItem, bool = base.common.GetItemInArea(User.pos, 359, 1, true);
   end
-  
+
   if (FireItem ~= nil) then
     if not base.common.IsLookingAt( User, FireItem.pos ) then -- check looking direction
       base.common.TurnTo( User, FireItem.pos ); -- turn if necessary
@@ -66,13 +66,13 @@ function UseItem(User, SourceItem, ltstate)
 	CreateEmptyBucket(User, SourceItem,1)
     return;
   end
-  
+
   -- pour water on character. Either on the one in front or on the User himself.
   local TargetChar = base.common.GetFrontCharacter(User);
   if (TargetChar ~= nil) then
     -- is this really a player?
     local players = world:getPlayersInRangeOf(TargetChar.pos, 0);
-    for _,p in pairs(players) do 
+    for _,p in pairs(players) do
       if (p.id == TargetChar.id) then
         base.common.InformNLS(User,
         "Du schüttest das Wasser über die Person vor dir.",
@@ -82,7 +82,7 @@ function UseItem(User, SourceItem, ltstate)
 		CreateEmptyBucket(User, SourceItem,1)
 		return;
       end
-    end    
+    end
   end
   -- nothing; we empty all buckets
   CreateEmptyBucket(User, SourceItem, SourceItem.number)
@@ -91,36 +91,36 @@ end
 function PourOnCharacter (TargetCharacter, SourceItem )
   world:makeSound( 9, TargetCharacter.pos );
   world:swap(SourceItem, 51, 333);
-	base.common.InformNLS(TargetCharacter, 
-  "Du fühlst dich gleich viel sauberer.", 
+	base.common.InformNLS(TargetCharacter,
+  "Du fühlst dich gleich viel sauberer.",
   "You feel much cleaner.");
 end
 
 function WaterIntoCauldron(User,SourceItem,TargetItem,ltstate)
     local cauldron = TargetItem
-	
+
 	-- is the char an alchemist?
 	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
 	if not anAlchemist then
 		User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
 		return
 	end
-		
-	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+
+	if base.licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
-	
+
 	if ( ltstate == Action.abort ) then
 	   base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	   return
 	end
-	
+
 	if ( ltstate == Action.none ) then
 		local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.base.alchemy.GetStartAction(User, "water", cauldron)
 		User:startAction( duration,gfxId,gfxIntervall,sfxId,sfxIntervall)
 		return
-	end	
-	
+	end
+
 	-- the actual filling needs to be in an seperate function, since this function is also called by other script, where we do not need ltstate!
 	FillIn(User, SourceItem, cauldron)
 end
@@ -135,34 +135,36 @@ function FillIn(User, SourceItem, cauldron, noRepeat) -- do not remove noRepeat
 				"The water runs over. Obviously, ther was already water in it.")
 		world:makeSound(9,cauldron.pos)
 		world:gfx(11,cauldron.pos)
-		
-	elseif cauldron:getData("filledWith") == "essenceBrew" then 
+		noRepeat = true -- let cauldron only run over once
+
+	elseif cauldron:getData("filledWith") == "essenceBrew" then
 		world:gfx(1,cauldron.pos)
-		base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.", 
+		base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.",
 		                            "The substance in the cauldron blows out, as you fill the water in.")
-		alchemy.base.alchemy.RemoveAll(cauldron)		
-									
+		alchemy.base.alchemy.RemoveAll(cauldron)
+
 	elseif cauldron:getData("filledWith") == "potion" then
 		alchemy.base.alchemy.RemoveAll(cauldron)
 		if cauldron.id == 1013 then
 		    world:makeSound(10,cauldron.pos)
 		    cauldron:setData("filledWith","water")
 		else
-			base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.", 
+			base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.",
 										"The substance in the cauldron blows out, as you fill the water in.")
 		end
 		world:gfx(1,cauldron.pos)
-		
+
 	elseif cauldron:getData("filledWith") == "stock" then
 		world:gfx(1,cauldron.pos)
-		base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.", 
+		base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.",
 		                            "The substance in the cauldron blows out, as you fill the water in.")
 	    alchemy.base.alchemy.RemoveAll(cauldron)
-	    
+
 	else -- nothing in the cauldron, we just fill in the water
 	    world:makeSound(10,cauldron.pos)
 		cauldron:setData("filledWith","water")
 		cauldron.id = 1010
+		noRepeat = true -- only once, dont let cauldron run over
     end
     CreateEmptyBucket(User, SourceItem, 1, noRepeat)
 	world:changeItem(cauldron)
@@ -189,8 +191,8 @@ function CreateEmptyBucket(User, SourceItem,amount, noRepeat) -- do not remove n
 				world:changeItem(SourceItem)
 				User:changeSource(SourceItem)
 				User:startAction( 20, 21, 5, 10, 25);
-			end	
-		end	
+			end
+		end
 	end
 end
 
@@ -205,7 +207,7 @@ function GetCauldron(User)
   end
   local Radius = 1;
   for x=-Radius,Radius do
-    for y=-Radius,Radius do 
+    for y=-Radius,Radius do
       local targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
       if (world:isItemOnField(targetPos)) then
         local item = world:getItemOnField(targetPos);
