@@ -24,26 +24,26 @@ Description[ENGLISH][2] = "Bring 5 apples to the bear."
 Description[GERMAN][3] = "Vielleicht solltest du Grijas Kokotte nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
 Description[ENGLISH][3] = "Perhaps you should talk to Grijas Kokotte again, he is sure to have more for you to do."
 -- Quest 2
-Description[GERMAN][4] = "Bring 15 Zwiebeln, 1 Kochlöffel, 1 Holzkelle und 5 Steak zu Grijas Kokotte."
+Description[GERMAN][4] = "Bring 15 Zwiebeln, 1 Kochlöffel, 1 Holzkelle und 5 Steaks zu Grijas Kokotte."
 Description[ENGLISH][4] = "Bring 15 onion, 1 cooking spoon, 1 wooden shovel and 5 steaks to Grijas Kokotte."
 Description[GERMAN][5] = "Bring 1 Steak zum Bären."
 Description[ENGLISH][5] = "Bring 1 steak to the bear."
 Description[GERMAN][6] = "Vielleicht solltest du Grijas Kokotte nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
 Description[ENGLISH][6] = "Perhaps you should talk to Grijas Kokotte again, he is sure to have more for you to do."
 -- Quest 3
-Description[GERMAN][7] = "Bring 10 Tomaten, 10 Säckchen Mehl, 5 Würste und 4 Brot zu Grijas Kokotte."
+Description[GERMAN][7] = "Bring 10 Tomaten, 10 Säckchen Mehl, 5 Würste und 4 Brote zu Grijas Kokotte."
 Description[ENGLISH][7] = "Bring 10 tomatoes, 10 flour, 5 sausage and 4 bread to Grijas Kokotte"
 Description[GERMAN][8] = "Bring 1 Wurst und 1 Brot zum Bären."
 Description[ENGLISH][8] = "Bring 1 saussage and 1 bread to the bear."
 Description[GERMAN][9] = "Vielleicht solltest du Grijas Kokotte nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
 Description[ENGLISH][9] = "Perhaps you should talk to Grijas Kokotte again, he is sure to have more for you to do."
 -- Quest 4
-Description[GERMAN][10] = "Bring 15 Brötchen, 10 Zwiebelsuppe, 10 Fischgerichte und 2 Apfelkuchen zu Grijas Kokotte."
+Description[GERMAN][10] = "Bring 15 Brötchen, 10 Zwiebelsuppen, 10 Fischgerichte und 2 Apfelkuchen zu Grijas Kokotte."
 Description[ENGLISH][10] = "Bring 15 bread rolls, 10 onion soup, 10 fish dishes and 2 apple cakes to Grijas Kokotte"
 Description[GERMAN][11] = "Bring 1 Apfelkuchen zum Bären."
 Description[ENGLISH][11] = "Bring 1 apple cake to the bear."
 -- Quest 5 - repeated
-Description[GERMAN][12] = "Grijas Kokotte weiß immer, was der Bär geade mag."
+Description[GERMAN][12] = "Grijas Kokotte weiß immer, was der Bär gerade mag."
 Description[ENGLISH][12] = "Grijas Kokotte knows what the bear want today."
 Description[GERMAN][13] = "Bring 1 Lachs zum Bären."
 Description[ENGLISH][13] = "Bring 1 salmon to the bear."
@@ -104,3 +104,4 @@ end
 function QuestFinalStatus()
     return FINAL_QUEST_STATUS
 end
+

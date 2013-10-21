@@ -95,7 +95,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Aye, take care.", "Irmorom 
 "How are you", "How feel", "How do you do" -> "Can't say anything's bothering me and ya?", "So-so, but I'm fine right now."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann nich klagen und du?", "Ganz gut und selbst?", "Mal so, mal so, aber gerade geht es mir ganz gut."
 "your name", "who are you", "who art thou" -> "I'm Grijas and who are you?", "I'm called Grijas, Grijas Kokotte, and what's your name?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der Grijas und wer bist du?", "Man nennt mich Grijas, Grijas Kokotte und wie nennt man dich?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Grijas und wer bist du?", "Man nennt mich Grijas, Grijas Kokotte und wie nennt man dich?"
 
 -- Straight to repeated quest
 queststatus(671) = 0, skill(cookingAndBaking) > 79, english, town = Galmair, "quest", "mission", "task", "adventure" -> inform("[Bear Quest] Feed a salmon!"), "I see. You are a good cook and interested in our town. Could you please feed the Bear of Galmair a salmon.", queststatus(671) = 13, queststatus(673) = 18
@@ -121,21 +121,21 @@ queststatus(671) = 1, item(52, all) < 1, ".+" -> "Arr, Ich bin Koch und ich kann
 -- "Bring 15 Zwiebeln, 1 Kochlöffel, 1 Holzkelle und 5 Steaks zu Grijas Kokotte."
 -- "Bring 15 onion, 1 cooking spoon, 1 wooden shovel and 5 steaks to Grijas Kokotte."
 queststatus(671) = 3, english, town = Galmair, "quest", "mission", "task", "adventure" -> "Aye, I have a task for ya if you are interested. I need 15 onions, a new cooking spoon, a wooden shovel for the mill and five fresh steak!", queststatus(671) = 4
-queststatus(671) = 3, german, town = Galmair, "quest", "Auftrag", "Aufgabe", "Abenteuer", "task", "adventure" -> "Aye, hab wat für dich zu tun, wenn du willst. 15 Zwiebeln, einen neuen Kochlöffel, eine hölzerne Schaufe für die Mühle und fünf Steaks mit wenig Fett brauch ich!", queststatus(671) = 4
+queststatus(671) = 3, german, town = Galmair, "quest", "Auftrag", "Aufgabe", "Abenteuer", "task", "adventure" -> "Aye, hab wat für dich zu tun, wenn du willst. 15 Zwiebeln, einen neuen Kochlöffel, eine hölzerne Schaufel für die Mühle und fünf Steaks mit wenig Fett brauch ich!", queststatus(671) = 4
 -- return
 queststatus(671) = 4, item(537, all) > 14, item(2940, all) > 4, item(227, all) > 0, item(312, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest continues!]"), "Looks good, it's everything that I wanted ya to bring. Looks as if you could become a real good cook. The last steak is for the bear of Galmair.", deleteItem(537, 15), deleteItem(2940, 4), deleteItem(227, 1), deleteItem(312, 1), queststatus(671) = 5
 queststatus(671) = 4, item(537, all) > 14, item(2940, all) > 4, item(227, all) > 0, item(312, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest geht weiter!]"), "Sieht gut aus, alles da, wat ich von dir verlangt hab. Scheint, als könnt aus dir nen richtig guter Koch werden. Das letzte Steak ist für den Bären von Galmair.", deleteItem(537, 15), deleteItem(2940, 4), deleteItem(227, 1), deleteItem(312, 1), queststatus(671) = 5
 queststatus(671) = 4, item(537, all) < 15, english, ".+" -> "Arr! You're supposed to bring me 15 onions, a new cooking spoon, a wooden shovel for the mill and five fresh steak. Not that hard to memorise, is it?"
-queststatus(671) = 4, item(537, all) < 15, ".+" -> "Du sollst mir 15 Zwiebeln, einen neuen Kochlöffel, eine hölzerne Schaufe für die Mühle und fünf Steaks bringen. Is das so schwer zu merken, eh?"
+queststatus(671) = 4, item(537, all) < 15, ".+" -> "Du sollst mir 15 Zwiebeln, einen neuen Kochlöffel, eine hölzerne Schaufel für die Mühle und fünf Steaks bringen. Is das so schwer zu merken, eh?"
 queststatus(671) = 4, item(2940, all) < 5, english, ".+" -> "Arr! You're supposed to bring me 15 onions, a new cooking spoon, a wooden shovel for the mill and five fresh steak. Not that hard to memorise, is it?"
-queststatus(671) = 4, item(2940, all) < 5, ".+" -> "Du sollst mir 15 Zwiebeln, einen neuen Kochlöffel, eine hölzerne Schaufe für die Mühle und fünf Steaks bringen. Is das so schwer zu merken, eh?"
+queststatus(671) = 4, item(2940, all) < 5, ".+" -> "Du sollst mir 15 Zwiebeln, einen neuen Kochlöffel, eine hölzerne Schaufel für die Mühle und fünf Steaks bringen. Is das so schwer zu merken, eh?"
 queststatus(671) = 4, item(227, all) < 1, english, ".+" -> "Arr! You're supposed to bring me 15 onions, a new cooking spoon, a wooden shovel for the mill and five fresh steak. Not that hard to memorise, is it?"
-queststatus(671) = 4, item(227, all) < 1, ".+" -> "Du sollst mir 15 Zwiebeln, einen neuen Kochlöffel, eine hölzerne Schaufe für die Mühle und fünf Steaks bringen. Is das so schwer zu merken, eh?"
+queststatus(671) = 4, item(227, all) < 1, ".+" -> "Du sollst mir 15 Zwiebeln, einen neuen Kochlöffel, eine hölzerne Schaufel für die Mühle und fünf Steaks bringen. Is das so schwer zu merken, eh?"
 queststatus(671) = 4, item(312, all) < 1, english, ".+" -> "Arr! You're supposed to bring me 15 onions, a new cooking spoon, a wooden shovel for the mill and five fresh steak. Not that hard to memorise, is it?"
-queststatus(671) = 4, item(312, all) < 1, ".+" -> "Du sollst mir 15 Zwiebeln, einen neuen Kochlöffel, eine hölzerne Schaufe für die Mühle und fünf Steaks bringen. Is das so schwer zu merken, eh?"
+queststatus(671) = 4, item(312, all) < 1, ".+" -> "Du sollst mir 15 Zwiebeln, einen neuen Kochlöffel, eine hölzerne Schaufel für die Mühle und fünf Steaks bringen. Is das so schwer zu merken, eh?"
 
 -- 3rd quest
--- "Bring 10 Tomaten, 10 Säckchen Mehl, 5 Würste und 4 Brot zu Grijas Kokotte."
+-- "Bring 10 Tomaten, 10 Säckchen Mehl, 5 Würste und 4 Brote zu Grijas Kokotte."
 -- "Bring 10 tomatoes, 10 flour, 5 sausage and 4 bread to Grijas Kokotte"
 queststatus(671) = 6, english, town = Galmair, "quest", "mission", "mission", "task", "adventure" -> "Aye, I have a task for ya if you are interested. Bring me ten tomatoes, ten sack of flour, five fresh sausages and four medium baked breads.", queststatus(671) = 7
 queststatus(671) = 6, town = Galmair, "quest", "Auftrag", "Aufgabe", "Abenteuer", "task", "adventure" -> "Aye, hab wat für dich zu tun, wenn du willst. Bring mir zehn Tomaten, zehn Säckchen Mehl, fünf frische Würstchen und vier gut gebackene Brote.", queststatus(671) = 7
@@ -152,28 +152,28 @@ queststatus(671) = 7, item(3051, all) < 5, english, ".+" -> "Arr, there are stil
 queststatus(671) = 7, item(3051, all) < 5, ".+" -> " Arr, da fehlt aber noch was. Ick wollte zehn Tomaten, zehn Säckchen Mehl, fünf frische Würstchen und vier gut gebackene Brote, aye!"
 
 -- 4th quest
--- "Bring 15 Brötchen, 10 Zwiebelsuppe, 10 Fischgerichte und 2 Apfelkuchen zu Grijas Kokotte."
+-- "Bring 15 Brötchen, 10 Zwiebelsuppen, 10 Fischgerichte und 2 Apfelkuchen zu Grijas Kokotte."
 -- "Bring 15 bread rolls, 10 onion soup, 10 fish dishes and 2 apple cakes to Grijas Kokotte"
 queststatus(671) = 9, english, town = Galmair, "quest", "mission", "mission", "task", "adventure" -> "Arr, you are looking for some work? Aye, I can help you with that! I need 15 bread rolls, ten onion soup, ten fish dishes and two apple cakes.", queststatus(671) = 10
-queststatus(671) = 9, town = Galmair, "quest", "Auftrag", "Aufgabe", "Abenteuer", "task", "adventure" -> "Arr, du willst ne Aufgabe? Aye, damit kann ich helfen! Ick brauche 15 Brötchen, zehn Zwiebelsuppe, zehn Fischgerichte und zwei Apfelkuchen.", queststatus(671) = 10
+queststatus(671) = 9, town = Galmair, "quest", "Auftrag", "Aufgabe", "Abenteuer", "task", "adventure" -> "Arr, du willst ne Aufgabe? Aye, damit kann ich helfen! Ick brauche 15 Brötchen, zehn Zwiebelsuppen, zehn Fischgerichte und zwei Apfelkuchen.", queststatus(671) = 10
 -- return
 queststatus(671) = 10, item(191, all) > 14, item(2923, all) > 9, item(2459, all) > 9, item(353, all) > 1, english, town = Galmair, ".+" -> inform("[Bear Quest continues!]"), "Well done, thank you very much! And one cake you shall feed the bear.", deleteItem(191, 15), deleteItem(2923, 10), deleteItem(2459, 10), deleteItem(353, 1), queststatus(671) = 11
 queststatus(671) = 10, item(191, all) > 14, item(2923, all) > 9, item(2459, all) > 9, item(353, all) > 1, town = Galmair, ".+" -> inform("[Bären Quest geht weiter!]"), "Sehr gut gemacht, ich wusste, man kann sich auf dich verlassen. Und einen Kuchen lassen wir für den Bären.", deleteItem(191, 15), deleteItem(2923, 10), deleteItem(2459, 10), deleteItem(353, 1), queststatus(671) = 11
 queststatus(671) = 10, item(191, all) < 15, english, ".+" -> "You were supposed to bring me 15 bread rolls, ten onion soup, ten fish dishes and two apple cakes."
-queststatus(671) = 10, item(191, all) < 15, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppe, zehn Fischgerichte und zwei Apfelkuchen."
+queststatus(671) = 10, item(191, all) < 15, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppen, zehn Fischgerichte und zwei Apfelkuchen."
 queststatus(671) = 10, item(2923, all) < 10, english, ".+" -> "You were supposed to bring me 15 bread rolls, ten onion soup, ten fish dishes and two apple cakes."
-queststatus(671) = 10, item(2923, all) < 10, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppe, zehn Fischgerichte und zwei Apfelkuchen."
+queststatus(671) = 10, item(2923, all) < 10, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppen, zehn Fischgerichte und zwei Apfelkuchen."
 queststatus(671) = 10, item(2459, all) < 10, english, ".+" -> "You were supposed to bring me 15 bread rolls, ten onion soup, ten fish dishes and two apple cakes."
-queststatus(671) = 10, item(2459, all) < 10, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppe, zehn Fischgerichte und zwei Apfelkuchen."
+queststatus(671) = 10, item(2459, all) < 10, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppen, zehn Fischgerichte und zwei Apfelkuchen."
 queststatus(671) = 10, item(353, all) < 2, english, ".+" -> "You were supposed to bring me 15 bread rolls, ten onion soup, ten fish dishes and two apple cakes."
-queststatus(671) = 10, item(353, all) < 2, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppe, zehn Fischgerichte und zwei Apfelkuchen."
+queststatus(671) = 10, item(353, all) < 2, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppen, zehn Fischgerichte und zwei Apfelkuchen."
 
 -- repeated quest
 -- wait
 queststatus(671) = 12, queststatus(673) > 0, english, town = Galmair, "quest", "mission", "feed", "task", "adventure",  "today" -> "Nah, not yet. The bear becomes too fat otherwhise.", "Let's wait some hours. On the morrow you can feed him again.", "You feed the bear short ago. Please wait a little bit."
-queststatus(671) = 12, queststatus(673) > 0, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer",  "futter", "Fütter", "heute"  -> "Nay, Lieber noch nicht. Der Bär wird sonst zu fett!", "Wart bis morgen. Dann kannste ihn wieder zu fressen bringen.", "Du hast ihm doch grad was gebracht. Wart noch etwas."
+queststatus(671) = 12, queststatus(673) > 0, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer",  "futter", "Fütter", "heute"  -> "Nay, Lieber noch nicht. Der Bär wird sonst zu fett!", "Wart bis morgen. Dann kannste ihm wieder zu fressen bringen.", "Du hast ihm doch grad was gebracht. Wart noch etwas."
 queststatus(671) > 12, queststatus(673) > 0, english, town = Galmair, "quest", "mission", "feed", "task", "adventure",  "today" -> inform("[Bear Quest] You are too late!"), "Nah, anybody else fed the bear meanwhile. He becomes too fat otherwhise", "Let's wait some hours. On the morrow you can feed him.", "You had been late. Anybody else feed the bear short ago. Please wait a little bit."
-queststatus(671) > 12, queststatus(673) > 0, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer",  "futter", "Fütter", "heute"  -> inform("[Bär Quest] Du bist zu spät!"), "Nay, jemand Anderes ist dir zuvorgekommen. Der Bär wird sonst zu fett!", "Wart bis morgen. Dann kannste ihn zu fressen bringen.", "Jemand hat ihm doch grad was gebracht. Wart noch etwas."
+queststatus(671) > 12, queststatus(673) > 0, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer",  "futter", "Fütter", "heute"  -> inform("[Bär Quest] Du bist zu spät!"), "Nay, jemand Anderes ist dir zuvorgekommen. Der Bär wird sonst zu fett!", "Wart bis morgen. Dann kannste ihm zu fressen bringen.", "Jemand hat ihm doch grad was gebracht. Wart noch etwas."
 -- heute füttern
 -- Bring 1 salmon to the bear.
 queststatus(671) > 11, queststatus(673) = 0, chance(12.5), english, town = Galmair, "quest", "mission", "feed", "task", "adventure",  "today" -> inform("[Bear Quest] Feed a salmon!"), "It's fish day. A salmon you can feed today.", queststatus(671) = 13, queststatus(673) = 18
@@ -206,7 +206,7 @@ queststatus(671) > 0, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", 
 
 -- internal
 --english, town = Galmair, "honor", "proud", "paid", "reward" -> "Feeding the bear of Galmair should be a question of honor. It is on every citicen trying to feed the bear on his own costs.", "This isn't Cadomyr. Nobody gets paid  for the honor feeding the bear of Galmair. But everybody is expected to take part in feeding or sigil. The prosperity of our sigil is a task of honor.", "Knowing our sigil never starves and is satisfied always is more reward you ever can get back. Don't expect any money or other goods in return. We all should be proud to be citizen of Galmair."
---town = Galmair, "Ehre", "stolz", "zahlen", "Belohnung" -> "Die Fütterung unseres Bären ist eine Frage der Ehre. Es ist die Aufgabe eines jeden Bürgers im Rahmen seiner Möglichkeiten beizutragen.", "Wo kämen wir denn hin, wenn man für Ehre bezahlt würde, den Bären von Galmair zu füttern? Wir erwarten, dass jeder seinen Beitrag für das Gedeihen unseres Wahrzeichens gibt. Das wird nicht entlohnt, wir sind hier doch nicht in Cadomyr.", "Wir sind stolz darauf, dass unser Bär von Galmair niemals Hunger leiden muss und immer zufrieden ist. Das ist Stolz, und der lässt sich mit Geld nicht bezahlen."
+--town = Galmair, "Ehre", "stolz", "zahlen", "Belohnung" -> "Die Fütterung unseres Bären ist eine Frage der Ehre. Es ist die Aufgabe eines jeden Bürgers im Rahmen seiner Möglichkeiten beizutragen.", "Wo kämen wir denn hin, wenn man für die Ehre bezahlt würde, den Bären von Galmair zu füttern? Wir erwarten, dass jeder seinen Beitrag für das Gedeihen unseres Wahrzeichens gibt. Das wird nicht entlohnt, wir sind hier doch nicht in Cadomyr.", "Wir sind stolz darauf, dass unser Bär von Galmair niemals Hunger leiden muss und immer zufrieden ist. Das ist Stolz, und der lässt sich mit Geld nicht bezahlen."
 --english, town = Galmair, "bear" -> "The bear is the sigil of our town. His strength and prosperity is a mirror of our town. We all feed them on our own together. You can find him at the Well of Dreams. *points to the west*", "The Bear of Galmair is stong like our town. He prosper due to our own hands work like our town. I can tell you, what he'd like today. You can find him at the Well of Dreams. *points to the west*"
 --town = Galmair, "Bär" -> "Der Bär ist unser Wahrzeichen. Seine Kraft und sein Gedeihen sind ein Spiegel unserer Stadt. Deshalb füttern wir ihn alle gemeinsam. Man findet ihn bei der Quelle der Träume. *zeigt in den Westen*", "Der Bär von Galmair ist so stark wie unsere Stadt. Er gedeiht durch die Arbeit unserer eigenen Hände. Ich kann dir immer sagen, was er heute frisst. Man findet ihn bei der Quelle der Träume. *zeigt in den Westen*"
 english, town = Galmair, "bear" -> "The bear's strength and prosperity is a mirror of our town. We all feed them on our own together. You can find him at the Well of Dreams. *points to the west*", "The Bear of Galmair is stong like our town. He prosper due to our own hands work like our town. I can tell you, what he'd like today. You can find him at the Well of Dreams. *points to the west*"
@@ -216,7 +216,7 @@ town = Galmair, "Bär" -> "Die Kraft des Bären und sein Gedeihen sind ein Spieg
 english, "quest", "mission", "feed", "task", "adventure" -> "Arr? I don't let you feed our bear, you are not from Galmair!", "Do you want to feed the bear? Become a citicen first.", "Sign into the town roll first and come back then."
 "quest", "mission", "futter", "Fütter", "Auftrag", "Aufgabe" -> "Arr? Ich lass dich unsern Bären nicht füttern, du kommst nicht aus Galmair!", "Wat willste? Dat is der Bär von Galmair. Werd erst ma Bürger!", "Trag dich erst in de Bürgerliste ein und komm wieder her."
 --english, "honor", "proud", "paid", "reward" -> "Feeding the bear of Galmair is a question of honor. Nobody from any other town is permitted to feed him.", "Nowbody get paid  for the honor feeding the bear of Galmair. But you will  never see him starving. This isn't Cadomyr or Runewick.", "Knowing our sigil never starves and is satisfied always is more reward we ever can get back. We are proud to be citicen of Galmair."
---"Ehre", "stolz", "zahlen", "Belohnung" -> "Die Fütterung unseres Bären ist eine Frage der Ehre. Wir lassen nicht zu, dass ein Bürger einer anderen Stadt ihn füttert.", "Wo kämen wir denn hin, wenn man für Ehre bezahlt würde, den Bären von Galmair zu füttern? Das wird nicht entlohnt, wir sind hier doch nicht in Caodomyr oder Runewick!", "Wir Bürger von Galmair sind stolz darauf, dass unser Bär von Galmair niemals Hunger leiden muss und immer zufrieden ist. So etwas lässt sich nicht mit Geld bezahlen."
+--"Ehre", "stolz", "zahlen", "Belohnung" -> "Die Fütterung unseres Bären ist eine Frage der Ehre. Wir lassen nicht zu, dass ein Bürger einer anderen Stadt ihn füttert.", "Wo kämen wir denn hin, wenn man für die Ehre bezahlt würde, den Bären von Galmair zu füttern? Das wird nicht entlohnt, wir sind hier doch nicht in Caodomyr oder Runewick!", "Wir Bürger von Galmair sind stolz darauf, dass unser Bär von Galmair niemals Hunger leiden muss und immer zufrieden ist. So etwas lässt sich nicht mit Geld bezahlen."
 --english, "bear" -> "The bear is the sigil of our town. His strength and prosperity is a mirror of our town. You can visit him, but you are not permitted feeding him. You can find him at the Well of Dreams. *points to the west*", "The Bear of Galmair is stong like our town. He prosper because every citizen of Galmair take part to serve him. You can find him at the Well of Dreams. *points to the west*"
 --"Bär" -> "Der Bär ist unser Wahrzeichen. Seine Kraft und sein Gedeihen sind ein Spiegel unserer Stadt. Du kannst ihn besuchen, aber füttern is nicht. Du findest ihn bei der Quelle der Träume. *zeigt in den Westen*", "Der Bär von Galmair ist so stark wie unsere Stadt. Er gedeiht, weil alle Bürger der Stadt mitmachen. Du findest ihn bei der Quelle der Träume. *zeigt in den Westen*"
 english, "bear" -> "The bear's strength and prosperity is a mirror of our town. You can visit him, but you are not permitted feeding him. You can find him at the Well of Dreams. *points to the west*", "The Bear of Galmair is stong like our town. He prosper because every citizen of Galmair take part to serve him. You can find him at the Well of Dreams. *points to the west*"
@@ -230,7 +230,7 @@ english, "job" -> "You ask what my profession is? I'm a cook, the best even.", "
 english, "Gobaith", "Gobiath" -> "Gobaith! Aye. My cousin fourth removed lived there, down in Silverbrand, for a while. I say, Galmair is the better choice to gain wealth for your clan, though."
 "Gobaith", "Gobiath" -> "Gobaith! Aye. Mein Cousin vierten Grades lebte ne Weile unten in Silberbrand. Aber ich sag, Galmair iss die bessere Wahl, wenn du Wohlstand anhäufn wills'."
 "my name" -> "Aye. It's a pleasure.", "So, so? Well, then. How may I help you?", "By Irmorom! So you would like to become a cook, or what?"
-"mein Name" -> "Aye. Freut mich Bekanntschaft zu machn.", "Soso? Na, dann - wie kann ich dir helfn?", "Bei Irmorom, is mir ne Freude."
+"mein Name" -> "Aye. Freut mich deine Bekanntschaft zu machn.", "Soso? Na, dann - wie kann ich dir helfn?", "Bei Irmorom, is mir ne Freude."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "dwarf" -> "Dwarves don't drink shandy, they drink it pure! Halflings mix wine with fruit juices and call it a spritzer. Ha'ak! A real dwarf would rather shave his beard. Arr."
@@ -292,9 +292,9 @@ english, "Irmorom" -> "Smithing is the craft of the dwarves. But a hungry smith 
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Grijas", "Kokotte" -> "What's up?", "Aye?", "#me nods once and raises an eyebrow."
-"Grijas", "Kokotte" -> "Aye?", "Wat gibt's?", "#me nickt dir zun und zieht eine Braue hoch."
+"Grijas", "Kokotte" -> "Aye?", "Wat gibt's?", "#me nickt dir zu und zieht eine Braue hoch."
 "Yes" -> "Aye, then go and collect those things I asked you for.", "If ya say so.", "Alright, have fun!"
-"Ja" -> "Aye, dann mach dich auf dem Weg und sammle, was ich von dir wollte!", "Na, wenn du meinst.", "Is gut, viel Vergnügen!"
+"Ja" -> "Aye, dann mach dich auf den Weg und sammle, was ich von dir wollte!", "Na, wenn du meinst.", "Is gut, viel Vergnügen!"
 "No" -> "What did ya say? I hope I didn't hear ya correctly!", "You say no... no to me, who do ya think your speaking to?", "With that attitude, ya won't become a good cook."
 "Nein" -> "Wat sachste, ich hoffe, ich habe mich verhört?!", "Du sagst Nein...nein zu mir, wat denkst du, mit wem du sprichst!", "Dann nich, so wird nie was aus dir!"
 

@@ -187,7 +187,7 @@ talkEntry:addTrigger("stop");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du hast noch kein Los gekauft. Du kannst dir ein Los mittels 'ein Los' oder fünf Lose mittels 'fünf Lose' kaufen. Anschließend bewirkst du die Ziehung mit jeglichen gesprochenen Wort oder Emote. 'Stop' wird jedoch nicht die Ziehung auslösen, sondern dir dein Geld wieder geben."));
 talkEntry:addResponse("Ich versteh nicht, warum wir aufhören sollen. Wir haben doch noch gar nicht angefangen?");
 talkEntry:addResponse("Wie sie wollen. Hören wir auf bevor wir angefangen haben. So was gefällt Nargun.");
-talkEntry:addResponse("Oh nein, kauft doch wenigstens ein Los für lumpige zehn Silberstücke?");
+talkEntry:addResponse("Oh nein, kauft doch wenigstens ein Los für lumpige zehn Silberstücke der erste Preis sind 5 Goldstücke");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

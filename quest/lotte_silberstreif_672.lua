@@ -9,17 +9,17 @@ ENGLISH = Player.english
 -- Insert the quest title here, in both languages
 Title = {}
 Title[GERMAN] = "Galmairs Lotterie"
-Title[ENGLISH] = "Galmair lotto game"
+Title[ENGLISH] = "Galmair's lotto game"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Du hast ein Los gekauft. Sprich mit Lotte Silbertreif um dein Los zu ziehen."
-Description[ENGLISH][1] = "You bought a lot. Talk to Lotte Silberstreif to draw your lot."
-Description[GERMAN][2] = "Du hast 5 Lose gekauft. Sprich mit Lotte Silbertreif um deine Lose zu ziehen."
-Description[ENGLISH][2] = "You bought 5 lots. Talk to Lotte Silberstreif to draw your lots."
+Description[GERMAN][1] = "Du hast ein Los gekauft. Sprich mit Lotte Silberstreif um dein Los zu ziehen."
+Description[ENGLISH][1] = "You bought one lot. Talk to Lotte Silberstreif to use your lot."
+Description[GERMAN][2] = "Du hast 5 Lose gekauft. Sprich mit Lotte Silberstreif um deine Lose zu ziehen."
+Description[ENGLISH][2] = "You bought 5 lots. Talk to Lotte Silberstreif to use your lots."
 Description[GERMAN][10] = "Bring Lotte Silberstreif einen Apfel."
 Description[ENGLISH][10] = "Bring one apple to Lotte Silberstreif."
 Description[GERMAN][20] = "Bring Lotte Silberstreif 5 Kirschen."
@@ -54,3 +54,4 @@ end
 function QuestFinalStatus()
     return FINAL_QUEST_STATUS
 end
+
