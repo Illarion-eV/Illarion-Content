@@ -55,8 +55,8 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Frizza the informant. Keywords: Question, information, Cadomyr, building, game, mission, town.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frizza die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Cadomyr, Gebäude, Spiel, Auftrag, Stadt.")
+"Help" -> inform("[Game Help] This NPC is Frizza the informant. Keywords: Question, information, Cadomyr, building, mission, town.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frizza die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Cadomyr, Gebäude, Auftrag, Stadt.")
 
 -- Mandatory: General speech
 queststatus(605) = 1, english, ".*" -> inform("[Quest 'Find Frizza'] You can speak with Frizza now. Ask for 'help' if you do not know what to say! You can also go back to Hummi to collect your reward and come back later."), queststatus(605) = 2, "How can I help you? Are you looking for any information? Or would you like to be given a tasssk?"
@@ -69,8 +69,8 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hint] Have you already aske
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Wir sssehen unsss wenn mehr Informationen benötigt werden."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sssee you again, when you need more information."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Wir sssehen unsss wenn mehr Informationen benötigt werden."
-"How are you", "How feel", "How do you do" -> "Very good, jussst won another game."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Sssehr gut, gerade wieder ein Ssspiel gewonnen."
+"How are you", "How feel", "How do you do" -> "Very good, I could jussst anssswer a quesssstion few minutes ago."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Sssehr gut, konnte gerade wieder eine Frage beantworten."
 "your name", "who are you", "who art thou" -> "Frizza, the informant of Cadomyr."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Frizza, die Informantin von Cadomyr."
 
