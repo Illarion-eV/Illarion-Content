@@ -22,41 +22,41 @@ intensityListEn = {"strongly","noticably","slightly","barely noticably","","bare
 
 function DrinkPotion(User,SourceItem)
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
-	
-	if potionEffectId == 0 or potionEffectId == nil  then -- no effect	
-	    base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
+
+	if potionEffectId == 0 or potionEffectId == nil  then -- no effect
+	    base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.",
 		"You don't have the feeling that something happens.")
 	    return
-	
-	elseif potionEffectId >= 11111111 and potionEffectId <= 99999999 then -- it's an attribute changer  
+
+	elseif potionEffectId >= 11111111 and potionEffectId <= 99999999 then -- it's an attribute changer
 		  -- there is already an effect, we remove it
 		local foundEffect, myEffect = User.effects:find(59);
 		if foundEffect then
 			local findsight, sightpotion = myEffect:findValue("sightpotion")
 			if findsight then
-				base.common.InformNLS(User, "Deine Augen fühlen sich wieder normal an und der Stärkungstrank beginnt zu wirken.", 
+				base.common.InformNLS(User, "Deine Augen fühlen sich wieder normal an und der Stärkungstrank beginnt zu wirken.",
 				"Your eyes feel normal again and the strengthening potions starts to take effect.")
 			else
-			    base.common.InformNLS(User, "Du spürst, dass der alte Stärkungstrank seine Wirkung verliert und wie der neue zu wirken einsetzt.", 
+			    base.common.InformNLS(User, "Du spürst, dass der alte Stärkungstrank seine Wirkung verliert und wie der neue zu wirken einsetzt.",
 				"You feel that the old strengthening potion looses its effect and how the new one takes effect.")
 			end
 		    local effectRemoved = User.effects:removeEffect(59)
 		end
 		local myEffectDuration = math.floor(SourceItem.quality/100)*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
 		local myEffect=LongTimeEffect(59,myEffectDuration) -- new effect
-		
+
 		local dataZList = alchemy.base.alchemy.SplitData(User,potionEffectId)
 		alchemy.base.alchemy.generateTasteMessage(User,dataZList) -- potion taste
 	    GenerateEffectMessage(User,dataZList) -- inform about the effects
-		
+
 		local attribValue, bottomBorder
 		local logmsg = ""..User.name.." ("..User.id..") used an attribute potion, giving: "
 		for i=1,8 do
-			
+
 			attribValue = User:increaseAttrib(attribList[i],0);
 
 			bottomBorder = 1
-			
+
 			if (attribValue + dataZList[i] - 5) < bottomBorder then
 				dataZList[i] = (bottomBorder - attribValue) + 5;
 			end
@@ -70,7 +70,7 @@ function DrinkPotion(User,SourceItem)
 				logmsg = logmsg..emptystring..(dataZList[i]-5).." to "..attribList[i]..", and"
 				myEffect:addValue(""..attribList[i],dataZList[i]);
 			end
-			
+
 		end
 		logmsg = logmsg.." it will last for "..myEffectDuration/600 .. " minutes."
 		log(logmsg)
@@ -82,50 +82,50 @@ function DrinkPotion(User,SourceItem)
 		local foundEffect, myEffect = User.effects:find(59);
 		if foundEffect then
 			local effectRemoved = User.effects:removeEffect(59)
-		    base.common.InformNLS(User, "Du spürst, dass der Trank seine Wirkung verliert. Deine Augen beginnen sich seltsam anzufühlen.", 
+		    base.common.InformNLS(User, "Du spürst, dass der Trank seine Wirkung verliert. Deine Augen beginnen sich seltsam anzufühlen.",
 		    "You feel that the old potion looses its effect. You eyes start to feel strange.")
 		end
 		local myEffectDuration = math.floor(SourceItem.quality/100)*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
 		local myEffect=LongTimeEffect(59,myEffectDuration) -- new effect
-		
+
 		myEffect:addValue("sightpotion",potionEffectId-5900000000)
-		
+
 		local foundEffect, checkedEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
 		if not foundEffect then
 		   User.effects:addEffect( myEffect )
 		end
-	
+
 	else
 	    -- something else
-	end	
+	end
 end
 
 function GenerateEffectMessage(User,dataZList)
     local effectMessagesDe = ""
     local effectMessagesEn = ""
 	local anyEffect = false
-	
+
 	local attribEn, attribDe, nPTagEn, nPTagDe, attribIntensityEn, attribIntensityDe
 	for i=1,8 do
 	    if dataZList[i] ~= 5 then
-		    
+
 			attribEn = attribList[i] -- attribute
 			attribDe = attribListDe[i]
 			if dataZList[i] > 5 then
-			    nPTagEn = "in" -- increasing 
+			    nPTagEn = "in" -- increasing
 				nPTagDe = "zu"
 			else
                 nPTagEn = "de" -- decreasing
-                nPTagDe = "ab"				
+                nPTagDe = "ab"
 		    end
 	        attribIntensityEn = intensityListEn[dataZList[i]] -- how strong it is in/decreased
 			attribIntensityDe = intensityListDe[dataZList[i]]
             anyEffect = true
 			-- we put everything together
 			effectMessagesDe = effectMessagesDe.."Deine "..attribDe.." nimmt".." "..attribIntensityDe.." "..nPTagDe..". "
-			effectMessagesEn = effectMessagesEn.."Your "..attribEn..nPTagEn.."creases "..attribIntensityEn..". "
+			effectMessagesEn = effectMessagesEn.."Your "..attribEn.." "..nPTagEn.."creases "..attribIntensityEn..". "
 		end
-    end		
+    end
     if anyEffect == false then -- no effect
 	    base.common.InformNLS(User,"Du spürst keine Wirkung.","You don't feel any effect.")
 	else
@@ -137,15 +137,15 @@ function UseItem(User, SourceItem, ltstate)
     -- repair potion in case it's broken
 	alchemy.base.alchemy.repairPotion(SourceItem)
 	-- repair end
-	
+
 	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else
 	end
-	
+
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
 	if cauldron then -- infront of a cauldron?
 	    alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
-	
+
 	else -- not infront of a cauldron, therefore drink!
         if User.attackmode then
 		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
@@ -155,7 +155,7 @@ function UseItem(User, SourceItem, ltstate)
 			DrinkPotion(User,SourceItem) -- call effect
 			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 	    end
-	end  
+	end
 end
 
 function LookAtItem(User,Item)
