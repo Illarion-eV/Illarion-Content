@@ -8,7 +8,8 @@ module("item.id_623_rockface", package.seeall)
 function UseItem(User, SourceItem, ltstate)
 
   -- entrance to the cave
-  if (SourceItem.pos ~= position(894, 627, 0)) then
+  local pos = position(894, 627, 0);
+  if (SourceItem.pos ~= pos) then
 		return
   end
 
@@ -19,14 +20,22 @@ function UseItem(User, SourceItem, ltstate)
 
 	world:erase(SourceItem, 1);
 
-	base.common.HighInformNLS(User,
+	base.common.InformNLS(User,
       "Die Steinwand verschwindet als du sie berührst!",
       "The rock wall disappears as you touch it!");
 
-	local myEffect = LongTimeEffect(3000,300); -- close after 30sec
-	User.effects:addEffect(myEffect);
+
+    local Characters = world:getPlayersInRangeOf(pos, 5);
+    for i, Char in pairs(Characters) do
+	  if (User.id ~= Char.id) then
+        base.common.InformNLS(Char,
+	    "Eine Steinwand verschwindet einfach.",
+	    "A rock wall just disappears.");
+	  end
+    end
+
   else
-	base.common.HighInformNLS(User,
+	base.common.InformNLS(User,
       "Nichts passiert als du die Steinwand berührst.",
       "Nothing happens as you touch the rock wall.");
   end
