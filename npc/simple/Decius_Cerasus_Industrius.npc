@@ -24,6 +24,7 @@ autointroduce = on
 
 author = "Rakaya"
 
+
 lookatDE = "Dieser NPC ist Decius Cerasus Industrius, Majordomus von Runewick."
 lookatUS = "This NPC is Decius Cerasus Industrius, majordomo of Runewick."
 useMsgDE = "Fasst mich nicht an!"
