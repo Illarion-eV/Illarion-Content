@@ -40,13 +40,13 @@ function InitDrinks()
 		drinkList[1319] = {  400, 1317,  35}; -- bottle of cherry schnapps
 		drinkList[783] = {500, 790, 0}; -- bottle of blackberry juice
 		drinkList[784] = {500, 790, 0}; -- bottle of tangerine juice
-		drinkList[785] = {500, 790, 0}; -- bottle of banana juice		
+		drinkList[785] = {500, 790, 0}; -- bottle of banana juice
 		drinkList[786] = {500, 790, 0}; -- bottle of cabbage juice
 		drinkList[787] = {500, 790, 0}; -- bottle of virgings weed tea
 		drinkList[788] = {500, 790, 0}; -- bottle of carrot juice
 		drinkList[789] = {500, 790, 0}; -- bottle of strawberry juice
 		drinkList[791] = {500, 790, 0}; -- bottle of grape juice
-		
+
     end
 end
 
@@ -61,22 +61,29 @@ function UseItem(User, SourceItem)
         User:inform("Unknown drinking Item: ID"..SourceItem.id.." Please Report this to a developer.");
         return
     end
+	if (SourceItem:getType() ~= 4) then -- vessel in hand
+		base.common.HighInformNLS( User,
+		"Du musst das Trinkgefäß in der Hand haben!",
+		"You have to hold the drinking vessel in your hand!" );
+		return
+	end
     foodLevel = User:increaseAttrib("foodlevel",0) + food[1]; -- Foodlevel anheben
     world:makeSound(12,User.pos); -- Trinkgeräuusch machen
-    world:erase(SourceItem,1)
+
 	if ( math.random( 50 ) <= 1 ) then -- 1/50 das die Flasche zerbricht
         base.common.InformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.");
+		world:erase(SourceItem, 1);
     else
-        User:createItem(food[2],1,333,nil)
+	    world:swap(SourceItem, food[2], 333);
 	end
-    
-    if ( foodLevel > 40000 ) then 
+
+    if ( foodLevel > 40000 ) then
         base.common.InformNLS( User, "Du hast genug getrunken.", "You have had enough to drink.");
-    elseif ( foodLevel > 40000 ) then 
+    elseif ( foodLevel > 40000 ) then
         base.common.InformNLS( User, "Du schaffst es nicht noch mehr zu trinken.", "You cannot drink anything else.");
         foodLevel = foodLevel - food[1];
     end
-    
+
     if ( User:increaseAttrib("foodlevel",0) ~= foodLevel ) then -- Prüfen ob Nahrungspunkte geändert wurden
         User:increaseAttrib("foodlevel",-(User:increaseAttrib("foodlevel",0)-foodLevel)); -- Änderung durchführen
     end
@@ -86,7 +93,7 @@ end
 function LookAtItem(User, Item)
     InitDrinks();
     local food = drinkList[ Item.id ];
-    
+
     if food == nil then
         User:inform("unkown drink item ID"..Item.id);
         return
