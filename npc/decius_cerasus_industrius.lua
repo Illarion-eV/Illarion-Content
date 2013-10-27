@@ -10,7 +10,7 @@
 --------------------------------------------------------------------------------
 
 --[[SQL
-INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue")
 VALUES (2, 906, 828, 3, 6, 'Decius Cerasus Industrius', 'npc.decius_cerasus_industrius', 0, 1, 0, 200, 200, 200, 240, 175, 130);
 ---]]
 
@@ -1030,7 +1030,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a copper ingot. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(399, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(463, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2550, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(160, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(161, "=", 60));
@@ -1045,7 +1045,7 @@ talkEntry:addCondition(npc.base.condition.item.item(463, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Kupferbarren. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(399, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(463, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2550, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(160, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(161, "=", 60));

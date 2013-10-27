@@ -192,8 +192,8 @@ queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order"
 queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 6, "Für unsere Bibliothek werden immer neue Bücher und Schriftrollen geschrieben. Deshalb wurde bei mir noch eine Schreibfeder bestellt. Bring mir bitte eine."
 
 -- Quest 6 solved, reward: 1 copper ingot, 3 rankpoints, delay: 5h
-queststatus(160) = 6, item(463, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a copper ingot. You advance in Archmage Elvaine Morgan's favour."), deleteItem(399, 1), item(2550, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Many thanks. Here, take this in return, I found it while tidying up the place."
-queststatus(160) = 6, item(463, all) > 0, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst einen Kupferbarren. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), deleteItem(399, 1), item(2550, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Vielen Dank. Hier, nehmt dies als Dank, hab ich beim Aufräumen gefunden."
+queststatus(160) = 6, item(463, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a copper ingot. You advance in Archmage Elvaine Morgan's favour."), deleteItem(463, 1), item(2550, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Many thanks. Here, take this in return, I found it while tidying up the place."
+queststatus(160) = 6, item(463, all) > 0, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst einen Kupferbarren. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), deleteItem(463, 1), item(2550, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Vielen Dank. Hier, nehmt dies als Dank, hab ich beim Aufräumen gefunden."
 
 -- Quest 6 taken but not solved, repeat the instructions
 queststatus(160) = 6, item(463, all) < 1, english, town = Runewick, "quest", "mission" -> "Do not forget about that quill. These books do not write themselves."
