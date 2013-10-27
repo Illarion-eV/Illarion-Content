@@ -10,7 +10,7 @@
 --------------------------------------------------------------------------------
 
 --[[SQL
-INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue")
 VALUES (0, 338, 154, -6, 4, 'Angelo Rothman', 'npc.angelo_rothman', 0, 1, 2, 143, 143, 143, 217, 154, 123);
 ---]]
 
@@ -61,7 +61,7 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
-talkEntry:addResponse("Grüße! Es ist Zeit das du dich in der Arena von Galmair beweist!");
+talkEntry:addResponse("Grüße! Es ist an der Zeit, dass du dich in der Arena von Galmair beweist!");
 talkEntry:addResponse("Grüße! Nimm einfach dein Schwert und beweis dich gegen meine Biester!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -82,7 +82,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Grüße Es ist Zeit das ihr euch in der Arena von Cadoymr beweist!");
+talkEntry:addResponse("Grüße! Es ist an der Zeit, dass du dich in der Arena von Galmair beweist!");
 talkEntry:addResponse("Grüße! Nimm einfach dein Schwert und beweis dich gegen meine Biester!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -404,7 +404,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#mes prunkvolle Rüstung zeigt das Wappen von Galmair.", "#me's shining armour shows the coat of arms of Galmair.");
 talkingNPC:addCycleText("Nieder mit den Feiglingen aus Cadomyr und Runewick!", "Down with the cowards of Cadomyr and Runewick!");
-talkingNPC:addCycleText("#me hält sein reich verziehrtes Schwert fest in der Hand und schwingt es durch die Luft.", "#me holds his ornate sword firmly with one hand, swinging it idly through the air.");
+talkingNPC:addCycleText("#me hält sein reich verziertes Schwert fest in der Hand und schwingt es durch die Luft.", "#me holds his ornate sword firmly with one hand, swinging it idly through the air.");
 talkingNPC:addCycleText("#me schreibt einige Worte in ein in Leder gebundenes Buch.", "#me writes some words into a leather covered book.");
 talkingNPC:addCycleText("Wir leben in merkwürdigen Zeiten...", "Strange times we live in...");
 mainNPC:addLanguage(0);
