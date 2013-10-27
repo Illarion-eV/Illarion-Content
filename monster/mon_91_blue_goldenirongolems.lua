@@ -16,14 +16,14 @@ killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
 msgs = base.messages.Messages();
-msgs:addMessage("#me stomps with his feet.", "#me stampft mit seinen Füßen.");
+msgs:addMessage("#me stampft mit seinen Füßen.", "#me stomps with his feet.");
 
 end
 
 function onSpawn(Monster)
-    
+
 	-- Regeneration for high level monsters >= level 7
-	local MonID=Monster:getMonsterType() 
+	local MonID=Monster:getMonsterType()
 	if MonID == 911 or MonID == 912 then -- Merinium Golem, Gold Golem
 		local find, reg_effect = Monster.effects:find(2);
 		if not find then
@@ -41,7 +41,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     return false
 end
 
@@ -84,11 +84,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -97,7 +97,7 @@ function onDeath(Monster)
 
         end
     end
-    
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
@@ -129,9 +129,9 @@ if (MonID==911) then -- Merinium Golem, Level: 9, Armourtype: medium, Weapontype
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(90,250),100,773,0,4); --silver coins
-		
+
 	elseif (MonID==912) then -- Gold Golem, Level: 8, Armourtype: medium, Weapontype: concussion
-	
+
         --Category 1: Raw gems
 
         local done=monster.base.drop.AddDropItem(257,5,20,(100*math.random(7,8)+math.random(77,88)),0,1); --raw topaz
@@ -158,7 +158,7 @@ if (MonID==911) then -- Merinium Golem, Level: 9, Armourtype: medium, Weapontype
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(30,90),100,773,0,4); --silver coins
-		
+
     end
     monster.base.drop.Dropping(Monster);
 end
