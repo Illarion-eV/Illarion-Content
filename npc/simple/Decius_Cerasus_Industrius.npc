@@ -24,7 +24,6 @@ autointroduce = on
 
 author = "Rakaya"
 
-
 lookatDE = "Dieser NPC ist Decius Cerasus Industrius, Majordomus von Runewick."
 lookatUS = "This NPC is Decius Cerasus Industrius, majordomo of Runewick."
 useMsgDE = "Fasst mich nicht an!"
@@ -118,10 +117,10 @@ queststatus(160) = 1, item(547, all) < 1, town = Runewick, "Auftrag", "Aufgabe",
 
 -- 2: Quest 2 taken, get 5 empty bottles , reward: ice leaf , 3 rankpoints
 -- Quest 2: Gather 5 empty bottles (164)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 2, "Our alchemistical resources are dwindling. Please bring me five empty bottles."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 2, "Unsere alchemistischen Vorräte gehen zur Neige. Bringe mir bitte 5 leere Flaschen."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 2, "Our alchemistical resources are dwindling. Please bring me five empty bottles."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 2, "Unsere alchemistischen Vorräte gehen zur Neige. Bringe mir bitte 5 leere Flaschen."
+queststatus(160) = 0, english, chance(4.17), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 2, "Our alchemistical resources are dwindling. Please bring me five empty bottles."
+queststatus(160) = 0, german, chance(4.17), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 2, "Unsere alchemistischen Vorräte gehen zur Neige. Bringe mir bitte 5 leere Flaschen."
+queststatus(160) = 0, chance(4.17), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 2, "Our alchemistical resources are dwindling. Please bring me five empty bottles."
+queststatus(160) = 0, chance(4.17), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 2, "Unsere alchemistischen Vorräte gehen zur Neige. Bringe mir bitte 5 leere Flaschen."
 
 -- Quest 2 solved, reward: ice leaf, 3 rankpoints, delay: 5h
 queststatus(160) = 2, item(164, all) > 4, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded an ice leaf. You advance in Archmage Elvaine Morgan's favour."), deleteItem(547, 5), item(760, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Five empty bottles for alchemy, check. Take this ice leaf in return."
@@ -135,10 +134,10 @@ queststatus(160) = 2, item(164, all) < 5, town = Runewick, "Auftrag", "Aufgabe",
 
 -- 3: Quest 3 taken, get 5 glass mugs , reward: 1 Silver , 3 rankpoints
 -- Quest 3: Gather 5 glass mugs (1908)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 3, "During the last celebration to honour Adron some glasses were broken. Can you bring me five glass mugs?"
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 3, "Bei der letzten Feier zur Ehren Adrons sind ein paar Gläser zu Bruch gegangen. Könntest du mir 5 Glaskrüge bringen?"
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 3, "During the last celebration to honour Adron some glasses were broken. Can you bring me five glass mugs?"
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 3, "Bei der letzten Feier zur Ehren Adrons sind ein paar Gläser zu Bruch gegangen. Könntest du mir 5 Glaskrüge bringen?"
+queststatus(160) = 0, english, chance(4.35), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 3, "During the last celebration to honour Adron some glasses were broken. Can you bring me five glass mugs?"
+queststatus(160) = 0, german, chance(4.35), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 3, "Bei der letzten Feier zur Ehren Adrons sind ein paar Gläser zu Bruch gegangen. Könntest du mir 5 Glaskrüge bringen?"
+queststatus(160) = 0, chance(4.35), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 3, "During the last celebration to honour Adron some glasses were broken. Can you bring me five glass mugs?"
+queststatus(160) = 0, chance(4.35), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 3, "Bei der letzten Feier zur Ehren Adrons sind ein paar Gläser zu Bruch gegangen. Könntest du mir 5 Glaskrüge bringen?"
 
 -- Quest 3 solved, reward: 1 Silver, 3 rankpoints, delay: 5h
 queststatus(160) = 3, item(1908, all) > 4, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a silver coin. You advance in Archmage Elvaine Morgan's favour."), money + 100, deleteItem(1908, 5), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Thank you, they will be able to celebrate the next mass with these."
@@ -152,10 +151,10 @@ queststatus(160) = 3, item(1908, all) < 5, town = Runewick, "Auftrag", "Aufgabe"
 
 -- 4: Quest 4 taken, get a candlestick, reward: 5 lamp oil , 3 rankpoints
 -- Quest 4: Gather a candlestick (399)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 4, "Our Archmage works late into the night. That's why he needs a candlestick. Please bring me one."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 4, "Unser Erzmagier arbeitet bis spät in die Nacht. Deshalb benötigt er einen Kerzenhalter. Bring mir bitte einen."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 4, "Our Archmage works late into the night. That's why he needs a candlestick. Please bring me one."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 4, "Unser Erzmagier arbeitet bis spät in die Nacht. Deshalb benötigt er einen Kerzenhalter. Bring mir bitte einen."
+queststatus(160) = 0, english, chance(4.55), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 4, "Our Archmage works late into the night. That's why he needs a candlestick. Please bring me one."
+queststatus(160) = 0, german, chance(4.55), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 4, "Unser Erzmagier arbeitet bis spät in die Nacht. Deshalb benötigt er einen Kerzenhalter. Bring mir bitte einen."
+queststatus(160) = 0, chance(4.55), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 4, "Our Archmage works late into the night. That's why he needs a candlestick. Please bring me one."
+queststatus(160) = 0, chance(4.55), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 4, "Unser Erzmagier arbeitet bis spät in die Nacht. Deshalb benötigt er einen Kerzenhalter. Bring mir bitte einen."
 
 -- Quest 4 solved, reward: 5 lamp oil, 3 rankpoints, delay: 5h
 queststatus(160) = 4, item(399, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded five bottles of lamp oil. You advance in Archmage Elvaine Morgan's favour."), deleteItem(399, 1), item(390, 5, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Our Archmage will be happy about this. Take this lamp oil for it, he doesn't need it anymore."
@@ -169,10 +168,10 @@ queststatus(160) = 4, item(399, all) < 1, town = Runewick, "Auftrag", "Aufgabe",
 
 -- 5: Quest 5 taken, get 10 candles , reward: 1 Silver , 3 rankpoints
 -- Quest 5: Gather 10 candles (43)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 5, "Our Archmage got a new candlestick. Now he needs ten candles for it."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 5, "Unser Erzmagier hat einen neuen Kerzenhalter bekommen. Jetzt benötigt er 10 Kerzen dafür."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 5, "Our Archmage got a new candlestick. Now he needs ten candles for it."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 5, "Unser Erzmagier hat einen neuen Kerzenhalter bekommen. Jetzt benötigt er 10 Kerzen dafür."
+queststatus(160) = 0, english, chance(4.76), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 5, "Our Archmage got a new candlestick. Now he needs ten candles for it."
+queststatus(160) = 0, german, chance(4.76), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 5, "Unser Erzmagier hat einen neuen Kerzenhalter bekommen. Jetzt benötigt er 10 Kerzen dafür."
+queststatus(160) = 0, chance(4.76), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 5, "Our Archmage got a new candlestick. Now he needs ten candles for it."
+queststatus(160) = 0, chance(4.76), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 5, "Unser Erzmagier hat einen neuen Kerzenhalter bekommen. Jetzt benötigt er 10 Kerzen dafür."
 
 -- Quest 5 solved, reward: 1 Silver, 3 rankpoints, delay: 5h
 queststatus(160) = 5, item(43, all) > 9, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a silver coin. You advance in Archmage Elvaine Morgan's favour."), money + 100, deleteItem(43, 10), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Beautiful candles these are, very straight. Take this coin and the thanks of our ever-studious Archmage."
@@ -186,10 +185,10 @@ queststatus(160) = 5, item(43, all) < 10, town = Runewick, "Auftrag", "Aufgabe",
 
 -- 6: Quest 6 taken, get a quill, reward: 1 copper ingot , 3 rankpoints
 -- Quest 6: Gather a quill (463)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 6, "There are always new books and scrolls written for our library. Therefore I received an order for a quill. Bring me one."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 6, "Für unsere Bibliothek werden immer neue Bücher und Schriftrollen geschrieben. Deshalb wurde bei mir noch eine Schreibfeder bestellt. Bring mir bitte eine."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest]"), queststatus(160) = 6, "There are always new books and scrolls written for our library. Therefore I received an order for a quill. Bring me one."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 6, "Für unsere Bibliothek werden immer neue Bücher und Schriftrollen geschrieben. Deshalb wurde bei mir noch eine Schreibfeder bestellt. Bring mir bitte eine."
+queststatus(160) = 0, english, chance(5.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 6, "There are always new books and scrolls written for our library. Therefore I received an order for a quill. Bring me one."
+queststatus(160) = 0, german, chance(5.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 6, "Für unsere Bibliothek werden immer neue Bücher und Schriftrollen geschrieben. Deshalb wurde bei mir noch eine Schreibfeder bestellt. Bring mir bitte eine."
+queststatus(160) = 0, chance(5.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest]"), queststatus(160) = 6, "There are always new books and scrolls written for our library. Therefore I received an order for a quill. Bring me one."
+queststatus(160) = 0, chance(5.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 6, "Für unsere Bibliothek werden immer neue Bücher und Schriftrollen geschrieben. Deshalb wurde bei mir noch eine Schreibfeder bestellt. Bring mir bitte eine."
 
 -- Quest 6 solved, reward: 1 copper ingot, 3 rankpoints, delay: 5h
 queststatus(160) = 6, item(463, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a copper ingot. You advance in Archmage Elvaine Morgan's favour."), deleteItem(463, 1), item(2550, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Many thanks. Here, take this in return, I found it while tidying up the place."
@@ -203,10 +202,10 @@ queststatus(160) = 6, item(463, all) < 1, town = Runewick, "Auftrag", "Aufgabe",
 
 -- 7: Quest 7 taken, get a lute , reward: 3 Silver , 3 rankpoints
 -- Quest 7: Gather a lute (335)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 7, "Sadly, our last feast lacked music. Please bring me a lute, I shall take care of the musician."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 7, "Leider hatten wir bei dem letzten Fest keine Musik. Bring mir doch bitte eine Laute, für den Musiker sorge ich."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 7, "Sadly, our last feast lacked music. Please bring me a lute, I shall take care of the musician."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 7, "Leider hatten wir bei dem letzten Fest keine Musik. Bring mir doch bitte eine Laute, für den Musiker sorge ich."
+queststatus(160) = 0, english, chance(5.26), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 7, "Sadly, our last feast lacked music. Please bring me a lute, I shall take care of the musician."
+queststatus(160) = 0, german, chance(5.26), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 7, "Leider hatten wir bei dem letzten Fest keine Musik. Bring mir doch bitte eine Laute, für den Musiker sorge ich."
+queststatus(160) = 0, chance(5.26), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 7, "Sadly, our last feast lacked music. Please bring me a lute, I shall take care of the musician."
+queststatus(160) = 0, chance(5.26), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 7, "Leider hatten wir bei dem letzten Fest keine Musik. Bring mir doch bitte eine Laute, für den Musiker sorge ich."
 
 -- Quest 7 solved, reward: 1 Silver, 3 rankpoints, delay: 5h
 queststatus(160) = 7, item(335, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded three silver coins. You advance in Archmage Elvaine Morgan's favour."), money + 300, deleteItem(335, 1), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "#me runs his fingers over the strings.'Take these coins in return.'"
@@ -220,10 +219,10 @@ queststatus(160) = 7, item(335, all) < 1, town = Runewick, "Auftrag", "Aufgabe",
 
 -- 8: Quest 8 taken, get a wand , reward: 5 wind arrows , 3 rankpoints
 -- Quest 8: Gather a wand (323)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 8, "Our enlightened Archmage wishes to give a pupil a well-deserved new wand. I hereby give you the task to bring me one."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 8, "Unser erleuchteter Erzmagier möchte einen verdienten Schüler einen neuen Zauberstab überreichen. Ich übergeb euch hiermit die Aufgabe, mir einen zu bringen."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 8, "Our enlightened Archmage wishes to give a pupil a well-deserved new wand. I hereby give you the task to bring me one."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 8, "Unser erleuchteter Erzmagier möchte einen verdienten Schüler einen neuen Zauberstab überreichen. Ich übergeb euch hiermit die Aufgabe, mir einen zu bringen."
+queststatus(160) = 0, english, chance(5.56), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 8, "Our enlightened Archmage wishes to give a pupil a well-deserved new wand. I hereby give you the task to bring me one."
+queststatus(160) = 0, german, chance(5.56), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 8, "Unser erleuchteter Erzmagier möchte einen verdienten Schüler einen neuen Zauberstab überreichen. Ich übergeb euch hiermit die Aufgabe, mir einen zu bringen."
+queststatus(160) = 0, chance(5.56), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 8, "Our enlightened Archmage wishes to give a pupil a well-deserved new wand. I hereby give you the task to bring me one."
+queststatus(160) = 0, chance(5.56), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 8, "Unser erleuchteter Erzmagier möchte einen verdienten Schüler einen neuen Zauberstab überreichen. Ich übergeb euch hiermit die Aufgabe, mir einen zu bringen."
 
 -- Quest 8 solved, reward: 5 wind arrows, 3 rankpoints, delay: 5h
 queststatus(160) = 8, item(323, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded five wind arrows. You advance in Archmage Elvaine Morgan's favour."), deleteItem(323, 1), item(322, 5, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "A pretty wand, now I just have to put a bow on it. Take this arrows in return."
@@ -235,29 +234,29 @@ queststatus(160) = 8, item(323, all) < 1, town = Runewick, "quest", "mission" ->
 queststatus(160) = 8, item(323, all) < 1, town = Runewick, "task", "adventure", "order" -> "The bestowal of the wand will be soon. You should hurry up or else the Archmage won't be pleased, and me neither."
 queststatus(160) = 8, item(323, all) < 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Verleihung des Zauberstabes ist schon bald. Ihr solltet euch beeilen, sonst ist der Erzmagier nicht erfreut und ich auch nicht."
 
--- 9: Quest 9 taken, get a charm of the icebird , reward: 60 Silver , 3 rankpoints
--- Quest 9: Gather a charm of the icebird (334)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 9, "A very urgent and quite elaborate order by our Archmage. Bring me a charm of the icebird."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 9, "Eine sehr dringende und etwas aufwendigere Bestellung unseres Erzmagiers. Bringe mir ein Eisvogelamulett."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 9, "A very urgent and quite elaborate order by our Archmage. Bring me a charm of the icebird."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 9, "Eine sehr dringende und etwas aufwendigere Bestellung unseres Erzmagiers. Bringe mir ein Eisvogelamulett."
+-- 9: Quest 9 taken, get a fine wizard hat , reward: 30 Silver , 3 rankpoints
+-- Quest 9: Gather a fine wizard hat(371)
+queststatus(160) = 0, english, chance(5.88), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 9, "A very urgent and quite elaborate order by our Archmage. Bring me a fine wizard hat."
+queststatus(160) = 0, german, chance(5.88), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 9, "Eine sehr dringende und etwas aufwendigere Bestellung unseres Erzmagiers. Bringe mir einen feinen Zauberhut."
+queststatus(160) = 0, chance(5.88), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 9, "A very urgent and quite elaborate order by our Archmage. Bring me a fine wizard hat."
+queststatus(160) = 0, chance(5.88), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 9, "Eine sehr dringende und etwas aufwendigere Bestellung unseres Erzmagiers. Bringe mir einen feinen Zauberhut."
 
 -- Quest 9 solved, reward: 60 Silver, 3 rankpoints, delay: 5h
-queststatus(160) = 9, item(334, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded sixty silver coins. You advance in Archmage Elvaine Morgan's favour."), money + 6000, deleteItem(334, 1), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "I will immediately take it to our Archmage and tell him of your effort. Take these coins and the thanks of Runewick."
-queststatus(160) = 9, item(334, all) > 0, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst 60 Silberstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 6000, deleteItem(334, 1), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Ich werde es sofot unseren Erzmagier bringen und auch von eurer Leistung erzählen. Nehmt diese Münzen und den Dank Runewicks."
+queststatus(160) = 9, item(371, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded thirty silver coins. You advance in Archmage Elvaine Morgan's favour."), money + 3000, deleteItem(371, 1), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "I will immediately take it to our Archmage and tell him of your effort. Take these coins and the thanks of Runewick."
+queststatus(160) = 9, item(371, all) > 0, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 3000, deleteItem(371, 1), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Ich werde es sofot unseren Erzmagier bringen und auch von eurer Leistung erzählen. Nehmt diese Münzen und den Dank Runewicks."
 
 -- Quest 9 taken but not solved, repeat the instructions
-queststatus(160) = 9, item(334, all) < 1, english, town = Runewick, "quest", "mission" -> "I know that a charm of the icebird is not easily aquired, but what did you not understand about the word 'urgent'?"
-queststatus(160) = 9, item(334, all) < 1, town = Runewick, "quest", "mission" -> "Ich weiß, dass ein Eisvogelamulett nicht so leicht aufzutreiben ist, aber was war am Wort 'dringend' nicht zu verstehen?"
-queststatus(160) = 9, item(334, all) < 1, town = Runewick, "task", "adventure", "order" -> "I know that a charm of the icebird is not easily aquired, but what did you not understand about the word 'urgent'?"
-queststatus(160) = 9, item(334, all) < 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich weiß, dass ein Eisvogelamulett nicht so leicht aufzutreiben ist, aber was war am Wort 'dringend' nicht zu verstehen?"
+queststatus(160) = 9, item(371, all) < 1, english, town = Runewick, "quest", "mission" -> "I know that a fine wizard hat is not easily aquired, but what did you not understand about the word 'urgent'?"
+queststatus(160) = 9, item(371, all) < 1, town = Runewick, "quest", "mission" -> "Ich weiß, dass ein feiner Zauberhut nicht so leicht aufzutreiben ist, aber was war am Wort 'dringend' nicht zu verstehen?"
+queststatus(160) = 9, item(371, all) < 1, town = Runewick, "task", "adventure", "order" -> "I know that a fine wizard hat is not easily aquired, but what did you not understand about the word 'urgent'?"
+queststatus(160) = 9, item(371, all) < 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich weiß, dass ein feiner Zauberhut nicht so leicht aufzutreiben ist, aber was war am Wort 'dringend' nicht zu verstehen?"
 
 -- 10: Quest 10 taken, get a ruby amulet , reward: Topaz , 3 rankpoints
 -- Quest 10: Gather a ruby amulet (67)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 10, "I need a ruby amulet. Would you be so kind to get me one?"
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 10, "Ich brauche eine Rubinkette. Wärt ihr so freundlich mir eine zu bringen?"
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 10, "I need a ruby amulet. Would you be so kind to get me one?"
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 10, "Ich brauche eine Rubinkette. Wärt ihr so freundlich mir eine zu bringen?"
+queststatus(160) = 0, english, chance(6.25), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 10, "I need a ruby amulet. Would you be so kind to get me one?"
+queststatus(160) = 0, german, chance(6.25), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 10, "Ich brauche eine Rubinkette. Wärt ihr so freundlich mir eine zu bringen?"
+queststatus(160) = 0, chance(6.25), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 10, "I need a ruby amulet. Would you be so kind to get me one?"
+queststatus(160) = 0, chance(6.25), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 10, "Ich brauche eine Rubinkette. Wärt ihr so freundlich mir eine zu bringen?"
 
 -- Quest 10 solved, reward: topaz, 3 rankpoints, delay: 5h
 queststatus(160) = 10, item(67, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a topaz. You advance in Archmage Elvaine Morgan's favour."), deleteItem(334, 1), item(198, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Thank you, she will like it. Take this topaz, I don't have any use for it."
@@ -271,10 +270,10 @@ queststatus(160) = 10, item(67, all) < 1, town = Runewick, "Auftrag", "Aufgabe",
 
 -- 11: Quest 11 taken, get 5 blackberry muffin , reward: 2 Silver , 3 rankpoints
 -- Quest 11: Gather 5 blackberry muffin (334)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 11, "Today I need five blackberry muffins. Bring them to me and no further questions."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 11, "Heute benötige ich 5 Muffins. Bringt sie mir und fragt nicht weiter."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 11, "Today I need five blackberry muffins. Bring them to me and no further questions."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 11, "Heute benötige ich 5 Muffins. Bringt sie mir und fragt nicht weiter."
+queststatus(160) = 0, english, chance(6.67), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 11, "Today I need five blackberry muffins. Bring them to me and no further questions."
+queststatus(160) = 0, german, chance(6.67), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 11, "Heute benötige ich 5 Muffins. Bringt sie mir und fragt nicht weiter."
+queststatus(160) = 0, chance(6.67), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 11, "Today I need five blackberry muffins. Bring them to me and no further questions."
+queststatus(160) = 0, chance(6.67), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 11, "Heute benötige ich 5 Muffins. Bringt sie mir und fragt nicht weiter."
 
 -- Quest 11 solved, reward: 2 Silver , 3 rankpoints, delay: 5h
 queststatus(160) = 11, item(454, all) > 4, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded two silver coins. You advance in Archmage Elvaine Morgan's favour."), money + 200, deleteItem(454, 5), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "#me eats a muffin and wordlessly hands you some coins."
@@ -288,10 +287,10 @@ queststatus(160) = 11, item(454, all) < 5, town = Runewick, "Auftrag", "Aufgabe"
 
 -- 12: Quest 12 taken, get 10 sun herb , reward: sickle , 3 rankpoints
 -- Quest 12: Gather 10 sun herb (133)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 12, "A request was made by our researching alchemists. They need ten sun herbs. Just bring them to me and those potion makers will be happy."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 12, "Eine Anfrage von unseren forschenden Alchemisten wurde gestellt. Sie brauchen 10 mal Sonnenkraut. Bringt sie mir einfach und die Tränkepanscher werden zufrieden sein."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 12, "A request was made by our researching alchemists. They need ten sun herbs. Just bring them to me and those potion makers will be happy."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 12, "Eine Anfrage von unseren forschenden Alchemisten wurde gestellt. Sie brauchen 10 mal Sonnenkraut. Bringt sie mir einfach und die Tränkepanscher werden zufrieden sein."
+queststatus(160) = 0, english, chance(7.14), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 12, "A request was made by our researching alchemists. They need ten sun herbs. Just bring them to me and those potion makers will be happy."
+queststatus(160) = 0, german, chance(7.14), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 12, "Eine Anfrage von unseren forschenden Alchemisten wurde gestellt. Sie brauchen 10 mal Sonnenkraut. Bringt sie mir einfach und die Tränkepanscher werden zufrieden sein."
+queststatus(160) = 0, chance(7.14), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 12, "A request was made by our researching alchemists. They need ten sun herbs. Just bring them to me and those potion makers will be happy."
+queststatus(160) = 0, chance(7.14), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 12, "Eine Anfrage von unseren forschenden Alchemisten wurde gestellt. Sie brauchen 10 mal Sonnenkraut. Bringt sie mir einfach und die Tränkepanscher werden zufrieden sein."
 
 -- Quest 12 solved, reward: sickle, 3 rankpoints, delay: 5h
 queststatus(160) = 12, item(133, all) > 9, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a sickle. You advance in Archmage Elvaine Morgan's favour."), deleteItem(133, 10), item(126, 1, 699), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Fresh herbs always smell so nice. I will take them away quickly so no disaster will happen. Here, take my old sickle as payment."
@@ -305,10 +304,10 @@ queststatus(160) = 12, item(133, all) < 10, town = Runewick, "Auftrag", "Aufgabe
 
 -- 13: Quest 13 taken, get 10 flamegoblet blossom , reward: toadstool , 3 rankpoints
 -- Quest 13: Gather 10 flamegoblet blossom (137)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 13, "A request was made by our researching alchemists. They need ten flamegoblet blossoms. Just bring them to me and those potion makers will be happy."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 13, "Eine Anfrage von unseren forschenden Alchemisten wurde gestellt. Sie brauchen 10 mal Flammkelchblüte. Bringt sie mir einfach und die Tränkepanscher werden zufrieden sein."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 13, "A request was made by our researching alchemists. They need ten flamegoblet blossoms. Just bring them to me and those potion makers will be happy."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 13, "Eine Anfrage von unseren forschenden Alchemisten wurde gestellt. Sie brauchen 10 mal Flammkelchblüte. Bringt sie mir einfach und die Tränkepanscher werden zufrieden sein."
+queststatus(160) = 0, english, chance(7.69), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 13, "A request was made by our researching alchemists. They need ten flamegoblet blossoms. Just bring them to me and those potion makers will be happy."
+queststatus(160) = 0, german, chance(7.69), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 13, "Eine Anfrage von unseren forschenden Alchemisten wurde gestellt. Sie brauchen 10 mal Flammkelchblüte. Bringt sie mir einfach und die Tränkepanscher werden zufrieden sein."
+queststatus(160) = 0, chance(7.69), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 13, "A request was made by our researching alchemists. They need ten flamegoblet blossoms. Just bring them to me and those potion makers will be happy."
+queststatus(160) = 0, chance(7.69), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 13, "Eine Anfrage von unseren forschenden Alchemisten wurde gestellt. Sie brauchen 10 mal Flammkelchblüte. Bringt sie mir einfach und die Tränkepanscher werden zufrieden sein."
 
 -- Quest 13 solved, reward: toadstool, 3 rankpoints, delay: 5h
 queststatus(160) = 13, item(137, all) > 9, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded theo toadstools. You advance in Archmage Elvaine Morgan's favour."), deleteItem(137, 10), item(159, 2, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Fresh herbs always smell so nice. I will take them away quickly so no disaster will happen. Take these mushrooms, I found them while cleaning up."
@@ -322,10 +321,10 @@ queststatus(160) = 13, item(137, all) < 10, town = Runewick, "Auftrag", "Aufgabe
 
 -- 14: Quest 14 taken, get a desert berry , reward: bottle of tangerine juice , 3 rankpoints
 -- Quest 14: Gather a desert berry (769)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 14, "A request was made by our researching alchemists. They need a desert berry. Just bring it to me and those potion makers will be happy."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 14, "Eine Anfrage von unseren forschenden Alchemisten wurde gestellt. Sie brauchen eine Wüstenbeere. Bringt sie mir einfach und die Tränkepanscher werden zufrieden sein."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 14, "A request was made by our researching alchemists. They need a desert berry. Just bring it to me and those potion makers will be happy."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 14, "Eine Anfrage von unseren forschenden Alchemisten wurde gestellt. Sie brauchen eine Wüstenbeere. Bringt sie mir einfach und die Tränkepanscher werden zufrieden sein."
+queststatus(160) = 0, english, chance(8.33), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 14, "A request was made by our researching alchemists. They need a desert berry. Just bring it to me and those potion makers will be happy."
+queststatus(160) = 0, german, chance(8.33), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 14, "Eine Anfrage von unseren forschenden Alchemisten wurde gestellt. Sie brauchen eine Wüstenbeere. Bringt sie mir einfach und die Tränkepanscher werden zufrieden sein."
+queststatus(160) = 0, chance(8.33), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 14, "A request was made by our researching alchemists. They need a desert berry. Just bring it to me and those potion makers will be happy."
+queststatus(160) = 0, chance(8.33), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 14, "Eine Anfrage von unseren forschenden Alchemisten wurde gestellt. Sie brauchen eine Wüstenbeere. Bringt sie mir einfach und die Tränkepanscher werden zufrieden sein."
 
 -- Quest 14 solved, reward: bottle of tangerine juice, 3 rankpoints, delay: 5h
 queststatus(160) = 14, item(769, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a bottle of tangerine juice. You advance in Archmage Elvaine Morgan's favour."), deleteItem(769, 1), item(784, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Fresh herbs always smell so nice. I will take it away quickly so no disaster will happen. Here, you really earned that."
@@ -339,10 +338,10 @@ queststatus(160) = 14, item(769, all) < 1, town = Runewick, "Auftrag", "Aufgabe"
 
 -- 15: Quest 15 taken, get a bottle of wine , reward: 1 Silver , 3 rankpoints
 -- Quest 15: Gather a bottle of wine (2500)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 15, "Our elevated Archmage expects a visitor. For his supply we still need a bottle of Runewicker wine. Please get me one quickly."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 15, "Unser erhabener Erzmagier erwartet Besuch. Für die Verköstigung brauchen wir noch eine Flasche runewicker Wein. Bring mir doch schnell eine."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 15, "Our elevated Archmage expects a visitor. For his supply we still need a bottle of Runewicker wine. Please get me one quickly."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 15, "Unser erhabener Erzmagier erwartet Besuch. Für die Verköstigung brauchen wir noch eine Flasche runewicker Wein. Bring mir doch schnell eine."
+queststatus(160) = 0, english, chance(9.09), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 15, "Our elevated Archmage expects a visitor. For his supply we still need a bottle of Runewicker wine. Please get me one quickly."
+queststatus(160) = 0, german, chance(9.09), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 15, "Unser erhabener Erzmagier erwartet Besuch. Für die Verköstigung brauchen wir noch eine Flasche runewicker Wein. Bring mir doch schnell eine."
+queststatus(160) = 0, chance(9.09), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 15, "Our elevated Archmage expects a visitor. For his supply we still need a bottle of Runewicker wine. Please get me one quickly."
+queststatus(160) = 0, chance(9.09), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 15, "Unser erhabener Erzmagier erwartet Besuch. Für die Verköstigung brauchen wir noch eine Flasche runewicker Wein. Bring mir doch schnell eine."
 
 -- Quest 15 solved, reward: 1 Silver , 3 rankpoints, delay: 5h
 queststatus(160) = 15, item(2500, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a silver coin. You advance in Archmage Elvaine Morgan's favour."), money + 100, deleteItem(2500, 1), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Thank you for this bottle. Our guest will know how good our wine is. For you, i have this silver coin as payment."
@@ -356,10 +355,10 @@ queststatus(160) = 15, item(2500, all) < 5, town = Runewick, "Auftrag", "Aufgabe
 
 -- 16: Quest 16 taken, get 5 tobacco , reward: parchment , 3 rankpoints
 -- Quest 16: Gather 5 tobacco (772)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 16, "A catastrophe. The Archmage's tobacco has got wet. He needs five leaves of tobacco. Immediately!"
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 16, "Eine Katastrophe. Das Pfeifenkraut unseres erhabenen Erzmagiers ist feucht geworden. Er benötigt 5 Blätter Tabak. Sofort!"
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 16, "A catastrophe. The Archmage's tobacco has got wet. He needs five leaves of tobacco. Immediately!"
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 16, "Eine Katastrophe. Das Pfeifenkraut unseres erhabenen Erzmagiers ist feucht geworden. Er benötigt 5 Blätter Tabak. Sofort!"
+queststatus(160) = 0, english, chance(10.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 16, "A catastrophe. The Archmage's tobacco has got wet. He needs five leaves of tobacco. Immediately!"
+queststatus(160) = 0, german, chance(10.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 16, "Eine Katastrophe. Das Pfeifenkraut unseres erhabenen Erzmagiers ist feucht geworden. Er benötigt 5 Blätter Tabak. Sofort!"
+queststatus(160) = 0, chance(10.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 16, "A catastrophe. The Archmage's tobacco has got wet. He needs five leaves of tobacco. Immediately!"
+queststatus(160) = 0, chance(10.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 16, "Eine Katastrophe. Das Pfeifenkraut unseres erhabenen Erzmagiers ist feucht geworden. Er benötigt 5 Blätter Tabak. Sofort!"
 
 -- Quest 16 solved, reward: parchment, 3 rankpoints, delay: 5h
 queststatus(160) = 16, item(772, all) > 4, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a parchment. You advance in Archmage Elvaine Morgan's favour."), deleteItem(772, 5), item(2745, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "That really took a while. I will still tell him who got the leaves. If it does not taste well... take this parchment, you can write your last will on this."
@@ -373,10 +372,10 @@ queststatus(160) = 16, item(772, all) < 5, town = Runewick, "Auftrag", "Aufgabe"
 
 -- 17: Quest 17 taken, get a bottle of virgins weed tea , reward: 1 Silver , 3 rankpoints
 -- Quest 17: Gather a bottle of virgings weed tea (787)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 17, "One of the best remedies for a cold is virgins weed tea. Get me a bottle."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 17, "Eines der besten Mittel gegen eine Erkältung ist Jungfernkrauttee. Bringe mir bitte eine Flasche."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 17, "One of the best remedies for a cold is virgins weed tea. Get me a bottle."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 17, "Eines der besten Mittel gegen eine Erkältung ist Jungfernkrauttee. Bringe mir bitte eine Flasche."
+queststatus(160) = 0, english, chance(11.11), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 17, "One of the best remedies for a cold is virgins weed tea. Get me a bottle."
+queststatus(160) = 0, german, chance(11.11), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 17, "Eines der besten Mittel gegen eine Erkältung ist Jungfernkrauttee. Bringe mir bitte eine Flasche."
+queststatus(160) = 0, chance(11.11), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 17, "One of the best remedies for a cold is virgins weed tea. Get me a bottle."
+queststatus(160) = 0, chance(11.11), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 17, "Eines der besten Mittel gegen eine Erkältung ist Jungfernkrauttee. Bringe mir bitte eine Flasche."
 
 -- Quest 17 solved, reward: 1 Silver , 3 rankpoints, delay: 5h
 queststatus(160) = 17, item(787, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a silver coin. You advance in Archmage Elvaine Morgan's favour."), money + 100, deleteItem(787, 1), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "There, he will be happy and recover quickly. All the coughing is starting to drive me insane. Thank you."
@@ -390,10 +389,10 @@ queststatus(160) = 17, item(787, all) < 1, town = Runewick, "Auftrag", "Aufgabe"
 
 -- 18: Quest 18 taken, get a diamond powder , reward: red dagger , 3 rankpoints
 -- Quest 18: Gather a diamond powder (452)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 18, "Our studious Archmage needs a bag of diamond dust for a ritual. Bring me one as fast as possible."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 18, "Unser gelehrsamer Erzmagier braucht für ein Ritual einen Bäutel Diamantstaub. Bring es mir so schnell wie möglich."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 18, "Our studious Archmage needs a bag of diamond dust for a ritual. Bring me one as fast as possible."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 18, "Unser gelehrsamer Erzmagier braucht für ein Ritual einen Bäutel Diamantstaub. Bring es mir so schnell wie möglich."
+queststatus(160) = 0, english, chance(12.5), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 18, "Our studious Archmage needs a bag of diamond dust for a ritual. Bring me one as fast as possible."
+queststatus(160) = 0, german, chance(12.5), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 18, "Unser gelehrsamer Erzmagier braucht für ein Ritual einen Bäutel Diamantstaub. Bring es mir so schnell wie möglich."
+queststatus(160) = 0, chance(12.5), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 18, "Our studious Archmage needs a bag of diamond dust for a ritual. Bring me one as fast as possible."
+queststatus(160) = 0, chance(12.5), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 18, "Unser gelehrsamer Erzmagier braucht für ein Ritual einen Bäutel Diamantstaub. Bring es mir so schnell wie möglich."
 
 -- Quest 18 solved, reward: red dagger, 3 rankpoints, delay: 5h
 queststatus(160) = 18, item(452, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a red dagger. You advance in Archmage Elvaine Morgan's favour."), deleteItem(452, 1), item(2740, 1, 799), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Sparkly dust, I will rely on you. If the ritual fails our Archmage knows whom to blame. Here, take my old dagger in return."
@@ -407,10 +406,10 @@ queststatus(160) = 18, item(452, all) < 1, town = Runewick, "Auftrag", "Aufgabe"
 
 -- 19: Quest 19 taken, get 5 trouts, reward: 50 copper , 3 rankpoints
 -- Quest 19: Gather 5 trouts (73)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 19, "Five trout are needed. Do not ask me why, please just get them for me."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 19, "Es werden fünf Forellen benötigt. Frag mich nicht warum, bring sie mir bitte einfach."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 19, "Five trout are needed. Do not ask me why, please just get them for me."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 19, "Es werden fünf Forellen benötigt. Frag mich nicht warum, bring sie mir bitte einfach."
+queststatus(160) = 0, english, chance(14.29), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 19, "Five trout are needed. Do not ask me why, please just get them for me."
+queststatus(160) = 0, german, chance(14.29), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 19, "Es werden fünf Forellen benötigt. Frag mich nicht warum, bring sie mir bitte einfach."
+queststatus(160) = 0, chance(14.29), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 19, "Five trout are needed. Do not ask me why, please just get them for me."
+queststatus(160) = 0, chance(14.29), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 19, "Es werden fünf Forellen benötigt. Frag mich nicht warum, bring sie mir bitte einfach."
 
 -- Quest 19 solved, reward: 50 copper , 3 rankpoints, delay: 5h
 queststatus(160) = 19, item(73, all) > 4, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded fifty copper coins. You advance in Archmage Elvaine Morgan's favour."), money + 50, deleteItem(73, 5), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "I hope it is not just a silly novice prank. I thank you and here are a few coins for your efforts."
@@ -424,10 +423,10 @@ queststatus(160) = 19, item(73, all) < 5, town = Runewick, "Auftrag", "Aufgabe",
 
 -- 20: Quest 20 taken, get 20 cherries, reward: wicker basket , 3 rankpoints
 -- Quest 20: Gather 20 cherries (302)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 20, "I've got another task for you. Bring me twenty cherries, preferrably the sweet dark red Runewicker cherries."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 20, "Ich habe wieder eine Aufgabe für euch. Bringt mir 20 Kirschen, am besten die süßen, dunkelroten, runewicker Kirschen."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 20, "I've got another task for you. Bring me twenty cherries, preferrably the sweet dark red Runewicker cherries."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 20, "Ich habe wieder eine Aufgabe für euch. Bringt mir 20 Kirschen, am besten die süßen, dunkelroten, runewicker Kirschen."
+queststatus(160) = 0, english, chance(16.67), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 20, "I've got another task for you. Bring me twenty cherries, preferrably the sweet dark red Runewicker cherries."
+queststatus(160) = 0, german, chance(16.67), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 20, "Ich habe wieder eine Aufgabe für euch. Bringt mir 20 Kirschen, am besten die süßen, dunkelroten, runewicker Kirschen."
+queststatus(160) = 0, chance(16.67), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 20, "I've got another task for you. Bring me twenty cherries, preferrably the sweet dark red Runewicker cherries."
+queststatus(160) = 0, chance(16.67), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 20, "Ich habe wieder eine Aufgabe für euch. Bringt mir 20 Kirschen, am besten die süßen, dunkelroten, runewicker Kirschen."
 
 -- Quest 20 solved, reward: wicker basket, 3 rankpoints, delay: 5h
 queststatus(160) = 20, item(302, all) > 19, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a wicker basket. You advance in Archmage Elvaine Morgan's favour."), deleteItem(302, 20), item(799, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Thanks for the cherries. Take this wicker basket. It will help you when you gather something again."
@@ -441,10 +440,10 @@ queststatus(160) = 20, item(302, all) < 20, town = Runewick, "Auftrag", "Aufgabe
 
 -- 21: Quest 21 taken, get 10 bricks, reward: a shovel , 3 rankpoints
 -- Quest 21: Gather 10 bricks (2588)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 21, "Runewick needs to be kept in shape. Bring me ten bricks so I can mend a few damaged parts."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 21, "Runewick muss in Stand gehalten werden. Bringt mir zehn Ziegelsteine, damit ich einige beschädigte Teile ausbessern kann."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 21, "Runewick needs to be kept in shape. Bring me ten bricks so I can mend a few damaged parts."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 21, "Runewick muss in Stand gehalten werden. Bringt mir zehn Ziegelsteine, damit ich einige beschädigte Teile ausbessern kann."
+queststatus(160) = 0, english, chance(20.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 21, "Runewick needs to be kept in shape. Bring me ten bricks so I can mend a few damaged parts."
+queststatus(160) = 0, german, chance(20.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 21, "Runewick muss in Stand gehalten werden. Bringt mir zehn Ziegelsteine, damit ich einige beschädigte Teile ausbessern kann."
+queststatus(160) = 0, chance(20.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 21, "Runewick needs to be kept in shape. Bring me ten bricks so I can mend a few damaged parts."
+queststatus(160) = 0, chance(20.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 21, "Runewick muss in Stand gehalten werden. Bringt mir zehn Ziegelsteine, damit ich einige beschädigte Teile ausbessern kann."
 
 -- Quest 21 solved, reward: a shovel , 3 rankpoints, delay: 5h
 queststatus(160) = 21, item(2588, all) > 9, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a shovel. You advance in Archmage Elvaine Morgan's favour."), deleteItem(2588, 10), item(24, 1, 699), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Thank you for the bricks. My back already gets sore from thinking about the work, but it's my duty and I shall not disappoint the Archmage."
@@ -458,10 +457,10 @@ queststatus(160) = 21, item(2588, all) < 10, town = Runewick, "Auftrag", "Aufgab
 
 -- 22: Quest 22 taken, get 10 naldor wood boards, reward: a rabbit dish , 3 rankpoints
 -- Quest 22: Gather 10 naldor wood boards (546)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 22, "Runewick needs to be kept in shape. Get me ten naldor wood boards, so the carpenters can build new shelves."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 22, "Runewick muss in Stand gehalten werden. Bringt mir zehn Naldorholzbretter, damit die Schreiner neue Regale bauen können."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 22, "Runewick needs to be kept in shape. Get me ten naldor wood boards, so the carpenters can build new shelves."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 22, "Runewick muss in Stand gehalten werden. Bringt mir zehn Naldorholzbretter, damit die Schreiner neue Regale bauen können."
+queststatus(160) = 0, english, chance(25.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 22, "Runewick needs to be kept in shape. Get me ten naldor wood boards, so the carpenters can build new shelves."
+queststatus(160) = 0, german, chance(25.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 22, "Runewick muss in Stand gehalten werden. Bringt mir zehn Naldorholzbretter, damit die Schreiner neue Regale bauen können."
+queststatus(160) = 0, chance(25.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 22, "Runewick needs to be kept in shape. Get me ten naldor wood boards, so the carpenters can build new shelves."
+queststatus(160) = 0, chance(25.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 22, "Runewick muss in Stand gehalten werden. Bringt mir zehn Naldorholzbretter, damit die Schreiner neue Regale bauen können."
 
 -- Quest 22 solved, reward: a rabbit dish , 3 rankpoints, delay: 5h
 queststatus(160) = 22, item(546, all) > 9, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a rabbit dish. You advance in Archmage Elvaine Morgan's favour."), deleteItem(546, 10), item(555, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "The wood looks good. Our Archmage will be happy to have a new place for storing his scrolls. You earned this food."
@@ -475,10 +474,10 @@ queststatus(160) = 22, item(546, all) < 10, town = Runewick, "Auftrag", "Aufgabe
 
 -- 23: Quest 23 taken, get 5 coal, reward: 50 copper , 3 rankpoints
 -- Quest 23: Gather 5 coal (21)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 23, "Our stock of coal for the ovens is running low. If we don't want to freeze I need five lumps of coal. As fast as possible."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 23, "Der Vorrat an Kohle für die Öfen geht zur Neige. Wenn wir nicht frieren wollen benötige ich fünf Kohleklumpen. Und zwar so schnell wie möglich."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 23, "Our stock of coal for the ovens is running low. If we don't want to freeze I need five lumps of coal. As fast as possible."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 23, "Der Vorrat an Kohle für die Öfen geht zur Neige. Wenn wir nicht frieren wollen benötige ich fünf Kohleklumpen. Und zwar so schnell wie möglich."
+queststatus(160) = 0, english, chance(33.33), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 23, "Our stock of coal for the ovens is running low. If we don't want to freeze I need five lumps of coal. As fast as possible."
+queststatus(160) = 0, german, chance(33.33), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 23, "Der Vorrat an Kohle für die Öfen geht zur Neige. Wenn wir nicht frieren wollen benötige ich fünf Kohleklumpen. Und zwar so schnell wie möglich."
+queststatus(160) = 0, chance(33.33), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 23, "Our stock of coal for the ovens is running low. If we don't want to freeze I need five lumps of coal. As fast as possible."
+queststatus(160) = 0, chance(33.33), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 23, "Der Vorrat an Kohle für die Öfen geht zur Neige. Wenn wir nicht frieren wollen benötige ich fünf Kohleklumpen. Und zwar so schnell wie möglich."
 
 -- Quest 23 solved, reward: 50 copper , 3 rankpoints, delay: 5h
 queststatus(160) = 23, item(21, all) > 4, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded fifty copper coins. You advance in Archmage Elvaine Morgan's favour."), money + 50, deleteItem(21, 5), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Good coal. Parchment does not like coal and me neither."
@@ -492,10 +491,10 @@ queststatus(160) = 23, item(21, all) < 5, town = Runewick, "Auftrag", "Aufgabe",
 
 -- 24: Quest 24 taken, get a pipe, reward: 1 silver , 3 rankpoints
 -- Quest 24: Gather a pipe (2744)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 24, "Our Archmage is usually busy teaching and studying, but sometimes even he needs a break. Now his beloved pipe has broken, bring me a replacement. Do it as fast as possible."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 24, "Unser Erzmagier ist zwar meist fleißig am lehren und studieren, aber manchmal braucht auch er eine Pause. Nun ist allerdings seine Lieblingspfeife zu Bruch gegangen, bringt mir dafür Ersatz. Und zwar so schnell wie möglich."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 24, "Our Archmage is usually busy teaching and studying, but sometimes even he needs a break. Now his beloved pipe has broken, bring me a replacement. Do it as fast as possible."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 24, "Unser Erzmagier ist zwar meist fleißig am lehren und studieren, aber manchmal braucht auch er eine Pause. Nun ist allerdings seine Lieblingspfeife zu Bruch gegangen, bringt mir dafür Ersatz. Und zwar so schnell wie möglich.."
+queststatus(160) = 0, english, chance(50.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 24, "Our Archmage is usually busy teaching and studying, but sometimes even he needs a break. Now his beloved pipe has broken, bring me a replacement. Do it as fast as possible."
+queststatus(160) = 0, german, chance(50.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 24, "Unser Erzmagier ist zwar meist fleißig am lehren und studieren, aber manchmal braucht auch er eine Pause. Nun ist allerdings seine Lieblingspfeife zu Bruch gegangen, bringt mir dafür Ersatz. Und zwar so schnell wie möglich."
+queststatus(160) = 0, chance(50.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 24, "Our Archmage is usually busy teaching and studying, but sometimes even he needs a break. Now his beloved pipe has broken, bring me a replacement. Do it as fast as possible."
+queststatus(160) = 0, chance(50.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 24, "Unser Erzmagier ist zwar meist fleißig am lehren und studieren, aber manchmal braucht auch er eine Pause. Nun ist allerdings seine Lieblingspfeife zu Bruch gegangen, bringt mir dafür Ersatz. Und zwar so schnell wie möglich.."
 
 -- Quest 24 solved, reward: 1 silver , 3 rankpoints, delay: 5h
 queststatus(160) = 24, item(2744, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a silver coin. You advance in Archmage Elvaine Morgan's favour."), money + 100, deleteItem(2744, 1), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "A good pipe, our Archmage will be very pleased."
@@ -509,10 +508,10 @@ queststatus(160) = 24, item(2744, all) < 1, town = Runewick, "Auftrag", "Aufgabe
 
 -- 25: Quest 25 taken, get a hammer, reward: a saw , 3 rankpoints
 -- Quest 25: Gather a hammer (23)
-queststatus(160) = 0, english, chance(4.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 25, "For the reconstructions and renovations I still need a hammer. Of course our Archmage will hear about your help."
-queststatus(160) = 0, german, chance(4.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 25, "Für Umbau- und Renovierungsarbeiten benötige ich noch einen Hammer. Natürlich wird unser Erzmagier davon erfahren, wenn ihr mir helft."
-queststatus(160) = 0, chance(4.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 25, "For the reconstructions and renovations I still need a hammer. Of course our Archmage will hear about your help."
-queststatus(160) = 0, chance(4.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 25, "Für Umbau- und Renovierungsarbeiten benötige ich noch einen Hammer. Natürlich wird unser Erzmagier davon erfahren, wenn ihr mir helft."
+queststatus(160) = 0, english, chance(100.0), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 25, "For the reconstructions and renovations I still need a hammer. Of course our Archmage will hear about your help."
+queststatus(160) = 0, german, chance(100.0), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 25, "Für Umbau- und Renovierungsarbeiten benötige ich noch einen Hammer. Natürlich wird unser Erzmagier davon erfahren, wenn ihr mir helft."
+queststatus(160) = 0, chance(100.0), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 25, "For the reconstructions and renovations I still need a hammer. Of course our Archmage will hear about your help."
+queststatus(160) = 0, chance(100.0), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 25, "Für Umbau- und Renovierungsarbeiten benötige ich noch einen Hammer. Natürlich wird unser Erzmagier davon erfahren, wenn ihr mir helft."
 
 -- Quest 25 solved, reward: a saw , 3 rankpoints, delay: 5h
 queststatus(160) = 25, item(23, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a saw. You advance in Archmage Elvaine Morgan's favour."), deleteItem(23, 1), item(9, 1, 699), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "This hammer will help to keep Runewick one of the most beautiful towns. Take this saw in return, it is left over."
