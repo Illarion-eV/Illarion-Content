@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -786,7 +786,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dewy Swamps IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 7));
-talkEntry:addResponse("Of course I have another task for you. For a barbecue, I need ten lumps of coal. Head to the Malachite mine, my buddy Bruno will help you, and believe it or not your reward will be 20 silver coins!");
+talkEntry:addResponse("Of course I have another task for you. For a barbecue, I need ten lumps of coal. Head to the Dark Hole Mine, my buddy Daerbur will help you, and believe it or not your reward will be 20 silver coins!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -796,7 +796,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Morgentausumpf IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 7));
-talkEntry:addResponse("Natürlich habe ich noch was für dich zutun. Für ein richtiges Grillfest brauche ich zehn Klumpen Kohle. Lauf mal zur Malachitmine, mein Kumpel Bruno wird dir helfen. Und glaub es oder nicht, dein Lohn werden 20 Silberstücke sein.");
+talkEntry:addResponse("Natürlich habe ich noch was für dich zutun. Für ein richtiges Grillfest brauche ich zehn Klumpen Kohle. Lauf mal zur Dunkellochmine, mein Kumpel Daerbur wird dir helfen. Und glaub es oder nicht, dein Lohn werden 20 Silberstücke sein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -807,7 +807,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dewy Swamps IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 7));
-talkEntry:addResponse("Of course I have another task for you. For a barbecue, I need ten lumps of coal. Head to the Malachite mine, my buddy Bruno will help you, and believe it or not your reward will be 20 silver coins!");
+talkEntry:addResponse("Of course I have another task for you. For a barbecue, I need ten lumps of coal. Head to the Dark hole Mine, my buddy Daerbur will help you, and believe it or not your reward will be 20 silver coins!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -819,7 +819,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Morgentausumpf IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 7));
-talkEntry:addResponse(" Natürlich habe ich noch was für dich zutun. Für ein richtiges Grillfest brauche ich zehn Klumpen Kohle. Lauf mal zur Malachitmine, mein Kumpel Bruno wird dir helfen. Und glaub es oder nicht, dein Lohn werden 20 Silberstücke sein.");
+talkEntry:addResponse(" Natürlich habe ich noch was für dich zutun. Für ein richtiges Grillfest brauche ich zehn Klumpen Kohle. Lauf mal zur Dunkellochmine, mein Kumpel Daerbur wird dir helfen. Und glaub es oder nicht, dein Lohn werden 20 Silberstücke sein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
