@@ -759,12 +759,6 @@ product:addIngredient(2584); -- Sword Handle
 
 product:addIngredient(2535,2); -- Iron Ingot
 
--- executioner's axe
-product = smithing:addProduct(catId, 2723, 4, 24, 36, 72, 1);
-product:addIngredient(2525); -- Axe Handle
-
-product:addIngredient(2535,2); -- Iron Ingot
-
 -- battle axe
 product = smithing:addProduct(catId, 2946, 0, 20, 30, 60, 1);
 product:addIngredient(2525); -- Axe Handle
@@ -1058,6 +1052,12 @@ product = smithing:addProduct(catId, 1038, 12, 32, 48, 96, 1);
 product:addIngredient(2572); -- Staff Handle
 
 product:addIngredient(2535, 3); -- Iron Ingot
+
+-- executioner's axe
+product = smithing:addProduct(catId, 2723, 4, 24, 36, 72, 1);
+product:addIngredient(2525); -- Axe Handle
+
+product:addIngredient(2535,2); -- Iron Ingot
 
 --Simple Spear
 product = smithing:addProduct(catId, 1046, 0, 20, 30, 60, 1);
