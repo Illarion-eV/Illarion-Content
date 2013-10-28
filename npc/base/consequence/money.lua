@@ -19,7 +19,9 @@ end);
 
 function _money_helper_add(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    base.money.GiveMoneyToChar(player, value);
+    if (base.money.GiveMoneyToChar(player, value) == false) then
+		base.money.GiveMoneyToPosition(player.pos, value);
+	end
 end;
 
 function _money_helper_sub(self, npcChar, player)
