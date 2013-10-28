@@ -131,7 +131,7 @@ function GiveCoinsToChar(char, gCoins, sCoins, cCoins)
 	        return false;
 	    end;
 	end;
-    
+
     if (sCoins > 0) then
         local notCreated = char:createItem(SilverCoinsID, sCoins, 333, nil);
         if (notCreated > 0) then
@@ -142,7 +142,7 @@ function GiveCoinsToChar(char, gCoins, sCoins, cCoins)
             return false;
         end;
     end;
-    
+
     if (cCoins > 0) then
         notCreated = char:createItem(CopperCoinsID, cCoins, 333, nil);
         if (notCreated > 0) then
@@ -150,14 +150,14 @@ function GiveCoinsToChar(char, gCoins, sCoins, cCoins)
             if (sCoins > 0) then
                 char:eraseItem(SilverCoinsID, sCoins);
             end;
-            
+
             if (gCoins > 0) then
                 char:eraseItem(GoldCoinsID, gCoins);
             end;
             return false;
         end;
     end;
-    
+
     return true;
 end;
 
@@ -186,23 +186,31 @@ end;
 --  @param sCoins - number - the amount of silver coins to be created at pos
 --  @param cCoins - number - the amount of copper coins to be created at pos
 function GiveCoinsToPosition(pos, gCoins, sCoins, cCoins)
-    while (cCoins > 255) do
-        world:createItemFromId(CopperCoinsID, 255, pos, true, 333, nil);
-        cCoins = cCoins - 255;
-    end;
-    world:createItemFromId(CopperCoinsID, cCoins, pos, true, 333, nil);
-    
-    while (sCoins > 255) do
-        world:createItemFromId(SilverCoinsID, 255, pos, true, 333, nil);
-        sCoins = sCoins - 255;
-    end;
-    world:createItemFromId(SilverCoinsID, sCoins, pos, true, 333, nil);
-    
-    while (gCoins > 255) do
-        world:createItemFromId(GoldCoinsID, 255, pos, true, 333, nil);
-        gCoins = gCoins - 255;
-    end;
-    world:createItemFromId(GoldCoinsID, gCoins, pos, true, 333, nil);
+	local maxStack = 1000;
+
+    while (cCoins > maxStack) do
+        world:createItemFromId(CopperCoinsID, maxStack, pos, true, 333, nil);
+        cCoins = cCoins - maxStack;
+    end
+	if (cCoins > 0) then
+		world:createItemFromId(CopperCoinsID, cCoins, pos, true, 333, nil);
+    end
+
+    while (sCoins > maxStack) do
+        world:createItemFromId(SilverCoinsID, maxStack, pos, true, 333, nil);
+        sCoins = sCoins - maxStack;
+    end
+	if (sCoins > 0) then
+		world:createItemFromId(SilverCoinsID, sCoins, pos, true, 333, nil);
+    end
+
+    while (gCoins > maxStack) do
+        world:createItemFromId(GoldCoinsID, maxStack, pos, true, 333, nil);
+        gCoins = gCoins - maxStack;
+    end
+	if (gCoins > 0) then
+		world:createItemFromId(GoldCoinsID, gCoins, pos, true, 333, nil);
+	end
 end;
 
 --- Give a amount of money to a specified position. This will create the money
@@ -233,30 +241,30 @@ function TakeCoinsFromChar(char, gCoins, sCoins, cCoins)
     local charSilver = 0;
     local charCopper = 0;
     charGold, charSilver, charCopper = CharCoins(char);
-    
+
     if (gCoins > charGold or sCoins > charSilver or cCoins > charCopper) then
         return;
     end;
-    
+
     if (gCoins > 0) then
         char:eraseItem(GoldCoinsID, gCoins);
     end;
-    
+
     if (sCoins > 0) then
         char:eraseItem(SilverCoinsID, sCoins);
     end;
-    
+
     if (cCoins > 0) then
         char:eraseItem(CopperCoinsID, cCoins);
     end;
-    
+
     if (gCoins < 0 or sCoins < 0 or cCoins < 0) then
         GiveCoinsToChar(char, math.min(0, gCoins) * (-1),
             math.min(0, sCoins) * (-1), math.min(0, cCoins) * (-1));
     end;
 end;
 
---- Take some coins from a character's depot. This function only does 
+--- Take some coins from a character's depot. This function only does
 --  something in case the depot has the required amount of coins.
 --
 --  @param char - CharStruct - the char the coins are taken from
@@ -269,28 +277,28 @@ function TakeCoinsFromDepot(char, gCoins, sCoins, cCoins, depotId)
     local charSilver = 0;
     local charCopper = 0;
     charGold, charSilver, charCopper = DepotCoins(char,depotId);
-    
+
     depot=char:getDepot(depotId);
     if not depot then
         return;
     end
-    
+
     if (gCoins > charGold or sCoins > charSilver or cCoins > charCopper) then
         return;
     end;
-    
+
     if (gCoins > 0) then
         depot:eraseItem(GoldCoinsID, gCoins);
     end;
-    
+
     if (sCoins > 0) then
         depot:eraseItem(SilverCoinsID, sCoins);
     end;
-    
+
     if (cCoins > 0) then
         depot:eraseItem(CopperCoinsID, cCoins);
     end;
-	
+
 	if (gCoins < 0 or sCoins < 0 or cCoins < 0) then
         GiveCoinsToChar(char, math.min(0, gCoins) * (-1),
             math.min(0, sCoins) * (-1), math.min(0, cCoins) * (-1));
@@ -315,24 +323,24 @@ function TakeMoneyFromChar(char, money)
     local MissSilver = 0;
     local MissCopper = 0;
     MissGold, MissSilver, MissCopper = MoneyToCoins(money);
-    
+
     local charGold = 0;
     local charSilver = 0;
     local charCopper = 0;
     charGold, charSilver, charCopper = CharCoins(char);
-    
+
     local Amount = money;
-    
+
     local GoldInCopper = 0;
     local SilverInCopper = 0;
     local GoldInSilver = 0;
-    
+
     GoldInCopper = math.floor(charCopper / 10000);
     GoldInCopper = math.min(MissGold, GoldInCopper);
     PayCopper = GoldInCopper * 10000;
     MissGold = MissGold - GoldInCopper;
     charCopper = charCopper - PayCopper;
-    
+
     GoldInCopper = math.floor(charCopper / 100);
     GoldInSilver = 100 - GoldInCopper;
     if ((MissGold > 0) and (GoldInCopper > 0) and
@@ -343,26 +351,26 @@ function TakeMoneyFromChar(char, money)
         charCopper = charCopper - 100 * GoldInCopper;
         charSilver = charSilver - GoldInSilver;
     end;
-    
+
     SilverInCopper = math.floor(charCopper / 100);
     SilverInCopper = math.min(MissSilver, SilverInCopper);
     PayCopper = PayCopper + SilverInCopper * 100;
     MissSilver = MissSilver - SilverInCopper;
     charCopper = charCopper - SilverInCopper * 100;
-    
+
     if (charCopper >= MissCopper) then
         PayCopper = PayCopper + MissCopper;
     else
         MissSilver = MissSilver + 1;
         PayCopper = PayCopper + MissCopper - 100;
     end;
-    
+
     GoldInSilver = math.floor(charSilver / 100);
     GoldInSilver = math.min(MissGold, GoldInSilver);
     PaySilver = PaySilver + GoldInSilver * 100;
     MissGold = MissGold - GoldInSilver;
     charSilver = charSilver - GoldInSilver * 100;
-    
+
     if (charSilver >= MissSilver) then
         PayGold = MissGold;
         PaySilver = PaySilver + MissSilver;
@@ -370,13 +378,13 @@ function TakeMoneyFromChar(char, money)
         PayGold = MissGold + 1;
         PaySilver = PaySilver + MissSilver - 100;
     end;
-    
+
     TakeCoinsFromChar(char, PayGold, PaySilver, PayCopper);
 end;
 
---- This method takes a certain amount of money from the depot of a player. 
---  It tries to take the least amount of coins possible. The method takes 
---  nothing in case the depot does not have enougth money. Check this 
+--- This method takes a certain amount of money from the depot of a player.
+--  It tries to take the least amount of coins possible. The method takes
+--  nothing in case the depot does not have enougth money. Check this
 --  before calling this method.
 --
 --  @param char - CharStruct - the char the money is taken from
@@ -395,24 +403,24 @@ function TakeMoneyFromDepot(char, money, depotId)
     local MissSilver = 0;
     local MissCopper = 0;
     MissGold, MissSilver, MissCopper = MoneyToCoins(money);
-    
+
     local charGold = 0;
     local charSilver = 0;
     local charCopper = 0;
     charGold, charSilver, charCopper = DepotCoins(char,depotId);
-    
+
     local Amount = money;
-    
+
     local GoldInCopper = 0;
     local SilverInCopper = 0;
     local GoldInSilver = 0;
-    
+
     GoldInCopper = math.floor(charCopper / 10000);
     GoldInCopper = math.min(MissGold, GoldInCopper);
     PayCopper = GoldInCopper * 10000;
     MissGold = MissGold - GoldInCopper;
     charCopper = charCopper - PayCopper;
-    
+
     GoldInCopper = math.floor(charCopper / 100);
     GoldInSilver = 100 - GoldInCopper;
     if ((MissGold > 0) and (GoldInCopper > 0) and
@@ -423,26 +431,26 @@ function TakeMoneyFromDepot(char, money, depotId)
         charCopper = charCopper - 100 * GoldInCopper;
         charSilver = charSilver - GoldInSilver;
     end;
-    
+
     SilverInCopper = math.floor(charCopper / 100);
     SilverInCopper = math.min(MissSilver, SilverInCopper);
     PayCopper = PayCopper + SilverInCopper * 100;
     MissSilver = MissSilver - SilverInCopper;
     charCopper = charCopper - SilverInCopper * 100;
-    
+
     if (charCopper >= MissCopper) then
         PayCopper = PayCopper + MissCopper;
     else
         MissSilver = MissSilver + 1;
         PayCopper = PayCopper + MissCopper - 100;
     end;
-    
+
     GoldInSilver = math.floor(charSilver / 100);
     GoldInSilver = math.min(MissGold, GoldInSilver);
     PaySilver = PaySilver + GoldInSilver * 100;
     MissGold = MissGold - GoldInSilver;
     charSilver = charSilver - GoldInSilver * 100;
-    
+
     if (charSilver >= MissSilver) then
         PayGold = MissGold;
         PaySilver = PaySilver + MissSilver;
@@ -450,7 +458,7 @@ function TakeMoneyFromDepot(char, money, depotId)
         PayGold = MissGold + 1;
         PaySilver = PaySilver + MissSilver - 100;
     end;
-    
+
     TakeCoinsFromDepot(char, PayGold, PaySilver, PayCopper,depotId);
 end;
 
@@ -458,7 +466,7 @@ function IsCurrency(itemId)
     return itemId == CopperCoinsID or itemId == SilverCoinsID or itemId == GoldCoinsID
 end
 
---- This method returns a german and an english string, based on the money amount. 
+--- This method returns a german and an english string, based on the money amount.
 --  @param money - number - the amount of money to be converted
 
 function MoneyToString(money)
@@ -467,7 +475,7 @@ function MoneyToString(money)
 
 	local estring = " ";
 	local gstring = " ";
-	
+
 	if gp ~= 0 then -- at least one gold coin
 		estring = estring..gp.." gold coin";
 		gstring = gstring..gp.." Goldstück";
@@ -481,29 +489,29 @@ function MoneyToString(money)
 		elseif sp ~= 0 or cp ~= 0 then
 			estring = estring.." and ";
 			gstring = gstring.." und ";
-		end		
+		end
 	end
-	
+
 	if sp ~= 0 then -- at least one silver coin
 		estring = estring..sp.." silver coin";
 		gstring = gstring..sp.." Silberstück";
 		if sp > 1 then
 			estring = estring.."s";
 			gstring = gstring.."e";
-		end		
+		end
 		if cp ~= 0 then
 			estring = estring.." and ";
 			gstring = gstring.." und ";
 		end
 	end
-	
+
 	if cp ~= 0 then -- at least one copper coin
 		estring = estring..cp.." copper coin";
 		gstring = gstring..cp.." Kupferstück";
 		if cp > 1 then
 			estring = estring.."s";
 			gstring = gstring.."e";
-		end	
+		end
 	end
 
     return gstring, estring;
