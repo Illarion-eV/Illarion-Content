@@ -78,14 +78,14 @@ function onAttack(Attacker, Defender)
 	GetAttackType(Attacker);
 
     if not CheckRange(Attacker, Defender.Char) then return false; end;
-    
+
     -- Check if the attack is good to go (possible weapon configuration)
-    if not CheckAttackOK(Attacker) then 
-        return false; 
+    if not CheckAttackOK(Attacker) then
+        return false;
     end;
     -- Check if ammunition is needed and use it
     if not HandleAmmunition(Attacker) then return false; end;
-    
+
     -- Load Skills and Attributes of the attacking character
     LoadAttribsSkills(Attacker, true);
     -- Load weapon data, skills and attributes of the attacked character
@@ -107,14 +107,14 @@ function onAttack(Attacker, Defender)
     ShowAttackGFX(Attacker);
     -- Check if a coup de gráce is performed
     if CoupDeGrace(Attacker, Defender) then return true; end;
-    
+
     -- Calculate the chance to hit
     if not HitChanceFlux(Attacker, Defender, Globals) then
         -- Place some ammo on the ground in case ammo was used
         DropAmmo(Attacker, Defender.Char, true);
         return;
     end;
-    
+
     -- Calculate the damage caused by the attack
     CalculateDamage(Attacker, Globals);
 
@@ -126,13 +126,13 @@ function onAttack(Attacker, Defender)
 
     -- Cause the finally calculated damage to the player
     CauseDamage(Attacker, Defender, Globals);
-    
+
 	--Cause degradation
 	ArmourDegrade(Defender,Globals);
 
     -- Show the final effects of the attack.
     ShowEffects(Attacker, Defender, Globals);
-    
+
     -- Teach the attacker the skill he earned for his success
     LearnSuccess(Attacker, Defender, APreduction, Globals)
 end;
@@ -175,10 +175,10 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     end;]]
 
 	--Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
-	
+
 	local ArmourDefenseScalingFactor = 2;
 	local GeneralScalingFactor = 2.8;
-	
+
 	if not (Defender.Char:getType() == 1) then --if not monster
 
 		if armourfound then
@@ -287,14 +287,14 @@ end;
 
 
 function ArmourDegrade(Defender, Globals)
-	
+
 	local Rarity = NotNil(tonumber(Globals.HittedItem:getData("RareArmour")));
 
 	if(Rarity<0) then
-		
+
 		local durability = math.mod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
-		
+
 		durability = durability - 20;
 
 		if (durability <= 0) then
@@ -305,12 +305,12 @@ function ArmourDegrade(Defender, Globals)
 		  return true;
 		end;
 
-		
+
 		Globals.HittedItem.quality = quality * 100 + durability;
 		--world:changeItem(Globals.HittedItem.WeaponItem);
 		world:changeItem(Globals.HittedItem);
 
-    
+
 		base.common.InformNLS(Defender.Char,
 		"Du solltest dein kaputtes Artefakt ablegen bevor es zerbricht!",
 		"You should take off your broken artifact before it shatters!");
@@ -319,7 +319,7 @@ function ArmourDegrade(Defender, Globals)
 
 		local durability = math.mod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
-    
+
 		if (durability == 0) then
 			base.common.InformNLS(Defender.Char,
 		  "Dein Rüstteil zerbricht. Glücklicherweise tritt kein Splitter in deinen Körper ein.",
@@ -327,14 +327,14 @@ function ArmourDegrade(Defender, Globals)
 		  world:erase(Globals.HittedItem, 1);
 		  return true;
 		end;
-    
+
 		durability = durability - 1;
 		Globals.HittedItem.quality = quality * 100 + durability;
 		--world:changeItem(Globals.HittedItem.WeaponItem);
 		world:changeItem(Globals.HittedItem);
 
-    
-		if (durability == 10) then 
+
+		if (durability == 10) then
 		  base.common.InformNLS(Defender.Char,
 		  "Dein Rüstteil hat schon bessere Zeiten gesehen. Vielleicht solltest du es reparieren.",
 		  "Your armour piece has seen better days. You may want to repair it.");
@@ -347,14 +347,14 @@ end;
 -- @param Defender The table that stores the data of the defender
 -- @param ParryWeapon The item which was used to parry
 function WeaponDegrade(Attacker, Defender, ParryWeapon)
-	
+
 	local Rarity = NotNil(tonumber(Attacker.WeaponItem:getData("RareWeapon")));
 
 	if(Rarity<0) then
-		
+
 		local durability = math.mod(Attacker.WeaponItem.quality, 100);
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
-		
+
 		durability = durability - 20;
 
 		if (durability <= 0) then
@@ -365,12 +365,12 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		  return true;
 		end;
 
-		
+
 		Attacker.WeaponItem.quality = quality * 100 + durability;
 		--world:changeItem(Globals.HittedItem.WeaponItem);
 		world:changeItem(Attacker.WeaponItem);
 
-    
+
 		base.common.InformNLS(Defender.Char,
 		"Du solltest aufhören dein kaputtes Artefakt zu verwenden bevor es zerbricht!",
 		"You should stop wielding your broken artifact before it shatters!");
@@ -378,7 +378,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 	elseif (base.common.Chance(1, 20)) then
 		local durability = math.mod(Attacker.WeaponItem.quality, 100);
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
-    
+
 		if (durability == 0) then
 			base.common.InformNLS(Attacker.Char,
 		  "Deine Waffe zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl als sie in das nächste Leben über geht.",
@@ -386,12 +386,12 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		  world:erase(Attacker.WeaponItem, 1);
 		  return true;
 		end
-    
+
 		durability = durability - 1;
 		Attacker.WeaponItem.quality = quality * 100 + durability;
 		world:changeItem(Attacker.WeaponItem);
-    
-		if (durability == 10) then 
+
+		if (durability == 10) then
 		  base.common.InformNLS(Attacker.Char,
 		  "Deine Waffe hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren.",
 		  "Your weapon has seen better days. You may want to repair it.");
@@ -401,10 +401,10 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 	Rarity = NotNil(tonumber(ParryWeapon:getData("RareWeapon")));
 
 	if(Rarity<0) then
-		
+
 		local durability = math.mod(ParryWeapon.quality, 100);
 		local quality = (ParryWeapon.quality - durability) / 100;
-		
+
 		durability = durability - 20;
 
 		if (durability <= 0) then
@@ -415,12 +415,12 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		  return true;
 		end;
 
-		
+
 		ParryWeapon.quality = quality * 100 + durability;
 		--world:changeItem(Globals.HittedItem.WeaponItem);
 		world:changeItem(ParryWeapon);
 
-    
+
 		base.common.InformNLS(Defender.Char,
 		"Du solltest aufhören dein kaputtes Artefakt zu verwenden bevor es zerbricht!",
 		"You should stop wielding your broken artifact before it shatters!");
@@ -428,7 +428,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 	elseif (base.common.Chance(1, 60)) then
 		local durability = math.mod(ParryWeapon.quality, 100);
 		local quality = (ParryWeapon.quality - durability) / 100;
-    
+
 		if (durability == 0) then
 			base.common.InformNLS(Defender.Char,
 		  "Dein Gegenstand zerbricht, dies erschwert es dir dich zu verteidigen.",
@@ -436,12 +436,12 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		  world:erase(ParryWeapon, 1);
 		  return true;
 		end
-    
+
 		durability = durability - 1;
 		ParryWeapon.quality = quality * 100 + durability;
 		world:changeItem(ParryWeapon);
 
-		if (durability == 10) then 
+		if (durability == 10) then
 		  base.common.InformNLS(Defender.Char,
 		  "Dein Gegenstand hat schon bessere Zeiten gesehen. Vielleicht solltest du ihn reparieren.",
 		  "Your item has seen better days. You may want to repair it.");
@@ -465,7 +465,7 @@ function CalculateDamage(Attacker, Globals)
 	local CritBonus=1;
 	local QualityBonus;
     --local TacticsBonus;
-    
+
     if Attacker.IsWeapon then
         BaseDamage = Attacker.Weapon.Attack * 10;
 
@@ -478,12 +478,12 @@ function CalculateDamage(Attacker, Globals)
 			--AP/Accuracy*(150+ASL*6), where ASL is Associated Skill Level. This means a level 100 weapon is 5x as good as a base one.
 			--This formula is used because the base WF values are based on 1.5+ASL*6/100
 			BaseDamage = BaseDamage + Attacker.Weapon.ActionPoints/Attacker.Weapon.Accuracy*6*RarityBonus;
-		end 
+		end
 
     else
         BaseDamage = content.fighting.GetWrestlingAttack( Attacker.Race ) * 10;
     end;
- 
+
 	-- Noob messup malus
 	local Noobmessupmalus = 5; -- Amount that armour value is divided by if your skill isn't high enough to use this armour.
 
@@ -497,7 +497,7 @@ function CalculateDamage(Attacker, Globals)
     SkillBonus = (Attacker.skill - 20) * 1.5;
     --TacticsBonus = (Attacker.tactics - 20) * 0.5;
     GemBonus = 0.5*base.gems.getGemBonus(Attacker.WeaponItem);
-	
+
 	--Quality Bonus: Multiplies final value by 0.91-1.09
 	QualityBonus = 0.91+0.02*math.floor(Attacker.WeaponItem.quality/100);
 
@@ -510,7 +510,7 @@ function CalculateDamage(Attacker, Globals)
 	local GlobalDamageFactor = 1/180;
 
     Globals["Damage"] = GlobalDamageFactor*BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus);
-   
+
 end;
 
 --- Deform some final checks on the damage that would be caused and send it to
@@ -522,15 +522,15 @@ end;
 function CauseDamage(Attacker, Defender, Globals)
 
 	Globals.Damage=Globals.Damage*(math.random(9,10)/10); --Damage is randomised: 80-120%
-	
+
 	Globals.Damage=math.min(Globals.Damage,4999); --Damage is capped at 4999 Hitpoints to prevent "one hit kills"
-	
+
 	Globals.Damage=math.floor(Globals.Damage); --Hitpoints are an integer
-	
+
     --Attacker.Char:inform("Dealt damage: ".. Globals.Damage .. " HP."); --Debugging
 	--Defender.Char:inform("Received damage: ".. Globals.Damage .. " HP."); --Debugging
-	
-    if base.character.IsPlayer(Defender.Char) 
+
+    if base.character.IsPlayer(Defender.Char)
         and base.character.WouldDie(Defender.Char, Globals.Damage + 1)
         --and (Attacker.AttackKind ~= 4)
         and not base.character.AtBrinkOfDeath(Defender.Char) then
@@ -539,7 +539,7 @@ function CauseDamage(Attacker, Defender, Globals)
 
         local CharOffsetX = Attacker.Char.pos.x - Defender.Char.pos.x;
         local CharOffsetY = Attacker.Char.pos.y - Defender.Char.pos.y;
-		
+
 		local range = Attacker.Weapon.Range;
 		if(Attacker.AttackKind == 4) then
 			range = 1;
@@ -561,9 +561,9 @@ function CauseDamage(Attacker, Defender, Globals)
 
         local newPos = position(Defender.Char.pos.x + CharOffsetX,
             Defender.Char.pos.y + CharOffsetY, Defender.Char.pos.z);
-            
+
         local targetPos=Defender.Char.pos;
-        
+
         isNotBlocked = function(pos)
             if world:getField(pos):isPassable() then
                 targetPos = pos;
@@ -572,9 +572,9 @@ function CauseDamage(Attacker, Defender, Globals)
                 return false;
             end
         end
-        
+
         base.common.CreateLine(Defender.Char.pos, newPos, isNotBlocked);
-        
+
         if targetPos ~= startPos then
             Defender.Char:warp(targetPos)
         end
@@ -584,10 +584,10 @@ function CauseDamage(Attacker, Defender, Globals)
             "#me stumbles back and falls to the ground.");
 
 		if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
-		
+
             base.common.ParalyseCharacter(Defender.Char, 7, false, true);
             lte.chr_reg.stallRegeneration(Defender.Char, 20);
-			
+
 		end
 
         return true;
@@ -595,9 +595,9 @@ function CauseDamage(Attacker, Defender, Globals)
         if not base.character.ChangeHP(Defender.Char, -Globals.Damage) then
 
 		--removed: Call of base.playerdeath
-		
+
         end;
-        
+
         if (Attacker.AttackKind == 4) then -- Distanzangriff.
             Defender.Char.movepoints = Defender.Char.movepoints - 5;
             DropAmmo(Attacker, Defender.Char, false);
@@ -619,10 +619,10 @@ function HitChanceFlux(Attacker, Defender, Globals)
 
 	--Miss chance. 2% bonus to hit chance for 18 perc, 1.75% malus for 3 perc. Added onto weapon accuracy.
 	local chancetohit;
-	
+
 	if Attacker.IsWeapon then
 		chancetohit=math.max(math.min(Attacker.Weapon.Accuracy*(1+(Attacker.perception-10)/500),100),5);
-		
+
 		--if Attacker.Weapon.Level>Attacker.skill) then
 			--chancetohit=chancetohit/5;
 		--end
@@ -668,13 +668,13 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	local parryChance;
 
 	if canParry then
-		
+
 		--Choose which weapon has the largest defense
 		if Defender.LeftIsWeapon then
 			parryItem = Defender.LeftWeaponItem;
 			parryWeapon = Defender.LeftWeapon;
 		end;
-    
+
 		if Defender.RightIsWeapon then
 			if not parryWeapon then
 				parryItem = Defender.RightWeaponItem
@@ -684,7 +684,7 @@ function HitChanceFlux(Attacker, Defender, Globals)
 				parryWeapon = Defender.RightWeapon;
 			end;
 		end;
-		
+
 		--The Shield Scaling Factor (SSF). Changes how much the top shield is better than the worse one.
 		local ShieldScalingFactor =5;
 
@@ -712,7 +712,7 @@ function HitChanceFlux(Attacker, Defender, Globals)
 		end
 
 		parryChance = math.min(math.max(parryChance,5),95); -- Min and max parry are 5% and 95% respectively
-		
+
 	else
 		return true; -- If they can't parry, it succeeds
 	end;
@@ -799,10 +799,10 @@ function CheckRange(AttackerStruct, Defender)
 
 			--Look behind
 			local newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y,AttackerStruct.Char.pos.z);
-			
+
 			local isdiagonal = ((math.abs(Defender.pos.x-AttackerStruct.Char.pos.x)>0) and (math.abs(Defender.pos.y-AttackerStruct.Char.pos.y)>0))
 
-			if not(isdiagonal) then	
+			if not(isdiagonal) then
 
 				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
 					if not (world:getField(newposition):isPassable()) then
@@ -887,7 +887,7 @@ function CheckRange(AttackerStruct, Defender)
 			else
 				newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x-2,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y-2,AttackerStruct.Char.pos.z)
 			end;
-			
+
 			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
 				if not (world:getField(newposition):isPassable()) then
 					newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x-2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y-2,AttackerStruct.Char.pos.z)
@@ -900,7 +900,7 @@ function CheckRange(AttackerStruct, Defender)
 				if not (world:getField(newposition):isPassable()) then
 					newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x+2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y+2,AttackerStruct.Char.pos.z)
 				end;
-			else	
+			else
 				newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x+2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y+2,AttackerStruct.Char.pos.z)
 			end;
 
@@ -913,7 +913,7 @@ function CheckRange(AttackerStruct, Defender)
 				newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y,AttackerStruct.Char.pos.z)
 			end;
 
-				
+
 			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
 				if (world:getField(newposition):isPassable()) then
 					--Defender:inform(newposition.x .. " " .. newposition.y .." ".. newposition.z);
@@ -924,8 +924,8 @@ function CheckRange(AttackerStruct, Defender)
 				end;
 			else
 				AttackerStruct.Char:setOnRoute(false);
-			end;	
-				
+			end;
+
 		else
 			AttackerStruct.Char:setOnRoute(false);
 		end;
@@ -933,7 +933,7 @@ function CheckRange(AttackerStruct, Defender)
 
     if distance > 1 then
         blockList = world:LoS( AttackerStruct.Char.pos, Defender.pos )
-		local next = next	-- make next-iterator local		
+		local next = next	-- make next-iterator local
         if (next(blockList)~=nil) then	-- see if there is a "next" (first) object in blockList!
 				return false;				-- something blocks
 		end
@@ -957,7 +957,7 @@ function ConstitutionEffect(Defender, Globals)
     if (Globals.Damage == 0) then
         return;
     end;
-    
+
     Globals.Damage = Globals.Damage * 14 / Defender.constitution;
 end;
 
@@ -989,18 +989,18 @@ function CoupDeGrace(Attacker, Defender)
         Attacker.Char:talk(Character.say,
                 string.format("#me gibt %s Gegner den Gnadenstoß.", gText),
                 string.format("#me gives %s enemy the coup de gráce.", eText))
-        
+
         -- Kill character and notify other scripts about the death
         if not base.character.Kill(Defender.Char) then
             -- something interrupted the kill
             return true;
         end;
-    
+
         -- Drop much blood around the player
         DropMuchBlood(Defender.Char.pos);
-		
+
     end;
-    
+
     return false;
 end;
 
@@ -1016,7 +1016,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
     if ( Attacker.AttackKind ~= 4 ) then -- no distanz Attack --> no ammo
         return;
     end;
-    
+
     if base.common.Chance(0.33) then
         local AmmoItem;
         if (Attacker.Weapon.AmmunitionType
@@ -1027,7 +1027,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
         else
             return false;
         end;
-    
+
         if not GroundOnly and (Defender:getType() == 1) then -- monsters get the ammo into the inventory
             Defender:createItem(AmmoItem.id, 1, AmmoItem.quality, nil);
         else
@@ -1036,7 +1036,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
                 if (oldItem.wear < 255 and oldItem.id == AmmoItem.id
                     and oldItem.quality == AmmoItem.quality
                     and oldItem:getData("ammoData") == AmmoItem:getData("ammoData")) then
-                    
+
                     oldItem.number = oldItem.number + 1;
                     oldItem.wear = 5;
                     world:changeItem( oldItem );
@@ -1061,11 +1061,11 @@ function DropBlood(Posi)
     if world:isItemOnField(Posi) then
         return; --no blood on tiles with items on them!
     end;
-	
+
     Blood = world:createItemFromId(3101, 1, Posi, true, 333, nil);
     Blood.wear = 2;
     world:changeItem(Blood);
-	
+
 end;
 
 --- Drop alot of blood. This function drops blood on every tile around the
@@ -1073,7 +1073,7 @@ end;
 -- @param Posi The center of the bloody area
 function DropMuchBlood(Posi)
     local workingPos = base.common.CopyPosition(Posi);
-    
+
     workingPos.x = workingPos.x - 1;
     workingPos.y = workingPos.y - 1;
     for i = 1, 3 do
@@ -1096,7 +1096,7 @@ function GetArmourType(Defender, Globals)
 
     Globals["HittedArea"] = content.fighting.GetHitArea(Defender.Race);
     Globals["HittedItem"] = Defender.Char:getItemAt(Globals.HittedArea);
-    
+
     local armour, armourfound;
     if (Globals.HittedItem ~= nil and Globals.HittedItem.id > 0) then
         armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
@@ -1195,8 +1195,8 @@ end;
 -- @param Globals The table of the global values
 function CheckCriticals(Attacker, Defender, Globals)
 
-	
-	
+
+
 	local chance=1;
 	local weapontype = 8;
 	if Attacker.IsWeapon then
@@ -1210,7 +1210,7 @@ function CheckCriticals(Attacker, Defender, Globals)
 			end;
 		end;
 	end;
-	
+
 	if not base.common.Chance(chance, 100) then
 		Globals["criticalHit"] = 0;
 		return false;
@@ -1290,7 +1290,7 @@ function Specials(Attacker, Defender, Globals)
 				"#me thrusts "..hisher.." weapon with a powerful, piercing attack.");
 		elseif(Globals.criticalHit==7) then -- Dist
 			base.common.TalkNLS(Attacker.Char, Character.say,
-				"#me zielt etwas länger und trifft dadurch sein Ziel an einer ungeschützen Stelle.",
+				"#me zielt etwas länger und trifft dadurch "..seinihr.." Ziel an einer ungeschützen Stelle.",
 				"#me takes careful aim, hitting "..hisher.." target with precision and power.");
 		elseif(Globals.criticalHit==8) then -- Wrest
 			base.common.TalkNLS(Attacker.Char, Character.say,
@@ -1320,9 +1320,9 @@ function Specials(Attacker, Defender, Globals)
 
         local newPos = position(Defender.Char.pos.x + CharOffsetX,
             Defender.Char.pos.y + CharOffsetY, Defender.Char.pos.z);
-            
+
         local targetPos=Defender.Char.pos;
-        
+
         isNotBlocked = function(pos)
             if world:getField(pos):isPassable() then
                 targetPos = pos;
@@ -1331,9 +1331,9 @@ function Specials(Attacker, Defender, Globals)
                 return false;
             end
         end;
-        
+
         base.common.CreateLine(Defender.Char.pos, newPos, isNotBlocked);
-        
+
         if targetPos ~= startPos then
             Defender.Char:warp(targetPos)
         end;
@@ -1349,14 +1349,14 @@ end;
 ---Handles special effects
 -- @param Defender The table of the attacked Character
 function Counter(Attacker, Defender)
-	
+
 	if Defender.Char.attackmode then
 		if base.common.Chance(1,50) then
 			base.common.TalkNLS(Defender.Char, Character.say,
             "#me blockt geschickt den Hieb und macht sich schnell für einen Konter bereit.",
             "#me deftly blocks the hit and quickly readies stance for a counter attack.");
 			base.character.ChangeFightingpoints(Defender.Char,-Defender.Char.fightpoints);
-			Defender.Char.movepoints=21; 
+			Defender.Char.movepoints=21;
 		end;
 	end;
 
@@ -1381,7 +1381,7 @@ function GetAttackType(CharStruct)
         CharStruct["Skillname"] = Character.wrestling;
         return;
     end;
-    
+
 	-- weapon present:
     local weaponType = CharStruct.Weapon.WeaponType;
 --CharStruct.Char:talk(Character.say,"WPTYPE="..weaponType);	-- 14 wenn schild falsch
@@ -1432,11 +1432,11 @@ function HandleAmmunition(Attacker)
     if (Attacker.Char:getType() == Character.monster) then -- Monsters do not use ammo
         return true;
     end;
-    
+
     if (Attacker.AttackKind ~= 4) then -- Ammo only needed for distance attacks
         return true;
     end;
-    
+
     if (Attacker.Weapon.AmmunitionType == Attacker.SecWeapon.WeaponType) then
         Attacker.Char:increaseAtPos(Attacker.SecWeaponItem.itempos, -1);
     elseif (Attacker.Weapon.AmmunitionType == 255) then		-- throwing axes, spears and throwing stars, thus they ARE the ammunition!
@@ -1451,7 +1451,7 @@ end;
 -- movepoints by the fitting value.
 -- @param Attacker The table that stores the values of the attacker
 function HandleMovepoints(Attacker, Globals)
-	
+
     local weaponFightpoints;
     if Attacker.IsWeapon then
         weaponFightpoints = Attacker.Weapon.ActionPoints;
@@ -1464,7 +1464,7 @@ function HandleMovepoints(Attacker, Globals)
 			weaponFightpoints = weaponFightpoints-1;
 		end
 	end
-    
+
     -- The Global Speed Mod (GSM). Increase this to make fights faster.
 	local GlobalSpeedMod = 100;
 
@@ -1477,8 +1477,8 @@ function HandleMovepoints(Attacker, Globals)
 	end;
 
 	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints));
-    Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
-	
+    Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints);
+
 	Globals["AP"] = reduceFightpoints;
 
     return reduceFightpoints;
@@ -1510,8 +1510,8 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 			end
 		end
 	end;
-    
---debug("          DONE LEARNING");    
+
+--debug("          DONE LEARNING");
 end;
 
 
@@ -1524,8 +1524,8 @@ end;
 function LearnParry(Attacker, Defender, AP)
 --debug("          NOW LEARNING parry: "..Character.parry..", "..(AP/3)..", "..(Attacker.skill + 20));
     Defender.Char:learn(Character.parry, AP/2, Attacker.skill + 20)
---debug("          DONE LEARNING");   	
-	
+--debug("          DONE LEARNING");
+
 end;
 
 function NotNil(val)
@@ -1572,7 +1572,7 @@ function LoadAttribsSkills(CharStruct, Offensive)
 end;
 
 --- Load all weapon data for a character. The data is stored in the table that
--- is used as the parameter. 
+-- is used as the parameter.
 -- @param CharStruct The table of the character the weapons are supposed to be
 --                      load for
 function LoadWeapons(CharStruct)
@@ -1580,13 +1580,13 @@ function LoadWeapons(CharStruct)
     local lItem = CharStruct.Char:getItemAt(Character.left_tool);
     local rAttFound, rAttWeapon = world:getWeaponStruct(rItem.id);
     local lAttFound, lAttWeapon = world:getWeaponStruct(lItem.id);
-    
+
     --CharStruct.Char:inform("R: "..rItem.id .. " L: "..lItem.id);
-    
+
     -- the right item is ALWAYS used as the weapon now!
     isRWp=1;
 	isLWp=1;
-	
+
 	if rAttFound then
 		rWType=rAttWeapon.WeaponType;
 		if rWType==10 or rWType==11 or rWType==14 then -- Ammo or shield in right hand: switch r and l hand!
@@ -1596,7 +1596,7 @@ function LoadWeapons(CharStruct)
 	else
 		isRWp=0;
 	end
-	
+
 	if lAttFound then
 		lWType=lAttWeapon.WeaponType;
 		if lWType==10 or lWType==11 or lWType==14 then -- Ammo or shield in right hand: switch r and l hand!
@@ -1606,9 +1606,9 @@ function LoadWeapons(CharStruct)
 	else
 		isLWp=0;
 	end
-	
+
 	if isRWp==0 and isLWp==1 then 	-- switch weapons
---	debug("*** SWITCHING WEAPONS NOW!"); 
+--	debug("*** SWITCHING WEAPONS NOW!");
 		local dItem=rItem;
 		local dAttFound=rAttFound;
 		local dAttWeapon=rAttWeapon;
@@ -1619,9 +1619,9 @@ function LoadWeapons(CharStruct)
 		lAttFound=dAttFound;
 		lAttWeapon=dAttWeapon;
 	end
-	
-	-- 1: slash, 2: 
-	
+
+	-- 1: slash, 2:
+
     CharStruct["WeaponItem"] = rItem;
     CharStruct["IsWeapon"] = rAttFound;
     CharStruct["Weapon"] = rAttWeapon;
@@ -1635,7 +1635,7 @@ function LoadWeapons(CharStruct)
     CharStruct["LeftWeaponItem"] = lItem;
     CharStruct["LeftIsWeapon"] = lAttFound;
     CharStruct["LeftWeapon"] = lAttWeapon;
-    
+
     CharStruct["RightWeaponItem"] = rItem;
     CharStruct["RightIsWeapon"] = rAttFound;
     CharStruct["RightWeapon"] = rAttWeapon;
@@ -1679,7 +1679,7 @@ function NewbieIsland(Attacker, Defender)
     if (_AntiSpamVar==nil) then
         _AntiSpamVar = {};
     end;
-    if (_AntiSpamVar[Attacker.id] == nil) then 
+    if (_AntiSpamVar[Attacker.id] == nil) then
         _AntiSpamVar[Attacker.id] = 0;
     elseif (_AntiSpamVar[Attacker.id] < 280) then
         _AntiSpamVar[Attacker.id] =_AntiSpamVar[Attacker.id] + 1;
@@ -1700,17 +1700,17 @@ function PlayParrySound(Attacker, Defender)
         world:makeSound(32,Attacker.Char.pos);
         return true;
     end;
-    
+
     if not Defender.RightIsWeapon and not Defender.LeftIsWeapon then
         world:makeSound(32,Attacker.Char.pos);
         return true;
     end;
-    
+
     local DefenderWeapon = 0;
     if Defender.RightIsWeapon then
         DefenderWeapon = Defender.RightWeapon.WeaponType;
     end;
-    
+
     if Defender.LeftIsWeapon then
         DefenderWeapon = math.max(DefenderWeapon,
             Defender.LeftWeapon.WeaponType);
@@ -1757,13 +1757,13 @@ function ShowEffects(Attacker, Defender, Globals)
                 Defender.Char.effects:addEffect(LongTimeEffect(21, 10));
             end;
             --]]
-            
+
             DropMuchBlood(Defender.Char.pos);
         elseif (Globals.Damage > 2000) then
             DropBlood(Defender.Char.pos);
         end;
     end;
-    
+
     if (Attacker.AttackKind == 0) then --wresting
         world:makeSound(3,Defender.Char.pos);
     elseif (Attacker.AttackKind==1) then --slashing
