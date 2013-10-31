@@ -7,12 +7,12 @@
 --                                                                            --
 -- Authors:  Someone                                                          --
 --           & Rincewind                                                      --
---                                                Illarion easyNPC Editor 1.02 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 333, 258, 0, 4, 'Saren Eisenfaust', 'npc.saren_eisenfaust', 0, 3, 4, 255, 113, 3, 245, 180, 137);
+VALUES (1, 333, 258, 0, 4, 'Saren Eisenfaust', 'npc.saren_eisenfaust', 0, 3, 6, 255, 113, 3, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -766,7 +766,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 7));
-talkEntry:addResponse("Arr, you are looking for some work? Aye, I can help you with that! I need 15 copper ingots, 10 war hammers, 10 gilded battle axes and 2 Salkamaerian armours.");
+talkEntry:addResponse("Arr, you are looking for some work? Aye, I can help you with that! I need 15 copper ingots, 10 war hammers, 10 halberds and 2 Salkamaerian armours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -777,7 +777,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 7));
-talkEntry:addResponse("Arr, du willst ne Aufgabe? Aye, damit kann ich helfen! Ick brauche 15 Kupferbarren, 10 Kriegshämmer, 10 vergoldete Kriegsäxte und 2 salkamaerische Rüstungen.");
+talkEntry:addResponse("Arr, du willst ne Aufgabe? Aye, damit kann ich helfen! Ick brauche 15 Kupferbarren, 10 Kriegshämmer, 10 Hellebarden und 2 salkamaerische Rüstungen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -788,7 +788,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 7));
-talkEntry:addResponse("Arr, you are looking for some work? Aye, I can help you with that! I need 15 copper ingots, 10 war hammers, 10 gilded battle axes and 2 Salkamaerian armours.");
+talkEntry:addResponse("Arr, you are looking for some work? Aye, I can help you with that! I need 15 copper ingots, 10 war hammers, 10 halberds axes and 2 Salkamaerian armours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -799,7 +799,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 7));
-talkEntry:addResponse("Arr, du willst ne Aufgabe? Aye, damit kann ich helfen! Ick brauche 15 Kupferbarren, 10 Kriegshämmer, 10 vergoldete Kriegsäxte und 2 salkamaerische Rüstungen.");
+talkEntry:addResponse("Arr, du willst ne Aufgabe? Aye, damit kann ich helfen! Ick brauche 15 Kupferbarren, 10 Kriegshämmer, 10 Hellebarden und 2 salkamaerische Rüstungen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -807,7 +807,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14, nil));
-talkEntry:addCondition(npc.base.condition.item.item(124, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(77, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -815,7 +815,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] This NPC has no other tasks for you."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 15, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(124, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(77, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(226, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2389, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
@@ -828,14 +828,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "=>", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14, nil));
-talkEntry:addCondition(npc.base.condition.item.item(124, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(77, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Dieser NPC hat nichts mehr für dich zu tun."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 15, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(124, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(77, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(226, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2389, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
@@ -848,7 +848,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14, nil));
-talkEntry:addCondition(npc.base.condition.item.item(124, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(77, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -857,7 +857,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learnt something. This NPC has no other tasks for you."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 15, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(124, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(77, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(226, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2389, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
@@ -870,7 +870,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(Character.smithing, "<", 80));
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14, nil));
-talkEntry:addCondition(npc.base.condition.item.item(124, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(77, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(2389, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
@@ -878,7 +878,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du etwas dazu gelernt. Dieser NPC hat nichts mehr für dich zu tun."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.smithing, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 15, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(124, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(77, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(226, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2389, 2, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
@@ -892,7 +892,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammers, 10 gilded battle axes and 2 Salkamaerian armours.");
+talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammers, 10 halberds and 2 Salkamaerian armours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -900,24 +900,24 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", 15, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 vergoldete Kriegsäxte und 2 salkamaerische Rüstungen.");
+talkEntry:addResponse("Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 Hellebarden und 2 salkamaerische Rüstungen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(124, "all", "<", 10, nil));
+talkEntry:addCondition(npc.base.condition.item.item(77, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammers, 10 gilded battle axes and 2 Salkamaerian armours.");
+talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammers, 10 halberds and 2 Salkamaerian armours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(124, "all", "<", 10, nil));
+talkEntry:addCondition(npc.base.condition.item.item(77, "all", "<", 10, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 vergoldete Kriegsäxte und 2 salkamaerische Rüstungen.");
+talkEntry:addResponse("Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 Hellebarden und 2 salkamaerische Rüstungen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -926,7 +926,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(226, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammers, 10 gilded battle axes and 2 Salkamaerian armours.");
+talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammers, 10 halberds and 2 Salkamaerian armours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -934,7 +934,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(226, "all", "<", 10, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 vergoldete Kriegsäxte und 2 salkamaerische Rüstungen.");
+talkEntry:addResponse("Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 Hellebarden und 2 salkamaerische Rüstungen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -943,7 +943,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2389, "all", "<", 2, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammers, 10 gilded battle axes and 2 Salkamaerian armours.");
+talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammers, 10 halberds and 2 Salkamaerian armours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -951,7 +951,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2389, "all", "<", 2, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 vergoldete Kriegsäxte und 2 salkamaerische Rüstungen.");
+talkEntry:addResponse("Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 Hellebarden und 2 salkamaerische Rüstungen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
