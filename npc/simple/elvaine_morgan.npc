@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                     easyNPC Parser v1.23.1 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 name = "Elvaine Morgan"
@@ -51,9 +51,9 @@ itemShoes = 53
 "Help" -> inform("[Game Help] This NPC is Archmage Elvaine Morgan the ruler of Runewick. Keywords: Runewick, quest, gods, tower, magic.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Erzmagier Elvaine Morgan, der Herrscher über Runewick. Schlüsselwörter: Runewick, Quest, Götter, Türme, Magie.")
 
---quest
-queststatus(622) = 1, item(3110, all) > 0, english, "."  -> queststatus(622) = 2, deleteItem(3110, 1), rankpoints + 5, inform("[Quest 'Find Archmage Elvaine Morgan' end]") , "Hmm, a pell. Well, I can use it. Thank you."
-queststatus(622) = 1, item(3110, all) > 0, "."  -> queststatus(622) = 2, deleteItem(3110, 1), rankpoints + 5, inform("[Quest 'Finde Erzmagier Elvaine Morgan' Ende]") , "Hmm, eine Schriftrolle. Nun, ich werde sie nutzen können. Danke euch."
+-- quest
+queststatus(622) = 1, item(3110, all) > 0, english, "." -> inform("[Quest 'Find Archmage Elvaine Morgan' end]"), deleteItem(3110, 1), queststatus(622) = 2, rankpoints + 5, "Hmm, a pell. Well, I can use it. Thank you."
+queststatus(622) = 1, item(3110, all) > 0, "." -> inform("[Quest 'Finde Erzmagier Elvaine Morgan' Ende]"), deleteItem(3110, 1), queststatus(622) = 2, rankpoints + 5, "Hmm, eine Schriftrolle. Nun, ich werde sie nutzen können. Danke euch."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Elara may be with you. Is something urgent?", "Be greeted. What brings you here?", "Greeted be. Why do you wish to see me?"
@@ -212,15 +212,17 @@ german, chance(20.0), ".*" -> "Weshalb? Was ist der Grund dafür?", "Ich versteh
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#mes leuchtend graue Augen mustern achtsam die Umgebung.", "#me's gloomy grey eyes glance across the surrounding area carefully."
-cycletext "#me atmet langsam und leise aus, für einen Moment scheint er einem Gedanken nachzuhängen.", "#me breathes slowly and quietly as he appears to reflect upon a theory, concerning a difficult topic."
-cycletext "#me streicht mit den Fingern über die Seiten seines Buches.", "#me moves his fingers over the pages of his book."
-cycletext "#mes Augen überfliegen einige Zeilen des Textes innerhalb seines Buches.", "#me's eyes dart quicky over something written in his book."
-cycletext "#me fährt mit der Fingerspitze an eine bestimmte Stelle der Buchseiten und schlägt diese auf.", "#me places his fingertip at a precise page in his book and turns right to it."
-cycletext "#me nickt sachte. Dann wirft er einen Blick zur Seite.", "#me glances out of the window, observing the sky for a few moments."
-cycletext "#me greift sich kruz an den Kopf und seine Stirn legt sich in sanften Falten.", "#me runs his hand over his fringe, adjusting his hair from his line of sight."
-cycletext "#me reibt sich mit dem Zeigefigner an der Nase. Im nächsten Moment schnippst er mit den Fingern und ruft 'Ich habs!'.", "#me rubs his nose with his fingers, before clicking his fingers excitedly, proclaiming 'Got it!'."
+cycletext "#mes leuchtend graue Augen mustern achtsam die Umgebung.", "#me's gloomy grey eyes glance over the surrounding area carefully."
+cycletext "#me atmet langsam und leise aus, für einen Moment scheint er einem Gedanken nachzuhängen, der offenbar ein schwieriges Thema betrifft.", "#me breathes slowly and quietly as he appears to reflect upon a theory, concerning a difficult topic."
+cycletext "#me streicht mit den Fingern über die Seiten seines Buches.", "#me sweeps his fingers over the pages of his book."
+cycletext "#mes Augen überfliegen einige Zeilen des Textes innerhalb seines Buches.", "#me's eyes dart quickly over something written in his book."
+cycletext "#me fährt mit der Fingerspitze an eine bestimmte Stelle der Buchseiten und schlägt diese auf.", "#me places his fingertip at a precise page in his book and flips it open."
+cycletext "#me nickt sachte und dann wirft er einen Blick zur Seite.", "#me nods faintly and then he glances to the side."
+cycletext "#me schaut aus dem Fenster und beobachtet für eine Weile den Himmel.", "#me glances out of the window, observing the sky for a few moments."
+cycletext "#me greift sich kurz an den Kopf und seine Stirn legt sich in sanfte Falten.", "#me holds his forehead and frowns a bit."
+cycletext "#me wischt sich eine Haarsträhne aus dem Gesicht.", "#me pushes his hair from out of his eyes."
+cycletext "#me reibt sich mit dem Zeigefinger an der Nase. Im nächsten Moment schnippst er mit den Fingern und ruft 'Ich habs!'.", "#me rubs his nose with his fingers, before clicking his fingers excitedly, proclaiming 'Got it!'."
 cycletext "#mes graue Augen scheinen für einen Moment hell auf zu leuchten.", "#me's grey eyes seems to be more gloomy than usual for a couple of seconds."
-cycletext "#mes lächelt gutmütig und für einen Augenblick ist ein merkwürdiges Glitzern in seinen Pupillen zu sehen.", "#me smiles contently. For a brief a moment a shiny sparkle appears in his eyes."
+cycletext "#mes lächelt gutmütig und für einen Augenblick ist ein merkwürdiges Glitzern in seinen Pupillen zu sehen.", "#me smiles contentedly. For a brief a moment, a shiny sparkle appears in his eyes."
 cycletext "#me dreht seinen Kopf ein wenig und für kurze Zeit scheinen seine Gedanken in der Ferne zu verweilen.", "#me turns his head. For a short while, his thoughts seem distant."
 cycletext "#me murmelt leise. 'Das Problem mit der Zukunft ist, dass sie zur Gegenwart wird...'", "#me mumbles quietly. 'The problem with the future is that it keeps turning into the present.'"

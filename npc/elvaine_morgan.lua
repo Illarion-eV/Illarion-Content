@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                     easyNPC Parser v1.23.1 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1348,16 +1348,18 @@ talkEntry:addResponse("Wenn Ihr das auf diese Art ausdrücken wollt...");
 talkEntry:addResponse("Tugend bedarf einiger billigerer Vergnügen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#mes leuchtend graue Augen mustern achtsam die Umgebung.", "#me's gloomy grey eyes glance across the surrounding area carefully.");
-talkingNPC:addCycleText("#me atmet langsam und leise aus, für einen Moment scheint er einem Gedanken nachzuhängen.", "#me breathes slowly and quietly as he appears to reflect upon a theory, concerning a difficult topic.");
-talkingNPC:addCycleText("#me streicht mit den Fingern über die Seiten seines Buches.", "#me moves his fingers over the pages of his book.");
-talkingNPC:addCycleText("#mes Augen überfliegen einige Zeilen des Textes innerhalb seines Buches.", "#me's eyes dart quicky over something written in his book.");
-talkingNPC:addCycleText("#me fährt mit der Fingerspitze an eine bestimmte Stelle der Buchseiten und schlägt diese auf.", "#me places his fingertip at a precise page in his book and turns right to it.");
-talkingNPC:addCycleText("#me nickt sachte. Dann wirft er einen Blick zur Seite.", "#me glances out of the window, observing the sky for a few moments.");
-talkingNPC:addCycleText("#me greift sich kruz an den Kopf und seine Stirn legt sich in sanften Falten.", "#me runs his hand over his fringe, adjusting his hair from his line of sight.");
-talkingNPC:addCycleText("#me reibt sich mit dem Zeigefigner an der Nase. Im nächsten Moment schnippst er mit den Fingern und ruft 'Ich habs!'.", "#me rubs his nose with his fingers, before clicking his fingers excitedly, proclaiming 'Got it!'.");
+talkingNPC:addCycleText("#mes leuchtend graue Augen mustern achtsam die Umgebung.", "#me's gloomy grey eyes glance over the surrounding area carefully.");
+talkingNPC:addCycleText("#me atmet langsam und leise aus, für einen Moment scheint er einem Gedanken nachzuhängen, der offenbar ein schwieriges Thema betrifft.", "#me breathes slowly and quietly as he appears to reflect upon a theory, concerning a difficult topic.");
+talkingNPC:addCycleText("#me streicht mit den Fingern über die Seiten seines Buches.", "#me sweeps his fingers over the pages of his book.");
+talkingNPC:addCycleText("#mes Augen überfliegen einige Zeilen des Textes innerhalb seines Buches.", "#me's eyes dart quickly over something written in his book.");
+talkingNPC:addCycleText("#me fährt mit der Fingerspitze an eine bestimmte Stelle der Buchseiten und schlägt diese auf.", "#me places his fingertip at a precise page in his book and flips it open.");
+talkingNPC:addCycleText("#me nickt sachte und dann wirft er einen Blick zur Seite.", "#me nods faintly and then he glances to the side.");
+talkingNPC:addCycleText("#me schaut aus dem Fenster und beobachtet für eine Weile den Himmel.", "#me glances out of the window, observing the sky for a few moments.");
+talkingNPC:addCycleText("#me greift sich kurz an den Kopf und seine Stirn legt sich in sanfte Falten.", "#me holds his forehead and frowns a bit.");
+talkingNPC:addCycleText("#me wischt sich eine Haarsträhne aus dem Gesicht.", "#me pushes his hair from out of his eyes.");
+talkingNPC:addCycleText("#me reibt sich mit dem Zeigefiner an der Nase. Im nächsten Moment schnippst er mit den Fingern und ruft 'Ich habs!'.", "#me rubs his nose with his fingers, before clicking his fingers excitedly, proclaiming 'Got it!'.");
 talkingNPC:addCycleText("#mes graue Augen scheinen für einen Moment hell auf zu leuchten.", "#me's grey eyes seems to be more gloomy than usual for a couple of seconds.");
-talkingNPC:addCycleText("#mes lächelt gutmütig und für einen Augenblick ist ein merkwürdiges Glitzern in seinen Pupillen zu sehen.", "#me smiles contently. For a brief a moment a shiny sparkle appears in his eyes.");
+talkingNPC:addCycleText("#mes lächelt gutmütig und für einen Augenblick ist ein merkwürdiges Glitzern in seinen Pupillen zu sehen.", "#me smiles contentedly. For a brief a moment, a shiny sparkle appears in his eyes.");
 talkingNPC:addCycleText("#me dreht seinen Kopf ein wenig und für kurze Zeit scheinen seine Gedanken in der Ferne zu verweilen.", "#me turns his head. For a short while, his thoughts seem distant.");
 talkingNPC:addCycleText("#me murmelt leise. 'Das Problem mit der Zukunft ist, dass sie zur Gegenwart wird...'", "#me mumbles quietly. 'The problem with the future is that it keeps turning into the present.'");
 mainNPC:addLanguage(0);
