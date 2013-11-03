@@ -35,7 +35,7 @@ module("item.id_2763_pickaxe", package.seeall, package.seeall(item.general.metal
 function LookAtItem(User,Item)
 
      world:itemInform(User,Item,base.lookat.GetItemDescription(User,Item,1,false,false ));
-		
+
 	--Noobia addition by Estralis: Examining a pick-axe is a task of NPC Aldania
 
     if User:getQuestProgress(310)==3 and Item.id==2763 and User:isInRangeToPosition((position (52,24,100)),20) then --only invoked if the user has the quest, examines a pick-axe and is in range of the NPC
@@ -84,7 +84,7 @@ function Init()
     Rocks[1273]  = 1257;
     Rocks[1276]  = 1278;
     Rocks[1250]  = 1251;
-	
+
 --[[
 For coals mines:
 1245: 60% Coal + 3% Obsidian + 1% Ruby
@@ -127,8 +127,8 @@ Coal/Iron/Gold/coppermine: Wilderness "Skewer Drift" +20
 Coordinates: 942,444,0
 Radius 15
 ]]--
-	
-    --Galmair "Dark Hole Mine" 
+
+    --Galmair "Dark Hole Mine"
     AddArea( 1, position(406,159,-3), 20 );
     AddStone( 1, 1245 );
     SetResource( 1, 1245,  21, 70); -- coal
@@ -160,7 +160,7 @@ Radius 15
     SetResource( 2, 1276,  2536, 40); -- copper ore
 	SetResource( 2, 1276,  256, 3); -- emerald
 	SetResource( 2, 1276,  253, 1); -- sapphire
-	
+
 	--Cadomyr "Cornerstone of Candour"
 	AddArea( 3, position(142,686,0), 15 );
     AddStone( 3, 1245 );
@@ -173,7 +173,7 @@ Radius 15
     SetResource( 3, 1246, 1062,  5); -- silver
     SetResource( 3, 1246, 251,  3); -- amethysts
     SetResource( 3, 1246,  256,  1); -- emerald
-	
+
 	--Cadomyr "Liberty Quarry"
 	AddArea( 4, position(165,603,0), 15 );
     AddStone( 4, 232 );
@@ -193,7 +193,7 @@ Radius 15
     SetResource( 4, 1276,  2536, 40); -- copper ore
 	SetResource( 4, 1276,  256, 3); -- emerald
 	SetResource( 4, 1276,  253, 1); -- sapphire
-	
+
 	--Wilderness "Glittering Cave"
 	AddArea( 5, position(548,371,0), 15 );
     AddStone( 5, 1245 );
@@ -211,7 +211,7 @@ Radius 15
     SetResource( 5, 1250, 2534,  1); -- merinium ore
     SetResource( 5, 1250,  254,  3); -- diamonds
 	SetResource( 5, 1250,  257,  1); -- topas
-		
+
 	--Wilderness "Skewer Drift"
 	AddArea( 6, position(942,444,0), 15 );
     AddStone( 6, 232 );
@@ -239,7 +239,7 @@ Radius 15
     SetResource( 6, 1276,  2536, 60); -- copper ore
 	SetResource( 6, 1276,  256, 9); -- emerald
 	SetResource( 6, 1276,  253, 3); -- sapphire
-	    	
+
 	----------- Noobia Mine -----------
 	AddArea( 7, position(59,49,100), 15 );
     AddStone( 7, 232 );
@@ -308,7 +308,7 @@ Radius 15
     SetResource( 8, 1250,  254,  3); -- diamonds
 	SetResource( 8, 1250,  257,  1); -- topas
 	------- Prison Mine - FERTIG ------
-	
+
 	----------- Digging Projects (temporarly) -----------
 	----------- Galmair Tunnel Project -----------
 	AddArea( 91, position(427,206,0), 10 );
@@ -331,7 +331,7 @@ Radius 15
 		AddStone( 95, 914 );
 		AddStone( 95, 232 );
 		AddStone( 95, 1245 );
-		
+
 
 
     InitDone = true;
@@ -409,7 +409,7 @@ function getRock(User, AreaId)
   end
   local Radius = 1;
   for x=-Radius,Radius do
-    for y=-Radius,Radius do 
+    for y=-Radius,Radius do
       local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
       if (world:isItemOnField(targetPos)) then
         local targetItem = world:getItemOnField(targetPos);
@@ -443,7 +443,7 @@ function UseItem(User, SourceItem, ltstate)
   if not base.common.CheckItem( User, SourceItem ) then -- security check
     return
   end
-  
+
   if (SourceItem:getType() ~= 4) then -- tool in hand
     base.common.HighInformNLS( User,
     "Du musst die Spitzhacke in der Hand haben!",
@@ -454,11 +454,11 @@ function UseItem(User, SourceItem, ltstate)
   if not base.common.FitForWork( User ) then -- check minimal food points
     return
   end
-  
+
   if DigForTreasure(User) then
     return;
   end
-  
+
   local areaId = GetAreaId(User.pos);
   if (areaId == nil) then
     base.common.HighInformNLS(User,
@@ -466,7 +466,7 @@ function UseItem(User, SourceItem, ltstate)
     "The area doesn't look like a good place to mine.");
     return;
   end
-  
+
   local rock = getRock(User, areaId);
   if (rock == nil) then
     -- TODO check if this condition is needed.
@@ -481,7 +481,7 @@ function UseItem(User, SourceItem, ltstate)
   if not base.common.IsLookingAt( User, rock.pos ) then -- check looking direction
     base.common.TurnTo( User, rock.pos ); -- turn if necessary
   end
-  
+
   if ( ltstate == Action.none ) then -- currently not working -> let's go
     mining.SavedWorkTime[User.id] = mining:GenWorkTime(User,SourceItem);
     User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
@@ -496,7 +496,7 @@ function UseItem(User, SourceItem, ltstate)
   if mining:FindRandomItem(User) then
     return
   end
-  
+
   local productId = GetResource(areaId, rock.id);
 
   User:learn( mining.LeadSkill, mining.SavedWorkTime[User.id], mining.LearnLimit);
@@ -539,12 +539,12 @@ function DigForTreasure(User)
   local groundTile = world:getField( TargetPos ):tile();
   local GroundType = base.common.GetGroundType( groundTile );
 
-  if ( (GroundType ~= base.common.GroundType.rocks) and
-      base.treasure.DigForTreasure( 
+  if ( (GroundType == base.common.GroundType.rocks) and
+      base.treasure.DigForTreasure(
         User, TargetPos, (User:getSkill(Character.mining)/10)+1,
         base.common.GetNLS( User,
           "Du schwingst deine Spitzhacke gegen den steinigen Boden und stößt auf etwas das noch härter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der grenzenlose Reichtum ist dein!",
-          "You swing your pick-axe against the stony ground and hit something that is even harder then the ground. That must it be! The treasure! Another swing and it is yours!" ), 
+          "You swing your pick-axe against the stony ground and hit something that is even harder then the ground. That must it be! The treasure! Another swing and it is yours!" ),
         false) ) then
     return true;
   end
