@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                Illarion easyNPC Editor 1.02 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -760,7 +760,6 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(1058,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2112,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2117,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2172,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(77,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(88,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(124,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(188,"sell"));
@@ -822,6 +821,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(2407,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(236,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2550,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2535,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(104,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(25,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(78,"sell"));
@@ -836,6 +836,16 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(2731,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2757,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2775,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2778,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2788,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1046,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1038,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1049,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1047,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1040,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1048,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1053,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(77,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1039,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2697,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2710,"buyPrimary"));
@@ -855,7 +865,6 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(2112,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2116,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2117,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2172,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(77,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(88,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(124,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(188,"buyPrimary"));
@@ -927,6 +936,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(2407,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(236,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2550,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2535,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(104,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(25,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(78,"buyPrimary"));
@@ -942,6 +952,16 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(2731,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2757,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2775,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2778,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2788,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1046,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1038,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1049,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1047,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1040,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1048,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1053,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(77,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1039,"buyPrimary"));
 tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can not afford that!");
 tradingNPC:addDialogClosedMsg("Danke, komm bald wieder!", "Thanks, come again!");
 tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
