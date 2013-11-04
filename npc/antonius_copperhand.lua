@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                     easyNPC Parser v1.23.1 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -308,6 +308,15 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(280,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(281,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(282,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1054,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(84,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(98,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(85,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(297,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(389,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(398,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(124,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(229,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(192,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(122,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2140,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(92,"buySecondary"));
@@ -350,6 +359,15 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(280,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(281,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(282,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1054,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(84,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(98,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(85,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(297,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(389,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(398,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(124,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(229,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(192,"buySecondary"));
 tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
 tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
 tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");

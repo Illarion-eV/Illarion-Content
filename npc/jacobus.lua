@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -610,6 +610,7 @@ talkingNPC:addCycleText("Ein Edelstein hält ein Leben lang.", "A gemstone lasts 
 talkingNPC:addCycleText("Goldringe mit Inschriften und magischen Kräften für wenige Silberstücke!", "Gold rings with inscriptions and magical powers for a few silver coins!");
 talkingNPC:addCycleText("Habt ihr Edelsteine?", "Do you have gemstones?");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(122,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2140,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(21,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(22,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(234,"sell"));
@@ -654,7 +655,6 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(1840,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2031,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(24,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2763,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2140,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(251,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(252,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(253,"sell"));
@@ -663,7 +663,17 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(255,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(256,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(257,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1054,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(84,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(98,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(85,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(297,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(389,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(398,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(124,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(229,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(192,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(122,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2140,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(21,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(22,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(234,"buyPrimary"));
@@ -709,9 +719,17 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(1001,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1840,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2031,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1054,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(84,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(98,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(85,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(297,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(389,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(398,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(124,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(229,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(192,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(24,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2763,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2140,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(251,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(252,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(253,"buySecondary"));
