@@ -51,7 +51,7 @@ itemShoes = 53
 
 sellItems = 23, 2697, 2710, 2751, 325, 326, 529, 530, 771,1058, 2112, 2117, 2172, 88, 188, 205, 383, 2629, 2642, 2660, 2711, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 2675, 2740, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2364, 2367, 2369, 2389, 2390, 2395, 2399, 2403, 2407, 236, 2550, 2535, 104, 1, 25, 78, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778, 2788, 7, 16, 94, 187, 202, 324, 2287, 2290, 2302, 2441, 2444, 1046, 1038, 1049, 1047, 1040, 1048, 1053, 77, 1039
 buySecondaryItems = 23, 2697, 2710, 2751, 325, 326, 528, 529, 530, 531, 699, 770, 771,1058, 2111, 2112, 2116, 2117, 2172, 88, 188, 205, 383, 2629, 2642, 2660, 2711, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 2675, 2740, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407, 236, 2550, 2535, 104, 1, 25, 78, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778, 2788, 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444, 1046, 1038, 1049, 1047, 1040, 1048, 1053, 77, 1039
-tradeNotEnoughMoneyMsg "Oh, ich fÃ¼rchte Ihr kÃ¶nnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
@@ -72,31 +72,31 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5% Helmets: 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444
 -- 5% Spears: 1046, 1038, 1049, 1047, 1040, 1048, 1053, 77, 1039
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "verÃ¤uÃŸer", "erwerb" -> "Ah, dann interessiert Ihr Euch also fÃ¼r meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the blacksmith Frobenius. Keywords: buy, sell, trade, Hello, blacksmith, iron.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmied Frobenius. SchlÃ¼sselwÃ¶rter: kaufe, verkaufe, Handel, Hallo, Schmied, Eisen.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmied Frobenius. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Schmied, Eisen.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Let's get to business, alright?"
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Lasst uns zum GeschÃ¤ft kommen, ja?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Lasst uns zum Geschäft kommen, ja?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Let's get to business, alright?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Lasst uns zum GeschÃ¤ft kommen, ja?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Lasst uns zum Geschäft kommen, ja?"
 "Farewell", "Bye", "Fare well", "See you" -> "Kill some scum with my weapons, will you?"
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "TÃ¶tet Abschaum mit meinen Waffen, ja?"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Tötet Abschaum mit meinen Waffen, ja?"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Kill some scum with my weapons, will you?"
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "TÃ¶tet Abschaum mit meinen Waffen, ja?"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Tötet Abschaum mit meinen Waffen, ja?"
 "How are you", "How feel", "How do you do" -> "Pardon me, but I do not want to talk about my feelings."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen" -> "Entschuldigt, aber ich mÃ¶chte nicht Ã¼ber meine GefÃ¼hle reden."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Entschuldigt, aber ich möchte nicht über meine Gefühle reden."
 "your name", "who are you", "who art thou" -> "Frobenius!", "I am Frobenius, the blacksmith."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Frobenius!", "Ich bin Frobenius, der Schmied."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Frobenius!", "Ich bin Frobenius, der Schmied."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "Your quest today: Defend Cadomyr with my weapons. You have to buy one first..."
-"quest", "mission" -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr mÃ¼ÃŸt aber erstmal eine kaufen..."
+"quest", "mission" -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr müßt aber erstmal eine kaufen..."
 "task", "adventure", "order" -> "Your quest today: Defend Cadomyr with my weapons. You have to buy one first..."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr mÃ¼ÃŸt aber erstmal eine kaufen..."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr müßt aber erstmal eine kaufen..."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a blacksmith, that means I craft weapons of death."
@@ -104,13 +104,13 @@ english, "quest", "mission" -> "Your quest today: Defend Cadomyr with my weapons
 english, "job" -> "I am a blacksmith, that means I craft weapons of death."
 "job" -> "Ich bin ein Schmied. Das bedeutet, ich fertige Waffen des Todes."
 english, "Gobaith", "Gobiath" -> "That reminds me of a story I once heard... a very sad story."
-"Gobaith", "Gobiath" -> "Das erinnert mich an eine alte Geschichte, die ich einst hÃ¶rte... eine traurige Geschichte."
+"Gobaith", "Gobiath" -> "Das erinnert mich an eine alte Geschichte, die ich einst hörte... eine traurige Geschichte."
 "my name" -> "Ah.", "Well?", "Need weapons?"
 "mein Name" -> "Aha.", "Nun?", "Braucht ihr eine Waffe?"
 
 -- More small talk; add at least five triggers
 "iron" -> "Iron is tough, stiff and hard... The perfect material for weapons."
-"Eisen" -> "Eisen ist zÃ¤h, steif und hart. Das perfekte Material fÃ¼r Waffen."
+"Eisen" -> "Eisen ist zäh, steif und hart. Das perfekte Material für Waffen."
 "Erz" -> "Eisen gewinnt man aus Erzen. Cadomyr hat zwar keine reichen Minen, aber wir machen das beste daraus."
 "ore" -> "Iron you can make from ore. Cadomyr does not have rich mines, but we're doing our best."
 "steel" -> "What is that supposed to be?"
@@ -118,23 +118,23 @@ english, "Gobaith", "Gobiath" -> "That reminds me of a story I once heard... a v
 "smith" -> "Use my forged items to smite the foes of Cadomyr."
 "Schmied" -> "Benutze meine Schmiedewaren um die Feinde Cadomyrs zu zerschmettern."
 "trader", "merchant", "collegue", "vendor", "market" -> "Buy whatever you want on this marketplace, but in the end only weapons will make Cadomyr prosper."
-"hÃ¤ndler", "kollege", "hÃ¶ker", "markt" -> "Kauft, was immer ihr wollt auf diesem Marktplatz, aber am Ende werden nur Waffen Cadomyr voran bringen."
+"händler", "kollege", "höker", "markt" -> "Kauft, was immer ihr wollt auf diesem Marktplatz, aber am Ende werden nur Waffen Cadomyr voran bringen."
 
 -- Faction stuff
 "archmage" -> "The Archmage is the best that could happen to Runewick. He is such a bad leader that we do not have to bother about Runewick too much."
-"Erzmagier" -> "Der Erzmagier ist das beste, was Runewick passieren konnte. Er ist so ein schlechter AnfÃ¼hrer, dass wir uns nicht um Runewick sorgen mÃ¼ssen."
+"Erzmagier" -> "Der Erzmagier ist das beste, was Runewick passieren konnte. Er ist so ein schlechter Anführer, dass wir uns nicht um Runewick sorgen müssen."
 english, "Elvaine", "Morgan" -> "The Archmage is the best that could happen to Runewick. He is such a bad leader that we do not have to bother about Runewick too much."
-"Elvaine", "Morgan" -> "Der Erzmagier ist das beste, was Runewick passieren konnte. Er ist so ein schlechter AnfÃ¼hrer, dass wir uns nicht um Runewick sorgen mÃ¼ssen."
+"Elvaine", "Morgan" -> "Der Erzmagier ist das beste, was Runewick passieren konnte. Er ist so ein schlechter Anführer, dass wir uns nicht um Runewick sorgen müssen."
 english, "Runewick" -> "Runewick will fall to ruins one day, so do not bother. If you do, I have a good sword for you."
-"Runewick" -> "Runewick wird eines Tages eine Ruine sein, sorgt euch nicht. Wenn ihr euch dennoch sorgt, ich habe ein gutes Schwert fÃ¼r euch."
+"Runewick" -> "Runewick wird eines Tages eine Ruine sein, sorgt euch nicht. Wenn ihr euch dennoch sorgt, ich habe ein gutes Schwert für euch."
 english, "Valerio", "Guilianni", "Don" -> "I assume the dagger that will slash the Don's throat has already been crafted... Hopefully, by me."
 "Valerio", "Guilianni", "Don" -> "Ich denke, dass der Dolch, der die Kehle des Dons aufschlitzen wird, bereits gefertigt wurde. Hoffentlich ist es einer von meinen."
 english, "Galmair" -> "Galmair is rich, but they don't use their wealth properly, like for buying weapons."
 "Galmair" -> "Galmair ist reich, aber sie verstehen es nicht, ihren Reichtum richtig einzusetzen, zum Beispiel, um Waffen zu kaufen."
 "Queen" -> "Any weapon I craft is meant to protect the Queen. So, raise your hand against the Queen and hundreds of swords will chop it off."
-"KÃ¶nigin" -> "Jede Waffe, die ich schmiede, ist gemacht, um die KÃ¶nigin zu schÃ¼tzen. Erhebe deine Hand gegen sie und hunderte Schwerter werden sie abschlagen."
+"Königin" -> "Jede Waffe, die ich schmiede, ist gemacht, um die Königin zu schützen. Erhebe deine Hand gegen sie und hunderte Schwerter werden sie abschlagen."
 english, "rosaline", "edwards" -> "Any weapon I craft is meant to protect the Queen. So, raise your hand against the Queen and hundreds of swords will chop it off."
-"rosaline", "edwards" -> "Jede Waffe, die ich schmiede, ist gemacht, um die KÃ¶nigin zu schÃ¼tzen. Erhebe deine Hand gegen sie und hunderte Schwerter werden sie abschlagen."
+"rosaline", "edwards" -> "Jede Waffe, die ich schmiede, ist gemacht, um die Königin zu schützen. Erhebe deine Hand gegen sie und hunderte Schwerter werden sie abschlagen."
 english, "Cadomyr" -> "Cadomyr is our home and I hope my goods help to defend it against any enemies."
 "Cadomyr" -> "Cadomyr ist unsere Heimat und ich hoffe, meine Waren leisten ihren Beitrag, es gegen Feinde zu verteidigen."
 
@@ -142,29 +142,29 @@ english, "Cadomyr" -> "Cadomyr is our home and I hope my goods help to defend it
 english, "albar" -> "Spears and swords built the Albarian kingdom. Need any?"
 "albar" -> "Speere und Schwerter haben Albar aufgebaut. Braucht ihr welche?"
 english, "gynk", "gync" -> "Gynk is far away and their weapons are lies and treason."
-"gync", "gynk" -> "Gynk ist weit entfernt und ihre Waffen sind LÃ¼gen und Verrat."
+"gync", "gynk" -> "Gynk ist weit entfernt und ihre Waffen sind Lügen und Verrat."
 english, "salkama" -> "Salkamaerian armour might shine brightly, but it is ineffective."
-"salkama" -> "Salkamaerische RÃ¼stungen mÃ¶gen funkeln und blitzen, aber sie sind nicht effektiv."
+"salkama" -> "Salkamaerische Rüstungen mögen funkeln und blitzen, aber sie sind nicht effektiv."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
-"god" -> "I just have faith in MalachÃ­n and Irmorom. I mean, what use is Sirani, the Goddess of hugs?"
-"Gott", "GÃ¶tter" -> "Ich vertraue nur auf MalachÃ­n und Irmorom. Ich meine, was ist der Nutzen von Sirani, GÃ¶ttin der Umarmungen?"
-english, "Malachin", "MalachÃ­n" -> "Every sword I craft, I craft for Malachin himself."
-"Malachin", "MalachÃ­n" -> "Jedes Schwert, welches ich schmiede, schmiede ich fÃ¼r Malachin!"
+"god" -> "I just have faith in Malachín and Irmorom. I mean, what use is Sirani, the Goddess of hugs?"
+"Gott", "Götter" -> "Ich vertraue nur auf Malachín und Irmorom. Ich meine, was ist der Nutzen von Sirani, Göttin der Umarmungen?"
+english, "Malachin", "Malachín" -> "Every sword I craft, I craft for Malachin himself."
+"Malachin", "Malachín" -> "Jedes Schwert, welches ich schmiede, schmiede ich für Malachin!"
 english, "Irmorom" -> "Irmorom would be proud if he saw my art. I'm his most hard working scholar."
-"Irmorom" -> "Irmorom wÃ¤re stolz, wenn er meine Schmiedekunst sehen wÃ¼rde. Ich bin sein fleiÃŸigster SchÃ¼ler."
+"Irmorom" -> "Irmorom wäre stolz, wenn er meine Schmiedekunst sehen würde. Ich bin sein fleißigster Schüler."
 english, "Sirani" -> "Oh, come on, you don't want to talk to a person like me about Sirani, do you?"
-"Sirani" -> "Oh, ich denkt doch nicht etwa, dass ein Kerl wie ich gerne mit euch Ã¼ber Sirani reden will!"
+"Sirani" -> "Oh, ich denkt doch nicht etwa, dass ein Kerl wie ich gerne mit euch über Sirani reden will!"
 
 -- Catching typical NPC phrases
 "tell something" -> "I tell you, sharpen you blade and commit deeds for the glory of Cadomyr."
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Ich sag euch: SchÃ¤rft eure Klinge und vollbringt Taten fÃ¼r die Ehre von Cadomyr."
+"erzähl was", "erzähl etwas" -> "Ich sag euch: Schärft eure Klinge und vollbringt Taten für die Ehre von Cadomyr."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Frobenius" -> "That's me.", "Frobenius is my name and I am the local blacksmith.", "My weapons bring doom over the foes of Cadomyr."
-"Frobenius" -> "Das bin ich.", "Frobenius ist meine Name und ich bin der Schmied hier.", "Meine Waffen bringen Verderben Ã¼ber die Feinde Cadomyrs."
+"Frobenius" -> "Das bin ich.", "Frobenius ist meine Name und ich bin der Schmied hier.", "Meine Waffen bringen Verderben über die Feinde Cadomyrs."
 "Yes" -> "What do you mean?", "What do you need?", "I have a good weapon for you."
-"Ja" -> "Was meint ihr?", "Was braucht ihr?", "Ich habe eine gute Waffe fÃ¼r euch."
+"Ja" -> "Was meint ihr?", "Was braucht ihr?", "Ich habe eine gute Waffe für euch."
 "No" -> "As you like.", "Per chance you want a helmet?", "My swords never go blunt."
 "Nein" -> "Wie ihr wollt.", "Vielleicht wollt ihr einen Helm?", "Meine Schwerter werden niemals stumpf."
 
@@ -175,13 +175,13 @@ english, "Frobenius" -> "That's me.", "Frobenius is my name and I am the local b
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me knallt einen Hammer auf ein glÃ¼hendes StÃ¼ck Metall.", "#me slams a hammer on a glowing piece of metal."
+cycletext "#me knallt einen Hammer auf ein glühendes Stück Metall.", "#me slams a hammer on a glowing piece of metal."
 cycletext "Was!", "What!"
-cycletext "HÃ¶rt auf zu glotzen, kauft, oder geht weiter!", "Stop looking, buy something or go away."
-cycletext "Scharfe Klingen, beste Helme fÃ¼r die Schlacht!", "Sharp blades, best helmets for battle!"
-cycletext "Meine Klingen sind zum TÃ¶ten da, nicht zum Holzschnitzen.", "My swords are made to kill, not to carve wood."
-cycletext "Hier gibt es die besten Waffen zum TÃ¶ten von Orks, Goblins und Galmairern!", "Best weapons for killing orcs, goblins and Galmairians!"
-cycletext "Ihr da! Eure Waffe ist der letzte Schrott. Ich hÃ¤tte da was im Angebot fÃ¼r euch.", "Hey you! Your weapon is scrap. I'd have something for you."
+cycletext "Hört auf zu glotzen, kauft, oder geht weiter!", "Stop looking, buy something or go away."
+cycletext "Scharfe Klingen, beste Helme für die Schlacht!", "Sharp blades, best helmets for battle!"
+cycletext "Meine Klingen sind zum Töten da, nicht zum Holzschnitzen.", "My swords are made to kill, not to carve wood."
+cycletext "Hier gibt es die besten Waffen zum Töten von Orks, Goblins und Galmairern!", "Best weapons for killing orcs, goblins and Galmairians!"
+cycletext "Ihr da! Eure Waffe ist der letzte Schrott. Ich hätte da was im Angebot für euch.", "Hey you! Your weapon is scrap. I'd have something for you."
 cycletext "#me poliert eine Schwertklinge.", "#me polishes the blade of a sword."
 cycletext "Jeden Tag eine gute Tat.", "An axe a day keeps the raptor away."
-cycletext "Heute ist ein guter Tag zum Sterben... fÃ¼r die Feinde der KÃ¶nigin!", "Today is a good day to die fighting the foes of the Queen."
+cycletext "Heute ist ein guter Tag zum Sterben... für die Feinde der Königin!", "Today is a good day to die fighting the foes of the Queen."

@@ -24,7 +24,7 @@ autointroduce = on
 
 author = "Miriam"
 
-lookatDE = "Dieser NPC ist Antonius Copperhand der flei√üige Goldschmied."
+lookatDE = "Dieser NPC ist Antonius Copperhand der fleiﬂige Goldschmied."
 lookatUS = "This NPC is Antonius Copperhand the hardworking goldsmith."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -51,7 +51,7 @@ itemShoes = 53
 
 sellItems = 122, 2140, 92, 393, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 1054, 84, 98, 85, 297, 389, 398, 124, 229, 192
 buySecondaryItems = 122, 2140, 92, 393, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 1054, 84, 98, 85, 123, 297, 389, 398, 444, 124, 229, 192, 296
-tradeNotEnoughMoneyMsg "Oh, ich f√ºrchte Ihr k√∂nnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeNotEnoughMoneyMsg "Oh, ich f¸rchte Ihr kˆnnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
@@ -72,31 +72,31 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5% Daggers: 297, 389, 398 (444)
 -- 5% Axes: 124, 229, 192 (296)
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "ver√§u√üer", "erwerb" -> "Ah, dann interessiert Ihr Euch also f√ºr meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+"kauf", "waren", "preis", "Handel", "ver‰uﬂer", "erwerb" -> "Ah, dann interessiert Ihr Euch also f¸r meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Antonius Copperhand the smith. Keywords: buy, sell, trade, job, your name.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Antonius Copperhand der Schmied. Schl√ºsselw√∂rter: kaufe, verkaufe, Handel, Beruf, dein Name.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Antonius Copperhand der Schmied. Schl¸sselwˆrter: kaufe, verkaufe, Handel, Beruf, dein Name.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted in Irmorom's name.", "Greetings.", "Good day."
-"Gr√º√ü", "Gru√ü", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Zum Gru√üe.", "Seid gegr√º√üt in Namen Irmoroms.", "Guten Tach."
+"Gr¸ﬂ", "Gruﬂ", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Zum Gruﬂe.", "Seid gegr¸ﬂt in Namen Irmoroms.", "Guten Tach."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Greetings.", "Good day."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Zum Gru√üe.", "Seid gegr√º√üt.", "Guten Tach."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Zum Gruﬂe.", "Seid gegr¸ﬂt.", "Guten Tach."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Goodbye.", "May Irmorom be with you."
-"Tsch√º√ü", "Tsch√ºss", "Wiedersehen", "Gehab wohl" -> "Auf bald.", "Bis bald.", "M√∂ge Irmorom √ºber Euch wachen."
+"Tsch¸ﬂ", "Tsch¸ss", "Wiedersehen", "Gehab wohl" -> "Auf bald.", "Bis bald.", "Mˆge Irmorom ¸ber Euch wachen."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Goodbye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf bald.", "Bis bald."
 "How are you", "How feel", "How do you do" -> "I'm fine, thanks... and how are ya?", "Good, good."
-"Wie geht", "Wie f√ºhlst", "Wie ist es ergangen", "Wie Befind" -> "Mir jeht ett wunderbar und wie jeht et Euch?", "Jut, jut."
+"Wie geht", "Wie f¸hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir jeht ett wunderbar und wie jeht et Euch?", "Jut, jut."
 "your name", "who are you", "who art thou" -> "Me? I'm the goldsmith of Galmair, the hard working Antonius."
-"dein name", "wer bist du", "wer seid ihr", "wie hei√üt" -> "Ick? Ick bin der Goldchmied von Galmair, der flei√üge Antonius."
+"dein name", "wer bist du", "wer seid ihr", "wie heiﬂt" -> "Ick? Ick bin der Goldchmied von Galmair, der fleiﬂge Antonius."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "At the moment I have nothing for ya to do. Sorry."
-"quest", "mission" -> "Zur Zeit gibbet f√ºr dich nix zu tun. T'schuldigung."
+"quest", "mission" -> "Zur Zeit gibbet f¸r dich nix zu tun. T'schuldigung."
 "task", "adventure" -> "At the moment I have nothing for ya to do. Sorry."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Zur Zeit gibbet f√ºr dich nix zu tun. T'schuldigung."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Zur Zeit gibbet f¸r dich nix zu tun. T'schuldigung."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a smith. Can't ya tell?"
@@ -112,7 +112,7 @@ english, "Gobaith", "Gobiath" -> "Never heard of that place..."
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me pfeift eine Melodie.", "#me whistles a melody."
-cycletext "#me wischt sich den Schwei√ü von der Stirn.", "#me wipes the sweat off his forehead."
+cycletext "#me wischt sich den Schweiﬂ von der Stirn.", "#me wipes the sweat off his forehead."
 cycletext "#me betrachtet zufrieden seine geschmiedeten Werke.", "#me looks at his smithed works with a content face."
-cycletext "#me h√§lt ein Amulett gegen das Licht, um es besser zu betrachten.", "#me holds an amulet up to the light to have a better look at it."
-cycletext "Schmiedewaren! Sch√∂ner Schmuck! Kaufste woanders, dann bereustes!", "Smithed goods! Fine Jewelry! Ya buy elsewhere, and ya will regret it!"
+cycletext "#me h‰lt ein Amulett gegen das Licht, um es besser zu betrachten.", "#me holds an amulet up to the light to have a better look at it."
+cycletext "Schmiedewaren! Schˆner Schmuck! Kaufste woanders, dann bereustes!", "Smithed goods! Fine Jewelry! Ya buy elsewhere, and ya will regret it!"
