@@ -76,6 +76,7 @@ function initDoors()
 	AddDoor({336, 195,-6}, 103,"Arena-Hog Dens","Arena-Schweinebaue", false); -- Scoria Mine
 	AddDoor({335, 238,-6}, 103,"Arena","Arena", false); -- Scoria Mine
 	AddDoor({334, 238,-6}, 103,"Arena","Arena", false); -- Scoria Mine
+	AddDoor({389, 225, 0}, 103,"Cameo Pit-Temple of Ronagan","Gemmenschacht-Tempel des Ronagan", false);
 
 	AddDoor({367, 255, 0}, 104,"Galmair's Crest","Galmairs Krone", false); -- Galmair's Crest
 	AddDoor({368, 255, 0}, 104,"Galmair's Crest","Galmairs Krone", false); -- Galmair's Crest
@@ -94,7 +95,7 @@ function initDoors()
 	AddDoor({408, 295, 0}, 104,"Sleepy Bujhaar Inn","Gasthaus zum Schlafenden Bujhaar", false); 
 	AddDoor({414, 298, 0}, 112,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
 	AddDoor({412, 293, 1}, 113,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
-	AddDoor({419, 296, 1}, 113,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn 
+	AddDoor({419, 296, 1}, 114,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn 
 	AddDoor({418, 301, 1}, 114,"Balcony","Balkon", false); -- Sleepy Bujhaar Inn
 	AddDoor({421, 290, 1}, 115,"Bedroom","Schlafraum", false); -- Sleepy Bujhaar Inn
 	AddDoor({404, 269, 1}, 104,"Census office","Zensusbüro", false);
@@ -102,6 +103,13 @@ function initDoors()
 	AddDoor({394, 247, 0}, 104,"Guardroom","Wachstube", false);
 	AddDoor({391, 241, 0}, 104,"Guardroom","Wachstube", false);
 	AddDoor({387, 246, 0}, 104,"Debt-collector","Schuldeneintreiber", false);
+
+	AddDoor({392, 159, 0}, 105,"Copperhand-Tunnel","Copperhand-Tunnel", false);
+	AddDoor({393, 159, 0}, 105,"Copperhand-Tunnel","Copperhand-Tunnel", false);
+
+
+
+
 	-- Galmair end
     
 	-- Runewick 2xx
