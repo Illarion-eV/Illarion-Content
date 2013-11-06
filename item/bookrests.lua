@@ -19,9 +19,9 @@ function LookAtItem(User,Item)
 	-- Salavesh end
 
 	-- Bookrest for Evilrock
-	if (Item.pos == position(974,172,0)) then
+--[[	if (Item.pos == position(975,172,0)) then
 		lookAt = EvilrockLookAt(User, Item)
-	end
+	end]]
 	-- ferries end	
 
 	-- Bookrest for ferry
@@ -65,7 +65,7 @@ function StaticTeleporterLookAt(User, Item)
 	lookAt.name = "Teleporter";
 	return lookAt
 end
-
+--[[
 function EvilrockLookAt(User, Item)
     
 	local lookAt = ItemLookAt();
@@ -79,7 +79,7 @@ function EvilrockLookAt(User, Item)
 		lookAt.description = "Where might it lead if you use it?"
 	end
 	return lookAt
-end
+end]]
 
 function SalaveshLookAt(User, Item)
     
@@ -104,12 +104,27 @@ function UseItem(User, SourceItem)
 	-- Salavesh end
 
 	-- Bookrest for the Evilrock!
-	if (SourceItem.pos == position(974,172,0)) then
-		local controlpannel = world:getPlayersInRangeOf(position(974,172,0), 8)
-		for i,player in ipairs(controlpannel) do
-			player:inform("Du hörst ein Klicken, aber nichts passiert.", "You hear a clicking but nothing happens.")
-			world:makeSound(9,player.pos)
+	if (SourceItem.pos == position(975,173,0)) then
+		local controlpannel = world:getPlayersInRangeOf(position(969,173,0), 8)
+		if User:getQuestProgress(667) >= 25 then
+			local AmountDarkColumnEvilrock = table.getn(content.vision.darkColumnEvilrock)	
+			for i=1,AmountDarkColumnEvilrock do
+				local DarkColumnEvilrockLightErase = world:getItemOnField(content.vision.darkColumnEvilrock[i])
+				if DarkColumnEvilrockLightErase.id == 467 then
+					world:erase(DarkColumnEvilrockLightErase,DarkColumnEvilrockLightErase.number)
+					world:gfx(45,content.vision.darkColumnEvilrockLight[i])
+				end
+			end
+			content.vision.beamMeDown(User, SourceItem)
+			return
+		else
+			for i,player in ipairs(controlpannel) do
+				player:inform("Du hörst ein Klicken, aber nichts passiert.", "You hear a clicking but nothing happens.")
+				
+			end
+			world:makeSound(22,position(975,173,0))
 		end
+
 	end
 	-- Evilrock end
 
