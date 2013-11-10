@@ -31,7 +31,7 @@ end
 
 function enemyNear(Monster,Enemy)
 
-	
+
     if init==nil then
         ini(Monster);
     end
@@ -39,7 +39,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     return false
 end
 
@@ -70,7 +70,7 @@ end
 
 function onCasted(Monster,Enemy)
 
-	
+
     if init==nil then
         ini(Monster);
     end
@@ -84,11 +84,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -124,7 +124,7 @@ if (MonID==331) then --Silvergolem, Level: 6, Armourtype: medium, Weapontype: pu
         if not done then done=monster.base.drop.AddDropItem(733,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --stone block
         if not done then done=monster.base.drop.AddDropItem(234,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --gold nugget
         if not done then done=monster.base.drop.AddDropItem(2534,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --merinium ore
-        if not done then done=monster.base.drop.AddDropItem(2552,10,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --pure earth
+        if not done then done=monster.base.drop.AddDropItem(2552,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --pure earth
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
