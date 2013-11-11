@@ -1591,7 +1591,7 @@ function LoadWeapons(CharStruct)
 
 	if rAttFound then
 		rWType=rAttWeapon.WeaponType;
-		if rWType==10 or rWType==11 or rWType==14 then -- Ammo or shield in right hand: switch r and l hand!
+		if rWType==10 or rWType==11 or rWType==12 or rWType==14 then -- Ammo or shield in right hand: switch r and l hand!
 			isRWp=0;
 		end
 --		debug("*** FOUND WP IN R!");
@@ -1601,7 +1601,7 @@ function LoadWeapons(CharStruct)
 
 	if lAttFound then
 		lWType=lAttWeapon.WeaponType;
-		if lWType==10 or lWType==11 or lWType==14 then -- Ammo or shield in right hand: switch r and l hand!
+		if lWType==10 or lWType==11 or lWType==12 or lWType==14 then -- Ammo or shield in right hand: switch r and l hand!
 			isLWp=0;
 		end
 --		debug("*** FOUND WP IN L!");
