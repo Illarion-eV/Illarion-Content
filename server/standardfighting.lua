@@ -70,24 +70,27 @@ function onAttack(Attacker, Defender)
 
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
+
     -- Load the weapons of the attacker
     LoadWeapons(Attacker);
-    -- Check the range between the both fighting characters
 
 	-- Find out the attack type and the required combat skill
 	GetAttackType(Attacker);
 
+	-- Check the range between the both fighting characters
     if not CheckRange(Attacker, Defender.Char) then return false; end;
 
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then
         return false;
     end;
+
     -- Check if ammunition is needed and use it
     if not HandleAmmunition(Attacker) then return false; end;
 
     -- Load Skills and Attributes of the attacking character
     LoadAttribsSkills(Attacker, true);
+
     -- Load weapon data, skills and attributes of the attacked character
     LoadWeapons(Defender);
     LoadAttribsSkills(Defender, false);
@@ -99,7 +102,7 @@ function onAttack(Attacker, Defender)
 	end;
 
     -- Calculate and reduce the required movepoints
-    APreduction=HandleMovepoints(Attacker, Globals);
+    local APreduction = HandleMovepoints(Attacker, Globals);
 
 	-- Turning the attacker to his victim
     base.common.TurnTo(Attacker.Char,Defender.Char.pos);
@@ -109,7 +112,7 @@ function onAttack(Attacker, Defender)
     if CoupDeGrace(Attacker, Defender) then return true; end;
 
     -- Calculate the chance to hit
-    if not HitChanceFlux(Attacker, Defender, Globals) then
+    if not HitChance(Attacker, Defender, Globals) then
         -- Place some ammo on the ground in case ammo was used
         DropAmmo(Attacker, Defender.Char, true);
         return;
@@ -610,7 +613,7 @@ end;
 -- @param Defender The character who attacks
 -- @param Defender The character who is attacked
 -- @return true if the attack is successful
-function HitChanceFlux(Attacker, Defender, Globals)
+function HitChance(Attacker, Defender, Globals)
 
 	local DirectionDifference = math.abs(Defender.Char:getFaceTo()-Attacker.Char:getFaceTo());
     local parryWeapon;
@@ -656,7 +659,7 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	end;
 
 	--Cannot parry without a weapon
-	if not Defender.LeftIsWeapon and not Defender.RightIsWeapon then
+	if not Defender.IsWeapon then
         canParry = false;
     end;
 
@@ -670,18 +673,18 @@ function HitChanceFlux(Attacker, Defender, Globals)
 	if canParry then
 
 		--Choose which weapon has the largest defense
-		if Defender.LeftIsWeapon then
-			parryItem = Defender.LeftWeaponItem;
-			parryWeapon = Defender.LeftWeapon;
+		if Defender.IsWeapon then
+			parryItem = Defender.WeaponItem;
+			parryWeapon = Defender.Weapon;
 		end;
 
-		if Defender.RightIsWeapon then
+		if Defender.SecIsWeapon then
 			if not parryWeapon then
-				parryItem = Defender.RightWeaponItem
-				parryWeapon = Defender.RightWeapon;
-			elseif (parryWeapon.Defence < Defender.RightWeapon.Defence) then
-				parryItem = Defender.RightWeaponItem
-				parryWeapon = Defender.RightWeapon;
+				parryItem = Defender.SecWeaponItem
+				parryWeapon = Defender.SecWeapon;
+			elseif (parryWeapon.Defence < Defender.SecWeapon.Defence) then
+				parryItem = Defender.SecWeaponItem
+				parryWeapon = Defender.SecWeapon;
 			end;
 		end;
 
@@ -1565,7 +1568,6 @@ function LoadAttribsSkills(CharStruct, Offensive)
         CharStruct["constitution"]
             = NotNil(CharStruct.Char:increaseAttrib("constitution", 0));
         CharStruct["parry"] = NotNil(CharStruct.Char:getSkill(Character.parry));
-        CharStruct["dodge"] = NotNil(CharStruct.Char:getSkill(Character.dodge));
 		CharStruct["agility"] = NotNil(CharStruct.Char:increaseAttrib("agility", 0));
     end;
     CharStruct["Race"] = CharStruct.Char:getRace();
@@ -1609,18 +1611,10 @@ function LoadWeapons(CharStruct)
 
 	if isRWp==0 and isLWp==1 then 	-- switch weapons
 --	debug("*** SWITCHING WEAPONS NOW!");
-		local dItem=rItem;
-		local dAttFound=rAttFound;
-		local dAttWeapon=rAttWeapon;
-		rItem=lItem;
-		rAttFound=lAttFound;
-		rAttWeapon=lAttWeapon;
-		lItem=dItem;
-		lAttFound=dAttFound;
-		lAttWeapon=dAttWeapon;
+		rItem,lItem = lItem,rItem;
+		rAttFound,lAttFound = lAttFound,rAttFound;
+		rAttWeapon,lAttWeapon = lAttWeapon,rAttWeapon;
 	end
-
-	-- 1: slash, 2:
 
     CharStruct["WeaponItem"] = rItem;
     CharStruct["IsWeapon"] = rAttFound;
@@ -1629,16 +1623,8 @@ function LoadWeapons(CharStruct)
     CharStruct["SecWeaponItem"] = lItem;
     CharStruct["SecIsWeapon"] = lAttFound;
     CharStruct["SecWeapon"] = lAttWeapon;
---    CharStruct.Char:talk(Character.say,"**** WPTYPE R: "..CharStruct.Weapon.WeaponType);
+--	CharStruct.Char:talk(Character.say,"**** WPTYPE R: "..CharStruct.Weapon.WeaponType);
 --	CharStruct.Char:talk(Character.say,"**** WPTYPE L: "..CharStruct.SecWeapon.WeaponType);
-	-- still  needed? :
-    CharStruct["LeftWeaponItem"] = lItem;
-    CharStruct["LeftIsWeapon"] = lAttFound;
-    CharStruct["LeftWeapon"] = lAttWeapon;
-
-    CharStruct["RightWeaponItem"] = rItem;
-    CharStruct["RightIsWeapon"] = rAttFound;
-    CharStruct["RightWeapon"] = rAttWeapon;
 
 end;
 
@@ -1701,19 +1687,19 @@ function PlayParrySound(Attacker, Defender)
         return true;
     end;
 
-    if not Defender.RightIsWeapon and not Defender.LeftIsWeapon then
+    if not Defender.IsWeapon then
         world:makeSound(32,Attacker.Char.pos);
         return true;
     end;
 
     local DefenderWeapon = 0;
-    if Defender.RightIsWeapon then
-        DefenderWeapon = Defender.RightWeapon.WeaponType;
+    if Defender.IsWeapon then
+        DefenderWeapon = Defender.Weapon.WeaponType;
     end;
 
-    if Defender.LeftIsWeapon then
+    if Defender.SecIsWeapon then
         DefenderWeapon = math.max(DefenderWeapon,
-            Defender.LeftWeapon.WeaponType);
+            Defender.SecWeapon.WeaponType);
     end;
     if (Sounds[DefenderWeapon] ~= nil) then
         if (Sounds[DefenderWeapon][Attacker.Weapon.WeaponType] ~= nil) then
