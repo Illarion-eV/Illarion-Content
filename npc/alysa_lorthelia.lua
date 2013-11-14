@@ -6,11 +6,11 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Regallo                                                          --
---                                                     easyNPC Parser v1.23.1 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
-INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue")
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
 VALUES (0, 907, 794, 1, 4, 'Alysa Lorthelia', 'npc.alysa_lorthelia', 1, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
@@ -53,7 +53,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Alysa Lorthelia der Bäcker. Schlüsselwörter: Handel, kaufe, verkaufe."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Alysa Lorthelia die Bäckerin. Schlüsselwörter: Handel, kaufe, verkaufe."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -269,7 +269,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Alysa Lorthelia, eine gewöhnlicher Bäckerin, oder?");
+talkEntry:addResponse("Alysa Lorthelia, eine gewöhnliche Bäckerin, oder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -322,20 +322,22 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Glass Spiegel");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("glass mirror");
 talkEntry:addTrigger("Ce");
 talkEntry:addResponse("I met Ce, the cook there. She's so talented. We're going to have a bake off soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Glass Spiegel");
+talkEntry:addTrigger("Glas Spiegel");
 talkEntry:addTrigger("Ce");
-talkEntry:addResponse("Ich traft Ce, die Köchin hier. sie ist so hübsch und talentiert. Wir machen bald einen Kochwettbewerb.");
+talkEntry:addResponse("Ich traf Ce, die Köchin hier. sie ist so hübsch und talentiert. Wir machen bald einen Kochwettbewerb.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("John Sights");
 talkEntry:addResponse("He's an old man. He's nice and he gave me this job. Though he does look at me a funny way sometimes.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -412,7 +414,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Wer?");
+talkEntry:addResponse("Wer? Ach.. richtig, der.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -455,7 +457,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Ich war da mehere Male mit meiner Mutte und meinem Vater. Es ist ein dreckiger Ort, und wenn das ein Zerg sagt, will das was heißen!");
+talkEntry:addResponse("Ich war da mehrere Male mit meiner Mutter und meinem Vater. Es ist ein dreckiger Ort, Waren wie die meinen würde man dort nie finden!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -495,7 +497,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Da ist es mir zu sonnig. Aber ich möchte den Besuch am Glass Spiegel.");
+talkEntry:addResponse("Da ist es mir zu sonnig. Aber ich mochte den Besuch in der Taverne.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -508,7 +510,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Mein Vater sagt nur dumme Leute kümmern sich um den Streit zwischen den Faktionen.");
+talkEntry:addResponse("Mein Vater sagt nur dumme Leute kümmern sich um den Streit zwischen den Fraktionen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -523,7 +525,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Mein Vater sagt nur dumme Leute kümmern sich um den Streit zwischen den Faktionen.");
+talkEntry:addResponse("Mein Vater sagt nur dumme Leute kümmern sich um den Streit zwischen den Fraktionen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -536,7 +538,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Mein Vater sagt nur dumme Leute kümmern sich um den Streit zwischen den Faktionen.");
+talkEntry:addResponse("Mein Vater sagt nur dumme Leute kümmern sich um den Streit zwischen den Fraktionen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -548,13 +550,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse(" die Götter strafrten mich mit diesem Körper. Der einzige Gott zu dem ich beten werde, ist der, der mir Schönheit gibt.");
+talkEntry:addResponse(" die Götter straften mich mit diesem Körper. Der einzige Gott zu dem ich beten werde, ist der, der mir Schönheit gibt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I wish I were a fairy");
+talkEntry:addResponse("I wish I was a fairy.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -569,20 +571,20 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Alysa ");
 talkEntry:addTrigger("Lorthelia");
-talkEntry:addResponse("That's me, Alysa Lorthelia");
+talkEntry:addResponse("That's me, Alysa Lorthelia.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Alysa");
 talkEntry:addTrigger("Lorthelia");
-talkEntry:addResponse("Fas bin ich, Alysa Lorthelia.");
+talkEntry:addResponse("Das bin ich, Alysa Lorthelia.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Okay");
+talkEntry:addResponse("Okay.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -698,7 +700,7 @@ tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "A tall, proud woman stands behind the counter, preparing food quickly.");
+mainNPC:setLookat("Eine große, edele Frau steht hinter der Theke und bereitet emsig Essen zu.", "A tall, proud woman stands behind the counter, preparing food quickly.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Hands off!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
@@ -721,4 +723,3 @@ function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
-
