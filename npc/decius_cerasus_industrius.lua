@@ -1925,7 +1925,7 @@ talkEntry:addCondition(npc.base.condition.item.item(137, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded theo toadstools. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded two toadstools. You advance in Archmage Elvaine Morgan's favour."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(137, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(159, 2, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(160, "=", 0));
