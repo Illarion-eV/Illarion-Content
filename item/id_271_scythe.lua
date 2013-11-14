@@ -32,7 +32,7 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-	
+
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
 		base.common.HighInformNLS( User,
 		"Du musst die Sense in der Hand haben!",
@@ -43,10 +43,10 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.FitForWork( User ) then -- check minimal food points
 		return
 	end
-	
+
 	-- first check front position for grain
 	local TargetItem = base.common.GetFrontItem(User);
-	if ( TargetItem ~= nil and TargetItem ~= 248 ) then
+	if ( TargetItem ~= nil and TargetItem.id ~= 248 ) then
 		TargetItem = nil; -- there is an item, but not fully grown grain
 	end
 	if ( TargetItem == nil ) then -- only check surroundings if no grain is at the front position
@@ -55,24 +55,24 @@ function UseItem(User, SourceItem, ltstate)
 		if ( TargetItem == nil ) then
 			-- since we're here, there is no fully grown grain
 			if ( foundYoungGrain ) then
-				base.common.HighInformNLS( User, 
-				"Das Getreide ist noch nicht reif für den Schnitt.", 
+				base.common.HighInformNLS( User,
+				"Das Getreide ist noch nicht reif für den Schnitt.",
 				"The grain is not ready for harvest yet." );
 			else
-				base.common.HighInformNLS( User, 
-				"Du brauchst Getriede um es mit der Sense zu schneiden.", 
+				base.common.HighInformNLS( User,
+				"Du brauchst Getriede um es mit der Sense zu schneiden.",
 				"You need grain for harvesting it with the scythe." );
 			end
 			return;
 		end
 	end
-	
+
 	-- since we're here, there is some fully grown grain
-	
+
 	if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
 		base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
 	end
-	
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		grainharvesting.SavedWorkTime[User.id] = grainharvesting:GenWorkTime(User,SourceItem);
 		User:startAction( grainharvesting.SavedWorkTime[User.id], 0, 0, 0, 0);
@@ -129,14 +129,14 @@ end
 function GetNearbyGrain(User)
 	local TargetItem = nil;
 	local foundYoungGrain = false; -- check if we only find not fully grown grain
-	for x=-1,1 do 
-		for y=-1,1 do 
+	for x=-1,1 do
+		for y=-1,1 do
 			local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
 			if ( world:isItemOnField(pos) ) then
 				TargetItem = world:getItemOnField(pos);
 				if ( TargetItem.id == 248 ) then
 					-- got it!
-					break;
+					return TargetItem, foundYoungGrain;
 				elseif ( TargetItem.id == 246 or TargetItem.id == 247 ) then
 					foundYoungGrain = true;
 				end
