@@ -20,6 +20,17 @@ cooking:addTool(2488) -- kettle
 --------------------------------------------------------------------------------------------
 local catId = cooking:addCategory("Soups", "Suppen") -- Suppenschüssel ( Suppen )
 
+---------------- CHICKEN SOUP - 1152 ----------------------
+product = cooking:addProduct(catId, 1152, 55, 75, 75, 150)
+product:addIngredient(2935) -- Step 1: Soup Bowl (2935) 1x
+product:addIngredient(52)
+product:addRemnant(51) -- Step 2: Bucket with water (52) 1x
+product:addIngredient(1151) -- Step 3: Chicken Meat (201) 1x
+product:addIngredient(2) -- Step 4: Flour(2) 1x
+product:addIngredient(2493) -- Step 5: Carrot(2493) 1x
+-- notyet: milk, carrot juice
+---------------------CHICKEN SOUP DONE--------------------
+
 ---------------- MULLIGAN - 2276 ----------------------
 product = cooking:addProduct(catId, 2276, 40, 60, 75, 150)
 product:addIngredient(2935) -- Step 1: Soup Bowl (2935) 1x
@@ -48,7 +59,7 @@ product:addIngredient(201, 5) -- Step 3: Onion (201) 5x
 
 ---------------- MUSHROOM SOUP - 2456 ----------------------
 local product = cooking:addProduct(catId, 2456, 7, 27, 21, 42)
-product:addIngredient(2935) -- Step 1: Soup Bowl (2935) 1x         
+product:addIngredient(2935) -- Step 1: Soup Bowl (2935) 1x
 product:addIngredient(52)
 product:addRemnant(51) -- Step 2: Bucket with water (52) 1x
 product:addIngredient(163, 5) -- Step 3: Champignon(163) 5x
@@ -59,6 +70,15 @@ product:addIngredient(163, 5) -- Step 3: Champignon(163) 5x
 
 --------------------------------------------------------------------------------------------
 catId = cooking:addCategory("Dishes", "Gerichte") -- Teller ( Tellergerichte )
+
+---------------- CHICKEN DISH - 1155 ----------------------
+product = cooking:addProduct(catId, 1155, 92, 100, 175, 350)
+product:addIngredient(2952) -- Step 1: Plate(2952) 1x
+product:addIngredient(1151, 2) -- Step 2: chicken Meat (1151) 2x
+product:addIngredient(290) -- Step 3: Cabbage (290) 1x
+product:addIngredient(2493) -- Step 4: Carrots(2493) 1x
+-- notyet: tangerine juice, rum
+-------------- FRIED EGGS - DONE ----------------
 
 ---------------- VENISON DISH - 554 ----------------------
 product = cooking:addProduct(catId, 554, 90, 100, 135, 270)
@@ -111,6 +131,12 @@ product:addIngredient(201) -- Step 3: Onion (201) 1x
 product:addIngredient(2493) -- Step 4: Carrots(2493) 1x
 -------------- MEAT DISH - DONE ----------------
 
+---------------- FRIED EGGS - 1154 ----------------------
+product = cooking:addProduct(catId, 1154, 45, 65, 60, 120)
+product:addIngredient(2952) -- Step 1: Plate(2952) 1x
+product:addIngredient(3051) -- Step 2: Sausage(3051) 1x
+product:addIngredient(1149, 2) -- Step 3: Brown Egg (1149) 2x
+-------------- FRIED EGGS - DONE ----------------
 
 ---------------- SALMON DISH - 556 ----------------------
 product = cooking:addProduct(catId, 556, 35, 55, 56, 112)

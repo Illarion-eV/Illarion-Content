@@ -73,4 +73,15 @@ product:addIngredient(2529, 2) -- Step 5: Honey(2529) 2x
 product:addIngredient(151, 10) -- Step 6-7: Strawberries(151) 5x
 product:addIngredient(52)
 product:addRemnant(51) -- Step 8: Bucket with water (52) 1x
--------------- STRAWBERRY CAKE - DONE ---------------- 
+-------------- STRAWBERRY CAKE - DONE ----------------
+
+---------------- CUSTARD PIE - 1153 ----------------------
+product = baking:addProduct(catId, 1153, 95, 100, 175, 350)
+product:addIngredient(2, 4) -- Step 1: Flour (2) 4x
+product:addIngredient(778, 2) -- Step 2: Sugar Cane (778) 2x
+product:addIngredient(1149, 5) -- Step 3: Brown Egg (1149) 5x
+product:addIngredient(765, 1) -- Step 4: Daydream (765) 1x
+product:addIngredient(52) -- Step 5: Bucket with water (52) 1x
+product:addRemnant(51) -- Remnant: Empty Bucket (51) 1x
+-- notyet: rum, milk, White Eggs (as alternative to brown eggs)
+-------------- CUSTARD PIE - DONE ----------------

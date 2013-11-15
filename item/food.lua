@@ -16,7 +16,8 @@ require("lte.diet")
 -- buff types, they have exactly two attributes
 BUFFS = {
   {"constitution", "strength"},
-  {"agility", "dexterity"}
+  {"agility", "dexterity"},
+  {"perception", "intelligence"}
 };
 
 -- this is updated while adding food items
@@ -110,6 +111,10 @@ FoodList:add( 555,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- rabbit dish
 FoodList:add( 354,	nil,	   0,	 2,	{1,1,2,1,0.5,0.5,1,2,1,1}); -- strawberry cake
 FoodList:add( 559,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- lamb dish
 FoodList:add( 554,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- venison dish
+FoodList:add(1152,	nil,	2935,	 2,	{1,1,1,1,0.5,1,1,1,1,1}); -- chicken soup
+FoodList:add(1153,	nil,	   0,	 2,	{1,1,2,1,0.5,0.5,1,2,1,1}); -- custard pie
+FoodList:add(1154,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- egg dish
+FoodList:add(1155,	nil,	2952,	 3,	{1,1,1,1,2,1,1,0.5,1,1}); -- chicken dish
 
 -- Poisoned Food
 FoodList:add( 162,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 600); -- birth mushroom
@@ -120,13 +125,13 @@ function UseItem(User, SourceItem, ltstate)
 	if (Init == nil) then
     Init = 1;
     -- import difficulties from crafts
-    for _,product in pairs(content.craft.baking.baking.products) do 
+    for _,product in pairs(content.craft.baking.baking.products) do
       if (FoodList[product.item] ~= nil) then
         FoodList[product.item].difficulty = product.difficulty;
         MAX_DIFFICULTY = math.max(MAX_DIFFICULTY, product.difficulty);
       end
     end
-    for _,product in pairs(content.craft.cooking.cooking.products) do 
+    for _,product in pairs(content.craft.cooking.cooking.products) do
       if (FoodList[product.item] ~= nil) then
         FoodList[product.item].difficulty = product.difficulty;
         MAX_DIFFICULTY = math.max(MAX_DIFFICULTY, product.difficulty);
@@ -134,7 +139,7 @@ function UseItem(User, SourceItem, ltstate)
     end
     -- now we know the max difficulty, so set the food value with linear distribution
     local diff = MAX_CRAFTED_FOODVALUE - MIN_CRAFTED_FOODVALUE;
-    for _,foodItem in pairs(FoodList) do 
+    for _,foodItem in pairs(FoodList) do
       if (type(foodItem) ~= "function") then
         if (foodItem.difficulty ~= nil) then
           foodItem.value = MIN_CRAFTED_FOODVALUE + diff*(foodItem.difficulty/MAX_DIFFICULTY);
@@ -151,8 +156,8 @@ function UseItem(User, SourceItem, ltstate)
 	if (cauldron ~= nil) and isPlant then
 	    alchemy.base.herbs.UseItem(User, SourceItem, ltstate)
 		return
-	end	
-	
+	end
+
 	-- item should not be static
 	if SourceItem.wear == 255 then
     base.common.HighInformNLS(User,
@@ -160,12 +165,12 @@ function UseItem(User, SourceItem, ltstate)
     "You can't eat that.");
 		return;
 	end
-  
+
   local foodItem = FoodList[ SourceItem.id ];
   -- known food item?
   if (foodItem == nil ) then
     User:inform("[ERROR] unknown food item. ID: " .. SourceItem.id .. ". Please inform a developer.");
-    return; 
+    return;
   end
 	-- define user's race (+1 for valid table index), non-playable races are set to 10
 	local race = math.min(User:getRace()+1, 10);
@@ -183,7 +188,7 @@ function UseItem(User, SourceItem, ltstate)
     "You cannot eat during a fight.");
     return;
   end
-  
+
   -- fortune cookies
   if (SourceItem.id == 453) then
     if (math.random(1,100)==1) then
@@ -193,7 +198,7 @@ function UseItem(User, SourceItem, ltstate)
       "You find a piece of paper inside the cookie: \""..enText.."\"");
     end
   end
-  
+
   -- consume food
   world:erase(SourceItem,1);
   local foodLevel = User:increaseAttrib("foodlevel",0);
@@ -206,7 +211,7 @@ function UseItem(User, SourceItem, ltstate)
   else                                                                -- other races
     foodVal = foodItem.value;
   end
-  
+
   -- create leftovers
   if( foodItem.leftover > 0 ) then
     if( math.random( 50 ) <= 1 ) then
@@ -215,7 +220,7 @@ function UseItem(User, SourceItem, ltstate)
       User:createItem( foodItem.leftover, 1, 333, nil);
     end
   end
-  
+
   -- check for poison
   local poison = foodItem.poison;
   if (poison ~= nil) then
@@ -226,9 +231,9 @@ function UseItem(User, SourceItem, ltstate)
     SetNewFoodLevel(User, foodLevel-foodVal);
     return;
   end
-  
+
   foodLevel = foodLevel + foodVal;
-  -- check if ate too much. Grant a buffer of half of the actual food value 
+  -- check if ate too much. Grant a buffer of half of the actual food value
   if (60000 + (0.5*foodVal) - foodLevel < 0) then
     base.common.HighInformNLS( User,
     "Du bekommst kaum noch was runter und dir wird schlecht.",
@@ -242,7 +247,7 @@ function UseItem(User, SourceItem, ltstate)
   end
   -- everything is okay, so fill the foodlevel
   SetNewFoodLevel(User, foodLevel);
-  
+
   -- inform the player about the food level
   if  (foodLevel > 55000) then
     base.common.InformNLS( User,
@@ -269,7 +274,7 @@ function UseItem(User, SourceItem, ltstate)
     "Dein Magen schmerzt noch immer vor Hunger.",
     "Your stomach still hurts because of your hunger.");
   end
-  
+
   -- check for buffs
   if (foodItem.buffType ~= nil) then
     -- calculate how long the buff will last, at least 5min, maximal 30min
@@ -277,7 +282,7 @@ function UseItem(User, SourceItem, ltstate)
     -- grant even easy craftable items a good chance by adding 5
     local raceDifficulty = (foodItem.difficulty+5)*foodItem.racialFactor[race];
     -- add 5 more minutes each in 5 more random experiments
-    for i=1,5 do 
+    for i=1,5 do
       if (math.random(1,105) <= raceDifficulty) then
         newDuration = newDuration + 300;
       end

@@ -49,8 +49,8 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 51, 121, 227, 2495, 49, 191, 303, 353, 353, 453, 454, 2, 5, 2529, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051, 1909
-buyPrimaryItems = 51, 227, 118, 121, 2495, 49, 191, 303, 353, 353, 453, 454, 2, 5, 2529, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051
+sellItems = 51, 121, 227, 2495, 49, 191, 1153, 354, 303, 353, 453, 454, 2, 5, 2529, 306, 1154, 1155, 554, 555, 556, 557, 559, 2276, 2277, 1152, 2278, 2456, 2459, 2922, 2923, 2940, 3051, 1909
+buyPrimaryItems = 51, 227, 118, 121, 2495, 49, 191, 1153, 354, 303, 353, 453, 454, 2, 5, 2529, 306, 1154, 1155, 554, 555, 556, 557, 559, 2276, 2277, 1152, 2278, 2456, 2459, 2922, 2923, 2940, 3051
 buySecondaryItems = 1909
 tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
 tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
@@ -81,10 +81,10 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Alysa wishes more than anything that should could be a fairy of legend because unlike dwarves like her Faries are pretty.
 
 -- 10% Tools (Cook/Baker): 51, 118, 121, 227, 2495
--- 10% Baked food: 49, 191, 303, 353, 354, 453, 454
+-- 10% Baked food: 49, 191, 1153, 354, 303, 353, 453, 454
 -- 10% Baker's resources: 2, 5, 2529
 -- 5% Beer: 1909
--- 10% Dishes: 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051
+-- 10% Dishes: 306, 1154, 1155, 554, 555, 556, 557, 559, 2276, 2277, 1152, 2278, 2456, 2459, 2922, 2923, 2940, 3051
 "kauf", "waren", "preis", "handel", "veräußer", "erwerb" -> "Lass uns handeln!", trade
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Let's trade!", trade
 

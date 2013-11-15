@@ -74,7 +74,7 @@ function onDeath(Monster)
 	if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -83,7 +83,7 @@ function onDeath(Monster)
 
         end
     end
-	
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
@@ -92,20 +92,20 @@ function onDeath(Monster)
 
         monster.base.drop.AddDropItem(63,1,50,333,0,1); --entrails
         monster.base.drop.AddDropItem(170,1,50,333,0,2); --wool
-        monster.base.drop.AddDropItem(2934,1,100,333,0,3); --lamb meat
+        monster.base.drop.AddDropItem(2934,math.random(1,2),50,333,0,3); --lamb meat
 
     elseif (MonID==371 or MonID==381 or MonID==382) then --cow
 
         monster.base.drop.AddDropItem(333,1,50,333,0,2); --horn
-        monster.base.drop.AddDropItem(2940,1,50,333,0,3); --steak
+        monster.base.drop.AddDropItem(2940,math.random(1,2),50,333,0,3); --steak
 		monster.base.drop.AddDropItem(69,1,100,333,0,1); --leather
-		
+
 	elseif (MonID==241 or MonID==251 or MonID==252 or MonID==253) then --pig
 
         monster.base.drop.AddDropItem(63,1,50,333,0,2); --entrails
-        monster.base.drop.AddDropItem(307,1,50,333,0,3); --pork
+        monster.base.drop.AddDropItem(307,math.random(1,2),50,333,0,3); --pork
         monster.base.drop.AddDropItem(69,1,100,333,0,1); --leather
-		
+
 	elseif (MonID==581 or MonID==582 or MonID==583 or MonID==584 or MonID==951 or MonID==961 or MonID==962 or MonID==971 or MonID==972) then --dog
 
         monster.base.drop.AddDropItem(63,1,50,333,0,1); --entrails
@@ -121,18 +121,20 @@ function onDeath(Monster)
 		monster.base.drop.AddDropItem(256,1,2,333,0,1); --raw emerald
 		monster.base.drop.AddDropItem(257,1,2,333,0,1); --raw topaz
         monster.base.drop.AddDropItem(1266,math.random(5,10),100,333,0,2); --stone
-		
+
 	elseif (MonID==601 or MonID==602 or MonID==603 or MonID==604 or MonID==1021 or MonID==1022) then --fox
 
         monster.base.drop.AddDropItem(63,1,50,333,0,1); --entrails
         monster.base.drop.AddDropItem(2586,1,100,333,0,2); --fur
-		
+
 	elseif (MonID==621 or MonID==622 or MonID==1061 or MonID==1071 or MonID==1081) then --chicken
 
-        monster.base.drop.AddDropItem(259,1,50,333,0,1); --grain
-        monster.base.drop.AddDropItem(63,1,100,333,0,2); --entrails
-		
-		
+        monster.base.drop.AddDropItem(63,1,100,333,0,1); --entrails
+        monster.base.drop.AddDropItem(1149,math.random(1,3),50,333,0,2); --brown egg
+		-- notyet:
+		-- monster.base.drop.AddDropItem(1150,math.random(1,3),50,333,0,2); --white egg
+		monster.base.drop.AddDropItem(1151,math.random(1,2),50,333,0,3); --chicken meat
+
     end
     monster.base.drop.Dropping(Monster);
 end
