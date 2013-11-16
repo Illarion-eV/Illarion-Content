@@ -76,6 +76,8 @@ FoodList:add( 302,	 VALUE_SMALL,	   0); -- cherry
 FoodList:add( 388,	 VALUE_MEDIUM,	   0); -- grapes
 FoodList:add( 759,	 VALUE_LARGE,	   0); -- nuts
 FoodList:add(2493,	 VALUE_LARGE,	   0); -- carrots
+FoodList:add(1149,	 VALUE_SMALL,	   0); -- brown egg
+FoodList:add(1150,	 VALUE_SMALL,	   0); -- white egg
 
 -- Racial Food
 FoodList:add(  73,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,true,false,true,true,true,true}); -- trout (lizard)
@@ -84,6 +86,7 @@ FoodList:add( 355,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,true,false
 FoodList:add( 552,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- deer meat (orc)
 FoodList:add( 553,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- rabbit meat (orc)
 FoodList:add(2934,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- lamb meat (orc)
+FoodList:add(1151,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- chicken meat (orc)
 
 -- Simple Food
 FoodList:add( 306,	 VALUE_XLARGE,	   0); -- ham
