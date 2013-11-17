@@ -28,7 +28,10 @@ product:addRemnant(51) -- Step 2: Bucket with water (52) 1x
 product:addIngredient(1151) -- Step 3: Chicken Meat (201) 1x
 product:addIngredient(2) -- Step 4: Flour(2) 1x
 product:addIngredient(2493) -- Step 5: Carrot(2493) 1x
--- notyet: milk, carrot juice
+product:addIngredient(2502) -- Step 6: Milk (2502) 1x
+product:addRemnant(2498) -- Remnant: Empty Bottle (2498) 1x
+product:addIngredient(788) -- Step 7: Carrot juice (788) 1x
+product:addRemnant(790) -- Remnant: Empty Juice Bottle (790) 1x
 ---------------------CHICKEN SOUP DONE--------------------
 
 ---------------- MULLIGAN - 2276 ----------------------
@@ -63,7 +66,7 @@ product:addIngredient(2935) -- Step 1: Soup Bowl (2935) 1x
 product:addIngredient(52)
 product:addRemnant(51) -- Step 2: Bucket with water (52) 1x
 product:addIngredient(163, 5) -- Step 3: Champignon(163) 5x
--------------- PILZSUPPE - DONE ----------------
+--------------  MUSHROOM SOUP - DONE ----------------
 
 
 
@@ -77,8 +80,11 @@ product:addIngredient(2952) -- Step 1: Plate(2952) 1x
 product:addIngredient(1151, 2) -- Step 2: chicken Meat (1151) 2x
 product:addIngredient(290) -- Step 3: Cabbage (290) 1x
 product:addIngredient(2493) -- Step 4: Carrots(2493) 1x
--- notyet: tangerine juice, rum
--------------- FRIED EGGS - DONE ----------------
+product:addIngredient(517) -- Step 5: Rum (517) 1x
+product:addRemnant(518) -- Remnant: Empty Rum Bottle (518) 1x
+product:addIngredient(784) -- Step 6: Tangerine juice (788) 1x
+product:addRemnant(790) -- Remnant: Empty Juice Bottle (790) 1x
+-------------- CHICKEN DISH - DONE ----------------
 
 ---------------- VENISON DISH - 554 ----------------------
 product = cooking:addProduct(catId, 554, 90, 100, 135, 270)
@@ -136,6 +142,7 @@ product = cooking:addProduct(catId, 1154, 45, 65, 60, 120)
 product:addIngredient(2952) -- Step 1: Plate(2952) 1x
 product:addIngredient(3051) -- Step 2: Sausage(3051) 1x
 product:addIngredient(1149, 2) -- Step 3: Brown Egg (1149) 2x
+-- notyet: White Eggs (as alternative to brown eggs)
 -------------- FRIED EGGS - DONE ----------------
 
 ---------------- SALMON DISH - 556 ----------------------
