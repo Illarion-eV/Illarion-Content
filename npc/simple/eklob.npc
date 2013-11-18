@@ -24,11 +24,11 @@ autointroduce = on
 author = "Baylamon"
 
 lookatDE = "Ein sichtlich gut genährter Bär mit dichtem braunen Fell."
-lookatUS = "A well feed bear with dense brown hair."
+lookatUS = "A well fed bear with dense brown hair."
 useMsgDE = "#me knurrt"
 useMsgUS = "#me growls"
 wrongLangDE = "#me schaut bettelnd."
-wrongLangUS = "#me looks as he is begging."
+wrongLangUS = "#me looks begging."
 radius = 2
 hairID = 3
 beardID = 4
@@ -79,78 +79,78 @@ itemShoes = 0
 -- runs down 1 per 5 minutes
 
 -- Help
-"Help" -> "[Game Help] This NPC is the bear of galmair. Keywords: quest, food, dinner, breakfast, lunch, Grijas Kokotte."
+"Help" -> "[Game Help] This NPC is the bear of Galmair. Keywords: quest, food, dinner, breakfast, lunch, Grijas Kokotte."
 "Hilfe" -> "[Spielhilfe] Dieser NPC ist der Bär von Galmair. Schlüsselwörter: Quest, Futter, Essen, Frühstück, Abendbrot, Grijas Kokotte."
 
 -- 1st quest
-queststatus(671) = 2, skill(cookingAndBaking) >= 20, item(15, all) > 4, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "#me eats the apples and buzz satisfied.", deleteItem(15, 5), queststatus(671) = 3, rankpoints + 5
+queststatus(671) = 2, skill(cookingAndBaking) >= 20, item(15, all) > 4, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "#me eats the apples and grumbles satisfied.", deleteItem(15, 5), queststatus(671) = 3, rankpoints + 5
 queststatus(671) = 2, skill(cookingAndBaking) >= 20, item(15, all) > 4, town = Galmair, ".+" -> inform("[Bären Quest  erfüllt!]"), "#me verputzt die Äpfel und brummt zufrieden.", deleteItem(15, 5), queststatus(671) = 3, rankpoints + 5
-queststatus(671) = 2, skill(cookingAndBaking) < 20, item(15, all) > 4, english, town = Galmair, ".+" -> inform("[Bear Quest finished!] You feel like you really learnt something."), "#me eats the apples and buzz satisfied.", skill(cookingAndBaking) + 2, deleteItem(15, 5), queststatus(671) = 3, rankpoints + 5
+queststatus(671) = 2, skill(cookingAndBaking) < 20, item(15, all) > 4, english, town = Galmair, ".+" -> inform("[Bear Quest finished!] You feel like you really learnt something."), "#me eats the apples and grumbles satisfied.", skill(cookingAndBaking) + 2, deleteItem(15, 5), queststatus(671) = 3, rankpoints + 5
 queststatus(671) = 2, skill(cookingAndBaking) < 20, item(15, all) > 4, town = Galmair, ".+" -> inform("[Bären Quest  erfüllt!] Du hast das Gefühl als hättest du etwas dazu gelernt."), "#me verputzt die Äpfel und brummt zufrieden.", skill(cookingAndBaking) + 2, deleteItem(15, 5), queststatus(671) = 3, rankpoints + 5
-queststatus(671) = 2, item(15, all) < 5, english, ".+" -> inform("[Bear Quest] You have to feed the bear with 5 apples."), "#me looks hungry."
+queststatus(671) = 2, item(15, all) < 5, english, ".+" -> inform("[Bear Quest] You have to feed the bear with five apples."), "#me looks hungry."
 queststatus(671) = 2, item(15, all) < 5, ".+" ->  inform("[Bären Quest ] Du sollst den Bären mit fünf Äpfeln füttern."), "#me schaut hungrig"
 
 -- 2nd quest
-queststatus(671) = 5, skill(cookingAndBaking) >= 40, item(2940, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "#me sniffs at the steak and gulp it at once.", deleteItem(2940, 1), queststatus(671) = 6, rankpoints + 5
+queststatus(671) = 5, skill(cookingAndBaking) >= 40, item(2940, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "#me sniffs at the steak and gulps it down at once.", deleteItem(2940, 1), queststatus(671) = 6, rankpoints + 5
 queststatus(671) = 5, skill(cookingAndBaking) >= 40, item(2940, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest  erfüllt!]"), "#me schnüffelt am Steak und verschlingt es mit einem Biss.", deleteItem(2940, 1), queststatus(671) = 6, rankpoints + 5
-queststatus(671) = 5, skill(cookingAndBaking) < 40, item(2940, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!] You feel like you really learnt something."), "#me sniffs the steak and gulp it at once.", skill(cookingAndBaking) + 2, deleteItem(2940, 1), queststatus(671) = 6, rankpoints + 5
+queststatus(671) = 5, skill(cookingAndBaking) < 40, item(2940, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!] You feel like you really learnt something."), "#me sniffs at the steak and gulps it down at once.", skill(cookingAndBaking) + 2, deleteItem(2940, 1), queststatus(671) = 6, rankpoints + 5
 queststatus(671) = 5, skill(cookingAndBaking) < 40, item(2940, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest  erfüllt!] Du hast das Gefühl als hättest du etwas dazu gelernt."), "#me schnüffelt am Steak und verschlingt es mit einem Biss.", skill(cookingAndBaking) + 2, deleteItem(2940, 1), queststatus(671) = 6, rankpoints + 5
 queststatus(671) = 5, item(2940, all) < 1, english, ".+" -> inform("[Bear Quest] You have to feed the bear with a steak."), "#me looks hungry."
 queststatus(671) = 5, item(2940, all) < 1, ".+" ->  inform("[Bären Quest ] Du sollst den Bären mit einem Steak füttern."), "#me schaut hungrig"
 
 -- 3rd quest
-queststatus(671) = 8, skill(cookingAndBaking) >= 60, item(49, all) > 0, item(3051, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "Me grabs the food with his claws and starts eating immediately.", deleteItem(49, 1), deleteItem(3051, 1), queststatus(671) = 9, rankpoints + 5
+queststatus(671) = 8, skill(cookingAndBaking) >= 60, item(49, all) > 0, item(3051, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "#me grabs the food with his claws and starts eating immediately.", deleteItem(49, 1), deleteItem(3051, 1), queststatus(671) = 9, rankpoints + 5
 queststatus(671) = 8, skill(cookingAndBaking) >= 60, item(49, all) > 0, item(3051, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest  erfüllt!]"), "#me reißt dir das Essen aus der Hand und verspeist es genüsslich.", deleteItem(49, 1), deleteItem(3051, 1), queststatus(671) = 9, rankpoints + 5
-queststatus(671) = 8, skill(cookingAndBaking) < 60, item(49, all) > 0, item(3051, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!] You feel like you really learnt something."), "Me grabs the food with his claws and starts eating immediately.", skill(cookingAndBaking) + 2, deleteItem(49, 1), deleteItem(3051, 1), queststatus(671) = 9, rankpoints + 5
+queststatus(671) = 8, skill(cookingAndBaking) < 60, item(49, all) > 0, item(3051, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!] You feel like you really learnt something."), "#me grabs the food with his claws and starts eating immediately.", skill(cookingAndBaking) + 2, deleteItem(49, 1), deleteItem(3051, 1), queststatus(671) = 9, rankpoints + 5
 queststatus(671) = 8, skill(cookingAndBaking) < 60, item(49, all) > 0, item(3051, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest  erfüllt!] Du hast das Gefühl als hättest du etwas dazu gelernt."), "#me reißt dir das Essen aus der Hand und verspeist es genüsslich.", skill(cookingAndBaking) + 2, deleteItem(49, 1), deleteItem(3051, 1), queststatus(671) = 9, rankpoints + 5
-queststatus(671) = 8, item(49, all) < 1, english, ".+" -> inform("[Bear Quest] You have to feed the bear with a bread and a saussage."), "#me sniffs hungry at a stone."
+queststatus(671) = 8, item(49, all) < 1, english, ".+" -> inform("[Bear Quest] You have to feed the bear with a loaf of bread and a sausage."), "#me sniffs hungrily at a stone."
 queststatus(671) = 8, item(49, all) < 1, ".+" ->  inform("[Bären Quest ] Du sollst den Bären mit einem Brot und einer Wurst füttern."), "#me schnüffelt hungrig an einem Stein."
-queststatus(671) = 8, item(3051, all) < 1, english, ".+" -> inform("[Bear Quest] You have to feed the bear a bread and a saussage."), "#me sniffs hungry at a stone."
+queststatus(671) = 8, item(3051, all) < 1, english, ".+" -> inform("[Bear Quest] You have to feed the bear with a loaf of bread and a sausage."), "#me sniffs hungrily at a stone."
 queststatus(671) = 8, item(3051, all) < 1, ".+" ->  inform("[Bären Quest ] Du sollst den Bären mit einem Brot und einer Wurst füttern."), "#me schnüffelt hungrig an einem Stein."
 
 -- 4th quest
-queststatus(671) = 11, skill(cookingAndBaking) >= 80, item(353, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "#me takes the cake carefully with his mouth and buzzes happy.", deleteItem(353, 1), queststatus(671) = 12, rankpoints + 5
+queststatus(671) = 11, skill(cookingAndBaking) >= 80, item(353, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "#me takes the pie carefully in his mouth and grumbles happily.", deleteItem(353, 1), queststatus(671) = 12, rankpoints + 5
 queststatus(671) = 11, skill(cookingAndBaking) >= 80, item(353, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest  erfüllt!]"), "#me nimmt den Kuchen vorsichtig in sein Maul und reibt zufrieden brummend seinen Kopf an der Wand.", deleteItem(353, 1), queststatus(671) = 12, rankpoints + 5
-queststatus(671) = 11, skill(cookingAndBaking) < 80, item(353, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!] You feel like you really learnt something."), "#me takes the cake carefully with his mouth and buzzes happy.", skill(cookingAndBaking) + 2, deleteItem(353, 1), queststatus(671) = 12, rankpoints + 5
+queststatus(671) = 11, skill(cookingAndBaking) < 80, item(353, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!] You feel like you really learnt something."), "#me takes the pie carefully in his mouth and grumbles happily.", skill(cookingAndBaking) + 2, deleteItem(353, 1), queststatus(671) = 12, rankpoints + 5
 queststatus(671) = 11, skill(cookingAndBaking) < 80, item(353, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest  erfüllt!] Du hast das Gefühl als hättest du etwas dazu gelernt."), "#me nimmt den Kuchen vorsichtig in sein Maul und reibt zufrieden brummend seinen Kopf an der Wand.", skill(cookingAndBaking) + 2, deleteItem(353, 1), queststatus(671) = 12, rankpoints + 5
-queststatus(671) = 11, item(353, all) < 1, english, ".+" -> inform("[Bear Quest] You have to feed the bear with an apple cake."), "#me sadly looks to an old apple in the mud."
+queststatus(671) = 11, item(353, all) < 1, english, ".+" -> inform("[Bear Quest] You have to feed the bear with an apple pie."), "#me looks sadly at an old apple in the mud."
 queststatus(671) = 11, item(353, all) < 1, ".+" ->  inform("[Bären Quest ] Du sollst den Bären mit einem Apfelkuchen füttern."), "#me schaut traurig einen alten Apfel im Schlamm an."
 
 -- repeated quest 12
-queststatus(673) > 0, queststatus(671) = 12, english, town = Galmair, ".+" -> "#me plays with some residuals of your food.", "#me sleeps. He seems satisfied and feed.", "#me guards some residuals of food."
+queststatus(673) > 0, queststatus(671) = 12, english, town = Galmair, ".+" -> "#me plays with some residual food.", "#me sleeps. He seems satisfied and well fed.", "#me guards some residual food."
 queststatus(673) > 0, queststatus(671) = 12, town = Galmair, ".+" -> "#me ist mit den Resten deines Futters beschäftigt.", "#me schläft satt und zufrieden." , "#me bewacht einige Futterreste."
-queststatus(673) = 0, queststatus(671) > 12, english, town = Galmair, ".+" -> "#me begs for other food.", "#me sniffs at your hand. He doesn't care about the food, you have with you.", "#me tries to find out what you have in your pocket."
+queststatus(673) = 0, queststatus(671) > 12, english, town = Galmair, ".+" -> "#me begs for some other food.", "#me sniffs at your hand. He doesn't care for the food you have with you.", "#me tries to find out what you have in your pocket."
 queststatus(673) = 0, queststatus(671) > 12, town = Galmair, ".+" -> "#me bettelt nach anderem Futter.", "#me schnüffelt an deiner Hand. Das Futter, das du mit hast, verschmäht er." , "#me interessiert sich für den Inhalt deiner Tasche."
-queststatus(673) < 9, queststatus(671) > 12, english, town = Galmair, ".+" -> inform("[Bear Quest] You are too late! Grijas Kokotte can explain you the reason."), "#me plays with some residuals of food. Maybe somebody else fed the bear.", "#me sleeps. He seems satisfied and fed.", "#me is not interested in your food."
+queststatus(673) < 9, queststatus(671) > 12, english, town = Galmair, ".+" -> inform("[Bear Quest] You are too late! Grijas Kokotte can explain the reason why to you."), "#me plays with some residual food. Maybe somebody else fed the bear?", "#me sleeps. He seems satisfied and well fed.", "#me is not interested in your food."
 queststatus(673) < 9, queststatus(671) > 12, town = Galmair, ".+" -> inform("[Bären Quest ] Du bist zu spät! Grijas Kokotte kann dir erklären warum."), "#me ist mit Futterresten beschäftigt. Irgendjemand anderes hat ihm bereits was gegeben.", "#me schläft satt und zufrieden." , "#me interessiert sich nicht für deine Gaben."
 -- repeated quest 13
-queststatus(673) > 8, queststatus(671) = 13, item(355, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest] Feeded!"), "#me takes the fish, throw it into the air and gulp it at once.", "#me brings the fish to a silent place and eats it.", "#me eats the fisch.", deleteItem(355, 1), queststatus(671) = 12
+queststatus(673) > 8, queststatus(671) = 13, item(355, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest] Feeding!"), "#me takes the fish, throws it into the air and gulps it down at once.", "#me takes the fish to a quiet place and eats it.", "#me eats the fish.", deleteItem(355, 1), queststatus(671) = 12
 queststatus(673) > 8, queststatus(671) = 13, item(355, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest ] Gefüttert!"), "#me nimmt den Fisch, wirft ihn in die Luft und verschlingt ihn.", "#me trägt den Fisch in eine stille Ecke und verspeist ihn." , "#me isst den Fisch.", deleteItem(355, 1), queststatus(671) = 12
 -- repeated quest 14
-queststatus(673) > 8, queststatus(671) = 14, item(453, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest] Feeded!"), "#me rolls the cookie like a ball with his paws until he eats it.", "#me bites the pastry. Some parts fall down.", "#me crumbles the cookie onto his nose and licks the crumbs with pleasure.", deleteItem(453, 1), queststatus(671) = 12
+queststatus(673) > 8, queststatus(671) = 14, item(453, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest] Feeding!"), "#me rolls the cookie like a ball with his paws until he eats it.", "#me bites the pastry. Some pieces fall down.", "#me crumbles the cookie onto his nose and licks the crumbs with pleasure.", deleteItem(453, 1), queststatus(671) = 12
 queststatus(673) > 8, queststatus(671) = 14, item(453, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest ] Gefüttert!"), "#me rollt den Keks wie einen Ball mit den Pfoten, bevor er ihn futtert.", "#me zerbeißt das Gebäck. Etwas fällt in den Schmutz." , "#me zerkrümelt den Keks auf seiner Schnauze und leckt genüsslich die Krümel auf.", deleteItem(453, 1), queststatus(671) = 12
 -- repeated quest 15
-queststatus(673) > 8, queststatus(671) = 15, item(2529, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest] Feeded!"), "#me press the honey comb in between his paws an licks the honey from his paws and fur with pleasure. Pleased he looks to you.", "#me pats after a wasp and the sweet food disapears in the water. He looks sad and licks the residual honey drops from his claws.", "#me licks the honey and buzz silently. Could it be the bear song?", deleteItem(2529, 1), queststatus(671) = 12
+queststatus(673) > 8, queststatus(671) = 15, item(2529, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest] Feeding!"), "#me presses the honeycomb between his claws and licks the honey from his paws and fur with pleasure. He looks to you pleased.", "#me swats at a wasp and the sweet food disappears into the water. He looks sad and licks the residual honey drops from his claws.", "#me licks the honey and grumbles quietly. Could it be the bear song?", deleteItem(2529, 1), queststatus(671) = 12
 queststatus(673) > 8, queststatus(671) = 15, item(2529, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest ] Gefüttert!"), "#me zerquetscht die Wabe zwischen seinen Pranken und leckt diese genüsslich ab. Dabei schaut er dich immer wieder dankbar an.", "#me haut nach einer Wespe, die sich gleichfalls für den Honig interessierte. Der Honig verschwindet im Wasser. Traurig leckt er die Reste von seinen Krallen." , "#me leckt den Honig leise vor sich hin brummend. Es hört sich an wie das Bärenlied.", deleteItem(2529, 1), queststatus(671) = 12
 -- repeated quest 16
-queststatus(673) > 8, queststatus(671) = 16, item(306, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest] Feeded!"), "#me takes the ham in his mouth like a cigarette. Slowly it disappears into the happy bear.", "#me hits the meat with a prank. It falls behind a large stone. He can't get it back.", "#me takes two bites to eat the ham.", deleteItem(306, 1), queststatus(671) = 12
+queststatus(673) > 8, queststatus(671) = 16, item(306, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest] Feeding!"), "#me takes the ham into his mouth like a cigar. Slowly it disappears into the happy bear.", "#me hits the meat with a paw, causing it to fall behind a large stone. He can't get it back.", "#me takes two bites to finish the ham.", deleteItem(306, 1), queststatus(671) = 12
 queststatus(673) > 8, queststatus(671) = 16, item(306, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest ] Gefüttert!"), "#me nimmt den Schinken wie eine Zigarre ins Maul. Ganz langsam verschwindet dieser in einem sichtlich zufriedenen Bären.", "#me schlägt mit der Pranke nach dem Fleisch, das hinter einem großen Stein verschwindet. Erfolglos versucht er an den Leckerbissen zu kommen." , "#me vertilgt das Leckerli mit zwei Bissen.", deleteItem(306, 1), queststatus(671) = 12
 -- repeated quest 17
-queststatus(673) > 8, queststatus(671) = 17, item(2493, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest] Feeded!"), "#me throw the carrot into the air. It land staight in his mouth.", "#me looks angry after a raven that disapears with his food.", "#me eats loud.", deleteItem(2493, 1), queststatus(671) = 12
+queststatus(673) > 8, queststatus(671) = 17, item(2493, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest] Feeding!"), "#me throws the carrot into the air. It lands straight in his mouth.", "#me looks angry after a raven disappears with his food.", "#me eats loudly.", deleteItem(2493, 1), queststatus(671) = 12
 queststatus(673) > 8, queststatus(671) = 17, item(2493, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest ] Gefüttert!"), "#me schlägt nach der Möhre. Die fliegt durch die Luft und landet direkt im Maul des Bären.", "#me schaut ärgerlich einem Raben hinterher, der mit dem Futter verschwindet." , "#me futtert mit lauten Bissen.", deleteItem(2493, 1), queststatus(671) = 12
 -- repeated quest 18
-queststatus(673) > 8, queststatus(671) = 18, item(52, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest] Feeded!"), "#me drinks someting before he wet his fur with the overmost water. Once he shakes himself drops fly in every direction.", "#me bowls down the bucket. The water drains away.", "#me drinks the water.", deleteItem(52, 1), queststatus(671) = 12
+queststatus(673) > 8, queststatus(671) = 18, item(52, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest] Feeding!"), "#me drinks something before he wets his fur with most of the water. Shaking himself, drops fly in every direction.", "#me bowls over the bucket and the water drains away.", "#me drinks the water.", deleteItem(52, 1), queststatus(671) = 12
 queststatus(673) > 8, queststatus(671) = 18, item(52, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest ] Gefüttert!"), "#me säuft etwas. Dann stülpt er sich den Eimer über den Kopf. Als er sich schüttelt, fliegen die Tropfen in alle Richtungen.", "#me schmeißt den Eimer um, das Wasser versickert." , "#me säuft den Eimer leer.", deleteItem(52, 1), queststatus(671) = 12
 -- repeated quest 19
-queststatus(673) > 8, queststatus(671) = 19, item(303, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest] Feeded!"), "#me stands to his hind legs and takes the cake into his paws. He lumbers around like a bear dance. It could be the beat of the Galmairian Victory March.", "#me let the cake fall down. But he eats it including the mud.", "#me eats the cherries only. He reserves the tray for later.", deleteItem(303, 1), queststatus(671) = 12
+queststatus(673) > 8, queststatus(671) = 19, item(303, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest] Feeding!"), "#me stands on his hind legs and takes the cake in his paws. He lumbers around in what seems like a bear dance. It could be the beat of the Galmairian Victory March.", "#me lets the cake fall to the ground but he continues to eat it anyway, including the mud.", "#me eats only the cherries, saving the rest of the cake for later.", deleteItem(303, 1), queststatus(671) = 12
 queststatus(673) > 8, queststatus(671) = 19, item(303, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest ] Gefüttert!"), "#me stellt sich auf die Hinterbeine und schnappt sich den Kuchen mit beiden Pfoten. Dann tapst er herum. Du meinst den Takt des Galmairer Triumphmarsches zu erkennen.", "#me lässt den Kuchen fallen und verspeist ihn einschließlich des Schlamms." , "#me frisst die Kirschen vom Kuchen runter. Den Boden hebt er sich für später auf.", deleteItem(303, 1), queststatus(671) = 12
 -- repeated quest 20
-queststatus(673) > 8, queststatus(671) = 20, english, town = Galmair, ".+" -> inform("[Bear Quest] Visited!"), "#me rolls himself in the water. Once he shakes himself, you got hit by some water drops.", "#me waves with one paw and rolls himself on the floor.", "#me lay his head on a warm stone and buzz satisfied.", queststatus(671) = 12
+queststatus(673) > 8, queststatus(671) = 20, english, town = Galmair, ".+" -> inform("[Bear Quest] Visited!"), "#me rolls himself in the water. As he shakes himself, you get hit by some of the water droplets.", "#me waves with one paw and rolls himself on the floor.", "#me lays his head on a warm stone and grumbles satisfied.", queststatus(671) = 12
 queststatus(673) > 8, queststatus(671) = 20, town = Galmair, ".+" -> inform("[Bären Quest ] Besucht!"), "#me legt sich auf den Rücken und wälzt sich zufrieden im Wasser. Als er sich schüttelt, bekommst du einige Tropfen ab.", "#me hebt die Pfote als ob er winkt und trollt sich mit einem Purzelbaum." , "#me legt den Kopf auf einen warmen Stein, blinzelt und brummt zufrieden.", queststatus(671) = 12
 
 -- Quest hints
-english, town = Galmair, "quest", "mission", "task", "adventure" -> "#me's compound shows a sign 'Please ask Grijas Kokotte for feeding the bear'.", "#me's compound is signed 'Bear of Galmair'.", "#me looks arround with a begging gaze. Then he looks into the direction of Grijas Kokotte."
-english, "quest", "mission", "task", "adventure" -> "#me's compound shows a sign 'Don't feed!'", "#me's compound is signed 'Bear of Galmair'.", "#me turns away."
+english, town = Galmair, "quest", "mission", "task", "adventure" -> "#me's compound shows a sign, 'Please ask Grijas Kokotte about feeding the bear'.", "#me's compound is signed, 'Bear of Galmair'.", "#me looks around with a begging gaze. Then he looks to the direction of Grijas Kokotte."
+english, "quest", "mission", "task", "adventure" -> "#me's compound shows a sign, 'Don't feed!'", "#me's compound is signed, 'Bear of Galmair'.", "#me turns away."
 german, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer" -> "#me's Gehege hat ein Schild 'Fütterung nur in Abstimmung mit Grijas Kokotte'.", "#me's Gehege hat ein Schild 'Bär von Galmair'", "#me schaut dich bettelnd an. Dann schweift sein Blick zu Grijas Kokotte."
 german, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer" -> "#me's Gehege hat ein Schild 'Bitte nicht Füttern'.", "#me's Gehege hat ein Schild 'Bär von Galmair'", "#me dreht sich weg."
 
@@ -161,15 +161,15 @@ german, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer" -> "#me's Gehege h
 "Grijas","Kokotte" -> "#me blickt in den Osten und leckt sich die Lippen"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-english, "archmage", "Elvaine", "Morgan", "Runewick" -> "#me doesn't interrupt.", "#me buzz.", "#me shakes himself."
+english, "archmage", "Elvaine", "Morgan", "Runewick" -> "#me doesn't interrupt.", "#me grumbles.", "#me shakes himself."
 "Erzmagier", "Elvaine", "Morgan", "Runewick" -> "#me macht ungerührt weiter.", "#me brummt.", "#me schüttelt sich."
 english, "Valerio", "Guilianni", "Don", "Galmair" -> "#me looks up.", "#me winks."
 "Valerio", "Guilianni", "Don", "Galmair" -> "#me schaut auf.", "#me zwinkert."
-english, "rosaline", "edwards", "Queen", "Cadomyr" -> "#me doesn't interrupt.", "#me buzz", "#me licks his nose."
+english, "rosaline", "edwards", "Queen", "Cadomyr" -> "#me doesn't interrupt.", "#me grumbles", "#me licks his nose."
 "Königin", "rosaline", "edwards", "Cadomyr" -> "#me macht ungerührt weiter.", "#me brummt", "#me leckt sich die Nase."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-chance(10.0), "god" -> "#me sniffs in the air", "#me cock his ears."
+chance(10.0), "god" -> "#me sniffs in the air", "#me cocks his ears."
 chance(10.0), "Gott", "Götter" -> "#me schnüffelt in der Luft", "#me stellt die Ohren auf."
 english, chance(10.0), "Bragon", "Brágon" -> "#me looks around alerted."
 chance(10.0), "Bragon", "Brágon" -> "#me schaut beunruhigt umher.", "#me faucht laut."
@@ -177,12 +177,12 @@ english, chance(10.0), "Irmorom" -> "#me looks around."
 chance(10.0), "Irmorom" -> "#me schaut sich um."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "#me turns his head away.", "#me scratches on the ground.", "#me fletches his teeth."
-english, town = Runewick, chance(20.0), ".*" -> "#me angrily growls.", "#sGrrr!"
-english, town = Cadomyr, chance(20.0), ".*" -> "#me angrily growls.", "#sGrrr!"
+english, chance(20.0), ".*" -> "#me turns his head away.", "#me scratches at the ground.", "#me bares his teeth."
+english, town = Runewick, chance(20.0), ".*" -> "#me growls angrily.", "#s Grrr!"
+english, town = Cadomyr, chance(20.0), ".*" -> "#me growls angrily.", "#s Grrr!"
 german, chance(20.0), ".*" -> "#me schaut weg.", "#me kratzt im Boden.", "#me zeigt seine Zähne."
-german, town = Runewick, chance(20.0), ".*" -> "#me knurrt verärgert.", "#sGrrr!"
-german, town = Cadomyr, chance(20.0), ".*" -> "#me knurrt verärgert.", "#sGrrr!"
+german, town = Runewick, chance(20.0), ".*" -> "#me knurrt verärgert.", "#s Grrr!"
+german, town = Cadomyr, chance(20.0), ".*" -> "#me knurrt verärgert.", "#s Grrr!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -192,10 +192,10 @@ german, town = Cadomyr, chance(20.0), ".*" -> "#me knurrt verärgert.", "#sGrrr!"
 cycletext "#me untersucht einen Stein.", "#me examines a stone."
 cycletext "#me kratzt sich am Hintern.", "#me scratches his buttocks."
 cycletext "#me trinkt aus einer Pfütze", "#me takes a sip out of a puddle."
-cycletext "#me brummt.", "#me buzz."
-cycletext "#me faucht leise.", "#me silently grumbles."
+cycletext "#me brummt.", "#me grumbles."
+cycletext "#me faucht leise.", "#me quietly grumbles."
 cycletext "#me folgt mit zusammengekniffenen Augen einem Vogel.", "#me's eyes follow the path of a bird."
 cycletext "#me gähnt, mächtige Reißzähne blitzen hervor.", "#me yawns, some mighty fangs are shown for a second."
-cycletext "#me rollt einen Stein mit seiner Pfote.", "#me rolls a stone with his pats."
+cycletext "#me rollt einen Stein mit seiner Pfote.", "#me rolls a stone with his paws."
 cycletext "#me schüttelt sich.", "#me shakes himself."
-cycletext "#me blickt mit zusammengekniffenen Augen in den Himmel und legt sich hin.", "#me glances to the sky with narrowed eyes ansd lays down himself."
+cycletext "#me blickt mit zusammengekniffenen Augen in den Himmel und legt sich hin.", "#me glances to the sky with narrowed eyes and lays down."

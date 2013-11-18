@@ -2,7 +2,7 @@
 -- NPC Name: Eklob                                                    Galmair --
 -- NPC Job:  stuff for skill                                                  --
 --                                                                            --
--- NPC Race: bear                       NPC Position:  275, 260, 0            --
+-- NPC Race: human                      NPC Position:  275, 260, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Baylamon                                                         --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (51, 275, 260, 0, 4, 'Eklob', 'npc.eklob', 0, 3, 4, 255, 113, 3, 245, 180, 137);
+VALUES (0, 275, 260, 0, 4, 'Eklob', 'npc.eklob', 0, 3, 4, 255, 113, 3, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -35,7 +35,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addResponse("[Game Help] This NPC is the bear of galmair. Keywords: quest, food, dinner, breakfast, lunch, Grijas Kokotte.");
+talkEntry:addResponse("[Game Help] This NPC is the bear of Galmair. Keywords: quest, food, dinner, breakfast, lunch, Grijas Kokotte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -56,7 +56,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest finishe
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("#me eats the apples and buzz satisfied.");
+talkEntry:addResponse("#me eats the apples and grumbles satisfied.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -86,7 +86,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.cookingAndBa
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("#me eats the apples and buzz satisfied.");
+talkEntry:addResponse("#me eats the apples and grumbles satisfied.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -110,7 +110,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] You have to feed the bear with 5 apples."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] You have to feed the bear with five apples."));
 talkEntry:addResponse("#me looks hungry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -135,7 +135,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest finishe
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2940, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("#me sniffs at the steak and gulp it at once.");
+talkEntry:addResponse("#me sniffs at the steak and gulps it down at once.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -165,7 +165,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.cookingAndBa
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2940, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("#me sniffs the steak and gulp it at once.");
+talkEntry:addResponse("#me sniffs at the steak and gulps it down at once.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -216,7 +216,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(49, 1, nil))
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3051, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 9));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Me grabs the food with his claws and starts eating immediately.");
+talkEntry:addResponse("#me grabs the food with his claws and starts eating immediately.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -250,7 +250,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(49, 1, nil))
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3051, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 9));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Me grabs the food with his claws and starts eating immediately.");
+talkEntry:addResponse("#me grabs the food with his claws and starts eating immediately.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -276,8 +276,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 8));
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] You have to feed the bear with a bread and a saussage."));
-talkEntry:addResponse("#me sniffs hungry at a stone.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] You have to feed the bear with a loaf of bread and a sausage."));
+talkEntry:addResponse("#me sniffs hungrily at a stone.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -295,8 +295,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 8));
 talkEntry:addCondition(npc.base.condition.item.item(3051, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] You have to feed the bear a bread and a saussage."));
-talkEntry:addResponse("#me sniffs hungry at a stone.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] You have to feed the bear with a loaf of bread and a sausage."));
+talkEntry:addResponse("#me sniffs hungrily at a stone.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -320,7 +320,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest finishe
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(353, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("#me takes the cake carefully with his mouth and buzzes happy.");
+talkEntry:addResponse("#me takes the pie carefully in his mouth and grumbles happily.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -350,7 +350,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.cookingAndBa
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(353, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("#me takes the cake carefully with his mouth and buzzes happy.");
+talkEntry:addResponse("#me takes the pie carefully in his mouth and grumbles happily.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -374,8 +374,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 11));
 talkEntry:addCondition(npc.base.condition.item.item(353, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] You have to feed the bear with an apple cake."));
-talkEntry:addResponse("#me sadly looks to an old apple in the mud.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] You have to feed the bear with an apple pie."));
+talkEntry:addResponse("#me looks sadly at an old apple in the mud.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -394,9 +394,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 12));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("#me plays with some residuals of your food.");
-talkEntry:addResponse("#me sleeps. He seems satisfied and feed.");
-talkEntry:addResponse("#me guards some residuals of food.");
+talkEntry:addResponse("#me plays with some residual food.");
+talkEntry:addResponse("#me sleeps. He seems satisfied and well fed.");
+talkEntry:addResponse("#me guards some residual food.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -417,8 +417,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, ">", 12));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("#me begs for other food.");
-talkEntry:addResponse("#me sniffs at your hand. He doesn't care about the food, you have with you.");
+talkEntry:addResponse("#me begs for some other food.");
+talkEntry:addResponse("#me sniffs at your hand. He doesn't care for the food you have with you.");
 talkEntry:addResponse("#me tries to find out what you have in your pocket.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -440,9 +440,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, ">", 12));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] You are too late! Grijas Kokotte can explain you the reason."));
-talkEntry:addResponse("#me plays with some residuals of food. Maybe somebody else fed the bear.");
-talkEntry:addResponse("#me sleeps. He seems satisfied and fed.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] You are too late! Grijas Kokotte can explain the reason why to you."));
+talkEntry:addResponse("#me plays with some residual food. Maybe somebody else fed the bear?");
+talkEntry:addResponse("#me sleeps. He seems satisfied and well fed.");
 talkEntry:addResponse("#me is not interested in your food.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -466,12 +466,12 @@ talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feeded!"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feeding!"));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 12));
-talkEntry:addResponse("#me takes the fish, throw it into the air and gulp it at once.");
-talkEntry:addResponse("#me brings the fish to a silent place and eats it.");
-talkEntry:addResponse("#me eats the fisch.");
+talkEntry:addResponse("#me takes the fish, throws it into the air and gulps it down at once.");
+talkEntry:addResponse("#me takes the fish to a quiet place and eats it.");
+talkEntry:addResponse("#me eats the fish.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -497,11 +497,11 @@ talkEntry:addCondition(npc.base.condition.item.item(453, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feeded!"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feeding!"));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(453, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 12));
 talkEntry:addResponse("#me rolls the cookie like a ball with his paws until he eats it.");
-talkEntry:addResponse("#me bites the pastry. Some parts fall down.");
+talkEntry:addResponse("#me bites the pastry. Some pieces fall down.");
 talkEntry:addResponse("#me crumbles the cookie onto his nose and licks the crumbs with pleasure.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -528,12 +528,12 @@ talkEntry:addCondition(npc.base.condition.item.item(2529, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feeded!"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feeding!"));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2529, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 12));
-talkEntry:addResponse("#me press the honey comb in between his paws an licks the honey from his paws and fur with pleasure. Pleased he looks to you.");
-talkEntry:addResponse("#me pats after a wasp and the sweet food disapears in the water. He looks sad and licks the residual honey drops from his claws.");
-talkEntry:addResponse("#me licks the honey and buzz silently. Could it be the bear song?");
+talkEntry:addResponse("#me presses the honeycomb between his claws and licks the honey from his paws and fur with pleasure. He looks to you pleased.");
+talkEntry:addResponse("#me swats at a wasp and the sweet food disappears into the water. He looks sad and licks the residual honey drops from his claws.");
+talkEntry:addResponse("#me licks the honey and grumbles quietly. Could it be the bear song?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -559,12 +559,12 @@ talkEntry:addCondition(npc.base.condition.item.item(306, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feeded!"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feeding!"));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(306, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 12));
-talkEntry:addResponse("#me takes the ham in his mouth like a cigarette. Slowly it disappears into the happy bear.");
-talkEntry:addResponse("#me hits the meat with a prank. It falls behind a large stone. He can't get it back.");
-talkEntry:addResponse("#me takes two bites to eat the ham.");
+talkEntry:addResponse("#me takes the ham into his mouth like a cigar. Slowly it disappears into the happy bear.");
+talkEntry:addResponse("#me hits the meat with a paw, causing it to fall behind a large stone. He can't get it back.");
+talkEntry:addResponse("#me takes two bites to finish the ham.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -590,12 +590,12 @@ talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feeded!"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feeding!"));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 12));
-talkEntry:addResponse("#me throw the carrot into the air. It land staight in his mouth.");
-talkEntry:addResponse("#me looks angry after a raven that disapears with his food.");
-talkEntry:addResponse("#me eats loud.");
+talkEntry:addResponse("#me throws the carrot into the air. It lands straight in his mouth.");
+talkEntry:addResponse("#me looks angry after a raven disappears with his food.");
+talkEntry:addResponse("#me eats loudly.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -621,11 +621,11 @@ talkEntry:addCondition(npc.base.condition.item.item(52, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feeded!"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feeding!"));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(52, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 12));
-talkEntry:addResponse("#me drinks someting before he wet his fur with the overmost water. Once he shakes himself drops fly in every direction.");
-talkEntry:addResponse("#me bowls down the bucket. The water drains away.");
+talkEntry:addResponse("#me drinks something before he wets his fur with most of the water. Shaking himself, drops fly in every direction.");
+talkEntry:addResponse("#me bowls over the bucket and the water drains away.");
 talkEntry:addResponse("#me drinks the water.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -652,12 +652,12 @@ talkEntry:addCondition(npc.base.condition.item.item(303, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feeded!"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feeding!"));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(303, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 12));
-talkEntry:addResponse("#me stands to his hind legs and takes the cake into his paws. He lumbers around like a bear dance. It could be the beat of the Galmairian Victory March.");
-talkEntry:addResponse("#me let the cake fall down. But he eats it including the mud.");
-talkEntry:addResponse("#me eats the cherries only. He reserves the tray for later.");
+talkEntry:addResponse("#me stands on his hind legs and takes the cake in his paws. He lumbers around in what seems like a bear dance. It could be the beat of the Galmairian Victory March.");
+talkEntry:addResponse("#me lets the cake fall to the ground but he continues to eat it anyway, including the mud.");
+talkEntry:addResponse("#me eats only the cherries, saving the rest of the cake for later.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -684,9 +684,9 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Visited!"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 12));
-talkEntry:addResponse("#me rolls himself in the water. Once he shakes himself, you got hit by some water drops.");
+talkEntry:addResponse("#me rolls himself in the water. As he shakes himself, you get hit by some of the water droplets.");
 talkEntry:addResponse("#me waves with one paw and rolls himself on the floor.");
-talkEntry:addResponse("#me lay his head on a warm stone and buzz satisfied.");
+talkEntry:addResponse("#me lays his head on a warm stone and grumbles satisfied.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -710,9 +710,9 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("#me's compound shows a sign 'Please ask Grijas Kokotte for feeding the bear'.");
-talkEntry:addResponse("#me's compound is signed 'Bear of Galmair'.");
-talkEntry:addResponse("#me looks arround with a begging gaze. Then he looks into the direction of Grijas Kokotte.");
+talkEntry:addResponse("#me's compound shows a sign, 'Please ask Grijas Kokotte about feeding the bear'.");
+talkEntry:addResponse("#me's compound is signed, 'Bear of Galmair'.");
+talkEntry:addResponse("#me looks around with a begging gaze. Then he looks to the direction of Grijas Kokotte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -722,8 +722,8 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("#me's compound shows a sign 'Don't feed!'");
-talkEntry:addResponse("#me's compound is signed 'Bear of Galmair'.");
+talkEntry:addResponse("#me's compound shows a sign, 'Don't feed!'");
+talkEntry:addResponse("#me's compound is signed, 'Bear of Galmair'.");
 talkEntry:addResponse("#me turns away.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -799,7 +799,7 @@ talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("#me doesn't interrupt.");
-talkEntry:addResponse("#me buzz.");
+talkEntry:addResponse("#me grumbles.");
 talkEntry:addResponse("#me shakes himself.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -843,7 +843,7 @@ talkEntry:addTrigger("edwards");
 talkEntry:addTrigger("Queen");
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("#me doesn't interrupt.");
-talkEntry:addResponse("#me buzz");
+talkEntry:addResponse("#me grumbles");
 talkEntry:addResponse("#me licks his nose.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -863,7 +863,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.chance.chance(10.0));
 talkEntry:addTrigger("god");
 talkEntry:addResponse("#me sniffs in the air");
-talkEntry:addResponse("#me cock his ears.");
+talkEntry:addResponse("#me cocks his ears.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -914,8 +914,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("#me turns his head away.");
-talkEntry:addResponse("#me scratches on the ground.");
-talkEntry:addResponse("#me fletches his teeth.");
+talkEntry:addResponse("#me scratches at the ground.");
+talkEntry:addResponse("#me bares his teeth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -924,8 +924,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("#me angrily growls.");
-talkEntry:addResponse("#sGrrr!");
+talkEntry:addResponse("#me growls angrily.");
+talkEntry:addResponse("#s Grrr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -934,8 +934,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("#me angrily growls.");
-talkEntry:addResponse("#sGrrr!");
+talkEntry:addResponse("#me growls angrily.");
+talkEntry:addResponse("#s Grrr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -955,7 +955,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("#me knurrt verärgert.");
-talkEntry:addResponse("#sGrrr!");
+talkEntry:addResponse("#s Grrr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -965,24 +965,24 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("#me knurrt verärgert.");
-talkEntry:addResponse("#sGrrr!");
+talkEntry:addResponse("#s Grrr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me untersucht einen Stein.", "#me examines a stone.");
 talkingNPC:addCycleText("#me kratzt sich am Hintern.", "#me scratches his buttocks.");
 talkingNPC:addCycleText("#me trinkt aus einer Pfütze", "#me takes a sip out of a puddle.");
-talkingNPC:addCycleText("#me brummt.", "#me buzz.");
-talkingNPC:addCycleText("#me faucht leise.", "#me silently grumbles.");
+talkingNPC:addCycleText("#me brummt.", "#me grumbles.");
+talkingNPC:addCycleText("#me faucht leise.", "#me quietly grumbles.");
 talkingNPC:addCycleText("#me folgt mit zusammengekniffenen Augen einem Vogel.", "#me's eyes follow the path of a bird.");
 talkingNPC:addCycleText("#me gähnt, mächtige Reißzähne blitzen hervor.", "#me yawns, some mighty fangs are shown for a second.");
-talkingNPC:addCycleText("#me rollt einen Stein mit seiner Pfote.", "#me rolls a stone with his pats.");
+talkingNPC:addCycleText("#me rollt einen Stein mit seiner Pfote.", "#me rolls a stone with his paws.");
 talkingNPC:addCycleText("#me schüttelt sich.", "#me shakes himself.");
-talkingNPC:addCycleText("#me blickt mit zusammengekniffenen Augen in den Himmel und legt sich hin.", "#me glances to the sky with narrowed eyes ansd lays down himself.");
+talkingNPC:addCycleText("#me blickt mit zusammengekniffenen Augen in den Himmel und legt sich hin.", "#me glances to the sky with narrowed eyes and lays down.");
 mainNPC:addLanguage(0);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein sichtlich gut genährter Bär mit dichtem braunen Fell.", "A well feed bear with dense brown hair.");
+mainNPC:setLookat("Ein sichtlich gut genährter Bär mit dichtem braunen Fell.", "A well fed bear with dense brown hair.");
 mainNPC:setUseMessage("#me knurrt", "#me growls");
-mainNPC:setConfusedMessage("#me schaut bettelnd.", "#me looks as he is begging.");
+mainNPC:setConfusedMessage("#me schaut bettelnd.", "#me looks begging.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 0);
 mainNPC:setEquipment(11, 0);
