@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Baylamon                                                         --
---                                                Illarion easyNPC Editor 1.02 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -186,8 +186,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 0));
 talkEntry:addTrigger("stop");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du hast noch kein Los gekauft. Du kannst dir ein Los mittels 'ein Los' oder fünf Lose mittels 'fünf Lose' kaufen. Anschließend bewirkst du die Ziehung mit jeglichen gesprochenen Wort oder Emote. 'Stop' wird jedoch nicht die Ziehung auslösen, sondern dir dein Geld wieder geben."));
 talkEntry:addResponse("Ich versteh nicht, warum wir aufhören sollen. Wir haben doch noch gar nicht angefangen?");
-talkEntry:addResponse("Wie sie wollen. Hören wir auf bevor wir angefangen haben. So was gefällt Nargun.");
-talkEntry:addResponse("Oh nein, kauft doch wenigstens ein Los für lumpige zehn Silberstücke der erste Preis sind 5 Goldstücke");
+talkEntry:addResponse("Wie ihr wollt. Hören wir auf bevor wir angefangen haben. So was gefällt Nargun.");
+talkEntry:addResponse("Oh nein, kauft doch wenigstens ein Los für lumpige zehn Silberstücke der erste Preis sind fünf Goldstücke.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -220,7 +220,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(2.0));
 talkEntry:addTrigger("los");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Lotte Silberstreif 1] Bring ihr einen Apfel, um an der Lotterie teilnehmen zu können."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 10));
-talkEntry:addResponse("Können sie mir bitte einen Apfel für meinen leeren Magen bringen?");
+talkEntry:addResponse("Könnt ihr mir bitte einen Apfel für meinen leeren Magen bringen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -231,7 +231,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(2.0));
 talkEntry:addTrigger("los");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Lotte Silberstreif 2] Bring ihr fünf Kirschen, um an der Lotterie teilnehmen zu können."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 20));
-talkEntry:addResponse("Hören sie das Knurren? Das ist kein Monster, das hinter der Ecke lauert, sondern mein Magen. Können sie mir bitte eine Handvoll Kirschen bringen?");
+talkEntry:addResponse("Hört ihr das Knurren? Das ist kein Monster, das hinter der Ecke lauert, sondern mein Magen. Könnt ihr mir bitte eine Handvoll Kirschen bringen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -295,7 +295,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 20));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("ticket");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Lotte Silberstreif 2] Bring her five cherries in order to participate in the lottery."));
-talkEntry:addResponse("I'm waitimg for some cherries, then the lottery will start again.");
+talkEntry:addResponse("I'm waiting for some cherries, then the lottery will start again.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -304,7 +304,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("los");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Lotte Silberstreif 1] Bring ihr einen Apfel, um an der Lotterie teilnehmen zu können."));
-talkEntry:addResponse("Wenn sie nicht so viel reden würden, könnten sie meinen Magen knurren hören. Der ist zu füllen, bevor ich hier weitermache.");
+talkEntry:addResponse("Wenn ihr nicht so viel reden würdet, könntet ihr meinen Magen knurren hören. Der ist zu füllen, bevor ich hier weitermache.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -349,8 +349,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 0));
 talkEntry:addTrigger("5 Los");
 talkEntry:addTrigger("fünf Los");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] Du hast nicht genug Geld bei dir."));
-talkEntry:addResponse("Haben sie ihr Geld nachgezählt? Entweder haben sie sich vertan oder man hat sie bestohlen.");
-talkEntry:addResponse("Fünf Lose, jedes zehn Silberstücke, sie brauchen also 50 Silberstücke. Aber ich bin mir sicher, sie haben genug in ihrer Kiste.");
+talkEntry:addResponse("Haben ihr euer Geld nachgezählt? Entweder habt ihr euch vertan oder man hat euch bestohlen.");
+talkEntry:addResponse("Fünf Lose, jedes zehn Silberstücke, ihr braucht also 50 Silberstücke. Aber ich bin mir sicher, ihr habt genug in eurer Kiste.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -361,9 +361,9 @@ talkEntry:addTrigger("fünf Los");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] Du hast jetzt fünf Lose. Sage 'Stop' um abzubrechen oder etwas Beliebiges um eine Kugel zu ziehen"));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 5000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 2));
-talkEntry:addResponse("Fünf Lose sind schon eine Menge. Greifen sie jetzt in die Vase, aber nehmen sie nur eine Kugel.");
-talkEntry:addResponse("50 Silberstücke warten darauf, mehr zu werden. Versuchen Sie ihr Glück und ziehen sie eine Kugel.");
-talkEntry:addResponse("Fünf Lose für einen Versuch. Ich werde zuschauen, wie sie ihr Glück machen.");
+talkEntry:addResponse("Fünf Lose sind schon eine Menge. Greift jetzt in die Vase, aber nehmt nur eine Kugel.");
+talkEntry:addResponse("50 Silberstücke warten darauf, mehr zu werden. Versucht euer Glück und zieht eine Kugel.");
+talkEntry:addResponse("Fünf Lose für einen Versuch. Ich werde zuschauen, wie ihr euer Glück macht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -399,8 +399,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 0));
 talkEntry:addTrigger("1 Los");
 talkEntry:addTrigger("ein Los");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] Du hast nicht genug Geld bei dir."));
-talkEntry:addResponse("Sie könnten heute und hier reich werden. Aber eine kleine Investition von zehn Silberstücken wird vorher erwartet.");
-talkEntry:addResponse("Ein Los kostet nur zehn Silberstücke. Aber die sollten sie bei sich und nicht nur unerreichbar in ihrer Kiste haben.");
+talkEntry:addResponse("Ihr könntet heute und hier reich werden, aber eine kleine Investition von zehn Silberstücken wird vorher erwartet.");
+talkEntry:addResponse("Ein Los kostet nur zehn Silberstücke. Aber die solltet ihr bei euch und nicht nur unerreichbar in eurer Kiste haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -411,9 +411,9 @@ talkEntry:addTrigger("ein Los");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] Du hast jetzt ein Los. Sage 'stop' um abzubrechen oder etwas beliebiges um eine Kugel zu ziehen"));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 1));
-talkEntry:addResponse("Greifen sie jetzt in die Vase und versuchen sie ihr Glück. Ich wünsche ihnen, dass sie die rote Kugel erwischen.");
-talkEntry:addResponse("Zehn Silberstücken wünschen Gesellschaft. Also sorgen sie dafür und ziehen sie eine Kugel.");
-talkEntry:addResponse("Ein Los - ein Versuch. Jetzt ist es an ihnen, die richtige Kugel zu ziehen.");
+talkEntry:addResponse("Greift jetzt in die Vase und versucht euer Glück. Ich wünsche euch, dass ihr die rote Kugel erwischt.");
+talkEntry:addResponse("Zehn Silberstücke wünschen Gesellschaft. Also sorgt dafür und zieht eine Kugel.");
+talkEntry:addResponse("Ein Los - ein Versuch. Jetzt ist es an euch, die richtige Kugel zu ziehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -434,7 +434,7 @@ talkEntry:addTrigger("stop");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du gibst das Los zurück. Kaufe ein neues Los, wenn du noch mal starten willst."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Sie wollen das Los wirklich zurückgeben? Nun, ich werde sie nicht bestehlen und ihnen die 10 Silbermünzen zurückgeben.");
+talkEntry:addResponse("Ihr wollt das Los wirklich zurückgeben? Nun, ich werde euch nicht bestehlen und eure zehn Silbermünzen zurückgeben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -459,9 +459,9 @@ talkEntry:addCondition(npc.base.condition.chance.chance(60.0));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du ziehst eine graue Kugel. Das ist eine Niete und dein Geld ist verloren."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Die graue Kugel gewinnt nichts. Vielleicht haben sie mehr Glück beim nächsten Los?");
+talkEntry:addResponse("Die graue Kugel gewinnt nichts. Vielleicht habt ihr mehr Glück beim nächsten Los?");
 talkEntry:addResponse("#me schaut die graue Kugel an und sagt 'Eine Niete, so ein Pech!'");
-talkEntry:addResponse("Oh ja, manchmal könnte man meinen es gibt nur graue Kugeln in der Vase. Ich versichere ihnen, das ist nicht so. Sie können das gerne mit einem weiteren Los nachprüfen.");
+talkEntry:addResponse("Oh ja, manchmal könnte man meinen es gibt nur graue Kugeln in der Vase. Ich versichere euch, das ist nicht so. Ihr könnt das gerne mit einem weiteren Los nachprüfen.");
 talkEntry:addResponse("#me nimmt die gezogene graue Kugel entgegen und wirft sie zurück in die Vase. 'Weil grau keine Farbe ist, gewinnen sie auch nichts.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -486,13 +486,13 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(75.0));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du ziehst eine weiße Kugel und bekommst 10 Silbermünzen zurück."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du ziehst eine weiße Kugel und bekommst zehn Silbermünzen zurück."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Sie haben zehn Silberstücke gewonnen! Wollen sie die nicht in ein weiteres Los investieren?");
-talkEntry:addResponse("#me schaut auf die gezogene Kugel. 'Bei Nargun, was machen sie denn? Das war eine weiße Kugel und sie gewinnen ihren Einsatz zurück'");
-talkEntry:addResponse("#me untersucht die weiße Kugel eine Weile. 'Kann es sein, dass wir die gleiche Kugel kürzlich erst hatten? Wie auch immer, ihr Geld haben sie zurückgewonnen.'");
-talkEntry:addResponse("#me wirft die weiße Kugel zurück in die Vase und reicht dir zehn Silbermünzen. 'Wollen sie nicht ein weiteres Los kaufen?'");
+talkEntry:addResponse("Ihr habt zehn Silberstücke gewonnen! Wollt ihr die nicht in ein weiteres Los investieren?");
+talkEntry:addResponse("#me schaut auf die gezogene Kugel. 'Bei Nargun, was macht ihr denn? Das war eine weiße Kugel und ihr gewinnt euren Einsatz zurück.'");
+talkEntry:addResponse("#me untersucht die weiße Kugel eine Weile. 'Kann es sein, dass wir die gleiche Kugel kürzlich erst hatten? Wie auch immer, euer Geld habt ihr zurückgewonnen.'");
+talkEntry:addResponse("#me wirft die weiße Kugel zurück in die Vase und reicht dir zehn Silbermünzen. 'Wollt ihr nicht ein weiteres Los kaufen?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -517,8 +517,8 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du ziehst eine gelbe Kugel und bekommst 20 Silbermünzen zurück."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Sie können sich glücklich schätzen denn sie haben 20 Silbermünzen gewonnen.");
-talkEntry:addResponse("#me jongliert kurz mit der gezogenen gelben Kugel, bevor diese wieder in der Vase verschwindet. '20 Silbermünzen haben sie gewonnen!'");
+talkEntry:addResponse("Ihr könnt euch glücklich schätzen denn ihr habt 20 Silbermünzen gewonnen.");
+talkEntry:addResponse("#me jongliert kurz mit der gezogenen gelben Kugel, bevor diese wieder in der Vase verschwindet. '20 Silbermünzen habt ihr gewonnen!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -543,8 +543,8 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du ziehst eine blaue Kugel und bekommst 50 Silbermünzen zurück."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Eine halbe Goldmünze bekommen sie für die blaue Kugel. Bitte, hier ist ihr Geld.");
-talkEntry:addResponse("#me nimmt die blaue Kugel und überreicht eine Menge Münzen. '50 Silbermünzen, sie müssen zugeben das sich dieses Los gelohnt hat!'");
+talkEntry:addResponse("Eine halbe Goldmünze bekommt ihr für die blaue Kugel. Bitte, hier ist euer Geld.");
+talkEntry:addResponse("#me nimmt die blaue Kugel und überreicht eine Menge Münzen. '50 Silbermünzen. Ihr müsst zugeben, dass sich dieses Los gelohnt hat!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -568,7 +568,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du ziehst eine grüne Kugel und bekommst zwei Goldmünzen zurück."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Es ist ja eine halbe Ewigkeit her, dass ich eine grüne Kugel gesehen habe. Ich danke ihnen und verrate ihnen auch, dass sie soeben den zweithöchsten Gewinn gezogen haben. Bitte, hier ist ihr Gold.");
+talkEntry:addResponse("Es ist ja eine halbe Ewigkeit her, dass ich eine grüne Kugel gesehen habe. Ich danke euch und verrate euch auch, dass ihr soeben den zweithöchsten Gewinn gezogen habt. Bitte, hier ist euer Gold.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -579,7 +579,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out the red ball and get five gold coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("#s First prize winner! First prize winner! The lottery of Galmair has a first prize winner!.");
+talkEntry:addResponse("#s First prize winner! First prize winner! The lottery of Galmair has a first prize winner!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -611,7 +611,7 @@ talkEntry:addTrigger("stop");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du gibst die Lose zurück. Kaufe ein neues Los, wenn du noch mal starten willst."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Schade, dass ihnen fünf Lose zu teuer sind? Nun, ich werde sie nicht bestehlen und ihnen das Geld zurückgeben.");
+talkEntry:addResponse("Schade, dass euch fünf Lose zu teuer sind? Nun, ich werde euch nicht bestehlen und euer Geld zurückgeben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -636,7 +636,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(60.0));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du ziehst eine graue Kugel. Das ist eine Niete und dein Geld ist verloren."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Die graue Kugel gewinnt nichts. Wenn sie etwas gewinnen wollen, sollten sie noch ein Los kaufen?");
+talkEntry:addResponse("Die graue Kugel gewinnt nichts. Wenn ihr etwas gewinnen wollt, solltet ihr noch ein Los kaufen.");
 talkEntry:addResponse("#me schaut traurig, als eine graue Kugel gezogen wird. 'Wie schade, eine Niete!'");
 talkEntry:addResponse("In der Vase sind eine Menge grauer Kugeln. Aber ihr könnt mit einem weiteren Los gerne nachprüfen, ob sich noch andere Kugeln finden lassen.");
 talkEntry:addResponse("#me nimmt die gezogene graue Kugel entgegen und legt sie zurück in die Vase. 'Eine graue Kugel gewinnt nichts.'");
@@ -666,10 +666,10 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du ziehst eine weiße Kugel und bekommst 50 Silbermünzen zurück."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Sie haben 50 Silber gewonnen! Warum kaufen sie nicht noch ein paar Lose?");
-talkEntry:addResponse("#me schaut auf die Kugel. 'Bei Nargun, was machen sie denn? Das war eine weiße Kugel und sie bekommen ihren Einsatz zurück'");
-talkEntry:addResponse("#me untersucht die weiße Kugel eine Weile. 'Unzweifelhaft eine weiße Kugel und sie haben ihr Geld zurückgewonnen.'");
-talkEntry:addResponse("#me legt die weiße Kugel zurück in die Vase und überreicht 50 Silbermünzen. 'Ich kann ihnen noch eine ganze Menge mehr Lose verkaufen.'");
+talkEntry:addResponse("Ihr habt 50 Silber gewonnen! Warum kauft ihr nicht noch ein paar Lose?");
+talkEntry:addResponse("#me schaut auf die Kugel. 'Bei Nargun, was macht ihr denn? Das war eine weiße Kugel und ihr bekommt euren Einsatz zurück.'");
+talkEntry:addResponse("#me untersucht die weiße Kugel eine Weile. 'Unzweifelhaft eine weiße Kugel und ihr habt euer Geld zurückgewonnen.'");
+talkEntry:addResponse("#me legt die weiße Kugel zurück in die Vase und überreicht 50 Silbermünzen. 'Ich kann euch noch eine ganze Menge mehr Lose verkaufen.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,8 +694,8 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du ziehst eine gelbe Kugel und bekommst eine Goldmünze zurück."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 10000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Sie können sich glücklich schätzen denn sie haben ein Goldstück gewonnen.");
-talkEntry:addResponse("#me streichelt die gezogene gelbe Kugel, bevor diese wieder in der Vase verschwindet. 'Ein ganzes Goldstück haben sie gewonnen!'");
+talkEntry:addResponse("Ihr könnt euch glücklich schätzen denn ihr habt ein Goldstück gewonnen.");
+talkEntry:addResponse("#me streichelt die gezogene gelbe Kugel, bevor diese wieder in der Vase verschwindet. 'Ein ganzes Goldstück habt ihr gewonnen!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -717,11 +717,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(76.9));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du ziehst eine blaue Kugel und bekommst 2,50 Goldmünzen zurück."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du ziehst eine blaue Kugel und bekommst zwei Goldmünzen und 50 Silber zurück."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 25000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Zwei einhalb Goldmünzen bekommen sie für die blaue Kugel. Bitte, hier ist ihr Geld.");
-talkEntry:addResponse("#me nimmt die blaue Kugel entgegen und übergibt eine Menge Münzen. 'Zwei Goldmünzen und 50 Silbermünzen, ein lohnendes Geschäft für sie!'");
+talkEntry:addResponse("Zwei Goldmünzen und 50 Silber bekommt ihr für die blaue Kugel. Bitte, hier ist euer Geld.");
+talkEntry:addResponse("#me nimmt die blaue Kugel entgegen und übergibt eine Menge Münzen. 'Zwei Goldmünzen und 50 Silbermünzen, ein lohnendes Geschäft für euch!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -745,7 +745,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie] Du ziehst eine grüne Kugel und bekommst zehn Goldmünzen zurück."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Im Wald ist grün nicht so selten wie hier. Ich verrate kein Geheimnis, wenn ich ihnen sage, dass sie soeben den zweithöchsten Gewinn gezogen haben. Bitte, hier ist ihr Gold.");
+talkEntry:addResponse("Im Wald ist grün nicht so selten wie hier. Ich verrate kein Geheimnis, wenn ich euch sage, dass ihr soeben den zweithöchsten Gewinn gezogen habt. Bitte, hier ist euer Gold.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -756,7 +756,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out the red ball and get twenty five gold coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 250000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("#s First prize winner! First prize winner! The lottery of Galmair has a first prize winner!.");
+talkEntry:addResponse("#s First prize winner! First prize winner! The lottery of Galmair has a first prize winner!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -836,7 +836,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("regel");
 talkEntry:addTrigger("ticket");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lotterie Information] Du kannst dir ein Los mittels 'ein Los' oder fünf Lose mittels 'fünf Lose' kaufen. Anschließend bewirkst du die Ziehung mit jeglichen gesprochenen Wort oder Emote. 'Stop' wird jedoch nicht die Ziehung auslösen, sondern dir dein Geld wieder geben."));
-talkEntry:addResponse("Ganz einfach. Ihr kaufst ein Los und holt dann eine Kugel von 250 aus der Vase hier. Es gibt graue, weiße, gelbe, grüne, blaue und rote Kugeln. Je nach Farbe kann man gewinnen. Die rote Kugel ist der Hauptgewinn. Ihr gewinnt fünf Goldstücke für ein Los, das nur zehn Silberstücke kostet. Ihr könnt sogar fünf Lose auf einmal ziehen und damit 25 Goldstücke gewinnen.");
+talkEntry:addResponse("Ganz einfach. Ihr kauft ein Los und holt dann eine Kugel von 250 aus der Vase hier. Es gibt graue, weiße, gelbe, grüne, blaue und rote Kugeln. Je nach Farbe kann man gewinnen. Die rote Kugel ist der Hauptgewinn. Ihr gewinnt fünf Goldstücke für ein Los, das nur zehn Silberstücke kostet. Ihr könnt sogar fünf Lose auf einmal ziehen und damit 25 Goldstücke gewinnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -861,7 +861,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gelb");
-talkEntry:addResponse("Für eine gelbe Kugel bekommt ihr das doppelte des Einsatzes zurück. Insgesamt sind zwölf davon in der Vase");
+talkEntry:addResponse("Für eine gelbe Kugel bekommt ihr das doppelte des Einsatzes zurück. Insgesamt sind zwölf davon in der Vase.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -889,7 +889,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tar");
 talkEntry:addTrigger("feather");
 talkEntry:addResponse("The lottery isn't illegal, but take care if you play with Xiao. It is said he has experience with tar and feathers.");
-talkEntry:addResponse("Getting tarred and feathered happens if you try to betray someone, but I propose you buy a lottery ticket, not to join a game");
+talkEntry:addResponse("Getting tarred and feathered happens if you try to betray someone, but I propose you buy a lottery ticket, not to join a game.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -953,8 +953,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("glück");
-talkEntry:addResponse("Nargun ist verantwortlich für dein Glück. Aber nur, wenn du ihn ehrst. Zum Beispiel mit einem Los.");
-talkEntry:addResponse("Mit etwas Glück kannst du den Umfang deiner Geldbörse vervielfachen.");
+talkEntry:addResponse("Nargun ist verantwortlich für euer Glück. Aber nur, wenn ihr ihn ehrt. Zum Beispiel mit einem Los.");
+talkEntry:addResponse("Mit etwas Glück könnt ihr den Umfang eurer Geldbörse vervielfachen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1001,14 +1001,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Der Don verliert nur ungern. Er wird sicher kein Los kaufen. Aber er hat nichts dagegen, wenn Sie eines kaufen.");
+talkEntry:addResponse("Der Don verliert nur ungern. Er wird sicher kein Los kaufen. Aber er hat nichts dagegen, wenn Ihr eines kauft.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("We are in Galmair and this is the Galmairian lottery");
+talkEntry:addResponse("We are in Galmair and this is the Galmairian lottery.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1044,7 +1044,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr ist im Südwesten zu finden. Wenn du Sand willst, geh dahin. Es gibt mehr als genug Sand in der Wüste.");
+talkEntry:addResponse("Cadomyr ist im Südwesten zu finden. Wenn ihr Sand wollt, dann geht dahin. Es gibt mehr als genug Sand in der Wüste.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1060,7 +1060,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("nargun");
 talkEntry:addResponse("Nein, genau gesehen ist eine Lotterie kein Spiel. Aber es ist sicher nicht verkehrt, dass man Nargun lobt, wenn man gewinnen will.");
-talkEntry:addResponse("Überall Chaos. Das will keiner und so sollte man ihn nicht zu stark werden lassen");
+talkEntry:addResponse("Überall Chaos. Das will keiner und so sollte man ihn nicht zu stark werden lassen.");
 talkEntry:addResponse("Wer seine Kiste aufräumt, lässt nur zu, dass Nargun Chaos erzeugen kann. Was soll er denn machen, wenn in euren Sachen bereits das Chaos regiert?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1091,7 +1091,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("oldra");
 talkEntry:addResponse("Wegen Oldra hatten wir letztes Jahr eine reiche Ernte.");
 talkEntry:addResponse("Einen Altar, der Oldra geweiht ist, findet ihr in Yewdale. Das ist das Dorf im Schatten der vier Türme von Runewick.");
-talkEntry:addResponse("Ob sie mir glauben oder nicht, vorletztes Jahr habe ich Oldra die besten Tomaten geopfert. Und letztes Jahr konnte ich unglaublich viel ernten. Was sagen sie nun?");
+talkEntry:addResponse("Ob ihr mir glaubt oder nicht, vorletztes Jahr habe ich Oldra die besten Tomaten geopfert. Und letztes Jahr konnte ich unglaublich viel ernten. Was sagt ihr nun?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1104,7 +1104,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Wenn sie etwas über die Götter wissen möchten, dann suchen sie einen Priester oder fragen sie jemanden in den Städten.");
+talkEntry:addResponse("Wenn ihr etwas über die Götter wissen möchtet, dann sucht einen Priester oder fragt jemanden in den Städten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1159,7 +1159,7 @@ talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
 talkEntry:addResponse("Ich verlaufe Lose! Auch wenn hier sonst nichts los ist, Lose bekommt ihr bei mir.");
-talkEntry:addResponse("Dies ist eine Lotterie. Und sie dürfen dreimal raten, was man hier kaufen kann!");
+talkEntry:addResponse("Dies ist eine Lotterie. Und ihr dürft dreimal raten, was man hier kaufen kann!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1184,7 +1184,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Silberstreif");
-talkEntry:addResponse("Ja, das ist mein Name. Aber warum wollen sie kein Los haben?");
+talkEntry:addResponse("Ja, das ist mein Name. Aber warum wollt ihr kein Los haben?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1201,7 +1201,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Was sie nicht sagen!");
+talkEntry:addResponse("Was ihr nicht sagt!");
 talkEntry:addResponse("Das Glück ist auf Eurer Seite. Mit einem Los könntet ihr die glücklichste Person in Illarion werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
