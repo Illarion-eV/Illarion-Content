@@ -19,11 +19,11 @@ Description[ENGLISH] = {}
 Description[GERMAN][1] = "Du hast ein Los gekauft. Sprich mit Lotte Silberstreif um dein Los zu ziehen."
 Description[ENGLISH][1] = "You bought one lot. Talk to Lotte Silberstreif to use your lot."
 Description[GERMAN][2] = "Du hast 5 Lose gekauft. Sprich mit Lotte Silberstreif um deine Lose zu ziehen."
-Description[ENGLISH][2] = "You bought 5 lots. Talk to Lotte Silberstreif to use your lots."
+Description[ENGLISH][2] = "You bought five lots. Talk to Lotte Silberstreif to use your lots."
 Description[GERMAN][10] = "Bring Lotte Silberstreif einen Apfel."
 Description[ENGLISH][10] = "Bring one apple to Lotte Silberstreif."
 Description[GERMAN][20] = "Bring Lotte Silberstreif 5 Kirschen."
-Description[ENGLISH][20] = "Bring 5 cherries to Lotte Silberstreif."
+Description[ENGLISH][20] = "Bring five cherries to Lotte Silberstreif."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
