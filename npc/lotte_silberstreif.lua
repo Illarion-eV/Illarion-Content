@@ -108,7 +108,7 @@ talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Take care and come back.");
-talkEntry:addResponse("Oldra with you!");
+talkEntry:addResponse("Oldra be with you!");
 talkEntry:addResponse("Until next time!");
 talkEntry:addResponse("You really don't want to leave yet.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -174,10 +174,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("stop");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You have to buy a lottery ticket first. You can puy one ticket via 'one ticket' or five ticktes via 'five tickets'. After you received your ticket, you trigger the draw with any spoken word or emote. 'Stop', however, will not trigger the draw but return the money to you."));
-talkEntry:addResponse("What at Nargun we should stop? You do not have a ticket at the moment.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You have to buy a lottery ticket first. You can buy one ticket by saying 'one ticket', or five tickets by saying 'five tickets'. After you have received your ticket, you trigger the draw with any spoken word or emote. 'Stop', however, will not trigger the draw but returns your money to you."));
+talkEntry:addResponse("What at Nargun should we should stop? You do not have a ticket at the moment.");
 talkEntry:addResponse("As you demand, let's stop before we start. That's Nargun like.");
-talkEntry:addResponse("Come on, a lottery ticket costs ten silver and the first price in our lottery are 5 Gold.");
+talkEntry:addResponse("Come on, a lottery ticket costs ten silver and the first prize in our lottery is five gold.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -198,7 +198,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(2.0));
 talkEntry:addTrigger("ticket");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Lotte Silberstreif 1] Bring her an apple in order to participate in the lottery."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 10));
-talkEntry:addResponse("My stomache feels really empty but I have to watch the lottery. Could you please bring me an apple?");
+talkEntry:addResponse("My stomach feels really empty but I have to watch the lottery. Could you please bring me an apple?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -209,7 +209,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(2.0));
 talkEntry:addTrigger("ticket");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Lotte Silberstreif 2] Bring her five cherries in order to participate in the lottery."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 20));
-talkEntry:addResponse("Did you hear the snarling? That's not a monster, my stomach calls for some cherries. Could you please bring me a hand full?");
+talkEntry:addResponse("Did you hear that growling? That's not a monster, my stomach calls for some cherries. Could you please bring me a handful?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -243,7 +243,7 @@ talkEntry:addTrigger(".");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Lotte Silberstreif 1] Quest solved."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Oh thank you, that's the best medicin. An apple a day keeps the doctor away!");
+talkEntry:addResponse("Oh thank you, that's the best medicine. An apple a day keeps the doctor away!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,7 +266,7 @@ talkEntry:addTrigger(".");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Lotte Silberstreif 2] Quest solved."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(302, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Cherry cherry I'm a lady and not hungry anymore!");
+talkEntry:addResponse("Cherry cherry, I'm a lady and not hungry anymore!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -286,7 +286,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("ticket");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Lotte Silberstreif 1] Bring her an apple in order to participate in the lottery."));
-talkEntry:addResponse("Listen! What you hear is the sound of my stomache. I can't sell tickets untill it hasn't filled.");
+talkEntry:addResponse("Listen! What you hear is the sound of my stomach. I can't sell tickets until it has been filled.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -295,7 +295,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 20));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("ticket");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Lotte Silberstreif 2] Bring her five cherries in order to participate in the lottery."));
-talkEntry:addResponse("I'm waitimg for some cherries. Then the lottery will start again.");
+talkEntry:addResponse("I'm waitimg for some cherries, then the lottery will start again.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -324,8 +324,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("5 ticket");
 talkEntry:addTrigger("five ticket");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You don't have sufficent money with you."));
-talkEntry:addResponse("Did you count your money yet. This arn't 50 silver!");
-talkEntry:addResponse("Five tickets, each ten silver makes 50 silver in total. I'm sure in your chest is enough to fill up your purse.");
+talkEntry:addResponse("Did you count your money? That isn't fifty silver!");
+talkEntry:addResponse("Five tickets, each ten silver... makes fifty silver in total. I'm sure there is enough in your chest to fill up your purse.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -334,12 +334,12 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("5 ticket");
 talkEntry:addTrigger("five ticket");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You own five tickets. Say 'stop' to break or anything else to pull a ball"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You own five tickets. Say 'stop' to break or anything else to pull out a ball"));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 5000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 2));
-talkEntry:addResponse("Five tickets, this is a ticket. Now you can grab into the vase. But take a single ball only.");
-talkEntry:addResponse("50 silver in lottery now. Try your luck and let's see if it will be the red ball.");
-talkEntry:addResponse("Five tickets for one chance. I'll watch you selecting the ball.");
+talkEntry:addResponse("Five tickets, that's a ticket. Now you can grab into the vase, but only take a single ball.");
+talkEntry:addResponse("Fifty silver in the lottery now. Try your luck and let's see if it will be the red ball.");
+talkEntry:addResponse("Five tickets for one big chance. I'll watch you selecting the ball.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -374,8 +374,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("1 ticket");
 talkEntry:addTrigger("one ticket");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You don't have sufficent money with you."));
-talkEntry:addResponse("You can get rich with the lottery but a little invest of ten silver is need.");
-talkEntry:addResponse("1 ticket cost ten silver. And you should have it with you and not in your depot.");
+talkEntry:addResponse("You can get rich with the lottery but a little investment of ten silver is needed.");
+talkEntry:addResponse("One ticket costs ten silver, and you should have it with you and not in your depot.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -384,12 +384,12 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("1 ticket");
 talkEntry:addTrigger("one ticket");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You own one ticket. Say 'stop' to break or anything else to pull a ball"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You own one ticket. Say 'stop' to break or anything else to pull out a ball"));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 1));
 talkEntry:addResponse("Now you can grab into the vase and try your luck. I wish you the red ball.");
-talkEntry:addResponse("Ten silver are paid. Now you can get rich, if you get the right ball out of the vase.");
-talkEntry:addResponse("One ticket - one chance. Now it's on yourself. Get the right ball now!");
+talkEntry:addResponse("Ten silver's been paid. Now you can get rich, if you get the right ball out of the vase.");
+talkEntry:addResponse("One ticket for one chance. Now it's on you. Get the right ball now!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -421,10 +421,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("stop");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You return the ticket. To restart buy another ticket."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You return the ticket. To restart, buy another ticket."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Did you really want to give me your ticket back? Well, I'm not a robber and will return the 10 silver coins.");
+talkEntry:addResponse("Did you really want to give me your ticket back? Well, I'm not a robber and will return your ten silver coins.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -445,10 +445,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(60.0));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a grey ball. This is a blank and you lose your money."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("The grey ball wins nothing. If you want to win you have to buy another ticket.");
+talkEntry:addResponse("The grey ball wins nothing. If you want to win, you have to buy another ticket.");
 talkEntry:addResponse("#me looks at the grey ball. 'A blank, what a pity!'");
-talkEntry:addResponse("Oh yes, somtimes it seems there are grey balls in the vase only. But I can affirm there are other colors as well. Do you want to prove it?");
-talkEntry:addResponse("#me looks at the drawn grey ball  'Grey is no color and no prize, I'm sorry.'");
+talkEntry:addResponse("Oh yes, sometimes it seems there are only grey balls in the vase but I can affirm there are other colours as well. Do you want to prove it?");
+talkEntry:addResponse("#me looks at the drawn grey ball, 'Grey is no colour and no prize, I'm sorry.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -471,13 +471,13 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(75.0));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a white ball and get 10 silver coins."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a white ball and get ten silver coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
 talkEntry:addResponse("You win ten silver! Why not invest it in another ticket?");
-talkEntry:addResponse("#me looks at the pulled ball 'What at Nargun you are doing? It was a white ball and you get your money back!'");
-talkEntry:addResponse("#me examines the white ball some seconds. 'Could it be we had the same ball short ago? However you win your money back!'");
-talkEntry:addResponse("#me throw the white ball back into the vase and hands you ten silver coins. 'Do you want another ticket?'");
+talkEntry:addResponse("#me looks at the pulled ball, 'What at Nargun are you doing? That is a white ball and you get your money back!'");
+talkEntry:addResponse("#me examines the white ball some seconds. 'Could it be we had the same ball a short time ago? However, you win your money back!'");
+talkEntry:addResponse("#me throws the white ball back into the vase and hands you ten silver coins. 'Do you want another ticket?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -501,11 +501,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(48.0));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a yellow ball and get 20 silver coins."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a yellow ball and get twenty silver coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("You can call you lucky yourself. You win 20 silver coins.");
-talkEntry:addResponse("#me juggle a short time with the yellow ball that was pulled out of the vase before it disapears in the vase again. '20 silver coins are your price!'");
+talkEntry:addResponse("You can call yourself lucky. You win twenty silver coins.");
+talkEntry:addResponse("#me juggles a short time with the yellow ball that was pulled out of the vase before it disappears into the vase again. 'Twenty silver coins are your prize!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -527,11 +527,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(76.9));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a blue ball and get 50 silver coins."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a blue ball and get fifty silver coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Half a gold is the price for getting one of the blue balls. Please take your money.");
-talkEntry:addResponse("#me takes the blue ball and returns a number of coins. '50 silver coins, the ticket is paying back multiple!'");
+talkEntry:addResponse("Half a gold is the prize for getting one of the blue balls. Please take your money.");
+talkEntry:addResponse("#me takes the blue ball and returns a number of coins. 'Fifty silver coins, the ticket is paying back multiple!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -556,7 +556,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a green ball and get two gold coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("It's a long time ago, I've seen one of the green balls the last time. You show it me again and this is worth the second price of two gold coins.");
+talkEntry:addResponse("It's a long time since I last saw one of the green balls. You show it to me again and this is worth the second prize of two gold coins.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -579,7 +579,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out the red ball and get five gold coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("#s First prize winner! First price winner! The lottery of Galmair has a first price winner!.");
+talkEntry:addResponse("#s First prize winner! First prize winner! The lottery of Galmair has a first prize winner!.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -598,10 +598,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("stop");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You return the tickets. To restart buy another ticket."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You return the tickets. To restart, buy another ticket."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("What a pity, five tickets are much too expensive for you? Well, I'm not a robber and will return the money.");
+talkEntry:addResponse("What a pity, five tickets are much too expensive for you? Well, I'm not a robber and will return your money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -623,9 +623,9 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a grey ball. This is a blank and you lose your money."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
 talkEntry:addResponse("The grey ball wins nothing. If you want to win you have to start with new tickets again.");
-talkEntry:addResponse("#me looks sad as she recognizes the grey ball. 'It's to bad, that's a blank!'");
-talkEntry:addResponse("There are a ticket of grey balls in the vase only. But you can be sure there are others as well. It's just a ticket away to prove.");
-talkEntry:addResponse("#me takes the grey ball and throw it back into the vase. 'Grey wins no prize, I'm sorry.'");
+talkEntry:addResponse("#me looks sad as she recognises the grey ball. 'It's too bad, that's a blank!'");
+talkEntry:addResponse("There are tickets of grey balls in the vase, but you can be sure there are others as well. It's just a ticket away to prove it.");
+talkEntry:addResponse("#me takes the grey ball and throws it back into the vase. 'Grey wins no prize, I'm sorry.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -648,13 +648,13 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(75.0));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a white ball and get 50 silver coins."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a white ball and get fifty silver coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("You win 50 silver! Why not buy some more tickets?");
-talkEntry:addResponse("#me looks at the pulled ball. 'What at Nargun you are doing. It was a white ball and you get your money back'");
-talkEntry:addResponse("#me examines the white ball some seconds. 'Undoubtfull a white ball. That means you win your money back!'");
-talkEntry:addResponse("#me put the white ball back into the vase and hands over 50 silver coins. 'I could sell you much more tickets'");
+talkEntry:addResponse("You win fifty silver! Why not buy some more tickets?");
+talkEntry:addResponse("#me looks at the pulled ball. 'What at Nargun are you doing? That is a white ball and you get your money back!'");
+talkEntry:addResponse("#me examines the white ball some seconds. 'Undoubtedly a white ball. That means you win your money back!'");
+talkEntry:addResponse("#me puts the white ball back into the vase and hands over fifty silver coins. 'I could sell you many more tickets!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -681,8 +681,8 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a yellow ball and get one gold coin."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 10000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("You can call you lucky yourself. It's a gold you won.");
-talkEntry:addResponse("#me strokes the yellow ball befor it disapears in the vase again. 'A full gold coins is your price!'");
+talkEntry:addResponse("You can call yourself lucky. It's a gold coin you've won.");
+talkEntry:addResponse("#me strokes the yellow ball before it disappears into the vase again. 'A whole gold coin is your prize!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -704,11 +704,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(76.9));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a blue ball and get 2,50 gold coins."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a blue ball and get two gold coins and fifty silver."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 25000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("Two and a half a gold is the price for getting one of the blue balls. Please take your money.");
-talkEntry:addResponse("#me takes the blue ball and returns a number of coins. 'Two gold and 50 silver coins, the ticket is paying back multiple!'");
+talkEntry:addResponse("Two and a half gold is the prize for getting one of the blue balls. Please take your money.");
+talkEntry:addResponse("#me takes the blue ball and returns a number of coins. 'Two gold and fifty silver coins, the ticket is paying back multiple!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -733,7 +733,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out a green ball and get ten gold coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("You can find much more green in the forest then here. I don't give away a secret if I tell you that you won the second price. Please take your gold.");
+talkEntry:addResponse("You can find much more green in the forest than here. I don't give away a secret if I tell you that you won second prize. Please take your gold.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -753,10 +753,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(672, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out the red ball and get 25 gold coins."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery] You pull out the red ball and get twenty five gold coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 250000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(672, "=", 0));
-talkEntry:addResponse("#s First prize winner! First price winner! The lottery of Galmair has a first price winner!.");
+talkEntry:addResponse("#s First prize winner! First prize winner! The lottery of Galmair has a first prize winner!.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -773,29 +773,29 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rule");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery information] You can puy one ticket via 'one ticket' or five ticktes via 'five tickets'. After you received your ticket, you trigger the draw with any spoken word or emote. 'Stop', however, will not trigger the draw but return the money to you."));
-talkEntry:addResponse("Quite simple. You pay a lottery ticket and pull one ball out of 250 from that vase. There are grey, white, yellow, green, blue and red balls in but you can't see them. Depending on the color you can win some silver. The top draw is the red ball. You will get five gold coins for a single ticket you paid ten silver for. And you can by five tickets at once so you could win 25 gold with a single ball.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery information] You can buy one ticket by saying 'one ticket', or five tickets by saying 'five tickets'. After you have received your ticket, you trigger the draw with any spoken word or emote. 'Stop', however, will not trigger the draw but return your money to you."));
+talkEntry:addResponse("Quite simple. You pay for a lottery ticket and pull one ball from out of the two hundred and fifty in that vase. There are grey, white, yellow, green, blue and red balls in there but you can't see them. Depending on the colour you can win some silver. The top draw is the red ball. You will get five gold coins for a single ticket you paid ten silver for, and you can buy five tickets at once so you could win twenty five gold with a single ball.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("ticket");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery information] You can puy one ticket via 'one ticket' or five ticktes via 'five tickets'. After you received your ticket, you trigger the draw with any spoken word or emote. 'Stop', however, will not trigger the draw but return the money to you."));
-talkEntry:addResponse("Quite simple. You pay a ticket and pull one ball out of 250 from that vase. There are grey, white, yellow, green, blue and red balls in but you can't see them. Depending on the color you can win some silver. The top draw is the red ball. You will get five gold coins for a single ticket you paid ten silver for. And you can by five tickets at once so you could win 25 gold with a single ball.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Lottery information] You can buy one ticket by saying 'one ticket', or five tickets by saying 'five tickets'. After you have received your ticket, you trigger the draw with any spoken word or emote. 'Stop', however, will not trigger the draw but return your money to you."));
+talkEntry:addResponse("Quite simple. You pay for a ticket and pull one ball from out of the two hundred and fifty in that vase. There are grey, white, yellow, green, blue and red balls in there but you can't see them. Depending on the colour you can win some silver. The top draw is the red ball. You will get five gold coins for a single ticket you paid ten silver for, and you can buy five tickets at once so you could win twenty five gold with a single ball.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("red");
-talkEntry:addResponse("This is the first price. With one ticket you will win five Gold. But there is a single red ball only.");
+talkEntry:addResponse("This wins the first prize. With one ticket you will win five gold, but there is a single red ball only.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("green");
-talkEntry:addResponse("Green is not the top draw but close to. Two balls are in that vase and you win two Gold per ticket");
+talkEntry:addResponse("Green is not the top draw but close to it. Two balls are in that vase and you win two gold per ticket");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -807,19 +807,19 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("yellow");
-talkEntry:addResponse("Twelve balls of yellow color I put into the vase. And if you draw one you get twice your stake.");
+talkEntry:addResponse("Twelve balls of yellow colour I put into the vase, and if you draw one you get twice your stake.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("white");
-talkEntry:addResponse("About every third ball is white and you win your stake back. Or you draw a second time.");
+talkEntry:addResponse("About every third ball is white and you win your stake back... Or you draw a second time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("grey");
-talkEntry:addResponse("Nun, you can't win with every color. And grey really isn't a color, is it?");
+talkEntry:addResponse("Nun, you can't win with every colour, and grey really isn't a colour, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -827,8 +827,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("vase");
 talkEntry:addTrigger("ball");
-talkEntry:addResponse("There are 250 balls in that vase. You draw a single ball and depending on the color you can win.");
-talkEntry:addResponse("The balls are made by high skilled dwarven stone cutter and it is absolutely impossible to feel what color you have in hand.");
+talkEntry:addResponse("There are two hundred and fifty balls in that vase. You draw a single ball and depending on the colour you can win.");
+talkEntry:addResponse("The balls are made by a highly skilled dwarven stone cutter and it is absolutely impossible to feel what colour you have in your hand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -888,8 +888,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tar");
 talkEntry:addTrigger("feather");
-talkEntry:addResponse("The lottery isn't illegal. But take care if you play with Xiao. It is told he got experience with tar and feathers.");
-talkEntry:addResponse("Getting tared and feathered you get if you try to betray anybody. But I propose you to by a lottery ticket not to join a game");
+talkEntry:addResponse("The lottery isn't illegal, but take care if you play with Xiao. It is said he has experience with tar and feathers.");
+talkEntry:addResponse("Getting tarred and feathered happens if you try to betray someone, but I propose you buy a lottery ticket, not to join a game");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -920,7 +920,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beginner");
-talkEntry:addResponse("There's nothing to learn and everybody get the same chance. Just pull a single ball out of that vase.");
+talkEntry:addResponse("There's nothing to learn and everybody has the same chance. Just pull a single ball out of that vase.");
 talkEntry:addResponse("It's never too late to buy a ticket.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -934,7 +934,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("money");
-talkEntry:addResponse("We pay nearly every coin back. So why not try and get your coins compagnions?");
+talkEntry:addResponse("We pay nearly every coin back, so why not try to get your coins some companions?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -946,7 +946,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("luck");
-talkEntry:addResponse("Nargun is responsible for your luck. But you have to praise him. Maybe with a ticket.");
+talkEntry:addResponse("Nargun is responsible for your luck, but you have to praise him... Maybe with a ticket.");
 talkEntry:addResponse("With a little luck you could multiply the size of your purse!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -963,7 +963,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("archmage");
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("The Archmage bought a ticket as well and take it home. I'm sure he don't study mage. He's sitting in his tower and try to find out how to win the first price. But I tell you he has no chance.");
+talkEntry:addResponse("The Archmage bought a ticket but he took it home with him. I'm sure he doesn't study magic. He's sitting in his tower trying to find out how to win the first prize, but I tell you he has no chance.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -978,7 +978,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick is in the southeast. They don't have a lottery cause the archmage always suspect the mages that they find out how to win with each ticket.");
+talkEntry:addResponse("Runewick is in the southeast. They don't have a lottery because the Archmage always suspects the other mages might find out how to win with every ticket.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -993,7 +993,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("The Don doesn't like to loose money. He is not going to by a ticket but would accept if you by one.");
+talkEntry:addResponse("The Don doesn't like to lose money. He is not going to buy a ticket but would accept if you buy one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1008,7 +1008,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("We are in Galmair. And that's the Galmarian lottery");
+talkEntry:addResponse("We are in Galmair and this is the Galmairian lottery");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1023,7 +1023,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("The Queen plays with gems and mirrors but not with tickets. She's much too proud to play for money. But I'm not sure if not one of her sers bought a ticket for her recently.");
+talkEntry:addResponse("The Queen plays with gems and mirrors but not with tickets. She's much too proud to play for money, but I'm not sure that one of her seers didn't buy a ticket for her recently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1038,7 +1038,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr is in the southwest. If you need to sand you can go there. They have plenty of sand in the desert.");
+talkEntry:addResponse("Cadomyr is in the southwest. If you need sand you can go there. They have plenty of sand in the desert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1051,9 +1051,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("nargun");
-talkEntry:addResponse("No a lottery isn't strictly a game. But if you praise Nargun it might help to win.");
-talkEntry:addResponse("Chaos allover. No we should take care he doesn't become too powerfull.");
-talkEntry:addResponse("If you tidy up you chest you will help Nargun to create chaos. Once your items are a mess there in no more chance.");
+talkEntry:addResponse("No a lottery isn't strictly a game, but if you praise Nargun it might help you win.");
+talkEntry:addResponse("Chaos all over. No we should take care he doesn't become too powerful.");
+talkEntry:addResponse("If you tidy up you chest you will help Nargun to create chaos. Once your items are in a mess there is no more chance.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1068,7 +1068,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("temple");
-talkEntry:addResponse("Narguns temple is in Galmair. It's not far away from here.");
+talkEntry:addResponse("Nargun's temple is in Galmair. It's not far away from here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1081,9 +1081,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("oldra");
-talkEntry:addResponse("Due to Oldra there has been a rich harvest last year.");
-talkEntry:addResponse("A shrine of Oldra you will find in Yewdale. That's the village in the shadow of the four towers of Runewick.");
-talkEntry:addResponse("If you belive or not, next to last year I sacrifice the the best tomatoes to Oldra. Last year the harvest has been beyond belive. So what would you say?");
+talkEntry:addResponse("Thanks to Oldra there has been a rich harvest this past year.");
+talkEntry:addResponse("A shrine to Oldra can be found in Yewdale, that's the village in the shadow of the four towers of Runewick.");
+talkEntry:addResponse("If you believe it or not, the year before last I sacrificed the the best tomatoes to Oldra and last year the harvest was been beyond belief. So what would you say?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1111,9 +1111,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("food");
 talkEntry:addTrigger("eat");
-talkEntry:addResponse("I don't like venison. It tastes much to strong. A real soft roasted pork is much better.");
-talkEntry:addResponse("Some people eat everything. But I'd miss the style over there. Where do we go to, if we are feeding like animals?");
-talkEntry:addResponse("It's not only the taste and smell that creates a good dish. It hast to look good as well.");
+talkEntry:addResponse("I don't like venison, it tastes much too strong. A real soft roasted pork is much better.");
+talkEntry:addResponse("Some people eat everything, but that has no style. Where do we go to if we start feeding like animals?");
+talkEntry:addResponse("It's not only the taste and smell that creates a good dish, it has to look good as well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1130,8 +1130,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("talk");
 talkEntry:addTrigger("story");
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("A forth cousine of a friend of mine once eats a pig alone. Nothing left except the bones. But don't think she eats it raw. Two days she creates one fine dish after the other.");
-talkEntry:addResponse("It is told there exist a kind of onions that don't smell so strong. But the dwarves don't like it and therefore the onion is so spicy nowaday.");
+talkEntry:addResponse("A fourth cousin of a friend of mine once ate a pig alone, nothing left except the bones... but don't think she ate it raw. For two days she created one fine dish after another.");
+talkEntry:addResponse("It is told there exists a kind of onion that doesn't smell so strong, but the dwarves don't like it and therefore the onion is so spicy nowadays.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1147,9 +1147,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("I'm selling a ticket, or five at once. How much do you want?");
-talkEntry:addResponse("This is a lottery. Do you know what a lottery seller sells?");
+talkEntry:addTrigger("prize of");
+talkEntry:addResponse("I'm selling tickets, or five at once. How many do you want?");
+talkEntry:addResponse("This is a lottery. Do you know what a lottery ticket seller sells?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1165,7 +1165,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Fine, I'm Lotte Silberstreif and how many tickets do you want to by?");
+talkEntry:addResponse("Fine, I'm Lotte Silberstreif and how many tickets do you want to buy?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1178,7 +1178,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Silberstreif");
-talkEntry:addResponse("Yes, that is my name. But how about bying a ticket?");
+talkEntry:addResponse("Yes, that is my name, but how about buying a ticket?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1192,8 +1192,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Really? Sometimes it is hard to belive what peope say.");
-talkEntry:addResponse("The luck favours yourself. Bying a ticket you could become the most lucky person in Illarion.");
+talkEntry:addResponse("Really? Sometimes it is hard to believe what people say.");
+talkEntry:addResponse("The luck favours yourself. Buy a ticket you could become the luckiest person in Illarion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1208,19 +1208,19 @@ end;
 talkingNPC:addCycleText("Kommt und versucht Euer Glück. Es wird euer Schaden nicht sein!", "Come and try. You will win, I'm sure.");
 talkingNPC:addCycleText("#me kaut auf einem Kirschkern herum.", "#me chews a cherry pit.");
 talkingNPC:addCycleText("#me wischt ein Staubkorn von der Vase.", "#me wipes some dust from the vase.");
-talkingNPC:addCycleText("25 Goldstücke, das ist der Hauptgewinn!", "25 gold coins, that's the first price");
+talkingNPC:addCycleText("25 Goldstücke, das ist der Hauptgewinn!", "Twenty five gold coins, that's the first prize!");
 talkingNPC:addCycleText("#me poliert eine Goldmünze.", "#me polishes a gold coin.");
-talkingNPC:addCycleText("#me wischt etwas Staub von ihrem Kleid.", "#me whipes some dust from her dress.");
+talkingNPC:addCycleText("#me wischt etwas Staub von ihrem Kleid.", "#me wipes some dust from her dress.");
 talkingNPC:addCycleText("#me schaut herum.", "#me looks around.");
-talkingNPC:addCycleText("#me spielt mit den Bändern ihres Kleides.", "#me plays with the cords on her dress.");
+talkingNPC:addCycleText("#me spielt mit den Bändern ihres Kleides.", "#me plays with the cords of her dress.");
 talkingNPC:addCycleText("#me richtet sich die Haare mit den Fingern als Kamm.", "#me corrects her hair with her fingers.");
-talkingNPC:addCycleText("Kauft ein Los der Lotterie von Galmair!", "Buy a ticket of the Galmarian lottery!");
+talkingNPC:addCycleText("Kauft ein Los der Lotterie von Galmair!", "Buy a ticket for the Galmairian lottery!");
 talkingNPC:addCycleText("#me schaut sich unbeteiligt die Leute an.", "#me examines the people around.");
 talkingNPC:addCycleText("#me wischt gedankenverloren mit den Fingern über die Vase.", "#me strokes the vase with her fingers.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Lotte Silberstreif die Lottofee.", "This NPC is Lotte Silberstreif a lottery seller.");
+mainNPC:setLookat("Dieser NPC ist Lotte Silberstreif die Lottofee.", "This NPC is Lotte Silberstreif a lottery ticket seller.");
 mainNPC:setUseMessage("Du greifst mich besser nicht an.", "You had better not touch me.");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
