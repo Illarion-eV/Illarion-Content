@@ -55,9 +55,7 @@ require("base.gems")
 module("server.standardfighting", package.seeall)
 
 --- Main Attack function. This function is called by the server to start an
--- attack. It is called once for each hand of the attacker. Only the hand holding a
--- weapon will attack. In case there are weapons in both hands, only the
--- right hand will be used to perform the attack.
+-- attack.
 -- @param Attacker The character who attacks
 -- @param Defender The character who is attacked
 -- @return true in case a attack was performed, else false
@@ -106,8 +104,10 @@ function onAttack(Attacker, Defender)
 
 	-- Turning the attacker to his victim
     base.common.TurnTo(Attacker.Char,Defender.Char.pos);
+
     -- Show the attacking animation
     ShowAttackGFX(Attacker);
+
     -- Check if a coup de gráce is performed
     if CoupDeGrace(Attacker, Defender) then return true; end;
 
@@ -136,7 +136,7 @@ function onAttack(Attacker, Defender)
     -- Show the final effects of the attack.
     ShowEffects(Attacker, Defender, Globals);
 
-    -- Teach the attacker the skill he earned for his success
+    -- Teach skills to attacker and defender
     LearnSuccess(Attacker, Defender, APreduction, Globals)
 end;
 
@@ -624,15 +624,18 @@ function HitChance(Attacker, Defender, Globals)
 	local chancetohit;
 
 	if Attacker.IsWeapon then
-		chancetohit=math.max(math.min(Attacker.Weapon.Accuracy*(1+(Attacker.perception-10)/500),100),5);
+		chancetohit = Attacker.Weapon.Accuracy*(1+(Attacker.perception-10)/500);
 
 		--if Attacker.Weapon.Level>Attacker.skill) then
 			--chancetohit=chancetohit/5;
 		--end
 
-	else
-		chancetohit=math.max(math.min(90*(1+(Attacker.perception-10)/500),100),5);
+	else --unarmed
+		chancetohit = 90*(1+(Attacker.perception-10)/500);
 	end;
+
+	-- Min and max hit chance are 5% and 95% respectively
+	chancetohit = base.common.Limit(chancetohit, 5, 95);
 
 	if (Attacker.AttackKind==4) then
 
@@ -654,12 +657,18 @@ function HitChance(Attacker, Defender, Globals)
 		chancetohit = 100;
 	end;
 
+	-- Attack misses
 	if not base.common.Chance(chancetohit, 100) then
 		return false;
 	end;
 
+	--Unblockable Special
+	if(Globals.criticalHit==2) then
+		return true;
+	end;
+
 	--Cannot parry without a weapon
-	if not Defender.IsWeapon then
+	if not Defender.IsWeapon and not Defender.SecIsWeapon then
         canParry = false;
     end;
 
@@ -668,79 +677,69 @@ function HitChance(Attacker, Defender, Globals)
        canParry = false;
 	end;
 
-	local parryChance;
-
-	if canParry then
-
-		--Choose which weapon has the largest defense
-		if Defender.IsWeapon then
-			parryItem = Defender.WeaponItem;
-			parryWeapon = Defender.Weapon;
-		end;
-
-		if Defender.SecIsWeapon then
-			if not parryWeapon then
-				parryItem = Defender.SecWeaponItem
-				parryWeapon = Defender.SecWeapon;
-			elseif (parryWeapon.Defence < Defender.SecWeapon.Defence) then
-				parryItem = Defender.SecWeaponItem
-				parryWeapon = Defender.SecWeapon;
-			end;
-		end;
-
-		--The Shield Scaling Factor (SSF). Changes how much the top shield is better than the worse one.
-		local ShieldScalingFactor =5;
-
-		local Rarity = NotNil(tonumber(parryItem:getData("RareWeapon")));
-
-		if (parryWeapon.WeaponType~=14) then
-			Rarity = 0;
-		end
-
-		local parryweapondefense = parryWeapon.Defence+Rarity*20;
-		local defenderdefense = (100/ShieldScalingFactor) + parryweapondefense*(1-1/ShieldScalingFactor);
-
-		if(parryWeapon.WeaponType~=14) then
-			defenderdefense = defenderdefense/2;
-		end
-
-		local qualitymod = 0.91+0.02*math.floor(parryItem.quality/100);
-		parryChance = (Defender.parry / 5); --0-20% by the skill
-        parryChance = parryChance * (0.5 + (Defender.agility) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
-        parryChance = parryChance + (defenderdefense) / 5; --0-20% bonus by the weapon/shield
-		parryChance = parryChance * qualitymod;
-
-		if(parryWeapon.Level>Defender.parry and not Attacker.Char:getType() == 1 ) then
-			parryChance = parryChance/5;
-		end
-
-		parryChance = math.min(math.max(parryChance,5),95); -- Min and max parry are 5% and 95% respectively
-
-	else
-		return true; -- If they can't parry, it succeeds
-	end;
-
-	local ParrySuccess = base.common.Chance(parryChance, 100);
-
-	--Unblockable Special
-	if(Globals.criticalHit==2) then
-		ParrySuccess = false;
-	end;
-
-	if ParrySuccess then
-		if(parryWeapon.Level<=Defender.parry) then
-			LearnParry(Attacker, Defender, Globals.AP)
-		end
-			PlayParrySound(Attacker, Defender)
-			Defender.Char:performAnimation(9);
-			WeaponDegrade(Attacker, Defender, parryItem);
-			Counter(Attacker,Defender);
-		return false;
-	else
+	-- If they can't parry, it succeeds
+	if not canParry then
 		return true;
 	end;
 
-end;
+	--Choose which weapon has the largest defense
+	if Defender.IsWeapon then
+		parryItem = Defender.WeaponItem;
+		parryWeapon = Defender.Weapon;
+	end
+
+	if Defender.SecIsWeapon then
+		if not parryWeapon then
+			parryItem = Defender.SecWeaponItem
+			parryWeapon = Defender.SecWeapon;
+		elseif (parryWeapon.Defence < Defender.SecWeapon.Defence) then
+			parryItem = Defender.SecWeaponItem
+			parryWeapon = Defender.SecWeapon;
+		end
+	end
+
+	--The Shield Scaling Factor (SSF). Changes how much the top shield is better than the worse one.
+	local ShieldScalingFactor =5;
+
+	local Rarity = NotNil(tonumber(parryItem:getData("RareWeapon")));
+
+	if (parryWeapon.WeaponType~=14) then
+		Rarity = 0;
+	end
+
+	local parryweapondefense = parryWeapon.Defence+Rarity*20;
+	local defenderdefense = (100/ShieldScalingFactor) + parryweapondefense*(1-1/ShieldScalingFactor);
+
+	if(parryWeapon.WeaponType~=14) then
+		defenderdefense = defenderdefense/2;
+	end
+
+	local parryChance;
+	local qualitymod = 0.91+0.02*math.floor(parryItem.quality/100);
+	parryChance = (Defender.parry / 5); --0-20% by the skill
+	parryChance = parryChance * (0.5 + (Defender.agility) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
+	parryChance = parryChance + (defenderdefense) / 5; --0-20% bonus by the weapon/shield
+	parryChance = parryChance * qualitymod;
+
+	if(parryWeapon.Level>Defender.parry and not Attacker.Char:getType() == 1 ) then
+		parryChance = parryChance/5;
+	end
+
+	 -- Min and max parry are 5% and 95% respectively
+	parryChance = base.common.Limit(parryChance, 5, 95);
+
+	-- Attack was parried sucessfully
+	if base.common.Chance(parryChance, 100) then
+		PlayParrySound(Attacker, Defender)
+		Defender.Char:performAnimation(9);
+		WeaponDegrade(Attacker, Defender, parryItem);
+		Counter(Attacker,Defender);
+		return false;
+	end
+
+	-- Attack suceeded
+	return true;
+end
 
 
 --- Check if the setting of items the character is using is good for a attack
@@ -1487,48 +1486,41 @@ function HandleMovepoints(Attacker, Globals)
     return reduceFightpoints;
 end;
 
---- Learning function called when ever the attacked character fails to avoid the
--- attack. The defender learns nothing in this case, the attacker learns his
--- attack skill as well as the tactics skill.
+--- Learning function.  Called after every attack.
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP, Globals)
---debug("          NOW LEARNING att: "..Attacker.Skillname..", "..(AP/3)..", "..(math.max(Defender.dodge, Defender.parry) + 20));
-	if not Defender.DefenseSkillName then
-		if Attacker.Skillname then
-			if(Attacker.Weapon.Level<=Attacker.skill) then
-				Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Defender.parry,Attacker.Weapon.Level) + 20);
-			end
-		end
-	else
-		if Attacker.Skillname then
-			Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Attacker.Weapon.Level,math.max(Defender.DefenseSkill, Defender.parry)) + 20);
-		end
 
+	-- Attacker learns weapon skill
+	if Attacker.Skillname then
+		Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Attacker.Weapon.Level,math.max(Defender.DefenseSkill, Defender.parry)) + 20);
+	end
+
+	-- Defender learns armor skill
+	if Defender.DefenseSkillName then
 		local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
 
-		if(armourfound) then
-			if(armour.Level<=Defender.DefenseSkill) then
-				Defender.Char:learn(Defender.DefenseSkillName,AP/2,math.min(armour.Level,Attacker.skill)+20);
-			end
+		if(armourfound and armour.Level<=Defender.DefenseSkill) then
+			Defender.Char:learn(Defender.DefenseSkillName,AP/2,math.min(armour.Level,Attacker.skill)+20);
 		end
-	end;
+	end
 
---debug("          DONE LEARNING");
-end;
-
-
-
---- Learning function called when ever the attacked character parries the
--- attack. The defender learns parry skill in this case, the attacker learns his
--- attack skill as well as the tactics skill.
--- @param Attacker The table containing the attacker data
--- @param Defender The table containing the defender data
-function LearnParry(Attacker, Defender, AP)
---debug("          NOW LEARNING parry: "..Character.parry..", "..(AP/3)..", "..(Attacker.skill + 20));
-    Defender.Char:learn(Character.parry, AP/2, Attacker.skill + 20)
---debug("          DONE LEARNING");
-
+	-- Defender learns parry skill
+	local parryWeapon;
+	--Choose which weapon has the largest defense
+	if Defender.IsWeapon then
+		parryWeapon = Defender.Weapon;
+	end
+	if Defender.SecIsWeapon then
+		if not parryWeapon then
+			parryWeapon = Defender.SecWeapon;
+		elseif (parryWeapon.Defence < Defender.SecWeapon.Defence) then
+			parryWeapon = Defender.SecWeapon;
+		end
+	end
+	if (parryWeapon and parryWeapon.Level<=Defender.parry) then
+		Defender.Char:learn(Character.parry, AP/2, Attacker.skill + 20)
+	end
 end;
 
 function NotNil(val)
@@ -1687,7 +1679,7 @@ function PlayParrySound(Attacker, Defender)
         return true;
     end;
 
-    if not Defender.IsWeapon then
+    if not Defender.IsWeapon and not Defender.SecIsWeapon then
         world:makeSound(32,Attacker.Char.pos);
         return true;
     end;
