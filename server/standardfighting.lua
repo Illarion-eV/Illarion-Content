@@ -54,6 +54,20 @@ require("base.gems")
 
 module("server.standardfighting", package.seeall)
 
+-- selects a target for monster from candidates, 0 means no target found
+-- this default can be overridden by a monster's setTarget entrypoint
+function setTarget(monster, candidates)
+    local target = 0
+
+    for key,candidate in pairs(candidates) do
+        if target == 0 or candidate:increaseAttrib("hitpoints", 0) < candidates[target]:increaseAttrib("hitpoints", 0) then
+            target = key
+        end
+    end
+
+    return target
+end
+
 --- Main Attack function. This function is called by the server to start an
 -- attack.
 -- @param Attacker The character who attacks
