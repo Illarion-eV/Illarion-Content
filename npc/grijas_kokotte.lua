@@ -34,7 +34,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addResponse("[Game Help] This NPC is the cook  Grijas Kokotte. Keywords: quest, spoon, food, bear, adventure, tell something, Sevenhill.");
+talkEntry:addResponse("[Game Help] This NPC is the cook Grijas Kokotte. Keywords: quest, spoon, food, bear, adventure, tell something, Sevenhill.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -225,7 +225,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.item.item(51, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 1));
-talkEntry:addResponse("I can help ya if ya wanna become a smith, but first bring me ten shovels of grain, along with ten fresh apples, and don't forget to bring clear water. Here is an empty bucket for you to fill.");
+talkEntry:addResponse("I can help ya if ya wanna become a cook, but first bring me ten shovels of grain, along with ten fresh apples. Also don't forget to bring clear water, here is an empty bucket for you to fill.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -254,7 +254,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(52, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(51, 1, 399, nil));
-talkEntry:addResponse("#me empty the bucket beside. 'Arr, do you call this clear water? I wouldn't wash my hands in it. Clear water, I said!'");
+talkEntry:addResponse("#me empties the bucket to his side. 'Arr, do you call this clear water? I wouldn't wash my hands in it. Clear water, I said!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -285,7 +285,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 5, nil))
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(52, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(51, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 2));
-talkEntry:addResponse("Arr, well done! But next time, you bring clear water. That's enough to clean dirty spoons! Five of these apples you can feed the bear.");
+talkEntry:addResponse("Arr, well done! But next time, you bring clear water. That's enough to clean dirty spoons! Five of these apples you can feed to the bear.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -311,7 +311,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(259, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr, if you try to trick me, I'm cook and be able to count. I want ten shovels of grain, along with ten fresh apples and clear water!");
+talkEntry:addResponse("Arr, don't you try to trick me, I'm cook and I'm able to count. I want ten shovels of grain, along with ten fresh apples and clear water!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,7 +328,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr, if you try to trick me, I'm cook and be able to count. I want ten shovels of grain, along with ten fresh apples and clear water!");
+talkEntry:addResponse("Arr, don't you try to trick me, I'm cook and I'm able to count. I want ten shovels of grain, along with ten fresh apples and clear water!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -345,7 +345,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(52, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr, if you try to trick me, I'm cook and be able to count. I want ten shovels of grain, along with ten fresh apples and clear water!");
+talkEntry:addResponse("Arr, don't you try to trick me, I'm cook and I'm able to count. I want ten shovels of grain, along with ten fresh apples and clear water!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -366,7 +366,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 4));
-talkEntry:addResponse("Aye, I have a task for ya if you are interested. I need 15 onions, a new cooking spoon, a wooden shovel for the mill and five fresh steak!");
+talkEntry:addResponse("Aye, I have a task for ya if you are interested. I need fifteen onions, a new cooking spoon, a wooden shovel for the mill and five fresh steaks!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -400,7 +400,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2940, 4, nil
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(227, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(312, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 5));
-talkEntry:addResponse("Looks good, it's everything that I wanted ya to bring. Looks as if you could become a real good cook. The last steak is for the bear of Galmair.");
+talkEntry:addResponse("Looks good, it's everything that I wanted ya to bring. Looks as though you could become a real good cook. The last steak is for the Bear of Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -427,7 +427,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 4));
 talkEntry:addCondition(npc.base.condition.item.item(537, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr! You're supposed to bring me 15 onions, a new cooking spoon, a wooden shovel for the mill and five fresh steak. Not that hard to memorise, is it?");
+talkEntry:addResponse("Arr! You're supposed to bring me fifteen onions, a new cooking spoon, a wooden shovel for the mill and five fresh steaks. Not that hard to memorise, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -444,7 +444,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 4));
 talkEntry:addCondition(npc.base.condition.item.item(2940, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr! You're supposed to bring me 15 onions, a new cooking spoon, a wooden shovel for the mill and five fresh steak. Not that hard to memorise, is it?");
+talkEntry:addResponse("Arr! You're supposed to bring me fifteen onions, a new cooking spoon, a wooden shovel for the mill and five fresh steaks. Not that hard to memorise, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -461,7 +461,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 4));
 talkEntry:addCondition(npc.base.condition.item.item(227, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr! You're supposed to bring me 15 onions, a new cooking spoon, a wooden shovel for the mill and five fresh steak. Not that hard to memorise, is it?");
+talkEntry:addResponse("Arr! You're supposed to bring me fifteen onions, a new cooking spoon, a wooden shovel for the mill and five fresh steaks. Not that hard to memorise, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -478,7 +478,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 4));
 talkEntry:addCondition(npc.base.condition.item.item(312, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr! You're supposed to bring me 15 onions, a new cooking spoon, a wooden shovel for the mill and five fresh steak. Not that hard to memorise, is it?");
+talkEntry:addResponse("Arr! You're supposed to bring me fifteen onions, a new cooking spoon, a wooden shovel for the mill and five fresh steaks. Not that hard to memorise, is it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -500,7 +500,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 7));
-talkEntry:addResponse("Aye, I have a task for ya if you are interested. Bring me ten tomatoes, ten sack of flour, five fresh sausages and four medium baked breads.");
+talkEntry:addResponse("Aye, I have a task for ya if you are interested. Bring me ten tomatoes, ten sacks of flour, five fresh sausages and four well-baked bread loaves.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -533,7 +533,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 10, nil
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3051, 4, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 8));
-talkEntry:addResponse("Finally, you're back, I was starting to worry about ya. Thanks for your help! But this bread and this sausage seems not real fresh. However the bear will eat it.");
+talkEntry:addResponse("Finally, you're back, I was starting to worry about ya. Thanks for your help! But this bread and these sausages don't seem real fresh. However, the bear will eat it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -561,7 +561,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "<", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr, there are still some things missing. You are supposed to bring me ten tomatoes, ten sack of flour, five fresh sausages and four medium baked breads, aye!");
+talkEntry:addResponse("Arr, there are still some things missing. You are supposed to bring me ten tomatoes, ten sacks of flour, five fresh sausages and four well-baked bread loaves, aye!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -578,7 +578,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(200, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr, there are still some things missing. You are supposed to bring me ten tomatoes, ten sack of flour, five fresh sausages and four medium baked breads, aye!");
+talkEntry:addResponse("Arr, there are still some things missing. You are supposed to bring me ten tomatoes, ten sacks of flour, five fresh sausages and four well-baked bread loaves, aye!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -595,7 +595,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr, there are still some things missing. You are supposed to bring me ten tomatoes, ten sack of flour, five fresh sausages and four medium baked breads, aye!");
+talkEntry:addResponse("Arr, there are still some things missing. You are supposed to bring me ten tomatoes, ten sacks of flour, five fresh sausages and four well-baked bread loaves, aye!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -612,7 +612,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(3051, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Arr, there are still some things missing. You are supposed to bring me ten tomatoes, ten sack of flour, five fresh sausages and four medium baked breads, aye!");
+talkEntry:addResponse("Arr, there are still some things missing. You are supposed to bring me ten tomatoes, ten sacks of flour, five fresh sausages and four well-baked bread loaves, aye!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -634,7 +634,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 10));
-talkEntry:addResponse("Arr, you are looking for some work? Aye, I can help you with that! I need 15 bread rolls, ten onion soup, ten fish dishes and two apple cakes.");
+talkEntry:addResponse("Arr, you are looking for some work? Aye, I can help you with that! I need fifteen bread rolls, ten bowls of onion soup, ten fish dishes and two apple pies.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -667,7 +667,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2923, 10, ni
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2459, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(353, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 11));
-talkEntry:addResponse("Well done, thank you very much! And one cake you shall feed the bear.");
+talkEntry:addResponse("Well done, thank you very much! And one pie you should feed the bear.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,7 +694,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 10));
 talkEntry:addCondition(npc.base.condition.item.item(191, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 15 bread rolls, ten onion soup, ten fish dishes and two apple cakes.");
+talkEntry:addResponse("You were supposed to bring me fifteen bread rolls, ten bowls of onion soup, ten fish dishes and two apple pies.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -711,7 +711,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 10));
 talkEntry:addCondition(npc.base.condition.item.item(2923, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 15 bread rolls, ten onion soup, ten fish dishes and two apple cakes.");
+talkEntry:addResponse("You were supposed to bring me fifteen bread rolls, ten bowls of onion soup, ten fish dishes and two apple pies.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -728,7 +728,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 10));
 talkEntry:addCondition(npc.base.condition.item.item(2459, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 15 bread rolls, ten onion soup, ten fish dishes and two apple cakes.");
+talkEntry:addResponse("You were supposed to bring me fifteen bread rolls, ten bowls of onion soup, ten fish dishes and two apple pies.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -745,7 +745,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 10));
 talkEntry:addCondition(npc.base.condition.item.item(353, "all", "<", 2, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("You were supposed to bring me 15 bread rolls, ten onion soup, ten fish dishes and two apple cakes.");
+talkEntry:addResponse("You were supposed to bring me fifteen bread rolls, ten bowls of onion soup, ten fish dishes and two apple pies.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -768,9 +768,9 @@ talkEntry:addTrigger("feed");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("today");
-talkEntry:addResponse("Nah, not yet. The bear becomes too fat otherwhise.");
+talkEntry:addResponse("Nah, not yet. The bear becomes too fat otherwise.");
 talkEntry:addResponse("Let's wait some hours. On the morrow you can feed him again.");
-talkEntry:addResponse("You feed the bear short ago. Please wait a little bit.");
+talkEntry:addResponse("You fed the bear just a short while ago. Please wait a little bit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -804,9 +804,9 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("today");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] You are too late!"));
-talkEntry:addResponse("Nah, anybody else fed the bear meanwhile. He becomes too fat otherwhise");
-talkEntry:addResponse("Let's wait some hours. On the morrow you can feed him.");
-talkEntry:addResponse("You had been late. Anybody else feed the bear short ago. Please wait a little bit.");
+talkEntry:addResponse("Nah, somebody else fed the bear in the meantime. He becomes too fat otherwise");
+talkEntry:addResponse("Let's wait some hours. On the morrow you can feed him again.");
+talkEntry:addResponse("You are too late. Somebody else fed the bear just a short while ago. Please wait a little bit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -844,7 +844,7 @@ talkEntry:addTrigger("today");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feed a salmon!"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 13));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(673, "=", 18));
-talkEntry:addResponse("It's fish day. A salmon you can feed today.");
+talkEntry:addResponse("It's fish day. A salmon you can feed him today.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -884,7 +884,7 @@ talkEntry:addTrigger("today");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feed a cookie!"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 14));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(673, "=", 18));
-talkEntry:addResponse("I can't say the bear is very hungry today. But you can give him a cookie.");
+talkEntry:addResponse("I can't say the bear is very hungry today, but you can give him a cookie.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -924,7 +924,7 @@ talkEntry:addTrigger("today");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feed honey!"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 15));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(673, "=", 18));
-talkEntry:addResponse("Our bear most like sweet things. I'm shure he'd love to get a honey comb.");
+talkEntry:addResponse("Our bear likes sweet things the most. I'm shure he'd love to get a honeycomb.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -964,7 +964,7 @@ talkEntry:addTrigger("today");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feed pig meat!"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 16));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(673, "=", 18));
-talkEntry:addResponse("You know he eats nearly everything. Let's try some pig meat. Even if it smells a little bit, he'd like.");
+talkEntry:addResponse("You know he eats nearly everything. Let's try some pig meat. Even if it smells a little bit, he'd like it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1004,7 +1004,7 @@ talkEntry:addTrigger("today");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feed a carrot!"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 17));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(673, "=", 18));
-talkEntry:addResponse("You will see our bear will be happy, even about simple food. And a carrot is quite good for his teeth.");
+talkEntry:addResponse("You will see our bear is happy even about simple food, and a carrot is quite good for his teeth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1045,7 +1045,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Bring 
 talkEntry:addConsequence(npc.base.consequence.item.item(51, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 18));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(673, "=", 18));
-talkEntry:addResponse("A dwarf need to drink and a bear as well. Please fill that bucket of water and bring him.");
+talkEntry:addResponse("A dwarf needs to drink and a bear as well. Please fill that bucket with water and take it to him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1086,7 +1086,7 @@ talkEntry:addTrigger("today");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] Feed a cherry cake!"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(673, "=", 18));
-talkEntry:addResponse("Feeding the bear of Galmair could be expensive. I know he want cherry cake today");
+talkEntry:addResponse("Feeding the Bear of Galmair could be expensive. I know he wants cherry cake today");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1122,10 +1122,10 @@ talkEntry:addTrigger("feed");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("today");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] He don't eat today!"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] He doesn't eat today!"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 20));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(673, "=", 18));
-talkEntry:addResponse("I am sorry but we shouldn't feed the bear today. The bear of Galmair is like real dwarf. From time to time he need a day without food. But he'd be glad if you visit him.");
+talkEntry:addResponse("I am sorry but we shouldn't feed the bear today. The Bear of Galmair is like real dwarf and from time to time he needs a day without food, but he'd be glad if you visit him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1159,8 +1159,8 @@ talkEntry:addTrigger("feed");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("today");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] You can feet the bear now."));
-talkEntry:addResponse("For what are you waiting? Go and feed the bear! *points to the west*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bear Quest] You can feed the bear now."));
+talkEntry:addResponse("What are you waiting for? Go and feed the bear! *points to the west*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1184,8 +1184,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("bear");
-talkEntry:addResponse("The bear's strength and prosperity is a mirror of our town. We all feed them on our own together. You can find him at the Well of Dreams. *points to the west*");
-talkEntry:addResponse("The Bear of Galmair is stong like our town. He prosper due to our own hands work like our town. I can tell you, what he'd like today. You can find him at the Well of Dreams. *points to the west*");
+talkEntry:addResponse("The bear's strength and prosperity mirrors our town. We all feed them both, on our own and together. You can find him at the Well of Dreams. *points to the west*");
+talkEntry:addResponse("The Bear of Galmair is strong like our town. He prospers due to the work of our own hands, just like our town. I can tell you what he'd like today. You can find him at the Well of Dreams. *points to the west*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1204,9 +1204,9 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("feed");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Arr? I don't let you feed our bear, you are not from Galmair!");
-talkEntry:addResponse("Do you want to feed the bear? Become a citicen first.");
-talkEntry:addResponse("Sign into the town roll first and come back then.");
+talkEntry:addResponse("Arr? I won't let you feed our bear, you are not from Galmair!");
+talkEntry:addResponse("Do you want to feed the bear? Become a citizen first.");
+talkEntry:addResponse("Sign up to the town roll call first and come back then.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1226,8 +1226,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("bear");
-talkEntry:addResponse("The bear's strength and prosperity is a mirror of our town. You can visit him, but you are not permitted feeding him. You can find him at the Well of Dreams. *points to the west*");
-talkEntry:addResponse("The Bear of Galmair is stong like our town. He prosper because every citizen of Galmair take part to serve him. You can find him at the Well of Dreams. *points to the west*");
+talkEntry:addResponse("The bear's strength and prosperity mirrors our town. You can visit him, but you are not permitted to feed him. You can find him at the Well of Dreams. *points to the west*");
+talkEntry:addResponse("The Bear of Galmair is strong like our town. He prosperr because every citizen of Galmair taker part to serve him. You can find him at the Well of Dreams. *points to the west*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1271,7 +1271,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Gobaith! Aye. My cousin fourth removed lived there, down in Silverbrand, for a while. I say, Galmair is the better choice to gain wealth for your clan, though.");
+talkEntry:addResponse("Gobaith! Aye. My cousin fourth removed lived there, down in Silverbrand, for a while. I say Galmair is the better choice to gain wealth for your clan, though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1306,14 +1306,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Silverbrand");
-talkEntry:addResponse("Silverbrand? There's not much I know about. But my cousin lived there a while.");
+talkEntry:addResponse("Silverbrand? There's not much I know about it, but my cousin lived there a while.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("cook");
-talkEntry:addResponse("A cook needs a spoon and a lot of food of course. You can buy everything at the market. But if you want fresh vegetables ask the farmers.");
-talkEntry:addResponse("You can cook wherever a pot hangs over a fine fire. Bring some ham and a spooh and we can try to cook your first dish together.");
+talkEntry:addResponse("A cook needs a spoon and a lot of food of course. You can buy everything at the market, but if you want fresh vegetables ask the farmers.");
+talkEntry:addResponse("You can cook wherever a pot hangs over a fine fire. Bring some ham and a spoon and we can try to cook your first dish together.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1351,7 +1351,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("baking");
 talkEntry:addTrigger("baker");
-talkEntry:addResponse("Arr, fresh bread is always a fine thing! If you want baking just take some water and flour and a peel and look for an oven.");
+talkEntry:addResponse("Arr, fresh bread is always a fine thing! If you want to be baking just take some water and flour along with a peel, and look for an oven.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1365,20 +1365,20 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mill");
 talkEntry:addTrigger("flour");
-talkEntry:addResponse("The mill you can find on the right hand once you enter the building with the large hall of Don Guilliamo, also known as Galmair's Crest. And don't forge to take a little wooden shovel with you.");
+talkEntry:addResponse("The mill you can find on the right hand once you enter the building with the large hall of Don Guilianni, also known as Galmair's Crest. Don't forget to take a little wooden shovel with you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mühle");
 talkEntry:addTrigger("Mehl");
-talkEntry:addResponse("Die Mühle findest du gleich rechts, nachdem du in das Gebäude gekommen bist, in der sich auch Don Guilliamos große Halle befindet und das Galmairs Krone heißt. Aber vergiss nicht eine hölzerne Schaufel mitzunehmen.");
+talkEntry:addResponse("Die Mühle findest du gleich rechts, nachdem du in das Gebäude gekommen bist, in der sich auch Don Guiliannis große Halle befindet und das Galmairs Krone heißt. Aber vergiss nicht eine hölzerne Schaufel mitzunehmen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("oven");
-talkEntry:addResponse("There are two oven, one for bread and another for fish next to Lara. She exchanges your coins as well. You find her on the right side once you enter Galmair's Crest behind the little garden, which is also the place where you can find the Don.");
+talkEntry:addResponse("There are two ovens next to Lara, one for bread and another for fish and pork. She exchanges your coins as well. You find her on the right side once you enter Galmair's Crest behind the little garden, which is also the place where you can find the Don.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1501,7 +1501,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill!");
+talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1515,7 +1515,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill!");
+talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1529,7 +1529,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill!");
+talkEntry:addResponse("Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1541,27 +1541,27 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sevenhill");
-talkEntry:addResponse("'Tunnel pigs' can also be found in Sevenhill. This is not an insulting term for lazy miners, but rather refers to a very large, fat, and nearly naked type of rodent. This animal can converted into different delicacys.");
-talkEntry:addResponse("Sevenhill, also known as Siebenberg, is one of the greatest dwarven mines and it's halls and wealth are legendary. The town is located in deep caverns under a range of seven mountains, but only dwarves know the exact location.");
+talkEntry:addResponse("'Tunnel pigs' can also be found in Sevenhill. This is not an insulting term for lazy miners, but rather refers to a very large, fat, and nearly naked type of rodent. This animal can converted into different delicacies.");
+talkEntry:addResponse("Sevenhill, also known as Siebenberg, is one of the greatest dwarven mines and the halls and wealth there are legendary. The town is located in deep caverns under a range of seven mountains, but only dwarves know the exact location.");
 talkEntry:addResponse(" Humans are not permitted in Sevenhill and only a few trusted lizardmen and elves have ever been welcomed into the city. Heavily armed dwarven squads guard every entrance.");
-talkEntry:addResponse("Many of the city's exits end in many mountain valleys where crops and livestock are farmed. The infamous 'dwarven cheese' is also produced here; an incredibly strong smelling kind of cheese, highly thought of by dwarves, but completely unpalatable to humans, halflings and elves.");
+talkEntry:addResponse("Many of the city exits emerge into different mountain valleys where crops and livestock are farmed. The infamous 'dwarven cheese' is also produced here; an incredibly strong smelling kind of cheese, highly thought of by dwarves, but completely unpalatable to humans, halflings and elves.");
 talkEntry:addResponse("Sevenhill is home to seven dwarven clans. It is said that Irmorom blesses those dwarves who make a pilgrimage to all of the four sanctuaries, located under Sevenhill. Many famous dwarves, are said to have been there on pilgrimages.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("siebenberg");
-talkEntry:addResponse("'Tunnelschwein', das ist kein Schimpfnamen für faule Minenarbeiter, sondern ?n Nagetier. Erinnert an enorm große, fast nackte, fette Ratten. Dieses Tier kann man zu wirklichen Delikatessen verarbeitet werden.");
+talkEntry:addResponse("'Tunnelschwein', das ist kein Schimpfnamen für faule Minenarbeiter, sondern 'n Nagetier. Erinnert an enorm große, fast nackte, fette Ratten. Dieses Tier kann man zu wirklichen Delikatessen verarbeitet werden.");
 talkEntry:addResponse("Siebenberg ist die Heimat von sieben Zwergenklans. Es wird gesagt, dass ein Zwerg, der zu allen vier Heiligtümern Siebenbergs pilgert und dort zu Irmorom betet, von diesem gesegnet wird.");
 talkEntry:addResponse("Siebenberg ist eine der größten bekannten Zwergenminen, ihre Hallen und deren Reichtum sind legendär. Die Stadt befindet sich in den tiefen Höhlen unter den Siebenhügelbergen, die genaue Lage ist nur Zwergen bekannt.");
-talkEntry:addResponse("Menschen finden keinen Einlass nach Siebenberg und nur wenige Echsenmenschen oder Elfen ? von denen bekannt ist, dass sie nicht versuchen würden, glänzende Dinge aus kostbaren Verzierungen herauszubrechen.");
+talkEntry:addResponse("Menschen finden keinen Einlass nach Siebenberg und nur wenige Echsenmenschen oder Elfen - von denen bekannt ist, dass sie nicht versuchen würden, glänzende Dinge aus kostbaren Verzierungen herauszubrechen.");
 talkEntry:addResponse("Es werden Ziegen gehalten, deren Milch hauptsächlich zum bekannten Zwergenkäse verarbeitet wird! Eine besonders übel riechende Käsesorte, die von uns Zwergen sehr geschätzt wird, aber die anderen Völker scheinen ihn nicht besonders zu schätzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("I follow Irmorom, the father of the dwarven kind and hallow of the crafters... and Brágon, whose flames helps me cooking fine dishes.");
+talkEntry:addResponse("I follow Irmorom, the father of the dwarven kind and hallow of the crafters... and Brágon, whose flames help me to cook fine dishes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1576,7 +1576,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("The flame of Brágon brings dragons their fire and warms the living, and make food delicious.");
+talkEntry:addResponse("The flame of Brágon brings dragons their fire, warms the living, and makes food delicious.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1590,8 +1590,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Smithing is the craft of the dwarves. But a hungry smith will never make the finest weapons. Therefor Irmoron holds his hands over us cooks as well.");
-talkEntry:addResponse("Irmorom, the godly crafter, told the dwarven folk how to smith and gook. After hundreds of years they figured out how to make food most delicious. Some receips gone from dwarven hand to hand over hundred of years.");
+talkEntry:addResponse("Smithing is the craft of the dwarves, but a hungry smith will never make the finest weapons. Therefore, Irmoron holds his hands over us cooks as well.");
+talkEntry:addResponse("Irmorom, the godly crafter, told the dwarven folk how to smith and cook. After hundreds of years they figured out how to make the most delicious food. Some receipes have gone from dwarven hand to hand over hundreds of years.");
 talkEntry:addResponse("Irmorom himself was the first smith and cook. He liked the hardwoking dwarves most, so he gave them the ability to smith and eat well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1628,9 +1628,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Do you know, Baxton Herbmail, my cousin? He affirms that he beat up a hungry wolf with his cooking spoon only. Ga strak ja'ada! Such a fibbed tale.");
-talkEntry:addResponse("They say Yeseult Bockbrew's is the best beer, but I prefer the one Eygir Goldmalt brews.");
-talkEntry:addResponse("Rustbeard Grimhilds cousin is a good friend of mine, but he can't bear even half a mug of beer. When drunk he sings bawdy songs and throws kitchen knives targeting young women's plaits.");
+talkEntry:addResponse("Do you know, Baxton Herbmail, my cousin? He affirms that he beat up a hungry wolf with only his cooking spoon. Ga strak ja'ada! Such a fibbed tale.");
+talkEntry:addResponse("They say Yeseult Bockbrew makes the best beer, but I prefer the one Eygir Goldmalt brews.");
+talkEntry:addResponse("Rustbeard Grimhild's cousin is a good friend of mine, but he can't bear even half a mug of beer. When drunk he sings bawdy songs and throws kitchen knives targeting young women's plaits.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1715,11 +1715,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me streicht sich über seinen langen Bart.", "#me untangles his long beard.");
 talkingNPC:addCycleText("#me blickt misstrauisch in die Suppe und kratzt sich anschließend am Kopf.", "#me looks into the soup suspiciously then scratches his head.");
-talkingNPC:addCycleText("#me nimmt eine Flasche ohne Etikett aus seiner Tasche und schüttet einige Tropfen in die Suppe.", "#me pulls an unsigned bottle from his bag and takes a few drops into the soup.");
-talkingNPC:addCycleText("#me wischt sich mit dem Handrücken über die Stirn.", "#me wipes with his hand over his forehead.");
+talkingNPC:addCycleText("#me nimmt eine Flasche ohne Etikett aus seiner Tasche und schüttet einige Tropfen in die Suppe.", "#me pulls an unsigned bottle from his bag and pours a few drops into the soup.");
+talkingNPC:addCycleText("#me wischt sich mit dem Handrücken über die Stirn.", "#me wipes his hand over his forehead.");
 talkingNPC:addCycleText("#me brummt leise etwas in seinen Bart.", "#me grumbles something into his beard.");
 talkingNPC:addCycleText("#me streicht mit zusammengekniffenen Augen über sein Hemd aus Pferdehaar, etwas Staub löst sich daraus und schwebt zu Boden.", "#me pats his shirt made of horse-hair. Some dust gets released and sinks to the ground.");
-talkingNPC:addCycleText("#me grinst breit, ein goldener Zahn blitzt hervor.", "#me shows a broad grin, a golden tooth is shown for a second.");
+talkingNPC:addCycleText("#me grinst breit, ein goldener Zahn blitzt hervor.", "#me gives a broad grin, a golden tooth is shown for a second.");
 talkingNPC:addCycleText("#me pfeift die Melodie eines alten Bergwerkliedes.", "#me whistles the tune of an old miner's song.");
 talkingNPC:addCycleText("#me kratzt sich an der knubbeligen Nase.", "#me scratches his knobby nose.");
 talkingNPC:addCycleText("#me blickt mit zusammengekniffenen Augen in den Himmel.", "#me glances to the sky with narrowed eyes.");
@@ -1727,8 +1727,8 @@ talkingNPC:addCycleText("#me rührt langsam in der Suppe", "#me stirs the soup sl
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein in Bärenfell gekleideter Zwerg, rührt kenntnisreich in einer scharf riechenden Sauce.", "A dwarf, dressed in bear fur stirs in a spicy smelling soup.");
-mainNPC:setUseMessage("Fass mich nicht an! Die Soße wird sonst sauer.", "Don't touch me! The soup will get sour otherwise.");
+mainNPC:setLookat("Ein in Bärenfell gekleideter Zwerg, rührt kenntnisreich in einer scharf riechenden Sauce.", "A dwarf, dressed in bear fur stirs a spicy smelling soup.");
+mainNPC:setUseMessage("Fass mich nicht an! Die Soße wird sonst sauer.", "Don't touch me! The soup will get ruined.");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks confused.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 812);
