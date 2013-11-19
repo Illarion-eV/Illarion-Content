@@ -9,7 +9,7 @@ ENGLISH = Player.english
 -- Insert the quest title here, in both languages
 Title = {}
 Title[GERMAN] = "Der verfressene Bär"
-Title[ENGLISH] = "The hoggish bear"
+Title[ENGLISH] = "The greedy bear"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
@@ -18,47 +18,47 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 -- Quest 1
 Description[GERMAN][1] = "Bring 10 Getreide, 10 Äpfel und 1 Eimer voll Wasser zu Grijas Kokotte."
-Description[ENGLISH][1] = "Bring 10 grain, 10 apples and 1 bucket of water to Grijas Kokotte."
+Description[ENGLISH][1] = "Take ten grain, ten apples and a bucket of water to Grijas Kokotte."
 Description[GERMAN][2] = "Bring 5 Äpfel zum Bären."
-Description[ENGLISH][2] = "Bring 5 apples to the bear."
+Description[ENGLISH][2] = "Take five apples to the bear."
 Description[GERMAN][3] = "Vielleicht solltest du Grijas Kokotte nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
 Description[ENGLISH][3] = "Perhaps you should talk to Grijas Kokotte again, he is sure to have more for you to do."
 -- Quest 2
 Description[GERMAN][4] = "Bring 15 Zwiebeln, 1 Kochlöffel, 1 Holzkelle und 5 Steaks zu Grijas Kokotte."
-Description[ENGLISH][4] = "Bring 15 onion, 1 cooking spoon, 1 wooden shovel and 5 steaks to Grijas Kokotte."
+Description[ENGLISH][4] = "Take fifteen onion, one cooking spoon, one wooden shovel and five steaks to Grijas Kokotte."
 Description[GERMAN][5] = "Bring 1 Steak zum Bären."
-Description[ENGLISH][5] = "Bring 1 steak to the bear."
+Description[ENGLISH][5] = "Take one steak to the bear."
 Description[GERMAN][6] = "Vielleicht solltest du Grijas Kokotte nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
 Description[ENGLISH][6] = "Perhaps you should talk to Grijas Kokotte again, he is sure to have more for you to do."
 -- Quest 3
 Description[GERMAN][7] = "Bring 10 Tomaten, 10 Säckchen Mehl, 5 Würste und 4 Brote zu Grijas Kokotte."
-Description[ENGLISH][7] = "Bring 10 tomatoes, 10 flour, 5 sausage and 4 bread to Grijas Kokotte"
+Description[ENGLISH][7] = "Take ten tomatoes, ten lots of flour, five sausages and four loaves of bread to Grijas Kokotte"
 Description[GERMAN][8] = "Bring 1 Wurst und 1 Brot zum Bären."
-Description[ENGLISH][8] = "Bring 1 saussage and 1 bread to the bear."
+Description[ENGLISH][8] = "Take one sausage and a loaf of bread to the bear."
 Description[GERMAN][9] = "Vielleicht solltest du Grijas Kokotte nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
 Description[ENGLISH][9] = "Perhaps you should talk to Grijas Kokotte again, he is sure to have more for you to do."
 -- Quest 4
 Description[GERMAN][10] = "Bring 15 Brötchen, 10 Zwiebelsuppen, 10 Fischgerichte und 2 Apfelkuchen zu Grijas Kokotte."
-Description[ENGLISH][10] = "Bring 15 bread rolls, 10 onion soup, 10 fish dishes and 2 apple cakes to Grijas Kokotte"
+Description[ENGLISH][10] = "Take fifteen bread rolls, ten bowls of onion soup, ten fish dishes and two apple pies to Grijas Kokotte"
 Description[GERMAN][11] = "Bring 1 Apfelkuchen zum Bären."
-Description[ENGLISH][11] = "Bring 1 apple cake to the bear."
+Description[ENGLISH][11] = "Take an apple pie to the bear."
 -- Quest 5 - repeated
 Description[GERMAN][12] = "Grijas Kokotte weiß immer, was der Bär gerade mag."
-Description[ENGLISH][12] = "Grijas Kokotte knows what the bear want today."
+Description[ENGLISH][12] = "Grijas Kokotte knows what the bear wants today."
 Description[GERMAN][13] = "Bring 1 Lachs zum Bären."
-Description[ENGLISH][13] = "Bring 1 salmon to the bear."
+Description[ENGLISH][13] = "Take a salmon to the bear."
 Description[GERMAN][14] = "Bring 1 Keks zum Bären."
-Description[ENGLISH][14] = "Bring 1 cookie to the bear."
+Description[ENGLISH][14] = "Take a cookie to the bear."
 Description[GERMAN][15] = "Bring 1 Honig zum Bären."
-Description[ENGLISH][15] = "Bring 1 honey to the bear."
+Description[ENGLISH][15] = "Take a honeycomb to the bear."
 Description[GERMAN][16] = "Bring 1 Schinken zum Bären."
-Description[ENGLISH][16] = "Bring 1 ham to the bear."
+Description[ENGLISH][16] = "Take a ham to the bear."
 Description[GERMAN][17] = "Bring 1 Möhre zum Bären."
-Description[ENGLISH][17] = "Bring 1 carrot roll to the bear."
+Description[ENGLISH][17] = "Take a carrot to the bear."
 Description[GERMAN][18] = "Bring 1 Eimer Wasser zum Bären."
-Description[ENGLISH][18] = "Bring 1 bucket of water to the bear."
+Description[ENGLISH][18] = "Take a bucket of water to the bear."
 Description[GERMAN][19] = "Bring 1 Kirschkuchen zum Bären."
-Description[ENGLISH][19] = "Bring 1 cherry cake to the bear."
+Description[ENGLISH][19] = "Take a cherry cake to the bear."
 Description[GERMAN][20] = "Besuch den Bären."
 Description[ENGLISH][20] = "Visit the bear."
 
