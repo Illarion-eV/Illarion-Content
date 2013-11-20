@@ -34,6 +34,7 @@
 33,"Original beardstyle",,,"Miriam/Lillian/Merung","Holds the original beardstyle of a character"
 34,"Original haircolor",,,"Miriam/Lillian/Merung","Holds the original haircolor of a character"
 35,"Number of base attribute changes",,,"vilarion","Used to calculate the price of a permanent attribute change"
+36,"Indicates if player will be attacked by monsters",,,"vilarion","0: monsters will attack; not 0: monsters will NOT attack"
 61,"Orders for npcs",,,"Ardian","stores the thrustworthyness of a character (i value is to less you won't get new orders for an amount of time) value between 1-100"
 62,"Mineth, the Coat of Arms tailoress",,,"Ardian","a woman npc needs help to make something for a group, stores the quest status"
 63,"Nanginis the Nargun Priest",,,"Ardian","a nargun priest creates by random items for you if you give him some coins(kind of a gambler)"

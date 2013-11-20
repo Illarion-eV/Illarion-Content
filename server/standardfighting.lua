@@ -60,12 +60,22 @@ function setTarget(monster, candidates)
     local target = 0
 
     for key,candidate in pairs(candidates) do
-        if target == 0 or candidate:increaseAttrib("hitpoints", 0) < candidates[target]:increaseAttrib("hitpoints", 0) then
+        if isPossibleTarget(candidate) and (target == 0
+                or isBetterTarget(candidates[target], candidate)) then
             target = key
         end
     end
 
     return target
+end
+
+function isPossibleTarget(candidate)
+    return candidate:getQuestProgress(36) == 0
+end
+
+function isBetterTarget(currentTarget, candidate)
+    return candidate:increaseAttrib("hitpoints", 0)
+            < currentTarget:increaseAttrib("hitpoints", 0)
 end
 
 --- Main Attack function. This function is called by the server to start an
