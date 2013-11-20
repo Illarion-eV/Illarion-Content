@@ -25,8 +25,8 @@ author = "Baylamon"
 
 lookatDE = "Ein sichtlich gut genährter Bär mit dichtem braunen Fell."
 lookatUS = "A well fed bear with dense brown hair."
-useMsgDE = "#me knurrt"
-useMsgUS = "#me growls"
+useMsgDE = "#me knurrt."
+useMsgUS = "#me growls."
 wrongLangDE = "#me schaut bettelnd."
 wrongLangUS = "#me looks begging."
 radius = 2
@@ -88,7 +88,7 @@ queststatus(671) = 2, skill(cookingAndBaking) >= 20, item(15, all) > 4, town = G
 queststatus(671) = 2, skill(cookingAndBaking) < 20, item(15, all) > 4, english, town = Galmair, ".+" -> inform("[Bear Quest finished!] You feel like you really learnt something."), "#me eats the apples and grumbles satisfied.", skill(cookingAndBaking) + 2, deleteItem(15, 5), queststatus(671) = 3, rankpoints + 5
 queststatus(671) = 2, skill(cookingAndBaking) < 20, item(15, all) > 4, town = Galmair, ".+" -> inform("[Bären Quest  erfüllt!] Du hast das Gefühl als hättest du etwas dazu gelernt."), "#me verputzt die Äpfel und brummt zufrieden.", skill(cookingAndBaking) + 2, deleteItem(15, 5), queststatus(671) = 3, rankpoints + 5
 queststatus(671) = 2, item(15, all) < 5, english, ".+" -> inform("[Bear Quest] You have to feed the bear with five apples."), "#me looks hungry."
-queststatus(671) = 2, item(15, all) < 5, ".+" ->  inform("[Bären Quest ] Du sollst den Bären mit fünf Äpfeln füttern."), "#me schaut hungrig"
+queststatus(671) = 2, item(15, all) < 5, ".+" ->  inform("[Bären Quest ] Du sollst den Bären mit fünf Äpfeln füttern."), "#me schaut hungrig."
 
 -- 2nd quest
 queststatus(671) = 5, skill(cookingAndBaking) >= 40, item(2940, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "#me sniffs at the steak and gulps it down at once.", deleteItem(2940, 1), queststatus(671) = 6, rankpoints + 5
@@ -96,7 +96,7 @@ queststatus(671) = 5, skill(cookingAndBaking) >= 40, item(2940, all) > 0, town =
 queststatus(671) = 5, skill(cookingAndBaking) < 40, item(2940, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!] You feel like you really learnt something."), "#me sniffs at the steak and gulps it down at once.", skill(cookingAndBaking) + 2, deleteItem(2940, 1), queststatus(671) = 6, rankpoints + 5
 queststatus(671) = 5, skill(cookingAndBaking) < 40, item(2940, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest  erfüllt!] Du hast das Gefühl als hättest du etwas dazu gelernt."), "#me schnüffelt am Steak und verschlingt es mit einem Biss.", skill(cookingAndBaking) + 2, deleteItem(2940, 1), queststatus(671) = 6, rankpoints + 5
 queststatus(671) = 5, item(2940, all) < 1, english, ".+" -> inform("[Bear Quest] You have to feed the bear with a steak."), "#me looks hungry."
-queststatus(671) = 5, item(2940, all) < 1, ".+" ->  inform("[Bären Quest ] Du sollst den Bären mit einem Steak füttern."), "#me schaut hungrig"
+queststatus(671) = 5, item(2940, all) < 1, ".+" ->  inform("[Bären Quest ] Du sollst den Bären mit einem Steak füttern."), "#me schaut hungrig."
 
 -- 3rd quest
 queststatus(671) = 8, skill(cookingAndBaking) >= 60, item(49, all) > 0, item(3051, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "#me grabs the food with his claws and starts eating immediately.", deleteItem(49, 1), deleteItem(3051, 1), queststatus(671) = 9, rankpoints + 5
@@ -157,24 +157,24 @@ german, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer" -> "#me's Gehege h
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "food", "dinner", "breakfast", "lunch" -> "#me sniffs at a muddy apple.", "#me begs for food.", "#me licks his chops."
 "Futter", "essen", "Frühstück", "brot" -> "#me schnüffelt an einem matschigen Apfel.", "#me bettelt um Essen.", "#me leckt sich die Lippen."
-"Grijas","Kokotte",english -> "#me looks to the east and licks his chops"
-"Grijas","Kokotte" -> "#me blickt in den Osten und leckt sich die Lippen"
+"Grijas","Kokotte",english -> "#me looks to the east and licks his chops."
+"Grijas","Kokotte" -> "#me blickt in den Osten und leckt sich die Lippen."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 english, "archmage", "Elvaine", "Morgan", "Runewick" -> "#me doesn't interrupt.", "#me grumbles.", "#me shakes himself."
 "Erzmagier", "Elvaine", "Morgan", "Runewick" -> "#me macht ungerührt weiter.", "#me brummt.", "#me schüttelt sich."
 english, "Valerio", "Guilianni", "Don", "Galmair" -> "#me looks up.", "#me winks."
 "Valerio", "Guilianni", "Don", "Galmair" -> "#me schaut auf.", "#me zwinkert."
-english, "rosaline", "edwards", "Queen", "Cadomyr" -> "#me doesn't interrupt.", "#me grumbles", "#me licks his nose."
-"Königin", "rosaline", "edwards", "Cadomyr" -> "#me macht ungerührt weiter.", "#me brummt", "#me leckt sich die Nase."
+english, "rosaline", "edwards", "Queen", "Cadomyr" -> "#me doesn't interrupt.", "#me grumbles.", "#me licks his nose."
+"Königin", "rosaline", "edwards", "Cadomyr" -> "#me macht ungerührt weiter.", "#me brummt.", "#me leckt sich die Nase."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-chance(10.0), "god" -> "#me sniffs in the air", "#me cocks his ears."
-chance(10.0), "Gott", "Götter" -> "#me schnüffelt in der Luft", "#me stellt die Ohren auf."
+english, chance(10.0), "god" -> "#me sniffs in the air.", "#me cocks his ears."
+german, chance(10.0), "Gott", "Götter" -> "#me schnüffelt in der Luft.", "#me stellt die Ohren auf."
 english, chance(10.0), "Bragon", "Brágon" -> "#me looks around alerted."
-chance(10.0), "Bragon", "Brágon" -> "#me schaut beunruhigt umher.", "#me faucht laut."
+german, chance(10.0), "Bragon", "Brágon" -> "#me schaut beunruhigt umher.", "#me faucht laut."
 english, chance(10.0), "Irmorom" -> "#me looks around."
-chance(10.0), "Irmorom" -> "#me schaut sich um."
+german, chance(10.0), "Irmorom" -> "#me schaut sich um."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "#me turns his head away.", "#me scratches at the ground.", "#me bares his teeth."

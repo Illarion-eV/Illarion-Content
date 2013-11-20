@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Baylamon                                                         --
---                                                Illarion easyNPC Editor 1.02 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -120,7 +120,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 5, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bären Quest ] Du sollst den Bären mit fünf Äpfeln füttern."));
-talkEntry:addResponse("#me schaut hungrig");
+talkEntry:addResponse("#me schaut hungrig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -199,7 +199,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(671, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2940, "all", "<", 1, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bären Quest ] Du sollst den Bären mit einem Steak füttern."));
-talkEntry:addResponse("#me schaut hungrig");
+talkEntry:addResponse("#me schaut hungrig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -781,14 +781,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Grijas");
 talkEntry:addTrigger("Kokotte");
-talkEntry:addResponse("#me looks to the east and licks his chops");
+talkEntry:addResponse("#me looks to the east and licks his chops.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grijas");
 talkEntry:addTrigger("Kokotte");
-talkEntry:addResponse("#me blickt in den Osten und leckt sich die Lippen");
+talkEntry:addResponse("#me blickt in den Osten und leckt sich die Lippen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -843,7 +843,7 @@ talkEntry:addTrigger("edwards");
 talkEntry:addTrigger("Queen");
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("#me doesn't interrupt.");
-talkEntry:addResponse("#me grumbles");
+talkEntry:addResponse("#me grumbles.");
 talkEntry:addResponse("#me licks his nose.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -854,24 +854,26 @@ talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("#me macht ungerührt weiter.");
-talkEntry:addResponse("#me brummt");
+talkEntry:addResponse("#me brummt.");
 talkEntry:addResponse("#me leckt sich die Nase.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(10.0));
 talkEntry:addTrigger("god");
-talkEntry:addResponse("#me sniffs in the air");
+talkEntry:addResponse("#me sniffs in the air.");
 talkEntry:addResponse("#me cocks his ears.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(10.0));
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("#me schnüffelt in der Luft");
+talkEntry:addResponse("#me schnüffelt in der Luft.");
 talkEntry:addResponse("#me stellt die Ohren auf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -886,6 +888,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(10.0));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
@@ -903,6 +906,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(10.0));
 talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("#me schaut sich um.");
@@ -981,7 +985,7 @@ talkingNPC:addCycleText("#me blickt mit zusammengekniffenen Augen in den Himmel 
 mainNPC:addLanguage(0);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein sichtlich gut genährter Bär mit dichtem braunen Fell.", "A well fed bear with dense brown hair.");
-mainNPC:setUseMessage("#me knurrt", "#me growls");
+mainNPC:setUseMessage("#me knurrt.", "#me growls.");
 mainNPC:setConfusedMessage("#me schaut bettelnd.", "#me looks begging.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 0);

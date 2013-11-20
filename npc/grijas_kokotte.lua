@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Baylamon                                                         --
---                                                Illarion easyNPC Editor 1.02 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1145,7 +1145,7 @@ talkEntry:addTrigger("heute");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Bären Quest] Heute ist Fastentag!"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(671, "=", 20));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(673, "=", 18));
-talkEntry:addResponse("Heute bekommt der Bär nichts. So ein Bär ist genau wie ein richtiger Zwerg. Er fastet hin und wieder. Aber über einen Besuch freut er sich trotzdem");
+talkEntry:addResponse("Heute bekommt der Bär nichts. So ein Bär ist genau wie ein richtiger Zwerg. Er fastet hin und wieder. Aber über einen Besuch freut er sich trotzdem.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1507,7 +1507,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht interessiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg.");
+talkEntry:addResponse("Vergib mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht willste über meine Heimat sprechen, Siebenberg.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1522,7 +1522,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht interessiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg.");
+talkEntry:addResponse("Vergib mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht willste über meine Heimat sprechen, Siebenberg.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1535,7 +1535,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht interessiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg.");
+talkEntry:addResponse("Vergib mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht willste über meine Heimat sprechen, Siebenberg.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1551,7 +1551,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("siebenberg");
-talkEntry:addResponse("'Tunnelschwein', das ist kein Schimpfnamen für faule Minenarbeiter, sondern 'n Nagetier. Erinnert an enorm große, fast nackte, fette Ratten. Dieses Tier kann man zu wirklichen Delikatessen verarbeitet werden.");
+talkEntry:addResponse("'Tunnelschwein', das ist kein Schimpfname für faule Minenarbeiter, sondern 'n Nagetier. Erinnert an enorm große, fast nackte, fette Ratten. Dieses Tier kann zu wirklichen Delikatessen verarbeitet werden.");
 talkEntry:addResponse("Siebenberg ist die Heimat von sieben Zwergenklans. Es wird gesagt, dass ein Zwerg, der zu allen vier Heiligtümern Siebenbergs pilgert und dort zu Irmorom betet, von diesem gesegnet wird.");
 talkEntry:addResponse("Siebenberg ist eine der größten bekannten Zwergenminen, ihre Hallen und deren Reichtum sind legendär. Die Stadt befindet sich in den tiefen Höhlen unter den Siebenhügelbergen, die genaue Lage ist nur Zwergen bekannt.");
 talkEntry:addResponse("Menschen finden keinen Einlass nach Siebenberg und nur wenige Echsenmenschen oder Elfen - von denen bekannt ist, dass sie nicht versuchen würden, glänzende Dinge aus kostbaren Verzierungen herauszubrechen.");
@@ -1723,7 +1723,7 @@ talkingNPC:addCycleText("#me grinst breit, ein goldener Zahn blitzt hervor.", "#
 talkingNPC:addCycleText("#me pfeift die Melodie eines alten Bergwerkliedes.", "#me whistles the tune of an old miner's song.");
 talkingNPC:addCycleText("#me kratzt sich an der knubbeligen Nase.", "#me scratches his knobby nose.");
 talkingNPC:addCycleText("#me blickt mit zusammengekniffenen Augen in den Himmel.", "#me glances to the sky with narrowed eyes.");
-talkingNPC:addCycleText("#me rührt langsam in der Suppe", "#me stirs the soup slowly.");
+talkingNPC:addCycleText("#me rührt langsam in der Suppe.", "#me stirs the soup slowly.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
