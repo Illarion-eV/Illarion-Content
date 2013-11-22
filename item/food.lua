@@ -220,7 +220,13 @@ function UseItem(User, SourceItem, ltstate)
     if( math.random( 50 ) <= 1 ) then
       base.common.HighInformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.");
     else
-      User:createItem( foodItem.leftover, 1, 333, nil);
+		local notCreated = User:createItem( foodItem.leftover, 1, 333, nil);
+		if ( notCreated > 0 ) then
+			world:createItemFromId( foodItem.leftover, notCreated, User.pos, true, 333, nil );
+			base.common.HighInformNLS(User,
+			"Du kannst nichts mehr halten und lässt das Geschirr zu Boden fallen.",
+			"You can't carry any more and let the dishes drop to the ground.");
+		end
     end
   end
 
