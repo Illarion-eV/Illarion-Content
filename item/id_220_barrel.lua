@@ -22,7 +22,7 @@ dyersList = {
 };
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+	if base.licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
@@ -45,11 +45,11 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-  
+
 	-- additional tool item is needed
 	if (User:countItemAt("all",2781)==0) then
 		base.common.HighInformNLS( User,
-		"Du brauchst einen Färberstab um Stoffe zu färben.", 
+		"Du brauchst einen Färberstab um Stoffe zu färben.",
 		"You need a dyeing rod for dyeing cloth." );
 		return
 	end
@@ -71,24 +71,24 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
 		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 	end
-	
+
 	-- any other checks?
-  
-  local dye = nil;
-  for _,d in pairs(dyersList) do 
-    if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>0 or User:countItemAt("all",d[2][2])>0)) then
-      dye = d;
-      break;
-    end
-  end
+
+	local dye = nil;
+	for _,d in pairs(dyersList) do
+		if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>0 or User:countItemAt("all",d[2][2])>0)) then
+			dye = d;
+			break;
+		end
+	end
 
 	if (dye == nil) then -- check for items to work on
-		base.common.HighInformNLS( User, 
-		"Du brauchst weiße Farbe und grauen Stoff oder eine andere Farbe und weißen oder grauen Stoff um zu färben.", 
+		base.common.HighInformNLS( User,
+		"Du brauchst weiße Farbe und grauen Stoff oder eine andere Farbe und weißen oder grauen Stoff um zu färben.",
 		"You need white dye and grey cloth or any other dye and white or grey cloth for dyeing." );
 		return;
 	end
-	
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		dyeing.SavedWorkTime[User.id] = dyeing:GenWorkTime(User,toolItem);
 		User:startAction( dyeing.SavedWorkTime[User.id], 0, 0, 0, 0);
@@ -111,21 +111,30 @@ function UseItem(User, SourceItem, ltstate)
 	end
 	local amount = 5; -- set the amount of items that are produced
 	local notCreated = User:createItem( dye[3], amount, 333, nil ); -- create the new produced items
-	User:createItem( 51, 1, 333, nil ); -- giving back the bucket
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( dye[3], notCreated, User.pos, true, 333, nil );
-		world:createItemFromId( 51, notCreated, User.pos, true, 333, nil ); -- giving back the bucket
+		world:createItemFromId( 51, 1, User.pos, true, 333, nil ); -- giving back the bucket
 		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-	    dye = nil;
-    for _,d in pairs(dyersList) do 
-      if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>0 or User:countItemAt("all",d[2][2])>0)) then
-        dye = d;
-        break;
-      end
-    end
+		notCreated = User:createItem( 51, 1, 333, nil ); -- giving back the bucket
+		if ( notCreated > 0 ) then
+			world:createItemFromId( 51, 1, User.pos, true, 333, nil );
+			base.common.HighInformNLS(User,
+			"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+			"You can't carry any more and the rest drops to the ground.");
+		end
+	end
+
+	if (notCreated == 0) then -- character can go on
+		dye = nil;
+		for _,d in pairs(dyersList) do
+			if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>0 or User:countItemAt("all",d[2][2])>0)) then
+				dye = d;
+				break;
+			end
+		end
 		if (dye ~= nil) then  -- there are still items we can work on
 			dyeing.SavedWorkTime[User.id] = dyeing:GenWorkTime(User,toolItem);
 			User:startAction( dyeing.SavedWorkTime[User.id], 0, 0, 0, 0);
