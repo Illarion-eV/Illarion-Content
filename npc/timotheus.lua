@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
 --           Mesha                                                            --
---                                                     easyNPC Parser v1.23.1 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -709,6 +709,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(840,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(841,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(842,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(843,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(844,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(50,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(63,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(168,"sell"));
@@ -821,6 +822,9 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(849,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(850,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(851,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(852,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1055,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1056,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1057,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2678,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2679,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2680,"buyPrimary"));
@@ -837,6 +841,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(840,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(841,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(842,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(843,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(844,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(50,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(63,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(168,"buyPrimary"));
@@ -898,9 +903,6 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(365,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(366,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(367,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(369,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1055,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1056,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1057,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(526,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(527,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(697,"buyPrimary"));
