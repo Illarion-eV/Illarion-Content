@@ -775,7 +775,7 @@ function CheckAttackOK(CharStruct)
         return false;
     end;
 --    CharStruct.Char:talk(Character.say,"check 2 ok");
-    if (CharStruct.WeaponItem.id == 228) then -- Item is occupied
+    if (CharStruct.Char.effects:find(24)) then -- Attacker is tied up
         return false;
     end;
 

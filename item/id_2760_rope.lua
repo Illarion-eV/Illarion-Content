@@ -3,8 +3,8 @@
 
 require("base.common")
 require("base.lookat")
-require("lte.tying_capturer") 
-module("item.id_2760_rope", package.seeall)      
+require("lte.tying_capturer")
+module("item.id_2760_rope", package.seeall)
 -- UPDATE common SET com_script='I_2760_seil.lua' WHERE com_itemid=2760;
 
 function LookAtItem(User,Item)
@@ -26,26 +26,26 @@ function UseItem(User, SourceItem, ltstate)
 		end
 		return;
 	end
-	
+
 	-- try to strengthen the knot (if User has tied up someone...)
 	if StrengthenKnot(User, SourceItem, base.common.GetTargetItem(User, SourceItem)) then
 		return;
 	end
-	
+
 	-- try to tie up the frontChar!
 	local frontChar = base.common.GetFrontCharacter(User);
 	if frontChar then
 		UseRopeWithCharacter(User, SourceItem, frontChar, ltstate);
 		return;
 	end
-	
+
 	-- noone infront... perhaps climb down a well then.
 	local TargetItem = base.common.GetFrontItem(User);
-	
+
 	if TargetItem == nil or ( TargetItem.id ~= 2207 ) then
 		return;
     end
-    
+
 	if (TargetItem.pos == position(528, 555, 0)) then
         User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
         User:warp(position(518,559, -3));
@@ -63,20 +63,20 @@ function UseItem(User, SourceItem, ltstate)
 end
 
 function MoveItemBeforeMove( User, SourceItem, TargetItem )
-	
+
 	if SourceItem:getData("tyingStatus") == "tied" then
-		
+
 		base.common.InformNLS(User,
 			"Du solltest das Seil fest in der Hand behalten. Damit ist jemand gefesselt.",
 			"You should hold the rope tight in your hand. Someone is tied up with it.")
 		return false;
 	end
-	
+
 	return true;
 end
 
 function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
-	
+
 	-- check if rope is in hands
 	if SourceItem:getType() ~= 4 then
 		base.common.InformNLS(User,
@@ -84,7 +84,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 			"You have to take the rope in your hand if you want to tie up someone.")
 		return;
 	end
-	
+
 	-- check for abort
 	if (ltstate == Action.abort) then
 		gText = GetRaceGenderText(0,Target);
@@ -94,7 +94,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 			"You don't succeed in tying up "..eText..".");
 		return;
 	end
-	
+
 	-- check viewing direction
 	if not base.common.IsLookingAt(User, Target.pos) then
 		base.common.InformNLS( User,
@@ -102,14 +102,14 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 			"You should look in your captive's direction.");
 		return;
 	end
-	
+
 	if User.effects:find(26) then
 		base.common.InformNLS(User,
 			"Du hast schon einen Gefangenen.",
 			"You already have a captive.");
 		return;
 	end
-	
+
 	-- tie up only PCs without admin rights
 	if Target:getType()~=0 or ( Target:isAdmin() and not User:isAdmin() ) then
 		base.common.InformNLS(User,
@@ -117,14 +117,22 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 			"You can't tie this creature up.");
 		return;
 	end
-	
+
+	-- tie up only PCs who are alive
+	if (Target:increaseAttrib("hitpoints",0) == 0) then
+		base.common.InformNLS(User,
+			"Du kannst keinen Geist fesseln.",
+			"You can't tie up a ghost.");
+		return;
+	end
+
 	if User.id==Target.id then
 		base.common.InformNLS(User,
 			"Du solltest dich nicht selbst fesseln.",
 			"You shouldn't tie up yourself.");
 		return;
 	end
-	
+
 	-- Check if User is in attackmode
 	if User.attackmode then
 		base.common.InformNLS ( User,
@@ -132,21 +140,21 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 			"You can't tie someone up while you are fighting." );
 		return;
 	end
-	
+
 	if lte.tying_capturer.HasEnoughCapturers(Target) then
 		base.common.InformNLS(User,
 			"Der Gefangene ist nun schon ausreichend gefesselt.",
 			"The captive is now sufficiently tied up already.");
 		return;
 	end
-	
+
 	if User.effects:find(24) then
 		base.common.InformNLS(User,
 			"Dir sind leider die Hände gebunden.",
 			"Unfortunately your hands are tied.");
 		return;
 	end
-	
+
 	local foundEffectTarget = Target.effects:find(24);
 	-- Check ltstate, 5 sec for first, 2 sec for another capturer or freezed target
 	if (ltstate == Action.none) then
@@ -163,23 +171,23 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 				Time = Time + 30;
 			end
 		end
-		
+
 		User:startAction(Time,0,0,0,0);
-		
+
 		gText = GetRaceGenderText(0,Target);
 		eText = GetRaceGenderText(1,Target);
 		User:talk(Character.say, "#me versucht "..gText.." zu fesseln.", "#me tries to tie up "..eText..".")
-		
+
 		base.common.InformNLS(Target,
 			"Jemand versucht dich zu fesseln!",
 			"Someone tries to tie you up!");
-		
+
 		-- save target's position
 		if not TargetPosList then
 			TargetPosList = {};
 		end
 		TargetPosList[Target.id] = base.common.CopyPosition( Target.pos );
-		
+
 		local logText = base.common.GetRealDateTimeString()..": "..User.name.." tries to capture "..Target.name
 		coldLog,errMsg=io.open("/home/nitram/logs/tying_log.txt","a");
 		if (coldLog~=nil) then
@@ -195,7 +203,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 			"Your captive should hold still so you can tie him up.");
 		return;
 	end
-	
+
 	-- tie up!
 	local logText = base.common.GetRealDateTimeString()..": "..User.name.." has captured "..Target.name
 	coldLog,errMsg=io.open("/home/nitram/logs/tying_log.txt","a");
@@ -209,6 +217,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 		Tying = LongTimeEffect(24,1);
 		Target.effects:addEffect(Tying);
 		Tying:addValue("Capturer",User.id);
+--[[
 		-- check left, right tool
 		local item;
 		for i=5,6 do
@@ -222,15 +231,16 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 			item.id = 228;
 			world:changeItem(item);
 		end
+]]
 	end
-	
+
 	foundTying, Tying = User.effects:find(26);
 	if not foundTying then
 		Tying = LongTimeEffect(26,1);
 		User.effects:addEffect(Tying);
 	end
 	Tying:addValue("Captive",Target.id);
-	
+
 	if not foundEffectTarget then
 		gText = "#me hat ein festes Seil um die Hände.";
 		eText = "#me has a tight rope around the hands.";
@@ -257,7 +267,7 @@ function StrengthenKnot(User, Rope, TargetItem)
 		Rope:setData("tyingStatus", "untied");
 		return false;
 	end
-	
+
 	if TargetItem then
 		if TargetItem.id == 2760 then
 			if TargetItem:getData("tyingStatus") == "tied" and Rope:getData("tyingStatus") == "untied" then
@@ -283,13 +293,13 @@ end
 --- Handles actions with a tying rope (data 1), like tightening, untie or handing the leading rope over
 -- @return true if something was done
 function TyingRopeHandler(User, Rope, Target)
-	
+
 	local foundEffect, Tying = User.effects:find(26);
 	if not foundEffect then
 		Rope:setData("tyingStatus", "untied");
 		return false;
 	end
-	
+
 	-- check if User has tied up someone
 	foundCaptive, Captive = Tying:findValue("Captive");
 	if foundCaptive then
@@ -300,7 +310,7 @@ function TyingRopeHandler(User, Rope, Target)
 			User.effects:removeEffect(26);
 			return true;
 		end
-		
+
 		if not Target then
 			Target = lte.tying_capturer.IsCharidInRangeOf(Captive,User.pos,5);
 			if Target then
@@ -318,7 +328,7 @@ function TyingRopeHandler(User, Rope, Target)
 			end
 			return true;
 		end
-		
+
 		if Target.id == Captive then
 			-- target is captive, so untie him
 			gText = GetRaceGenderText(0,Target);
@@ -369,17 +379,17 @@ end
 
 -- Language=0 for German, otherwise English
 function GetRaceGenderText( Language, Character )
-	
+
 	if not InitRaceGenderText then
 		InitRaceGenderText = true;
 		articleGerman={"den","die"};
 		descriptionGerman={"Mensch","Zwerg","Halbling","Elf","Ork","Echsenmensch","Menschendame","Zwergenmaid","Halblingsdame","Elfendame","Orkfrau","Echse"};
 		descriptionEnglish={"human","dwarf","halfling","elf","orc","lizard","human lady","dwarven maid","halfling lady","elven lady","orcess","female lizard"};
 	end
-	
+
 	race=Character:getRace();
 	gender=Character:increaseAttrib("sex",0);
-	
+
 	if Language == 0 then
 		if race > 5 or gender > 1 then
 			outText = "das Wesen"
@@ -393,6 +403,6 @@ function GetRaceGenderText( Language, Character )
 			outText = "the "..descriptionEnglish[race+1+6*gender];
 		end
 	end
-	
+
 	return outText;
 end
