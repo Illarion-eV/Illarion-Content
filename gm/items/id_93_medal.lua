@@ -234,12 +234,20 @@ end
 
 function getFreePos( CenterPos, Rad )
     local tarPos;
+	local countPos = 0;
     while true do
         tarPos = position(CenterPos.x+math.random(-Rad,Rad),CenterPos.y+math.random(-Rad,Rad),CenterPos.z);
         if not world:isItemOnField( tarPos ) and not world:isCharacterOnField( tarPos ) then
             tileID = world:getField( tarPos ):tile();
             if tileID ~= 0 and tileID ~= 5 and tileID ~= 6 and tileID~=42 and tileID ~= 43 and tileID~= 34 then --no inpassable tiles
+				countPos = 0;
                 return tarPos;
+			else
+				countPos = countPos +1;
+				if countPos > 150 then
+					countPos = 0;
+					return CenterPos;
+				end
             end
         end
     end
