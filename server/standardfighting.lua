@@ -84,7 +84,8 @@ end
 -- @param Defender The character who is attacked
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender)
-    -- Prepare the lists that store the required values for the calculation
+    
+	-- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
     local Globals = {};
@@ -98,7 +99,12 @@ function onAttack(Attacker, Defender)
 
 	-- Find out the attack type and the required combat skill
 	GetAttackType(Attacker);
-
+	
+	-- Check aiming time for player archers
+	if Attacker.AttackKind==4 and Attacker.Char:getType() == Character.player and not CheckAimingTime(Attacker,Defender.Char,CheckRange(Attacker, Defender.Char)) then
+		return false
+	end
+	
 	-- Check the range between the both fighting characters
     if not CheckRange(Attacker, Defender.Char) then return false; end;
 
@@ -169,6 +175,85 @@ end;
 -- fighting system work in the way expected. They contain all the needed      --
 -- calculations to perform a proper fight.                                    --
 --------------------------------------------------------------------------------
+
+-- List to store all information for aiming time
+AIMING_TIME_LIST = {}
+
+-- Check if enough aiming time has passed for the archer in order to shoot
+-- @param AttackerList List containing Attacker and weapon
+-- @param Defender The defending character
+-- @param inRange Boolean if the defender is in range to aim/shoot at him
+function CheckAimingTime(AttackerList,Defender,inRange)
+	local Attacker = AttackerList["Char"]
+	
+	if not inRange then
+		AIMING_TIME_LIST[Attacker.id] = nil
+		return false
+	end
+	
+	if AIMING_TIME_LIST[Attacker.id] == nil then
+		FillAimingTimeList(Attacker,Defender,AttackerList.Weapon.id)
+		return false
+	else
+		-- Check if weapon and target are the same and if the attacker hasn't moved
+		if AttackerList.Weapon.id ~= AIMING_TIME_LIST[Attacker.id]["weapon"] or Defender.id ~= AIMING_TIME_LIST[Attacker.id]["target"] or Attacker.pos.x.." "..Attacker.pos.y.." "..Attacker.pos.z ~= AIMING_TIME_LIST[Attacker.id]["position"] then
+			FillAimingTimeList(Attacker,Defender,AttackerList.Weapon.id)
+			return false
+			
+		elseif world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["counter"] > GetNecessaryAimingTime(Attacker, AttackerList.Weapon) + 2 then
+			-- that is needed to prevent that someone aims, stops aiming, waits a long time and as soon as he targets the same character again, shoots immediately.
+			-- this has to be done since there is no way to clear the list when someone stops targeting the target
+			AIMING_TIME_LIST[Attacker.id]["counter"] = world:getTime("unix")
+			ShowAimingGfx(Attacker)
+			return false
+		
+		elseif world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["counter"] <= GetNecessaryAimingTime(Attacker, AttackerList.Weapon) then
+			-- not enough time has passed; display a nice gfx to show that the character is aiming
+		    ShowAimingGfx(Attacker)
+		
+		else
+			-- everything fine; reset counter; return true to shoot
+			AIMING_TIME_LIST[Attacker.id]["counter"] = world:getTime("unix")
+			return true 
+		end
+	end
+	
+
+end
+
+-- Show aiming gfx. The char has to have been standing still for some calls of onAttack before the gfx starts
+-- @param Attacker The character attacking
+function ShowAimingGfx(Attacker)
+	
+	if AIMING_TIME_LIST[Attacker.id]["gfxCounter"] % 7 == 0 then
+		world:gfx(21,Attacker.pos)
+	end
+	AIMING_TIME_LIST[Attacker.id]["gfxCounter"] = AIMING_TIME_LIST[Attacker.id]["gfxCounter"] + 1
+
+end
+
+-- Store all necessary information in the global list for aiming time
+-- @param Attacker The character attacking
+-- @param Defender The character defender
+-- @param WeaponId Id of the weapon used
+function FillAimingTimeList(Attacker,Defender,weaponId)
+
+	AIMING_TIME_LIST[Attacker.id] = {}
+	AIMING_TIME_LIST[Attacker.id]["counter"] = world:getTime("unix")  -- seconds
+	AIMING_TIME_LIST[Attacker.id]["gfxCounter"] = 1 -- counting onAttack calls
+	AIMING_TIME_LIST[Attacker.id]["weapon"] = weaponId
+	AIMING_TIME_LIST[Attacker.id]["target"] = Defender.id
+	AIMING_TIME_LIST[Attacker.id]["position"] = Attacker.pos.x.." "..Attacker.pos.y.." "..Attacker.pos.z
+
+end
+
+-- Calculate time necessary to aim, depedning on attribute and weapon.
+-- @param Attacker The character attacking
+-- @param Weapon The weapon used
+function GetNecessaryAimingTime(Attacker, Weapon)
+	-- we use a default value for every character and weapon; the differences in attributes and weapons come in play when the movepoints are lowered/regenerated
+	return 4
+end
 
 --- Calculate the damage that is absorbed by the armor and reduce the stored
 -- armor value by this amount.
@@ -1481,7 +1566,7 @@ function HandleMovepoints(Attacker, Globals)
     local weaponFightpoints;
     if Attacker.IsWeapon then
         weaponFightpoints = Attacker.Weapon.ActionPoints;
-    else
+	else
         weaponFightpoints = content.fighting.GetWrestlingMovepoints(Attacker.Race);
     end;
 
