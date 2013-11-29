@@ -40,8 +40,82 @@ function UseItemWithField(User,SourceItem,TargetPos)
 	--Additions end
 	
 	if (SourceItem:getData("mode")=="Monster") then
-        local monster = world:createMonster(Counter,TargetPos,20);
-		User:inform("Creating monster with ID "..Counter);
+	
+		local cbInputDialog = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			local inputNumber = dialog:getInput();
+						
+			if (string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+) (%d+)") ~= nil) then
+				a, b, number, ammount, radius, gfxId, sfxId = string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+) (%d+)");
+				number = tonumber(number);
+				ammount = tonumber(ammount);
+				radius = tonumber(radius);
+				gfxId = tonumber(gfxId);
+				sfxId = tonumber(sfxId);
+				
+			elseif (string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+)") ~= nil) then
+				a, b, number, ammount, radius, gfxId = string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+)");
+				number = tonumber(number);
+				ammount = tonumber(ammount);
+				radius = tonumber(radius);
+				gfxId = tonumber(gfxId);
+				sfxId = 0;
+			
+			elseif (string.find(inputNumber,"(%d+) (%d+) (%d+)") ~= nil) then
+				a, b, number, ammount, radius = string.find(inputNumber,"(%d+) (%d+) (%d+)");
+				number = tonumber(number);
+				ammount = tonumber(ammount);
+				radius = tonumber(radius);
+				gfxId = 0;
+				sfxId = 0;
+				
+			elseif (string.find(inputNumber,"(%d+) (%d+)") ~= nil) then
+				a, b, number, ammount = string.find(inputNumber,"(%d+) (%d+)");
+				number = tonumber(number);
+				ammount = tonumber(ammount);
+				radius = 0;
+				gfxId = 0;
+				sfxId = 0;
+			
+			elseif (string.find(inputNumber,"(%d+)") ~= nil) then
+				a, b, number = string.find(inputNumber,"(%d+)");
+				number = tonumber(number);
+				ammount = 1;
+				radius = 0;
+				gfxId = 0;
+				sfxId = 0;
+								
+			else
+				User:inform("No number");
+			end
+				
+			if ammount > 100 then
+			ammount = 100;
+			end
+						
+			for i = 1,ammount
+			do	
+				monPos=getFreePos( TargetPos, radius );
+				local monster = world:createMonster(number,monPos,20);
+				
+				if gfxId ~= 0 then
+					world:gfx(gfxId,monPos);
+				end
+				
+			end
+			
+			User:inform("Creating "..ammount.. " monsters with ID "..number);
+			
+			if sfxId ~= 0 then
+				world:makeSound(sfxId,TargetPos);
+			end
+			
+			
+		end
+		User:requestInputDialog(InputDialog("Spawn a monster.", "Usage enter: MonsterID [ammount] [radius] [GFX] [SFX]" ,false, 255, cbInputDialog))
+	
 	
 	elseif (SourceItem:getData("mode")=="GFX") then
 		local cbInputDialog = function (dialog)
@@ -139,6 +213,9 @@ function LookAtItem(User,Item)
     if (Item:getData("mode")=="Monster") then
 		base.lookat.SetSpecialName(Item, "Medallie (Monster)","Medal (Monster)")
 		base.lookat.SetSpecialDescription(Item, "Sag die Monster ID und lass den Spaß beginnen.", "Say the monster ID and let the fun begin.");
+    elseif (Item:getData("mode")=="test") then
+        base.lookat.SetSpecialName(Item, "Medallie (test)","Medal (test)");
+		base.lookat.SetSpecialDescription(Item, "Testen neuer Funktionen.", "Testing new item functions.");		
     elseif (Item:getData("mode")=="GFX") then
         base.lookat.SetSpecialName(Item, "Medallie (GFX)","Medal (GFX)");
 		base.lookat.SetSpecialDescription(Item, "Sag die GFX ID und lass den Spaß beginnen.", "Say the GFX ID and let the fun begin.");
@@ -153,4 +230,25 @@ function LookAtItem(User,Item)
         base.lookat.SetSpecialName(Item, "Medaille", "Medal");
     end
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
+end
+
+function getFreePos( CenterPos, Rad )
+    local tarPos;
+	local countPos = 0;
+    while true do
+        tarPos = position(CenterPos.x+math.random(-Rad,Rad),CenterPos.y+math.random(-Rad,Rad),CenterPos.z);
+        if not world:isItemOnField( tarPos ) and not world:isCharacterOnField( tarPos ) then
+            tileID = world:getField( tarPos ):tile();
+            if tileID ~= 0 and tileID ~= 5 and tileID ~= 6 and tileID~=42 and tileID ~= 43 and tileID~= 34 then --no inpassable tiles
+				countPos = 0;
+                return tarPos;
+			else
+				countPos = countPos +1;
+				if countPos > 150 then
+					countPos = 0;
+					return CenterPos;
+				end
+            end
+        end
+    end
 end
