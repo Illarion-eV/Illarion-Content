@@ -500,7 +500,7 @@ debug("radius"..radius)
 	local intervals;
 	local gfxId;
 	local sfxId;
-	local sp = scheduled.alchemy;
+	local sp = scheduled.spawnpoint;
 	
 	-- If input contains numbers, sets input to Data "monsters"
 	
