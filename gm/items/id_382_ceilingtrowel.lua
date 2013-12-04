@@ -548,7 +548,7 @@ debug("radius"..radius)
 			end
 				
 		end
-		User:requestInputDialog(InputDialog("Set number of Intervals.", "Usage: Set numer of 10 second intervals per Spawn." ,false, 255, cbInputDialog))
+		User:requestInputDialog(InputDialog("Set number of Intervals.", "Usage: Set numer of 5 second intervals per Spawn." ,false, 255, cbInputDialog))
 		
 	
 	elseif (SourceItem:getData("spawnmode")=="Time") then
