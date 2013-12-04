@@ -5,7 +5,7 @@ require("base.factions")
 require("base.common")
 require("npc.base.guards_static")
 require("base.licence")
-
+require("scheduled.alchemy")
 module("gm.items.id_382_ceilingtrowel", package.seeall, package.seeall(gm.base.log))
 
 
@@ -15,7 +15,13 @@ function UseItem(User, SourceItem)
   
   -- First check for mode change
   if (string.find(User.lastSpokenText, "setmode")~=nil) then
-    local modes = {"items", "weather", "factions"}
+    local modes = {"items", "weather", "factions","Spawnpoint"}
+	SourceItem:setData("monsters", "1")
+	SourceItem:setData("intervals", "1")
+	SourceItem:setData("endurance", "1")
+	SourceItem:setData("gfxId", "0")
+	SourceItem:setData("sfxId", "0")
+	world:changeItem(SourceItem);
     local cbSetMode = function (dialog)
       if (not dialog:getSuccess()) then
         return;
@@ -467,6 +473,265 @@ debug("radius"..radius)
     sd:addOption(0,"Get/Set guard modes");
     sd:addOption(0,"Get/Set licence");
     User:requestSelectionDialog(sd);
+  
+  
+  --Spawnpoint mode
+  
+  elseif (SourceItem:getData("mode")=="Spawnpoint") then
+	
+		if (string.find(User.lastSpokenText, "setspawn")~=nil) then
+		local modes = {"Monster", "Intervals per spawn", "Time","Effects","Start/Stop"}
+		local cbSetMode = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			SourceItem:setData("spawnmode", modes[dialog:getSelectedIndex()+1]);
+			world:changeItem(SourceItem);
+		end
+		local sd = SelectionDialog("Set the mode of this Spawnpoint.", "To which mode do you want to change it?", cbSetMode);
+		for _,m in ipairs(modes) do 
+			sd:addOption(0,m);
+		end
+		User:requestSelectionDialog(sd);
+		return;
+	end
+	
+	local endurance;
+	local intervals;
+	local gfxId;
+	local sfxId;
+	local sp = scheduled.alchemy;
+	
+	-- If input contains numbers, sets input to Data "monsters"
+	
+	if (SourceItem:getData("spawnmode")=="Monster") then
+	
+		local cbInputDialog = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+		local inputString = dialog:getInput();
+	
+			if (string.find(inputString,"(%d+)") ~= nil) then
+				
+				SourceItem:setData("monsters", inputString);
+				world:changeItem(SourceItem);
+				
+			else
+				User:inform("Enter MonsterID");
+				
+			end
+		end
+			
+			
+		User:requestInputDialog(InputDialog("Enter Monster IDs.", "Usage: Enter the IDs of the monsters." ,false, 255, cbInputDialog))
+		
+	elseif (SourceItem:getData("spawnmode")=="Intervals per spawn") then
+		
+		--Write down how many Mobs shall spawn per Minute
+		-- If input contains number, sets input to Data "intervals"
+		
+		
+				
+		local cbInputDialog = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			local input = dialog:getInput();
+
+			if (string.find(input,"(%d+)") ~= nil) then
+				a, b, intervals = string.find(input,"(%d+)")
+				intervals = intervals
+				
+				SourceItem:setData("intervals", intervals);
+				world:changeItem(SourceItem);
+			end
+				
+		end
+		User:requestInputDialog(InputDialog("Set number of Intervals.", "Usage: Set numer of 10 second intervals per Spawn." ,false, 255, cbInputDialog))
+		
+	
+	elseif (SourceItem:getData("spawnmode")=="Time") then
+		
+		-- If input contains number, sets input to Data "endurance"
+		
+		
+		
+		local cbInputDialog = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			local input = dialog:getInput();
+
+			if (string.find(input,"(%d+)") ~= nil) then
+				a, b, endurance = string.find(input,"(%d+)")
+				endurance = endurance
+				
+				SourceItem:setData("endurance", input);
+				world:changeItem(SourceItem);
+			end
+				
+		end
+		User:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the ammounts of total Intervals." ,false, 255, cbInputDialog))
+		
+	elseif (SourceItem:getData("spawnmode")=="Effects") then
+		
+		-- If input contains number, sets input to Data "endurance"
+		
+		
+		
+		local cbInputDialog = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			local input = dialog:getInput();
+
+			if (string.find(input,"(%d+) (%d+)") ~= nil) then
+				a, b, gfxId, sfxId = string.find(input,"(%d+) (%d+)")
+				
+				gfxId = tonumber(gfxId);
+				sfxId = tonumber(sfxId);
+				
+				SourceItem:setData("sfxId", sfxId);
+				SourceItem:setData("gfxId", gfxId);
+				world:changeItem(SourceItem);			
+	
+
+			elseif (string.find(input,"(%d+)") ~= nil) then
+				a, b, gfxId = string.find(input,"(%d+)")
+				
+				
+				SourceItem:setData("gfxId", input);
+				world:changeItem(SourceItem);
+				
+
+			
+			
+			end
+				
+		end
+		User:requestInputDialog(InputDialog("Set the graphic and sound appearing at spawn", "Usage: Enter a gfxId [sfxId]" ,false, 255, cbInputDialog))	
+	
+	
+	
+	
+	elseif (SourceItem:getData("spawnmode")=="Start/Stop") then
+	
+		
+		--checks if item is on the ground
+		
+		
+		
+			--checks to see Datas are not nil and worst case set them 1
+			
+			if (SourceItem:getData("monsters") == "") then
+				SourceItem:setData("monsters", "1")
+				world:changeItem(SourceItem);
+			end
+		
+			if SourceItem:getData("intervals") == "" then
+				SourceItem:setData("intervals", "1")
+				world:changeItem(SourceItem);
+			end
+		
+			if SourceItem:getData("endurance") == "" then
+				SourceItem:setData("endurance", "1")
+				world:changeItem(SourceItem);
+			end
+			
+			if SourceItem:getData("gfxId") == "" then
+				SourceItem:setData("gfxId", "0")
+				world:changeItem(SourceItem);
+			end
+			
+			if SourceItem:getData("sfxId") == "" then
+				SourceItem:setData("sfxId", "0")
+				world:changeItem(SourceItem);
+			end
+
+			
+			intervals = tostring(SourceItem:getData("intervals"))
+			endurance = tostring(SourceItem:getData("endurance"))
+			gfxId = tostring(SourceItem:getData("gfxId"))
+			sfxId = tostring(SourceItem:getData("sfxId"))
+			--convert monster string into an array of monsters
+			
+			local monsters = tostring(SourceItem:getData("monsters"))
+			local counter = 0;
+			local fin = 1;
+			local monsterId;
+			local monsterIds = {};
+			
+			
+			while fin <= string.len(monsters) do
+		
+				if (string.find(monsters,"(%d+)",fin) ~= nil) then
+				
+					a, b, monsterId = string.find(monsters,"(%d+)",fin)
+					fin = b + 1;
+					counter = counter +1;
+					monsterIds[counter]	= tonumber(monsterId)
+					
+				else
+					User:inform("Enter MonsterID");
+					fin = string.len(inputNumber);
+			
+				end
+			end
+			
+				
+			
+			--set position			
+			local spawnPos = base.common.GetFrontPosition(User);
+			
+			--create arrays of informations
+			local spawnInfo = {spawnPos, monsterIds, intervals, endurance, 0, 0, gfxId, sfxId}
+			local found = false
+			
+			--checks for position in SPAWNDATAS
+			
+						
+			for i=1,#sp.SPAWNDATAS do
+				if sp.SPAWNDATAS[i][1] == spawnPos then
+					found = true
+					
+					if sp.SPAWNDATAS[i][5] == 0 then
+						spawnInfo[5] = 1;
+						world:changeItem(SourceItem);
+						sp.SPAWNDATAS[i] = spawnInfo;
+						User:inform("Turned Spawnpoint on");
+					else
+						sp.SPAWNDATAS[i][5] = 0;
+						world:changeItem(SourceItem);
+						User:inform("Turned Spawnpoint Off");
+					end
+					--testing from here
+					if sp.SPAWNDATAS[i][4] == nil then
+					
+					User:inform("da steht nichts")
+					
+					end
+					--testing end
+				end
+			end
+			
+			--writes a new entry in SPAWNDATAS if not found 
+			
+			if not found then
+				table.insert(sp.SPAWNDATAS,spawnInfo)
+				
+				--testing from here
+				User:inform("neuer Eintrag")
+				--testing end
+			end		
+		
+			
+
+	
+	end
+	
+	
+	
   end
 end
 
@@ -543,6 +808,28 @@ function LookAtItem(User,Item)
 	elseif (Item:getData("mode")=="factions") then
         base.lookat.SetSpecialName(Item, "Kelle (Fraktionen)", "Kelle (Factions)");
 		base.lookat.SetSpecialDescription(Item, "Ändert Werte des Fraktionssystems. Benutze die Kelle.", "Changes values of the faction system. Use the trowel.");
+	elseif (Item:getData("mode")=="Spawnpoint")then
+	
+		if (Item:getData("spawnmode")=="Monster") then
+			base.lookat.SetSpecialName(Item, "Kelle (Spawnpoint) (Monster)","Kelle (Spawnpoint) (Monster)")
+			base.lookat.SetSpecialDescription(Item, "Lege die Monster fest.", "Set the Monsters.");
+		elseif (Item:getData("spawnmode")=="Intervals per spawn") then
+			base.lookat.SetSpecialName(Item, "Kelle (Spawnpoint) (Anzahl)","Kelle (Spawnpoint) (Number)");
+			base.lookat.SetSpecialDescription(Item, "Lege die Anzahl der Monster fest.", "Set the ammount of Monsters.");
+		elseif (Item:getData("spawnmode")=="Time") then
+			base.lookat.SetSpecialName(Item, "Kelle (Spawnpoint) (Zeit)","Kelle (Spawnpoint) (Time)");
+			base.lookat.SetSpecialDescription(Item, "Lege die Dauer fest.", "Set the time.");
+		elseif (Item:getData("spawnmode")=="Effects") then
+			base.lookat.SetSpecialName(Item, "Kelle (Spawnpoint) (Effekte)","Kelle (Spawnpoint) (Effects)");
+			base.lookat.SetSpecialDescription(Item, "Lege die gfx und die sfx fest.", "Set the gfx and sfx.");	
+		elseif (Item:getData("spawnmode")=="Start/Stop") then
+			base.lookat.SetSpecialName(Item, "Kelle (Spawnpoint) (Start/Stop)","Kelle (Spawnpoint) (Start/Stop)");
+			base.lookat.SetSpecialDescription(Item, "Startet oder Stoppt den Spawn.", "Starts or stops the spawn.");	
+		else
+			base.lookat.SetSpecialDescription(Item, "Um einen Modus zu setzen sage 'setspawn' und benutzt den Spawnpoint.", "To set a mode type 'setspawn' and use the Spawnpoint.");
+			base.lookat.SetSpecialName(Item, "Spawnpoint", "Spawnpoint");
+    end
+  
 	else
 		base.lookat.SetSpecialDescription(Item, "Um einen Modus zu setzen sage 'setmode' und benutzt die Kelle.", "To set a mode type 'setmode' and use the trowel.");
         base.lookat.SetSpecialName(Item, "Kelle", "Kelle");
