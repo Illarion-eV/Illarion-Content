@@ -177,7 +177,7 @@ function RightWeight(char,clicksAmountVar)
 	local AmountStoneChamberStones = table.getn(stoneChamberStonePosition)
 	for m,player in ipairs(playerWithRightWeight[char.name]) do
 		if (content.areas.PointInArea(player.pos,"evilrockstonechamber")) then
-			base.common.InformNLS(player,"~Du hörst ein "..clicksAmountDe[clicksAmountVar].." .~","~You hear "..clicksAmountEn[clicksAmountVar].." .~")
+			base.common.InformNLS(player,"~Du hÃ¶rst ein "..clicksAmountDe[clicksAmountVar].." .~","~You hear "..clicksAmountEn[clicksAmountVar].." .~")
 		end
 	end
 	for i = 1,AmountStoneChamberStones do
@@ -198,7 +198,7 @@ function WrongWeight(char,clicksAmountVar)
 	playerWithWrongWeight[char.name] = world:getPlayersInRangeOf(position(960,173,-6), 50)
 	for m,player in ipairs(playerWithWrongWeight[char.name]) do
 		if (content.areas.PointInArea(player.pos,"evilrockstonechamber")) then
-			base.common.InformNLS(player,"~Du hörst ein "..clicksAmountDe[clicksAmountVar].." und eine Stimme ruft: 'Narr, du bist nicht ich!' Anschließend füllt sich der Raum mit Flammen.~","~You hear "..clicksAmountEn[clicksAmountVar].." and a voice shouts: 'Fool, you are not me!' The room fills itself with flames afterwards.~")
+			base.common.InformNLS(player,"~Du hÃ¶rst ein "..clicksAmountDe[clicksAmountVar].." und eine Stimme ruft: 'Narr, du bist nicht ich!' AnschlieÃŸend fÃ¼llt sich der Raum mit Flammen.~","~You hear "..clicksAmountEn[clicksAmountVar].." and a voice shouts: 'Fool, you are not me!' The room fills itself with flames afterwards.~")
 			world:makeSound(25,player.pos);
 		else
 		end

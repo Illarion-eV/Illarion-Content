@@ -209,7 +209,7 @@ function UseDarkColumns(User, SourceItem, ltstate)
 			if ( ltstate == Action.none ) then 
 				User:startAction( 20, 21, 5, 28, 55);
 --				User:startAction( 20, 21, 5, 13, 25);
-				User:talk(Character.say, "#me setzt einen magischen Edelstein in die S‰ule ein.", "#me sets a magical gem into the column.")
+				User:talk(Character.say, "#me setzt einen magischen Edelstein in die S√§ule ein.", "#me sets a magical gem into the column.")
 				world:gfx(52,darkColumnEvilrockLight[i])
 				world:createItemFromId( darkColumnEvilrockFlame[i], 1, darkColumnEvilrock[i], true, 666, nil)
 				User:eraseItem(gemsRequired[i],1, {["gemLevel"]="1"})
@@ -237,11 +237,11 @@ function UseDarkColumns(User, SourceItem, ltstate)
 
 			BlackColumnQuestProgressA(User)
 		elseif (SourceItem.pos == darkColumnEvilrock[i]) and (User:countItemAt("all", gemsRequired[i]) >= 1) then
-			base.common.InformNLS(User,"Der Edelstein l‰sst sich rein stecken aber er d¸rfte scheinbar trotzdem nicht  der richtige sein. Vielleicht versuchst du einen anderen.","Your gem seems to fit but for some reason it does not seem to be the right one.")
+			base.common.InformNLS(User,"Der Edelstein l√§sst sich rein stecken aber er d√ºrfte scheinbar trotzdem nicht  der richtige sein. Vielleicht versuchst du einen anderen.","Your gem seems to fit but for some reason it does not seem to be the right one.")
 		elseif (SourceItem.pos == darkColumnEvilrock[i]) and (User:countItemAt("all", 283) >= 1 or User:countItemAt("all", 46) >= 1 or User:countItemAt("all", 198) >= 1) then
 			base.common.InformNLS(User,"Diese Art von Edelstein scheint nicht zu passen. Vielleicht versuchst du einen einer anderen Art.","This kind of gem does not seem to fit. You might try a different one.")
 		elseif (SourceItem.pos == darkColumnEvilrock[i]) then
-			base.common.InformNLS(User,"Keiner deiner Gegenst‰nde scheint nicht zu passen.","None of your items seems to fit.")
+			base.common.InformNLS(User,"Keiner deiner Gegenst√§nde scheint nicht zu passen.","None of your items seems to fit.")
 		end
 	end
 end
@@ -252,7 +252,7 @@ function BlackColumnQuestProgressA(User)
 	for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
 		if (content.areas.PointInArea(player.pos,triggerfield.evilrock.EvilRockAreaNames[2])) then
 			player:setQuestProgress(667,1)
-			base.common.InformNLS(player,"~Eine Stimme sagt: 'Flammen, die Welt steht in Flammen!' Anschlieﬂend ist ein Summen zu hˆren und selektierbare Runen erscheinen an den schwarzen S‰ulen.~","~A voice says: 'Fire, the world is fire!' A hum can be heard afterwards and selectable runes appear on the black columns.~")
+			base.common.InformNLS(player,"~Eine Stimme sagt: 'Flammen, die Welt steht in Flammen!' Anschlie√üend ist ein Summen zu h√∂ren und selektierbare Runen erscheinen an den schwarzen S√§ulen.~","~A voice says: 'Fire, the world is fire!' A hum can be heard afterwards and selectable runes appear on the black columns.~")
 		else
 		end
 	end
@@ -264,9 +264,9 @@ function BlackColumnQuestProgressB(User,QuestStatusBlackColumn)
 	for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
 		if (content.areas.PointInArea(player.pos,triggerfield.evilrock.EvilRockAreaNames[2])) then
 			if QuestStatusBlackColumn == 16 then
-				base.common.InformNLS(player,"~Eine Stimme ruft: 'Flammen, die Welt steht in Flammen!'. Das Summen verst‰rkt sich anschlieﬂend.~", "~A voice shouts: 'Fire, the world is fire!' The hum intensifies afterwards.~")
+				base.common.InformNLS(player,"~Eine Stimme ruft: 'Flammen, die Welt steht in Flammen!'. Das Summen verst√§rkt sich anschlie√üend.~", "~A voice shouts: 'Fire, the world is fire!' The hum intensifies afterwards.~")
 			else
-				base.common.InformNLS(player,"~Das Summen verst‰rkt sich als du den magischen Edelstein einsetzt.~", "~The hum intensifies as you put in the magical gem.~")
+				base.common.InformNLS(player,"~Das Summen verst√§rkt sich als du den magischen Edelstein einsetzt.~", "~The hum intensifies as you put in the magical gem.~")
 			end
 			player:setQuestProgress(667,QuestStatusBlackColumn+1)
 		else
@@ -283,7 +283,7 @@ function BlackColumnQuestProgressC(User,QuestStatusBlackColumn)
 	for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
 		if (content.areas.PointInArea(player.pos,triggerfield.evilrock.EvilRockAreaNames[2])) then
 			player:setQuestProgress(667,0)
-			base.common.InformNLS(player,"~Das Summen bricht ab, die Lichter erlˆschen und die Runen an den schwarzen S‰ulen verschwinden.~", "~The hum breaks up, lights go out and the runes disappear on the black column.~")
+			base.common.InformNLS(player,"~Das Summen bricht ab, die Lichter erl√∂schen und die Runen an den schwarzen S√§ulen verschwinden.~", "~The hum breaks up, lights go out and the runes disappear on the black column.~")
 			world:makeSound(27,player.pos)
 			local AmountDarkColumnEvilrock = table.getn(darkColumnEvilrock)	
 			for i=1,AmountDarkColumnEvilrock do
@@ -326,27 +326,27 @@ end
 
 puzzleOptionsDE={}
 puzzleOptionsDE[1]="Es brennt in seinem Herz,"
-puzzleOptionsDE[2]="erf¸llt ihn mit Schmerz."
+puzzleOptionsDE[2]="erf√ºllt ihn mit Schmerz."
 puzzleOptionsDE[3]="Es gibt ihm"
-puzzleOptionsDE[4]="die W‰rme einer Schreckensherrschaft."
+puzzleOptionsDE[4]="die W√§rme einer Schreckensherrschaft."
 puzzleOptionsDE[5]="Atmet die sterbliche Hitze,"
 puzzleOptionsDE[6]="trinkt von der sterblichen Seele."
-puzzleOptionsDE[7]="Um sich an der W‰rme zu laben"
+puzzleOptionsDE[7]="Um sich an der W√§rme zu laben"
 puzzleOptionsDE[8]="sein Leben vollkommen zu machen!"
 puzzleOptionsDE[9]="Er trinkt das warme Blut,"
 puzzleOptionsDE[10]="ein wichtiger Geschmack des Lebens."
 puzzleOptionsDE[11]="Es fliesst durch seine Venen,"
 puzzleOptionsDE[12]="gibt ihm den Wahnsinn."
 puzzleOptionsDE[13]="Kriecht in lebendes Fleisch,"
-puzzleOptionsDE[14]="schl‰ngelt sich ins Hirn."
+puzzleOptionsDE[14]="schl√§ngelt sich ins Hirn."
 puzzleOptionsDE[15]="Spielt mit neuen Gedanken, Willen und saugt auf,"
 puzzleOptionsDE[16]="was er bekommt."
 puzzleOptionsDE[17]="Er wandert durch die Flammen,"
-puzzleOptionsDE[18]="sie gr¸ﬂen ihn in Vorfreude."
+puzzleOptionsDE[18]="sie gr√º√üen ihn in Vorfreude."
 puzzleOptionsDE[19]="Erwarten von ihm,"
 puzzleOptionsDE[20]="seine dunkle Kreatur zu vollenden."
-puzzleOptionsDE[21]="Zerstˆrung wird er s‰en,"
-puzzleOptionsDE[22]="alte Sch‰tze suchend,"
+puzzleOptionsDE[21]="Zerst√∂rung wird er s√§en,"
+puzzleOptionsDE[22]="alte Sch√§tze suchend,"
 puzzleOptionsDE[23]="Der Schmerz, den dieser neue Arm brennt,"
 puzzleOptionsDE[24]="wird unvorstellbar sein."
 
@@ -439,7 +439,7 @@ function Puzzle(User,SourceItem)
 	local dialog
 
 	if  User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Schwarze S‰ulen R‰tsel", "Treffe deine Wahl, aber sei vorsichtig. Bei einer flaschen Antwort musst du wieder von vorne beginnen.", callback)
+		dialog = SelectionDialog("Schwarze S√§ulen R√§tsel", "Treffe deine Wahl, aber sei vorsichtig. Bei einer flaschen Antwort musst du wieder von vorne beginnen.", callback)
 	else
 		dialog = SelectionDialog("Black Column Puzzle", "Select your choice but be careful. If you select the wrong answer, you move back to the beginning.", callback)
 	end
@@ -458,7 +458,7 @@ end
 
 function checkRightChoice(User,QuestStatusBlackColumn,selected)
 	User:startAction( 10, 0, 0, 22, 55);
-	User:talk(Character.say, "#me w‰hlt eine der Runen an der schwarzen S‰ule aus.", "#me selects one of the runes on the black column.")
+	User:talk(Character.say, "#me w√§hlt eine der Runen an der schwarzen S√§ule aus.", "#me selects one of the runes on the black column.")
 	if OptionToSelect[selected+1] == QuestStatusBlackColumn then
 		BlackColumnQuestProgressB(User,QuestStatusBlackColumn)
 	else
@@ -481,7 +481,7 @@ function beamMeDown(User, SourceItem)
 		if content.areas.PointInArea(player.pos,"evilrock6") then
 			player:warp(position(973,173,-6))
 			player:setQuestProgress(667,0)
-			base.common.InformNLS(player,"~Das Summen bricht ab und ein Lichtermantel umschlieﬂt dich, der dich an einen anderen Ort zieht.~", "~The hum breaks up and a coat of light encloses you and pulls you at a different place.~")
+			base.common.InformNLS(player,"~Das Summen bricht ab und ein Lichtermantel umschlie√üt dich, der dich an einen anderen Ort zieht.~", "~The hum breaks up and a coat of light encloses you and pulls you at a different place.~")
 			world:makeSound(13,player.pos)
 			world:gfx(37,player.pos)
 		end
