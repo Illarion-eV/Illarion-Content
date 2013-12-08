@@ -18,10 +18,10 @@ function callEffect( Effect, Char ) -- Effect is called
 
 
 		--Addition by Envi: Quest 665 (Evil Rock Vision)
-	    theQuestStatus=Char:getQuestProgress(665);
+	    theQuestStatus=Char:getQuestProgress(673);
 	
 		if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
-			Char:setQuestProgress(665,theQuestStatus-1); --cooling!
+			Char:setQuestProgress(673,theQuestStatus-1); --cooling!
 		end
 	    --Addition end
 

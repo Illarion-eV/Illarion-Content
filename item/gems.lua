@@ -6,7 +6,6 @@ require("base.factions")
 require("alchemy.base.analysis")
 require("base.money")
 require("item.base.crafts")
-require("content.vision")
 
 -- UPDATE common SET com_script='item.gems' WHERE com_itemid IN (45, 46, 197, 198, 283, 284, 285);
 
@@ -136,28 +135,12 @@ function UseItem(User, SourceItem, ltstate)
 	    alchemy.base.analysis.CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
 		return
 	end    
-	
-	local TargetItemEvilRock = base.common.GetItemInArea(User.pos, 2805);
-	local AmountDarkColumnEvilrock = table.getn(content.vision.darkColumnEvilrock)
-	if TargetItemEvilRock ~= nil then	
-		for i = 1,AmountDarkColumnEvilrock do
-			if TargetItemEvilRock.pos == content.vision.darkColumnEvilrock[i] then
-				if not base.common.IsLookingAt(User,TargetItemEvilRock.pos) then -- check looking direction
-					base.common.TurnTo(User,TargetItemEvilRock.pos); -- turn if necessary
-				end
-				content.vision.UseDarkColumns(User,TargetItemEvilRock,ltstate)
-				return
-			end
-		end
-	end
 
     handleSocketing(User, SourceItem)
 end
 
 function handleSocketing(user, gem)
     local socketablePositions = getSocketablePositions(user)
-
-
 
     if #socketablePositions == 0 then
         user:inform("Es ist kein sockelbarer Gegenstand in deinem Inventar!",

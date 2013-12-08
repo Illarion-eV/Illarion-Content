@@ -38,54 +38,6 @@ function init()
 	elevator2 = base.lever.Lever(position(332,247,0),true); --create lever object
 	elevator2:bind(1, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil )); 
 	elevator2:bind(0, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil )); 
-
-	-- activate at every switching of the lever
-	evilrock1 = base.lever.Lever(position(977,171,-6),true); --create lever object
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(977,172,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(977,174,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(973,171,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(973,175,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(971,171,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(971,175,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(969,171,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(969,175,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(960,171,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(960,175,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(960,164,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(960,182,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(952,164,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(952,182,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(943,164,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(943,182,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(943,170,-6),467));
-	evilrock1:bind(0, handler.deleteitem.deleteItem(position(943,176,-6),467));
-	evilrock1:bind(1, handler.createitem.createItem(position(977,172,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(977,174,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(973,171,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(973,175,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(971,171,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(971,175,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(969,171,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(969,175,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(960,171,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(960,175,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(960,164,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(960,182,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(952,164,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(952,182,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(943,164,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(943,182,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(943,170,-6),467, 666, 1));
-	evilrock1:bind(1, handler.createitem.createItem(position(943,176,-6),467, 666, 1));
-
-
-
-	-- activate at every switching of the lever
-	evilrock2 = base.lever.Lever(position(977,175,-6),true); --create lever object
-	evilrock2:bind(0, handler.deleteitem.deleteItem(position(977,173,-6),10));
-	evilrock2:bind(1, handler.createitem.createItem(position(977,173,-6),10, 666, 1));
-	evilrock2:bind(1, handler.createsound.createSound(position(977,173,-6),4));
-
 	
 	-- Wall appear / disappear in dwarf Dungeon
 	dronrul1 = base.lever.Lever(position(446,754,-3),true);
@@ -141,8 +93,6 @@ function init()
 	
 	AddToLevers(elevator1);
 	AddToLevers(elevator2);
-	AddToLevers(evilrock1);
-	AddToLevers(evilrock2);
 	AddToLevers(dronrul1);
 	AddToLevers(killerhuhn);
 	AddToLevers(ki1);

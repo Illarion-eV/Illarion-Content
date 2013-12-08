@@ -33,27 +33,7 @@ function Init()
   AddArea("runewick guard 1", {
     {{position(839,825,0),position(839,819,0),position(846,819,0),position(846,825,0)}, {0}}
   });
-  AddArea("evilrock1", {
-    {{position(952,203,0),position(952,210,0),position(971,210,0),position(971,199,0),position(958,199,0),position(958,203,0)}, {0}}
-  });
-  AddArea("evilrock2", {
-    {{position(960,177,0),position(960,169,0),position(975,169,0),position(975,177,0)}, {0}}
-  });
-  AddArea("evilrock3", {
-    {{position(916,200,0),position(916,183,0),position(935,183,0),position(934,194,0),position(923,200,0)}, {0}}
-  });
-  AddArea("evilrock4", {
-    {{position(914,249,0),position(914,262,0),position(896,262,0),position(896,237,0),position(910,237,0),position(910,249,0)}, {0}}
-  });
-  AddArea("evilrock5", {
-    {{position(952,212,1),position(952,203,1),position(965,203,1),position(965,208,1),position(971,208,1),position(971,210,1),position(971,210,1)}, {1}}
-  });
-  AddArea("evilrock6", {
-    {{position(943,182,-6),position(965,182,-6),position(965,164,-6),position(943,164,-6)}, {-6}}
-  });
-  AddArea("evilrockstonechamber", {
-    {{position(943,182,-6),position(983,182,-6),position(983,164,-6),position(943,164,-6)}, {-6}}
-  });    
+  
 end
 
 --- adds an area
