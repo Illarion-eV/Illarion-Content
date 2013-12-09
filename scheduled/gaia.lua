@@ -90,7 +90,7 @@ function plantdrop()
 	   PutPlantOnField(false)
 	end
     
-	for i=1,10 do -- rare plants
+	for i=1,5 do -- rare plants
 	   PutPlantOnField(true)
 	end
 end
