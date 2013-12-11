@@ -1600,6 +1600,7 @@ end;
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP, Globals)
 
+
 	-- Attacker learns weapon skill
 	if Attacker.Skillname then
 		if Attacker.AttackKind == 0 then
