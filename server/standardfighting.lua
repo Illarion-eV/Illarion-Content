@@ -1602,7 +1602,11 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 
 	-- Attacker learns weapon skill
 	if Attacker.Skillname then
-		Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Attacker.Weapon.Level,math.max(Defender.DefenseSkill, Defender.parry)) + 20);
+		if Attacker.AttackKind == 0 then
+			Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.DefenseSkill, Defender.parry) + 20);
+		else
+			Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Attacker.Weapon.Level,math.max(Defender.DefenseSkill, Defender.parry)) + 20);
+		end
 	end
 
 	-- Defender learns armor skill
