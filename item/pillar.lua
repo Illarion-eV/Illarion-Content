@@ -3,6 +3,7 @@
 require("base.common")
 require("content.pillar")
 require("base.lookat")
+require("content.vision")
 
 module("item.pillar", package.seeall)
 
@@ -58,6 +59,9 @@ messageE1[3]="3. Queen Rosaline Edwards - 22 AS"
 messageG1[3]="3. Königin Rosaline Edwards - 22 AS";
 
 function LookAtItem(User,Item)
+
+
+
 	-------------------------------- ENDURANCE CAVE QUEST LOOKAT -----------------------------------------
 	if Item.pos == position (7,11,-15) then
 		local language = User:getPlayerLanguage();
@@ -121,6 +125,11 @@ function LookAtItem(User,Item)
 				]]
       		end   
     else
+
+
+
+
+
 	       --[[base.common.InformNLS(User,"Reiterstatue","statue of a rider"); --default ]]--
 	local test = "no value";
 
@@ -149,6 +158,12 @@ function LookAtItem(User,Item)
 		end
 	end
 
+--[[	local AmountDarkColumnEvilrock = table.getn(content.vision.darkColumnEvilrock)
+	for i = 1,AmountDarkColumnEvilrock do 
+		if Item.pos == content.vision.darkColumnEvilrock[i] and world:getItemOnField(Item.pos).id ~= 467 then
+			lookAt = DarkColumnEvilrockLookAT(User, Item)
+		end
+	end ]]
 	--[[local outText = checkNoobiaSigns(User,Item.pos);
 	if outText and not found then
 		world:itemInform(User,Item,outText);
@@ -168,13 +183,25 @@ function LookAtItem(User,Item)
 	end
 	end
 	
-	
 end
+--[[
+function DarkColumnEvilrockLookAT(User, Item)
+	local lookAt = ItemLookAt();
+	lookAt.rareness = ItemLookAt.rareItem;
+	if (User:getPlayerLanguage()==0) then
+		lookAt.name = "Schwarze Säule";
+		lookAt.description = "Die Säule wirkt als könnte man einen Edelstein einsetzen."
+	else
+		lookAt.name = "Dark Column";
+		lookAt.description = "The column appears as a gem could be set into it."
+	end
+	return lookAt
+end
+]]--
 
 function UseItem(User, SourceItem, ltstate)
-
-    LookAtItem(User,SourceItem);
-
+	content.vision.UseDarkColumnsPuzzle(User, SourceItem, ltstate)
+	content.vision.UseDarkColumns(User, SourceItem, ltstate)
 end
 
 

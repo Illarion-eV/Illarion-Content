@@ -17,6 +17,10 @@ GraveListEnglish =
 "PLACEHOLDER.",
 };
 
+
+
+graveItemNumbers={337,519,520,521}
+
 function LookAtItemIdent(User,Item)
     local test = "no value";
 	if (first==nil) then
@@ -56,3 +60,59 @@ end
 	identity of LookAtItem
   ]]
 LookAtItem = LookAtItemIdent;
+
+
+findPlayersForGems={}
+graveSourceItemPos={position(958,238,0),position(968,226,0),position(970,219,0)}
+typoOfGem={197,284,45}
+gemColourDE1={"Lilla","Blau","Grün"}
+gemColourDE2={"Amethysten","Saphire","Smaragde"}
+gemColourEN1={"purple","blue","green"}
+gemColourEN2={"Amethysts","Sapphires","Emeralds"}
+gemsAlreadyFound={}
+gemsAlreadyFound[1]={197,242,481,526}
+gemsAlreadyFound[2]={284,329,481,526}
+gemsAlreadyFound[3]={45,242,329,526}
+
+function UseItem(User, SourceItem)
+
+	local foundSource
+	-- check for grave
+	for t=1,4 do
+		TargetItem = base.common.GetItemInArea(User.pos, graveItemNumbers[t])
+		if (TargetItem ~= nil) then
+			if not base.common.IsLookingAt( User, TargetItem.pos) then -- check looking direction
+				base.common.TurnTo( User, TargetItem.pos); -- turn if necessary
+			end
+			foundSource=true
+		end
+	end
+
+	local AmountGrave = table.getn(graveSourceItemPos)
+	UserHasAlreadyThisGame=false
+	for i = 1,AmountGrave do
+		if (SourceItem.pos == graveSourceItemPos[i]) then
+			local AmountGemsAlreadyFound = table.getn(gemsAlreadyFound[i])
+			for j = 1,AmountGemsAlreadyFound do
+				if User:getQuestProgress(669) == gemsAlreadyFound[i][j] then
+					UserHasAlreadyThisGame=true
+				end
+			end
+			if UserHasAlreadyThisGame ~= true then
+				User:talk(Character.say, "#me wischt Staub vom Grabstein und plötzlich beginnt die Hand zu schimmern in einem latenten " .. gemColourDE1[i], "#me waves over the tombstone and suddenly the hand glimmers in a latent ".. gemColourEN1[i] .. " light.")
+				User:createItem(typoOfGem[i],2,999,{["gemLevel"]="1"})
+				base.common.InformNLS(User,"~Im Staub finden sich zwei latente magische " .. gemColourDE2[i] .. ".", "~The dust in your hand bears two latent magical " .. gemColourEN2[i] .. ".")
+				findPlayersForGems[User.name] = world:getPlayersInRangeOf(User.pos, 20)
+				for m,player in ipairs(findPlayersForGems[User.name]) do
+					local playersCurrentStatus = player:getQuestProgress(669)
+					player:setQuestProgress(669,playersCurrentStatus+typoOfGem[i])
+				end
+			else
+				User:talk(Character.say, "#me wischt Staub vom Grabstein, der zu Boden fällt.", "#me waves over the tombstone and dust drops to the ground.")				
+				base.common.InformNLS(User,"Du findest nichts außer Staub am Grabstein.", "You do not find anything except of dust on the tombstone.")
+			end
+		end	
+	end
+end
+
+
