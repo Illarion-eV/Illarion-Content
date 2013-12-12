@@ -12,35 +12,49 @@ ferrySourceItemPos={position(101,790,0),position(727,809,0),position(888,485,0),
 
 ferryDE={}
 ferryEN={}
-ferryDE[1]={"Cadomyr Hafen","Bauern Insel","Cadomyr Verlorener Hafen","Leuchtturm","Einsame Inseln","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}
-ferryEN[1]={"Cadomyr Harbour","Farmer Island","Cadomyr Lost Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"}
-ferryDE[2]={"Cadomyr Hafen","Bauern Insel","Cadomyr Verlorener Hafen","Leuchtturm","Einsame Inseln","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}
-ferryEN[2]={"Cadomyr Harbour","Farmer Island","Cadomyr Lost Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"}
-ferryDE[3]={"Cadomyr Hafen","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}
-ferryEN[3]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour","Northern Harbour"}
---ferryDE[4]={"Cadomyr Hafen","Runewick Hafen","Ostland Hafen","Nördlicher Hafen","Böser Fels"}  ---for the future with evil rock
---ferryEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour","Northern Harbour","Evilrock"}  ---for the future with evil rock
-ferryDE[4]={"Cadomyr Hafen","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}  ---replace this with the one above
-ferryEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
-ferryDE[5]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg","Unüberwindbarer Limes"}
-ferryEN[5]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","Insurmountable Limes"}
+ferryDE[1]={"Bauern Insel (inklusive Rück- oder Weiterfahrt)","Cadomyr - Verlorener Hafen (inklusive Rück- oder Weiterfahrt)","Leuchtturm (keine Rück- oder Weiterfahrt möglich)","Einsame Inseln  (inklusive Rück- oder Weiterfahrt)","Runewick Hafen (Einwegticket)","Ostland Hafen (Einwegticket)","Nördlicher Hafen (Einwegticket)"}
+ferryEN[1]={"Farmer Island (return journey included)","Cadomyr - Lost Harbour (return journey included)","Lighthouse (no return possible)","Lonely Islands (return journey included)","Runewick Harbour (one way ticket)","Eastland Harbour (one way ticket)","Northern Harbour (one way ticket)"}
+ferryDE[2]={"Cadomyr Hafen (Einwegticket)","Bauern Insel (inklusive Rück- oder Weiterfahrt)","Cadomyr - Verlorener Hafen (inklusive Rück- oder Weiterfahrt)","Leuchtturm (keine Rück- oder Weiterfahrt möglich)","Einsame Inseln (inklusive Rück- oder Weiterfahrt)","Ostland Hafen (Einwegticket)","Nördlicher Hafen (Einwegticket)"}
+ferryEN[2]={"Cadomyr Harbour (one way ticket)","Farmer Island (return journey included)","Cadomyr - Lost Harbour (return journey included)","Lighthouse (no return possible)","Lonely Islands (return journey included)","Eastland Harbour (one way ticket)","Northern Harbour (one way ticket)"}
+ferryDE[3]={"Cadomyr Hafen (Einwegticket)","Runewick Hafen (Einwegticket)","Nördlicher Hafen (Einwegticket)"}
+ferryEN[3]={"Cadomyr Harbour (one way ticket)","Runewick Harbour (one way ticket)","Northern Harbour (one way ticket)"}
+--ferryDE[4]={"Cadomyr Hafen (Einwegticket)","Runewick Hafen (Einwegticket)","Ostland Hafen (Einwegticket)","Böser Fels (inklusive Rückfahrt)"}  ---for the future with evil rock
+--ferryEN[4]={"Cadomyr Harbour (one way ticket)","Runewick Harbour (one way ticket)","Eastland Harbour (one way ticket)","Evilrock (return journey included)"}  ---for the future with evil rock
+ferryDE[4]={"Cadomyr Hafen (Einwegticket)","Runewick Hafen (Einwegticket)","Ostland Hafen (Einwegticket)"}  ---replace this with the one above
+ferryEN[4]={"Cadomyr Harbour (one way ticket)","Runewick Harbour (one way ticket)","Eastland Harbour (one way ticket)"}  ---replace this with the one above
+ferryDE[5]={"Nördliche Inseln -  Ra (inklusive Rück- oder Weiterfahrt)","Nördliche Inseln -  Hept (inklusive Rück- oder Weiterfahrt)","Nördliche Inseln -  Yeg (inklusive Rück- oder Weiterfahrt)","Unüberwindbarer Limes (keine Rück- oder Weiterfahrt möglich)"}
+ferryEN[5]={"Northern Islands -  Ra (return journey included)","Northern Islands -  Hept (return journey included)","Northern Islands -  Yeg (return journey included)","Insurmountable Limes (no return possible)"}
 
+ferrytravelDE={}
+ferrytravelEN={}
+ferrytravelDE[1]={"der Bauern Insel","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","zu den Einsamen Inseln","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"}
+ferrytravelEN[1]={"Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"}
+ferrytravelDE[2]={"nach Cadomyr Hafen","der Bauern Insel","nach Cadomyr - Verlorener Hafen","zum  Leuchtturm","zu den Einsamen Inseln","zum Ostland Hafen","zum Nördlichen Hafen"}
+ferrytravelEN[2]={"Cadomyr Harbour","Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Eastland Harbour","Northern Harbour"}
+ferrytravelDE[3]={"nach Cadomyr Hafen","nach Runewick Hafen","zum Nördlichen Hafen"}
+ferrytravelEN[3]={"Cadomyr Harbour","Runewick Harbour","Northern Harbour"}
+--ferrytravelDE[4]={"nach Cadomyr Hafen","nach Runewick Hafen","nach Ostland Hafen","zum Bösen Fels"}  ---for the future with evil rock
+--ferrytravelEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour","Evilrock"}  ---for the future with evil rock
+ferrytravelDE[4]={"nach Cadomyr Hafen","nach Runewick Hafen","zum Ostland Hafen"}  ---replace this with the one above
+ferrytravelEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour"}  ---replace this with the one above
+ferrytravelDE[5]={"zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zum Unüberwindbaren Limes"}
+ferrytravelEN[5]={"Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","Insurmountable Limes"}
 
 ferryItem={}
-ferryItem[1]={2701,259,272,467,3099,105,2760,308}
-ferryItem[2]={2701,259,272,467,3099,105,2760,308}
-ferryItem[3]={2701,105,2760,308}
---ferryItem[4]={2701,105,2760,308,915}  ---for the future with evil rock
-ferryItem[4]={2701,105,2760,308}  ---replace this with the one above
-ferryItem[5]={61,359,360,372,474}
+ferryItem[1]={259,272,467,3099,105,2760,308}
+ferryItem[2]={2701,259,272,467,3099,2760,308}
+ferryItem[3]={2701,105,308}
+--ferryItem[4]={2701,105,2760,915}  ---for the future with evil rock
+ferryItem[4]={2701,105,2760}  ---replace this with the one above
+ferryItem[5]={359,360,372,474}
 
 ferryTargetPos={}
-ferryTargetPos[1]={position(102,790,0),position(78,980,0),position(105,832,0),position(553,658,0),position(616,859,0),position(728,809,0),position(888,486,0),position(870,286,0)}
-ferryTargetPos[2]={position(102,790,0),position(78,980,0),position(105,832,0),position(553,658,0),position(616,859,0),position(728,809,0),position(888,486,0),position(870,286,0)}
-ferryTargetPos[3]={position(102,790,0),position(728,809,0),position(888,486,0),position(870,286,0)}
---ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),position(870,286,0),position(987,256,0)}  ---for the future with evil rock
-ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),position(870,286,0)}  ---replace this with the one above
-ferryTargetPos[5]={position(450,95,0),position(364,49,0),position(415,85,0),position(478,34,0),position(682,45,0)}
+ferryTargetPos[1]={position(86,980,0),position(105,832,0),position(553,658,0),position(616,859,0),position(728,809,0),position(888,486,0),position(870,286,0)}
+ferryTargetPos[2]={position(102,790,0),position(86,980,0),position(105,832,0),position(553,658,0),position(616,859,0),position(888,486,0),position(870,286,0)}
+ferryTargetPos[3]={position(102,790,0),position(728,809,0),position(870,286,0)}
+--ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),position(987,256,0)}  ---for the future with evil rock
+ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),}  ---replace this with the one above
+ferryTargetPos[5]={position(364,49,0),position(415,85,0),position(478,34,0),position(682,45,0)}
 
 
 pirateOptionsDE={"Kämpfe gegen die Piraten","Fliehe vor den Piraten (25% Erfolgschance, ansonsten wartet der Kampf)","Zahle zehn Goldstücke, um verschont zu bleiben."}
@@ -77,14 +91,18 @@ travlerslist={}
 
 
 function Ferry(User, SourceItem)
+	local chanceforpirateattack = math.random(1,100)
 	local names
+	local namestravel
 	local Amountferry = table.getn(ferrySourceItemPos)	
 	for j = 1,Amountferry do
 	   if (SourceItem.pos == ferrySourceItemPos[j]) then
 		if  User:getPlayerLanguage() == Player.german then
 			names = ferryDE[j]
+			namestravel = ferrytravelDE[j]
 		else
 			names = ferryEN[j]
+			namestravel = ferrytravelEN[j]
 		end
 
 		items = ferryItem[j]
@@ -99,14 +117,14 @@ function Ferry(User, SourceItem)
 			local selected = dialog:getSelectedIndex()
 			if  base.money.CharHasMoney(User,10000) then
 				
-				if (targetPos[selected+1].x - SourceItem.pos.x) * (targetPos[selected+1].x - SourceItem.pos.x) < 10 then
-					User:inform("Du befindest dich bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
-				else
+--				if (targetPos[selected+1].x - SourceItem.pos.x) * (targetPos[selected+1].x - SourceItem.pos.x) < 10 then
+--					User:inform("Du befindest dich bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
+--				else
 					base.money.TakeMoneyFromChar(User,10000)
 					local travlers = world:getPlayersInRangeOf(SourceItem.pos, 5) 
 					travlerslist[User.name] = travlers
 --	debug("travler: "..User.name)
-					if math.random(1,100)< 21 and SomeoneThere(User) ~= true then --chance of 20% and noone else is there
+					if chanceforpirateattack< 21 and SomeoneThere(User) ~= true then --chance of 20% and noone else is there
 						previousselected = {}						
 						previousselected[User.name] = selected
 						piratesAttack(User)
@@ -121,7 +139,7 @@ function Ferry(User, SourceItem)
 						end
  					else
 						for i,player in ipairs(travlerslist[User.name]) do
-							player:inform("Du hast dich dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
+							player:inform("Du hast dich dazu entschlossen, " ..namestravel[selected+1].. " zu Reisen.", "You have chosen to travel to " ..namestravel[selected+1]..".")
 							world:gfx(1,player.pos)
 							world:makeSound(9,player.pos)
 							player:warp(targetPos[selected+1])
@@ -129,7 +147,7 @@ function Ferry(User, SourceItem)
 							world:makeSound(9,player.pos)
 						end
 					end
-				end
+--				end
 			else
 				User:inform("Du hast nicht genug Geld für diese Reise. Die Reise kostet ein Goldstück für eine Überfahrt.", "You don't have enough money for this journey. The journey costs one gold coin for one passage.")
 			end
@@ -272,9 +290,13 @@ end
 
 
 function SomeoneThere(User)
+	local someone
 	local someone = world:getCharactersInRangeOf(position(352,870,1), 20); --get everyone on the ship
 	for i,character in ipairs(someone) do
-		return true
+		if i <= 1 then
+		else
+			return true
+		end
 	end
 end
 
