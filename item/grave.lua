@@ -65,7 +65,7 @@ LookAtItem = LookAtItemIdent;
 findPlayersForGems={}
 graveSourceItemPos={position(958,238,0),position(968,226,0),position(970,219,0)}
 typoOfGem={197,284,45}
-gemColourDE1={"Lilla","Blau","Gr√ºn"}
+gemColourDE1={"Lilla","Blau","Gr¸n"}
 gemColourDE2={"Amethysten","Saphire","Smaragde"}
 gemColourEN1={"purple","blue","green"}
 gemColourEN2={"Amethysts","Sapphires","Emeralds"}
@@ -99,7 +99,7 @@ function UseItem(User, SourceItem)
 				end
 			end
 			if UserHasAlreadyThisGame ~= true then
-				User:talk(Character.say, "#me wischt Staub vom Grabstein und pl√∂tzlich beginnt die Hand zu schimmern in einem latenten " .. gemColourDE1[i], "#me waves over the tombstone and suddenly the hand glimmers in a latent ".. gemColourEN1[i] .. " light.")
+				User:talk(Character.say, "#me wischt Staub vom Grabstein und plˆtzlich beginnt die Hand zu schimmern in einem latenten " .. gemColourDE1[i], "#me waves over the tombstone and suddenly the hand glimmers in a latent ".. gemColourEN1[i] .. " light.")
 				User:createItem(typoOfGem[i],2,999,{["gemLevel"]="1"})
 				base.common.InformNLS(User,"~Im Staub finden sich zwei latente magische " .. gemColourDE2[i] .. ".", "~The dust in your hand bears two latent magical " .. gemColourEN2[i] .. ".")
 				findPlayersForGems[User.name] = world:getPlayersInRangeOf(User.pos, 20)
@@ -108,8 +108,8 @@ function UseItem(User, SourceItem)
 					player:setQuestProgress(669,playersCurrentStatus+typoOfGem[i])
 				end
 			else
-				User:talk(Character.say, "#me wischt Staub vom Grabstein, der zu Boden f√§llt.", "#me waves over the tombstone and dust drops to the ground.")				
-				base.common.InformNLS(User,"Du findest nichts au√üer Staub am Grabstein.", "You do not find anything except of dust on the tombstone.")
+				User:talk(Character.say, "#me wischt Staub vom Grabstein, der zu Boden f‰llt.", "#me waves over the tombstone and dust drops to the ground.")				
+				base.common.InformNLS(User,"Du findest nichts auﬂer Staub am Grabstein.", "You do not find anything except of dust on the tombstone.")
 			end
 		end	
 	end
