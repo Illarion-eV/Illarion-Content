@@ -105,8 +105,6 @@ function PutItemOnField(Item,User)
 	local neededAmount = SLIME_DIET_ITEMS[day]["amount"]
 	
 	local itemAccepted
-	User:inform(""..neededId.." and "..neededAmount)
-	User:inform(""..Item.id.." and "..Item.number)
 	if Item.id == neededId and Item.number == neededAmount and FEEDING_IN_PROGRESS == false and NewMonth(User) then
 		AcceptItem(Item)
 		SlimeCreation()
