@@ -863,10 +863,10 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 			Factionvalues = base.factions.getFaction(player_list[i]);
 			if faction == nil or faction == 99 then
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
-				User:inform("You just "..text.." "..value.." rankpoints to everyone in a radius of ".. radius..".");
+				User:inform("You just "..text.." "..value.." rankpoints to everyone in a radius of ".. radius.." ("..player_list[i].name..").");
 			elseif tonumber(faction) == tonumber(Factionvalues.tid) then
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
-				User:inform("You just "..text.." "..value.." rankpoints to members of the faction "..base.factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".");
+				User:inform("You just "..text.." "..value.." rankpoints to "..player_list[i].name.." of the faction "..base.factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".");
 			else
 --				return;  --bad return, since it would break up as soon someone does not fulfill requirements even if there are more players to be checked.
 			end	
