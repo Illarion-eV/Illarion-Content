@@ -71,16 +71,16 @@ TELEPORTER_FIELD = position(887,797,0)
 WARP_BACK_POSITION = position(882,792,0)
 WARP_TO_SLIME_POSITION = position(887,791,0)
 SLIME_CAVE_POSITION = position(890,792,0)
-REWARD_POSITION = position(886,797,0)
+REWARD_POSITION = position(887,796,0)
 OLD_SLIME = 1055
 
 FEEDING_IN_PROGRESS = false
 
 
-SIGN_POSITION = position(12,4,0)
+SIGN_POSITION = position(888,797,0)
 if world:isItemOnField(SIGN_POSITION) then
 	local signSlimeFeeding = world:getItemOnField(SIGN_POSITION)
-	if signSlimeFeeding.id == 3084 then
+	if signSlimeFeeding.id == 3081 then
 		local day = world:getTime("day")
 		local itemId = SLIME_DIET_ITEMS[day]["itemId"]
 		local amount = SLIME_DIET_ITEMS[day]["amount"]
@@ -93,11 +93,13 @@ if world:isItemOnField(SIGN_POSITION) then
 end 
 
 
+
 function PutItemOnField(Item,User)
-if Item.pos ~= TELEPORTER_FIELD then
-	RefuseItem(Item)
-	return
-end
+	if Item.pos ~= TELEPORTER_FIELD or world:getTime("month")==16 then
+		RefuseItem(Item)
+		return
+	end
+	
 	local day = world:getTime("day")
 	local neededId = SLIME_DIET_ITEMS[day]["itemId"]
 	local neededAmount = SLIME_DIET_ITEMS[day]["amount"]
@@ -105,18 +107,30 @@ end
 	local itemAccepted
 	User:inform(""..neededId.." and "..neededAmount)
 	User:inform(""..Item.id.." and "..Item.number)
-	if Item.id == neededId and Item.number == neededAmount and FEEDING_IN_PROGRESS == false then
+	if Item.id == neededId and Item.number == neededAmount and FEEDING_IN_PROGRESS == false and NewMonth(User) then
 		AcceptItem(Item)
 		SlimeCreation()
 		if base.factions.isRunewickCitizen(User) then
 			base.factions.setRankpoints(User, getRankpoints(User)+3)
 		end
-		
+		User:setQuestProgress(15,world:getTime("year")*100 + world:getTime("month"))
 	else
 		RefuseItem(Item)
 	end
 	
 	-- The eating, rewarding and moving back to the cave are handled in the monster script for this slime monster in the function abortRoute
+end
+
+function NewMonth(User)
+
+	local qstStatus = User:getQuestProgress(15)
+	local year = math.floor(qstStatus/100)
+	local month = qstStatus - (year*100)
+	
+	if month > world:getTime("month") or year > world:getTime("year") then
+		return true
+	end
+	return false
 end
 
 function RefuseItem(Item)
