@@ -5,7 +5,7 @@ require("base.common")
 module("item.id_1061_teleport", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-    if User.pos.y == -40 then
+    if User.pos.z == -40 then
 		User:inform("Nichts passiert.", "Nothing happens.")
 	end
 	
