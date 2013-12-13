@@ -5,7 +5,11 @@ require("base.common")
 module("item.id_1061_teleport", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-    local destCoordX; local destCoordY; local destCoordZ
+    if User.pos.y == -40 then
+		User:inform("Nichts passiert.", "Nothing happens.")
+	end
+	
+	local destCoordX; local destCoordY; local destCoordZ
 	local loc
 	local success
 	local radius

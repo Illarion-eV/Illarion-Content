@@ -161,7 +161,7 @@ function welcomeNewPlayer(player)
 	for i=1,#onlinePlayers do
 	    local user = onlinePlayers[i]
 	    
-		if not user:isNewPlayer() then
+		if not user:isNewPlayer() and not user.pos.y == -40 then -- no new player and not in the prison mine
 			
 			if user:getQuestProgress(851) == 0 then
 			
