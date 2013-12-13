@@ -113,7 +113,7 @@ function PutItemOnField(Item,User)
 		if base.factions.isRunewickCitizen(User) then
 			base.factions.setRankpoints(User, getRankpoints(User)+3)
 		end
-		User:setQuestProgress(15,world:getTime("year")*100 + world:getTime("month"))
+		User:setQuestProgress(450,world:getTime("year")*100 + world:getTime("month"))
 	else
 		RefuseItem(Item)
 	end
@@ -123,11 +123,11 @@ end
 
 function NewMonth(User)
 
-	local qstStatus = User:getQuestProgress(15)
+	local qstStatus = User:getQuestProgress(450)
 	local year = math.floor(qstStatus/100)
 	local month = qstStatus - (year*100)
 	
-	if month > world:getTime("month") or year > world:getTime("year") then
+	if qstStatus == 0 or month > world:getTime("month") or year > world:getTime("year") then
 		return true
 	end
 	return false
