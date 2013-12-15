@@ -27,7 +27,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is George Backstab the Prisoner. Keywords: prision, liberate, door, escape."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is George Backstab, the prisoner. Keywords: prision, liberate, door, escape."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -45,7 +45,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("Don't waste time but open the door and liberate me.");
+talkEntry:addResponse("Don't waste time, open the door and liberate me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -70,7 +70,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Don't waste time but open the door and liberate me.");
+talkEntry:addResponse("Don't waste time, open the door and liberate me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -124,7 +124,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Bad of course. How would you feel if you would be inprisioned?");
+talkEntry:addResponse("Bad of course. How would you feel if you were imprisoned?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -141,7 +141,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("George Backstab and now open the door!");
+talkEntry:addResponse("George Backstab, now open the door!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -157,7 +157,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("Are you kidding me? Don't you see I am prisioner?");
+talkEntry:addResponse("Are you kidding me? Don't you see I am a prisoner?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -170,7 +170,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Are you kidding me? Don't you see I am prisioner?");
+talkEntry:addResponse("Are you kidding me? Don't you see I am a prisoner?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -182,7 +182,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Don't waste time but open the door and liberate me.");
+talkEntry:addResponse("Don't waste time, open the door and liberate me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -195,25 +195,25 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("door");
-talkEntry:addResponse("Don't waste time but open the door and liberate me.");
+talkEntry:addResponse("Don't waste time, open the door and liberate me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("liberat");
-talkEntry:addResponse("Please liberate me from this prision by opening the door. They keep me imprisioned despite I haven't done anything.");
+talkEntry:addResponse("Please, liberate me from this prison by opening the door. They keep me imprisoned even though I haven't done anything.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("prison");
-talkEntry:addResponse("I don't wana be any longer in this prison. Open the door and let me escape!");
+talkEntry:addResponse("I don't wanna be in this prison any longer. Open the door and let me escape!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("escape");
-talkEntry:addResponse("Help me to escape by opening the door and I will also help you.");
+talkEntry:addResponse("Help me to escape by opening the door and I will help you as well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -329,7 +329,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("A bastard as those two others. He does not want me as a free man and let me imprison every time.");
+talkEntry:addResponse("A bastard like those two others. He does not want me a free man and leaves me imprisoned every time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -343,7 +343,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("A bastard as those two others. He does not want me as a free man and let me imprison every time.");
+talkEntry:addResponse("A bastard like those two others. He does not want me a free man and leaves me imprisoned every time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -357,7 +357,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("From me to you, they are dump as nuts.");
+talkEntry:addResponse("From me to you, they are dumb as nuts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -372,7 +372,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("A bastard as those two others. He does not want me as a free man and let me imprison every time.");
+talkEntry:addResponse("A bastard like those two others. He does not want me a free man and leaves me imprisoned every time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -399,7 +399,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("A bastard as those two others. He does not want me as a free man and let me imprison every time.");
+talkEntry:addResponse("A bastard like those two others. She does not want me a free man and leaves me imprisoned every time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -413,7 +413,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("A bastard as those two others. She does not want me as a free man and let me imprison every time.");
+talkEntry:addResponse("A bastard like those two others. She does not want me a free man and leaves me imprisoned every time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -507,16 +507,16 @@ talkingNPC:addCycleText("#s Die kommen, die kommen! Öffne meine Tür und helfe di
 talkingNPC:addCycleText("Die Tür sollst du aufmachen, verdammt!", "Damn! Open this door.");
 talkingNPC:addCycleText("#s Mach diese verdammte Tür auf!", "#s Open this damn door!");
 talkingNPC:addCycleText("Hilfst du mir, helfe ich dir. Mach diese verdammte Tür auf!", "If you help me, I help you. Open this damn door!");
-talkingNPC:addCycleText("Die werden euch alle aufschlitzen. Mach lieber die Tür auf, damit ich dir helfen kann.", "They will kill you all. Open the door that I can help you.");
+talkingNPC:addCycleText("Die werden euch alle aufschlitzen. Mach lieber die Tür auf, damit ich dir helfen kann.", "They will kill you all. Open the door so that I can help you.");
 talkingNPC:addCycleText("#me rüttelt an der Tür.", "#me knocks against the door.");
-talkingNPC:addCycleText("#me seufzt beängstigt.", "#me sighs afraid.");
-talkingNPC:addCycleText("#me stöhnt erschöpft.", "#me groans exchausted");
+talkingNPC:addCycleText("#me seufzt beängstigt.", "#me sighs fearfully.");
+talkingNPC:addCycleText("#me stöhnt erschöpft.", "#me groans exhausted");
 talkingNPC:addCycleText("#s Lasst mich gehen! Lasst...mich...gehen!", "#s Let me go! Let...me...go!");
-talkingNPC:addCycleText("#s Ihr verdammten Söhne und Töchter! Lasst mich hier nicht alleine!", "#s You damn sons and daughters! Don't let me alone here!");
+talkingNPC:addCycleText("#s Ihr verdammten Söhne und Töchter! Lasst mich hier nicht alleine!", "#s You damn sons and daughters! Don't leave me alone here!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist George Backstab der Gefangene.", "This NPC is George Backstab the Prisoner.");
+mainNPC:setLookat("Dieser NPC ist George Backstab der Gefangene.", "This NPC is George Backstab, the prisoner.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
