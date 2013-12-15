@@ -54,7 +54,7 @@ function FerryLookAt(User, Item)
 		lookAt.description = "Wer bei der nächsten Fahrt mit möchte, sollte sich schnellsten hier in der Nähe ((innerhalb 5 Tiles)) sammeln. Preis: 1 Gold für die ganze Gruppe."
 	else
 		lookAt.name = "Ferry";
-		lookAt.description = "Anyone who likes to join for the next trip should gather here ((within 5 tiles)). Price: 1 gold for the whole group."
+		lookAt.description = "Anyone who would like to join for the next trip should gather here ((within five tiles)). Price: one gold for the whole group."
 	end
 	return lookAt
 end

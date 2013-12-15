@@ -18,8 +18,8 @@ ferryDE[2]={"Cadomyr Hafen (Einwegticket)","Bauern Insel (inklusive Rück- oder W
 ferryEN[2]={"Cadomyr Harbour (one way ticket)","Farmer Island (return journey included)","Cadomyr - Lost Harbour (return journey included)","Lighthouse (no return possible)","Lonely Islands (return journey included)","Eastland Harbour (one way ticket)","Northern Harbour (one way ticket)"}
 ferryDE[3]={"Cadomyr Hafen (Einwegticket)","Runewick Hafen (Einwegticket)","Nördlicher Hafen (Einwegticket)"}
 ferryEN[3]={"Cadomyr Harbour (one way ticket)","Runewick Harbour (one way ticket)","Northern Harbour (one way ticket)"}
---ferryDE[4]={"Cadomyr Hafen (Einwegticket)","Runewick Hafen (Einwegticket)","Ostland Hafen (Einwegticket)","Böser Fels (inklusive Rückfahrt)"}  ---for the future with evil rock
---ferryEN[4]={"Cadomyr Harbour (one way ticket)","Runewick Harbour (one way ticket)","Eastland Harbour (one way ticket)","Evilrock (return journey included)"}  ---for the future with evil rock
+--ferryDE[4]={"Cadomyr Hafen (Einwegticket)","Runewick Hafen (Einwegticket)","Ostland Hafen (Einwegticket)","Böser Fels (inklusive Rückfahrt)"}  ---for the future with Evil Rock
+--ferryEN[4]={"Cadomyr Harbour (one way ticket)","Runewick Harbour (one way ticket)","Eastland Harbour (one way ticket)","Evil Rock (return journey included)"}  ---for the future with Evil Rock
 ferryDE[4]={"Cadomyr Hafen (Einwegticket)","Runewick Hafen (Einwegticket)","Ostland Hafen (Einwegticket)"}  ---replace this with the one above
 ferryEN[4]={"Cadomyr Harbour (one way ticket)","Runewick Harbour (one way ticket)","Eastland Harbour (one way ticket)"}  ---replace this with the one above
 ferryDE[5]={"Nördliche Inseln -  Ra (inklusive Rück- oder Weiterfahrt)","Nördliche Inseln -  Hept (inklusive Rück- oder Weiterfahrt)","Nördliche Inseln -  Yeg (inklusive Rück- oder Weiterfahrt)","Unüberwindbarer Limes (keine Rück- oder Weiterfahrt möglich)"}
@@ -33,8 +33,8 @@ ferrytravelDE[2]={"nach Cadomyr Hafen","der Bauern Insel","nach Cadomyr - Verlor
 ferrytravelEN[2]={"Cadomyr Harbour","Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Eastland Harbour","Northern Harbour"}
 ferrytravelDE[3]={"nach Cadomyr Hafen","nach Runewick Hafen","zum Nördlichen Hafen"}
 ferrytravelEN[3]={"Cadomyr Harbour","Runewick Harbour","Northern Harbour"}
---ferrytravelDE[4]={"nach Cadomyr Hafen","nach Runewick Hafen","nach Ostland Hafen","zum Bösen Fels"}  ---for the future with evil rock
---ferrytravelEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour","Evilrock"}  ---for the future with evil rock
+--ferrytravelDE[4]={"nach Cadomyr Hafen","nach Runewick Hafen","nach Ostland Hafen","zum Bösen Fels"}  ---for the future with Evil Rock
+--ferrytravelEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour","Evil Rock"}  ---for the future with Evil Rock
 ferrytravelDE[4]={"nach Cadomyr Hafen","nach Runewick Hafen","zum Ostland Hafen"}  ---replace this with the one above
 ferrytravelEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour"}  ---replace this with the one above
 ferrytravelDE[5]={"zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zum Unüberwindbaren Limes"}
@@ -44,7 +44,7 @@ ferryItem={}
 ferryItem[1]={259,272,467,3099,105,2760,308}
 ferryItem[2]={2701,259,272,467,3099,2760,308}
 ferryItem[3]={2701,105,308}
---ferryItem[4]={2701,105,2760,915}  ---for the future with evil rock
+--ferryItem[4]={2701,105,2760,915}  ---for the future with Evil Rock
 ferryItem[4]={2701,105,2760}  ---replace this with the one above
 ferryItem[5]={359,360,372,474}
 
@@ -52,13 +52,13 @@ ferryTargetPos={}
 ferryTargetPos[1]={position(86,980,0),position(105,832,0),position(553,658,0),position(616,859,0),position(728,809,0),position(888,486,0),position(870,286,0)}
 ferryTargetPos[2]={position(102,790,0),position(86,980,0),position(105,832,0),position(553,658,0),position(616,859,0),position(888,486,0),position(870,286,0)}
 ferryTargetPos[3]={position(102,790,0),position(728,809,0),position(870,286,0)}
---ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),position(987,256,0)}  ---for the future with evil rock
+--ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),position(987,256,0)}  ---for the future with Evil Rock
 ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),}  ---replace this with the one above
 ferryTargetPos[5]={position(364,49,0),position(415,85,0),position(478,34,0),position(682,45,0)}
 
 
 pirateOptionsDE={"Kämpfe gegen die Piraten","Fliehe vor den Piraten (25% Erfolgschance, ansonsten wartet der Kampf)","Zahle zehn Goldstücke, um verschont zu bleiben."}
-pirateOptionsEN={"Fight against the pirates","Flee from the pirates (25% chance of success. Otherwise you have to fight)","Pay ten gold coins in order to be spared"}
+pirateOptionsEN={"Fight against the pirates","Flee from the pirates (25% chance of success, otherwise you have to fight)","Pay ten gold coins in order to be spared"}
 
 pirateItem={1,53,61}
 
@@ -129,8 +129,8 @@ function Ferry(User, SourceItem)
 						previousselected[User.name] = selected
 						piratesAttack(User)
 						for i,player in ipairs(travlerslist[User.name]) do
-							player:inform("[Hinweis] Piraten nähern sich dem Schiff. Folgende Möglichkeiten stehen zur Wahl: Kämpfen, fliehen oder zehn Goldstücke zahlen. Wenn keine Entscheidung in der nächsten Minute getroffen wird, dann bleibt nur eine Option zur Wahl: Kämpfen.", "[Information] Pirates are coming closer to your ship. You can choose between following options: fight, free or pay ten gold coins. If you do not make your decision within the next minute, there will be only one option left: fight.")
-							player:inform("[Hinweis 2] Auswählen in der Auswahl-Box kann die Person, die für die Fährenfahrt bezahlt hat.", "[Information 2] The person who paid the ferry trip can select in the selection-box.")
+							player:inform("[Hinweis] Piraten nähern sich dem Schiff. Folgende Möglichkeiten stehen zur Wahl: Kämpfen, fliehen oder zehn Goldstücke zahlen. Wenn keine Entscheidung in der nächsten Minute getroffen wird, dann bleibt nur eine Option zur Wahl: Kämpfen.", "[Information] Pirates are coming closer to your ship. You can choose between the following options: fight, flee or pay ten gold coins. If you do not make your decision within the next minute, there will be only one option left: fight.")
+							player:inform("[Hinweis 2] Auswählen in der Auswahl-Box kann die Person, die für die Fährenfahrt bezahlt hat.", "[Information 2] The person who paid for the ferry trip can select an option in the selection box.")
 							world:gfx(1,player.pos)
 							world:makeSound(9,player.pos)
 							player:warp(position(352,870,1))
@@ -209,7 +209,7 @@ function piratesAttack(User)
 	if  User:getPlayerLanguage() == Player.german then
 		dialog = SelectionDialog("Piraten Angriff", "Piraten nähern sich dem Schiff. Folgende Möglichkeiten zur Wahl:", callback)
 	else
-		dialog = SelectionDialog("Pirates attack", "Pirates are coming closer to your ship. You can choose between following options.", callback)
+		dialog = SelectionDialog("Pirates attack", "Pirates are coming closer to your ship. You can choose between the following options.", callback)
 	end
 --	dialog:setCloseOnMove()
 	
@@ -251,7 +251,7 @@ function piratesFight(User)
 		player:inform("Die Piraten erreichen das Schiff und ziehen ihre Waffen. Auf welcher Seite wird wohl Malachín stehen?", "The pirates reach the ship and draw their weapons. Which side will be supported by Malachín?")
 	end
 	for i,player in ipairs(travlerslist[User.name]) do
-		player:inform("[Hinweis] Von nun an bleiben nur noch fünf Minuten über, um ein Scheitern und somit die Begegnung mit Cherga zu vermeiden. Unten im Schiffsbauch befindet sich Hilfe. Öffne die Tür für den Sträfling George Backstab und er wird das Schiff von den Piraten säubern. Aber bedenke, dies kostet den Verlust von Rangpunkten!", "[Hint] You have just five minutes left from now to avoid a failure and thus a meeting with Cherga. There is help waiting for you downstairs at the ship's hold. Open the door for the prisoner George Backstab and he will help you cleaning the ship from the pirates. However, this will cost you some rang points.")
+		player:inform("[Hinweis] Von nun an bleiben nur noch fünf Minuten über, um ein Scheitern und somit die Begegnung mit Cherga zu vermeiden. Unten im Schiffsbauch befindet sich Hilfe. Öffne die Tür für den Sträfling George Backstab und er wird das Schiff von den Piraten säubern. Aber bedenke, dies kostet den Verlust von Rangpunkten!", "[Hint] You have just five minutes left to avoid failure and thus a meeting with Cherga. There is help waiting for you downstairs in the ship's hold. Open the door to free the prisoner George Backstab and he will help you clear the ship of pirates. However, this will cost you some rank points.")
 	end
 	local monsterTyp = math.random(1,16)
 	for p=1,8 do
@@ -307,7 +307,7 @@ function piratesGeorgeBackstabRocks(User)
 		base.character.DeathAfterTime(mon,math.random(10,30),0,33,true) --kill all monsters
 	end
 	for i,player in ipairs(travlerslist[User.name]) do
-		player:inform("George Backstab stürmt die Stufen hinauf und säubert das Schiff von den Piraten. Anschließend springt er über Board und schwimmt davon. Seine Flucht wird in deiner Fraktion gar nicht gut angkommen. Wie dem auch sei, das gewünschte Ziel wird sicher erreicht", "George Backstab storms up the stairs and throws all pirats over the ship's rail. He jumps off the ship then and swims away. His escape is not well received in your faction. However, you reach save your final destination.")
+		player:inform("George Backstab stürmt die Stufen hinauf und säubert das Schiff von den Piraten. Anschließend springt er über Board und schwimmt davon. Seine Flucht wird in deiner Fraktion gar nicht gut angkommen. Wie dem auch sei, das gewünschte Ziel wird sicher erreicht", "George Backstab storms up the stairs and throws all the pirates over the ship's rail. He jumps off the ship then and swims away. His escape is not well received in your faction. However, you reach your final destination safely.")
 		if player:getQuestProgress(200) == 0 then
 			base.factions.setRankpoints(player,player:getQuestProgress(202)-20)
 		else
@@ -324,7 +324,7 @@ end
 
 function piratesPiratesKill(User)
 	for i,player in ipairs(travlerslist[User.name]) do
-		player:inform("Nachdem die Piratenmeute zurückgeschlagen werden konnte, wird das gewünschte Ziel sicher erreicht.", "After all pirates were be thrown back, you reach save your final destination.")
+		player:inform("Nachdem die Piratenmeute zurückgeschlagen werden konnte, wird das gewünschte Ziel sicher erreicht.", "After all the pirates were pushed back, you reach your final destination safely.")
 		world:gfx(1,player.pos)
 		world:makeSound(9,player.pos)
 		player:warp(targetPos[previousselected[User.name]+1])
@@ -337,7 +337,7 @@ end
 
 function piratesPiratesRule(User)
 	for i,player in ipairs(travlerslist[User.name]) do
-		player:inform("Malachín war woll mit den Piraten. Sie sind in der Lage das Schiff zu überlaufen und setzen alle Anwensenden ihrem Glück mit Cherga aus. Wird Cherga Gnade haben?", "Malachin was obviously with the pirates. They overrun the ship and all passenger have to face Cherga. Will Cherga have mercy with you?")
+		player:inform("Malachín war woll mit den Piraten. Sie sind in der Lage das Schiff zu überlaufen und setzen alle Anwensenden ihrem Glück mit Cherga aus. Wird Cherga Gnade haben?", "Malachin was obviously with the pirates. They overrun the ship and all passenger have to face Cherga. Will Cherga have mercy on you?")
 		base.character.DeathAfterTime(player,math.random(10,30),0,27,true) --kill all players
 	end
 	local monsters = world:getMonstersInRangeOf(position(352,870,1), 20); --get all monster in player range 
@@ -350,7 +350,7 @@ end
 
 function piratesTimeWarning(User)
 	for i,player in ipairs(travlerslist[User.name]) do
-		player:inform("[Hinweis] Es ist nur noch eine Minute übrig, das Schiff von den Piraten zu säubern. Vielleicht sollte die Hilfe von George Backstab doch in Anspruch genommen werden. Hierzu einfach die Verliestür unten im Schiffsbauch öffnen.", "[Hint] There is only one minute left to clean the boat from the pirates. Probably, you should consider the help of George Backstab. Just open the door down in the ship's rail.")
+		player:inform("[Hinweis] Es ist nur noch eine Minute übrig, das Schiff von den Piraten zu säubern. Vielleicht sollte die Hilfe von George Backstab doch in Anspruch genommen werden. Hierzu einfach die Verliestür unten im Schiffsbauch öffnen.", "[Hint] There is only one minute left to clear the boat of pirates. You should probably consider using the help of George Backstab. Just open the door down in the ship's hold.")
 	end
 end
 
@@ -364,7 +364,7 @@ function piratesFlee(User)
 
 	if math.random(1,100)< 26 then
 		for i,player in ipairs(travlerslist[User.name]) do
-			player:inform("Die Bemühungen zahlen sich aus und die Flucht gelingt. Sicher wird das gewünschte Ziel erreicht.", "Your effort is rewarded. You are able to flee successfully and reach save your final destination.")
+			player:inform("Die Bemühungen zahlen sich aus und die Flucht gelingt. Sicher wird das gewünschte Ziel erreicht.", "Your effort is rewarded. You are able to flee successfully and reach your final destination safely.")
 			world:gfx(1,player.pos)
 			world:makeSound(9,player.pos)
 			player:warp(targetPos[previousselected[User.name]+1])
@@ -389,7 +389,7 @@ function piratesPay(User)
 	if base.money.CharHasMoney(User,100000) then
 		base.money.TakeMoneyFromChar(User,100000)
 		for i,player in ipairs(travlerslist[User.name]) do
-			player:inform("Das Gold ist weg, aber dafür das gewünschte Ziel erreicht.", "The gold is gone but in return you reach save your final destination.")
+			player:inform("Das Gold ist weg, aber dafür das gewünschte Ziel erreicht.", "The gold is gone but in return you reach your final destination safely.")
 			world:gfx(1,player.pos)
 			world:makeSound(9,player.pos)
 			player:warp(targetPos[previousselected[User.name]+1])
@@ -398,7 +398,7 @@ function piratesPay(User)
 		end
 	else
 		for i,player in ipairs(travlerslist[User.name]) do
-			player:inform("Nein, das ist zu wenig Geld! Damit lassen sich die Piraten nicht bestechen. Diese erreichen das Schiff und ziehen ihre Waffen. Auf welcher Seite wird wohl Malachín stehen?", "No, that's not enough for bribing the pirates! Them reach the ship and draw their weapons. Which side will be supported by Malachín?")
+			player:inform("Nein, das ist zu wenig Geld! Damit lassen sich die Piraten nicht bestechen. Diese erreichen das Schiff und ziehen ihre Waffen. Auf welcher Seite wird wohl Malachín stehen?", "No, that's not enough for bribing the pirates! They reach the ship and draw their weapons. Which side will be supported by Malachín?")
 		end
 		piratesFight(User)
 	end
