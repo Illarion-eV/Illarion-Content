@@ -51,7 +51,7 @@ function callEffect( Effect, Char ) -- Effect is called
 		if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
 			Char:setQuestProgress(812,theQuestStatus-1); --cooling!
 			if theQuestStatus == 1 then --only for this quest. the player should know when he can do it again.
-				base.common.InformNLS(Char,"Deine Lizenz für die Benutzung der Geräte von Runewick ist abgelaufen. Du kannst sie im Zensusbüro von Runewick erneuern.","Your licence Runewick's static tools has expired. You can get a new one at the census office of Runewick."); 
+				base.common.InformNLS(Char,"Deine Lizenz für die Benutzung der Geräte von Runewick ist abgelaufen. Du kannst sie im Zensusbüro von Runewick erneuern.","Your licence for Runewick's static tools has expired. You can get a new one at the census office of Runewick."); 
 			end
 		end
 	    --Addition end
@@ -62,7 +62,7 @@ function callEffect( Effect, Char ) -- Effect is called
 		if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
 			Char:setQuestProgress(813,theQuestStatus-1); --cooling!
 			if theQuestStatus == 1 then --only for this quest. the player should know when he can do it again.
-				base.common.InformNLS(Char,"Deine Lizenz für die Benutzung der Geräte von Galmair ist abgelaufen. Du kannst sie im Zensusbüro von Galmair erneuern.","Your licence Galmair's static tools has expired. You can get a new one at the census office of Galmair."); 
+				base.common.InformNLS(Char,"Deine Lizenz für die Benutzung der Geräte von Galmair ist abgelaufen. Du kannst sie im Zensusbüro von Galmair erneuern.","Your licence for Galmair's static tools has expired. You can get a new one at the census office of Galmair."); 
 			end
 		end
 	    --Addition end
@@ -154,14 +154,14 @@ function callEffect( Effect, Char ) -- Effect is called
 	
 	if theQuestStatus == 1 then --Time over!
 	
-        base.common.InformNLS(Char,"[Auftragssstatus] Du hast es nicht geschafft, den Auftrag von Philipp Molitor zu erledigen.","[Order status] You failed to fulfill the order of Philipp Molitor."); -- Feedback!
+        base.common.InformNLS(Char,"[Auftragssstatus] Du hast es nicht geschafft, den Auftrag von Philipp Molitor zu erledigen.","[Order status] You failed to fulfil the order of Philipp Molitor."); -- Feedback!
 		Char:setQuestProgress(127,0);
 		
 	end
 	
 	if theQuestStatus == 12 then --One hour left
 	
-	    base.common.InformNLS(Char,"[Auftragssstatus] Es verbleibt dir noch eine Stunde, um den Auftrag von Philipp Molitor zu erledigen.","[Order status] You have one hour left to fulfill the order of Philipp Molitor."); -- Feedback!
+	    base.common.InformNLS(Char,"[Auftragssstatus] Es verbleibt dir noch eine Stunde, um den Auftrag von Philipp Molitor zu erledigen.","[Order status] You have one hour left to fulfil the order of Philipp Molitor."); -- Feedback!
 	
 	end
 	

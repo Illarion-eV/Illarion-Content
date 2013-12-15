@@ -66,7 +66,7 @@ function MoveFromField(char)
 		RewardInNorth=1; --yes, something will be created
 		createItemID=NorthitemsID; --pure element will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
-		char:inform("Ist das dort ein pures Element? Du solltest nachsehen gehen.", "Is this a pure element there? You should take a look.") --player get informed about element
+		char:inform("Ist das dort ein pures Element? Du solltest nachsehen gehen.", "Is that a pure element there? You should take a look.") --player gets informed about element
 	end
 	if RewardInNorth==0 then	--check if something will be created
 		createItemTimeBB=math.random(5,20);  --use var2; nothing, thus more lights appear
@@ -77,7 +77,7 @@ function MoveFromField(char)
 		createRepeatB=5 --up to five lights at the same time
 		createItemText=nil --no text-set 1 in .lte.createaftertime.lua
 		else
-		createItemTimeB=1 --use var1; yes, thus light onle one time
+		createItemTimeB=1 --use var1; yes, thus light only one time
 		createGfx=46 --light (beam me up)
 		createRepeatA=1 --only one light 
 		createRepeatB=1 --only one light
