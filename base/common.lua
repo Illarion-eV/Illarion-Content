@@ -647,6 +647,61 @@ function NormalRnd2(minVal, maxVal, count)
 end;
 
 --[[
+	DeleteItemFromStack
+	Searches for an item with given properties in a stack and deletes it.
+	@param PositionStruct - Position of the stack
+	@param List - A list containing the properties of the item to be deleted
+	@return boolean 
+
+]]
+function DeleteItemFromStack(stackPosition, itemProperties)
+	
+	if not world:isItemOnField(stackPosition) then
+		return false
+	end
+	
+	local theField = world:getField(stackPosition)
+	local counter = 1
+	local foundItem = false
+	while counter <= theField:countItems() do
+		local checkItem = theField:getStackItem(theField:countItems()- counter )
+		if (itemProperties.itemId == checkItem.id) and (not itemProperties.deleteAmount or checkItem.number <= itemProperties.deleteAmount) and (not itemProperties.quality or checkItem.number == itemProperties.deleteAmount) then
+			if itemProperties.data then
+				for i=1,#data do
+					if not checkItem:get(itemProperties["data"][1]["dataKey"]) == itemProperties["data"][1]["dataValue"] then
+						break 
+					end
+				end
+			end
+			foundItem = true
+			break
+	    end
+		counter = counter + 1
+	end
+	
+	if not foundItem then
+		return false
+	end
+	
+	local deletedItems = {}
+	for i=1,counter do
+		local deleteItem = world:getItemOnField(stackPosition)
+		if i ~= counter then
+			table.insert(deletedItems,1,deleteItem)
+			world:erase(deleteItem, deleteItem.number)
+		else
+			world:increase(deleteItem, -(itemProperties.deleteAmount or deleteItem.number))
+		end
+	end
+	for i=1,#deletedItems do
+		world:createItemFromItem(deletedItems[i],stackPosition,true)
+	end
+	
+	return true
+	
+end
+
+--[[
     GetItemsOnField
     Get a list of all items on a field
     IMPORTAINT: All items but the one on top are read only
