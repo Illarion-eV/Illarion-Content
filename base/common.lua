@@ -667,7 +667,7 @@ function DeleteItemFromStack(stackPosition, itemProperties)
 		local checkItem = theField:getStackItem(theField:countItems()- counter )
 		if (itemProperties.itemId == checkItem.id) and (not itemProperties.deleteAmount or checkItem.number <= itemProperties.deleteAmount) and (not itemProperties.quality or checkItem.number == itemProperties.deleteAmount) then
 			if itemProperties.data then
-				for i=1,#data do
+				for i=1,#itemProperties.data do
 					if not checkItem:get(itemProperties["data"][1]["dataKey"]) == itemProperties["data"][1]["dataValue"] then
 						break 
 					end
