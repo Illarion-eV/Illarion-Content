@@ -217,7 +217,7 @@ function onLogin( player )
 		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
 			-- So let there be taxes!
 			local taxText = payTaxes(player);
-			local gemText = receiveGems(player);
+			--local gemText = receiveGems(player);
 			if gemText ~= nil or taxText ~= nil then
 				informPlayeraboutTaxandGems(player, gemText, taxText)
 			end
