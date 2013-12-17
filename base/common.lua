@@ -668,7 +668,7 @@ function DeleteItemFromStack(stackPosition, itemProperties)
 		if (itemProperties.itemId == checkItem.id) and (not itemProperties.deleteAmount or checkItem.number <= itemProperties.deleteAmount) and (not itemProperties.quality or checkItem.number == itemProperties.deleteAmount) then
 			if itemProperties.data then
 				for i=1,#itemProperties.data do
-					if not checkItem:get(itemProperties["data"][1]["dataKey"]) == itemProperties["data"][1]["dataValue"] then
+					if not checkItem:getData(itemProperties["data"][1]["dataKey"]) == itemProperties["data"][1]["dataValue"] then
 						break 
 					end
 				end
