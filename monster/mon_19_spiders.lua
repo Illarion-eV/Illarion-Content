@@ -279,4 +279,36 @@ function onDeath(Monster)
         --Drops
     end
     monster.base.drop.Dropping(Monster);
+	if MonID==195 then -- spider queen
+		DropSpiderEgg(Monster)
+	end
+end
+
+function DropSpiderEgg(theSpider)
+
+	if Random.uniform(1,3)==1 then
+	
+		theSpider:talk(Character.say,"#me explodiert und hinterlässt ein schleimiges Spinnenei.","#me explodes and a slimey spider egg is left behind.")
+		local spiderEgg = world:createItemFromId(738,1,theSpider.pos,true,333,nil)
+		spiderEgg.wear = 2
+		base.lookat.SetSpecialName(spiderEgg, "Spinnenei", "Spider egg")
+		spiderEgg:setData("spawnSpiders","true")
+		world:changeItem(spiderEgg)
+		table.insert(scheduled.itemEffects.SPIDER_EGGS,{eggPosition = position(theSpider.pos.x,theSpider.pos.y,theSpider.pos.z), eggCounter = 0})
+		for i=-1,1 do
+			for j=-1,1 do
+				local slimePosition = position(theSpider.pos.x + i, theSpider.pos.y + j, theSpider.pos.z)
+				if slimePosition ~= theSpider.pos then
+					local spiderSlime = world:createItemFromId(3102,1,slimePosition,true,333,nil)
+					spiderEgg.wear = 3
+					base.lookat.SetSpecialName(spiderSlime, "Spinnenschleim", "Spider slime") 
+					world:changeItem(spiderSlime)
+					if world:isCharacterOnField(slimePosition) then
+						local hitChar = world:getCharacterOnField(slimePosition)
+						hitChar:inform("Du wirst von ekeligem klebrigem Spinnenschleim getroffen.", "You are hit by disgusting and sticky spider slime.")
+					end
+				end
+			end
+		end
+	end
 end
