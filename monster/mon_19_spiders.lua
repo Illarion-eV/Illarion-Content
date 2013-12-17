@@ -298,7 +298,7 @@ function DropSpiderEgg(theSpider)
 		for i=-1,1 do
 			for j=-1,1 do
 				local slimePosition = position(theSpider.pos.x + i, theSpider.pos.y + j, theSpider.pos.z)
-				if not world:isItemOnField(checkPosition) then
+				if not world:isItemOnField(slimePosition) then
 					local spiderSlime = world:createItemFromId(3102,1,slimePosition,true,333,nil)
 					spiderEgg.wear = 3
 					base.lookat.SetSpecialName(spiderSlime, "Spinnenschleim", "Spider slime") 
