@@ -289,6 +289,7 @@ function DropSpiderEgg(theSpider)
 	if Random.uniform(1,3)==1 then
 	
 		theSpider:talk(Character.say,"#me explodiert und hinterlässt ein schleimiges Spinnenei.","#me explodes and a slimey spider egg is left behind.")
+		world:gfx(8,theSpider.pos)
 		local spiderEgg = world:createItemFromId(738,1,theSpider.pos,true,333,nil)
 		spiderEgg.wear = 2
 		base.lookat.SetSpecialName(spiderEgg, "Spinnenei", "Spider egg")

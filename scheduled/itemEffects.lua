@@ -37,6 +37,12 @@ function spawnSpiders(eggPosition)
 	    return
 	end
 	
+	world:gfx(1,eggPosition)
+	local players = world:getPlayersInRangeOf(eggPosition,5)
+	for i=1,#players do
+		players[i]:inform("Das Ei zerspringt und kleine Spinnen schlüpfen.","The egg breaks and small spiders hatch.")
+	end
+	
 	for i=1,Random.uniform(3,5) do
 	    local spawnPosition = eggPosition
 		for j=-1,1 do
