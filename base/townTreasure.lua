@@ -89,6 +89,8 @@ function NewMonthSwitch(town,timeStmp)
 	--debug("NewMonthSwitch with "..town.." and "..timeStmp);
 	local foundTreasure, currentTreasure = ScriptVars:find("Treasure"..town)
 	if foundTreasure then
+		log(string.format("[tax switch] %s's treasure was reset. Old treasure was %d copper coins",
+					town, currentTreasure))
 		--debug("found treasure"..currentTreasure);
 		ScriptVars:set("OldTreasure"..town, currentTreasure)
 		ScriptVars:set("SwitchedToPayment"..town, timeStmp)

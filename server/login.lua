@@ -5,6 +5,8 @@ require("base.factions")
 require("content.dailymessage")
 require("npc.aldania_elthewan")
 require("scheduled.factionLeader")
+require("base.townTreasure")
+require("base.character")
 
 module("server.login", package.seeall);
 
@@ -374,11 +376,16 @@ function PayOutWage(Recipient,town)
 				infText = base.common.GetNLS(Recipient, 
 	                "Du solltest dich bemühen, dein Ansehen in "..town.." zu steigern, damit du einen Lohn für deine Abgaben erhältst.",
 					"You should earn favour in "..town.." in order to receive rewards for your tribute.");
+					
+				log(string.format("[gems] %s got 0 magic gems from %s. Character's rank: %d",
+					base.character.LogText(User), RankedWage, town, RecipientRk))
 
 			else
 
 				local RankedWage=math.ceil(RecipientRk*baseWageUnit*0.5);
 				endname="";
+				log(string.format("[gems] %s got %d magic gems from %s. Character's rank: %d",
+					base.character.LogText(User), RankedWage, town, RecipientRk));
 				while RankedWage>0 do
 					local randomGem=math.random(1,2);
 --					local maxGemLevel=math.floor(RankedWage^(1/3))
@@ -520,7 +527,9 @@ function payNow(User)
 	
     tax=math.floor(val*taxHeight);
     local totTax=tax; -- total tax to pay
-	log("[taxes] "..User.id.." paid "..totTax.." copper coins to "..town)
+--	log("[taxes] "..User.id.." paid "..totTax.." copper coins to "..town)
+	log(string.format("[taxes] %s paid %d. Faction wealth of %s increased to %d copper.",
+				base.character.LogText(User), totTax, town, base.townTreasure.GetTownTreasure(town)));
 	
 	-- try to get the payable tax from the depots first
 	for i=1, #(depNr) do
