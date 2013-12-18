@@ -36,6 +36,15 @@ msgs:addMessage("#mes Kopf hängt herab, leere Augenhöhlen starren geradeaus.", "
 
 end
 
+function onSpawn(Monster)
+
+	-- weakened lichs turn into a full lich after short period of time
+	if Monster:getMonsterType()==117 then
+		Monster.effects:addEffect(LongTimeEffect(70,Random.uniform(600,1200)))
+	end
+
+end
+
 function enemyNear(Monster,Enemy)
 
     if init==nil then
@@ -267,8 +276,40 @@ function onDeath(Monster)
 
     elseif (MonID==116) then
         -- Drops
-    elseif (MonID==117) then
-        --Drops
+    elseif (MonID==117) then --Weakened Lich
+        
+		--[[ Weakened Lich.
+		Appears from a pile of bones dropped by a normal lich. That lich hasnt droped anything except this bones.
+		You get the loot for the normal lich if you kill that weakened lich. Therefore, this loot is more expensive than
+		a monster of this category would normally drop.
+		--]]
+		--Category 1: Armor
+
+        local done=monster.base.drop.AddDropItem(548,1,20,(100*math.random(7,8)+math.random(77,88)),0,1); --mage robe
+        if not done then done=monster.base.drop.AddDropItem(547,1,10,(100*math.random(7,8)+math.random(77,88)),0,1); end --novice mage robe
+        if not done then done=monster.base.drop.AddDropItem(558,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --master mage robe
+        if not done then done=monster.base.drop.AddDropItem(370,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --colourful wizard hat
+        if not done then done=monster.base.drop.AddDropItem(358,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --red wizard hat
+
+        --Category 2: Special loot
+
+        local done=monster.base.drop.AddDropItem(280,1,20,(100*math.random(7,8)+math.random(77,88)),0,2); --diamond ring
+        if not done then done=monster.base.drop.AddDropItem(279,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --sapphire ring
+        if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --potash
+        if not done then done=monster.base.drop.AddDropItem(224,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --golden goblet
+
+        --Category 3: Weapon
+
+        local done=monster.base.drop.AddDropItem(209,1,20,(100*math.random(7,8)+math.random(77,88)),0,3); --battle staff
+        if not done then done=monster.base.drop.AddDropItem(1044,1,10,(100*math.random(7,8)+math.random(77,88)),0,3); end --ornate mage's staff
+        if not done then done=monster.base.drop.AddDropItem(2551,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --pure air
+        if not done then done=monster.base.drop.AddDropItem(2782,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --wand of earth
+        if not done then done=monster.base.drop.AddDropItem(2783,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --wand of fire
+
+        --Category 4: Perma Loot
+        monster.base.drop.AddDropItem(3077,math.random(30,90),100,333,0,4); --silver coins
+		
+		
     elseif (MonID==118) then
         --Drops
     elseif (MonID==119) then

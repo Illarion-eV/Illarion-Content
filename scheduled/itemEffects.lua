@@ -1,6 +1,6 @@
 -- INSERT INTO scheduledscripts VALUES('scheduled.itemEffects', 1, 1, 'itemEffects');
 
--- That script should be used for something like "item ltes".
+-- That script should be used for something like "item long time effects".
 -- Let a certain effect for a certain item happen after a certain time
 
 require("base.common")
@@ -11,26 +11,53 @@ module("scheduled.itemEffects", package.seeall)
 function itemEffects()
 
 	spiderEgg()
+	pileOfBones()
 
 end
 
+function doFunctionIfPositionAndCounter(theList, neededCounter, theFunction)
+	
+	local removedCounter = 0
+	for i=1,#theList do
+	    if theList[i-removedCounter]["itemCounter"] < neededCounter then
+			theList[i-removedCounter]["itemCounter"] = theList[i-removedCounter]["itemCounter"]+1
+		else
+			theFunction(theList[i-removedCounter]["itemPosition"])
+			table.remove(theList,i-removedCounter)
+			removedCounter = removedCounter + 1
+		end
+	end
+
+end
+
+PILE_OF_BONES = {}
+function pileOfBones()
+	
+	doFunctionIfPositionAndCounter(PILE_OF_BONES, 8, function(pilePosition) riseWeakLich(pilePosition) end)
+	
+end
+
+function riseWeakLich(pilePosition)
+	
+	local itemProperties = {itemId = 498}
+	if not base.common.DeleteItemFromStack(pilePosition, itemProperties) then
+	    return
+	end
+	
+	local weakenedLich = world:createMonster(117,pilePosition,-5)
+	weakenedLich:talk(Character.say,"#me erhebt sich aus dem Knochenhaufen.","#me rises from the pile of bones.")
+
+end
 
 SPIDER_EGGS = {}
 function spiderEgg()
 
-	local removedCounter = 0
-	for i=1,#SPIDER_EGGS do
-	    if SPIDER_EGGS[i-removedCounter]["eggCounter"] < 8 then
-		    SPIDER_EGGS[i-removedCounter]["eggCounter"] = SPIDER_EGGS[i-removedCounter]["eggCounter"]+1
-		else
-			spawnSpiders(SPIDER_EGGS[i-removedCounter]["eggPosition"])
-			table.remove(SPIDER_EGGS,i-removedCounter)
-			removedCounter = removedCounter + 1
-		end
-	end
+	doFunctionIfPositionAndCounter(SPIDER_EGGS, 8, function(pilePosition) hatchingSpiders(pilePosition) end)
+
 end
 
-function spawnSpiders(eggPosition)
+
+function hatchingSpiders(eggPosition)
 
 	local itemProperties = {itemId = 738, deleteAmount = 1, quality = false, data = {{dataKey = "spawnSpiders", dataValue = "true"}}}
 	if not base.common.DeleteItemFromStack(eggPosition, itemProperties) then

@@ -295,7 +295,7 @@ function DropSpiderEgg(theSpider)
 		base.lookat.SetSpecialName(spiderEgg, "Spinnenei", "Spider egg")
 		spiderEgg:setData("spawnSpiders","true")
 		world:changeItem(spiderEgg)
-		table.insert(scheduled.itemEffects.SPIDER_EGGS,{eggPosition = position(theSpider.pos.x,theSpider.pos.y,theSpider.pos.z), eggCounter = 0})
+		table.insert(scheduled.itemEffects.SPIDER_EGGS,{itemPosition = position(theSpider.pos.x,theSpider.pos.y,theSpider.pos.z), itemCounter = 0})
 		for i=-1,1 do
 			for j=-1,1 do
 				local slimePosition = position(theSpider.pos.x + i, theSpider.pos.y + j, theSpider.pos.z)

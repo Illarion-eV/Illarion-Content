@@ -271,34 +271,16 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
 
 
     elseif (MonID==205) then --Lich, Level: 8, Armourtype: heavy, Weapontype: puncture
-
-        --Category 1: Armor
-
-        local done=monster.base.drop.AddDropItem(548,1,20,(100*math.random(7,8)+math.random(77,88)),0,1); --mage robe
-        if not done then done=monster.base.drop.AddDropItem(547,1,10,(100*math.random(7,8)+math.random(77,88)),0,1); end --novice mage robe
-        if not done then done=monster.base.drop.AddDropItem(558,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --master mage robe
-        if not done then done=monster.base.drop.AddDropItem(370,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --colourful wizard hat
-        if not done then done=monster.base.drop.AddDropItem(358,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --red wizard hat
-
-        --Category 2: Special loot
-
-        local done=monster.base.drop.AddDropItem(280,1,20,(100*math.random(7,8)+math.random(77,88)),0,2); --diamond ring
-        if not done then done=monster.base.drop.AddDropItem(279,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --sapphire ring
-        if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --potash
-        if not done then done=monster.base.drop.AddDropItem(224,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --golden goblet
-
-        --Category 3: Weapon
-
-        local done=monster.base.drop.AddDropItem(209,1,20,(100*math.random(7,8)+math.random(77,88)),0,3); --battle staff
-        if not done then done=monster.base.drop.AddDropItem(1044,1,10,(100*math.random(7,8)+math.random(77,88)),0,3); end --ornate mage's staff
-        if not done then done=monster.base.drop.AddDropItem(2551,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --pure air
-        if not done then done=monster.base.drop.AddDropItem(2782,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --wand of earth
-        if not done then done=monster.base.drop.AddDropItem(2783,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --wand of fire
-
-        --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(30,90),100,333,0,4); --silver coins
-
-    elseif (MonID==206) then
+		
+		--[[ The lich drops NOTHING. 
+		When it dies, the following function drops a pile of bones from which the lich
+		rises as a weakened version of itself. Kill that and you kill the lich and you get the loot.
+		for the drop: monster.mon_11_skeletons; monster 117 (Weakened Lich)
+		--]]
+		LichPileOfBones(Monster)
+		
+    
+	elseif (MonID==206) then
         -- Drops
     elseif (MonID==207) then
         --Drops
@@ -310,4 +292,13 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
         --Drops
     end
     monster.base.drop.Dropping(Monster);
+end
+
+function LichPileOfBones(theLich)
+	
+	theLich:talk(Character.say,"#me zerfällt zu einem Knochenhaufen.","#me collapses into a pile of bones.")
+	world:gfx(45,theLich.pos)
+	world:createItemFromId(498,1,theLich.pos,true,333,nil)
+	table.insert(scheduled.itemEffects.PILE_OF_BONES,{itemPosition = position(theLich.pos.x,theLich.pos.y,theLich.pos.z), itemCounter = 0})
+	
 end
