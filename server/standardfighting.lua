@@ -250,9 +250,9 @@ end
 -- Calculate time necessary to aim, depedning on attribute and weapon.
 -- @param Attacker The character attacking
 -- @param Weapon The weapon used
-function GetNecessaryAimingTime(Attacker, Weapon)
+function GetNecessaryAimingTime(Attacker)
 	-- we use a default value for every character and weapon; the differences in attributes and weapons come in play when the movepoints are lowered/regenerated
-	return 4
+	return 2
 end
 
 --- Calculate the damage that is absorbed by the armor and reduce the stored
@@ -1609,13 +1609,18 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 			Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Attacker.Weapon.Level,math.max(Defender.DefenseSkill, Defender.parry)) + 20);
 		end
 	end
+	
+	local archerAdditional = 0
+	if Attacker.AttackKind==4 then
+		archerAdditional = GetNecessaryAimingTime(Attacker)*10
+	end
 
 	-- Defender learns armor skill
 	if Defender.DefenseSkillName then
 		local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
 
 		if(armourfound and armour.Level<=Defender.DefenseSkill) then
-			Defender.Char:learn(Defender.DefenseSkillName,AP/2,math.min(armour.Level,Attacker.skill)+20);
+			Defender.Char:learn(Defender.DefenseSkillName,(AP+archerAdditional)/2,math.min(armour.Level,Attacker.skill)+20);
 		end
 	end
 
