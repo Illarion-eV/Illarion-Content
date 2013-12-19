@@ -78,21 +78,23 @@ FEEDING_IN_PROGRESS = false
 
 
 SIGN_POSITION = position(888,797,0)
-if world:isItemOnField(SIGN_POSITION) then
-	local signSlimeFeeding = world:getItemOnField(SIGN_POSITION)
-	if signSlimeFeeding.id == 3081 then
-		local day = world:getTime("day")
-		local itemId = SLIME_DIET_ITEMS[day]["itemId"]
-		local amount = SLIME_DIET_ITEMS[day]["amount"]
-		base.lookat.SetSpecialName(signSlimeFeeding, "Regeln für das Füttern des alten Schleims", "Rules for feeding the old slime")
-		base.lookat.SetSpecialDescription(signSlimeFeeding,"Heutiges Futter: "..world:getItemName(itemId,Player.german)..", Anzahl: "..amount.." // Beachten: Nur Gegenstandsteleporter nutzen; pro Person nur einmal im Monat füttern (Überfressungsprävention); nur vorgegebenes Futter verwenden (Nährstoffversorgungssicherstellung); niemals sollen zwei Personen gleichzeitig füttern (Unentscheidbarkeitssyndromverhinderung); KEINE FÜTTERUNG IM MAS!",
-		"Today's feeding: "..world:getItemName(itemId,Player.english)..", amount: "..amount.." // Keep in mind: Use only the object teleporter; every person may feed the slime only once a month (prevention of overeating); use only the food allowed on the current day (securing of nutrient supply); two people should never ever feed simultaneously (prevention of undecidability syndrome); NO FEEDING DURING MAS!")
-		world:changeItem(signSlimeFeeding)
+
+function setSign()
+	if world:isItemOnField(SIGN_POSITION) then
+		local signSlimeFeeding = world:getItemOnField(SIGN_POSITION)
+		if signSlimeFeeding.id == 3081 then
+			local day = world:getTime("day")
+			local itemId = SLIME_DIET_ITEMS[day]["itemId"]
+			local amount = SLIME_DIET_ITEMS[day]["amount"]
+			base.lookat.SetSpecialName(signSlimeFeeding, "Regeln für das Füttern des alten Schleims", "Rules for feeding the old slime")
+			base.lookat.SetSpecialDescription(signSlimeFeeding,"Heutiges Futter: "..world:getItemName(itemId,Player.german)..", Anzahl: "..amount.." // Beachten: Nur Gegenstandsteleporter nutzen; pro Person nur einmal im Monat füttern (Überfressungsprävention); nur vorgegebenes Futter verwenden (Nährstoffversorgungssicherstellung); niemals sollen zwei Personen gleichzeitig füttern (Unentscheidbarkeitssyndromverhinderung); KEINE FÜTTERUNG IM MAS!",
+			"Today's feeding: "..world:getItemName(itemId,Player.english)..", amount: "..amount.." // Keep in mind: Use only the object teleporter; every person may feed the slime only once a month (prevention of overeating); use only the food allowed on the current day (securing of nutrient supply); two people should never ever feed simultaneously (prevention of undecidability syndrome); NO FEEDING DURING MAS!")
+			world:changeItem(signSlimeFeeding)
+		end
+		
 	end
 	
-end 
-
-
+end
 
 function PutItemOnField(Item,User)
 	if Item.pos ~= TELEPORTER_FIELD or world:getTime("month")==16 then
@@ -109,7 +111,7 @@ function PutItemOnField(Item,User)
 		AcceptItem(Item)
 		SlimeCreation()
 		if base.factions.isRunewickCitizen(User) then
-			base.factions.setRankpoints(User, getRankpoints(User)+3)
+			base.factions.setRankpoints(User, base.factions.getRankpoints(User)+3)
 		end
 		User:setQuestProgress(450,world:getTime("year")*100 + world:getTime("month"))
 	else
