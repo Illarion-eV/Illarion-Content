@@ -105,6 +105,11 @@ function onAttack(Attacker, Defender)
 		return false
 	end
 	
+	-- Check aiming time for player mages
+	if Attacker.AttackKind==5 and Attacker.Char:getType() == Character.player and not CheckAimingTime(Attacker,Defender.Char,CheckRange(Attacker, Defender.Char)) then
+		return false
+	end
+	
 	-- Check the range between the both fighting characters
     if not CheckRange(Attacker, Defender.Char) then return false; end;
 
@@ -113,8 +118,18 @@ function onAttack(Attacker, Defender)
         return false;
     end;
 
+	    --Check Wand loaded
+	if Attacker.AttackKind == 5 then
+		if not wandLoaded(Attacker) then
+			return;
+		end
+	end
+	
     -- Check if ammunition is needed and use it
     if not HandleAmmunition(Attacker) then return false; end;
+	
+	-- Check Mana
+	 if not HandleMana(Attacker) then return false; end;
 
     -- Load Skills and Attributes of the attacking character
     LoadAttribsSkills(Attacker, true);
@@ -141,12 +156,20 @@ function onAttack(Attacker, Defender)
     -- Check if a coup de gráce is performed
     if CoupDeGrace(Attacker, Defender) then return true; end;
 
-    -- Calculate the chance to hit
+	-- Calculate the chance to hit
     if not HitChance(Attacker, Defender, Globals) then
         -- Place some ammo on the ground in case ammo was used
         DropAmmo(Attacker, Defender.Char, true);
         return;
     end;
+	
+	--Check Magic
+	if Attacker.AttackKind ~= 5 then
+		if checkMagicAttack(Attacker, Globals) then
+			--Do Magic effect
+			magicAttack(Attacker, Defender, Globals);
+		end	
+	end
 
     -- Calculate the damage caused by the attack
     CalculateDamage(Attacker, Globals);
@@ -200,16 +223,16 @@ function CheckAimingTime(AttackerList,Defender,inRange)
 			FillAimingTimeList(Attacker,Defender,AttackerList.Weapon.id)
 			return false
 			
-		elseif world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["counter"] > GetNecessaryAimingTime(Attacker, AttackerList.Weapon) + 2 then
+		elseif world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["counter"] > GetNecessaryAimingTime(AttackerList, AttackerList.Weapon) + 2 then
 			-- that is needed to prevent that someone aims, stops aiming, waits a long time and as soon as he targets the same character again, shoots immediately.
 			-- this has to be done since there is no way to clear the list when someone stops targeting the target
 			AIMING_TIME_LIST[Attacker.id]["counter"] = world:getTime("unix")
-			ShowAimingGfx(Attacker)
+			ShowAimingGfx(AttackerList)
 			return false
 		
-		elseif world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["counter"] <= GetNecessaryAimingTime(Attacker, AttackerList.Weapon) then
+		elseif world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["counter"] <= GetNecessaryAimingTime(AttackerList, AttackerList.Weapon) then
 			-- not enough time has passed; display a nice gfx to show that the character is aiming
-		    ShowAimingGfx(Attacker)
+		    ShowAimingGfx(AttackerList)
 		
 		else
 			-- everything fine; reset counter; return true to shoot
@@ -223,10 +246,14 @@ end
 
 -- Show aiming gfx. The char has to have been standing still for some calls of onAttack before the gfx starts
 -- @param Attacker The character attacking
-function ShowAimingGfx(Attacker)
-	
+function ShowAimingGfx(AttackerList)
+	local Attacker = AttackerList["Char"]
 	if AIMING_TIME_LIST[Attacker.id]["gfxCounter"] % 7 == 0 then
-		world:gfx(21,Attacker.pos)
+		if AttackerList.AttackKind == 5 then
+			world:gfx(6,Attacker.pos)
+		else
+			world:gfx(21,Attacker.pos)
+		end
 	end
 	AIMING_TIME_LIST[Attacker.id]["gfxCounter"] = AIMING_TIME_LIST[Attacker.id]["gfxCounter"] + 1
 
@@ -252,7 +279,12 @@ end
 -- @param Weapon The weapon used
 function GetNecessaryAimingTime(Attacker)
 	-- we use a default value for every character and weapon; the differences in attributes and weapons come in play when the movepoints are lowered/regenerated
-	return 2
+	if Attacker.AttackKind==4 then
+		return 2
+	elseif Attacker.AttackKind==5 then
+		local intelligence = NotNil(Attacker.Char:increaseAttrib("intelligence", 0));
+		return 1 + (1 * (20/intelligence))
+	end
 end
 
 --- Calculate the damage that is absorbed by the armor and reduce the stored
@@ -270,6 +302,11 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 
 	local skillmod = 1;
 	local qualitymod = 0.82+0.02*math.floor(Globals.HittedItem.quality/100);
+	
+	local resistance = Defender.magicResistance
+	
+	
+	
 
     --[[if armourfound then
 		skillmod = 1-Defender.DefenseSkill/250;
@@ -325,6 +362,8 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 				elseif(armour.Type==1) then -- General armour
 					armourValue = armour.Level/GeneralScalingFactor;
 				end;
+			elseif (Attacker.AttackKind == 5) then --Magic
+				armourValue = (resistance * .75 + 25/(21 - Defender.willpower))
 			end;
 		end;
 	else
@@ -387,14 +426,17 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 				armourValue = armourValue + armour.punctureArmor;
 			elseif (Attacker.AttackKind == 4) then --distance
 				armourValue = armourValue + armour.punctureArmor;
+			elseif (Attacker.AttackKind == 5) then --magic
+				armourValue = resistance;
 			end;
 		end;
-
+	
+	local test1 = Globals.Damage;
+	
     Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 140);
 
 	Globals.Damage = skillmod*Globals.Damage;
-
-    Globals.Damage = math.max(0, Globals.Damage);
+	Globals.Damage = math.max(0, Globals.Damage);
 end;
 
 
@@ -569,6 +611,7 @@ end;
 -- @param Attacker The table of the character who is attacking
 -- @param Globals The global data table
 function CalculateDamage(Attacker, Globals)
+	
     local BaseDamage;
     local StrengthBonus;
     local PerceptionBonus;
@@ -576,9 +619,10 @@ function CalculateDamage(Attacker, Globals)
     local SkillBonus;
 	local CritBonus=1;
 	local QualityBonus;
+	local magicBonus = 0;
+	local magicLevel = 0;
     --local TacticsBonus;
-
-    if Attacker.IsWeapon then
+	if Attacker.IsWeapon then
         BaseDamage = Attacker.Weapon.Attack * 10;
 
 		-- If it has RareWeapon data 1, 2 or 3 it's a special version. Has more attack.
@@ -592,6 +636,12 @@ function CalculateDamage(Attacker, Globals)
 			BaseDamage = BaseDamage + Attacker.Weapon.ActionPoints/Attacker.Weapon.Accuracy*6*RarityBonus;
 		end
 
+		magicLevel = NotNil(tonumber(Attacker.WeaponItem:getData("magicLevel")));
+		if magicLevel > 0 then
+			magicBonus = math.floor(magicLevel * 2.5);
+		end
+		
+		
     else
         BaseDamage = content.fighting.GetWrestlingAttack( Attacker.Race ) * 10;
     end;
@@ -621,8 +671,23 @@ function CalculateDamage(Attacker, Globals)
 	--The Global Damage Factor (GDF). Adjust this to change how much damage is done per hit on all attacks.
 	local GlobalDamageFactor = 1/180;
 
-    Globals["Damage"] = GlobalDamageFactor*BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus);
-
+    Globals["Damage"] = GlobalDamageFactor*BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus) + magicBonus;
+	
+	--Calculation for Wands
+	
+	
+	
+	
+	if Attacker.AttackKind == 5 then
+		
+		local essenceBonus = (Attacker.essence - 10);
+		local intelligenceBonus = (Attacker.intelligence - 10);	
+		local willpowerBonus = (Attacker.willpower - 10);
+		Globals["Damage"] = GlobalDamageFactor * (20+(essenceBonus + intelligenceBonus + willpowerBonus)*4/3) *(magicLevel * magicLevel) * QualityBonus + (600 + GemBonus*10);
+		
+	
+	end
+	
 end;
 
 --- Deform some final checks on the damage that would be caused and send it to
@@ -634,9 +699,9 @@ end;
 function CauseDamage(Attacker, Defender, Globals)
 
 	Globals.Damage=Globals.Damage*(math.random(9,10)/10); --Damage is randomised: 80-120%
-
+	
 	Globals.Damage=math.min(Globals.Damage,4999); --Damage is capped at 4999 Hitpoints to prevent "one hit kills"
-
+	
 	Globals.Damage=math.floor(Globals.Damage); --Hitpoints are an integer
 
     --Attacker.Char:inform("Dealt damage: ".. Globals.Damage .. " HP."); --Debugging
@@ -704,12 +769,22 @@ function CauseDamage(Attacker, Defender, Globals)
 
         return true;
     else
-        if not base.character.ChangeHP(Defender.Char, -Globals.Damage) then
+		if Attacker.WeaponItem.id == 2782 then
+			
+			if not base.character.ChangeHP(Defender.Char, Globals.Damage) then
 
 		--removed: Call of base.playerdeath
 
-        end;
+			end;
+		
+		
+		else
+			if not base.character.ChangeHP(Defender.Char, -Globals.Damage) then
 
+		--removed: Call of base.playerdeath
+
+			end;
+		end
         if (Attacker.AttackKind == 4) then -- Distanzangriff.
             Defender.Char.movepoints = Defender.Char.movepoints - 5;
             DropAmmo(Attacker, Defender.Char, false);
@@ -728,7 +803,9 @@ function HitChance(Attacker, Defender, Globals)
     local parryWeapon;
 	local canParry=true;
 	local parryItem; -- For degradation
+	
 
+	
 	--Miss chance. 2% bonus to hit chance for 18 perc, 1.75% malus for 3 perc. Added onto weapon accuracy.
 	local chancetohit;
 
@@ -761,6 +838,10 @@ function HitChance(Attacker, Defender, Globals)
 
 	end;
 
+	if (Attacker.AttackKind==5)then
+		return true;
+	end
+	
 	--Surefire Special
 	if(Globals.criticalHit==7) then
 		chancetohit = 100;
@@ -880,10 +961,10 @@ function CheckAttackOK(CharStruct)
             -- but a distance weapon in the first
 --            CharStruct.Char:talk(Character.say,"check 5 ok");
             return false;
-        elseif (CharStruct.Weapon.WeaponType == 13) then
+       -- elseif (CharStruct.Weapon.WeaponType == 13) then
             -- but a wand in the first
---            CharStruct.Char:talk(Character.say,"check 6 ok");
-            return false;
+            --CharStruct.Char:talk(Character.say,"check 6 ok");
+         --   return false;
         end;
     end;
 --   CharStruct.Char:talk(Character.say,"check 7 ok");
@@ -899,6 +980,7 @@ function CheckRange(AttackerStruct, Defender)
 	local distance = AttackerStruct.Char:distanceMetric(Defender);
 
 	if(AttackerStruct.AttackKind == 4 and  AttackerStruct.Char:getType() == 1) then -- if a monster with a bow and large distance
+				
 		if(distance<=4) then
 			AttackerStruct.Char.waypoints:clear();
 
@@ -1050,12 +1132,17 @@ function CheckRange(AttackerStruct, Defender)
 		end
     end
 
-    if (distance <= 2 and AttackerStruct.AttackKind == 4) then
+    if (distance <= 2 and AttackerStruct.AttackKind == 4) or (distance <= 2 and AttackerStruct.AttackKind == 5) then
 		--AttackerStruct.Char:inform("I acknowledge that bows shouldn't fire."); --Debugging
         return false;
     end
     if AttackerStruct.IsWeapon then
-        return (distance <= AttackerStruct.Weapon.Range);
+		if AttackerStruct.AttackKind == 5 then
+			return (distance <= AttackerStruct.Char:increaseAttrib("willpower", 0)*0.5);
+		else 
+			return (distance <= AttackerStruct.Weapon.Range);
+			
+		end
     end;
     return (distance <= 1 );
 end;
@@ -1277,7 +1364,9 @@ function GetArmourType(Defender, Globals)
 		end;
 	end;]]
 
-
+	
+	--for armours
+	
 	if armourtype == 4 then
 		-- Heavy is good against punc
 		Defender["DefenseSkillName"] = Character.heavyArmour;
@@ -1331,6 +1420,8 @@ function CheckCriticals(Attacker, Defender, Globals)
 	end;
 
 end;
+
+
 
 ---Handles special effects
 -- @param Attacker The table of the attacking Character
@@ -1474,6 +1565,82 @@ function Counter(Attacker, Defender)
 end;
 
 
+function wandLoaded(Attacker)
+	local load;
+	local newLoad;
+	
+	if Attacker.WeaponItem:getData("magicLoad") ~= "" then
+		load = Attacker.WeaponItem:getData("magicLoad");
+		if tonumber(load) > 0 then
+		newLoad = load -1
+		Attacker.WeaponItem:setData("magicLoad",tostring(newLoad));	
+		world:changeItem(Attacker.WeaponItem);
+			if newLoad < 5 then
+				Attacker.Char:inform("Die Struktur deines Stabes wird schwach.", "The structure of your wand becomes weak.")
+			end
+		return true
+		else
+		return false		
+		end
+	else 
+		return false	
+	end
+	
+end
+
+
+---Check if magic item and if magic hit
+-- @param Attacker The table of the attacking Character
+-- @param Defender The table of the attacked Character
+-- @param Globals The table of the global values
+
+
+function checkMagicAttack(Attacker, Globals)
+	
+
+	
+	if Attacker.WeaponItem:getData("magic") ~= "" then
+		local load;
+	
+			
+			if Random.uniform(1,5) > 3 then
+				if Attacker.WeaponItem:getData("magicLoad") ~= "" then
+					load = Attacker.WeaponItem:getData("magicLoad");
+					if tonumber(load) > 0 then
+						--base.common.TalkNLS(Attacker.Char, Character.say,load,load);
+						local newload = load -1;
+						Globals["magicHit"] = Attacker.WeaponItem:getData("magic");
+						Attacker.WeaponItem:setData("magicLoad",tostring(newload));	
+						world:changeItem(Attacker.WeaponItem);
+						return true;
+					else
+						Globals["magicHit"] = 0;
+						return false;
+					end
+				end
+				
+			else
+				Globals["magicHit"] = 0;
+				return false;
+			end
+
+		
+	end
+end
+
+---Handles magical effects
+-- @param Attacker The table of the attacking Character
+-- @param Defender The table of the attacked Character
+-- @param Globals The table of the global values
+
+
+function magicAttack(Attacker, Defender, Globals)
+	local effect = tonumber(Globals.magicHit);
+	local position = Defender.Char.pos;
+		world:gfx(effect,position);
+		
+end
+
 --- Identify the used attack kind and set up identifier values and the skill
 -- name. This also finds out if a singlehanded or a two-handed weapon is used.
 -- Possible Values for AttackKind
@@ -1532,6 +1699,18 @@ function GetAttackType(CharStruct)
         else
             CharStruct["UsedHands"] = 2;
         end;
+		
+	elseif (weaponType == 13) then
+--CharStruct.Char:talk(Character.say,"GETATTTYPE 5","GETATTTYPE 5");
+        CharStruct["AttackKind"] = 5;
+        CharStruct["Skillname"] = Character.commonLanguage;
+        if (weaponType == 255) then
+            CharStruct["UsedHands"] = 1;
+        else
+            CharStruct["UsedHands"] = 2;
+        end;
+		
+		
     end;
 end;
 
@@ -1555,6 +1734,37 @@ function HandleAmmunition(Attacker)
     else
         return false;
     end;
+    return true;
+end;
+
+--- Checks if the attacker is using a wand and check and remove the
+-- mana in case its needed
+-- @param Attacker The table that stores the data of the attacking char
+-- @return true in case the attack is good to go
+
+function HandleMana(Attacker)
+	local baseCost = -2000;
+	local essence = Attacker.Char:increaseAttrib("essence",0);
+	local mana =  Attacker.Char:increaseAttrib("mana",0);
+	
+    if (Attacker.Char:getType() == Character.monster) then -- Monsters do not use mana
+        return true;
+    end;
+
+    if (Attacker.AttackKind ~= 5) then -- Mana only needed for magiattacks
+        return true;
+    end;
+
+	--local mana = Attacker.Char:increaseAttrib("mana",0);
+	local cost =  baseCost / (essence /7);
+	
+	
+	if mana + cost < 0 then
+		return false;
+	else
+	
+	Attacker.Char:increaseAttrib("mana",cost);
+	end
     return true;
 end;
 
@@ -1600,21 +1810,36 @@ end;
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP, Globals)
 
+	--Learn magicResistance
+	if Attacker.AttackKind == 5 then
+
+		local magicLevel = tonumber(Attacker.WeaponItem:getData("magicLevel"))
+		Defender.Char:learn(Defender.magicDefense, AP/2,magicLevel +20);
+		
+		return
+	end
 
 	-- Attacker learns weapon skill
 	if Attacker.Skillname then
 		if Attacker.AttackKind == 0 then
 			Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.DefenseSkill, Defender.parry) + 20);
-		else
+		else if Attacker.AttackKind == 5 then
+			Attacker.Char:inform(tostring(Attacker.skill));
+		end
+		
 			Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Attacker.Weapon.Level,math.max(Defender.DefenseSkill, Defender.parry)) + 20);
 		end
 	end
-	
+
 	local archerAdditional = 0
 	if Attacker.AttackKind==4 then
 		archerAdditional = GetNecessaryAimingTime(Attacker)*10
+	elseif Attacker.AttackKind==5 then
+		archerAdditional = 20	
 	end
-
+	
+	
+	
 	-- Defender learns armor skill
 	if Defender.DefenseSkillName then
 		local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
@@ -1666,11 +1891,17 @@ function LoadAttribsSkills(CharStruct, Offensive)
     if Offensive then
         CharStruct["strength"] = NotNil(CharStruct.Char:increaseAttrib("strength", 0));
         CharStruct["agility"] = NotNil(CharStruct.Char:increaseAttrib("agility", 0));
-        CharStruct["perception"]
-            = NotNil(CharStruct.Char:increaseAttrib("perception", 0));
+		CharStruct["essence"] = NotNil(CharStruct.Char:increaseAttrib("essence", 0));
+		CharStruct["willpower"] = NotNil(CharStruct.Char:increaseAttrib("willpower", 0));
+		CharStruct["intelligence"] = NotNil(CharStruct.Char:increaseAttrib("intelligence", 0));
+        CharStruct["perception"] = NotNil(CharStruct.Char:increaseAttrib("perception", 0));
+		if CharStruct.AttackKind == 5 then
+		CharStruct["skill"] = 100
+		else
         CharStruct["skill"] = NotNil(CharStruct.Char:getSkill(CharStruct.Skillname));
+		end
         CharStruct["natpoison"] = 0;
-        --CharStruct["tactics"] = NotNil(CharStruct.Char:getSkill(Character.tactics));
+		--CharStruct["tactics"] = NotNil(CharStruct.Char:getSkill(Character.tactics));
         CharStruct["dexterity"]
             = NotNil(CharStruct.Char:increaseAttrib("dexterity", 0));
     else
@@ -1679,6 +1910,9 @@ function LoadAttribsSkills(CharStruct, Offensive)
         CharStruct["constitution"]
             = NotNil(CharStruct.Char:increaseAttrib("constitution", 0));
         CharStruct["parry"] = NotNil(CharStruct.Char:getSkill(Character.parry));
+		CharStruct["magicResistance"] = NotNil(CharStruct.Char:getSkill(Character.magicResistance));
+		CharStruct["magicDefense"] = NotNil(Character.magicResistance);
+		CharStruct["willpower"] = NotNil(CharStruct.Char:increaseAttrib("willpower", 0));
 		CharStruct["agility"] = NotNil(CharStruct.Char:increaseAttrib("agility", 0));
     end;
     CharStruct["Race"] = CharStruct.Char:getRace();
@@ -1859,6 +2093,8 @@ function ShowEffects(Attacker, Defender, Globals)
         elseif (Globals.Damage > 2000) then
             DropBlood(Defender.Char.pos);
         end;
+		
+		
     end;
 
     if (Attacker.AttackKind == 0) then --wresting
@@ -1871,6 +2107,23 @@ function ShowEffects(Attacker, Defender, Globals)
         world:makeSound(33,Defender.Char.pos);
     elseif (Attacker.AttackKind==4) then --distance
         world:makeSound(31,Defender.Char.pos);
+	elseif (Attacker.AttackKind==5) then --Magic
+		if Attacker.WeaponItem.id == 2782 then --Earth Wand
+			world:gfx(16, Defender.Char.pos)
+			world:makeSound(13,Defender.Char.pos);
+		elseif Attacker.WeaponItem.id == 2783 then --Fire Wand
+			world:gfx(36, Defender.Char.pos)
+			world:makeSound(5,Defender.Char.pos);
+		elseif Attacker.WeaponItem.id == 2784 then --Water Want
+			world:gfx(4, Defender.Char.pos)
+			world:makeSound(9,Defender.Char.pos);
+		elseif Attacker.WeaponItem.id == 2785 then --Air Wand
+			world:gfx(2, Defender.Char.pos)
+			world:makeSound(4,Defender.Char.pos);
+		else
+			world:gfx(52, Defender.Char.pos)
+			world:makeSound(27,Defender.Char.pos);
+		end
     end;
 end;
 

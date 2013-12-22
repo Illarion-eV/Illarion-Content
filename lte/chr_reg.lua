@@ -32,9 +32,11 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
     local Foodvalue   = Char:increaseAttrib("foodlevel",0);   -- Foodvalue einlesen    ( 0 - 60000 )
     local Poisonvalue = Char:getPoisonValue();                -- Poisonvalue einlesen  ( 0 - 10000 )
 
-    local Const       = Char:increaseAttrib("constitution",0) -- Konstitution einlesen ( 0 - 20 )
-    local Essence     = Char:increaseAttrib("essence",0)      -- Essenze einlesen      ( 0 - 20 )
-    local Race        = Char:getRace()                       -- Rasse einlesen
+    local Const        = Char:increaseAttrib("constitution",0) -- Konstitution einlesen ( 0 - 20 )
+    local Essence      = Char:increaseAttrib("essence",0)      -- Essenze einlesen      ( 0 - 20 )
+	local Willpower    = Char:increaseAttrib("willpower",0)    -- Willenskraft einlesen ( 0 - 20 )
+	local Intelligence = Char:increaseAttrib("intelligence",0) -- Itelligenz einlesen ( 0 - 20 )
+    local Race         = Char:getRace()                       -- Rasse einlesen
     -----------------------EINLESEN FERTIG------------------------------------
 
     -----------------------GRENZWERTE VORBEREITEN-----------------------------
@@ -140,7 +142,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
     -----------------------HITPOINTS FERTIG-----------------------------------
 
     -----------------------MANAPOINTS ANFANG----------------------------------
-    if ( ( Char:getMagicType( ) == 0 ) and ( Char:getMagicFlags( 0 ) > 0 ) ) and Char:getType()==Character.player then -- Charakter ist Magier
+	if ( ( ( Char:getMagicType( ) == 0 ) and ( Char:getMagicFlags( 0 ) > 0 ) ) or ( ( Char:getMagicType( ) == 0 ) and ( Char:getQuestProgress(37) ~= 0) ) ) and Char:getType()==Character.player and (Willpower + Intelligence + Essence) >= 30 then -- Charakter ist Magier
         if ( Manapoints < maxManapoints ) then -- MP nicht voll - Regeneration
 
             local RegBoni = 100;
