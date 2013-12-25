@@ -36,15 +36,20 @@ function UseItem(User, SourceItem, ltstate)
 			return;	
 			
 		elseif enchantingAction[User.id] == "enchanting" then
+			local mana = User:increaseAttrib("mana", 0);
+			
+			if mana == 10000 then
 			setNewMagicLevel(User,magicItems)
 			local itemMagicLevel= tonumber(User:getItemAt(enchantingItem[User.id]):getData("magicLevel"))
 			User:eraseItem(enchantingCosts[User.id][2],enchantingCosts[User.id][1],{})
 			User:learn(Character.enchanting, 200, itemMagicLevel + 20)
 			User:increaseAttrib("mana", -9999)
+			else
+			User:inform("Du hast nicht genug Mana um diesen Gegenstand zu verzaubern.", "You don't have enough Mana to enchant this item.")
+			end
 		
 		else
-			local itemMagicLevel= tonumber(User:getItemAt(enchantingItem[User.id]):getData("magicLevel"))
-			User:learn(Character.enchanting, ltstate/2, itemMagicLevel + 20)
+
 			loadItem(User)
 		
 		end
@@ -457,7 +462,7 @@ function chargeItem(User, chosenItem, ltstate)
 			User:inform("Diese Struktur ist zu Komplex für dich um sie aufzuladen.", "This structure is to complex for you to charge it.")
 		else
 			if maxLoads > load then
-				changeItemCharge(User, chosenItem, maxLoads-load, ltstate)
+				changeItemCharge(User, chosenItem, maxLoads, ltstate)
 			else
 				User:inform("Du kannst diese Struktur nicht aufladen.", "You cannot charge this structure.")
 			end
@@ -480,12 +485,27 @@ end
 function loadItem(User)
 
 		local item = User:getItemAt(enchantingItem[User.id])
-		local loss = -9999*(enchantingAction[User.id]/212)
-		item:setData("magicLoad", enchantingAction[User.id])
+		local maxLoads = enchantingAction[User.id];
+		
+		local load = tonumber(item:getData("magicLoad"));
+		local itemMagicLevel= tonumber(User:getItemAt(enchantingItem[User.id]):getData("magicLevel"))
+		
+		while load < maxLoads and User:increaseAttrib("mana", 0) > 48 do
+			
+			load = load + 1
+			User:increaseAttrib("mana", -9999*(1/212))
+		
+		end
+		
+		local addLoads = load-tonumber(item:getData("magicLoad"))
+					
+		User:learn(Character.enchanting, addLoads/2, itemMagicLevel + 20)
+		
+		item:setData("magicLoad", load)
 		world:changeItem(item);
 		User:inform("Verzaubert zu:", "Enchanted to:")
 		analyseItem(User, item)
 		
-		User:increaseAttrib("mana", loss)
+		
 		
 end
