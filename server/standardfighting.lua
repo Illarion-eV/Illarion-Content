@@ -362,10 +362,13 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 				elseif(armour.Type==1) then -- General armour
 					armourValue = armour.Level/GeneralScalingFactor;
 				end;
-			elseif (Attacker.AttackKind == 5) then --Magic
-				armourValue = (resistance * .75 + 25/(21 - Defender.willpower))
-			end;
+			end
 		end;
+	
+	elseif (Attacker.AttackKind == 5) then --Magic
+		armourValue = (resistance * .75 + 25/(21 - Defender.willpower))
+	
+	
 	else
 		local thingvalue=NotNil(Defender.Char:getSkill(Character.wrestling));
 		skillmod = 1-thingvalue/250;

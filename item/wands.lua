@@ -79,12 +79,20 @@ function menue(User,magicItems,ltstate)
 		end
 		
 		if dialog:getSelectedIndex() == 0 then
-			choseItemDialog(User,1,magicItems,ltstate)
+			if checkPosition(User) == true then
+				choseItemDialog(User,1,magicItems,ltstate)
+			else
+				User:inform("Du musst dich in einem Ritualkreis befinden um dies zu tun.", "You must be in a magic circle to do this")
+			end
 		elseif dialog:getSelectedIndex() == 1 then
 		
 			choseItemDialog(User,2,magicItems,ltstate)
 		else
-			choseItemDialog(User,3,magicItems,ltstate)
+			if checkPosition(User) == true then
+				choseItemDialog(User,3,magicItems,ltstate)
+			else
+				User:inform("Du musst dich in einem Ritualkreis befinden um dies zu tun.", "You must be in a magic circle to do this")
+			end
 		end
 		
 		
@@ -212,7 +220,7 @@ function analyseItem(User, chosenItem)
 	
 	local language = User:getPlayerLanguage()
 	local loadsEn = {"burned out" , "nearly empty", "weak", "weakend", "loaded"};
-	local loadsDe = {"ausgebrannten", "fast leeren", "schwachen", "geschächten", "geladenen"};
+	local loadsDe = {"ausgebrannten", "fast leeren", "schwachen", "geschwächten", "geladenen"};
 	
 	local levelsEn = {"weak", "slightly", "simple", "moderate", "average", "superior", "good", "very good","excellent", "outstanding", "masterly"};
 	local levelsDe = {"schwachen", "leichten", "einfachen", "mäßigen", "durchschnittlichen", "überdurchschnittlichen", "guten", "sehr guten", "exzellent", "außergewöhnlichen", "meisterhaften"};
@@ -316,7 +324,7 @@ function enchantItem(User, chosenItem, magicItems, ltstate)
 		if (ltstate == Action.none) then
 			enchantingAction[User.id] = "enchanting"
 			User:startAction(200,52,40,13,50);
-			User:talk(Character.say, "#me beginnt mit der Verzauberung", "#me starts with the enchantment.")
+			--User:talk(Character.say, "#me beginnt mit der Verzauberung", "#me starts with the enchantment.")
 			
 			return;
 		end
@@ -369,7 +377,7 @@ function setNewMagicLevel(User,magicItems)
 		
 	end
 	world:changeItem(item);
-	User:inform("Verzaubert zu:", "Enchanted to:")
+	--User:inform("Verzaubert zu:", "Enchanted to:")
 	analyseItem(User, item)
 	
 end
@@ -508,4 +516,31 @@ function loadItem(User)
 		
 		
 		
+end
+
+
+function checkPosition(User)
+
+	local circle = {};
+	local position = User.pos;
+	local xPosition = position.x;
+	local yPosition = position.y;
+	
+	circle.x = {930,806};
+	circle.y = {807,346};
+	
+	for i=1, #circle.x do
+
+		local xDistance = math.abs(circle.x[i] - xPosition)
+		local yDistance = math.abs(circle.y[i] - yPosition)
+		local distance = xDistance + yDistance
+		
+		if distance < 4 then
+			return true
+		end
+	
+	end	
+
+	return false
+
 end
