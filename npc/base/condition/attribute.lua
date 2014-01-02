@@ -27,30 +27,66 @@ end);
 
 function _attrib_helper_equal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+	
+	--Check for mage attributs in sum
+	if self["attrib"] == "mage" then
+		return (value == (player:increaseAttrib("willpower", 0) + player:increaseAttrib("essence", 0) + player:increaseAttrib("intelligence", 0)))
+	end
+	
     return (value == player:increaseAttrib(self.attrib, 0))
 end;
 
 function _attrib_helper_notequal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+	
+	--Check for mage attributs in sum
+	if self["attrib"] == "mage" then
+		return (value ~= (player:increaseAttrib("willpower", 0) + player:increaseAttrib("essence", 0) + player:increaseAttrib("intelligence", 0)))
+	end
+	
     return (value ~= player:increaseAttrib(self.attrib, 0))
 end;
 
 function _attrib_helper_lesserequal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+	
+	--Check for mage attributs in sum
+	if self["attrib"] == "mage" then
+		return (value <= (player:increaseAttrib("willpower", 0) + player:increaseAttrib("essence", 0) + player:increaseAttrib("intelligence", 0)))
+	end
+	
     return (value <= player:increaseAttrib(self.attrib, 0))
 end;
 
 function _attrib_helper_greaterequal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+	
+	--Check for mage attributs in sum
+	if self["attrib"] == "mage" then
+		return (value >= (player:increaseAttrib("willpower", 0) + player:increaseAttrib("essence", 0) + player:increaseAttrib("intelligence", 0)))
+	end
+		
     return (value >= player:increaseAttrib(self.attrib, 0))
 end;
 
 function _attrib_helper_lesser(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+	
+	--Check for mage attributs in sum
+	if self["attrib"] == "mage" then
+		return (value < (player:increaseAttrib("willpower", 0) + player:increaseAttrib("essence", 0) + player:increaseAttrib("intelligence", 0)))
+	end
+		
     return (value < player:increaseAttrib(self.attrib, 0))
 end;
 
 function _attrib_helper_greater(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+	
+	--Check for mage attributs in sum
+	if self["attrib"] == "mage" then
+		return (value > (player:increaseAttrib("willpower", 0) + player:increaseAttrib("essence", 0) + player:increaseAttrib("intelligence", 0)))
+	end
+	
     return (value > player:increaseAttrib(self.attrib, 0))
 end;
