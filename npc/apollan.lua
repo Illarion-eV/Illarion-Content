@@ -20,6 +20,7 @@ require("npc.base.condition.chance")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.condition.magictype")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
@@ -196,19 +197,41 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.attribute.attribute("mage", ">", 30));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addTrigger("aufgabe");
 talkEntry:addResponse("Du bist nicht in der Lage die arkanen Künste zu erlernen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.magictype.magictype("druid"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("aufgabe");
+talkEntry:addResponse("Gehe und misch doch lieber ein paar schöne farbige Tränke. Die Kunst der Magie ist nicht die Deine.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.magictype.magictype("druid"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Go and make some pretty, colourful potions. The art of magic is not your kind of art.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+
+
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.attribute.attribute("mana", "=", 0));
+talkEntry:addCondition(npc.base.condition.magictype.magictype("nomagic"));
 talkEntry:addCondition(npc.base.condition.quest.quest(370, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neuer Quest] Der arkane Künstler"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(370, "=", 1));
-talkEntry:addResponse("So junger Schüler, du möchtest die arkenen Künste lernen? Beginnen wir mit den Grundlagen. Bring mir eine diser zauberhaften Blumen nach denen die Halblingsstadt Firnismill benannt wurde.");
+talkEntry:addResponse("So junger Schüler, du möchtest die arkanen Künste lernen? Beginnen wir mit den Grundlagen. Bring mir eine dieser zauberhaften Blumen nach denen die Halblingsstadt Firnismill benannt wurde.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -265,6 +288,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.attribute.attribute("mana", "=", 0));
 talkEntry:addCondition(npc.base.condition.quest.quest(370, "=", 0));
+talkEntry:addCondition(npc.base.condition.magictype.magictype("nomagic"));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
