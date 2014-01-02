@@ -32,7 +32,7 @@ function initDoors()
 	AddDoor({416, 239,-6}, 124,"Flat Oldra","Wohnung Oldra"); -- flat room V - 4p !create 2161 1 333 lockId=124
 	AddDoor({425, 241,-5}, 125,"Flat Nargun","Wohnung Nargun"); -- flat room VI - 2p !create 2161 1 333 lockId=125
 	AddDoor({426, 231,-5}, 126,"Flat Ronagan","Wohnung Ronagan"); -- flat room VII - 2p !create 2161 1 333 lockId=126
-	AddDoor({427, 221,-5}, 127,"Flat Sirani","Wohnung Sirani"); -- flat room VIII - 3p !create 2161 1 333 lockId=127
+	AddDoor({427, 233,-5}, 127,"Flat Sirani","Wohnung Sirani"); -- flat room VIII - 3p !create 2161 1 333 lockId=127
 	AddDoor({416, 216,-5}, 128,"Flat Zhambra","Wohnung Zhambra"); -- flat room IX - 3p !create 2161 1 333 lockId=128
 
 	AddDoor({342, 238,-6}, 103,"Hog Dens","Schweinebaue", false); -- Scoria Mine
