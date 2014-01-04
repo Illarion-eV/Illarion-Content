@@ -1,3 +1,19 @@
+--[[
+Illarion Server
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+details.
+
+You should have received a copy of the GNU Affero General Public License along
+with this program.  If not, see <http://www.gnu.org/licenses/>. 
+]]
 -- SUMMON AGRESSIVE CREATURE
 -- Rune 6 & 9 & 11 & 19 & 20 LUK TAUR IRA FHAN LEV
 -- INSERT INTO spells VALUES (2^5+2^8+2^10+2^18+2^19,0,'m_06_09_11_19_29_write-summon-creature-scroll.lua');
