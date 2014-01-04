@@ -4,23 +4,23 @@
 --401 contains the ID of the god the character is devoted to
 --402 contains the ID of the god the character is a priest of. MUST be equal to 401 or 0.
 --Elder Gods
---1: Ushara – Goddess of earth 
---2: Brágon – God of fire
---3: Eldan – God of spirit
---4: Tanora/Zelphia – Goddess of water
---5: Findari – Goddess of air
+--1: Ushara - Goddess of earth 
+--2: Brágon - God of fire
+--3: Eldan - God of spirit
+--4: Tanora/Zelphia - Goddess of water
+--5: Findari - Goddess of air
 --Younger Gods
---6: Nargùn – God of chaos
---7: Elara – Goddess of wisdom and knowledge
---8: Adron – God of festivities and wine
---9: Oldra – Goddess of life and fertility
---10: Cherga – Goddess of spirits and the underworld
---11: Malachín – God of battle and hunting
---12: Irmorom – God of trade and craftsmanship
---13: Sirani – Goddess of love and pleasure
---14: Zhambra – God of friendship and loyalty  
---15: Ronagan – God of thieves and shadows
---16: Moshran – God of blood and bones
+--6: Nargùn - God of chaos
+--7: Elara - Goddess of wisdom and knowledge
+--8: Adron - God of festivities and wine
+--9: Oldra - Goddess of life and fertility
+--10: Cherga - Goddess of spirits and the underworld
+--11: Malachín - God of battle and hunting
+--12: Irmorom - God of trade and craftsmanship
+--13: Sirani - Goddess of love and pleasure
+--14: Zhambra - God of friendship and loyalty  
+--15: Ronagan - God of thieves and shadows
+--16: Moshran - God of blood and bones
 
 --[[
 The five: 553,137,0

@@ -346,7 +346,7 @@ function GetQuestionAndAnswers(User,SourceItem)
 	end	
 	for i=#newAnswerList,2,-1 do
 	    local j = math.random(1, i) 
-	    newAnswerList[i], newAnswerList[j] = newAnswerList[j], newAnswerList[i] -- put it back together into a random order (using Fisher–Yates shuffle)
+	    newAnswerList[i], newAnswerList[j] = newAnswerList[j], newAnswerList[i] -- put it back together into a random order (using Fisher-Yates shuffle)
     end
 	return myQuestion, myAnswer, newAnswerList, lastQuestion
 end
