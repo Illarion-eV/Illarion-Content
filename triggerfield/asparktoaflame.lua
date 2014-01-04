@@ -38,7 +38,7 @@ function Init()
       messageG[4]="[Queststatus] Du näherst dich dem Altar Tanoras. Täuscht du dich oder liegt hier Nebel in der Luft?";
       messageG[5]="[Queststatus] Du näherst dich dem Altar Findaris. Eine Winböe streift durch deine Kleidung.";
       messageE={};
-      messageE[1]="[Quest status] You approach the altar of Ushara — the silence is comforting.";
+      messageE[1]="[Quest status] You approach the altar of Ushara - the silence is comforting.";
       messageE[2]="[Quest status] You approach the altar of Brágon as a wave of heat engulfs you.";
       messageE[3]="[Quest status] You approach the altar of Eldan, and you are overwhelmed by thoughtful contemplation.";
       messageE[4]="[Quest status] You approach the altar of Tanora shrouded in a dense fog.";      

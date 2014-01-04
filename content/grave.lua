@@ -49,7 +49,7 @@ function InitGrave()
 	AddGrave({108,665,-4},"","", 1,0);
 	AddGrave({157,668,-4},"","", 4,0);
 	AddGrave({158,667,-4},"","", 3,0);
-	--Cherass‘ Citadel
+	--Cherass' Citadel
 	AddGrave({572,314,0},"","", 2,0);
 	AddGrave({576,314,0},"","", 3,0);
 	AddGrave({569,316,0},"","", 4,0);

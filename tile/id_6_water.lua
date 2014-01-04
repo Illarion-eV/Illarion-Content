@@ -120,7 +120,7 @@ function useTile(User,Position,ltstate)
         elseif (FTry>=920 and FTry<940) then
             User:createItem(53,1,100,0)
             base.common.InformNLS(User,"Ein alter, durchlöcherter Lederstiefel findet sich in deiner Klaue.","An old, perforated leather boot is in your claw.");
-        -- Ã–lampe
+        -- Öllampe
         elseif (FTry>=940 and FTry<990) then
             User:createItem(92,1,333,0);
             base.common.InformNLS(User,"Du ziehst eine glitzernde Öllampe aus dem Wasser. Wo die wohl herkommt...?","You pull a sparkling oil lamp out of the water. Where did that come from?");
