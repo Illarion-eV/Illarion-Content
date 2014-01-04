@@ -46,87 +46,87 @@ itemShoes = 0
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Francine Leonard the cook and farmer. Keywords: quest")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Francine Leonard die KÃ¶chin und BÃ¤uerin. SchlÃ¼sselwÃ¶rter: Quest")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Francine Leonard die Köchin und Bäuerin. Schlüsselwörter: Quest")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, can I help you?", "Nice to meet you, I'm Francine Leonard."
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Francine Leonard."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Francine Leonard."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, can I help you?", "Nice to meet you, I'm Francine Leonard."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Francine Leonard"
 "Farewell", "Bye", "Fare well", "See you" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen" -> "Ich wÃ¼nsche Euch noch einen schÃ¶nen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
+"Tschüß", "Tschüss", "Wiedersehen" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich wÃ¼nsche Euch noch einen schÃ¶nen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
 "How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke fÃ¼r die Nachfrage."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke für die Nachfrage."
 "your name", "who are you", "who art thou" -> "I'm Francine Leonard, who are you?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Francine Leonard, wer bist du?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Francine Leonard, wer bist du?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a cook and farmer. Do you want to know more about these jobs? Then just ask me for a task!"
-"beruf" -> "Ich bin KÃ¶chin und BÃ¤uerin. Wollt ihr mehr darÃ¼ber wissen? Dann fragt mich einfach nach einer Aufgabe!"
+"beruf" -> "Ich bin Köchin und Bäuerin. Wollt ihr mehr darüber wissen? Dann fragt mich einfach nach einer Aufgabe!"
 english, "job" -> "I'm a cook and farmer. Do you want to know more about these jobs? Then just ask me for a task!"
-"job" -> "Ich bin KÃ¶chin und BÃ¤uerin. Wollt ihr mehr darÃ¼ber wissen? Dann fragt mich einfach nach einer Aufgabe!"
+"job" -> "Ich bin Köchin und Bäuerin. Wollt ihr mehr darüber wissen? Dann fragt mich einfach nach einer Aufgabe!"
 
 -- Quests
 
 queststatus(714) = 0, town = Runewick, english, "quest", "mission" -> "Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields outside the city. Once the crop is ready, harvest the ripened grain with this scythe I give you, and show me ten bundles of grain.", item(259, 10, 777), item(271, 1, 777), queststatus(714) = 1
-queststatus(714) = 0, town = Runewick, "quest", "mission" -> "Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Baut etwas Getreide fÃ¼r mich an. DafÃ¼r braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesÃ¤et habt und es reif ist, sammelt die GetreidebÃ¼ndel mit der Sense die ich Euch gebe und zeigt mir zehn BÃ¼ndel.", item(259, 10, 777), item(271, 1, 777), queststatus(714) = 1
+queststatus(714) = 0, town = Runewick, "quest", "mission" -> "Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Baut etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesäet habt und es reif ist, sammelt die Getreidebündel mit der Sense die ich Euch gebe und zeigt mir zehn Bündel.", item(259, 10, 777), item(271, 1, 777), queststatus(714) = 1
 queststatus(714) = 0, town = Runewick, "task", "adventure", "order" -> "Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields outside the city. Once the crop is ready, harvest the ripened grain with this scythe I give you, and show me ten bundles of grain.", item(259, 10, 777), item(271, 1, 777), queststatus(714) = 1
-queststatus(714) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem. Baut etwas Getreide fÃ¼r mich an. DafÃ¼r braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesÃ¤et habt und es reif ist, sammelt die GetreidebÃ¼ndel mit der Sense die ich Euch gebe und zeigt mir zehn BÃ¼ndel.", item(259, 10, 777), item(271, 1, 777), queststatus(714) = 1
+queststatus(714) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem. Baut etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesäet habt und es reif ist, sammelt die Getreidebündel mit der Sense die ich Euch gebe und zeigt mir zehn Bündel.", item(259, 10, 777), item(271, 1, 777), queststatus(714) = 1
 
 queststatus(714) = 1, item(249, all) > 9, town = Runewick, english, "quest", "mission", "grain", "bundle" -> "Well done, thank you. Please keep the remaining bundles of grain for your next task.", deleteItem(249, 5), queststatus(714) = 2
-queststatus(714) = 1, item(249, all) > 9, town = Runewick, "quest", "mission", "getreide", "bÃ¼ndel" -> "Gut gemacht, danke. Bitte behaltet die Ã¼brigen GetreidebÃ¼ndel fÃ¼r Eure nÃ¤chste Aufgabe.", deleteItem(249, 5), queststatus(714) = 2
+queststatus(714) = 1, item(249, all) > 9, town = Runewick, "quest", "mission", "getreide", "bündel" -> "Gut gemacht, danke. Bitte behaltet die übrigen Getreidebündel für Eure nächste Aufgabe.", deleteItem(249, 5), queststatus(714) = 2
 queststatus(714) = 1, item(249, all) > 9, town = Runewick, "task", "adventure", "order" -> "Well done, thank you. Please keep the remaining bundles of grain grain for your next task.", deleteItem(249, 5), queststatus(714) = 2
-queststatus(714) = 1, item(249, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, danke. Bitte behaltet die Ã¼brigen GetreidebÃ¼ndel fÃ¼r Eure nÃ¤chste Aufgabe.", deleteItem(249, 5), queststatus(714) = 2
+queststatus(714) = 1, item(249, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, danke. Bitte behaltet die übrigen Getreidebündel für Eure nächste Aufgabe.", deleteItem(249, 5), queststatus(714) = 2
 queststatus(714) = 1, item(249, all) < 10, town = Runewick, english, ".+" -> "That isn't ten bundles of grain yet, please come back once you've finished this task."
-queststatus(714) = 1, item(249, all) < 10, town = Runewick, ".+" -> "Das sind noch keine zehn GetreidemÃ¼ndel die ich haben wollte. Kommt wieder wenn Ihr die Aufgabe erledigt habt."
+queststatus(714) = 1, item(249, all) < 10, town = Runewick, ".+" -> "Das sind noch keine zehn Getreidemündel die ich haben wollte. Kommt wieder wenn Ihr die Aufgabe erledigt habt."
 
 queststatus(714) = 2, town = Runewick, english, "quest", "mission" -> "You want another task? Alright, thresh the bundles of grain using this flail I give you, to produce grain. Once you have done that, make five sacks of flour using the wooden shovel I give you at the millstone over there to the left of me. Then return and show me the result.", item(258, 1, 777), item(312, 1, 777), queststatus(714) = 3
-queststatus(714) = 2, town = Runewick, "quest", "mission" -> "Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den Ã¼brigen GetreidebÃ¼ndeln Getreide. Sobald Ihr damit fertig seid, geht zum MÃ¼hlstein da vorne links und macht mit der Holzkelle von mir fÃ¼nf SÃ¤cke Mehl. Kommt anschlieÃŸend zurÃ¼ck zu mir.", item(258, 1, 777), item(312, 1, 777), queststatus(714) = 3
+queststatus(714) = 2, town = Runewick, "quest", "mission" -> "Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den übrigen Getreidebündeln Getreide. Sobald Ihr damit fertig seid, geht zum Mühlstein da vorne links und macht mit der Holzkelle von mir fünf Säcke Mehl. Kommt anschließend zurück zu mir.", item(258, 1, 777), item(312, 1, 777), queststatus(714) = 3
 queststatus(714) = 2, town = Runewick, "task", "adventure", "order" -> "You want another task? Alright, thresh the bundles of grain using this flail I give you, to produce grain. Once you have done that, make five sacks of flour using the wooden shovel I give you at the millstone over there to the left of me. Then return and show me the result.", item(258, 1, 777), item(312, 1, 777), queststatus(714) = 3
-queststatus(714) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den Ã¼brigen GetreidebÃ¼ndeln Getreide. Sobald Ihr damit fertig seid, geht zum MÃ¼hlstein da vorne links und macht mit der Holzkelle von mir fÃ¼nf SÃ¤cke Mehl. Kommt anschlieÃŸend zurÃ¼ck zu mir.", item(258, 1, 777), item(312, 1, 777), queststatus(714) = 3
+queststatus(714) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den übrigen Getreidebündeln Getreide. Sobald Ihr damit fertig seid, geht zum Mühlstein da vorne links und macht mit der Holzkelle von mir fünf Säcke Mehl. Kommt anschließend zurück zu mir.", item(258, 1, 777), item(312, 1, 777), queststatus(714) = 3
 
 queststatus(714) = 3, item(2, all) > 4, town = Runewick, english, "quest", "mission", "flour" -> "Well done. Please keep the flour for your next task.", queststatus(714) = 4
-queststatus(714) = 3, item(2, all) > 4, town = Runewick, "quest", "mission", "mehl" -> "Gut gemacht. Bitte behaltet den Mehl fÃ¼r Eure nÃ¤chste Aufgabe.", queststatus(714) = 4
+queststatus(714) = 3, item(2, all) > 4, town = Runewick, "quest", "mission", "mehl" -> "Gut gemacht. Bitte behaltet den Mehl für Eure nächste Aufgabe.", queststatus(714) = 4
 queststatus(714) = 3, item(2, all) > 4, town = Runewick, "task", "adventure", "order" -> "Well done. Please keep the flour for your next task.", queststatus(714) = 4
-queststatus(714) = 3, item(2, all) > 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht. Bitte behaltet den Mehl fÃ¼r Eure nÃ¤chste Aufgabe.", queststatus(714) = 4
+queststatus(714) = 3, item(2, all) > 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht. Bitte behaltet den Mehl für Eure nächste Aufgabe.", queststatus(714) = 4
 queststatus(714) = 3, item(2, all) < 5, town = Runewick, english, ".+" -> "I wanted five sacks of flour, come back once you have fulfilled this task."
-queststatus(714) = 3, item(2, all) < 5, town = Runewick, ".+" -> "Ich wollte fÃ¼nf SÃ¤cke Mehl von Euch, kommt wieder wenn Ihr die Aufgabe erfÃ¼llt habt."
+queststatus(714) = 3, item(2, all) < 5, town = Runewick, ".+" -> "Ich wollte fünf Säcke Mehl von Euch, kommt wieder wenn Ihr die Aufgabe erfüllt habt."
 
 queststatus(714) = 4, town = Runewick, english, "quest", "mission" -> "Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets of water to make the bread rolls. I'll give you my old peel and five buckets of water so you can practise a little bit. Now go to the other room to find the baking oven and bake five bread rolls. Show me the result once you are done.", item(121, 1, 555), item(52, 5, 333), queststatus(714) = 5
-queststatus(714) = 4, town = Runewick, "quest", "mission" -> "Gut, nun machen wir einige BrÃ¶tchen. DafÃ¼r braucht Ihr einen Brotschieber, den Mehl den Ihr bereits habt und natÃ¼rlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fÃ¼nf Eimer damit Ihr etwas Ã¼ben kÃ¶nnt. Nun geht zum Backofen in dem anderen Raum und backt mir fÃ¼nf BrÃ¶tchen.", item(121, 1, 555), item(52, 5, 333), queststatus(714) = 5
+queststatus(714) = 4, town = Runewick, "quest", "mission" -> "Gut, nun machen wir einige Brötchen. Dafür braucht Ihr einen Brotschieber, den Mehl den Ihr bereits habt und natürlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fünf Eimer damit Ihr etwas üben könnt. Nun geht zum Backofen in dem anderen Raum und backt mir fünf Brötchen.", item(121, 1, 555), item(52, 5, 333), queststatus(714) = 5
 queststatus(714) = 4, town = Runewick, "task", "adventure", "order" -> "Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets of water to make the bread rolls. I'll give you my old peel and five buckets of water so you can practise a little bit. Now go to the other room to find the baking oven and bake five bread rolls. Show me the result once you are done.", item(121, 1, 555), item(52, 5, 333), queststatus(714) = 5
-queststatus(714) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut, nun machen wir einige BrÃ¶tchen. DafÃ¼r braucht Ihr einen Brotschieber, den Mehl den Ihr bereits habt und natÃ¼rlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fÃ¼nf Eimer damit Ihr etwas Ã¼ben kÃ¶nnt. Nun geht zum Backofen in dem anderen Raum und backt mir fÃ¼nf BrÃ¶tchen.", item(121, 1, 555), item(52, 5, 333), queststatus(714) = 5
+queststatus(714) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut, nun machen wir einige Brötchen. Dafür braucht Ihr einen Brotschieber, den Mehl den Ihr bereits habt und natürlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fünf Eimer damit Ihr etwas üben könnt. Nun geht zum Backofen in dem anderen Raum und backt mir fünf Brötchen.", item(121, 1, 555), item(52, 5, 333), queststatus(714) = 5
 
 queststatus(714) = 5, item(191, all) > 4, town = Runewick, english, "quest", "mission", "bread", "roll" -> "Well done, thank you very much. If you have more time I can give you another task.", deleteItem(191, 5), queststatus(714) = 6
-queststatus(714) = 5, item(191, all) > 4, town = Runewick, "quest", "mission", "brÃ¶t" -> "Gut gemacht, vielen Dank. Wenn Ihr noch etwas Zeit erÃ¼brigen kÃ¶nnt, hÃ¤tte ich eine weitere Aufgabe fÃ¼r Euch.", deleteItem(191, 5), queststatus(714) = 6
+queststatus(714) = 5, item(191, all) > 4, town = Runewick, "quest", "mission", "bröt" -> "Gut gemacht, vielen Dank. Wenn Ihr noch etwas Zeit erübrigen könnt, hätte ich eine weitere Aufgabe für Euch.", deleteItem(191, 5), queststatus(714) = 6
 queststatus(714) = 5, item(191, all) > 4, town = Runewick, "task", "adventure", "order" -> "Well done, thank you very much. If you have more time I can give you another task.", deleteItem(191, 5), queststatus(714) = 6
-queststatus(714) = 5, item(191, all) > 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, vielen Dank. Wenn Ihr noch etwas Zeit erÃ¼brigen kÃ¶nnt, hÃ¤tte ich eine weitere Aufgabe fÃ¼r Euch.", deleteItem(191, 5), queststatus(714) = 6
+queststatus(714) = 5, item(191, all) > 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, vielen Dank. Wenn Ihr noch etwas Zeit erübrigen könnt, hätte ich eine weitere Aufgabe für Euch.", deleteItem(191, 5), queststatus(714) = 6
 queststatus(714) = 5, item(191, all) < 5, town = Runewick, english, ".+" -> "You haven't solved the task yet. Come back once you've got the five bread rolls I'm looking for."
-queststatus(714) = 5, item(191, all) < 5, town = Runewick, ".+" -> "Ihr habt die Aufgabe noch nicht erfÃ¼llt wie ich sehe. Bitte bringt mir fÃ¼nf BrÃ¶tchen."
+queststatus(714) = 5, item(191, all) < 5, town = Runewick, ".+" -> "Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bringt mir fünf Brötchen."
 
 queststatus(714) = 6, town = Runewick, english, "quest", "mission" -> "Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and entrails if you kill pigs. Once you have that you will need a cooking spoon and a kettle like the one over there to cook at. I'll give you five pieces of pork, five lengths of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done.", item(307, 5, 777), item(63, 5, 777), item(227, 1, 777), queststatus(714) = 7
-queststatus(714) = 6, town = Runewick, "quest", "mission" -> "Genug vom Backen, jetzt kochen wir etwas schÃ¶nes! Ein guter Anfang sind wohl WÃ¼rstchen, dazu braucht Ihr etwas Schweinefleisch und Eingeweide. Beides findet Ihr, wenn Ihr Schweine erlegt. Um das ganze dann zu kochen braucht Ihr einen KochlÃ¶ffel und so einen Kessel der dort drÃ¼ben steht. Ich gebe Euch fÃ¼nf StÃ¼ck Fleisch, fÃ¼nf StÃ¼ck Eingeweide und einen KochlÃ¶ffel, damit Ihr etwas Ã¼ben kÃ¶nnt. Bringt mir fÃ¼nf WÃ¼rstchen sobald Ihr fertig seid.", item(307, 5, 777), item(63, 5, 777), item(227, 1, 777), queststatus(714) = 7
+queststatus(714) = 6, town = Runewick, "quest", "mission" -> "Genug vom Backen, jetzt kochen wir etwas schönes! Ein guter Anfang sind wohl Würstchen, dazu braucht Ihr etwas Schweinefleisch und Eingeweide. Beides findet Ihr, wenn Ihr Schweine erlegt. Um das ganze dann zu kochen braucht Ihr einen Kochlöffel und so einen Kessel der dort drüben steht. Ich gebe Euch fünf Stück Fleisch, fünf Stück Eingeweide und einen Kochlöffel, damit Ihr etwas üben könnt. Bringt mir fünf Würstchen sobald Ihr fertig seid.", item(307, 5, 777), item(63, 5, 777), item(227, 1, 777), queststatus(714) = 7
 queststatus(714) = 6, town = Runewick, "task", "adventure", "order" -> "Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and entrails if you kill pigs. Once you have that you will need a cooking spoon and a kettle like the one over there to cook at. I'll give you five pieces of pork, five lengths of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done.", item(307, 5, 777), item(63, 5, 777), item(227, 1, 777), queststatus(714) = 7
-queststatus(714) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Genug vom Backen, jetzt kochen wir etwas schÃ¶nes! Ein guter Anfang sind wohl WÃ¼rstchen, dazu braucht Ihr etwas Schweinefleisch und Eingeweide. Beides findet Ihr, wenn Ihr Schweine erlegt. Um das ganze dann zu kochen braucht Ihr einen KochlÃ¶ffel und so einen Kessel der dort drÃ¼ben steht. Ich gebe Euch fÃ¼nf StÃ¼ck Fleisch, fÃ¼nf StÃ¼ck Eingeweide und einen KochlÃ¶ffel, damit Ihr etwas Ã¼ben kÃ¶nnt. Bringt mir fÃ¼nf WÃ¼rstchen sobald Ihr fertig seid.", item(307, 5, 777), item(63, 5, 777), item(227, 1, 777), queststatus(714) = 7
+queststatus(714) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Genug vom Backen, jetzt kochen wir etwas schönes! Ein guter Anfang sind wohl Würstchen, dazu braucht Ihr etwas Schweinefleisch und Eingeweide. Beides findet Ihr, wenn Ihr Schweine erlegt. Um das ganze dann zu kochen braucht Ihr einen Kochlöffel und so einen Kessel der dort drüben steht. Ich gebe Euch fünf Stück Fleisch, fünf Stück Eingeweide und einen Kochlöffel, damit Ihr etwas üben könnt. Bringt mir fünf Würstchen sobald Ihr fertig seid.", item(307, 5, 777), item(63, 5, 777), item(227, 1, 777), queststatus(714) = 7
 
 queststatus(714) = 7, item(3051, all) > 4, town = Runewick, english, "quest", "mission", "sausage" -> "Well done, thank you very much. I hope I was able to teach you something.", deleteItem(3051, 5), queststatus(714) = 8
-queststatus(714) = 7, item(3051, all) > 4, town = Runewick, "quest", "mission", "wurst", "wÃ¼rstchen" -> "Gut gemacht, vielen Dank. Ich hoffe, ich konnte euch etwas beibringen.", deleteItem(3051, 5), queststatus(714) = 8
+queststatus(714) = 7, item(3051, all) > 4, town = Runewick, "quest", "mission", "wurst", "würstchen" -> "Gut gemacht, vielen Dank. Ich hoffe, ich konnte euch etwas beibringen.", deleteItem(3051, 5), queststatus(714) = 8
 queststatus(714) = 7, item(3051, all) > 4, town = Runewick, "task", "adventure", "order" -> "Well done, thank you very much. I hope I was able to teach you something.", deleteItem(3051, 5), queststatus(714) = 8
 queststatus(714) = 7, item(3051, all) > 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, vielen Dank. Ich hoffe, ich konnte euch etwas beibringen.", deleteItem(3051, 5), queststatus(714) = 8
 queststatus(714) = 7, item(3051, all) < 5, town = Runewick, english, ".+" -> "You haven't solved the task yet. Come back once you have five sausages for me."
-queststatus(714) = 7, item(3051, all) < 5, town = Runewick, ".+" -> "Ihr habt die Aufgabe noch nicht erfÃ¼llt, wie ich sehe. Bitte bringt mir fÃ¼nf WÃ¼rstchen."
+queststatus(714) = 7, item(3051, all) < 5, town = Runewick, ".+" -> "Ihr habt die Aufgabe noch nicht erfüllt, wie ich sehe. Bitte bringt mir fünf Würstchen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 queststatus(714) = 8, town = Runewick, english, ".*" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(714) = 8, town = Runewick, german, ".*" -> "Ich habe nichts weiter fÃ¼r Euch zu tun. Aber danke nochmals fÃ¼r Eure Hilfe!"
+queststatus(714) = 8, town = Runewick, german, ".*" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
 
 queststatus(714) < 8, town = Runewick, english, ".*" -> "I could use some help, just ask me for a task."
-queststatus(714) < 8, town = Runewick, german, ".*" -> "Ich kÃ¶nnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas fÃ¼r Euch zu tun."
+queststatus(714) < 8, town = Runewick, german, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
 
 english, ".*" -> "You are not a citizen of Runewick. I don't have anything for you to do."
-german, ".*" -> "Ihr scheint kein BÃ¼rger Runewick zu sein. Ich habe nichts fÃ¼r Euch zu tun."
+german, ".*" -> "Ihr scheint kein Bürger Runewick zu sein. Ich habe nichts für Euch zu tun."
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
@@ -134,6 +134,6 @@ german, ".*" -> "Ihr scheint kein BÃ¼rger Runewick zu sein. Ich habe nichts fÃ¼r
 
 cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
 cycletext "Wenn Ihr Hilfe beim Kochen und Backen braucht, dann fragt nur mich!", "If you need any help with baking and cooking, just ask me!"
-cycletext "#me gÃ¤hnt verhalten.", "#me yawns restrained."
+cycletext "#me gähnt verhalten.", "#me yawns restrained."
 cycletext "#me pfeift eine Melodie.", "#me whistles a melody."
 cycletext "#me liest einen Brief.", "#me reads a letter."

@@ -24,7 +24,7 @@ autointroduce = on
 
 author = "envi"
 
-lookatDE = "Dieser NPC ist Paula Bronzeblatt die KartenverkÃ¤uferin."
+lookatDE = "Dieser NPC ist Paula Bronzeblatt die Kartenverkäuferin."
 lookatUS = "This NPC is Paula Bronzeblatt the Map trader."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -72,75 +72,75 @@ itemShoes = 326
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Paula Bronzeblatt the Map trader. Keywords: treasure, map.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Paula Bronzeblatt die KartenverkÃ¤uferin. SchlÃ¼sselwÃ¶rter: Schatz, Karte.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Paula Bronzeblatt die Kartenverkäuferin. Schlüsselwörter: Schatz, Karte.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello, hello. Would you like to buy a treasure map? I sell them for just ten gold coins. Say 'deal' and it belongs to you."
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, hallo. Willst du eine Schatzkarte kaufen? Ich verkaufe die fÃ¼r zehn GoldmÃ¼nzen. Sage 'Deal' und eine gehÃ¶rt dir."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, hallo. Willst du eine Schatzkarte kaufen? Ich verkaufe die für zehn Goldmünzen. Sage 'Deal' und eine gehört dir."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, hello. Would you like to buy a treasure map? I sell them for just ten gold coins. Say 'deal' and it belongs to you."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, hallo. Willst du eine Schatzkarte kaufen? Ich verkaufe die fÃ¼r zehn GoldmÃ¼nzen. Sage 'Deal' und eine gehÃ¶rt dir."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, hallo. Willst du eine Schatzkarte kaufen? Ich verkaufe die für zehn Goldmünzen. Sage 'Deal' und eine gehört dir."
 "Farewell", "Bye", "Fare well", "See you" -> "See you soon!"
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Bis bald!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Bis bald!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See you soon!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Bis bald!"
 "How are you", "How feel", "How do you do" -> "Fine, and you? Interested in buying a treasure map? I sell them for just ten gold coins. Say 'deal' and it belongs to you."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Gut, und dir? Interessiert in den Erwerb einer Schatzkarte? Ich verkaufe die fÃ¼r zehn GoldmÃ¼nzen. Sage 'Deal' und eine gehÃ¶rt dir."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut, und dir? Interessiert in den Erwerb einer Schatzkarte? Ich verkaufe die für zehn Goldmünzen. Sage 'Deal' und eine gehört dir."
 "your name", "who are you", "who art thou" -> "My name is Paula and I sell treasure maps. I sell them for just ten gold coins. Say 'deal' and it belongs to you."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Paula und verkaufe Schatzkarten. Ich verkaufe die fÃ¼r zehn GoldmÃ¼nzen. Sage 'Deal' und eine gehÃ¶rt dir."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Paula und verkaufe Schatzkarten. Ich verkaufe die für zehn Goldmünzen. Sage 'Deal' und eine gehört dir."
 
 -- OPTIONAL TRIGGERS
 -- uses longterm_cooldown.lua
 queststatus(613) ~= 0, english, "deal" -> inform ("[Treasure map-trader] Currently, there is no map for available. You will be informed as soon as there is one available for you."), "Arrr, I do not have any for you today. Please come back another day. I will send you a dove when I have one for you."
-queststatus(613) ~= 0, "deal" -> inform ("[Schatzkarten-HÃ¤ndler] Es gibt fÃ¼r dich vorerst keine weitere Karte zu erwerben. Du wirst Ã¼ber eine Nachricht informiert, wenn es fÃ¼r dich wieder mÃ¶glich ist."), "Arrr, ich habe heute keine fÃ¼r dich. Bitte komm an einen anderen Tag wieder. Ich werde dir eine Taube zukommen lassen, wenn ich wieder welche fÃ¼r dich habe."
+queststatus(613) ~= 0, "deal" -> inform ("[Schatzkarten-Händler] Es gibt für dich vorerst keine weitere Karte zu erwerben. Du wirst über eine Nachricht informiert, wenn es für dich wieder möglich ist."), "Arrr, ich habe heute keine für dich. Bitte komm an einen anderen Tag wieder. Ich werde dir eine Taube zukommen lassen, wenn ich wieder welche für dich habe."
 english, money<100000, "deal" -> "Get enough coins first. You need ten gold."
-money<10000, "deal" -> "Du benÃ¶tigst ausreichend MÃ¼nzen. Zehn GoldstÃ¼cke, um genau zu sein."
+money<10000, "deal" -> "Du benötigst ausreichend Münzen. Zehn Goldstücke, um genau zu sein."
 english, chance(11.0), "deal" -> money - 100000, inform ("[Treasure map-trader] Bad luck, you received a fake map. Maybe you will have more luck next time."), item (505,1,333), queststatus(613) = 200, "#me hands over a treasure map and gloats. 'Welcome to the black market.'"
-german, chance(11.0), "deal" -> money - 100000, inform ("[Schatzkarten-HÃ¤ndler] Pech, du hast eine FÃ¤lschung erhalten. Viellecht hast du mehr GlÃ¼ck beim nÃ¤chsten Mal."), item (505,1,333), queststatus(613) = 200, "#me Ã¼berreicht eine Schatzkarte und freut sich hÃ¤misch. 'Willkommen am Schwarzmarkt."
+german, chance(11.0), "deal" -> money - 100000, inform ("[Schatzkarten-Händler] Pech, du hast eine Fälschung erhalten. Viellecht hast du mehr Glück beim nächsten Mal."), item (505,1,333), queststatus(613) = 200, "#me überreicht eine Schatzkarte und freut sich hämisch. 'Willkommen am Schwarzmarkt."
 --if treasure(x) ever works correctly, deactivte first two lines and activate rest. Currently it randomly creates the level despite number selected.
 english, "deal" -> money - 100000, inform ("[Treasure map-trader] You received a treasure map. You will have to go to the surface in order to read it."), treasure(8), queststatus(613) = 300, "#me hands over a treasure map and smiles. 'Good luck!'"
-"deal" -> money - 100000, inform ("[Schatzkarten-HÃ¤ndler] Du hast eine Schatzkarte erhalten. Um sie lesen zu kÃ¶nnen, wirst du nach oben gehen mÃ¼ssen."), treasure(8), queststatus(613) = 300, "#me Ã¼berreicht eine Schatzkarte und lÃ¤chelt. 'Viel GlÃ¼ck!'"
+"deal" -> money - 100000, inform ("[Schatzkarten-Händler] Du hast eine Schatzkarte erhalten. Um sie lesen zu können, wirst du nach oben gehen müssen."), treasure(8), queststatus(613) = 300, "#me überreicht eine Schatzkarte und lächelt. 'Viel Glück!'"
 --english, chance(12.1), "deal" -> money - 100000, inform ("[Treasure map-trader] You received a map for a small treasure."), treasure(1), queststatus(613) = 200, "#me hands over a treasure map and grins. 'Quite an easy task.'"
---german, chance(12.1), "deal" -> money - 100000, inform ("[Schatzkarten-HÃ¤ndler] Du hast eine Karte fÃ¼r einen kleinen Schatz erhalten."), treasure(1), queststatus(613) = 200, "#me Ã¼berreicht eine Schatzkarte und grinst. 'Ziemlich leichte Aufgabe.'"
+--german, chance(12.1), "deal" -> money - 100000, inform ("[Schatzkarten-Händler] Du hast eine Karte für einen kleinen Schatz erhalten."), treasure(1), queststatus(613) = 200, "#me überreicht eine Schatzkarte und grinst. 'Ziemlich leichte Aufgabe.'"
 --english, chance(13.5), "deal" -> money - 100000, inform ("[Treasure map-trader] You recieved a map for a small treasure."), treasure(2), queststatus(613) = 230, "#me hands over a treasure map and grins. 'Shouldn't be a problem.'"
---german, chance(13.5), "deal" -> money - 100000, inform ("[Schatzkarten-HÃ¤ndler] Du hast eine Karte fÃ¼r einen kleinen Schatz erhalten."), treasure(2), queststatus(613) = 230, "#me Ã¼berreicht eine Schatzkarte und grinst. 'Sollte kein Problem darstellen.'"
+--german, chance(13.5), "deal" -> money - 100000, inform ("[Schatzkarten-Händler] Du hast eine Karte für einen kleinen Schatz erhalten."), treasure(2), queststatus(613) = 230, "#me überreicht eine Schatzkarte und grinst. 'Sollte kein Problem darstellen.'"
 --english, chance(15.3), "deal" -> money - 100000, inform ("[Treasure map-trader] You recieved a map for an average sized treasure."), treasure(3), queststatus(613) = 260, "#me hands over a treasure map and smiles. 'You should be able to manage this.'"
---german, chance(15.3), "deal" -> money - 100000, inform ("[Schatzkarten-HÃ¤ndler] Du hast eine Karte fÃ¼r einen mittelgroÃŸen Schatz erhalten."), treasure(3), queststatus(613) = 260, "#me Ã¼berreicht eine Schatzkarte und lÃ¤chelt. 'Du solltst in der Lage sein diese zu lÃ¶sen.'"
+--german, chance(15.3), "deal" -> money - 100000, inform ("[Schatzkarten-Händler] Du hast eine Karte für einen mittelgroßen Schatz erhalten."), treasure(3), queststatus(613) = 260, "#me überreicht eine Schatzkarte und lächelt. 'Du solltst in der Lage sein diese zu lösen.'"
 --english, chance(17.7), "deal" -> money - 100000, inform ("[Treasure map-trader] You recieved a map for an average sized treasure."), treasure(4), queststatus(613) = 290, "#me hands over a treasure map and smiles. 'A little bit more challeging.'"
---german, chance(17.7), "deal" -> money - 100000, inform ("[Schatzkarten-HÃ¤ndler] Du hast eine Karte fÃ¼r einen mittelgroÃŸen Schatz erhalten."), treasure(4), queststatus(613) = 290, "#me Ã¼berreicht eine Schatzkarte und lÃ¤chelt. 'Ein bisschen mehr herausfordernd.'"
+--german, chance(17.7), "deal" -> money - 100000, inform ("[Schatzkarten-Händler] Du hast eine Karte für einen mittelgroßen Schatz erhalten."), treasure(4), queststatus(613) = 290, "#me überreicht eine Schatzkarte und lächelt. 'Ein bisschen mehr herausfordernd.'"
 --english, chance(21.0), "deal" -> money - 100000, inform ("[Treasure map-trader] You recieved a map for a big treasure."), treasure(5), queststatus(613) = 320, "#me hands over a treasure map and looks neutral. 'Oi, oi, oi'"
---german, chance(21.0), "deal" -> money - 100000, inform ("[Schatzkarten-HÃ¤ndler] Du hast eine Karte fÃ¼r einen groÃŸen Schatz erhalten."), treasure(5), queststatus(613) = 320, "#me Ã¼berreicht eine Schatzkarte und blickt neutral. 'Oi, oi, oi'"
+--german, chance(21.0), "deal" -> money - 100000, inform ("[Schatzkarten-Händler] Du hast eine Karte für einen großen Schatz erhalten."), treasure(5), queststatus(613) = 320, "#me überreicht eine Schatzkarte und blickt neutral. 'Oi, oi, oi'"
 --english, chance(26.0), "deal" -> money - 100000, inform ("[Treasure map-trader] You recieved a map for a big treasure."), treasure(6), queststatus(613) = 350, "#me hands over a treasure map and looks neutral. 'I hope, you and your friends are insured.'"
---german, chance(26.0), "deal" -> money - 100000, inform ("[Schatzkarten-HÃ¤ndler] Du hast eine Karte fÃ¼r einen groÃŸen Schatz erhalten."), treasure(6), queststatus(613) = 350, "#me Ã¼berreicht eine Schatzkarte und blickt neutral. 'Ich hoffe, du und deine Freunde seid versichert.'"
+--german, chance(26.0), "deal" -> money - 100000, inform ("[Schatzkarten-Händler] Du hast eine Karte für einen großen Schatz erhalten."), treasure(6), queststatus(613) = 350, "#me überreicht eine Schatzkarte und blickt neutral. 'Ich hoffe, du und deine Freunde seid versichert.'"
 --english, chance(34.3), "deal" -> money - 100000, inform ("[Treasure map-trader] You recieved a map for a big treasure."), treasure(7), queststatus(613) = 380, "#me hands over a treasure map and looks neutral. 'Our gods shall be with you.'"
---german, chance(34.3), "deal" -> money - 100000, inform ("[Schatzkarten-HÃ¤ndler] Du hast eine Karte fÃ¼r einen groÃŸen Schatz erhalten."), treasure(7), queststatus(613) = 380, "#me Ã¼berreicht eine Schatzkarte und blickt neutral. 'Die GÃ¶tter mÃ¶gen mit euch sein.'"
+--german, chance(34.3), "deal" -> money - 100000, inform ("[Schatzkarten-Händler] Du hast eine Karte für einen großen Schatz erhalten."), treasure(7), queststatus(613) = 380, "#me überreicht eine Schatzkarte und blickt neutral. 'Die Götter mögen mit euch sein.'"
 --english, chance(51.0), "deal" -> money - 100000, inform ("[Treasure map-trader] You recieved a map for a giant treasure."), treasure(8), queststatus(613) = 410, "#me hands over a treasure map and looks scared. 'Maybe the last time we see each other.'"
---german, chance(51.0), "deal" -> money - 100000, inform ("[Schatzkarten-HÃ¤ndler] Du hast eine Karte fÃ¼r einen rieÃŸigen Schatz erhalten."), treasure(8), queststatus(613) = 410, "#me Ã¼berreicht eine Schatzkarte und blickt verÃ¤ngstigt. 'Vielleicht das letzte mal, dass wir uns sehen.'"
+--german, chance(51.0), "deal" -> money - 100000, inform ("[Schatzkarten-Händler] Du hast eine Karte für einen rießigen Schatz erhalten."), treasure(8), queststatus(613) = 410, "#me überreicht eine Schatzkarte und blickt verängstigt. 'Vielleicht das letzte mal, dass wir uns sehen.'"
 --english, chance(100.0), "deal" -> money - 100000, inform ("[Treasure map-trader] You recieved a map for a giant treasure."), treasure(9), queststatus(613) = 410, "#me hands over a treasure map and looks scared. 'You'd better sell it to an enemy of yours.'"
---german, chance(100.0), "deal" -> money - 100000, inform ("[Schatzkarten-HÃ¤ndler] Du hast eine Karte fÃ¼r einen rieÃŸigen Schatz erhalten."), treasure(9), queststatus(613) = 410, "#me Ã¼berreicht eine Schatzkarte und blickt verÃ¤ngstigt. 'Du verkaufst sie besser an einen Feind von dir.'"
+--german, chance(100.0), "deal" -> money - 100000, inform ("[Schatzkarten-Händler] Du hast eine Karte für einen rießigen Schatz erhalten."), treasure(9), queststatus(613) = 410, "#me überreicht eine Schatzkarte und blickt verängstigt. 'Du verkaufst sie besser an einen Feind von dir.'"
 --english, "deal" -> inform ("[Treasure map-trader] Something went wrong. Please try again."), "What did you say? Can you repeat it?"
---"deal" -> inform ("[Schatzkarten-HÃ¤ndler] Irgendetwas ist schief gelaufen. Bitte versuche es nochmals."), "Was hast du gesagt? Kannst du es wiederholen?"
+--"deal" -> inform ("[Schatzkarten-Händler] Irgendetwas ist schief gelaufen. Bitte versuche es nochmals."), "Was hast du gesagt? Kannst du es wiederholen?"
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "wares", "price", "trade" -> "I sell treasure maps for ten gold coins. Interested? Say 'deal' and a treasure map is yours."
-"verkauf", "waren", "preis", "Handel" -> "Ich verkaufe Schatzkarten fÃ¼r zehn GoldmÃ¼nzen. Interessiert? Sage 'Deal' und eine Schatzkarte ist dein."
+"verkauf", "waren", "preis", "Handel" -> "Ich verkaufe Schatzkarten für zehn Goldmünzen. Interessiert? Sage 'Deal' und eine Schatzkarte ist dein."
 "buy", "purchase" -> "I do not buy anything but just sell treasure maps for ten gold coins. Interested? Say 'deal' and a treasure map is yours."
-"kauf", "erwerb" -> "Ich kaufe gar nichts, sondern lediglich verkaufe Schatzkarten fÃ¼r zehn GoldmÃ¼nzen. Interessiert? Sage 'Deal' und eine Schatzkarte ist dein."
+"kauf", "erwerb" -> "Ich kaufe gar nichts, sondern lediglich verkaufe Schatzkarten für zehn Goldmünzen. Interessiert? Sage 'Deal' und eine Schatzkarte ist dein."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a treasure map seller. Don't ask me where I get them from. It is my secret and I would not tell you anyway."
-"beruf" -> "Ich bin Schatzkarten-VerkÃ¤ufer. Frage mich nicht, woher ich die bekomme. Es ist mein Geheimnis und ich wÃ¼rde es dir ohnehin nicht sagen."
+"beruf" -> "Ich bin Schatzkarten-Verkäufer. Frage mich nicht, woher ich die bekomme. Es ist mein Geheimnis und ich würde es dir ohnehin nicht sagen."
 english, "job" -> "I am a treasure map seller. Don't ask me where I get them from. It is my secret and I would not tell you anyway."
-"job" -> "Ich bin Schatzkarten-VerkÃ¤ufer. Frage mich nicht, woher ich die bekomme. Es ist mein Geheimnis und ich wÃ¼rde es dir ohnehin nicht sagen."
+"job" -> "Ich bin Schatzkarten-Verkäufer. Frage mich nicht, woher ich die bekomme. Es ist mein Geheimnis und ich würde es dir ohnehin nicht sagen."
 "tell something" -> "I sell treasure maps for ten gold coins. Interested? Say 'deal' and a treasure map is yours."
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Ich verkaufe Schatzkarten fÃ¼r zehn GoldmÃ¼nzen. Interessiert? Sage 'Deal' und eine Schatzkarte ist dein."
+"erzähl was", "erzähl etwas" -> "Ich verkaufe Schatzkarten für zehn Goldmünzen. Interessiert? Sage 'Deal' und eine Schatzkarte ist dein."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "map","treasure" -> "I sell my maps for ten gold coins. Say 'deal' and a treasure map is yours."
-"Schatz","Karte" -> "Ich verkaufe Schatzkarten fÃ¼r zehn GoldmÃ¼nzen. Sage 'Deal' und eine Schatzkarte ist dein."
+"Schatz","Karte" -> "Ich verkaufe Schatzkarten für zehn Goldmünzen. Sage 'Deal' und eine Schatzkarte ist dein."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "For some of my treasure maps, you will need the help of our gods. If you want to know more about gods then you should ask others, in particular priests."
-"Gott", "GÃ¶tter" -> "FÃ¼r manche meiner Schatzkarten wirst du die Hilfe unserer GÃ¶tter benÃ¶tigen. Falls du mehr Ã¼ber GÃ¶tter wissen mÃ¶chtest, dann frage andere. Insbesondere Priester."
+"Gott", "Götter" -> "Für manche meiner Schatzkarten wirst du die Hilfe unserer Götter benötigen. Falls du mehr über Götter wissen möchtest, dann frage andere. Insbesondere Priester."
 
 -- Optional: Faction stuff
 "archmage" -> "According to rumours I have heard, he only insists that he can read."
@@ -150,13 +150,13 @@ english, "Elvaine", "Morgan" -> "According to rumours I have heard, he only insi
 english, "Runewick" -> "I do not think you will find any treasure there."
 "Runewick" -> "Ich glaube nicht, dass du dort irgend einen Schatz finden wirst."
 english, "Valerio", "Guilianni", "Don" -> "#w Just between us, he might have killed his own father. So be careful!"
-"Valerio", "Guilianni", "Don" -> "#w Unter uns, er soll seinen eigenen Vater getÃ¶tet haben. Also sei vorsichtig!"
+"Valerio", "Guilianni", "Don" -> "#w Unter uns, er soll seinen eigenen Vater getötet haben. Also sei vorsichtig!"
 english, "Galmair" -> "A treasure itself!"
 "Galmair" -> "Ein wahrer Schatz!"
 "Queen" -> "I was told, she wears a mask because she is not as beautiful as she pretends."
-"KÃ¶nigin" -> "Mir wurde gesagt, sie trÃ¤gt stÃ¤ndig eine Maske und das sie gar nicht so schÃ¶n ist, wie sie alle glauben lÃ¤sst."
+"Königin" -> "Mir wurde gesagt, sie trägt ständig eine Maske und das sie gar nicht so schön ist, wie sie alle glauben lässt."
 english, "rosaline", "edwards" -> "I was told, she wears a mask because she is not as beautiful as she pretends."
-"rosaline", "edwards" -> "Mir wurde gesagt, sie trÃ¤gt stÃ¤ndig eine Maske und das sie gar nicht so schÃ¶n ist, wie sie alle glauben lÃ¤sst."
+"rosaline", "edwards" -> "Mir wurde gesagt, sie trägt ständig eine Maske und das sie gar nicht so schön ist, wie sie alle glauben lässt."
 english, "Cadomyr" -> "I do not think you will find any treasure there."
 "Cadomyr" -> "Ich glaube nicht, dass du dort irgend einen Schatz finden wirst."
 
@@ -164,15 +164,15 @@ english, "Cadomyr" -> "I do not think you will find any treasure there."
 "my name" -> "Do you want to buy one of my treasure maps for just ten gold coins. Say 'deal' and it is yours!"
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 english, "Paula", "Bronzeblatt" -> "Yes, this is my name, but do you want to buy my treasure map for just ten gold coins? Say 'deal' and it is yours!"
-"Paula", "Bronzeblatt" -> "Ja, das ist mein Name. Aber willst du meine Schatzkarte fÃ¼r nur zehn GoldstÃ¼cke kaufen. Sage 'Deal' und sie gehÃ¶rt dir."
+"Paula", "Bronzeblatt" -> "Ja, das ist mein Name. Aber willst du meine Schatzkarte für nur zehn Goldstücke kaufen. Sage 'Deal' und sie gehört dir."
 "Yes" -> "Yes, you want to buy my treasure map for just ten gold coins? Say 'deal' and it belongs to you."
-"Ja" -> "Ja, du willst meine Schatzkarte fÃ¼r nur zehn GoldstÃ¼cke kaufen? Sage 'Deal' und sie gehÃ¶rt dir."
+"Ja" -> "Ja, du willst meine Schatzkarte für nur zehn Goldstücke kaufen? Sage 'Deal' und sie gehört dir."
 "No" -> "No, you do not want to buy my treasure map for only ten gold coins? You should change your mind."
-"Nein" -> "Nein, du willst nicht meine Schatzkarte fÃ¼r nur zehn GoldstÃ¼cke kaufen? Ãœberlege es dir nochmals."
+"Nein" -> "Nein, du willst nicht meine Schatzkarte für nur zehn Goldstücke kaufen? Überlege es dir nochmals."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "I sell treasure maps for ten gold coins. Interested? Say 'deal' and a treasure map is yours."
-german, chance(20.0), ".*" -> "Ich verkaufe Schatzkarten fÃ¼r zehn GoldmÃ¼nzen. Interessiert? Sage 'Deal' und eine Schatzkarte ist dein."
+german, chance(20.0), ".*" -> "Ich verkaufe Schatzkarten für zehn Goldmünzen. Interessiert? Sage 'Deal' und eine Schatzkarte ist dein."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -180,12 +180,12 @@ german, chance(20.0), ".*" -> "Ich verkaufe Schatzkarten fÃ¼r zehn GoldmÃ¼nzen. 
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me kratzt sich am Kopf.", "#me scratches her head."
-cycletext "#me zÃ¤hlt ihre Schatzkarten.", "#me counts her treasure maps."
-cycletext "Wo der Schatz nur liegen wird? Irgendwo im SÃ¼dwesten.", "Where might this treasue be hidden?. Somewhere in the southwest."
+cycletext "#me zählt ihre Schatzkarten.", "#me counts her treasure maps."
+cycletext "Wo der Schatz nur liegen wird? Irgendwo im Südwesten.", "Where might this treasue be hidden?. Somewhere in the southwest."
 cycletext "Schatzkarten zu verkaufen! Schatzkarten zu verkaufen!", "Treasure maps for sale! Treasure maps for sale!"
-cycletext "Nur zehn GoldstÃ¼cke fÃ¼r eine Schatzkarte!", "Only ten gold coins for one treasure map!"
+cycletext "Nur zehn Goldstücke für eine Schatzkarte!", "Only ten gold coins for one treasure map!"
 cycletext "#me untersucht ihre Schatzkarten", "#me examines her treasure maps."
 cycletext "Wer hat noch nicht? Wer will noch einmal? Schatzkarten zu verkaufen!", "Who has not yet? Who wants again? Treasure maps for sale!"
 cycletext "#me nickt leicht ein.", "#me falls asleep."
-cycletext "#me spielt gelangweilt mit einer MÃ¼nze.", "#me plays with a coin, bored."
-cycletext "#me lÃ¤sst ihre Finge knacken.", "#me cracks her fingers."
+cycletext "#me spielt gelangweilt mit einer Münze.", "#me plays with a coin, bored."
+cycletext "#me lässt ihre Finge knacken.", "#me cracks her fingers."

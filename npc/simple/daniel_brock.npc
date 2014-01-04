@@ -46,27 +46,27 @@ itemShoes = 53
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Daniel Brock the carpenter. Keywords: quest")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Daniel Brock der Schreiner. Schl√ºsselw√∂rter: Quest")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Daniel Brock der Schreiner. Schl¸sselwˆrter: Quest")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, what do you need?", "Good day, what do you need?", "I'm Daniel Brock, what can I do for you?"
-"Gr√º√ü", "Gru√ü", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, was brauchst du?", "Guten Tag, was willst du?", "Ich bin Daniel Brock, was kann ich f√ºr dich tun?"
+"Gr¸ﬂ", "Gruﬂ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, was brauchst du?", "Guten Tag, was willst du?", "Ich bin Daniel Brock, was kann ich f¸r dich tun?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, what do you need?", "Good day, what do you need?", "I'm Daniel Brock, what can I do for you?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, was brauchst du?", "Guten Tag, was willst du?", "Ich bin Daniel Brock, was kann ich f√ºr dich tun?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, was brauchst du?", "Guten Tag, was willst du?", "Ich bin Daniel Brock, was kann ich f¸r dich tun?"
 "Farewell", "Bye", "Fare well", "See you" -> "#me chuckles, 'I'll be seeing you again I hope.'", "Aye... another time."
-"Tsch√º√ü", "Tsch√ºss", "Wiedersehen" -> "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.", "Ja, bis zum n√§chsten mal."
+"Tsch¸ﬂ", "Tsch¸ss", "Wiedersehen" -> "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.", "Ja, bis zum n‰chsten mal."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me chuckles, 'I'll be seeing you again I hope.'", "Aye... another time."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.", "Ja, bis zum n√§chsten mal."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.", "Ja, bis zum n‰chsten mal."
 "How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
-"Wie geht", "Wie f√ºhlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage."
+"Wie geht", "Wie f¸hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage."
 "your name", "who are you", "who art thou" -> "I'm Daniel Brock, who are you?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie hei√üt" -> "Ich bin Daniel Brock, wer bist du?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt" -> "Ich bin Daniel Brock, wer bist du?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do."
-"beruf" -> "Ich bin Schreiner. Falls du mehr dar√ºber erfahren m√∂chtest, frag mich nach einer Aufgabe. Ich hab sicher etwas f√ºr dich zu tun."
+"beruf" -> "Ich bin Schreiner. Falls du mehr dar¸ber erfahren mˆchtest, frag mich nach einer Aufgabe. Ich hab sicher etwas f¸r dich zu tun."
 english, "job" -> "I'm a carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do."
-"job" -> "Ich bin Schreiner. Falls du mehr dar√ºber erfahren m√∂chtest, frag mich nach einer Aufgabe. Ich hab sicher etwas f√ºr dich zu tun."
+"job" -> "Ich bin Schreiner. Falls du mehr dar¸ber erfahren mˆchtest, frag mich nach einer Aufgabe. Ich hab sicher etwas f¸r dich zu tun."
 
 -- fix
 queststatus(820) = 1, queststatus(713) > 0, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 2, "Ah Florain sent you, but you have already asked me for something to do."
@@ -76,48 +76,48 @@ queststatus(713) > 0, queststatus(820) = 1, town = Runewick, "Auftrag", "Aufgabe
 
 -- Quests
 queststatus(713) = 0, queststatus(820) = 1, town = Runewick, english, "quest", "mission" -> "A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.", item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1, queststatus(820) = 2
-queststatus(713) = 0, town = Runewick, "quest", "mission" -> "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Apfelholzscheite bei einem der Apfelb√§ume au√üerhalb der Stadt. Dann kommst du hierher zur√ºck und s√§gst die Scheite bei der Werkbank mit dieser S√§ge, die ich dir gebe, zu Brettern und zeigst sie mir dann.", item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1, queststatus(820) = 2
+queststatus(713) = 0, town = Runewick, "quest", "mission" -> "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Apfelholzscheite bei einem der Apfelb‰ume auﬂerhalb der Stadt. Dann kommst du hierher zur¸ck und s‰gst die Scheite bei der Werkbank mit dieser S‰ge, die ich dir gebe, zu Brettern und zeigst sie mir dann.", item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1, queststatus(820) = 2
 queststatus(713) = 0, town = Runewick, "task", "adventure", "order" -> "A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.", item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1, queststatus(820) = 2
-queststatus(713) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Apfelholzscheite bei einem der Apfelb√§ume au√üerhalb der Stadt. Dann kommst du hierher zur√ºck und s√§gst die Scheite bei der Werkbank mit dieser S√§ge, die ich dir gebe, zu Brettern und zeigst sie mir dann.", item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1, queststatus(820) = 2
+queststatus(713) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Apfelholzscheite bei einem der Apfelb‰ume auﬂerhalb der Stadt. Dann kommst du hierher zur¸ck und s‰gst die Scheite bei der Werkbank mit dieser S‰ge, die ich dir gebe, zu Brettern und zeigst sie mir dann.", item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1, queststatus(820) = 2
 
 queststatus(713) = 0, town = Runewick, english, "quest", "mission" -> "A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.", item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1
-queststatus(713) = 0, town = Runewick, "quest", "mission" -> "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Apfelholzscheite bei einem der Apfelb√§ume au√üerhalb der Stadt. Dann kommst du hierher zur√ºck und s√§gst die Scheite bei der Werkbank mit dieser S√§ge, die ich dir gebe, zu Brettern und zeigst sie mir dann.", item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1
+queststatus(713) = 0, town = Runewick, "quest", "mission" -> "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Apfelholzscheite bei einem der Apfelb‰ume auﬂerhalb der Stadt. Dann kommst du hierher zur¸ck und s‰gst die Scheite bei der Werkbank mit dieser S‰ge, die ich dir gebe, zu Brettern und zeigst sie mir dann.", item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1
 queststatus(713) = 0, town = Runewick, "task", "adventure", "order" -> "A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.", item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1
-queststatus(713) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Apfelholzscheite bei einem der Apfelb√§ume au√üerhalb der Stadt. Dann kommst du hierher zur√ºck und s√§gst die Scheite bei der Werkbank mit dieser S√§ge, die ich dir gebe, zu Brettern und zeigst sie mir dann.", item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1
+queststatus(713) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Apfelholzscheite bei einem der Apfelb‰ume auﬂerhalb der Stadt. Dann kommst du hierher zur¸ck und s‰gst die Scheite bei der Werkbank mit dieser S‰ge, die ich dir gebe, zu Brettern und zeigst sie mir dann.", item(9, 1, 777), item(74, 1, 777), queststatus(713) = 1
 queststatus(713) = 1, item(2716, all) > 9, town = Runewick, english, "quest", "mission", "board", "wood", "deciduous" -> "Well done, the boards look great. Please keep them for your next task.", queststatus(713) = 2
-queststatus(713) = 1, item(2716, all) > 9, town = Runewick, "quest", "mission", "bret", "laub", "holz" -> "Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie f√ºr deine n√§chste Aufgabe.", queststatus(713) = 2
+queststatus(713) = 1, item(2716, all) > 9, town = Runewick, "quest", "mission", "bret", "laub", "holz" -> "Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie f¸r deine n‰chste Aufgabe.", queststatus(713) = 2
 queststatus(713) = 1, item(2716, all) > 9, town = Runewick, "task", "adventure", "order" -> "Well done, the boards look great. Please keep them for your next task.", queststatus(713) = 2
-queststatus(713) = 1, item(2716, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie f√ºr deine n√§chste Aufgabe.", queststatus(713) = 2
+queststatus(713) = 1, item(2716, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie f¸r deine n‰chste Aufgabe.", queststatus(713) = 2
 queststatus(713) = 1, item(2716, all) < 10, town = Runewick, english, ".+" -> "I wanted ten deciduous wood boards, come back once you have fulfilled this task."
-queststatus(713) = 1, item(2716, all) < 10, town = Runewick, ".+" -> "Ich wollte zehn Apfelholzbretter haben. Komm wieder wenn du die Aufgabe erf√ºllt hast."
+queststatus(713) = 1, item(2716, all) < 10, town = Runewick, ".+" -> "Ich wollte zehn Apfelholzbretter haben. Komm wieder wenn du die Aufgabe erf¸llt hast."
 queststatus(713) = 2, town = Runewick, english, "quest", "mission" -> "Let's make some plates from the deciduous boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done.", item(2715, 1, 777), queststatus(713) = 3
-queststatus(713) = 2, town = Runewick, "quest", "mission" -> "Nun stellen wir aus den Apfelholzbrettern Teller her. Daf√ºr brauchst du einen Hobel, den ich dir gebe. Dann setzt du dich auf den Stuhl da gleich neben mir bei der Werkbank und machst zehn Teller. Diese zeigst du mir, wenn du fertig bist.", item(2715, 1, 777), queststatus(713) = 3
+queststatus(713) = 2, town = Runewick, "quest", "mission" -> "Nun stellen wir aus den Apfelholzbrettern Teller her. Daf¸r brauchst du einen Hobel, den ich dir gebe. Dann setzt du dich auf den Stuhl da gleich neben mir bei der Werkbank und machst zehn Teller. Diese zeigst du mir, wenn du fertig bist.", item(2715, 1, 777), queststatus(713) = 3
 queststatus(713) = 2, town = Runewick, "task", "adventure", "order" -> "Let's make some plates from the deciduous boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done.", item(2715, 1, 777), queststatus(713) = 3
-queststatus(713) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun stellen wir aus den Apfelholzbrettern Teller her. Daf√ºr brauchst du einen Hobel, den ich dir gebe. Dann setzt du dich auf den Stuhl da gleich neben mich bei der Werkbank und machst zehn Teller. Diese zeigst du mir, wenn du fertig bist.", item(2715, 1, 777), queststatus(713) = 3
+queststatus(713) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun stellen wir aus den Apfelholzbrettern Teller her. Daf¸r brauchst du einen Hobel, den ich dir gebe. Dann setzt du dich auf den Stuhl da gleich neben mich bei der Werkbank und machst zehn Teller. Diese zeigst du mir, wenn du fertig bist.", item(2715, 1, 777), queststatus(713) = 3
 queststatus(713) = 3, item(2952, all) > 9, town = Runewick, english, "quest", "mission", "plate" -> "Well done, the plates look pretty good. If you have more time, I could give you another task.", deleteItem(2952, 10), queststatus(713) = 4
-queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "quest", "mission", "teller" -> "Gut gemacht, die Teller sehen gut aus. Wenn Ihr nch etwas Zeit habt, dann h√§tte ich eine weitere Aufgabe f√ºr Euch.", deleteItem(2952, 10), queststatus(713) = 4
+queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "quest", "mission", "teller" -> "Gut gemacht, die Teller sehen gut aus. Wenn Ihr nch etwas Zeit habt, dann h‰tte ich eine weitere Aufgabe f¸r Euch.", deleteItem(2952, 10), queststatus(713) = 4
 queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "task", "adventure", "order" -> "Well done, the plates look pretty good. If you have more time, I could give you another task.", deleteItem(2952, 10), queststatus(713) = 4
-queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, die Teller sehen gut aus. Wenn Ihr nch etwas Zeit habt, dann h√§tte ich eine weitere Aufgabe f√ºr Euch.", deleteItem(2952, 10), queststatus(713) = 4
+queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, die Teller sehen gut aus. Wenn Ihr nch etwas Zeit habt, dann h‰tte ich eine weitere Aufgabe f¸r Euch.", deleteItem(2952, 10), queststatus(713) = 4
 queststatus(713) = 3, item(2952, all) < 10, town = Runewick, english, ".+" -> "I wanted ten plates, come back once you have fulfilled this task."
-queststatus(713) = 3, item(2952, all) < 10, town = Runewick, ".+" -> "Ich wollte zehn Teller. Komm wieder, wenn du die Aufgabe erf√ºllt hast."
+queststatus(713) = 3, item(2952, all) < 10, town = Runewick, ".+" -> "Ich wollte zehn Teller. Komm wieder, wenn du die Aufgabe erf¸llt hast."
 queststatus(713) = 4, town = Runewick, english, "quest", "mission" -> "Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools and these twenty five pins I'll give you.", item(2752, 1, 777), item(2738, 25, 777), queststatus(713) = 5
-queststatus(713) = 4, town = Runewick, "quest", "mission" -> "Gut, nun geh hinaus und sammel bei den Apfelb√§umen f√ºnf √Ñste. Sobald du sie zusammen hast, komm hierher zur√ºck und stell aus den √Ñsten 25 N√§gel und Keile her. Dazu brauchst du ein Schnitzmesser, das ich dir gebe und diese 25 N√§gel.", item(2752, 1, 777), item(2738, 25, 777), queststatus(713) = 5
+queststatus(713) = 4, town = Runewick, "quest", "mission" -> "Gut, nun geh hinaus und sammel bei den Apfelb‰umen f¸nf ƒste. Sobald du sie zusammen hast, komm hierher zur¸ck und stell aus den ƒsten 25 N‰gel und Keile her. Dazu brauchst du ein Schnitzmesser, das ich dir gebe und diese 25 N‰gel.", item(2752, 1, 777), item(2738, 25, 777), queststatus(713) = 5
 queststatus(713) = 4, town = Runewick, "task", "adventure", "order" -> "Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools and these twenty five pins I'll give you.", item(2752, 1, 777), item(2738, 25, 777), queststatus(713) = 5
-queststatus(713) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut, nun geh hinaus und sammel bei den Apfelb√§umen f√ºnf √Ñste. Sobald du sie zusammen hast, komm hierher zur√ºck und stell aus den √Ñsten 25 N√§gel und Keile her. Dazu brauchst du ein Schnitzmesser, das ich dir gebe und diese 25 N√§gel.", item(2752, 1, 777), item(2738, 25, 777), queststatus(713) = 5
+queststatus(713) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut, nun geh hinaus und sammel bei den Apfelb‰umen f¸nf ƒste. Sobald du sie zusammen hast, komm hierher zur¸ck und stell aus den ƒsten 25 N‰gel und Keile her. Dazu brauchst du ein Schnitzmesser, das ich dir gebe und diese 25 N‰gel.", item(2752, 1, 777), item(2738, 25, 777), queststatus(713) = 5
 queststatus(713) = 5, item(2717, all) > 24, town = Runewick, english, "quest", "mission", "pin", "cotter" -> "Well done, the pins and cotters look perfect. It will take a while for you to become a master in carpentry, but I hope I have taught you some of the basics at least.", deleteItem(2717, 25), queststatus(713) = 6
-queststatus(713) = 5, item(2717, all) > 24, town = Runewick, "quest", "mission", "n√§gel", "keil" -> "Gut gemacht, die N√§gel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherscht nun zumindest die Grundlagen.", deleteItem(2717, 25), queststatus(713) = 6
+queststatus(713) = 5, item(2717, all) > 24, town = Runewick, "quest", "mission", "n‰gel", "keil" -> "Gut gemacht, die N‰gel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherscht nun zumindest die Grundlagen.", deleteItem(2717, 25), queststatus(713) = 6
 queststatus(713) = 5, item(2717, all) > 24, town = Runewick, "task", "adventure", "order" -> "Well done, the pins and cotters look perfect. It will take a while for you to become a master in carpentry, but I hope I have taught you some of the basics at least.", deleteItem(2717, 25), queststatus(713) = 6
-queststatus(713) = 5, item(2717, all) > 24, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, die N√§gel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherscht nun zumindest die Grundlagen.", deleteItem(2717, 25), queststatus(713) = 6
+queststatus(713) = 5, item(2717, all) > 24, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, die N‰gel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherscht nun zumindest die Grundlagen.", deleteItem(2717, 25), queststatus(713) = 6
 queststatus(713) = 5, item(2717, all) < 25, town = Runewick, english, ".+" -> "I wanted twenty five pins and cotters, come back once you have fulfilled this task."
-queststatus(713) = 5, item(2717, all) < 25, town = Runewick, ".+" -> "Ich wollte 25 N√§gel und Keile. Komm wieder, wenn du die Aufgabe erf√ºllt hast."
+queststatus(713) = 5, item(2717, all) < 25, town = Runewick, ".+" -> "Ich wollte 25 N‰gel und Keile. Komm wieder, wenn du die Aufgabe erf¸llt hast."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 queststatus(713) = 6, town = Runewick, english, ".*" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(713) = 6, town = Runewick, german, ".*" -> "Ich habe nichts weiter f√ºr dich zu tun. Aber danke nochmals f√ºr deine Hilfe!"
+queststatus(713) = 6, town = Runewick, german, ".*" -> "Ich habe nichts weiter f¸r dich zu tun. Aber danke nochmals f¸r deine Hilfe!"
 queststatus(713) < 6, town = Runewick, english, ".*" -> "I could use some help, just ask me for a task."
-queststatus(713) < 6, town = Runewick, german, ".*" -> "Ich k√∂nnte etwas Hilfe gebrauchen, frag mich ruhig nach einer Aufgabe. Ich habe sicher etwas f√ºr dich zu tun."
+queststatus(713) < 6, town = Runewick, german, ".*" -> "Ich kˆnnte etwas Hilfe gebrauchen, frag mich ruhig nach einer Aufgabe. Ich habe sicher etwas f¸r dich zu tun."
 english, ".*" -> "You are not a citizen of Runewick. I don't have anything for you to do."
-german, ".*" -> "Du scheinst kein B√ºrger Runewick zu sein. Ich habe nichts f√ºr dich zu tun."
+german, ".*" -> "Du scheinst kein B¸rger Runewick zu sein. Ich habe nichts f¸r dich zu tun."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -127,5 +127,5 @@ german, ".*" -> "Du scheinst kein B√ºrger Runewick zu sein. Ich habe nichts f√ºr
 cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
 cycletext "#me kratzt sich am Kopf.", "#me scratches his head."
 cycletext "Wenn du Hilfe beim Schreinern braucht dann frag nur mich!", "If you need any help in carpentry, just ask me!"
-cycletext "#me g√§hnt verhalten.", "#me yawns restrained."
-cycletext "#me schaut sich kurz um und kratzt sich anschlie√üend an seinem Hintern.", "#me looks around briefly and scratches his bum."
+cycletext "#me g‰hnt verhalten.", "#me yawns restrained."
+cycletext "#me schaut sich kurz um und kratzt sich anschlieﬂend an seinem Hintern.", "#me looks around briefly and scratches his bum."

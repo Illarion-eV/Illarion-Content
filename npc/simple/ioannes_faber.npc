@@ -23,7 +23,7 @@ autointroduce = on
 
 author = "Estralis Seborian/Ardian"
 
-lookatDE = "Dieser NPC ist der kÃ¶nigliche KÃ¤mmerer von Cadomyr, Ioannes Faber."
+lookatDE = "Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber."
 lookatUS = "This NPC is the royal treasurer of Cadomyr, Ioannes Faber."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Don't you touch me!"
@@ -58,42 +58,42 @@ itemShoes = 53
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the royal treasurer of Cadomyr, Ioannes Faber. Keywords: Be greeted, quest, treasurer, gold.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der kÃ¶nigliche KÃ¤mmerer von Cadomyr, Ioannes Faber. SchlÃ¼sselwÃ¶rter: Seid gegrÃ¼ÃŸt, Quest, KÃ¤mmerer, Gold.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber. Schlüsselwörter: Seid gegrüßt, Quest, Kämmerer, Gold.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail and may MalachÃ­n bless you. I assume you obey the Queen?"
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "MalachÃ­n zum GruÃŸe. Ich nehme an, ihr gehorcht der KÃ¶nigin."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail and may MalachÃ­n bless you. I assume you obey the Queen?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "MalachÃ­n zum GruÃŸe. Ich nehme an, ihr gehorcht der KÃ¶nigin."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail and may Malachín bless you. I assume you obey the Queen?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Malachín zum Gruße. Ich nehme an, ihr gehorcht der Königin."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail and may Malachín bless you. I assume you obey the Queen?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Malachín zum Gruße. Ich nehme an, ihr gehorcht der Königin."
 "Farewell", "Bye", "Fare well", "See you" -> "Go forth and do as the Queen tells you.", "Farewell and may your journey be a pleasant one.", "Good bye and don't forget to come back."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Gehet hin und tut, wie die KÃ¶nigin euch geheiÃŸt.", "Gehabt euch wohl und mÃ¶ge eure Reise eine angenehme sein.", "Auf wiedersehen und vergesst nicht, zurÃ¼ckzukehren."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehet hin und tut, wie die Königin euch geheißt.", "Gehabt euch wohl und möge eure Reise eine angenehme sein.", "Auf wiedersehen und vergesst nicht, zurückzukehren."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go forth and do as the Queen tells you.", "Farewell and may your journey be a pleasant one.", "Good bye and don't forget to come back."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehet hin und tut, wie die KÃ¶nigin euch geheiÃŸt.", "Gehabt euch wohl und mÃ¶ge eure Reise eine angenehme sein.", "Auf wiedersehen und vergesst nicht, zurÃ¼ckzukehren."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehet hin und tut, wie die Königin euch geheißt.", "Gehabt euch wohl und möge eure Reise eine angenehme sein.", "Auf wiedersehen und vergesst nicht, zurückzukehren."
 "How are you", "How feel", "How do you do" -> "The smile of the Queen makes me spin, spinning within.", "Every word of the Queen is like caress."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen" -> "Das LÃ¤cheln der KÃ¶nigin macht mich ganz wuschig im Inneren.", "Jedes Wort der KÃ¶nigin ist wie eine Liebkosung."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Das Lächeln der Königin macht mich ganz wuschig im Inneren.", "Jedes Wort der Königin ist wie eine Liebkosung."
 "your name", "who are you", "who art thou" -> "Faber. Ioannes Faber. I am the royal treasurer, do not underestimate my importance at the palace.", "My name is Ioannes Faber, the royal treasurer of Cadomyr. The Queen relies on me, indeed.", "You don't know my name? Better write it down then: Ioannes Faber."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Faber. Ioannes Faber. Ich bin der kÃ¶nigliche KÃ¤mmerer, ihr solltet meine Bedeutung am Hofe nicht unterschÃ¤tzen.", "Mein Name ist Ioannes Faber, der kÃ¶nigliche KÃ¤mmerer von Cadomyr. Die KÃ¶nigin hÃ¤lt groÃŸe StÃ¼cke auf mich.", "Ihr kennt meinen Namen nicht? Schreibt ihn euch besser auf: Ioannes Faber."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Faber. Ioannes Faber. Ich bin der königliche Kämmerer, ihr solltet meine Bedeutung am Hofe nicht unterschätzen.", "Mein Name ist Ioannes Faber, der königliche Kämmerer von Cadomyr. Die Königin hält große Stücke auf mich.", "Ihr kennt meinen Namen nicht? Schreibt ihn euch besser auf: Ioannes Faber."
 
 -- Catching quest triggers of other factions' members. Outlaws are ignored.
 english, town = Galmair, "quest", "mission" -> "I doubt you came to the right place for a mission. How about you try the sewers?"
-town = Galmair, "quest", "mission" -> "Dies dÃ¼rfte nicht der richtige Ort fÃ¼r eure Mission sein. Schaut doch mal im Abwasserkanal nach."
+town = Galmair, "quest", "mission" -> "Dies dürfte nicht der richtige Ort für eure Mission sein. Schaut doch mal im Abwasserkanal nach."
 town = Galmair, "task", "adventure", "order" -> "I doubt you came to the right place for a mission. How about you try the sewers?"
-town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Dies dÃ¼rfte nicht der richtige Ort fÃ¼r eure Mission sein. Schaut doch mal im Abwasserkanal nach."
+town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Dies dürfte nicht der richtige Ort für eure Mission sein. Schaut doch mal im Abwasserkanal nach."
 english, town = Runewick, "quest", "mission" -> "While I admire the wisdom of Runewick, I have my orders not to issue any tasks to its citizens."
-town = Runewick, "quest", "mission" -> "Ich bewundere zwar die Weisheit Runewicks aber ich habe meine Befehle und vergebe keine Aufgaben an BÃ¼rger von dort."
+town = Runewick, "quest", "mission" -> "Ich bewundere zwar die Weisheit Runewicks aber ich habe meine Befehle und vergebe keine Aufgaben an Bürger von dort."
 town = Runewick, "task", "adventure", "order", "order" -> "While I admire the wisdom of Runewick, I have my orders not to issue any tasks to its citizens."
-town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bewundere zwar die Weisheit Runewicks aber ich habe meine Befehle und vergebe keine Aufgaben an BÃ¼rger von dort."
+town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bewundere zwar die Weisheit Runewicks aber ich habe meine Befehle und vergebe keine Aufgaben an Bürger von dort."
 
 -- Quest 1: Donate something to the treasury
 -- 1: Quest 1 taken, donate something to the treasury, reward: 20 rankpoints
 queststatus(151) = 0, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] Cadomyr Treasury"), queststatus(151) = 1, "As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to Her Majesty's throne, place your donation on it, but don't you dare to donate just alms!"
-queststatus(151) = 0, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Die Schatzkammer Cadomyrs"), queststatus(151) = 1, "Als loyaler BÃ¼rger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer MajestÃ¤t, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!"
+queststatus(151) = 0, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Die Schatzkammer Cadomyrs"), queststatus(151) = 1, "Als loyaler Bürger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer Majestät, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!"
 queststatus(151) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] Cadomyr Treasury"), queststatus(151) = 1, "As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to Her Majesty's throne, place your donation on it, but don't you dare to donate just alms!"
-queststatus(151) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Schatzkammer Cadomyrs"), queststatus(151) = 1, "Als loyaler BÃ¼rger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer MajestÃ¤t, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!"
+queststatus(151) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Schatzkammer Cadomyrs"), queststatus(151) = 1, "Als loyaler Bürger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer Majestät, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!"
 
 -- Quest 1 solved, reward: 20 rankpoints
 queststatus(151) = 2, english, town = Cadomyr, ".*" -> inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."), queststatus(151) = 3, rankpoints + 20, "I see that you have learnt how you can donate your wealth to the treasury. Next time, donate more! I will mention your name when talking to the Queen next time."
-queststatus(151) = 2, town = Cadomyr, ".*" -> inform("[Quest gelÃ¶st] Dein Ansehen bei KÃ¶nigin Rosaline Edwards steigt."), queststatus(151) = 3, rankpoints + 20, "Nun, ihr habt verstanden, wie man etwas an die Schatzkammer spendet. Das nÃ¤chste Mal spendet ihr aber gefÃ¤lligst mehr! Ich werde euren Namen in meinem nÃ¤chsten GesprÃ¤ch mit der KÃ¶nigin erwÃ¤hnen."
+queststatus(151) = 2, town = Cadomyr, ".*" -> inform("[Quest gelöst] Dein Ansehen bei Königin Rosaline Edwards steigt."), queststatus(151) = 3, rankpoints + 20, "Nun, ihr habt verstanden, wie man etwas an die Schatzkammer spendet. Das nächste Mal spendet ihr aber gefälligst mehr! Ich werde euren Namen in meinem nächsten Gespräch mit der Königin erwähnen."
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(151) = 1, english, town = Cadomyr, "quest", "mission" -> "Donating is quite easy, just drop your items on the donation place. Obey!"
@@ -109,19 +109,19 @@ queststatus(151) = 3, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl
 
 -- Outlaw exception: If 'quest' is not triggered until here, the speaker is an outlaw or an error occured. Condition town=none does not work!
 english, "quest", "mission" -> "You have no business here, outcast."
-"quest", "mission" -> "FÃ¼r AusgestoÃŸene gibt es hier nichts zu holen."
+"quest", "mission" -> "Für Ausgestoßene gibt es hier nichts zu holen."
 "task", "adventure", "order", "order" -> "You have no business here, outcast."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "FÃ¼r AusgestoÃŸene gibt es hier nichts zu holen."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Für Ausgestoßene gibt es hier nichts zu holen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the royal treasurer. The Queen entrusted me with the wealth of Cadomyr and I am not the one who will disappoint her. Will you?"
-"beruf" -> "Ich bin der kÃ¶nigliche KÃ¤mmerer. Die KÃ¶nigin hat mir den Reichtum Cadomyrs anvertraut; und ich bin keiner von denen, die sie enttÃ¤uschen wird. Ihr etwa?"
+"beruf" -> "Ich bin der königliche Kämmerer. Die Königin hat mir den Reichtum Cadomyrs anvertraut; und ich bin keiner von denen, die sie enttäuschen wird. Ihr etwa?"
 english, "job" -> "I am the royal treasurer. The Queen entrusted me the wealth of Cadomyr and I am not the one who will disappoint her. Will you?"
-"job" -> "Ich bin der kÃ¶nigliche KÃ¤mmerer. Die KÃ¶nigin hat mir den Reichtum Cadomyrs anvertraut; und ich bin keiner von denen, die sie enttÃ¤uschen wird. Ihr etwa?"
+"job" -> "Ich bin der königliche Kämmerer. Die Königin hat mir den Reichtum Cadomyrs anvertraut; und ich bin keiner von denen, die sie enttäuschen wird. Ihr etwa?"
 english, "Gobaith", "Gobiath" -> "Well, I heard many refugees came from Gobaith to Cadomyr, but I do not deal that much with refugees, I have to admit."
-"Gobaith", "Gobiath" -> "Nun, ich hÃ¶rte, dass viele FlÃ¼chtlinge von Gobaith nach Cadomyr gekommen sind. Aber ich muss gestehen, ich schere mich nicht sonderlich um FlÃ¼chtlinge."
+"Gobaith", "Gobiath" -> "Nun, ich hörte, dass viele Flüchtlinge von Gobaith nach Cadomyr gekommen sind. Aber ich muss gestehen, ich schere mich nicht sonderlich um Flüchtlinge."
 "my name" -> "Welcome to the Palace. I hope you haven't come here to rob the treasury."
-"mein Name" -> "Willkommen im Palast. Ich hoffe, ihr seid nicht hier, um die Schatzkammer zu plÃ¼ndern."
+"mein Name" -> "Willkommen im Palast. Ich hoffe, ihr seid nicht hier, um die Schatzkammer zu plündern."
 
 -- More small talk; add at least five triggers
 "treasurer", "treasury" -> "The office of treasurer requires loyality, integrity and meekness, and you won't find anyone in Cadomyr who suits the office better than Ioannes Faber."
@@ -132,74 +132,74 @@ english, "glas" -> "The Queen uses to have banquets with her nobley from time to
 "honor", "honour" -> "Honour is what shapes a man and crafted Cadomyr."
 "bribe", "corrupt" -> "Hold your tongue!"
 "wife" -> "It is not a secret anymore, my wife was slain by henchmen of Baron Hastings in an attempt to blackmail me, but I did not surrender the treasury to them... Instead..."
-"KÃ¤mmerer", "Schatzkammer" -> "Das Amt des KÃ¤mmerers erfordert LoyalitÃ¤t, IntegritÃ¤t und Demut. Es gibt niemanden in Cadomyr, der von all dem mehr aufweiÃŸt als Ioannes Faber."
-"gold" -> "Gold ist wichtig fÃ¼r Cadomyrs Reichtum, aber weit wichtiger noch ist die Ehre. Denn Ehre kann man nicht kaufen, sehr wohl aber verkaufen."
-"Juwel" -> "Juwelen, Edelsteine, Diamanten, nur die funkelnsten fÃ¼r die Krone Cadomyrs. Habt ihr welche?"
-"Glas" -> "Die KÃ¶nigin hÃ¤lt des Ã¶fteren Banketts mit ihren Oberen ab. HierfÃ¼r wird stets das beste Geschirr gebraucht."
-"Reichtum", "ReichtÃ¼mer" -> "Ich verwahre die SchlÃ¼ssel zur Schatzkammer und es gibt nichts, was mir nicht einmal Baron Hastings bieten kÃ¶nnte, um meine KÃ¶nigin zu verraten. Ich wÃ¼rde viel lieber sterben... wie meine Frau."
+"Kämmerer", "Schatzkammer" -> "Das Amt des Kämmerers erfordert Loyalität, Integrität und Demut. Es gibt niemanden in Cadomyr, der von all dem mehr aufweißt als Ioannes Faber."
+"gold" -> "Gold ist wichtig für Cadomyrs Reichtum, aber weit wichtiger noch ist die Ehre. Denn Ehre kann man nicht kaufen, sehr wohl aber verkaufen."
+"Juwel" -> "Juwelen, Edelsteine, Diamanten, nur die funkelnsten für die Krone Cadomyrs. Habt ihr welche?"
+"Glas" -> "Die Königin hält des öfteren Banketts mit ihren Oberen ab. Hierfür wird stets das beste Geschirr gebraucht."
+"Reichtum", "Reichtümer" -> "Ich verwahre die Schlüssel zur Schatzkammer und es gibt nichts, was mir nicht einmal Baron Hastings bieten könnte, um meine Königin zu verraten. Ich würde viel lieber sterben... wie meine Frau."
 "Ehre" -> "Ehre es, was einen Mann ausmacht und auf was Cadomyrs Fundament steht."
 "Bestech", "korrupt" -> "Haltet den Schnabel!"
-"Frau" -> "Es ist kein Geheimnis mehr; meine Frau wurde von Handlangern von Baron Hastings umgebracht, als er mich erpressen wollte. Doch ich Ã¼berlieÃŸ ihm nicht die Schatzkammer. Stattdessen..."
+"Frau" -> "Es ist kein Geheimnis mehr; meine Frau wurde von Handlangern von Baron Hastings umgebracht, als er mich erpressen wollte. Doch ich überließ ihm nicht die Schatzkammer. Stattdessen..."
 
 -- Faction stuff
 "archmage" -> "The Archmage seems to be quite a charismatic person. I can't explain otherwise how such a honourless person gathered so many followers."
-"Erzmagier" -> "Der Erzmagier scheint mir eine charismatische PersÃ¶nlichkeit zu sein. Wie anders ist es zu erklÃ¤ren, dass so eine ehrlose Person so viele AnhÃ¤nger um sich schart."
+"Erzmagier" -> "Der Erzmagier scheint mir eine charismatische Persönlichkeit zu sein. Wie anders ist es zu erklären, dass so eine ehrlose Person so viele Anhänger um sich schart."
 english, "Elvaine", "Morgan" -> "The Archmage seems to be quite a charismatic person. I can't explain otherwise how such a honourless person gathered so many followers."
-"Elvaine", "Morgan" -> "Der Erzmagier scheint mir eine charismatische PersÃ¶nlichkeit zu sein. Wie anders ist es zu erklÃ¤ren, dass so eine ehrlose Person so viele AnhÃ¤nger um sich schart."
+"Elvaine", "Morgan" -> "Der Erzmagier scheint mir eine charismatische Persönlichkeit zu sein. Wie anders ist es zu erklären, dass so eine ehrlose Person so viele Anhänger um sich schart."
 english, "Runewick" -> "What makes me wonder, Runewick is admittedly a magnificent town, but they don't really care about mundane wealth there. That... simply does not fit."
-"Runewick" -> "WorÃ¼ber ich mich wundere: Runewick ist zugegebenermaÃŸen eine prunkvolle Stadt, aber sie scheren sich nicht um weltlichen Reichtum dort. Das... passt irgendwie nicht zusammen."
+"Runewick" -> "Worüber ich mich wundere: Runewick ist zugegebenermaßen eine prunkvolle Stadt, aber sie scheren sich nicht um weltlichen Reichtum dort. Das... passt irgendwie nicht zusammen."
 english, "Valerio", "Guilianni", "Don" -> "There is a difference between me and the Don, he keeps all his wealth for himself, and I keep it for the Queen."
-"Valerio", "Guilianni", "Don" -> "Was mich und den Don unterscheidet ist, dass der seinen ganzen Reichtum fÃ¼r sich selber hortet und ich den Reichtum Cadomyrs fÃ¼r die KÃ¶nigin verwahre."
+"Valerio", "Guilianni", "Don" -> "Was mich und den Don unterscheidet ist, dass der seinen ganzen Reichtum für sich selber hortet und ich den Reichtum Cadomyrs für die Königin verwahre."
 english, "Galmair" -> "I'd be king of Galmair if I could claim all the treasury of Cadomyr for myself, but I am rather an honourable serf than a heinous lord."
-"Galmair" -> "Ich wÃ¤re KÃ¶nig von Galmair, wenn ich den Inhalt der Schatzkammer Cadomyrs an mich reiÃŸen wÃ¼rde. Aber ich bin lieber ein ehrbarer Diener als ein ruchloser Herr."
+"Galmair" -> "Ich wäre König von Galmair, wenn ich den Inhalt der Schatzkammer Cadomyrs an mich reißen würde. Aber ich bin lieber ein ehrbarer Diener als ein ruchloser Herr."
 "Queen" -> "Since my wife died, Queen Rosaline is the only woman in my life. I serve her with every fibre of my body."
-"KÃ¶nigin" -> "Seitdem meine Frau nicht mehr ist, ist KÃ¶nigin Rosaline die einzige Frau in meinem Leben. Ich diene ihr mit jeder Faser meines KÃ¶rpers."
+"Königin" -> "Seitdem meine Frau nicht mehr ist, ist Königin Rosaline die einzige Frau in meinem Leben. Ich diene ihr mit jeder Faser meines Körpers."
 english, "rosaline", "edwards" -> "Since my wife died, Queen Rosaline is the only woman in my life. I serve her with every fibre of my body."
-"rosaline", "edwards" -> "Seitdem meine Frau nicht mehr ist, ist KÃ¶nigin Rosaline die einzige Frau in meinem Leben. Ich diene ihr mit jeder Faser meines KÃ¶rpers."
+"rosaline", "edwards" -> "Seitdem meine Frau nicht mehr ist, ist Königin Rosaline die einzige Frau in meinem Leben. Ich diene ihr mit jeder Faser meines Körpers."
 english, "Cadomyr" -> "Cadomyr is a glorious realm, founded by honourable men of Albarian origin. Be proud to stand here!"
-"Cadomyr" -> "Cadomyr ist ein glorreiches Reich, gegrÃ¼ndet von ehrbaren MÃ¤nnern albarischen GeblÃ¼ts. Seid stolz, hier sein zu dÃ¼rfen!"
+"Cadomyr" -> "Cadomyr ist ein glorreiches Reich, gegründet von ehrbaren Männern albarischen Geblüts. Seid stolz, hier sein zu dürfen!"
 
 -- Main land factions
 english, "albar" -> "Albar, Albar, Albar. Cadomyr! I respect our ancestors, but Cadomyr is independent and even more honourable than Albar."
-"albar" -> "Albar, Albar, Albar. Cadomyr! Ich ehre unsere VorvÃ¤ter, aber Cadomyr ist eigenstÃ¤ndig und noch ehrbarer als Albar."
+"albar" -> "Albar, Albar, Albar. Cadomyr! Ich ehre unsere Vorväter, aber Cadomyr ist eigenständig und noch ehrbarer als Albar."
 english, "gynk", "gync" -> "They are no people and no tribe. What are they, anyway - besides smugglers?"
-"gync", "gynk" -> "Sie sind kein Volk und kein Stamm. Was sind sie eigentlich - auÃŸer Schmuggler?"
+"gync", "gynk" -> "Sie sind kein Volk und kein Stamm. Was sind sie eigentlich - außer Schmuggler?"
 english, "salkama" -> "Warmongers! Men cannot recall true peace between Salkamar and Albar. Why? Because of them!"
 "salkama" -> "Kriegstreiber! Die Menschheit kann sich an keinen dauerhaften Frieden zwischen Albar und Salkamar erinnern. Warum? Ihretwegen!"
 
 -- Gods; each NPC should at react on one god, being a follower of said god
-"god" -> "I pray to MalachÃ­n and only to MalachÃ­n!"
-"Gott", "GÃ¶tter" -> "Ich bete zu MalachÃ­n - und nur zu MalachÃ­n!"
-english, "Malachin", "MalachÃ­n" -> "MalachÃ­n is the patron of Cadomyr. Never displease him nor the Queen and you will have a long life."
-"Malachin", "MalachÃ­n" -> "MalachÃ­n ist der Schutzgott von Cadomyr. EnttÃ¤uscht weder ihn noch die KÃ¶nigin und ihr werdet euch eines langen Lebens erfreuen."
-english, "Irmorom" -> "The dwarves pray to Irmorom to gain wealth, so far, so good, but I pray to MalachÃ­n to help me guard the wealth of Cadomyr with my sword."
-"Irmorom" -> "Die Zwerge beten zu Irmorom um ReichtÃ¼mer anzuhÃ¤ufen, soweit, so gut. Aber ich bete zu MalachÃ­n, damit er mir hilft, die ReichtÃ¼mer Cadomyrs mit dem Schwert zu verteidigen."
+"god" -> "I pray to Malachín and only to Malachín!"
+"Gott", "Götter" -> "Ich bete zu Malachín - und nur zu Malachín!"
+english, "Malachin", "Malachín" -> "Malachín is the patron of Cadomyr. Never displease him nor the Queen and you will have a long life."
+"Malachin", "Malachín" -> "Malachín ist der Schutzgott von Cadomyr. Enttäuscht weder ihn noch die Königin und ihr werdet euch eines langen Lebens erfreuen."
+english, "Irmorom" -> "The dwarves pray to Irmorom to gain wealth, so far, so good, but I pray to Malachín to help me guard the wealth of Cadomyr with my sword."
+"Irmorom" -> "Die Zwerge beten zu Irmorom um Reichtümer anzuhäufen, soweit, so gut. Aber ich bete zu Malachín, damit er mir hilft, die Reichtümer Cadomyrs mit dem Schwert zu verteidigen."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I'm not merchant, I am the royal treasurer."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein HÃ¤ndler, ich bin der kÃ¶nigliche KÃ¤mmerer."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler, ich bin der königliche Kämmerer."
 "tell something" -> "Let me tell you something, a whip can make people work but a crown makes them obey."
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Lasst euch das gesagt sein: Eine Peitsche bringt Leute zum arbeiten, aber eine Krohne bringt sie dazu, zu gehorchen."
+"erzähl was", "erzähl etwas" -> "Lasst euch das gesagt sein: Eine Peitsche bringt Leute zum arbeiten, aber eine Krohne bringt sie dazu, zu gehorchen."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Ioannes", "Faber" -> "I am the royal treasurer Ioannes Faber. I obey Her Majesty and only Her Majesty."
-"Ioannes", "Faber" -> "Ich bin der kÃ¶nigliche KÃ¤mmerer Ioannes Faber. Ich gehorche ihrer MajestÃ¤t und nur ihrere MajestÃ¤t."
+"Ioannes", "Faber" -> "Ich bin der königliche Kämmerer Ioannes Faber. Ich gehorche ihrer Majestät und nur ihrere Majestät."
 "Yes" -> "Good to hear.", "Pardon me?", "Indeed.", "I agree."
 "Ja" -> "Gut zu wissen.", "Entschuldigt?", "So, so.", "Meine vollste Zustimmung."
 "No" -> "Maybe you reconsider.", "An interesting point of view.", "How comes?"
-"Nein" -> "Vielleicht Ã¼berlegt ihr es euch nochmal.", "Eine interessante Sichtweise.", "Wieso das?"
+"Nein" -> "Vielleicht überlegt ihr es euch nochmal.", "Eine interessante Sichtweise.", "Wieso das?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Hoch lebe die KÃ¶nigin!", "Long live the Queen!"
-cycletext "FÃ¼r die Ehre von Cadomyr!", "For the glory of Cadomyr!"
+cycletext "Hoch lebe die Königin!", "Long live the Queen!"
+cycletext "Für die Ehre von Cadomyr!", "For the glory of Cadomyr!"
 cycletext "Cadomyr, oh Cadomyr, wie lieb ich dir!", "Cadomyr, O Cadomyr, you are my dear!"
-cycletext "Rosaline und Cadomyr - Liebe geben sie uns, unschÃ¤tzbar und unerreicht.", "Rosaline and Cadomyr - Love she gives us, passing measure."
+cycletext "Rosaline und Cadomyr - Liebe geben sie uns, unschätzbar und unerreicht.", "Rosaline and Cadomyr - Love she gives us, passing measure."
 cycletext "Nur ein toter Hastings ist ein guter Hastings.", "Only a dead Hastings is a good Hastings."
-cycletext "Ein Halblingsgewicht in Gold fÃ¼r den Kopf von Baron Hastings!", "The weight of a halfling in gold for the head of Baron Hastings!"
-cycletext "Vor jedem verborgenen Feind, vor den AnschlÃ¤gen der MÃ¶rder, schÃ¼tze MalachÃ­n die KÃ¶nigin!", "From every latent foe, from the assassins blow, MalachÃ­n save the Queen!"
-cycletext "Und wie ein reiÃŸender Strom losbrechen, um rebellische Hastings niederzuwerfen!", "And like a torrent rush, rebellious Hastings to crush."
-cycletext "MalachÃ­n schÃ¼tze die KÃ¶nigin!", "MalachÃ­n save the Queen!"
+cycletext "Ein Halblingsgewicht in Gold für den Kopf von Baron Hastings!", "The weight of a halfling in gold for the head of Baron Hastings!"
+cycletext "Vor jedem verborgenen Feind, vor den Anschlägen der Mörder, schütze Malachín die Königin!", "From every latent foe, from the assassins blow, Malachín save the Queen!"
+cycletext "Und wie ein reißender Strom losbrechen, um rebellische Hastings niederzuwerfen!", "And like a torrent rush, rebellious Hastings to crush."
+cycletext "Malachín schütze die Königin!", "Malachín save the Queen!"

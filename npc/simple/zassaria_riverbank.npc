@@ -26,7 +26,7 @@ author = "Miriam"
 
 lookatDE = "Dieser NPC ist Zassaria Riverbank von Runewick."
 lookatUS = "This NPC is Zassaria Riverbank of Runewick."
-useMsgDE = "#me zischt ver√§rgert."
+useMsgDE = "#me zischt ver‰rgert."
 useMsgUS = "#me hisses angrily."
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
@@ -65,27 +65,27 @@ itemShoes = 0
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Zassaria Riverbank. Keywords: quest, mission, order.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zassaria Riverbank. Schl√ºsselw√∂rter: Quest, Mission, Auftrag.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zassaria Riverbank. Schl¸sselwˆrter: Quest, Mission, Auftrag.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you."
-"Gr√º√ü", "Gru√ü", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegr√º√üsst."
+"Gr¸ﬂ", "Gruﬂ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegr¸ﬂsst."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss to you.", "#me hisses."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegr√º√üsst.", "#me zischt"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegr¸ﬂsst.", "#me zischt"
 "Farewell", "Bye", "Fare well", "See you" -> "Ssss. Zzzelphia be with you. Zss."
-"Tsch√º√ü", "Tsch√ºss", "Wiedersehen", "Gehab wohl" -> "Ssss. Zzzelphia sssei mit Euch. Zss."
+"Tsch¸ﬂ", "Tsch¸ss", "Wiedersehen", "Gehab wohl" -> "Ssss. Zzzelphia sssei mit Euch. Zss."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia be with you. Zss."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia sssei mit Euch. Zss."
 "How are you", "How feel", "How do you do" -> "I'm feeling very good. Sss. Extraordinary."
-"Wie geht", "Wie f√ºhlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es sssehr gut. Ausssgezzeichnet. Sss."
+"Wie geht", "Wie f¸hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es sssehr gut. Ausssgezzeichnet. Sss."
 "your name", "who are you", "who art thou" -> "I am the one called Zassaria Riverbank. Nice to meet you. Sss."
-"dein name", "wer bist du", "wer seid ihr", "wie hei√üt" -> "Ich werde Zassaria Riverbank genannt. Sss."
+"dein name", "wer bist du", "wer seid ihr", "wie heiﬂt" -> "Ich werde Zassaria Riverbank genannt. Sss."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Tsss! I ate all my fisssh. I'll catch new fishiesss sssoon."
-"kauf", "waren", "preis", "Handel", "ver√§u√üer", "erwerb" -> "Tsss! Ich a√ü all meinen Fisssch. Ich werde ssschnellssstm√∂glich neuen fangen."
+"kauf", "waren", "preis", "Handel", "ver‰uﬂer", "erwerb" -> "Tsss! Ich aﬂ all meinen Fisssch. Ich werde ssschnellssstmˆglich neuen fangen."
 
 -- A message Quest
 -- fix
@@ -96,31 +96,31 @@ queststatus(701) > 0, queststatus(820) = 5, town = Runewick, "Auftrag", "Aufgabe
 
 -- 1st quest starts, if you are citizen of Runewick and come from florain
 queststatus(701) = 0, queststatus(820) = 5, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[New quest] Ask for me I"), queststatus(701) = 1, queststatus(820) = 6, "Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?"
-queststatus(701) = 0, queststatus(820) = 5, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Frag f√ºr mich I"), queststatus(701) = 1, queststatus(820) = 6, "K√∂nntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer √ñllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er m√∂ge mit mir reden. Zss."
-queststatus(701) = 0, queststatus(820) = 5, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Frag f√ºr mich I"), queststatus(701) = 1, queststatus(820) = 6, "Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?"
-queststatus(701) = 0, queststatus(820) = 5, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag f√ºr mich I"), queststatus(701) = 1, queststatus(820) = 6, "K√∂nntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer √ñllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er m√∂ge mit mir reden. Zss."
+queststatus(701) = 0, queststatus(820) = 5, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Frag f¸r mich I"), queststatus(701) = 1, queststatus(820) = 6, "Kˆnntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer ÷llampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er mˆge mit mir reden. Zss."
+queststatus(701) = 0, queststatus(820) = 5, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Frag f¸r mich I"), queststatus(701) = 1, queststatus(820) = 6, "Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?"
+queststatus(701) = 0, queststatus(820) = 5, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag f¸r mich I"), queststatus(701) = 1, queststatus(820) = 6, "Kˆnntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer ÷llampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er mˆge mit mir reden. Zss."
 
 -- 1st quest starts, if you are citizen of Runewick
 queststatus(701) = 0, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me I"), queststatus(701) = 1, "Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?"
-queststatus(701) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag f√ºr mich I"), queststatus(701) = 1, "K√∂nntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer √ñllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er m√∂ge mit mir reden. Zss."
-queststatus(701) = 0, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Frag f√ºr mich I"), queststatus(701) = 1, "Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?"
-queststatus(701) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag f√ºr mich I"), queststatus(701) = 1, "K√∂nntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer √ñllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er m√∂ge mit mir reden. Zss."
+queststatus(701) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag f¸r mich I"), queststatus(701) = 1, "Kˆnntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer ÷llampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er mˆge mit mir reden. Zss."
+queststatus(701) = 0, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Frag f¸r mich I"), queststatus(701) = 1, "Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?"
+queststatus(701) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag f¸r mich I"), queststatus(701) = 1, "Kˆnntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer ÷llampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er mˆge mit mir reden. Zss."
 
 -- 1st quest not solved, repeat the instructions
 queststatus(701) = 1, english, town = Runewick, "quest", "mission" -> "Sss... Nizar assked me for an oil lamp some time ago. Can you tell him he ssshould talk to me?"
-queststatus(701) = 1, town = Runewick, "quest", "mission" -> "Nizar fragte mich nach einer √ñllampe. Zss. Ssso sssagt ihm, er m√∂ge mit mir reden. Zss."
+queststatus(701) = 1, town = Runewick, "quest", "mission" -> "Nizar fragte mich nach einer ÷llampe. Zss. Ssso sssagt ihm, er mˆge mit mir reden. Zss."
 queststatus(701) = 1, town = Runewick, "task", "adventure", "order" -> "Sss... Nizar assked me for an oil lamp some time ago. Can you tell him he ssshould talk to me?"
-queststatus(701) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nizar fragte mich nach einer √ñllampe. Zss. Ssso sssagt ihm, er m√∂ge mit mir reden. Zss."
+queststatus(701) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nizar fragte mich nach einer ÷llampe. Zss. Ssso sssagt ihm, er mˆge mit mir reden. Zss."
 
 -- 1st quest solved, reward sabre,boots, rankpoints +2
 queststatus(701) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with some coins, an old sabre found at the bottom of the sea and a pair of new boots. You advance in Archmage Elvaine Morgan's favour."), money + 600, item(25, 1, 333), item(53, 1, 333), queststatus(701) = 3, rankpoints + 2, "Ssso you talked to Missster Nizar? Tsss. Well, thank you for your help... Zss..."
-queststatus(701) = 2, town = Runewick, ".+" -> inform("[Quest gel√∂st] Du hast das Quest gel√∂st und erh√§ltst zum Dank etwas Geld, einen S√§bel den Zarissa auf dem Grund des Meeres gefunden hat und ein Paar neue Stiefel. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 600, item(25, 1, 333), item(53, 1, 333), queststatus(701) = 3, rankpoints + 2, "Ihr habt also mit Missster Nizar gessssprochen? Tsss. Nun, danke f√ºr Eure Hilfe..Zss..."
+queststatus(701) = 2, town = Runewick, ".+" -> inform("[Quest gelˆst] Du hast das Quest gelˆst und erh‰ltst zum Dank etwas Geld, einen S‰bel den Zarissa auf dem Grund des Meeres gefunden hat und ein Paar neue Stiefel. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 600, item(25, 1, 333), item(53, 1, 333), queststatus(701) = 3, rankpoints + 2, "Ihr habt also mit Missster Nizar gessssprochen? Tsss. Nun, danke f¸r Eure Hilfe..Zss..."
 
 -- 2nd quest: Talk to Argentus Almsbag
 queststatus(701) = 3, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me II"), queststatus(701) = 4, "Ssso, you came to help me again? Zss. Thatsss very nice of you. Sss. I haven't sssseen Argentusss Almsbag for a while. Zzz. Pleassse, asssk him if he would ssstill like to buy fisssh. The fisssh are ssstarting to sssmell."
-queststatus(701) = 3, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag f√ºr mich II"), queststatus(701) = 4, "Sssso, du kommssst um mir zzzu helfen? Wie nett. Zss. Argenutsss Almsbag hat sssich ssschon lange nicht mehr bei mir blicken lassssen. Fragt ihn, ob er noch Fisssch kaufen m√∂chte. Zss. Der Fisssch beginnt zzzu riechen."
+queststatus(701) = 3, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag f¸r mich II"), queststatus(701) = 4, "Sssso, du kommssst um mir zzzu helfen? Wie nett. Zss. Argenutsss Almsbag hat sssich ssschon lange nicht mehr bei mir blicken lassssen. Fragt ihn, ob er noch Fisssch kaufen mˆchte. Zss. Der Fisssch beginnt zzzu riechen."
 queststatus(701) = 3, town = Runewick, "task", "adventure", "order" -> inform("[New quest] ask for me II"), queststatus(701) = 4, "Ssso, you came to help me again? Zss. Thatsss very nice of you. Sss. I haven't sssseen Argentusss Almsbag for a while. Zzz. Pleassse, asssk him if he would ssstill like to buy fisssh. The fissh are ssstarting to sssmell."
-queststatus(701) = 3, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag f√ºr mich II"), queststatus(701) = 4, "Sssso, du kommssst um mir zzzu helfen? Wie nett. Zss. Argenutsss Almsbag hat sssich ssschon lange nicht mehr bei mir blicken lassssen. Fragt ihn, ob er noch Fisssch kaufen m√∂chte. Zss. Der Fisssch beginnt zzzu riechen."
+queststatus(701) = 3, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag f¸r mich II"), queststatus(701) = 4, "Sssso, du kommssst um mir zzzu helfen? Wie nett. Zss. Argenutsss Almsbag hat sssich ssschon lange nicht mehr bei mir blicken lassssen. Fragt ihn, ob er noch Fisssch kaufen mˆchte. Zss. Der Fisssch beginnt zzzu riechen."
 
 -- 2nd quest,  not solved repeat the instructions = Talk to Argentus Almsbag
 queststatus(701) = 4, english, town = Runewick, "quest", "mission" -> "Pleassse asssk Argentusss Almsssbag about hisss fisssh order. Zsss."
@@ -130,82 +130,82 @@ queststatus(701) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befeh
 
 -- 2nd quest solved, Talk to Argentus Almsbag, reward 10 Silber, old wizzard hat, + 4 rankpoints
 queststatus(701) = 5, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the quest. You are awarded 10 silver coins and an old wizard hat. You advance in Archmage Elvaine Morgan's favour."), money + 1000, item(357, 1, 333), queststatus(701) = 6, rankpoints + 4, "Thank you. Zzzs. Take thisss."
-queststatus(701) = 5, town = Runewick, ".+" -> inform("[Quest gel√∂st] Du hast das Quest gel√∂st. Du wirst mit 10 Silberm√ºnzen und einem alten Zauberhut belohnt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 1000, item(357, 1, 333), queststatus(701) = 6, rankpoints + 4, "Danke sssehr. Nehmt diesss."
+queststatus(701) = 5, town = Runewick, ".+" -> inform("[Quest gelˆst] Du hast das Quest gelˆst. Du wirst mit 10 Silberm¸nzen und einem alten Zauberhut belohnt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 1000, item(357, 1, 333), queststatus(701) = 6, rankpoints + 4, "Danke sssehr. Nehmt diesss."
 
 -- 3nd quest talk to Neiran el Nyarale
 -- 3nd , talk to Neiran el Nyarale
 queststatus(701) = 6, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me III"), queststatus(701) = 7, "Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. You can find him upstairs in the tower of fire, the building right there to the west. Zss Zss."
-queststatus(701) = 6, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag f√ºr mich III"), queststatus(701) = 7, "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung √ñllampen gemacht hat. Ich sssah wie er ssie davon trug. Ihr k√∂nnt ihn oben im Turm des Feuers finden, es ist das Geb√§ude gleich dort im Westen. Zss Zss."
+queststatus(701) = 6, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag f¸r mich III"), queststatus(701) = 7, "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung ÷llampen gemacht hat. Ich sssah wie er ssie davon trug. Ihr kˆnnt ihn oben im Turm des Feuers finden, es ist das Geb‰ude gleich dort im Westen. Zss Zss."
 queststatus(701) = 6, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Ask for me III"), queststatus(701) = 7, "Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. You can find him upstairs in the tower of fire, the building right there to the west. Zss Zss."
-queststatus(701) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag f√ºr mich III"), queststatus(701) = 7, "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung √ñllampen gemacht hat. Ich sssah wie er ssie davon trug.  Ihr k√∂nnt ihn oben im Turm des Feuers finden, es ist das Geb√§ude gleich dort im Westen. Zss Zss."
+queststatus(701) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag f¸r mich III"), queststatus(701) = 7, "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung ÷llampen gemacht hat. Ich sssah wie er ssie davon trug.  Ihr kˆnnt ihn oben im Turm des Feuers finden, es ist das Geb‰ude gleich dort im Westen. Zss Zss."
 
 -- 3dr quest not solved, repeat instruction, talk to Neiran el Nyarale
 queststatus(701) = 7, english, town = Runewick, "quest", "mission" -> "Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. Zss Zss."
-queststatus(701) = 7, town = Runewick, "quest", "mission" -> "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung √ñllampen gemacht hat. Ich sssah wie er ssie davon trug. Zss Zss."
+queststatus(701) = 7, town = Runewick, "quest", "mission" -> "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung ÷llampen gemacht hat. Ich sssah wie er ssie davon trug. Zss Zss."
 queststatus(701) = 7, town = Runewick, "task", "adventure", "order" -> "Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. Zss Zss."
-queststatus(701) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung √ñllampen gemacht hat. Ich sssah wie er ssie davon trug. Zss Zss."
+queststatus(701) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung ÷llampen gemacht hat. Ich sssah wie er ssie davon trug. Zss Zss."
 
 -- 3rd quest solved, Talk to Neiran el Nyarale, reward robe (blue), 12 silver, + 5 rankpoints
 queststatus(701) = 8, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the quest. You are awarded 12 silver coins and a new robe in the colour of the ocean. You advance in Archmage Elvaine Morgan's favour."), money + 1200, item(193, 1, 333, "descriptionEn" = "This robe has the colour of the sea.", "descriptionDe" = "Diese Robe hat die Farbe des Meers."), queststatus(701) = 9, rankpoints + 5, "What? He saysss he threw them away? Zss! Zss! Firssst I ssshall thank you for assking Neiran el Nyarale. Zzzs. Take thisss as a present. Then I will talk to him! Zss... "
-queststatus(701) = 8, town = Runewick, ".+" -> inform("[Quest gel√∂st] Du hast das Quest gel√∂st. Du wirst mit 12 Silberm√ºnzen und eine neue Robe in der Farbe des Ozeans belohnt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 1200, item(193, 1, 333, "descriptionEn" = "This robe has the colour of the sea.", "descriptionDe" = "Diese Robe hat die Farbe des Meers."), queststatus(701) = 9, rankpoints + 5, "Wasss? Veggeworfen hat er sssie? Zss! Zss! Zzzuerssst will ich Euch danken, dassss Ihr mit Neiran el Nyarale spracht. Nehmt diesss alsss Gessschenk. Dann werde ich mir ihm ssssprechen! Zss..."
+queststatus(701) = 8, town = Runewick, ".+" -> inform("[Quest gelˆst] Du hast das Quest gelˆst. Du wirst mit 12 Silberm¸nzen und eine neue Robe in der Farbe des Ozeans belohnt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 1200, item(193, 1, 333, "descriptionEn" = "This robe has the colour of the sea.", "descriptionDe" = "Diese Robe hat die Farbe des Meers."), queststatus(701) = 9, rankpoints + 5, "Wasss? Veggeworfen hat er sssie? Zss! Zss! Zzzuerssst will ich Euch danken, dassss Ihr mit Neiran el Nyarale spracht. Nehmt diesss alsss Gessschenk. Dann werde ich mir ihm ssssprechen! Zss..."
 
 -- 4th quest talk to Marinanne Forgeron
-queststatus(701) = 9, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me IV"), item(73, 1, 440, "nameDe" = "Echt gro√üer Fisch", "nameEn" = "Really big fish", "descriptionEn" = "This trout is as large as a salmon.", "rareness" = "2", "descriptionDe" = "Diese Forelle ist so gro√ü wie ein Lachs!"), queststatus(701) = 10, "Zss! Zss! Look, I caught thiss trout. It'sss asss large asss a salmon, but, Marinna Forgeron, magical sssmith from Galmair does not believe me! Zss! Zss! Sssshow her thisss fisssh, please. Ssss."
-queststatus(701) = 9, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag f√ºr mich II"), item(73, 1, 440, "nameDe" = "Echt gro√üer Fisch", "nameEn" = "Really big fish", "descriptionEn" = "This trout is as large as a salmon.", "rareness" = "2", "descriptionDe" = "Diese Forelle ist so gro√ü wie ein Lachs!"), queststatus(701) = 10, "Zss! Zss! Ssschaut, ich habe eine Forelle gefangen, die issst ssso gro√üsss wie ein Lachssss. Aber, zss, Marianne Forgeron, magisssche Ssschmied auss Galmair sssagt, ich l√ºge! Zss! Zzzeigt ihr diesssen Fisssch!"
-queststatus(701) = 9, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Ask for me IV"), item(73, 1, 440, "nameDe" = "Echt gro√üer Fisch", "nameEn" = "Really big fish", "descriptionEn" = "This trout is as large as a salmon.", "rareness" = "2", "descriptionDe" = "Diese Forelle ist so gro√ü wie ein Lachs!"), queststatus(701) = 10, "Zss! Zss! Look, I caught thiss trout. It'sss asss large asss a salmon, but, Marinna Forgeron, magical sssmith from Galmair does not believe me! Zss! Zss! Sssshow her thisss fisssh, please. Ssss."
-queststatus(701) = 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag f√ºr mich II"), item(73, 1, 440, "nameDe" = "Echt gro√üer Fisch", "nameEn" = "Really big fish", "descriptionEn" = "This trout is as large as a salmon.", "rareness" = "2", "descriptionDe" = "Diese Forelle ist so gro√ü wie ein Lachs!"), queststatus(701) = 10, "Zss! Zss! Ssschaut, ich habe eine Forelle gefangen, die issst ssso gro√üsss wie ein Lachssss. Aber, zss, Marianne Forgeron, magisssche Ssschmied auss Galmair sssagt, ich l√ºge! Zss! Zzzeigt ihr diesssen Fisssch!"
+queststatus(701) = 9, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me IV"), item(73, 1, 440, "nameDe" = "Echt groﬂer Fisch", "nameEn" = "Really big fish", "descriptionEn" = "This trout is as large as a salmon.", "rareness" = "2", "descriptionDe" = "Diese Forelle ist so groﬂ wie ein Lachs!"), queststatus(701) = 10, "Zss! Zss! Look, I caught thiss trout. It'sss asss large asss a salmon, but, Marinna Forgeron, magical sssmith from Galmair does not believe me! Zss! Zss! Sssshow her thisss fisssh, please. Ssss."
+queststatus(701) = 9, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag f¸r mich II"), item(73, 1, 440, "nameDe" = "Echt groﬂer Fisch", "nameEn" = "Really big fish", "descriptionEn" = "This trout is as large as a salmon.", "rareness" = "2", "descriptionDe" = "Diese Forelle ist so groﬂ wie ein Lachs!"), queststatus(701) = 10, "Zss! Zss! Ssschaut, ich habe eine Forelle gefangen, die issst ssso groﬂsss wie ein Lachssss. Aber, zss, Marianne Forgeron, magisssche Ssschmied auss Galmair sssagt, ich l¸ge! Zss! Zzzeigt ihr diesssen Fisssch!"
+queststatus(701) = 9, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Ask for me IV"), item(73, 1, 440, "nameDe" = "Echt groﬂer Fisch", "nameEn" = "Really big fish", "descriptionEn" = "This trout is as large as a salmon.", "rareness" = "2", "descriptionDe" = "Diese Forelle ist so groﬂ wie ein Lachs!"), queststatus(701) = 10, "Zss! Zss! Look, I caught thiss trout. It'sss asss large asss a salmon, but, Marinna Forgeron, magical sssmith from Galmair does not believe me! Zss! Zss! Sssshow her thisss fisssh, please. Ssss."
+queststatus(701) = 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag f¸r mich II"), item(73, 1, 440, "nameDe" = "Echt groﬂer Fisch", "nameEn" = "Really big fish", "descriptionEn" = "This trout is as large as a salmon.", "rareness" = "2", "descriptionDe" = "Diese Forelle ist so groﬂ wie ein Lachs!"), queststatus(701) = 10, "Zss! Zss! Ssschaut, ich habe eine Forelle gefangen, die issst ssso groﬂsss wie ein Lachssss. Aber, zss, Marianne Forgeron, magisssche Ssschmied auss Galmair sssagt, ich l¸ge! Zss! Zzzeigt ihr diesssen Fisssch!"
 
 -- 4th quest,  not solved repeat the instructions = Talk to Marianne Forgeron
 queststatus(701) = 10, english, town = Runewick, "quest", "mission" -> "Pleassse, ssshow thiss fisssh to Marinanne Forgeron in Galmair."
-queststatus(701) = 10, town = Runewick, "quest", "mission" -> "Zzzeigt Marianne Forgeron auss Galmair diesssen gro√üssen Fisssch!"
+queststatus(701) = 10, town = Runewick, "quest", "mission" -> "Zzzeigt Marianne Forgeron auss Galmair diesssen groﬂssen Fisssch!"
 queststatus(701) = 10, town = Runewick, "task", "adventure", "order" -> "Pleassse, ssshow thiss fisssh to Marinanne Forgeron in Galmair."
-queststatus(701) = 10, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zzzeigt Marianne Forgeron auss Galmair diesssen gro√üssen Fisssch!"
+queststatus(701) = 10, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zzzeigt Marianne Forgeron auss Galmair diesssen groﬂssen Fisssch!"
 
 -- 4th quest solved, reward a necklace ans 10 silver
 queststatus(701) = 11, english, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the quest. You are awarded with some coins and jewellery. You advance in Archmage Elvaine Morgan's favour."), money + 1000, item(62, 1, 877, "rareness" = "1", "craftedBy" = "Zassaria Riverbank"), queststatus(701) = 12, rankpoints + 9, "Thank you. Please take thisss asss a reward, and keep the fisssh as a souvenir, I caught an even larger one than thisss."
-queststatus(701) = 11, town = Runewick, ".+" -> inform("[Quest gel√∂st] Du hast das Quest gel√∂st. Du wirst mit M√ºnzen und Schmuck belohnt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 1000, item(62, 1, 877, "rareness" = "1", "craftedBy" = "Zassaria Riverbank"), queststatus(701) = 12, rankpoints + 9, "Danke sssch√∂n. Bitte nehmt diess. Und behaltet den Fisssch als Souvenir, ich habe bereits einen gr√∂√üeren gefangen. Zss."
+queststatus(701) = 11, town = Runewick, ".+" -> inform("[Quest gelˆst] Du hast das Quest gelˆst. Du wirst mit M¸nzen und Schmuck belohnt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 1000, item(62, 1, 877, "rareness" = "1", "craftedBy" = "Zassaria Riverbank"), queststatus(701) = 12, rankpoints + 9, "Danke ssschˆn. Bitte nehmt diess. Und behaltet den Fisssch als Souvenir, ich habe bereits einen grˆﬂeren gefangen. Zss."
 
 -- 5th quest talk to Rosaline Edwards
-queststatus(701) = 12, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me V"), item(225, 1, 999, "descriptionEn" = "This crown belongs to Rosaline Edwards.", "descriptionDe" = "Diese Krone geh√∂rt Rosaline Edwards."), queststatus(701) = 13, "I was lucky today. Zss! Zss! I found the crown of Rosaline Edwards. She will sssurely misss it, please go and take her crown back."
-queststatus(701) = 12, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag f√ºr mich V"), item(225, 1, 999, "descriptionEn" = "This crown belongs to Rosaline Edwards.", "descriptionDe" = "Diese Krone geh√∂rt Rosaline Edwards."), queststatus(701) = 13, "Ich habe wirklich Anglergl√ºck. Zss! Zss! Ich habe die Krone von Rosaline Edwards gefissscht. Sicher vermisst sie ihren Kopfssschuck ssschon. Geht und bringt ihr die Krone zur√ºck. Zss! Zss!"
-queststatus(701) = 12, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Ask for me V"), item(225, 1, 999, "descriptionEn" = "This crown belongs to Rosaline Edwards.", "descriptionDe" = "Diese Krone geh√∂rt Rosaline Edwards."), queststatus(701) = 13, "I was lucky today. Zss! Zss! I found the crown of Rosaline Edwards. She will sssurely misss it, please go and take her crown back."
-queststatus(701) = 12, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag f√ºr mich V"), item(225, 1, 999, "descriptionEn" = "This crown belongs to Rosaline Edwards.", "descriptionDe" = "Diese Krone geh√∂rt Rosaline Edwards."), queststatus(701) = 13, "Ich habe wirklich Anglergl√ºck. Zss! Zss! Ich habe die Krone von Rosaline Edwards gefissscht. Sicher vermisst sie ihren Kopfssschuck ssschon. Geht und bringt ihr die Krone zur√ºck. Zss! Zss!"
+queststatus(701) = 12, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me V"), item(225, 1, 999, "descriptionEn" = "This crown belongs to Rosaline Edwards.", "descriptionDe" = "Diese Krone gehˆrt Rosaline Edwards."), queststatus(701) = 13, "I was lucky today. Zss! Zss! I found the crown of Rosaline Edwards. She will sssurely misss it, please go and take her crown back."
+queststatus(701) = 12, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag f¸r mich V"), item(225, 1, 999, "descriptionEn" = "This crown belongs to Rosaline Edwards.", "descriptionDe" = "Diese Krone gehˆrt Rosaline Edwards."), queststatus(701) = 13, "Ich habe wirklich Anglergl¸ck. Zss! Zss! Ich habe die Krone von Rosaline Edwards gefissscht. Sicher vermisst sie ihren Kopfssschuck ssschon. Geht und bringt ihr die Krone zur¸ck. Zss! Zss!"
+queststatus(701) = 12, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Ask for me V"), item(225, 1, 999, "descriptionEn" = "This crown belongs to Rosaline Edwards.", "descriptionDe" = "Diese Krone gehˆrt Rosaline Edwards."), queststatus(701) = 13, "I was lucky today. Zss! Zss! I found the crown of Rosaline Edwards. She will sssurely misss it, please go and take her crown back."
+queststatus(701) = 12, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag f¸r mich V"), item(225, 1, 999, "descriptionEn" = "This crown belongs to Rosaline Edwards.", "descriptionDe" = "Diese Krone gehˆrt Rosaline Edwards."), queststatus(701) = 13, "Ich habe wirklich Anglergl¸ck. Zss! Zss! Ich habe die Krone von Rosaline Edwards gefissscht. Sicher vermisst sie ihren Kopfssschuck ssschon. Geht und bringt ihr die Krone zur¸ck. Zss! Zss!"
 
 -- 5th quest,  not solved repeat the instructions = Talk to Rosaline Edwards
 queststatus(701) = 13, english, town = Runewick, "quest", "mission" -> "Pleassse take the crown back to Rosaline Edwards, ssshe will misss it."
-queststatus(701) = 13, town = Runewick, "quest", "mission" -> "Bitte bringt Rosaline Edwards ihre Krone zzzur√ºck. Ssssie wird sie vermisssen."
+queststatus(701) = 13, town = Runewick, "quest", "mission" -> "Bitte bringt Rosaline Edwards ihre Krone zzzur¸ck. Ssssie wird sie vermisssen."
 queststatus(701) = 13, town = Runewick, "task", "adventure", "order" -> "Pleassse take the crown back to Rosaline Edwards, ssshe will misss it."
-queststatus(701) = 13, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte bringt Rosaline Edwards ihre Krone zzzur√ºck. Ssssie wird sie vermisssen."
+queststatus(701) = 13, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte bringt Rosaline Edwards ihre Krone zzzur¸ck. Ssssie wird sie vermisssen."
 
 -- 5th quest solved, reward silvered sword 98, 5 Silver
 queststatus(701) = 14, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the quest. You are awarded a silvered longsword and some coins. You advance in Archmage Elvaine Morgan's favour."), money + 500, item(98, 1, 222, "descriptionEn" = "This sword was a present from Zassaria Riverbank", "rareness" = "1", "descriptionDe" = "Dieses Schwert war ein Geschenk von Zassaria Riverbank."), queststatus(701) = 15, rankpoints + 12, "Thank you for your ssservice. Take thisss as a reward."
-queststatus(701) = 14, town = Runewick, ".+" -> inform("[Quest gel√∂st] Du hast das Quest gel√∂st. Du wirst mit einem versilberten Langschwert und ein paar Silberm√ºnzen belohnt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 500, item(98, 1, 222, "descriptionEn" = "This wand was a present from Zassaria Riverbank", "rareness" = "1", "descriptionDe" = "Dieses Schwert war ein Geschenk von Zassaria Riverbank."), queststatus(701) = 15, rankpoints + 12, "Danke f√ºr Euer Bem√ºhen. Nehmt diess als Belohung."
+queststatus(701) = 14, town = Runewick, ".+" -> inform("[Quest gelˆst] Du hast das Quest gelˆst. Du wirst mit einem versilberten Langschwert und ein paar Silberm¸nzen belohnt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 500, item(98, 1, 222, "descriptionEn" = "This wand was a present from Zassaria Riverbank", "rareness" = "1", "descriptionDe" = "Dieses Schwert war ein Geschenk von Zassaria Riverbank."), queststatus(701) = 15, rankpoints + 12, "Danke f¸r Euer Bem¸hen. Nehmt diess als Belohung."
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(701) = 15, english, "quest", "mission" -> "Thank you. Zss. I have nothing elssse for you to do."
-queststatus(701) = 15, "quest", "mission" -> "Danke sssch√∂n. Zss. Ich habe nichtsss mehr f√ºr dich zzzu tun."
+queststatus(701) = 15, "quest", "mission" -> "Danke ssschˆn. Zss. Ich habe nichtsss mehr f¸r dich zzzu tun."
 queststatus(701) = 15, "task", "adventure", "order" -> "Thank you. Zss. I have nothing elssse for you to do."
-queststatus(701) = 15, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke sssch√∂n. Zss. Ich habe nichtsss mehr f√ºr dich zzzu tun."
+queststatus(701) = 15, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke ssschˆn. Zss. Ich habe nichtsss mehr f¸r dich zzzu tun."
 
 -- No quests for non runewickians
 english, "quest", "mission" -> "I have no tasssk for people who do not belong to Runewick. You can go to Torina to become a citizzzen. Zss."
-"quest", "mission" -> "Ich habe keine Aufgabe f√ºr Leute die nicht Runewick angeh√∂ren. Ihr k√∂nnt zzzu Torina gehen, um B√ºrger zzzu werden. Zss."
+"quest", "mission" -> "Ich habe keine Aufgabe f¸r Leute die nicht Runewick angehˆren. Ihr kˆnnt zzzu Torina gehen, um B¸rger zzzu werden. Zss."
 "task", "adventure", "order" -> "I have no tasssk for people who do not belong to Runewick. You can go to Torina to become a citizzzen. Zss."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe f√ºr Leute die nicht Runewick angeh√∂ren. Ihr k√∂nnt zzzu Torina gehen, um B√ºrger zzzu werden. Zss."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe f¸r Leute die nicht Runewick angehˆren. Ihr kˆnnt zzzu Torina gehen, um B¸rger zzzu werden. Zss."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I work asss a fisssher. It'sss fun. Zss."
-"beruf" -> "Ich arbeite alsss Fischerin. Esss macht Spa√üsss. Zss."
+"beruf" -> "Ich arbeite alsss Fischerin. Esss macht Spaﬂsss. Zss."
 english, "job" -> "I work asss a fisssher. It'sss fun. Zss."
-"job" -> "Ich arbeite alsss Fischerin. Esss macht Spa√üsss. Zss."
+"job" -> "Ich arbeite alsss Fischerin. Esss macht Spaﬂsss. Zss."
 "tell something" -> "Do you know there'sss a difference between Zsss, Tsss and Ssss?", "Usssually marriages between my people are arranged by the parentsss. Sss. Usssually."
-"erz√§hl was", "erz√§hl etwas", "erz√§hl mir was", "erz√§hlt mir was" -> "Wissst ihr, dasss es einen Unterschied zzzwischen Zsss, Tss und Ssss?", "Normalerweisse werden Ehen in meinem Volk arrangiert. Ssss. Normalerweissse."
+"erz‰hl was", "erz‰hl etwas", "erz‰hl mir was", "erz‰hlt mir was" -> "Wissst ihr, dasss es einen Unterschied zzzwischen Zsss, Tss und Ssss?", "Normalerweisse werden Ehen in meinem Volk arrangiert. Ssss. Normalerweissse."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Lizzardsss pray to Zzzelphia. To whom do you pray?"
-"Gott", "G√∂tter" -> "Echsssenmenschen beten zzzu Zzzelphia. Zzzu wem betet Ihr? Sss"
+"Gott", "Gˆtter" -> "Echsssenmenschen beten zzzu Zzzelphia. Zzzu wem betet Ihr? Sss"
 english, "Tanora", "Zelphia" -> "She'sss the Godesss of the water and the sssea.", "You call her Tanora, thisss word iss not easssy for usss to pronounce."
-"Tanora", "Zelphia" -> "Sssie isssst die G√∂ttin desss Wassers und dess Meereess.", "Ihr nennt sssie Tanora, dasss issst kein Wort ausss unssserer Ssssprache."
+"Tanora", "Zelphia" -> "Sssie isssst die Gˆttin desss Wassers und dess Meereess.", "Ihr nennt sssie Tanora, dasss issst kein Wort ausss unssserer Ssssprache."
 
 -- Optional: Faction stuff
 english, "Runewick" -> "There isss no place like thisss under the sssea. Zss."
@@ -234,4 +234,4 @@ cycletext "Ssss!", "Ssss!"
 cycletext "#me zischt.", "#me hisses."
 cycletext "Zss!", "Zss!"
 cycletext "Tsss...", "Tsss..."
-cycletext "#me l√§sst ihren Schwanz hin und her schnellen.", "#me wags her tail back and forth."
+cycletext "#me l‰sst ihren Schwanz hin und her schnellen.", "#me wags her tail back and forth."

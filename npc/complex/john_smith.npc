@@ -60,21 +60,21 @@ itemShoes = 53
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is John Smith the smith. Keywords: Greetings, repair.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist John Smith der Schmied. SchlÃ¼sselwÃ¶rter: GrÃ¼ÃŸe, kaufe, reparieren.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist John Smith der Schmied. Schlüsselwörter: Grüße, kaufe, reparieren.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. How are you today?", "Greetings in the name of Irmorom."
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrÃ¼ÃŸt. Wie geht es Euch?", "GrÃ¼ÃŸe im Namen Irmoroms."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Wie geht es Euch?", "Grüße im Namen Irmoroms."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted. How are you today?", "Greetings in the name of Irmorom."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrÃ¼ÃŸt. Wie geht es Euch?", "GrÃ¼ÃŸe im Namen Irmoroms."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt. Wie geht es Euch?", "Grüße im Namen Irmoroms."
 "Farewell", "Bye", "Fare well", "See you" -> "Have a good day!", "Fare well!"
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Einen schÃ¶nen Tag noch!", "Auf Bald!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Einen schönen Tag noch!", "Auf Bald!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a good day!", "Fare well!"
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Einen schÃ¶nen Tag noch!", "Auf Bald!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Einen schönen Tag noch!", "Auf Bald!"
 "How are you", "How feel", "How do you do" -> "Good. Good. It's a nice day.", "I'm fine. Thanks."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Gut. Es ist ein schÃ¶ner Tag.", "Mir geht es gut. Danke."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Gut. Es ist ein schöner Tag.", "Mir geht es gut. Danke."
 "your name", "who are you", "who art thou" -> "John Smith. How can I help you?", "Hey, you're kidding me? You do not know my name?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Jonny Smith. Wie kann ich Euch helfen?", "Hey, scherzt Ihr? Ihr kennt mich nicht?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Jonny Smith. Wie kann ich Euch helfen?", "Hey, scherzt Ihr? Ihr kennt mich nicht?"
 
 -- repair triggers
 english, "repair", "fix" -> "Let's have a look at this."
@@ -84,13 +84,13 @@ english, "repair", "fix" -> "Let's have a look at this."
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "trade", "purchase" -> "I do not sell weapons or amoury, but I can reprair them. Interested?"
-"kauf", "waren", "Handel", "verÃ¤uÃŸer", "erwerb" -> "Ich verkaufe keine Waffen und RÃ¼stung, aber ich kann sie reparieren. Interesse?"
+"kauf", "waren", "Handel", "veräußer", "erwerb" -> "Ich verkaufe keine Waffen und Rüstung, aber ich kann sie reparieren. Interesse?"
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "I do not have something to do for you."
-"quest", "mission" -> "Ich habe nichts fÃ¼r Euch zu tun."
+"quest", "mission" -> "Ich habe nichts für Euch zu tun."
 "task", "adventure", "order" -> "I do not have something to do for you."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts fÃ¼r Euch zu tun."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für Euch zu tun."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a smith. I repair things."
@@ -98,19 +98,19 @@ english, "quest", "mission" -> "I do not have something to do for you."
 english, "job" -> "Smithing is my job."
 "job" -> "Schmieden ist mein Beruf."
 "tell something" -> "What shall I tell you? I'm just a smith. We have lots of books in Runewick, if you want to hear a story, you should go and read a book."
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Was sollte ich Euch erzÃ¤hlen? Ich bin ein Schmied. wir haben viele BÃ¼cher in Runewick, wenn Ihr eine Geschichte wollt, geht doch etwas lesen."
+"erzähl was", "erzähl etwas" -> "Was sollte ich Euch erzählen? Ich bin ein Schmied. wir haben viele Bücher in Runewick, wenn Ihr eine Geschichte wollt, geht doch etwas lesen."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Craftsman and traders pray to Irmorom.", "Irmorom keeps me save from accident while working."
-"Gott", "GÃ¶tter" -> "Handwerker und HÃ¤ndler beten zu Irmorom.", "Irmorom schÃ¼tzt mich vor ArbeitsunfÃ¤llen."
+"Gott", "Götter" -> "Handwerker und Händler beten zu Irmorom.", "Irmorom schützt mich vor Arbeitsunfällen."
 english, "religion" -> "I believe in the 16 gods"
-"religion" -> "Ich glaube an die 16 GÃ¶tter."
+"religion" -> "Ich glaube an die 16 Götter."
 "faith" -> "I believe in the 16 gods"
-"Glaube" -> "Ich glaube an die 16 GÃ¶tter."
+"Glaube" -> "Ich glaube an die 16 Götter."
 english, "Adron" -> "I do not pray to this god."
 "Adron" -> "Ich bete nicht zu diesem Gott."
-english, "Bragon", "BrÃ¡gon" -> "I do not pray to this god."
-"Bragon", "BrÃ¡gon" -> "Ich bete nicht zu diesem Gott."
+english, "Bragon", "Brágon" -> "I do not pray to this god."
+"Bragon", "Brágon" -> "Ich bete nicht zu diesem Gott."
 english, "Cherga" -> "I do not pray to thid god."
 "Cherga" -> "Ich bete nicht zu diesem Gott."
 english, "Elara" -> "I do not pray to this god."
@@ -120,13 +120,13 @@ english, "Eldan" -> "I do not pray to this god."
 english, "Findari" -> "I do not pray to this god."
 "Findari" -> "Ich bete nicht zu diesem Gott."
 english, "Irmorom" -> "Irmorom keeps me save from accident while working."
-"Irmorom" -> "Irmorom schÃ¼tzt mich vor ArbeitsunfÃ¤llen."
-english, "Malachin", "MalachÃ­n" -> "I do not pray to this god."
-"Malachin", "MalachÃ­n" -> "Ich bete nicht zu diesem Gott."
+"Irmorom" -> "Irmorom schützt mich vor Arbeitsunfällen."
+english, "Malachin", "Malachín" -> "I do not pray to this god."
+"Malachin", "Malachín" -> "Ich bete nicht zu diesem Gott."
 english, "Moshran" -> "I do not pray to this god."
 "Moshran" -> "Ich bete nicht zu diesem Gott."
-english, "Nargun", "NargÃºn", "NargÃ¹n" -> "I do not pray to this god."
-"Nargun", "NargÃºn", "NargÃ¹n" -> "Ich bete nicht zu diesem Gott."
+english, "Nargun", "Nargún", "Nargùn" -> "I do not pray to this god."
+"Nargun", "Nargún", "Nargùn" -> "Ich bete nicht zu diesem Gott."
 english, "Oldra" -> "I do not pray to this god."
 "Oldra" -> "Ich bete nicht zu diesem Gott."
 english, "Ronagan" -> "I do not pray to this god."
@@ -152,23 +152,23 @@ english, "Valerio", "Guilianni", "Don" -> "The Don lives in Galmair."
 english, "Galmair" -> "The Don lives in Galmair."
 "Galmair" -> "Der Don lebt in Galmair."
 "Queen" -> "I do not care about the Queen's words."
-"KÃ¶nigin" -> "Mich interessieren die Worte dieser KÃ¶nigin nicht."
+"Königin" -> "Mich interessieren die Worte dieser Königin nicht."
 english, "rosaline", "edwards" -> "I do not care about this Rosaline Edwards."
 "rosaline", "edwards" -> "Mich interessiert diese Rosaline Edwards nicht."
 english, "Cadomyr" -> "Cadomyr is Cadomyr,... what ever this means."
-"Cadomyr" -> "Cadomyr ist Cadomyr,... was auch immer das heiÃŸt."
+"Cadomyr" -> "Cadomyr ist Cadomyr,... was auch immer das heißt."
 
 -- Optional: Main land factions
 english, "albar" -> "Albar? It is a far away place, right?"
 "albar" -> "Albar? Das ist weit weg, oder?"
 english, "gynk", "gync" -> "Gynk... I've heard that word before."
-"gync", "gynk" -> "Gynk... Das hab ich schonmal gehÃ¶rt."
+"gync", "gynk" -> "Gynk... Das hab ich schonmal gehört."
 english, "salkama" -> "#me shrugs his shoulders."
 "salkama" -> "#me zuckt mit den Schultern."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "Ehm...?", "Really?", "Sorry, I never heard about that."
-"Gobaith", "Gobiath" -> "Ã„hm...?", "Wirklich?.", "'Tschuldigung, davon habe ich noch gehÃ¶rt."
+"Gobaith", "Gobiath" -> "Ähm...?", "Wirklich?.", "'Tschuldigung, davon habe ich noch gehört."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Nice to meet you.", "A pleasure.", "Welcome. How can I help you?"
@@ -182,7 +182,7 @@ english, "John", "Smith" -> "That's me!", "Yes?", "#me waves."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "#me nods.", "Welcome. How can I help you?", "Ehm...?", "Really?", "#me shrugs his shoulders."
-german, chance(20.0), ".*" -> "#me nickt.", "Wilkommen. Wie kann ich Euch helfen?", "Ã„hm...?", "Wirklich?", "#me zuckt mit den Schultern."
+german, chance(20.0), ".*" -> "#me nickt.", "Wilkommen. Wie kann ich Euch helfen?", "Ähm...?", "Wirklich?", "#me zuckt mit den Schultern."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -190,10 +190,10 @@ german, chance(20.0), ".*" -> "#me nickt.", "Wilkommen. Wie kann ich Euch helfen
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me pfeift eine Melodie.", "#me whistles a melody."
-cycletext "#me prÃ¼ft sein Werkzeug.", "#me checks his tools."
+cycletext "#me prüft sein Werkzeug.", "#me checks his tools."
 cycletext "#me schaut sich um.", "#me lookes around."
 cycletext "Ich repariere alles!", "I repair everything."
-cycletext "#me klopft mit einem Hammer auf ein StÃ¼ck Eisen.", "#me hits a piece of iron with a hammer."
+cycletext "#me klopft mit einem Hammer auf ein Stück Eisen.", "#me hits a piece of iron with a hammer."
 cycletext "#me schaut aus dem Fenster", "#me lookes out of the window."
 cycletext "#me isst einen Apfel.", "#me eats an apple."
 cycletext "#me spuck einen Apfelkern auf den Boden.", "#me spits an apple seed to the ground."

@@ -34,9 +34,9 @@ autointroduce = on
 author = "Kawan Baxter"
 author = "Estralis Seborian"
 
-lookatDE = "Dieser NPC ist Bre Southstar, die TorwÃ¤chterin."
+lookatDE = "Dieser NPC ist Bre Southstar, die Torwächterin."
 lookatUS = "This NPC is Bre Southstar the gate guardian."
-useMsgDE = "ZurÃ¼ck!"
+useMsgDE = "Zurück!"
 useMsgUS = "Back up!"
 wrongLangDE = "#me schaut verwirrt umher."
 wrongLangUS = "#me looks around confused."
@@ -123,21 +123,21 @@ itemShoes = 53
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Bre Southstar the gate guardian. Keywords: Hello, Gavin, Galmair, Guard.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bre Southstar die TorwÃ¤chterin. SchlÃ¼sselwÃ¶rter: Hallo, Gavin, Galmair, Wache.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bre Southstar die Torwächterin. Schlüsselwörter: Hallo, Gavin, Galmair, Wache.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day. I hope you are doing well.", "This is Galmair, have a pleasant time.", "I'm happy that you decided to choose this gate. Please have a pleasant trip."
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag, ich hoffe, es geht euch gut.", "Dies hier ist Galmair, genieÃŸt euren Aufenthalt.", "Es freut mich, dass ihr dieses Tor gewÃ¤hlt habt. Eine gute Reise wÃ¼nsche ich."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag, ich hoffe, es geht euch gut.", "Dies hier ist Galmair, genießt euren Aufenthalt.", "Es freut mich, dass ihr dieses Tor gewählt habt. Eine gute Reise wünsche ich."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day. I hope you are doing well.", "This is Galmair, have a pleasant time.", "I'm happy that you decided to choose this gate. Please have a pleasant trip."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag, ich hoffe, es geht euch gut.", "Dies hier ist Galmair, genieÃŸt euren Aufenthalt.", "Es freut mich, dass ihr dieses Tor gewÃ¤hlt habt. Eine gute Reise wÃ¼nsche ich."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag, ich hoffe, es geht euch gut.", "Dies hier ist Galmair, genießt euren Aufenthalt.", "Es freut mich, dass ihr dieses Tor gewählt habt. Eine gute Reise wünsche ich."
 "Farewell", "Bye", "Fare well", "See you" -> "May justice and peace make your day merry.", "I will see you later.", "Have a good day, please walk in peace wherever you step."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "MÃ¶gen Gerechtigkeit und Frieden euren Tag versÃ¼ÃŸen.", "Wir sehen uns noch.", "Einen schÃ¶nen Tag noch, gehet hin in Frieden."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mögen Gerechtigkeit und Frieden euren Tag versüßen.", "Wir sehen uns noch.", "Einen schönen Tag noch, gehet hin in Frieden."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Justice and peace make your day merry.", "I will see you later.", "Have a good day, please walk in peace wherever you step."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "MÃ¶gen Gerechtigkeit und Frieden euren Tag versÃ¼ÃŸen.", "Wir sehen uns noch.", "Einen schÃ¶nen Tag noch, gehet hin in Frieden."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Mögen Gerechtigkeit und Frieden euren Tag versüßen.", "Wir sehen uns noch.", "Einen schönen Tag noch, gehet hin in Frieden."
 "How are you", "How feel", "How do you do" -> "I'm doing great, can't really explain why.", "Today is a good day, well I guess everyday is a good day.", "I'm in utter peace... or at least I think I am."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, auch wenn ich gar nicht weiÃŸ, wieso.", "Heute ist ein guter Tag, eigentlich ist jeder neue Tag ein guter.", "Ich bin mit mir im Einklang... denke ich."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, auch wenn ich gar nicht weiß, wieso.", "Heute ist ein guter Tag, eigentlich ist jeder neue Tag ein guter.", "Ich bin mit mir im Einklang... denke ich."
 "your name", "who are you", "who art thou" -> "I'm Bre Southstar.", "I am the pretty dwarf warrior, Bre Southstar.", "I prefer the name 'Amazing Battle Dwarf Bre the Southstar'."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Bre Southstar.", "Ich bin die schicke Zwergenkriegerin, Bre Southstar.", "Ich wÃ¼rde die Anrede 'GroÃŸartige Zwergenkriegerin Bre der Southstar' vorziehen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bre Southstar.", "Ich bin die schicke Zwergenkriegerin, Bre Southstar.", "Ich würde die Anrede 'Großartige Zwergenkriegerin Bre der Southstar' vorziehen."
 
 -- OPTIONAL TRIGGERS
 
@@ -149,9 +149,9 @@ english, "quest", "mission" -> "I don't need anything right now. Thank you thoug
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a Galmairian Gateguard.", "I am a Silverstone rank in the Civil Watch.", "I guard gates and smash people in the face with my ball and chain, but not often."
-"beruf" -> "Ich bin eine Torwache Galmairs.", "Ich habe den Rang eines Silbersteins in der BÃ¼rgerwehr.", "Ich bewache Tore und schlag Leuten, wenn nÃ¶tig, das Gesicht ein. Das kommt aber nicht so oft vor."
+"beruf" -> "Ich bin eine Torwache Galmairs.", "Ich habe den Rang eines Silbersteins in der Bürgerwehr.", "Ich bewache Tore und schlag Leuten, wenn nötig, das Gesicht ein. Das kommt aber nicht so oft vor."
 english, "job" -> "I'm a Galmairian Gateguard.", "I am a Silverstone rank in the Civil Watch.", "I guard gates and smash people in the face with my ball and chain, but not often."
-"job" -> "Ich bin eine Torwache Galmairs.", "Ich habe den Rang eines Silbersteins in der BÃ¼rgerwehr.", "Ich bewache Tore und schlag Leuten, wenn nÃ¶tig, das Gesicht ein. Das kommt aber nicht so oft vor."
+"job" -> "Ich bin eine Torwache Galmairs.", "Ich habe den Rang eines Silbersteins in der Bürgerwehr.", "Ich bewache Tore und schlag Leuten, wenn nötig, das Gesicht ein. Das kommt aber nicht so oft vor."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "Gavin" -> "She is the prettiest, strongest, smartest person I know.", "She rescued me from being homeless.", "Gavin is too tall for a girl.", "Gavin of the other gate is my sister."
@@ -162,52 +162,52 @@ english, "Gavin" -> "She is the prettiest, strongest, smartest person I know.", 
 "Drugs" -> "#me looks away silently."
 "men" -> "They are all as bad as Don. All of the male watchmen only hang out with me to try and get with me. It's truly annoying."
 "Weapon" -> "Gavin taught me the morning star. I practiced with it every day until I became the second best morning star user in the watch."
-"Gavin" -> "Sie ist die schÃ¶nste, stÃ¤rkste und schlauste Person, die ich kenne.", "Sie hat mich aus der Obdachlosigkeit geholt.", "Gavin ist eindeutig zu groÃŸ fÃ¼r ein Weib.", "Gavin am anderen Tor, das ist meine Schwester."
-"Schwester" -> "Sie ist die schÃ¶nste, stÃ¤rkste und schlauste Person, die ich kenne.", "Sie hat mich aus der Obdachlosigkeit geholt.", "Gavin ist eindeutig zu groÃŸ fÃ¼r ein Weib.", "Gavin am anderen Tor, das ist meine Schwester."
-"obdachlos" -> "Das ist nichts fÃ¼r ein MÃ¤dchen, glaubt mir."
-"Frieden", "Gerechtigkeit" -> "Gavin sagt immer, ich solle alles fÃ¼r Frieden und Gerechtigkeit tun. Ich sage ihr immer, sie solle alles mit Freude und der Sonne im Herzen tun."
-"Wache", "BÃ¼rgerwehr", "Tor" -> "Meine Aufgabe. Nie habe ich gedacht, eine Wache zu werden, als ich noch jung war und auf der StraÃŸe lebte."
-"Drogen", "Rauschgift" -> "#me schaut verschÃ¤mt zu Boden."
-"MÃ¤nner" -> "MÃ¤nner sind alles so wie der Don. Die MÃ¤nner in der BÃ¼rgerwehr wollen alle immer nur mit mir Dienst schieben und bei mir sein. Das nervt!"
-"Waffe" -> "Gavin brachte mir bei, mit dem Morgenstern umzugehen. Ich Ã¼bte jeden Tag, bis ich die zweitbeste in der BÃ¼rgerwehr damit war."
+"Gavin" -> "Sie ist die schönste, stärkste und schlauste Person, die ich kenne.", "Sie hat mich aus der Obdachlosigkeit geholt.", "Gavin ist eindeutig zu groß für ein Weib.", "Gavin am anderen Tor, das ist meine Schwester."
+"Schwester" -> "Sie ist die schönste, stärkste und schlauste Person, die ich kenne.", "Sie hat mich aus der Obdachlosigkeit geholt.", "Gavin ist eindeutig zu groß für ein Weib.", "Gavin am anderen Tor, das ist meine Schwester."
+"obdachlos" -> "Das ist nichts für ein Mädchen, glaubt mir."
+"Frieden", "Gerechtigkeit" -> "Gavin sagt immer, ich solle alles für Frieden und Gerechtigkeit tun. Ich sage ihr immer, sie solle alles mit Freude und der Sonne im Herzen tun."
+"Wache", "Bürgerwehr", "Tor" -> "Meine Aufgabe. Nie habe ich gedacht, eine Wache zu werden, als ich noch jung war und auf der Straße lebte."
+"Drogen", "Rauschgift" -> "#me schaut verschämt zu Boden."
+"Männer" -> "Männer sind alles so wie der Don. Die Männer in der Bürgerwehr wollen alle immer nur mit mir Dienst schieben und bei mir sein. Das nervt!"
+"Waffe" -> "Gavin brachte mir bei, mit dem Morgenstern umzugehen. Ich übte jeden Tag, bis ich die zweitbeste in der Bürgerwehr damit war."
 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I don't want to buy or sell anything, sorry."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich will weder etwas kaufen noch verkaufen."
 "tell something" -> "I could tell you a lot about my sister, Gavin!"
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Ich kÃ¶nnte euch eine Menge Ã¼ber meine Schwester Gavin erzÃ¤hlen!"
+"erzähl was", "erzähl etwas" -> "Ich könnte euch eine Menge über meine Schwester Gavin erzählen!"
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I serve Elara because that is my sister's chosen god."
-"Gott", "GÃ¶tter" -> "Ich diene Elara, denn meine Schwester tut das auch."
+"Gott", "Götter" -> "Ich diene Elara, denn meine Schwester tut das auch."
 english, "Elara" -> "I serve Elara because that is my sister's chosen god."
 "Elara" -> "Ich diene Elara, denn meine Schwester tut das auch."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 english, "Runewick" -> "I hear that there is an enormous bridge that stretches across a large sea just to get to the city. The image in my head is very pretty. Don't you think?"
-"Runewick" -> "Ich hÃ¶rte, dass die Stadt mit einer riesigen BrÃ¼cke Ã¼ber das Meer mit dem Festland verbunden ist. Das klingt doch wunderschÃ¶n, oder?"
+"Runewick" -> "Ich hörte, dass die Stadt mit einer riesigen Brücke über das Meer mit dem Festland verbunden ist. Das klingt doch wunderschön, oder?"
 english, "Elvaine", "Morgan" -> "I hear he is a strong mage user, but honestly. Magic is nothing compared to a strong blow from a dwarven great axe."
-"Elvaine", "Morgan" -> "Ich hÃ¶rte, er weiÃŸ, mit der Magie umzugehen. Aber mal im Ernst: Was ist schon Magie gegen den Hieb einer Zwergenaxt?"
+"Elvaine", "Morgan" -> "Ich hörte, er weiß, mit der Magie umzugehen. Aber mal im Ernst: Was ist schon Magie gegen den Hieb einer Zwergenaxt?"
 "Archmage" -> "I hear he is a strong mage user, but honestly. Magic is nothing compared to a strong blow from a dwarven great axe."
-"Erzmagier" -> "Ich hÃ¶rte, er weiÃŸ, mit der Magie umzugehen. Aber mal im Ernst: Was ist schon Magie gegen den Hieb einer Zwergenaxt?"
+"Erzmagier" -> "Ich hörte, er weiß, mit der Magie umzugehen. Aber mal im Ernst: Was ist schon Magie gegen den Hieb einer Zwergenaxt?"
 english, "Valerio", "Guilianni", "Don" -> "I hear he is the worst womanizer, but he pays my salary, so I work for him."
-"Valerio", "Guilianni", "Don" -> "Ich hÃ¶rte, er ist der schlimmste Weiberhgeld, aber da er mein Gehalt zahlt, arbeite ich fÃ¼r ihn."
+"Valerio", "Guilianni", "Don" -> "Ich hörte, er ist der schlimmste Weiberhgeld, aber da er mein Gehalt zahlt, arbeite ich für ihn."
 english, "Galmair" -> "The streets are cold, the men are rude, but this is where my sister is and my job. I love it."
-"Galmair" -> "Die StraÃŸen sind kalt, die Leute ungehobelt aber hier ist meine Schwester und meine Aufgabe, also liebe ich es."
+"Galmair" -> "Die Straßen sind kalt, die Leute ungehobelt aber hier ist meine Schwester und meine Aufgabe, also liebe ich es."
 english, "Cadomyr" -> "I made Gavin promise she would take me there. She said on her next day off. That was two years ago."
-"Cadomyr" -> "Ich habe Gavin dazu gebracht, mir zu versprechen, dass wir dort mal hingehen. Sie meinte, dass wir das an ihrem nÃ¤chsten freien Tag machen. Das war vor zwei Jahren."
+"Cadomyr" -> "Ich habe Gavin dazu gebracht, mir zu versprechen, dass wir dort mal hingehen. Sie meinte, dass wir das an ihrem nächsten freien Tag machen. Das war vor zwei Jahren."
 english, "rosaline", "edwards" -> "I hear she is the meanest witch, even compared to the ugly ferocious women of Cadomyr."
-"rosaline", "edwards" -> "Ich hÃ¶rte, sie ist die bÃ¶seste Hexe unter den grÃ¤ÃŸlichen Frauen Cadomyrs."
+"rosaline", "edwards" -> "Ich hörte, sie ist die böseste Hexe unter den gräßlichen Frauen Cadomyrs."
 "Queen" -> "I hear she is the meanest witch, even compared to the ugly ferocious women of Cadomyr."
-"KÃ¶nigin" -> "Ich hÃ¶rte, sie ist die bÃ¶seste Hexe unter den grÃ¤ÃŸlichen Frauen Cadomyrs."
+"Königin" -> "Ich hörte, sie ist die böseste Hexe unter den gräßlichen Frauen Cadomyrs."
 
 -- Optional: Main land factions
 english, "albar" -> "Outside of Galmair I know nothing, sorry."
-"albar" -> "Ãœber die Welt ausserhalb Galmairs weiÃŸ ich nicht viel."
+"albar" -> "Über die Welt ausserhalb Galmairs weiß ich nicht viel."
 english, "gynk", "gync" -> "I think that is what this place is like, but I really don't know."
-"gync", "gynk" -> "Ich meine, dort ist es so Ã¤hnlich wie hier, aber ich weiÃŸ es nicht genau."
+"gync", "gynk" -> "Ich meine, dort ist es so ähnlich wie hier, aber ich weiß es nicht genau."
 english, "salkama" -> "I've never even heard that word before."
-"salkama" -> "Das Wort habe ich ja noch nie gehÃ¶rt."
+"salkama" -> "Das Wort habe ich ja noch nie gehört."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "What is that?"
@@ -225,20 +225,20 @@ english, "Bre", "Southstar" -> "I am her."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "I am the merely a guard of Galmair.", "Tell that somebody else.", "Move along.", "Pass along", "Do not loiter!", "In or out?"
-german, chance(20.0), ".*" -> "Ich bin in erster Linie eine Wache Galmairs.", "ErzÃ¤hlt das irgendwem, nur nicht mir.", "Weitergehen.", "Geht weiter.", "Lungert hier nicht so rum!", "Rein oder raus?"
+german, chance(20.0), ".*" -> "Ich bin in erster Linie eine Wache Galmairs.", "Erzählt das irgendwem, nur nicht mir.", "Weitergehen.", "Geht weiter.", "Lungert hier nicht so rum!", "Rein oder raus?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Nun, ihr kennt ja die Geschichten Ã¼ber Recht und Unrecht. Gavin glaubt sogar daran.", "Well you know those stories about right and wrong. Gavin is one of the ones who believes in them."
+cycletext "Nun, ihr kennt ja die Geschichten über Recht und Unrecht. Gavin glaubt sogar daran.", "Well you know those stories about right and wrong. Gavin is one of the ones who believes in them."
 cycletext "Geht geordnet weiter, danke.", "Please pass in an orderly fashion. Thank you."
-cycletext "Ihr da! Macht keinen Ã„rger.", "Hey you! Don't cause any trouble."
-cycletext "Mir ist so langweilig. Ich wÃ¼nscht, wir Wachen dÃ¼rften im Dienst trinken.", "I'm so bored. I wish we could drink at work."
+cycletext "Ihr da! Macht keinen Ärger.", "Hey you! Don't cause any trouble."
+cycletext "Mir ist so langweilig. Ich wünscht, wir Wachen dürften im Dienst trinken.", "I'm so bored. I wish we could drink at work."
 cycletext "Ich bin so hungrig. Ich frage mich, was Gavin wohl heute wieder kocht.", "So very very hungry. I wonder what Gavin is cooking tonight?"
 cycletext "Roar, ich mach alles mit meinem Morgenstern platt.", "Roar! I will crush anyone with my morning star."
 cycletext "Ich brauche keinen Mann.", "I'm not looking for a man."
-cycletext "In der BÃ¼rgerwehr zu sein ist der beste Beruf von allen.", "Civil watch is the best job ever."
+cycletext "In der Bürgerwehr zu sein ist der beste Beruf von allen.", "Civil watch is the best job ever."
 cycletext "Aye, Galvin hat immer recht.", "Aye, Gavin is always right."
-cycletext "Ich wÃ¼nschte, Galvin wÃ¤re manchmal etwas besser gelaunt.", "I wish Gavin would lighten up every now and then."
+cycletext "Ich wünschte, Galvin wäre manchmal etwas besser gelaunt.", "I wish Gavin would lighten up every now and then."

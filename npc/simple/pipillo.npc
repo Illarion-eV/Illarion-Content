@@ -24,7 +24,7 @@ autointroduce = on
 
 author = "Zot, Faladron"
 
-lookatDE = "Dieser NPC ist Pipillo der PortalbuchhÃ¤ndler."
+lookatDE = "Dieser NPC ist Pipillo der Portalbuchhändler."
 lookatUS = "This NPC is Pipillo the portal book merchant"
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Stop touching me!"
@@ -54,7 +54,7 @@ sellItem = id(1061), de("Portalbuch zum Hemp Necktie Inn"), en("portal book to t
 
 tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
 tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
-tradeFinishedWithoutTradingMsg "Nichts gefunden was euch gefÃ¤llt?", "Don't you like my wares?"
+tradeFinishedWithoutTradingMsg "Nichts gefunden was euch gefällt?", "Don't you like my wares?"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Template Version 1.03 by Estralis Seborian
@@ -74,65 +74,65 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the portal merchant Pipillo. Keywords: Hello, portal, trade.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der PortalbuchhÃ¤ndler Pipillo. SchlÃ¼sselwÃ¶rter: Hallo, Portal, Handel.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Portalbuchhändler Pipillo. Schlüsselwörter: Hallo, Portal, Handel.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Today is a fine day to travel."
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Heute ist ein schÃ¶ner Tag fÃ¼r eine Reise."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Heute ist ein schöner Tag für eine Reise."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Today is a fine day to travel."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Heute ist ein schÃ¶ner Tag fÃ¼r eine Reise."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Heute ist ein schöner Tag für eine Reise."
 "Farewell", "Bye", "Fare well", "See you" -> "Always keep moving!", "Toodles!", "Farewell."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Immer in Bewegung bleiben!", "TschÃ¼ssi!", "Auf wiedersehen."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Immer in Bewegung bleiben!", "Tschüssi!", "Auf wiedersehen."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Always keep moving!", "Toodles!", "Farewell."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Immer in Bewegung bleiben!", "TschÃ¼ssi!", "Auf wiedersehen."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Immer in Bewegung bleiben!", "Tschüssi!", "Auf wiedersehen."
 "How are you", "How feel", "How do you do" -> "I feel excited, thinking about all the places to travel to.", "I'm itching to make another journey."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen" -> "Ich bin so aufgeregt, wenn ich nur an all die Orte denke an die man Reisen kann.", "Es juckt mich in den FÃ¼ÃŸen, eine Reise zu machen."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin so aufgeregt, wenn ich nur an all die Orte denke an die man Reisen kann.", "Es juckt mich in den Füßen, eine Reise zu machen."
 "your name", "who are you", "who art thou" -> "Pipillo, portal book merchant. That's me.", "I am the merchant Pipillo.", "Pipillo is my name, I trade portal books."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Pipillo, Portalbuch HÃ¤ndler. Das bin ich.", "Ich bin der HÃ¤ndler Pipillo", "Pipillo mein Name, ich handle mit PortalbÃ¼chern"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Pipillo, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Pipillo", "Pipillo mein Name, ich handle mit Portalbüchern"
 
 -- Catching quest triggers
 english, "quest", "mission" -> "I do not issue quests, but I can sell you books to go to other places."
-"quest", "mission" -> "Ich verteile keine Aufgaben. Aber ihr kÃ¶nnt von mir BÃ¼cher kaufen, die euch an andere Orte bringen."
+"quest", "mission" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
 "task", "adventure", "order" -> "I do not issue quests, but I can sell you books to go to other places."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich verteile keine Aufgaben. Aber ihr kÃ¶nnt von mir BÃ¼cher kaufen, die euch an andere Orte bringen."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
 
 -- Easter Egg
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a merchant of portal books."
-"beruf" -> "Ich handle mit PortalbÃ¼chern."
+"beruf" -> "Ich handle mit Portalbüchern."
 english, "job" -> "I am a merchant of portal books."
-"job" -> "Ich handle mit PortalbÃ¼chern."
+"job" -> "Ich handle mit Portalbüchern."
 english, "Gobaith", "Gobiath" -> "With a little luck I can get a book to take you there! Nah, not really just kidding."
-"Gobaith", "Gobiath" -> "Mit etwas GlÃ¼ck kann ich dir ein Buch besorgen, das dich dorthin bringt! NÃ¶, nicht wirklich nur'n Scherz."
+"Gobaith", "Gobiath" -> "Mit etwas Glück kann ich dir ein Buch besorgen, das dich dorthin bringt! Nö, nicht wirklich nur'n Scherz."
 "my name" -> "Nice to meet you. If you want to 'book' some travel just ask me, hihi.", "A nice name, indeed."
-"mein Name" -> "SchÃ¶n dich kennenzulernen. Wenn du eine Reise 'buch'-en willst, frag mich einfach, hihi.", "Ein netter Name."
+"mein Name" -> "Schön dich kennenzulernen. Wenn du eine Reise 'buch'-en willst, frag mich einfach, hihi.", "Ein netter Name."
 
 -- More small talk; add at least five triggers
 "family", "siblings", "sister", "brother" -> "Me and my family like to hike and explore, I bet you can find my siblings at other places if you just look closely!"
-"Familie", "Geschwister", "Schwester", "Bruder", "BrÃ¼der" -> "Ich und meine Familie wandern und entdecken gern. Ich bin mir sicher du kannst meine anderen Geschwister an anderen Orten finden wenn du nur genau guckst!"
+"Familie", "Geschwister", "Schwester", "Bruder", "Brüder" -> "Ich und meine Familie wandern und entdecken gern. Ich bin mir sicher du kannst meine anderen Geschwister an anderen Orten finden wenn du nur genau guckst!"
 
 -- Faction stuff
 "archmage" -> "Luckily me and my family stay out of politics. Our services are well sought in all three towns."
-"Erzmagier" -> "GlÃ¼cklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen StÃ¤dten gerne in Anspruch genommen."
+"Erzmagier" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
 english, "Elvaine", "Morgan" -> "Luckily me and my family stay out of politics. Our services are well sought in all three towns."
-"Elvaine", "Morgan" -> "GlÃ¼cklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen StÃ¤dten gerne in Anspruch genommen."
+"Elvaine", "Morgan" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
 english, "Runewick" -> "Luckily me and my family stay out of politics. Our services are well sought in all three towns."
-"Runewick" -> "GlÃ¼cklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen StÃ¤dten gerne in Anspruch genommen."
+"Runewick" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
 english, "Valerio", "Guilianni", "Don" -> "Luckily me and my family stay out of politics. Our services are well sought in all three towns."
-"Valerio", "Guilianni", "Don" -> "GlÃ¼cklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen StÃ¤dten gerne in Anspruch genommen."
+"Valerio", "Guilianni", "Don" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
 english, "Galmair" -> "Luckily me and my family stay out of politics. Our services are well sought in all three towns."
-"Galmair" -> "GlÃ¼cklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen StÃ¤dten gerne in Anspruch genommen."
+"Galmair" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
 "Queen" -> "Luckily me and my family stay out of politics. Our services are well sought in all three towns."
-"KÃ¶nigin" -> "GlÃ¼cklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen StÃ¤dten gerne in Anspruch genommen."
+"Königin" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
 english, "rosaline", "edwards" -> "Luckily me and my family stay out of politics. Our services are well sought in all three towns."
-"rosaline", "edwards" -> "GlÃ¼cklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen StÃ¤dten gerne in Anspruch genommen."
+"rosaline", "edwards" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
 english, "Cadomyr" -> "Luckily me and my family stay out of politics. Our services are well sought in all three towns."
-"Cadomyr" -> "GlÃ¼cklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen StÃ¤dten gerne in Anspruch genommen."
+"Cadomyr" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
 
 -- Main land factions
 english, "albar" -> "Oh, Albar, I've seen much of it on earlier journeys."
-"albar" -> "Oh, Albar, davon hab ich viel gesehen auf frÃ¼heren Reisen."
+"albar" -> "Oh, Albar, davon hab ich viel gesehen auf früheren Reisen."
 english, "gynk", "gync" -> "You have to see it for yourself to believe it..."
 "gync", "gynk" -> "Man muss selbst nach Gynk reisen um es zu glauben..."
 english, "salkama" -> "Nice place. They have some very tasty food there as well."
@@ -140,13 +140,13 @@ english, "salkama" -> "Nice place. They have some very tasty food there as well.
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
 "god" -> "The Gods created this world for us to discover and travel within it."
-"Gott", "GÃ¶tter" -> "Die GÃ¶tter haben diese Welt fÃ¼r uns erschaffen um sie zu entdecken und darin zu reisen."
+"Gott", "Götter" -> "Die Götter haben diese Welt für uns erschaffen um sie zu entdecken und darin zu reisen."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I sell various portal books that can take you to places, handy if you're lost in the wild."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe verschiedene PortalbÃ¼cher die dich an Orte bringen kÃ¶nnen. Ziemlich nÃ¼tzlich wenn man sich in der Wildnis verlaufen hat."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe verschiedene Portalbücher die dich an Orte bringen können. Ziemlich nützlich wenn man sich in der Wildnis verlaufen hat."
 "tell something" -> "Me and my family like to hike and explore, I bet you can find my siblings at other places if you just look closely!"
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Ich und meine Familie wandern und entdecken gern. Ich bin mir sicher du kannst meine anderen Geschwister an anderen Orten finden wenn du nur genau guckst!"
+"erzähl was", "erzähl etwas" -> "Ich und meine Familie wandern und entdecken gern. Ich bin mir sicher du kannst meine anderen Geschwister an anderen Orten finden wenn du nur genau guckst!"
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

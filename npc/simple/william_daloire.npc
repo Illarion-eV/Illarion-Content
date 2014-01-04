@@ -24,7 +24,7 @@ autointroduce = on
 
 author = "Miriam"
 
-lookatDE = "Dieser NPC ist William Daloire der Kr√§uterkundige."
+lookatDE = "Dieser NPC ist William Daloire der Kr‰uterkundige."
 lookatUS = "This NPC is William Daloire the herbalist."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -51,7 +51,7 @@ itemShoes = 53
 
 sellItems = 58, 429, 126, 43, 391, 52, 753, 759, 767, 133, 134, 135, 136, 137, 140, 141, 142, 143, 144, 145, 148, 153, 154, 155, 156, 157, 431, 463, 2745, 158, 159, 160, 161, 162, 163
 buyPrimaryItems = 58, 429, 126, 43, 391, 52, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 431, 463, 2745, 158, 159, 160, 161, 162, 163
-tradeNotEnoughMoneyMsg "Oh, ich f√ºrchte Ihr k√∂nnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeNotEnoughMoneyMsg "Oh, ich f¸rchte Ihr kˆnnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
@@ -75,51 +75,51 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 10% Writing stuff: 463, 2745
 -- 10% Mushrooms: 158, 159, 160, 161, 162, 163
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "ver√§u√üer", "erwerb" -> "Ah, dann interessiert Ihr Euch also f√ºr meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+"kauf", "waren", "preis", "Handel", "ver‰uﬂer", "erwerb" -> "Ah, dann interessiert Ihr Euch also f¸r meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
 "Help" -> inform("[Game Help]This NPC is William Daloire the herbalist. Keywords: trade, buy, sell, greetings, profession, tell something.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist William Daloire der Kr√§uterkundige. Schl√ºsselw√∂rter: Handel, kaufe, verkaufe, Gr√º√üe, Beruf, erz√§hl was.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist William Daloire der Kr‰uterkundige. Schl¸sselwˆrter: Handel, kaufe, verkaufe, Gr¸ﬂe, Beruf, erz‰hl was.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Oldra.", "Greetings.", "Be greeted."
-"Gr√º√üe", "Gru√ü", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oldra zum Gru√üe.", "Gr√º√üe.", "Seid gegr√º√üt."
+"Gr¸ﬂe", "Gruﬂ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oldra zum Gruﬂe.", "Gr¸ﬂe.", "Seid gegr¸ﬂt."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings.", "Be greeted."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Gr√º√üe.", "Seid gegr√º√üt."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Gr¸ﬂe.", "Seid gegr¸ﬂt."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell. May Oldra be with you.", "Farewell. Please come again."
-"Tsch√º√ü", "Tsch√ºss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl! M√∂ge Oldra √ºber Euch wachen!", "Lebt wohl! Und schaut mal wieder vorbei."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ad√©!", "A bient√¥t!", "May Oldra be with you."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ad√©!", "A bient√¥t!", "M√∂ge Oldra √ºber Euch wachen!"
+"Tsch¸ﬂ", "Tsch¸ss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl! Mˆge Oldra ¸ber Euch wachen!", "Lebt wohl! Und schaut mal wieder vorbei."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "AdÈ!", "A bientÙt!", "May Oldra be with you."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "AdÈ!", "A bientÙt!", "Mˆge Oldra ¸ber Euch wachen!"
 "How are you", "How feel", "How do you do" -> "Thank you for asking. Since I stopped smoking Sibanac I feel great!", " I drank some herbal tea for my headache, now I feel better."
-"Wie geht", "Wie f√ºhlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage. Seitdem ich kein Sibanac mehr rauche geht es mir ausgezeichnet!", "I trank Tee gegen meine Kopfschmerzen, und nun  geht es mir wieder gut."
+"Wie geht", "Wie f¸hlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage. Seitdem ich kein Sibanac mehr rauche geht es mir ausgezeichnet!", "I trank Tee gegen meine Kopfschmerzen, und nun  geht es mir wieder gut."
 "your name", "who are you", "who art thou" -> "I'm a merchant, I sell fresh herbs. I am called William Deloire.", "I'm William Deloire, at you service."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie hei√üt" -> "Ich bin ein H√§ndler der frische Kr√§uter verkauft. Ich werde William Deloire genannt.", "Ich hei√üe William Deloire, was kann ich f√ºr Euch tun?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt" -> "Ich bin ein H‰ndler der frische Kr‰uter verkauft. Ich werde William Deloire genannt.", "Ich heiﬂe William Deloire, was kann ich f¸r Euch tun?"
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "Nah I don't sell quests. I mean.. sorry.. I don't *have any* quests for you, rather."
-"quest", "mission" -> "Soetwas verkaufe ich nicht. √Ñhm...Ich wollte sagen, ich biete soetwas nicht an."
+"quest", "mission" -> "Soetwas verkaufe ich nicht. ƒhm...Ich wollte sagen, ich biete soetwas nicht an."
 "task", "adventure", "order" -> "Nah I don't sell quests. I mean.. sorry.. I don't *have any* quests for you, rather."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Soetwas verkaufe ich nicht. √Ñhm...Ich wollte sagen, ich biete soetwas nicht an."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Soetwas verkaufe ich nicht. ƒhm...Ich wollte sagen, ich biete soetwas nicht an."
 
 -- Quest by NPC mirarie Bragolin (Writing history IV)
 queststatus(317) = 9, english, "Mirarie", "Bragolin", "letter", "message" -> queststatus(317) = 10, "Oh? A letter for me? Hrm... Ah, I see. Please tell Miss Bragolin I'll send her a letter to answer her question."
-queststatus(317) = 9, "Mirarie", "Bragolin", "Brief", "Nachricht" -> queststatus(317) = 10, "Oh?... ein Brief f√ºr mich? ... Ah, ich verstehe. Bitte sagt Fr√§ulein Bragolin ich werde ihr einen Brief schreiben um ihre Fragen zu beantworten."
+queststatus(317) = 9, "Mirarie", "Bragolin", "Brief", "Nachricht" -> queststatus(317) = 10, "Oh?... ein Brief f¸r mich? ... Ah, ich verstehe. Bitte sagt Fr‰ulein Bragolin ich werde ihr einen Brief schreiben um ihre Fragen zu beantworten."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a herbalist, so as you might expect: I sell herbs. Want to take a look?", "I don't just sell herbs: I also sell useful tools. Come have a look.", "I sell herbs and tools too. Want to see?"
-"beruf" -> "Ich bin ein Kr√§uterh√§ndler, das hei√üt ich handle mit Kr√§utern. M√∂chtet Ihr das Angebot sehen?", "I verkaufe nicht nur Kr√§uter, sondern auch sehr n√ºtzliche Werkzeuge. M√∂chtet Ihr das Angebot sehen?", "Ich verkaufe Kr√§uter und einige Werkzeuge. M√∂chtet Ihr das Angebot sehen?"
+"beruf" -> "Ich bin ein Kr‰uterh‰ndler, das heiﬂt ich handle mit Kr‰utern. Mˆchtet Ihr das Angebot sehen?", "I verkaufe nicht nur Kr‰uter, sondern auch sehr n¸tzliche Werkzeuge. Mˆchtet Ihr das Angebot sehen?", "Ich verkaufe Kr‰uter und einige Werkzeuge. Mˆchtet Ihr das Angebot sehen?"
 english, "job" -> "I'm a herbalist, so as you might expect: I sell herbs. Want to take a look?", "I don't just sell herbs: I also sell useful tools. Come have a look.", "I sell herbs and tools too. Want to see?"
-"job" -> "Ich bin ein Kr√§uterh√§ndler, das hei√üt ich handle mit Kr√§utern. M√∂chtet Ihr das Angebot sehen?", "I verkaufe nicht nur Kr√§uter, sondern auch sehr n√ºtzliche Werkzeuge. M√∂chtet Ihr das Angebot sehen?", "Ich verkaufe Kr√§uter und einige Werkzeuge.M√∂chtet Ihr das Angebot sehen?"
+"job" -> "Ich bin ein Kr‰uterh‰ndler, das heiﬂt ich handle mit Kr‰utern. Mˆchtet Ihr das Angebot sehen?", "I verkaufe nicht nur Kr‰uter, sondern auch sehr n¸tzliche Werkzeuge. Mˆchtet Ihr das Angebot sehen?", "Ich verkaufe Kr‰uter und einige Werkzeuge.Mˆchtet Ihr das Angebot sehen?"
 "tell something" -> "Smoking sibanac isn't good for your health.", "There are some herbs which you can only find in the desert.", "Herbs can have very different qualities. Druids can tell you more that."
-"erz√§hl was", "erz√§hl etwas" -> "Sibanac zu rauchen ist nicht gesund.", "Einige K√§uter findet man nur in der W√ºste.", "Kr√§uter k√∂nnen sehr unterschiedliche Eigenschaften haben, ein Druide kann euch dazu sicher mehr erz√§hlen."
+"erz‰hl was", "erz‰hl etwas" -> "Sibanac zu rauchen ist nicht gesund.", "Einige K‰uter findet man nur in der W¸ste.", "Kr‰uter kˆnnen sehr unterschiedliche Eigenschaften haben, ein Druide kann euch dazu sicher mehr erz‰hlen."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "The elder gods gave their power to the new ones before they left this world.", "The old gods aren't worshipped often nowadays."
-"Gott", "G√∂tter" -> "Die alten G√∂tter gaben ihre Macht den jungen G√∂ttern, bevor sie diese Welt verlie√üen.", "Zu den alten G√∂ttern betet heutzutage kaum einer mehr."
+"Gott", "Gˆtter" -> "Die alten Gˆtter gaben ihre Macht den jungen Gˆttern, bevor sie diese Welt verlieﬂen.", "Zu den alten Gˆttern betet heutzutage kaum einer mehr."
 english, "Adron" -> "I don't pray to him. Do you?"
 "Adron" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
-english, "Bragon", "Br√†gon" -> "I don't pray to him. Do you?"
-"Bragon", "Br√†gon" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Bragon", "Br‡gon" -> "I don't pray to him. Do you?"
+"Bragon", "Br‡gon" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
 english, "Cherga" -> "I don't pray to her. Do you?"
 "Cherga" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
 english, "Elara" -> "I don't pray to her. Do you?"
@@ -130,14 +130,14 @@ english, "Findari" -> "I don't pray to her. Do you?"
 "Findari" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
 english, "Irmorom" -> "I don't pray to him. Do you?"
 "Irmorom" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
-english, "Malachin", "Malach√≠n" -> "I don't pray to him. Do you?"
-"Malachin", "Malach√≠n" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Malachin", "MalachÌn" -> "I don't pray to him. Do you?"
+"Malachin", "MalachÌn" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
 english, "Moshran" -> "I do not pray to that evil fiend. Do you?"
 "Moshran" -> "Ich bete nicht zu diesem finsteren Gott. Und Ihr?"
-english, "Nargun", "Narg√πn", "Narg√∫n" -> "I don't pray to him. Do you?"
-"Nargun", "Narg√πn", "Narg√∫n" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
+english, "Nargun", "Narg˘n", "Narg˙n" -> "I don't pray to him. Do you?"
+"Nargun", "Narg˘n", "Narg˙n" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
 english, "Oldra" -> "Ushara is the goddess of earth, while Oldra is the goddess of life."
-"Oldra" -> "Ushara ist die G√∂ttin der Erde, w√§hrend Oldra die G√∂ttin des Lebens ist."
+"Oldra" -> "Ushara ist die Gˆttin der Erde, w‰hrend Oldra die Gˆttin des Lebens ist."
 english, "Ronagan" -> "I don't pray to him. Do you?"
 "Ronagan" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
 english, "Sirani" -> "I don't pray to her. Do you?"
@@ -145,45 +145,45 @@ english, "Sirani" -> "I don't pray to her. Do you?"
 english, "Tanora", "Zelphia" -> "I don't pray to her. Do you?"
 "Tanora", "Zelphia" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
 english, "Ushara" -> "Ushara is the goddess of earth, while Oldra is the goddess of life."
-"Ushara" -> "Ushara ist die G√∂ttin der Erde, w√§hrend Oldra die G√∂ttin des Lebens ist."
+"Ushara" -> "Ushara ist die Gˆttin der Erde, w‰hrend Oldra die Gˆttin des Lebens ist."
 english, "Zhambra" -> "I don't pray to him. Do you?"
 "Zhambra" -> "Ich bete nicht zu diesem Gott. Und Ihr?"
 
 -- Optional: Faction stuff
 "archmage" -> "I hear that he secretly takes pride in his plants.", "He's a man who knows his stuff, at least. Even if it isn't herbs."
-"Erzmagier" -> "Was hat ein Kr√§uterh√§ndler mit dem Erzmagier zu tun? Nichts.", "Davon wei√ü ich nichts."
+"Erzmagier" -> "Was hat ein Kr‰uterh‰ndler mit dem Erzmagier zu tun? Nichts.", "Davon weiﬂ ich nichts."
 english, "Elvaine", "Morgan" -> "I hear that he secretly takes pride in his plants.", "He's a man who knows his stuff, at least. Even if it isn't herbs."
-"Elvaine", "Morgan" -> "Was hat ein Kr√§uterh√§ndler mit Elvaine Morgan zu tun? Nichts.", "Davon wei√ü ich nichts."
+"Elvaine", "Morgan" -> "Was hat ein Kr‰uterh‰ndler mit Elvaine Morgan zu tun? Nichts.", "Davon weiﬂ ich nichts."
 english, "Runewick" -> "Even in a magical town you find good herbs. Plants grow almost everywhere."
-"Runewick" -> "Auch dort kann man Kr√§uter finden. Pflanzen wachsen fast √ºberall."
+"Runewick" -> "Auch dort kann man Kr‰uter finden. Pflanzen wachsen fast ¸berall."
 english, "Valerio", "Guilianni", "Don" -> "I think the Don prefers a good 'whine' to tea."
-"Valerio", "Guilianni", "Don" -> "Der Don sch√§tzt guten Wein bmehr als Kr√§utertee."
+"Valerio", "Guilianni", "Don" -> "Der Don sch‰tzt guten Wein bmehr als Kr‰utertee."
 english, "Galmair" -> "Even underground you'll find herbs. Plants grow almost everywhere."
-"Galmair" -> "Auch dort kann man Kr√§uter finden. Pflanzen wachsen fast √ºberall."
+"Galmair" -> "Auch dort kann man Kr‰uter finden. Pflanzen wachsen fast ¸berall."
 "Queen" -> "Why would a herbalist concern the queen? Right, I don't.", "I don't think we have anything in common."
-"K√∂nigin" -> "Was hat ein Kr√§uterh√§ndler mit der K√∂nigin zu tun? Nichts.", "Davon wei√ü ich nichts."
+"Kˆnigin" -> "Was hat ein Kr‰uterh‰ndler mit der Kˆnigin zu tun? Nichts.", "Davon weiﬂ ich nichts."
 english, "rosaline", "edwards" -> "Why would a herbalist concern the queen? Right, I don't.", "I don't think we have anything in common."
-"rosaline", "edwards" -> "Was hat ein Kr√§uterh√§ndler mit dem Rosaline Edwards zu tun? Nichts.", "Davon wei√ü ich nichts."
+"rosaline", "edwards" -> "Was hat ein Kr‰uterh‰ndler mit dem Rosaline Edwards zu tun? Nichts.", "Davon weiﬂ ich nichts."
 english, "Cadomyr" -> "Even in the desert you find herbs. Plants grow almost everywhere."
-"Cadomyr" -> "Auch dort kann man Kr√§uter finden. Pflanzen wachsen fast √ºberall."
+"Cadomyr" -> "Auch dort kann man Kr‰uter finden. Pflanzen wachsen fast ¸berall."
 
 -- Optional: Main land factions
 english, "albar" -> "Place sounds like a wasteland. Perhaps it's the only place herbs won't grow."
-"albar" -> "Auch dort kann man Kr√§uter finden. Pflanzen wachsen fast √ºberall."
+"albar" -> "Auch dort kann man Kr‰uter finden. Pflanzen wachsen fast ¸berall."
 english, "gynk", "gync" -> "You can even find herbs there! As I always say: plants grow almost everywhere."
-"gync", "gynk" -> "Auch dort kann man Kr√§uter finden. Pflanzen wachsen fast √ºberall."
+"gync", "gynk" -> "Auch dort kann man Kr‰uter finden. Pflanzen wachsen fast ¸berall."
 english, "salkama" -> "Herbs are plentiful there. Plants grow almost everywhere."
-"salkama" -> "Auch dort kann man Kr√§uter finden. Pflanzen wachsen fast √ºberall."
+"salkama" -> "Auch dort kann man Kr‰uter finden. Pflanzen wachsen fast ¸berall."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "Goba.. Gobi-what? I've never heard of that herb."
-"Gobaith", "Gobiath" -> "Goba...Gobi-was? Was f√ºr ein Kraut ist das denn?"
+"Gobaith", "Gobiath" -> "Goba...Gobi-was? Was f¸r ein Kraut ist das denn?"
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "A pleasure to meet you,%CHARNAME."
 "mein Name" -> "Es ist eine Freude Eure Bekanntschaft zu machen, %CHARNAME."
 english, "William", "Deloire" -> "Yes, that's me. I'm William Deloire, at you service."
-"William", "Deloire" -> "Ja, das bin ich. William Deloire, was kann ich f√ºr Euch tun?"
+"William", "Deloire" -> "Ja, das bin ich. William Deloire, was kann ich f¸r Euch tun?"
 "Yes" -> "I should think so too!", "Perhaps..."
 "Ja" -> "Das sehe ich genau so.", "Nun..."
 "No" -> "Ah. Alright, I suppose.", "Ah.."
@@ -191,17 +191,17 @@ english, "William", "Deloire" -> "Yes, that's me. I'm William Deloire, at you se
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "I fear I didn't catch your drift."
-german, chance(20.0), ".*" -> "Ich f√ºrchte, ich habe Euch nicht verstanden."
+german, chance(20.0), ".*" -> "Ich f¸rchte, ich habe Euch nicht verstanden."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me duftet nach Kr√§utern.", "#me's scent fills the air thickly, a cocktail of herbal smells."
-cycletext "#me wischt ein paar alte Bl√§tter vom Tisch.", "#me quickly brushes some old leaves from the tabletop."
-cycletext "#me blickt nach drau√üen.", "#me glances outside, deep in thought."
-cycletext "#me zwinkert der Verk√§uferin am anderen Tisch zu.", "#me winks suggestively at the merchant behind the other table."
-cycletext "#me pfeift eine vergn√ºgliche Melodie.", "#me whistles a happy melody in a rather shrill tone."
-cycletext "#me wiegt ein Beutelchen mit Kr√§utern.", "#me weighs a small bag of herbs out carefully on the counter."
-cycletext "Kr√§uter! Frische Kr√§uter mit bester Qualit√§t!", "Herbs! Fresh herbs of the finest quality!"
+cycletext "#me duftet nach Kr‰utern.", "#me's scent fills the air thickly, a cocktail of herbal smells."
+cycletext "#me wischt ein paar alte Bl‰tter vom Tisch.", "#me quickly brushes some old leaves from the tabletop."
+cycletext "#me blickt nach drauﬂen.", "#me glances outside, deep in thought."
+cycletext "#me zwinkert der Verk‰uferin am anderen Tisch zu.", "#me winks suggestively at the merchant behind the other table."
+cycletext "#me pfeift eine vergn¸gliche Melodie.", "#me whistles a happy melody in a rather shrill tone."
+cycletext "#me wiegt ein Beutelchen mit Kr‰utern.", "#me weighs a small bag of herbs out carefully on the counter."
+cycletext "Kr‰uter! Frische Kr‰uter mit bester Qualit‰t!", "Herbs! Fresh herbs of the finest quality!"

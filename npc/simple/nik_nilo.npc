@@ -54,7 +54,7 @@ itemShoes = 53
 sellItems = 734, 23, 24, 737, 736, 2588, 733, 735, 1266, 21, 22, 234, 1062, 2536, 26, 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 buyPrimaryItems = 734, 23, 24, 737, 736, 2588, 733, 735, 1266, 21, 22, 234, 1062, 2536
 buySecondaryItems = 26, 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
-tradeNotEnoughMoneyMsg "Oh, ich f√ºrchte Ihr k√∂nnt Euch das nicht leisten.", "Oh, I fear, you cannot afford that."
+tradeNotEnoughMoneyMsg "Oh, ich f¸rchte Ihr kˆnnt Euch das nicht leisten.", "Oh, I fear, you cannot afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
@@ -83,93 +83,93 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 10% Raw gems: 251, 252, 253, 254, 255, 256, 257
 -- 5% Stuff: 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I trade with rocks and stones that are as hard as my muscles!", trade
-"kauf", "waren", "preis", "Handel", "ver√§u√üer", "erwerb" -> "Ich handel mit Felsen und Steinen, die so hart sind wie meine Muskeln!", trade
+"kauf", "waren", "preis", "Handel", "ver‰uﬂer", "erwerb" -> "Ich handel mit Felsen und Steinen, die so hart sind wie meine Muskeln!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This is 'Big Nik', he is a tool and supply trader. Keywords: sell, buy, trade, Hello, profession, laws.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Werkzeug- und Rohstoffh√§ndler 'Big Nik'. Schl√ºsselw√∂rter: kaufe, verkaufe, Handel, Hallo, Beruf, Gesetze.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Werkzeug- und Rohstoffh‰ndler 'Big Nik'. Schl¸sselwˆrter: kaufe, verkaufe, Handel, Hallo, Beruf, Gesetze.")
 
 -- OPTIONAL TRIGGERS
 queststatus(702) = 1, english, "charwis", "ruby", "gem", "irongate" -> queststatus(702) = 2, "Ah yes, thank you for passing the message. Go talk to Charwis, I'm sure he will reward you for your service."
-queststatus(702) = 1, "charwis", "rubin", "edelstein", "irongate" -> queststatus(702) = 2, "Ah ja, vielen Dank dass ihr die Nachricht √ºberbracht habt. Geht und sprecht mit Charwis, ich bin sicher er wird euch f√ºr eure Arbeit belohnen."
+queststatus(702) = 1, "charwis", "rubin", "edelstein", "irongate" -> queststatus(702) = 2, "Ah ja, vielen Dank dass ihr die Nachricht ¸berbracht habt. Geht und sprecht mit Charwis, ich bin sicher er wird euch f¸r eure Arbeit belohnen."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me grins as he waves, 'What can I do for you?'", "#me lifts his head, 'Hello there, you here to buy or sell?'", "Hello, you look like someone who knows a good price for tools, that's why you're here, right?"
-"Gr√º√ü", "Gru√ü", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me grinst und winkt: 'Was kann ich f√ºr euch tun?'", "#me hebt den Kopf: 'Heda, wollt ihr etwas kaufen oder loswerden?'", "Hallo, ihr seht aus wie jemand, dem ich einen guten Preis f√ºr Werkzeuge machen kann. Deshalb seid ihr doch hier?"
+"Gr¸ﬂ", "Gruﬂ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me grinst und winkt: 'Was kann ich f¸r euch tun?'", "#me hebt den Kopf: 'Heda, wollt ihr etwas kaufen oder loswerden?'", "Hallo, ihr seht aus wie jemand, dem ich einen guten Preis f¸r Werkzeuge machen kann. Deshalb seid ihr doch hier?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Yeah, yeah, you here to buy or sell?", "#me scratches his cheek as he looks over, 'Want to see my wares?'", "Hello and all that, why don't you spend some of that coin you have with me!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Jaja, wollt ihr nun etwas kaufen oder loswerden?", "#me kratzt sich am Kinn und schaut umher: 'Seid ihr wegen meinen Waren hier?'", "Hallo und so, warum gebt ihr nicht einfach etwas Geld bei mir aus!"
 "Farewell", "Bye", "Fare well", "See you" -> "Aye... another time.", "Come back again now!", "#me chuckles, 'I'll be seeing you again I hope.'"
-"Tsch√º√ü", "Tsch√ºss", "Wiedersehen", "Gehab wohl" -> "Ja, bis zum n√§chsten mal.", "Kommt schon zur√ºck!", "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher."
+"Tsch¸ﬂ", "Tsch¸ss", "Wiedersehen", "Gehab wohl" -> "Ja, bis zum n‰chsten mal.", "Kommt schon zur¸ck!", "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher."
 english, "Ciao", "Adieu", "Au revoir" -> "Aye... another time.", "Come back again now!", "#me chuckles, 'I'll be seeing you again.'"
-"Ciao", "Adieu", "Au revoir" -> "Ja, bis zum n√§chsten mal.", "Kommt schon zur√ºck!", "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher."
+"Ciao", "Adieu", "Au revoir" -> "Ja, bis zum n‰chsten mal.", "Kommt schon zur¸ck!", "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher."
 "How are you", "How feel", "How do you do" -> "I do alright, I would do better if you bought something!", "Why do you ask, you wont get a better price for small talk.", "I'm good, all the better for making a trade with you."
-"Wie geht", "Wie f√ºhlst", "Wie ist es ergangen" -> "Mir geht es gut und es w√ºrde mir noch besser gehen, wenn ihr etwas kaufen w√ºrdet.", "Warum fragt ihr, denkt ihr, dass ihr durch Geschw√§tz einen besseren Preis bekommt?", "Gut, genau richtig, um mit euch zu handeln."
+"Wie geht", "Wie f¸hlst", "Wie ist es ergangen" -> "Mir geht es gut und es w¸rde mir noch besser gehen, wenn ihr etwas kaufen w¸rdet.", "Warum fragt ihr, denkt ihr, dass ihr durch Geschw‰tz einen besseren Preis bekommt?", "Gut, genau richtig, um mit euch zu handeln."
 "your name", "who are you", "who art thou" -> "#me chuckles, 'Nik Nilo, but people call me Big Nik.", "Big Nik and don't you forget it!", "You mean you never heard of me, I'm Big Nik Nilo!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie hei√üt" -> "#me lacht auf: 'Nik Nilo, aber die Leute nennen mich Big Nik.", "Big Nik, vergesst das besser nicht.", "Ihr habt also noch nie von mir geh√∂rt? Ich bin Big Nik Nilo!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt" -> "#me lacht auf: 'Nik Nilo, aber die Leute nennen mich Big Nik.", "Big Nik, vergesst das besser nicht.", "Ihr habt also noch nie von mir gehˆrt? Ich bin Big Nik Nilo!"
 
 -- Catching quest triggers
 english, "quest", "mission" -> "#me laughs, 'What? I'm a builders merchant, I have tools not quests."
-"quest", "mission" -> "#me lacht: 'Was? Ich bin ein Baustoffh√§ndler. Ich habe Werkzeuge, keine Abenteuer.'"
+"quest", "mission" -> "#me lacht: 'Was? Ich bin ein Baustoffh‰ndler. Ich habe Werkzeuge, keine Abenteuer.'"
 "task", "adventure", "order" -> "#me shakes his head as he laughs, 'Look, buy or sell... or move on, I don't have time for quests.'"
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me sch√ºttelt den Kopf und lacht: 'Schaut, kauft was oder haut ab, ich habe keine Zeit f√ºr Abenteuer."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me sch¸ttelt den Kopf und lacht: 'Schaut, kauft was oder haut ab, ich habe keine Zeit f¸r Abenteuer."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "#me grins, 'I buy and sell tools and building supplies.'", "I'm a builders merchant.", "#me smiles, 'Tools, building supplies, coal, ores and wares I've got it all to sell... and I buy as well.'"
-"beruf" -> "#me grinst: 'Ich kaufe und verkaufe Werkzeuge und Baumaterial.'", "Ich bin ein Baustoffh√§ndler", "#me l√§chelt: 'Werkzeuge, Baumaterial, Kohle, Erze und andere Waren, ich hab alles im Angebot.'"
+"beruf" -> "#me grinst: 'Ich kaufe und verkaufe Werkzeuge und Baumaterial.'", "Ich bin ein Baustoffh‰ndler", "#me l‰chelt: 'Werkzeuge, Baumaterial, Kohle, Erze und andere Waren, ich hab alles im Angebot.'"
 english, "job" -> "Well I'm a trader, can't you tell?", "I buy and sell tools, building supplies and other things.", "I do a little buying and a lot of selling. Why, what are you after?"
-"job" -> "Nun, ich bin ein H√§ndler, so viel steht fest.", "Ich kaufe und verkaufe Werkzeuge, Baumaterial und anderes.", "Ich kaufe ein bisschen und verkaufe eine Menge. Was braucht ihr?"
+"job" -> "Nun, ich bin ein H‰ndler, so viel steht fest.", "Ich kaufe und verkaufe Werkzeuge, Baumaterial und anderes.", "Ich kaufe ein bisschen und verkaufe eine Menge. Was braucht ihr?"
 english, "Gobaith" -> "Wasn't that a little island?", "#me looks up in thought, 'I've heard of that place, can't think where it is though.'", "Gobaith, don't know where it is and I don't care."
-"Gobaith" -> "War das nicht irgendsoeine Insel?", "#me schaut gedankenverloren hoch: 'Ich habe von diesem Ort geh√∂rt, aber nicht, wo er ist.", "Gobaith, wen k√ºmmerts?"
+"Gobaith" -> "War das nicht irgendsoeine Insel?", "#me schaut gedankenverloren hoch: 'Ich habe von diesem Ort gehˆrt, aber nicht, wo er ist.", "Gobaith, wen k¸mmerts?"
 "my name" -> "Ah, yes. Now buy something!"
 "mein Name" -> "Ja, wunderbar. Nun kauft endlich was!"
 
 -- More small talk; add at least five triggers
 "Laws" -> "Haha, what laws? Do as you please, just don't get caught!", "Treat others as you would be done by, else you will have to pay them compensation."
-"Gesetz" -> "Haha, Gesetze? Macht was ihr wollt, aber lasst euch nicht erwischen!", "Behandelt andere so wie sie euch behandeln, sonst m√ºsst ihr nachher noch Schadensersatz bezahlen."
+"Gesetz" -> "Haha, Gesetze? Macht was ihr wollt, aber lasst euch nicht erwischen!", "Behandelt andere so wie sie euch behandeln, sonst m¸sst ihr nachher noch Schadensersatz bezahlen."
 "Tool" -> "My tools will help you build whatever you want in no time!", "Yes, for this thing called 'work', have a look at my stock."
-"Werkzeug" -> "Mein Werkzeug wird dir helfen zu bauen, was immer du m√∂chtest!", "Ja, Werkzeug f√ºr diese Sache, die man 'Arbeit' nennt, schaut sie euch an."
+"Werkzeug" -> "Mein Werkzeug wird dir helfen zu bauen, was immer du mˆchtest!", "Ja, Werkzeug f¸r diese Sache, die man 'Arbeit' nennt, schaut sie euch an."
 english, "Big Nik" -> "#me scratches his knee casually, 'Well, Big Nik is my maiden's name, if you know what I mean?'"
-"Big Nik", "Gro√ü Nik" -> "#me kratzt sich gelassen am Knie 'Nun, Big Nik ist mein M√§dchenname. Wenn ihr versteht, was ich meine.'"
+"Big Nik", "Groﬂ Nik" -> "#me kratzt sich gelassen am Knie 'Nun, Big Nik ist mein M‰dchenname. Wenn ihr versteht, was ich meine.'"
 "location", "town", "village" -> "I'm right in front of you, here in Galmair!", "Galmair, where else!", "Only the best town around these parts, Galmair!"
 "Ort", "Stadt", "Dorf" -> "Ich bin genau hier, hier in Galmair!", "Galmair, was sonst!", "Die beste Stadt in diesen Landen, Galmair!"
 "trader", "merchant", "collegue", "vendor", "market" -> "Need anything? Ask around. In Galmair, you can get anything. And when I say 'anything', I mean anything!"
-"h√§ndler", "kollege", "h√∂ker", "markt" -> "Ihr sucht etwas? Fragt herum. In Galmair bekommt man alles. Und wenn ich 'alles' sage, meine ich alles!"
+"h‰ndler", "kollege", "hˆker", "markt" -> "Ihr sucht etwas? Fragt herum. In Galmair bekommt man alles. Und wenn ich 'alles' sage, meine ich alles!"
 
 -- Faction stuff
 "archmage" -> "All light and wisdom, what a load of dung! He is just like any other pompous mage in Runewick.", "The Archmage of Runewick thinks the light shines out of his bum!", "Just another mage in Runewick with a big title that thinks he is something special. Pah! Same as all the others."
-"Erzmagier" -> "Wissen und Licht, was f√ºr ein Unfug. Er ist einfach nur ein Scharlatan aus Runewick.", "Der Erzmagier von Runewick, er denkt, das Licht w√ºrde aus seinem Hinter strahlen!", "Nur noch ein Magier in Runewick mit gro√üem Titel, er denkt, er ist etwas besondere. Pah! Genausoein Versager wie die anderen."
+"Erzmagier" -> "Wissen und Licht, was f¸r ein Unfug. Er ist einfach nur ein Scharlatan aus Runewick.", "Der Erzmagier von Runewick, er denkt, das Licht w¸rde aus seinem Hinter strahlen!", "Nur noch ein Magier in Runewick mit groﬂem Titel, er denkt, er ist etwas besondere. Pah! Genausoein Versager wie die anderen."
 english, "Elvaine", "Morgan" -> "All light and wisdom, what a load of dung. He is just like any other pompous mage in Runewick.", "The Archmage of Runewick thinks the light shines out of his bum!", "Just another mage in Runewick with a big title that thinks he is something special. Pah! Same as all the others."
-"Elvaine", "Morgan" -> "Wissen und Licht, was f√ºr ein Unfug. Er ist einfach nur ein Scharlatan aus Runewick.", "Der Erzmagier von Runewick, er denkt, das Licht w√ºrde aus seinem Hinter strahlen!", "Nur noch ein Magier in Runewick mit gro√üem Titel, er denkt, er ist etwas besondere. Pah! Genausoein Versager wie die anderen."
+"Elvaine", "Morgan" -> "Wissen und Licht, was f¸r ein Unfug. Er ist einfach nur ein Scharlatan aus Runewick.", "Der Erzmagier von Runewick, er denkt, das Licht w¸rde aus seinem Hinter strahlen!", "Nur noch ein Magier in Runewick mit groﬂem Titel, er denkt, er ist etwas besondere. Pah! Genausoein Versager wie die anderen."
 english, "Runewick" -> "What a horrible place, full of scribes, mages and the learned. Supposed to be a place of wisdom, arrogance more like.", "Nice place to look at, but wouldn't want to live there.", "#me grins, motioning a hand to the surrounding area, 'Pah! Runewick, you don't want to know about that place when you've got Galmair!'"
-"Runewick" -> "Was f√ºr ein ekliger Ort voll von Schreiberlingen, Magiern und Gelehrten. Eigentlich ein Ort der Weisheit, ist es mehr ein Ort der Hochn√§sigkeit.", "Sieht schick aus, aber ich w√ºrde da nicht leben wollen.", "#me grinst und zeigt mit seiner Hand auf die Umgebung: 'Pah! Runewick, wen interessiert das schon, wenn man Galmair sieht!"
+"Runewick" -> "Was f¸r ein ekliger Ort voll von Schreiberlingen, Magiern und Gelehrten. Eigentlich ein Ort der Weisheit, ist es mehr ein Ort der Hochn‰sigkeit.", "Sieht schick aus, aber ich w¸rde da nicht leben wollen.", "#me grinst und zeigt mit seiner Hand auf die Umgebung: 'Pah! Runewick, wen interessiert das schon, wenn man Galmair sieht!"
 english, "Valerio", "Guilianni", "Don" -> "Aye, he is alright as long as you stay on his good side, he runs this place.", "Some people say he killed his father to rule this place, me, I reckon it's probably true.", "#me chuckles, 'He is firm but fair if you stay on his good side, he keeps this town in free order. That is just how I like it, its good for trade.'"
-"Valerio", "Guilianni", "Don" -> "Er ist in Ordnung, solange man es sich mit ihm nicht verscherzt. Er hat hier das sagen.", "Manche sagen, er h√§tte seinen Vater umgebracht um hier das Kommando zu √ºbernehmen, mag was wahres dran sein.", "#me lacht: 'Er ist hart aber fair, wenn man es sich nicht mit ihm verscherzt. Er h√§lt die Z√ºgel locker, so mag ich das; ist gut f√ºr das Gesch√§ft."
+"Valerio", "Guilianni", "Don" -> "Er ist in Ordnung, solange man es sich mit ihm nicht verscherzt. Er hat hier das sagen.", "Manche sagen, er h‰tte seinen Vater umgebracht um hier das Kommando zu ¸bernehmen, mag was wahres dran sein.", "#me lacht: 'Er ist hart aber fair, wenn man es sich nicht mit ihm verscherzt. Er h‰lt die Z¸gel locker, so mag ich das; ist gut f¸r das Gesch‰ft."
 english, "Galmair" -> "#me takes in a deep breath, 'Smell that, no place smells like that. I love this town, it's all for the free man.'", "It can be a little rough around here some nights, but every man and some of the women need to let off a little steam.", "If you live around here, you are a free man. Around here do as you want, just don't upset anyone bigger than you... and I am pretty big."
-"Galmair" -> "#me atmet tief durch: 'Riecht ihr das, kein Ort riecht so gut. Ich liebe diesen Geruch der Freiheit.'", "Es kann hier nachts schonmal ruppig zugehen, aber jeder Mann und einige Frauen m√ºssen auch einfach mal Dampf ablassen d√ºrfen.", "Wenn ihr hier lebt, seid ihr freier Mann. Macht, was ihr wollt, solange ihr niemanden gegen euch aufbringt, der st√§rker ist als ihr. Und ich bin ziemlich stark."
+"Galmair" -> "#me atmet tief durch: 'Riecht ihr das, kein Ort riecht so gut. Ich liebe diesen Geruch der Freiheit.'", "Es kann hier nachts schonmal ruppig zugehen, aber jeder Mann und einige Frauen m¸ssen auch einfach mal Dampf ablassen d¸rfen.", "Wenn ihr hier lebt, seid ihr freier Mann. Macht, was ihr wollt, solange ihr niemanden gegen euch aufbringt, der st‰rker ist als ihr. Und ich bin ziemlich stark."
 "queen" -> "Don't know much about her, ain't she the Queen of Cadomyr?", "I hear she is a right witch, that Queen of Cadomyr.", "From what I hear she is quite the woman, bit of a witch though, but some men like that."
-"k√∂nigin" -> "Viel wei√ü ich nicht √ºber sie, ist sie nicht die K√∂nigin von Cadomyr?", "Ich hab geh√∂rt, sie ist ein ziemliches Biest, die K√∂nigin von Cadomyr.", "Von dem, was ich geh√∂rt habe, ist sie ein echtes Weibsbild, aber auch ein Biest. Manche M√§nner m√∂gen das..."
+"kˆnigin" -> "Viel weiﬂ ich nicht ¸ber sie, ist sie nicht die Kˆnigin von Cadomyr?", "Ich hab gehˆrt, sie ist ein ziemliches Biest, die Kˆnigin von Cadomyr.", "Von dem, was ich gehˆrt habe, ist sie ein echtes Weibsbild, aber auch ein Biest. Manche M‰nner mˆgen das..."
 english, "rosaline", "edwards" -> "Don't know much about her, ain't she the Queen of Cadomyr?", "I hear she is a right witch, that Queen of Cadomyr.", "From what I hear she is quite the woman, bit of a witch though, but some men like that."
-"rosaline", "edwards" -> "Viel wei√ü ich nicht √ºber sie, ist sie nicht die K√∂nigin von Cadomyr?", "Ich hab geh√∂rt, sie ist ein ziemliches Biest, die K√∂nigin von Cadomyr.", "Von dem, was ich geh√∂rt habe, ist sie ein echtes Weibsbild, aber auch ein Biest. Manche M√§nner m√∂gen das..."
+"rosaline", "edwards" -> "Viel weiﬂ ich nicht ¸ber sie, ist sie nicht die Kˆnigin von Cadomyr?", "Ich hab gehˆrt, sie ist ein ziemliches Biest, die Kˆnigin von Cadomyr.", "Von dem, was ich gehˆrt habe, ist sie ein echtes Weibsbild, aber auch ein Biest. Manche M‰nner mˆgen das..."
 english, "Cadomyr" -> "It's a nice place, but too many laws for me, I'm a free man not a slave to laws and Royals.", "#me points to the ground, 'See, here a man can be what he wants, in Cadomyr you have a place and that's it for life. You live in the gutter, you die there.", "Good place, if you get into trouble, you will end up dead or in jail."
-"Cadomyr" -> "Ein netter Ort, aber zuviele Gesetze f√ºr meinen Geschmack. Ich bin ein freier Mann und kein Sklave der Br√§uche und Adeligen.", "#me zeigt auf den Boden: 'Seht, hier kann ein Mann sein, was er will, in Cadomyr kriegt jeder einen Platz zugewiesen und das f√ºr das ganze Leben. Wer im Dreck lebt, stirbt dort.", "Eigentlich ein guter Ort, wer √Ñrger macht, stirbt oder wird in den Kerker geworfen."
+"Cadomyr" -> "Ein netter Ort, aber zuviele Gesetze f¸r meinen Geschmack. Ich bin ein freier Mann und kein Sklave der Br‰uche und Adeligen.", "#me zeigt auf den Boden: 'Seht, hier kann ein Mann sein, was er will, in Cadomyr kriegt jeder einen Platz zugewiesen und das f¸r das ganze Leben. Wer im Dreck lebt, stirbt dort.", "Eigentlich ein guter Ort, wer ƒrger macht, stirbt oder wird in den Kerker geworfen."
 
 -- Main land factions
 english, "albar" -> "Ah, good for trading that place, big harbour town is Ann-Korr and the oldest of the Albarian towns."
-"albar" -> "Ah, ein guter Platz zum Handeln, ein gro√üer Hafen dort ist Ann-Korr, die √§lteste albarische Stadt."
+"albar" -> "Ah, ein guter Platz zum Handeln, ein groﬂer Hafen dort ist Ann-Korr, die ‰lteste albarische Stadt."
 english, "gynk", "gync" -> "If you're looking for gods, they are the towns to find. It is said the Gynkeesh have a temple for every god you can think of."
-"gync", "gynk" -> "Wenn ihr nach den G√∂ttern sucht, schaut bei den Gynkeesh. Sie haben einen Tempel f√ºr jeden erdenklichen Gott."
+"gync", "gynk" -> "Wenn ihr nach den Gˆttern sucht, schaut bei den Gynkeesh. Sie haben einen Tempel f¸r jeden erdenklichen Gott."
 english, "salkama" -> "Ah the town of the sun as it is called. Used to be just a fishing village now its a place of poets, art and a world renowned academy."
-"salkama" -> "Ah, die Stadt an der Sonne, so sagt man. War mal ein Fischerdorf, jetzt soll das ein Ort der Poeten, K√ºnstler und Magier sein."
+"salkama" -> "Ah, die Stadt an der Sonne, so sagt man. War mal ein Fischerdorf, jetzt soll das ein Ort der Poeten, K¸nstler und Magier sein."
 
 -- Gods; each NPC should react on AT LEAST one god, being a follower of said god
 "god" -> "I thank Irmorom for good business every day."
-"Gott", "G√∂tter" -> "Ich danke Irmorom jeden Tag f√ºr mein erfolgreiches Gesch√§ft."
+"Gott", "Gˆtter" -> "Ich danke Irmorom jeden Tag f¸r mein erfolgreiches Gesch‰ft."
 english, "Irmorom" -> "Irmorom is your best bet if you want good business.", "Aye I have trust in the gods, Irmorom has always been good to me.", "Best save a coin and offer it to Irmorom if you want to prosper in this life."
-"Irmorom" -> "Irmorom, der Gott der Wahl, wenn man ein gutes Gesch√§ft haben will.", "Ja, ich vertraue den G√∂ttern, Irmorom hat es immer gut mit mir gemeint.", "Spart einen Groschen und opfert ihn Irmorom, wenn ihr Erfolg haben wollt."
+"Irmorom" -> "Irmorom, der Gott der Wahl, wenn man ein gutes Gesch‰ft haben will.", "Ja, ich vertraue den Gˆttern, Irmorom hat es immer gut mit mir gemeint.", "Spart einen Groschen und opfert ihn Irmorom, wenn ihr Erfolg haben wollt."
 
 -- Catching typical NPC phrases
 "tell something" -> "#me makes an inviting gesture and lowers his voice, 'I'll tell you something, buy something or go away!'"
-"erz√§hl was", "erz√§hl etwas" -> "#me winkt einladend und senkt dann die Stimme: 'Ich sag dir was, kauf was oder verschwinde!'"
+"erz‰hl was", "erz‰hl etwas" -> "#me winkt einladend und senkt dann die Stimme: 'Ich sag dir was, kauf was oder verschwinde!'"
 
 -- Easter egg
 english, "obi" -> "What did you say?"
@@ -192,15 +192,15 @@ english, "Nik", "Nilo" -> "Everyone calls me Big Nik. Well, my friends do. Every
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Auf diese Steine k√∂nnen sie bauen!", "Build yourself a fortune, buy your bricks here!"
+cycletext "Auf diese Steine kˆnnen sie bauen!", "Build yourself a fortune, buy your bricks here!"
 cycletext "Auch mit wenig Schotter bekommst du deine Steine hier billig!", "My prices are cheap as rocks, get your stones here!"
-cycletext "Wenn ihr anderen eine Grube graben wollt, hier gibt es die Schaufeln daf√ºr!", "Don't dig around, get your shovel here!"
+cycletext "Wenn ihr anderen eine Grube graben wollt, hier gibt es die Schaufeln daf¸r!", "Don't dig around, get your shovel here!"
 cycletext "Mein Erz ist was dein Herz begehrt!", "Need some ore? I've got it and more!"
-cycletext "Steine so g√ºnstig, dass eure Augen funkeln werden.", "Stones at a price that will make your eyes sparkle!"
+cycletext "Steine so g¸nstig, dass eure Augen funkeln werden.", "Stones at a price that will make your eyes sparkle!"
 cycletext "Meine Spitzhacken gleiten durch den Stein wie durch Butter!", "Want a pick, mine cut through stone as if it was butter!"
 cycletext "#me winkt aufgeregt mit der Hand: 'Kommt her, kommt alle, hier gibt es Werkzeuge und Baumaterial.'", "#me waves his hand up, 'Come on, come all, get your tools and trade supplies here!'"
 cycletext "#me wischt sich die Stirn ab.", "#me wipes his forehead with the back of an arm."
-cycletext "#me spielt mit einem Goldnugget, er wirft es hoch und f√§ngt es anschlie√üend.", "#me plays with a nugget, tossing it up then catching it"
-cycletext "#me formt mit seinen H√§nden einen Trichter und ruft: 'Nur keine Scheu, ich hab Geld wie Heu!'", "#me holds a hand to the side of his mouth as he calls, 'Don't be shy, come and buy!'"
+cycletext "#me spielt mit einem Goldnugget, er wirft es hoch und f‰ngt es anschlieﬂend.", "#me plays with a nugget, tossing it up then catching it"
+cycletext "#me formt mit seinen H‰nden einen Trichter und ruft: 'Nur keine Scheu, ich hab Geld wie Heu!'", "#me holds a hand to the side of his mouth as he calls, 'Don't be shy, come and buy!'"
 cycletext "Wir geben ihrer Zukunft ein Zuhause!", "We give your future a home!"
-cycletext "Wie, wo, was, wei√ü... Big Nik!", "How, where, what, who knows... Big Nik!"
+cycletext "Wie, wo, was, weiﬂ... Big Nik!", "How, where, what, who knows... Big Nik!"

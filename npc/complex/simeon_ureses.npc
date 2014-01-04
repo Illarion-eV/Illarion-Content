@@ -24,7 +24,7 @@ autointroduce = on
 
 author = "Estralis Seborian"
 
-lookatDE = "Dieser NPC ist Simeon Ureses der kÃ¶nigliche Waffenmeister."
+lookatDE = "Dieser NPC ist Simeon Ureses der königliche Waffenmeister."
 lookatUS = "This NPC is Simeon Ureses the royal armourer."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -58,21 +58,21 @@ itemShoes = 53
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keywords: Hello, armourer, dwarves, Irmorom, repair.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der kÃ¶nigliche Waffenmeister. SchlÃ¼sselwÃ¶rter: Hallo, Waffenmeister, Zwerge, Irmorom, reparieren.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom, reparieren.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag. Soll ich eure AusrÃ¼stung reparieren?", "Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.", "Entschuldigt, kÃ¶nnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag. Soll ich eure Ausrüstung reparieren?", "Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.", "Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag. Soll ich eure AusrÃ¼stung reparieren?", "Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.", "Entschuldigt, kÃ¶nnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag. Soll ich eure Ausrüstung reparieren?", "Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.", "Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren."
 "Farewell", "Bye", "Fare well", "See you" -> "Good bye. And do some adventures for me.", "Farewell and come back soon.", "I bid you farewell."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer fÃ¼r mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wÃ¼nsche euch was."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer fÃ¼r mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wÃ¼nsche euch was."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer fÃ¼r mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wÃ¼nsche euch was."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wünsche euch was."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wünsche euch was."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wünsche euch was."
 "How are you", "How feel", "How do you do" -> "Good. I just got a new rasp.", "Did you know why a raspberry is called raspberry? Take a rasp and a raspberry and feel the surface...", "I need to work, sorry."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Ich habe gerade eine neue Feile bekommen.", "WuÃŸtet ihr, dass eine Erdbeere gar keine Beere sondern eine Nussart ist?", "Ich muss arbeiten, entschuldigt."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Ich habe gerade eine neue Feile bekommen.", "Wußtet ihr, dass eine Erdbeere gar keine Beere sondern eine Nussart ist?", "Ich muss arbeiten, entschuldigt."
 "your name", "who are you", "who art thou" -> "I am Simeon Ureses, the royal armourer."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Simeon Ureses, der kÃ¶nigliche Waffenmeister."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Simeon Ureses, der königliche Waffenmeister."
 
 -- repair triggers
 english, "repair", "fix" -> "Let's have a look at this."
@@ -88,39 +88,39 @@ english, "quest", "mission" -> "Do I look like I'd issue quests?"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the royal armourer. So, whenever your sword turns blunt, come to me."
-"beruf" -> "Ich bin der kÃ¶nigliche Waffenmeister. Wenn also euer Schwert stumpf wird, kommt zu mir."
+"beruf" -> "Ich bin der königliche Waffenmeister. Wenn also euer Schwert stumpf wird, kommt zu mir."
 english, "job" -> "I am the royal armourer. So, whenever your sword turns blunt, come to me."
-"job" -> "Ich bin der kÃ¶nigliche Waffenmeister. Wenn also euer Schwert stumpf wird, kommt zu mir."
+"job" -> "Ich bin der königliche Waffenmeister. Wenn also euer Schwert stumpf wird, kommt zu mir."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "dwarf", "dwarv" -> "Yes, indeed, I am the royal armourer and I am not a dwarf. Do you think only dwarves can forge and smith?"
 "armourer", "armorer" -> "As royal armourer, it is my responsibility that the equipment of the knights of Cadomyr is in a perfect condition."
 english, "Hastings", "Baron" -> "Hush! Not in public."
-"Zwerg" -> "FÃ¼rwahr, ich bin der kÃ¶nigliche Waffenmeister und kein Zwerg. Denkt ihr etwa, nur Zwerge kÃ¶nnen schmieden?"
-"Waffenmeister" -> "Als kÃ¶niglicher Waffenmeister ist es meine Pflicht, dafÃ¼r zu sorgen, dass die AusrÃ¼stung der Ritter Cadomyrs in bester Verfassung ist."
-"Hastings", "Baron" -> "Still! Doch nicht in der Ã–ffentlichkeit!"
+"Zwerg" -> "Fürwahr, ich bin der königliche Waffenmeister und kein Zwerg. Denkt ihr etwa, nur Zwerge können schmieden?"
+"Waffenmeister" -> "Als königlicher Waffenmeister ist es meine Pflicht, dafür zu sorgen, dass die Ausrüstung der Ritter Cadomyrs in bester Verfassung ist."
+"Hastings", "Baron" -> "Still! Doch nicht in der Öffentlichkeit!"
 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares" -> "I am not a trader but I can repair your items."
-"was verkauf", "was kauf", "warenliste" -> "Ich bin kein HÃ¤ndler aber ich kann eure GegenstÃ¤nde reparieren."
+"was verkauf", "was kauf", "warenliste" -> "Ich bin kein Händler aber ich kann eure Gegenstände reparieren."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Irmorom, the god of crafting, is the only god I really pray to. I respect them all, though. Even Oldra!"
-"Gott", "GÃ¶tter" -> "Irmorom, der Gott des Handwerkes, ist der einzige Gott, zu dem ich bete. Ich respektiere sie aber alle, sogar Oldra!"
-english, "Bragon", "BrÃ¡gon" -> "BrÃ¡gon grants me the fire for forging but he does not grant the hammer."
-"Bragon", "BrÃ¡gon" -> "BrÃ¡gon gibt mir das Schmiedefeuer, doch gibt er mir nicht den Schmiedehammer."
+"Gott", "Götter" -> "Irmorom, der Gott des Handwerkes, ist der einzige Gott, zu dem ich bete. Ich respektiere sie aber alle, sogar Oldra!"
+english, "Bragon", "Brágon" -> "Brágon grants me the fire for forging but he does not grant the hammer."
+"Bragon", "Brágon" -> "Brágon gibt mir das Schmiedefeuer, doch gibt er mir nicht den Schmiedehammer."
 english, "Irmorom", "Oldra" -> "Irmorom, the god of crafting, is the only god I really pray to. I respect them all, though. Even Oldra!"
 "Irmorom", "Oldra" -> "Irmorom, der Gott des Handwerkes, ist der einzige Gott, zu dem ich bete. Ich respektiere sie aber alle, sogar Oldra!"
-english, "Malachin", "MalachÃ­n" -> "So, I am with Cadomyr so I have to pray to MalachÃ­n? You need to learn a lot..."
-"Malachin", "MalachÃ­n" -> "So, ich bin also aus Cadomyr, also muss ich zu MalachÃ­n beten? Ihr mÃ¼ÃŸt noch eine Menge lernen..."
+english, "Malachin", "Malachín" -> "So, I am with Cadomyr so I have to pray to Malachín? You need to learn a lot..."
+"Malachin", "Malachín" -> "So, ich bin also aus Cadomyr, also muss ich zu Malachín beten? Ihr müßt noch eine Menge lernen..."
 
 -- Optional: Faction stuff
 "Queen" -> "I serve the queen because she is the queen. Did I make myself clear?"
-"KÃ¶nigin" -> "Ich diene der KÃ¶nigin, weil sie die KÃ¶nigin ist. Habe ich mich klar ausgedrÃ¼ckt?"
+"Königin" -> "Ich diene der Königin, weil sie die Königin ist. Habe ich mich klar ausgedrückt?"
 english, "rosaline", "edwards" -> "I serve the queen because she is the queen. Did I make myself clear?"
-"rosaline", "edwards" -> "Ich diene der KÃ¶nigin, weil sie die KÃ¶nigin ist. Habe ich mich klar ausgedrÃ¼ckt?"
+"rosaline", "edwards" -> "Ich diene der Königin, weil sie die Königin ist. Habe ich mich klar ausgedrückt?"
 english, "Cadomyr" -> "The wellbeing of Cadomyr is my only concern. I will not do anything against Cadomyr, regardless of my personal opinion."
-"Cadomyr" -> "Das Wohlergehen Cadomyrs ist mein einziger Lebensinhalt. Ich werde nichts zum Schaden Cadomyrs tun, unabhÃ¤ngig davon, was meine eigentliche Meinung ist."
+"Cadomyr" -> "Das Wohlergehen Cadomyrs ist mein einziger Lebensinhalt. Ich werde nichts zum Schaden Cadomyrs tun, unabhängig davon, was meine eigentliche Meinung ist."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -128,12 +128,12 @@ english, "Cadomyr" -> "The wellbeing of Cadomyr is my only concern. I will not d
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Ja, ich schaff das.", "Yes, I can!"
-cycletext "Ihr da! Sehe ich da eine Schramme in eurer RÃ¼stung?", "Lo! Is that a scratch in your armour?"
-cycletext "Die Ritter Cadomyrs sollten nur in strahlenden RÃ¼stungen in die Schlacht ziehen.", "The knights of Cadomyr should go to battle only in shiny armour."
+cycletext "Ihr da! Sehe ich da eine Schramme in eurer Rüstung?", "Lo! Is that a scratch in your armour?"
+cycletext "Die Ritter Cadomyrs sollten nur in strahlenden Rüstungen in die Schlacht ziehen.", "The knights of Cadomyr should go to battle only in shiny armour."
 cycletext "Ein gebrochenes Herz? Das kann ein Bier von Severus helfen. Ein zerbrochenes Schwert? Da kann ich helfen!", "A broken heart? A beer from Severus might help. A broken sword? I can help!"
 cycletext "Dies ist... Cadomyr!", "This is... Cadomyr!"
 cycletext "#me poliert eine Panzerplatte.", "#me polishes a plate armour."
-cycletext "Ein zerbrochener Bogen tÃ¶tet genau noch ein Opfer: Den Idioten mit der Sehne in der Hand.", "A broken bow kills just one victim: The idiot holding the string."
-cycletext "Ich kenne einen Ort mit BÃ¤umen in der WÃ¼ste... Nicht einfach nur ein paar verschrumpelte Palmen sondern richtig BÃ¤ume mit BlÃ¤ttern!", "I know a place with trees in the desert... not just some ordinary palm trees but real trees with leaves!"
+cycletext "Ein zerbrochener Bogen tötet genau noch ein Opfer: Den Idioten mit der Sehne in der Hand.", "A broken bow kills just one victim: The idiot holding the string."
+cycletext "Ich kenne einen Ort mit Bäumen in der Wüste... Nicht einfach nur ein paar verschrumpelte Palmen sondern richtig Bäume mit Blättern!", "I know a place with trees in the desert... not just some ordinary palm trees but real trees with leaves!"
 cycletext "Guten Tag.", "Good day."
-cycletext "Ich hoffe, alles lÃ¤uft zu eurer Zufriedenheit?", "I hope all is well?"
+cycletext "Ich hoffe, alles läuft zu eurer Zufriedenheit?", "I hope all is well?"

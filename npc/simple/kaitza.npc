@@ -24,7 +24,7 @@ autointroduce = on
 
 author = "Grokk"
 
-lookatDE = "Dieser NPC ist Kaitza der TempelwÃ¤chter."
+lookatDE = "Dieser NPC ist Kaitza der Tempelwächter."
 lookatUS = "This NPC is Kaitza the temple guard."
 useMsgDE = "#me faucht drohend."
 useMsgUS = "#me hisses sharply."
@@ -70,184 +70,184 @@ itemShoes = 326
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Kaitza the temple guard. Keywords: quest, Zelphia, profession, Gobaith, gods.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Kaitza der TempelwÃ¤chter. SchlÃ¼sselwÃ¶rter: Zelphia,Auftrag ,Beruf, Gobaith, GÃ¶tter.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Kaitza der Tempelwächter. Schlüsselwörter: Zelphia,Auftrag ,Beruf, Gobaith, Götter.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Glory to ze Goddessss.", "Greetingsss, landwalker.", "#me lowers his head respectfully, 'Greetingsss.'"
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ehre sei der GÃ¶ttin.", "GrÃ¼ssse, LandgÃ¤nger.", "#me senkt seinen kopf respektvoll,'Greetingss'."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ehre sei der Göttin.", "Grüssse, Landgänger.", "#me senkt seinen kopf respektvoll,'Greetingss'."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Glory to ze Goddessss.", "Greetingsss, landwalker.", "#me lowers his head respectfully, 'Greetingss'."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Ehre sei der GÃ¶ttin.", "GrÃ¼ssse, LandgÃ¤nger.", "#me neigt sein Haupt respektvoll,'GrÃ¼ssse'."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Ehre sei der Göttin.", "Grüssse, Landgänger.", "#me neigt sein Haupt respektvoll,'Grüssse'."
 "Farewell", "Bye", "Fare well", "See you" -> "Glory to ze Goddessss.", "Zss. May Zelphia keep your watersss calm.", "#me bows his head respectfully, 'Zss. Farewell.'"
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Ehre sssei der GÃ¶ttin.", "Zzs. MÃ¶ge Zelphina deine Wasser beruhig.", "#me neigt respektvoll das Haupt: 'Lebt wohl!'."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Ehre sssei der Göttin.", "Zzs. Möge Zelphina deine Wasser beruhig.", "#me neigt respektvoll das Haupt: 'Lebt wohl!'."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Glory to ze Goddessss.", "Zss. May Zelphia keep your waters calm.", "#me bows his head respectfully, 'Zss. Farewell.'"
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ehre sssei der GÃ¶ttin.", "Zzs. MÃ¶ge Zelphina deine Wasser beruhig.", "#me neigt respektvoll das Haupt: 'Lebt wohl!'."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ehre sssei der Göttin.", "Zzs. Möge Zelphina deine Wasser beruhig.", "#me neigt respektvoll das Haupt: 'Lebt wohl!'."
 "How are you", "How feel", "How do you do" -> "Zss. I am...well.", "Ze Goddessss watches over me. Zss.", "Zelphia keepsss me sssafe."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht esss.... gut.", "Die GÃ¶ttin wacht Ã¼ber mich. Zss.", "Zelpia beschÃ¼tzzt mich."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht esss.... gut.", "Die Göttin wacht über mich. Zss.", "Zelpia beschützzt mich."
 "your name", "who are you", "who art thou" -> "I am Kaitza. Ssservant of ze Goddessss.", "My name isss Kaitza.", "I am Kaitza, ze temple guard."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Kaitza. Diener der GÃ¶ttin. Zss.", "Mein Name issst Kaiza.", "Ich bin Kiatza, der WÃ¤chter dess Tempelssss."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Kaitza. Diener der Göttin. Zss.", "Mein Name issst Kaiza.", "Ich bin Kiatza, der Wächter dess Tempelssss."
 
 -- 1st quest: Bring one emerald ring
 
 -- Give out quest 1
 queststatus(333) = 7, english, "quest", "mission" -> inform("[Quest updated] Aurora's Staff: Part III"), queststatus(333) = 8, "Zis dagger? It isss not for sssale. Zss. Although...ze druid, Aurora Sssnow, ssshe hasss zis emerald ring. Get it for me, and I ssshall part with ze dagger."
-queststatus(333) = 7, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche I"), queststatus(333) = 8, "Diessser Dolch? Er issst nicht zzzu kaufen. Zss. Aber...diesse Druidin Aurora Sssnow, ssie hat einen Emerald-Ring. Zss. Gebt mir den Ring und ich Ã¼berlassse euch den Dolch. Zss."
+queststatus(333) = 7, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche I"), queststatus(333) = 8, "Diessser Dolch? Er issst nicht zzzu kaufen. Zss. Aber...diesse Druidin Aurora Sssnow, ssie hat einen Emerald-Ring. Zss. Gebt mir den Ring und ich überlassse euch den Dolch. Zss."
 queststatus(333) = 7, "task", "adventure", "staff", "dagger" -> inform("[Quest updated] Aurora's Staff: Part III"), queststatus(333) = 8, "Zis dagger? It isss not for sssale. Zss. Although...ze druid, Aurora Sssnow, ssshe hasss zis emerald ring. Get it for me, and I ssshall part with ze dagger."
-queststatus(333) = 7, "Auftrag", "Aufgabe", "Abenteuer", "stab", "dolch" -> inform("[Neues Quest] Die Geistereiche I"), queststatus(333) = 8, "Diessser Dolch? Er issst nicht zzzu kaufen. Zss. Aber...diesse Druidin Aurora Sssnow, ssie hat einen Emerald-Ring. Zss. Gebt mir den Ring und ich Ã¼berlassse euch den Dolch. Zss."
+queststatus(333) = 7, "Auftrag", "Aufgabe", "Abenteuer", "stab", "dolch" -> inform("[Neues Quest] Die Geistereiche I"), queststatus(333) = 8, "Diessser Dolch? Er issst nicht zzzu kaufen. Zss. Aber...diesse Druidin Aurora Sssnow, ssie hat einen Emerald-Ring. Zss. Gebt mir den Ring und ich überlassse euch den Dolch. Zss."
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(333) = 8, english, "quest", "mission" -> "Ze dagger isss important to me. Kaitza ssshall only let it go if you bring me zis emerald ring. Aurora Sssnow has it, in <town name>. Zss."
-queststatus(333) = 8, "quest", "mission" -> "Diessser Dolch issst wichtig fÃ¼r mich. Zss. Kaitza gibt ihn nur frot im Tausssch, gegen dem Emerald-Ring.Aurora Ssssnow besitzzt ihn. Ssssucht in <Stadt name>"
+queststatus(333) = 8, "quest", "mission" -> "Diessser Dolch issst wichtig für mich. Zss. Kaitza gibt ihn nur frot im Tausssch, gegen dem Emerald-Ring.Aurora Ssssnow besitzzt ihn. Ssssucht in <Stadt name>"
 queststatus(333) = 8, "task", "adventure" -> "Ze dagger isss important to me. I ssshall only let it go if you bring me zis emerald ring. Aurora Sssnow has it, in <town name>. Zss."
-queststatus(333) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> "Diessser Dolch issst wichtig fÃ¼r mich. Zss. Kaitza gibt ihn nur fort im Tausssch, gegen dem Emerald-Ring. Aurora Ssssnow besitzzt ihn. Ssssucht in <Stadt name>"
+queststatus(333) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> "Diessser Dolch issst wichtig für mich. Zss. Kaitza gibt ihn nur fort im Tausssch, gegen dem Emerald-Ring. Aurora Ssssnow besitzzt ihn. Ssssucht in <Stadt name>"
 
 -- Quest 1 solved, emerald ring deleted, ornate dagger added
 queststatus(333) = 9, item(281, all) > 0, english, ".+" -> inform("[Quest updated] Aurora's Staff: Part III."), deleteItem(281, 1), item(190, 1, 499), queststatus(333) = 10, "Yesss...zis iss ze one. Gorgeousss...Here iss your dagger, as promisssed. Zss."
-queststatus(333) = 9, item(281, all) > 0, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 80 KupferstÃ¼cke."), deleteItem(281, 1), item(190, 1, 499), queststatus(333) = 10, "Ja...dasss issst er, der Dolch. Zss! Grosssartig... Hier isst Euer Doch wie versprochen. Zzs."
+queststatus(333) = 9, item(281, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 80 Kupferstücke."), deleteItem(281, 1), item(190, 1, 499), queststatus(333) = 10, "Ja...dasss issst er, der Dolch. Zss! Grosssartig... Hier isst Euer Doch wie versprochen. Zzs."
 
 -- 2nd quest: Bring 10 trout
 
 -- Give out quest 2
 queststatus(335) = 0, english, "quest", "mission" -> inform("[New quest] Fishing For Lizards"), queststatus(335) = 1, "Zss. You wisssh to help Kaitza? He isss ssso hungry. Pleassse, bring me ten trout. Zey mussst be raw, cooking ruinsss ze fisssh."
-queststatus(335) = 0, "quest", "mission" -> inform("[Neues Quest] Fischen fÃ¼r Echsen"), queststatus(335) = 1, "Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie mÃ¼sssen roh sssein. Kochen verdirbt das Esssen."
+queststatus(335) = 0, "quest", "mission" -> inform("[Neues Quest] Fischen für Echsen"), queststatus(335) = 1, "Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie müsssen roh sssein. Kochen verdirbt das Esssen."
 queststatus(335) = 0, "task", "adventure" -> inform("[New quest] Fishing For Lizards"), queststatus(335) = 1, "Zss. You wisssh to help Kaitza? He isss ssso hungry. Pleassse, bring me ten trout. Zey mussst be raw, cooking ruinsss ze fisssh."
-queststatus(335) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Fischen fÃ¼r Echsen"), queststatus(335) = 1, "Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie mÃ¼sssen roh sssein. Kochen verdirbt das Esssen."
+queststatus(335) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Fischen für Echsen"), queststatus(335) = 1, "Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie müsssen roh sssein. Kochen verdirbt das Esssen."
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(335) = 1, item(73, all) < 10, english, "quest", "mission" -> "Zss. Sstill hungry. Bring me ten trout, Kaitza will pay. Zss."
-queststatus(335) = 1, item(73, all) < 10, "quest", "mission" -> "Zss. Sso Hungrig. Bring mir zzzehn Forellen. Kaitza zzzahlt dafÃ¼r. Zss."
+queststatus(335) = 1, item(73, all) < 10, "quest", "mission" -> "Zss. Sso Hungrig. Bring mir zzzehn Forellen. Kaitza zzzahlt dafür. Zss."
 queststatus(335) = 1, item(73, all) < 10, "task", "adventure" -> "Zss. Sstill hungry. Bring me ten trout, Kaitza will pay. Zss."
-queststatus(335) = 1, item(73, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "Zss. Sso Hungrig. Bring mir zzzehn Forellen. Kaitza zzzahlt dafÃ¼r. Zss."
+queststatus(335) = 1, item(73, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "Zss. Sso Hungrig. Bring mir zzzehn Forellen. Kaitza zzzahlt dafür. Zss."
 
 -- Quest 2 solved, reward: 300cp
 queststatus(335) = 1, item(73, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded three silver coins."), money + 300, deleteItem(73, 10), queststatus(335) = 2, "Yess...zis isss good, very good. Zss. Here isss your money."
-queststatus(335) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst drei SilberstÃ¼cke."), money + 300, deleteItem(73, 10), queststatus(335) = 2, "Ja... dass ist gut.Sssehr gut. Zss. Hier issst Euer Geld."
+queststatus(335) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst drei Silberstücke."), money + 300, deleteItem(73, 10), queststatus(335) = 2, "Ja... dass ist gut.Sssehr gut. Zss. Hier issst Euer Geld."
 
 -- 3rd quest: Bring 5 salmon
 
 -- Give out quest 3
 queststatus(335) = 2, english, "quest", "mission" -> inform("[New quest] Fishing For Lizards II"), queststatus(335) = 3, "Yesss. Ze trout wasss mossst deliciousss. Now, Kaitza wantsss sssome sssalmon. Zsss. Bring me five of zem."
-queststatus(335) = 2, "quest", "mission" -> inform("[Neues Quest] Fischen fÃ¼r Echsen II"), queststatus(335) = 3, "Ja. Szzz. Die Forellen waren ausssgesprochen lecker, Zss. Jetzzzt mÃ¶chte Kaitza ein paar Lachsssfische verspeisssen. Bringt mir fÃ¼nf SssstÃ¼ck."
+queststatus(335) = 2, "quest", "mission" -> inform("[Neues Quest] Fischen für Echsen II"), queststatus(335) = 3, "Ja. Szzz. Die Forellen waren ausssgesprochen lecker, Zss. Jetzzzt möchte Kaitza ein paar Lachsssfische verspeisssen. Bringt mir fünf Sssstück."
 queststatus(335) = 2, "task", "adventure" -> inform("[New quest] Fishing For Lizards II"), queststatus(335) = 3, "Yesss. Ze trout wasss mossst deliciousss. Now, Kaitza wantsss sssome sssalmon. Zsss. Bring me five of zem."
-queststatus(335) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Fischen fÃ¼r Echsen II"), queststatus(335) = 3, "Ja. Szzz. Die Forellen waren ausssgesprochen lecker, Zss. Jetzzzt mÃ¶chte Kaitza ein paar Lachsssfische verspeisssen. Bringt mir fÃ¼nf SssstÃ¼ck."
+queststatus(335) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Fischen für Echsen II"), queststatus(335) = 3, "Ja. Szzz. Die Forellen waren ausssgesprochen lecker, Zss. Jetzzzt möchte Kaitza ein paar Lachsssfische verspeisssen. Bringt mir fünf Sssstück."
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(335) = 3, item(355, all) < 5, english, "quest", "mission" -> "Pleassse, you mussst bring Kaitza five deliciousss sssalmon. Do not cook zem, zey mussst be raw."
-queststatus(335) = 3, item(355, all) < 5, "quest", "mission" -> "Bitte findet fÃ¼r Kaitza fÃ¼nf ssschamckhafte Lachssse. Kocht sssie nicht. Sssie mÃ¼sssen roh sssein."
+queststatus(335) = 3, item(355, all) < 5, "quest", "mission" -> "Bitte findet für Kaitza fünf ssschamckhafte Lachssse. Kocht sssie nicht. Sssie müsssen roh sssein."
 queststatus(335) = 3, item(355, all) < 5, "task", "adventure" -> "Pleassse, you mussst bring Kaitza five deliciousss sssalmon. Do not cook zem, zey mussst be raw."
-queststatus(335) = 3, item(355, all) < 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Bitte findet fÃ¼r Kaitza fÃ¼nf ssschamckhafte Lachssse. Kocht sssie nicht. Sssie mÃ¼sssen roh sssein."
+queststatus(335) = 3, item(355, all) < 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Bitte findet für Kaitza fünf ssschamckhafte Lachssse. Kocht sssie nicht. Sssie müsssen roh sssein."
 
 -- Quest 3 solved, reward: quality snake sword, 400cp
 queststatus(335) = 3, item(355, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded a snake sword and four silver coins."), money + 400, deleteItem(355, 5), item(2788, 1, 799), queststatus(335) = 4, "Zese sssalmon look mossst good. Take zis, as payment. Zss. Now leave Kaitza alone to eat hisss fishiesss."
-queststatus(335) = 3, item(355, all) > 4, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst ein Schlangenschwert und vier SilberstÃ¼cke."), money + 400, deleteItem(355, 5), item(2788, 1, 799), queststatus(335) = 4, "Der Lachsss sssieht gut uisss. Nehmt diesss, alsss Bezzzahlung. Zss. Jetzzzt lasst mich in Ruhe essssen. Zss."
+queststatus(335) = 3, item(355, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst ein Schlangenschwert und vier Silberstücke."), money + 400, deleteItem(355, 5), item(2788, 1, 799), queststatus(335) = 4, "Der Lachsss sssieht gut uisss. Nehmt diesss, alsss Bezzzahlung. Zss. Jetzzzt lasst mich in Ruhe essssen. Zss."
 
 -- No more quests, just nice words of gratitude
 queststatus(335) = 4, english, "quest", "mission" -> "Zss. Be gone. Leave Kaitza to enjoy hisss fishiesss in peace."
-queststatus(335) = 4, "quest", "mission" -> "Lassst mich allein. Kaitza mÃ¶chte ssseine Fisssche in Ruhe esssen."
+queststatus(335) = 4, "quest", "mission" -> "Lassst mich allein. Kaitza möchte ssseine Fisssche in Ruhe esssen."
 queststatus(335) = 4, "task", "adventure" -> "Zss. Be gone. Leave Kaitza to enjoy hisss fishiesss in peace."
-queststatus(335) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> "Lassst mich allein. Kaitza mÃ¶chte ssseine Fisssche in Ruhe esssen."
+queststatus(335) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> "Lassst mich allein. Kaitza möchte ssseine Fisssche in Ruhe esssen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I ssserve ze Goddessss.", "Zss. I am a temple guard.", "I dessstroy evil."
-"beruf" -> "Ich diene der GÃ¶ttin. Zss.", "Ich bin ein TempelwÃ¤chter. Sss.", "Ich bekÃ¤mpfe dasss BÃ¶ssse."
+"beruf" -> "Ich diene der Göttin. Zss.", "Ich bin ein Tempelwächter. Sss.", "Ich bekämpfe dasss Bössse."
 english, "job" -> "I ssserve ze Goddessss.", "Zss. I am a temple guard.", "I dessstroy evil."
-"job" -> "Ich diene der GÃ¶ttin. Zss.", "Ich bin ein TempelwÃ¤chter. Sss.", "Ich bekÃ¤mpfe dasss BÃ¶ssse."
+"job" -> "Ich diene der Göttin. Zss.", "Ich bin ein Tempelwächter. Sss.", "Ich bekämpfe dasss Bössse."
 english, "Gobaith", "Gobiath" -> "Zis land wasss very corrupt.", "Zis island had much evil, much evil, yesss. Zss.", "Zss. Ze people zere, zey were weak."
-"Gobaith", "Gobiath" -> "Diess land war sssehr koorup. Zss.", "Diessse Inssel war Heim von viel bÃ¶ssem. Ja, sssehr viel bÃ¶sses.", "Zss. Die Leute dort waren szz...schwach."
+"Gobaith", "Gobiath" -> "Diess land war sssehr koorup. Zss.", "Diessse Inssel war Heim von viel bössem. Ja, sssehr viel bösses.", "Zss. Die Leute dort waren szz...schwach."
 "my name" -> "Zss. It isss an honour to meet you.", "A pleasssure to meet you.", "Glory to ze Goddessss."
-"mein Name" -> "Zss. Es isst eine Ehre Euch zzzu treffen.", "Ess issst eine Freude Euch zzzu treffen.", "Ehre sssei der GÃ¶ttin!"
+"mein Name" -> "Zss. Es isst eine Ehre Euch zzzu treffen.", "Ess issst eine Freude Euch zzzu treffen.", "Ehre sssei der Göttin!"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Zss. Ze magicsss isss not to be trusssted.", "Zey sssay zat he wasss blesssed by ze human Goddesss Elara.", "Ze Archmage rulesss ze town of Runewick."
-"Erzmagier" -> "Zss. Diesser Magie sssolte man nicht trauen.", "Sssie sagen, er ssein von der menssschlichen GÃ¶ttin Elara gesssegnet.", "Der Erzzzmagier herssscht Ã¼ber die Sss...Stadt Runewick."
+"Erzmagier" -> "Zss. Diesser Magie sssolte man nicht trauen.", "Sssie sagen, er ssein von der menssschlichen Göttin Elara gesssegnet.", "Der Erzzzmagier herssscht über die Sss...Stadt Runewick."
 english, "Elvaine", "Morgan" -> "Zss. Ze magicsss isss not to be trusssted.", "Zey sssay zat he wasss blesssed by ze human Goddesss Elara.", "Ze Archmage rulesss ze town of Runewick."
-"Elvaine", "Morgan" -> "Zss. Diesser Magie sssolte masn nicht trauen.", "Sssie sagen, er ssein von der menssschlichen GÃ¶ttin Elara gesssegnet.", "Der Erzzzmagier herssscht Ã¼ber die Sss...Stadt Runewick."
+"Elvaine", "Morgan" -> "Zss. Diesser Magie sssolte masn nicht trauen.", "Sssie sagen, er ssein von der menssschlichen Göttin Elara gesssegnet.", "Der Erzzzmagier herssscht über die Sss...Stadt Runewick."
 english, "Runewick" -> "Zss. Runewick isss ze land of wisdom.", "Ze people of Runewick are ssstrong of mind, but not of body.", "Zese people know nozing of honour."
-"Runewick" -> "Zss. Runewick issst dasss Land des Weisssheit.", "Die Leute von Runewivk sssind ss..stark im Geisste, aber nicht im Kampf.", "Diessse Leute wisssen nichtsss Ã¼ber Ehre."
+"Runewick" -> "Zss. Runewick issst dasss Land des Weisssheit.", "Die Leute von Runewivk sssind ss..stark im Geisste, aber nicht im Kampf.", "Diessse Leute wisssen nichtsss über Ehre."
 english, "Valerio", "Guilianni", "Don" -> "Money...only zis isss important zere.", "Zese people knowsss nozing of honour.", "Do not trussst a word ze Don uttersss."
-"Valerio", "Guilianni", "Don" -> "Geld...Ged issst dass einzzzig wichtige dort.", "Diessse Leute wisssen nichtss Ã¼ber Ehre.", "Glaubt dem Don ssseine Worte bessser nicht."
+"Valerio", "Guilianni", "Don" -> "Geld...Ged issst dass einzzzig wichtige dort.", "Diessse Leute wisssen nichtss über Ehre.", "Glaubt dem Don ssseine Worte bessser nicht."
 english, "Galmair" -> "Zis town isss plagued by corruption.", "Gold isss ze only object zat mattersss zere.", "Zese people knowss nozing of honour."
-"Galmair" -> "Diessse sss..Stadt isst von Koruption geplagt. Zzs.", "Gold zzzÃ¤hlt dort, alsss einzzigesss.", "Diessse Leute wisssen nichtss Ã¼ber Ehre."
+"Galmair" -> "Diessse sss..Stadt isst von Koruption geplagt. Zzs.", "Gold zzzählt dort, alsss einzzigesss.", "Diessse Leute wisssen nichtss über Ehre."
 "Queen" -> "Honour to ze Queen!", "Queen Rosssaline isss ze highest of ze humansss.", "Ze noble Queen rulesss ze town of Cadomyr."
-"KÃ¶nigin" -> "Ehre sssei der KÃ¶nigin.", "KÃ¶nigin Rossaline issst die hÃ¶chssste der Menssschen.", "Die edle KÃ¶nigin regiert die Stadt Cadomyr."
+"Königin" -> "Ehre sssei der Königin.", "Königin Rossaline issst die höchssste der Menssschen.", "Die edle Königin regiert die Stadt Cadomyr."
 english, "rosaline", "edwards" -> "Honour to ze Queen!", "Queen Rosssaline isss ze highest of ze humansss.", "Ze noble Queen rulesss ze town of Cadomyr."
-"rosaline", "edwards" -> "Ehre sssei der KÃ¶nigin.", "KÃ¶nigin Rossaline issst die hÃ¶chssste der Menssschen.", "Die edle KÃ¶nigin regiert die Stadt Cadomyr."
+"rosaline", "edwards" -> "Ehre sssei der Königin.", "Königin Rossaline issst die höchssste der Menssschen.", "Die edle Königin regiert die Stadt Cadomyr."
 english, "Cadomyr" -> "Zss. A more honourable people ssshall never be ssseen.", "Zis town isss ruled by ze noble Queen Rosssaline. Zss.", "Ze enemiesss of Cadomyr ssshall fall beneath our bladesss."
-"Cadomyr" -> "Zss. Eherbarer Menssschen alsss diese  waren niemalsss gessehen.", "Diessse Stadt wird behersscht von KÃ¶ngin Rosssaline. Zss.", "Die Feinde Cadomyr sssollen neben unsssere Klingen fallen."
+"Cadomyr" -> "Zss. Eherbarer Menssschen alsss diese  waren niemalsss gessehen.", "Diessse Stadt wird behersscht von Köngin Rosssaline. Zss.", "Die Feinde Cadomyr sssollen neben unsssere Klingen fallen."
 
 -- Main land factions
 english, "albar" -> "Zss. I know little of ze human sssettlementsss.", "I know nozing of zese placesss.", "I have no interessst in zis. Zss."
-"albar" -> "Zss. Ich weisss wenig Ã¼ber MenssschenstÃ¤dte. Zss.", "Ãœber diesssen Ort issst mir nichtss bekannt.", "Diesss intessierit Kaita nicht."
+"albar" -> "Zss. Ich weisss wenig über Menssschenstädte. Zss.", "Über diesssen Ort issst mir nichtss bekannt.", "Diesss intessierit Kaita nicht."
 english, "gynk", "gync" -> "Zss. I know little of ze human sssettlementsss.", "I know nozing of zese placesss.", "I have no interessst in zis. Zss."
-"gync", "gynk" -> "Zss. Ich weisss wenig Ã¼ber MenssschenstÃ¤dte. Zss.", "Ãœber diesssen Ort issst mir nichtss bekannt.", "Diesss intessierit Kaita nicht."
+"gync", "gynk" -> "Zss. Ich weisss wenig über Menssschenstädte. Zss.", "Über diesssen Ort issst mir nichtss bekannt.", "Diesss intessierit Kaita nicht."
 english, "salkama" -> "Zss. I know little of ze human sssettlementsss.", "I know nozing of zese placesss.", "I have no interessst in zis. Zss."
-"salkama" -> "Zss. Ich weisss wenig Ã¼ber MenssschenstÃ¤dte. Zss.", "Ãœber diesssen Ort issst mir nichtss bekannt.", "Diesss intessierit Kaita nicht."
+"salkama" -> "Zss. Ich weisss wenig über Menssschenstädte. Zss.", "Über diesssen Ort issst mir nichtss bekannt.", "Diesss intessierit Kaita nicht."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I worship ze Goddessss."
-"Gott", "GÃ¶tter" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
+"Gott", "Götter" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 english, "Adron" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Adron" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
-english, "Bragon", "BrÃ¡gon" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Bragon", "BrÃ¡gon" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
+"Adron" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
+english, "Bragon", "Brágon" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
+"Bragon", "Brágon" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 english, "Cherga" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Cherga" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
+"Cherga" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 english, "Elara" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Elara" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
+"Elara" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 english, "Eldan" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Eldan" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
+"Eldan" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 english, "Findari" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Findari" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
+"Findari" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 english, "Irmorom" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Irmorom" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
-english, "Malachin", "MalachÃ­n" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Malachin", "MalachÃ­n" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
+"Irmorom" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
+english, "Malachin", "Malachín" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
+"Malachin", "Malachín" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 english, "Moshran" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Moshran" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
-english, "Nargun", "NargÃºn", "NargÃ¹n" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Nargun", "NargÃºn", "NargÃ¹n" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
+"Moshran" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
+english, "Nargun", "Nargún", "Nargùn" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
+"Nargun", "Nargún", "Nargùn" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 english, "Oldra" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Oldra" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
+"Oldra" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 english, "Ronagan" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Ronagan" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
+"Ronagan" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 english, "Sirani" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Sirani" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
+"Sirani" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 english, "Tanora", "Zelphia" -> "Glory to ze Goddessss!", "Zss. Zelphia watchesss over me.", "Ze Island of Eternity awaitsss me. Zss."
-"Tanora", "Zelphia" -> "Ehre sei der GÃ¶ttin! Zss.", "Zss. Zelphia behÃ¼tet mich.", "Dass Eiland der Ewigkeit erwatet mich. Zss."
+"Tanora", "Zelphia" -> "Ehre sei der Göttin! Zss.", "Zss. Zelphia behütet mich.", "Dass Eiland der Ewigkeit erwatet mich. Zss."
 english, "Ushara" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Ushara" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
+"Ushara" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 english, "Zhambra" -> "All ze Godsss are acknowledged, only Zelphia iss worshiped.", "Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.", "Zss. I ressspect zis Godsss followersss. But I do not worship zis God."
-"Zhambra" -> "Alle GÃ¶tter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die GÃ¶ttin meines Volkesss. Die anderen GÃ¶tter sssind fÃ¼r andere VÃ¶lker.", "Zss. Ich verehre einzzzig die GÃ¶ttin alein."
+"Zhambra" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Zss. I have nozing to trade.", "I do not ssseek to trade. Zss.", "Sssorry, I do not wisssh to trade.", trade, trade, trade
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Zss. Ich habe nichtsss zum handeln.", "Ich brache nichts zzu handeln.", "Entschuldigt, ich bin nicht am Handeln interessiert. Zss."
 "tell something" -> "Zss. What do you wisssh to know?", "Perhapsss I have a tasssk for you?", "Ssservice to ze Godsss isss ze most honourable life. Zss."
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Vielleicht habe ich eine Aufgabe. Zss. Eine Aufgabe fÃ¼r Euch.", "Der GÃ¶ttin zzzu dienen issst die grÃ¶sssste Aufgabe im Leben. Zss."
+"erzähl was", "erzähl etwas" -> "Vielleicht habe ich eine Aufgabe. Zss. Eine Aufgabe für Euch.", "Der Göttin zzzu dienen issst die grösssste Aufgabe im Leben. Zss."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Kaitza" -> "Zss. Kaitza mussst be working.", "#me hisses quietly.", "Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time."
-"Kaitza" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt BÃ¶sessss in der Welt, dasss zerstÃ¶rt werden mussss. Verschwendet nicht meine Zeit. Zss."
+"Kaitza" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss."
 "Yes" -> "Zss. Kaitza mussst be working.", "#me hisses quietly.", "Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time."
-"Ja" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt BÃ¶sessss in der Welt, dasss zerstÃ¶rt werden mussss. Verschwendet nicht meine Zeit. Zss."
+"Ja" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss."
 "No" -> "Zss. Kaitza mussst be working.", "#me hisses quietly.", "Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time."
-"Nein" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt BÃ¶sesss in der Welt, dasss zerstÃ¶rt werden mussss. Verschwendet nicht meine Zeit. Zss."
+"Nein" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösesss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "Zss. Kaitza mussst be working.", "#me hisses quietly.", "Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time."
-german, chance(20.0), ".*" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt BÃ¶sessss in der Welt, dasss zerstÃ¶rt werden mussss. Verschwendet nicht meine Zeit. Zss."
+german, chance(20.0), ".*" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me fÃ¤hrt mit dem Finger an der Klinge seiner Waffe entlang.", "#me runs a finger along his blade."
-cycletext "#me rÃ¼ckt seine RÃ¼stung zurecht.", "#me adjusts his armour."
-cycletext "#me hÃ¤lt sein Schild hoch.", "#me hoists up his shield."
+cycletext "#me fährt mit dem Finger an der Klinge seiner Waffe entlang.", "#me runs a finger along his blade."
+cycletext "#me rückt seine Rüstung zurecht.", "#me adjusts his armour."
+cycletext "#me hält sein Schild hoch.", "#me hoists up his shield."
 cycletext "#me streckt die Brust raus.", "#me pushes his chest out."
-cycletext "#me fÃ¤hrt sich mit einer Fingerkralle durchs Gesicht.", "#me runs a clawed finger along his cheek."
+cycletext "#me fährt sich mit einer Fingerkralle durchs Gesicht.", "#me runs a clawed finger along his cheek."
 cycletext "#me zischt leise.", "#me hisses quietly."
-cycletext "#me schlieÃŸt  fÃ¼reinen kurzen Momemt seine Augen und atmet tief ein.", "#me closes his eyes for a few moments, breathing deeply."
-cycletext "#me flÃ¼stert still ein Gebet.", "#me whispers a silent prayer."
-cycletext "FÃ¼r die GÃ¶ttin! Zss!", "For ze Goddessss!"
-cycletext "Ehre sssei der GÃ¶ttin!", "Glory to ze Goddessss!"
+cycletext "#me schließt  füreinen kurzen Momemt seine Augen und atmet tief ein.", "#me closes his eyes for a few moments, breathing deeply."
+cycletext "#me flüstert still ein Gebet.", "#me whispers a silent prayer."
+cycletext "Für die Göttin! Zss!", "For ze Goddessss!"
+cycletext "Ehre sssei der Göttin!", "Glory to ze Goddessss!"

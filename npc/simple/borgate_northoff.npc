@@ -26,7 +26,7 @@ autointroduce = on
 author = "Rincewind"
 author = "& Someone"
 
-lookatDE = "Ein breit lÃ¤chelnder Zwergenwirt, dessen prÃ¤chtiger Bart und Kleidung von Bierflecken Ã¼bersÃ¤t ist."
+lookatDE = "Ein breit lächelnder Zwergenwirt, dessen prächtiger Bart und Kleidung von Bierflecken übersät ist."
 lookatUS = "A broadly smiling dwarven barkeeper whose proud beard and clothes are covered with beer stains."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -55,7 +55,7 @@ sellItems = 1059, 164, 191, 224, 353, 453, 454, 517, 518, 783, 784, 785, 786, 78
 buySecondaryItems = 164, 518, 790, 1317, 2498, 2501, 224, 1840, 1858, 1908, 2055, 2185
 tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
 tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
-tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefÃ¤llt?", "Don't you like my wares?"
+tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
 
 -- Stock: dice cup, big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
 "verkauf", "handel" -> "Lass uns handeln!", trade
@@ -65,31 +65,31 @@ tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefÃ¤llt?", "Don't you l
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Borgate Northoff the innkeeper of The Hemp Necktie Inn . Keywords: Gods, Bragon, Adron, trade")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Borgate Northoff der Wirt vom Gasthof zur Hanfschlinge. SchlÃ¼sselwÃ¶rter: GÃ¶tter, Bragon, Adron, Handel")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Borgate Northoff der Wirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Götter, Bragon, Adron, Handel")
 
 --quest
 queststatus(652) = 1, item(1908, all) > 0, english, "."  -> queststatus(652) = 2, deleteItem(1908, 1), item(1909,1,777), inform("[Quest 'Find Borgate Northoff' end]"), "Aahr! Wulfgorda's mug! I wonder if she will ever bring her mug by herself. Anyway, one free beer for you!"
-queststatus(652) = 1, item(1908, all) > 0, "."  -> queststatus(652) = 2, deleteItem(1908, 1), item(1909,1,777), inform("[Quest 'Finde Borgate Northoff' Ende]"), "Aahr! Wulfgorda Krug! Ich frage mich, ob sie jemals ihren Krug selber zurÃ¼ck bringen wird. Egal, hier ein Freibier fÃ¼r dich!"
+queststatus(652) = 1, item(1908, all) > 0, "."  -> queststatus(652) = 2, deleteItem(1908, 1), item(1909,1,777), inform("[Quest 'Finde Borgate Northoff' Ende]"), "Aahr! Wulfgorda Krug! Ich frage mich, ob sie jemals ihren Krug selber zurück bringen wird. Egal, hier ein Freibier für dich!"
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?", "Hello. What can I get you?", "G'day, wanna beer?"
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?", "Guten Tag. Was soll ich dir machen?", "Tach, was darf's sein?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?", "Guten Tag. Was soll ich dir machen?", "Tach, was darf's sein?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?", "Hello. What can I get you?", "G'day, wanna beer?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?", "Guten Tag. Was soll ich dir machen?", "Tach, was darf's sein?"
 "Farewell", "Bye", "Fare well", "See you" -> "Have a nice day.", "Aye. Come back whenever you are thirsty.", "Good day!"
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "SchÃ¶nen Tag noch.", "Bis bald.", "Aye. Komm wieder, wann immer du durstig bist."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Schönen Tag noch.", "Bis bald.", "Aye. Komm wieder, wann immer du durstig bist."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a nice day.", "Aye. Come back whenever you are thirsty.", "Good day!"
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "SchÃ¶nen Tag noch.", "Bis bald.", "Aye. Komm wieder, wann immer du durstig bist."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Schönen Tag noch.", "Bis bald.", "Aye. Komm wieder, wann immer du durstig bist."
 "How are you", "How feel", "How do you do" -> "Good - 'nd you?", "It's alright. Like always."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befinden" -> "Gut - 'nd Euch?", "Alles gut - wie immer."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Gut - 'nd Euch?", "Alles gut - wie immer."
 "your name", "who are you", "who art thou" -> "Great. I am Borgate Northoff, the barkeeper. Do you want something to drink?", "I'm Borgate Northoff. Need a drink?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Borgate Northoff und das ist mein Tresen. Ich schenke Bier aus. Willst du eines?", "Ich bin Borgate Northoff. Willst du was trinken?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Borgate Northoff und das ist mein Tresen. Ich schenke Bier aus. Willst du eines?", "Ich bin Borgate Northoff. Willst du was trinken?"
 
 -- Catching quest triggers
 english, "quest", "mission" -> "Nope, I haven't got a job for you."
-"quest", "mission" -> "Nee, ich habe keine Arbeit fÃ¼r dich."
+"quest", "mission" -> "Nee, ich habe keine Arbeit für dich."
 "task", "adventure", "order" -> "Nope, I haven't got a job for you."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nee, ich habe keine Arbeit fÃ¼r dich."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nee, ich habe keine Arbeit für dich."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a bartender. Tendering beer. - Mostly", "What do you think I have to do here? What a stupid question. Aaarh! Drink or eat something or leave!"
@@ -97,7 +97,7 @@ english, "quest", "mission" -> "Nope, I haven't got a job for you."
 english, "job" -> "I'm a bartender. Tendering beer. - Mostly", "What do you think I have to do here? What a stupid question. Aaarh! Drink or eat something or leave!"
 "job" -> "Ich bin Schankwirt. Und ausschenken tue ich Bier. - Meistens...", "Was denkste was ich hier mache? So ne dumme Frage. Aaarh! Bestell was zu trinken oder verschwinde!"
 english, "Gobaith", "Gobiath" -> "A dwarf shouldn't live in the past. - I always look forward... but also, back, to the times with the Fluffy Sheep Tavern.", "Gobaith was nice, but now, since I'm here I honestly don't know why I didn't come sooner.", "Back on Gobaith everyone was used to say: 'Whatever happens, Borgate will do his own thing.' - and that's exactly what happened when everybody left the isle."
-"Gobaith", "Gobiath" -> "Wenn du mich fragst finde ich, dass ein Zwerg nicht in der Vergangenheit leben sollte. - Ich jedenfalls habe immer nach vorn geblickt. Auch schon damals als ich noch im Fluffy Sheep gearbeitet habe.", "Auf Gobaith war's schÃ¶n. Aber jetzt wo ich hier bin, weiÃŸ ich nicht warum ich so lange dort geblieben bin.", "Auf Gobaith hieÃŸ es immer - 'Egal was passiert, Borgate macht sein Ding.' - und das habe ich dann auch gemacht als alle von der Insel weg sind. Aye."
+"Gobaith", "Gobiath" -> "Wenn du mich fragst finde ich, dass ein Zwerg nicht in der Vergangenheit leben sollte. - Ich jedenfalls habe immer nach vorn geblickt. Auch schon damals als ich noch im Fluffy Sheep gearbeitet habe.", "Auf Gobaith war's schön. Aber jetzt wo ich hier bin, weiß ich nicht warum ich so lange dort geblieben bin.", "Auf Gobaith hieß es immer - 'Egal was passiert, Borgate macht sein Ding.' - und das habe ich dann auch gemacht als alle von der Insel weg sind. Aye."
 "I am", "my name" -> "Aha..?", "Arr!", "Aha..."
 "Ich bin", "mein Name" -> "Aha..?", "Arr!", "Aha..."
 
@@ -106,56 +106,56 @@ english, "Fluffy", "Sheep" -> "The Fluffy Sheep was the name of an Inn. I worked
 english, "Sil[vb]erbran[dt]" -> "Silverbrand had many kings, but I think King Tiladin was the most important", "Silverbrand was the dwarven town under the throne of Irmorom, in the middle of the coppermountains. May we keep her memory in honour.", "Silverbrand took each dwarf as citizen those days. Even at night the sound of smithing hammers was hearable they say."
 english, "Gowan", "Sam", "brute", "Booze", "hook" -> "When I came here, they didn't ask me a single question. So I did.", "Actually I know everything... but I don't tell."
 english, "half-hung", "bryan" -> "Bryan is the owner of the Hemp Necktie Inn so it's his law we live with. You'd do better asking him about the law, eh?", "Actually I know everything... but I don't tell."
-"Fluffy", "Sheep", "schaf", "flausch", "flauschige" -> "Das Fluffy Sheep war eine Taverne. Dort habe ich frÃ¼her, fÃ¼r den KÃ¶nig Silberbrands gearbeitet. Aber das ist schon lange her...", "Als ich noch ein Zwerg im besten Alter war, arbeitete ich in der Fluffy Sheep Taverne. Aye?", "Die Fluffy Sheep Taverne hat man nach einem Schaf benannt das sie Fluffy nannten. Und irgendwann - dann haben sie's einfach gegessen."
-"Sil[vb]erbran[dt]" -> "In Silberbrand gabs eine Menge KÃ¶nige, aber ich will meinen, KÃ¶nig Tialdin von Silberbrand ist der Bedeutendste.", "Silberbrand - Die Zwergenstadt unter dem Thron Irmoroms, im Herzen des Kupfergebierges. MÃ¶gen wir ihr Andenken in Ehren halten.", "Silberbrand nahm damals jeden Zwerg auf. Und sogar des Nachts soll der Hammerklang der Schmiede hÃ¶rbar gewesen sein. Eine wirklich mÃ¤chtige Stadt."
-"Gowan", "Sam", "brute", "Booze", "hook" -> "Als ich hier her kam, stellte keiner Fragen, und ich fragte auch nichts. Der Eine oder Andere spricht trozdem manchmal Ã¼ber sich. Aber es ist Half-hung Bryans Gesetz. 'Es werden keine Fragen gestellt.'", "Eigentlich weiÃŸ ich alles, aber ich erzÃ¤hl nichts davon..."
-"half-hung", "bryan" -> "Bryan ist der Besitzer vom Gasthof zur Hanfschlinge. Und hier zÃ¤hlt nur sein Gesetz. Am Besten fragt ihr ihn selbst dannach.", "Eigentlich weiÃŸ ich alles, aber ich erzÃ¤hl nichts davon..."
+"Fluffy", "Sheep", "schaf", "flausch", "flauschige" -> "Das Fluffy Sheep war eine Taverne. Dort habe ich früher, für den König Silberbrands gearbeitet. Aber das ist schon lange her...", "Als ich noch ein Zwerg im besten Alter war, arbeitete ich in der Fluffy Sheep Taverne. Aye?", "Die Fluffy Sheep Taverne hat man nach einem Schaf benannt das sie Fluffy nannten. Und irgendwann - dann haben sie's einfach gegessen."
+"Sil[vb]erbran[dt]" -> "In Silberbrand gabs eine Menge Könige, aber ich will meinen, König Tialdin von Silberbrand ist der Bedeutendste.", "Silberbrand - Die Zwergenstadt unter dem Thron Irmoroms, im Herzen des Kupfergebierges. Mögen wir ihr Andenken in Ehren halten.", "Silberbrand nahm damals jeden Zwerg auf. Und sogar des Nachts soll der Hammerklang der Schmiede hörbar gewesen sein. Eine wirklich mächtige Stadt."
+"Gowan", "Sam", "brute", "Booze", "hook" -> "Als ich hier her kam, stellte keiner Fragen, und ich fragte auch nichts. Der Eine oder Andere spricht trozdem manchmal über sich. Aber es ist Half-hung Bryans Gesetz. 'Es werden keine Fragen gestellt.'", "Eigentlich weiß ich alles, aber ich erzähl nichts davon..."
+"half-hung", "bryan" -> "Bryan ist der Besitzer vom Gasthof zur Hanfschlinge. Und hier zählt nur sein Gesetz. Am Besten fragt ihr ihn selbst dannach.", "Eigentlich weiß ich alles, aber ich erzähl nichts davon..."
 
 -- Faction stuff
 "archmage" -> "Old Borgate knows some things that would mean you couldn't sleep anymore, but I can hold my tongue... Can you?"
-"Erzmagier" -> "Der alte Borgate weis Sachen, da wÃ¼rdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
+"Erzmagier" -> "Der alte Borgate weis Sachen, da würdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
 english, "Elvaine", "Morgan" -> "Old Borgate knows some things that would mean you couldn't sleep anymore, but I can hold my tongue... Can you?"
-"Elvaine", "Morgan" -> "Der alte Borgate weis Sachen, da wÃ¼rdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
+"Elvaine", "Morgan" -> "Der alte Borgate weis Sachen, da würdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
 english, "Runewick" -> "Cadomyr, Runewick, even Galmair... they all think themselves too important. At the Hemp Necktie Inn they are all equal and their law is declared as nonsense.", "Whether Cadomyr, Runewick, or Galmair... here in the middle of wilderness a dwarf is just a dwarf and everyone has to look after themselves.", "Whether Cadomyr, Runewick, or Galmair... Those factions are of little interest to an old dwarf like me."
-"Runewick" -> "Ob Cadomyr, Galmair oder auch Runewick... die nehmen sich alle viel zu wichtig. Hier im Gasthof zu Hanfschlinge behandeln wir alle gleich.", "Ob Cadomyr, Galmair oder auch Runewick... hier in der Mitte der Wildniss ist ein Zwerg einfach nur ein Zwerg. Jeder ist sich selbst der NÃ¤chste.", "Ob Cadomyr, Galmair oder auch Runewick... die bekÃ¼mmern einen alten Zwerg wie ich einer bin nur noch peripher."
+"Runewick" -> "Ob Cadomyr, Galmair oder auch Runewick... die nehmen sich alle viel zu wichtig. Hier im Gasthof zu Hanfschlinge behandeln wir alle gleich.", "Ob Cadomyr, Galmair oder auch Runewick... hier in der Mitte der Wildniss ist ein Zwerg einfach nur ein Zwerg. Jeder ist sich selbst der Nächste.", "Ob Cadomyr, Galmair oder auch Runewick... die bekümmern einen alten Zwerg wie ich einer bin nur noch peripher."
 english, "Valerio", "Guilianni", "Don" -> "Old Borgate knows some things that would mean you couldn't sleep anymore, but I can hold my tongue... Can you?"
-"Valerio", "Guilianni", "Don" -> "Der alte Borgate weis Sachen, da wÃ¼rdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
+"Valerio", "Guilianni", "Don" -> "Der alte Borgate weis Sachen, da würdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
 english, "Galmair" -> "Cadomyr, Runewick, even Galmair... they all think themselves too important. At the Hemp Necktie Inn they are all equal and their law is declared as nonsense.", "Whether Cadomyr, Runewick, or Galmair... here in the middle of wilderness a dwarf is just a dwarf and everyone has to look after themselves.", "Whether Cadomyr, Runewick, or Galmair... Those factions are of little interest to an old dwarf like me."
-"Galmair" -> "Ob Cadomyr, Galmair oder auch Runewick... die nehmen sich alle viel zu wichtig. Hier im Gasthof zu Hanfschlinge behandeln wir alle gleich.", "Ob Cadomyr, Galmair oder auch Runewick... hier in der Mitte der Wildniss ist ein Zwerg einfach nur ein Zwerg. Jeder ist sich selbst der NÃ¤chste.", "Ob Cadomyr, Galmair oder auch Runewick... die bekÃ¼mmern einen alten Zwerg wie ich einer bin nur noch peripher."
+"Galmair" -> "Ob Cadomyr, Galmair oder auch Runewick... die nehmen sich alle viel zu wichtig. Hier im Gasthof zu Hanfschlinge behandeln wir alle gleich.", "Ob Cadomyr, Galmair oder auch Runewick... hier in der Mitte der Wildniss ist ein Zwerg einfach nur ein Zwerg. Jeder ist sich selbst der Nächste.", "Ob Cadomyr, Galmair oder auch Runewick... die bekümmern einen alten Zwerg wie ich einer bin nur noch peripher."
 "Queen" -> "Old Borgate knows some things that would mean you couldn't sleep anymore, but I can hold my tongue... Can you?"
-"KÃ¶nigin" -> "Der alte Borgate weis Sachen, da wÃ¼rdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
+"Königin" -> "Der alte Borgate weis Sachen, da würdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
 english, "rosaline", "edwards" -> "Old Borgate knows some things that would mean you couldn't sleep anymore, but I can hold my tongue... Can you?"
-"rosaline", "edwards" -> "Der alte Borgate weis Sachen, da wÃ¼rdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
+"rosaline", "edwards" -> "Der alte Borgate weis Sachen, da würdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
 english, "Cadomyr" -> "Cadomyr, Runewick, even Galmair... they all think themselves too important. At the Hemp Necktie Inn they are all equal and their law is declared as nonsense.", "Whether Cadomyr, Runewick, or Galmair... here in the middle of wilderness a dwarf is just a dwarf and everyone has to look after themselves.", "Whether Cadomyr, Runewick, or Galmair... Those factions are of little interest to an old dwarf like me."
-"Cadomyr" -> "Ob Cadomyr, Galmair oder auch Runewick... die nehmen sich alle viel zu wichtig. Hier im Gasthof zu Hanfschlinge behandeln wir alle gleich.", "Ob Cadomyr, Galmair oder auch Runewick... hier in der Mitte der Wildniss ist ein Zwerg einfach nur ein Zwerg. Jeder ist sich selbst der NÃ¤chste.", "Ob Cadomyr, Galmair oder auch Runewick... die bekÃ¼mmern einen alten Zwerg wie ich einer bin nur noch peripher."
+"Cadomyr" -> "Ob Cadomyr, Galmair oder auch Runewick... die nehmen sich alle viel zu wichtig. Hier im Gasthof zu Hanfschlinge behandeln wir alle gleich.", "Ob Cadomyr, Galmair oder auch Runewick... hier in der Mitte der Wildniss ist ein Zwerg einfach nur ein Zwerg. Jeder ist sich selbst der Nächste.", "Ob Cadomyr, Galmair oder auch Runewick... die bekümmern einen alten Zwerg wie ich einer bin nur noch peripher."
 
 -- Main land factions
 english, "albar" -> "During my life people told me many tales. Most of them by drunks, who tend to speak the truth, but are you really interested in the opinion of a faded old dwarf?", "When people start talking about their homeland or just start talking anyway, I tend to nod slowly and say 'Aha..?'"
-"albar" -> "Im Laufe meines Lebens wurde mir viel ErzÃ¤hlt. Das MeiÃŸte, von Betrunkenen und die sagen eher die Wahrheit. Aber wollt ihr wirklich die verwaschene Meinung eines alten Zwerges HÃ¶ren?", "Wenn mir die Leute anfangen Ã¼ber ihre Heimat, oder sonst etwas zu erzÃ¤hlen nicke ich eigentlich immer nur uns sage 'Aha..?'"
+"albar" -> "Im Laufe meines Lebens wurde mir viel Erzählt. Das Meißte, von Betrunkenen und die sagen eher die Wahrheit. Aber wollt ihr wirklich die verwaschene Meinung eines alten Zwerges Hören?", "Wenn mir die Leute anfangen über ihre Heimat, oder sonst etwas zu erzählen nicke ich eigentlich immer nur uns sage 'Aha..?'"
 english, "gynk", "gync" -> "During my life people told me many tales. Most of them by drunks, who tend to speak the truth, but are you really interested in the opinion of a faded old dwarf?", "When people start talking about their homeland or just start talking anyway, I tend to nod slowly and say 'Aha..?'"
-"gync", "gynk" -> "Im Laufe meines Lebens wurde mir viel ErzÃ¤hlt. Das MeiÃŸte, von Betrunkenen und die sagen eher die Wahrheit. Aber wollt ihr wirklich die verwaschene Meinung eines alten Zwerges HÃ¶ren?", "Wenn mir die Leute anfangen Ã¼ber ihre Heimat, oder sonst etwas zu erzÃ¤hlen nicke ich eigentlich immer nur uns sage 'Aha..?'"
+"gync", "gynk" -> "Im Laufe meines Lebens wurde mir viel Erzählt. Das Meißte, von Betrunkenen und die sagen eher die Wahrheit. Aber wollt ihr wirklich die verwaschene Meinung eines alten Zwerges Hören?", "Wenn mir die Leute anfangen über ihre Heimat, oder sonst etwas zu erzählen nicke ich eigentlich immer nur uns sage 'Aha..?'"
 english, "salkama" -> "During my life people told me many tales. Most of them by drunks, who mostly speak the truth, but are you really interested in the opinion of a faded old dwarf?", "When people start talking about their homeland or just start talking anyway, I tend to nod slowly and say 'Aha..?'"
-"salkama" -> "Im Laufe meines Lebens wurde mir viel ErzÃ¤hlt. Das MeiÃŸte, von Betrunkenen und die sagen eher die Wahrheit. Aber wollt ihr wirklich die verwaschene Meinung eines alten Zwerges HÃ¶ren?", "Wenn mir die Leute anfangen Ã¼ber ihre Heimat, oder sonst etwas zu erzÃ¤hlen nicke ich eigentlich immer nur uns sage 'Aha..?'"
+"salkama" -> "Im Laufe meines Lebens wurde mir viel Erzählt. Das Meißte, von Betrunkenen und die sagen eher die Wahrheit. Aber wollt ihr wirklich die verwaschene Meinung eines alten Zwerges Hören?", "Wenn mir die Leute anfangen über ihre Heimat, oder sonst etwas zu erzählen nicke ich eigentlich immer nur uns sage 'Aha..?'"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I'm a honourable dwarf and Irmorom created my kin ages ago. His will has led and protected my folk since the beginning of time."
-"Gott", "GÃ¶tter" -> "Ich bin ein aufrichtiger Zwerg und Irmorom hat einst vor vielen Jahren meine Sippe erschaffen. Sein Wille leitet und schÃ¼tzt mein Volk von Anbeginn her."
+"Gott", "Götter" -> "Ich bin ein aufrichtiger Zwerg und Irmorom hat einst vor vielen Jahren meine Sippe erschaffen. Sein Wille leitet und schützt mein Volk von Anbeginn her."
 english, "Adron" -> "A bartender is able to tell you many things about Adron, for sure! He's the god of wine and festivals. Also halfings say, he has a big wine jug which never goes empty."
-"Adron" -> "Als Schankwirt, kann ich dir natÃ¼rlich viel Ã¼ber Adron erzÃ¤hlen. Er ist der Gott des Weines und der Feste. Und man erzÃ¤hlt sich, insbesondere bei den Halblingen, er trÃ¤gt immerzu einen groÃŸen Weinkrug bei sich, der niemals leer wird."
-english, "Bragon", "BrÃ¡gon" -> "Some oddballs amongst the dwarven folk praise Bragon. He's god of fire, strong and prudent and handsome... But all in all dwarves should praise Irmorom - he's our father."
-"Bragon", "BrÃ¡gon" -> "Ein paar weniger QuerkÃ¶pfe unter den Zwergen huldigen auch Bragon. Er ist der Gott des Feuers, ist sehr weise, stark, gebieterisch, edel, und stattlich. Aber im Grunde Sollten Zwerge zu Irmorom beten, denn er ist unser SchÃ¶pfer."
+"Adron" -> "Als Schankwirt, kann ich dir natürlich viel über Adron erzählen. Er ist der Gott des Weines und der Feste. Und man erzählt sich, insbesondere bei den Halblingen, er trägt immerzu einen großen Weinkrug bei sich, der niemals leer wird."
+english, "Bragon", "Brágon" -> "Some oddballs amongst the dwarven folk praise Bragon. He's god of fire, strong and prudent and handsome... But all in all dwarves should praise Irmorom - he's our father."
+"Bragon", "Brágon" -> "Ein paar weniger Querköpfe unter den Zwergen huldigen auch Bragon. Er ist der Gott des Feuers, ist sehr weise, stark, gebieterisch, edel, und stattlich. Aber im Grunde Sollten Zwerge zu Irmorom beten, denn er ist unser Schöpfer."
 english, "Irmorom" -> "Irmorom! Father of the dwarven folk! My kin will be bound to you forever, which fills my heart with gladness and pride! For sure he is the most magnificent of all the gods and similar to us dwarves in so many ways!"
-"Irmorom" -> "IRMOROM! Der Vater des Zwergenvolkes. Auf ewig wird mein Volk an ihn gebunden sein, und das erfÃ¼llt unser Herz mit Freude und Stolz. Er ist wahrlich der PrÃ¤chtigste und uns Zwergen in so vielfÃ¤ltiger Weise Ã¤hnlich."
-english, "Malachin", "MalachÃ­n" -> "MalachÃ­n is god of the knights and warriors. Better ask them for better information."
-"Malachin", "MalachÃ­n" -> "Der Gott der Ritter und Kriegerkaste. Fragt die nach ihm."
+"Irmorom" -> "IRMOROM! Der Vater des Zwergenvolkes. Auf ewig wird mein Volk an ihn gebunden sein, und das erfüllt unser Herz mit Freude und Stolz. Er ist wahrlich der Prächtigste und uns Zwergen in so vielfältiger Weise ähnlich."
+english, "Malachin", "Malachín" -> "Malachín is god of the knights and warriors. Better ask them for better information."
+"Malachin", "Malachín" -> "Der Gott der Ritter und Kriegerkaste. Fragt die nach ihm."
 english, "Ronagan" -> "I don't know much about Ronagan, only that I'll become enraged when people steal my mugs!"
-"Ronagan" -> "Ãœber Ronagan weiÃŸ ich nicht viel, nur das ich Fuchs-wild werde wenn die Leute die BierkrÃ¼ge nicht zurÃ¼ckbringen.", "Hm-h... Fragt doch Gowan. Hat ja wohl nicht umsonst einen Haken als Hand."
+"Ronagan" -> "Über Ronagan weiß ich nicht viel, nur das ich Fuchs-wild werde wenn die Leute die Bierkrüge nicht zurückbringen.", "Hm-h... Fragt doch Gowan. Hat ja wohl nicht umsonst einen Haken als Hand."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "It's a damn bar, what do you think I sell? But here, look at the list: drinks and more.", "Drinks and more. What do you think? It's a Bar. And now, tell me... What do you want?"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe alles, was das Herz begehrt, aber eigentlich nur Bier. Willst du Eines?", "Das hier ist 'ne Kneipe, was glaubst du, was wir hier verkaufen?"
 "tell something" -> "Arr, Where shall I begin? I could tell you lots of what is spoken in this tavern, but if I did that, nobody would come back. No, I am not a traitor to my guests. Sorry!"
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Ich hÃ¶re viel und weiss eigentlich fast alles. Ich erzÃ¤hl' dir aber nichts davon, das geht dich nunmal nichts an."
+"erzähl was", "erzähl etwas" -> "Ich höre viel und weiss eigentlich fast alles. Ich erzähl' dir aber nichts davon, das geht dich nunmal nichts an."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 "Borgate", "bar", "Northoff" -> "Indeed, I'm the bartender here. What's your order?"
@@ -169,7 +169,7 @@ english, "Ronagan" -> "I don't know much about Ronagan, only that I'll become en
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger /  Response is only given 1/5 of the time
 english, chance(80.0), ".*" -> "#me nods slowly. 'Aha..?'", "#me slowly shakes his head. 'Hmpf.'", "#me starts to comb his long beard with his figners. 'Is that true?'", "#me wrinkles his big chubby nose. 'Ye-h. I just came to same conclusion.'", "#me takes a sip out of his beer mug. '... incredible!'", "#me rises a brow. 'Honestly?'", "Aye, heard something similar once before. You wouldn't believe it.", "Honestly? I'm amazed!", "#me crosses his hands behind his back. 'Hm-hm.'", "If it's Irmoroms will...", "#me picks the hair of his beard with two fingers. 'That sounds kind of curious. Don't you think so?'", "#me scratches his chin. 'Interesting, isn't it?'"
-german, chance(80.0), ".*" -> "#me nickt langsam. 'Aha..?'", "#me legt den Kopf schief. 'Hmpf.'", "#me greift sich mit den Fingern in den langen Bart und zieht sie hindurch. 'Ist das so?'", "#me rÃ¼mpft seine groÃŸe felischige Nase. 'So etwas dachte ich mir schon.'", "#me nimmt einen Schluck von seinem Bierkrug. '... unglaublich!'", "Aye, so etwas Ã¤hnliches hab ich schonmal gehÃ¶rt. Das wÃ¼rde dich wundern.", "TatsÃ¤chlich!? Ich bin erstaunt.", "#me verschrÃ¤nkt die HÃ¤nde im Nacken. 'Hm-hm.'", "Sodar es Irmoroms Wille ist...", "#me zupft mit zwei Fingern an seinem Bart. 'Das ist seltsam. Findest du das nicht auch?'", "#me hebt eine Augenbraue. 'Wirklich?'", "#me kratzt sich nachdenklich am Kinn. 'Was Ihr nicht sagt..?"
+german, chance(80.0), ".*" -> "#me nickt langsam. 'Aha..?'", "#me legt den Kopf schief. 'Hmpf.'", "#me greift sich mit den Fingern in den langen Bart und zieht sie hindurch. 'Ist das so?'", "#me rümpft seine große felischige Nase. 'So etwas dachte ich mir schon.'", "#me nimmt einen Schluck von seinem Bierkrug. '... unglaublich!'", "Aye, so etwas ähnliches hab ich schonmal gehört. Das würde dich wundern.", "Tatsächlich!? Ich bin erstaunt.", "#me verschränkt die Hände im Nacken. 'Hm-hm.'", "Sodar es Irmoroms Wille ist...", "#me zupft mit zwei Fingern an seinem Bart. 'Das ist seltsam. Findest du das nicht auch?'", "#me hebt eine Augenbraue. 'Wirklich?'", "#me kratzt sich nachdenklich am Kinn. 'Was Ihr nicht sagt..?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -181,8 +181,8 @@ cycletext "Arrr!", "Arrr!"
 cycletext "Arrr...?", "Arrr...?"
 cycletext "#me trocknet einen Bierkrug ab.", "#me cleans a beer mug."
 cycletext "#me sieht sich gelangweilt um.", "#me looks around bored."
-cycletext "#me spielt mit einer KupfermÃ¼nze.", "#me plays with a copper coin."
-cycletext "#me wischt Ã¼ber die Theke.", "#me wipes the counter."
+cycletext "#me spielt mit einer Kupfermünze.", "#me plays with a copper coin."
+cycletext "#me wischt über die Theke.", "#me wipes the counter."
 cycletext "#me trinkt ein Bier", "#me gulps down a beer."
-cycletext "#me wischt seine HÃ¤nde in die Hosen.", "#me cleans his hands by rubbing them against his trousers."
+cycletext "#me wischt seine Hände in die Hosen.", "#me cleans his hands by rubbing them against his trousers."
 cycletext "#me brummt eine langsame Meldoie.", "#me grumbles a slow melody."

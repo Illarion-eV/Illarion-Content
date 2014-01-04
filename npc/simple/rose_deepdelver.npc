@@ -53,7 +53,7 @@ buyPrimaryItems = 80, 199, 784, 785, 1315, 1318, 1319, 1908, 1909, 2501
 buySecondaryItems = 164, 518, 81, 151, 290, 783, 786, 787, 788, 789, 790, 1317, 791, 1316, 2498, 2500
 tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
 tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
-tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefÃ¤llt?", "Don't you like my wares?"
+tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- ----------------------------------------------------------------------------AC
@@ -64,21 +64,21 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Rose Deepdelver, the owner of the tavern. Keywords: Greetings, family, trade.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Rose Deepdelver die Besitzerin der Taverne. SchlÃ¼sselwÃ¶rter: GrÃ¼ÃŸe, Familie, Handel.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Rose Deepdelver die Besitzerin der Taverne. Schlüsselwörter: Grüße, Familie, Handel.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! I sell the best drinks."
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Ich verkaufe die besten GetrÃ¤nke!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Ich verkaufe die besten Getränke!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Nice day, isn't it?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! SchÃ¶ner Tag heute, nicht?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Schöner Tag heute, nicht?"
 "Farewell", "Bye", "Fare well", "See you" -> "See you!", "Toodles!", "Farewell."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Mach's gut!", "TschÃ¼ssi!", "Auf wiedersehen."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mach's gut!", "Tschüssi!", "Auf wiedersehen."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See you!", "Toodles!", "Farewell."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Mach's gut!", "TschÃ¼ssi!", "Auf wiedersehen."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Mach's gut!", "Tschüssi!", "Auf wiedersehen."
 "How are you", "How feel", "How do you do" -> "I'm fine, what about you?", "I'm fine, but you look like you could need something to drink, hihi."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen" -> "Mir gehts ganz gut und dir?", "Gut., aber du siehst aus als wÃ¼rdest du was zu trinken gebrauchen, hihi."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir gehts ganz gut und dir?", "Gut., aber du siehst aus als würdest du was zu trinken gebrauchen, hihi."
 "your name", "who are you", "who art thou" -> "Rose Deepdelver, barkeeper. That's me.", "I am the barkeeper Rose Deepdelver.", "Rose Deepdelver is my name, owner of this lovely tavern."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Rose Deepdelver, die Bedienung. Das bin ich.", "Ich bin die Bedienung Rose Deepdelver", "Rose Deepdelver mein Name, Besitzerin dieser groÃŸartigen Taverne."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Rose Deepdelver, die Bedienung. Das bin ich.", "Ich bin die Bedienung Rose Deepdelver", "Rose Deepdelver mein Name, Besitzerin dieser großartigen Taverne."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the owner and also the barkeeper of this tavern."
@@ -86,19 +86,19 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See you!", "Toodles!", "Far
 english, "job" -> "I am the owner and also the barkeeper of this tavern."
 "job" -> "Ich bin die Besiterin und auch die Bedienung dieser Taverne."
 "my name" -> "Nice to meet you. If you want something to drink or eat just ask me, hihi.", "A nice name, indeed."
-"mein Name" -> "SchÃ¶n dich kennenzulernen. Wenn du etwas trinken oder essen willst, frag mich einfach, hihi.", "Ein netter Name."
+"mein Name" -> "Schön dich kennenzulernen. Wenn du etwas trinken oder essen willst, frag mich einfach, hihi.", "Ein netter Name."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "gods" -> "The Gods created this world for us."
-"GÃ¶tter", "Gott" -> "Die GÃ¶tter haben diese Welt fÃ¼r uns erschaffen."
+"Götter", "Gott" -> "Die Götter haben diese Welt für uns erschaffen."
 english, "Adron" -> "Hihi, that one I'd really like to meet!"
-"Adron" -> "Hihi, den wÃ¼rde ich gerne mal treffen!"
+"Adron" -> "Hihi, den würde ich gerne mal treffen!"
 
 -- NPCs background: family
 "family" -> "I am living together with my husband and child in Runewick, a peaceful place to be."
 "Familie" -> "Ich lebe zusammen mit meinem Mann und meinem Kind in Runewick. Es ist ein sehr friedvoller Ort."
 "husband" -> "My husband Milo knows a lot about herblore, just ask him if you want to know something about herbs!"
-"Mann" -> "Mein Mann Milo weiÃŸ eine menge Ã¼ber KrÃ¤uterkunde, wenn du etwas wissen willst, frag ihn einfach!"
+"Mann" -> "Mein Mann Milo weiß eine menge über Kräuterkunde, wenn du etwas wissen willst, frag ihn einfach!"
 "child" -> "I have a small daughter of three years, she is wonderful!"
 "Kind" -> "Ich habe eine kleine Tochter von drei Jahren, sie ist einfach wundervoll!"
 
@@ -106,11 +106,11 @@ english, "Adron" -> "Hihi, that one I'd really like to meet!"
 english, "my name" -> "My Name is Rose Deepdelver. If you are hungry or thirsty, then come to me!"
 "mein name" -> "Mein Name ist Rose Deepdelver. Wenn du hungrig oder durstig bist, dann komm zu mir!"
 english, "Rose", "Deepdelver" -> "Yes, this is my name. If you need something to drink, just ask me!"
-"Rose", "Deepdelver" -> "Ja, so heiÃŸe ich. Falls ihr etwas trinken wollt, fragt nur mich!"
+"Rose", "Deepdelver" -> "Ja, so heiße ich. Falls ihr etwas trinken wollt, fragt nur mich!"
 "Yes" -> "Pardon?", "Could you rephrase that?", "Good to hear that.", "Sure?"
-"Ja" -> "Pardon?", "KÃ¶nntet ihr das anders ausdrÃ¼cken?", "Gut zu hÃ¶ren!", "Sicher?"
+"Ja" -> "Pardon?", "Könntet ihr das anders ausdrücken?", "Gut zu hören!", "Sicher?"
 "No" -> "Pardon?", "Could you rephrase that?", "Oh, I see.", "Sure?"
-"Nein" -> "Pardon?", "KÃ¶nntet ihr das anders ausdrÃ¼cken?", "Nun, ich verstehe.", "Sicher?"
+"Nein" -> "Pardon?", "Könntet ihr das anders ausdrücken?", "Nun, ich verstehe.", "Sicher?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
