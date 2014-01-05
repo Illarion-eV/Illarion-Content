@@ -19,8 +19,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 require("item.general.wood")
 require("base.common")
 require("content.gathering")
+require("scheduled.placeShoal")
 
-module("item.id_72_fishingrod", package.seeall, package.seeall(item.general.wood))
+module("item.id_72_fishingrod", package.seeall)
 
 LookAtItem = item.general.wood.LookAtItem
 
@@ -58,10 +59,6 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	if not base.common.IsLookingAt( User, TargetPos ) then -- check looking direction
-		base.common.TurnTo( User, TargetPos ); -- turn if necessary
-	end
-	
 	if (world:getField(TargetPos):tile() ~= 6) then -- fishing only possible on water tiles
 		base.common.HighInformNLS(User,
 		"Die Chance im Wasser einen Fisch zu fangen ist bedeutend höher als auf dem Land.",
@@ -75,21 +72,43 @@ function UseItem(User, SourceItem, ltstate)
 		"Fishing in underground waterholes wouldn't be successful.");
 		return
 	end
+	
+	local shoal
+	if base.common.GetFrontItemID(User) ~= 1170 then
+		User:inform("Hier scheinen sich keine Fische zu befinden. Halte Ausschau nach einem Fischschwarm.",
+			        "There seems to be no fish here. Look for a shoal.",Player.highPriority)
+		return
+	else
+		shoal = base.common.GetFrontItem(User)
+	end
 
+	-- since we're here, we're working
+	-- check the amount 
+	local MaxAmount = 20
+	local changeItem = false;
+	local amountStr = shoal:getData("amount");
+	local amount = 0;
+	if ( amountStr ~= "" ) then
+		amount = tonumber(amountStr);
+	elseif ( shoal.wear == 255 ) then
+		amount = MaxAmount;
+	end
+	
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,nil);
 		User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		User:talk(Character.say, "#me beginnt zu fischen.", "#me starts to fish.")
 		return
 	end
-
-	-- since we're here, we're working
-
+	
 	if fishing:FindRandomItem(User) then
 		return
 	end
+	
+	
+	-----------
 	User:learn( fishing.LeadSkill, fishing.SavedWorkTime[User.id], fishing.LearnLimit);
-	local amount = 1; -- set the amount of items that are produced
+	local fished = 1; -- set the amount of items that are produced
 	local fishID = 0; 
 	local chance = math.random(1,10);
 	-- 40% for salmon, 60% for trout
@@ -103,15 +122,29 @@ function UseItem(User, SourceItem, ltstate)
 	world:gfx(11,TargetPos);
 	world:makeSound(9,TargetPos);
 	
-	local notCreated = User:createItem( fishID, amount, 333, nil ); -- create the new produced items
+	local notCreated = User:createItem( fishID, fished, 333, nil ); -- create the new produced items
+	amount = amount - 1
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( fishID, notCreated, User.pos, true, 333, nil );
 		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,nil);
-		User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		if amount > 0 then  -- there are still items we can work on
+			fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,nil);
+			User:changeSource(SourceItem);
+			User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		end
+	end
+	if amount == 0 then
+		table.insert(scheduled.placeShoal.shoalPositions,{counter = Random.uniform(15,20),shoalPosition = shoal.pos})
+		world:erase(shoal,1)
+		User:inform("Du scheinst hier alles leergefischt zu haben.",
+			        "You seem to have caught all the fish here.",Player.highPriority)
+		return
+	else
+		shoal:setData("amount",amount)
+		world:changeItem(shoal)
 	end
 
 	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
