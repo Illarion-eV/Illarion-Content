@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Joseph Quatrilla                                         Cadomyr --
 -- NPC Job:  Alchemist                                                        --
@@ -65,30 +79,30 @@ sellItem = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000)
 
 -- help
 "Help" -> inform("[Game Help] This NPC is Joseph Quatrilla the master of alchemy. Keywords: recipes, alchemy, book")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie. Schl√ºsselw√∂rter: Rezepte, Alchemie, Buch")
-"handel", "kauf", "Buch" -> "Bei mir k√∂nnt Ihr das Standardwerk der Alchemie erwerben.", trade
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie. Schl¸sselwˆrter: Rezepte, Alchemie, Buch")
+"handel", "kauf", "Buch" -> "Bei mir kˆnnt Ihr das Standardwerk der Alchemie erwerben.", trade
 "buy", "sell,", "trade", "book" -> "You can buy the standard work of alchemy from me.", trade
 
 -- ----------------------------------------------------------------------------
 -- help
 "Help" -> inform("[Game Help] This NPC is Joseph Quatrilla the master of alchemy. Keywords: recipes, alchemy, book")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie. Schl√ºsselw√∂rter: Rezepte, Alchemie, Buch")
-"handel", "kauf", "Buch" -> "Bei mir k√∂nnt Ihr das Standardwerk der Alchemie erwerben.", trade
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie. Schl¸sselwˆrter: Rezepte, Alchemie, Buch")
+"handel", "kauf", "Buch" -> "Bei mir kˆnnt Ihr das Standardwerk der Alchemie erwerben.", trade
 "buy", "sell,", "trade", "book" -> "You can buy the standard work of alchemy from me.", trade
 
 -- general speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!", "Hello.", "Be greeted!"
-"Gr√º√ü", "Gru√ü", "Gruss", "Gr√ºss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Gr√º√üe.", "Hallo.", "Seid gegr√º√üt!"
+"Gr¸ﬂ", "Gruﬂ", "Gruss", "Gr¸ss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Gr¸ﬂe.", "Hallo.", "Seid gegr¸ﬂt!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings!", "Hello.", "Be greeted!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Gr√º√üe.", "Hallo.", "Seid gegr√º√üt!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Gr¸ﬂe.", "Hallo.", "Seid gegr¸ﬂt!"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell", "Goodbye.", "Have a nice day."
-"Tsch√ºss", "Tsch√ºss", "Wiedersehen", "Gehab wohl" -> "Auf bald.", "Wiedersehen.", "Sch√∂nen Tag noch."
+"Tsch¸ss", "Tsch¸ss", "Wiedersehen", "Gehab wohl" -> "Auf bald.", "Wiedersehen.", "Schˆnen Tag noch."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell", "Goodbye.", "Have a nice day."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf bald.", "Wiedersehen.", "Sch√∂nen Tag noch."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf bald.", "Wiedersehen.", "Schˆnen Tag noch."
 "How are you", "How feel", "How do you do" -> "I have done better, I have done worse.", "I am fine.", "Thanks for asking, I am doing well."
-"Wie geht", "Wie f√ºhlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut.", "Danke der Nachfrage. Ich kann nicht klagen.", "Es ging mir schon besser."
+"Wie geht", "Wie f¸hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut.", "Danke der Nachfrage. Ich kann nicht klagen.", "Es ging mir schon besser."
 "your name", "who are you", "who art thou" -> "I am Joseph Quatrilla."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie hei√üt" -> "Ich bin Joseph Quatrilla."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt" -> "Ich bin Joseph Quatrilla."
 
 -- tasks-- leraning recipes
 english, "quest", "mission" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
@@ -102,19 +116,19 @@ english, "quest", "mission" -> "If you want to learn the proper creation of a ce
 english, "job" -> "I am an alchemist and if you are an alchemist as well, I am able to teach you something."
 "job" -> "Ich bin Alchemist und kann Euch Dinge in der Alchemie lehren, solltet Ihr schon einer sein."
 "tell something" -> "How about you tell me something?"
-"erz√§hl was", "erz√§hl etwas" -> "Erzh√§lt Ihr mir doch was."
+"erz‰hl was", "erz‰hl etwas" -> "Erzh‰lt Ihr mir doch was."
 english, "druid" -> "Druids are actually rather strange people. Most of them are excellent alchemists, true, but well, they indeed have some crazy ideas: spirits of nature, will of nature and all those things."
 "druid" -> "Druiden sind schon ein sonderbarer Schlag. Die meisten von ihnen sind zwar exellente Alchemisten, aber nun ja. Sie haben doch schon recht wirre Ideen: Naturgeister, Wille der Natur und all sowas."
 english, "alchemy", "alchemist" -> "Alchemists are masters of potions, have profound knowledge about the herbs, and are keen observers of the world."
-"alchemie", "alchimi", "alchemist" -> "Alchemisten sind Meister der Tr√§nke, Kenner der Kr√§uter und gute Beobachter der Welt."
+"alchemie", "alchimi", "alchemist" -> "Alchemisten sind Meister der Tr‰nke, Kenner der Kr‰uter und gute Beobachter der Welt."
 "heal", "medicine", "medical" -> "Medicine... If you know the art of creating medicine very well, you can fight against all diseases."
-"heil", "medizin" -> "Medizin. Wer die Kunst der Medizinherstellung wirklich beherrscht mag alle Krankheiten zu bek√§mpfen."
+"heil", "medizin" -> "Medizin. Wer die Kunst der Medizinherstellung wirklich beherrscht mag alle Krankheiten zu bek‰mpfen."
 "potion" -> "Potions are true wonders, they may cause great benefits or catastrophic disasters."
-"trank", "tr√§nk" -> "Tr√§nke sind wahre Wunderwerke. Sie gehen gro√üe Wohltaten oder gro√ües Unheil bewirken."
+"trank", "tr‰nk" -> "Tr‰nke sind wahre Wunderwerke. Sie gehen groﬂe Wohltaten oder groﬂes Unheil bewirken."
 "herb" -> "Herbs are the foundation of alchemy, more powerful than any sword or spell."
-"kraut", "kr√§uter" -> "Kr√§uter sind die Grundlage der Alchemie. M√§chtiger als jedes Schwert und jeder Zauber."
+"kraut", "kr‰uter" -> "Kr‰uter sind die Grundlage der Alchemie. M‰chtiger als jedes Schwert und jeder Zauber."
 "dust" -> "Oh, what would be a potion without gem dust? A stock! Right!"
-"staub" -> "O, was w√§re ein Trank doch ohne den Edelsteinstaub - ein Sud! Genau!"
+"staub" -> "O, was w‰re ein Trank doch ohne den Edelsteinstaub - ein Sud! Genau!"
 english, "adrazin", "echolon", "hyperborelium", "dracolin", "orcanol", "fenolin", "caprazin", "illidrium" -> "Active ingredients! Magnificent. Fantastic."
 "adrazin", "echolon", "hyperborelium", "dracolin", "orcanol", "fenolin", "caprazin", "illidrium" -> "Wirkstoffe! Herrlich. Fantastisch."
 "active ingredient", "active agent", "active substance" -> "Active ingredients! Magnificent. Fantastic."
@@ -140,11 +154,11 @@ english, "Joseph", "Quatrilla" -> "That's me. Correct."
 
 cycletext "#me betrachtet eine Flasche.", "#me looks closely at a bottle."
 cycletext "Wo bleibt er nur mit meinem Trank?", "What takes him so long to bring me my potion?"
-cycletext "#me hackt Kr√§uter klein.", "#me chops some herbs."
-cycletext "#me sortiert einige Kr√§uter.", "#me sorts some herbs."
+cycletext "#me hackt Kr‰uter klein.", "#me chops some herbs."
+cycletext "#me sortiert einige Kr‰uter.", "#me sorts some herbs."
 cycletext "#me beschriftet eine Flasche.", "#me labels a bottle."
-cycletext "#me f√ºllt einen Trank ab.", "#me pours a potion into a bottle."
-cycletext "#me l√§sst einen Rubin fallen und hebt ihn seufzend wieder auf.", "#me drops a ruby, picking it up again with a sigh."
+cycletext "#me f¸llt einen Trank ab.", "#me pours a potion into a bottle."
+cycletext "#me l‰sst einen Rubin fallen und hebt ihn seufzend wieder auf.", "#me drops a ruby, picking it up again with a sigh."
 cycletext "Adrazin...Adrazin...immwer wieder Adrazin!", "Adrazin...Adrazin...and again, Adrazin!"
-cycletext "Das n√§chste mal sollte ich darauf achten, was ich in den Kessel tue.", "Next time, I should take care what I pour into the cauldron."
+cycletext "Das n‰chste mal sollte ich darauf achten, was ich in den Kessel tue.", "Next time, I should take care what I pour into the cauldron."
 cycletext "Jemand, der noch nie was zum explodieren gebracht hat, ist kein richtiger Alchemist.", "Someone who never have caused and explosion can hardly be called an alchemist."

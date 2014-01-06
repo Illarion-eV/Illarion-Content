@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Argentus Almsbag                                        Runewick --
 -- NPC Job:  Money changer                                                    --
@@ -50,7 +64,7 @@ itemShoes = 53
 -- the merchant dialog.
 
 sellItems = 61, 3076, 3077
-tradeNotEnoughMoneyMsg "Oh, ich fÃ¼rchte Ihr kÃ¶nnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
@@ -74,32 +88,32 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Argentus Almsbag the money changer of Runewick. Keywords: buy, sell, trade, Salkamar.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Argentus Almsbag der Geldwechsler von Runewick. SchlÃ¼sselwÃ¶rter: kaufe, verkaufe, Handel, Salkamar.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Argentus Almsbag der Geldwechsler von Runewick. Schlüsselwörter: kaufe, verkaufe, Handel, Salkamar.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you.", "Be greeted. Would you like to change your coppers into silvers?"
-"GrÃ¼ÃŸe", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrÃ¼ÃŸt.", "GrÃ¼ÃŸe. MÃ¶gt Ihr Euren Kupfer nicht gegen Silber eintauschen?"
+"Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt.", "Grüße. Mögt Ihr Euren Kupfer nicht gegen Silber eintauschen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, hello!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, hallo!"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Auf Bald!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Auf Bald!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 "How are you", "How feel", "How do you do" -> "I'm always happy when I'm trading."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es immer gut, wenn ich mit jemandem handeln kann."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es immer gut, wenn ich mit jemandem handeln kann."
 "your name", "who are you", "who art thou" -> "I am Argentus Almsbag! Don't you know me?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Argentus Almsbag. Kennt Ihr mich etwa nicht?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Argentus Almsbag. Kennt Ihr mich etwa nicht?"
 
 -- Quest
 -- Quest by Zassaria Riverbank (Ask for me II)
 queststatus(701) = 4, english, "Zassaria", "lizzard", "fish", "order", "riverbank" -> queststatus(701) = 5, "Zassaria? A fish order? What, now? The fish has already started to smell? No, thanks. I want fresh fish, please tell Lady Zassaria that."
-queststatus(701) = 4, "Zassaria", "lizzard", "fisch", "Bestellung", "riverbank" -> queststatus(701) = 5, "Zassaria?  Eine Fischbestellung? Was hÃ¶re ich da, der Fisch beginnt bereits zu stinken? Nein, danke! Ich mÃ¶chte frischen Fisch, bitte sagt das Lady Riverbank."
+queststatus(701) = 4, "Zassaria", "lizzard", "fisch", "Bestellung", "riverbank" -> queststatus(701) = 5, "Zassaria?  Eine Fischbestellung? Was höre ich da, der Fisch beginnt bereits zu stinken? Nein, danke! Ich möchte frischen Fisch, bitte sagt das Lady Riverbank."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, a customer, welcome!", trade
-"kauf", "waren", "preis", "Handel", "verÃ¤uÃŸer", "erwerb" -> "Ah, werte Kundschaft, seid willkommen.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, werte Kundschaft, seid willkommen.", trade
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I love money, but I hate my job."
@@ -107,19 +121,19 @@ queststatus(701) = 4, "Zassaria", "lizzard", "fisch", "Bestellung", "riverbank" 
 english, "job" -> "I love money, but I hate my job."
 "job" -> "Ich mag Geld, aber ich mag meinen Beruf nicht."
 "tell something" -> "Sometimes I wonder why I change money for free. Perhaps I should start to take a percentage.."
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Wollt Ihr nun Handeln, oder mich mit Eurem GeschwÃ¤tz von der Arbeit abhalten?"
+"erzähl was", "erzähl etwas" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Do you want to change your coins or do you just want to distract me from counting mine?"
-"Gott", "GÃ¶tter" -> "Wollt Ihr nun Handeln, oder mich mit Eurem GeschwÃ¤tz von der Arbeit abhalten?"
+"Gott", "Götter" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Faction stuff
 english, "Runewick" -> "Runewick is such a lovely place. There's a lot of scope for making money here.", "Look, are you going to change coins or just gossip?"
-"Runewick" -> "Runwick ist ein sehr schÃ¶ner Ort, man kann hier viel Geld machen.", "Wollt Ihr nun Handeln, oder mich mit Eurem GeschwÃ¤tz von der Arbeit abhalten?"
+"Runewick" -> "Runwick ist ein sehr schöner Ort, man kann hier viel Geld machen.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 english, "Galmair" -> "Galmair is full of corruption and grime. Only thieves make money there.", "Look, are you going to change coins or just gossip?"
-"Galmair" -> "Galmair ist voll von Korruption und Dreck.", "Wollt Ihr nun Handeln, oder mich mit Eurem GeschwÃ¤tz von der Arbeit abhalten?"
+"Galmair" -> "Galmair ist voll von Korruption und Dreck.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 english, "Cadomyr" -> "You don't need money in Cadomyr, I hear they all use slaves.", "Look, are you going to change coins or just gossip?"
-"Cadomyr" -> "Cadomyr ist Cadomyr.", "Wollt Ihr nun Handeln, oder mich mit Eurem GeschwÃ¤tz von der Arbeit abhalten?"
+"Cadomyr" -> "Cadomyr ist Cadomyr.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Main land factions
 english, "salkama" -> "Salkamar was my home, but I hated it there."
@@ -127,13 +141,13 @@ english, "salkama" -> "Salkamar was my home, but I hated it there."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "Unless it's stamped on a coin I don't care."
-"Gobaith", "Gobiath" -> "Wollt Ihr nun Handeln, oder mich mit Eurem GeschwÃ¤tz von der Arbeit abhalten?"
+"Gobaith", "Gobiath" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me betrachtet eine GoldmÃ¼nze.", "#me glances lovingly at a gold coin."
+cycletext "#me betrachtet eine Goldmünze.", "#me glances lovingly at a gold coin."
 cycletext "#me's Augen funklen gierig.", "#me's eyes sparkle greedily as he rubs a coin between his fingers."
-cycletext "#me murmelt verÃ¤rgert: 'Wenn dir meine Preise nicht passen, dann geh doch woanders hin.'", "#me mumbles quietly: 'I wish I got to keep the money.'"
+cycletext "#me murmelt verärgert: 'Wenn dir meine Preise nicht passen, dann geh doch woanders hin.'", "#me mumbles quietly: 'I wish I got to keep the money.'"

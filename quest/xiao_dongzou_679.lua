@@ -1,3 +1,19 @@
+--[[
+Illarion Server
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+details.
+
+You should have received a copy of the GNU Affero General Public License along
+with this program.  If not, see <http://www.gnu.org/licenses/>. 
+]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (679, 'npc.xiao_dongzou_679');
 
 require("base.common")
@@ -18,19 +34,19 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sage Xiao ob du um 'wenig'(1Silber), 'normal'(10 Silber) oder 'viel' (1 Gold) Geld spielen willst."
 Description[ENGLISH][1] = "Tell Xiao how much you want to play with. Use 'single'(1 silver), 'few'(10 silver) or 'many'(1 Gold) coins."
-Description[GERMAN][10] = "WÃ¼rfelspiel um ein SilberstÃ¼ck.\nSage '1', '2' ... '6' fÃ¼r deine Auswahl oder brich das Spiel ab mit 'Stop' oder 'Ende'."
+Description[GERMAN][10] = "Würfelspiel um ein Silberstück.\nSage '1', '2' ... '6' für deine Auswahl oder brich das Spiel ab mit 'Stop' oder 'Ende'."
 Description[ENGLISH][10] = "Dice game for one silver coin.\nUse '1', '2' ... '6' to start or break up the game by using 'stop' or 'end'."
-Description[GERMAN][20] = "WÃ¼rfelspiel um zehn SilberstÃ¼cks.\nSage '1', '2' ... '6' fÃ¼r deine Auswahl oder brich das Spiel ab mit 'Stop' oder 'Ende'."
+Description[GERMAN][20] = "Würfelspiel um zehn Silberstücks.\nSage '1', '2' ... '6' für deine Auswahl oder brich das Spiel ab mit 'Stop' oder 'Ende'."
 Description[ENGLISH][20] = "Dice game for ten silver coins.\nUse '1', '2' ... '6' to start or break up the game by using 'stop' or 'end'."
-Description[GERMAN][30] = "WÃ¼rfelspiel um ein GoldstÃ¼ck.\nSage '1', '2' ... '6' fÃ¼r deine Auswahl oder brich das Spiel ab mit 'Stop' oder 'Ende'."
+Description[GERMAN][30] = "Würfelspiel um ein Goldstück.\nSage '1', '2' ... '6' für deine Auswahl oder brich das Spiel ab mit 'Stop' oder 'Ende'."
 Description[ENGLISH][30] = "Dice game for one gold coin.\nUse '1', '2' ... '6' to start or break up the game by using 'stop' or 'end'."
 Description[GERMAN][100] = "Sage Xiao ob du um 'wenig'(1Silber), 'normal'(10 Silber) oder 'viel' (1 Gold) Geld spielen willst."
 Description[ENGLISH][100] = "Tell Xiao how much you want to play with. Use 'single'(1 silver), 'few'(10 silver) or 'many'(1 Gold) coins."
-Description[GERMAN][101] = "MÃ¼nzspiel um ein SilberstÃ¼ck.\nSage 'Kopf', 'Zahl', 'Rand' oder brich das Spiel ab mit 'Stop' oder 'Ende'."
+Description[GERMAN][101] = "Münzspiel um ein Silberstück.\nSage 'Kopf', 'Zahl', 'Rand' oder brich das Spiel ab mit 'Stop' oder 'Ende'."
 Description[ENGLISH][101] = "Coin game for one silver coin.\nUse 'heads', 'tails', 'other' or break up the game by using 'stop' or 'end'."
-Description[GERMAN][102] = "MÃ¼nzspiel um zehn SilberstÃ¼cke.\nSage 'Kopf', 'Zahl', 'Rand' oder brich das Spiel ab mit 'Stop' oder 'Ende'."
+Description[GERMAN][102] = "Münzspiel um zehn Silberstücke.\nSage 'Kopf', 'Zahl', 'Rand' oder brich das Spiel ab mit 'Stop' oder 'Ende'."
 Description[ENGLISH][102] = "Coin game for ten silver coins.\nUse 'heads', 'tails', 'other' or break up the game by using 'stop' or 'end'."
-Description[GERMAN][103] = "MÃ¼nzspiel um ein GoldstÃ¼ck.\nSage 'Kopf', 'Zahl', 'Rand' oder brich das Spiel ab mit 'Stop' oder 'Ende'."
+Description[GERMAN][103] = "Münzspiel um ein Goldstück.\nSage 'Kopf', 'Zahl', 'Rand' oder brich das Spiel ab mit 'Stop' oder 'Ende'."
 Description[ENGLISH][103] = "Coin game for one gold coin.\nUse 'heads', 'tails', 'other' or break up the game by using 'stop' or 'end'."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)

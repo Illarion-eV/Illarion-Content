@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Valandil Elensar                                            None --
 -- NPC Job:  forester                                                         --
@@ -26,7 +40,7 @@ autointroduce = on
 author = "Estralis Seborian"
 author = "Zak"
 
-lookatDE = "Dieser NPC ist der FÃ¶rster Valandil Elensar."
+lookatDE = "Dieser NPC ist der Förster Valandil Elensar."
 lookatUS = "This NPC is the forester Valandil Elensar."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -69,181 +83,181 @@ itemShoes = 53
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the forester Valandil Elensar. Keywords: Hello, quest, hatchet, forester.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der FÃ¶rster Valandil Elensar. SchlÃ¼sselwÃ¶rter: Hallo, Quest, Beil, FÃ¶rster.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Förster Valandil Elensar. Schlüsselwörter: Hallo, Quest, Beil, Förster.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> end, "Greetings, frisorry that I won't stand up but I planted trees all day long, now I feel a little tired.", "Welcome in Elstree forest, watch out for the deers, they are easily frightened today.", "Hello, I hope you weren't sent to me in order to buy wood like my last visitor."
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "GrÃ¼ÃŸe, verzeiht, dass ich mich nicht erhebe aber ich habe den ganzen Tag BÃ¤ume gepflanzt und bin nun ein wenig ermÃ¼det.", "Willkommen im Elsbaumwald, achtet auf die Rehe, sie sind heute sehr schreckhaft.", "Hallo, ich hoffe, ihr wurdet nicht zu mir geschickt, um Holz zu kaufen wie mein letzter Besucher."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße, verzeiht, dass ich mich nicht erhebe aber ich habe den ganzen Tag Bäume gepflanzt und bin nun ein wenig ermüdet.", "Willkommen im Elsbaumwald, achtet auf die Rehe, sie sind heute sehr schreckhaft.", "Hallo, ich hoffe, ihr wurdet nicht zu mir geschickt, um Holz zu kaufen wie mein letzter Besucher."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> end, "Greetings, frisorry that I won't stand up but I planted trees all day long, now I feel a little tired.", "Welcome in the Elstree forest, watch out for the deers, they are easily frightened today.", "Hello, I hope you weren't send to me in order to buy wood like my last visitor."
-"Hiho", "Hallo", "Hey", "Greeb" -> "GrÃ¼ÃŸe, verzeiht, dass ich mich nicht erhebe aber ich habe den ganzen Tag BÃ¤ume gepflanzt und bin nun ein wenig ermÃ¼det.", "Willkommen im Elsbaumwald, achtet auf die Rehe, sie sind heute sehr schreckhaft.", "Hallo, ich hoffe, ihr wurdet nicht zu mir geschickt, um Holz zu kaufen wie mein letzter Besucher."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüße, verzeiht, dass ich mich nicht erhebe aber ich habe den ganzen Tag Bäume gepflanzt und bin nun ein wenig ermüdet.", "Willkommen im Elsbaumwald, achtet auf die Rehe, sie sind heute sehr schreckhaft.", "Hallo, ich hoffe, ihr wurdet nicht zu mir geschickt, um Holz zu kaufen wie mein letzter Besucher."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell, may the gods watch your paths.", "Take care of yourself and never forget that the trees here are not to be touched by anyone but me without permission."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Auf bald, mÃ¶gen die GÃ¶tter Ã¼ber eure Pfade wachen.", "Passt auf euch auf und denkt daran, dass die BÃ¤ume hier von niemanden auÃŸer mir ohne Erlaubnis berÃ¼hrt werden dÃ¼rfen."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf bald, mögen die Götter über eure Pfade wachen.", "Passt auf euch auf und denkt daran, dass die Bäume hier von niemanden außer mir ohne Erlaubnis berührt werden dürfen."
 english, "Ciao", "Adieu", "Au revoir" -> "Good bye, enjoy your time in Elstree forest.", "Oh, when you happen to pass sheep watch your back or else they might stick their curious noses into your pocket."
-"Ciao", "Adieu", "Au revoir" -> "Auf Wiedersehen, genieÃŸt eure Zeit hier im Elsbaumwald.", "Oh, wenn ihr an Schafen vorbei kommen solltet, habt acht oder sie stecken ihre neugierigen MÃ¤uler in eure Taschen."
+"Ciao", "Adieu", "Au revoir" -> "Auf Wiedersehen, genießt eure Zeit hier im Elsbaumwald.", "Oh, wenn ihr an Schafen vorbei kommen solltet, habt acht oder sie stecken ihre neugierigen Mäuler in eure Taschen."
 "How are you", "How feel", "How do you do" -> "Oh, I am fine, thank you.", "I got a splinter in my thumb but I will handle it.", "My head aches a little but it will pass after some rest."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen" -> "Mir geht es gut, danke euch.", "Ich habe einen Splitter im Daumen aber das wird schon.", "Mein Kopf schmerzt ein wenig aber das geht vorbei nach ein bischen Rast."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut, danke euch.", "Ich habe einen Splitter im Daumen aber das wird schon.", "Mein Kopf schmerzt ein wenig aber das geht vorbei nach ein bischen Rast."
 "your name", "who are you", "who art thou" -> "I am Valandil Elensar.", "Valandil Elensar is my name, I am the forester.", "I am Valandil Elensar, the forester."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Valandil Elensar.", "Valandil Elensar ist mein Name, ich bin der FÃ¶rster hier.", "Ich bin Valandil Elensar, der FÃ¶rster."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Valandil Elensar.", "Valandil Elensar ist mein Name, ich bin der Förster hier.", "Ich bin Valandil Elensar, der Förster."
 
 -- 1st quest: Take a tool and gather 10 raw materials for 50cp.
 queststatus(69) = 0, english, "quest", "mission" -> inform("[New quest] Elstree Forest I"), item(74, 1, 399), queststatus(69) = 1, "Ah, fine, so you want to help me, caring for the trees. Bark beetles are a real plague these days. Take this hatchet and search for ill naldor trees. Bring me ten logs, will you?"
-queststatus(69) = 0, "quest", "mission" -> inform("[Neues Quest] Elsbaumwald I"), item(74, 1, 399), queststatus(69) = 1, "Ah, fein, ihr mÃ¶chtet mir dabei helfen, die BÃ¤ume zu pflegen. BorkenkÃ¤fer sind zu einer echten Plage geworden. Nehmt dieses Beil und sucht nach kranken NaldorbÃ¤umen. Bringt mir zehn Scheite, ja?"
+queststatus(69) = 0, "quest", "mission" -> inform("[Neues Quest] Elsbaumwald I"), item(74, 1, 399), queststatus(69) = 1, "Ah, fein, ihr möchtet mir dabei helfen, die Bäume zu pflegen. Borkenkäfer sind zu einer echten Plage geworden. Nehmt dieses Beil und sucht nach kranken Naldorbäumen. Bringt mir zehn Scheite, ja?"
 queststatus(69) = 0, "task", "adventure", "order" -> inform("[New quest] Elstree Forest I"), item(74, 1, 399), queststatus(69) = 1, "Ah, fine, so you want to help me, caring for the trees. Bark beetles are a real plague these days. Take this hatchet and search for ill naldor trees. Bring me ten logs, will you?"
-queststatus(69) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Elsbaumwald I"), item(74, 1, 399), queststatus(69) = 1, "Ah, fein, ihr mÃ¶chtet mir dabei helfen, die BÃ¤ume zu pflegen. BorkenkÃ¤fer sind zu einer echten Plage geworden. Nehmt dieses Beil und sucht nach kranken NaldorbÃ¤umen. Bringt mir zehn Scheite, ja?"
+queststatus(69) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Elsbaumwald I"), item(74, 1, 399), queststatus(69) = 1, "Ah, fein, ihr möchtet mir dabei helfen, die Bäume zu pflegen. Borkenkäfer sind zu einer echten Plage geworden. Nehmt dieses Beil und sucht nach kranken Naldorbäumen. Bringt mir zehn Scheite, ja?"
 
 -- Quest 1 solved
 skill(woodcutting) < 90, queststatus(69) = 1, item(544, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and your lumberjacking skill increases."), skill(woodcutting) + 1, money + 500, deleteItem(544, 10), queststatus(69) = 2, "Oh, thank you. Here, take this reward for your efforts."
 queststatus(69) = 1, item(544, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(544, 10), queststatus(69) = 2, "Oh, thank you. Here, take this reward for your efforts."
-skill(woodcutting) < 90, queststatus(69) = 1, item(544, all) > 9, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst fÃ¼nf SilberstÃ¼cke und deine HolzfÃ¤llerfertigkeit steigt."), skill(woodcutting) + 1, money + 500, deleteItem(544, 10), queststatus(69) = 2, "Oh, vielen Dank. Hier, eine kleine EntschÃ¤digung fÃ¼r eure MÃ¼hen."
-queststatus(69) = 1, item(544, all) > 9, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst fÃ¼nf SilberstÃ¼cke."), money + 500, deleteItem(544, 10), queststatus(69) = 2, "Oh, vielen Dank. Hier, eine kleine EntschÃ¤digung fÃ¼r eure MÃ¼hen."
+skill(woodcutting) < 90, queststatus(69) = 1, item(544, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Holzfällerfertigkeit steigt."), skill(woodcutting) + 1, money + 500, deleteItem(544, 10), queststatus(69) = 2, "Oh, vielen Dank. Hier, eine kleine Entschädigung für eure Mühen."
+queststatus(69) = 1, item(544, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(544, 10), queststatus(69) = 2, "Oh, vielen Dank. Hier, eine kleine Entschädigung für eure Mühen."
 
 -- Quest 1 not solved, repeat the instructions
 queststatus(69) = 1, english, "quest", "mission" -> "Please take care of ill naldor trees, else bark beetles might make other trees suffer, too.", "Well, I am sure you'll find more ill naldor trees."
-queststatus(69) = 1, "quest", "mission" -> "Bitte kÃ¼mmert euch um die kranken NaldorbÃ¤ume, andernfalls kÃ¶nnte der BorkenkÃ¤fer auch andere BÃ¤ume befallen.", "Nun, ihr findet sicher noch weitere kranke NaldorbÃ¤ume."
+queststatus(69) = 1, "quest", "mission" -> "Bitte kümmert euch um die kranken Naldorbäume, andernfalls könnte der Borkenkäfer auch andere Bäume befallen.", "Nun, ihr findet sicher noch weitere kranke Naldorbäume."
 queststatus(69) = 1, "task", "adventure", "order" -> "Please take care of ill naldor trees, else bark beetles might make other trees suffer, too.", "Well, I am sure you'll find more ill naldor trees."
-queststatus(69) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte kÃ¼mmert euch um die kranken NaldorbÃ¤ume, andernfalls kÃ¶nnte der BorkenkÃ¤fer auch andere BÃ¤ume befallen.", "Nun, ihr findet sicher noch weitere kranke NaldorbÃ¤ume."
+queststatus(69) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte kümmert euch um die kranken Naldorbäume, andernfalls könnte der Borkenkäfer auch andere Bäume befallen.", "Nun, ihr findet sicher noch weitere kranke Naldorbäume."
 
 -- 2nd quest: Gather 20 different raw materials for 100cp. Hint on where to get new tools.
 queststatus(69) = 2, english, "quest", "mission" -> inform("[New quest] Elstree Forest II"), queststatus(69) = 3, "Oh dear, scale lice infested some of the cherry trees. We have no other choice, cut the ill trees and bring me twenty logs, please."
-queststatus(69) = 2, "quest", "mission" -> inform("[Neues Quest] Elsbaumwald II"), queststatus(69) = 3, "Oje, SchildlÃ¤use haben einige der KirschbÃ¤ume befallen. Wir haben keine Wahl, schlagt die kranken BÃ¤ume und bring mir zwanzig Scheite."
+queststatus(69) = 2, "quest", "mission" -> inform("[Neues Quest] Elsbaumwald II"), queststatus(69) = 3, "Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben keine Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite."
 queststatus(69) = 2, "task", "adventure", "order" -> inform("[New quest] Elstree Forest II"), queststatus(69) = 3, "Oh dear, scale lice infested some of the cherry trees. We have no other choice, cut the ill trees and bring me twenty logs, please."
-queststatus(69) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Elsbaumwald II"), queststatus(69) = 3, "Oje, SchildlÃ¤use haben einige der KirschbÃ¤ume befallen. Wir haben keine Wahl, schlagt die kranken BÃ¤ume und bring mir zwanzig Scheite."
+queststatus(69) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Elsbaumwald II"), queststatus(69) = 3, "Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben keine Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite."
 
 -- Quest 2 solved
 skill(woodcutting) < 90, queststatus(69) = 3, item(543, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your lumberjacking skill increases."), skill(woodcutting) + 1, money + 1000, deleteItem(543, 20), queststatus(69) = 4, "Ha, you taught the lice a lesson. Take this as a reward."
 queststatus(69) = 3, item(543, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(543, 20), queststatus(69) = 4, "Ha, you taught the lice a lesson. Take this as a reward."
-skill(woodcutting) < 90, queststatus(69) = 3, item(543, all) > 19, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst zehn SilberstÃ¼cke und deine HolzfÃ¤llerfertigkeit steigt."), skill(woodcutting) + 1, money + 1000, deleteItem(543, 20), queststatus(69) = 4, "Ha, ihr habt es den SchildlÃ¤usen gezeigt, danke euch. Nehmt dies als Belohnung."
-queststatus(69) = 3, item(543, all) > 19, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst zehn SilberstÃ¼cke."), money + 1000, deleteItem(543, 20), queststatus(69) = 4, "Ha, ihr habt es den SchildlÃ¤usen gezeigt, danke euch. Nehmt dies als Belohnung."
+skill(woodcutting) < 90, queststatus(69) = 3, item(543, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Holzfällerfertigkeit steigt."), skill(woodcutting) + 1, money + 1000, deleteItem(543, 20), queststatus(69) = 4, "Ha, ihr habt es den Schildläusen gezeigt, danke euch. Nehmt dies als Belohnung."
+queststatus(69) = 3, item(543, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(543, 20), queststatus(69) = 4, "Ha, ihr habt es den Schildläusen gezeigt, danke euch. Nehmt dies als Belohnung."
 
 -- Quest 2 not solved, repeat the instructions
 queststatus(69) = 3, english, "quest", "mission" -> "Oh dear, scale lice infested some of the cherry trees. We have no other choice, cut the ill trees and bring me twenty logs, please.", "Those are not enough cherry logs yet, try to get some more."
-queststatus(69) = 3, "quest", "mission" -> "Oje, SchildlÃ¤use haben einige der KirschbÃ¤ume befallen. Wir haben kein Wahl, schlagt die kranken BÃ¤ume und bring mir zwanzig Scheite.", "Das ist noch nicht genÃ¼gend Kirschholz, schaut doch bitte zu, dass ihr noch mehr besorgt."
+queststatus(69) = 3, "quest", "mission" -> "Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben kein Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite.", "Das ist noch nicht genügend Kirschholz, schaut doch bitte zu, dass ihr noch mehr besorgt."
 queststatus(69) = 3, "task", "adventure", "order" -> "Oh dear, scale lice infested some of the cherry trees. We have no other choice, cut the ill trees and bring me twenty logs, please.", "Those are not enough cherry logs yet, try to get some more."
-queststatus(69) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Oje, SchildlÃ¤use haben einige der KirschbÃ¤ume befallen. Wir haben kein Wahl, schlagt die kranken BÃ¤ume und bring mir zwanzig Scheite.", "Das ist noch nicht genÃ¼gend Kirschholz, schaut doch bitte zu, dass ihr noch mehr besorgt."
+queststatus(69) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben kein Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite.", "Das ist noch nicht genügend Kirschholz, schaut doch bitte zu, dass ihr noch mehr besorgt."
 
 -- 3rd quest: Gather 5 rare raw materials for 100cp. Hint on where to get new tools.
 queststatus(69) = 4, english, "quest", "mission" -> inform("[New quest] Elstree Forest III"), queststatus(69) = 5, "We always used to pin some twigs to the ceiling because of the delicious scent they spread. But now the branches we have have lost their scent. Do you think you can get us five new ones? The most intensive scented twigs can be found in the northern woods"
-queststatus(69) = 4, "quest", "mission" -> inform("[Neues Quest] Elsbaumwald III"), queststatus(69) = 5, "Wir brachten immer einige Zweige an der Decke an, des kÃ¶stlichen Duftes wegen, den sie verbreiten. Doch nun haben die jetzigen Zweige ihren Duft verloren. Meint ihr, ihr kÃ¶nntet uns fÃ¼nf neue besorgen? Die aus dem Nordwald riechen am intensivsten."
+queststatus(69) = 4, "quest", "mission" -> inform("[Neues Quest] Elsbaumwald III"), queststatus(69) = 5, "Wir brachten immer einige Zweige an der Decke an, des köstlichen Duftes wegen, den sie verbreiten. Doch nun haben die jetzigen Zweige ihren Duft verloren. Meint ihr, ihr könntet uns fünf neue besorgen? Die aus dem Nordwald riechen am intensivsten."
 queststatus(69) = 4, "task", "adventure", "order" -> inform("[New quest] Elstree Forest III"), queststatus(69) = 5, "We always used to pin some twigs to the ceiling because of the delicious scent they spread. But now the branches we have have lost their scent. Do you think you can get us five new ones? The most intensive scented twigs can be found in the northern woods."
-queststatus(69) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Elsbaumwald III"), queststatus(69) = 5, "Wir brachten immer einige Zweige an der Decke an, des kÃ¶stlichen Duftes wegen, den sie verbreiten. Doch nun haben die jetzigen Zweige ihren Duft verloren. Meint ihr, ihr kÃ¶nntet uns fÃ¼nf neue besorgen? Die aus dem Nordwald riechen am intensivsten."
+queststatus(69) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Elsbaumwald III"), queststatus(69) = 5, "Wir brachten immer einige Zweige an der Decke an, des köstlichen Duftes wegen, den sie verbreiten. Doch nun haben die jetzigen Zweige ihren Duft verloren. Meint ihr, ihr könntet uns fünf neue besorgen? Die aus dem Nordwald riechen am intensivsten."
 
 -- Quest 3 solved
 skill(woodcutting) < 90, queststatus(69) = 5, item(2786, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your lumberjacking skill increases."), skill(woodcutting) + 1, money + 1000, deleteItem(2786, 5), queststatus(69) = 6, "Mmh... do you smell that? The calming scent of the woods, thank you very much. Finally my wife and I can go to sleep completely relaxed again."
 queststatus(69) = 5, item(2786, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(2786, 5), queststatus(69) = 6, "Mmh... do you smell that? The calming scent of the woods, thank you very much. Finally my wife and I can go to sleep completely relaxed again."
-skill(woodcutting) < 90, queststatus(69) = 5, item(2786, all) > 4, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst zehn SilberstÃ¼cke und deine HolzfÃ¤llerfertigkeit steigt."), skill(woodcutting) + 1, money + 1000, deleteItem(2786, 5), queststatus(69) = 6, "Mmh... riecht ihr das? Der beruhigende Duft des Waldes, vielen vielen Dank. Meine Frau und ich kÃ¶nnen nun endlich wieder entspannt einschlafen."
-queststatus(69) = 5, item(2786, all) > 4, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst zehn SilberstÃ¼cke."), money + 1000, deleteItem(2786, 5), queststatus(69) = 6, "Mmh... riecht ihr das? Der beruhigende Duft des Waldes, vielen vielen Dank. Meine Frau und ich kÃ¶nnen nun endlich wieder entspannt einschlafen."
+skill(woodcutting) < 90, queststatus(69) = 5, item(2786, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Holzfällerfertigkeit steigt."), skill(woodcutting) + 1, money + 1000, deleteItem(2786, 5), queststatus(69) = 6, "Mmh... riecht ihr das? Der beruhigende Duft des Waldes, vielen vielen Dank. Meine Frau und ich können nun endlich wieder entspannt einschlafen."
+queststatus(69) = 5, item(2786, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(2786, 5), queststatus(69) = 6, "Mmh... riecht ihr das? Der beruhigende Duft des Waldes, vielen vielen Dank. Meine Frau und ich können nun endlich wieder entspannt einschlafen."
 
 -- Quest 3 not solved, repeat the instructions
 queststatus(69) = 5, english, "quest", "mission" -> "We always used to pin some twigs to the ceiling because of the delicious scent they spread. But now the branches we have have lost their scent. Do you think you can get us five new ones?", "Well, actually we wanted to have a bigger storage so that we do not have to bother you again. Please, gather some more twigs."
-queststatus(69) = 5, "quest", "mission" -> "Wir brachten immer einige Zweige an der Decke an, des kÃ¶stlichen Duftes wegen, den sie verbreiten. Doch nun haben die jetzigen Zweige ihren Duft verloren. Meint ihr, ihr kÃ¶nntet uns fÃ¼nf neue besorgen?", "Nun, wir wollten uns eigentlich einen Vorrat anlegen, damit wir euch nicht so schnell wieder belÃ¤stigen mÃ¼ssen. Bringt doch bitte gleich ein paar mehr Zweige."
+queststatus(69) = 5, "quest", "mission" -> "Wir brachten immer einige Zweige an der Decke an, des köstlichen Duftes wegen, den sie verbreiten. Doch nun haben die jetzigen Zweige ihren Duft verloren. Meint ihr, ihr könntet uns fünf neue besorgen?", "Nun, wir wollten uns eigentlich einen Vorrat anlegen, damit wir euch nicht so schnell wieder belästigen müssen. Bringt doch bitte gleich ein paar mehr Zweige."
 queststatus(69) = 5, "task", "adventure", "order" -> "We always used to pin some twigs to the ceiling because of the delicious scent they spread. But now the branches we have have lost their scent. Do you think you can get us five new ones?", "Well, actually we wanted to have a bigger storage so that we do not have to bother you again. Please, gather some more twigs."
-queststatus(69) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir brachten immer einige Zweige an der Decke an, des kÃ¶stlichen Duftes wegen, den sie verbreiten. Doch nun haben die jetzigen Zweige ihren Duft verloren. Meint ihr, ihr kÃ¶nntet uns fÃ¼nf neue besorgen?", "Nun, wir wollten uns eigentlich einen Vorrat anlegen, damit wir euch nicht so schnell wieder belÃ¤stigen mÃ¼ssen. Bringt doch bitte gleich ein paar mehr Zweige."
+queststatus(69) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir brachten immer einige Zweige an der Decke an, des köstlichen Duftes wegen, den sie verbreiten. Doch nun haben die jetzigen Zweige ihren Duft verloren. Meint ihr, ihr könntet uns fünf neue besorgen?", "Nun, wir wollten uns eigentlich einen Vorrat anlegen, damit wir euch nicht so schnell wieder belästigen müssen. Bringt doch bitte gleich ein paar mehr Zweige."
 
 -- 4th quest: Gather 10 raw materials from a totally different location for 200cp. Link to other quest. Hint how to get there.
 queststatus(69) = 6, english, "quest", "mission" -> inform("[New quest] Elstree Forest IV"), queststatus(69) = 7, "In addition to my tasks as forester, I care for the cows. Can you bring me ten bundles of grain to feed them? Nana Winterbutter in Yewdale might help you."
-queststatus(69) = 6, "quest", "mission" -> inform("[Neues Quest] Elsbaumwald IV"), queststatus(69) = 7, "ZusÃ¤tzlich zu meinen Aufgaben als FÃ¶rster kÃ¼mmere ich mich um die KÃ¼he. KÃ¶nnt ihr mir zehn BÃ¼ndel Getreide bringen, um sie zu fÃ¼ttern? Nana Winterbutter in Eibenthal kÃ¶nnte dir dabei helfen."
+queststatus(69) = 6, "quest", "mission" -> inform("[Neues Quest] Elsbaumwald IV"), queststatus(69) = 7, "Zusätzlich zu meinen Aufgaben als Förster kümmere ich mich um die Kühe. Könnt ihr mir zehn Bündel Getreide bringen, um sie zu füttern? Nana Winterbutter in Eibenthal könnte dir dabei helfen."
 queststatus(69) = 6, "task", "adventure", "order" -> inform("[New quest] Elstree Forest IV"), queststatus(69) = 7, "In addition to my tasks as forester, I care for the cows. Can you bring me ten bundles of grain to feed them? Nana Winterbutter in Yewdale might help you."
-queststatus(69) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Elsbaumwald IV"), queststatus(69) = 7, "ZusÃ¤tzlich zu meinen Aufgaben als FÃ¶rster kÃ¼mmere ich mich um die KÃ¼he. KÃ¶nnt ihr mir zehn BÃ¼ndel Getreide bringen, um sie zu fÃ¼ttern? Nana Winterbutter im Eibenthal kÃ¶nnte dir dabei helfen."
+queststatus(69) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Elsbaumwald IV"), queststatus(69) = 7, "Zusätzlich zu meinen Aufgaben als Förster kümmere ich mich um die Kühe. Könnt ihr mir zehn Bündel Getreide bringen, um sie zu füttern? Nana Winterbutter im Eibenthal könnte dir dabei helfen."
 
 -- Quest 4 solved
 skill(woodcutting) < 90, queststatus(69) = 7, item(249, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins and your lumberjacking skill increases."), skill(woodcutting) + 1, money + 2000, deleteItem(249, 10), queststatus(69) = 8, "Thank you so much. Now I can feed the cows and enjoy their gratefullness."
 queststatus(69) = 7, item(249, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(249, 10), queststatus(69) = 8, "Thank you so much. Now I can feed the cows and enjoy their gratefullness."
-skill(woodcutting) < 90, queststatus(69) = 7, item(249, all) > 9, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 20 SilberstÃ¼cke und deine HolzfÃ¤llerfertigkeit steigt."), skill(woodcutting) + 1, money + 2000, deleteItem(249, 10), queststatus(69) = 8, "Vielen, vielen Dank. Nun kann ich die KÃ¼he fÃ¼ttern und mich ihrer Dankbarkeit erfreuen."
-queststatus(69) = 7, item(249, all) > 9, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 20 SilberstÃ¼cke."), money + 2000, deleteItem(249, 10), queststatus(69) = 8, "Vielen, vielen Dank. Nun kann ich die KÃ¼he fÃ¼ttern und mich ihrer Dankbarkeit erfreuen."
+skill(woodcutting) < 90, queststatus(69) = 7, item(249, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke und deine Holzfällerfertigkeit steigt."), skill(woodcutting) + 1, money + 2000, deleteItem(249, 10), queststatus(69) = 8, "Vielen, vielen Dank. Nun kann ich die Kühe füttern und mich ihrer Dankbarkeit erfreuen."
+queststatus(69) = 7, item(249, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(249, 10), queststatus(69) = 8, "Vielen, vielen Dank. Nun kann ich die Kühe füttern und mich ihrer Dankbarkeit erfreuen."
 
 -- Quest 4 not solved, repeat the instructions
 queststatus(69) = 7, english, "quest", "mission" -> "Please, the cows have a hard time, finding fresh grass. Will you bring me some straw?", "Could you please bring me more straw? Some of the cows are already pretty thin, aren't they?"
-queststatus(69) = 7, "quest", "mission" -> "Bitte, die KÃ¼he haben es schwer, saftiges Gras zu finden. Werdet ihr mir Stroh bringen?", "KÃ¶nntet ihr mir bitte mehr Stroh bringen? Einige der KÃ¼he sehen schon ganz schÃ¶n abgemagert aus, nicht?"
+queststatus(69) = 7, "quest", "mission" -> "Bitte, die Kühe haben es schwer, saftiges Gras zu finden. Werdet ihr mir Stroh bringen?", "Könntet ihr mir bitte mehr Stroh bringen? Einige der Kühe sehen schon ganz schön abgemagert aus, nicht?"
 queststatus(69) = 7, "task", "adventure", "order" -> "Please, the cows have a hard time, finding fresh grass. Will you bring me some straw?", "Could you please bring me more straw? Some of the cows are already pretty thin, aren't they?"
-queststatus(69) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte, die KÃ¼he haben es schwer, saftiges Gras zu finden. Werdet ihr mir Stroh bringen?", "KÃ¶nntet ihr mir bitte mehr Stroh bringen? Einige der KÃ¼he sehen schon ganz schÃ¶n abgemagert aus, nicht?"
+queststatus(69) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte, die Kühe haben es schwer, saftiges Gras zu finden. Werdet ihr mir Stroh bringen?", "Könntet ihr mir bitte mehr Stroh bringen? Einige der Kühe sehen schon ganz schön abgemagert aus, nicht?"
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(69) = 8, english, "quest", "mission" -> "I am grateful for all your help. If you visit Nana Winterbutter in Yewdale, can you greet her from me?"
-queststatus(69) = 8, "quest", "mission" -> "Ich bin dankbar fÃ¼r all eure Hilfe. Wenn ihr Nana Winterbutter im Eibenthal besucht, mÃ¶gt ihr sie von mir grÃ¼ÃŸen?"
+queststatus(69) = 8, "quest", "mission" -> "Ich bin dankbar für all eure Hilfe. Wenn ihr Nana Winterbutter im Eibenthal besucht, mögt ihr sie von mir grüßen?"
 queststatus(69) = 8, "task", "adventure", "order" -> "I am grateful for all your help. If you visit Nana Winterbutter in Yewdale, can you greet her from me?"
-queststatus(69) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin dankbar fÃ¼r all eure Hilfe. Wenn ihr Nana Winterbutter im Eibenthal besucht, mÃ¶gt ihr sie von mir grÃ¼ÃŸen?"
+queststatus(69) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin dankbar für all eure Hilfe. Wenn ihr Nana Winterbutter im Eibenthal besucht, mögt ihr sie von mir grüßen?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the forester of the Elstree forest. I deal with poachers my way, if you know what I mean."
-"beruf" -> "Ich bin der FÃ¶rster des Elsbaumwaldes. Mit Wilderern verfahre ich auf meine Weise, falls ihr versteht, was ich meine."
+"beruf" -> "Ich bin der Förster des Elsbaumwaldes. Mit Wilderern verfahre ich auf meine Weise, falls ihr versteht, was ich meine."
 english, "job" -> "I am the forester of the Elstree forest. I deal with poachers my way, if you know what I mean."
-"job" -> "Ich bin der FÃ¶rster des Elsbaumwaldes. Mit Wilderern verfahre ich auf meine Weise, falls ihr versteht, was ich meine."
+"job" -> "Ich bin der Förster des Elsbaumwaldes. Mit Wilderern verfahre ich auf meine Weise, falls ihr versteht, was ich meine."
 english, "Gobaith", "Gobiath" -> "I never heard of such a place."
-"Gobaith", "Gobiath" -> "Davon habe ich noch nie gehÃ¶rt."
+"Gobaith", "Gobiath" -> "Davon habe ich noch nie gehört."
 "my name" -> "Nice to meet you."
 "mein Name" -> "Es freut mich, eure Bekanntschaft zu machen."
 
 -- Tool hints
 queststatus(69) = 0, "Hatchet" -> "If you want a hatchet I could give one to you. But you would have to do a certain task for me in return."
-queststatus(69) = 0, "Beil" -> "Wenn ihr ein Beil wollt, kÃ¶nnte ich euch eines geben, allerdings wÃ¤re dies mit einer gewissen Aufgabe verbunden."
+queststatus(69) = 0, "Beil" -> "Wenn ihr ein Beil wollt, könnte ich euch eines geben, allerdings wäre dies mit einer gewissen Aufgabe verbunden."
 "Hatchet" -> "If you want to buy a hatchet, you should ask a merchant in Runewick."
-"Beil" -> "Wenn ihr ein Beil kaufen wollt, solltet ihr einen HÃ¤ndler in Runewick aufsuchen."
+"Beil" -> "Wenn ihr ein Beil kaufen wollt, solltet ihr einen Händler in Runewick aufsuchen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "forester" -> "I am a forester, if you want you can assist me and fulfill a task.", "As a forester, I care for the forest, yes.", "Being a forester is exhausting but also you get to be in touch with the trees a lot."
-"FÃ¶rster" -> "Ich bin ein FÃ¶rster und wenn ihr helfen wollt, gebe ich euch eine Aufgabe.", "Als FÃ¶rster kÃ¼mmere ich mich um die BÃ¤ume, richtig.", "FÃ¶rster zu sein strengt an aber man ist auch viel an der frischen Luft."
+"Förster" -> "Ich bin ein Förster und wenn ihr helfen wollt, gebe ich euch eine Aufgabe.", "Als Förster kümmere ich mich um die Bäume, richtig.", "Förster zu sein strengt an aber man ist auch viel an der frischen Luft."
 english, "Nana", "Winterbutter" -> "Nana is a cute and kind person, living in Yewdale. I used to travel there once in a while - before the bark beetles came."
-"Nana", "Winterbutter" -> "Nana ist eine liebliche und nette Person. Sie lebt im Eibenthal, wohin ich frÃ¼her oft gereist bin - bevor die BorkenkÃ¤fer kamen."
+"Nana", "Winterbutter" -> "Nana ist eine liebliche und nette Person. Sie lebt im Eibenthal, wohin ich früher oft gereist bin - bevor die Borkenkäfer kamen."
 "Yewdale" -> "Yewdale is just west of Runewick, a beautiful valley with Nana's cottage."
-"Eibental", "Eibenthal" -> "Das Eibenthal liegt westlich von Runewick, es ist ein schÃ¶nes Tal mit Nanas Bauernhof."
+"Eibental", "Eibenthal" -> "Das Eibenthal liegt westlich von Runewick, es ist ein schönes Tal mit Nanas Bauernhof."
 "bark beetle" -> "Bark beetles are the trees' foes. And I am the trees' friend. So they are my foes!"
-"BorkenkÃ¤fer" -> "Der BorkenkÃ¤fer ist der Feind der BÃ¤ume und ich bin ein Freund der BÃ¤ume. Also ist er mein Feind!"
+"Borkenkäfer" -> "Der Borkenkäfer ist der Feind der Bäume und ich bin ein Freund der Bäume. Also ist er mein Feind!"
 "lice", "louse", "bug", "insect" -> "Scale lice want to exterminate the forest. But what if they succeed - won't they exterminate themselves?"
-"Laus", "LÃ¤use" -> "Die SchildlÃ¤use wollen den Wald vernichten. Doch, was wenn sie Erfolg haben? Rotten sie sich nicht so selbst aus?"
+"Laus", "Läuse" -> "Die Schildläuse wollen den Wald vernichten. Doch, was wenn sie Erfolg haben? Rotten sie sich nicht so selbst aus?"
 "Elstree" -> "Yes, the Elstree forest is like a child and a mother to me. I care for it like for a child and it grants me a sense of well-being like a mother."
-"Elsbaum" -> "Ja, der Elsbaumwald ist wie ein Kind und eine Mutter fÃ¼r mich. Ich kÃ¼mmere mich um ihn wie um ein Kind und er gibt mir die Geborgenheit wie eine Mutter."
+"Elsbaum" -> "Ja, der Elsbaumwald ist wie ein Kind und eine Mutter für mich. Ich kümmere mich um ihn wie um ein Kind und er gibt mir die Geborgenheit wie eine Mutter."
 english, "Raban" -> "Raban, yes, I heard that name. He's a hermit, living somewhere deep in the forest, but do not ask me where."
-"Raban" -> "Raban, ja, von diesem Namen habe ich gehÃ¶rt. Er ist ein Einsiedler, der tief im Wald lebt. Fragt mich aber nicht, wo."
+"Raban" -> "Raban, ja, von diesem Namen habe ich gehört. Er ist ein Einsiedler, der tief im Wald lebt. Fragt mich aber nicht, wo."
 "poacher" -> "I deal with poachers my own way - especially Mr Burton will feel my wrath."
-"Wilderer" -> "Ich habe meine eigenen Methoden, mich um Wilderer zu kÃ¼mmern. Insbesondere Herr Burton wird mich noch kennenlernen."
+"Wilderer" -> "Ich habe meine eigenen Methoden, mich um Wilderer zu kümmern. Insbesondere Herr Burton wird mich noch kennenlernen."
 english, "Eugene", "Burton" -> "Burton. Eugene Burton. If I ever catch this dreaded poacher, I will treat him just like he uses to treat the peaceful animals of Elstree forest."
 "Eugene", "Burton" -> "Burton. Eugene Burton. Wenn ich diesen verdammten Wilderer je erwische, werde ich genau das mit ihm machen, was er mit den friedlichen Tieren des Elsbaumwaldes zu tun pflegt."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Elvaine is a friend of the forest; still, his prider are towers made of stone."
-"Erzmagier" -> "Elvaine Morgan ist ein Freund des Waldes. Dennoch sind TÃ¼rme aus Stein sein ganzer Stolz."
+"Erzmagier" -> "Elvaine Morgan ist ein Freund des Waldes. Dennoch sind Türme aus Stein sein ganzer Stolz."
 english, "Elvaine", "Morgan" -> "Elvaine is a friend of the forest; still, his prider are towers made of stone."
-"Elvaine", "Morgan" -> "Elvaine Morgan ist ein Freund des Waldes. Dennoch sind TÃ¼rme aus Stein sein ganzer Stolz."
+"Elvaine", "Morgan" -> "Elvaine Morgan ist ein Freund des Waldes. Dennoch sind Türme aus Stein sein ganzer Stolz."
 english, "Runewick" -> "Only the people of Runewick honour the forest like a treasure. Due to wisdom or their hearts, I do not know."
-"Runewick" -> "Nur die Leute aus Runewick ehren den Wald wie ein Kleinod. Sei es wegen ihrer Weisheit oder von ganzem Herzen, wer weiÃŸ das schon."
+"Runewick" -> "Nur die Leute aus Runewick ehren den Wald wie ein Kleinod. Sei es wegen ihrer Weisheit oder von ganzem Herzen, wer weiß das schon."
 english, "Valerio", "Guilianni", "Don" -> "The only wood this gnome honours is what comes with the morning."
 "Valerio", "Guilianni", "Don" -> "Der hat doch nicht mehr alle Latten am Zaun."
 english, "Galmair" -> "The people of Galmair care for their profit, only. So, I wonder why they don't think about tomorrow's profit, too."
 "Galmair" -> "Die Leute aus Galmair scheren sich nur um ihren Profit. Daher frage ich mich, warum sie sich keine langfristigen Gedanken machen."
 "Queen" -> "I doubt Queen Rosaline of Cadomyr even knows what a forest looks like."
-"KÃ¶nigin" -> "Ich bezweifle, dass KÃ¶nigin Rosaline von Cadomyr Ã¼berhaupt weiÃŸ, wie ein Wald aussieht."
+"Königin" -> "Ich bezweifle, dass Königin Rosaline von Cadomyr überhaupt weiß, wie ein Wald aussieht."
 english, "rosaline", "edwards" -> "I doubt Queen Rosaline of Cadomyr even knows what a forest looks like."
-"rosaline", "edwards" -> "Ich bezweifle, dass KÃ¶nigin Rosaline von Cadomyr Ã¼berhaupt weiÃŸ, wie ein Wald aussieht."
+"rosaline", "edwards" -> "Ich bezweifle, dass Königin Rosaline von Cadomyr überhaupt weiß, wie ein Wald aussieht."
 english, "Cadomyr" -> "Sand and stone, Cadomyr is an inhospitable place. Only palmtrees can stand this region."
 "Cadomyr" -> "Sand und Stein, Cadomyr ist ein unwirtlicher Ort. Nur die Palmen halten es dort aus."
 
 -- Main land factions
 english, "albar" -> "Please leave me along with stories about Albar. They are not as proud and honourable as people tell you."
-"albar" -> "Lasst mich doch bitte mit Geschichten aus Albar in frieden. Die sind dort lÃ¤ngst nicht so stolz und ehrbar, wie man euch glauben machen mÃ¶chte."
+"albar" -> "Lasst mich doch bitte mit Geschichten aus Albar in frieden. Die sind dort längst nicht so stolz und ehrbar, wie man euch glauben machen möchte."
 english, "gynk", "gync" -> "Frankly: Gynk is a horrible place."
 "gync", "gynk" -> "Nun mal ehrlich: Gynk ist ein schrecklicher Ort."
 english, "salkama" -> "There is a reason why Elvaine Morgan won't return to Salkamar. And I fully understand his reasons."
-"salkama" -> "Es hat schon seine GrÃ¼nde, warum Elvaine Morgan nicht nach Salkamar zurÃ¼ckkehren wird. Und ich kann seinen Standpunkt sehr gut nachvollziehen."
+"salkama" -> "Es hat schon seine Gründe, warum Elvaine Morgan nicht nach Salkamar zurückkehren wird. Und ich kann seinen Standpunkt sehr gut nachvollziehen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "As a forester, I don't have much time to pray to the gods. If I do, I worship Oldra."
-"Gott", "GÃ¶tter" -> "Als FÃ¶rster hat man nicht viel Zeit, um zu den GÃ¶ttern zu beten. Wenn ich es aber tue, dann bete ich zu Oldra."
+"Gott", "Götter" -> "Als Förster hat man nicht viel Zeit, um zu den Göttern zu beten. Wenn ich es aber tue, dann bete ich zu Oldra."
 english, "Oldra" -> "Oldra is the only young goddess that does not deal too much with the ways of men, can't you see?"
-"Oldra" -> "Oldra ist die einzige junge GÃ¶ttin, die sich nicht allzusehr um die Angelegenheiten der Menschen kÃ¼mmert, ist dem nicht so?"
+"Oldra" -> "Oldra ist die einzige junge Göttin, die sich nicht allzusehr um die Angelegenheiten der Menschen kümmert, ist dem nicht so?"
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Sorry, I do not have anything for you. All I know is how to prune trees without harming them more than necessary.", "The narrow-minded act of trading does not suit me, thus you cannot purchase anything from me.", "I do not sell anything, in special no wood of slaughtered trees."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Verzeiht, ich handel nicht. Ich weiÃŸ nur, wie man BÃ¤ume mÃ¶glichst schonend zurÃ¼ckschneidet.", "Der engstirnige Akt des Handelns ist nichts fÃ¼r mich, deshalb kÃ¶nnt ihr auch nichts von mir kaufen.", "Ich verkaufe nichts, insbesonder kein Holz von geschlachteten BÃ¤umen."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Verzeiht, ich handel nicht. Ich weiß nur, wie man Bäume möglichst schonend zurückschneidet.", "Der engstirnige Akt des Handelns ist nichts für mich, deshalb könnt ihr auch nichts von mir kaufen.", "Ich verkaufe nichts, insbesonder kein Holz von geschlachteten Bäumen."
 "tell something" -> "Well, there is not much I could tell, Elstree forest is a rather peaceful place.", "I am no story-teller, if you want to gain information about the world you better ask one of the old elves or study the chronicles, that is more exciting than I could present it.", "Well. I am afraid I do not have anything to tell you."
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Nun, es gibt nicht viel, das ich erzÃ¤hlen kÃ¶nnte, der Elsbaumwald ist ein eher ruhiger Ort.", "Ich bin kein GeschichtenerzÃ¤hler, wenn ihr mehr Ã¼ber die Welt erfahren wollt, schlagt in den Chroniken nach, das ist aufregender, als ich es darstellen kÃ¶nnte.", "Nun, ich fÃ¼rchte, ich habe nichts zu erzÃ¤hlen."
+"erzähl was", "erzähl etwas" -> "Nun, es gibt nicht viel, das ich erzählen könnte, der Elsbaumwald ist ein eher ruhiger Ort.", "Ich bin kein Geschichtenerzähler, wenn ihr mehr über die Welt erfahren wollt, schlagt in den Chroniken nach, das ist aufregender, als ich es darstellen könnte.", "Nun, ich fürchte, ich habe nichts zu erzählen."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Valandil", "Elensar" -> "Us elves have interesting names, don't we?"
 "Valandil", "Elensar" -> "Wir Elfen haben interessante Namen, nicht wahr?"
 "Yes" -> "Really?", "#me looks confused", "Can your repeat that?"
-"Ja" -> "Wirklich?", "#me schaut etwas verwirrt", "KÃ¶nnt ihr das wiederholen?"
+"Ja" -> "Wirklich?", "#me schaut etwas verwirrt", "Könnt ihr das wiederholen?"
 "No" -> "No?", "Why not?", "#me shakes his head slowly", "I don't understand..."
-"Nein" -> "Nein?", "Weshalb nicht?", "#me schÃ¼ttelt seinen Kopf bedÃ¤chtig", "Ich verstehe nicht ganz..."
+"Nein" -> "Nein?", "Weshalb nicht?", "#me schüttelt seinen Kopf bedächtig", "Ich verstehe nicht ganz..."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
@@ -252,13 +266,13 @@ english, "Valandil", "Elensar" -> "Us elves have interesting names, don't we?"
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "BlÃ¶de BorkenkÃ¤fer!", "Damn bark beetles!"
-cycletext "LÃ¤use! Ãœberall LÃ¤use!", "Lice! Everywhere lice!"
+cycletext "Blöde Borkenkäfer!", "Damn bark beetles!"
+cycletext "Läuse! Überall Läuse!", "Lice! Everywhere lice!"
 cycletext "#me harkt einen Haufen Laub zusammen.", "#me rakes a pile of leaves."
-cycletext "#me fÃ¤hrt die Klinge eines Beils mit einem Wetzstein entlang.", "#me sharpens the blade of a hatchet with a whetstone"
+cycletext "#me fährt die Klinge eines Beils mit einem Wetzstein entlang.", "#me sharpens the blade of a hatchet with a whetstone"
 cycletext "#me sieht sich um und murmelt vor sich hin: 'Meine Freunde...'", "#me looks around and murmurs: 'My friends...'"
-cycletext "Wenn ich jemanden dabei erwische, wie er ohne meine Billigung Holz schlÃ¤gt, dann wird er was erleben!", "When I catch somebody cutting wood without my permission, he's got something coming!"
+cycletext "Wenn ich jemanden dabei erwische, wie er ohne meine Billigung Holz schlägt, dann wird er was erleben!", "When I catch somebody cutting wood without my permission, he's got something coming!"
 cycletext "Willkommen im Elsbaumwald.", "Welcome to Elstree forest."
-cycletext "#me sieht einem Schmetterling hinterher und lÃ¤chelt.", "#me watches a butterfly and smiles."
+cycletext "#me sieht einem Schmetterling hinterher und lächelt.", "#me watches a butterfly and smiles."
 cycletext "#me pfeift vor sich hin.", "#me whistles a tune."
-cycletext "Ich seh die BÃ¤ume vor lauter Wald nicht mehr.", "I can't see the trees through all this forest."
+cycletext "Ich seh die Bäume vor lauter Wald nicht mehr.", "I can't see the trees through all this forest."

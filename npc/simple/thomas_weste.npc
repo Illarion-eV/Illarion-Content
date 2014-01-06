@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Thomas Weste               Runewick                              --
 -- NPC Job:  Candle maker                                                     --
@@ -46,77 +60,77 @@ itemShoes = 53
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Thomas Weste the candle maker. Keywords: quest, black thistle")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thomas Weste der Kerzenmacher. Schl√ºsselw√∂rter: Quest, schwarze Disteln")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thomas Weste der Kerzenmacher. Schl¸sselwˆrter: Quest, schwarze Disteln")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, can I help you?", "Nice to meet you, I'm Thomas Weste."
-"Gr√º√ü", "Gru√ü", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Thomas Weste."
+"Gr¸ﬂ", "Gruﬂ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Thomas Weste."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, can I help you?", "Nice to meet you, I'm Thomas Weste."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Thomas Weste"
 "Farewell", "Bye", "Fare well", "See you" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"Tsch√º√ü", "Tsch√ºss", "Wiedersehen" -> "Ich w√ºnsche Euch noch einen sch√∂nen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
+"Tsch¸ﬂ", "Tsch¸ss", "Wiedersehen" -> "Ich w¸nsche Euch noch einen schˆnen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich w√ºnsche Euch noch einen sch√∂nen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich w¸nsche Euch noch einen schˆnen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
 "How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
-"Wie geht", "Wie f√ºhlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke f√ºr die Nachfrage."
+"Wie geht", "Wie f¸hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke f¸r die Nachfrage."
 "your name", "who are you", "who art thou" -> "I'm Thomas Weste, who are you?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie hei√üt" -> "Ich bin Thomas Weste, wer bist du?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt" -> "Ich bin Thomas Weste, wer bist du?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a candle maker, I'm responsible for the city lights."
-"beruf" -> "Ich bin Kerzenmacher. Ich k√ºmmere mich um die Beleuchtung unserer sch√∂nen Stadt."
+"beruf" -> "Ich bin Kerzenmacher. Ich k¸mmere mich um die Beleuchtung unserer schˆnen Stadt."
 english, "job" -> "I'm a candle maker, I'm responsible for the city lights."
-"job" -> "Ich bin Kerzenmacher. Ich k√ºmmere mich um die Beleuchtung unserer sch√∂nen Stadt."
+"job" -> "Ich bin Kerzenmacher. Ich k¸mmere mich um die Beleuchtung unserer schˆnen Stadt."
 
 -- Quests
 queststatus(716) = 0, town = Runewick, english, "quest", "mission" -> "A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are a few beehives at the fields outside the city, so please collect twenty honeycombs for me and I'll teach you how to make wax from them.", queststatus(716) = 1
-queststatus(716) = 0, town = Runewick, "quest", "mission" -> "Eine Aufgabe..nun, Ihr k√∂nntet mir erstmal einige Honigwaben bringen. Diese sind sehr wichtig f√ºr das Kerzenmachen. Ihr k√∂nnt welche bei den Feldern au√üerhalb der Stadt bei den Bienenst√∂cken finden. Bringt mir 20 Waben und ich zeige Euch, wie man Wachs herstellt.", queststatus(716) = 1
+queststatus(716) = 0, town = Runewick, "quest", "mission" -> "Eine Aufgabe..nun, Ihr kˆnntet mir erstmal einige Honigwaben bringen. Diese sind sehr wichtig f¸r das Kerzenmachen. Ihr kˆnnt welche bei den Feldern auﬂerhalb der Stadt bei den Bienenstˆcken finden. Bringt mir 20 Waben und ich zeige Euch, wie man Wachs herstellt.", queststatus(716) = 1
 queststatus(716) = 0, town = Runewick, "task", "adventure", "order" -> "A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are a few beehives at the fields outside the city, so please collect twenty honeycombs for me and I'll teach you how to make wax from them.", queststatus(716) = 1
-queststatus(716) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Eine Aufgabe..nun, Ihr k√∂nntet mir erstmal einige Honigwaben bringen. Diese sind sehr wichtig f√ºr das Kerzenmachen. Ihr k√∂nnt welche bei den Feldern au√üerhalb der Stadt bei den Bienenst√∂cken finden. Bringt mir 20 Waben und ich zeige Euch, wie man Wachs herstellt.", queststatus(716) = 1
+queststatus(716) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Eine Aufgabe..nun, Ihr kˆnntet mir erstmal einige Honigwaben bringen. Diese sind sehr wichtig f¸r das Kerzenmachen. Ihr kˆnnt welche bei den Feldern auﬂerhalb der Stadt bei den Bienenstˆcken finden. Bringt mir 20 Waben und ich zeige Euch, wie man Wachs herstellt.", queststatus(716) = 1
 queststatus(716) = 1, item(2529, all) > 19, town = Runewick, english, "quest", "mission", "honey", "comb" -> "Well done, thank you. Please keep the honeycombs for your next task.", queststatus(716) = 2
-queststatus(716) = 1, item(2529, all) > 19, town = Runewick, "quest", "mission", "honig", "wabe" -> "Gut gemacht, danke. Bitte behaltet die Honigwaben f√ºr Eure n√§chste Aufgabe.", queststatus(716) = 2
+queststatus(716) = 1, item(2529, all) > 19, town = Runewick, "quest", "mission", "honig", "wabe" -> "Gut gemacht, danke. Bitte behaltet die Honigwaben f¸r Eure n‰chste Aufgabe.", queststatus(716) = 2
 queststatus(716) = 1, item(2529, all) > 19, town = Runewick, "task", "adventure", "order" -> "Well done, thank you. Please keep the honeycombs for your next task.", queststatus(716) = 2
-queststatus(716) = 1, item(2529, all) > 19, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, danke. Bitte behaltet die Honigwaben f√ºr Eure n√§chste Aufgabe.", queststatus(716) = 2
+queststatus(716) = 1, item(2529, all) > 19, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, danke. Bitte behaltet die Honigwaben f¸r Eure n‰chste Aufgabe.", queststatus(716) = 2
 queststatus(716) = 1, item(2529, all) < 20, town = Runewick, english, ".+" -> "I want twenty honeycombs from you, you can collect them from the beehives at the fields outside of the city."
-queststatus(716) = 1, item(2529, all) < 20, town = Runewick, ".+" -> "Ihr sollt mir 20 Honigwaben bringen. Ihr k√∂nnt welche bei den Feldern au√üerhalb der Stadt finden."
+queststatus(716) = 1, item(2529, all) < 20, town = Runewick, ".+" -> "Ihr sollt mir 20 Honigwaben bringen. Ihr kˆnnt welche bei den Feldern auﬂerhalb der Stadt finden."
 queststatus(716) = 2, town = Runewick, english, "quest", "mission" -> "Very well, now we can start to make wax out of the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make twenty pieces of wax for me.", item(2751, 1, 555), queststatus(716) = 3
-queststatus(716) = 2, town = Runewick, "quest", "mission" -> "Wunderbar, nun sollten wir aus den Waben Wachs machen. Dazu braucht Ihr eine Tiegelzange. Die gebe ich Euch zum √ºben. Geht r√ºber zum Kerzenziehertisch und versucht etwas Wachs herzustellen. Bringt mir 20 St√ºck von dem Wachs.", item(2751, 1, 555), queststatus(716) = 3
+queststatus(716) = 2, town = Runewick, "quest", "mission" -> "Wunderbar, nun sollten wir aus den Waben Wachs machen. Dazu braucht Ihr eine Tiegelzange. Die gebe ich Euch zum ¸ben. Geht r¸ber zum Kerzenziehertisch und versucht etwas Wachs herzustellen. Bringt mir 20 St¸ck von dem Wachs.", item(2751, 1, 555), queststatus(716) = 3
 queststatus(716) = 2, town = Runewick, "task", "adventure", "order" -> "Very well, now we can start to make wax out of the honeycombs. You will need crucible-pincers for that, here I will give you my old ones. Go to the chandler table and make twenty pieces of wax for me.", item(2751, 1, 555), queststatus(716) = 3
-queststatus(716) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wunderbar, nun sollten wir aus den Waben Wachs machen. Dazu braucht Ihr eine Tiegelzange. Die gebe ich Euch zum √ºben. Geht r√ºber zum Kerzenziehertisch und versucht etwas Wachs herzustellen. Bringt mir 20 St√ºck von dem Wachs.", item(2751, 1, 555), queststatus(716) = 3
+queststatus(716) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wunderbar, nun sollten wir aus den Waben Wachs machen. Dazu braucht Ihr eine Tiegelzange. Die gebe ich Euch zum ¸ben. Geht r¸ber zum Kerzenziehertisch und versucht etwas Wachs herzustellen. Bringt mir 20 St¸ck von dem Wachs.", item(2751, 1, 555), queststatus(716) = 3
 queststatus(716) = 3, item(431, all) > 19, town = Runewick, english, "quest", "mission", "wax" -> "Well done, that wax looks pretty good. Please keep the wax for your next task.", deleteItem(431, 10), queststatus(716) = 4
-queststatus(716) = 3, item(431, all) > 19, town = Runewick, "quest", "mission", "wachs" -> "Gut gemacht, das Wachs sieht sehr gut aus. Bitte behaltet das Wachs f√ºr Eure n√§chste Aufgabe.", deleteItem(431, 10), queststatus(716) = 4
+queststatus(716) = 3, item(431, all) > 19, town = Runewick, "quest", "mission", "wachs" -> "Gut gemacht, das Wachs sieht sehr gut aus. Bitte behaltet das Wachs f¸r Eure n‰chste Aufgabe.", deleteItem(431, 10), queststatus(716) = 4
 queststatus(716) = 3, item(431, all) > 19, town = Runewick, "task", "adventure", "order" -> "Well done, that wax looks pretty good. Please keep the wax for your next task.", deleteItem(431, 10), queststatus(716) = 4
-queststatus(716) = 3, item(431, all) > 19, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, das Wachs sieht sehr gut aus. Bitte behaltet das Wachs f√ºr Eure n√§chste Aufgabe.", deleteItem(431, 10), queststatus(716) = 4
+queststatus(716) = 3, item(431, all) > 19, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, das Wachs sieht sehr gut aus. Bitte behaltet das Wachs f¸r Eure n‰chste Aufgabe.", deleteItem(431, 10), queststatus(716) = 4
 queststatus(716) = 3, item(431, all) < 20, town = Runewick, english, ".+" -> "I want twenty pieces of wax, please come back once you are done with this task."
-queststatus(716) = 3, item(431, all) < 20, town = Runewick, ".+" -> "Ihr sollt mir 20 St√ºck Wachs bringen. Kommt wieder, wenn Ihr die Aufgabe erf√ºllt habt."
+queststatus(716) = 3, item(431, all) < 20, town = Runewick, ".+" -> "Ihr sollt mir 20 St¸ck Wachs bringen. Kommt wieder, wenn Ihr die Aufgabe erf¸llt habt."
 queststatus(716) = 4, town = Runewick, english, "quest", "mission" -> "Alright, now we can start producing the candles. Go to the chandler table again and bring me ten candles back. I'll give you my old candle mould, you will need one to make the candles. If you need more moulds, just ask a carpenter.", item(429, 1, 555), queststatus(716) = 5
-queststatus(716) = 4, town = Runewick, "quest", "mission" -> "Jetzt, wo wir das Wachs haben, k√∂nnen wir endlich die Kerzen herstellen. Geht zu dem Kerzenziehertisch und stellt zehn Kerzen her bitte. Ich gebe Euch meine alte Kerzenform. Damit k√∂nnt Ihr die richtigen Kerzen herstellen. Falls Ihr weitere Kerzenformen braucht, fragt doch einfach einen Schreiner.", item(429, 1, 555), queststatus(716) = 5
+queststatus(716) = 4, town = Runewick, "quest", "mission" -> "Jetzt, wo wir das Wachs haben, kˆnnen wir endlich die Kerzen herstellen. Geht zu dem Kerzenziehertisch und stellt zehn Kerzen her bitte. Ich gebe Euch meine alte Kerzenform. Damit kˆnnt Ihr die richtigen Kerzen herstellen. Falls Ihr weitere Kerzenformen braucht, fragt doch einfach einen Schreiner.", item(429, 1, 555), queststatus(716) = 5
 queststatus(716) = 4, town = Runewick, "task", "adventure", "order" -> "Alright, now we can start producing the candles. Go to the chandler table again and bring me ten candles back. I'll give you my old candle mould, you will need one to make the candles. If you need more moulds, just ask a carpenter.", item(429, 1, 555), queststatus(716) = 5
-queststatus(716) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Jetzt, wo wir das Wachs haben, k√∂nnen wir endlich die Kerzen herstellen. Geht zu dem Kerzenziehertisch und stellt zehn Kerzen her bitte. Ich gebe Euch meine alte Kerzenform, damit k√∂nnt Ihr die richtigen Kerzen herstellen. Falls Ihr weitere Kerzenformen braucht, fragt doch einfach einen Schreiner.", item(429, 1, 555), queststatus(716) = 5
+queststatus(716) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Jetzt, wo wir das Wachs haben, kˆnnen wir endlich die Kerzen herstellen. Geht zu dem Kerzenziehertisch und stellt zehn Kerzen her bitte. Ich gebe Euch meine alte Kerzenform, damit kˆnnt Ihr die richtigen Kerzen herstellen. Falls Ihr weitere Kerzenformen braucht, fragt doch einfach einen Schreiner.", item(429, 1, 555), queststatus(716) = 5
 queststatus(716) = 5, item(43, all) > 9, town = Runewick, english, "quest", "mission", "candle" -> "Well done, the candles look perfect. If you have some time left, I can give you one last task.", deleteItem(43, 10), queststatus(716) = 6
-queststatus(716) = 5, item(43, all) > 9, town = Runewick, "quest", "mission", "kerze" -> "Gut gemacht, die Kerzen sehen sehr gut aus. Wenn Ihr noch etwas Zeit habt, h√§tte ich noch eine letzte Aufgabe f√ºr Euch.", deleteItem(43, 10), queststatus(716) = 6
+queststatus(716) = 5, item(43, all) > 9, town = Runewick, "quest", "mission", "kerze" -> "Gut gemacht, die Kerzen sehen sehr gut aus. Wenn Ihr noch etwas Zeit habt, h‰tte ich noch eine letzte Aufgabe f¸r Euch.", deleteItem(43, 10), queststatus(716) = 6
 queststatus(716) = 5, item(43, all) > 9, town = Runewick, "task", "adventure", "order" -> "Well done, the candles look perfect. If you have some time left, I can give you one last task.", deleteItem(43, 10), queststatus(716) = 6
-queststatus(716) = 5, item(43, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, die Kerzen sehen sehr gut aus. Wenn Ihr noch etwas Zeit habt, h√§tte ich noch eine letzte Aufgabe f√ºr Euch.", deleteItem(43, 10), queststatus(716) = 6
+queststatus(716) = 5, item(43, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, die Kerzen sehen sehr gut aus. Wenn Ihr noch etwas Zeit habt, h‰tte ich noch eine letzte Aufgabe f¸r Euch.", deleteItem(43, 10), queststatus(716) = 6
 queststatus(716) = 5, item(43, all) < 10, town = Runewick, english, ".+" -> "Well, it looks like you haven't solved this task yet. I was looking for ten candles."
-queststatus(716) = 5, item(43, all) < 10, town = Runewick, ".+" -> "Wie ich sehe, habt Ihr die zehn Kerzen noch nicht zusammen. Kommt wieder, wenn Ihr die Aufgabe erf√ºllt habt."
+queststatus(716) = 5, item(43, all) < 10, town = Runewick, ".+" -> "Wie ich sehe, habt Ihr die zehn Kerzen noch nicht zusammen. Kommt wieder, wenn Ihr die Aufgabe erf¸llt habt."
 queststatus(716) = 6, town = Runewick, english, "quest", "mission" -> "Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect four thistles and bring me at least two bottles with oil. The oil press is next me. Take this sickle to gather the thistles.", item(126, 1, 777), queststatus(716) = 7
-queststatus(716) = 6, town = Runewick, "quest", "mission" -> "Ah..ja nat√ºrlich. Nun wollen wir etwas Lampen√∂l machen. Das ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln. Diese k√∂nnt Ihr auf felsigem Boden auf Grasb√ºscheln finden. Sammelt vier Disteln und bringt mir 2 Flaschen √ñl mit, wenn Ihr fertig seid. Die √ñlpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel, um die Disteln zu sammeln.", item(126, 1, 777), queststatus(716) = 7
+queststatus(716) = 6, town = Runewick, "quest", "mission" -> "Ah..ja nat¸rlich. Nun wollen wir etwas Lampenˆl machen. Das ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln. Diese kˆnnt Ihr auf felsigem Boden auf Grasb¸scheln finden. Sammelt vier Disteln und bringt mir 2 Flaschen ÷l mit, wenn Ihr fertig seid. Die ÷lpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel, um die Disteln zu sammeln.", item(126, 1, 777), queststatus(716) = 7
 queststatus(716) = 6, town = Runewick, "task", "adventure", "order" -> "Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect four thistles and bring me at least two bottles with oil. The oil press is next me. Take this sickle to gather the thistles.", item(126, 1, 777), queststatus(716) = 7
-queststatus(716) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ah..ja nat√ºrlich. Nun wollen wir etwas Lampen√∂l machen. Das ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln. Diese k√∂nnt Ihr auf felsigem Boden auf Grasb√ºscheln finden. Sammelt vier Disteln und bringt mir 2 Flaschen √ñl mit, wenn Ihr fertig seid. Die √ñlpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel, um die Disteln zu sammeln.", item(126, 1, 777), queststatus(716) = 7
+queststatus(716) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ah..ja nat¸rlich. Nun wollen wir etwas Lampenˆl machen. Das ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln. Diese kˆnnt Ihr auf felsigem Boden auf Grasb¸scheln finden. Sammelt vier Disteln und bringt mir 2 Flaschen ÷l mit, wenn Ihr fertig seid. Die ÷lpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel, um die Disteln zu sammeln.", item(126, 1, 777), queststatus(716) = 7
 queststatus(716) = 7, item(390, all) > 1, town = Runewick, english, "quest", "mission", "oil", "lamp" -> "Well done, thank you very much. I hope I was able to teach you the basic things about candle making.", deleteItem(390, 2), queststatus(716) = 8
-queststatus(716) = 7, item(390, all) > 1, town = Runewick, "quest", "mission","√∂l", "lampe" -> "Gut gemacht, vielen Dank. Ich hoffe, ich konnte Euch die Grundlagen des Kerzenmachens beibringen.", deleteItem(390, 2), queststatus(716) = 8
+queststatus(716) = 7, item(390, all) > 1, town = Runewick, "quest", "mission","ˆl", "lampe" -> "Gut gemacht, vielen Dank. Ich hoffe, ich konnte Euch die Grundlagen des Kerzenmachens beibringen.", deleteItem(390, 2), queststatus(716) = 8
 queststatus(716) = 7, item(390, all) > 1, town = Runewick, "task", "adventure", "order" -> "Well done, thank you very much. I hope I was able to teach you the basic things about candle making.", deleteItem(390, 2), queststatus(716) = 8
 queststatus(716) = 7, item(390, all) > 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, vielen Dank. Ich hoffe, ich konnte Euch die Grundlagen des Kerzenmachens beibringen.", deleteItem(390, 2), queststatus(716) = 8
 queststatus(716) = 7, item(390, all) < 2, town = Runewick, english, ".+" -> "I want two bottles of lamp oil, please come back once you are done with this task."
-queststatus(716) = 7, item(390, all) < 2, town = Runewick, ".+" -> "Ich wollte zwei Flaschen mit Lampen√∂l. Bitte kommt wieder, wenn Ihr fertig seid."
+queststatus(716) = 7, item(390, all) < 2, town = Runewick, ".+" -> "Ich wollte zwei Flaschen mit Lampenˆl. Bitte kommt wieder, wenn Ihr fertig seid."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 queststatus(716) = 8, town = Runewick, english, ".*" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(716) = 8, town = Runewick, german, ".*" -> "Ich habe nichts weiter f√ºr Euch zu tun. Aber danke nochmals f√ºr Eure Hilfe!"
+queststatus(716) = 8, town = Runewick, german, ".*" -> "Ich habe nichts weiter f¸r Euch zu tun. Aber danke nochmals f¸r Eure Hilfe!"
 queststatus(716) < 8, town = Runewick, english, ".*" -> "I could use some help, just ask me for a task."
-queststatus(716) < 8, town = Runewick, german, ".*" -> "Ich k√∂nnte etwas Hilfe gebrauchen. Fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas f√ºr Euch zu tun."
+queststatus(716) < 8, town = Runewick, german, ".*" -> "Ich kˆnnte etwas Hilfe gebrauchen. Fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas f¸r Euch zu tun."
 english, ".*" -> "You are not a citizen of Runewick. I don't have anything for you to do."
-german, ".*" -> "Ihr scheint kein B√ºrger Runewick zu sein. Ich habe nichts f√ºr Euch zu tun."
+german, ".*" -> "Ihr scheint kein B¸rger Runewick zu sein. Ich habe nichts f¸r Euch zu tun."
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
@@ -125,5 +139,5 @@ german, ".*" -> "Ihr scheint kein B√ºrger Runewick zu sein. Ich habe nichts f√ºr
 cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
 cycletext "#me kratzt sich am Kopf.", "#me scratches his head."
 cycletext "Wenn ihr Hilfe beim kerzenmachen braucht dann fragt nur mich!", "If you need any help with candle making, just ask me!"
-cycletext "#me g√§hnt verhalten.", "#me yawns restrained."
-cycletext "#me schaut sich kurz um und kratzt sich anschlie√üend an seinem Hintern.", "#me looks around briefly and scratches his bum."
+cycletext "#me g‰hnt verhalten.", "#me yawns restrained."
+cycletext "#me schaut sich kurz um und kratzt sich anschlieﬂend an seinem Hintern.", "#me looks around briefly and scratches his bum."

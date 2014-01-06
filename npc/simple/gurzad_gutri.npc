@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Gurzad Gutri                                             Galmair --
 -- NPC Job:  Head Clerk                                                       --
@@ -24,7 +38,7 @@ autointroduce = on
 
 author = "Salathe, Tyan"
 
-lookatDE = "Dieser NPC ist Gurzad Gutri, der oberste SekretÃ¤r."
+lookatDE = "Dieser NPC ist Gurzad Gutri, der oberste Sekretär."
 lookatUS = "This NPC is Gurzad Gutri the Head Clerk."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -82,39 +96,39 @@ itemShoes = 53
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Gurzad Gutri the head clerk. Keywords: Hello, Mission, Clerk, Galmair.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Gurzad Gutri, der oberste SekretÃ¤r. SchlÃ¼sselwÃ¶rter: Hallo, Auftrag, SekretÃ¤r, Galmair.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Gurzad Gutri, der oberste Sekretär. Schlüsselwörter: Hallo, Auftrag, Sekretär, Galmair.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day to ye, have ya come to contribute to Galmair's storage", "Greetings! This here be where the Don lives, so watch yourself.", "Hello there. This is where we sort out the storage for Galmair, I hope you're here to help!"
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrÃ¼ÃŸt. Seid Ihr gekommen, um Galmairs Lager aufzustocken?", "GrÃ¼ÃŸe! Der Don wohnt und lebt hier, also benehmt Euch!", "GrÃ¼ÃŸe. An diesem Ort sammeln wir unter anderem die GÃ¼ter Galmairs, ich hoffe, Ihr seid gekommen, um zu spenden und zu helfen."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Seid Ihr gekommen, um Galmairs Lager aufzustocken?", "Grüße! Der Don wohnt und lebt hier, also benehmt Euch!", "Grüße. An diesem Ort sammeln wir unter anderem die Güter Galmairs, ich hoffe, Ihr seid gekommen, um zu spenden und zu helfen."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day to ye, have ya come to contribute to Galmair's storage", "Greetings! This here be where the Don lives, so watch yourself.", "Hello there. This is where we sort out the storage for Galmair, I hope you're here to help!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrÃ¼ÃŸt. Seid Ihr gekommen, um Galmairs Lager aufzustocken?", "GrÃ¼ÃŸe! Der Don wohnt und lebt hier, also benehmt Euch!", "GrÃ¼ÃŸe. An diesem Ort sammeln wir unter anderem die GÃ¼ter Galmairs, ich hoffe, Ihr seid gekommen, um zu spenden und zu helfen."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt. Seid Ihr gekommen, um Galmairs Lager aufzustocken?", "Grüße! Der Don wohnt und lebt hier, also benehmt Euch!", "Grüße. An diesem Ort sammeln wir unter anderem die Güter Galmairs, ich hoffe, Ihr seid gekommen, um zu spenden und zu helfen."
 "Farewell", "Bye", "Fare well", "See you" -> "Irmorom with ye!", "Check back regularly for more orders!", "Best o' luck to ya!"
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "MÃ¶ge Irmorom mit Euch sein!", "Kommt fÃ¼r weitere AuftrÃ¤ge regelmÃ¤ÃŸig vorbei!", "Viel GlÃ¼ck wÃ¼nsch ich!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge Irmorom mit Euch sein!", "Kommt für weitere Aufträge regelmäßig vorbei!", "Viel Glück wünsch ich!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Irmorom with ye!", "Check back regularly for more orders!", "Best o' luck to ya!"
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "MÃ¶ge Irmorom mit Euch sein!", "Kommt fÃ¼r weitere AuftrÃ¤ge regelmÃ¤ÃŸig vorbei!", "Viel GlÃ¼ck wÃ¼nsch ich!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Möge Irmorom mit Euch sein!", "Kommt für weitere Aufträge regelmäßig vorbei!", "Viel Glück wünsch ich!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "I am well, but I'll be better after you help stock the storage!"
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Es geht mir gut, aber ich wÃ¼rde mich freuen, wenn Ihr mir helfen kÃ¶nntet!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Es geht mir gut, aber ich würde mich freuen, wenn Ihr mir helfen könntet!"
 "your name", "who are you", "who art thou" -> "I am Gurzad Gutri! I have been tasked with the position of clerk to help maintain our stocks and storage, I expect ye want to help?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Gurzad Gutri! Ich wurde mit der Position des obersten SekretÃ¤rs beauftragt, um das Lager der Stadt instand zu halten. Ich nehme an, Ihr wollt mir dabei helfen?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Gurzad Gutri! Ich wurde mit der Position des obersten Sekretärs beauftragt, um das Lager der Stadt instand zu halten. Ich nehme an, Ihr wollt mir dabei helfen?"
 
 -- Catching quest triggers of other factions' members. Outlaws are ignored.
 english, town = Cadomyr, "quest", "mission" -> "In Galmair, we stand on our own feet! We are not in need of the Queen's assistance!"
-town = Cadomyr, "quest", "mission" -> "Wir stehen in Galmair auf eigenen FÃ¼ÃŸen! Wir benÃ¶tigen keine UnterstÃ¼tzung von der KÃ¶nigin!"
+town = Cadomyr, "quest", "mission" -> "Wir stehen in Galmair auf eigenen Füßen! Wir benötigen keine Unterstützung von der Königin!"
 town = Cadomyr, "task", "adventure", "order" -> "In Galmair, we stand on our own feet! We are not in need of the Queen's assistance!"
-town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir stehen in Galmair auf eigenen FÃ¼ÃŸen! Wir benÃ¶tigen keine UnterstÃ¼tzung von der KÃ¶nigin!"
+town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir stehen in Galmair auf eigenen Füßen! Wir benötigen keine Unterstützung von der Königin!"
 
 -- town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->
 english, town = Runewick, "quest", "mission" -> "I'm not certain those from Runewick would want to get down and dirty in the hard tasks we Galmairians seek."
-town = Runewick, "quest", "mission" -> "Ich bin mir nicht sicher, ob sich die aus Runewick ihre Finger mit den AuftrÃ¤gen schmutzig machen mÃ¶chten, die in Galmair anfallen."
+town = Runewick, "quest", "mission" -> "Ich bin mir nicht sicher, ob sich die aus Runewick ihre Finger mit den Aufträgen schmutzig machen möchten, die in Galmair anfallen."
 town = Runewick, "task", "adventure", "order" -> "I'm not certain those from Runewick would want to get down and dirty in the hard tasks we Galmairians seek."
-town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin mir nicht sicher, ob sich die aus Runewick ihre Finger mit den AuftrÃ¤gen schmutzig machen mÃ¶chten, die in Galmair anfallen."
+town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin mir nicht sicher, ob sich die aus Runewick ihre Finger mit den Aufträgen schmutzig machen möchten, die in Galmair anfallen."
 
 -- Catching quest triggers of those who have to wait for a new quest
 queststatus(153) ~= 0, english, town = Galmair, "quest", "mission" -> "There is no work today, our storage is stocked up!", "It's good you want to help Galmair! But at the moment we have no work.", "You still want work? I have none, but you'll certainly find plenty from our citizens!"
-queststatus(153) ~= 0, town = Galmair, "quest", "mission" -> "Heute gibt es keine Arbeit mehr, das Lager ist voll!", "Es ist gut, dass Ihr Galmair weiterbringen wollt! Momentan gibt es jedoch nichts fÃ¼r Euch zu tun.", "Ihr wollt noch mehr Arbeit? Ich habe momentan keine, aber Ihr findet sicher noch welche bei anderen Bewohnern Galmairs!"
+queststatus(153) ~= 0, town = Galmair, "quest", "mission" -> "Heute gibt es keine Arbeit mehr, das Lager ist voll!", "Es ist gut, dass Ihr Galmair weiterbringen wollt! Momentan gibt es jedoch nichts für Euch zu tun.", "Ihr wollt noch mehr Arbeit? Ich habe momentan keine, aber Ihr findet sicher noch welche bei anderen Bewohnern Galmairs!"
 queststatus(153) ~= 0, town = Galmair, "task", "adventure", "order" -> "There is no work today, our storage is stocked up!", "It's good you want to help Galmair! But at the moment we have no work.", "You still want work? I have none, but you'll certainly find plenty from our citizens!"
-queststatus(153) ~= 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Heute gibt es keine Arbeit mehr, das Lager ist voll!", "Es ist gut, dass Ihr Galmair weiterbringen wollt! Momentan gibt es jedoch nichts fÃ¼r Euch zu tun.", "Ihr wollt noch mehr Arbeit? Ich habe momentan keine, aber Ihr findet sicher noch welche bei anderen Bewohnern Galmairs!"
+queststatus(153) ~= 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Heute gibt es keine Arbeit mehr, das Lager ist voll!", "Es ist gut, dass Ihr Galmair weiterbringen wollt! Momentan gibt es jedoch nichts für Euch zu tun.", "Ihr wollt noch mehr Arbeit? Ich habe momentan keine, aber Ihr findet sicher noch welche bei anderen Bewohnern Galmairs!"
 
 -- queststatus(153) ~= 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->
 
@@ -124,29 +138,29 @@ queststatus(153) ~= 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befeh
 -- 1: Quest 1 taken, get 5 strawberries, reward: 20cp, 5 rankpoints
 -- Quest 1: Gather five strawberries (151)
 queststatus(152) = 0, english, chance(5.0), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's Storage"), queststatus(152) = 1, "The Don had an appetite and snuck some fruits from the storage! We need to replace them. Bring me five strawberries!"
-queststatus(152) = 0, german, chance(5.0), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 1, "Der Don hatte heute HeiÃŸhunger auf Erdbeeren und hat einige aus dem Lager genommen. Wir mÃ¼ssen sie ersetzen. Bringt mir fÃ¼nf Erdbeeren!"
+queststatus(152) = 0, german, chance(5.0), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 1, "Der Don hatte heute Heißhunger auf Erdbeeren und hat einige aus dem Lager genommen. Wir müssen sie ersetzen. Bringt mir fünf Erdbeeren!"
 queststatus(152) = 0, chance(5.0), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's Storage"), queststatus(152) = 1, "The Don had an appetite and snuck some fruits from the storage! We need to replace them. Bring me five strawberries!"
-queststatus(152) = 0, chance(5.0), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 1, "Der Don hatte heute HeiÃŸhunger auf Erdbeeren und hat einige aus dem Lager genommen. Wir mÃ¼ssen sie ersetzen. Bringt mir fÃ¼nf Erdbeeren!"
+queststatus(152) = 0, chance(5.0), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 1, "Der Don hatte heute Heißhunger auf Erdbeeren und hat einige aus dem Lager genommen. Wir müssen sie ersetzen. Bringt mir fünf Erdbeeren!"
 
 -- Quest 1 solved, reward: 20cp, 5 rankpoints, delay: 5h
 queststatus(152) = 1, item(151, all) > 4, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded two silver coins. You advance in Don Valerio Guilianni's favour."), money + 200, deleteItem(151, 5), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Good job! For now, the storage is set. Your payment is two silver."
-queststatus(152) = 1, item(151, all) > 4, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du wirst mit zwei SilbermÃ¼nzen belohnt. Du steigst in Don Valerio Guiliannis Ansehen."), money + 200, deleteItem(151, 5), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Gute Arbeit! FÃ¼r den Moment ist das Lager voll. Eure Bezahlung sind zwei SilbermÃ¼nzen."
+queststatus(152) = 1, item(151, all) > 4, town = Galmair, ".*" -> inform("[Quest gelöst] Du wirst mit zwei Silbermünzen belohnt. Du steigst in Don Valerio Guiliannis Ansehen."), money + 200, deleteItem(151, 5), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Gute Arbeit! Für den Moment ist das Lager voll. Eure Bezahlung sind zwei Silbermünzen."
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(152) = 1, item(151, all) < 5, english, town = Galmair, "quest", "mission" -> "Oy! I will not have the storage records be inaccurate, be sure to come back with the five strawberries!"
-queststatus(152) = 1, item(151, all) < 5, town = Galmair, "quest", "mission" -> "Hey, ich werde nicht zulassen, dass die LagerbestÃ¤nde LÃ¼cken aufweisen! Stellt sicher, dass Ihr mir fÃ¼nf Erdbeeren bringt!"
+queststatus(152) = 1, item(151, all) < 5, town = Galmair, "quest", "mission" -> "Hey, ich werde nicht zulassen, dass die Lagerbestände Lücken aufweisen! Stellt sicher, dass Ihr mir fünf Erdbeeren bringt!"
 queststatus(152) = 1, item(151, all) < 5, town = Galmair, "task", "adventure", "order" -> "Oy! I will not have the storage records be inaccurate, be sure to come back with the five strawberries!"
-queststatus(152) = 1, item(151, all) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hey, ich werde nicht zulassen, dass die LagerbestÃ¤nde LÃ¼cken aufweisen! Stellt sicher, dass Ihr mir fÃ¼nf Erdbeeren bringt!"
+queststatus(152) = 1, item(151, all) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hey, ich werde nicht zulassen, dass die Lagerbestände Lücken aufweisen! Stellt sicher, dass Ihr mir fünf Erdbeeren bringt!"
 
 -- 2: Quest 2 taken, get 20 quartz sand (316), reward: shovel (24), 5 rankpoints
 queststatus(152) = 0, english, chance(5.26), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's Storage"), queststatus(152) = 2, "We always hold some sand in our storage for bartering deals with Cadomyr. Some of it was used up and we need to replace it. Get twenty piles of quartz sand!"
-queststatus(152) = 0, german, chance(5.26), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 2, "Wir haben immer etwas Sand im Lager, falls wir mit Cadomyr verhandeln wollen. Es wurde vor Kurzem etwas Sand verbraucht, also muss er ersetzt werden. Bringt mir 20 Haufen Quarzsand!"
+queststatus(152) = 0, german, chance(5.26), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 2, "Wir haben immer etwas Sand im Lager, falls wir mit Cadomyr verhandeln wollen. Es wurde vor Kurzem etwas Sand verbraucht, also muss er ersetzt werden. Bringt mir 20 Haufen Quarzsand!"
 queststatus(152) = 0, chance(5.26), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's Storage"), queststatus(152) = 2, "We always hold some sand in our storage for bartering deals with Cadomyr. Some of it was used up and we need to replace it. Get twenty piles of quartz sand!"
-queststatus(152) = 0, chance(5.26), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 2, "Wir haben immer etwas Sand im Lager, falls wir mit Cadomyr verhandeln wollen. Es wurde vor Kurzem etwas Sand verbraucht, also muss er ersetzt werden. Bringt mir 20 Haufen Quarzsand!"
+queststatus(152) = 0, chance(5.26), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 2, "Wir haben immer etwas Sand im Lager, falls wir mit Cadomyr verhandeln wollen. Es wurde vor Kurzem etwas Sand verbraucht, also muss er ersetzt werden. Bringt mir 20 Haufen Quarzsand!"
 
 -- Quest 2 solved, reward: shovel (24), 5 rankpoints, delay: 3h
 queststatus(152) = 2, item(316, all) > 19, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a shovel. You advance in Don Valerio Guilianni's favour."), deleteItem(316, 20), item(24, 1, 599), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Good job! Once again the storage is full. Here is a shovel so you may acquire as much sand as you need in the future!"
-queststatus(152) = 2, item(316, all) > 19, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du bekommst eine Schaufel. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(316, 20), item(24, 1, 599), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Gute Arbeit! Das Lager ist wieder gefÃ¼llt. Hier nehmt diese Schaufel, damit Ihr auch in Zukunft Sand besorgen kÃ¶nnt!"
+queststatus(152) = 2, item(316, all) > 19, town = Galmair, ".*" -> inform("[Quest gelöst] Du bekommst eine Schaufel. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(316, 20), item(24, 1, 599), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Gute Arbeit! Das Lager ist wieder gefüllt. Hier nehmt diese Schaufel, damit Ihr auch in Zukunft Sand besorgen könnt!"
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(152) = 2, item(316, all) < 20, english, town = Galmair, "quest", "mission" -> "We need that sand! Be sure to return with twenty piles of quartz sand"
@@ -156,29 +170,29 @@ queststatus(152) = 2, item(316, all) < 20, town = Galmair, "Auftrag", "Aufgabe",
 
 -- 3: Quest 3 taken, get 3 cut rubies (46), reward: 60cp, 5 rankpoints
 queststatus(152) = 0, english, chance(5.56), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 3, "The Don recently had some new rings made for his personal collection! Now we are short of some gems. I'll be needing ya to get me three cut rubies."
-queststatus(152) = 0, german, chance(5.56), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 3, "Der Don hat sich vor Kurzem drei neue Ringe fÃ¼r seine Kollektion machen lassen. Nun mÃ¼ssen wir die dafÃ¼r verbrauchten Edelsteine wiederbeschaffen. Bringt mir drei geschliffene Rubine!"
+queststatus(152) = 0, german, chance(5.56), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 3, "Der Don hat sich vor Kurzem drei neue Ringe für seine Kollektion machen lassen. Nun müssen wir die dafür verbrauchten Edelsteine wiederbeschaffen. Bringt mir drei geschliffene Rubine!"
 queststatus(152) = 0, chance(5.56), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 3, "The Don recently had some new rings made for his personal collection! Now we are short of some gems. I'll be needing ya to get me three cut rubies."
-queststatus(152) = 0, chance(5.56), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 3, "Der Don hat sich vor Kurzem drei neue Ringe fÃ¼r seine Kollektion machen lassen. Nun mÃ¼ssen wir die dafÃ¼r verbrauchten Edelsteine wiederbeschaffen. Bringt mir drei geschliffene Rubine!"
+queststatus(152) = 0, chance(5.56), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 3, "Der Don hat sich vor Kurzem drei neue Ringe für seine Kollektion machen lassen. Nun müssen wir die dafür verbrauchten Edelsteine wiederbeschaffen. Bringt mir drei geschliffene Rubine!"
 
 -- Quest 3 solved, reward: 60cp, 5 rankpoints, delay: 2h
 queststatus(152) = 3, item(46, all) > 2, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded six silver coins. You advance in Don Valerio Guilianni's favour."), money + 600, deleteItem(46, 3), queststatus(152) = 0, queststatus(153) = 24, rankpoints + 5, "Oi! Good work there! These will do just fine. Thank ya for the work, your payment is six silvers."
-queststatus(152) = 3, item(46, all) > 2, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du wirst mit sechs SilbermÃ¼nzen entlohnt. Du steigst in Don Valerio Guiliannis Ansehen."), money + 600, deleteItem(46, 3), queststatus(152) = 0, queststatus(153) = 24, rankpoints + 5, "Hah, gute Arbeit! Diese Steine werden ihren Zweck erfÃ¼llen, danke fÃ¼r Eure MÃ¼he. Hier nehmt diese MÃ¼nzen als Belohnung."
+queststatus(152) = 3, item(46, all) > 2, town = Galmair, ".*" -> inform("[Quest gelöst] Du wirst mit sechs Silbermünzen entlohnt. Du steigst in Don Valerio Guiliannis Ansehen."), money + 600, deleteItem(46, 3), queststatus(152) = 0, queststatus(153) = 24, rankpoints + 5, "Hah, gute Arbeit! Diese Steine werden ihren Zweck erfüllen, danke für Eure Mühe. Hier nehmt diese Münzen als Belohnung."
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(152) = 3, item(46, all) < 3, english, town = Galmair, "quest", "mission" -> "We need those three rubies! What if the Don commisioned three more ruby rings? Be sure to come back with them."
-queststatus(152) = 3, item(46, all) < 3, town = Galmair, "quest", "mission" -> "Wir brauchen diese Rubine! Was wÃ¤re, wenn der Don in diesem Moment neue Ringe haben wollte? Bringt mir schnell drei geschliffene Rubine!"
+queststatus(152) = 3, item(46, all) < 3, town = Galmair, "quest", "mission" -> "Wir brauchen diese Rubine! Was wäre, wenn der Don in diesem Moment neue Ringe haben wollte? Bringt mir schnell drei geschliffene Rubine!"
 queststatus(152) = 3, item(46, all) < 3, town = Galmair, "task", "adventure", "order" -> "We need those three rubies! What if the Don commisioned three more ruby rings? Be sure to come back with them."
-queststatus(152) = 3, item(46, all) < 3, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir brauchen diese Rubine! Was wÃ¤re, wenn der Don in diesem Moment neue Ringe haben wollte? Bringt mir schnell drei geschliffene Rubine!"
+queststatus(152) = 3, item(46, all) < 3, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir brauchen diese Rubine! Was wäre, wenn der Don in diesem Moment neue Ringe haben wollte? Bringt mir schnell drei geschliffene Rubine!"
 
 -- 4: Quest 4 taken, get 10 glass ingots, reward: 120cp, 5 rankpoints
 queststatus(152) = 0, english, chance(5.88), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 4, "Oi! You're here just in time, a fight broke out and several windows were shattered. We used up some of our stored glass and now need ten glass ingots to fill the gap."
-queststatus(152) = 0, german, chance(5.88), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 4, "Ihr kommt grade richtig. Vor Kurzem ist hier eine SchlÃ¤gerei ausgebrochen und einige Fenster sind zu Bruch gegangen. Wir mussten einige Glasbarren verwenden, um den Schaden zu beheben und brauchen nun Ersatz. Zehn Glasbarren sollten genÃ¼gen."
+queststatus(152) = 0, german, chance(5.88), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 4, "Ihr kommt grade richtig. Vor Kurzem ist hier eine Schlägerei ausgebrochen und einige Fenster sind zu Bruch gegangen. Wir mussten einige Glasbarren verwenden, um den Schaden zu beheben und brauchen nun Ersatz. Zehn Glasbarren sollten genügen."
 queststatus(152) = 0, chance(5.88), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 4, "Oi! You're here just in time, a fight broke out and several windows were shattered. We used up some of our stored glass and now need ten glass ingots to fill the gap."
-queststatus(152) = 0, chance(5.88), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 4, "Ihr kommt grade richtig. Vor Kurzem ist hier eine SchlÃ¤gerei ausgebrochen und einige Fenster sind zu Bruch gegangen. Wir mussten einige Glasbarren verwenden, um den Schaden zu beheben und brauchen nun Ersatz. Zehn Glasbarren sollten genÃ¼gen."
+queststatus(152) = 0, chance(5.88), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 4, "Ihr kommt grade richtig. Vor Kurzem ist hier eine Schlägerei ausgebrochen und einige Fenster sind zu Bruch gegangen. Wir mussten einige Glasbarren verwenden, um den Schaden zu beheben und brauchen nun Ersatz. Zehn Glasbarren sollten genügen."
 
 -- Quest 4 solved, reward: 120cp, 5 rankpoints, delay: 4h
 queststatus(152) = 4, item(41, all) > 9, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded twelve silver coins. You advance in Don Valerio Guilianni's favour."), money + 1200, deleteItem(41, 10), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Very good! With this we'll be able to replace the broken windows. Come back again to help with the storage! Until then, you're payment is twelve silvers."
-queststatus(152) = 4, item(41, all) > 9, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst zwÃ¶lf SilbermÃ¼nzen. Du steigst in Don Valerio Guiliannis Ansehen."), money + 1200, deleteItem(41, 10), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Sehr gut! Damit werden wir Fenster reparieren kÃ¶nnen, wenn mal wieder was zu Bruch geht. Schaut wieder mal vorbei, um mir zu helfen. Bis dahin nehmt diese zwÃ¶lf SilbermÃ¼nzen als Belohnung."
+queststatus(152) = 4, item(41, all) > 9, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst zwölf Silbermünzen. Du steigst in Don Valerio Guiliannis Ansehen."), money + 1200, deleteItem(41, 10), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Sehr gut! Damit werden wir Fenster reparieren können, wenn mal wieder was zu Bruch geht. Schaut wieder mal vorbei, um mir zu helfen. Bis dahin nehmt diese zwölf Silbermünzen als Belohnung."
 
 -- Quest 4 taken but not solved, repeat the instructions
 queststatus(152) = 4, item(41, all) < 10, english, town = Galmair, "quest", "mission" -> "Those broken windows are an eyesore! Don't return without those ten glass ingots."
@@ -188,29 +202,29 @@ queststatus(152) = 4, item(41, all) < 10, town = Galmair, "Auftrag", "Aufgabe", 
 
 -- 5: Quest 5 taken, get 5 pipes (2744), reward: golden ring (235), 5 rankpoints
 queststatus(152) = 0, english, chance(6.25), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 5, "The Don was working a deal out with some merchants from a neighboring country. During the deals they broke out some smoking pipes. We'll need five more pipes to replace those the Don used!"
-queststatus(152) = 0, german, chance(6.25), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 5, "Der Don arbeitet an einem Deal mit einigen HÃ¤ndlern eines angrenzenden Landes. Sie rauchen gerne, daher haben sie einige Pfeifen aus dem Lager genommen. Sorgt fÃ¼r Ersatz und bringt mit fÃ¼nf Pfeifen."
+queststatus(152) = 0, german, chance(6.25), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 5, "Der Don arbeitet an einem Deal mit einigen Händlern eines angrenzenden Landes. Sie rauchen gerne, daher haben sie einige Pfeifen aus dem Lager genommen. Sorgt für Ersatz und bringt mit fünf Pfeifen."
 queststatus(152) = 0, chance(6.25), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 5, "The Don was working a deal out with some merchants from a neighboring country. During the deals they broke out some smoking pipes. We'll need five more pipes to replace those the Don used!"
-queststatus(152) = 0, chance(6.25), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 5, "Der Don arbeitet an einem Deal mit einigen HÃ¤ndlern eines angrenzenden Landes. Sie rauchen gerne, daher haben sie einige Pfeifen aus dem Lager genommen. Sorgt fÃ¼r Ersatz und bringt mit fÃ¼nf Pfeifen."
+queststatus(152) = 0, chance(6.25), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 5, "Der Don arbeitet an einem Deal mit einigen Händlern eines angrenzenden Landes. Sie rauchen gerne, daher haben sie einige Pfeifen aus dem Lager genommen. Sorgt für Ersatz und bringt mit fünf Pfeifen."
 
 -- Quest 5 solved, reward: golden ring (235), 5 rankpoints, delay: 3h
 queststatus(152) = 5, item(2744, all) > 4, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a golden ring. You advance in Don Valerio Guilianni's favour."), deleteItem(2744, 5), item(235, 1, 599), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Good work! These will certainly help out future deals. For your efforts, the Don has awarded you this golden ring."
-queststatus(152) = 5, item(2744, all) > 4, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst einen Goldring. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(2744, 5), item(235, 1, 599), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Sehr gut. Diese Pfeifen werden in zukÃ¼nftigen Verhandlungen sicher nÃ¼tzlich sein. Nehmt diesen Ring als Belohnung."
+queststatus(152) = 5, item(2744, all) > 4, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst einen Goldring. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(2744, 5), item(235, 1, 599), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Sehr gut. Diese Pfeifen werden in zukünftigen Verhandlungen sicher nützlich sein. Nehmt diesen Ring als Belohnung."
 
 -- Quest 5 taken but not solved, repeat the instructions
 queststatus(152) = 5, item(2744, all) < 5, english, town = Galmair, "quest", "mission" -> "The storage must be filled! Go and bring me back the five pipes."
-queststatus(152) = 5, item(2744, all) < 5, town = Galmair, "quest", "mission" -> "Das Lager muss stets gefÃ¼llt sein! Bringt mir fÃ¼nf Pfeifen."
+queststatus(152) = 5, item(2744, all) < 5, town = Galmair, "quest", "mission" -> "Das Lager muss stets gefüllt sein! Bringt mir fünf Pfeifen."
 queststatus(152) = 5, item(2744, all) < 5, town = Galmair, "task", "adventure", "order" -> "The storage must be filled! Go and bring me back the five pipes."
-queststatus(152) = 5, item(2744, all) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Das Lager muss stets gefÃ¼llt sein! Bringt mir fÃ¼nf Pfeifen."
+queststatus(152) = 5, item(2744, all) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Das Lager muss stets gefüllt sein! Bringt mir fünf Pfeifen."
 
 -- 6: Quest 6 taken, get 20 bricks (2588), reward: bag (97), 5 rankpoints
 queststatus(152) = 0, english, chance(6.67), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 6, "We've been looking to expand our workshop, but the storage is short. We are in need of twenty more bricks for the construction project."
-queststatus(152) = 0, german, chance(6.67), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 6, "Wir versuchen unsere Werkstatt auszubauen, aber haben nicht die nÃ¶tigen Materialien dafÃ¼r. Wir benÃ¶tigen 20 weitere Ziegel fÃ¼r die Umbauten."
+queststatus(152) = 0, german, chance(6.67), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 6, "Wir versuchen unsere Werkstatt auszubauen, aber haben nicht die nötigen Materialien dafür. Wir benötigen 20 weitere Ziegel für die Umbauten."
 queststatus(152) = 0, chance(6.67), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 6, "We've been looking to expand our workshop, but the storage is short. We are in need of twenty more bricks for the construction project."
-queststatus(152) = 0, chance(6.67), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 6, "Wir versuchen unsere Werkstatt auszubauen, aber haben nicht die nÃ¶tigen Materialien dafÃ¼r. Wir benÃ¶tigen 20 weitere Ziegel fÃ¼r die Umbauten."
+queststatus(152) = 0, chance(6.67), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 6, "Wir versuchen unsere Werkstatt auszubauen, aber haben nicht die nötigen Materialien dafür. Wir benötigen 20 weitere Ziegel für die Umbauten."
 
 -- Quest 6 solved, reward: bag (97), 5 rankpoints, delay: 2h
 queststatus(152) = 6, item(2588, all) > 19, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a bag. You advance in Don Valerio Guilianni's favour."), deleteItem(2588, 20), item(97, 1, 599), queststatus(152) = 0, queststatus(153) = 24, rankpoints + 5, "Good work! Our masons will make good use of these. You are rewarded a leather bag."
-queststatus(152) = 6, item(2588, all) > 19, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst eine Tasche als Bezahlung. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(2588, 20), item(97, 1, 599), queststatus(152) = 0, queststatus(153) = 24, rankpoints + 5, "Hervorragende Arbeit! Unsere Maurer werden hocherfreut sein. Nehmt diese Tasche als Bezahlung."
+queststatus(152) = 6, item(2588, all) > 19, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst eine Tasche als Bezahlung. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(2588, 20), item(97, 1, 599), queststatus(152) = 0, queststatus(153) = 24, rankpoints + 5, "Hervorragende Arbeit! Unsere Maurer werden hocherfreut sein. Nehmt diese Tasche als Bezahlung."
 
 -- Quest 6 taken but not solved, repeat the instructions
 queststatus(152) = 6, item(2588, all) < 20, english, town = Galmair, "quest", "mission" -> "The crafters are complaining! We need those twenty bricks."
@@ -220,205 +234,205 @@ queststatus(152) = 6, item(2588, all) < 20, town = Galmair, "Auftrag", "Aufgabe"
 
 -- 7: Quest 7 taken, get a longsword (2701), reward: 120cp, 5 rankpoints
 queststatus(152) = 0, english, chance(7.14), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 7, "The Don has recently hired a new bodyguard. He has taken a longsword from the storage in order to arm this new guard. We must replace it! Please bring me one longsword."
-queststatus(152) = 0, german, chance(7.14), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 7, "Eine neue Leibwache des Dons hat sich ein Langschwert aus dem Lager genommen, dafÃ¼r brauchen wir nun Ersatz. Bringt mir ein Langschwert!"
+queststatus(152) = 0, german, chance(7.14), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 7, "Eine neue Leibwache des Dons hat sich ein Langschwert aus dem Lager genommen, dafür brauchen wir nun Ersatz. Bringt mir ein Langschwert!"
 queststatus(152) = 0, chance(7.14), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 7, "The Don has recently hired a new bodyguard. He has taken a longsword from the storage in order to arm this new guard. We must replace it! Please bring me one longsword."
-queststatus(152) = 0, chance(7.14), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 7, "Eine neue Leibwache des Dons hat sich ein Langschwert aus dem Lager genommen, dafÃ¼r brauchen wir nun Ersatz. Bringt mir ein Langschwert!"
+queststatus(152) = 0, chance(7.14), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 7, "Eine neue Leibwache des Dons hat sich ein Langschwert aus dem Lager genommen, dafür brauchen wir nun Ersatz. Bringt mir ein Langschwert!"
 
 -- Quest 7 solved, reward: 120cp, 5 rankpoints, delay: 5h
 queststatus(152) = 7, item(2701, all) > 0, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded twelve silver coins. You advance in Don Valerio Guilianni's favour."), money + 1200, deleteItem(2701, 1), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Very good! This sword will do well. Your payment is twelve silvers."
-queststatus(152) = 7, item(2701, all) > 0, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst zwÃ¶lf SilbermÃ¼nzen. Du steigst in Don Valerio Guiliannis Ansehen."), money + 1200, deleteItem(2701, 1), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Sehr gut, dieses Schwert wird uns gute Dienste leisten. Eure Bezahlung betrÃ¤gt zwÃ¶lf SilbermÃ¼nzen."
+queststatus(152) = 7, item(2701, all) > 0, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst zwölf Silbermünzen. Du steigst in Don Valerio Guiliannis Ansehen."), money + 1200, deleteItem(2701, 1), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Sehr gut, dieses Schwert wird uns gute Dienste leisten. Eure Bezahlung beträgt zwölf Silbermünzen."
 
 -- Quest 7 taken but not solved, repeat the instructions
 queststatus(152) = 7, item(2701, all) < 1, english, town = Galmair, "quest", "mission" -> "We are still short on the storage! This is for the Don's protection! Be sure not to return without the longsword."
-queststatus(152) = 7, item(2701, all) < 1, town = Galmair, "quest", "mission" -> "Wir benÃ¶tigen noch immer dieses Langschwert. Es wird dem Wohl des Dons dienen, also kommt nicht noch mal ohne das Schwert wieder!"
+queststatus(152) = 7, item(2701, all) < 1, town = Galmair, "quest", "mission" -> "Wir benötigen noch immer dieses Langschwert. Es wird dem Wohl des Dons dienen, also kommt nicht noch mal ohne das Schwert wieder!"
 queststatus(152) = 7, item(2701, all) < 1, town = Galmair, "task", "adventure", "order" -> "We are still short on the storage! This is for the Don's protection! Be sure not to return without the longsword."
-queststatus(152) = 7, item(2701, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir benÃ¶tigen noch immer dieses Langschwert. Es wird dem Wohl des Dons dienen, also kommt nicht noch mal ohne das Schwert wieder!"
+queststatus(152) = 7, item(2701, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir benötigen noch immer dieses Langschwert. Es wird dem Wohl des Dons dienen, also kommt nicht noch mal ohne das Schwert wieder!"
 
 -- 8: Quest 8 taken, get 15 firnis blossoms (148), reward: mushroom soup (2456), 5 rankpoints
 queststatus(152) = 0, english, chance(7.69), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 8, "The Don commisioned a number of potions to be made and our alchemists took out a bunch of herbs. We are now short and I need you to get fifteen firnis blossoms for the storage."
-queststatus(152) = 0, german, chance(7.69), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 8, "Der Don hat unsere Alchemisten einige TrÃ¤nke brauen lassen. Nun fehlen uns ein paar KrÃ¤uter. Bringt mit 15 FirnisblÃ¼ten."
+queststatus(152) = 0, german, chance(7.69), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 8, "Der Don hat unsere Alchemisten einige Tränke brauen lassen. Nun fehlen uns ein paar Kräuter. Bringt mit 15 Firnisblüten."
 queststatus(152) = 0, chance(7.69), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 8, "The Don commisioned a number of potions to be made and our alchemists took out a bunch of herbs. We are now short and I need you to get fifteen firnis blossoms for the storage."
-queststatus(152) = 0, chance(7.69), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 8, "Der Don hat unsere Alchemisten einige TrÃ¤nke brauen lassen. Nun fehlen uns ein paar KrÃ¤uter. Bringt mit 15 FirnisblÃ¼ten."
+queststatus(152) = 0, chance(7.69), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 8, "Der Don hat unsere Alchemisten einige Tränke brauen lassen. Nun fehlen uns ein paar Kräuter. Bringt mit 15 Firnisblüten."
 
 -- Quest 8 solved, reward: mushroom soup (2456), 5 rankpoints, delay: 5h
 queststatus(152) = 8, item(148, all) > 14, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a bowl of mushroom soup. You advance in Don Valerio Guilianni's favour."), deleteItem(148, 15), item(2456, 1, 599), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Aha good work! Digging in the dirt must have worn you down, here is some mushroom soup to get you back into shape!"
-queststatus(152) = 8, item(148, all) > 14, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst eine SchÃ¼ssel mit Pilzsuppe. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(148, 15), item(2456, 1, 599), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Aha, gute Arbeit! Im Dreck nach BlÃ¼ten zu suchen muss anstrengend sein. Hier nehmt diese Pilzsuppe und stÃ¤rkt Euch wieder."
+queststatus(152) = 8, item(148, all) > 14, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst eine Schüssel mit Pilzsuppe. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(148, 15), item(2456, 1, 599), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Aha, gute Arbeit! Im Dreck nach Blüten zu suchen muss anstrengend sein. Hier nehmt diese Pilzsuppe und stärkt Euch wieder."
 
 -- Quest 8 taken but not solved, repeat the instructions
 queststatus(152) = 8, item(148, all) < 15, english, town = Galmair, "quest", "mission" -> "The storage must be filled! When you return, I expect you will have the fifteen firnis blossoms."
-queststatus(152) = 8, item(148, all) < 15, town = Galmair, "quest", "mission" -> "Was macht Ihr hier? Kommt erst wieder, wenn Ihr die 15 FirnisblÃ¼ten habt!"
+queststatus(152) = 8, item(148, all) < 15, town = Galmair, "quest", "mission" -> "Was macht Ihr hier? Kommt erst wieder, wenn Ihr die 15 Firnisblüten habt!"
 queststatus(152) = 8, item(148, all) < 15, town = Galmair, "task", "adventure", "order" -> "The storage must be filled! When you return, I expect you will have the fifteen firnis blossoms."
-queststatus(152) = 8, item(148, all) < 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Was macht Ihr hier? Kommt erst wieder, wenn Ihr die 15 FirnisblÃ¼ten habt!"
+queststatus(152) = 8, item(148, all) < 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Was macht Ihr hier? Kommt erst wieder, wenn Ihr die 15 Firnisblüten habt!"
 
 -- 9: Quest 9 taken, get 10 glass mugs (1908), reward: 160cp, 5 rankpoints
 queststatus(152) = 0, english, chance(8.33), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 9, "#me stumbles as he looks up 'HEY! Hey you! *hic* Our damn mugs shattered when we.. *hic* challenged the Don to a drinking game. But the game ain't over yet son! We.. *hic* need more mugs! How many? Uh... however this many is! He holds up all of his fingers."
-queststatus(152) = 0, german, chance(8.33), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 9, "#me taumelt als er aufschaut. 'HEY! Hey du! *hic* Unsere verdammten KrÃ¼ge sind zerbrochen, als wir... *hic* als wir den Don zu einem Trinkwettbewerb herausgefordert haben! Aber das Spiel ist noch nicht aus! Wir... *hic* brauchen neue KrÃ¼ge! Wie viele? Uhm, so viele wie das hier ist!' Er hÃ¤lt alle seine Finger hoch."
+queststatus(152) = 0, german, chance(8.33), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 9, "#me taumelt als er aufschaut. 'HEY! Hey du! *hic* Unsere verdammten Krüge sind zerbrochen, als wir... *hic* als wir den Don zu einem Trinkwettbewerb herausgefordert haben! Aber das Spiel ist noch nicht aus! Wir... *hic* brauchen neue Krüge! Wie viele? Uhm, so viele wie das hier ist!' Er hält alle seine Finger hoch."
 queststatus(152) = 0, chance(8.33), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 9, "#me stumbles as he looks up 'HEY! Hey you! *hic* Our damn mugs shattered when we.. *hic* challenged the Don to a drinking game. But the game ain't over yet son! We.. *hic* need more mugs! How many? Uh... however this many is! He holds up all of his fingers."
-queststatus(152) = 0, chance(8.33), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 9, "#me taumelt als er aufschaut. 'HEY! Hey du! *hic* Unsere verdammten KrÃ¼ge sind zerbrochen, als wir... *hic* als wir den Don zu einem Trinkwettbewerb herausgefordert haben! Aber das Spiel ist noch nicht aus! Wir... *hic* brauchen neue KrÃ¼ge! Wie viele? Uhm, so viele wie das hier ist!' Er hÃ¤lt alle seine Finger hoch."
+queststatus(152) = 0, chance(8.33), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 9, "#me taumelt als er aufschaut. 'HEY! Hey du! *hic* Unsere verdammten Krüge sind zerbrochen, als wir... *hic* als wir den Don zu einem Trinkwettbewerb herausgefordert haben! Aber das Spiel ist noch nicht aus! Wir... *hic* brauchen neue Krüge! Wie viele? Uhm, so viele wie das hier ist!' Er hält alle seine Finger hoch."
 
 -- Quest 9 solved, reward: 160cp, 5 rankpoints, delay: 3h
 queststatus(152) = 9, item(1908, all) > 9, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded sixteen silver coins. You advance in Don Valerio Guilianni's favour."), money + 1600, deleteItem(1908, 10), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "#me burps loudly as he takes the mugs 'OI!!! Ye brought these.. *hic* JUST in time! Here's some monies!' and then vomits in front of you before running off"
-queststatus(152) = 9, item(1908, all) > 9, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 16 SilbermÃ¼nzen. Du steigst in Don Valerio Guiliannis Ansehen."), money + 1600, deleteItem(1908, 10), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "#me rÃ¼lpst laut, wÃ¤hrend er dir die KrÃ¼ge abnimmt. 'Hey, die bringt Ihr grade richtig! *hic* Nehmt das Geld als EntschÃ¤digung!' Dann Ã¼bergibt er sich vor deine FÃ¼ÃŸe und rennt davon."
+queststatus(152) = 9, item(1908, all) > 9, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst 16 Silbermünzen. Du steigst in Don Valerio Guiliannis Ansehen."), money + 1600, deleteItem(1908, 10), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "#me rülpst laut, während er dir die Krüge abnimmt. 'Hey, die bringt Ihr grade richtig! *hic* Nehmt das Geld als Entschädigung!' Dann übergibt er sich vor deine Füße und rennt davon."
 
 -- Quest 9 taken but not solved, repeat the instructions
 queststatus(152) = 9, item(1908, all) < 10, english, town = Galmair, "quest", "mission" -> "Who are you!? OH! You're the guy!! OI! *Hic* We need them mugs! We need ten!"
-queststatus(152) = 9, item(1908, all) < 10, town = Galmair, "quest", "mission" -> "Wer seid Ihr!? OH, Ihr seid es!! Hey! *hic* Wir brauchen wirklich diese KrÃ¼ge. Zehn, zehn KrÃ¼ge!"
+queststatus(152) = 9, item(1908, all) < 10, town = Galmair, "quest", "mission" -> "Wer seid Ihr!? OH, Ihr seid es!! Hey! *hic* Wir brauchen wirklich diese Krüge. Zehn, zehn Krüge!"
 queststatus(152) = 9, item(1908, all) < 10, town = Galmair, "task", "adventure", "order" -> "Who are you!? OH! You're the guy!! OI! *Hic* We need them mugs! We need ten!"
-queststatus(152) = 9, item(1908, all) < 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wer seid Ihr!? OH, Ihr seid es!! Hey! *hic* Wir brauchen wirklich diese KrÃ¼ge. Zehn, zehn KrÃ¼ge!"
+queststatus(152) = 9, item(1908, all) < 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wer seid Ihr!? OH, Ihr seid es!! Hey! *hic* Wir brauchen wirklich diese Krüge. Zehn, zehn Krüge!"
 
 -- 10: Quest 10 taken, get a candle mould (429), reward: 60cp, 5 rankpoints
 queststatus(152) = 0, english, chance(9.09), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 10, "Recently one of our candle moulds was used and broke as we had an order of candles to fill. The mould that broke was from our storage so we must replace it! Bring me one candle mould."
-queststatus(152) = 0, german, chance(9.09), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 10, "Eine unserer Kerzenformen ist vor Kurzem bei der Benutzung zu Bruch gegangen. Besorgt mir eine neue Kerzenform!"
+queststatus(152) = 0, german, chance(9.09), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 10, "Eine unserer Kerzenformen ist vor Kurzem bei der Benutzung zu Bruch gegangen. Besorgt mir eine neue Kerzenform!"
 queststatus(152) = 0, chance(9.09), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 10, "Recently one of our candle moulds was used and broke as we had an order of candles to fill. The mould that broke was from our storage so we must replace it! Bring me one candle mould."
-queststatus(152) = 0, chance(9.09), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf"), queststatus(152) = 10, "Eine unserer Kerzenformen ist vor Kurzem bei der Benutzung zu Bruch gegangen. Besorgt mir eine neue Kerzenform!"
+queststatus(152) = 0, chance(9.09), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf"), queststatus(152) = 10, "Eine unserer Kerzenformen ist vor Kurzem bei der Benutzung zu Bruch gegangen. Besorgt mir eine neue Kerzenform!"
 
 -- Quest 10 solved, reward: 60cp, 5 rankpoints, delay: 4h
 queststatus(152) = 10, item(429, all) > 0, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded six silver coins. You advance in Don Valerio Guilianni's favour."), money + 600, deleteItem(429, 1), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Ah this is perfect. You've done a good job! Here is your payment."
-queststatus(152) = 10, item(429, all) > 0, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst sechs SilbermÃ¼nzen. Du steigst in Don Valerio Guiliannis Ansehen."), money + 600, deleteItem(429, 1), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Ah, das ist perfekt. Ihr habt gute Arbeit geleistet, nehmt diese MÃ¼nzen als Entlohnung."
+queststatus(152) = 10, item(429, all) > 0, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst sechs Silbermünzen. Du steigst in Don Valerio Guiliannis Ansehen."), money + 600, deleteItem(429, 1), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Ah, das ist perfekt. Ihr habt gute Arbeit geleistet, nehmt diese Münzen als Entlohnung."
 
 -- Quest 10 taken but not solved, repeat the instructions
 queststatus(152) = 10, item(429, all) < 1, english, town = Galmair, "quest", "mission" -> "We need that candle mould. I just can't feel comfortable until I know the storage is set. Bring me one candle mould."
-queststatus(152) = 10, item(429, all) < 1, town = Galmair, "quest", "mission" -> "Wir brauchen diese Kerzenform! Ich kann mich einfach nicht wohlfÃ¼hlen, wenn das Lager nicht voll aufgestockt ist."
+queststatus(152) = 10, item(429, all) < 1, town = Galmair, "quest", "mission" -> "Wir brauchen diese Kerzenform! Ich kann mich einfach nicht wohlfühlen, wenn das Lager nicht voll aufgestockt ist."
 queststatus(152) = 10, item(429, all) < 1, town = Galmair, "task", "adventure", "order" -> "We need that candle mould. I just can't feel comfortable until I know the storage is set. Bring me one candle mould."
-queststatus(152) = 10, item(429, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir brauchen diese Kerzenform! Ich kann mich einfach nicht wohlfÃ¼hlen, wenn das Lager nicht voll aufgestockt ist."
+queststatus(152) = 10, item(429, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir brauchen diese Kerzenform! Ich kann mich einfach nicht wohlfühlen, wenn das Lager nicht voll aufgestockt ist."
 
 -- 11: Quest 11 taken, get 20 soup bowls (2935), reward: gilded dagger (297), 5 rankpoints
 queststatus(152) = 0, english, chance(10.0), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's Storage."), queststatus(152) = 11, "The Don had a party for some merchants travelling through this land. We served some of our most famous soup but the damn merchants left without returning the bowls! We need to replace them! Bring me twenty soup bowls."
-queststatus(152) = 0, german, chance(10.0), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 11, "Der Don hat ein Gelage fÃ¼r einige HÃ¤ndler abgehalten und seine Lieblingssuppe servieren lassen, aber keiner der HÃ¤ndler hat seine SuppenschÃ¼sseln wieder abgegeben! Wir benÃ¶tigen Ersatz. Bringt mir 20 SuppenschÃ¼sseln."
+queststatus(152) = 0, german, chance(10.0), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 11, "Der Don hat ein Gelage für einige Händler abgehalten und seine Lieblingssuppe servieren lassen, aber keiner der Händler hat seine Suppenschüsseln wieder abgegeben! Wir benötigen Ersatz. Bringt mir 20 Suppenschüsseln."
 queststatus(152) = 0, chance(10.0), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's Storage."), queststatus(152) = 11, "The Don had a party for some merchants travelling through this land. We served some of our most famous soup but the damn merchants left without returning the bowls! We need to replace them! Bring me twenty soup bowls."
-queststatus(152) = 0, chance(10.0), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 11, "Der Don hat ein Gelage fÃ¼r einige HÃ¤ndler abgehalten und seine Lieblingssuppe servieren lassen, aber keiner der HÃ¤ndler hat seine SuppenschÃ¼sseln wieder abgegeben! Wir benÃ¶tigen Ersatz. Bringt mir 20 SuppenschÃ¼sseln."
+queststatus(152) = 0, chance(10.0), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 11, "Der Don hat ein Gelage für einige Händler abgehalten und seine Lieblingssuppe servieren lassen, aber keiner der Händler hat seine Suppenschüsseln wieder abgegeben! Wir benötigen Ersatz. Bringt mir 20 Suppenschüsseln."
 
 -- Quest 11 solved, reward: gilded dagger (297), 5 rankpoints, delay: 2h
 queststatus(152) = 11, item(2935, all) > 19, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a gilded dagger. You advance in Don Valerio Guilianni's favour."), deleteItem(2935, 20), item(297, 1, 599), queststatus(152) = 0, queststatus(153) = 24, rankpoints + 5, "These will do great! Perhaps one day the Don will invite you to be a part of one of his parties. We received some extra equipment in our last order, so today I'll reward you with this dagger."
-queststatus(152) = 11, item(2935, all) > 19, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst einen vergoldeten Dolch. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(2935, 20), item(297, 1, 599), queststatus(152) = 0, queststatus(153) = 24, rankpoints + 5, "Ja, das sind gute SchÃ¼sseln! Vielleicht wird auch Euch der Don eines Tages auf eines seiner Gelage einladen. Wir haben noch ein paar AusrÃ¼stungsgegenstÃ¤nde aus einer Lieferung Ã¼brig, also belohne ich Euch heute mit diesem Dolch."
+queststatus(152) = 11, item(2935, all) > 19, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst einen vergoldeten Dolch. Du steigst in Don Valerio Guiliannis Ansehen."), deleteItem(2935, 20), item(297, 1, 599), queststatus(152) = 0, queststatus(153) = 24, rankpoints + 5, "Ja, das sind gute Schüsseln! Vielleicht wird auch Euch der Don eines Tages auf eines seiner Gelage einladen. Wir haben noch ein paar Ausrüstungsgegenstände aus einer Lieferung übrig, also belohne ich Euch heute mit diesem Dolch."
 
 -- Quest 11 taken but not solved, repeat the instructions
 queststatus(152) = 11, item(2935, all) < 20, english, town = Galmair, "quest", "mission" -> "You should know not to come here until your task is finished! Be sure to return with twenty soup bowls."
-queststatus(152) = 11, item(2935, all) < 20, town = Galmair, "quest", "mission" -> "Ihr solltet nicht hier sein, sofern Ihr die Aufgabe nicht erfÃ¼llt habt! Kehrt mit 20 SuppenschÃ¼sseln zurÃ¼ck."
+queststatus(152) = 11, item(2935, all) < 20, town = Galmair, "quest", "mission" -> "Ihr solltet nicht hier sein, sofern Ihr die Aufgabe nicht erfüllt habt! Kehrt mit 20 Suppenschüsseln zurück."
 queststatus(152) = 11, item(2935, all) < 20, town = Galmair, "task", "adventure", "order" -> "You should know not to come here until your task is finished! Be sure to return with twenty soup bowls."
-queststatus(152) = 11, item(2935, all) < 20, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr solltet nicht hier sein, sofern Ihr die Aufgabe nicht erfÃ¼llt habt! Kehrt mit 20 SuppenschÃ¼sseln zurÃ¼ck."
+queststatus(152) = 11, item(2935, all) < 20, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr solltet nicht hier sein, sofern Ihr die Aufgabe nicht erfüllt habt! Kehrt mit 20 Suppenschüsseln zurück."
 
 -- 12: Quest 12 taken, get 10 leather (2547), reward: 160cp, 5 rankpoints
 queststatus(152) = 0, english, chance(11.11), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 12, "The Don commisioned a new set of armour to be made. For this he took materials from our storage for the smith. We've been able to replace everything except the leather since there are no pigs around. Please venture out and gather us ten pieces of dried leather."
-queststatus(152) = 0, german, chance(11.11), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 12, "Der Don hat eine neue RÃ¼stung in Auftrag gegeben. DafÃ¼r wurden Materialien aus unserem Lager fÃ¼r den Schmied verwendet. Wir haben bereits alles bis auf das Leder ersetzt, da es hier kaum Schweine gibt. Woher ist mir egal, aber besorge zehn getrocknete LederhÃ¤ute."
+queststatus(152) = 0, german, chance(11.11), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 12, "Der Don hat eine neue Rüstung in Auftrag gegeben. Dafür wurden Materialien aus unserem Lager für den Schmied verwendet. Wir haben bereits alles bis auf das Leder ersetzt, da es hier kaum Schweine gibt. Woher ist mir egal, aber besorge zehn getrocknete Lederhäute."
 queststatus(152) = 0, chance(11.11), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 12, "The Don commisioned a new set of armour to be made. For this he took materials from our storage for the smith. We've been able to replace everything except the leather since there are no pigs around. Please venture out and gather us ten pieces of dried leather."
-queststatus(152) = 0, chance(11.11), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 12, "Der Don hat eine neue RÃ¼stung in Auftrag gegeben. DafÃ¼r wurden Materialien aus unserem Lager fÃ¼r den Schmied verwendet. Wir haben bereits alles bis auf das Leder ersetzt, da es hier kaum Schweine gibt. Woher ist mir egal, aber besorge zehn getrocknete LederhÃ¤ute."
+queststatus(152) = 0, chance(11.11), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 12, "Der Don hat eine neue Rüstung in Auftrag gegeben. Dafür wurden Materialien aus unserem Lager für den Schmied verwendet. Wir haben bereits alles bis auf das Leder ersetzt, da es hier kaum Schweine gibt. Woher ist mir egal, aber besorge zehn getrocknete Lederhäute."
 
 -- Quest 12 solved, reward: 70cp, 5 rankpoints, delay: 5h
 queststatus(152) = 12, item(2547, all) > 9, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded sixteen silver coins. You advance in Don Valerio Guilianni's favour."), money + 1600, deleteItem(2547, 10), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Ah very good, the smiths will be pleased! Here is your payment."
-queststatus(152) = 12, item(2547, all) > 9, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 16 SilbermÃ¼nzen. Du steigst in Don Valerio Guiliannis Ansehen."), money + 1600, deleteItem(2547, 10), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Sehr gut, die Schmiede werden erfreut sein! Hier ist Euer Lohn."
+queststatus(152) = 12, item(2547, all) > 9, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst 16 Silbermünzen. Du steigst in Don Valerio Guiliannis Ansehen."), money + 1600, deleteItem(2547, 10), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Sehr gut, die Schmiede werden erfreut sein! Hier ist Euer Lohn."
 
 -- Quest 12 taken but not solved, repeat the instructions
 queststatus(152) = 12, item(2547, all) < 10, english, town = Galmair, "quest", "mission" -> "Did you bring the leathers? Be sure that they are already dried! We have no use for raw leather. Make sure that you come back ten dried leather."
-queststatus(152) = 12, item(2547, all) < 10, town = Galmair, "quest", "mission" -> "Bringt Ihr mir das Leder? Stellt sicher, dass es auch getrocknet ist! Rohes Leder kÃ¶nnen wir nicht gebrauchen."
+queststatus(152) = 12, item(2547, all) < 10, town = Galmair, "quest", "mission" -> "Bringt Ihr mir das Leder? Stellt sicher, dass es auch getrocknet ist! Rohes Leder können wir nicht gebrauchen."
 queststatus(152) = 12, item(2547, all) < 10, town = Galmair, "task", "adventure", "order" -> "Did you bring the leathers? Be sure that they are already dried! We have no use for raw leather. Make sure that you come back ten dried leather."
-queststatus(152) = 12, item(2547, all) < 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bringt Ihr mir das Leder? Stellt sicher, dass es auch getrocknet ist! Rohes Leder kÃ¶nnen wir nicht gebrauchen."
+queststatus(152) = 12, item(2547, all) < 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bringt Ihr mir das Leder? Stellt sicher, dass es auch getrocknet ist! Rohes Leder können wir nicht gebrauchen."
 
 -- 13: Quest 13 taken, golden goblet (224), reward: pipe (2744), 5 rankpoints
 queststatus(152) = 0, english, chance(12.5), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 13, "The Don's personal golden goblet has been tarnished over the years, he's taken a new one from the storage. I'll need ya to go and fetch a new golden goblet for the storage."
-queststatus(152) = 0, german, chance(12.5), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 13, "Der persÃ¶nliche Goldkelch des Dons hat Ã¼ber die Jahre an Glanz verloren, daher hat er sich einen neuen aus dem Lager genommen. Ich will, dass Ihr fÃ¼r Ersatz sorgt."
+queststatus(152) = 0, german, chance(12.5), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 13, "Der persönliche Goldkelch des Dons hat über die Jahre an Glanz verloren, daher hat er sich einen neuen aus dem Lager genommen. Ich will, dass Ihr für Ersatz sorgt."
 queststatus(152) = 0, chance(12.5), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 13, "The Don's personal golden goblet has been tarnished over the years, he's taken a new one from the storage. I'll need ya to go and fetch a new golden goblet for the storage."
-queststatus(152) = 0, chance(12.5), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 13, "Der persÃ¶nliche Goldkelch des Dons hat Ã¼ber die Jahre an Glanz verloren, daher hat er sich einen neuen aus dem Lager genommen. Ich will, dass Ihr fÃ¼r Ersatz sorgt."
+queststatus(152) = 0, chance(12.5), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 13, "Der persönliche Goldkelch des Dons hat über die Jahre an Glanz verloren, daher hat er sich einen neuen aus dem Lager genommen. Ich will, dass Ihr für Ersatz sorgt."
 
 -- Quest 13 solved, reward: pipe (2744), 5 rankpoints, delay: 4h
 queststatus(152) = 13, item(224, all) > 0, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a pipe. You advance in Don Valerio Guilianni's favour."), deleteItem(224, 1), item(2744, 1, 599), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Ah! This is perfect. Good work, the Don will be pleased should he need another. Now that you have provided a fine drinking goblet, you are rewarded a fine smoking pipe!"
-queststatus(152) = 13, item(224, all) > 0, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst eine Pfeife. Dein Ansehen bei Don Valerio Guilianni steigt."), deleteItem(224, 1), item(2744, 1, 599), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Perfekt! Gute Arbeit! Der Don wird erfreut sein, sollte er wieder einen neuen Kelch benÃ¶tigen. Nun, da Ihr ein feines Instrument zum Trinken besorgt gabt, belohne ich Euch mit einem zum Rauchen!"
+queststatus(152) = 13, item(224, all) > 0, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst eine Pfeife. Dein Ansehen bei Don Valerio Guilianni steigt."), deleteItem(224, 1), item(2744, 1, 599), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Perfekt! Gute Arbeit! Der Don wird erfreut sein, sollte er wieder einen neuen Kelch benötigen. Nun, da Ihr ein feines Instrument zum Trinken besorgt gabt, belohne ich Euch mit einem zum Rauchen!"
 
 -- Quest 13 taken but not solved, repeat the instructions
 queststatus(152) = 13, item(224, all) < 1, english, town = Galmair, "quest", "mission" -> "It doesnt seem like you brought the goblet? Don't come back until you've got one golden goblet for me!"
-queststatus(152) = 13, item(224, all) < 1, town = Galmair, "quest", "mission" -> "Es sieht nicht so aus, als hÃ¤ttet Ihr einen Kelch mitgebracht? Kommt nicht noch mal ohne einen goldenen Kelch wieder!"
+queststatus(152) = 13, item(224, all) < 1, town = Galmair, "quest", "mission" -> "Es sieht nicht so aus, als hättet Ihr einen Kelch mitgebracht? Kommt nicht noch mal ohne einen goldenen Kelch wieder!"
 queststatus(152) = 13, item(224, all) < 1, town = Galmair, "task", "adventure", "order" -> "It doesnt seem like you brought the goblet? Don't come back until you've got one golden goblet for me!"
-queststatus(152) = 13, item(224, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es sieht nicht so aus, als hÃ¤ttet Ihr einen Kelch mitgebracht? Kommt nicht noch mal ohne einen goldenen Kelch wieder!"
+queststatus(152) = 13, item(224, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es sieht nicht so aus, als hättet Ihr einen Kelch mitgebracht? Kommt nicht noch mal ohne einen goldenen Kelch wieder!"
 
 -- 14: Quest 14 taken, get a longbow (2708), reward: 80cp, 5 rankpoints
 queststatus(152) = 0, english, chance(14.29), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 14, "One of the Don's bodyguards was out hunting yesterday and his bow broke. The Don had a longbow taken from the storage, we must replace it! Bring me one longbow."
-queststatus(152) = 0, german, chance(14.29), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 14, "Einer der Leibwachen des Dons hat gestern auf einem Jagdausflug seinen Bogen zerbrochen. Ein neuer Langbogen wurde aus dem Lager genommen, wir mÃ¼ssen ihn ersetzen! Bringt mir einen Langbogen."
+queststatus(152) = 0, german, chance(14.29), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 14, "Einer der Leibwachen des Dons hat gestern auf einem Jagdausflug seinen Bogen zerbrochen. Ein neuer Langbogen wurde aus dem Lager genommen, wir müssen ihn ersetzen! Bringt mir einen Langbogen."
 queststatus(152) = 0, chance(14.29), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 14, "One of the Don's bodyguards was out hunting yesterday and his bow broke. The Don had a longbow taken from the storage, we must replace it! Bring me one longbow."
-queststatus(152) = 0, chance(14.29), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 14, "Einer der Leibwachen des Dons hat gestern auf einem Jagdausflug seinen Bogen zerbrochen. Ein neuer Langbogen wurde aus dem Lager genommen, wir mÃ¼ssen ihn ersetzen! Bringt mir einen Langbogen."
+queststatus(152) = 0, chance(14.29), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 14, "Einer der Leibwachen des Dons hat gestern auf einem Jagdausflug seinen Bogen zerbrochen. Ein neuer Langbogen wurde aus dem Lager genommen, wir müssen ihn ersetzen! Bringt mir einen Langbogen."
 
 -- Quest 14 solved, reward: 80cp, 5 rankpoints, delay: 3h
 queststatus(152) = 14, item(2708, all) > 0, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded eight silver coins. You advance in Don Valerio Guilianni's favour."), money + 800, deleteItem(2708, 1), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Aye! This is a fine bow! Ye done good! The storage is again all accounted for, here is your payment."
-queststatus(152) = 14, item(2708, all) > 0, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst acht SilbermÃ¼nzen. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 800, deleteItem(2708, 1), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Aye, das ist ein guter Bogen! Gut gemacht. Das Lager ist wieder gefÃ¼llt, hier ist Euer Lohn."
+queststatus(152) = 14, item(2708, all) > 0, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst acht Silbermünzen. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 800, deleteItem(2708, 1), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Aye, das ist ein guter Bogen! Gut gemacht. Das Lager ist wieder gefüllt, hier ist Euer Lohn."
 
 -- Quest 14 taken but not solved, repeat the instructions
 queststatus(152) = 14, item(2708, all) < 1, english, town = Galmair, "quest", "mission" -> "Our storage is short of one longbow! I need you to come back with one."
-queststatus(152) = 14, item(2708, all) < 1, town = Galmair, "quest", "mission" -> "Unserem Lager fehlt ein Langbogen! Kommt erst wieder zurÃ¼ck, wenn Ihr einen habt."
+queststatus(152) = 14, item(2708, all) < 1, town = Galmair, "quest", "mission" -> "Unserem Lager fehlt ein Langbogen! Kommt erst wieder zurück, wenn Ihr einen habt."
 queststatus(152) = 14, item(2708, all) < 1, town = Galmair, "task", "adventure", "order" -> "Our storage is short of one longbow! I need you to come back with one."
-queststatus(152) = 14, item(2708, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Unserem Lager fehlt ein Langbogen! Kommt erst wieder zurÃ¼ck, wenn Ihr einen habt."
+queststatus(152) = 14, item(2708, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Unserem Lager fehlt ein Langbogen! Kommt erst wieder zurück, wenn Ihr einen habt."
 
 -- 15: Quest 15 taken, get 100 crossbow bolts (237), reward: ebony wood bow (2780), 5 rankpoints
 queststatus(152) = 0, english, chance(16.67), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 15, "One of our hunting parties went out again and brought back a good stock of meat for us! But they used quite a large amount of crossbow bolts. I need you to get me one hundred crossbow bolts."
-queststatus(152) = 0, german, chance(16.67), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 15, "Eine unserer Jagdgruppen ist mit viel gutem Fleisch zurÃ¼ckgekehrt! Jedoch haben sie dabei eine grÃ¶ÃŸere Anzahl an Armbrustbolzen verbraucht. Besorgt mir 100 neue Bolzen."
+queststatus(152) = 0, german, chance(16.67), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 15, "Eine unserer Jagdgruppen ist mit viel gutem Fleisch zurückgekehrt! Jedoch haben sie dabei eine größere Anzahl an Armbrustbolzen verbraucht. Besorgt mir 100 neue Bolzen."
 queststatus(152) = 0, chance(16.67), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 15, "One of our hunting parties went out again and brought back a good stock of meat for us! But they used quite a large amount of crossbow bolts. I need you to get me one hundred crossbow bolts."
-queststatus(152) = 0, chance(16.67), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 15, "Eine unserer Jagdgruppen ist mit viel gutem Fleisch zurÃ¼ckgekehrt! Jedoch haben sie dabei eine grÃ¶ÃŸere Anzahl an Armbrustbolzen verbraucht. Besorgt mir 100 neue Bolzen."
+queststatus(152) = 0, chance(16.67), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 15, "Eine unserer Jagdgruppen ist mit viel gutem Fleisch zurückgekehrt! Jedoch haben sie dabei eine größere Anzahl an Armbrustbolzen verbraucht. Besorgt mir 100 neue Bolzen."
 
 -- Quest 15 solved, reward: ebony wood bow (2780), 5 rankpoints, delay: 2h
 queststatus(152) = 15, item(237, all) > 99, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded an ebony wood bow. You advance in Don Valerio Guilianni's favour."), deleteItem(237, 100), item(2780, 1, 599), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Aye! This is good. These will serve the Don well, whether it's against a pack of wolves or our enemies. Good Work! Here is your reward."
-queststatus(152) = 15, item(237, all) > 99, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst einen Ebenholzbogen. Dein Ansehen bei Don Valerio Guilianni steigt."), deleteItem(237, 100), item(2780, 1, 599), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Aye! Das ist gut. Diese Bolzen werden dem Don gute Dienste leisten, ob gegen ein Rudel WÃ¶lfe, oder gegen unsere Feinde. Gute Arbeit! Hier ist Euer Lohn."
+queststatus(152) = 15, item(237, all) > 99, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst einen Ebenholzbogen. Dein Ansehen bei Don Valerio Guilianni steigt."), deleteItem(237, 100), item(2780, 1, 599), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Aye! Das ist gut. Diese Bolzen werden dem Don gute Dienste leisten, ob gegen ein Rudel Wölfe, oder gegen unsere Feinde. Gute Arbeit! Hier ist Euer Lohn."
 
 -- Quest 15 taken but not solved, repeat the instructions
 queststatus(152) = 15, item(237, all) < 100, english, town = Galmair, "quest", "mission" -> "Ye don't want our men going out unarmed do ya? Be sure to bring me one hundred crossbow bolts."
-queststatus(152) = 15, item(237, all) < 100, town = Galmair, "quest", "mission" -> "Ihr wollt doch nicht, dass unsere MÃ¤nner unbewaffnet ausziehen mÃ¼ssen? Bringt mir 100 Armbrustbolzen."
+queststatus(152) = 15, item(237, all) < 100, town = Galmair, "quest", "mission" -> "Ihr wollt doch nicht, dass unsere Männer unbewaffnet ausziehen müssen? Bringt mir 100 Armbrustbolzen."
 queststatus(152) = 15, item(237, all) < 100, town = Galmair, "task", "adventure", "order" -> "Ye don't want our men going out unarmed do ya? Be sure to bring me one hundred crossbow bolts."
-queststatus(152) = 15, item(237, all) < 100, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr wollt doch nicht, dass unsere MÃ¤nner unbewaffnet ausziehen mÃ¼ssen? Bringt mir 100 Armbrustbolzen."
+queststatus(152) = 15, item(237, all) < 100, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr wollt doch nicht, dass unsere Männer unbewaffnet ausziehen müssen? Bringt mir 100 Armbrustbolzen."
 
 -- 16: Quest 16 taken, get 5 venison dishes (554), reward: 220cp, 5 rankpoints
 queststatus(152) = 0, english, chance(20.0), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 16, "We're having a feast tonight and many of our materials were taken from the storage for food. There are so many people that we ran out! I need you to skip the storage part and just bring me five venison dishes for the feast!"
-queststatus(152) = 0, german, chance(20.0), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 16, "Heute Abend gibt es ein Gelage und das hat unsere VorrÃ¤te sehr belastet. Es kommen so viele GÃ¤ste, dass wir nicht genug fÃ¼r alle haben! Ich mÃ¶chte, dass Ihr mir fÃ¼nf fertige Wildgerichte bringt!"
+queststatus(152) = 0, german, chance(20.0), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 16, "Heute Abend gibt es ein Gelage und das hat unsere Vorräte sehr belastet. Es kommen so viele Gäste, dass wir nicht genug für alle haben! Ich möchte, dass Ihr mir fünf fertige Wildgerichte bringt!"
 queststatus(152) = 0, chance(20.0), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 16, "We're having a feast tonight and many of our materials were taken from the storage for food. There are so many people that we ran out! I need you to skip the storage part and just bring me five venison dishes for the feast!"
-queststatus(152) = 0, chance(20.0), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 16, "Heute Abend gibt es ein Gelage und das hat unsere VorrÃ¤te sehr belastet. Es kommen so viele GÃ¤ste, dass wir nicht genug fÃ¼r alle haben! Ich mÃ¶chte, dass Ihr mir fÃ¼nf fertige Wildgerichte bringt!"
+queststatus(152) = 0, chance(20.0), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 16, "Heute Abend gibt es ein Gelage und das hat unsere Vorräte sehr belastet. Es kommen so viele Gäste, dass wir nicht genug für alle haben! Ich möchte, dass Ihr mir fünf fertige Wildgerichte bringt!"
 
 -- Quest 16 solved, reward: 220cp, 5 rankpoints, delay: 5h
 queststatus(152) = 16, item(554, all) > 4, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded twenty two silver coins. You advance in Don Valerio Guilianni's favour."), money + 2200, deleteItem(554, 5), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Aha! These look delicious, they do! Ya did good work this time, I'm sure everyone will be pleased. Your payment is twenty two silvers."
-queststatus(152) = 16, item(554, all) > 4, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 22 SilbermÃ¼nzen. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 2200, deleteItem(554, 5), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Aha! Sieht kÃ¶stlich aus, wirklich! Gute Arbeit dieses Mal. Ich bin sicher, dass alle hocherfreut sein werden. Hier ist Euer Lohn, einige SilbermÃ¼nzen."
+queststatus(152) = 16, item(554, all) > 4, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst 22 Silbermünzen. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 2200, deleteItem(554, 5), queststatus(152) = 0, queststatus(153) = 60, rankpoints + 5, "Aha! Sieht köstlich aus, wirklich! Gute Arbeit dieses Mal. Ich bin sicher, dass alle hocherfreut sein werden. Hier ist Euer Lohn, einige Silbermünzen."
 
 -- Quest 16 taken but not solved, repeat the instructions
 queststatus(152) = 16, item(554, all) < 5, english, town = Galmair, "quest", "mission" -> "Oi! That feast is today! We need those five venison dishes as soon as possible, don't come back without them!"
-queststatus(152) = 16, item(554, all) < 5, town = Galmair, "quest", "mission" -> "Hey! Das Gelage ist heute. Wir brauchen diese Wildgerichte so bald wie mÃ¶glich. Kommt nicht ohne wieder!"
+queststatus(152) = 16, item(554, all) < 5, town = Galmair, "quest", "mission" -> "Hey! Das Gelage ist heute. Wir brauchen diese Wildgerichte so bald wie möglich. Kommt nicht ohne wieder!"
 queststatus(152) = 16, item(554, all) < 5, town = Galmair, "task", "adventure", "order" -> "Oi! That feast is today! We need those five venison dishes as soon as possible, don't come back without them!"
-queststatus(152) = 16, item(554, all) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hey! Das Gelage ist heute. Wir brauchen diese Wildgerichte so bald wie mÃ¶glich. Kommt nicht ohne wieder!"
+queststatus(152) = 16, item(554, all) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hey! Das Gelage ist heute. Wir brauchen diese Wildgerichte so bald wie möglich. Kommt nicht ohne wieder!"
 
 -- 17: Quest 17 taken, get 5 sapphire powder (446), reward: sapphire ring (279), 5 rankpoints
 queststatus(152) = 0, english, chance(25.0), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 17, "Our alchemists are hard at work! They've recently taken some of our powders from the storage, therefore.... they must be replaced! Bring me five bags of sapphire powder."
-queststatus(152) = 0, german, chance(25.0), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 17, "Unsere Alchemisten arbeiten sehr hart. Sie haben neulich einige Beutel Edelsteinstaub aus dem Lager genommen. Also... mÃ¼ssen sie ersetzt werden! Bringt mir fÃ¼nf Beutel Saphirstaub!"
+queststatus(152) = 0, german, chance(25.0), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 17, "Unsere Alchemisten arbeiten sehr hart. Sie haben neulich einige Beutel Edelsteinstaub aus dem Lager genommen. Also... müssen sie ersetzt werden! Bringt mir fünf Beutel Saphirstaub!"
 queststatus(152) = 0, chance(25.0), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage"), queststatus(152) = 17, "Our alchemists are hard at work! They've recently taken some of our powders from the storage, therefore.... they must be replaced! Bring me five bags of sapphire powder."
-queststatus(152) = 0, chance(25.0), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 17, "Unsere Alchemisten arbeiten sehr hart. Sie haben neulich einige Beutel Edelsteinstaub aus dem Lager genommen. Also... mÃ¼ssen sie ersetzt werden! Bringt mir fÃ¼nf Beutel Saphirstaub!"
+queststatus(152) = 0, chance(25.0), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 17, "Unsere Alchemisten arbeiten sehr hart. Sie haben neulich einige Beutel Edelsteinstaub aus dem Lager genommen. Also... müssen sie ersetzt werden! Bringt mir fünf Beutel Saphirstaub!"
 
 -- Quest 17 solved, reward: topaz (198), 5 rankpoints, delay: 4h
 queststatus(152) = 17, item(446, all) > 4, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a sapphire ring. You advance in Don Valerio Guilianni's favour."), deleteItem(446, 5), item(279, 1, 599), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Very good! These will do just fine. I'm sure the alchemists will be pleased. Now that the storage is once again filled, here is your reward."
-queststatus(152) = 17, item(446, all) > 4, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst einen Saphirring. Dein Ansehen bei Don Valerio Guilianni steigt."), deleteItem(446, 5), item(279, 1, 599), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Sehr gut! Das wird den Alchemisten in Zukunft weiterhelfen. Nun, da das Lager wieder gefÃ¼llt ist, hier Eure Belohnung."
+queststatus(152) = 17, item(446, all) > 4, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst einen Saphirring. Dein Ansehen bei Don Valerio Guilianni steigt."), deleteItem(446, 5), item(279, 1, 599), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Sehr gut! Das wird den Alchemisten in Zukunft weiterhelfen. Nun, da das Lager wieder gefüllt ist, hier Eure Belohnung."
 
 -- Quest 17 taken but not solved, repeat the instructions
 queststatus(152) = 17, item(446, all) < 5, english, town = Galmair, "quest", "mission" -> "I thought I gave you an order? Don't come back until you have the five bags of sapphire powder."
-queststatus(152) = 17, item(446, all) < 5, town = Galmair, "quest", "mission" -> "Ich dachte, ich hÃ¤tte Euch einen Auftrag gegeben? Kommt nicht ohne fÃ¼nf Beutel Saphirstaub wieder."
+queststatus(152) = 17, item(446, all) < 5, town = Galmair, "quest", "mission" -> "Ich dachte, ich hätte Euch einen Auftrag gegeben? Kommt nicht ohne fünf Beutel Saphirstaub wieder."
 queststatus(152) = 17, item(446, all) < 5, town = Galmair, "task", "adventure", "order" -> "I thought I gave you an order? Don't come back until you have the five bags of sapphire powder."
-queststatus(152) = 17, item(446, all) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich dachte, ich hÃ¤tte Euch einen Auftrag gegeben? Kommt nicht ohne fÃ¼nf Beutel Saphirstaub wieder."
+queststatus(152) = 17, item(446, all) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich dachte, ich hätte Euch einen Auftrag gegeben? Kommt nicht ohne fünf Beutel Saphirstaub wieder."
 
 -- 18: Quest 18 taken, get 15 coal (21), reward: 100cp, 5 rankpoints
 queststatus(152) = 0, english, chance(33.33), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 18, "#me grumbles 'Some of our smiths snuck in and snatched some of our coal. I would've given it to them if they had filled out a requisition order! Nonetheless, we are short and I need you to get me fifteen lumps of coal."
-queststatus(152) = 0, german, chance(33.33), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 18, "#me grummelt. 'Einige unserer Schmiede haben sich hier eingeschlichen und etwas Kohle genommen. Ohne Genehmigung hÃ¤tte ich sie ihnen nie gegeben! Egal, wir sind nun knapp an Kohle und mÃ¼ssen nachbessern. Bringt mit 15 Kohlebrocken."
+queststatus(152) = 0, german, chance(33.33), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 18, "#me grummelt. 'Einige unserer Schmiede haben sich hier eingeschlichen und etwas Kohle genommen. Ohne Genehmigung hätte ich sie ihnen nie gegeben! Egal, wir sind nun knapp an Kohle und müssen nachbessern. Bringt mit 15 Kohlebrocken."
 queststatus(152) = 0, chance(33.33), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 18, "#me grumbles 'Some of our smiths snuck in and snatched some of our coal. I would've given it to them if they had filled out a requisition order! Nonetheless, we are short and I need you to get me fifteen lumps of coal."
-queststatus(152) = 0, chance(33.33), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 18, "#me grummelt. 'Einige unserer Schmiede haben sich hier eingeschlichen und etwas Kohle genommen. Ohne Genehmigung hÃ¤tte ich sie ihnen nie gegeben! Egal, wir sind nun knapp an Kohle und mÃ¼ssen nachbessern. Bringt mit 15 Kohlebrocken."
+queststatus(152) = 0, chance(33.33), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 18, "#me grummelt. 'Einige unserer Schmiede haben sich hier eingeschlichen und etwas Kohle genommen. Ohne Genehmigung hätte ich sie ihnen nie gegeben! Egal, wir sind nun knapp an Kohle und müssen nachbessern. Bringt mit 15 Kohlebrocken."
 
 -- Quest 18 solved, reward: 100cp, 5 rankpoints, delay: 3h
 queststatus(152) = 18, item(21, all) > 14, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded ten silver coins. You advance in Don Valerio Guilianni's favour."), money + 1000, deleteItem(21, 15), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Good work there! Good to know we have at least someone reliable in this operation. Here is your payment."
-queststatus(152) = 18, item(21, all) > 14, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst zehn SilberstÃ¼cke. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 1000, deleteItem(21, 15), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Gute Arbeit! SchÃ¶n, dass hier wenigstens auf jemand Verlass ist. Hier ist Eure Belohnung."
+queststatus(152) = 18, item(21, all) > 14, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 1000, deleteItem(21, 15), queststatus(152) = 0, queststatus(153) = 36, rankpoints + 5, "Gute Arbeit! Schön, dass hier wenigstens auf jemand Verlass ist. Hier ist Eure Belohnung."
 
 -- Quest 18 taken but not solved, repeat the instructions
 queststatus(152) = 18, item(21, all) < 15, english, town = Galmair, "quest", "mission" -> "We need that coal! You never know when the Don is going to want something crafted. Be sure to come back with fifteen lumps of coal."
-queststatus(152) = 18, item(21, all) < 15, town = Galmair, "quest", "mission" -> "Wir brauchen diese Kohle! Man weiÃŸ nie, wann der Don etwas geschmiedet haben will. Stellt sicher, mit 15 Kohlebrocken wiederzukommen."
+queststatus(152) = 18, item(21, all) < 15, town = Galmair, "quest", "mission" -> "Wir brauchen diese Kohle! Man weiß nie, wann der Don etwas geschmiedet haben will. Stellt sicher, mit 15 Kohlebrocken wiederzukommen."
 queststatus(152) = 18, item(21, all) < 15, town = Galmair, "task", "adventure", "order" -> "We need that coal! You never know when the Don is going to want something crafted. Be sure to come back with fifteen lumps of coal."
-queststatus(152) = 18, item(21, all) < 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir brauchen diese Kohle! Man weiÃŸ nie, wann der Don etwas geschmiedet haben will. Stellt sicher, mit 15 Kohlebrocken wiederzukommen."
+queststatus(152) = 18, item(21, all) < 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir brauchen diese Kohle! Man weiß nie, wann der Don etwas geschmiedet haben will. Stellt sicher, mit 15 Kohlebrocken wiederzukommen."
 
 -- 19: Quest 19 taken, get a pot helmet (94), reward: gold ingot (236), 5 rankpoints
 queststatus(152) = 0, english, chance(50.0), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 19, "The Don has taken a helmet from our storage to armour one of his new bodyguards. He's the Don so I've no say in the matter, but now we're short! I need you to go and get me one pot helmet."
-queststatus(152) = 0, german, chance(50.0), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 19, "Der Don hat einen Helm aus dem Lager genommen, um einen der neuen Leibwachen auszurÃ¼sten. Er ist der Don, also hatte ich da nichts zu sagen, aber jetzt muss der Helm ersetzt werden! Bringt mir einen neuen Topfhelm."
+queststatus(152) = 0, german, chance(50.0), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 19, "Der Don hat einen Helm aus dem Lager genommen, um einen der neuen Leibwachen auszurüsten. Er ist der Don, also hatte ich da nichts zu sagen, aber jetzt muss der Helm ersetzt werden! Bringt mir einen neuen Topfhelm."
 queststatus(152) = 0, chance(50.0), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 19, "The Don has taken a helmet from our storage to armour one of his new bodyguards. He's the Don so I've no say in the matter, but now we're short! I need you to go and get me one pot helmet."
-queststatus(152) = 0, chance(50.0), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 19, "Der Don hat einen Helm aus dem Lager genommen, um einen der neuen Leibwachen auszurÃ¼sten. Er ist der Don, also hatte ich da nichts zu sagen, aber jetzt muss der Helm ersetzt werden! Bringt mir einen neuen Topfhelm."
+queststatus(152) = 0, chance(50.0), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 19, "Der Don hat einen Helm aus dem Lager genommen, um einen der neuen Leibwachen auszurüsten. Er ist der Don, also hatte ich da nichts zu sagen, aber jetzt muss der Helm ersetzt werden! Bringt mir einen neuen Topfhelm."
 
 -- Quest 19 solved, reward: gold ingot (236), 5 rankpoints, delay: 2h
 queststatus(152) = 19, item(94, all) > 0, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a gold ingot. You advance in Don Valerio Guilianni's favour."), deleteItem(94, 1), item(236, 1, 599), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "This'll do great! The Don trusts me for this reason. I always have reliable good equipment for him! And here's your reward for your work."
-queststatus(152) = 19, item(94, all) > 0, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst einen Goldbarren. Dein Ansehen bei Don Valerio Guilianni steigt."), deleteItem(94, 1), item(236, 1, 599), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Dieser Helm wird gute Dienste leisten! Ich versorge den Don stets mit guter AusrÃ¼stung. Hier ist die Belohnung fÃ¼r Eure Arbeit."
+queststatus(152) = 19, item(94, all) > 0, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst einen Goldbarren. Dein Ansehen bei Don Valerio Guilianni steigt."), deleteItem(94, 1), item(236, 1, 599), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Dieser Helm wird gute Dienste leisten! Ich versorge den Don stets mit guter Ausrüstung. Hier ist die Belohnung für Eure Arbeit."
 
 -- Quest 19 taken but not solved, repeat the instructions
 queststatus(152) = 19, item(94, all) < 1, english, town = Galmair, "quest", "mission" -> "You came back without the helmet? I can't have the Don come to me and be short! Don't come back unless you have one pot helmet."
@@ -428,19 +442,19 @@ queststatus(152) = 19, item(94, all) < 1, town = Galmair, "Auftrag", "Aufgabe", 
 
 -- Quest 20: Gather a gold nugget (234)
 queststatus(152) = 0, english, chance(100.0), town = Galmair, "quest", "mission" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 20, "The Don commissioned a ring to be made and used a gold nugget from the storage. It might only be a single nugget, but it must be replaced! I need you to get me one gold nugget."
-queststatus(152) = 0, german, chance(100.0), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 20, "Der Don hat einen Ring in Auftrag gegeben und dafÃ¼r wurde ein Goldnugget aus dem Lager verwendet. Es ist vielleicht nur ein einziges Nugget, aber es muss dennoch ersetzt werden! Bring mir ein Goldnugget."
+queststatus(152) = 0, german, chance(100.0), town = Galmair, "quest", "mission" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 20, "Der Don hat einen Ring in Auftrag gegeben und dafür wurde ein Goldnugget aus dem Lager verwendet. Es ist vielleicht nur ein einziges Nugget, aber es muss dennoch ersetzt werden! Bring mir ein Goldnugget."
 queststatus(152) = 0, chance(100.0), town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Stock up Galmair's storage."), queststatus(152) = 20, "The Don commissioned a ring to be made and used a gold nugget from the storage. It might only be a single nugget, but it must be replaced! I need you to get me one gold nugget."
-queststatus(152) = 0, chance(100.0), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs VorrÃ¤te auf."), queststatus(152) = 20, "Der Don hat einen Ring in Auftrag gegeben und dafÃ¼r wurde ein Goldnugget aus dem Lager verwendet. Es ist vielleicht nur ein einziges Nugget, aber es muss dennoch ersetzt werden! Bring mir ein Goldnugget."
+queststatus(152) = 0, chance(100.0), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Stocke Galmairs Vorräte auf."), queststatus(152) = 20, "Der Don hat einen Ring in Auftrag gegeben und dafür wurde ein Goldnugget aus dem Lager verwendet. Es ist vielleicht nur ein einziges Nugget, aber es muss dennoch ersetzt werden! Bring mir ein Goldnugget."
 
 -- Quest 20 solved, reward: 50cp, 5 rankpoints, delay: 4h
 queststatus(152) = 20, item(234, all) > 0, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded five silver coins. You advance in Don Valerio Guilianni's favour."), money + 500, deleteItem(234, 1), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Aha! Perfect! I'll just store this away and once again the Don's storage is full! Good work, here is your payment."
-queststatus(152) = 20, item(234, all) > 0, town = Galmair, ".*" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst fÃ¼nf SilbermÃ¼nzen. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 500, deleteItem(234, 1), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Aha! Perfekt! Ich werde es einlagern. Wieder einmal ist das Lager des Dons gefÃ¼llt! Gute Arbeit, hier ist Euer Lohn."
+queststatus(152) = 20, item(234, all) > 0, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst fünf Silbermünzen. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 500, deleteItem(234, 1), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Aha! Perfekt! Ich werde es einlagern. Wieder einmal ist das Lager des Dons gefüllt! Gute Arbeit, hier ist Euer Lohn."
 
 -- Quest 20 taken but not solved, repeat the instructions
 queststatus(152) = 20, item(234, all) < 1, english, town = Galmair, "quest", "mission" -> "Have you brought it? No!? Well don't return until you have one gold nugget for me!"
-queststatus(152) = 20, item(234, all) < 1, town = Galmair, "quest", "mission" -> "Bringt Ihr mir das Nugget? Nein?! Kommt nicht wieder, bevor Ihr nicht ein Goldnugget fÃ¼r mich habt!"
+queststatus(152) = 20, item(234, all) < 1, town = Galmair, "quest", "mission" -> "Bringt Ihr mir das Nugget? Nein?! Kommt nicht wieder, bevor Ihr nicht ein Goldnugget für mich habt!"
 queststatus(152) = 20, item(234, all) < 1, town = Galmair, "task", "adventure", "order" -> "Have you brought it? No!? Well don't return until you have one gold nugget for me!"
-queststatus(152) = 20, item(234, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bringt Ihr mir das Nugget? Nein?! Kommt nicht wieder, bevor Ihr nicht ein Goldnugget fÃ¼r mich habt!"
+queststatus(152) = 20, item(234, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bringt Ihr mir das Nugget? Nein?! Kommt nicht wieder, bevor Ihr nicht ein Goldnugget für mich habt!"
 
 -- Outlaw exception: If 'quest' is not triggered until here, the speaker is an outlaw or an error occured. Condition town=none does not work!
 english, "quest", "mission" -> "We don't need no help from anyone from that stinkin' Necktie Inn. Don't let me see you in here again."
@@ -450,19 +464,19 @@ english, "quest", "mission" -> "We don't need no help from anyone from that stin
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I oversee the Don's personal storage here in Galmair.", "As the Head Clerk for the Don, it's my duty to make sure that the Don's storage is always well stocked to his standards.", "The Don himself has appointed me as the Head Clerk of his storage. Galmair is a well oiled mill! We are constantly at work, and because of this we need to make sure that our storage is always full!"
-"Beruf" -> "Ich Ã¼berschaue das persÃ¶nliche Lager des Dons hier in Galmair.", "Als Lagerchef des Dons ist es meine Aufgabe, dafÃ¼r zu sorgen, dass das Lager stets gut gefÃ¼llt ist.", "Der Don persÃ¶nlich hat mich als seinen Lagerchef eingesetzt. Galmair ist eine gut geÃ¶lte MÃ¼hle! Wir sind immer bei der Arbeit und daher mÃ¼ssen wir stets sicherstellen, dass das Lager gut gefÃ¼llt ist!"
+"Beruf" -> "Ich überschaue das persönliche Lager des Dons hier in Galmair.", "Als Lagerchef des Dons ist es meine Aufgabe, dafür zu sorgen, dass das Lager stets gut gefüllt ist.", "Der Don persönlich hat mich als seinen Lagerchef eingesetzt. Galmair ist eine gut geölte Mühle! Wir sind immer bei der Arbeit und daher müssen wir stets sicherstellen, dass das Lager gut gefüllt ist!"
 english, "Gobaith" -> "Gobaith? Never been. I've heard some stories from the locals... That Troll's Bane sounds a lot like Galmair."
-"Gobaith" -> "Auf Gobaith? Bin ich nie gewesen. Aber man hÃ¶rt so einige Geschichten von den Leuten hier... dieses Troll's Bane klingt ziemlich so wie Galmair."
+"Gobaith" -> "Auf Gobaith? Bin ich nie gewesen. Aber man hört so einige Geschichten von den Leuten hier... dieses Troll's Bane klingt ziemlich so wie Galmair."
 "Clerk" -> "Aye that's me. It's my duty to ensure that our storage is kept up to standard.", "The Don needs a lot of things made for him! If I didn't do my job then a lot of his orders wouldn't be able to be filled.", "I am the Head Clerk! If not for me Galmair would not be as wealthy! Don't tell the Don I said that."
-"SekretÃ¤r" -> "Aye, das bin ich. Es ist meine Aufgabe, dass das Lager der Stadt stets gefÃ¼llt ist.", "Der Don braucht immer einige GegenstÃ¤nde! Wenn ich meine Arbeit nicht machen wÃ¼rde, dann kÃ¶nnten einige seiner Forderungen nicht erfÃ¼llt werden.", "Ich bin der oberste SekretÃ¤r. Ohne mich wÃ¤re Galmair niemals so reich. Aber sagt dem Don nicht, dass ich das gesagt habe!"
+"Sekretär" -> "Aye, das bin ich. Es ist meine Aufgabe, dass das Lager der Stadt stets gefüllt ist.", "Der Don braucht immer einige Gegenstände! Wenn ich meine Arbeit nicht machen würde, dann könnten einige seiner Forderungen nicht erfüllt werden.", "Ich bin der oberste Sekretär. Ohne mich wäre Galmair niemals so reich. Aber sagt dem Don nicht, dass ich das gesagt habe!"
 "dwarf" -> "Of course I'm a dwarf! I certainly hope you didnt mix me up for a halfer."
-"Zwerg" -> "NatÃ¼rlich bin ich ein Zwerg! Ich hoffe doch sehr, dass Ihr mich nicht mit einem Halbling verwechselt habt."
+"Zwerg" -> "Natürlich bin ich ein Zwerg! Ich hoffe doch sehr, dass Ihr mich nicht mit einem Halbling verwechselt habt."
 "Storage" -> "Ah... The storage be my life! I didn't get this job just because of my good looks. Though... I'm certain that those helped."
 "Lager" -> "Ah... Das Lager ist mein Leben! Ich habe diesen Beruf nicht nur aufgrund meines guten Aussehens bekommen. Allerdings... ich bin sicher, dass das auch geholfen hat."
 "Guard" -> "A guard? No, not at all. I'm not one to fight! The Don has very capable men for that."
-"Wache", "WÃ¤chter", "Stadtwache" -> "Ein Wachmann? Nein, das bin ich wirklich nicht. Ich bin keiner fÃ¼r den Kampf! Der Don hat aber sehr fÃ¤hige MÃ¤nner dafÃ¼r."
+"Wache", "Wächter", "Stadtwache" -> "Ein Wachmann? Nein, das bin ich wirklich nicht. Ich bin keiner für den Kampf! Der Don hat aber sehr fähige Männer dafür."
 english, "loyal" -> "I'm loyal to the Don of course! He showers us all in his wealth and riches and lets us stay in his safety. Who wouldnt be loyal to him?"
-"loyal" -> "NatÃ¼rlich bin ich dem Don gegenÃ¼ber loyal! Er badet uns alle in ReichtÃ¼mern und hÃ¤lt uns sicher. Wer wÃ¼rde nicht zu ihm loyal sein?"
+"loyal" -> "Natürlich bin ich dem Don gegenüber loyal! Er badet uns alle in Reichtümern und hält uns sicher. Wer würde nicht zu ihm loyal sein?"
 
 -- Faction stuff. Leaders.
 "archmage" -> "That damn elf talks too much! I'm getting on in years, so being around him a waste of my time!"
@@ -470,35 +484,35 @@ english, "loyal" -> "I'm loyal to the Don of course! He showers us all in his we
 english, "archmage", "Elvaine", "Morgan" -> "That damn elf talks too much! I'm getting on in years, so being around him a waste of my time!"
 "Elvaine", "Morgan" -> "Dieser verdammte Elf redet einfach zu viel! Ich werde langsam alt, um meine Zeit mit so was zu verschwenden!"
 english, "Valerio", "Guilianni", "Don" -> "The Don is a great man! I think that goes without saying. It's because of him that our wealth continues to increase."
-"Valerio", "Guilianni", "Don" -> "Der Don ist ein groÃŸer Mann! Ich denke, das muss nicht mal mehr groÃŸ gesagt werden. Es liegt an ihm, dass unser Reichtum immer weiter wÃ¤chst."
+"Valerio", "Guilianni", "Don" -> "Der Don ist ein großer Mann! Ich denke, das muss nicht mal mehr groß gesagt werden. Es liegt an ihm, dass unser Reichtum immer weiter wächst."
 "Queen" -> "She be a looker, that's for sure. The Don once proposed to her. I can't possibly fathom why anyone would turn down an offer from the Don though."
-"KÃ¶nigin" -> "Sie ist ein Hingucker, keine Frage. Der Don hat mal um ihre Hand angehalten. Ich kann nicht verstehen, warum irgendjemand den Don so zurÃ¼ckweisen wÃ¼rde, wie sie es tat..."
+"Königin" -> "Sie ist ein Hingucker, keine Frage. Der Don hat mal um ihre Hand angehalten. Ich kann nicht verstehen, warum irgendjemand den Don so zurückweisen würde, wie sie es tat..."
 english, "Rosaline", "Edwards" -> "She be a looker, that's for sure. The Don once proposed to her. I can't possibly fathom why anyone would turn down an offer from the Don though."
-"Rosaline", "Edwards" -> "Sie ist ein Hingucker, keine Frage. Der Don hat mal um ihre Hand angehalten. Ich kann nicht verstehen, warum irgendjemand den Don so zurÃ¼ckweisen wÃ¼rde, wie sie es tat..."
+"Rosaline", "Edwards" -> "Sie ist ein Hingucker, keine Frage. Der Don hat mal um ihre Hand angehalten. Ich kann nicht verstehen, warum irgendjemand den Don so zurückweisen würde, wie sie es tat..."
 
 -- Faction stuff. Towns.
 english, "Runewick" -> "Runewick? I'll admit they have some fine craftmanship in the construction of their home... but thats it!"
-"Runewick" -> "Runewick? Ich gebe zu, es hat einiges an HandwerksfÃ¤higkeit gebraucht, um diese Stadt zu bauen... aber das ist auch alles!"
+"Runewick" -> "Runewick? Ich gebe zu, es hat einiges an Handwerksfähigkeit gebraucht, um diese Stadt zu bauen... aber das ist auch alles!"
 english, "Galmair" -> "Well Galmair is where we live! The finest establishment in these lands... The wealthiest too."
 "Galmair" -> "Nunja, Galmair ist hier, wo wir leben! Die beste Stadt in diesen Landen... und auch die reichste."
 english, "Cadomyr" -> "Honour this! Glory that! They're delusional, all that really matters is money!"
-"Cadomyr" -> "Ehre hier, Ehre dort! Die machen sich was vor. Alles, was zÃ¤hlt, ist das GeschÃ¤ft!"
+"Cadomyr" -> "Ehre hier, Ehre dort! Die machen sich was vor. Alles, was zählt, ist das Geschäft!"
 
 -- Gods. Irmorom and Ronagan.
 "god", "faith" -> "Well I serve Irmorom of course! Have you visted his temple? It is a sight to behold for any craftsman!"
-"Gott", "GÃ¶tter", "Glaube" -> "Nun, ich diene natÃ¼rlich Irmorom! Habt Ihr schon seinen Tempel hier besichtigt? Er ist ein wunderbarer Anblick fÃ¼r jeden Handwerker!"
+"Gott", "Götter", "Glaube" -> "Nun, ich diene natürlich Irmorom! Habt Ihr schon seinen Tempel hier besichtigt? Er ist ein wunderbarer Anblick für jeden Handwerker!"
 english, "Irmorom" -> "The God of trade and crafting! He is very important to us in Galmair and he watches over our deals and business. It's because of him we're so wealthy! Er.. And the Don of course!"
-"Irmorom" -> "Der Gott des Handels und des Handwerks! Er ist sehr wichtig fÃ¼r uns in Galmair und er wacht Ã¼ber unsere GeschÃ¤fte und TÃ¤tigkeiten. Es liegt an ihm, dass wir so reich sind! Ã„hm... und am Don, natÃ¼rlich."
+"Irmorom" -> "Der Gott des Handels und des Handwerks! Er ist sehr wichtig für uns in Galmair und er wacht über unsere Geschäfte und Tätigkeiten. Es liegt an ihm, dass wir so reich sind! Ähm... und am Don, natürlich."
 english, "Ronagan" -> "In Galmair, we don't lose. Ronagan helps ensure this!"
 "Ronagan" -> "In Galmair verlieren wir niemals. Ronagan hilft dabei, das sicherzustellen!"
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "The items in my storage are NOT for sale! Only with the Don's or my own permission is anyone allowed to take something from it."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Die GegenstÃ¤nde in meinem Lager sind nicht zum Verkauf! Nur auf Auftrag des Dons, oder durch meinen Befehl ist jemand berechtigt, etwas aus dem Lager zu nehmen!"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Die Gegenstände in meinem Lager sind nicht zum Verkauf! Nur auf Auftrag des Dons, oder durch meinen Befehl ist jemand berechtigt, etwas aus dem Lager zu nehmen!"
 "tell something" -> "I know quite a lot about Galmair and some of the neighboring factions."
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Ich weiÃŸ so einiges Ã¼ber Galmair und die anderen StÃ¤dte in der NÃ¤he."
+"erzähl was", "erzähl etwas" -> "Ich weiß so einiges über Galmair und die anderen Städte in der Nähe."
 english, "Gurzad", "Gutri" -> "I am the Head Clerk! I oversee the flow of goods and maintain the Don's storage!"
-"Gurzad", "Gutri" -> "Ich bin der oberste SekretÃ¤r! Ich Ã¼berwache den Strom an GÃ¼tern und erhalte das Lager des Dons."
+"Gurzad", "Gutri" -> "Ich bin der oberste Sekretär! Ich überwache den Strom an Gütern und erhalte das Lager des Dons."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -506,12 +520,12 @@ english, "Gurzad", "Gutri" -> "I am the Head Clerk! I oversee the flow of goods 
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Sagt, was Ihr wollt!", "State your business!"
-cycletext "Seid loyal gegenÃ¼ber dem Don und Ihr werdet reich werden!", "Be loyal to the Don, and you'll become rich!"
+cycletext "Seid loyal gegenüber dem Don und Ihr werdet reich werden!", "Be loyal to the Don, and you'll become rich!"
 cycletext "Willkommen in den Hallen von Galmair!", "Welcome to the halls of Galmair!"
-cycletext "#me liest Ã¼ber einige Listen und nickt dann.", "#me looks over various papers with a nod."
+cycletext "#me liest über einige Listen und nickt dann.", "#me looks over various papers with a nod."
 cycletext "#me nimmt einen schnellen Schluck aus einem Flachmann, als gerade niemand guckt.", "#me takes a quick swig from a flask when no one is looking"
-cycletext "Gut, dass wir nicht in der WÃ¼ste leben! HAH!", "Good thing we don't live in a desert! HAH!"
-cycletext "Niemand ist mÃ¤chtiger als der Don!", "No one is more powerful than the Don!"
-cycletext "Ich brauche EUCH... um fÃ¼r den Don zu arbeiten.", "I want YOU... to work for the Don."
-cycletext "Kommt her! Ihr kÃ¶nnt mit dem Lager von Galmair helfen!", "C'mere! You can help with Galmair's storage!"
+cycletext "Gut, dass wir nicht in der Wüste leben! HAH!", "Good thing we don't live in a desert! HAH!"
+cycletext "Niemand ist mächtiger als der Don!", "No one is more powerful than the Don!"
+cycletext "Ich brauche EUCH... um für den Don zu arbeiten.", "I want YOU... to work for the Don."
+cycletext "Kommt her! Ihr könnt mit dem Lager von Galmair helfen!", "C'mere! You can help with Galmair's storage!"
 cycletext "Wenn Ihr reich werden wollt, seid Ihr an den richtigen Ort gekommen!", "If you want to become rich, you've come to the right place!"

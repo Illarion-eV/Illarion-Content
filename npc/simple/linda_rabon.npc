@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Linda Rabon                                              Cadomyr --
 -- NPC Job:  Cook                                                             --
@@ -26,7 +40,7 @@ autointroduce = on
 author = "Regallo"
 author = "Estralis Seborian"
 
-lookatDE = "Dieser NPC ist Linda Rabon die KÃ¶chin."
+lookatDE = "Dieser NPC ist Linda Rabon die Köchin."
 lookatUS = "This NPC is Linda Rabon the Cook."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -63,21 +77,21 @@ itemShoes = 369
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Linda Rabon the Cook. Keywords: Good day, quest, cook, Unicorn Lion, Hassan.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Linda Rabon die KÃ¶chin. SchlÃ¼sselwÃ¶rter: Guten Tag, Quest, Koch, EinhÃ¶rniger LÃ¶we, Hassan.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Linda Rabon die Köchin. Schlüsselwörter: Guten Tag, Quest, Koch, Einhörniger Löwe, Hassan.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "If you want to order please talk to my father.", "Oh hello, I'm very busy, I will have to talk to you later.", "Oh hello, I'm so tired, I feel like I'm going to pass out.", "Good day potential customer. How may I assist you today?", "Welcome to the Unicorn Lion."
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Falls ihr etwas bestellen wollt, sprecht mit meinem Vater.", "Oh, hallo, ich bin gerade beschÃ¤ftigt. Wir kÃ¶nnen nachher noch miteinander reden.", "Oh hallo. Ich bin so mÃ¼de. Ich kipp bald aus den Latschen.", "Guten Tag, zukÃ¼nftiger Kunde. Was kann ich fÃ¼r euch tun?", "Willkommen im EinhÃ¶rnigen LÃ¶wen."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Falls ihr etwas bestellen wollt, sprecht mit meinem Vater.", "Oh, hallo, ich bin gerade beschäftigt. Wir können nachher noch miteinander reden.", "Oh hallo. Ich bin so müde. Ich kipp bald aus den Latschen.", "Guten Tag, zukünftiger Kunde. Was kann ich für euch tun?", "Willkommen im Einhörnigen Löwen."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "If you want to order please talk to my father.", "Oh hello, I'm very busy, I will have to talk to you later.", "Oh hello, I'm so tired, I feel like I'm going to pass out.", "Good day potential customer. How may I assist you today?", "Welcome to the Unicorn Lion."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Falls ihr etwas bestellen wollt, sprecht mit meinem Vater.", "Oh, hallo, ich bin gerade beschÃ¤ftigt. Wir kÃ¶nnen nachher noch miteinander reden.", "Oh hallo. Ich bin so mÃ¼de. Ich kipp bald aus den Latschen.", "Guten Tag, zukÃ¼nftiger Kunde. Was kann ich fÃ¼r euch tun?", "Willkommen im EinhÃ¶rnigen LÃ¶wen."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Falls ihr etwas bestellen wollt, sprecht mit meinem Vater.", "Oh, hallo, ich bin gerade beschäftigt. Wir können nachher noch miteinander reden.", "Oh hallo. Ich bin so müde. Ich kipp bald aus den Latschen.", "Guten Tag, zukünftiger Kunde. Was kann ich für euch tun?", "Willkommen im Einhörnigen Löwen."
 "Farewell", "Bye", "Fare well", "See you" -> "Oh, won't you please visit us again.", "Anytime you think of dining please do not forget the Unicorn Lion.", "Please come again. I will cook better next time, I promise.", "Oh, you're leaving already? Was the food bad?", "Thank you, come again."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Oh, kommt doch bitte bald wieder.", "Immer, wenn ihr Hunger verspÃ¼rt, denkt doch an den EinhÃ¶rnigen LÃ¶wen.", "Kommt doch bitte wieder, ich koche dann auch besser, versprochen.", "Ihr geht schon? War das Essen nicht gut?", "Danke, schaut doch wieder rein."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Oh, kommt doch bitte bald wieder.", "Immer, wenn ihr Hunger verspürt, denkt doch an den Einhörnigen Löwen.", "Kommt doch bitte wieder, ich koche dann auch besser, versprochen.", "Ihr geht schon? War das Essen nicht gut?", "Danke, schaut doch wieder rein."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Oh, won't you please visit us again.", "Anytime you think of dining please do not forget the Unicorn Lion", "Please come again. I will cook better next time, I promise.", "Oh, you're leaving already? Was the food bad?", "Thank you, come again."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Oh, kommt doch bitte bald wieder.", "Immer, wenn ihr Hunger verspÃ¼rt, denkt doch an den EinhÃ¶rnigen LÃ¶wen.", "Kommt doch bitte wieder, ich koche dann auch besser, versprochen.", "Ihr geht schon? War das Essen nicht gut?", "Danke, schaut doch wieder rein."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Oh, kommt doch bitte bald wieder.", "Immer, wenn ihr Hunger verspürt, denkt doch an den Einhörnigen Löwen.", "Kommt doch bitte wieder, ich koche dann auch besser, versprochen.", "Ihr geht schon? War das Essen nicht gut?", "Danke, schaut doch wieder rein."
 "How are you", "How feel" -> "Haha, I think I forgot what a really bad day was like.", "I am enjoying my day and you?", "I think I'm a little bit sleepy, but how are you?", "I feel like a thousand suns shining upon a cloudless sky.", "I'm very busy, no time to chat."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Hach, ich weiÃŸ schon gar nicht mehr, wie sich ein schlechter Tag anfÃ¼hlt.", "Heute ist ein toller Tag.", "Ich bin ein bisschen mÃ¼de, wie geht es euch?", "Ich hab die Sonne im Herzen.", "Ich bin etwas beschÃ¤ftigt und kann jetzt nicht plaudern."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Hach, ich weiß schon gar nicht mehr, wie sich ein schlechter Tag anfühlt.", "Heute ist ein toller Tag.", "Ich bin ein bisschen müde, wie geht es euch?", "Ich hab die Sonne im Herzen.", "Ich bin etwas beschäftigt und kann jetzt nicht plaudern."
 "your name", "who are you", "who art thou" -> "I am Linda Rabon, the cook for this tavern.", "I am Linda Rabon, Severus' daughter.", "I'm Linda Rabon. I may not look it, but I am the best cook in Cadomyr.", "I am Linda. Haha, I'm sorry, you made a funny face.", "I'm Linda, I'll cook you something special if you ask."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Linda Rabon, die KÃ¶chin dieser Taverne.", "Ich bin Linda Rabon, die Tochter des Severus.", "Ich bin Linda Rabon. Es mag nicht so aussehen, aber ich bin Cadomyrs beste KÃ¶chin.", "Ich bin Linda. Haha, entschuldigt, aber ihr seht lustig aus.", "Ich bin Linda und ich koche euch was besonders gutes, wenn ihr darum bittet."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Linda Rabon, die Köchin dieser Taverne.", "Ich bin Linda Rabon, die Tochter des Severus.", "Ich bin Linda Rabon. Es mag nicht so aussehen, aber ich bin Cadomyrs beste Köchin.", "Ich bin Linda. Haha, entschuldigt, aber ihr seht lustig aus.", "Ich bin Linda und ich koche euch was besonders gutes, wenn ihr darum bittet."
 
 -- fix
 queststatus(126) > 0, queststatus(703) = 9, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 10, "Ah Jakob sent you, but you have already asked me for something to do."
@@ -87,139 +101,139 @@ queststatus(126) > 0, queststatus(703) = 9, town = Cadomyr, "Auftrag", "Aufgabe"
 
 -- 1st quest: Gather 5 cutlery (2647)
 queststatus(126) = 0, queststatus(703) = 9, town = Cadomyr, english, "quest", "mission", "jakob", "lindorn" -> inform("[New quest] A Noble Celebration I"), queststatus(126) = 1, queststatus(703) = 10, "Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them."
-queststatus(126) = 0, queststatus(703) = 9, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> inform("[Neues Quest] Eine edle Feier I"), queststatus(126) = 1, queststatus(703) = 10, "Oh, ihr wollt mirhelfen? Edelleute wollen eine Feier im EinhÃ¶rnigen LÃ¶wen abhalten und es ist nichts vorbereitet! Uns fehlen fÃ¼nf Gedecke Besteck, kÃ¶nntet ihr die bitte besorgen?"
+queststatus(126) = 0, queststatus(703) = 9, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> inform("[Neues Quest] Eine edle Feier I"), queststatus(126) = 1, queststatus(703) = 10, "Oh, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?"
 queststatus(126) = 0, queststatus(703) = 9, town = Cadomyr, "task", "adventure", "order" -> inform("[New quest] A Noble Celebration I"), queststatus(126) = 1, queststatus(703) = 10, "Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them."
-queststatus(126) = 0, queststatus(703) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eine edle Feier I"), queststatus(126) = 1, queststatus(703) = 10, "Oj, ihr wollt mirhelfen? Edelleute wollen eine Feier im EinhÃ¶rnigen LÃ¶wen abhalten und es ist nichts vorbereitet! Uns fehlen fÃ¼nf Gedecke Besteck, kÃ¶nntet ihr die bitte besorgen?"
+queststatus(126) = 0, queststatus(703) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eine edle Feier I"), queststatus(126) = 1, queststatus(703) = 10, "Oj, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?"
 
 queststatus(126) = 0, english, "quest", "mission" -> inform("[New quest] A Noble Celebration I"), queststatus(126) = 1, "Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them."
-queststatus(126) = 0, "quest", "mission" -> inform("[Neues Quest] Eine edle Feier I"), queststatus(126) = 1, "Oh, ihr wollt mirhelfen? Edelleute wollen eine Feier im EinhÃ¶rnigen LÃ¶wen abhalten und es ist nichts vorbereitet! Uns fehlen fÃ¼nf Gedecke Besteck, kÃ¶nntet ihr die bitte besorgen?"
+queststatus(126) = 0, "quest", "mission" -> inform("[Neues Quest] Eine edle Feier I"), queststatus(126) = 1, "Oh, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?"
 queststatus(126) = 0, "task", "adventure", "order" -> inform("[New quest] A Noble Celebration I"), queststatus(126) = 1, "Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them."
-queststatus(126) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eine edle Feier I"), queststatus(126) = 1, "Oj, ihr wollt mirhelfen? Edelleute wollen eine Feier im EinhÃ¶rnigen LÃ¶wen abhalten und es ist nichts vorbereitet! Uns fehlen fÃ¼nf Gedecke Besteck, kÃ¶nntet ihr die bitte besorgen?"
+queststatus(126) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eine edle Feier I"), queststatus(126) = 1, "Oj, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?"
 
 -- 1st quest solved, reward: 2000 cp, +5 rankpoints if Cadomyr
 queststatus(126) = 1, item(2647, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins. You advance in Queen Rosaline Edwards' favour."), money + 2000, deleteItem(2647, 5), queststatus(126) = 2, rankpoints + 5, "Cutlery, great! I mean, shall we have noble men dine with their hands? Thank you! We don't have much, but take these coins as compensation."
-queststatus(126) = 1, item(2647, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 20 SilberstÃ¼cke. Dein Ansehen bei KÃ¶nigin Rosaline Edwards steigt."), money + 2000, deleteItem(2647, 5), queststatus(126) = 2, rankpoints + 5, "Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit der Hand essen? Danke! Wir haben nicht viel, aber nehmt diese MÃ¼nzen als Bezahlung."
+queststatus(126) = 1, item(2647, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), money + 2000, deleteItem(2647, 5), queststatus(126) = 2, rankpoints + 5, "Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit der Hand essen? Danke! Wir haben nicht viel, aber nehmt diese Münzen als Bezahlung."
 queststatus(126) = 1, item(2647, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2647, 5), queststatus(126) = 2, "Cutlery, great! I mean, shall we have noble men dine with their hands? Thank you! We don't have much, but take these coins as compensation."
-queststatus(126) = 1, item(2647, all) > 4, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 20 SilberstÃ¼cke."), money + 2000, deleteItem(2647, 5), queststatus(126) = 2, "Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit der Hand essen? Danke! Wir haben nicht viel, aber nehmt diese MÃ¼nzen als Bezahlung."
+queststatus(126) = 1, item(2647, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(2647, 5), queststatus(126) = 2, "Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit der Hand essen? Danke! Wir haben nicht viel, aber nehmt diese Münzen als Bezahlung."
 
 -- 1st quest not solved, repeat the instructions
 queststatus(126) = 1, english, "quest", "mission" -> "The celebration of the noble men is anytime soon, please, we need the five sets of cutlery."
-queststatus(126) = 1, "quest", "mission" -> "Die Feier der Edelleute ist schon bald - bitte, holt doch die fÃ¼nf Gedecke Besteck."
+queststatus(126) = 1, "quest", "mission" -> "Die Feier der Edelleute ist schon bald - bitte, holt doch die fünf Gedecke Besteck."
 queststatus(126) = 1, "task", "adventure", "order" -> "The celebration of the noble men is anytime soon, please, we need the five sets of cutlery."
-queststatus(126) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Befehl" -> "Die Feier der Edelleute ist schon bald - bitte, holt doch die fÃ¼nf Gedecke Besteck."
+queststatus(126) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Befehl" -> "Die Feier der Edelleute ist schon bald - bitte, holt doch die fünf Gedecke Besteck."
 
 -- 2nd quest: Gather 5 wine glasses (2457)
 queststatus(126) = 2, english, "quest", "mission" -> inform("[New quest] A Noble Celebration II"), queststatus(126) = 3, "We still don't have all the things we need for the noblemen's celebration. We want to serve the best wine from Albar, but we lack suitable wine glasses. Will you bring me five of them?"
-queststatus(126) = 2, "quest", "mission" -> inform("[Neues Quest] Eine edle Feier II"), queststatus(126) = 3, "Wir haben noch immer nicht alles fÃ¼r die Feier der Edelleute beisammen. Wir wollen besten Wein aus Albar ausschenken, aber wir haben keine WeinglÃ¤ser. Bringt doch bitte fÃ¼nf davon."
+queststatus(126) = 2, "quest", "mission" -> inform("[Neues Quest] Eine edle Feier II"), queststatus(126) = 3, "Wir haben noch immer nicht alles für die Feier der Edelleute beisammen. Wir wollen besten Wein aus Albar ausschenken, aber wir haben keine Weingläser. Bringt doch bitte fünf davon."
 queststatus(126) = 2, "task", "adventure", "order" -> inform("[New quest] A Noble Celebration II"), queststatus(126) = 3, "We still don't have all the things we need for the noblemen's celebration. We want to serve the best wine from Albar, but we lack suitable wine glasses. Will you bring me five of them?"
-queststatus(126) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eine edle Feier II"), queststatus(126) = 3, "Wir haben noch immer nicht alles fÃ¼r die Feier der Edelleute beisammen. Wir wollen besten Wein aus Albar ausschenken, aber wir haben keine WeinglÃ¤ser. Bringt doch bitte fÃ¼nf davon."
+queststatus(126) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eine edle Feier II"), queststatus(126) = 3, "Wir haben noch immer nicht alles für die Feier der Edelleute beisammen. Wir wollen besten Wein aus Albar ausschenken, aber wir haben keine Weingläser. Bringt doch bitte fünf davon."
 
 -- 2nd quest solved, reward: 2000 cp, +10 rankpoints if Cadomyr
 queststatus(126) = 3, item(2457, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins. You advance in Queen Rosaline Edwards' favour."), money + 2000, deleteItem(2457, 5), queststatus(126) = 4, rankpoints + 10, "Noblemen don't drink from buckets! You are my hero. Just one thing is missing for the celebration now , perhaps you can help me with that order as well."
-queststatus(126) = 3, item(2457, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 20 SilberstÃ¼cke. Dein Ansehen bei KÃ¶nigin Rosaline Edwards steigt."), money + 2000, deleteItem(2457, 5), queststatus(126) = 4, rankpoints + 10, "Edelleute trinken nunmal nicht aus KÃ¼beln! Ihr seid mein Held. Jetzt fehlt nur noch eine Sache fÃ¼r die Feier. Vielleicht kÃ¶nnt ihr mir bei diesem Auftrag auch helfen."
+queststatus(126) = 3, item(2457, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), money + 2000, deleteItem(2457, 5), queststatus(126) = 4, rankpoints + 10, "Edelleute trinken nunmal nicht aus Kübeln! Ihr seid mein Held. Jetzt fehlt nur noch eine Sache für die Feier. Vielleicht könnt ihr mir bei diesem Auftrag auch helfen."
 queststatus(126) = 3, item(2457, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2457, 5), queststatus(126) = 4, "Noblemen don't drink from buckets! You are my hero. Just one thing is missing for the celebration now, perhaps you can help me with that order as well."
-queststatus(126) = 3, item(2457, all) > 4, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 20 SilberstÃ¼cke."), money + 2000, deleteItem(2457, 5), queststatus(126) = 4, "Edelleute trinken nunmal nicht aus KÃ¼beln! Ihr seid mein Held. Jetzt fehlt nur noch eine Sache fÃ¼r die Feier. Vielleicht kÃ¶nnt ihr mir bei diesem Auftrag auch helfen."
+queststatus(126) = 3, item(2457, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(2457, 5), queststatus(126) = 4, "Edelleute trinken nunmal nicht aus Kübeln! Ihr seid mein Held. Jetzt fehlt nur noch eine Sache für die Feier. Vielleicht könnt ihr mir bei diesem Auftrag auch helfen."
 
 -- 2nd quest not solved, repeat the instructions
 queststatus(126) = 3, english, "quest", "mission" -> "We need five wine glasses as soon as possible. Hurry! The noblemen cannot drink from buckets."
-queststatus(126) = 3, "quest", "mission" -> "Wir brauchen fÃ¼nf WeinglÃ¤ser so schnell es geht. Los! Die Edelleute kÃ¶nnen doch nicht aus KÃ¼beln saufen."
+queststatus(126) = 3, "quest", "mission" -> "Wir brauchen fünf Weingläser so schnell es geht. Los! Die Edelleute können doch nicht aus Kübeln saufen."
 queststatus(126) = 3, "task", "adventure", "order" -> "We need five wine glasses as soon as possible. Hurry! The noblemen cannot drink from buckets."
-queststatus(126) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir brauchen fÃ¼nf WeinglÃ¤ser so schnell es geht. Los! Die Edelleute kÃ¶nnen doch nicht aus KÃ¼beln saufen."
+queststatus(126) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir brauchen fünf Weingläser so schnell es geht. Los! Die Edelleute können doch nicht aus Kübeln saufen."
 
 -- 3rd quest: Gather 5 wooden plates (2952)
 queststatus(126) = 4, english, "quest", "mission" -> inform("[New quest] A Noble Celebration III"), queststatus(126) = 5, "The last thing that is missing is the most important one for dining, wooden plates. We need five wooden plates and something tells me you will bring them to us."
-queststatus(126) = 4, "quest", "mission" -> inform("[Neues Quest] Eine edle Feier III"), queststatus(126) = 5, "Das Letzte, was uns noch fehlt, ist das Wichtigste fÃ¼r ein Gelage: Holzteller. Wir brauchen erneut fÃ¼nf davon und irgendwas sagt mir, dass ihr sie uns bringen werdet."
+queststatus(126) = 4, "quest", "mission" -> inform("[Neues Quest] Eine edle Feier III"), queststatus(126) = 5, "Das Letzte, was uns noch fehlt, ist das Wichtigste für ein Gelage: Holzteller. Wir brauchen erneut fünf davon und irgendwas sagt mir, dass ihr sie uns bringen werdet."
 queststatus(126) = 4, "task", "adventure", "order" -> inform("[New quest] A Noble Celebration III"), queststatus(126) = 5, "The last thing that is missing is the most important one for dining, wooden plates. We need five wooden plates and something tells me you will bring them to us."
-queststatus(126) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eine edle Feier III"), queststatus(126) = 5, "Das Letzte, was uns noch fehlt, ist das Wichtigste fÃ¼r ein Gelage: Holzteller. Wir brauchen erneut fÃ¼nf davon und irgendwas sagt mir, dass ihr sie uns bringen werdet."
+queststatus(126) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eine edle Feier III"), queststatus(126) = 5, "Das Letzte, was uns noch fehlt, ist das Wichtigste für ein Gelage: Holzteller. Wir brauchen erneut fünf davon und irgendwas sagt mir, dass ihr sie uns bringen werdet."
 
 -- 3rd quest solved, reward: ruby amulet (67), +15 rankpoints if Cadomyr
 queststatus(126) = 5, item(2952, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded a ruby amulet. You advance in Queen Rosaline Edwards' favour."), deleteItem(2952, 5), item(67, 1, 677), queststatus(126) = 6, rankpoints + 15, "I am so relieved, now we have plates for the noblemen. Let's get the celebration started! I give you one of the few items my mother gave to me before... a trinket. Keep it safe, will you?"
-queststatus(126) = 5, item(2952, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst ein Rubinamulet. Dein Ansehen bei KÃ¶nigin Rosaline Edwards steigt."), deleteItem(2952, 5), item(67, 1, 677), queststatus(126) = 6, rankpoints + 15, "Ich bin ja so erleichtert, jetzt haben wir endlich Teller fÃ¼r die Edelleute. Die Feier kann beginnen! Ich gebe euch eines der wenigen Dingen, die mir meine Mutter hinterlieÃŸ als sie... Ein SchmuckstÃ¼ck. Passt darauf auf, bitte."
+queststatus(126) = 5, item(2952, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst ein Rubinamulet. Dein Ansehen bei Königin Rosaline Edwards steigt."), deleteItem(2952, 5), item(67, 1, 677), queststatus(126) = 6, rankpoints + 15, "Ich bin ja so erleichtert, jetzt haben wir endlich Teller für die Edelleute. Die Feier kann beginnen! Ich gebe euch eines der wenigen Dingen, die mir meine Mutter hinterließ als sie... Ein Schmuckstück. Passt darauf auf, bitte."
 queststatus(126) = 5, item(2952, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded a ruby amulet."), deleteItem(2952, 5), item(67, 1, 677), queststatus(126) = 6, "I am so relieved, now we have plates for the noblemen. Let's get the celebration started! I give you one of the few items my mother gave to me before... a trinket. Keep it safe, will you?"
-queststatus(126) = 5, item(2952, all) > 4, ".+" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst ein Rubinamulet."), deleteItem(2952, 5), item(67, 1, 677), queststatus(126) = 6, "Ich bin ja so erleichtert, jetzt haben wir endlich Teller fÃ¼r die Edelleute. Die Feier kann beginnen! Ich gebe euch eines der wenigen Dingen, die mir meine Mutter hinterlieÃŸ als sie... Ein SchmuckstÃ¼ck. Passt darauf auf, bitte."
+queststatus(126) = 5, item(2952, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst ein Rubinamulet."), deleteItem(2952, 5), item(67, 1, 677), queststatus(126) = 6, "Ich bin ja so erleichtert, jetzt haben wir endlich Teller für die Edelleute. Die Feier kann beginnen! Ich gebe euch eines der wenigen Dingen, die mir meine Mutter hinterließ als sie... Ein Schmuckstück. Passt darauf auf, bitte."
 
 -- BIS HIER
 -- 3rd quest not solved, repeat the instructions
 queststatus(126) = 5, english, "quest", "mission" -> "Oh dear, we really need those five plates. Please get them from a carpenter."
-queststatus(126) = 5, "quest", "mission" -> "Ohje, wir brauchen diese fÃ¼nf Teller wirklich schnell. Besorgt sie doch bitte von einem Schreiner."
+queststatus(126) = 5, "quest", "mission" -> "Ohje, wir brauchen diese fünf Teller wirklich schnell. Besorgt sie doch bitte von einem Schreiner."
 queststatus(126) = 5, "task", "adventure", "order" -> "Oh dear, we really need those five plates. Please get them from a carpenter."
-queststatus(126) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ohje, wir brauchen diese fÃ¼nf Teller wirklich schnell. Holt sie doch bitte von einem Schreiner."
+queststatus(126) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ohje, wir brauchen diese fünf Teller wirklich schnell. Holt sie doch bitte von einem Schreiner."
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(126) = 6, english, "quest", "mission" -> "Oh, well, you cannot help me further, but I can help you... ask father for a stew, it will taste good to you."
-queststatus(126) = 6, "quest", "mission" -> "Oh, nun, ihr kÃ¶nnt mir nicht helfen. Aber ich kann euch helfen: Fragt Vater nach einem Eintopf, er wird euch schmecken."
+queststatus(126) = 6, "quest", "mission" -> "Oh, nun, ihr könnt mir nicht helfen. Aber ich kann euch helfen: Fragt Vater nach einem Eintopf, er wird euch schmecken."
 queststatus(126) = 6, "task", "adventure", "order" -> "Oh, well, you cannot help me further, but I can help you.. ask father for a stew, it will taste good to you."
-queststatus(126) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Oh, nun, ihr kÃ¶nnt mir nicht helfen. Aber ich kann euch helfen: Fragt Vater nach einem Eintopf, er wird euch schmecken."
+queststatus(126) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Oh, nun, ihr könnt mir nicht helfen. Aber ich kann euch helfen: Fragt Vater nach einem Eintopf, er wird euch schmecken."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession", "cook" -> "You want to know what I do? I am the cook. I cook for the customers when they visit our tavern.", "I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.", "I'm a cook. Well, I'm the cook. I can make soups, noodles, bread and my specialty is stew.", "I make the food that you all eat.", "Father says that I am part owner of this tavern."
-"beruf", "Koch", "KÃ¶chin" -> "Was ich mache? Ich bin die KÃ¶chin. Ich koche fÃ¼r die GÃ¤ste der Taverne.", "Ich bin hier die KÃ¶chin. Mein Vater bedient und ich kann den ganzen Tag mit der Kundschaft reden ohne Bestellungen aufnehmen zu mÃ¼ssen.", "Ich bin eine KÃ¶chin. Naja, ich bin die KÃ¶chin. Ich kann Suppen und Nudeln kochen, Panieren und meine SpezialitÃ¤t ist der Eintopf.", "Ich mach hier das Essen.", "Vater sagt, dass ich nun Teilhaber der Taverne bin."
+"beruf", "Koch", "Köchin" -> "Was ich mache? Ich bin die Köchin. Ich koche für die Gäste der Taverne.", "Ich bin hier die Köchin. Mein Vater bedient und ich kann den ganzen Tag mit der Kundschaft reden ohne Bestellungen aufnehmen zu müssen.", "Ich bin eine Köchin. Naja, ich bin die Köchin. Ich kann Suppen und Nudeln kochen, Panieren und meine Spezialität ist der Eintopf.", "Ich mach hier das Essen.", "Vater sagt, dass ich nun Teilhaber der Taverne bin."
 english, "job" -> "You want to know what I do? I am the cook. I cook for the customers when they visit our tavern.", "I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.", "I'm a cook. Well I'm the cook. I can make soups, noodles, bread and my specialty is stew.", "I make the food that you all eat.", "Father says that I am part owner of this tavern."
-"job" -> "Was ich mache? Ich bin die KÃ¶chin. Ich koche fÃ¼r die GÃ¤ste der Taverne.", "Ich bin hier die KÃ¶chin. Mein Vater bedient und ich kann den ganzen Tag mit der Kundschaft reden ohne Bestellungen aufnehmen zu mÃ¼ssen.", "Ich bin eine KÃ¶chin. Naja, ich bin die KÃ¶chin. Ich kann Suppen und Nudeln kochen, Panieren und meine SpezialitÃ¤t ist der Eintopf.", "Ich mach hier das Essen.", "Vater sagt, dass ich nun Teilhaber der Taverne bin."
+"job" -> "Was ich mache? Ich bin die Köchin. Ich koche für die Gäste der Taverne.", "Ich bin hier die Köchin. Mein Vater bedient und ich kann den ganzen Tag mit der Kundschaft reden ohne Bestellungen aufnehmen zu müssen.", "Ich bin eine Köchin. Naja, ich bin die Köchin. Ich kann Suppen und Nudeln kochen, Panieren und meine Spezialität ist der Eintopf.", "Ich mach hier das Essen.", "Vater sagt, dass ich nun Teilhaber der Taverne bin."
 "Unicorn", "Lion" -> "You're at the Unicorn Lion. I know this may sound boastful, but I think we have the best tavern in Cadomyr.", "Father and mother built this place."
-"EinhÃ¶rnig", "LÃ¶we" -> "Ihr befindet euch im EinhÃ¶rnigen LÃ¶wen. Es mag vermessen klingen, aber dies ist die beste Taverne in Cadomyr.", "Vater und Mutter haben dieses Haus gebaut."
+"Einhörnig", "Löwe" -> "Ihr befindet euch im Einhörnigen Löwen. Es mag vermessen klingen, aber dies ist die beste Taverne in Cadomyr.", "Vater und Mutter haben dieses Haus gebaut."
 "Father", "Daddy" -> "This tavern is his dream and we run it together.", "He says he is the best father in Cadomyr, and if anyone says he's not, well, they get no dinner from me.", "I wonder what father is going to get me for my birthday?", "Father wishes he could be as good a cook as me."
-"Vater", "Papa" -> "Diese Taverne ist sein Traum und wir betreiben sie zusammen.", "Er sagt, er sei der beste Vater in Cadomyr. Und wenn jemand das Gegenteil behauptet, dann kriegt er von mir nichts zu essen.", "Ich frage mich, was ich von Vater zum Geburtstag kriege.", "Vater wÃ¼nschte, er kÃ¶nne so gut kochen wie ich."
+"Vater", "Papa" -> "Diese Taverne ist sein Traum und wir betreiben sie zusammen.", "Er sagt, er sei der beste Vater in Cadomyr. Und wenn jemand das Gegenteil behauptet, dann kriegt er von mir nichts zu essen.", "Ich frage mich, was ich von Vater zum Geburtstag kriege.", "Vater wünschte, er könne so gut kochen wie ich."
 english, "Severus" -> "This tavern is his dream and we run it together.", "He says he is the best father in Cadomyr, and if anyone says he's not, well, they get no dinner from me.", "I wonder what father is going to get me for my birthday?", "Father wishes he could be as good a cook as me."
-"Severus" -> "Diese Taverne ist sein Traum und wir betreiben sie zusammen.", "Er sagt, er sei der beste Vater in Cadomyr. Und wenn jemand das Gegenteil behauptet, dann kriegt er von mir nichts zu essen.", "Ich frage mich, was ich von Vater zum Geburtstag kriege.", "Vater wÃ¼nschte, er kÃ¶nne so gut kochen wie ich."
+"Severus" -> "Diese Taverne ist sein Traum und wir betreiben sie zusammen.", "Er sagt, er sei der beste Vater in Cadomyr. Und wenn jemand das Gegenteil behauptet, dann kriegt er von mir nichts zu essen.", "Ich frage mich, was ich von Vater zum Geburtstag kriege.", "Vater wünschte, er könne so gut kochen wie ich."
 "Mommy", "Mother" -> "Father used to be the cook and mother the waitress, but since mother is no more...", "Mother used to say when I grew up I would be beautiful.", "Mother was too nice, she was even nice to mean people."
-"Mama", "Mutter" -> "Vater war der Koch und Mutter hat bedient, aber da Mutter nun von uns gegangen ist...", "Mutter hat immer gesagt, wenn ich mal groÃŸ bin, werde ich hÃ¼bsch sein.", "Mutter war immer so nett, sie war sogar zu bÃ¶sen Leuten nett."
+"Mama", "Mutter" -> "Vater war der Koch und Mutter hat bedient, aber da Mutter nun von uns gegangen ist...", "Mutter hat immer gesagt, wenn ich mal groß bin, werde ich hübsch sein.", "Mutter war immer so nett, sie war sogar zu bösen Leuten nett."
 english, "Rose" -> "Father used to be the cook and mother the waitress, but since mother is no more...", "Mother used to say when I grew up I would be beautiful.", "Mother was too nice, she was even nice to mean people."
-"Rose" -> "Vater war der Koch und Mutter hat bedient, aber da Mutter nun von uns gegangen ist...", "Mutter hat immer gesagt, wenn ich mal groÃŸ bin, werde ich hÃ¼bsch sein.", "Mutter war immer so nett, sie war sogar zu bÃ¶sen Leuten nett."
+"Rose" -> "Vater war der Koch und Mutter hat bedient, aber da Mutter nun von uns gegangen ist...", "Mutter hat immer gesagt, wenn ich mal groß bin, werde ich hübsch sein.", "Mutter war immer so nett, sie war sogar zu bösen Leuten nett."
 english, "Hassan" -> "He's cute, don't you think?", "I wish he would tell stories, but Hassan never talks.", "He rarely speaks. It's kind of weird, don't you think?", "He's so big, he picked me up once. I felt like I was touching the stars.", "He's so big, he used to have to duck to enter this place. My father is so nice though, he made the entrance taller."
-"Hassan" -> "Er ist sÃ¼ÃŸ, nicht wahr?", "Ich wÃ¼nschte, er wÃ¼rde manchmal Geschichten erzÃ¤hlen, aber Hassan redet nicht gerne.", "Er spricht nur selten. MerkwÃ¼rdig, oder?", "Er ist so groÃŸ! Er hat mich einmal hochgehoben. Es fÃ¼hlte sich an, als kÃ¶nnte ich die Sterne berÃ¼hren.", "Er ist so groÃŸ! Er muÃŸte sich frÃ¼her immer bÃ¼cken, um durch die TÃ¼r zu kommen. Mein Vater hat dann netterweise den TÃ¼rrahmen hÃ¶her gemacht."
+"Hassan" -> "Er ist süß, nicht wahr?", "Ich wünschte, er würde manchmal Geschichten erzählen, aber Hassan redet nicht gerne.", "Er spricht nur selten. Merkwürdig, oder?", "Er ist so groß! Er hat mich einmal hochgehoben. Es fühlte sich an, als könnte ich die Sterne berühren.", "Er ist so groß! Er mußte sich früher immer bücken, um durch die Tür zu kommen. Mein Vater hat dann netterweise den Türrahmen höher gemacht."
 
 -- Cadomyr
 "Queen" -> "She should come try our food. I promise she will declare it the most delicious food in all of Cadomyr.", "She is beautiful isn't she?", "My mother used to say that Rosaline is very smart.", "I want to be like Queen Rosaline when I grow up."
-"KÃ¶nigin" -> "Sie sollte mal herkommen und bei uns essen. Ich bin mir sicher, sie wird uns zu Hoflieferanten ernennen.", "Sie ist ziemlich hÃ¼bsch, nicht wahr?", "Meine Mutter hat immer gesagt, Rosaline ist ziemlich schlau.", "Ich will wie KÃ¶nigin Rosaline sein, wenn ich groÃŸ bin."
+"Königin" -> "Sie sollte mal herkommen und bei uns essen. Ich bin mir sicher, sie wird uns zu Hoflieferanten ernennen.", "Sie ist ziemlich hübsch, nicht wahr?", "Meine Mutter hat immer gesagt, Rosaline ist ziemlich schlau.", "Ich will wie Königin Rosaline sein, wenn ich groß bin."
 english, "rosaline", "edwards" -> "She should come try our food. I promise she will declare it the most delicious food in all of Cadomyr.", "She is beautiful isn't she?", "My mother used to say that Rosaline is very smart.", "I want to be like Queen Rosaline when I grow up."
-"rosaline", "edwards" -> "Sie sollte mal herkommen und bei uns essen. Ich bin mir sicher, sie wird uns zu Hoflieferanten ernennen.", "Sie ist ziemlich hÃ¼bsch, nicht wahr?", "Meine Mutter hat immer gesagt, Rosaline ist ziemlich schlau.", "Ich will wie KÃ¶nigin Rosaline sein, wenn ich groÃŸ bin."
+"rosaline", "edwards" -> "Sie sollte mal herkommen und bei uns essen. Ich bin mir sicher, sie wird uns zu Hoflieferanten ernennen.", "Sie ist ziemlich hübsch, nicht wahr?", "Meine Mutter hat immer gesagt, Rosaline ist ziemlich schlau.", "Ich will wie Königin Rosaline sein, wenn ich groß bin."
 
 -- Main land factions
 english, "albar" -> "What is Albar?", "Which way do I have to walk to go to Albar?", "I'm too busy, stop telling me stuff I don't know."
-"albar" -> "Was ist ein Albar?", "Wolang geht es denn nach Albar?", "Ich bin beschÃ¤ftigt, erzÃ¤hlt mir nichts, was ich nicht weiÃŸ."
+"albar" -> "Was ist ein Albar?", "Wolang geht es denn nach Albar?", "Ich bin beschäftigt, erzählt mir nichts, was ich nicht weiß."
 english, "gynk", "gync" -> "I don't know where that is.", "I'm trying to cook here, yesh!", "What is a Gynk?"
-"gync", "gynk" -> "Ich weiÃŸ nicht, wo das ist.", "Ich versuche, zu kochen, verdammt.", "Was ist ein Gynk?"
+"gync", "gynk" -> "Ich weiß nicht, wo das ist.", "Ich versuche, zu kochen, verdammt.", "Was ist ein Gynk?"
 english, "salkama" -> "That place has a nice name, where is it?", "Nope, I've never been to Salkamar.", "I've never left Cadomyr."
 "salkama" -> "Das klingt nett, wo ist das?", "Ne, ich war noch nie in Salkamar.", "Ich habe Cadomyr noch nie verlassen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 english, "Adron" -> "The God of festivities and wine? Did I get it right?"
 "Adron" -> "Der Gott der Feste und des Weines? Habe ich das richtig verstanden?"
-english, "Bragon", "BrÃ¡gon" -> "He's a giant with a beard of fire. He is a good God."
-"Bragon", "BrÃ¡gon" -> "Er ist ein Riese mit einem Feuerbart. Er ist ein guter Gott."
+english, "Bragon", "Brágon" -> "He's a giant with a beard of fire. He is a good God."
+"Bragon", "Brágon" -> "Er ist ein Riese mit einem Feuerbart. Er ist ein guter Gott."
 english, "Cherga" -> "I don't like Cherga, she's scary."
 "Cherga" -> "Ich mag Cherga nicht. Sie macht mir Angst."
 english, "Elara" -> "The Goddess of wisdom, that's all I know about her."
-"Elara" -> "Die GÃ¶ttin der Weisheit, mehr weiÃŸ ich nicht Ã¼ber sie."
+"Elara" -> "Die Göttin der Weisheit, mehr weiß ich nicht über sie."
 english, "Eldan" -> "Mother told me he has many forms, but he always carries a wooden pole."
-"Eldan" -> "Mutter hat mir einst gesagt, dass er in vielen Gestalten auftritt, aber immer einen Holzstab bei sich trÃ¤gt."
+"Eldan" -> "Mutter hat mir einst gesagt, dass er in vielen Gestalten auftritt, aber immer einen Holzstab bei sich trägt."
 english, "Findari" -> "The Goddess of air, she is very beautiful."
-"Findari" -> "Die LuftgÃ¶ttin ist sehr schÃ¶n."
+"Findari" -> "Die Luftgöttin ist sehr schön."
 english, "Irmorom" -> "There is a picture of him over there."
-"Irmorom" -> "Da drÃ¼ben hÃ¤ngt ein Bild von ihm."
-english, "Malachin", "MalachÃ­n" -> "He's the wolf God. I want a wolf. I'm going to ask father tonight if I can have a wolf."
-"Malachin", "MalachÃ­n" -> "Man nennt ihn auch den Wolfgott. Ich will auch einen Wolf. Ich frag Vater nachher, ob ich einen Wolf haben kann."
+"Irmorom" -> "Da drüben hängt ein Bild von ihm."
+english, "Malachin", "Malachín" -> "He's the wolf God. I want a wolf. I'm going to ask father tonight if I can have a wolf."
+"Malachin", "Malachín" -> "Man nennt ihn auch den Wolfgott. Ich will auch einen Wolf. Ich frag Vater nachher, ob ich einen Wolf haben kann."
 english, "Moshran" -> "I'm not afraid of old bone head. If he ever walks through these doors, I will punch him on the nose."
-"Moshran" -> "Ich fÃ¼rchte mich nicht vor dem ollen Knochenkopp. Wenn er jemals durch diese TÃ¼r kommt, kriegt er was auf die Nase."
-english, "Nargun", "NargÃºn", "NargÃ¹n" -> "He is another bad one."
-"Nargun", "NargÃºn", "NargÃ¹n" -> "Noch so ein Fiesling."
+"Moshran" -> "Ich fürchte mich nicht vor dem ollen Knochenkopp. Wenn er jemals durch diese Tür kommt, kriegt er was auf die Nase."
+english, "Nargun", "Nargún", "Nargùn" -> "He is another bad one."
+"Nargun", "Nargún", "Nargùn" -> "Noch so ein Fiesling."
 english, "Oldra" -> "Oldra has to be the favourite God of any woman."
-"Oldra" -> "Oldra ist die LieblingsgÃ¶tting aller Frauen."
+"Oldra" -> "Oldra ist die Lieblingsgötting aller Frauen."
 english, "Ronagan" -> "I'm sorry, I have not made it to that God yet."
-"Ronagan" -> "Entschuldigt, Ã¼ber diesen Gott weiÃŸ ich nichts."
+"Ronagan" -> "Entschuldigt, über diesen Gott weiß ich nichts."
 english, "Sirani" -> "I do not deserve it, but Sirani blessed me. I don't know why. Sometimes at night when I think about how in love I am I start crying."
-"Sirani" -> "Ich habe es nicht verdient, aber Sirani hat mich gesegnet. Ich weiÃŸ auch nicht, warum. Manchmal wache ich nachts auf und weine, weil ich so verliebt bin."
+"Sirani" -> "Ich habe es nicht verdient, aber Sirani hat mich gesegnet. Ich weiß auch nicht, warum. Manchmal wache ich nachts auf und weine, weil ich so verliebt bin."
 english, "Tanora", "Zelphia" -> "I'm sorry, I have not made it to that God yet."
-"Tanora", "Zelphia" -> "Entschuldigt, Ã¼ber diesen Gott weiÃŸ ich nichts."
+"Tanora", "Zelphia" -> "Entschuldigt, über diesen Gott weiß ich nichts."
 english, "Ushara" -> "I'm sorry, I have not made it to that God yet."
-"Ushara" -> "Entschuldigt, Ã¼ber diesen Gott weiÃŸ ich nichts."
+"Ushara" -> "Entschuldigt, über diesen Gott weiß ich nichts."
 english, "Zhambra" -> "I'm sorry, I have not made it to that God yet."
-"Zhambra" -> "Entschuldigt, Ã¼ber diesen Gott weiÃŸ ich nichts."
+"Zhambra" -> "Entschuldigt, über diesen Gott weiß ich nichts."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Linda", "Rabon" -> "Good day, how are you?", "Today is a great day for cooking.", "That is me, do you want something.", "Oh, did you need something?", "That is me.", "Hello. I am Linda Rabon. I would be glad to help you with anything that you need."
-"Linda", "Rabon" -> "Einen guten Tag, wie geht es euch?", "Heute ist ein guter Tag zum Kochen.", "Das bin ich. Was benÃ¶tigt ihr?", "Oh, braucht ihr etwas?", "Das bin ich.", "Hallo, ich bin Linda Rabon. Ich helfe euch gerne weiter."
+"Linda", "Rabon" -> "Einen guten Tag, wie geht es euch?", "Heute ist ein guter Tag zum Kochen.", "Das bin ich. Was benötigt ihr?", "Oh, braucht ihr etwas?", "Das bin ich.", "Hallo, ich bin Linda Rabon. Ich helfe euch gerne weiter."
 "Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
 "Ja" -> "Hab ich was gesagt?", "Hab ich irgendwas gefragt?", "Wie jetzt?"
 "No" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
@@ -231,15 +245,15 @@ english, "Linda", "Rabon" -> "Good day, how are you?", "Today is a great day for
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Feuer und Glut, das wird gut, Bier und Wein, das wird fein.", "Salt, spice, everything nice, beer, wine everything fine."
-cycletext "Heute koche ich was Besonderes. DafÃ¼r brauche ich flambierte Schnecken, Pfeffer aus dem Elsbaumwald, Saft der Sauerampfer und noch drei weitere Dinge, die ich euch aber nicht verrate. Das wird klasse!", "Today I am cooking a unique dish. It requires snails lightly touched in flame, pepper from the Elstree forest, juice from a sour fruit, and like three other things I can't tell you. This is going to be good."
+cycletext "Heute koche ich was Besonderes. Dafür brauche ich flambierte Schnecken, Pfeffer aus dem Elsbaumwald, Saft der Sauerampfer und noch drei weitere Dinge, die ich euch aber nicht verrate. Das wird klasse!", "Today I am cooking a unique dish. It requires snails lightly touched in flame, pepper from the Elstree forest, juice from a sour fruit, and like three other things I can't tell you. This is going to be good."
 cycletext "Irgendwann versuche ich nochmal, Lesen zu lernen. Ich koche einfach zu viel.", "One of these days I'm going to try and learn to read a book. It's just that all my time goes to cooking."
 cycletext "Hassan! Trink nicht wieder so viel!", "Hassan! Don't drink too much!"
 cycletext "Diese Leute essen einfach viel zu schnell.", "These people eat too fast."
-cycletext "Ich frage mich, ob es sowas wie Kochschulen gibt. Ich wÃ¤re eine klasse Lehrerin.", "I wonder if there are schools for cooking. I would be the best teacher ever."
+cycletext "Ich frage mich, ob es sowas wie Kochschulen gibt. Ich wäre eine klasse Lehrerin.", "I wonder if there are schools for cooking. I would be the best teacher ever."
 cycletext "Wenn ihr fragen habt, kommt einfach zu mir. Es ist meine Aufgabe, sie zu beantworten.", "If you have any questions please come to me. It is my job to answer them if that's alright with you."
-cycletext "Willkommen im EinhÃ¶rnigen LÃ¶wen.", "Welcome to the Unicorn Lion."
-cycletext "Kommt doch gerne mal wieder in den EinhÃ¶rnigen LÃ¶wen. Wir wÃ¼rden euch sonst sehr vermissen.", "Please come visit us again at the Unicorn Lion, we miss your presence."
-cycletext "Hier im EinhÃ¶rnigen LÃ¶wen gibt es den besten Eintopf von ganz Cadomyr.", "Here at the Unicorn Lion we have the best stew in all of Cadomyr."
+cycletext "Willkommen im Einhörnigen Löwen.", "Welcome to the Unicorn Lion."
+cycletext "Kommt doch gerne mal wieder in den Einhörnigen Löwen. Wir würden euch sonst sehr vermissen.", "Please come visit us again at the Unicorn Lion, we miss your presence."
+cycletext "Hier im Einhörnigen Löwen gibt es den besten Eintopf von ganz Cadomyr.", "Here at the Unicorn Lion we have the best stew in all of Cadomyr."
 cycletext "Hier sieht es mal wieder aus... Vater sollte mal wieder wischen.", "This place is starting to look a mess, I should make father mop this place up."
 cycletext "Jedes mal, wenn der Geruch meines Eintopfs mir in die Nase steigt, lacht mein Herz.", "Every time I smell a stew I have cooked my heart smiles."
 cycletext "Oh, entschuldigt, ich wollte euch nicht in die Quere kommen.", "Oh sorry, excuse me. I did not mean to get in your way."

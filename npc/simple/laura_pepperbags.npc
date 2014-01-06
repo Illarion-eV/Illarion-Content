@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Laura Pepperbags                                         Galmair --
 -- NPC Job:  Money changer                                                    --
@@ -50,7 +64,7 @@ itemShoes = 369
 -- the merchant dialog.
 
 sellItems = 61, 3076, 3077
-tradeNotEnoughMoneyMsg "Oh, ich fÃ¼rchte Ihr kÃ¶nnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
@@ -74,27 +88,27 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Laura Pepperbags the money changer of Galmair. Keywords: Hello, sell, buy, trade, profession.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Laura Pepperbags die Geldwechslerin von Galmair. SchlÃ¼sselwÃ¶rter: Hallo, verkaufe, kaufe, Handel, Beruf.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Laura Pepperbags die Geldwechslerin von Galmair. Schlüsselwörter: Hallo, verkaufe, kaufe, Handel, Beruf.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeting to you. Did you come here to exchange money?", "Greetings. Do you need money?"
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrÃ¼ÃŸt. Seid ihr hier um Geld zu wechseln?", "GrÃ¼ÃŸe. Braucht ihr Geld?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt. Seid ihr hier um Geld zu wechseln?", "Grüße. Braucht ihr Geld?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings.", "Hello."
-"Hiho", "Hallo", "Hey", "Greeb" -> "GrÃ¼ÃŸe.", "Hallo."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüße.", "Hallo."
 "Farewell", "Bye", "Fare well", "See you" -> "Safe Paths.", "Farewell."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Sichere Pfade.", "Lebt Wohl."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Sichere Pfade.", "Lebt Wohl."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Safe Paths.", "Farewell."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sichere Pfade.", "Lebt Wohl."
 "How are you", "How feel", "How do you do" -> "I'm fine, thank you. Do you want to change money?"
-"Wie geht", "Wie fÃƒÂ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage. MÃ¶chtet Ihr Geld eintauchen?"
+"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage. Möchtet Ihr Geld eintauchen?"
 "your name", "who are you", "who art thou" -> "My name is Laura Pepperbags, I'm the best money changer in Galmair.", "My name is Laura Pepperbags, I'm the the only money changer in Galmair."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich heiÃŸe Laura Pepperbags, ich bin die beste Geldwechslerin in Galmair.", "Ich heiÃŸe Laura Pepperbags, ich bin die einzige Geldwechslerin in Galmair."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Laura Pepperbags, ich bin die beste Geldwechslerin in Galmair.", "Ich heiße Laura Pepperbags, ich bin die einzige Geldwechslerin in Galmair."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I'm a money changer. Want to change some?", "You can change your money here.", trade
-"kauf", "waren", "preis", "Handel", "verÃ¤uÃŸer", "erwerb" -> "Ich bin Geldwechsler. MÃ¶gt Ihr wechseln?", "Ihr kÃ¶nnt hier MÃ¼nzen eintauschen.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich bin Geldwechsler. Mögt Ihr wechseln?", "Ihr könnt hier Münzen eintauschen.", trade
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I like my job, I like money."
@@ -102,17 +116,17 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Safe Paths.", "Farewell."
 english, "job" -> "I like my job, I like money."
 "job" -> "Ich mag meinen Beruf. Ich mag Geld."
 "tell something" -> "I like my job, I like money."
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Ich mag meinen Beruf. Ich mag Geld."
+"erzähl was", "erzähl etwas" -> "Ich mag meinen Beruf. Ich mag Geld."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Most people do only pray to one or two gods."
-"Gott", "GÃ¶tter" -> "Die meisten Leute beten zu einem oder zwei GÃ¶ttern."
+"Gott", "Götter" -> "Die meisten Leute beten zu einem oder zwei Göttern."
 english, "Ronagan" -> "Ronagan is almost as evil as the unnamed one, but that's just my personal opinion."
-"Ronagan" -> "Ronagan ist fast so schlimm wie der Ungenannte, aber das ist bloÃŸ meine Meinung."
+"Ronagan" -> "Ronagan ist fast so schlimm wie der Ungenannte, aber das ist bloß meine Meinung."
 
 -- Optional: Faction stuff
 english, "Runewick" -> "Runewick? Where there are five towers filled with those crazy spellcasters."
-"Runewick" -> "Runewick? Das sind fÃ¼nf TÃ¼rme voll mit so verrÃ¼ckten Zauberern."
+"Runewick" -> "Runewick? Das sind fünf Türme voll mit so verrückten Zauberern."
 english, "Galmair" -> "Yes, here you are in Galmair."
 "Galmair" -> "Ganz recht, hier seid Ihr in Galmair."
 english, "Cadomyr" -> "Cadomyr is Cadomyr, right?"
@@ -120,17 +134,17 @@ english, "Cadomyr" -> "Cadomyr is Cadomyr, right?"
 
 -- Optional: Main land factions
 english, "gynk", "gync" -> "I was born in Gynk, it's nice there."
-"gync", "gynk" -> "I wurde in Gync geboren. Dort ist es hÃ¼bsch."
+"gync", "gynk" -> "I wurde in Gync geboren. Dort ist es hübsch."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "Where is this place supposed to be?", "I've never heard of that place."
-"Gobaith", "Gobiath" -> "Wo soll das denn sein?", "Davon hab ich noch nie gehÃ¶rt."
+"Gobaith", "Gobiath" -> "Wo soll das denn sein?", "Davon hab ich noch nie gehört."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me zÃ¤hlt emsig MÃ¼nzen.", "#me assiduously counts money."
-cycletext "#me betrachtet ihr Spiegelbild in einer SilbermÃ¼nze.", "#me looks at her reflection in a silver coin."
-cycletext "Wenn ihn euer Kupfer gegen funkelndes Silber tauschen mÃ¶chtet, so sprecht mich ruhig an.", "If you want to change your copper into some nice shining silver coins, just talk to me!"
+cycletext "#me zählt emsig Münzen.", "#me assiduously counts money."
+cycletext "#me betrachtet ihr Spiegelbild in einer Silbermünze.", "#me looks at her reflection in a silver coin."
+cycletext "Wenn ihn euer Kupfer gegen funkelndes Silber tauschen möchtet, so sprecht mich ruhig an.", "If you want to change your copper into some nice shining silver coins, just talk to me!"

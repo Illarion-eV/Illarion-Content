@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Gretel Goldhair                                          Galmair --
 -- NPC Job:  Galmair Treasurer                                                --
@@ -71,32 +85,32 @@ itemShoes = 369
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Gretel Goldhair. Keywords: Quest, profession, Galmair, garbage, gods, Don.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Gretel Goldhair. SÃ¼sselwÃ¶rter: Auftrag, Beruf, Galmair, MÃ¼ll, GÃ¶tter, Don.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Gretel Goldhair. Süsselwörter: Auftrag, Beruf, Galmair, Müll, Götter, Don.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!", "#me nods.", "Speak louder, I can't hear you!"
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "GrÃ¼ÃŸe!", "#me nickt.'", "Sprecht lauter, ich kann Euch nicht hÃ¶ren."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße!", "#me nickt.'", "Sprecht lauter, ich kann Euch nicht hören."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hm?", "Speak louder, I can't hear you!", "Hello."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hm?", "Sprecht lauter, ich kann Euch nicht hÃ¶ren.", "Hallo."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hm?", "Sprecht lauter, ich kann Euch nicht hören.", "Hallo."
 "Farewell", "Bye", "Fare well", "See you" -> "#me nods", "Speak louder, I can't hear you!"
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "#me nickt.", "Sprecht lauter, ich kann Euch nicht hÃ¶ren."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "#me nickt.", "Sprecht lauter, ich kann Euch nicht hören."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the Five be with you!", "#me bows her head."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Bis bald!", "MÃ¶gen die FÃ¼nf mit Euch sein!", "#me neigt den Kopf."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Bis bald!", "Mögen die Fünf mit Euch sein!", "#me neigt den Kopf."
 "How are you", "How feel", "How do you do" -> "Speak louder, I can't hear you!"
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Sprecht lauter, Ich kann Euch nicht hÃ¶ren."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Sprecht lauter, Ich kann Euch nicht hören."
 "How do you do" -> "Shoe? Just drop your shoe on the field here!"
 "your name", "who are you", "who art thou" -> "I am Gretel. And you are...?", "Gretel Goldhair. I once was famous, maybe you heard of me?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Gretel Goldhair. Und Ihr seid?", "Gretel Goldhair. Ich war mal berÃ¼hmt. Vielleicht habt Ihr von mir gehÃ¶rt?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Gretel Goldhair. Und Ihr seid?", "Gretel Goldhair. Ich war mal berühmt. Vielleicht habt Ihr von mir gehört?"
 
 -- OPTIONAL TRIGGERS
 
 -- Quest by Charwis Irongate
 queststatus(702) = 7, english, "charwis", "irongate", "hammer", "collection" -> queststatus(702) = 8, "Hammer collection? I threw away some hammers a few days ago...but, they did not belong to Charwis, did they?"
-queststatus(702) = 7, "charwis", "irongate", "HÃ¤mmer", "Sammlung" -> queststatus(702) = 8, "HÃ¤mmersammlung? Ich habe da eine ganze Menge HÃ¤mmer vor ein paar Tagen entsorgt...aber, das war doch nicht Charwis Hammersammlung, oder?"
+queststatus(702) = 7, "charwis", "irongate", "Hämmer", "Sammlung" -> queststatus(702) = 8, "Hämmersammlung? Ich habe da eine ganze Menge Hämmer vor ein paar Tagen entsorgt...aber, das war doch nicht Charwis Hammersammlung, oder?"
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I do not sell anything. But I take donations...or well, the Don does. Just bring the things here and place them on the field."
-"kauf", "waren", "preis", "Handel", "verÃ¤uÃŸer", "erwerb" -> "Ich verkaufe nichts. Aber ich nehme Spenden entgegen... nun ja, eigentlich sind es Spenden fÃ¼r den Don. Bringt die Sachen ruhig her und legt sie auf das Feld."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich verkaufe nichts. Aber ich nehme Spenden entgegen... nun ja, eigentlich sind es Spenden für den Don. Bringt die Sachen ruhig her und legt sie auf das Feld."
 
 -- fix
 queststatus(206) > 0, queststatus(712) = 11, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 12, "Ah Joey send you but you already ask me for something to do."
@@ -107,14 +121,14 @@ queststatus(206) > 0, queststatus(712) = 11, town = Galmair, "Auftrag", "Aufgabe
 -- Optional: Catching quest triggers. Galmair garbage bin quest (206)
 
 queststatus(206) = 0, queststatus(712) = 11, town = Galmair, english, "quest", "mission" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, queststatus(712) = 12, "Do you want a task? Bring some more donations. And drop them on the field here!"
-queststatus(206) = 0, queststatus(712) = 11, town = Galmair, "quest", "mission" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, queststatus(712) = 12, "Ihr mÃ¶chtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
+queststatus(206) = 0, queststatus(712) = 11, town = Galmair, "quest", "mission" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, queststatus(712) = 12, "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
 queststatus(206) = 0, queststatus(712) = 11, town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, queststatus(712) = 12, "Do you want a task? Bring some more donations. And drop them on the field here!"
-queststatus(206) = 0, queststatus(712) = 11, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, queststatus(712) = 12, "Ihr mÃ¶chtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
+queststatus(206) = 0, queststatus(712) = 11, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, queststatus(712) = 12, "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
 
 queststatus(206) = 0, english, town = Galmair, "quest", "mission" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Do you want a task? Bring some more donations. And drop them on the field here!"
-queststatus(206) = 0, town = Galmair, "quest", "mission" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Ihr mÃ¶chtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
+queststatus(206) = 0, town = Galmair, "quest", "mission" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
 queststatus(206) = 0, town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Do you want a task? Bring some more donations. And drop them on the field here!"
-queststatus(206) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Ihr mÃ¶chtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
+queststatus(206) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(206) = 1, english, town = Galmair, "quest", "mission" -> "Donating is quite simple, just drop your items on the donation place. Easy, isn't it?"
@@ -124,83 +138,83 @@ queststatus(206) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl
 
 -- Quest 1 solved, reward: +20 rankpoints
 queststatus(206) = 2, english, town = Galmair, ".*" -> inform("[Quest solved] You advance in Don Valerio Guilianni's favour."), queststatus(206) = 3, rankpoints + 20, "Thank you for your donation!"
-queststatus(206) = 2, town = Galmair, ".*" -> inform("[Quest solved] You advance in Don Valerio Guilianni's favour."), queststatus(206) = 3, rankpoints + 20, "Danke fÃ¼r Eure Spende!"
+queststatus(206) = 2, town = Galmair, ".*" -> inform("[Quest solved] You advance in Don Valerio Guilianni's favour."), queststatus(206) = 3, rankpoints + 20, "Danke für Eure Spende!"
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(206) = 3, english, town = Galmair, "quest", "mission" -> "Ask Cormac, maybe he has something for you to do, but come back again and donate more to the Don!"
 queststatus(206) = 3, town = Galmair, "quest", "mission" -> "Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don!"
 queststatus(206) = 3, town = Galmair, "task", "adventure", "order" -> "Ask Cormac, maybe he has something for you to do, but come back again and donate more to the Don, Sweetheart!"
-queststatus(206) = 3, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don, SchÃ¤tzchen!"
+queststatus(206) = 3, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don, Schätzchen!"
 english, "quest", "mission" -> "I have nothing for you to do, darling."
 "quest", "mission" -> "I have nothing to do for you, darling."
-"task", "adventure", "order" -> "Ich habe keine Aufgabe fÃ¼r dich, Liebling."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe fÃ¼r dich, Liebling."
+"task", "adventure", "order" -> "Ich habe keine Aufgabe für dich, Liebling."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe für dich, Liebling."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am sorting all that rubbish...I mean, all the donations to the Don."
-"beruf" -> "Ich sortiere all diesen MÃ¼ll...Ã¤hm, all diese Spenden an den Don, wollte ich sagen."
+"beruf" -> "Ich sortiere all diesen Müll...ähm, all diese Spenden an den Don, wollte ich sagen."
 english, "job" -> "I am sorting all that rubbish...I mean, all the donations to the Don."
-"job" -> "Ich sortiere all diesen MÃ¼ll...Ã¤hm, all diese Spenden an den Don, wollte ich sagen."
+"job" -> "Ich sortiere all diesen Müll...ähm, all diese Spenden an den Don, wollte ich sagen."
 "tell something" -> "I came to Galmair as a young girl. And I am still here now. How long will you stay here?", "I once was a well known, beautiful dancer, but I grew old and ugly. Now I guard this garbage bin.", "When I was young, they called me Gretel Goldhair, but now they call me Gretel Greyhair."
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Ich kam als junges MÃ¤dchen nach Galmair. Jetzt bin ich immer noch da. Wie lange werden Ihr bleiben?", "Ich war mal eine Stadtbekannt, wunderschÃ¶ne TÃ¤nzerin. Doch ich wurde alt und hÃ¤sslich. Jetzt beaufsichtige ich diese MÃ¼llkippe!", "FrÃ¼her nannten sie mich Gertel Goldhair, jetzt nennen sie mich Graue Gretel."
+"erzähl was", "erzähl etwas" -> "Ich kam als junges Mädchen nach Galmair. Jetzt bin ich immer noch da. Wie lange werden Ihr bleiben?", "Ich war mal eine Stadtbekannt, wunderschöne Tänzerin. Doch ich wurde alt und hässlich. Jetzt beaufsichtige ich diese Müllkippe!", "Früher nannten sie mich Gertel Goldhair, jetzt nennen sie mich Graue Gretel."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "garbage bin", "rubbish", "garbage", "trash" -> "You do not donate garbage to the Don, do you?"
-"MÃ¼llkippe", "MÃ¼ll", "Schrott" -> "Ihr spendet doch keinen MÃ¼ll an den Don, oder?"
+"Müllkippe", "Müll", "Schrott" -> "Ihr spendet doch keinen Müll an den Don, oder?"
 "magical", "surface" -> "If you drop things on the magical surface they will disppear, and magically their value will be regained by Galmair's treasury."
-"magische", "FlÃ¤che", "OberflÃ¤che" -> "Wenn Ihr GegenstÃ¤nde auf die magische OberflÃ¤che legt, werden sie durch Magie ihren Wert zurÃ¼ck erhalten und in die Schatzkammer von Galmair transferiert."
+"magische", "Fläche", "Oberfläche" -> "Wenn Ihr Gegenstände auf die magische Oberfläche legt, werden sie durch Magie ihren Wert zurück erhalten und in die Schatzkammer von Galmair transferiert."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "The Gods created Illarion without rubbish. Most of us produce rubbish everyday."
-"Gott", "GÃ¶tter" -> "Die GÃ¶tter erschufen Illarion ohne MÃ¼ll. Wir erschaffen jeden Tag MÃ¼ll."
+"Gott", "Götter" -> "Die Götter erschufen Illarion ohne Müll. Wir erschaffen jeden Tag Müll."
 english, "religion" -> "If you lose your loved ones you hope the Gods keep them safe in their realms. Maybe you'll understand one day... or maybe you already do?"
-"religion" -> "Wenn du deine Liebsten verloren hast, betest du zu den GÃ¶ttern, dass sie sie sicher in ihrer SpÃ¤hre verweilen lassen. Eines Tags werdet Ihr das verstehen... oder versteht Ihr das schon?"
+"religion" -> "Wenn du deine Liebsten verloren hast, betest du zu den Göttern, dass sie sie sicher in ihrer Spähre verweilen lassen. Eines Tags werdet Ihr das verstehen... oder versteht Ihr das schon?"
 "faith" -> "The Elder Gods have returned."
-"Glaube" -> "Die alten GÃ¶tter sind zurÃ¼ck gekehrt."
+"Glaube" -> "Die alten Götter sind zurück gekehrt."
 
 -- Optional: Faction stuff
 "archmage" -> "I am older than the Archmage. By ages!", "Speak louder, I can't hear you!"
-"Erzmagier" -> "Ich bin Ã¤lter als der Erzmagier. Wesentlich Ã¤lter!", "Sprecht lauter, ich kann Euch nicht hÃ¶ren!"
+"Erzmagier" -> "Ich bin älter als der Erzmagier. Wesentlich älter!", "Sprecht lauter, ich kann Euch nicht hören!"
 english, "Elvaine", "Morgan" -> "I am older than the Archmage. By ages!", "Speak louder, I can't hear you!"
-"Elvaine", "Morgan" -> "Ich bin Ã¤lter als der Erzmagier. Wesentlich Ã¤lter!", "Sprecht lauter, ich kann Euch nicht hÃ¶ren!"
+"Elvaine", "Morgan" -> "Ich bin älter als der Erzmagier. Wesentlich älter!", "Sprecht lauter, ich kann Euch nicht hören!"
 english, "Runewick" -> "Speak louder, I can't hear you!", "No, no. This place is Galmair, sweetheart"
-"Runewick" -> "Sprecht lauter, ich kann Euch nicht hÃ¶ren!", "Nein, nein. Dieser Ort ist Galmair, SchÃ¤tzchen."
+"Runewick" -> "Sprecht lauter, ich kann Euch nicht hören!", "Nein, nein. Dieser Ort ist Galmair, Schätzchen."
 english, "Valerio", "Guilianni", "Don" -> "That's the Don here, he allows me to guard the garbage bin."
-"Valerio", "Guilianni", "Don" -> "Das ist der Don. Er erlaubte mir auf die MÃ¼llkippe zu wachen."
+"Valerio", "Guilianni", "Don" -> "Das ist der Don. Er erlaubte mir auf die Müllkippe zu wachen."
 english, "Galmair" -> "Best place to be."
 "Galmair" -> "Der beste Ort zum verweilen."
 "Queen" -> "Even she will be ugly when she's old, but I'll be dead by then, what a pity."
-"KÃ¶nigin" -> "Auch sie wird hÃ¤ÃŸlich, wenn sie alt wird. Aber dann ich schon tot, schade, schade..."
+"Königin" -> "Auch sie wird häßlich, wenn sie alt wird. Aber dann ich schon tot, schade, schade..."
 english, "rosaline", "edwards" -> "I hate the arrogant brat!"
-"rosaline", "edwards" -> "Ich hasse diese arrogante GÃ¶re!"
+"rosaline", "edwards" -> "Ich hasse diese arrogante Göre!"
 english, "Cadomyr" -> "Speak louder, I can't hear you!", "Cadomyr... what's with Cadomyr?"
-"Cadomyr" -> "Sprecht lauter, ich kann Euch nicht hÃ¶ren!", "Cadomyr? Was ist damit?"
+"Cadomyr" -> "Sprecht lauter, ich kann Euch nicht hören!", "Cadomyr? Was ist damit?"
 
 -- Optional: Main land factions
 english, "albar" -> "Speak louder, I can't hear you!", "Albar...did you say?"
-"albar" -> "Sprecht lauter, ich kann Euch nicht hÃ¶ren!", "Albar...had Ihr gesagt?"
+"albar" -> "Sprecht lauter, ich kann Euch nicht hören!", "Albar...had Ihr gesagt?"
 english, "gynk", "gync" -> "Speak louder, I can't hear you!"
-"gync", "gynk" -> "Sprecht lauter, ich kann Euch nicht hÃ¶ren!"
+"gync", "gynk" -> "Sprecht lauter, ich kann Euch nicht hören!"
 english, "salkama" -> "Speak louder, I can't hear you!"
-"salkama" -> "Sprecht lauter, ich kann Euch nicht hÃ¶ren!"
+"salkama" -> "Sprecht lauter, ich kann Euch nicht hören!"
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "Speak louder, I can't hear you!"
-"Gobaith", "Gobiath" -> "Sprecht lauter, ich kann Euch nicht hÃ¶ren!"
+"Gobaith", "Gobiath" -> "Sprecht lauter, ich kann Euch nicht hören!"
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Speak louder, I can't hear you!", "Haven't I met you before?"
-"mein Name" -> "Sprecht lauter, ich kann Euch nicht hÃ¶ren!", "Habe ich Euch nicht schon einmal gesehen?"
+"mein Name" -> "Sprecht lauter, ich kann Euch nicht hören!", "Habe ich Euch nicht schon einmal gesehen?"
 english, "Gretel", "Goldhair" -> "You asked for me?", "Who asked?", "Did you say something?"
 "Gretel", "Goldhair" -> "Ihr fragt nach mir?", "Wer fragt?", "Habt Ihr was gesagt?"
 "Yes" -> "#me grins showing a set of yellow teeth.", "Very well."
-"Ja" -> "#me grinst und zeigt ein paar gelber ZÃ¤hne.", " SchÃ¶n. SchÃ¶n."
+"Ja" -> "#me grinst und zeigt ein paar gelber Zähne.", " Schön. Schön."
 "No" -> "Oh... that's too sad.", "Speak louder, I can't hear you!"
-"Nein" -> "Oh, das ist jammerschade...", "#me hebt eine Augenbraue.", "Sprecht lauter, ich kann Euch nicht hÃ¶ren!"
+"Nein" -> "Oh, das ist jammerschade...", "#me hebt eine Augenbraue.", "Sprecht lauter, ich kann Euch nicht hören!"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "Speak louder, I can't hear you!", "Did you say something?", "#me looks around"
-german, chance(20.0), ".*" -> "Sprecht lauter, ich kann Euch nicht hÃ¶ren!", "Habt Ihr was gesagt?", "#me schaut sich um."
+german, chance(20.0), ".*" -> "Sprecht lauter, ich kann Euch nicht hören!", "Habt Ihr was gesagt?", "#me schaut sich um."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -209,7 +223,7 @@ german, chance(20.0), ".*" -> "Sprecht lauter, ich kann Euch nicht hÃ¶ren!", "Ha
 
 cycletext "Seht mich an, so werdet auch Ihr aussehen, wenn Ihr alt seid!", "Look at me, you will look just the same when you're old!"
 cycletext "#me kichert irre wie eine alte Hexe.", "#me cackles like an old witch."
-cycletext "#me stÃ¼tzt sich auf ihren Stock.", "#me rests her arms on her walking staff."
+cycletext "#me stützt sich auf ihren Stock.", "#me rests her arms on her walking staff."
 cycletext "#me starrt in die Ferne.", "#me stares across the hall."
 cycletext "#me zieht die Nase hoch. ", "#me snuffles."
 cycletext "#me redet leise mich sich selbst.", "#me talks to herself silently."

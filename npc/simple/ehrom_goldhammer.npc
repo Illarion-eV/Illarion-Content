@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Ehrom Goldhammer                                            Free --
 -- NPC Job:  smuggler                                                         --
@@ -67,132 +81,132 @@ itemShoes = 53
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the smuggler Ehrom Goldhammer. Keywords: Hello, quest, smuggler.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmuggler Ehrom Goldhammer. Schl√ºsselw√∂rter: Hallo, Quest, Schmuggler.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmuggler Ehrom Goldhammer. Schl¸sselwˆrter: Hallo, Quest, Schmuggler.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings! Could it be that Ronagan has sent you to help with my task?"
-"Gr√º√ü", "Gru√ü", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ronagan zum Gru√üe! K√∂nnte es sein, dass Ronagan Euch zu mir geschickt hat, um mir bei meiner Aufgabe zu helfen?"
+"Gr¸ﬂ", "Gruﬂ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ronagan zum Gruﬂe! Kˆnnte es sein, dass Ronagan Euch zu mir geschickt hat, um mir bei meiner Aufgabe zu helfen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings! Could it be that Ronagan has sent you to help with my task?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Ronagan zum Gru√üe! K√∂nnte es sein, dass Ronagan Euch zu mir geschickt hat, um mir bei meiner Aufgabe zu helfen?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Ronagan zum Gruﬂe! Kˆnnte es sein, dass Ronagan Euch zu mir geschickt hat, um mir bei meiner Aufgabe zu helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Ronagan's blessing and watch your back!"
-"Tsch√º√ü", "Tsch√ºss", "Wiedersehen", "Gehab wohl" -> "Ronagans Segen! Und pa√üt auf, was hinter euch passiert."
+"Tsch¸ﬂ", "Tsch¸ss", "Wiedersehen", "Gehab wohl" -> "Ronagans Segen! Und paﬂt auf, was hinter euch passiert."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ronagan's blessing and watch your back!"
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ronagan's Segen! Und Und pa√üt auf, was hinter euch passiert!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ronagan's Segen! Und Und paﬂt auf, was hinter euch passiert!"
 "How are you", "How feel", "How do you do" -> "Besides my poor back I'm fine, thank you! Maybe you can help me with a task?"
-"Wie geht", "Wie f√ºhlst", "Wie ist es ergangen" -> "Abgesehen von meinem R√ºcken geht es mir gut, danke sehr! Vielleicht k√∂nnte Ihr mir ja bei einer Aufgabe helfen."
+"Wie geht", "Wie f¸hlst", "Wie ist es ergangen" -> "Abgesehen von meinem R¸cken geht es mir gut, danke sehr! Vielleicht kˆnnte Ihr mir ja bei einer Aufgabe helfen."
 "your name", "who are you", "who art thou" -> "In front of you stands the smuggler Ehrom Goldhammer, aye!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie hei√üt" -> "Vor Euch steht der Schmuggler Ehrom Goldhammer, aye!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt" -> "Vor Euch steht der Schmuggler Ehrom Goldhammer, aye!"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Get five copper goblets.
 queststatus(72) = 0, english, "quest", "mission" -> inform("[New quest] The Smuggler I"), queststatus(72) = 1, "So you want to help me? A client of mine needs five copper goblets for a banquet, but I cannot get to Cadomyr's finesmiths to obtain them. I'll reward you generously!"
-queststatus(72) = 0, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler I"), queststatus(72) = 1, "Ihr wollt mir also helfen. Einer meiner Klienten ben√∂tigt f√ºnf Kupferkelche f√ºr ein Bankett. Ich kann allerdings nicht nach Cadomyr gehen, um sie von den Schmieden dort zu besorgen. Ich werde euch gro√üz√ºgig belohnen!"
+queststatus(72) = 0, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler I"), queststatus(72) = 1, "Ihr wollt mir also helfen. Einer meiner Klienten benˆtigt f¸nf Kupferkelche f¸r ein Bankett. Ich kann allerdings nicht nach Cadomyr gehen, um sie von den Schmieden dort zu besorgen. Ich werde euch groﬂz¸gig belohnen!"
 queststatus(72) = 0, "task", "adventure" -> inform("[New quest] The Smuggler I"), queststatus(72) = 1, "So you want to help me? A client of mine needs five copper goblets for a banquet, but I cannot get to Cadomyr's finesmiths to obtain them. I'll reward you generously!"
-queststatus(72) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler I"), queststatus(72) = 1, "Ihr wollt mir also helfen. Einer meiner Klienten ben√∂tigt f√ºnf Kupferkelche f√ºr ein Bankett. Ich kann allerdings nicht nach Cadomyr gehen, um sie von den Schmieden dort zu besorgen. Ich werde euch gro√üz√ºgig belohnen!"
+queststatus(72) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler I"), queststatus(72) = 1, "Ihr wollt mir also helfen. Einer meiner Klienten benˆtigt f¸nf Kupferkelche f¸r ein Bankett. Ich kann allerdings nicht nach Cadomyr gehen, um sie von den Schmieden dort zu besorgen. Ich werde euch groﬂz¸gig belohnen!"
 queststatus(72) = 1, item(1840, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 50 silver coins."), money + 5000, deleteItem(1840, 5), queststatus(72) = 2, "By Ronagan, you brought copper goblets. Take these silver coins as a small appreciation. I could use your service again for another order as well."
-queststatus(72) = 1, item(1840, all) > 4, ".+" -> inform("[Quest gel√∂st] Du erh√§ltst 50 Silberst√ºcke."), money + 5000, deleteItem(1840, 5), queststatus(72) = 2, "Bei Ronagan, ihr habt tats√§chlich die Kupferkelche gebracht. Nehmt diese Silberst√ºcke als kleine Anerkennung. Allerdings k√∂nnte ich nochmal Eure Dienste bei einem Auftrag brauchen."
+queststatus(72) = 1, item(1840, all) > 4, ".+" -> inform("[Quest gelˆst] Du erh‰ltst 50 Silberst¸cke."), money + 5000, deleteItem(1840, 5), queststatus(72) = 2, "Bei Ronagan, ihr habt tats‰chlich die Kupferkelche gebracht. Nehmt diese Silberst¸cke als kleine Anerkennung. Allerdings kˆnnte ich nochmal Eure Dienste bei einem Auftrag brauchen."
 queststatus(72) = 1, english, "quest", "mission" -> "I need at least five copper goblets. Return to me when you have them."
-queststatus(72) = 1, "quest", "mission" -> "Ich brauche wenigstens f√ºnf Kupferkelche. Kehrt zur√ºck wenn ihr sie habt."
+queststatus(72) = 1, "quest", "mission" -> "Ich brauche wenigstens f¸nf Kupferkelche. Kehrt zur¸ck wenn ihr sie habt."
 queststatus(72) = 1, "task", "adventure" -> "I need at least five copper goblets. Return to me when you have them."
-queststatus(72) = 1, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich brauche wenigstens f√ºnf Kupferkelche. Kehrt zur√ºck wenn ihr sie habt."
+queststatus(72) = 1, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich brauche wenigstens f¸nf Kupferkelche. Kehrt zur¸ck wenn ihr sie habt."
 
 -- 2nd quest: Get two dwarven state armour.
 queststatus(72) = 2, english, "quest", "mission" -> inform("[New quest] The Smuggler II"), queststatus(72) = 3, "I got a new order from abroad. A dwarven sovereign has ordered two dwarven state armours but I cannot get to Galmair to get them due to... personal reasons. Please help me for a reward."
-queststatus(72) = 2, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler II"), queststatus(72) = 3, "Ich habe eine neue Bestellung aus einem fernen Land bekommen. Ein Zwergenherrscher ben√∂tigt zwei Zwergenprunkr√ºstungen, ich kann aber aus... pers√∂nlichen Gr√ºnden nicht einfach nach Galmair spazieren, um sie zu holen. Helft mir bitte, f√ºr eine angemessene Belohnung."
+queststatus(72) = 2, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler II"), queststatus(72) = 3, "Ich habe eine neue Bestellung aus einem fernen Land bekommen. Ein Zwergenherrscher benˆtigt zwei Zwergenprunkr¸stungen, ich kann aber aus... persˆnlichen Gr¸nden nicht einfach nach Galmair spazieren, um sie zu holen. Helft mir bitte, f¸r eine angemessene Belohnung."
 queststatus(72) = 2, "task", "adventure" -> inform("[New quest] The Smuggler II"), queststatus(72) = 3, "I got a new order from abroad. A dwarven sovereign has ordered two dwarven state armours but I cannot get to Galmair to get them due to... personal reasons. Please help me for a reward."
-queststatus(72) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler II"), queststatus(72) = 3, "Ich habe eine neue Bestellung aus einem fernen Land bekommen. Ein Zwergenherrscher ben√∂tigt zwei Zwergenprunkr√ºstungen, ich kann aber aus... pers√∂nlichen Gr√ºnden nicht einfach nach Galmair spazieren, um sie zu holen. Helft mir bitte, f√ºr eine angemessene Belohnung."
+queststatus(72) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler II"), queststatus(72) = 3, "Ich habe eine neue Bestellung aus einem fernen Land bekommen. Ein Zwergenherrscher benˆtigt zwei Zwergenprunkr¸stungen, ich kann aber aus... persˆnlichen Gr¸nden nicht einfach nach Galmair spazieren, um sie zu holen. Helft mir bitte, f¸r eine angemessene Belohnung."
 queststatus(72) = 3, item(2390, all) > 1, english, ".+" -> inform("[Quest solved] You are awarded five gold coins."), money + 50000, deleteItem(2390, 2), queststatus(72) = 4, "Aye aye, I have to say that you are getting better and better. These gold coins are yours now."
-queststatus(72) = 3, item(2390, all) > 1, ".+" -> inform("[Quest gel√∂st] Du erh√§ltst f√ºnf Goldst√ºcke."), money + 50000, deleteItem(2390, 2), queststatus(72) = 4, "Aye aye, ich mu√ü schon sagen, Ihr werdet immer besser. Diese Goldst√ºcke geh√∂ren nun Euch."
+queststatus(72) = 3, item(2390, all) > 1, ".+" -> inform("[Quest gelˆst] Du erh‰ltst f¸nf Goldst¸cke."), money + 50000, deleteItem(2390, 2), queststatus(72) = 4, "Aye aye, ich muﬂ schon sagen, Ihr werdet immer besser. Diese Goldst¸cke gehˆren nun Euch."
 queststatus(72) = 3, english, "quest", "mission" -> "My customer needs two dwarven state armours, discrete and fast."
-queststatus(72) = 3, "quest", "mission" -> "Mein Kunde ben√∂tigt zwei diskret erworbene Zwergenprunkr√ºstungen. Bitte beeilt euch."
+queststatus(72) = 3, "quest", "mission" -> "Mein Kunde benˆtigt zwei diskret erworbene Zwergenprunkr¸stungen. Bitte beeilt euch."
 queststatus(72) = 3, "task", "adventure" -> "My customer needs two dwarven state armours, discrete and fast."
-queststatus(72) = 3, "Auftrag", "Aufgabe", "Abenteuer" -> "Mein Kunde ben√∂tigt zwei diskret erworbene Zwergenprunkr√ºstungen. Bitte beeilt euch."
+queststatus(72) = 3, "Auftrag", "Aufgabe", "Abenteuer" -> "Mein Kunde benˆtigt zwei diskret erworbene Zwergenprunkr¸stungen. Bitte beeilt euch."
 
 -- 3rd quest: Get 5 black priest robe.
 queststatus(72) = 4, english, "quest", "mission" -> inform("[New quest] The Smuggler III"), queststatus(72) = 5, "A customer, who prefers to remain unnamed, ordered five black priest robes of Runewick origin, 'For his freshmen', he said. Will you bring me those?"
-queststatus(72) = 4, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler III"), queststatus(72) = 5, "Einer meiner Auftraggeber, der unerkannt bleiben m√∂chte, hat f√ºnf schwarze Priesterroben nach Runewick-Machart bestellt. 'F√ºr seine Frischlinge', hat er gesagt. Besorgt ihr mir die?"
+queststatus(72) = 4, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler III"), queststatus(72) = 5, "Einer meiner Auftraggeber, der unerkannt bleiben mˆchte, hat f¸nf schwarze Priesterroben nach Runewick-Machart bestellt. 'F¸r seine Frischlinge', hat er gesagt. Besorgt ihr mir die?"
 queststatus(72) = 4, "task", "adventure" -> inform("[New quest] The Smuggler III"), queststatus(72) = 5, "A customer, who prefers to remain unnamed, ordered five black priest robes of Runewick origin, 'For his freshmen', he said. Will you bring me those?"
-queststatus(72) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler III"), queststatus(72) = 5, "Einer meiner Auftraggeber, der unerkannt bleiben m√∂chte, hat f√ºnf schwarze Priesterroben nach Runewick-Machart bestellt. 'F√ºr seine Frischlinge', hat er gesagt. Besorgt ihr mir die?"
+queststatus(72) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler III"), queststatus(72) = 5, "Einer meiner Auftraggeber, der unerkannt bleiben mˆchte, hat f¸nf schwarze Priesterroben nach Runewick-Machart bestellt. 'F¸r seine Frischlinge', hat er gesagt. Besorgt ihr mir die?"
 queststatus(72) = 5, item(2420, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded an obsidian ring and a magical obsidian."), deleteItem(2420, 5), item(278, 1, 999), item(283, 1, 333, "gemLevel" = "1"), queststatus(72) = 6, "It seems as though Ronagan is looking on you benevolently. My customer gave me this ring in advance, it is now yours."
-queststatus(72) = 5, item(2420, all) > 4, ".+" -> inform("[Quest gel√∂st] Du erh√§ltst einen Obsidianring und einen magischen Obsidian."), deleteItem(2420, 5), item(278, 1, 999), item(283, 1, 333, "gemLevel" = "1"), queststatus(72) = 6, "Es scheint, als w√§re Ronagan Euch wohlgesonnen. Mein Auftraggeber gab mir diesen Ring als Anzahlung, er ist nun Euer."
+queststatus(72) = 5, item(2420, all) > 4, ".+" -> inform("[Quest gelˆst] Du erh‰ltst einen Obsidianring und einen magischen Obsidian."), deleteItem(2420, 5), item(278, 1, 999), item(283, 1, 333, "gemLevel" = "1"), queststatus(72) = 6, "Es scheint, als w‰re Ronagan Euch wohlgesonnen. Mein Auftraggeber gab mir diesen Ring als Anzahlung, er ist nun Euer."
 queststatus(72) = 5, english, "quest", "mission" -> "Just five black priest robes is all I still need for my customer... and no questions."
-queststatus(72) = 5, "quest", "mission" -> "F√ºnf schwarze Priesterroben sind alles, was ich f√ºr meinen Kunden brauche. Und keine Fragen."
+queststatus(72) = 5, "quest", "mission" -> "F¸nf schwarze Priesterroben sind alles, was ich f¸r meinen Kunden brauche. Und keine Fragen."
 queststatus(72) = 5, "task", "adventure" -> "Just five black priest robes is all I still need for my customer... and no questions."
-queststatus(72) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> "F√ºnf schwarze Priesterroben sind alles, was ich f√ºr meinen Kunden brauche. Und keine Fragen."
+queststatus(72) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> "F¸nf schwarze Priesterroben sind alles, was ich f¸r meinen Kunden brauche. Und keine Fragen."
 
 -- 4th quest: Get a wand of air.
 queststatus(72) = 6, english, "quest", "mission" -> inform("[New quest] The Smuggler IV"), queststatus(72) = 7, "Psst! I need you for a very special task. Sneak into Runewick and get me a wand of air. For what? None of your business!"
-queststatus(72) = 6, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler IV"), queststatus(72) = 7, "Psst! Ich brauche euch f√ºr eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab der Luft. Wof√ºr? Das geht euch nichts an!"
+queststatus(72) = 6, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler IV"), queststatus(72) = 7, "Psst! Ich brauche euch f¸r eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab der Luft. Wof¸r? Das geht euch nichts an!"
 queststatus(72) = 6, "task", "adventure" -> inform("[New quest] The Smuggler II"), queststatus(72) = 7, "Psst! I need you for a very special task. Sneak into Runewick and get me a wand of air. For what? None of your business!"
-queststatus(72) = 6, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler IV"), queststatus(72) = 7, "Psst! Ich brauche euch f√ºr eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab der Luft. Wof√ºr? Das geht euch nichts an!"
+queststatus(72) = 6, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler IV"), queststatus(72) = 7, "Psst! Ich brauche euch f¸r eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab der Luft. Wof¸r? Das geht euch nichts an!"
 queststatus(72) = 7, item(2785, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a fire longsword."), deleteItem(2785, 1), item(206, 1, 999), queststatus(72) = 8, "Ronagan's thanks... yes, this wand should be good enough. I just have this sword for your, I want to get rid of it. Do not ask why and accept it."
-queststatus(72) = 7, item(2785, all) > 0, ".+" -> inform("[Quest gel√∂st] Du erh√§ltst ein Feuerlangschwert."), deleteItem(2785, 1), item(206, 1, 999), queststatus(72) = 8, "Ronagans Dank... ja, dieser Zauberstab sollte gut genug sein. Ich habe nur dieses Schwert f√ºr euch, welches ich gerne loswerden w√ºrde. Fragt nicht, warum und nehmt es an."
+queststatus(72) = 7, item(2785, all) > 0, ".+" -> inform("[Quest gelˆst] Du erh‰ltst ein Feuerlangschwert."), deleteItem(2785, 1), item(206, 1, 999), queststatus(72) = 8, "Ronagans Dank... ja, dieser Zauberstab sollte gut genug sein. Ich habe nur dieses Schwert f¸r euch, welches ich gerne loswerden w¸rde. Fragt nicht, warum und nehmt es an."
 queststatus(72) = 7, english, "quest", "mission" -> "Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer."
-queststatus(72) = 7, "quest", "mission" -> "Ronagan wei√ü, dass ich mich bem√ºhe. Bem√ºht euch auch und bringt mir einen Stab der Luft f√ºr meinen Kunden."
+queststatus(72) = 7, "quest", "mission" -> "Ronagan weiﬂ, dass ich mich bem¸he. Bem¸ht euch auch und bringt mir einen Stab der Luft f¸r meinen Kunden."
 queststatus(72) = 7, "task", "adventure" -> "Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer."
-queststatus(72) = 7, "Auftrag", "Aufgabe", "Abenteuer" -> "Ronagan wei√ü, dass ich mich bem√ºhe. Bem√ºht euch auch und bringt mir einen Stab der Luft f√ºr meinen Kunden."
+queststatus(72) = 7, "Auftrag", "Aufgabe", "Abenteuer" -> "Ronagan weiﬂ, dass ich mich bem¸he. Bem¸ht euch auch und bringt mir einen Stab der Luft f¸r meinen Kunden."
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(72) = 8, english, "quest", "mission" -> "Ronagan be with you... there is nothing left that you can do for me at the moment."
-queststatus(72) = 8, "quest", "mission" -> "Ronagan mit Euch... es ist nichts √ºbrig, was Ihr f√ºr mich momentan tun k√∂nntet."
+queststatus(72) = 8, "quest", "mission" -> "Ronagan mit Euch... es ist nichts ¸brig, was Ihr f¸r mich momentan tun kˆnntet."
 queststatus(72) = 8, "task", "adventure" -> "Ronagan be with you... there is nothing left that you can do for me at the moment."
-queststatus(72) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> "Ronagan mit Euch... es ist nichts √ºbrig, was Ihr f√ºr mich momentan tun k√∂nntet."
+queststatus(72) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> "Ronagan mit Euch... es ist nichts ¸brig, was Ihr f¸r mich momentan tun kˆnntet."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Smuggler is such a loaded word. I make goods available to those who have no access to them... at a cost."
-"beruf" -> "Schmuggler, das ist so ein vorbelastetes Wort. Ich mache Waren denen zug√§nglich, die sie normalerweise nicht bekommen w√ºrden... f√ºr eine Geb√ºhr."
+"beruf" -> "Schmuggler, das ist so ein vorbelastetes Wort. Ich mache Waren denen zug‰nglich, die sie normalerweise nicht bekommen w¸rden... f¸r eine Geb¸hr."
 english, "job" -> "Smuggler is such a loaded word. I make goods available to those who have no access to them... at a cost."
-"job" -> "Schmuggler, das ist so ein vorbelastetes Wort. Ich mache Waren denen zug√§nglich, die sie normalerweise nicht bekommen w√ºrden... f√ºr eine Geb√ºhr."
+"job" -> "Schmuggler, das ist so ein vorbelastetes Wort. Ich mache Waren denen zug‰nglich, die sie normalerweise nicht bekommen w¸rden... f¸r eine Geb¸hr."
 english, "Gobaith", "Gobiath" -> "I used to sell Sibanac to some halfling fellow on Gobaith... Brendan Mason was his name."
 "Gobaith", "Gobiath" -> "Ich hab damals Sibanac mit einem Halbling auf Gobaith gehandelt... Brendan Mason war sein Name."
 "my name" -> "You gave me your name, what do you want from me now? Money?"
-"mein Name" -> "Danke f√ºr euren Namen, was wollt ihr jetzt von mir? Geld?"
+"mein Name" -> "Danke f¸r euren Namen, was wollt ihr jetzt von mir? Geld?"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "smuggler", "smuggle" -> "Smuggler is such a loaded word. I make goods available to those who have no access to them... at a cost."
-"Schmuggler", "Schmuggel" -> "Schmuggler, das ist so ein vorbelastetes Wort. Ich mache Waren denen zug√§nglich, die sie normalerweise nicht bekommen w√ºrden... f√ºr eine Geb√ºhr."
+"Schmuggler", "Schmuggel" -> "Schmuggler, das ist so ein vorbelastetes Wort. Ich mache Waren denen zug‰nglich, die sie normalerweise nicht bekommen w¸rden... f¸r eine Geb¸hr."
 english, "tunnel" -> "As we dwarves like to say: Tunnels are absence of rock in a mountain, but you should always mind your head in the tunnels."
 "Stollen", "Tunnel" -> "Wie wir Zwerge immer sagen: Stollen sind Abwesenheit von Gestein in einem Berg. Aber Ihr solltet in den Stollen immer auf Euren Kopf aufpassen."
 "mountain" -> "Yes, it is true that we dwarves prefer to live under a mountain. We enjoy the comfort and protection the sturdiness of the rocks provide... and the wealth inside."
-"Berg" -> "Ja, es ist wahr, wir Zwerge bevorzugen es, unter einem Berg zu leben. Wir genie√üen die beruhigende und besch√ºtzende Festigkeit des Gesteins... und seinen Reichtum im Inneren."
+"Berg" -> "Ja, es ist wahr, wir Zwerge bevorzugen es, unter einem Berg zu leben. Wir genieﬂen die beruhigende und besch¸tzende Festigkeit des Gesteins... und seinen Reichtum im Inneren."
 "wealth" -> "Well, wealth leads to envy, envy leads to war, and war leads to suffering... So wealth is both a blessing and a curse. Ronagan knows that, aye."
-"Reichtum", "Reicht√ºmer" -> "Nun, Reichtum f√ºhrt zu Neid. Neid f√ºhrt zu Krieg. Krieg f√ºhrt zu Leid. Reichtum ist also sowohl ein Segen als auch ein Fluch. Ronagan wei√ü das, aye."
+"Reichtum", "Reicht¸mer" -> "Nun, Reichtum f¸hrt zu Neid. Neid f¸hrt zu Krieg. Krieg f¸hrt zu Leid. Reichtum ist also sowohl ein Segen als auch ein Fluch. Ronagan weiﬂ das, aye."
 "darkness" -> "Darkness is part of a life under the mountain. We dwarves can live with it easily but people from the world above sometimes have a problem with it, although you can use a portable light source to fight the darkness."
-"Dunkelheit" -> "Dunkelheit ist Teil des Lebens unter dem Berg. Wir Zwerge k√∂nnen leicht damit leben, aber Leute von der Welt oben haben manchmal ein Problem damit. Aber Ihr k√∂nnt eine tragbare Lichtquelle verwenden, um die Dunkelheit zu bek√§mpfen."
+"Dunkelheit" -> "Dunkelheit ist Teil des Lebens unter dem Berg. Wir Zwerge kˆnnen leicht damit leben, aber Leute von der Welt oben haben manchmal ein Problem damit. Aber Ihr kˆnnt eine tragbare Lichtquelle verwenden, um die Dunkelheit zu bek‰mpfen."
 "light" -> "There may not be much daylight under the mountain but we have other light sources. We use torches, candles, lanterns or lamps."
 "Licht", "Lichtquelle" -> "Es mag vielleicht nicht genug Tageslicht unter dem Berg geben aber wir haben andere Lichtquellen. Wir verwenden Fackeln, Kerzen, Laternen oder Lampen."
 english, "portal" -> "I have heard that there are portals all over the land. They seem to be linked with each other somehow. You step inside, announce where you want to go and in a blink of an eye you are there. I would never use such a magic device."
-"Portal" -> "Ich habe geh√∂rt, dass es √ºberall Portale gibt. Sie scheinen irgendwie miteinander verbunden zu sein. Man betritt sie, sagt wohin man will und im n√§chten Augenblick ist man dort. Ich w√ºrde nie ein solches magisches Ger√§t benutzen."
+"Portal" -> "Ich habe gehˆrt, dass es ¸berall Portale gibt. Sie scheinen irgendwie miteinander verbunden zu sein. Man betritt sie, sagt wohin man will und im n‰chten Augenblick ist man dort. Ich w¸rde nie ein solches magisches Ger‰t benutzen."
 
 -- Tool hints
 "pickaxe" -> "The pickaxe is the best tool for mining, but don't be fooled by the simple appearance. It is difficult to master. You wouldn't be the first to end up with a pickaxe in your leg, so please be careful!"
-"Spitzhacke" -> "Die Spitzhacke ist das beste Werkzeug f√ºr den Bergbau. Aber la√üt Euch nicht vom einfachen √Ñu√üeren t√§uschen. Es ist schwer zu meistern. Ihr w√§ret nicht der Erste mit einer Spitzhacke im Bein endet, also seid bitte vorsichtig!"
+"Spitzhacke" -> "Die Spitzhacke ist das beste Werkzeug f¸r den Bergbau. Aber laﬂt Euch nicht vom einfachen ƒuﬂeren t‰uschen. Es ist schwer zu meistern. Ihr w‰ret nicht der Erste mit einer Spitzhacke im Bein endet, also seid bitte vorsichtig!"
 english, "hammer" -> "The hammer is the token of any smith. There are different hammers for each and every purpose. It is important to use the right hammer for each task."
-german, "Hammer" -> "Der Hammer ist das Erkennungsmerkmaler aller Schmiede. Es gibt verschiedene H√§mmer f√ºr jeden Zweck. Es ist wichtig den richtigen Hammer f√ºr die entsprechende Aufgabe zu benutzen."
+german, "Hammer" -> "Der Hammer ist das Erkennungsmerkmaler aller Schmiede. Es gibt verschiedene H‰mmer f¸r jeden Zweck. Es ist wichtig den richtigen Hammer f¸r die entsprechende Aufgabe zu benutzen."
 "gem" -> "Gems are the true treasures of the mountains. There are many different gems but they all have something in common, they are all rare and you'll need a lot of luck to find suitable raw pieces, I can tell you."
-"Edelstein" -> "Edelsteine sind der wahre Schatz des Berges. Es gibt viele verschiedene Edelsteine, aber alle haben etwas gemeinsam. Sie sind alle sehr selten und Ihr braucht schon viel Gl√ºck passende rohe St√ºcke zu finden, das kann ich Euch sagen."
+"Edelstein" -> "Edelsteine sind der wahre Schatz des Berges. Es gibt viele verschiedene Edelsteine, aber alle haben etwas gemeinsam. Sie sind alle sehr selten und Ihr braucht schon viel Gl¸ck passende rohe St¸cke zu finden, das kann ich Euch sagen."
 
 -- Faction stuff
 english, "archmage" -> "If Archmage Morgan knew that his minions ordered things from me, I think he would slap them with a book."
-"Erzmagier" -> "Wenn Erzmagier Morgan w√º√üte, dass seine Leute bei mir Waren bestellen, dann w√ºrde er sie sicher mit einem Buch verpr√ºgeln."
+"Erzmagier" -> "Wenn Erzmagier Morgan w¸ﬂte, dass seine Leute bei mir Waren bestellen, dann w¸rde er sie sicher mit einem Buch verpr¸geln."
 english, "Elvaine", "Morgan" -> "If Archmage Morgan knew that his minions ordered things from me, I think he would slap them with a book."
-"Elvaine", "Morgan" -> "Wenn Erzmagier Morgan w√º√üte, dass seine Leute bei mir Waren bestellen, dann w√ºrde er sie sicher mit einem Buch verpr√ºgeln."
+"Elvaine", "Morgan" -> "Wenn Erzmagier Morgan w¸ﬂte, dass seine Leute bei mir Waren bestellen, dann w¸rde er sie sicher mit einem Buch verpr¸geln."
 english, "Runewick" -> "The people of Runewick come to me to buy metals and minerals. If you look for them you have to travel south and east."
-"Runewick" -> "Die Leute aus Runewick kommen zu mir, um Metalle und Mineralien einzutauschen. Wenn Ihr sie sucht, so m√º√üt Ihr nach S√ºden und Osten reisen."
+"Runewick" -> "Die Leute aus Runewick kommen zu mir, um Metalle und Mineralien einzutauschen. Wenn Ihr sie sucht, so m¸ﬂt Ihr nach S¸den und Osten reisen."
 english, "Valerio", "Guilianni", "don" -> "If the Don did not rule Galmair, I'd be there again. He interfered with my business too much, so I... had to leave."
-"Valerio", "Guilianni", "don" -> "Wenn der Don nicht Galmair kontrollieren w√ºrde, w√§re ich l√§ngst wieder da. Er hat sich zu sehr in mein Gesch√§ft eingemischt, also... musste ich das Weite suchen."
+"Valerio", "Guilianni", "don" -> "Wenn der Don nicht Galmair kontrollieren w¸rde, w‰re ich l‰ngst wieder da. Er hat sich zu sehr in mein Gesch‰ft eingemischt, also... musste ich das Weite suchen."
 english, "Galmair" -> "Oh, Galmair. You want to know about Galmair? It is much like us dwarves. It may not appear to be much on the outside, but its wealth lies within. More I won't reveal at the moment."
-"Galmair" -> "Oh, Galmair. Ihr m√∂chtet etwas √ºber Galmair erfahren? Es ist wie wir Zwerge. Es mag von au√üen als nicht viel erscheinen, aber sein Reichtum liegt innen. Mehr werde ich im Moment nicht verraten."
+"Galmair" -> "Oh, Galmair. Ihr mˆchtet etwas ¸ber Galmair erfahren? Es ist wie wir Zwerge. Es mag von auﬂen als nicht viel erscheinen, aber sein Reichtum liegt innen. Mehr werde ich im Moment nicht verraten."
 english, "Queen" -> "The Queen has placed a bounty on my head, literally, on my head... so, I had better avoid the desert."
-"K√∂nigin" -> "Die K√∂nigin hat ein Kopfgeld auf mich ausgesetzt. Genauer, auf meinen Kopf, im wahrsten Sinne des Wortes. Also bleibe ich besser der W√ºste fern."
+"Kˆnigin" -> "Die Kˆnigin hat ein Kopfgeld auf mich ausgesetzt. Genauer, auf meinen Kopf, im wahrsten Sinne des Wortes. Also bleibe ich besser der W¸ste fern."
 english, "rosaline", "edwards" -> "The Queen has placed a bounty on my head, literally, on my head... So, I had better avoid the desert."
-"rosaline", "edwards" -> "Die K√∂nigin hat ein Kopfgeld auf mich ausgesetzt. Genauer, auf meinen Kopf, im wahrsten Sinne des Wortes. Also bleibe ich besser der W√ºste fern."
+"rosaline", "edwards" -> "Die Kˆnigin hat ein Kopfgeld auf mich ausgesetzt. Genauer, auf meinen Kopf, im wahrsten Sinne des Wortes. Also bleibe ich besser der W¸ste fern."
 english, "Cadomyr" -> "Cadomyr is wealthy, but they don't like me there anymore. I have no honour, they say, so I don't deserve to have a head anymore."
-"Cadomyr" -> "Cadomyr ist reich an Sch√§tzen, aber sie m√∂gen mich nicht mehr dort. Ich h√§tte keine Ehre, sagen sie, und daher sollte ich auch keinen Kopf mehr verdient haben."
+"Cadomyr" -> "Cadomyr ist reich an Sch‰tzen, aber sie mˆgen mich nicht mehr dort. Ich h‰tte keine Ehre, sagen sie, und daher sollte ich auch keinen Kopf mehr verdient haben."
 
 -- Main land factions
 english, "albar" -> "Albar?! Oh please, let us talk about something more relevant."
-"albar" -> "Albar?! Oh, bitte, lasst uns √ºber etwas wichtigeres sprechen."
+"albar" -> "Albar?! Oh, bitte, lasst uns ¸ber etwas wichtigeres sprechen."
 english, "gynk", "gync" -> "Some think, all dwarves come from Seven mountains. I am from Gynk and proud of it!"
 "gync", "gynk" -> "Viele denken, alle Zwerge kommen aus Siebenbergen. Ich bin aus Gynk und stolz darauf."
 english, "salkama" -> "Salkamar, where is that, anyway?"
@@ -200,7 +214,7 @@ english, "salkama" -> "Salkamar, where is that, anyway?"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "You may guess what god I pray to. One hint: It isn't Sirani."
-"Gott", "G√∂tter" -> "Ihr d√ºrft dreimal raten, zu welchem Gott ich bete. Ein Tipp: Es ist nicht Sirani."
+"Gott", "Gˆtter" -> "Ihr d¸rft dreimal raten, zu welchem Gott ich bete. Ein Tipp: Es ist nicht Sirani."
 english, "Irmorom" -> "Hmm? Shhh!"
 "Irmorom" -> "Hmm? Shhh!"
 english, "Ronagan" -> "I pray to Ronagan, but it is more a matter of respect than worshipping."
@@ -208,9 +222,9 @@ english, "Ronagan" -> "I pray to Ronagan, but it is more a matter of respect tha
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I don't have anything I want to sell at the moment, but I have a special task for you."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich gibt momentan nichts, was ich handeln m√∂chte. Aber ich habe einen Sonderauftrag f√ºr euch."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich gibt momentan nichts, was ich handeln mˆchte. Aber ich habe einen Sonderauftrag f¸r euch."
 "tell something" -> "I don't have time to tell stories. Ronagan be my witness, I'm a dwarf of deeds not of words."
-"erz√§hl was", "erz√§hl etwas" -> "Ich habe keine Zeit Geschichten zu erz√§hlen. Ronagan sei mein Zeug, ich bin ein Zwerg der Taten, nicht der Worte."
+"erz‰hl was", "erz‰hl etwas" -> "Ich habe keine Zeit Geschichten zu erz‰hlen. Ronagan sei mein Zeug, ich bin ein Zwerg der Taten, nicht der Worte."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Ehrom", "Goldhammer" -> "Ehrom Goldhammer is indeed my name. Who told you? Me?"
@@ -227,7 +241,7 @@ english, "Ehrom", "Goldhammer" -> "Ehrom Goldhammer is indeed my name. Who told 
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me begutachtet einen Edelstein in seiner Hand sehr sorgf√§ltig.", "#me inspects a gem in his hand thoroughly."
+cycletext "#me begutachtet einen Edelstein in seiner Hand sehr sorgf‰ltig.", "#me inspects a gem in his hand thoroughly."
 cycletext "#me streicht seinen dunkelgrauen Bart.", "#me strokes his dark grey beard."
 cycletext "#me murmelt etwas in seinen dunkelgrauen Bart.", "#me voices something under his breath."
 cycletext "#me betrachtet nachdenklich einen Stein in seiner Hand aus allen Winkeln bevor er ihn wegwirft.", "#me examines a stone in his hand thoughtfully from all angles before throwing it away."
@@ -236,4 +250,4 @@ cycletext "Arr.", "Arr."
 cycletext "Arr?", "Arr?"
 cycletext "Das wird einen guten Preis erzielen.", "This will yield a good price."
 cycletext "Geheimverstecke? Pah, je offener, desto besser, dann fragt keiner.", "Secret compartment? Pah, the more visible, the better. Nobody is gonna ask then."
-cycletext "Ein gutes Gesch√§ft verlangt nicht nach einem guten Gewissen.", "A good business does not require a good conscience."
+cycletext "Ein gutes Gesch‰ft verlangt nicht nach einem guten Gewissen.", "A good business does not require a good conscience."

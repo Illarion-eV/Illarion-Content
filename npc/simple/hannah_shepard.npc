@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Hannah Shepard                                           Galmair --
 -- NPC Job:  Cook and farmer                                                  --
@@ -46,27 +60,27 @@ itemShoes = 0
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Hannah Shepard the cook and farmer. Keywords: quest")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hannah Shepard die KÃ¶chin und BÃ¤uerin. SchlÃ¼sselwÃ¶rter: Quest")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hannah Shepard die Köchin und Bäuerin. Schlüsselwörter: Quest")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, can I help you?", "Nice to meet you, I'm Hannah Shepard."
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich Euch helfen?", "Freut mich Euch zu treffen. Ich bin Hannah Shepard."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich Euch helfen?", "Freut mich Euch zu treffen. Ich bin Hannah Shepard."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, can I help you?", "Nice to meet you, I'm Hannah Shepard."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, kann ich Euch helfen?", "Freut mich Euch zu treffen. Ich bin Hannah Shepard."
 "Farewell", "Bye", "Fare well", "See you" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen" -> "Ich wÃ¼nsche Euch noch einen schÃ¶nen Tag.", "Ich hoffe wir sehen uns wieder, auf bald!"
+"Tschüß", "Tschüss", "Wiedersehen" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe wir sehen uns wieder, auf bald!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich wÃ¼nsche Euch noch einen schÃ¶nen Tag.", "Ich hoffe wir sehen uns wieder, auf bald!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe wir sehen uns wieder, auf bald!"
 "How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke fÃ¼r die Nachfrage."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke für die Nachfrage."
 "your name", "who are you", "who art thou" -> "I'm Hannah Shepard, who are you?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Hannah Shepard, wer bist du?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Hannah Shepard, wer bist du?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a cook and farmer. Do you want to know more about these jobs? Then just ask me for a task!"
-"beruf" -> "Ich bin KÃ¶chin und BÃ¤uerin. Wollt Ihr mehr darÃ¼ber wissen? Dann fragt mich einfach nach einer Aufgabe!"
+"beruf" -> "Ich bin Köchin und Bäuerin. Wollt Ihr mehr darüber wissen? Dann fragt mich einfach nach einer Aufgabe!"
 english, "job" -> "I'm a cook and farmer. Do you want to know more about these jobs? Then just ask me for a task!"
-"job" -> "Ich bin KÃ¶chin und BÃ¤uerin. Wollt Ihr mehr darÃ¼ber wissen? Dann fragt mich einfach nach einer Aufgabe!"
+"job" -> "Ich bin Köchin und Bäuerin. Wollt Ihr mehr darüber wissen? Dann fragt mich einfach nach einer Aufgabe!"
 
 -- Quests
 queststatus(712) = 1, queststatus(711) > 0, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(703) = 2, "Ah Joey sent you, but you have already asked me for something to do."
@@ -74,57 +88,57 @@ queststatus(711) > 0, queststatus(712) = 1, town = Galmair, "quest", "mission", 
 queststatus(711) > 0, queststatus(712) = 1, town = Galmair, "task", "adventure", "order" -> queststatus(703) = 2, "Ah Joey sent you, but you have already asked me for something to do."
 queststatus(711) > 0, queststatus(712) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 2, "Ah, Joey hat Euch geschickt, aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 queststatus(711) = 0, queststatus(712) = 1, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> item(259, 10, 777), item(271, 1, 777), queststatus(711) = 1, queststatus(712) = 2, "Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me ten bundles of grain."
-queststatus(711) = 0, queststatus(712) = 1, town = Galmair, "quest", "mission", "joey", "licavoli" -> item(259, 10, 777), item(271, 1, 777), queststatus(711) = 1, queststatus(712) = 2, "Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Baut etwas Getreide fÃ¼r mich an. DafÃ¼r braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesÃ¤t habt und es reif ist, sammelt die GetreidebÃ¼ndel mit der Sense, die ich Euch gebe, und zeigt mir zehn BÃ¼ndel."
+queststatus(711) = 0, queststatus(712) = 1, town = Galmair, "quest", "mission", "joey", "licavoli" -> item(259, 10, 777), item(271, 1, 777), queststatus(711) = 1, queststatus(712) = 2, "Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Baut etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir zehn Bündel."
 queststatus(711) = 0, queststatus(712) = 1, town = Galmair, "task", "adventure", "order" -> item(259, 10, 777), item(271, 1, 777), queststatus(711) = 1, queststatus(712) = 2, "Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me ten bundles of grain."
-queststatus(711) = 0, queststatus(712) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(259, 10, 777), item(271, 1, 777), queststatus(711) = 1, queststatus(712) = 2, "Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Baut etwas Getreide fÃ¼r mich an. DafÃ¼r braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesÃ¤t habt und es reif ist, sammelt die GetreidebÃ¼ndel mit der Sense, die ich Euch gebe, und zeigt mir zehn BÃ¼ndel."
+queststatus(711) = 0, queststatus(712) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(259, 10, 777), item(271, 1, 777), queststatus(711) = 1, queststatus(712) = 2, "Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Baut etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir zehn Bündel."
 queststatus(711) = 0, english, town = Galmair, "quest", "mission" -> item(259, 10, 777), item(271, 1, 777), queststatus(711) = 1, "Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me ten bundles of grain."
-queststatus(711) = 0, town = Galmair, "quest", "mission" -> item(259, 10, 777), item(271, 1, 777), queststatus(711) = 1, "Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Baut etwas Getreide fÃ¼r mich an. DafÃ¼r braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesÃ¤t habt und es reif ist, sammelt die GetreidebÃ¼ndel mit der Sense, die ich Euch gebe, und zeigt mir zehn BÃ¼ndel."
+queststatus(711) = 0, town = Galmair, "quest", "mission" -> item(259, 10, 777), item(271, 1, 777), queststatus(711) = 1, "Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Baut etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir zehn Bündel."
 queststatus(711) = 0, town = Galmair, "task", "adventure", "order" -> item(259, 10, 777), item(271, 1, 777), queststatus(711) = 1, "Oh, you want a task? Very well, let's start with something simple. Sow some of this grain I give you on the fields over there. Once the crop is ready, harvest the ripened grain with this scythe I give you and show me ten bundles of grain."
-queststatus(711) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(259, 10, 777), item(271, 1, 777), queststatus(711) = 1, "Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Baut etwas Getreide fÃ¼r mich an. DafÃ¼r braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesÃ¤t habt und es reif ist, sammelt die GetreidebÃ¼ndel mit der Sense, die ich Euch gebe, und zeigt mir zehn BÃ¼ndel."
+queststatus(711) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(259, 10, 777), item(271, 1, 777), queststatus(711) = 1, "Oh, Ihr wollt eine Aufgabe? Nun gut, fangen wir mit etwas einfachem an. Baut etwas Getreide für mich an. Dafür braucht Ihr nur etwas Getreide, dass Ihr von mir kriegt. Sobald Ihr es auf den Feldern gesät habt und es reif ist, sammelt die Getreidebündel mit der Sense, die ich Euch gebe, und zeigt mir zehn Bündel."
 queststatus(711) = 1, item(249, all) > 9, english, town = Galmair, "quest", "mission", "grain", "bundle" -> deleteItem(249, 5), queststatus(711) = 2, "Well done, thank you. Please keep the remaining grain for your next task."
-queststatus(711) = 1, item(249, all) > 9, town = Galmair, "quest", "mission", "getreide", "bÃ¼ndle" -> deleteItem(249, 5), queststatus(711) = 2, "Gut gemacht, danke. Bitte behaltet das Ã¼brige Getreide fÃ¼r Eure nÃ¤chste Aufgabe."
+queststatus(711) = 1, item(249, all) > 9, town = Galmair, "quest", "mission", "getreide", "bündle" -> deleteItem(249, 5), queststatus(711) = 2, "Gut gemacht, danke. Bitte behaltet das übrige Getreide für Eure nächste Aufgabe."
 queststatus(711) = 1, item(249, all) > 9, town = Galmair, "task", "adventure", "order" -> deleteItem(249, 5), queststatus(711) = 2, "Well done, thank you. Please keep the remaining grain for your next task."
-queststatus(711) = 1, item(249, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(249, 5), queststatus(711) = 2, "Gut gemacht, danke. Bitte behaltet das Ã¼brige Getreide fÃ¼r Eure nÃ¤chste Aufgabe."
+queststatus(711) = 1, item(249, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(249, 5), queststatus(711) = 2, "Gut gemacht, danke. Bitte behaltet das übrige Getreide für Eure nächste Aufgabe."
 queststatus(711) = 1, item(249, all) < 10, english, town = Galmair, ".+" -> "That isn't ten bundles of grain yet, please come back once you've finished this task."
-queststatus(711) = 1, item(249, all) < 10, town = Galmair, ".+" -> "Das sind noch keine zehn GetreidebÃ¼ndel. Kommt wieder wenn Ihr die Aufgabe erledigt habt."
+queststatus(711) = 1, item(249, all) < 10, town = Galmair, ".+" -> "Das sind noch keine zehn Getreidebündel. Kommt wieder wenn Ihr die Aufgabe erledigt habt."
 queststatus(711) = 2, english, town = Galmair, "quest", "mission" -> item(258, 1, 777), item(312, 1, 777), queststatus(711) = 3, "You want another task? Alright, thresh the bundles of grain using this flail I give you, to produce grain. Once you have done that, go into the city, make your way to the palace and enter the first room on the right-hand side. Once you are there, make five sacks of flour at the millstone with the wooden shovel I give you. Then return and show me the result."
-queststatus(711) = 2, town = Galmair, "quest", "mission" -> item(258, 1, 777), item(312, 1, 777), queststatus(711) = 3, "Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den Ã¼brigen GetreidebÃ¼ndeln Getreide. Sobald Ihr damit fertig seid, geht in die Stadt und dann in den Palast hinein.Dort geht Ihr in den Raum gleich rechts und macht, mit der Holzkelle von mir, fÃ¼nf SÃ¤cke Mehl am MÃ¼hlstein. Kommt anschlieÃŸend zurÃ¼ck zu mir."
+queststatus(711) = 2, town = Galmair, "quest", "mission" -> item(258, 1, 777), item(312, 1, 777), queststatus(711) = 3, "Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den übrigen Getreidebündeln Getreide. Sobald Ihr damit fertig seid, geht in die Stadt und dann in den Palast hinein.Dort geht Ihr in den Raum gleich rechts und macht, mit der Holzkelle von mir, fünf Säcke Mehl am Mühlstein. Kommt anschließend zurück zu mir."
 queststatus(711) = 2, town = Galmair, "task", "adventure", "order" -> item(258, 1, 777), item(312, 1, 777), queststatus(711) = 3, "You want another task? Alright, thresh the bundles of grain using this flail I give you, to produce grain. Once you have done that, go into the city, make your way to the palace and enter the first room on the right-hand side. Once you are there, make five sacks of flour at the millstone with the wooden shovel I give you. Then return and show me the result."
-queststatus(711) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(258, 1, 777), item(312, 1, 777), queststatus(711) = 3, "Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den Ã¼brigen GetreidebÃ¼ndeln Getreide. Sobald Ihr damit fertig seid, geht in die Stadt und dann in den Palast hinein. Dort geht Ihr in den Raum gleich rechts und macht, mit der Holzkelle von mir, fÃ¼nf SÃ¤cke Mehl am MÃ¼hlstein. Kommt anschlieÃŸend zurÃ¼ck zu mir."
+queststatus(711) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(258, 1, 777), item(312, 1, 777), queststatus(711) = 3, "Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den übrigen Getreidebündeln Getreide. Sobald Ihr damit fertig seid, geht in die Stadt und dann in den Palast hinein. Dort geht Ihr in den Raum gleich rechts und macht, mit der Holzkelle von mir, fünf Säcke Mehl am Mühlstein. Kommt anschließend zurück zu mir."
 queststatus(711) = 3, item(2, all) > 4, english, town = Galmair, "quest", "mission", "flour" -> queststatus(711) = 4, "Well done. Please keep the flour for your next task."
-queststatus(711) = 3, item(2, all) > 4, town = Galmair, "quest", "mission", "mehl" -> queststatus(711) = 4, "Gut gemacht. Bitte behaltet das Mehl fÃ¼r Eure nÃ¤chste Aufgabe."
+queststatus(711) = 3, item(2, all) > 4, town = Galmair, "quest", "mission", "mehl" -> queststatus(711) = 4, "Gut gemacht. Bitte behaltet das Mehl für Eure nächste Aufgabe."
 queststatus(711) = 3, item(2, all) > 4, town = Galmair, "task", "adventure", "order" -> queststatus(711) = 4, "Well done. Please keep the flour for your next task."
-queststatus(711) = 3, item(2, all) > 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(711) = 4, "Gut gemacht. Bitte behaltet das Mehl fÃ¼r Eure nÃ¤chste Aufgabe."
+queststatus(711) = 3, item(2, all) > 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(711) = 4, "Gut gemacht. Bitte behaltet das Mehl für Eure nächste Aufgabe."
 queststatus(711) = 3, item(2, all) < 5, english, town = Galmair, ".+" -> "I wanted five sacks of flour, come back once you have fulfilled this task."
-queststatus(711) = 3, item(2, all) < 5, town = Galmair, ".+" -> "Ich wollte fÃ¼nf SÃ¤cke Mehl von Euch. Kommt wieder wenn Ihr die Aufgabe erfÃ¼llt habt."
+queststatus(711) = 3, item(2, all) < 5, town = Galmair, ".+" -> "Ich wollte fünf Säcke Mehl von Euch. Kommt wieder wenn Ihr die Aufgabe erfüllt habt."
 queststatus(711) = 4, english, town = Galmair, "quest", "mission" -> item(121, 1, 555), item(52, 5, 333), queststatus(711) = 5, "Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets of water to make the bread rolls. I'll give you my old peel and five buckets of water so you can practise a little bit. Now go back to the palace and bake five bread rolls for me at the baking oven. Show me the result once you are done."
-queststatus(711) = 4, town = Galmair, "quest", "mission" -> item(121, 1, 555), item(52, 5, 333), queststatus(711) = 5, "Gut, nun machen wir einige BrÃ¶tchen. DafÃ¼r braucht Ihr einen Brotschieber, das Mehl das Ihr bereits habt und natÃ¼rlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fÃ¼nf Eimer, damit Ihr etwas Ã¼ben kÃ¶nnt. Nun geht zum Palast zurÃ¼ck und backt mir am Backofen fÃ¼nf BrÃ¶tchen und bringt mir diese."
+queststatus(711) = 4, town = Galmair, "quest", "mission" -> item(121, 1, 555), item(52, 5, 333), queststatus(711) = 5, "Gut, nun machen wir einige Brötchen. Dafür braucht Ihr einen Brotschieber, das Mehl das Ihr bereits habt und natürlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fünf Eimer, damit Ihr etwas üben könnt. Nun geht zum Palast zurück und backt mir am Backofen fünf Brötchen und bringt mir diese."
 queststatus(711) = 4, town = Galmair, "task", "adventure", "order" -> item(121, 1, 555), item(52, 5, 333), queststatus(711) = 5, "Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets of water to make the bread rolls. I'll give you my old peel and five buckets of water so you can practise a little bit. Now go back to the palace and bake five bread rolls for me at the baking oven. Show me the result once you are done."
-queststatus(711) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(121, 1, 555), item(52, 5, 333), queststatus(711) = 5, "Gut, nun machen wir einige BrÃ¶tchen. DafÃ¼r braucht Ihr einen Brotschieber, das Mehl das Ihr bereits habt und natÃ¼rlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fÃ¼nf Eimer, damit Ihr etwas Ã¼ben kÃ¶nnt. Nun geht zum Palast zurÃ¼ck und backt mir am Backofen fÃ¼nf BrÃ¶tchen und bringt mir diese."
+queststatus(711) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(121, 1, 555), item(52, 5, 333), queststatus(711) = 5, "Gut, nun machen wir einige Brötchen. Dafür braucht Ihr einen Brotschieber, das Mehl das Ihr bereits habt und natürlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fünf Eimer, damit Ihr etwas üben könnt. Nun geht zum Palast zurück und backt mir am Backofen fünf Brötchen und bringt mir diese."
 queststatus(711) = 5, item(191, all) > 4, english, town = Galmair, "quest", "mission", "bread", "roll" -> deleteItem(191, 5), queststatus(711) = 6, "Well done, thank you very much. If you have more time I can give you another task."
-queststatus(711) = 5, item(191, all) > 4, town = Galmair, "quest", "mission", "brÃ¶t" -> deleteItem(191, 5), queststatus(711) = 6, "Gut gemacht, vielen Dank. Wenn Ihr noch etwas Zeit erÃ¼brigen kÃ¶nnt, hÃ¤tte ich eine weitere Aufgabe fÃ¼r Euch."
+queststatus(711) = 5, item(191, all) > 4, town = Galmair, "quest", "mission", "bröt" -> deleteItem(191, 5), queststatus(711) = 6, "Gut gemacht, vielen Dank. Wenn Ihr noch etwas Zeit erübrigen könnt, hätte ich eine weitere Aufgabe für Euch."
 queststatus(711) = 5, item(191, all) > 4, town = Galmair, "task", "adventure", "order" -> deleteItem(191, 5), queststatus(711) = 6, "Well done, thank you very much. If you have more time I can give you another task."
-queststatus(711) = 5, item(191, all) > 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(191, 5), queststatus(711) = 6, "Gut gemacht, vielen Dank. Wenn Ihr noch etwas Zeit erÃ¼brigen kÃ¶nnt, hÃ¤tte ich eine weitere Aufgabe fÃ¼r Euch."
+queststatus(711) = 5, item(191, all) > 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(191, 5), queststatus(711) = 6, "Gut gemacht, vielen Dank. Wenn Ihr noch etwas Zeit erübrigen könnt, hätte ich eine weitere Aufgabe für Euch."
 queststatus(711) = 5, item(191, all) < 5, english, town = Galmair, ".+" -> "You haven't solved the task yet. Come back once you've got the five bread rolls I'm looking for."
-queststatus(711) = 5, item(191, all) < 5, town = Galmair, ".+" -> "Ihr habt die Aufgabe noch nicht erfÃ¼llt wie ich sehe. Bitte bringt mir fÃ¼nf BrÃ¶tchen."
+queststatus(711) = 5, item(191, all) < 5, town = Galmair, ".+" -> "Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bringt mir fünf Brötchen."
 queststatus(711) = 6, english, town = Galmair, "quest", "mission" -> item(307, 5, 777), item(63, 5, 777), item(227, 1, 777), queststatus(711) = 7, "Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and entrails if you kill pigs. Once you have that you will need a cooking spoon and a kettle like this one in front of me to cook. I'll give you five pieces of pork, five lengths of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done."
-queststatus(711) = 6, town = Galmair, "quest", "mission" -> item(307, 5, 777), item(63, 5, 777), item(227, 1, 777), queststatus(711) = 7, "Genug vom Backen, jetzt kochen wir etwas schÃ¶nes! Ein guter Anfang sind wohl WÃ¼rstchen, dazu braucht Ihr etwas Schweinefleisch und Eingeweide. Beides findet Ihr, wenn Ihr Schweine erlegt. Um das ganze dann zu kochen braucht Ihr einen KochlÃ¶ffel und so einen Kessel, den Ihr vor mir sehen kÃ¶nnt. Ich gebe Euch fÃ¼nf StÃ¼ck Fleisch, fÃ¼nf Eingeweide und einen KochlÃ¶ffel, damit Ihr etwas Ã¼ben kÃ¶nnt. Bringt mir fÃ¼nf WÃ¼rstchen sobald Ihr fertig seid."
+queststatus(711) = 6, town = Galmair, "quest", "mission" -> item(307, 5, 777), item(63, 5, 777), item(227, 1, 777), queststatus(711) = 7, "Genug vom Backen, jetzt kochen wir etwas schönes! Ein guter Anfang sind wohl Würstchen, dazu braucht Ihr etwas Schweinefleisch und Eingeweide. Beides findet Ihr, wenn Ihr Schweine erlegt. Um das ganze dann zu kochen braucht Ihr einen Kochlöffel und so einen Kessel, den Ihr vor mir sehen könnt. Ich gebe Euch fünf Stück Fleisch, fünf Eingeweide und einen Kochlöffel, damit Ihr etwas üben könnt. Bringt mir fünf Würstchen sobald Ihr fertig seid."
 queststatus(711) = 6, town = Galmair, "task", "adventure", "order" -> item(307, 5, 777), item(63, 5, 777), item(227, 1, 777), queststatus(711) = 7, "Enough with baking, now we will cook something nice! Let's start with sausages, you will need pork and entrails to produce sausages. You can get the pork and entrails if you kill pigs. Once you have that you will need a cooking spoon and a kettle like this one in front of me to cook. I'll give you five pieces of pork, five lengths of entrails and one cooking spoon to practise a little bit. Bring me five sausages once you are done."
-queststatus(711) = 6, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(307, 5, 777), item(63, 5, 777), item(227, 1, 777), queststatus(711) = 7, "Genug vom Backen, jetzt kochen wir etwas schÃ¶nes! Ein guter Anfang sind wohl WÃ¼rstchen, dazu braucht Ihr etwas Schweinefleisch und Eingeweide. Beides findet Ihr, wenn Ihr Schweine erlegt. Um das ganze dann zu kochen braucht Ihr einen KochlÃ¶ffel und so einen Kessel, den Ihr vor mir sehen kÃ¶nnt. Ich gebe Euch fÃ¼nf StÃ¼ck Fleisch, fÃ¼nf Eingeweide und einen KochlÃ¶ffel, damit Ihr etwas Ã¼ben kÃ¶nnt. Bringt mir fÃ¼nf WÃ¼rstchen sobald Ihr fertig seid."
+queststatus(711) = 6, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(307, 5, 777), item(63, 5, 777), item(227, 1, 777), queststatus(711) = 7, "Genug vom Backen, jetzt kochen wir etwas schönes! Ein guter Anfang sind wohl Würstchen, dazu braucht Ihr etwas Schweinefleisch und Eingeweide. Beides findet Ihr, wenn Ihr Schweine erlegt. Um das ganze dann zu kochen braucht Ihr einen Kochlöffel und so einen Kessel, den Ihr vor mir sehen könnt. Ich gebe Euch fünf Stück Fleisch, fünf Eingeweide und einen Kochlöffel, damit Ihr etwas üben könnt. Bringt mir fünf Würstchen sobald Ihr fertig seid."
 queststatus(711) = 7, item(3051, all) > 4, english, town = Galmair, "quest", "mission", "sausage" -> deleteItem(3051, 5), queststatus(711) = 8, "Well done, thank you very much. I hope I was able to teach you something."
-queststatus(711) = 7, item(3051, all) > 4, town = Galmair, "quest", "mission", "wurst", "wÃ¼rstchen" -> deleteItem(3051, 5), queststatus(711) = 8, "Gut gemacht, vielen Dank. Ich hoffe ich konnte euch etwas beibringen."
+queststatus(711) = 7, item(3051, all) > 4, town = Galmair, "quest", "mission", "wurst", "würstchen" -> deleteItem(3051, 5), queststatus(711) = 8, "Gut gemacht, vielen Dank. Ich hoffe ich konnte euch etwas beibringen."
 queststatus(711) = 7, item(3051, all) > 4, town = Galmair, "task", "adventure", "order" -> deleteItem(3051, 5), queststatus(711) = 8, "Well done, thank you very much. I hope I was able to teach you something."
 queststatus(711) = 7, item(3051, all) > 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(3051, 5), queststatus(711) = 8, "Gut gemacht, vielen Dank. Ich hoffe ich konnte euch etwas beibringen."
 queststatus(711) = 7, item(3051, all) < 5, english, town = Galmair, ".+" -> "You haven't solved the task yet. Come back once you have five sausages for me."
-queststatus(711) = 7, item(3051, all) < 5, town = Galmair, ".+" -> "Ihr habt die Aufgabe noch nicht erfÃ¼llt wie ich sehe. Bitte bringt mir fÃ¼nf WÃ¼rstchen."
+queststatus(711) = 7, item(3051, all) < 5, town = Galmair, ".+" -> "Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bringt mir fünf Würstchen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 queststatus(711) = 8, english, town = Galmair, ".*" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(711) = 8, german, town = Galmair, ".*" -> "Ich habe nichts weiter fÃ¼r Euch zu tun. Aber danke nochmals fÃ¼r Eure Hilfe!"
+queststatus(711) = 8, german, town = Galmair, ".*" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
 queststatus(711) < 8, english, town = Galmair, ".*" -> "I could use some help, just ask me for a task."
-queststatus(711) < 8, german, town = Galmair, ".*" -> "Ich kÃ¶nnte etwas Hilfe gebrauchen. Fragt mich ruhig nach einer Aufgabe."
+queststatus(711) < 8, german, town = Galmair, ".*" -> "Ich könnte etwas Hilfe gebrauchen. Fragt mich ruhig nach einer Aufgabe."
 english, ".*" -> "You are not a citizen of Galmair. I don't have anything for you to do."
-german, ".*" -> "Ihr scheint kein BÃ¼rger Galmairs zu sein. Ich habe nichts fÃ¼r Euch zu tun."
+german, ".*" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -133,6 +147,6 @@ german, ".*" -> "Ihr scheint kein BÃ¼rger Galmairs zu sein. Ich habe nichts fÃ¼r
 
 cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
 cycletext "Wenn Ihr Hilfe beim Kochen und Backen braucht dann fragt mich nur!", "If you need any help with baking and cooking, just ask me!"
-cycletext "#me gÃ¤hnt verhalten.", "#me yawns restrained."
+cycletext "#me gähnt verhalten.", "#me yawns restrained."
 cycletext "#me pfeift eine Melodie.", "#me whistles a melody."
 cycletext "#me liest einen Brief.", "#me reads a letter."

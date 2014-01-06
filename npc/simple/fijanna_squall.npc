@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Fijanna Squall                                              None --
 -- NPC Job:  fortune teller                                                   --
@@ -53,61 +67,61 @@ itemShoes = 53
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Fijanna Squall the fortune teller. Keywords: Fortune, greetings, profession, Findari.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Fijanna Squall die Wahrsagerin. Schl√ºsselw√∂rter: Zukunft, Gr√º√üe, Beruf, Findari.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Fijanna Squall die Wahrsagerin. Schl¸sselwˆrter: Zukunft, Gr¸ﬂe, Beruf, Findari.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted in the name of the Goddess of air.", "Greetings, traveller."
-"Gr√º√ü", "Gru√ü", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Sei gegr√º√üt im Namen der G√∂ttin der Luft.", "Sei gegr√º√üt, Reisender."
+"Gr¸ﬂ", "Gruﬂ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Sei gegr¸ﬂt im Namen der Gˆttin der Luft.", "Sei gegr¸ﬂt, Reisender."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted in the name of the Goddess of air.", "Greetings, traveller."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Sei gegr√º√üt im Namen der G√∂ttin der Luft.", "Sei gegr√º√üt, Reisender."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Sei gegr¸ﬂt im Namen der Gˆttin der Luft.", "Sei gegr¸ﬂt, Reisender."
 "Farewell", "Bye", "Fare well", "See you" -> "May Findari watch over you.", "Safe paths, traveller.", "Farewell."
-"Tsch√º√ü", "Tsch√ºss", "Wiedersehen", "Gehab wohl" -> "M√∂ge Findari √ºber dich wachen.", "Sichere Pfade, Reisender.", "Auf Bald."
+"Tsch¸ﬂ", "Tsch¸ss", "Wiedersehen", "Gehab wohl" -> "Mˆge Findari ¸ber dich wachen.", "Sichere Pfade, Reisender.", "Auf Bald."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Findari watch over you.", "Safe paths, traveller.", "Farewell."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "M√∂ge Findari √ºber dich wachen.", "Sichere Pfade, Reisender.", "Auf Bald."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Mˆge Findari ¸ber dich wachen.", "Sichere Pfade, Reisender.", "Auf Bald."
 "How are you", "How feel", "How do you do" -> "I feel the wind. I know where it went, and I know the places where it will go. Do you feel the wind?", "I feel as light as air."
-"Wie geht", "Wie f√ºhlst", "Wie ist es ergangen", "Wie Befind" -> "Ich sp√ºre den Wind. Ich wei√ü woher er kam und wohin er geht. Sp√ºrst du den Wind?", "Ich f√ºhle mich so leicht wie Luft."
+"Wie geht", "Wie f¸hlst", "Wie ist es ergangen", "Wie Befind" -> "Ich sp¸re den Wind. Ich weiﬂ woher er kam und wohin er geht. Sp¸rst du den Wind?", "Ich f¸hle mich so leicht wie Luft."
 "your name", "who are you", "who art thou" -> "I am Fijanna Spuall, a travelling Seer.", "I am a travelling priest of the Goddess of air. My name is Fijanna. Nice to meet you.", "My Name is Fijanna. Nice to meet you."
-"dein name", "wer bist du", "wer seid ihr", "wie hei√üt" -> "Ich bin Fijanna Spuall, eine wandernde Seherin.", "Ich bin eine reisende Priesterin der G√∂ttin der Luft. Ich hei√üe Fijanna. Es freut mich dich zu treffen.", "Ich hei√üe Fijanna. Freut mich dich zu sehen."
+"dein name", "wer bist du", "wer seid ihr", "wie heiﬂt" -> "Ich bin Fijanna Spuall, eine wandernde Seherin.", "Ich bin eine reisende Priesterin der Gˆttin der Luft. Ich heiﬂe Fijanna. Es freut mich dich zu treffen.", "Ich heiﬂe Fijanna. Freut mich dich zu sehen."
 
 -- Fortune telling phrases
 state = 1, money => 100, "Yes" -> state = 2, money - 300, "Very well. I shall tell your fortune. What do you want to hear?"
-state = 1, money => 100, "Ja" -> state = 2, money - 300, "Gut. Ich werde deine Zukunft lesen. Wor√ºber m√∂chtest du etwas erfahren?"
+state = 1, money => 100, "Ja" -> state = 2, money - 300, "Gut. Ich werde deine Zukunft lesen. Wor¸ber mˆchtest du etwas erfahren?"
 state = 1, "Yes" -> state = 0, "Seems like, you didn't bring enough coins with you..."
-state = 1, "Ja" -> state = 0, "Sieht so aus als h√§ttest du nicht gen√ºgen M√ºnzen mit..."
+state = 1, "Ja" -> state = 0, "Sieht so aus als h‰ttest du nicht gen¸gen M¸nzen mit..."
 state = 1, "No", "Thanks" -> state = 0, "Come back anytime you want to hear about your fortune."
-state = 1, "Nein", "Danke" -> state = 0, "Komm einfach wieder vorbei wenn du etwas √ºber deine Zukunft erfahren m√∂chtest."
+state = 1, "Nein", "Danke" -> state = 0, "Komm einfach wieder vorbei wenn du etwas ¸ber deine Zukunft erfahren mˆchtest."
 state = 1, english, ".*" -> "Do you want to hear your fortune in exchange for three silver coins? Say yes or no."
-state = 1, ".*" -> "Willst du deine Zukunft im Tausch f√ºr drei  Silberst√ºcke gesagt bekommen? Antwortet einfach mit ja oder nein."
+state = 1, ".*" -> "Willst du deine Zukunft im Tausch f¸r drei  Silberst¸cke gesagt bekommen? Antwortet einfach mit ja oder nein."
 
 -- Warnings
 state = 2, english, ".*" -> state = 0, ". . . run!", "You'll need strong friends", "Take good care of yourself during the next few days.", "Stay away from trouble as far as possible.", "Avoiding monsters will keep you safe.", "In the near future you'll need lots of luck.", "In the near future you'd better be very careful.", "It would be wise to avoid unnecessary danger", "I'm sorry, you will experience a disappointment."
-state = 2, chance(33.0), ".*" -> state = 0, ". . . lauf!", "Du wirst starke Freunde brauchen.", "Gibt in n√§chster Zeit gut auf dich Acht.", "Meide Schwierigkeiten soweit es geht.", "Gehe Monstern besser aus dem Weg, sonst erwartet dich Ungl√ºck.", "Du wirst in n√§chster Zeit viel Gl√ºck gebrauchen k√∂nnen.", "Sei in n√§chster Zeit sehr vorsichtig.", "Besser du meidest unn√∂tige Gefahren.", "Es tut mir leid. Dich erwartet eine Entt√§uschung."
+state = 2, chance(33.0), ".*" -> state = 0, ". . . lauf!", "Du wirst starke Freunde brauchen.", "Gibt in n‰chster Zeit gut auf dich Acht.", "Meide Schwierigkeiten soweit es geht.", "Gehe Monstern besser aus dem Weg, sonst erwartet dich Ungl¸ck.", "Du wirst in n‰chster Zeit viel Gl¸ck gebrauchen kˆnnen.", "Sei in n‰chster Zeit sehr vorsichtig.", "Besser du meidest unnˆtige Gefahren.", "Es tut mir leid. Dich erwartet eine Entt‰uschung."
 
 -- Hints and Advice
 state = 2, english, ".*" -> state = 0, "Pride will result in a fall", "Consider this, if you sow mischief, you'll reap conflict.", "As you make your bed, so you must lie on it. Consider this well.", "Be friendly and others will be friendly to you as well.", "Smiling and laughing will open the doors for the good things in life.", "You will go on an adventure.", "You will achieve fame but you'll have to work for that.", "Take good care of yourself, that's all I can tell you.", "Be careful not to make enemies.", "Don't try your luck.", "Don't anger the Gods.", " You'll make a new acquaintance.", "Hard work will pay off.", "Work diligently and you won't regret it.", "Believe in yourself, and you'll achieve great things.", "You'll be famous one day, but you have to work for it.", "Think positive, that's the only advice I can give you."
-state = 2, chance(53.0), ".*" -> state = 0, "Bedenke, Hochmut kommt vor dem Fall.", "Bedenke: Wer Streit sucht, wird √Ñrger finden.", "Wie man sich bettet so liegt man. Denke dar√ºber nach.", "Sei freundlich zu anderen und sie werden freundlich zu dir sein.", "L√§cheln und Lachen sind T√ºr und Pforte durch die viel Gutes in den Menschen hineinschl√ºpfen kann", "Du wirst ein Abenteuer erleben.", "Du wirst Ruhm erlangen, aber du musst auch etwas daf√ºr tun.", "Gib auf dich Acht, das ist alles was ich dir raten kann.", "Gib Acht, dass du dir keine Feinde machst.", "Fordere das Gl√ºck nicht heraus.", "√Ñrgere die G√∂tter nicht.", "Du wirst eine neue Bekanntschaft machen.", "Harte Arbeit wird sich f√ºr dich auszahlen.", "Sei flei√üig und du wirst es nicht bereuen.", "Glaube an dich selbst, und du wirst gro√ües erreichen", "Du wirst Ruhm erlangen, aber du musst auch etwas daf√ºr tun.", "Alles was du brauchst ist Glaube an dich und an deine F√§higkeiten.", "Denke Positiv, das ist der einzige Rat den ich dir geben kann."
+state = 2, chance(53.0), ".*" -> state = 0, "Bedenke, Hochmut kommt vor dem Fall.", "Bedenke: Wer Streit sucht, wird ƒrger finden.", "Wie man sich bettet so liegt man. Denke dar¸ber nach.", "Sei freundlich zu anderen und sie werden freundlich zu dir sein.", "L‰cheln und Lachen sind T¸r und Pforte durch die viel Gutes in den Menschen hineinschl¸pfen kann", "Du wirst ein Abenteuer erleben.", "Du wirst Ruhm erlangen, aber du musst auch etwas daf¸r tun.", "Gib auf dich Acht, das ist alles was ich dir raten kann.", "Gib Acht, dass du dir keine Feinde machst.", "Fordere das Gl¸ck nicht heraus.", "ƒrgere die Gˆtter nicht.", "Du wirst eine neue Bekanntschaft machen.", "Harte Arbeit wird sich f¸r dich auszahlen.", "Sei fleiﬂig und du wirst es nicht bereuen.", "Glaube an dich selbst, und du wirst groﬂes erreichen", "Du wirst Ruhm erlangen, aber du musst auch etwas daf¸r tun.", "Alles was du brauchst ist Glaube an dich und an deine F‰higkeiten.", "Denke Positiv, das ist der einzige Rat den ich dir geben kann."
 
 -- nice Words
 state = 2, english, ".*" -> state = 0, "Wealth is waiting for you.", "You will receive a present.", "You will be very lucky in the near future.", "You will have a positive experience.", "You'll find new friends.", "You'll see the good in others.", "You'll find a new friend."
-state = 2, ".*" -> state = 0, "Dich erwartet Reichtum", "Du wirst ein Geschenk bekommen.", "Du wirst Geld finden.", "Du wirst in n√§chster Zeit gro√ües Gl√ºck haben.", "Du wirst positive Erfahrungen machen.", "Du wirst neue Freunde finden.", "Du wirst das Gute in anderen erkennen.", "Du wirst einen neuen Freund finden."
+state = 2, ".*" -> state = 0, "Dich erwartet Reichtum", "Du wirst ein Geschenk bekommen.", "Du wirst Geld finden.", "Du wirst in n‰chster Zeit groﬂes Gl¸ck haben.", "Du wirst positive Erfahrungen machen.", "Du wirst neue Freunde finden.", "Du wirst das Gute in anderen erkennen.", "Du wirst einen neuen Freund finden."
 
 -- Fortune telling phrases - starting point
 "fortune", "future" -> state = 1, "I'll tell you your future, if you give me three silver coins in return. Do you want to hear about your fortune?"
-"Zukunft" -> state = 1, "Ich sage dir deine Zukunft voraus, wenn du mir daf√ºr drei Silberst√ºcke gibst. M√∂chtest du etwas √ºber deine  Zukunft h√∂ren?"
+"Zukunft" -> state = 1, "Ich sage dir deine Zukunft voraus, wenn du mir daf¸r drei Silberst¸cke gibst. Mˆchtest du etwas ¸ber deine  Zukunft hˆren?"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a fortune teller. You know what a fortune teller does?", "I listen to the wind and the people.", "People come and ask me for advice and so I give advice."
-"beruf" -> "Ich bin eine Wahrsagerin. Wisst ihr was eine Wahrsagerin tut?", "Ich h√∂re dem Wind und den Leuten zu.", "Die Leute kommen und fragen mich um Rat, also gebe ich Rat."
+"beruf" -> "Ich bin eine Wahrsagerin. Wisst ihr was eine Wahrsagerin tut?", "Ich hˆre dem Wind und den Leuten zu.", "Die Leute kommen und fragen mich um Rat, also gebe ich Rat."
 english, "job" -> "I am a fortune teller. You know what a fortune teller does?", "I listen to the wind and the people.", "People come and ask me for advice and so I give advice."
-"job" -> "Ich bin eine Wahrsagerin. Wisst ihr was eine Wahrsagerin tut?", "Ich h√∂re dem Wind und den Leuten zu.", "Die Leute kommen und fragen mich um Rat, also gebe ich Rat."
+"job" -> "Ich bin eine Wahrsagerin. Wisst ihr was eine Wahrsagerin tut?", "Ich hˆre dem Wind und den Leuten zu.", "Die Leute kommen und fragen mich um Rat, also gebe ich Rat."
 "tell something" -> "We all breath air, so do the animals and the plants."
-"erz√§hl was", "erz√§hl etwas" -> "Wir alle atmen Luft. Auch die Tiere und Pflanzen."
+"erz‰hl was", "erz‰hl etwas" -> "Wir alle atmen Luft. Auch die Tiere und Pflanzen."
 english, "Findari" -> "Oh, the Goddess of air, all my prayers are for her.", "Yes, the Goddess of air, all my doing is done to serve her."
-"Findari" -> "Oh, die G√∂ttin der Luft. All meine Gebete gelten ihr.", "Ja, die G√∂ttin der Luft, alle mein Tun ist getan um ihr zu dienen."
+"Findari" -> "Oh, die Gˆttin der Luft. All meine Gebete gelten ihr.", "Ja, die Gˆttin der Luft, alle mein Tun ist getan um ihr zu dienen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "I feel the wind...", "Can you hear the wind?", "#me closes her eyes for a moment."
-german, chance(20.0), ".*" -> "Ich sp√ºre den Wind...", "Kannst du den Wind h√∂ren?", "#me schlie√üt f√ºr einen Moment ihre Augen."
+german, chance(20.0), ".*" -> "Ich sp¸re den Wind...", "Kannst du den Wind hˆren?", "#me schlieﬂt f¸r einen Moment ihre Augen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -115,8 +129,8 @@ german, chance(20.0), ".*" -> "Ich sp√ºre den Wind...", "Kannst du den Wind h√∂r
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me breitet ihre Arme im Wind aus.", "#me stretches her arms to the wind."
-cycletext "#me l√§chelt.", "#me smiles."
-cycletext "#me schlie√üt f√ºr einen Moment ihre Augen.", "#me closes her eyes for a moment."
-cycletext "Ich sp√ºre den Wind...", "I feel the wind..."
-cycletext "Kannst du den Wind h√∂ren?", "Can you hear the wind?"
+cycletext "#me l‰chelt.", "#me smiles."
+cycletext "#me schlieﬂt f¸r einen Moment ihre Augen.", "#me closes her eyes for a moment."
+cycletext "Ich sp¸re den Wind...", "I feel the wind..."
+cycletext "Kannst du den Wind hˆren?", "Can you hear the wind?"
 cycletext "#me atmet tief ein.", "#me takes a deep breath."

@@ -1,3 +1,19 @@
+--[[
+Illarion Server
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+details.
+
+You should have received a copy of the GNU Affero General Public License along
+with this program.  If not, see <http://www.gnu.org/licenses/>. 
+]]
 -- Quest: A spark to a flame (113)/(114)
 require("base.common")
 
@@ -22,7 +38,7 @@ function Init()
       messageG[4]="[Queststatus] Du näherst dich dem Altar Tanoras. Täuscht du dich oder liegt hier Nebel in der Luft?";
       messageG[5]="[Queststatus] Du näherst dich dem Altar Findaris. Eine Winböe streift durch deine Kleidung.";
       messageE={};
-      messageE[1]="[Quest status] You approach the altar of Ushara — the silence is comforting.";
+      messageE[1]="[Quest status] You approach the altar of Ushara - the silence is comforting.";
       messageE[2]="[Quest status] You approach the altar of Brágon as a wave of heat engulfs you.";
       messageE[3]="[Quest status] You approach the altar of Eldan, and you are overwhelmed by thoughtful contemplation.";
       messageE[4]="[Quest status] You approach the altar of Tanora shrouded in a dense fog.";      

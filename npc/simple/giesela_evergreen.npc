@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Giesela Evergreen                                           None --
 -- NPC Job:  Stitching descriptions into items                                --
@@ -46,22 +60,22 @@ itemShoes = 0
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the sewer Giesela Evergreen. Keywords:")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die NÃ¤herin Giesela Evergreen. SchlÃ¼sselwÃ¶rter:")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Näherin Giesela Evergreen. Schlüsselwörter:")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings"
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "GrÃ¼ÃŸe auch"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Grüße auch"
 
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings"
-"Hiho", "Hallo", "Hey", "Greeb" -> "GrÃ¼ÃŸe auch"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüße auch"
 "Farewell", "Bye", "Fare well", "See you" -> "Have a good day!"
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl", "Auf Bald"-> "SchÃ¶nen Tag noch!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", "Auf Bald"-> "Schönen Tag noch!"
 
 english, "Ciao", "Adieu", "Au revoir" -> "Have a good day!"
-"Ciao", "Adieu", "Au revoir" -> "SchÃ¶nen Tag noch!"
+"Ciao", "Adieu", "Au revoir" -> "Schönen Tag noch!"
 "How are you", "How feel", "How do you do" -> "But my I've stitched one of my fingers, I'm fine."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen" -> "Bis darauf, dass ich mir in einen Finger gestochen habe, gut."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Bis darauf, dass ich mir in einen Finger gestochen habe, gut."
 "your name", "who are you", "who art thou" -> "I am Giesela Evergreen"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Giesela Evergreen"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Giesela Evergreen"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!

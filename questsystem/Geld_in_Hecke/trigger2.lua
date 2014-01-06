@@ -1,3 +1,19 @@
+--[[
+Illarion Server
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+details.
+
+You should have received a copy of the GNU Affero General Public License along
+with this program.  If not, see <http://www.gnu.org/licenses/>. 
+]]
 require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
 require("questsystem.base")
@@ -39,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3077, 999, 25):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du findest an einem Zweig ein kleines Beutelchen das einige SilbermÃ¼nzen enthÃ¤lt!", "Attached to a branch, you find a small bag containing some silvercoins."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du findest an einem Zweig ein kleines Beutelchen das einige Silbermünzen enthält!", "Attached to a branch, you find a small bag containing some silvercoins."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

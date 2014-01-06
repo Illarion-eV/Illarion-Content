@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Aldania Elthewan                                            None --
 -- NPC Job:  Tutor                                                            --
@@ -55,47 +69,47 @@ itemShoes = 369
 
 -- Help
 "Help" -> inform("[Tutorial] This NPC is the tutor Aldania Elthewan. Keywords: Hello, Help, Skip tutorial.")
-"Hilfe" -> inform("[Tutorial] Dieser NPC ist die Tutorin Aldania Elthewan. Schl√ºsselw√∂rter: Hallo, Hilfe, Tutorial √ºberspringen.")
+"Hilfe" -> inform("[Tutorial] Dieser NPC ist die Tutorin Aldania Elthewan. Schl¸sselwˆrter: Hallo, Hilfe, Tutorial ¸berspringen.")
 
 -- Skipping
 "skip", "cancel", "abort" -> inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south."), warp(36, 94, 100)
-"√ºberspring", "abbrech" -> inform("[Tutorial] Du hast entschieden das Tutorial zu √ºberspringen. Bitte w√§hle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im S√ºden trittst."), warp(36, 94, 100)
+"¸berspring", "abbrech" -> inform("[Tutorial] Du hast entschieden das Tutorial zu ¸berspringen. Bitte w‰hle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im S¸den trittst."), warp(36, 94, 100)
 
 -- Learn how to equip
 queststatus(310) < 2, english, ".*" -> inform("[Tutorial] Please make sure that your chatbox is deactivated and then press 'I' to open your inventory. Eventually, double click on your backpack to open it. Drag the pick-axe to an empty hand slot in your inventory by holding the left mouse button."), item(2763, 1, 333), queststatus(310) = 2, "Be greeted, %CHARNAME. My name is Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with the basics, equipping. I have just given you a pick-axe, hold it in your hands, please."
-queststatus(310) < 2, ".*" -> inform("[Tutorial] Bitte √ºberpr√ºfe, ob deine Chatbox deaktiviert ist und dr√ºcke anschlie√üend 'I', um dein Inventar zu √∂ffnen. √ñffne gegebenenfalls deinen Rucksack mit einem Doppelklick. Ziehe die Spitzhacke mit gedr√ºckter linker Maustaste in ein leeres Handfeld in deinem Inventar."), item(2763, 1, 333), queststatus(310) = 2, "Seid gegr√º√üt, %CHARNAME. Mein Name ist Aldania Elthewan und ich bin hier, um Euch beizubringen, wie man sich mit Gegenst√§nden ausr√ºstet, sie untersucht und benutzt. Lasst uns mit dem wichtigsten anfangen: dem Ausr√ºsten. Ich habe Euch soeben eine Spitzhacke gegeben, bitte nehmt sie in die Hand."
+queststatus(310) < 2, ".*" -> inform("[Tutorial] Bitte ¸berpr¸fe, ob deine Chatbox deaktiviert ist und dr¸cke anschlieﬂend 'I', um dein Inventar zu ˆffnen. ÷ffne gegebenenfalls deinen Rucksack mit einem Doppelklick. Ziehe die Spitzhacke mit gedr¸ckter linker Maustaste in ein leeres Handfeld in deinem Inventar."), item(2763, 1, 333), queststatus(310) = 2, "Seid gegr¸ﬂt, %CHARNAME. Mein Name ist Aldania Elthewan und ich bin hier, um Euch beizubringen, wie man sich mit Gegenst‰nden ausr¸stet, sie untersucht und benutzt. Lasst uns mit dem wichtigsten anfangen: dem Ausr¸sten. Ich habe Euch soeben eine Spitzhacke gegeben, bitte nehmt sie in die Hand."
 
 -- Player lost his pick-axe. We will remove farmed pick axes at the end of the tutorial.
 queststatus(310) = 2, item(2763, all) = 0, english, ".*" -> item(2763, 1, 333), "Alas, it looks like you lost the pick-axe I gave you. Do not be so careless with your belongings! Here, have another. Take it into your hands, please."
-queststatus(310) = 2, item(2763, all) = 0, ".*" -> item(2763, 1, 333), "Ach herrje, es schaut aus, als h√§ttet Ihr die Spitzhacke verloren, die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Nehmt sie bitte in die Hand."
+queststatus(310) = 2, item(2763, all) = 0, ".*" -> item(2763, 1, 333), "Ach herrje, es schaut aus, als h‰ttet Ihr die Spitzhacke verloren, die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Nehmt sie bitte in die Hand."
 
 -- Player seems to have a problem with equipping
 queststatus(310) = 2, english, ".*" -> inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Eventually, double click on your backpack to open it. Drag the pick-axe to an empty hand slot in your inventory by holding the left mouse button."), "Please place the pick-axe into your hands. Learning how to equip items is important, just imagine if you should face a dragon and could not even draw your sword!"
-queststatus(310) = 2, ".*" -> inform("[Tutorial] Bitte √ºberpr√ºfe, ob deine Chatbox deaktiviert ist und dr√ºcke anschlie√üend 'I', um dein Inventar zu √∂ffnen. √ñffne gegebenenfalls deinen Rucksack mit einem Doppelklick. Ziehe die Spitzhacke mit gedr√ºckter linker Maustaste in ein leeres Handfeld in deinem Inventar."), "Bitte nehmt die Spitzhacke in die Hand. Zu lernen wie man Gegenst√§nde ausr√ºstet ist wichtig. Stellt Euch nur vor, Ihr w√ºrdet auf einen Drachen sto√üen und k√∂nntet nichtmal Euer Schwert ziehen!"
+queststatus(310) = 2, ".*" -> inform("[Tutorial] Bitte ¸berpr¸fe, ob deine Chatbox deaktiviert ist und dr¸cke anschlieﬂend 'I', um dein Inventar zu ˆffnen. ÷ffne gegebenenfalls deinen Rucksack mit einem Doppelklick. Ziehe die Spitzhacke mit gedr¸ckter linker Maustaste in ein leeres Handfeld in deinem Inventar."), "Bitte nehmt die Spitzhacke in die Hand. Zu lernen wie man Gegenst‰nde ausr¸stet ist wichtig. Stellt Euch nur vor, Ihr w¸rdet auf einen Drachen stoﬂen und kˆnntet nichtmal Euer Schwert ziehen!"
 
 -- Player lost his pick-axe. Again. We will remove farmed pick axes at the end of the tutorial.
 queststatus(310) = 3, item(2763, all) = 0, english, ".*" -> item(2763, 1, 333), "Alas, it looks like you lost the pick-axe I gave you. Don't be so careless with your belongings! Here, have another one. Examine it, please."
-queststatus(310) = 3, item(2763, all) = 0, ".*" -> item(2763, 1, 333), "Ach herrje, es schaut aus als h√§ttet Ihr die Spitzhacke verloren die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Untersucht sie einmal."
+queststatus(310) = 3, item(2763, all) = 0, ".*" -> item(2763, 1, 333), "Ach herrje, es schaut aus als h‰ttet Ihr die Spitzhacke verloren die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Untersucht sie einmal."
 
 -- Player seems to have a problem with examining
 queststatus(310) = 3, english, ".*" -> inform("[Tutorial] Move the mouse cursor over the pick-axe in your inventory in order to examine it."), "In order to examine an item, you simply have to move your mouse cursor over it. Learning about your belongings is as vital as acquiring them."
-queststatus(310) = 3, ".*" -> inform("[Tutorial] Bewege den Mauszeiger √ºber die Spitzhacke in deinem Inventar um sie zu untersuchen."), "Um einen Gegenstand zu untersuchen, m√ºsst Ihr einfach nur den Mauszeiger √ºber ihn platzieren. Etwas √ºber sein Hab und Gut zu lernen, ist mindestens so wichtig, wie es zu erlangen."
+queststatus(310) = 3, ".*" -> inform("[Tutorial] Bewege den Mauszeiger ¸ber die Spitzhacke in deinem Inventar um sie zu untersuchen."), "Um einen Gegenstand zu untersuchen, m¸sst Ihr einfach nur den Mauszeiger ¸ber ihn platzieren. Etwas ¸ber sein Hab und Gut zu lernen, ist mindestens so wichtig, wie es zu erlangen."
 
 -- Player lost his torch. We will remove farmed torches at the end of the tutorial.
 queststatus(310) = 4, item(391, all) = 0, english, ".*" -> item(391, 1, 333), "Without a light source, the darkness will engulf you sooner or later. I have given you another torch, be more careful with this one."
-queststatus(310) = 4, item(391, all) = 0, ".*" -> item(391, 1, 333), "Ohne eine Lichtquelle wird Euch die Dunkelheit fr√ºher oder sp√§ter einh√ºllen. Ich habe Euch eine neue Fackel gegeben, bitte seid vorsichtiger mit dieser."
+queststatus(310) = 4, item(391, all) = 0, ".*" -> item(391, 1, 333), "Ohne eine Lichtquelle wird Euch die Dunkelheit fr¸her oder sp‰ter einh¸llen. Ich habe Euch eine neue Fackel gegeben, bitte seid vorsichtiger mit dieser."
 
 -- Player seems to have a problem with using items
 queststatus(310) = 4, english, ".*" -> inform("[Tutorial] You can perform a double click on an item to use it. Double click the torch in your inventory to ignite it."), "What is the purpose of owning an item if you cannot use it properly? Ignite the torch I gave you with a double click. Light sources are quite important when travelling by night."
-queststatus(310) = 4, ".*" -> inform("[Tutorial] Du kannst einen Gegenstand mit einem Doppelklick benutzen. Doppelklicke die Fackel in deinem Inventar, um sie zu entz√ºnden."), "Was ist der Nutzen von einem Gegenstand, wenn man ihn nicht richtig benutzen kann? Entz√ºndet die Fackel, welche ich Euch gab, mit einem Doppelklick. Wenn man Nachts unterwegs ist, sind Lichtquellen sehr wichtig."
+queststatus(310) = 4, ".*" -> inform("[Tutorial] Du kannst einen Gegenstand mit einem Doppelklick benutzen. Doppelklicke die Fackel in deinem Inventar, um sie zu entz¸nden."), "Was ist der Nutzen von einem Gegenstand, wenn man ihn nicht richtig benutzen kann? Entz¸ndet die Fackel, welche ich Euch gab, mit einem Doppelklick. Wenn man Nachts unterwegs ist, sind Lichtquellen sehr wichtig."
 
 -- Player did all the lessons
 queststatus(310) = 5, english, ".*" -> "This is where we part company, %CHARNAME. You have done well enough. Run along to that savage, Groknar, further down the road. He will train you in the art of fighting."
-queststatus(310) = 5, ".*" -> "Dies ist der Zeitpunkt, um getrennte Wege zu gehen, %CHARNAME. Ihr habt euch wacker geschlagen. Geht nur weiter die Stra√üe entlang zu diesem Wilden: Groknar. Er wird Euch in der Kunst des Kampfes unterrichten."
+queststatus(310) = 5, ".*" -> "Dies ist der Zeitpunkt, um getrennte Wege zu gehen, %CHARNAME. Ihr habt euch wacker geschlagen. Geht nur weiter die Straﬂe entlang zu diesem Wilden: Groknar. Er wird Euch in der Kunst des Kampfes unterrichten."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Aldania Elthewan zu Euren Diensten. Ich unterrichte das Ausstatten, Untersuchen und Benutzen von Gegenst√§nden.", "Aldania Elthelwan, at your service. Equipping, examining and using items is what I teach."
+cycletext "Aldania Elthewan zu Euren Diensten. Ich unterrichte das Ausstatten, Untersuchen und Benutzen von Gegenst‰nden.", "Aldania Elthelwan, at your service. Equipping, examining and using items is what I teach."

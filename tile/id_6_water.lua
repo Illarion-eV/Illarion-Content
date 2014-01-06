@@ -1,3 +1,19 @@
+--[[
+Illarion Server
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+details.
+
+You should have received a copy of the GNU Affero General Public License along
+with this program.  If not, see <http://www.gnu.org/licenses/>. 
+]]
 -- Fishing Script für Echsen
 
 -- UPDATE tiles SET til_script='tile.id_6_water' WHERE til_id = 6;
@@ -104,7 +120,7 @@ function useTile(User,Position,ltstate)
         elseif (FTry>=920 and FTry<940) then
             User:createItem(53,1,100,0)
             base.common.InformNLS(User,"Ein alter, durchlöcherter Lederstiefel findet sich in deiner Klaue.","An old, perforated leather boot is in your claw.");
-        -- Ã–lampe
+        -- Öllampe
         elseif (FTry>=940 and FTry<990) then
             User:createItem(92,1,333,0);
             base.common.InformNLS(User,"Du ziehst eine glitzernde Öllampe aus dem Wasser. Wo die wohl herkommt...?","You pull a sparkling oil lamp out of the water. Where did that come from?");

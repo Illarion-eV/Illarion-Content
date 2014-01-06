@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Milo Deepdelver                                         Runewick --
 -- NPC Job:  Herbalist                                                        --
@@ -26,7 +40,7 @@ autointroduce = on
 author = "Nanuk"
 author = "Estralis Seborian"
 
-lookatDE = "Dieser NPC ist der KrÃ¤uterkundige Milo Deepdelver."
+lookatDE = "Dieser NPC ist der Kräuterkundige Milo Deepdelver."
 lookatUS = "This NPC is the herbalist Milo Deepdelver."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -53,177 +67,177 @@ itemShoes = 369
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the herbalist Milo Deepdelver. He knows some things about the Gods and herb lore. It also looks like he has a problem with his ox.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der KrÃ¤uterkundige Milo Deepdelver. Er weiÃŸ ein paar Dinge Ã¼ber die GÃ¶tter und KrÃ¤uterkunde. Auch scheint er ein Problem mit seinem Ochsen zu haben.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Kräuterkundige Milo Deepdelver. Er weiß ein paar Dinge über die Götter und Kräuterkunde. Auch scheint er ein Problem mit seinem Ochsen zu haben.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings my friend and may the Gods be with you. I don't have much time, as this obstinate ox of mine won't take a step forward, but if you know anything about oxen lend me a hand, will you?"
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ich grÃ¼ÃŸe euch mein Freund und mÃ¶gen die GÃ¶tter mit euch sein. Ich habe leider nicht sehr viel Zeit, weil mein starrsinniger Ochse keine Schritt mehr tut. Aber falls ihr etwas von Ochsen versteht, dann kÃ¶nnt ihr mir gerne zur Hand gehen."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ich grüße euch mein Freund und mögen die Götter mit euch sein. Ich habe leider nicht sehr viel Zeit, weil mein starrsinniger Ochse keine Schritt mehr tut. Aber falls ihr etwas von Ochsen versteht, dann könnt ihr mir gerne zur Hand gehen."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings my friend and may the Gods be with you. I don't have much time, as this obstinate ox of mine won't take a step forward, but if you know anything about oxen lend me a hand, will you?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Ich grÃ¼ÃŸe euch mein Freund und mÃ¶gen die GÃ¶tter mit euch sein. Ich habe leider nicht sehr viel Zeit, weil mein starrsinniger Ochse keine Schritt mehr tut. Aber falls ihr etwas von Ochsen versteht, dann kÃ¶nnt ihr mir gerne zur Hand gehen."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Ich grüße euch mein Freund und mögen die Götter mit euch sein. Ich habe leider nicht sehr viel Zeit, weil mein starrsinniger Ochse keine Schritt mehr tut. Aber falls ihr etwas von Ochsen versteht, dann könnt ihr mir gerne zur Hand gehen."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell my friend. May Oldra guide your way wherever you go."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen mein Freund. MÃ¶ge Oldra Ã¼ber euren Wegen wachen, wo auch immer ihr hingeht."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen mein Freund. Möge Oldra über euren Wegen wachen, wo auch immer ihr hingeht."
 english, "Ciao", "Adieu", "Au revoir" -> "Farewell my friend. May Oldra guide your way wherever you go."
-"Ciao", "Adieu", "Au revoir" -> "Auf Wiedersehen mein Freund. MÃ¶ge Oldra Ã¼ber euren Wegen wachen, wo auch immer ihr hingeht."
+"Ciao", "Adieu", "Au revoir" -> "Auf Wiedersehen mein Freund. Möge Oldra über euren Wegen wachen, wo auch immer ihr hingeht."
 "How are you", "How feel", "How do you do" -> "#me sighs, 'Well, you know, I was on my way back home, but the Gods blessed me with this old ox, that doesn't want to move.'"
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen" -> "#me seufzt: 'Ach, wisst ihr, ich war auf dem Weg nach Hause, aber die GÃ¶tter haben mich mit diesem alten Ochsen bedacht, der sich nicht mehr bewegen will.'"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "#me seufzt: 'Ach, wisst ihr, ich war auf dem Weg nach Hause, aber die Götter haben mich mit diesem alten Ochsen bedacht, der sich nicht mehr bewegen will.'"
 "your name", "who are you", "who art thou" -> "My Name is Milo Deepdelver. I am a herbalist from Runewick. If the Gods are with me, I will be on my way home with this no good ox of mine!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Mein Name ist Milo Deepdelver. Ich bin ein KrÃ¤uterkundiger aus Runewick. So die GÃ¶tter es wollen, bin ich auf dem Weg nach Hause mit meinem unnÃ¼tzen Ochsen hier!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Ochsen hier!"
 
 -- quest: give out the mission
 queststatus(106) = 0, english, "problem", "mission", "quest" -> inform("[New quest] Milo's ox"), queststatus(106) = 1, "This stupid ox of mine doesn't move a single step and I am late returning to my family. My ox will do anything for carrots, but a few miles back I ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art."
-queststatus(106) = 0, "Problem", "Mission", "Quest" -> inform("[Neues Quest] Milos Ochse"), queststatus(106) = 1, "Mein dummer Ochse bewegt sich kein StÃ¼ck mehr nach vorne und ich bin jetzt schon spÃ¤t dran, zu meiner Familie zurÃ¼ckzukehren. Mein Ochse wÃ¼rde alles fÃ¼r Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen kÃ¶nntet, kÃ¶nnte ich euch ein paar Tricks in KrÃ¤uterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst."
+queststatus(106) = 0, "Problem", "Mission", "Quest" -> inform("[Neues Quest] Milos Ochse"), queststatus(106) = 1, "Mein dummer Ochse bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Mein Ochse würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst."
 queststatus(106) = 0, "task", "adventure", "order", "yes", "ox" -> inform("[New quest] Milo's ox"), queststatus(106) = 1, "This stupid ox of mine doesn't move a single step and I am late returning to my family. My ox will do anything for carrots, but a few miles back I ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art."
-queststatus(106) = 0, "Aufgabe", "Auftrag", "Abenteuer", "Befehl", "ja", "helfe", "Ochse" -> inform("[Neues Quest] Milos Ochse"), queststatus(106) = 1, "Mein dummer Ochse bewegt sich kein StÃ¼ck mehr nach vorne und ich bin jetzt schon spÃ¤t dran, zu meiner Familie zurÃ¼ckzukehren. Mein Ochse wÃ¼rde alles fÃ¼r Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen kÃ¶nntet, kÃ¶nnte ich euch ein paar Tricks in KrÃ¤uterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst."
+queststatus(106) = 0, "Aufgabe", "Auftrag", "Abenteuer", "Befehl", "ja", "helfe", "Ochse" -> inform("[Neues Quest] Milos Ochse"), queststatus(106) = 1, "Mein dummer Ochse bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Mein Ochse würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst."
 
 -- quest: mission completed successful, very high skill level
 skill(herblore) > 89, queststatus(106) = 1, item(2493, all) => 10, english, "problem", "mission", "quest" -> inform("[Quest solved] You received ten mandrakes and one bottle of elven wine."), deleteItem(2493, 10), item(1318, 1, 333), item(752, 10, 333), queststatus(106) = 2, "Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard, but I can't teach you anything anymore. You already surpass my skills. Here let me give you some of my provisions in exchange, especially this nice wine from the elven domain!"
-skill(herblore) > 89, queststatus(106) = 1, item(2493, all) => 10, "Problem", "Mission", "Quest" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst zehn Alraunen und eine Flasche Elfenwein."), deleteItem(2493, 10), item(1318, 1, 333), item(752, 10, 333), queststatus(106) = 2, "Ich danke euch vielmals fÃ¼r die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr Ã¼bertrefft meine FÃ¤higkeiten bereits. Lasst mich euch im Austausch ein paar meiner VorrÃ¤te geben, insbesondere dieser exzellente Elfenwein!"
+skill(herblore) > 89, queststatus(106) = 1, item(2493, all) => 10, "Problem", "Mission", "Quest" -> inform("[Quest gelöst] Du erhältst zehn Alraunen und eine Flasche Elfenwein."), deleteItem(2493, 10), item(1318, 1, 333), item(752, 10, 333), queststatus(106) = 2, "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr übertrefft meine Fähigkeiten bereits. Lasst mich euch im Austausch ein paar meiner Vorräte geben, insbesondere dieser exzellente Elfenwein!"
 skill(herblore) > 89, queststatus(106) = 1, item(2493, all) => 10, "carrot", "task", "adventure", "order", "ox" -> inform("[Quest solved] You received ten mandrakes and one bottle of elven wine."), deleteItem(2493, 10), item(1318, 1, 333), item(752, 10, 333), queststatus(106) = 2, "Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard, but I can't teach you anything anymore. You already surpass my skills. Here let me give you some of my provisions in exchange, especially this nice wine from the elven domain!"
-skill(herblore) > 89, queststatus(106) = 1, item(2493, all) => 10, "MÃ¶hre", "Wurzel", "Karotte", "helfe", "Aufgabe", "Abenteuer", "Befehl", "Ochse" -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst zehn Alraunen und eine Flasche Elfenwein."), deleteItem(2493, 10), item(1318, 1, 333), item(752, 10, 333), queststatus(106) = 2, "Ich danke euch vielmals fÃ¼r die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr Ã¼bertrefft meine FÃ¤higkeiten bereits. Lasst mich euch im Austausch ein paar meiner VorrÃ¤te geben, insbesondere dieser exzellente Elfenwein!"
+skill(herblore) > 89, queststatus(106) = 1, item(2493, all) => 10, "Möhre", "Wurzel", "Karotte", "helfe", "Aufgabe", "Abenteuer", "Befehl", "Ochse" -> inform("[Quest gelöst] Du erhältst zehn Alraunen und eine Flasche Elfenwein."), deleteItem(2493, 10), item(1318, 1, 333), item(752, 10, 333), queststatus(106) = 2, "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr übertrefft meine Fähigkeiten bereits. Lasst mich euch im Austausch ein paar meiner Vorräte geben, insbesondere dieser exzellente Elfenwein!"
 
 -- quest: mission completed successful, high skill level
 skill(herblore) > 70, queststatus(106) = 1, item(2493, all) => 10, english, "problem", "mission", "quest" -> inform("[Quest solved] Your skill in herb lore is increased."), skill(herblore) + 1, deleteItem(2493, 10), queststatus(106) = 2, "Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!"
-skill(herblore) > 70, queststatus(106) = 1, item(2493, all) => 10, "Problem", "Mission", "Quest" -> inform("[Quest gelÃ¶st] Deine Fertigkeit in KrÃ¤uterkunde wurde gesteigert."), skill(herblore) + 1, deleteItem(2493, 10), queststatus(106) = 2, "Ich danke euch vielmals fÃ¼r die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Geheimnisse der KrÃ¤uterkunde zeigen!"
+skill(herblore) > 70, queststatus(106) = 1, item(2493, all) => 10, "Problem", "Mission", "Quest" -> inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."), skill(herblore) + 1, deleteItem(2493, 10), queststatus(106) = 2, "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Geheimnisse der Kräuterkunde zeigen!"
 skill(herblore) > 70, queststatus(106) = 1, item(2493, all) => 10, "carrot", "task", "adventure", "order", "ox" -> inform("[Quest solved] Your skill in herb lore is increased."), skill(herblore) + 1, deleteItem(2493, 10), queststatus(106) = 2, "Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!"
-skill(herblore) > 70, queststatus(106) = 1, item(2493, all) => 10, "MÃ¶hre", "Wurzel", "Karotte", "helfe", "Aufgabe", "Abenteuer", "befehl", "Ochse" -> inform("[Quest gelÃ¶st] Deine Fertigkeit in KrÃ¤uterkunde wurde gesteigert."), skill(herblore) + 2, deleteItem(2493, 10), queststatus(106) = 2, "Ich danke euch vielmals fÃ¼r die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Geheimnisse der KrÃ¤uterkunde zeigen!"
+skill(herblore) > 70, queststatus(106) = 1, item(2493, all) => 10, "Möhre", "Wurzel", "Karotte", "helfe", "Aufgabe", "Abenteuer", "befehl", "Ochse" -> inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."), skill(herblore) + 2, deleteItem(2493, 10), queststatus(106) = 2, "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Geheimnisse der Kräuterkunde zeigen!"
 
 -- quest: mission completed successful, medium skill level
 skill(herblore) > 30, queststatus(106) = 1, item(2493, all) => 10, english, "problem", "mission", "quest" -> inform("[Quest solved] Your skill in herb lore is increased."), skill(herblore) + 2, deleteItem(2493, 10), queststatus(106) = 2, "Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!"
-skill(herblore) > 30, queststatus(106) = 1, item(2493, all) => 10, "Problem", "Mission", "Quest" -> inform("[Quest gelÃ¶st] Deine Fertigkeit in KrÃ¤uterkunde wurde gesteigert."), skill(herblore) + 2, deleteItem(2493, 10), queststatus(106) = 2, "Ich danke euch vielmals fÃ¼r die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der KrÃ¤uterkunde zeigen!"
+skill(herblore) > 30, queststatus(106) = 1, item(2493, all) => 10, "Problem", "Mission", "Quest" -> inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."), skill(herblore) + 2, deleteItem(2493, 10), queststatus(106) = 2, "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!"
 skill(herblore) > 30, queststatus(106) = 1, item(2493, all) => 10, "carrot", "task", "adventure", "order", "ox" -> inform("[Quest solved] Your skill in herb lore is increased."), skill(herblore) + 2, deleteItem(2493, 10), queststatus(106) = 2, "Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!"
-skill(herblore) > 30, queststatus(106) = 1, item(2493, all) => 10, "MÃ¶hre", "Wurzel", "Karotte", "helfe", "Aufgabe", "Abenteuer", "befehl", "Ochse" -> inform("[Quest gelÃ¶st] Deine Fertigkeit in KrÃ¤uterkunde wurde gesteigert."), skill(herblore) + 2, deleteItem(2493, 10), queststatus(106) = 2, "Ich danke euch vielmals fÃ¼r die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der KrÃ¤uterkunde zeigen!"
+skill(herblore) > 30, queststatus(106) = 1, item(2493, all) => 10, "Möhre", "Wurzel", "Karotte", "helfe", "Aufgabe", "Abenteuer", "befehl", "Ochse" -> inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."), skill(herblore) + 2, deleteItem(2493, 10), queststatus(106) = 2, "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!"
 
 -- quest: mission completed successful, low skill level
 skill(herblore) < 31, queststatus(106) = 1, item(2493, all) => 10, english, "problem", "mission", "quest" -> inform("[Quest solved] Your skill in herb lore is increased."), skill(herblore) + 3, deleteItem(2493, 10), queststatus(106) = 2, "Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!"
-skill(herblore) < 31, queststatus(106) = 1, item(2493, all) => 10, "Problem", "Mission", "Quest" -> inform("[Quest gelÃ¶st] Deine Fertigkeit in KrÃ¤uterkunde wurde gesteigert."), skill(herblore) + 3, deleteItem(2493, 10), queststatus(106) = 2, "Ich danke euch vielmals fÃ¼r die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der KrÃ¤uterkunde zeigen!"
+skill(herblore) < 31, queststatus(106) = 1, item(2493, all) => 10, "Problem", "Mission", "Quest" -> inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."), skill(herblore) + 3, deleteItem(2493, 10), queststatus(106) = 2, "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!"
 skill(herblore) < 31, queststatus(106) = 1, item(2493, all) => 10, "carrot", "task", "adventure", "order", "ox" -> inform("[Quest solved] Your skill in herb lore is increased."), skill(herblore) + 3, deleteItem(2493, 10), queststatus(106) = 2, "Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!"
-skill(herblore) < 31, queststatus(106) = 1, item(2493, all) => 10, "MÃ¶hre", "Wurzel", "Karotte", "helfe", "Aufgabe", "Abenteuer", "Befehl", "Ochse" -> inform("[Quest gelÃ¶st] Deine Fertigkeit in KrÃ¤uterkunde wurde gesteigert."), skill(herblore) + 3, deleteItem(2493, 10), queststatus(106) = 2, "Ich danke euch vielmals fÃ¼r die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der KrÃ¤uterkunde zeigen!"
+skill(herblore) < 31, queststatus(106) = 1, item(2493, all) => 10, "Möhre", "Wurzel", "Karotte", "helfe", "Aufgabe", "Abenteuer", "Befehl", "Ochse" -> inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."), skill(herblore) + 3, deleteItem(2493, 10), queststatus(106) = 2, "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!"
 
 -- quest: repeat mission if no carrots
 queststatus(106) = 1, item(2493, all) = 0, english, "problem", "mission", "quest" -> "Yes, I am still waiting for those ten carrots you wanted to bring to me. Please hurry up, my family are waiting for me."
 queststatus(106) = 1, item(2493, all) = 0, "Problem", "Mission", "Quest" -> "Ja, ich warte immer noch auf die zehn Karotten, die ihr mir versprochen habt, zu bringen. Bitte, beeilt euch, meine Familie macht sich bestimmt schon Sorgen."
 queststatus(106) = 1, item(2493, all) = 0, "carrot", "task", "adventure", "order", "ox" -> "Yes, I am still waiting for those ten carrots you wanted to bring to me. Please hurry up, my family are waiting for me."
-queststatus(106) = 1, item(2493, all) = 0, "MÃ¶hre", "Wurzel", "Karotte", "Hilfe", "helfe", "Aufgabe", "Abenteuer", "befehl", "Ochse" -> "Ja, ich warte immer noch auf die zehn Karotten, die ihr mir versprochen habt, zu bringen. Bitte, beeilt euch, meine Familie macht sich bestimmt schon Sorgen."
+queststatus(106) = 1, item(2493, all) = 0, "Möhre", "Wurzel", "Karotte", "Hilfe", "helfe", "Aufgabe", "Abenteuer", "befehl", "Ochse" -> "Ja, ich warte immer noch auf die zehn Karotten, die ihr mir versprochen habt, zu bringen. Bitte, beeilt euch, meine Familie macht sich bestimmt schon Sorgen."
 
 -- quest: not enough carrots to complete mission
 queststatus(106) = 1, item(2493, all) < 10, english, "problem", "mission", "quest" -> "Alas this is not the number of carrots I need. I would not get home with this few. Bring me at least ten carrots and please hurry up!"
-queststatus(106) = 1, item(2493, all) < 10, "Problem", "Mission", "Quest" -> "Aber das ist nicht die Anzahl an Karotten, die ich brauche. Mit den wenigen wÃ¼rde ich es niemals bis nach Hause schaffen. Bringt mir wenigstens zehn Karotten und bitte beeilt euch!"
+queststatus(106) = 1, item(2493, all) < 10, "Problem", "Mission", "Quest" -> "Aber das ist nicht die Anzahl an Karotten, die ich brauche. Mit den wenigen würde ich es niemals bis nach Hause schaffen. Bringt mir wenigstens zehn Karotten und bitte beeilt euch!"
 queststatus(106) = 1, item(2493, all) < 10, "carrot", "order", "task", "adventure", "ox" -> "Alas this is not the number of carrots I need. I would not get home with this few. Bring me at least ten carrots and please hurry up!"
-queststatus(106) = 1, item(2493, all) < 10, "MÃ¶hre", "Wurzel", "Karotte", "Befehl", "helfe", "Aufgabe", "Abenteuer", "Ochse" -> "Aber das ist nicht die Anzahl an Karotten, die ich brauche. Mit den wenigen wÃ¼rde ich es niemals bis nach Hause schaffen. Bringt mir wenigstens zehn Karotten und bitte beeilt euch!"
+queststatus(106) = 1, item(2493, all) < 10, "Möhre", "Wurzel", "Karotte", "Befehl", "helfe", "Aufgabe", "Abenteuer", "Ochse" -> "Aber das ist nicht die Anzahl an Karotten, die ich brauche. Mit den wenigen würde ich es niemals bis nach Hause schaffen. Bringt mir wenigstens zehn Karotten und bitte beeilt euch!"
 
 -- quest: nice words, if mission completed
 queststatus(106) = 2, english, "problem", "mission", "quest" -> "With the carrots you brought I will have no problems returning home. May Adron give you wine whenever you desire."
-queststatus(106) = 2, "Problem", "Mission", "Quest" -> "Mit den Karotten, die ihr gebracht habt, werde ich kein Problem haben, nach Hause zurÃ¼ck zu kehren. Adron gebe euch Wein wann immer ihr danach gelÃ¼stet."
+queststatus(106) = 2, "Problem", "Mission", "Quest" -> "Mit den Karotten, die ihr gebracht habt, werde ich kein Problem haben, nach Hause zurück zu kehren. Adron gebe euch Wein wann immer ihr danach gelüstet."
 queststatus(106) = 2, "ox", "help", "carrot", "task", "adventure" -> "With the carrots you brought I will have no problems returning home. May Adron give you wine whenever you desire."
-queststatus(106) = 2, "MÃ¶hre", "Wurzel", "Ochse", "Hilfe", "helfe", "Karotte", "Aufgabe", "Abenteuer" -> "Mit den Karotten, die ihr gebracht habt, werde ich kein Problem haben, nach Hause zurÃ¼ck zu kehren. Adron gebe euch Wein wann immer ihr danach gelÃ¼stet."
+queststatus(106) = 2, "Möhre", "Wurzel", "Ochse", "Hilfe", "helfe", "Karotte", "Aufgabe", "Abenteuer" -> "Mit den Karotten, die ihr gebracht habt, werde ich kein Problem haben, nach Hause zurück zu kehren. Adron gebe euch Wein wann immer ihr danach gelüstet."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am an expert when it comes to herbs. I could tell you all day long about herb lore!"
-"beruf" -> "Ich bin ein KrÃ¤uterexperte. Ich kÃ¶nnte euch den ganzen Tag Ã¼ber KrÃ¤uterkunde vollquatschen!"
+"beruf" -> "Ich bin ein Kräuterexperte. Ich könnte euch den ganzen Tag über Kräuterkunde vollquatschen!"
 english, "job" -> "I am an expert when it comes to herbs. I could tell you all day long about herb lore!"
-"job" -> "Ich bin ein KrÃ¤uterexperte. Ich kÃ¶nnte euch den ganzen Tag Ã¼ber KrÃ¤uterkunde vollquatschen!"
+"job" -> "Ich bin ein Kräuterexperte. Ich könnte euch den ganzen Tag über Kräuterkunde vollquatschen!"
 
 -- Gods
-"Elder" -> "The Elder Gods were first on this world. There are five of them with the names Ushara, BrÃ¡gon, Eldan, Tanora and Findari."
-"Alte" -> "Die Alten GÃ¶tter kamen zuerst auf diese Welt. Es gibt fÃ¼nf von Ihnen und sie heiÃŸen Ushara, BrÃ¡gon, Eldan, Tanora und Findari."
-"young" -> "The Younger Gods were created by the Elder Ones. Their names are NargÃ¹n, Elara, Adron, Oldra, Cherga, MalachÃ­n, Irmorom, Sirani, Zhambra, Ronagan and Moshran."
-"Junge" -> "Die Jungen GÃ¶tter wurden von den Alten erschaffen. Ihre Namen lauten NargÃ¹n, Elara, Adron, Oldra, Cherga, MalachÃ­n, Irmorom, Sirani, Zhambra, Ronagan und Moshran."
+"Elder" -> "The Elder Gods were first on this world. There are five of them with the names Ushara, Brágon, Eldan, Tanora and Findari."
+"Alte" -> "Die Alten Götter kamen zuerst auf diese Welt. Es gibt fünf von Ihnen und sie heißen Ushara, Brágon, Eldan, Tanora und Findari."
+"young" -> "The Younger Gods were created by the Elder Ones. Their names are Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan and Moshran."
+"Junge" -> "Die Jungen Götter wurden von den Alten erschaffen. Ihre Namen lauten Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan und Moshran."
 "God" -> "The Gods affect our lives in all aspects. It would be wise to give them due respect. There are the Younger and Elder Gods. Which group are you interested in?"
-"Gott", "GÃ¶tter" -> "Die GÃ¶tter haben auf alle Aspekte unseres Lebens Einfluss. Es wÃ¤re weise, Ihnen Respekt zu erweisen. Es gibt die Jungen und die Alten GÃ¶tter. Zu welcher Gruppe wollt ihr mehr erfahren?"
+"Gott", "Götter" -> "Die Götter haben auf alle Aspekte unseres Lebens Einfluss. Es wäre weise, Ihnen Respekt zu erweisen. Es gibt die Jungen und die Alten Götter. Zu welcher Gruppe wollt ihr mehr erfahren?"
 english, "Oldra" -> "Oldra is the beginning of everything on earth. From her, all has emerged. Well, maybe with the exception of this stubborn ox."
-"Oldra" -> "Oldra verdanken wir alles auf dieser Welt. Aus Ihr ist jeder hervorgegangen. Nun ja, vielleicht mit Ausnahme von diesem stÃ¶rrischen Tier hier."
+"Oldra" -> "Oldra verdanken wir alles auf dieser Welt. Aus Ihr ist jeder hervorgegangen. Nun ja, vielleicht mit Ausnahme von diesem störrischen Tier hier."
 english, "Ushara" -> "Our mother, Goddess of the earth. May She be praised!"
-"Ushara" -> "Unsere Mutter, GÃ¶ttin der Erde. Geehrt sei Sie!"
-english, "BrÃ¡gon", "Bragon" -> "Now we are talking about a great God. He imprisoned Moshran a long time ago, unfortunately he escaped."
-"BrÃ¡gon", "Bragon" -> "Ja, das ist mal einer der ganz groÃŸen GÃ¶tter. Er hat vor langer Zeit Moshran eingekerkert. Zu unserem UnglÃ¼ck ist er wieder entkommen."
+"Ushara" -> "Unsere Mutter, Göttin der Erde. Geehrt sei Sie!"
+english, "Brágon", "Bragon" -> "Now we are talking about a great God. He imprisoned Moshran a long time ago, unfortunately he escaped."
+"Brágon", "Bragon" -> "Ja, das ist mal einer der ganz großen Götter. Er hat vor langer Zeit Moshran eingekerkert. Zu unserem Unglück ist er wieder entkommen."
 english, "Eldan" -> "Eldan is one of the Elder Gods. The only thing I have in common with him might be the wooden staff I am carrying."
-"Eldan" -> "Eldan ist einer der alten GÃ¶tter. Das einzige, was ich mit Ihm gemeinsam habe ist wohl dieser hÃ¶lzerne Stab, den ich trage."
+"Eldan" -> "Eldan ist einer der alten Götter. Das einzige, was ich mit Ihm gemeinsam habe ist wohl dieser hölzerne Stab, den ich trage."
 english, "Tanora" -> "Tanora is the Goddess of Water, but you should go and ask a lizardman about her... they call her Zelphia."
-"Tanora" -> "Tanora ist die GÃ¶ttin des Wassers. Aber ihr solltest einen Echsenmenschen Ã¼ber Sie befragen. Bei ihnen ist Sie unter dem Namen Zelphia bekannt."
+"Tanora" -> "Tanora ist die Göttin des Wassers. Aber ihr solltest einen Echsenmenschen über Sie befragen. Bei ihnen ist Sie unter dem Namen Zelphia bekannt."
 english, "Zelphia" -> "Yes, the Goddess Tanora is known among the lizardmen by this name."
-"Zelphia" -> "Ja, die GÃ¶ttin Tanora ist bei den Echsenmenschen unter diesem Namen bekannt."
+"Zelphia" -> "Ja, die Göttin Tanora ist bei den Echsenmenschen unter diesem Namen bekannt."
 english, "Findari" -> "The best tavern music I know comes from those bards and musicians who worship the Goddess of Air."
-"Findari" -> "Die beste Tavernenmusik, die ich kenne, kommt von den Barden und Musikern, welche die GÃ¶ttin der Luft verehren."
-english, "NargÃºn", "Nargun" -> "Argh, don't call him by his name unless you want to seek his attention. Chaos follows his path and we don't really want that, do we?"
-"NargÃºn", "Nargun" -> "Argh, nennt Ihn doch nicht bei seinem Namen sofern ihr nicht Seine Aufmerksamkeit erregen wollt. Auf seinen Pfaden folgt das Chaos und das ist nicht etwas, was wir wirklich wollen, oder?"
+"Findari" -> "Die beste Tavernenmusik, die ich kenne, kommt von den Barden und Musikern, welche die Göttin der Luft verehren."
+english, "Nargún", "Nargun" -> "Argh, don't call him by his name unless you want to seek his attention. Chaos follows his path and we don't really want that, do we?"
+"Nargún", "Nargun" -> "Argh, nennt Ihn doch nicht bei seinem Namen sofern ihr nicht Seine Aufmerksamkeit erregen wollt. Auf seinen Pfaden folgt das Chaos und das ist nicht etwas, was wir wirklich wollen, oder?"
 english, "Elara" -> "Elara is the host of wisdom and knowledge. She is not really my kind but if you are much into reading and stuff like that, you should give it a try."
-"Elara" -> "Elara ist angefÃ¼llt mir Weisheit und Wissen. Sie ist nicht so das richtige fÃ¼r mich, aber wenn Ihr gerne in BÃ¼chern stÃ¶bert, dann wÃ¤re Sie genau das richtige fÃ¼r euch."
+"Elara" -> "Elara ist angefüllt mir Weisheit und Wissen. Sie ist nicht so das richtige für mich, aber wenn Ihr gerne in Büchern stöbert, dann wäre Sie genau das richtige für euch."
 english, "Adron" -> "Adron is one of my favoured Gods. When I sit together with my friends and drink a wine we compete with toasts to the God of Wine and Festivities."
-"Adron" -> "Adron ist einer meiner liebsten GÃ¶tter. Wenn ich mit Freunden auf ein Glas Wein zusammen sitze, wetteifern wir mit TrinksprÃ¼chen fÃ¼r den Gott des Weines und der Feste."
+"Adron" -> "Adron ist einer meiner liebsten Götter. Wenn ich mit Freunden auf ein Glas Wein zusammen sitze, wetteifern wir mit Trinksprüchen für den Gott des Weines und der Feste."
 english, "Cherga" -> "When I hear the name of Cherga the hairs on my feet stay on end. You should be on the watch if you meet one of the followers of the Goddess of Spirits and the Underworld."
-"Cherga" -> "Wenn ich den Namen Cherga hÃ¶re, stehen mir die FuÃŸhaare zu Berge. Ihr solltet vorsichtig sein, wenn ich auf AnhÃ¤nger der GÃ¶ttin der Geister und der Unterwelt trefft."
-english, "MalachÃ­n", "Malachin" -> "MalachÃ­n, the God of Battle and Hunting, flourishes his swords too much. Why battle, if all problems can be discussed with a nice roast on your plate and a beaker of wine in your hand?"
-"MalachÃ­n", "Malachin" -> "MalachÃ­n, der Gott der Jagt und der Schlachten, fuchtelt mir ein wenig zu viel mit Schwertern herum. Warum sich streiten, wenn man alle Probleme bei einem schÃ¶nen Braten und einem Humpen Wein besprechen kÃ¶nnte?"
+"Cherga" -> "Wenn ich den Namen Cherga höre, stehen mir die Fußhaare zu Berge. Ihr solltet vorsichtig sein, wenn ich auf Anhänger der Göttin der Geister und der Unterwelt trefft."
+english, "Malachín", "Malachin" -> "Malachín, the God of Battle and Hunting, flourishes his swords too much. Why battle, if all problems can be discussed with a nice roast on your plate and a beaker of wine in your hand?"
+"Malachín", "Malachin" -> "Malachín, der Gott der Jagt und der Schlachten, fuchtelt mir ein wenig zu viel mit Schwertern herum. Warum sich streiten, wenn man alle Probleme bei einem schönen Braten und einem Humpen Wein besprechen könnte?"
 english, "Irmorom" -> "You should never trust those dwarven traders praying to the God of Trade and Craftsmanship. With one hand they offer you a good deal and with the other they strip you of all your belongings."
-"Irmorom" -> "Ihr solltet niemals diesen ZwergenhÃ¤ndlern vertrauen, die zum Gott des Handels und Handwerks beten. Mit einer Hand bieten sie Euch einen guten Handel an und mit der anderen klauen sie euch das letzte KupferstÃ¼ck aus der Tasche."
+"Irmorom" -> "Ihr solltet niemals diesen Zwergenhändlern vertrauen, die zum Gott des Handels und Handwerks beten. Mit einer Hand bieten sie Euch einen guten Handel an und mit der anderen klauen sie euch das letzte Kupferstück aus der Tasche."
 english, "Sirani" -> "I have to admit, that Sirani sometimes is dancing in my dreams. Oh yes, the Goddess of Love and Pleasure surely is a sight to be remembered."
-"Sirani" -> "Ich muss zugeben, dass Sirani manchmal in meinen TrÃ¤umen tanzt. Ach ja, die GÃ¶ttin der Liebe und Freuden ist wahrlich ein Anblick, an den man sich gerne erinnert."
+"Sirani" -> "Ich muss zugeben, dass Sirani manchmal in meinen Träumen tanzt. Ach ja, die Göttin der Liebe und Freuden ist wahrlich ein Anblick, an den man sich gerne erinnert."
 english, "Zhambra" -> "Count yourself lucky if you have a friend who is a true follower of Zhambra. You can trust this kind of person absolutely. Nobody would dare to deceive the God of Friendship and Loyalty by going behind his back."
-"Zhambra" -> "SchÃ¤tzt euch glÃ¼cklich, wenn ihr einen Freund habt, welcher ein ehrfÃ¼rchtiger AnhÃ¤nger von Zhambra ist. Auf so eine Person ist immer VerlaÃŸ. Es wÃ¼rde keiner wagen, dem Gott der Freundschaft und Treue so zu hintergehen."
+"Zhambra" -> "Schätzt euch glücklich, wenn ihr einen Freund habt, welcher ein ehrfürchtiger Anhänger von Zhambra ist. Auf so eine Person ist immer Verlaß. Es würde keiner wagen, dem Gott der Freundschaft und Treue so zu hintergehen."
 english, "Ronagan" -> "#me laughs heartily, 'The rogue in our godly pantheon. Always good for a joke, but you should never ever stray on his bad side... the God of Thieves and Shadows doesn't like to lose out.'"
-"Ronagan" -> "#me lacht herzhaft. 'Der Spitzbube in unserem Pantheon. Er ist immer fÃ¼r einen guten Scherz zu haben. Aber ihr solltet ihm niemals auf dem falschen FuÃŸ erwischen. Der Gott der Diebe und der Schatten liebt es nicht, den KÃ¼rzeren zu ziehen.'"
+"Ronagan" -> "#me lacht herzhaft. 'Der Spitzbube in unserem Pantheon. Er ist immer für einen guten Scherz zu haben. Aber ihr solltet ihm niemals auf dem falschen Fuß erwischen. Der Gott der Diebe und der Schatten liebt es nicht, den Kürzeren zu ziehen.'"
 english, "Moshran" -> "If you are not tired of your life, you should stay far away from the God of Blood and Bones. I don't even dare to wisper his name, so that no misfortune or evil may befall me. He lurks in the dark waiting for a weakness of your soul, to get hold of it... forever. Be on your guard!"
-"Moshran" -> "Wenn Ihr nicht lebensmÃ¼de seid, so haltet euch fern vom Gott des Blutes und der Gebeine. Ich wage nicht, seinen Namen auszusprechen, so mir nicht UnglÃ¼ck und Verderben widerfÃ¤hrt. Er lauert im Dunkeln auf eine SchwÃ¤che eurer Seele, um ihrer habhaft zu werden... auf ewige Zeiten. Seid auf der Hut!"
+"Moshran" -> "Wenn Ihr nicht lebensmüde seid, so haltet euch fern vom Gott des Blutes und der Gebeine. Ich wage nicht, seinen Namen auszusprechen, so mir nicht Unglück und Verderben widerfährt. Er lauert im Dunkeln auf eine Schwäche eurer Seele, um ihrer habhaft zu werden... auf ewige Zeiten. Seid auf der Hut!"
 
 -- herb lore
 "herbalist" -> "You can do a lot of stuff working as a herbalist. You can heal the wounded or poison the culprit. You can strengthen the weak or weaken the strong. You can change the biggest troll to the smallest fairy or create devastating bombs. All that is possible!"
-"KrÃ¤uterkundiger" -> "Als KrÃ¤uterkundiger kann man eine Menge machen. Ihr kÃ¶nnt die Kranken heilen oder den Schuldigen vergiften. Ihr kÃ¶nnt den Schwachen stark oder den Starken schwach machen. Ihr kÃ¶nnt den grÃ¶ÃŸten Troll in die kleinste Fee verwandeln oder zerstÃ¶rerische Bomben herstellen. All das ist mÃ¶glich!"
+"Kräuterkundiger" -> "Als Kräuterkundiger kann man eine Menge machen. Ihr könnt die Kranken heilen oder den Schuldigen vergiften. Ihr könnt den Schwachen stark oder den Starken schwach machen. Ihr könnt den größten Troll in die kleinste Fee verwandeln oder zerstörerische Bomben herstellen. All das ist möglich!"
 english, "Druid" -> "You can do a lot of stuff working as a druid. You can heal the wounded or poison the culprit. You can strengthen the weak or weaken the strong. You can change the biggest troll to the smallest fairy or create devastating bombs. All that is possible!"
-"Druid" -> "Als Druide kann man eine Menge machen. Ihr kÃ¶nnt die Kranken heilen oder den Schuldigen vergiften. Ihr kÃ¶nnt den Schwachen stark oder den Starken schwach machen. Ihr kÃ¶nnt den grÃ¶ÃŸten Troll in die kleinste Fee verwandeln oder zerstÃ¶rerische Bomben herstellen. All das ist mÃ¶glich!"
+"Druid" -> "Als Druide kann man eine Menge machen. Ihr könnt die Kranken heilen oder den Schuldigen vergiften. Ihr könnt den Schwachen stark oder den Starken schwach machen. Ihr könnt den größten Troll in die kleinste Fee verwandeln oder zerstörerische Bomben herstellen. All das ist möglich!"
 "herb lore" -> "It is a good and decent trade. You learn a lot about herbs and other ingredients, their usage and the history of herb lore."
-"KrÃ¤uterkunde" -> "Dies ist ein gutes und respektables Handwerk. Man lernt eine Menge Ã¼ber KrÃ¤uter umd anderen Ingredienzien, ihren Gebrauch und die Geschichte der KrÃ¤uterkunde."
+"Kräuterkunde" -> "Dies ist ein gutes und respektables Handwerk. Man lernt eine Menge über Kräuter umd anderen Ingredienzien, ihren Gebrauch und die Geschichte der Kräuterkunde."
 "herb" -> "There are different kind of herbs which can be found on the ground. You just need a sickle in your hand to cut them."
-"KrÃ¤uter" -> "Es gibt verschiedene Arten von KrÃ¤utern, die auf der Erde gefunden werden kÃ¶nnen. Ihr benÃ¶tigt nur eine Sichel in eurer Hand, um sie zu ernten."
+"Kräuter" -> "Es gibt verschiedene Arten von Kräutern, die auf der Erde gefunden werden können. Ihr benötigt nur eine Sichel in eurer Hand, um sie zu ernten."
 "ingredient" -> "There are some kind of minerals which are used to finish a brew. In general, it is gem dust."
-"Ingredienz" -> "Es gibt bestimmt Arten von Mineralien, mit denen man das GebrÃ¤u 'abschmeckt'. In der Regel ist dies der zermalene Staub von Edelsteinen."
+"Ingredienz" -> "Es gibt bestimmt Arten von Mineralien, mit denen man das Gebräu 'abschmeckt'. In der Regel ist dies der zermalene Staub von Edelsteinen."
 "usage" -> "You will need a cauldron, the plants and other ingredients, and an empty bottle to create a potion."
-"Gebrauch" -> "Ihr benÃ¶tigt einen Kessel, die KrÃ¤uter und Ingredienzien und eine leere Flasche, um einen Trank herzustellen."
+"Gebrauch" -> "Ihr benötigt einen Kessel, die Kräuter und Ingredienzien und eine leere Flasche, um einen Trank herzustellen."
 "history" -> "The history of herb lore is very interesting. It dates back to the old seer Nifrindarai from the perished Elven domain of the Raenandor dynasty."
-"Geschichte" -> "Die Geschichte der KrÃ¤uterkunde ist sehr interessant. Sie basiert auf die Lehren des alten Sehers Nifrindarai aus den untergegangenen Elfenreichen der Geschlechter der Raenandor."
+"Geschichte" -> "Die Geschichte der Kräuterkunde ist sehr interessant. Sie basiert auf die Lehren des alten Sehers Nifrindarai aus den untergegangenen Elfenreichen der Geschlechter der Raenandor."
 english, "Nifrindarai" -> "He has found out that all herbs contain active substances with different effects. The success of a formula therefore requires a harmonic combination of the ingredients in the correct proportions."
-"Nifrindarai" -> "Er hat herausgefunden, dass alle KrÃ¤uter aktive Substanzen mit unterschiedlichen Wirkungen beinhalten. Der Erfolg einer Formel bedarf somit einer harmonischen Zusammenstellung der Ingredienzien und deren MischungsverhÃ¤ltnisse."
+"Nifrindarai" -> "Er hat herausgefunden, dass alle Kräuter aktive Substanzen mit unterschiedlichen Wirkungen beinhalten. Der Erfolg einer Formel bedarf somit einer harmonischen Zusammenstellung der Ingredienzien und deren Mischungsverhältnisse."
 english, "Raenandor" -> "I don't know much about their story as even the name is so old that it is covered in dust."
-"Raenandor" -> "Ich weiÃŸ nicht viel Ã¼ber ihre Geschichte, da selbst der Name schon so alt ist, dass der Staub bei deren ErwÃ¤hnung aufgewirbelt wird."
+"Raenandor" -> "Ich weiß nicht viel über ihre Geschichte, da selbst der Name schon so alt ist, dass der Staub bei deren Erwähnung aufgewirbelt wird."
 
 -- Faction stuff
 "archmage" -> "Elvaine Morgan is the current Archmage of Runewick. From far and near people flock to him, just to see him in flesh."
 "Erzmagier" -> "Elvaine Morgan ist der Erzmagier von Runewick. Von nah und fern kommen die Menschen in Massen, nur um ihn leibhaftig zu erblicken."
 english, "Elvaine", "Morgan" -> "He is our wise and benevolent Archmage, the ruler of Runewick. Never before was there such a fair mind."
-"Elvaine", "Morgan" -> "Er ist unser weiser und mildtÃ¤tiger Erzmagier, der Gebieter von Runewick. Niemals zuvor ward gesehen ein so brillianter Kopf."
+"Elvaine", "Morgan" -> "Er ist unser weiser und mildtätiger Erzmagier, der Gebieter von Runewick. Niemals zuvor ward gesehen ein so brillianter Kopf."
 english, "Runewick" -> "Could you imagine a nicer place to live at than Runewick? This fabulous city of wisdom fills my heart with joy."
-"Runewick" -> "KÃ¶nnt Ihr Euch einen schÃ¶neren Ort zum Leben als Runewick vorstellen? Diese fabelhafte Stadt der Weisheit erfÃ¼llt mich jedesmal mit groÃŸer Freude."
+"Runewick" -> "Könnt Ihr Euch einen schöneren Ort zum Leben als Runewick vorstellen? Diese fabelhafte Stadt der Weisheit erfüllt mich jedesmal mit großer Freude."
 english, "Valerio", "Guilianni", "Don" -> "An unpleasent person with too much gold at his disposal. I even heard that when his father died he had his fingers in the pie."
-"Valerio", "Guilianni", "Don" -> "Ein unangenehmer Zeitgenosse mit zu viel Gold in seinen HÃ¤nden. Ich habe auch gehÃ¶rt, dass er seine Finger im Spiel hatte, als sein Vater gestorben ist."
+"Valerio", "Guilianni", "Don" -> "Ein unangenehmer Zeitgenosse mit zu viel Gold in seinen Händen. Ich habe auch gehört, dass er seine Finger im Spiel hatte, als sein Vater gestorben ist."
 english, "Galmair" -> "Galmair is not a good place to be, if you ask me. They just crave for money but their character is spoiled."
 "Galmair" -> "Wenn ihr mich fragt, so ist Galmair kein guter Ort sich aufzuhalten. Ihr Sinn steht nur nach Geld, doch ihr Charakter ist verdorben."
 "queen" -> "Quite stiff they are over there in Cadomyr and their Queen Rosaline is no exception. I would expect that the backs of most people in Cadomyr hurt from all the bowing they have to perform."
-"KÃ¶nigin" -> "Die sind schon recht steif drÃ¼ben in Cadomyr und ihre KÃ¶nigin Rosaline ist da keine Ausnahme. I wÃ¼rde mich nicht wundern, wenn der RÃ¼cken der meisten Leute in Cadomyr schmerzt aufgrund der ganzen Verbeugungen, die sie tÃ¤glich ausÃ¼ben."
+"Königin" -> "Die sind schon recht steif drüben in Cadomyr und ihre Königin Rosaline ist da keine Ausnahme. I würde mich nicht wundern, wenn der Rücken der meisten Leute in Cadomyr schmerzt aufgrund der ganzen Verbeugungen, die sie täglich ausüben."
 english, "Rosaline", "Edwards" -> "Quite stiff they are over there in Cadomyr and their Queen Rosaline is no exception. I would expect that the backs of most people in Cadomyr hurt from all the bowing they have to perform."
-"Rosaline", "Edwards" -> "Die sind schon recht steif drÃ¼ben in Cadomyr und ihre KÃ¶nigin Rosaline ist da keine Ausnahme. I wÃ¼rde mich nicht wundern, wenn der RÃ¼cken der meisten Leute in Cadomyr schmerzt aufgrund der ganzen Verbeugungen, die sie tÃ¤glich ausÃ¼ben."
+"Rosaline", "Edwards" -> "Die sind schon recht steif drüben in Cadomyr und ihre Königin Rosaline ist da keine Ausnahme. I würde mich nicht wundern, wenn der Rücken der meisten Leute in Cadomyr schmerzt aufgrund der ganzen Verbeugungen, die sie täglich ausüben."
 english, "Cadomyr" -> "Cadomyrs customs are strange. Rather than relying on wisdom and knowledge, their rank determines status in society. It could even happen that a total retard rules the land. Crazy, isn't it?"
-"Cadomyr" -> "Cadomyrs GebrÃ¤uche sind eigenartig. Anstatt sich auf Weisheit und Wissen zu berufen, wird der Status einer Person in der Gesellschaft durch dessen Rang bestimmt. Es kÃ¶nnte sogar passieren, dass ein absoluter Volltrottel das Land beherrscht. VerrÃ¼ckt, nicht wahr?"
+"Cadomyr" -> "Cadomyrs Gebräuche sind eigenartig. Anstatt sich auf Weisheit und Wissen zu berufen, wird der Status einer Person in der Gesellschaft durch dessen Rang bestimmt. Es könnte sogar passieren, dass ein absoluter Volltrottel das Land beherrscht. Verrückt, nicht wahr?"
 
 -- Main land factions
 english, "Albar" -> "Last I heard there was another rebellion going on in Albar. Those poor peasants were forming an uprising again, but as always the so called nobles will put an end to it pretty soon."
-"Albar" -> "Soweit ich gehÃ¶rt habe, gab es wieder mal eine Rebellion in Albar. Diese armen Bauern haben sich wieder erhoben. Aber wie so hÃ¤ufig werden diese sogenannten Adligen dem bald ein Ende setzen."
+"Albar" -> "Soweit ich gehört habe, gab es wieder mal eine Rebellion in Albar. Diese armen Bauern haben sich wieder erhoben. Aber wie so häufig werden diese sogenannten Adligen dem bald ein Ende setzen."
 english, "Gynk", "Gync" -> "I tell you, you can smell a person from Gynk three miles upwind. Those foul people live in stinking and chaotic dung heaps, that they actually call cities."
-"Gync", "Gynk" -> "Ich sage es euch, ihr kÃ¶nnt eine Person von Gynk drei Meilen gegen den Wind riechen. Diese verdorbenen Leute leben in stingenden und chaotischen Misthaufen, was sie auch noch als StÃ¤dte bezeichen."
+"Gync", "Gynk" -> "Ich sage es euch, ihr könnt eine Person von Gynk drei Meilen gegen den Wind riechen. Diese verdorbenen Leute leben in stingenden und chaotischen Misthaufen, was sie auch noch als Städte bezeichen."
 english, "Salkamar" -> "Once I went to Salkamar. Oh, such beautiful places, those great people! You should go there yourself one day and you will not return the same as you are today."
-"Salkamar" -> "Ein mal bin ich in Salkamar gewesen. Ach, diese wunderschÃ¶nen Orte, diese einzigartigen Leute! Ihr solltet selbst einmal dort hingehen und ich verspreche euch, dass ihr bei eurer RÃ¼ckkehr nicht mehr der gleiche sein werdet."
+"Salkamar" -> "Ein mal bin ich in Salkamar gewesen. Ach, diese wunderschönen Orte, diese einzigartigen Leute! Ihr solltet selbst einmal dort hingehen und ich verspreche euch, dass ihr bei eurer Rückkehr nicht mehr der gleiche sein werdet."
 
 -- NPCs background: geography
 english, "Gobaith" -> "#me laughs loudly, 'Nobody will ever stand again with two feet on Gobaith, but I expect that you knew that.'"
-"Gobaith" -> "#me lacht laut: 'Niemand wird jemals wieder mit seinen beiden FÃ¼ÃŸen auf Gobaith stehen. Ich denke mir, dass ihr das gewuÃŸt habt.'"
+"Gobaith" -> "#me lacht laut: 'Niemand wird jemals wieder mit seinen beiden Füßen auf Gobaith stehen. Ich denke mir, dass ihr das gewußt habt.'"
 
 -- NPCs background: races
 "Halfling" -> "Yes, I am a Halfling. Naturally the best people there are! Good for a nice chat and easy to have around. You only need to watch your provisions if one of us is around."
-"Halbling" -> "Ja, ich bin ein Halbling. SelbstverstÃ¤ndlich das beste Volk weit und breit! Immer fÃ¼r einen netten Plausch zu haben und gute Gesellschafter. Man muss nur auf seinen Proviant aufpassen, wenn wir in der NÃ¤he sind."
+"Halbling" -> "Ja, ich bin ein Halbling. Selbstverständlich das beste Volk weit und breit! Immer für einen netten Plausch zu haben und gute Gesellschafter. Man muss nur auf seinen Proviant aufpassen, wenn wir in der Nähe sind."
 english, "Hobbit" -> "Some call us Hobbits but most refer to us as Halflings."
 "Hobbit" -> "Manche nennen uns Hobbits, aber von den meisten werden wir als Halblinge bezeichnet."
 "Dwarf", "Dwarv" -> "There is quite a strong community of Dwarves living at Galmair in the mountain range."
-"Zwerg" -> "Es gibt eine recht groÃŸe Niederlassung der Zwerge in Galmair in den Bergen."
+"Zwerg" -> "Es gibt eine recht große Niederlassung der Zwerge in Galmair in den Bergen."
 "Human" -> "Humans provide the biggest group of people in this land. You will find good and bad people amongst them."
-"Menschen" -> "Die Menschen stellen die grÃ¶ÃŸte Gruppe in diesen Landen. Du wirst gute und schlechte Leute unter ihnen finden."
+"Menschen" -> "Die Menschen stellen die größte Gruppe in diesen Landen. Du wirst gute und schlechte Leute unter ihnen finden."
 "Elves", "Elfs" -> "I don't really have much to do with the Elves. They are quite snobbish if you ask me."
 "Elben", "Elfen" -> "Mit den Elfen habe ich eigentlich nicht viel zu tun. Sie sind mir einfach zu eingebildet."
 english, "Elb", "Elf" -> "I don't really have much to do with the Elves. They are quite snobbish if you ask my."
@@ -233,17 +247,17 @@ english, "Elb", "Elf" -> "I don't really have much to do with the Elves. They ar
 "Orc" -> "The Orcs are a kind of brutish lot. You don't want to mess with them."
 "Ork" -> "Die Orks sind recht raue Gesellen. Ihr solltet keinen Streit mit ihnen anfangen."
 "Fairy", "Fairies" -> "The little flying creatures can be annoying sometimes, but in general they are good natured. I haven't seen many of them around though."
-"Fee" -> "Die kleinen fliegenden Kreaturen kÃ¶nnen manchmal recht nervig sein, aber in der Regel sind sie freundlich. Ich habe nur in letzter Zeit wenige von ihnen gesehen."
+"Fee" -> "Die kleinen fliegenden Kreaturen können manchmal recht nervig sein, aber in der Regel sind sie freundlich. Ich habe nur in letzter Zeit wenige von ihnen gesehen."
 english, "Gnom" -> "Sorry, I have never really met a Gnome. I just heard that they are similar to dwarves but I can't say if that is true."
-"Gnom" -> "Entschuldigt, aber ich habe bisher noch keinen Gnom angetroffen. Man hÃ¶rt, sie wÃ¤ren den Zwergen nicht unÃ¤hnlich, aber ob das stimmt, kann ich nicht sagen."
+"Gnom" -> "Entschuldigt, aber ich habe bisher noch keinen Gnom angetroffen. Man hört, sie wären den Zwergen nicht unähnlich, aber ob das stimmt, kann ich nicht sagen."
 english, "Goblin" -> "In my youth my mother used to tell me lurid tales about those little creatures. I would advise to stay away from them."
-"Goblin" -> "In meiner Jugend hat meine Mutter mir immer Horrorgeschichten von den Goblins erzÃ¤hlt. Mein Rat wÃ¤re, sich von ihnen fern zu halten."
+"Goblin" -> "In meiner Jugend hat meine Mutter mir immer Horrorgeschichten von den Goblins erzählt. Mein Rat wäre, sich von ihnen fern zu halten."
 
 -- NPCs background: other NPCs
 english, "Zerarisa" -> "A very nice lizardwoman living at Cape Farewell. She works as a fisherwoman."
 "Zerarisa" -> "Eine sehr nette Echsenfrau, die am Kap des Abschiedes lebt. Sie ist eine Fischerin."
 english, "Fronita", "Emery" -> "She is the dwarven glass artisan of Runewick. A really good lass with the best bottles in town."
-"Fronita", "Emery" -> "Sie ist die zwergische GlaskÃ¼nstlerin von Runewick. Ein wirklich sympatisches MÃ¤del, die die besten Flaschen der Stadt blÃ¤ÃŸt."
+"Fronita", "Emery" -> "Sie ist die zwergische Glaskünstlerin von Runewick. Ein wirklich sympatisches Mädel, die die besten Flaschen der Stadt bläßt."
 english, "Nana", "Winterbutter" -> "Nana is a good friend of mine. Normally you can find her around the fields in Yewdale."
 "Nana", "Winterbutter" -> "Nana ist eine gute Freundin von mir. Man kann sie meistens bei den Feldern im Eibenthal finden."
 
@@ -251,7 +265,7 @@ english, "Nana", "Winterbutter" -> "Nana is a good friend of mine. Normally you 
 "family" -> "I am living together with my wife and child in Runewick. A peaceful place to be."
 "Familie" -> "Ich lebe zusammen mit meiner Frau und meinem Kind in Runewick. Es ist ein sehr friedvoller Ort."
 "wife" -> "My wife is called Rose and she is the most beautiful woman you will ever see!"
-"Frau" -> "Meine Frau heiÃŸt Rose und sie ist die schÃ¶nste Frau, welche ihr je zu Gesicht bekommen werdet!"
+"Frau" -> "Meine Frau heißt Rose und sie ist die schönste Frau, welche ihr je zu Gesicht bekommen werdet!"
 "child", "Daughter" -> "I have a small daughter of three years and she is the sunshine of my life."
 "Kind", "Tochter" -> "Ich habe eine kleine Tochter von drei Jahren und sie ist der Sonnenschein in meinem Leben."
 
@@ -259,30 +273,30 @@ english, "Nana", "Winterbutter" -> "Nana is a good friend of mine. Normally you 
 "what sell", "what buy", "list wares", "price of" -> "Sorry, I don't sell anything. I am trying to get this stupid ox to move... so, get out of my way if you don't want to help me."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Entschuldigt, aber ich verkaufe nichts. Ich versuche diesen dummen Ochse in Bewegung zu setzten. Also, geht mir aus dem Weg, wenn ihr mir nicht helfen wollt."
 "tell something" -> "I could tell you a lot about herb lore, and my family, if you wish."
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Ich kÃ¶nnte eine Menge Ã¼ber KrÃ¤uterkunde erzÃ¤hlen - und Ã¼ber meine Familie, wenn ihr wollt."
+"erzähl was", "erzähl etwas" -> "Ich könnte eine Menge über Kräuterkunde erzählen - und über meine Familie, wenn ihr wollt."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 english, "my name" -> "My Name is Milo Deepdelver. I am a herbalist from Runewick. If the Gods are with me, I will be on my way home with this no good ox of mine!"
-"mein name" -> "Mein Name ist Milo Deepdelver. Ich bin ein KrÃ¤uterkundiger aus Runewick. So die GÃ¶tter es wollen, bin ich auf dem Weg nach Hause mit meinem unnÃ¼tzen Ochsen hier!"
+"mein name" -> "Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Ochsen hier!"
 english, "Milo", "Deepdelver" -> "Yes, this is my name. If you need some information on the Gods or herb lore just talk to me."
-"Milo", "Deepdelver" -> "Ja, so heiÃŸe ich. Falls ihr ein paar Informationen zu den GÃ¶ttern oder KrÃ¤uterkunde benÃ¶tigt, stehe ich zu eurer VerfÃ¼gung."
+"Milo", "Deepdelver" -> "Ja, so heiße ich. Falls ihr ein paar Informationen zu den Göttern oder Kräuterkunde benötigt, stehe ich zu eurer Verfügung."
 "Yes" -> "Pardon?", "Could you rephrase that?", "Good to hear that.", "Sure?"
-"Ja" -> "Pardon?", "KÃ¶nntet ihr das anders ausdrÃ¼cken?", "Gut zu hÃ¶ren!", "Sicher?"
+"Ja" -> "Pardon?", "Könntet ihr das anders ausdrücken?", "Gut zu hören!", "Sicher?"
 "No" -> "Pardon?", "Could you rephrase that?", "Oh, I see.", "Sure?"
-"Nein" -> "Pardon?", "KÃ¶nntet ihr das anders ausdrÃ¼cken?", "Nun, ich verstehe.", "Sicher?"
+"Nein" -> "Pardon?", "Könntet ihr das anders ausdrücken?", "Nun, ich verstehe.", "Sicher?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Nun komm schon, du dickkÃ¶pfiger alter Ochse!", "Come on, you stubborn old ox!"
+cycletext "Nun komm schon, du dickköpfiger alter Ochse!", "Come on, you stubborn old ox!"
 cycletext "#me zieht verzweifelt am Joch des Ochsens.", "#me desperately pulls at the headcollar of the ox."
 cycletext "#me versucht dem Ochse gut zuzureden.", "#me tries to cajole the ox into moving."
 cycletext "Jetzt beweg dich endlich, du Mistviech von einem Ochse!", "Now move, you bastard of an ox!"
 cycletext "Ich verspreche dir, ich mach aus dir Ochsenschwanzsuppe, wenn du dich nicht auf der Stelle in Bewegung setzt.", "I promise I will turn you into oxtail soup if you do not move right away."
-cycletext "Soll dich doch Cherga ins Reich der Toten holen, du faules StÃ¼ck!", "May Cherga take you into the realm of the dead, you numbskull!"
-cycletext "#me schlÃ¤gt mit dem Stock nach dem Ochse.", "#me hits the ox with a stick."
-cycletext "In Galmair wÃ¼ÃŸte man mit einem Ochse wie dir umzugehen!", "They would know how to deal with with a ox like you in Galmair!"
-cycletext "Bei den Haaren meiner FÃ¼ÃŸe, ich trete dir gleich in den Hintern!", "By the hairs on my feet, I will kick you in the butt!"
-cycletext "Wegen dir kommen wir zu spÃ¤t zum Essen, du dickkÃ¶pfige Kreatur!", "Because of you we will be late for dinner, you thickheaded creature!"
+cycletext "Soll dich doch Cherga ins Reich der Toten holen, du faules Stück!", "May Cherga take you into the realm of the dead, you numbskull!"
+cycletext "#me schlägt mit dem Stock nach dem Ochse.", "#me hits the ox with a stick."
+cycletext "In Galmair wüßte man mit einem Ochse wie dir umzugehen!", "They would know how to deal with with a ox like you in Galmair!"
+cycletext "Bei den Haaren meiner Füße, ich trete dir gleich in den Hintern!", "By the hairs on my feet, I will kick you in the butt!"
+cycletext "Wegen dir kommen wir zu spät zum Essen, du dickköpfige Kreatur!", "Because of you we will be late for dinner, you thickheaded creature!"

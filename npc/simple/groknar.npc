@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Groknar                                                     None --
 -- NPC Job:  hunter                                                           --
@@ -26,7 +40,7 @@ autointroduce = on
 author = "Rincewind"
 author = "Estralis Seborian"
 
-lookatDE = "Das ist dein Tutor Groknar der JÃ¤ger."
+lookatDE = "Das ist dein Tutor Groknar der Jäger."
 lookatUS = "This is your tutorial guide Groknar the hunter."
 useMsgDE = "Finger weg!"
 useMsgUS = "Do not touch me!"
@@ -55,31 +69,31 @@ itemShoes = 697
 
 -- Help
 "Help" -> inform("[Tutorial] This NPC is the tutor Groknar. Keywords: Hello, Help, Skip tutorial.")
-"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Groknar. SchlÃ¼sselwÃ¶rter: Hallo, Hilfe, Tutorial Ã¼berspringen.")
+"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Groknar. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
 
 -- Skipping
 "skip", "cancel", "abort" -> inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south."), warp(36, 94, 100)
-"Ã¼berspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu Ã¼berspringen. Bitte wÃ¤hle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im SÃ¼den trittst."), warp(36, 94, 100)
+"überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."), warp(36, 94, 100)
 
 -- Learn how to fight
 queststatus(311) < 2, english, ".*" -> inform("[Tutorial] You can attack other creatures by clicking them once with the right mouse button."), item(2664, 1, 366), queststatus(311) = 2, "Hurr! Fresh meat! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take this club and crush three of those pigs over there."
-queststatus(311) < 2, ".*" -> inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du sie mit der rechten Maustaste einmal anklickst."), item(2664, 1, 366), queststatus(311) = 2, "Hurr! Frischfleisch! Ich bin Groknar, der mÃ¤chtigste JÃ¤ger meines Clans. Ich bring dir bei, erbÃ¤rmliche Kreaturen zu erschlagen. Nimm diesen KnÃ¼ppel in die Hand und erschlage drei dieser Schweine dort drÃ¼ben."
+queststatus(311) < 2, ".*" -> inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du sie mit der rechten Maustaste einmal anklickst."), item(2664, 1, 366), queststatus(311) = 2, "Hurr! Frischfleisch! Ich bin Groknar, der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm diesen Knüppel in die Hand und erschlage drei dieser Schweine dort drüben."
 
 -- Player seems to have problems with fighting. Weichei!
 queststatus(311) < 5, english, ".*" -> inform("[Tutorial] You can attack other creatures by clicking them once with the right mouse button."), "Hurr, you afraid of those puny pigs? Off! Kill at least three of them."
-queststatus(311) < 5, ".*" -> inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du sie mit der rechten Maustaste einmal anklickst."), "Hurr, hast du Angst vor diesen erbÃ¤rmlichen Schweinen? Geh! TÃ¶te mindestens drei von ihnen."
+queststatus(311) < 5, ".*" -> inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du sie mit der rechten Maustaste einmal anklickst."), "Hurr, hast du Angst vor diesen erbärmlichen Schweinen? Geh! Töte mindestens drei von ihnen."
 
 -- Player killed the pigs. Reward: Simple dagger (27)
 queststatus(311) = 5, english, ".*" -> inform("[Tutorial] You are awarded a simple dagger."), item(27, 1, 366), queststatus(311) = 6, "Good. You might just survive out there. Here, take this dagger. It will stab good. Follow the road, Hammerfist is expecting you. Good travels, %CHARNAME!"
-queststatus(311) = 5, ".*" -> inform("[Tutorial] Du erhÃ¤ltst einen Dolch."), item(27, 1, 366), queststatus(311) = 6, "Gut. Vielleicht wirst du da drauÃŸen nun Ã¼berleben. Hier, nimm diesen Dolch, er wird dir gute Dienste leisten. Folge nun der StraÃŸe, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!"
+queststatus(311) = 5, ".*" -> inform("[Tutorial] Du erhältst einen Dolch."), item(27, 1, 366), queststatus(311) = 6, "Gut. Vielleicht wirst du da draußen nun überleben. Hier, nimm diesen Dolch, er wird dir gute Dienste leisten. Folge nun der Straße, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!"
 
 -- Player did all lessons
 queststatus(311) = 6, english, ".*" -> "Hurr, you are prepared to face the threats of this world. Follow the road, Nargon Hammerfist is expecting you. Good travels, %CHARNAME!"
-queststatus(311) = 6, ".*" -> "Hurr, du bist nun auf die Gefahren der Welt vorbereitet. Folge nun der StraÃŸe, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!"
+queststatus(311) = 6, ".*" -> "Hurr, du bist nun auf die Gefahren der Welt vorbereitet. Folge nun der Straße, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me grunzt wÃ¤hrend er sagt: 'Ich zeige dir, wie man wie ein richtiger Krieger kÃ¤mpft.'", "#me grunts while speaking: 'I will teach you how to fight like a true warrior.'"
+cycletext "#me grunzt während er sagt: 'Ich zeige dir, wie man wie ein richtiger Krieger kämpft.'", "#me grunts while speaking: 'I will teach you how to fight like a true warrior.'"

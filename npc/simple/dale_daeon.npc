@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Dale Daeon                                               Cadomyr --
 -- NPC Job:  Arena Master                                                     --
@@ -46,21 +60,21 @@ itemShoes = 53
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the arena master Dale Daeon Keywords: Hello, monster, fight, ranklist, points.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Arenameister Dale Daeon. SchlÃ¼sselwÃ¶rter: Hallo, Monster, KÃ¤mpfen, Rangliste, Punkte.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Arenameister Dale Daeon. Schlüsselwörter: Hallo, Monster, Kämpfen, Rangliste, Punkte.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail! Time to prove yourself in the Arena of Cadomyr!", "Greetings! Just get your sword and prove your strength against my beasts!"
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrÃ¼ÃŸt! Es ist Zeit das ihr euch in der Arena von Cadoymr beweist!", "GrÃ¼ÃŸe! Nehmt einfach euer Schwert und beweist euch gegen meine Biester!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt! Es ist Zeit das ihr euch in der Arena von Cadoymr beweist!", "Grüße! Nehmt einfach euer Schwert und beweist euch gegen meine Biester!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail! Time to prove yourself in the arena of Cadomyr!", "Greetings! Just get your sword and prove your strength against my beasts!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrÃ¼ÃŸt! Es ist Zeit das ihr euch in der Arena von Cadoymr beweist!", "GrÃ¼ÃŸe! Nehmt einfach euer Schwert und beweist euch gegen meine Biester!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt! Es ist Zeit das ihr euch in der Arena von Cadoymr beweist!", "Grüße! Nehmt einfach euer Schwert und beweist euch gegen meine Biester!"
 "Farewell", "Bye", "Fare well", "See you" -> "Go with pride in your heart, soldier!"
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Gehet mit Stolz im Herzen, Soldat!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehet mit Stolz im Herzen, Soldat!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with pride in your heart, soldier!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehet mit Stolz im Herzen, Soldat!"
 "How are you", "How feel", "How do you do" -> "I am fine. The sun is shining and the sand tickles in my beard."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen" -> "Ich fÃ¼hle mich gut. Die Sonne scheint und der Sand kitzelt in meinem Bard."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich fühle mich gut. Die Sonne scheint und der Sand kitzelt in meinem Bard."
 "your name", "who are you", "who art thou" -> "My name is Dale. I'm the arena master here. Are you strong enough to beat my beasts?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Mein Name ist Dale. Ich bin der Arenameister hier. Seid Ihr stark genug, um gegen meine Biester zu gewinnen?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Dale. Ich bin der Arenameister hier. Seid Ihr stark genug, um gegen meine Biester zu gewinnen?"
 
 -- Faction stuff
 "archmage" -> "That old, wand waving wimp. Has no guts, that man."
@@ -74,51 +88,51 @@ english, "Valerio", "Guilianni", "Don" -> "Ruthless old geezer."
 english, "Galmair" -> "Money, money, money... but where is the honour?"
 "Galmair" -> "Geld, Geld, Geld... aber wo bleibt die Ehre?"
 "queen" -> "She's my Queen and I obey her."
-"kÃ¶nigin" -> "Sie ist meine KÃ¶nigin und ich folge ihr."
+"königin" -> "Sie ist meine Königin und ich folge ihr."
 english, "rosaline", "edwards" -> "She's my Queen and I obey her."
-"rosaline", "edwards" -> "Sie ist meine KÃ¶nigin und ich folge ihr."
+"rosaline", "edwards" -> "Sie ist meine Königin und ich folge ihr."
 english, "Cadomyr" -> "Cadomyr is the only town I like to spend my time. People understand me here."
 "Cadomyr" -> "Cadomyr ist die einzige Stadt, in der ich meine Zeit verbringen will. Die Leute verstehen mich hier."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I only sell my beasts to fighters that are worthy and want to prove themselves."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe nur meine Biester an KÃ¤mpfer, die es Wert sind und sich beweisen sollen."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe nur meine Biester an Kämpfer, die es Wert sind und sich beweisen sollen."
 "tale", "story", "tell something" -> "Start to write your own story by fighting in my arena."
-"geschichte", "erzÃ¤hl was", "erzÃ¤hl etwas" -> "Schreibt Eure eigene Geschichte, indem Ihr in meiner Arena kÃ¤mpft."
+"geschichte", "erzähl was", "erzähl etwas" -> "Schreibt Eure eigene Geschichte, indem Ihr in meiner Arena kämpft."
 
 -- arena phrases
 "fight" -> "What beast would you like to fight against today?", request
-"kÃ¤mpfen" -> "Gegen welches Biest wollt ihr heute kÃ¤mpfen?", request
+"kämpfen" -> "Gegen welches Biest wollt ihr heute kämpfen?", request
 "points" -> "#me looks at his list.", points
 "punkte" -> "#me schaut auf seine Liste.", points
 
 -- "fight" -> "Only citizens of Cadomyr are allowed to fight here and prove their strength."
--- "kÃ¤mpfen" -> "Nur BÃ¼rger Cadomyrs dÃ¼rfen hier kÃ¤mpfen und ihre Kraft beweisen."
+-- "kämpfen" -> "Nur Bürger Cadomyrs dürfen hier kämpfen und ihre Kraft beweisen."
 -- "points" -> "As I see it, you do not belong to Cadomyr. I will not find you on my list then."
--- "punkte" -> "Ihr gehÃ¶rt nicht zu Cadomyr, wie ich sehe. Ihr werdet also auch nicht auf meiner Liste stehen."
+-- "punkte" -> "Ihr gehört nicht zu Cadomyr, wie ich sehe. Ihr werdet also auch nicht auf meiner Liste stehen."
 "ranklist" -> "#me shows you a piece of parchment, 'Look for yourself who the best ones are here.'", list
-"rangliste" -> "#me zeigt dir ein StÃ¼ck Pergament: 'Seht fÃ¼r Euch selbst, wer die Besten hier sind.'", list
+"rangliste" -> "#me zeigt dir ein Stück Pergament: 'Seht für Euch selbst, wer die Besten hier sind.'", list
 
 -- monster informations
 english, "beast", "monster" -> "There are several beasts roaming the lands as you might now. I found and captured a few for you to fight against."
-"biest", "monster" -> "Es gibt viele Biester, die das Land durchstreifen, wie Ihr sicher wisst. Ich habe ein paar gefunden und gefangen, damit Ihr gegen sie kÃ¤mpfen kÃ¶nnt."
+"biest", "monster" -> "Es gibt viele Biester, die das Land durchstreifen, wie Ihr sicher wisst. Ich habe ein paar gefunden und gefangen, damit Ihr gegen sie kämpfen könnt."
 english, "dog", "wolves", "wolf" -> "Those four legged, furry creatures are quite easy to defeat with a sharp sword."
-"hund", "wolf", "wÃ¶lfe" -> "Diese vierbeinigen, pelzigen Kreaturen sind mit einem scharfen Schwert. recht einfach zu besiegen."
+"hund", "wolf", "wölfe" -> "Diese vierbeinigen, pelzigen Kreaturen sind mit einem scharfen Schwert. recht einfach zu besiegen."
 "dragon" -> "Beware of the dragons! They are mean and strong and only a very skilled swordsman can defeat it. There are fire dragons, ice dragons, undead ones, and each one is meaner than the others."
-"drache" -> "Nehmt Euch vor Drachen in Acht! Sie sind gemein und stark und nur ein sehr guter KÃ¤mpfer kann ihn schlagen. Es gibt Feuerdrachen, Eisdrachen und untote und jeder ist gemeiner als der andere."
+"drache" -> "Nehmt Euch vor Drachen in Acht! Sie sind gemein und stark und nur ein sehr guter Kämpfer kann ihn schlagen. Es gibt Feuerdrachen, Eisdrachen und untote und jeder ist gemeiner als der andere."
 "imp" -> "Mean and tricky little creatures, but not too hard to defeat for a skilled fighter."
-"wichtel", "kobold" -> "Gemeine und trickreiche kleine Kreaturen, aber nicht zu schwer zu besiegen fÃ¼r geÃ¼bte KÃ¤mpfer."
+"wichtel", "kobold" -> "Gemeine und trickreiche kleine Kreaturen, aber nicht zu schwer zu besiegen für geübte Kämpfer."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#mes prunkvolle RÃ¼stung zeigt das Wappen von Cadomyr.", "#me's shining armour shows the coat of arms of Cadomyr."
+cycletext "#mes prunkvolle Rüstung zeigt das Wappen von Cadomyr.", "#me's shining armour shows the coat of arms of Cadomyr."
 cycletext "Nieder mit den Feiglingen aus Galmair und Runewick!", "Down with the cowards of Galmair and Runewick!"
-cycletext "FÃ¼r die Ehre des Ordens der Silberdragon und die alten Sitten streite ich.", "I fight for the honour of the Order of the Silver Dragon and the old customs."
+cycletext "Für die Ehre des Ordens der Silberdragon und die alten Sitten streite ich.", "I fight for the honour of the Order of the Silver Dragon and the old customs."
 cycletext "Es ist nicht die Zeit der Worte, sondern die der Taten. Beweist Euch gegen meine Biester!", "It is not the time for talk, but for deeds. Prove yourself against my beasts!"
-cycletext "#me hÃ¤lt sein reich verziehrtes Schwert fest in der Hand und schwingt es durch die Luft.", "#me holds his ornate sword firmly with one hand, swinging it idly through the air."
+cycletext "#me hält sein reich verziehrtes Schwert fest in der Hand und schwingt es durch die Luft.", "#me holds his ornate sword firmly with one hand, swinging it idly through the air."
 cycletext "#me schreibt einige Worte in ein in Leder gebundenes Buch.", "#me writes some words into a leather covered book."
-cycletext "Wir leben in merkwÃ¼rdigen Zeiten...", "Strange times we live in..."
-cycletext "Bei BrÃ¡gons heiligem Blut!", "By the holy blood of BrÃ¡gon!"
+cycletext "Wir leben in merkwürdigen Zeiten...", "Strange times we live in..."
+cycletext "Bei Brágons heiligem Blut!", "By the holy blood of Brágon!"

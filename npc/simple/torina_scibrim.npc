@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Torina Scibrim                                          Runewick --
 -- NPC Job:  Notary                                                           --
@@ -54,50 +68,50 @@ itemShoes = 326
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Torina Scibrim the notary. Keywords: 'become citizen', 'leave', 'give up citizenship', 'rank', 'licence'.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. SchlÃ¼sselwÃ¶rter: 'BÃ¼rger werden', 'verlassen', 'beende BÃ¼rgerstatus','Rang', 'Lizenz'.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Bürger werden', 'verlassen', 'beende Bürgerstatus','Rang', 'Lizenz'.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Greetings.", "Good day."
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Zum GruÃŸe.", "Seid gegrÃ¼ÃŸt.", "Guten Tag."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tag."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Greetings.", "Good day."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Zum GruÃŸe.", "Seid gegrÃ¼ÃŸt.", "Guten Tag."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tag."
 "Farewell", "Bye", "Fare well", "See you" -> "Zhambra with you.", "Farewell.", "Goodbye."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Zhambra mit Euch.", "Auf bald.", "Bis bald."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Zhambra mit Euch.", "Auf bald.", "Bis bald."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Zhambra with you.", "Farewell.", "Goodbye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Zhambra mit Euch.", "Auf bald.", "Bis bald."
 "How are you", "How feel", "How do you do" -> "I'm fine, thank you for your concern.", "I can't complain, even if some more action wouldn't be that bad.", "Very good, and you?"
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage.", "Ich kann nicht klagen, auch wenn ein bisschen mehr Abenteuer mal wieder nicht schlecht wÃ¤re.", "Ganz gut, und Euch?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage.", "Ich kann nicht klagen, auch wenn ein bisschen mehr Abenteuer mal wieder nicht schlecht wäre.", "Ganz gut, und Euch?"
 "your name", "who are you", "who art thou" -> "My name is Torina Scibrim, I take care of the new arrivals of this place.", "I'm Torina Scibrim, I am the notary of Runewick.", "You can call me Torina Scibrim, as notary of this town I could put you on the citizen list of this beautiful place."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Mein Name ist Torina Scibrim, ich kÃ¼mmere mich um die NeuankÃ¶mmlinge dieses Ortes.", "Mein Name ist Torina Scibrim, ich bin die Notarin Runewicks.", "Man nennt mich Torina Scibrim, als Notarin kann Ich Euch zum BÃ¼rger unseres schÃ¶nen Ortes eintragen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Torina Scibrim, ich kümmere mich um die Neuankömmlinge dieses Ortes.", "Mein Name ist Torina Scibrim, ich bin die Notarin Runewicks.", "Man nennt mich Torina Scibrim, als Notarin kann Ich Euch zum Bürger unseres schönen Ortes eintragen."
 
 -- Becoming citizen in Runewick
 english, town = Cadomyr, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
-town = Cadomyr, "BÃ¼rger werden", "BÃ¼rgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
+town = Cadomyr, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
 english, town = Galmair, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
-town = Galmair, "BÃ¼rger werden", "BÃ¼rgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
+town = Galmair, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
 english, town = None, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
-town = None, "BÃ¼rger werden", "BÃ¼rgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
+town = None, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
 english, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
-"BÃ¼rger werden", "BÃ¼rgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
+"Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
 
 -- Player is already citizen
 english, town = Runewick, "become citizen", "gain citizenship" -> "Ehm...you are already a citizen of Runewick. Didn't you know?"
-town = Runewick, "BÃ¼rger werden", "BÃ¼rgerschaft beantragen" -> "Ehm... Ihr seid schon BÃ¼rger in Runewick. Wusstet Ihr das nicht?"
+town = Runewick, "Bürger werden", "Bürgerschaft beantragen" -> "Ehm... Ihr seid schon Bürger in Runewick. Wusstet Ihr das nicht?"
 
 -- leaving Runewick (207)
 english, town = Runewick, "give up citizenship", "terminating citizen ship", "leave", "leaving" -> queststatus(207) = 1, "So, you realy want to leave Runewick and live elsewhere? Are you sure?"
-town = Runewick, "beende BÃ¼rgerstatus", "verlassen", "verlasse", "annuliere" -> queststatus(207) = 1, "So, ihr mÃ¶chtet Runwick wirklich verlassen und woanders leben? Seid Ihr sicher?"
+town = Runewick, "beende Bürgerstatus", "verlassen", "verlasse", "annuliere" -> queststatus(207) = 1, "So, ihr möchtet Runwick wirklich verlassen und woanders leben? Seid Ihr sicher?"
 
 -- answer "yes"
 queststatus(207) = 1, english, "yes" -> queststatus(207) = 0, town = None, "You are no longer a citizen of Runewick. Fare well."
-queststatus(207) = 1, "ja" -> queststatus(207) = 0, town = None, "Nun seid Ihr nicht lÃ¤nger BÃ¼rger Runewicks. Auf bald."
+queststatus(207) = 1, "ja" -> queststatus(207) = 0, town = None, "Nun seid Ihr nicht länger Bürger Runewicks. Auf bald."
 
 -- answer "no"
 queststatus(207) = 1, english, ".*" -> queststatus(207) = 0, "Ah, good. You stay here, a wise decision."
 queststatus(207) = 1, ".*" -> queststatus(207) = 0, "Ah, gut. Ihr bleibt hier, eine weise Entscheidung."
 
 -- Test Question
-"welche Stadt", "Fraktion", "reich" -> "Du gehÃ¶rst nach %TOWN!"
+"welche Stadt", "Fraktion", "reich" -> "Du gehörst nach %TOWN!"
 "which town", "faction", "realm" -> "You belong to %TOWN!"
 
 -- RANK informations
@@ -117,26 +131,26 @@ rank > 8, town = Runewick, sex = female, "rang" -> "Dekanin, seid wilokmmen.Welc
 -- Rank 8
 rank > 7, english, town = Runewick, sex = male, "rank" -> "Oh! Professor %CHARNAME! How can I help you?"
 rank > 7, english, town = Runewick, sex = female, "rank" -> "Oh! Professor %CHARNAME! How can I help you?"
-rank > 7, town = Runewick, sex = male, "rang" -> "Oh! Professor %CHARNAME! Was kann ich fÃ¼r Euch tun?"
-rank > 7, town = Runewick, sex = female, "rang" -> "Oh! Professorin %CHARNAME! Was kann ich fÃ¼r Euch tun?"
+rank > 7, town = Runewick, sex = male, "rang" -> "Oh! Professor %CHARNAME! Was kann ich für Euch tun?"
+rank > 7, town = Runewick, sex = female, "rang" -> "Oh! Professorin %CHARNAME! Was kann ich für Euch tun?"
 
 -- Rank 7
 rank > 6, english, town = Runewick, sex = male, "rank" -> "Good to see you, docent %CHARNAME! How are you?"
 rank > 6, english, town = Runewick, sex = female, "rank" -> " Good to see you, docent %CHARNAME! How are you?"
-rank > 6, town = Runewick, sex = male, "rang" -> "SchÃ¶n Euch zu sehen, Dozent %CHARNAME! Wie geht es Euch?"
-rank > 6, town = Runewick, sex = female, "rang" -> " SchÃ¶n euch zu sehen, Dozentin %CHARNAME! Wie geht es Euch?"
+rank > 6, town = Runewick, sex = male, "rang" -> "Schön Euch zu sehen, Dozent %CHARNAME! Wie geht es Euch?"
+rank > 6, town = Runewick, sex = female, "rang" -> " Schön euch zu sehen, Dozentin %CHARNAME! Wie geht es Euch?"
 
 -- Rank 6
 rank > 5, english, town = Runewick, sex = male, "rank" -> "Greetings to you, doctor %CHARNAME!"
 rank > 5, english, town = Runewick, sex = female, "rank" -> "Greetings to you, doctor %CHARNAME!"
-rank > 5, town = Runewick, sex = male, "rang" -> "Seid gegrÃ¼ÃŸ, Doktor %CHARNAME!"
-rank > 5, town = Runewick, sex = female, "rang" -> "Seid gegrÃ¼ÃŸt, Doktorin %CHARNAME!"
+rank > 5, town = Runewick, sex = male, "rang" -> "Seid gegrüß, Doktor %CHARNAME!"
+rank > 5, town = Runewick, sex = female, "rang" -> "Seid gegrüßt, Doktorin %CHARNAME!"
 
 -- Rank 5
 rank > 4, english, town = Runewick, sex = male, "rank" -> "Greetings to you, master!"
 rank > 4, english, town = Runewick, sex = female, "rank" -> "Greetings to you, master!"
-rank > 4, town = Runewick, sex = male, "rang" -> "Seid gegrÃ¼ÃŸt, Magister !"
-rank > 4, town = Runewick, sex = female, "rang" -> "Seid gegrÃ¼ÃŸt, Magister!"
+rank > 4, town = Runewick, sex = male, "rang" -> "Seid gegrüßt, Magister !"
+rank > 4, town = Runewick, sex = female, "rang" -> "Seid gegrüßt, Magister!"
 
 -- Rank 4
 rank > 3, english, town = Runewick, sex = male, "rank" -> "Scholar, how are you today?"
@@ -147,14 +161,14 @@ rank > 3, town = Runewick, sex = female, "rang" -> "Gelehrte, wie geht es Euch?"
 -- Rank 3
 rank > 2, english, town = Runewick, sex = male, "rank" -> "Student, what are you here for? Do you need help?"
 rank > 2, english, town = Runewick, sex = female, "rank" -> "Student, what are you here for? Do you need help?"
-rank > 2, town = Runewick, sex = male, "rang" -> "Student, was fÃ¼hrt dich zu mir? Brauchst du Hilfe?"
+rank > 2, town = Runewick, sex = male, "rang" -> "Student, was führt dich zu mir? Brauchst du Hilfe?"
 rank > 2, town = Runewick, sex = female, "rang" -> "Studentin, was dich Euch zu mir? Brauchst du Hilfe?"
 
 -- Rank 2
 rank > 1, english, town = Runewick, sex = male, "rank" -> "You are an assistat. Please set a good example for the novices."
 rank > 1, english, town = Runewick, sex = female, "rank" -> "You are an assistant. Please set a good example for the novices."
-rank > 1, town = Runewick, sex = male, "rang" -> "Du bist ein AnwÃ¤rter. Bitte sei ein gutes Beispiel fÃ¼r die Novizen."
-rank > 1, town = Runewick, sex = female, "rang" -> "Du bist eine AnwÃ¤rterin. Bitte sei ein gutes Beispiel fÃ¼r die Novizen."
+rank > 1, town = Runewick, sex = male, "rang" -> "Du bist ein Anwärter. Bitte sei ein gutes Beispiel für die Novizen."
+rank > 1, town = Runewick, sex = female, "rang" -> "Du bist eine Anwärterin. Bitte sei ein gutes Beispiel für die Novizen."
 
 -- Rank 1
 rank > 0, english, town = Runewick, sex = male, "rank" -> "You are new here. You are not well known. Feel free to stay in Runewick and gain more knowledge, novice!"
@@ -164,87 +178,87 @@ rank > 0, town = Runewick, sex = female, "rang" -> "Du bist noch ganz neu hier. 
 
 -- saying Rank without beeing a member of Runewick
 "rank" -> "I do not know about other ranks of other towns.", "I am not interested in other systems, only the Runewickian one."
-"rang" -> "Ich weiÃŸ nichts Ã¼ber RÃ¤nge in anderen StÃ¤dten.", "Ich interessiere mich nur fÃ¼r das runewickische Statussystem."
+"rang" -> "Ich weiß nichts über Ränge in anderen Städten.", "Ich interessiere mich nur für das runewickische Statussystem."
 
 -- licence
 "licence","license", town = Runewick -> "There is no need for you to buy a licence, since you are a citizen."
-"lizenz", town = Runewick, sex = male -> "Ihr benÃ¶tigt keine Lizenz, da ihr BÃ¼rger dieser Stadt seid."
-"lizenz", town = Runewick, sex = female -> "Ihr benÃ¶tigt keine Lizenz, da ihr BÃ¼rgerin dieser Stadt seid."
+"lizenz", town = Runewick, sex = male -> "Ihr benötigt keine Lizenz, da ihr Bürger dieser Stadt seid."
+"lizenz", town = Runewick, sex = female -> "Ihr benötigt keine Lizenz, da ihr Bürgerin dieser Stadt seid."
 "licence","license", town = Cadomyr, town = Galmair, rank < 100 -> "You look as though you are quite new here, thus, you can currently use our tools for free."
-"lizenz", town = Cadomyr, town = Galmair, rank < 100 -> "Ihr wirkt als wÃ¼rdet ihr neu hier sein. Daher kÃ¶nnt ihr unsere GerÃ¤te zurzeit frei benutzen."
+"lizenz", town = Cadomyr, town = Galmair, rank < 100 -> "Ihr wirkt als würdet ihr neu hier sein. Daher könnt ihr unsere Geräte zurzeit frei benutzen."
 "licence","license" -> inform("[Licence] You can choose between 'Alpha', 'Beta' and 'Gamma' licences. Alpha costs one gold coin and allow you to use the tools for one real time hour. Beta costs two gold coins for three real time hours. Gamma costs three gold coins for eight real time hours. Say the name of the type of licence you want in order to buy it. You can buy several at the same time. They will be added to each other."), "I sell three kinds of licences. 'Alpha', 'Beta' and 'Gamma'. Alpha allows you to use our static tools for thee hours and costs only one gold coin. Beta allows you to use our static tools for nine hours and costs only two gold coins. Gamma allows you to use our static tools for one day and costs only three gold coins. Which one do you want?"
-"lizenz" -> inform("Lizenz] Du kannst zwischen 'Alpha', 'Beta' und 'Gamma' wÃ¤hlen. Alpha kostet eine GoldmÃ¼nze und erlaubt dir die Nutzung der GerÃ¤te fÃ¼r eine Echtzeit-Stunde. Beta kostet zwei GoldmÃ¼nzen fÃ¼r drei Echtzeit-Stunden. Gamma kostet drei GoldmÃ¼nzen fÃ¼r acht Echtzeit-Stunden. Sage den Namen des Typen, um zu bestellen. Du kannst mehrere gleichzeitig kaufen. Diese werden dann summiert."), "Ich verkaufe drei Arten von Lizenzen. 'Alpha', 'Beta' und 'Gamma'. Mit Alpha ist es mÃ¶glich, unsere GerÃ¤te fÃ¼r drei Stunden zu einem Preis von nur einer GoldmÃ¼nze zu nutzen. Mit Beta ist es mÃ¶glich, unsere GerÃ¤te fÃ¼r neun Stunden zu einem Preis von nur zwei GoldmÃ¼nzen zu nutzen. Und mit Gamma ist es mÃ¶glich, unsere GerÃ¤te fÃ¼r einen Tag zu einem Preis von nur drei GoldmÃ¼nzen zu nutzen. Welche mÃ¶chtet ihr?"
+"lizenz" -> inform("Lizenz] Du kannst zwischen 'Alpha', 'Beta' und 'Gamma' wählen. Alpha kostet eine Goldmünze und erlaubt dir die Nutzung der Geräte für eine Echtzeit-Stunde. Beta kostet zwei Goldmünzen für drei Echtzeit-Stunden. Gamma kostet drei Goldmünzen für acht Echtzeit-Stunden. Sage den Namen des Typen, um zu bestellen. Du kannst mehrere gleichzeitig kaufen. Diese werden dann summiert."), "Ich verkaufe drei Arten von Lizenzen. 'Alpha', 'Beta' und 'Gamma'. Mit Alpha ist es möglich, unsere Geräte für drei Stunden zu einem Preis von nur einer Goldmünze zu nutzen. Mit Beta ist es möglich, unsere Geräte für neun Stunden zu einem Preis von nur zwei Goldmünzen zu nutzen. Und mit Gamma ist es möglich, unsere Geräte für einen Tag zu einem Preis von nur drei Goldmünzen zu nutzen. Welche möchtet ihr?"
 "alpha", "beta", "gamma", town = Runewick, english -> "There is no need for you to buy a licence, since you are a citizen."
-"alpha", "beta", "gamma", town = Runewick, sex = male -> "Ihr benÃ¶tigt keine Lizenz, da ihr BÃ¼rger dieser Stadt seid."
-"alpha", "beta", "gamma", town = Runewick, sex = female -> "Ihr benÃ¶tigt keine Lizenz, da ihr BÃ¼rgerin dieser Stadt seid."
+"alpha", "beta", "gamma", town = Runewick, sex = male -> "Ihr benötigt keine Lizenz, da ihr Bürger dieser Stadt seid."
+"alpha", "beta", "gamma", town = Runewick, sex = female -> "Ihr benötigt keine Lizenz, da ihr Bürgerin dieser Stadt seid."
 "alpha", english, money < 10000 -> "You need more money in order to buy licence 'Alpha', one gold as a matter of fact."
-"alpha", money < 10000 -> "Ihr benÃ¶tigt mehr Geld, um Lizenz 'Alpha' zu kaufen. Eine GoldmÃ¼nze, um genau zu sein."
+"alpha", money < 10000 -> "Ihr benötigt mehr Geld, um Lizenz 'Alpha' zu kaufen. Eine Goldmünze, um genau zu sein."
 "alpha", english, queststatus(812) > 0 -> money - 10000, queststatus(812) + 12, inform("[Licence purchased] You bought licence 'Alpha' for one gold coin. You can use the static tools of this town for an additional one real time hour. The time has been added to your time left."), "You are free to use our tools for an additional three hours."
-"alpha", queststatus(812) > 0 -> money - 10000, queststatus(812) + 12, inform("[Lizenz erworben] Du hast die Lizenz 'Alpha' fÃ¼r eine GoldmÃ¼nze erworben. Du kannst die GerÃ¤te dieser Stadt fÃ¼r eine weitere Echtzeit-Stunde frei benutzen. Die Stunden wurden zu deiner verbliebenen Zeit aufsummiert."), "Euch ist es nun gestattet, unsere GerÃ¤te fÃ¼r weitere drei Stunden zu verwenden."
+"alpha", queststatus(812) > 0 -> money - 10000, queststatus(812) + 12, inform("[Lizenz erworben] Du hast die Lizenz 'Alpha' für eine Goldmünze erworben. Du kannst die Geräte dieser Stadt für eine weitere Echtzeit-Stunde frei benutzen. Die Stunden wurden zu deiner verbliebenen Zeit aufsummiert."), "Euch ist es nun gestattet, unsere Geräte für weitere drei Stunden zu verwenden."
 "alpha", english -> money - 10000, queststatus(812) + 12, inform("[Licence purchased] You bought licence 'Alpha' for a gold coin. You can use the static tools of this town for the next real time hour."),"Wonderful, you are free to use our tools for the next three hours."
-"alpha" -> money - 10000, queststatus(812) + 12, inform("[Lizenz erworben] Du hast die Lizenz 'Alpha' fÃ¼r eine GoldmÃ¼nze erworben. Du kannst die GerÃ¤te dieser Stadt fÃ¼r die nÃ¤chste Echtzeit-Stunde frei benutzen."), "Wunderbar, euch ist es nun gestattet, unsere GerÃ¤te fÃ¼r die nÃ¤chsten drei Stunden zu verwenden."
+"alpha" -> money - 10000, queststatus(812) + 12, inform("[Lizenz erworben] Du hast die Lizenz 'Alpha' für eine Goldmünze erworben. Du kannst die Geräte dieser Stadt für die nächste Echtzeit-Stunde frei benutzen."), "Wunderbar, euch ist es nun gestattet, unsere Geräte für die nächsten drei Stunden zu verwenden."
 "beta", english, money < 20000 -> "You need more money in order to buy licence 'Beta', two gold coins as a matter of fact."
-"beta", money < 20000 -> "Ihr benÃ¶tigt mehr Geld, um Lizenz 'Beta' zu kaufen. Zwei GoldmÃ¼nzen, um genau zu sein."
+"beta", money < 20000 -> "Ihr benötigt mehr Geld, um Lizenz 'Beta' zu kaufen. Zwei Goldmünzen, um genau zu sein."
 "beta", english, queststatus(812) > 0 -> money - 20000, queststatus(812) + 36, inform("[Licence purchased] You bought licence 'Beta' for two gold coins. You can use the static tools of this town for an additional three real time hours. The time has been added to your time left."), "You are free to use our tools for an additional nine hours."
-"beta", queststatus(812) > 0 -> money - 20000, queststatus(812) + 36, inform("[Lizenz erworben] Du hast die Lizenz 'Beta' fÃ¼r zwei GoldmÃ¼nzen erworben. Du kannst die GerÃ¤te dieser Stadt fÃ¼r weitere drei Echtzeit-Stunden frei benutzen. Die Stunden wurden zu deiner verbliebenen Zeit aufsummiert."), "Euch ist es nun gestattet, unsere GerÃ¤te fÃ¼r weitere neun Stunden zu verwenden."
+"beta", queststatus(812) > 0 -> money - 20000, queststatus(812) + 36, inform("[Lizenz erworben] Du hast die Lizenz 'Beta' für zwei Goldmünzen erworben. Du kannst die Geräte dieser Stadt für weitere drei Echtzeit-Stunden frei benutzen. Die Stunden wurden zu deiner verbliebenen Zeit aufsummiert."), "Euch ist es nun gestattet, unsere Geräte für weitere neun Stunden zu verwenden."
 "beta", english -> money - 20000, queststatus(812) + 36, inform("[Licence purchased] You bought licence 'Beta' for two gold coins. You can use the static tools of this town for the next three real time hours."), "Wonderful, you are free to use our tools for the next nine hours."
-"beta" -> money - 20000, queststatus(812) + 36, inform("[Lizenz erworben] Du hast die Lizenz 'Beta' fÃ¼r zwei GoldmÃ¼nzen erworben. Du kannst die GerÃ¤te dieser Stadt fÃ¼r die nÃ¤chsten drei Echtzeit-Stunden frei benutzen."), "Wunderbar, euch ist es nun gestattet, unsere GerÃ¤te fÃ¼r die nÃ¤chsten neun Stunden zu verwenden."
+"beta" -> money - 20000, queststatus(812) + 36, inform("[Lizenz erworben] Du hast die Lizenz 'Beta' für zwei Goldmünzen erworben. Du kannst die Geräte dieser Stadt für die nächsten drei Echtzeit-Stunden frei benutzen."), "Wunderbar, euch ist es nun gestattet, unsere Geräte für die nächsten neun Stunden zu verwenden."
 "gamma", english, money < 30000 -> "You need more money in order to buy licence 'Gamma', three gold coins as a matter of fact."
-"gamma", money < 30000 -> "Ihr benÃ¶tigt mehr Geld, um Lizenz 'Gamma' zu kaufen. Drei GoldmÃ¼nzen, um genau zu sein."
+"gamma", money < 30000 -> "Ihr benötigt mehr Geld, um Lizenz 'Gamma' zu kaufen. Drei Goldmünzen, um genau zu sein."
 "gamma", english, queststatus(812) > 0 -> money - 30000, queststatus(812) + 96, inform("[Licence purchased] You bought licence 'Gamma' for three gold coins. You can use the static tools of this town for an additional eight real time hours. The time has been added to your time left."), "You are free to use our tools for an additional day."
-"gamma", queststatus(812) > 0 -> money - 30000, queststatus(812) + 96, inform("[Lizenz erworben] Du hast die Lizenz 'Gamma' fÃ¼r drei GoldmÃ¼nzen erworben. Du kannst die GerÃ¤te dieser Stadt fÃ¼r weitere acht Echtzeit-Stunden frei benutzen. Die Stunden wurden zu deiner verbliebenen Zeit aufsummiert."), "Euch ist es nun gestattet, unsere GerÃ¤te fÃ¼r einen weiteren Tag zu verwenden."
+"gamma", queststatus(812) > 0 -> money - 30000, queststatus(812) + 96, inform("[Lizenz erworben] Du hast die Lizenz 'Gamma' für drei Goldmünzen erworben. Du kannst die Geräte dieser Stadt für weitere acht Echtzeit-Stunden frei benutzen. Die Stunden wurden zu deiner verbliebenen Zeit aufsummiert."), "Euch ist es nun gestattet, unsere Geräte für einen weiteren Tag zu verwenden."
 "gamma", english -> money - 30000, queststatus(812) + 96, inform("[Licence purchased] You bought licence 'Gamma' for three gold coins. You can use the static tools of this town for the next eight real time hours."), "Wonderful, you are free to use our tools for a day."
-"gamma" -> money - 30000, queststatus(812) + 96, inform("[Lizenz erworben] Du hast die Lizenz 'Gamma' fÃ¼r drei GoldmÃ¼nzen erworben. Du kannst die GerÃ¤te dieser Stadt fÃ¼r die nÃ¤chsten acht Echtzeit-Stunden frei benutzen."), "Wunderbar, euch ist es nun gestattet, unsere GerÃ¤te fÃ¼r einen Tag zu verwenden."
+"gamma" -> money - 30000, queststatus(812) + 96, inform("[Lizenz erworben] Du hast die Lizenz 'Gamma' für drei Goldmünzen erworben. Du kannst die Geräte dieser Stadt für die nächsten acht Echtzeit-Stunden frei benutzen."), "Wunderbar, euch ist es nun gestattet, unsere Geräte für einen Tag zu verwenden."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I already have everything I need."
-"quest", "mission" -> "Derzeit habe ich alles, aber danke fÃ¼r Eure Sorge.", "Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche."
+"quest", "mission" -> "Derzeit habe ich alles, aber danke für Eure Sorge.", "Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche."
 "task", "adventure", "order" -> "I have no tasks for you right now, maybe another time."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe derzeit keine Aufgaben fÃ¼r Euch, vielleicht aber wann anders."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe derzeit keine Aufgaben für Euch, vielleicht aber wann anders."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the notary of Runewick and do all the stuff a notary does.", "I take care of the new arrivals in Runewick, I am the notary here."
-"beruf" -> "Ich bin die Notarin Runewick und tu all das was ein Notar so tut.", "Ich kÃ¼mmere mich um die NeuankÃ¶mmlinge in Runewick, ich bin hier die Notarin."
+"beruf" -> "Ich bin die Notarin Runewick und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Runewick, ich bin hier die Notarin."
 english, "job" -> "I am the notary of Runewick and do all the stuff a notary does.", "I take care of the new arrivals in Cadomyr, I am the notary here."
-"job" -> "Ich bin die Notarin Runewick und tu all das was ein Notar so tut.", "Ich kÃ¼mmere mich um die NeuankÃ¶mmlinge in Runewick, ich bin hier die Notarin."
+"job" -> "Ich bin die Notarin Runewick und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Runewick, ich bin hier die Notarin."
 english, "Gobaith", "Gobiath" -> "Never heard of that. Is it something to eat?"
-"Gobaith", "Gobiath" -> "Nie davon gehÃ¶rt. Ist es etwas zu Essen?"
+"Gobaith", "Gobiath" -> "Nie davon gehört. Ist es etwas zu Essen?"
 "my name" -> "I'm pleasured to meet you."
 "mein Name" -> "Ich freue mich Euch kennenzulernen."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "He's the best mage in Runewick.", "I heard he likes drinking tea."
-"Erzmagier" -> "Er ist der beste Magier in Runewick.", "Ich hÃ¶rte, dass er gerne Tee trinkt."
+"Erzmagier" -> "Er ist der beste Magier in Runewick.", "Ich hörte, dass er gerne Tee trinkt."
 english, "Elvaine", "Morgan" -> "He's the best mage in Runewick.", "I heard he likes drinking tea."
-"Elvaine", "Morgan" -> "Er ist der beste Magier in Runewick.", "Ich hÃ¶rte, dass er gerne Tee trinkt."
+"Elvaine", "Morgan" -> "Er ist der beste Magier in Runewick.", "Ich hörte, dass er gerne Tee trinkt."
 english, "Runewick" -> "We people of Runewick think wisdom is more important than honour.", "That's where the Achmage lives, of couse!"
-"Runewick" -> "Wir Leute von Runewick halten Wissen fÃ¼r wertvoller als Ehre.", "SelbstverstÃ¤ndlich ist dies der Ort wo der Erzmagier lebt."
+"Runewick" -> "Wir Leute von Runewick halten Wissen für wertvoller als Ehre.", "Selbstverständlich ist dies der Ort wo der Erzmagier lebt."
 english, "Valerio", "Guilianni", "Don" -> "Go to Galmair, if you want to see him!", "He's the greedy don of Galmair."
 "Valerio", "Guilianni", "Don" -> "Geht nach Galmair, wenn Ihr den sehen wollt!", "Das ist der gierige Don von Galmair."
 english, "Galmair" -> "In Galmair only wealth and money is important.", "There is also a notary in Galmair, just like in every city."
-"Galmair" -> "In Galmair zÃ¤hlt nur Reichtum und Geld.", "Es gibt auch in Galmair einen Notar, so wie in jeder Stadt."
+"Galmair" -> "In Galmair zählt nur Reichtum und Geld.", "Es gibt auch in Galmair einen Notar, so wie in jeder Stadt."
 "Queen" -> "You want to see a real queen? Go to Cadomyr!"
-"KÃ¶nigin" -> "Ihr wollt eine echte KÃ¶nigin sehen? Geht nach Cadomyr!"
+"Königin" -> "Ihr wollt eine echte Königin sehen? Geht nach Cadomyr!"
 english, "rosaline", "edwards" -> "Does she live in Runewick? I think I've heard that name before."
-"rosaline", "edwards" -> "Lebt die in Runewick? I denke, ich habe den Namen schon mal gehÃ¶rt."
+"rosaline", "edwards" -> "Lebt die in Runewick? I denke, ich habe den Namen schon mal gehört."
 english, "Cadomyr" -> "Cadomyr is quite a hot place. Especially if you like knights."
-"Cadomyr" -> "Cadomyr ist schon sehenswert, besonders wenn Ihr Ritter mÃ¶gt."
+"Cadomyr" -> "Cadomyr ist schon sehenswert, besonders wenn Ihr Ritter mögt."
 
 -- Main land factions
 english, "albar" -> "Albar is a nice country. But order is important there."
-"albar" -> "Albar ist ein schÃ¶nes Land. Aber dort herrscht Ordnung."
+"albar" -> "Albar ist ein schönes Land. Aber dort herrscht Ordnung."
 english, "gynk", "gync" -> "Gync isn't the best place to grow up. It's a dirty place, just like Galmair.", "I've never been to Gync, I don't think I'd like it there."
-"gync", "gynk" -> "Gynk ist nicht der beste Ort wo man aufzuwachsen kann. Es ist ein dreckiger Ort, genau wie Galmair.", "Ich war noch nie in Gynk, I denke dort wÃ¼rde es mir nicht gefallen."
+"gync", "gynk" -> "Gynk ist nicht der beste Ort wo man aufzuwachsen kann. Es ist ein dreckiger Ort, genau wie Galmair.", "Ich war noch nie in Gynk, I denke dort würde es mir nicht gefallen."
 english, "salkama" -> "Salkamar is a nice place. It's sunny there.", "I've never been to Salkmar, I think this place lies near the sea."
-"salkama" -> "Salkamar ist ein schÃ¶ner Ort. Dort ist es recht sonnig.", "Ich war noch nie in Salkamar, ich glaube dieser Ort liegt am Meer."
+"salkama" -> "Salkamar ist ein schöner Ort. Dort ist es recht sonnig.", "Ich war noch nie in Salkamar, ich glaube dieser Ort liegt am Meer."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "The month were named after the 16 Gods, we should name one month after the archmage!", "I pray to Zhambra. To which god do you pray?"
-"Gott", "GÃ¶tter" -> "Nach den 16 GÃ¶ttern wurden die Monate des Jahres benannt. Wir sollten einem Monat nach dem Erzmagier benennen!", "Ich bete zu Zhambar. Zu welchem Gott betet Ihr?"
+"Gott", "Götter" -> "Nach den 16 Göttern wurden die Monate des Jahres benannt. Wir sollten einem Monat nach dem Erzmagier benennen!", "Ich bete zu Zhambar. Zu welchem Gott betet Ihr?"
 english, "Adron" -> "I don't worship this god."
 "Adron" -> "Ich verehre diesen Gott nicht."
-english, "Bragon", "BrÃ¡gon" -> "I don't worship this god."
-"Bragon", "BrÃ¡gon" -> "Ich verehre diesen Gott nicht."
+english, "Bragon", "Brágon" -> "I don't worship this god."
+"Bragon", "Brágon" -> "Ich verehre diesen Gott nicht."
 english, "Cherga" -> "I don't worship this god."
 "Cherga" -> "Ich verehre diesen Gott nicht."
 english, "Elara" -> "I don't worship this god.", "Some people pray to her."
@@ -255,12 +269,12 @@ english, "Findari" -> "I don't worship this god."
 "Findari" -> "Ich verehre diesen Gott nicht."
 english, "Irmorom" -> "I don't worship this god."
 "Irmorom" -> "Ich verehre diesen Gott nicht."
-english, "Malachin", "MalachÃ­n" -> "Many noble knights pray to MalachÃ­n."
-"Malachin", "MalachÃ­n" -> "Viele edle Ritter beten zu MalachÃ­n."
+english, "Malachin", "Malachín" -> "Many noble knights pray to Malachín."
+"Malachin", "Malachín" -> "Viele edle Ritter beten zu Malachín."
 english, "Moshran" -> "I don't worship this god. He's evil!"
-"Moshran" -> "Ich verehre diesen Gott nicht. Er ist bÃ¶se!"
-english, "Nargun", "NargÃºn", "NargÃ¹n" -> "I don't worship this god."
-"Nargun", "NargÃºn", "NargÃ¹n" -> "Ich verehre diesen Gott nicht."
+"Moshran" -> "Ich verehre diesen Gott nicht. Er ist böse!"
+english, "Nargun", "Nargún", "Nargùn" -> "I don't worship this god."
+"Nargun", "Nargún", "Nargùn" -> "Ich verehre diesen Gott nicht."
 english, "Oldra" -> "I don't worship this god."
 "Oldra" -> "Ich verehre diesen Gott nicht."
 english, "Ronagan" -> "I don't worship this god."
@@ -272,28 +286,28 @@ english, "Tanora", "Zelphia" -> "I don't worship this god."
 english, "Ushara" -> "I don't worship this god."
 "Ushara" -> "Ich verehre diesen Gott nicht."
 english, "Zhambra" -> "Pray to Zhambar, so he'll protect your friends during battle."
-"Zhambra" -> "Betet zu Zhambra damit er eure Freunde im Kampf schÃ¼tzt."
+"Zhambra" -> "Betet zu Zhambra damit er eure Freunde im Kampf schützt."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I'm a notary.", "I do not sell anything."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin eine Notarin.", "Ich verkaufe nichts."
 "tell something" -> "I'm busy working, sorry. You should talk to someone else if you're in search of a nice conversation."
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Es tut mir leid, ich bin gerade beschÃ¤ftigt. Ihr sollte mit jemand anderem reden, wenn Euch der Sinn nach einer netten Plauderei steht."
+"erzähl was", "erzähl etwas" -> "Es tut mir leid, ich bin gerade beschäftigt. Ihr sollte mit jemand anderem reden, wenn Euch der Sinn nach einer netten Plauderei steht."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Torina", "Scibrim" -> "Did I hear someone call my name? How can I help you?", "Yes? That's me!"
-"Torina", "Scibrim" -> "Habe ich jemanden nach mir rufen hÃ¶ren? Was kann ich fÃ¼r Euch tun?", "Ja? Das bin ich!"
+"Torina", "Scibrim" -> "Habe ich jemanden nach mir rufen hören? Was kann ich für Euch tun?", "Ja? Das bin ich!"
 "Yes" -> "I see, we agree on that."
 "Ja" -> "I sehe, wir sind uns einig."
 "No" -> "So you don't think that way?", "Well...I wouldn't say it that way."
-"Nein" -> "Ihr seht dies also anders?", "Nun ja... so wÃ¼rde ich das nicht sagen."
+"Nein" -> "Ihr seht dies also anders?", "Nun ja... so würde ich das nicht sagen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me blÃ¤ttert durch einen Stapel Pergamente.", "#me skims through a pile of parchments."
+cycletext "#me blättert durch einen Stapel Pergamente.", "#me skims through a pile of parchments."
 cycletext "#me betrachtet die Schreibfeder in ihrer Hand.", "#me looks at the quill, she's holding in her hand."
 cycletext "#me liest einen Brief.", "#me reads a letter."
 cycletext "#me summt leise eine Melodie.", "#me hums a little melody."

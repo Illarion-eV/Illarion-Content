@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Bathelor                                                    None --
 -- NPC Job:  High priest                                                      --
@@ -24,8 +38,8 @@ autointroduce = on
 
 author = "Estralis Seborian"
 
-lookatDE = "Dieser NPC ist Bathelor der Hohepriester Br√°gons."
-lookatUS = "This NPC is Bathelor the high priest of Br√°gon."
+lookatDE = "Dieser NPC ist Bathelor der Hohepriester Br·gons."
+lookatUS = "This NPC is Bathelor the high priest of Br·gon."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
@@ -53,147 +67,147 @@ itemShoes = 53
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Bathelor the high priest of Br√°gon. Keywords: Hello, Br√°gon, Quest, Priest, Temple.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bathelor der Hohepriester Br√°gons. Schl√ºsselw√∂rter: Hallo, Br√°gon, Quest, Priester, Tempel.")
+"Help" -> inform("[Game Help] This NPC is Bathelor the high priest of Br·gon. Keywords: Hello, Br·gon, Quest, Priest, Temple.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bathelor der Hohepriester Br·gons. Schl¸sselwˆrter: Hallo, Br·gon, Quest, Priester, Tempel.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Your pilgrimage has come to an end. You have found the temple of the Five.", "Be greeted in the name of Br√°gon.", "Hail Br√°gon! What is it, my child?"
-"Gr√º√ü", "Gru√ü", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Eure Pilgerfahrt hat eine Ende. Ihr habt den Tempel der F√ºnf gefunden.", "Seid gegr√º√üt im Namen Br√°gons.", "Was gibt es, mein Kind?"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Your pilgrimage has come to an end. You have found the temple of the Five.", "Be greeted in the name of Br√°gon.", "Hail Br√°gon! What is it, my child?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Eure Pilgerfahrt hat eine Ende. Ihr habt den Tempel der F√ºnf gefunden.", "Seid gegr√º√üt im Namen Br√°gons.", "Was gibt es, mein Kind?"
-"Farewell", "Bye", "Fare well", "See you" -> "May Br√°gon speed you into the flames", "May the fire within you never be extinguished!", "Go with Br√°gon's blessing."
-"Tsch√º√ü", "Tsch√ºss", "Wiedersehen", "Gehab wohl" -> "Gehet hin in Flammen.", "Und m√∂ge das Feuer in euch niemals erl√∂schen.", "Gehet mit Br√°gons Segen."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with Br√°gon speed.", "And may the fire in you never fade!", "Go with Br√°gon's blessing."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehet hin in Flammen.", "Und m√∂ge das Feuer in euch niemals erl√∂schen.", "Gehet mit Br√°gons Segen."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Your pilgrimage has come to an end. You have found the temple of the Five.", "Be greeted in the name of Br·gon.", "Hail Br·gon! What is it, my child?"
+"Gr¸ﬂ", "Gruﬂ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Eure Pilgerfahrt hat eine Ende. Ihr habt den Tempel der F¸nf gefunden.", "Seid gegr¸ﬂt im Namen Br·gons.", "Was gibt es, mein Kind?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Your pilgrimage has come to an end. You have found the temple of the Five.", "Be greeted in the name of Br·gon.", "Hail Br·gon! What is it, my child?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Eure Pilgerfahrt hat eine Ende. Ihr habt den Tempel der F¸nf gefunden.", "Seid gegr¸ﬂt im Namen Br·gons.", "Was gibt es, mein Kind?"
+"Farewell", "Bye", "Fare well", "See you" -> "May Br·gon speed you into the flames", "May the fire within you never be extinguished!", "Go with Br·gon's blessing."
+"Tsch¸ﬂ", "Tsch¸ss", "Wiedersehen", "Gehab wohl" -> "Gehet hin in Flammen.", "Und mˆge das Feuer in euch niemals erlˆschen.", "Gehet mit Br·gons Segen."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with Br·gon speed.", "And may the fire in you never fade!", "Go with Br·gon's blessing."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehet hin in Flammen.", "Und mˆge das Feuer in euch niemals erlˆschen.", "Gehet mit Br·gons Segen."
 "How are you", "How feel", "How do you do" -> "I feel enlightened."
-"Wie geht", "Wie f√ºhlst", "Wie ist es ergangen", "Wie Befind" -> "Ich f√ºhle mich erleuchtet."
-"your name", "who are you", "who art thou" -> "I am Bathelor, high priest of Br√°gon. Praise Br√°gon!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie hei√üt" -> "Ich bin Bathelor, Hohepriester Br√°gons. Lobet Br√°gon!"
+"Wie geht", "Wie f¸hlst", "Wie ist es ergangen", "Wie Befind" -> "Ich f¸hle mich erleuchtet."
+"your name", "who are you", "who art thou" -> "I am Bathelor, high priest of Br·gon. Praise Br·gon!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt" -> "Ich bin Bathelor, Hohepriester Br·gons. Lobet Br·gon!"
 
 -- 1st quest: Visit the shrines of the five
 queststatus(113) = 0, english, "quest", "mission" -> inform("[New quest] A spark to a flame I"), queststatus(113) = 1, "Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them."
-queststatus(113) = 0, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme I"), queststatus(113) = 1, "Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der F√ºnf seid, m√∂chte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der F√ºnf und ehret sie."
+queststatus(113) = 0, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme I"), queststatus(113) = 1, "Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der F¸nf seid, mˆchte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der F¸nf und ehret sie."
 queststatus(113) = 0, "task", "adventure" -> inform("[New quest] A spark to a flame I"), queststatus(113) = 1, "Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them."
-queststatus(113) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme I"), queststatus(113) = 1, "Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der F√ºnf seid, m√∂chte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der F√ºnf und ehret sie."
+queststatus(113) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme I"), queststatus(113) = 1, "Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der F¸nf seid, mˆchte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der F¸nf und ehret sie."
 
 -- 1st quest solved, reward: 2 candles (43)
-queststatus(113) = 2, english, ".+" -> inform("[Quest solved] You are awarded five candles."), item(43, 5, 333), queststatus(113) = 3, "Praise the Five, hail Br√°gon! Here, take these candles, for they will guide you through the darkest nights."
-queststatus(113) = 2, ".+" -> inform("[Quest gel√∂st] Du erh√§ltst f√ºnf Kerzen."), item(43, 5, 333), queststatus(113) = 3, "Lobet die F√ºnf, gepriesen sei Br√°gon! Hier, nehmt diese Kerzen, sie werden euch ein Licht in der Dunkelheit sein."
+queststatus(113) = 2, english, ".+" -> inform("[Quest solved] You are awarded five candles."), item(43, 5, 333), queststatus(113) = 3, "Praise the Five, hail Br·gon! Here, take these candles, for they will guide you through the darkest nights."
+queststatus(113) = 2, ".+" -> inform("[Quest gelˆst] Du erh‰ltst f¸nf Kerzen."), item(43, 5, 333), queststatus(113) = 3, "Lobet die F¸nf, gepriesen sei Br·gon! Hier, nehmt diese Kerzen, sie werden euch ein Licht in der Dunkelheit sein."
 
 -- 1st quest taken but not solved, repeat the instructions
 queststatus(113) = 1, english, "quest", "mission" -> "I told you to honour the five at their shrines. Move!"
-queststatus(113) = 1, "quest", "mission" -> "Ich habe gesagt, ihr sollt den F√ºnf die Ehre an ihren Schreinen erweisen. Los!"
+queststatus(113) = 1, "quest", "mission" -> "Ich habe gesagt, ihr sollt den F¸nf die Ehre an ihren Schreinen erweisen. Los!"
 queststatus(113) = 1, "task", "adventure" -> "I told you to honour the five at their shrines. Move!"
-queststatus(113) = 1, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich habe gesagt, ihr sollt den F√ºnf die Ehre an ihren Schreinen erweisen. Los!"
+queststatus(113) = 1, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich habe gesagt, ihr sollt den F¸nf die Ehre an ihren Schreinen erweisen. Los!"
 
 -- 2nd quest: Bring naldor wood (544) for a ritual
-queststatus(113) = 3, english, "quest", "mission" -> inform("[New quest] A spark to a flame II"), queststatus(113) = 4, "I appreciate your devotion. Rituals in honour of Br√°gon all have one thing in common: Something has to be burnt! As a believer, will you please go out and fetch me ten logs of naldor wood?"
-queststatus(113) = 3, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme II"), queststatus(113) = 4, "Ich w√ºrdige eure Hingabe. Rituale in Ehren an Br√°gon haben alle eines gemeinsam: Etwas muss verbrannt werden! Als Gl√§ubiger, w√ºrdet ihr bitte losziehen und mir zehn Scheite Naldorholz besorgen?"
-queststatus(113) = 3, "task", "adventure" -> inform("[New quest] A spark to a flame II"), queststatus(113) = 4, "I appreciate your devotion. Rituals in honour of Br√°gon all have one thing in common: Something has to be burnt! As a believer, will you please go out and fetch me ten logs of naldor wood?"
-queststatus(113) = 3, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme II"), queststatus(113) = 4, "Ich w√ºrdige eure Hingabe. Rituale in Ehren an Br√°gon haben alle eines gemeinsam: Etwas muss verbrannt werden! Als Gl√§ubiger, w√ºrdet ihr bitte losziehen und mir zehn Scheite Naldorholz besorgen?"
+queststatus(113) = 3, english, "quest", "mission" -> inform("[New quest] A spark to a flame II"), queststatus(113) = 4, "I appreciate your devotion. Rituals in honour of Br·gon all have one thing in common: Something has to be burnt! As a believer, will you please go out and fetch me ten logs of naldor wood?"
+queststatus(113) = 3, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme II"), queststatus(113) = 4, "Ich w¸rdige eure Hingabe. Rituale in Ehren an Br·gon haben alle eines gemeinsam: Etwas muss verbrannt werden! Als Gl‰ubiger, w¸rdet ihr bitte losziehen und mir zehn Scheite Naldorholz besorgen?"
+queststatus(113) = 3, "task", "adventure" -> inform("[New quest] A spark to a flame II"), queststatus(113) = 4, "I appreciate your devotion. Rituals in honour of Br·gon all have one thing in common: Something has to be burnt! As a believer, will you please go out and fetch me ten logs of naldor wood?"
+queststatus(113) = 3, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme II"), queststatus(113) = 4, "Ich w¸rdige eure Hingabe. Rituale in Ehren an Br·gon haben alle eines gemeinsam: Etwas muss verbrannt werden! Als Gl‰ubiger, w¸rdet ihr bitte losziehen und mir zehn Scheite Naldorholz besorgen?"
 
 -- 2nd quest solved, reward: ruby ring (68)
-queststatus(113) = 4, item(544, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded a ruby ring."), deleteItem(544, 10), item(68, 1, 599), queststatus(113) = 5, "Ah, the next ritual to honour Br√°gon can take place thanks to you. Take this ring as a sign of your faith."
-queststatus(113) = 4, item(544, all) > 9, ".+" -> inform("[Quest gel√∂st] Du erh√§ltst einen Rubinring."), deleteItem(544, 10), item(68, 1, 599), queststatus(113) = 5, "Ah, das n√§chste Ritual zu Ehren Br√°gons kann dank euch stattfinden. Nehmt diesen Ring als Zeichen eures Glaubens."
+queststatus(113) = 4, item(544, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded a ruby ring."), deleteItem(544, 10), item(68, 1, 599), queststatus(113) = 5, "Ah, the next ritual to honour Br·gon can take place thanks to you. Take this ring as a sign of your faith."
+queststatus(113) = 4, item(544, all) > 9, ".+" -> inform("[Quest gelˆst] Du erh‰ltst einen Rubinring."), deleteItem(544, 10), item(68, 1, 599), queststatus(113) = 5, "Ah, das n‰chste Ritual zu Ehren Br·gons kann dank euch stattfinden. Nehmt diesen Ring als Zeichen eures Glaubens."
 
 -- 2nd quest taken but not solved, repeat the instructions
-queststatus(113) = 4, english, "quest", "mission" -> "Naldor wood burns best and a Br√°gon ritual needs a lot of it to be burnt. Br√°gon will reward you for your dedication."
-queststatus(113) = 4, "quest", "mission" -> "Naldorholz brennt am besten und bei einem Br√°gonritual wird zumeist eine Menge verbrannt. Br√°gon wird euch f√ºr eure Hingabe entlohnen."
-queststatus(113) = 4, "task", "adventure" -> "Naldor wood burns best and a Br√°gon ritual needs a lot of it to be burnt. Br√°gon will reward you for your dedication."
-queststatus(113) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> "Naldorholz brennt am besten und bei einem Br√°gonritual wird zumeist eine Menge verbrannt. Br√°gon wird euch f√ºr eure Hingabe entlohnen."
+queststatus(113) = 4, english, "quest", "mission" -> "Naldor wood burns best and a Br·gon ritual needs a lot of it to be burnt. Br·gon will reward you for your dedication."
+queststatus(113) = 4, "quest", "mission" -> "Naldorholz brennt am besten und bei einem Br·gonritual wird zumeist eine Menge verbrannt. Br·gon wird euch f¸r eure Hingabe entlohnen."
+queststatus(113) = 4, "task", "adventure" -> "Naldor wood burns best and a Br·gon ritual needs a lot of it to be burnt. Br·gon will reward you for your dedication."
+queststatus(113) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> "Naldorholz brennt am besten und bei einem Br·gonritual wird zumeist eine Menge verbrannt. Br·gon wird euch f¸r eure Hingabe entlohnen."
 
 -- The 3rd quest is deactivated. Becoming a devotee of the five is not possible and not desired. If this changes one day, here is the quest...
--- 3rd quest: Become a Br√°gon devotee (queststatus(401) = 2)
--- queststatus(113) = 5, english, "quest", "mission" -> inform("[New quest] A spark to a flame III"), "I see you are really serious in your faith in Br√°gon. I think you are worthy to become a devotee of Br√°gon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings.", queststatus(113) = 6
--- queststatus(113) = 5, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme III"), "Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Br√°gon. Ich denke, ihr seid w√ºrdig, einer seiner Anh√§nger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zur√ºck, um meinen Segen zu empfangen.", queststatus(113) = 6
--- queststatus(113) = 5, "task", "adventure" -> inform("[New quest] A spark to a flame III"), "I see you are really serious in your faith in Br√°gon. I think you are worthy to become a devotee of Br√°gon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings.", queststatus(113) = 6
--- queststatus(113) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme III"), "Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Br√°gon. Ich denke, ihr seid w√ºrdig, einer seiner Anh√§nger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zur√ºck, um meinen Segen zu empfangen.", queststatus(113) = 6
+-- 3rd quest: Become a Br·gon devotee (queststatus(401) = 2)
+-- queststatus(113) = 5, english, "quest", "mission" -> inform("[New quest] A spark to a flame III"), "I see you are really serious in your faith in Br·gon. I think you are worthy to become a devotee of Br·gon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings.", queststatus(113) = 6
+-- queststatus(113) = 5, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme III"), "Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Br·gon. Ich denke, ihr seid w¸rdig, einer seiner Anh‰nger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zur¸ck, um meinen Segen zu empfangen.", queststatus(113) = 6
+-- queststatus(113) = 5, "task", "adventure" -> inform("[New quest] A spark to a flame III"), "I see you are really serious in your faith in Br·gon. I think you are worthy to become a devotee of Br·gon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings.", queststatus(113) = 6
+-- queststatus(113) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme III"), "Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Br·gon. Ich denke, ihr seid w¸rdig, einer seiner Anh‰nger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zur¸ck, um meinen Segen zu empfangen.", queststatus(113) = 6
 
 -- 3rd quest solved, reward: red priest robe (2419)
--- queststatus(113) = 6, queststatus(401) = 2, english, ".+" -> inform("[Quest solved] You are awarded a red priest robe."), "#me raises his hands and chants: 'Be blessed in the name of Br√°gon! Go forth and accomplish deeds in his name.'", item(2419, 1, 799), queststatus(113) = 7
--- queststatus(113) = 6, queststatus(401) = 2, ".+" -> inform("[Quest gel√∂st] Du erh√§ltst eine rote Priesterrobe."), "#me hebt seine H√§nde und singt: 'Seid gesegnet in Br√°gons Namen! Gehet hin und vollbringt Taten in seinem Namen.'", item(2419, 1, 799), queststatus(113) = 7
+-- queststatus(113) = 6, queststatus(401) = 2, english, ".+" -> inform("[Quest solved] You are awarded a red priest robe."), "#me raises his hands and chants: 'Be blessed in the name of Br·gon! Go forth and accomplish deeds in his name.'", item(2419, 1, 799), queststatus(113) = 7
+-- queststatus(113) = 6, queststatus(401) = 2, ".+" -> inform("[Quest gelˆst] Du erh‰ltst eine rote Priesterrobe."), "#me hebt seine H‰nde und singt: 'Seid gesegnet in Br·gons Namen! Gehet hin und vollbringt Taten in seinem Namen.'", item(2419, 1, 799), queststatus(113) = 7
 
 -- 3rd quest taken but not solved, repeat the instructions
--- queststatus(113) = 6, english, "quest", "mission" -> "You hesitate to sacrifice your mudane wealth Br√°gon? It will go up in flames one day anyway, trust me!"
--- queststatus(113) = 6, "quest", "mission" -> "Z√∂gert ihr, euren weltlichen Besitz Br√°gon zu opfern? Er wird sowieso eines Tages in Flammen aufgehen, glaubt es mir."
--- queststatus(113) = 6, "task", "adventure" -> "You hesitate to sacrifice your mudane wealth to Br√°gon? It will go up in flames one day anyway, trust me!"
--- queststatus(113) = 6, "Auftrag", "Aufgabe", "Abenteuer" -> "Z√∂gert ihr, euren weltlichen Besitz Br√°gon zu opfern? Er wird sowieso eines Tages in Flammen aufgehen, glaubt es mir."
+-- queststatus(113) = 6, english, "quest", "mission" -> "You hesitate to sacrifice your mudane wealth Br·gon? It will go up in flames one day anyway, trust me!"
+-- queststatus(113) = 6, "quest", "mission" -> "Zˆgert ihr, euren weltlichen Besitz Br·gon zu opfern? Er wird sowieso eines Tages in Flammen aufgehen, glaubt es mir."
+-- queststatus(113) = 6, "task", "adventure" -> "You hesitate to sacrifice your mudane wealth to Br·gon? It will go up in flames one day anyway, trust me!"
+-- queststatus(113) = 6, "Auftrag", "Aufgabe", "Abenteuer" -> "Zˆgert ihr, euren weltlichen Besitz Br·gon zu opfern? Er wird sowieso eines Tages in Flammen aufgehen, glaubt es mir."
 
 -- No more quests, just nice words of gratitude
--- queststatus(113) = 7, queststatus(401) = 2, english, "quest", "mission" -> "I see your faith in Br√°gon is still strong. Renounce him and he will renounce you. He will care little, but you will probably end up scorched."
--- queststatus(113) = 7, queststatus(401) = 2, "quest", "mission" -> "Wie ich sehe, ist euer Glaube an Br√°gon noch immer stark. Entsagt ihm und er entsagt euch. Ihn k√ºmmert es wenig, aber ihr werdet wohl versengt werden."
--- queststatus(113) = 7, queststatus(401) = 2, "task", "adventure" -> "I see your faith in Br√°gon is still strong. Renounce him and he will renounce you. He will care little, but you will probably end up scorched."
--- queststatus(113) = 7, queststatus(401) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Wie ich sehe, ist euer Glaube an Br√°gon noch immer stark. Entsagt ihm und er entsagt euch. Ihn k√ºmmert es wenig, aber ihr werdet wohl versengt werden."
+-- queststatus(113) = 7, queststatus(401) = 2, english, "quest", "mission" -> "I see your faith in Br·gon is still strong. Renounce him and he will renounce you. He will care little, but you will probably end up scorched."
+-- queststatus(113) = 7, queststatus(401) = 2, "quest", "mission" -> "Wie ich sehe, ist euer Glaube an Br·gon noch immer stark. Entsagt ihm und er entsagt euch. Ihn k¸mmert es wenig, aber ihr werdet wohl versengt werden."
+-- queststatus(113) = 7, queststatus(401) = 2, "task", "adventure" -> "I see your faith in Br·gon is still strong. Renounce him and he will renounce you. He will care little, but you will probably end up scorched."
+-- queststatus(113) = 7, queststatus(401) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Wie ich sehe, ist euer Glaube an Br·gon noch immer stark. Entsagt ihm und er entsagt euch. Ihn k¸mmert es wenig, aber ihr werdet wohl versengt werden."
 
--- Not a Br√°gon devotee anymore!
+-- Not a Br·gon devotee anymore!
 -- queststatus(113) = 7, english, "quest", "mission" -> "Out of my sight, you traitor! Blasphemer! Infidel!"
--- queststatus(113) = 7, "quest", "mission" -> "Aus meinen Augen, ihr Verr√§ter! Gottesl√§sterer! Ungl√§ubiger!"
+-- queststatus(113) = 7, "quest", "mission" -> "Aus meinen Augen, ihr Verr‰ter! Gottesl‰sterer! Ungl‰ubiger!"
 -- queststatus(113) = 7, "task", "adventure" -> "Out of my sight, you traitor! Blasphemer! Infidel!"
--- queststatus(113) = 7, "Auftrag", "Aufgabe", "Abenteuer" -> "Aus meinen Augen, ihr Verr√§ter! Gottesl√§sterer! Ungl√§ubiger!"
+-- queststatus(113) = 7, "Auftrag", "Aufgabe", "Abenteuer" -> "Aus meinen Augen, ihr Verr‰ter! Gottesl‰sterer! Ungl‰ubiger!"
 -- 3rd quest end
 
 -- Replacement dialogues for the 3rd quest
 -- No more quests, just nice words of gratitude
-queststatus(113) = 5, english, "quest", "mission" -> "I see your faith in Br√°gon is still strong. Renounce him and he will renounce you. He will care little, but you will probably end up scorched."
-queststatus(113) = 5, "quest", "mission" -> "Wie ich sehe, ist euer Glaube an Br√°gon noch immer stark. Entsagt ihm und er entsagt euch. Ihn k√ºmmert es wenig, aber ihr werdet wohl versengt werden."
-queststatus(113) = 5, "task", "adventure" -> "I see your faith in Br√°gon is still strong. Renounce him and he will renounce you. He will care little, but you will probably end up scorched."
-queststatus(113) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Wie ich sehe, ist euer Glaube an Br√°gon noch immer stark. Entsagt ihm und er entsagt euch. Ihn k√ºmmert es wenig, aber ihr werdet wohl versengt werden."
+queststatus(113) = 5, english, "quest", "mission" -> "I see your faith in Br·gon is still strong. Renounce him and he will renounce you. He will care little, but you will probably end up scorched."
+queststatus(113) = 5, "quest", "mission" -> "Wie ich sehe, ist euer Glaube an Br·gon noch immer stark. Entsagt ihm und er entsagt euch. Ihn k¸mmert es wenig, aber ihr werdet wohl versengt werden."
+queststatus(113) = 5, "task", "adventure" -> "I see your faith in Br·gon is still strong. Renounce him and he will renounce you. He will care little, but you will probably end up scorched."
+queststatus(113) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Wie ich sehe, ist euer Glaube an Br·gon noch immer stark. Entsagt ihm und er entsagt euch. Ihn k¸mmert es wenig, aber ihr werdet wohl versengt werden."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I am the high priest of Br√°gon in these lands. Any donations or sacrifices to Br√°gon should be given to me."
-"beruf" -> "Ich bin der Hohepriester Br√°gons in diesen L√§ndereien. Jedwede Spenden oder Opfer an Br√°gon solltet ihr mir geben."
-english, "job" -> "I am the high priest of Br√°gon in these lands. Any donations or sacrifices to Br√°gon should be given to me."
-"job" -> "Ich bin der Hohepriester Br√°gons in diesen L√§ndereien. Jedwede Spenden oder Opfer an Br√°gon solltet ihr mir geben."
+"profession" -> "I am the high priest of Br·gon in these lands. Any donations or sacrifices to Br·gon should be given to me."
+"beruf" -> "Ich bin der Hohepriester Br·gons in diesen L‰ndereien. Jedwede Spenden oder Opfer an Br·gon solltet ihr mir geben."
+english, "job" -> "I am the high priest of Br·gon in these lands. Any donations or sacrifices to Br·gon should be given to me."
+"job" -> "Ich bin der Hohepriester Br·gons in diesen L‰ndereien. Jedwede Spenden oder Opfer an Br·gon solltet ihr mir geben."
 english, "Gobaith", "Gobiath" -> "The land of Gobaith is burnt."
 "Gobaith", "Gobiath" -> "Gobaithland ist abgebrannt."
-"my name" -> "So, are you a devout follower of Br√°gon, the eternal flame, the spark of life?"
-"mein Name" -> "Seid ihr ein frommer Anh√§nger Br√°gons, der ewigen Flamme, des Lebensfunkens?"
+"my name" -> "So, are you a devout follower of Br·gon, the eternal flame, the spark of life?"
+"mein Name" -> "Seid ihr ein frommer Anh‰nger Br·gons, der ewigen Flamme, des Lebensfunkens?"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-english, "priest" -> "I am the high priest of Br√°gon. He speaks through my voice and acts with my hands. Ally with me and you ally with the Lord of Fire!"
+english, "priest" -> "I am the high priest of Br·gon. He speaks through my voice and acts with my hands. Ally with me and you ally with the Lord of Fire!"
 "temple" -> "This is the temple of the Five. If you even dare to ask who the Five are, I will burn your body and feed the charred remains to the crows. Marvel at their magnificence!"
-"five", "old" -> "Eldan is the mind, Ushara is the body, Tanora is the blood and Findari is the breath, but Br√°gon is the heart!"
+"five", "old" -> "Eldan is the mind, Ushara is the body, Tanora is the blood and Findari is the breath, but Br·gon is the heart!"
 "eleven", "young" -> "Imposters! All of them! Calling themselves gods, they do. They are nothing but minions, serfs!"
 "fire" -> "Blazing flames will consume all that is not just when the end of days has come. Ask the refugees of Gobaith if you want to know what that looks like!"
-"donation", "sacrifi" -> "If you really want to perform acts on behalf of Br√°gon, ask me for a task."
-"Priest" -> "Ich bin der Hohenpriester Br√°gons. Er spricht durch meine Stimme und handelt mit meinen H√§nden. Legt euch mit mir an und ihr legt euch mit dem Herren des Feuers an."
-"Tempel" -> "Dies ist der Tempel der F√ºnf. Wenn ihr es auch nur wagt, zu fragen, wer die F√ºnf sind, werde ich euren K√∂rper verbrennen und die verkohlten √úberreste an die Kr√§hen verf√ºttern. Bestaunt ihre Pracht!"
-"F√ºnf", "alt" -> "Eldan ist der Geist, Ushara der Leib, Tanora das Blut und Findari ist der Atem. Doch Br√°gon ist das Herz!"
-"Elf", "jung" -> "Betr√ºger! Sie alle sind Betr√ºger! Nennen sich selbst G√∂tter. Sie sind nichts als Diener, Leibeigene!"
-"feuer" -> "Lodernde Flammen werden all das vertilgen, was nicht gerecht ist, wenn das Ende der Tage naht. Fragt die Fl√ºchtlinge von Gobaith, wie so etwas aussieht!"
-"Opfer", "Spende" -> "Wenn ihr wirklich Taten im Namen Br√°gons vollbringen wollt, fragt mich nach einem Auftrag."
+"donation", "sacrifi" -> "If you really want to perform acts on behalf of Br·gon, ask me for a task."
+"Priest" -> "Ich bin der Hohenpriester Br·gons. Er spricht durch meine Stimme und handelt mit meinen H‰nden. Legt euch mit mir an und ihr legt euch mit dem Herren des Feuers an."
+"Tempel" -> "Dies ist der Tempel der F¸nf. Wenn ihr es auch nur wagt, zu fragen, wer die F¸nf sind, werde ich euren Kˆrper verbrennen und die verkohlten ‹berreste an die Kr‰hen verf¸ttern. Bestaunt ihre Pracht!"
+"F¸nf", "alt" -> "Eldan ist der Geist, Ushara der Leib, Tanora das Blut und Findari ist der Atem. Doch Br·gon ist das Herz!"
+"Elf", "jung" -> "Betr¸ger! Sie alle sind Betr¸ger! Nennen sich selbst Gˆtter. Sie sind nichts als Diener, Leibeigene!"
+"feuer" -> "Lodernde Flammen werden all das vertilgen, was nicht gerecht ist, wenn das Ende der Tage naht. Fragt die Fl¸chtlinge von Gobaith, wie so etwas aussieht!"
+"Opfer", "Spende" -> "Wenn ihr wirklich Taten im Namen Br·gons vollbringen wollt, fragt mich nach einem Auftrag."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "What is his name again? Elvaine? What a stupid name for an infidel."
-"Erzmagier" -> "Wie hie√ü er noch gleich? Elvaine? Was f√ºr ein d√§mlicher Name, selbst f√ºr einen Ungl√§ubigen."
+"Erzmagier" -> "Wie hieﬂ er noch gleich? Elvaine? Was f¸r ein d‰mlicher Name, selbst f¸r einen Ungl‰ubigen."
 english, "Elvaine", "Morgan" -> "What is his name again? Elvaine? What a stupid name for an infidel."
-"Elvaine", "Morgan" -> "Wie hie√ü er noch gleich? Elvaine? Was f√ºr ein d√§mlicher Name, selbst f√ºr einen Ungl√§ubigen."
+"Elvaine", "Morgan" -> "Wie hieﬂ er noch gleich? Elvaine? Was f¸r ein d‰mlicher Name, selbst f¸r einen Ungl‰ubigen."
 english, "Runewick" -> "Runewick, Runewick, Runewick. They claim to be wise, but instead of being crusaders in Eldan's way, the half heartely idolise Elara."
-"Runewick" -> "Runewick, Runewick, Runewick. Sie meinen, weise zu sein, aber statt Kreuzritter im Geiste Eldans zu sein, verg√∂ttern sie halbherzig Elara."
+"Runewick" -> "Runewick, Runewick, Runewick. Sie meinen, weise zu sein, aber statt Kreuzritter im Geiste Eldans zu sein, vergˆttern sie halbherzig Elara."
 english, "Valerio", "Guilianni", "Don" -> "The infidel should burn!"
-"Valerio", "Guilianni", "Don" -> "Der Ungl√§ubige soll verbrennen!"
+"Valerio", "Guilianni", "Don" -> "Der Ungl‰ubige soll verbrennen!"
 english, "Galmair" -> "Galmair is a place without gods, because the gods give a smile about this pool of sins."
-"Galmair" -> "Galmair ist ein gottloser Ort, denn die G√∂tter scheren sich einen Dreck um diesen S√ºndenpfuhl."
-"Queen" -> "I must admit I do not quite understand the ways of 'her Majesty'. On the one hand, she is known to worship Br√°gon with all of her heart, but all she spreads is faith in Malach√≠n."
-"K√∂nigin" -> "Ich muss gestehen, dass ich die Wege 'ihrer Majest√§t' nicht ganz nachvollziehen kann. Einerseits ist es kein Geheimnis, dass sie Br√°gon mit ganzem Herzen verehrt, andererseits aber predigt sie den Glauben an Malach√≠n."
-english, "rosaline", "edwards" -> "I must admit I do not quite understand the ways of 'her Majesty'. On the one hand, she is known to worship Br√°gon with all of her heart, but all she spreads is faith in Malach√≠n."
-"rosaline", "edwards" -> "Ich muss gestehen, dass ich die Wege 'ihrer Majest√§t' nicht ganz nachvollziehen kann. Einerseits ist es kein Geheimnis, dass sie Br√°gon mit ganzem Herzen verehrt, andererseits aber predigt sie den Glauben an Malach√≠n."
-english, "Cadomyr" -> "Br√°gon is well respected in Cadomyr, so I respect Cadomyr. The presence of the scorching sun might convince them of the omnipresence of Br√°gon."
-"Cadomyr" -> "Br√°gon wird in Cadomyr geachtet, also achte ich Cadomyr. Die sengende Sonne scheint sie jeden Tag an die Allgegenw√§rtigkeit Br√°gons zu erinnern."
+"Galmair" -> "Galmair ist ein gottloser Ort, denn die Gˆtter scheren sich einen Dreck um diesen S¸ndenpfuhl."
+"Queen" -> "I must admit I do not quite understand the ways of 'her Majesty'. On the one hand, she is known to worship Br·gon with all of her heart, but all she spreads is faith in MalachÌn."
+"Kˆnigin" -> "Ich muss gestehen, dass ich die Wege 'ihrer Majest‰t' nicht ganz nachvollziehen kann. Einerseits ist es kein Geheimnis, dass sie Br·gon mit ganzem Herzen verehrt, andererseits aber predigt sie den Glauben an MalachÌn."
+english, "rosaline", "edwards" -> "I must admit I do not quite understand the ways of 'her Majesty'. On the one hand, she is known to worship Br·gon with all of her heart, but all she spreads is faith in MalachÌn."
+"rosaline", "edwards" -> "Ich muss gestehen, dass ich die Wege 'ihrer Majest‰t' nicht ganz nachvollziehen kann. Einerseits ist es kein Geheimnis, dass sie Br·gon mit ganzem Herzen verehrt, andererseits aber predigt sie den Glauben an MalachÌn."
+english, "Cadomyr" -> "Br·gon is well respected in Cadomyr, so I respect Cadomyr. The presence of the scorching sun might convince them of the omnipresence of Br·gon."
+"Cadomyr" -> "Br·gon wird in Cadomyr geachtet, also achte ich Cadomyr. Die sengende Sonne scheint sie jeden Tag an die Allgegenw‰rtigkeit Br·gons zu erinnern."
 
 -- Main land factions
 english, "albar" -> "Ah, let us talk about Farfarawayland now? One can say whatever one wants about the Albarians: At least they honour the gods!"
-"albar" -> "Ah, reden wir jetzt √ºber Weitwegland? Man kann √ºber die Albarier denken, was man will: Wenigstens sind sie fromm!"
-english, "gynk", "gync" -> "One day, Gynk will burn. Be it due to a gnomish experiment with white liquids or be it the wrath of Br√°gon."
-"gync", "gynk" -> "Eines Tages wird Gynk in Flammen aufgehen. Sei es durch ein gnomisches Experiment mit wei√üen Fl√ºssigkeiten oder sei es durch den Zorn Br√°gons."
+"albar" -> "Ah, reden wir jetzt ¸ber Weitwegland? Man kann ¸ber die Albarier denken, was man will: Wenigstens sind sie fromm!"
+english, "gynk", "gync" -> "One day, Gynk will burn. Be it due to a gnomish experiment with white liquids or be it the wrath of Br·gon."
+"gync", "gynk" -> "Eines Tages wird Gynk in Flammen aufgehen. Sei es durch ein gnomisches Experiment mit weiﬂen Fl¸ssigkeiten oder sei es durch den Zorn Br·gons."
 english, "salkama" -> "Never trust nor believe a Salkamaerian. Respect them and their deeds, but do not have faith in them repeating what they did once."
-"salkama" -> "Glaubt oder traut niemals einem Salkamaeriern. Respektiert sie, f√ºr das, was sie tun, aber legt keinen Glauben darein, dass sich ihre Taten wiederholen werden."
+"salkama" -> "Glaubt oder traut niemals einem Salkamaeriern. Respektiert sie, f¸r das, was sie tun, aber legt keinen Glauben darein, dass sich ihre Taten wiederholen werden."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "There are five gods: Br√°gon, Eldan, Findari, Tanora and Ushara. If you didn't know before, drop dead now."
-"Gott", "G√∂tter" -> "Es gibt f√ºnf G√∂tter: Br√°gon, Eldan, Findari, Tanora und Ushara. Wenn ihr das nicht wu√ütet, fallt bitte tot um."
-english, "Bragon", "Br√°gon" -> "Br√°gon is the heart; whatever we do, we do it because our heart tells us to. Be it good, be it bad, Br√°gon is in all we do. He is the esteem that makes our life worthy."
-"Bragon", "Br√°gon" -> "Br√°gon ist das Herz; was auch immer wir tun, wir tun es, weil es unser Herz gebietet. Sei es gut, sei es b√∂se, Br√°gon ist in allem, was wir tun. Er ist Funke, der unser Leben lebenswert macht."
+"god" -> "There are five gods: Br·gon, Eldan, Findari, Tanora and Ushara. If you didn't know before, drop dead now."
+"Gott", "Gˆtter" -> "Es gibt f¸nf Gˆtter: Br·gon, Eldan, Findari, Tanora und Ushara. Wenn ihr das nicht wuﬂtet, fallt bitte tot um."
+english, "Bragon", "Br·gon" -> "Br·gon is the heart; whatever we do, we do it because our heart tells us to. Be it good, be it bad, Br·gon is in all we do. He is the esteem that makes our life worthy."
+"Bragon", "Br·gon" -> "Br·gon ist das Herz; was auch immer wir tun, wir tun es, weil es unser Herz gebietet. Sei es gut, sei es bˆse, Br·gon ist in allem, was wir tun. Er ist Funke, der unser Leben lebenswert macht."
 english, "Eldan" -> "Eldan is the mind."
 "Eldan" -> "Eldan ist der Geist."
 english, "Findari" -> "Findari is the breath."
@@ -206,16 +220,16 @@ english, "Ushara" -> "Ushara is the body."
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Get the flame out of here!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Verbrennt euch!"
-"tell something" -> "I am happy to tell you about the Five and in particular Br√°gon."
-"erz√§hl was", "erz√§hl etwas" -> "Gerne erz√§hle ich euch von den F√ºnf und Br√°gon im Besonderen."
+"tell something" -> "I am happy to tell you about the Five and in particular Br·gon."
+"erz‰hl was", "erz‰hl etwas" -> "Gerne erz‰hle ich euch von den F¸nf und Br·gon im Besonderen."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Bathelor" -> "My name is not that important, you can call me your 'Highness' or 'Excellency'."
-"Bathelor" -> "Mein Name ist nicht so wichtig, ihr k√∂nnt mich auch 'Durchlaucht' oder 'Exzellenz' nennen."
-"Yes" -> "Hail Br√°gon!", "Blessed be Br√°gon!", "Praise Br√°gon!", "Honour Br√°gon!"
-"Ja" -> "Gelobet sei Br√°gon!", "Lobet Br√°gon!", "Ehret Br√°gon!"
-"No" -> "Hail Br√°gon!", "Blessed be Br√°gon!", "Praise Br√°gon!", "Honour Br√°gon!"
-"Nein" -> "Gelobet sei Br√°gon!", "Lobet Br√°gon!", "Ehret Br√°gon!"
+"Bathelor" -> "Mein Name ist nicht so wichtig, ihr kˆnnt mich auch 'Durchlaucht' oder 'Exzellenz' nennen."
+"Yes" -> "Hail Br·gon!", "Blessed be Br·gon!", "Praise Br·gon!", "Honour Br·gon!"
+"Ja" -> "Gelobet sei Br·gon!", "Lobet Br·gon!", "Ehret Br·gon!"
+"No" -> "Hail Br·gon!", "Blessed be Br·gon!", "Praise Br·gon!", "Honour Br·gon!"
+"Nein" -> "Gelobet sei Br·gon!", "Lobet Br·gon!", "Ehret Br·gon!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -223,13 +237,13 @@ english, "Bathelor" -> "My name is not that important, you can call me your 'Hig
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Ich bin Bathelor!", "I am Bathelor!"
-cycletext "Lobet Br√°gon!", "Praise Br√°gon!"
+cycletext "Lobet Br·gon!", "Praise Br·gon!"
 cycletext "Wir brauchen hier kein Wasser, lasst das Feuer brennen.", "We don't need no water let the fire burn. Burn, fire, burn!"
 cycletext "Wir haben das Feuer nicht entfacht, es hat schon immer gebrannt, seitdem sich die Welt bewegt.", "We didn't start the fire, it was always burning, since the world's been turning ."
 cycletext "Ihr hattet genug Zeit zu rasten, diese ist nun abgelaufen.", "You've had the time to rest, which is coming to an end."
 cycletext "Feuer!", "Fire!"
 cycletext "Es brennt!", "It's burning!"
-cycletext "Gelobt sei Br√°gon!", "Hail Br√°gon!"
-cycletext "Tr√§ume ich oder ist dieses Feuer die ewige Flamme?", "Am I only dreaming or is this burning an eternal flame?"
-cycletext "Vollbringt Taten im Namen Br√°gons.", "Do deeds to honour Br√°gon."
+cycletext "Gelobt sei Br·gon!", "Hail Br·gon!"
+cycletext "Tr‰ume ich oder ist dieses Feuer die ewige Flamme?", "Am I only dreaming or is this burning an eternal flame?"
+cycletext "Vollbringt Taten im Namen Br·gons.", "Do deeds to honour Br·gon."
 cycletext "Ich diene dem Gott des Feuers. Und er bringt euch... Feuer!", "I serve the god of fire. And he brings you... fire!"

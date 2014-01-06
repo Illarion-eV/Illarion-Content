@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Nargon Hammerfist                                           None --
 -- NPC Job:  Miner                                                            --
@@ -53,23 +67,23 @@ itemShoes = 697
 
 -- Help
 "Help" -> inform("[Tutorial] This NPC is the tutor Nargon Hammerfist. Keywords: Hello, Help, Skip tutorial.")
-"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Nargon Hammerfist. SchlÃ¼sselwÃ¶rter: Hallo, Hilfe, Tutorial Ã¼berspringen.")
+"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Nargon Hammerfist. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
 
 -- Skipping
 "skip", "cancel", "abort" -> inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south."), warp(36, 94, 100)
-"Ã¼berspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu Ã¼berspringen. Bitte wÃ¤hle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im SÃ¼den trittst."), warp(36, 94, 100)
+"überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."), warp(36, 94, 100)
 
 -- Learn how to gather - player has no pick axe
 queststatus(312) < 2, item(2763, all) = 0, english, ".*" -> inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which must be held in your hands. Note that not every rock will yield coal."), item(2763, 1, 599), queststatus(312) = 2, "Arr, the name be Nargon, Nargon Hammerfist. Ye want coin? Harr. Only through hard labour can ye become wealthy. Never fear, Nargon will get ye started. Here, have this pick-axe. Head into the mine behind me and gather five lumps of coal. It will not be in vain!"
-queststatus(312) < 2, item(2763, all) = 0, ".*" -> inform("[Tutorial] Um zu schÃ¼rfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."), item(2763, 1, 599), queststatus(312) = 2, "Arr, mein Name ist Nargon, Nargon Hammerfist. Wilste 'ne MÃ¼nze? Harr. Nur mit harter Arbeit kannste Reich werden. Keine Sorge, Nargon wird dir helfen. Hier haste 'ne Spitzhacke. Geh in die Mine hinter mir und sammel fÃ¼nf Brocken Kohle. Es wird nicht umsonst sein!"
+queststatus(312) < 2, item(2763, all) = 0, ".*" -> inform("[Tutorial] Um zu schürfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."), item(2763, 1, 599), queststatus(312) = 2, "Arr, mein Name ist Nargon, Nargon Hammerfist. Wilste 'ne Münze? Harr. Nur mit harter Arbeit kannste Reich werden. Keine Sorge, Nargon wird dir helfen. Hier haste 'ne Spitzhacke. Geh in die Mine hinter mir und sammel fünf Brocken Kohle. Es wird nicht umsonst sein!"
 
 -- Learn how to gather - player has pick axe
 queststatus(312) < 2, english, ".*" -> inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe, which must be held in your hands. Note that not every rock yields coal."), queststatus(312) = 2, "Arr, the name is Nargon, Nargon Hammerfist. Ye want coin? Harr. Only through hard labour can ye become wealthy. Never fear, Nargon will get ye started. Remember the pick-axe that wicked elfess gave you? Head into the mine behind me and gather five lumps of coal. It won't be in vain!"
-queststatus(312) < 2, ".*" -> inform("[Tutorial] Um zu schÃ¼rfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."), queststatus(312) = 2, "Arr, mein Name ist Nargon, Nargon Hammerfist. Wilste 'ne MÃ¼nze? Harr. Nur mit harter Arbeit kannste Reich werden. Keine Sorge, Nargon wird dir helfen. Kannste dich noch an die Spitzhacke erinnern, die dir die verruchte Elfe gegeben hat? Geh in die Mine hinter mir und sammel fÃ¼nf Brocken Kohle. Es wird nicht umsonst sein!"
+queststatus(312) < 2, ".*" -> inform("[Tutorial] Um zu schürfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."), queststatus(312) = 2, "Arr, mein Name ist Nargon, Nargon Hammerfist. Wilste 'ne Münze? Harr. Nur mit harter Arbeit kannste Reich werden. Keine Sorge, Nargon wird dir helfen. Kannste dich noch an die Spitzhacke erinnern, die dir die verruchte Elfe gegeben hat? Geh in die Mine hinter mir und sammel fünf Brocken Kohle. Es wird nicht umsonst sein!"
 
 -- Player brought five coal pieces
 queststatus(312) = 2, item(21, all) > 4, english, ".*" -> inform("[Tutorial] You are awarded a ruby."), deleteItem(21, 5), item(46, 1, 333), queststatus(312) = 3, "Oi! Ye did it, thanks for the coal! As an honest dwarven trader, I'll give you this ruby in exchange. Harr! Told ye the work wouldn't be in vain! My kinsman Nimbur, down at the brick house, can teach ye another lesson about dwarven crafting."
-queststatus(312) = 2, item(21, all) > 4, ".*" -> inform("[Tutorial] Du erhÃ¤ltst einen Rubin."), deleteItem(21, 5), item(46, 1, 333), queststatus(312) = 3, "Ui! Du hast es geschafft, danke fÃ¼r die Kohle! Als 'nen anstÃ¤ndiger ZwergenhÃ¤ndler, will ich dir diesen Rubin als Ausgleich geben. Harr! Hab' ja gesagt, dass es nicht umsonst sein wird! Mein Zwergenbruder Nimbur, da unten beim Steinhaus, kann dir noch was in Sachen Zwergenhandwerk beibringen."
+queststatus(312) = 2, item(21, all) > 4, ".*" -> inform("[Tutorial] Du erhältst einen Rubin."), deleteItem(21, 5), item(46, 1, 333), queststatus(312) = 3, "Ui! Du hast es geschafft, danke für die Kohle! Als 'nen anständiger Zwergenhändler, will ich dir diesen Rubin als Ausgleich geben. Harr! Hab' ja gesagt, dass es nicht umsonst sein wird! Mein Zwergenbruder Nimbur, da unten beim Steinhaus, kann dir noch was in Sachen Zwergenhandwerk beibringen."
 
 -- Player has lost his pick axe
 queststatus(312) = 2, item(2763, all) = 0, english, ".*" -> item(2763, 1, 599), "What!? Ye lost your pick-axe? How do ye expect to become rich if ye keep losing yer belongings? Take this replacement; now off to the mines with ye!"
@@ -77,15 +91,15 @@ queststatus(312) = 2, item(2763, all) = 0, ".*" -> item(2763, 1, 599), "Was? Du 
 
 -- Player has problems gathering
 queststatus(312) = 2, item(21, all) < 5, english, ".*" -> inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe, which must be held in your hands. Note that not every rock yields coal."), "Well, well, well. Hard work is hard work. Harr. Please bring me at least five lumps of coal. If ye cannot find coal in one corner of the mine, try the other!"
-queststatus(312) = 2, item(21, all) < 5, ".*" -> inform("[Tutorial] Um zu schÃ¼rfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."), "Nun, nun. Harte Arbeit ist harte Arbeit. Harr. Bring mir bitte mindestens fÃ¼nf Brocken Kohle. Wenn du keine Kohle in der einen Ecke der Mine finden kannst, versuch es in 'ner Anderen."
+queststatus(312) = 2, item(21, all) < 5, ".*" -> inform("[Tutorial] Um zu schürfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."), "Nun, nun. Harte Arbeit ist harte Arbeit. Harr. Bring mir bitte mindestens fünf Brocken Kohle. Wenn du keine Kohle in der einen Ecke der Mine finden kannst, versuch es in 'ner Anderen."
 
 -- Player did all lessons
 queststatus(312) = 3, english, ".*" -> "Arr, now ye know how to mine for gems and gold. What else is there to learn!? Ye might become rich, aye. My kinsmate Nimbur, down at the brick house, can teach ye another lesson about dwarven crafting."
-queststatus(312) = 3, ".*" -> "Arr, nun weiÃŸte wie du Gold und Edelsteinen finden kannst. Was willst du denn noch lernen?! Vielleicht wirste reich, aye. Mein Zwergenbruder Nimbur, da unten beim Steinhaus, kann dir noch was in Sachen Zwergenhandwerk beibringen."
+queststatus(312) = 3, ".*" -> "Arr, nun weißte wie du Gold und Edelsteinen finden kannst. Was willst du denn noch lernen?! Vielleicht wirste reich, aye. Mein Zwergenbruder Nimbur, da unten beim Steinhaus, kann dir noch was in Sachen Zwergenhandwerk beibringen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me streicht sich durch seinen langen Bart: 'Arr, ich zeige dir wie du Rohstoffe schÃ¼rfst.'", "#me scratches his beard: 'Arr...! I will show you how to gather resources.'"
+cycletext "#me streicht sich durch seinen langen Bart: 'Arr, ich zeige dir wie du Rohstoffe schürfst.'", "#me scratches his beard: 'Arr...! I will show you how to gather resources.'"

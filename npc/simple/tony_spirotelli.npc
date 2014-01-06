@@ -1,3 +1,17 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Tony Spirotelli                                          Galmair --
 -- NPC Job:  Carpenter                                                        --
@@ -46,67 +60,67 @@ itemShoes = 53
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Tony Spirotelli the carpenter. Keywords: quest")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Tony Spirotelli der Schreiner. SchlÃ¼sselwÃ¶rter: Quest")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Tony Spirotelli der Schreiner. Schlüsselwörter: Quest")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, what do you need?", "Good day, what do you need?", "I'm Tony Spirotelli, what can I do for you?"
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, was brauchst du?", "Guten Tag, was willst du?", "Ich bin Tony Spirotelli, was kann ich fÃ¼r dich tun?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, was brauchst du?", "Guten Tag, was willst du?", "Ich bin Tony Spirotelli, was kann ich für dich tun?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, what do you need?", "Good day, what do you need?", "I'm Tony Spirotelli, what can I do for you?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, was brauchst du?", "Guten Tag, was willst du?", "Ich bin Tony Spirotelli, was kann ich fÃ¼r dich tun?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, was brauchst du?", "Guten Tag, was willst du?", "Ich bin Tony Spirotelli, was kann ich für dich tun?"
 "Farewell", "Bye", "Fare well", "See you" -> "#me chuckles, 'I'll be seeing you again I hope.'", "Aye... another time."
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen" -> "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.'", "Ja, bis zum nÃ¤chsten mal."
+"Tschüß", "Tschüss", "Wiedersehen" -> "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.'", "Ja, bis zum nächsten mal."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me chuckles, 'I'll be seeing you again I hope.'", "Aye... another time."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.'", "Ja, bis zum nÃ¤chsten mal."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.'", "Ja, bis zum nächsten mal."
 "How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage."
 "your name", "who are you", "who art thou" -> "I'm Tony Spirotelli, who are you?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Tony Spirotelli, wer bist du?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Tony Spirotelli, wer bist du?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do."
-"beruf" -> "Ich bin Schreiner Falls du mehr darÃ¼ber erfahren mÃ¶chtest, frag mich nach einer Aufgabe. Ich habe sicher etwas fÃ¼r dich zu tun."
+"beruf" -> "Ich bin Schreiner Falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich habe sicher etwas für dich zu tun."
 english, "job" -> "I'm a carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do."
-"job" -> "Ich bin Schreiner. Falls du mehr darÃ¼ber erfahren mÃ¶chtest, frag mich nach einer Aufgabe. Ich habe sicher etwas fÃ¼r dich zu tun."
+"job" -> "Ich bin Schreiner. Falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich habe sicher etwas für dich zu tun."
 
 -- Quests
 queststatus(710) = 0, english, town = Galmair, "quest", "mission" -> item(9, 1, 777), item(74, 1, 777), queststatus(710) = 1, "A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous logs into boards at the workbench with the saw I'll give you, and show them to me."
-queststatus(710) = 0, town = Galmair, "quest", "mission" -> item(9, 1, 777), item(74, 1, 777), queststatus(710) = 1, "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Apfelholzscheite bei einem der ApfelbÃ¤ume auÃŸerhalb der Stadt. Dann kommst du hierher zurÃ¼ck und sÃ¤gst die Scheite, mit der SÃ¤ge die ich dir gebe, bei der Werkbank zu Brettern und zeigst sie mir dann."
+queststatus(710) = 0, town = Galmair, "quest", "mission" -> item(9, 1, 777), item(74, 1, 777), queststatus(710) = 1, "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Apfelholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite, mit der Säge die ich dir gebe, bei der Werkbank zu Brettern und zeigst sie mir dann."
 queststatus(710) = 0, town = Galmair, "task", "adventure", "order" -> item(9, 1, 777), item(74, 1, 777), queststatus(710) = 1, "A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous logs into boards at the workbench with the saw I'll give you, and show them to me."
-queststatus(710) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(9, 1, 777), item(74, 1, 777), queststatus(710) = 1, "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Apfelholzscheite bei einem der ApfelbÃ¤ume auÃŸerhalb der Stadt. Dann kommst du hierher zurÃ¼ck und sÃ¤gst die Scheite, mit der SÃ¤ge die ich dir gebe, bei der Werkbank zu Brettern und zeigst sie mir dann."
+queststatus(710) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(9, 1, 777), item(74, 1, 777), queststatus(710) = 1, "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Apfelholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite, mit der Säge die ich dir gebe, bei der Werkbank zu Brettern und zeigst sie mir dann."
 queststatus(710) = 1, item(2716, all) > 9, english, town = Galmair, "quest", "mission", "board", "wood", "deciduous" -> queststatus(710) = 2, "Well done, the boards look great. Please keep them for your next task."
-queststatus(710) = 1, item(2716, all) > 9, town = Galmair, "quest", "mission", "brett", "holz", "laub" -> queststatus(710) = 2, "Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie fÃ¼r deine nÃ¤chste Aufgabe."
+queststatus(710) = 1, item(2716, all) > 9, town = Galmair, "quest", "mission", "brett", "holz", "laub" -> queststatus(710) = 2, "Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie für deine nächste Aufgabe."
 queststatus(710) = 1, item(2716, all) > 9, town = Galmair, "task", "adventure", "order" -> queststatus(710) = 2, "Well done, the boards look great. Please keep them for your next task."
-queststatus(710) = 1, item(2716, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(710) = 2, "Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie fÃ¼r deine nÃ¤chste Aufgabe."
+queststatus(710) = 1, item(2716, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(710) = 2, "Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie für deine nächste Aufgabe."
 queststatus(710) = 1, item(2716, all) < 10, english, town = Galmair, ".+" -> "I wanted ten deciduous wood boards, come back once you have fulfilled this task."
-queststatus(710) = 1, item(2716, all) < 10, town = Galmair, ".+" -> "Ich wollte zehn Apfelholzbretter haben. Komme wieder wenn du die Aufgabe erfÃ¼llt hast."
+queststatus(710) = 1, item(2716, all) < 10, town = Galmair, ".+" -> "Ich wollte zehn Apfelholzbretter haben. Komme wieder wenn du die Aufgabe erfüllt hast."
 queststatus(710) = 2, english, town = Galmair, "quest", "mission" -> item(2715, 1, 777), queststatus(710) = 3, "Let's make some plates from the deciduous boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done."
-queststatus(710) = 2, town = Galmair, "quest", "mission" -> item(2715, 1, 777), queststatus(710) = 3, "Nun stellen wir aus den Apfelholzbrettern Teller her. DafÃ¼r brauchst du einen Hobel, den ich dir gebe, und dann setzt du dich auf den Stuhl da gleich neben mir, bei der Werkbank und machst zehn Teller. Zeige sie mir wenn du fertig bist."
+queststatus(710) = 2, town = Galmair, "quest", "mission" -> item(2715, 1, 777), queststatus(710) = 3, "Nun stellen wir aus den Apfelholzbrettern Teller her. Dafür brauchst du einen Hobel, den ich dir gebe, und dann setzt du dich auf den Stuhl da gleich neben mir, bei der Werkbank und machst zehn Teller. Zeige sie mir wenn du fertig bist."
 queststatus(710) = 2, town = Galmair, "task", "adventure", "order" -> item(2715, 1, 777), queststatus(710) = 3, "Let's make some plates from the deciduous boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done."
-queststatus(710) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2715, 1, 777), queststatus(710) = 3, "Nun stellen wir aus den Apfelholzbrettern Teller her. DafÃ¼r brauchst du einen Hobel, den ich dir gebe, und dann setzt du dich auf den Stuhl da gleich neben mir bei der Werkbank und machst zehn Teller. Zeige sie mir wenn du fertig bist."
+queststatus(710) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2715, 1, 777), queststatus(710) = 3, "Nun stellen wir aus den Apfelholzbrettern Teller her. Dafür brauchst du einen Hobel, den ich dir gebe, und dann setzt du dich auf den Stuhl da gleich neben mir bei der Werkbank und machst zehn Teller. Zeige sie mir wenn du fertig bist."
 queststatus(710) = 3, item(2952, all) > 9, english, town = Galmair, "quest", "mission", "plate" -> deleteItem(2952, 10), queststatus(710) = 4, "Well done, the plates look pretty good. If you have more time, I could give you another task."
-queststatus(710) = 3, item(2952, all) > 9, town = Galmair, "quest", "mission", "teller" -> deleteItem(2952, 10), queststatus(710) = 4, "Gut gemacht, die Teller sehen gut aus. Wenn du etwas mehr Zeit hast, hÃ¤tte ich eine weitere Aufgabe fÃ¼r dich."
+queststatus(710) = 3, item(2952, all) > 9, town = Galmair, "quest", "mission", "teller" -> deleteItem(2952, 10), queststatus(710) = 4, "Gut gemacht, die Teller sehen gut aus. Wenn du etwas mehr Zeit hast, hätte ich eine weitere Aufgabe für dich."
 queststatus(710) = 3, item(2952, all) > 9, town = Galmair, "task", "adventure", "order" -> deleteItem(2952, 10), queststatus(710) = 4, "Well done, the plates look pretty good. If you have more time, I could give you another task."
-queststatus(710) = 3, item(2952, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(2952, 10), queststatus(710) = 4, "Gut gemacht, die Teller sehen gut aus. Wenn du etwas mehr Zeit hast, hÃ¤tte ich eine weitere Aufgabe fÃ¼r dich."
+queststatus(710) = 3, item(2952, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(2952, 10), queststatus(710) = 4, "Gut gemacht, die Teller sehen gut aus. Wenn du etwas mehr Zeit hast, hätte ich eine weitere Aufgabe für dich."
 queststatus(710) = 3, item(2952, all) < 10, english, town = Galmair, ".+" -> "I wanted ten plates, come back once you have fulfilled this task."
-queststatus(710) = 3, item(2952, all) < 10, town = Galmair, ".+" -> "Ich wollte zehn Teller. Komme wieder wenn du die Aufgabe erfÃ¼llt hast."
+queststatus(710) = 3, item(2952, all) < 10, town = Galmair, ".+" -> "Ich wollte zehn Teller. Komme wieder wenn du die Aufgabe erfüllt hast."
 queststatus(710) = 4, english, town = Galmair, "quest", "mission" -> item(2752, 1, 777), item(2738, 25, 777), queststatus(710) = 5, "Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools and the twenty five pins I'll give you."
-queststatus(710) = 4, town = Galmair, "quest", "mission" -> item(2752, 1, 777), item(2738, 25, 777), queststatus(710) = 5, "Gut, nun geh hinaus und sammel bei den ApfelbÃ¤umen fÃ¼nf Ã„ste. Sobald du sie zusammen hast, komme hierher zurÃ¼ck und stell aus den Ã„sten 25 NÃ¤gel und Keile her. DafÃ¼r brauchst du ein Schnitzmesser, das ich dir gebe, und diese 25 NÃ¤gel."
+queststatus(710) = 4, town = Galmair, "quest", "mission" -> item(2752, 1, 777), item(2738, 25, 777), queststatus(710) = 5, "Gut, nun geh hinaus und sammel bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komme hierher zurück und stell aus den Ästen 25 Nägel und Keile her. Dafür brauchst du ein Schnitzmesser, das ich dir gebe, und diese 25 Nägel."
 queststatus(710) = 4, town = Galmair, "task", "adventure", "order" -> item(2752, 1, 777), item(2738, 25, 777), queststatus(710) = 5, "Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools and the twenty five pins I'll give you."
-queststatus(710) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2752, 1, 777), item(2738, 25, 777), queststatus(710) = 5, "Gut, nun geh hinaus und sammel bei den ApfelbÃ¤umen fÃ¼nf Ã„ste. Sobald du sie zusammen hast, komme hierher zurÃ¼ck und stell aus den Ã„sten 25 NÃ¤gel und Keile her. DafÃ¼r brauchst du ein Schnitzmesser, das ich dir gebe, und diese 25 NÃ¤gel."
+queststatus(710) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2752, 1, 777), item(2738, 25, 777), queststatus(710) = 5, "Gut, nun geh hinaus und sammel bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komme hierher zurück und stell aus den Ästen 25 Nägel und Keile her. Dafür brauchst du ein Schnitzmesser, das ich dir gebe, und diese 25 Nägel."
 queststatus(710) = 5, item(2717, all) > 24, english, town = Galmair, "quest", "mission", "pin", "cotter" -> deleteItem(2717, 25), queststatus(710) = 6, "Well done, the pins and cotters look perfect. It will take a while for you to become a master in carpentry, but I hope I have taught you some of the basics at least."
-queststatus(710) = 5, item(2717, all) > 24, town = Galmair, "quest", "mission", "nÃ¤gel", "keil" -> deleteItem(2717, 25), queststatus(710) = 6, "Gut gemacht, die NÃ¤gel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherrscht nun zumindest die Grundlagen."
+queststatus(710) = 5, item(2717, all) > 24, town = Galmair, "quest", "mission", "nägel", "keil" -> deleteItem(2717, 25), queststatus(710) = 6, "Gut gemacht, die Nägel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherrscht nun zumindest die Grundlagen."
 queststatus(710) = 5, item(2717, all) > 24, town = Galmair, "task", "adventure", "order" -> deleteItem(2717, 25), queststatus(710) = 6, "Well done, the pins and cotters look perfect. It will take a while for you to become a master in carpentry, but I hope I have taught you some of the basics at least."
-queststatus(710) = 5, item(2717, all) > 24, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(2717, 25), queststatus(710) = 6, "Gut gemacht, die NÃ¤gel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherrscht nun zumindest die Grundlagen."
+queststatus(710) = 5, item(2717, all) > 24, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(2717, 25), queststatus(710) = 6, "Gut gemacht, die Nägel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherrscht nun zumindest die Grundlagen."
 queststatus(710) = 5, item(2717, all) < 25, english, town = Galmair, ".+" -> "I wanted twenty five pins and cotters, come back once you have fulfilled this task."
-queststatus(710) = 5, item(2717, all) < 25, town = Galmair, ".+" -> "Ich wollte 25 NÃ¤gel und Keile, komm wieder wenn du die Aufgabe erfÃ¼llt hast."
+queststatus(710) = 5, item(2717, all) < 25, town = Galmair, ".+" -> "Ich wollte 25 Nägel und Keile, komm wieder wenn du die Aufgabe erfüllt hast."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 queststatus(710) = 6, english, town = Galmair, ".*" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(710) = 6, german, town = Galmair, ".*" -> "Ich habe nichts weiter fÃ¼r dich zu tun. Aber danke nochmals fÃ¼r deine Hilfe!"
+queststatus(710) = 6, german, town = Galmair, ".*" -> "Ich habe nichts weiter für dich zu tun. Aber danke nochmals für deine Hilfe!"
 queststatus(710) < 6, english, town = Galmair, ".*" -> "I could use some help, just ask me for a task."
-queststatus(710) < 6, german, town = Galmair, ".*" -> "Ich kÃ¶nnte etwas Hilfe gebrauchen, frag mich ruhig nach einer Aufgabe."
+queststatus(710) < 6, german, town = Galmair, ".*" -> "Ich könnte etwas Hilfe gebrauchen, frag mich ruhig nach einer Aufgabe."
 english, ".*" -> "You are not a citizen of Galmair. I don't have anything for you to do."
-german, ".*" -> "Du scheinst kein BÃ¼rger Galmairs zu sein. Ich habe nichts fÃ¼r dich zu tun."
+german, ".*" -> "Du scheinst kein Bürger Galmairs zu sein. Ich habe nichts für dich zu tun."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -116,5 +130,5 @@ german, ".*" -> "Du scheinst kein BÃ¼rger Galmairs zu sein. Ich habe nichts fÃ¼r
 cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
 cycletext "#me kratzt sich am Kopf.", "#me scratches his head."
 cycletext "Wenn du Hilfe beim Schreinern brauchst, dann frag' mich nur!", "If you need any help in carpentry, just ask me!"
-cycletext "#me gÃ¤hnt verhalten.", "#me yawns restrained."
-cycletext "#me schaut sich kurz um und kratzt sich anschlieÃŸend an seinem Hintern.", "#me looks around briefly and scratches his bum."
+cycletext "#me gähnt verhalten.", "#me yawns restrained."
+cycletext "#me schaut sich kurz um und kratzt sich anschließend an seinem Hintern.", "#me looks around briefly and scratches his bum."
