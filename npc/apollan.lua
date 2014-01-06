@@ -194,7 +194,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.attribute.attribute("mage", ">", 30));
+talkEntry:addCondition(npc.apollan.attribute("mage", ">", 30));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("aufgabe");
@@ -203,7 +203,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.magictype.magictype("druid"));
+talkEntry:addCondition(npc.apollan.magictype("druid"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("aufgabe");
@@ -830,6 +830,99 @@ mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
 end;
+
+
+--Check for Mage attributes. Seperate script including the mage attributes.
+
+attribute = base.class.class(npc.base.condition.condition.condition,
+function(self, name, comp, value)
+    npc.base.condition.condition.condition:init(self);
+    self["value"], self["valuetype"] = npc.base.talk._set_value(value);
+    self["attrib"] = name;
+    if (comp == "=") then
+        self["check"] = _attrib_helper_equal;
+    elseif (comp == "<>" or comp == "!=" or comp == "~=") then
+        self["check"] = _attrib_helper_notequal;
+    elseif (comp == "<=" or comp == "=<") then
+        self["check"] = _attrib_helper_lesserequal;
+    elseif (comp == ">=" or comp == "=>") then
+        self["check"] = _attrib_helper_greaterequal;
+    elseif (comp == ">") then
+        self["check"] = _attrib_helper_greater;
+    elseif (comp == "<") then
+        self["check"] = _attrib_helper_lesser;
+    else
+        -- unkonwn comparator
+    end;
+end);
+
+function _attrib_helper_equal(self, npcChar, texttype, player)
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+	
+	--Check for mage attributs in sum
+	if self["attrib"] == "mage" then
+		return (value == (player:increaseAttrib("willpower", 0) + player:increaseAttrib("essence", 0) + player:increaseAttrib("intelligence", 0)))
+	end
+	
+    return (value == player:increaseAttrib(self.attrib, 0))
+end;
+
+function _attrib_helper_notequal(self, npcChar, texttype, player)
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+	
+	--Check for mage attributs in sum
+	if self["attrib"] == "mage" then
+		return (value ~= (player:increaseAttrib("willpower", 0) + player:increaseAttrib("essence", 0) + player:increaseAttrib("intelligence", 0)))
+	end
+	
+    return (value ~= player:increaseAttrib(self.attrib, 0))
+end;
+
+function _attrib_helper_lesserequal(self, npcChar, texttype, player)
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+	
+	--Check for mage attributs in sum
+	if self["attrib"] == "mage" then
+		return (value <= (player:increaseAttrib("willpower", 0) + player:increaseAttrib("essence", 0) + player:increaseAttrib("intelligence", 0)))
+	end
+	
+    return (value <= player:increaseAttrib(self.attrib, 0))
+end;
+
+function _attrib_helper_greaterequal(self, npcChar, texttype, player)
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+	
+	--Check for mage attributs in sum
+	if self["attrib"] == "mage" then
+		return (value >= (player:increaseAttrib("willpower", 0) + player:increaseAttrib("essence", 0) + player:increaseAttrib("intelligence", 0)))
+	end
+		
+    return (value >= player:increaseAttrib(self.attrib, 0))
+end;
+
+function _attrib_helper_lesser(self, npcChar, texttype, player)
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+	
+	--Check for mage attributs in sum
+	if self["attrib"] == "mage" then
+		return (value < (player:increaseAttrib("willpower", 0) + player:increaseAttrib("essence", 0) + player:increaseAttrib("intelligence", 0)))
+	end
+		
+    return (value < player:increaseAttrib(self.attrib, 0))
+end;
+
+function _attrib_helper_greater(self, npcChar, texttype, player)
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+	
+	--Check for mage attributs in sum
+	if self["attrib"] == "mage" then
+		return (value > (player:increaseAttrib("willpower", 0) + player:increaseAttrib("essence", 0) + player:increaseAttrib("intelligence", 0)))
+	end
+	
+    return (value > player:increaseAttrib(self.attrib, 0))
+end;
+
+--End check for Mage attributes. Seperate script including the mage attributes.
 
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
