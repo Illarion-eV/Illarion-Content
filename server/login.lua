@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- called after every player login
 require("base.common")
@@ -178,15 +178,15 @@ function welcomeNewPlayer(player)
 	local onlinePlayers = world:getPlayersOnline()
 	for i=1,#onlinePlayers do
 	    local user = onlinePlayers[i]
-	    
-		if not user:isNewPlayer() and not user.pos.z == -40 then -- no new player and not in the prison mine
-			
+
+		if not user:isNewPlayer() and user.pos.z ~= -40 then -- no new player and not in the prison mine
+
 			if user:getQuestProgress(851) == 0 then
-			
+
 				local getText = function(deText,enText) return base.common.base.common.GetNLS(user, deText, enText) end
-    
-				local callback = function(dialog) 
-					local success = dialog:getSuccess() 
+
+				local callback = function(dialog)
+					local success = dialog:getSuccess()
 					if success then
 						local selected = dialog:getSelectedIndex()+1
 						if selected == 1 then
@@ -197,7 +197,7 @@ function welcomeNewPlayer(player)
 							-- nothing
 						elseif selected == 3 then
 							user:setQuestProgress(851,1)
-						end	
+						end
 					end
 				end
 
@@ -214,22 +214,22 @@ end
 function onLogin( player )
 
 	welcomeNewPlayer(player)
-	
+
 	world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
 
 	--General welcome message
     players=world:getPlayersOnline(); --Reading all players online so we can count them
-	
+
 	if table.getn(players) > 1 then
-	
+
 	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
-    
+
 	else --player is alone
-	
+
 	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist ein Spieler online.","[Login] Welcome to Illarion! There is one player online."); --sending a message
-	
+
 	end
-	
+
 	--Taxes (has to be redone by "someone")
 	if not player:isAdmin()  and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
 		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
@@ -345,8 +345,8 @@ function receiveGems(gemRecipient)
 	local town = base.factions.getMembershipByName(gemRecipient)
 	if town == "None" then
 		return;
-	end	
-	-- first check if there was a switch from collecting taxes to pay out gems already: 
+	end
+	-- first check if there was a switch from collecting taxes to pay out gems already:
 	local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	--fnd=1
 	--lastSwitch=1
@@ -354,7 +354,7 @@ function receiveGems(gemRecipient)
 		base.townTreasure.NewMonthSwitch(town,timeStmp)
 		fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	end
-	
+
 	if fnd and tonumber(lastSwitch)~=timeStmp then
 		base.townTreasure.NewMonthSwitch(town,timeStmp)
 		lastSwitch=timeStmp
@@ -377,10 +377,10 @@ function PayOutWage(Recipient,town)
 	local totalTaxes=base.townTreasure.GetPaymentAmount(town)
 	local totalPayers=base.townTreasure.GetTaxpayerNumber(town)
 	local infText = "";
-	
+
 	--Recipient:inform("in payoutwage "..totalPayers)
 	--Recipient:inform("totaltaxes "..totalTaxes)
-	
+
 	if tonumber(totalPayers)>0 then
 		if tonumber(totalTaxes)>0 then
 			local baseWageUnit=totalTaxes/(totalPayers*10000);		-- 10000: "base unit"; change accordingly if necessary.
@@ -389,10 +389,10 @@ function PayOutWage(Recipient,town)
 			--If the recipient is level 1 they don't get anything. Stops abuse! - Flux
 			if RecipientRk <2 then
 
-				infText = base.common.GetNLS(Recipient, 
+				infText = base.common.GetNLS(Recipient,
 	                "Du solltest dich bemühen, dein Ansehen in "..town.." zu steigern, damit du einen Lohn für deine Abgaben erhältst.",
 					"You should earn favour in "..town.." in order to receive rewards for your tribute.");
-					
+
 				log(string.format("[gems] %s got 0 magic gems from %s. Character's rank: %d",
 					base.character.LogText(User), RankedWage, town, RecipientRk))
 
@@ -407,7 +407,7 @@ function PayOutWage(Recipient,town)
 --					local maxGemLevel=math.floor(RankedWage^(1/3))
 					local maxGemLevel = math.floor(math.log(RankedWage)/math.log(3)) + 1
 					local gemLevel= base.common.Limit(math.random(1,maxGemLevel), 1, 10)
-					
+
 					local gemsByTown={};
 					gemsByTown["Cadomyr"]={item.gems.TOPAZ, item.gems.AMETHYST}
 					gemsByTown["Runewick"]={item.gems.EMERALD, item.gems.RUBY}
@@ -415,16 +415,16 @@ function PayOutWage(Recipient,town)
 
 					local gemId = item.gems.getMagicGemId(gemsByTown[town][randomGem]);
 					local gemData = item.gems.getMagicGemData(gemLevel);
-					
+
 					local basename={}
 					basename=world:getItemName(gemId, Recipient:getPlayerLanguage());
-					
+
 					if Recipient:getPlayerLanguage() == 0 then
 						basename = item.gems.gemPrefixDE[gemLevel] .. " magischer " .. basename
 					else
 						basename = item.gems.gemPrefixEN[gemLevel] .. " magical " .. basename
 					end
-					
+
 					endname=endname.."\n"..basename;
 					--Recipient:inform("endname= "..endname);
 					local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
@@ -438,9 +438,9 @@ function PayOutWage(Recipient,town)
 --					RankedWage=RankedWage-gemLevel^3;
 					RankedWage=RankedWage-3^(gemLevel-1)
 				end
-			
-				infText = base.common.GetNLS(Recipient, 
-	                                   "Deine loyalen Dienste für "..town.." werden mit den folgenden magischen Edelsteinen belohnt:"..endname, 
+
+				infText = base.common.GetNLS(Recipient,
+	                                   "Deine loyalen Dienste für "..town.." werden mit den folgenden magischen Edelsteinen belohnt:"..endname,
 	                                   "Your loyal service to "..town.." is awarded with the following magical gems:"..endname)
 			end
 			return infText;
@@ -450,13 +450,13 @@ end
 
 
 function MergeSkillInform(User)
-	
 
-		local infText = base.common.GetNLS(User, 
+
+		local infText = base.common.GetNLS(User,
 						"Illarion hat neue Rüstungsfertigkeiten. Deine alten Fertigkeiten Ausweichen und Taktik werden in eine Rüstungsfertigkeit deiner Wahl konvertiert. Bitte wähle eine Option:",
 						"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option:");
 		local title = base.common.GetNLS(User,"Neue Rüstungsfertigkeiten","New Armour Skills")
-	
+
 		local closeTrib=function(onClose)
 			MergeSkill(User);
 		end
@@ -464,11 +464,11 @@ function MergeSkillInform(User)
 		local dialogue=MessageDialog(title,infText,closeTrib);
 
 		User:requestMessageDialog(dialogue);
-	
+
 end
 
 function MergeSkill(User)
-	
+
     local names
 	if  User:getPlayerLanguage() == Player.german then
 		names = {"Leichte Rüstungen (gut gegen Schlagwaffen aber schlecht gegen Hiebwaffen)","Mittlere Rüstungen (gut gegen Hiebwaffen aber schlecht gegen Stich- und Distanzwaffen)","Schwere Rüstungen (gut gegen Stich- und Distanzwaffen aber schlecht gegen Schlagwaffen)"}
@@ -477,34 +477,34 @@ function MergeSkill(User)
 	end
 	local items = {364, 2403, 2390}
 	local targetSkill = {Character.lightArmour, Character.mediumArmour, Character.heavyArmour}
-	
+
 	local callback = function(dialog)
 
 		success = dialog:getSuccess()
-		
+
 		if success then
 					selected = dialog:getSelectedIndex()
 				    local newskillValue = math.floor((User:getSkill(Character.tactics)+User:getSkill(Character.dodge))/2);
 					local skillValue = User:getSkill(targetSkill[selected+1]); --reading the skill points
-     			    User:increaseSkill(targetSkill[selected+1],newskillValue-skillValue); 
-					User:increaseSkill(Character.dodge,-User:getSkill(Character.dodge)); 
-					User:increaseSkill(Character.tactics,-User:getSkill(Character.tactics)); 
+     			    User:increaseSkill(targetSkill[selected+1],newskillValue-skillValue);
+					User:increaseSkill(Character.dodge,-User:getSkill(Character.dodge));
+					User:increaseSkill(Character.tactics,-User:getSkill(Character.tactics));
 					User:inform("Du hast " ..names[selected+1].. " ausgewählt. Drücke 'C' um deine Fertigkeiten zu überprüfen.", "You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.")
 					world:gfx(46,User.pos)
 					world:makeSound(13,User.pos);
 		else
-			User:inform("Bitte wähle eine Fertigkeit.", "Please choose a skill.");		
+			User:inform("Bitte wähle eine Fertigkeit.", "Please choose a skill.");
 			MergeSkill(User);
 		end
 	end
-		
+
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
 		dialog = SelectionDialog("Neue Rüstungsfertigkeiten", "Welche Rüstungsfertigkeit wirst du nutzen?", callback)
 	else
 		dialog = SelectionDialog("New Armour Skill", "Which armour skill will you use?", callback)
 	end
-	
+
 	for i=1,#items do
 		dialog:addOption(items[i], names[i])
 	end
@@ -521,32 +521,32 @@ function payNow(User)
 --Galmair = 102
 --Hemp Necktie Inn = 103 (not a faction!)
     local infText = "";
-	
+
 	 -- no memeber of any town
 	local town = base.factions.getMembershipByName(User)
 	if town == "None" then
 	    return;
-	end	
+	end
 
     local taxHeight=0.05;  -- 5% taxes
-    
+
 	local depNr={100,101,102,103};
     local valDepot={0,0,0,0};
 	local val = 0;
-	
+
     for i=1, #(depNr) do
         valDepot[i]=base.money.DepotCoinsToMoney(User,depNr[i]);
 		val = val + valDepot[i]; 	--how much money is in the depots combined
     end
 
 	val = val + base.money.CharCoinsToMoney(User); -- total wealth
-	
+
     tax=math.floor(val*taxHeight);
     local totTax=tax; -- total tax to pay
 --	log("[taxes] "..User.id.." paid "..totTax.." copper coins to "..town)
 	log(string.format("[taxes] %s paid %d. Faction wealth of %s increased to %d copper.",
 				base.character.LogText(User), totTax, town, base.townTreasure.GetTownTreasure(town)));
-	
+
 	-- try to get the payable tax from the depots first
 	for i=1, #(depNr) do
 		if tax<=valDepot[i] then -- if you fild all you need in the first/ next depot, take it.
@@ -558,19 +558,19 @@ function payNow(User)
 			tax = tax - valDepot[i];
 		end
 	end
-	
+
 	if tax ~= 0 then --there wasn't enough cash in the depots, get the rest from the char
 		base.money.TakeMoneyFromChar(User,tax);
 	end
 
 	gstring,estring=base.money.MoneyToString(totTax); --converting money to a string
-    
-	infText = base.common.GetNLS(User, 
-	                                   "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%", 
+
+	infText = base.common.GetNLS(User,
+	                                   "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%",
 	                                   "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
 	local title = base.common.GetNLS(User,"Abgabenbenachrichtigung","Tribute information")
-		
-	
+
+
 	base.townTreasure.ChangeTownTreasure(town,totTax)
 	base.townTreasure.IncreaseTaxpayerNumber(town)
     return infText;
@@ -587,7 +587,7 @@ function informPlayeraboutTaxandGems(User, gemText, taxText)
 	local title = base.common.GetNLS(User,"Abgabenbenachrichtigung","Tribute information")
 
 	local dialog=MessageDialog(title,infText,closeTrib);
-    
+
 	local closeTrib=function(onClose)
     -- do nothing
     end
