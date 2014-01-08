@@ -712,7 +712,7 @@ tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Eine groﬂe, edele Frau steht hinter der Theke und bereitet emsig Essen zu.", "A tall, proud woman stands behind the counter, preparing food quickly.");
+mainNPC:setLookat("Eine groﬂe, edle Frau steht hinter der Theke und bereitet emsig Essen zu.", "A tall, proud woman stands behind the counter, preparing food quickly.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Hands off!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
