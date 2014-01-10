@@ -12,9 +12,10 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
+require("base.lookat")
 
 module("item.drinks", package.seeall)
 
@@ -77,21 +78,21 @@ function UseItem(User, SourceItem)
         User:inform("Unknown drinking Item: ID"..SourceItem.id.." Please Report this to a developer.");
         return
     end
-	if (SourceItem:getType() ~= 4) then -- vessel in hand
-		base.common.HighInformNLS( User,
-		"Du musst das Trinkgef‰ﬂ in der Hand haben!",
-		"You have to hold the drinking vessel in your hand!" );
-		return
-	end
+
     foodLevel = User:increaseAttrib("foodlevel",0) + food[1]; -- Foodlevel anheben
     world:makeSound(12,User.pos); -- Trinkger‰uusch machen
 
 	if ( math.random( 50 ) <= 1 ) then -- 1/50 das die Flasche zerbricht
         base.common.InformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.");
-		world:erase(SourceItem, 1);
     else
-	    world:swap(SourceItem, food[2], 333);
+		local dataCopy = {descriptionDe=SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn")};
+		local notCreated = User:createItem( food[2], 1, 333, dataCopy); -- create the remnant item
+		if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+			world:createItemFromId(food[2], notCreated, User.pos, true, 333, dataCopy);
+			base.common.HighInformNLS(User, "Du kannst nichts mehr halten.", "You can't carry any more.");
+		end
 	end
+	world:erase(SourceItem, 1);
 
     if ( foodLevel > 40000 ) then
         base.common.InformNLS( User, "Du hast genug getrunken.", "You have had enough to drink.");

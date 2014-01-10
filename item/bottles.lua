@@ -12,18 +12,14 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- empty container with drink
-
 -- UPDATE common SET com_script='item.bottles' WHERE com_itemid IN (2500, 2496, 2497, 2501, 2499);
-
--- uses items of the new client - don't put this on the RS yet!
 require("base.common")
 
 module("item.bottles", package.seeall)
 
-function InitDrinks()  -- initialisiert die coolen softdrinks in da hood.
+function InitDrinks()
     if ( drinkList == nil) then
         -- nameDE, nameEN, leftover item, { {empty target container, filled target container}, ...}
         drinkList={};
@@ -41,8 +37,6 @@ function InitDrinks()  -- initialisiert die coolen softdrinks in da hood.
 
         drinkList[2499] = {  "Ciderflasche", "bottle of cider", 2498,
         { {1858, 1859}, {224, 1861},{2055, 2059},{1840, 1844}, {2185, 2189} } };
-		
-		drinkList[1319] = {  "Rumflasche", "bottle of rum", 1317, nil};
 
         -- init descriptions
         BottleQualDe={"randvolle ","volle ","halbvolle ","fast leere "};
@@ -51,8 +45,6 @@ function InitDrinks()  -- initialisiert die coolen softdrinks in da hood.
         BottleQualLm={8,6,3,1};
     end
 end
-
-
 
 function UseItem(User, SourceItem)
 
@@ -89,10 +81,15 @@ function UseItem(User, SourceItem)
 							base.common.InformNLS( User,
 							"Die leere Flasche ist angeschlagen und unbrauchbar.",
 							"The empty bottle is broken and no longer usable.");
-							world:erase(SourceItem,1);
 						else
-							world:swap(SourceItem,food[3],333)
+							local dataCopy = {descriptionDe=SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn")};
+							local notCreated = User:createItem( food[3], 1, 333, dataCopy); -- create the remnant item
+							if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+								world:createItemFromId(food[3], notCreated, User.pos, true, 333, dataCopy);
+								base.common.HighInformNLS(User, "Du kannst nichts mehr halten.", "You can't carry any more.");
+							end
 						end
+						world:erase(SourceItem, 1);
 					end
 
                     -- cancel after one found item
@@ -108,7 +105,6 @@ function UseItem(User, SourceItem)
         User:inform("unkown bottle item ");
     end
 end
-
 
 function LookAtItem(User, Item)
     local lookAt = base.lookat.GenerateLookAt(User, Item)
@@ -140,7 +136,7 @@ function LookAtItem(User, Item)
             break;
         end
     end
-        
+
     DisplayText = DisplayText..base.common.GetNLS( User, food[1], food[2] );
     lookAt.description = DisplayText
 
