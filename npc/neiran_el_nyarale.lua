@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Neiran el Nyarale                                       Runewick --
@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 2.1.12.2-32-gea8f6d0 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -715,7 +715,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Mh? ? Who is that?");
+talkEntry:addResponse("Mh? ... Who is that?");
 talkEntry:addResponse("No, I haven't seen her. I don't even remember the last time she was here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

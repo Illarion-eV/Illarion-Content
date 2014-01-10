@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Nobarg                                                      None --
@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 2.1.12.2-32-gea8f6d0 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -223,7 +223,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("support");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos. Your keyword is 'comfort'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 22));
-talkEntry:addResponse("That is not difficult, of course. Brágon had hoped to comfort the Blood God in his loneliness through the creation of the orcs! ?Well, there is your answer! Farewell! *lowers his head and starts praying*");
+talkEntry:addResponse("That is not difficult, of course. Brágon had hoped to comfort the Blood God in his loneliness through the creation of the orcs! Well, there is your answer! Farewell! *lowers his head and starts praying*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -243,7 +243,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Purge");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos. Your keyword is 'purge'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 23));
-talkEntry:addResponse("Of course, no problem. Brágon is the lifegiver, and purged all impurity and weakness! ?Well, that is all I have to say about that. *Lowers his head and starts praying.*");
+talkEntry:addResponse("Of course, no problem. Brágon is the lifegiver, and purged all impurity and weakness! Well, that is all I have to say about that. *Lowers his head and starts praying.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -285,7 +285,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Sun");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos. Your keyword is 'sunmaker'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 25));
-talkEntry:addResponse("Of course of course, the 'Daily sunmaker'! ?All you needed to know farewell! *lowers his head and starts praying*");
+talkEntry:addResponse("Of course of course, the 'Daily sunmaker'! All you needed to know farewell! *lowers his head and starts praying*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -305,7 +305,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("remedy");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos. Your keyword is 'Dragon'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 26));
-talkEntry:addResponse("Easy enough, he sent dragons into the battle?well, I hope you are satisfied with my answer! Be well! *Lowers his head and starts praying.*");
+talkEntry:addResponse("Easy enough, he sent dragons into the battle. Well, I hope you are satisfied with my answer! Be well! *Lowers his head and starts praying.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -368,7 +368,7 @@ talkEntry:addTrigger("pray");
 talkEntry:addTrigger("praying");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos. Your keyword is 'live'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 29));
-talkEntry:addResponse("The answer is rather simple,  orcs see Brágon as the one who gives life! ?Well, I hope you are satisfied with this answer! Farewell! *Lowers his head and starts praying.*");
+talkEntry:addResponse("The answer is rather simple,  orcs see Brágon as the one who gives life! Well, I hope you are satisfied with this answer! Farewell! *Lowers his head and starts praying.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -410,7 +410,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tribunal");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos. Your keyword is 'Flame'."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 30));
-talkEntry:addResponse("This is not difficult to understand really. Among other things Brágon will discern whether they lived for the purpose of the Holy Flame or not! ?Well, I hope you are satisfied with this answer! Farewell! *Lowers his head and starts praying.*");
+talkEntry:addResponse("This is not difficult to understand really. Among other things Brágon will discern whether they lived for the purpose of the Holy Flame or not! Well, I hope you are satisfied with this answer! Farewell! *Lowers his head and starts praying.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
