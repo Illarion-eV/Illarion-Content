@@ -235,7 +235,7 @@ function onLogin( player )
 		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
 			-- So let there be taxes!
 			local taxText = payTaxes(player);
-			--local gemText = receiveGems(player);
+			local gemText = receiveGems(player);
 			if gemText ~= nil or taxText ~= nil then
 				informPlayeraboutTaxandGems(player, gemText, taxText)
 			end
@@ -544,8 +544,6 @@ function payNow(User)
     tax=math.floor(val*taxHeight);
     local totTax=tax; -- total tax to pay
 --	log("[taxes] "..User.id.." paid "..totTax.." copper coins to "..town)
-	log(string.format("[taxes] %s paid %d. Faction wealth of %s increased to %d copper.",
-				base.character.LogText(User), totTax, town, base.townTreasure.GetTownTreasure(town)));
 
 	-- try to get the payable tax from the depots first
 	for i=1, #(depNr) do
@@ -567,12 +565,14 @@ function payNow(User)
 
 	infText = base.common.GetNLS(User,
 	                                   "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%",
-	                                   "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
-	local title = base.common.GetNLS(User,"Abgabenbenachrichtigung","Tribute information")
+	                                   "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%");
 
 
 	base.townTreasure.ChangeTownTreasure(town,totTax)
 	base.townTreasure.IncreaseTaxpayerNumber(town)
+	
+	log(string.format("[taxes] %s paid %d. Faction wealth of %s increased to %d copper.",
+				base.character.LogText(User), totTax, town, base.townTreasure.GetTownTreasure(town)));
     return infText;
 end
 

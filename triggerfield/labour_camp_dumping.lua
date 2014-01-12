@@ -50,6 +50,8 @@ function PutItemOnField(Item,User)
 			
 			if town ~= "None" then	
 				base.townTreasure.ChangeTownTreasure(town,payToFaction) -- add to the town treasure
+				log(string.format("[donation][camp] %s handed %u %s (%u) over. Faction wealth of %s increased by %d copper to %d copper.",
+					base.character.LogText(User), Item.number, world:getItemName(Item.id,Player.english), Item.id, FactionName, payToFaction, base.townTreasure.GetTownTreasure(FactionName)));
 			end
 			
 		-- BUGGY INFORM

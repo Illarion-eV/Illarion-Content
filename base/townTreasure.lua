@@ -22,14 +22,17 @@ module("base.townTreasure", package.seeall)
 
 -- get the treasure of a town
 -- @town Town which treasure we want to get as a string: "Cadomyr"|"Runewick"|"Galmair"
-function GetTownTreasure(town)
-    
+function GetTownTreasure(town)    
     local foundTreasure, currentTreasure = ScriptVars:find("Treasure"..town)
 	if not foundTreasure then
-		currentTreasure = 0
+		return 0;
 	end
-	return currentTreasure
-	
+	local treasureNumber = tonumber(currentTreasure);
+	if (treasureNumber > 3000000) then
+		log(string.format("[WARN][Town Treasure] The treasure of %s exceeded 3 million copper coins. Something is wrong. Capping.", town));
+		return 3000000;
+	end
+	return treasureNumber;	
 end
 
 -- get the itemID of a gem for each town.
@@ -53,20 +56,17 @@ function GetPaymentAmount(town)
 	if not foundTreasure then
 		currentTreasure = 0
 	end
-	return currentTreasure
+	return tonumber(currentTreasure)
 end
 
 -- get the amount of taxespayers last month to determine the amount of gems to pay out
 -- @town Town which treasure we want to get as a string: "Cadomyr"|"Runewick"|"Galmair"
 function GetTaxpayerNumber(town)
-	--debug("in gtpn");
 	local foundPayers, currentNoPayer = ScriptVars:find("OldPayers"..town)
 	if not foundPayers then
-	--debug("TAXPAYERS RETURN 0")
-		currentNoPayer = 0
+		return 0;
 	end
---	debug("TAXPAERS RETURN "..currentNoPayer);
-	return currentNoPayer
+	return tonumber(currentNoPayer);
 end
 
 -- change treasure of a town
@@ -103,19 +103,13 @@ end
 --@timeStmp Timestamp of the new month
 function NewMonthSwitch(town,timeStmp)
 	--debug("NewMonthSwitch with "..town.." and "..timeStmp);
-	local foundTreasure, currentTreasure = ScriptVars:find("Treasure"..town)
-	if foundTreasure then
-		log(string.format("[tax switch] %s's treasure was reset. Old treasure was %d copper coins",
-					town, currentTreasure))
-		--debug("found treasure"..currentTreasure);
-		ScriptVars:set("OldTreasure"..town, currentTreasure)
-		ScriptVars:set("SwitchedToPayment"..town, timeStmp)
-		ScriptVars:set("Treasure"..town, 0)
-	else
-		ScriptVars:set("OldTreasure"..town, 0)
-		ScriptVars:set("SwitchedToPayment"..town, timeStmp)
-		ScriptVars:set("Treasure"..town, 0)
-	end
+	local foundTreasure, currentTreasure = GetTownTreasure(town);
+	log(string.format("[tax switch] %s's treasure was reset. Old treasure was %d copper coins",
+				town, currentTreasure))
+	--debug("found treasure"..currentTreasure);
+	ScriptVars:set("OldTreasure"..town, currentTreasure)
+	ScriptVars:set("SwitchedToPayment"..town, timeStmp)
+	ScriptVars:set("Treasure"..town, 0)
 	
 	local foundPayers, currentPayers = ScriptVars:find("Payers"..town)
 	if foundPayers then
