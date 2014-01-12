@@ -12,18 +12,16 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- empty container with drink
 
 -- UPDATE common SET com_script='item.bottles' WHERE com_itemid IN (2500, 2496, 2497, 2501, 2499);
 
--- uses items of the new client - don't put this on the RS yet!
 require("base.common")
 
 module("item.bottles", package.seeall)
 
-function InitDrinks()  -- initialisiert die coolen softdrinks in da hood.
+function InitDrinks()
     if ( drinkList == nil) then
         -- nameDE, nameEN, leftover item, { {empty target container, filled target container}, ...}
         drinkList={};
@@ -41,8 +39,6 @@ function InitDrinks()  -- initialisiert die coolen softdrinks in da hood.
 
         drinkList[2499] = {  "Ciderflasche", "bottle of cider", 2498,
         { {1858, 1859}, {224, 1861},{2055, 2059},{1840, 1844}, {2185, 2189} } };
-		
-		drinkList[1319] = {  "Rumflasche", "bottle of rum", 1317, nil};
 
         -- init descriptions
         BottleQualDe={"randvolle ","volle ","halbvolle ","fast leere "};
@@ -65,14 +61,8 @@ function UseItem(User, SourceItem)
 
     local food = drinkList[ SourceItem.id ];
     if (food ~= nil ) then
-debug("Player-A: "..User.name)
 	Evilrockentrance(User, SourceItem, ltstate)
-	if Evilrockentrance == true then
-debug("Player-return-A: "..User.name)
-		return
-debug("Player-return-B: "..User.name)
 	end
-debug("Player-B: "..User.name)
         local TargetItem = base.common.GetTargetItem(User, SourceItem);
         if( TargetItem ) then
             for i, combo in pairs(food[4]) do
@@ -96,10 +86,15 @@ debug("Player-B: "..User.name)
 							base.common.InformNLS( User,
 							"Die leere Flasche ist angeschlagen und unbrauchbar.",
 							"The empty bottle is broken and no longer usable.");
-							world:erase(SourceItem,1);
 						else
-							world:swap(SourceItem,food[3],333)
+							local dataCopy = {descriptionDe=SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn")};
+							local notCreated = User:createItem( food[3], 1, 333, dataCopy); -- create the remnant item
+							if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+								world:createItemFromId(food[3], notCreated, User.pos, true, 333, dataCopy);
+								base.common.HighInformNLS(User, "Du kannst nichts mehr halten.", "You can't carry any more.");
+							end
 						end
+						world:erase(SourceItem,1);
 					end
 
                     -- cancel after one found item
@@ -159,8 +154,6 @@ end
 function Evilrockentrance(User, SourceItem, ltstate)
   local checkBucket = world:getItemOnField(position(997,199,2))
   if checkBucket.id == 51 and SourceItem.id == 2496 then
---  if checkBucket.id == 51 then
-debug("Player-51: "..User.name)
 	local foundSource
 	-- check for empty bucket
 	TargetItem = base.common.GetItemInArea(User.pos, 51);
@@ -199,6 +192,5 @@ debug("Player-51: "..User.name)
 		return
 	end
   end
-debug("Player-51nope: "..User.name)
 end
 
