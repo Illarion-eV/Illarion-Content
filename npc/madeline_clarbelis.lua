@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Madeline Clarbelis                                      Runewick --
@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Grokk                                                            --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 2.1.12.2-32-gea8f6d0 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -675,8 +675,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Die Insel war ?.totlangweilg.");
-talkEntry:addResponse("Die Leute hier waren so ? laut.");
+talkEntry:addResponse("Die Insel war...totlangweilg.");
+talkEntry:addResponse("Die Leute hier waren so...laut.");
 talkEntry:addResponse("Ich mochte Gobiath, glaub ich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

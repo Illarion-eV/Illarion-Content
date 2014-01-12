@@ -20,7 +20,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 2.1.12.2-32-gea8f6d0 --
 --------------------------------------------------------------------------------
 
 name = "Neiran el Nyarale"
@@ -182,7 +182,7 @@ english, "Galmair" -> "They do not keep the streets clean in Galmair."
 "Galmair" -> "In Galmair halten sie die Straßen nicht sauber."
 "Queen" -> "Queen is a title used by humans and dwarves for female leaders."
 "Königin" -> "Königin ist ein Titel den Menschen und Zwerge für weibliche Anführer benutzen."
-english, "rosaline", "edwards" -> "Mh? … Who is that?", "No, I haven't seen her. I don't even remember the last time she was here."
+english, "rosaline", "edwards" -> "Mh? ... Who is that?", "No, I haven't seen her. I don't even remember the last time she was here."
 "rosaline", "edwards" -> "Mh? ...Wer?", "Nein, ich habe sie nicht gesehen. Ich erinnere mich nichtmal daran wann sie das letzte mal hier war."
 english, "Cadomyr" -> "Ah... Cadomyr. That's a town full of sand.", "Just a place not far from here. Nothing more, nothing less.", "#me nods slowly."
 "Cadomyr" -> "Ah... Cadomyr. Das ist eine Stadt voll von Sand.", "Nur ein Ort nicht weit weg von hier. Nicht mehr oder weniger als dies.", "#me nickt langsam."

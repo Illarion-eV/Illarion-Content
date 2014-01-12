@@ -20,7 +20,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Grokk                                                            --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 2.1.12.2-32-gea8f6d0 --
 --------------------------------------------------------------------------------
 
 name = "Madeline Clarbelis"
@@ -169,7 +169,7 @@ queststatus(334) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Danke für Eure Hilfe
 english, "job" -> "I...I am training to be a druid.", "I am an apprentice druid.", "I will be a druid, one day."
 "job" -> "I...Ich lerne um eine Druidin zu werden.", "Ich bin ein angehender Druide.", "I werde eines Tages eine Druidin sein."
 english, "Gobaith", "Gobiath" -> "That island was...dull.", "The people there were so...nosy.", "I liked Gobaith, I suppose."
-"Gobaith", "Gobiath" -> "Die Insel war ….totlangweilg.", "Die Leute hier waren so … laut.", "Ich mochte Gobiath, glaub ich."
+"Gobaith", "Gobiath" -> "Die Insel war...totlangweilg.", "Die Leute hier waren so...laut.", "Ich mochte Gobiath, glaub ich."
 "my name" -> "I...it is nice to meet you.", "A p...pleasure to meet you.", "I am glad to meet you."
 "mein Name" -> "F...freut mich Euch kennen zu lernen.", "I...Ich freu mich euch zu treffen.", "E... Es ist eine Freude Euch zu treffen."
 
