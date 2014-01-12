@@ -205,6 +205,9 @@ end
 
 function UseItemMilking(User, SourceItem, ltstate, Animal)
 
+	content.gathering.InitGathering();
+	local milking = content.gathering.milking;
+
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
@@ -239,28 +242,36 @@ function UseItemMilking(User, SourceItem, ltstate, Animal)
 	end
 
 	-- check if animal still gives milk
-	local foundEffect = Animal.effects:find(401);
-    if (foundEffect) then
-		base.common.HighInformNLS( User,
-		"Dieses Tier wurde rest kürzlich gemolken und gibt momentan keine Milch.",
-		"This animal was milked recently and doesnt give milk right now." );
-		return;
+	local foundEffect, milkingEffect = Animal.effects:find(401);
+    if (not foundEffect) then
+		milkingEffect = LongTimeEffect(401, 6000); -- call every 5min
+		milkingEffect:addValue("gatherAmount", 0);
+		Animal.effects:addEffect(milkingEffect);
 	end
+	local foundAmount, gatherAmount = milkingEffect:findValue("gatherAmount");
 
 	-- currently not working, let's go
 	if ( ltstate == Action.none ) then
-		User:startAction( 50, 21, 5, 10, 25);
+
+		if gatherAmount >= 3 then
+			base.common.HighInformNLS( User,
+			"Dieses Tier wurde rest kürzlich gemolken und gibt momentan keine Milch.",
+			"This animal was milked recently and doesnt give milk right now." );
+			return;
+		end
+		milking.SavedWorkTime[User.id] = milking:GenWorkTime(User, SourceItem);
+		Animal.movepoints = -1 * milking.SavedWorkTime[User.id]; -- make sure the animal doesn't move away
+		User:startAction(milking.SavedWorkTime[User.id], 21, 5, 10, 25);
 		User:talk(Character.say, "#me beginnt ein Tier zu melken.", "#me starts to milk an animal.")
-		-- make sure the animal doesn't move away
-		Animal.movepoints = -50;
 		return;
 	end
 
 	-- since we're here, we're working
-	local duration = 600; -- 5min
-	local milkingEffect = LongTimeEffect(401, duration*10);
-	milkingEffect:addValue("buffExpireStamp", base.common.GetCurrentTimestamp() + duration);
-	Animal.effects:addEffect(milkingEffect);
+	if milking:FindRandomItem(User) then
+		return
+	end
+
+	User:learn( milking.LeadSkill, milking.SavedWorkTime[User.id], milking.LearnLimit);
 
 	world:erase(SourceItem, 1);
 	local notCreated = User:createItem( 2502, 1, 333, nil); -- create the new produced items
@@ -269,5 +280,13 @@ function UseItemMilking(User, SourceItem, ltstate, Animal)
 		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
+	end
+
+	gatherAmount = gatherAmount + 1
+	milkingEffect:addValue("gatherAmount", gatherAmount);
+	if gatherAmount < 3 then
+		milking.SavedWorkTime[User.id] = milking:GenWorkTime(User, SourceItem);
+		Animal.movepoints = -1 * milking.SavedWorkTime[User.id]; -- make sure the animal doesn't move away
+		User:startAction(milking.SavedWorkTime[User.id], 21, 5, 10, 25);
 	end
 end

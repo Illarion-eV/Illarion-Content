@@ -19,24 +19,23 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 require("base.common");
-
 module("lte.milking", package.seeall)
 
+function addEffect(milkingEffect, Animal)
 
-
-function addEffect(dietEffect,Character)
-  -- InformPlayer(dietEffect,Character);
 end
 
 function callEffect(milkingEffect, Animal)
-	local curStamp = base.common.GetCurrentTimestamp();
-	local foundExpire, buffExpireStamp = milkingEffect:findValue("buffExpireStamp");
-	if (not foundExpire) then
+
+	local foundAmount, gatherAmount = milkingEffect:findValue("gatherAmount");
+	if (not foundAmount) then
 		return false;
 	end
-	if (curStamp >= buffExpireStamp) then
+	if (gatherAmount <= 0) then
 		return false;
-  end
-  milkingEffect.nextCalled = (buffExpireStamp - curStamp)*10;
-  return true;
+	end
+
+	milkingEffect:addValue("gatherAmount", gatherAmount - 1);
+	milkingEffect.nextCalled = 6000;
+	return true;
 end
