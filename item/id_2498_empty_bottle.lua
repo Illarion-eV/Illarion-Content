@@ -238,6 +238,15 @@ function UseItemMilking(User, SourceItem, ltstate, Animal)
 		return;
 	end
 
+	-- check if animal still gives milk
+	local foundEffect = Animal.effects:find(401);
+    if (foundEffect) then
+		base.common.HighInformNLS( User,
+		"Dieses Tier wurde rest kürzlich gemolken und gibt momentan keine Milch.",
+		"This animal was milked recently and doesnt give milk right now." );
+		return;
+	end
+
 	-- currently not working, let's go
 	if ( ltstate == Action.none ) then
 		User:startAction( 50, 21, 5, 10, 25);
@@ -248,6 +257,11 @@ function UseItemMilking(User, SourceItem, ltstate, Animal)
 	end
 
 	-- since we're here, we're working
+	local duration = 600; -- 5min
+	local milkingEffect = LongTimeEffect(401, duration*10);
+	milkingEffect:addValue("buffExpireStamp", base.common.GetCurrentTimestamp() + duration);
+	Animal.effects:addEffect(milkingEffect);
+
 	world:erase(SourceItem, 1);
 	local notCreated = User:createItem( 2502, 1, 333, nil); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
