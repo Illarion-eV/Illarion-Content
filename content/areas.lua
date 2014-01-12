@@ -37,18 +37,6 @@ function Init()
 			Please use a uniform naming format for the areas, especially lower case letters. You may use spaces.
 	]]
 	-- ## ADD AREAS BELOW ##
-  AddArea("cadomyr guard 1", {
-    {{position(118,637,0),position(118,633,0),position(110,633,0),position(110,637,0)}, {0}}
-  });
-  AddArea("galmair guard 1", {
-    {{position(416,247,0),position(413,247,0),position(413,252,0),position(416,252,0)}, {0}}
-  });
-  AddArea("galmair guard 2", {
-    {{position(388,332,0),position(382,332,0),position(382,327,0),position(388,327,0)}, {0}}
-  });
-  AddArea("runewick guard 1", {
-    {{position(839,825,0),position(839,819,0),position(846,819,0),position(846,825,0)}, {0}}
-  });
   AddArea("evilrock1", {
     {{position(952,203,0),position(952,210,0),position(971,210,0),position(971,199,0),position(958,199,0),position(958,203,0)}, {0}}
   });
