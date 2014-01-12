@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: John Smith                                              Runewick --
@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                     easyNPC Parser v1.23.1 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -34,12 +34,13 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
-require("npc.base.talk")
 require("npc.base.consequence.repair")
+require("npc.base.talk")
 module("npc.john_smith", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+mainNPC:setAffiliation(2);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();

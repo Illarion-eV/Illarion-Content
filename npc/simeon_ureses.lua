@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Simeon Ureses                                            Cadomyr --
@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -33,12 +33,13 @@ VALUES (0, 133, 581, 0, 4, 'Simeon Ureses', 'npc.simeon_ureses', 0, 1, 3, 180, 3
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
-require("npc.base.talk")
 require("npc.base.consequence.repair")
+require("npc.base.talk")
 module("npc.simeon_ureses", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+mainNPC:setAffiliation(1);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
