@@ -92,7 +92,7 @@ end
 
 function guardNPC:nextCycle(npcChar, counter)
     if (counter >= self._nextCycleText) then
-	    self._nextCycleText = 50
+	    self._nextCycleText = 20;
         
 		local radius = _getCheckRadius(self);
 		_processMonsters(self, npcChar, radius);
@@ -120,7 +120,7 @@ function _processMonsters(self, npcChar, radius)
         local german, english = self._warpedMonsterText:getRandomMessage();
         local textTypeDe, textDe = _getTextAndTalktype(german);
         local textTypeEn, textEn = _getTextAndTalktype(english);
-		if (textTypeDe ~= textTypeEnd) then
+		if (textTypeDe ~= textTypeEn) then
 			debug("NPC "..npcChar.name.." has a warped monster text that yields different text types for German and English.\nGerman: "..textDe.."\nEnglish:"..textEn);
 		end
         npcChar:talk(textTypeDe, textDe, textEn);
@@ -156,7 +156,7 @@ function _processPlayers(self, npcChar, radius)
 			local german, english = self._hitPlayerText:getRandomMessage();
 			local textTypeDe, textDe = _getTextAndTalktype(german);
 			local textTypeEn, textEn = _getTextAndTalktype(english);
-			if (textTypeDe ~= textTypeEnd) then
+			if (textTypeDe ~= textTypeEn) then
 				debug("NPC "..npcChar.name.." has a hit player text that yields different text types for German and English.\nGerman: "..textDe.."\nEnglish:"..textEn);
 			end
 			npcChar:talk(textTypeDe, textDe, textEn);
@@ -168,7 +168,7 @@ function _processPlayers(self, npcChar, radius)
 		local german, english = self._warpedPlayerText:getRandomMessage();
 		local textTypeDe, textDe = _getTextAndTalktype(german);
 		local textTypeEn, textEn = _getTextAndTalktype(english);
-		if (textTypeDe ~= textTypeEnd) then
+		if (textTypeDe ~= textTypeEn) then
 			debug("NPC "..npcChar.name.." has a warped player text that yields different text types for German and English.\nGerman: "..textDe.."\nEnglish:"..textEn);
 		end
 		npcChar:talk(textTypeDe, textDe, textEn);
