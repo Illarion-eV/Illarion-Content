@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Brassius Meres                                          Runewick --
@@ -21,8 +21,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Race: human                      NPC Position:  841, 819, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Grokk & Estralis Seborian                                        --
---                                                       easyNPC Parser v1.21 --
+-- Authors:  Grokk                                                            --
+--           Estralis Seborian                                                --
+--           Nitram                                                           --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -42,13 +44,15 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
+require("npc.base.guard")
 require("npc.base.talk")
-require("npc.base.guards_static")
 module("npc.brassius_meres", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+mainNPC:setAffiliation(2);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+local guardNPC = npc.base.guard.guardNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, ">", 6));
@@ -217,8 +221,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Eating on the Job"));
-talkEntry:addResponse("Now that you mention it, I am feeling rather hungry. But I can't leave my post. Please bring me five apples and I will reimburse you for your troubles.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 1));
+talkEntry:addResponse("Now that you mention it, I am feeling rather hungry. But I can't leave my post. Please bring me five apples and I will reimburse you for your troubles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -227,8 +231,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Speisen im Dienst"));
-talkEntry:addResponse("Nun da ihr es sagt, ich bin ziemlich hungrig, aber ich kann meinen Posten nicht verlassen. Bringt mir bitte fünf Äpfel und ich werde euch für eure Mühen entlohnen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 1));
+talkEntry:addResponse("Nun da ihr es sagt, ich bin ziemlich hungrig, aber ich kann meinen Posten nicht verlassen. Bringt mir bitte fünf Äpfel und ich werde euch für eure Mühen entlohnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -237,8 +241,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Eating on the Job"));
-talkEntry:addResponse("Now that you mention it, I am feeling rather hungry. But I can't leave my post. Please bring me five apples and I will reimburse you for your troubles.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 1));
+talkEntry:addResponse("Now that you mention it, I am feeling rather hungry. But I can't leave my post. Please bring me five apples and I will reimburse you for your troubles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -248,8 +252,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Speisen im Dienst"));
-talkEntry:addResponse("Nun da ihr es sagt, ich bin ziemlich hungrig, aber ich kann meinen Posten nicht verlassen. Bringt mir bitte fünf Äpfel und ich werde euch für eure Mühen entlohnen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 1));
+talkEntry:addResponse("Nun da ihr es sagt, ich bin ziemlich hungrig, aber ich kann meinen Posten nicht verlassen. Bringt mir bitte fünf Äpfel und ich werde euch für eure Mühen entlohnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -297,10 +301,10 @@ talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded three silver coins."));
-talkEntry:addResponse("#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the other apples into his bag as he chews.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 300));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 2));
+talkEntry:addResponse("#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the other apples into his bag as he chews.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -309,10 +313,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst drei Silberstücke."));
-talkEntry:addResponse("#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 300));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 2));
+talkEntry:addResponse("#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -322,8 +326,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Resupply"));
-talkEntry:addResponse("Those apples were delicious. Thank you once again. I could use some more help. My supply of arrows is running low. If you bring me ten more, then I have something that might interest you.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 3));
+talkEntry:addResponse("Those apples were delicious, thank you once again. I could use some more help. My supply of arrows is running low, if you bring me ten more, then I have something that might interest you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -332,8 +336,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Nachschub"));
-talkEntry:addResponse("Die Äpfel waren köstlich, danke nochmal. Ich brauche aber weiterhin Hilfe. Mein Vorrat an Pfeilen nimmt ab, wenn ihr mir zehn Pfeile brächtet, wäre dies nicht zu eurem Nachteil.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 3));
+talkEntry:addResponse("Die Äpfel waren köstlich, danke nochmal. Ich brauche aber weiterhin Hilfe. Mein Vorrat an Pfeilen nimmt ab, wenn ihr mir zehn Pfeile brächtet, wäre dies nicht zu eurem Nachteil.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -342,8 +346,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Resupply"));
-talkEntry:addResponse("Those apples were delicious. Thank you once again. I could use some more help. My supply of arrows is running low. if you bring me ten more, then I have something that might interest you.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 3));
+talkEntry:addResponse("Those apples were delicious, thank you once again. I could use some more help. My supply of arrows is running low, if you bring me ten more, then I have something that might interest you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -353,8 +357,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Nachschub"));
-talkEntry:addResponse("Die Äpfel waren köstlich, danke nochmal. Ich brauche aber weiterhin Hilfe. Mein Vorrat an Pfeilen nimmt ab, wenn ihr mir zehn Pfeile brächtet, wäre dies nicht zu eurem Nachteil.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 3));
+talkEntry:addResponse("Die Äpfel waren köstlich, danke nochmal. Ich brauche aber weiterhin Hilfe. Mein Vorrat an Pfeilen nimmt ab, wenn ihr mir zehn Pfeile brächtet, wäre dies nicht zu eurem Nachteil.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -364,7 +368,7 @@ talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("#me glances at his empty quiver, frowning slightly: 'I am in urgent need of those ten arrows, if it is not too much trouble.'");
+talkEntry:addResponse("#me glances at his empty quiver, frowning lightly: 'I am in urgent need of those ten arrows, if it is not too much trouble.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -382,7 +386,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 10, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("#me glances at his empty quiver, frowning slightly: 'I am in urgent need of those ten arrows, if it is not too much trouble.'");
+talkEntry:addResponse("#me glances at his empty quiver, frowning lightly: 'I am in urgent need of those ten arrows, if it is not too much trouble.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -402,10 +406,10 @@ talkEntry:addCondition(npc.base.condition.item.item(64, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins."));
-talkEntry:addResponse("#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(64, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 4));
+talkEntry:addResponse("#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -414,10 +418,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(64, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Silberstücke."));
-talkEntry:addResponse("#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(64, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 4));
+talkEntry:addResponse("#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -427,8 +431,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Wild Animals"));
-talkEntry:addResponse("I've received reports of wild animals attacking villagers of Yewdale. If you slay the animals, and bring me ten furs as evidence, Runewick shall be in your debt.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 5));
+talkEntry:addResponse("I've received reports of wild animals attacking villagers of Yewdale. If you slay the animals, and bring me ten furs as evidence, Runewick shall be in your debt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -437,8 +441,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 4));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Wilde Tiere"));
-talkEntry:addResponse("Mir wurde gemeldet, dass wilde Tiere die Dorfbewohner von Eibenthal angegriffen haben. Wenn ihr diese Biester erschlagt und mir zehn Felle als Beweiß bringt, wäre Runewick in eurer Schuld.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 5));
+talkEntry:addResponse("Mir wurde gemeldet, dass wilde Tiere die Dorfbewohner von Eibenthal angegriffen haben. Wenn ihr diese Biester erschlagt und mir zehn Felle als Beweiß bringt, wäre Runewick in eurer Schuld.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -447,8 +451,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 4));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Wild Animals"));
-talkEntry:addResponse("I've received reports of wild animals attacking villagers of Yewdale. If you slay the animals, and bring me ten furs as evidence, the town shall be in your debt.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 5));
+talkEntry:addResponse("I've received reports of wild animals attacking villagers of Yewdale. If you slay the animals, and bring me ten furs as evidence, the town shall be in your debt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -458,8 +462,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Wilde Tiere"));
-talkEntry:addResponse("Mir wurde gemeldet, dass wilde Tiere die Dorfbewohner von Eibenthal angegriffen haben. Wenn ihr diese Biester erschlagt und mir zehn Felle als Beweiß bringt, wäre Runewick in eurer Schuld.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 5));
+talkEntry:addResponse("Mir wurde gemeldet, dass wilde Tiere die Dorfbewohner von Eibenthal angegriffen haben. Wenn ihr diese Biester erschlagt und mir zehn Felle als Beweiß bringt, wäre Runewick in eurer Schuld.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -469,7 +473,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I receive new attack reports daily. You must protect the citizens of Yewdale by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognized.");
+talkEntry:addResponse("I receive new attack reports daily. You must protect the citizens of Yewdale by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -487,7 +491,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", 10, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("I receive new attack reports daily. You must protect the citizens of Yewdale by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognized.");
+talkEntry:addResponse("I receive new attack reports daily. You must protect the citizens of Yewdale by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -508,11 +512,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a legionaire's tower shield. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2586, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2448, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -522,11 +526,11 @@ talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Legionärsschild. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2586, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2448, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -536,10 +540,10 @@ talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a legionaire's tower shield."));
-talkEntry:addResponse("#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2586, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2448, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 6));
+talkEntry:addResponse("#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -548,10 +552,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Legionärsschild."));
-talkEntry:addResponse("#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2586, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2448, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 6));
+talkEntry:addResponse("#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -626,7 +630,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("The people of that island were a hardy folk. Not much seemed to faze them in the past.");
+talkEntry:addResponse("The people of this island were a hardy folk. Not much seemed to faze them in the past.");
 talkEntry:addResponse("I liked it there. It was peaceful when it needed to be, but excitement was always just around the corner.");
 talkEntry:addResponse("That island was a breeding ground for crime and sins, unfortunately.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -660,8 +664,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("law");
 talkEntry:addResponse("The laws are tough, but fair.");
-talkEntry:addResponse("Take a look in the library. It should not be difficult to find a copy of the town's laws.");
-talkEntry:addResponse("The laws are easily found. Take a look around and you'll find them eventually.");
+talkEntry:addResponse("Take a look in the library, it should not be difficult to find a copy of the town's laws.");
+talkEntry:addResponse("The laws are easily available. Take a look around, you'll find them eventually.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -679,7 +683,7 @@ talkEntry:addTrigger("thief");
 talkEntry:addTrigger("crime");
 talkEntry:addTrigger("assault");
 talkEntry:addTrigger("stole");
-talkEntry:addResponse("It has been rather quiet today. Not too much trouble around.");
+talkEntry:addResponse("It has been rather quiet today, not too much trouble around.");
 talkEntry:addResponse("If you are a victim or witness of a crime, please submit a formal report to the Archmage.");
 talkEntry:addResponse("The Archmage decides who investigates specific crimes. You should speak to him when you have trouble.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -697,20 +701,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yewdale");
-talkEntry:addResponse("Yewdale is a small community of peasants. Just cross the bridge and follow the road. You cannot miss it.");
+talkEntry:addResponse("Yewdale is a small community of peasants. Just across the bridge, follow the road. You cannot miss it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bridge");
-talkEntry:addResponse("I guard this bridge and by doing so, I guard Runewick. The teleporter over there is the only way into town.");
+talkEntry:addResponse("I guard this bridge and with it, I guard Runewick. The teleporter over there is the only way into town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Teleport");
-talkEntry:addResponse("Do you see that teleporter to the west? It takes you to Runewick, the most magnificient set of boulders in the ocean.");
+talkEntry:addResponse("Do you see that teleporter in the west? It takes you to Runewick, the most magnificient set of boulders in the ocean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -773,9 +777,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("The archmage does his best to keep Runewick safe. I do my little share by guarding this bridge.");
-talkEntry:addResponse("Elvaine Morgan is a good leader. He has a vision and if you are interested, he will tell it to you. Takes a while, though.");
-talkEntry:addResponse("I overheard some people make jokes about the first name of the Archmage, Elvaine. I would not make jokes about a magician as powerful as him, if I were you.");
+talkEntry:addResponse("The archmage does his best to keep Runewick safe. And I do my little share by guarding this bridge.");
+talkEntry:addResponse("Elvaine Morgan is a good leader. He has a vision and if you are interested, he tells it to you. Takes a while, though.");
+talkEntry:addResponse("I overheard some people make jokes about the first name of the Archmage, Elvaine. I would not make jokes about a magician, as powerful as him, if I were you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -791,8 +795,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("The archmage does his best to keep Runewick safe. I do my little share by guarding this bridge.");
-talkEntry:addResponse("Elvaine Morgan is a good leader. He has a vision and if you are interested, he will tell it to you. Takes a while, though.");
+talkEntry:addResponse("The archmage does his best to keep Runewick safe. And I do my little share by guarding this bridge.");
+talkEntry:addResponse("Elvaine Morgan is a good leader. He has a vision and if you are interested, he tells it to you. Takes a while, though.");
 talkEntry:addResponse("I overheard some people make jokes about the first name of the Archmage, Elvaine. I would not make jokes about a magician, as powerful as him, if I were you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -809,9 +813,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick is firm like a rock. Not surprising since it was made of rocks.");
+talkEntry:addResponse("Runewick is firm like a rock. No wonder, it was made of rocks.");
 talkEntry:addResponse("Runewick became my new home. I was born in Salkamar and spent my youth on an island called Gobaith. But that is no more...");
-talkEntry:addResponse("Runewick? Well, look east and tell me what you see there. That is Runewick!");
+talkEntry:addResponse("Runewick, well, look east and tell me what you see there. That is Runewick!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -843,7 +847,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair is far away, and that's good.");
+talkEntry:addResponse("Galmair is far away. And that's good.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -855,7 +859,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("The Queen of Cadomyr became queen because of her birthright. The Archmage became our leader because he is the best!");
+talkEntry:addResponse("The Queen of Cadomyr became queen because she was born. The Archmage became our leader because he is the best!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -883,7 +887,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr's people are inequitable, despicable, dastardly, and blasphemous. But besides that, the town is nice.");
+talkEntry:addResponse("Cadomyr's people is inequitably, despiteous, dastard and blasphemous. But besides, the town is nice.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -915,7 +919,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addResponse("Ah, yes... Gynk, the 'Pool of Sin'.");
-talkEntry:addResponse("I've never been to Gynk. They tell me that you will never see more criminals running 'round anywhere else though.");
+talkEntry:addResponse("I've never been to Gynk. They tell me that you will never see more criminals running 'round than there, though.");
 talkEntry:addResponse("The Thieves' Guilds of Gynk have far too much influence for my liking. Power must be held by the authorities, not by criminals.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -933,8 +937,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Ahh... Salkamar. It is my homeland, did you know?");
-talkEntry:addResponse("I was born and raised in the lands of Salkamar. You will struggle to find a more honourable and loyal people than us.");
-talkEntry:addResponse("You will never find a greater army than that of Salkamar. Its leaders are cunning, it's men are loyal, and it's ranks are ordered.");
+talkEntry:addResponse("I was born and raised in the lands of Salkamar. You will struggle to find a more honourable and loyal people than we.");
+talkEntry:addResponse("You will never find a greater army than that of Salkamar. Its leaders are cunning, its men loyal, and its ranks ordered.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -966,9 +970,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("I respect his followers, but I do not worship that God.");
-talkEntry:addResponse("I confess to knowing little about Adron. I hear his followers frequent the tavern though.");
-talkEntry:addResponse("You would be better off speaking to someone else about that God. I'm certain there are followers nearby.");
+talkEntry:addResponse("I respect His followers, but I do not worship that God.");
+talkEntry:addResponse("I confess to knowing little about Adron. I hear his followers frequent the tavern, though.");
+talkEntry:addResponse("You would be better off speaking to someone else about that God, I'm certain there are followers nearby.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -984,9 +988,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("I respect his followers, but I do not worship that God.");
+talkEntry:addResponse("I respect His followers, but I do not worship that God.");
 talkEntry:addResponse("I confess to knowing little about the God of Fire.");
-talkEntry:addResponse("You would be better off speaking to someone else about that God. I'm certain there are followers nearby.");
+talkEntry:addResponse("You would be better off speaking to someone else about that God, I'm certain there are followers nearby.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1002,9 +1006,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("I respect her followers, but I do not worship that Goddess.");
-talkEntry:addResponse("I confess to knowing little about Cherga or those who worship her.");
-talkEntry:addResponse("You would be better off speaking to someone else about that Goddess. I'm certain there are followers nearby.");
+talkEntry:addResponse("I respect Her followers, but I do not worship that Goddess.");
+talkEntry:addResponse("I confess to knowing little about Cherga or those who worship Her.");
+talkEntry:addResponse("You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1019,9 +1023,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("I respect her followers, but I do not worship that Goddess.");
+talkEntry:addResponse("I respect Her followers, but I do not worship that Goddess.");
 talkEntry:addResponse("I confess to knowing little about Elara.");
-talkEntry:addResponse("You would be better off speaking to someone else about that Goddess. I'm certain there are followers nearby.");
+talkEntry:addResponse("You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1036,9 +1040,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("I respect his followers, but I do not worship that God.");
+talkEntry:addResponse("I respect His followers, but I do not worship that God.");
 talkEntry:addResponse("I confess to knowing little about Eldan.");
-talkEntry:addResponse("You would be better off speaking to someone else about that God. I'm certain there are followers nearby.");
+talkEntry:addResponse("You would be better off speaking to someone else about that God, I'm certain there are followers nearby.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1053,9 +1057,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("I respect her followers, but I do not worship that Goddess.");
+talkEntry:addResponse("I respect Her followers, but I do not worship that Goddess.");
 talkEntry:addResponse("I confess to knowing little about Findari.");
-talkEntry:addResponse("You would be better off speaking to someone else about that Goddess. I'm certain there are followers nearby.");
+talkEntry:addResponse("You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1070,9 +1074,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("I respect his followers, but I do not worship that God.");
+talkEntry:addResponse("I respect His followers, but I do not worship that God.");
 talkEntry:addResponse("I confess to knowing little about Irmorom. Speak to some Dwarves, that would be your best bet.");
-talkEntry:addResponse("You would be better off speaking to someone else about that God. I'm certain there are followers nearby.");
+talkEntry:addResponse("You would be better off speaking to someone else about that God, I'm certain there are followers nearby.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1090,7 +1094,7 @@ talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addResponse("Malachín is the God of Battle. He watches over all those who fight with honour.");
 talkEntry:addResponse("#me closes his eyes and tilts his head upward, whispering a silent prayer.");
-talkEntry:addResponse("The God of Battle is one of my patron Gods. It is he who ensures that my blade swings true.");
+talkEntry:addResponse("The God of Battle is one of my patron Gods. It is He who ensures that my blade swings true.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1108,7 +1112,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
 talkEntry:addResponse("#me spits on the ground, expressing his distaste.");
 talkEntry:addResponse("The followers of the Blood-God deserve whatever cruel, twisted fate awaits them.");
-talkEntry:addResponse("I would not mention that name so freely if I were you.");
+talkEntry:addResponse("I would not mention that name so freely, if I were you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1127,7 +1131,7 @@ talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addResponse("His followers are all fools and madmen.");
 talkEntry:addResponse("I do not have time for the worshippers of Nargún.");
-talkEntry:addResponse("Order is something that I greatly value, andnd something that the God of Chaos does not provide.");
+talkEntry:addResponse("Order is something that I greatly value. And something that the God of Chaos does not provide.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1144,9 +1148,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("I respect her followers, but I do not worship that Goddess.");
+talkEntry:addResponse("I respect Her followers, but I do not worship that Goddess.");
 talkEntry:addResponse("I confess to knowing little about Oldra. Perhaps a druid could inform you better.");
-talkEntry:addResponse("You would be better off speaking to someone else about that Goddess. I'm certain there are followers nearby.");
+talkEntry:addResponse("You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1161,7 +1165,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("#me frowns lightly: 'His followers are thieves and petty criminals. Nothing but lowlife scum.'");
+talkEntry:addResponse("#me frowns lightly: 'His followers are thieves, petty criminals. Nothing but lowlife scum.'");
 talkEntry:addResponse("Ah, the God of Thieves. Not a supporter of my work, as I understand it. He keeps me in a job though, I suppose.");
 talkEntry:addResponse("I am paid to deal with Ronagan's followers. You'll find plenty of them behind bars. He causes far more harm than good, in my humble opinion.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1178,9 +1182,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("I respect her followers, but I do not worship that Goddess.");
+talkEntry:addResponse("I respect Her followers, but I do not worship that Goddess.");
 talkEntry:addResponse("I confess to knowing little about Sirani.");
-talkEntry:addResponse("You would be better off speaking to someone else about that Goddess. I'm certain there are followers nearby.");
+talkEntry:addResponse("You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1196,9 +1200,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("I respect her followers, but I do not worship that Goddess.");
+talkEntry:addResponse("I respect Her followers, but I do not worship that Goddess.");
 talkEntry:addResponse("I confess to knowing little about that Goddess.");
-talkEntry:addResponse("You would be better off speaking to someone else about that Goddess. I'm certain there are followers nearby.");
+talkEntry:addResponse("You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1214,9 +1218,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("I respect her followers, but I do not worship that Goddess.");
+talkEntry:addResponse("I respect Her followers, but I do not worship that Goddess.");
 talkEntry:addResponse("I confess to knowing little about Ushara. I recommend speaking with an Elf about such matters");
-talkEntry:addResponse("You would be better off speaking to someone else about that Goddess. I'm certain there are followers nearby.");
+talkEntry:addResponse("You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1269,8 +1273,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Hmm. You look like you could wield a weapon. Perhaps the Archmage would be interested in your services.");
-talkEntry:addResponse("Have you read the town's laws? It shouldn't be too hard to find a copy.");
+talkEntry:addResponse("Hm. You look like you could wield a weapon. Perhaps the  Archmage would be interested in your services.");
+talkEntry:addResponse("Have you read the town's laws? It shouldn't be too hard finding a copy.");
 talkEntry:addResponse("I find the tower shield from Salkamar, my homeland, to be the most effective. Not too many weapons can find their way around or through one of them, I tell you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1365,6 +1369,11 @@ talkingNPC:addCycleText("Dann geht mal weiter.", "Move along, then.");
 talkingNPC:addCycleText("Macht hier keinen Ärger.", "Don't go causing any trouble 'round here.");
 talkingNPC:addCycleText("Wir sehen alles.", "We're watching.");
 talkingNPC:addCycleText("Bleibt nicht länger auf der Brücke als nötig.", "Don't stay on the bridge longer than necessary.");
+guardNPC:setWarpLocation(834,821,0);
+guardNPC:setGuardRange(0,6,2,5);
+guardNPC:addWarpedMonsterText("Weg mit dir, widerliche Kreatur!", "Go away, nasty creature!");
+guardNPC:addWarpedPlayerText("Pass bloß auf! Wir brauchen hier kein Gesindel.", "You'd better watch out! We don't need such lowlifes here.");
+guardNPC:addHitPlayerText("#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hits the intruder 'Get lost!'");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
@@ -1385,12 +1394,9 @@ mainNPC:initDone();
 end;
 
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
-function nextCycle(npcChar)
-  mainNPC:nextCycle(npcChar);
-  npc.base.guards_static.NextCycle(npcChar);
-end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

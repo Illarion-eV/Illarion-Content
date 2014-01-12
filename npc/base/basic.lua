@@ -94,6 +94,9 @@ baseNPC = base.class.class(function(self)
     -- This list is used to store the equipment that shall be set to the NPC at
     -- the first run. Once the equipment is set, the list is destroyed.
     self["_equipmentList"] = {};
+	
+	-- The town this NPC is affiliated to.
+	self["_affiliation"] = 0;
 end);
 
 --- Constant for the state value of the NPC.
@@ -372,6 +375,13 @@ end;
 --  @param item the item ID that shall be created
 function baseNPC:setEquipment(slot, item)
     table.insert(self["_equipmentList"], {slot, item});
+end;
+
+--- This function is used to set the affiliation of the NPC.
+--
+-- @param affiliation the index of the town this NPC is assigned to
+function baseNPC:setAffiliation(affiliation)
+	self["_affiliation"] = affiliation;
 end;
 
 --- This is a cleanup function that should be called once the initialization of

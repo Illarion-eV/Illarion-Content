@@ -19,17 +19,11 @@
 -- NPC Race: human                      NPC Position:  841, 819, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Grokk & Estralis Seborian                                        --
---                                                       easyNPC Parser v1.21 --
+-- Authors:  Grokk                                                            --
+--           Estralis Seborian                                                --
+--           Nitram                                                           --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
-
--- ## REPLACE THE nextCycle FUNCTION AND ADD THE REQUIREMENT IN THE LUA CODE OF EACH GUARD ##
--- require("npc.base.guards_static")
-
--- function nextCycle(npcChar)
---   mainNPC:nextCycle(npcChar);
---   npc.base.guards_static.NextCycle(npcChar);
--- end;
 
 name = "Brassius Meres"
 race = human
@@ -44,7 +38,9 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "Grokk & Estralis Seborian"
+author = "Grokk"
+author = "Estralis Seborian"
+author = "Nitram"
 
 lookatDE = "Dieser NPC ist Brassius Meres der Wächter."
 lookatUS = "This NPC is Brassius Meres the Guard."
@@ -65,6 +61,11 @@ itemSecondHand = 2708
 itemHands = 528
 itemTrousers = 2113
 itemShoes = 697
+guardWarpTarget = 834, 821, 0
+guardRange = 0, 6, 2, 5
+warpedMonsterMsg "Weg mit dir, widerliche Kreatur!", "Go away, nasty creature!"
+warpedPlayerMsg "Pass bloß auf! Wir brauchen hier kein Gesindel.", "You'd better watch out! We don't need such lowlifes here."
+hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hits the intruder 'Get lost!'"
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -109,10 +110,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Aye. Be off with you.", "St
 -- 1st quest: Bring five APPLES (15)
 
 -- Give out quest 1
-queststatus(109) = 0, english, "quest", "mission" -> inform("[New quest] Eating on the Job"), "Now that you mention it, I am feeling rather hungry. But I can't leave my post. Please bring me five apples and I will reimburse you for your troubles.", queststatus(109) = 1
-queststatus(109) = 0, "quest", "mission" -> inform("[Neues Quest] Speisen im Dienst"), "Nun da ihr es sagt, ich bin ziemlich hungrig, aber ich kann meinen Posten nicht verlassen. Bringt mir bitte fünf Äpfel und ich werde euch für eure Mühen entlohnen.", queststatus(109) = 1
-queststatus(109) = 0, "task", "adventure" -> inform("[New quest] Eating on the Job"), "Now that you mention it, I am feeling rather hungry. But I can't leave my post. Please bring me five apples and I will reimburse you for your troubles.", queststatus(109) = 1
-queststatus(109) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Speisen im Dienst"), "Nun da ihr es sagt, ich bin ziemlich hungrig, aber ich kann meinen Posten nicht verlassen. Bringt mir bitte fünf Äpfel und ich werde euch für eure Mühen entlohnen.", queststatus(109) = 1
+queststatus(109) = 0, english, "quest", "mission" -> inform("[New quest] Eating on the Job"), queststatus(109) = 1, "Now that you mention it, I am feeling rather hungry. But I can't leave my post. Please bring me five apples and I will reimburse you for your troubles."
+queststatus(109) = 0, "quest", "mission" -> inform("[Neues Quest] Speisen im Dienst"), queststatus(109) = 1, "Nun da ihr es sagt, ich bin ziemlich hungrig, aber ich kann meinen Posten nicht verlassen. Bringt mir bitte fünf Äpfel und ich werde euch für eure Mühen entlohnen."
+queststatus(109) = 0, "task", "adventure" -> inform("[New quest] Eating on the Job"), queststatus(109) = 1, "Now that you mention it, I am feeling rather hungry. But I can't leave my post. Please bring me five apples and I will reimburse you for your troubles."
+queststatus(109) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Speisen im Dienst"), queststatus(109) = 1, "Nun da ihr es sagt, ich bin ziemlich hungrig, aber ich kann meinen Posten nicht verlassen. Bringt mir bitte fünf Äpfel und ich werde euch für eure Mühen entlohnen."
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(109) = 1, item(15, all) < 5, english, "quest", "mission" -> "#me's stomach rumbles: 'I could really do with those five apples, if you've got a few moments to spare.'"
@@ -121,16 +122,16 @@ queststatus(109) = 1, item(15, all) < 5, "task", "adventure" -> "#me's stomach r
 queststatus(109) = 1, item(15, all) < 5, "Auftrag", "Aufgabe", "Abenteuer" -> "#me' Magen knurrt: 'Mit fünf Äpfeln im Magen würde es mir weit besser gehen, wenn ihr einen Moment Zeit dafür habt.'"
 
 -- Quest 1 solved, reward: 30cp
-queststatus(109) = 1, item(15, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded three silver coins."), "#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the other apples into his bag as he chews.", money + 300, deleteItem(15, 5), queststatus(109) = 2
-queststatus(109) = 1, item(15, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst drei Silberstücke."), "#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel.", money + 300, deleteItem(15, 5), queststatus(109) = 2
+queststatus(109) = 1, item(15, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded three silver coins."), money + 300, deleteItem(15, 5), queststatus(109) = 2, "#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the other apples into his bag as he chews."
+queststatus(109) = 1, item(15, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst drei Silberstücke."), money + 300, deleteItem(15, 5), queststatus(109) = 2, "#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel."
 
 -- 2nd quest: Bring 10 ARROWS (64)
 
 -- Give out quest 2
-queststatus(109) = 2, english, "quest", "mission" -> inform("[New quest] Resupply"), "Those apples were delicious, thank you once again. I could use some more help. My supply of arrows is running low, if you bring me ten more, then I have something that might interest you.", queststatus(109) = 3
-queststatus(109) = 2, "quest", "mission" -> inform("[Neues Quest] Nachschub"), "Die Äpfel waren köstlich, danke nochmal. Ich brauche aber weiterhin Hilfe. Mein Vorrat an Pfeilen nimmt ab, wenn ihr mir zehn Pfeile brächtet, wäre dies nicht zu eurem Nachteil.", queststatus(109) = 3
-queststatus(109) = 2, "task", "adventure" -> inform("[New quest] Resupply"), "Those apples were delicious, thank you once again. I could use some more help. My supply of arrows is running low, if you bring me ten more, then I have something that might interest you.", queststatus(109) = 3
-queststatus(109) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Nachschub"), "Die Äpfel waren köstlich, danke nochmal. Ich brauche aber weiterhin Hilfe. Mein Vorrat an Pfeilen nimmt ab, wenn ihr mir zehn Pfeile brächtet, wäre dies nicht zu eurem Nachteil.", queststatus(109) = 3
+queststatus(109) = 2, english, "quest", "mission" -> inform("[New quest] Resupply"), queststatus(109) = 3, "Those apples were delicious, thank you once again. I could use some more help. My supply of arrows is running low, if you bring me ten more, then I have something that might interest you."
+queststatus(109) = 2, "quest", "mission" -> inform("[Neues Quest] Nachschub"), queststatus(109) = 3, "Die Äpfel waren köstlich, danke nochmal. Ich brauche aber weiterhin Hilfe. Mein Vorrat an Pfeilen nimmt ab, wenn ihr mir zehn Pfeile brächtet, wäre dies nicht zu eurem Nachteil."
+queststatus(109) = 2, "task", "adventure" -> inform("[New quest] Resupply"), queststatus(109) = 3, "Those apples were delicious, thank you once again. I could use some more help. My supply of arrows is running low, if you bring me ten more, then I have something that might interest you."
+queststatus(109) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Nachschub"), queststatus(109) = 3, "Die Äpfel waren köstlich, danke nochmal. Ich brauche aber weiterhin Hilfe. Mein Vorrat an Pfeilen nimmt ab, wenn ihr mir zehn Pfeile brächtet, wäre dies nicht zu eurem Nachteil."
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(109) = 3, item(64, all) < 10, english, "quest", "mission" -> "#me glances at his empty quiver, frowning lightly: 'I am in urgent need of those ten arrows, if it is not too much trouble.'"
@@ -139,16 +140,16 @@ queststatus(109) = 3, item(64, all) < 10, "task", "adventure" -> "#me glances at
 queststatus(109) = 3, item(64, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "#me starrt naserümpfend auf seinen leeren Köcher: 'Ich brauche dringend zehn Pfeile, wenn es euch nichts ausmacht."
 
 -- Quest 2 solved, reward: 100cp
-queststatus(109) = 3, item(64, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), "#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'", money + 500, deleteItem(64, 10), queststatus(109) = 4
-queststatus(109) = 3, item(64, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), "#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung.", money + 500, deleteItem(64, 10), queststatus(109) = 4
+queststatus(109) = 3, item(64, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(64, 10), queststatus(109) = 4, "#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'"
+queststatus(109) = 3, item(64, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(64, 10), queststatus(109) = 4, "#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung."
 
 -- 3rd quest: Bring 10 FUR (2586)
 
 -- Give out quest 3
-queststatus(109) = 4, english, "quest", "mission" -> inform("[New quest] Wild Animals"), "I've received reports of wild animals attacking villagers of Yewdale. If you slay the animals, and bring me ten furs as evidence, Runewick shall be in your debt.", queststatus(109) = 5
-queststatus(109) = 4, "quest", "mission" -> inform("[Neues Quest] Wilde Tiere"), "Mir wurde gemeldet, dass wilde Tiere die Dorfbewohner von Eibenthal angegriffen haben. Wenn ihr diese Biester erschlagt und mir zehn Felle als Beweiß bringt, wäre Runewick in eurer Schuld.", queststatus(109) = 5
-queststatus(109) = 4, "task", "adventure" -> inform("[New quest] Wild Animals"), "I've received reports of wild animals attacking villagers of Yewdale. If you slay the animals, and bring me ten furs as evidence, the town shall be in your debt.", queststatus(109) = 5
-queststatus(109) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Wilde Tiere"), "Mir wurde gemeldet, dass wilde Tiere die Dorfbewohner von Eibenthal angegriffen haben. Wenn ihr diese Biester erschlagt und mir zehn Felle als Beweiß bringt, wäre Runewick in eurer Schuld.", queststatus(109) = 5
+queststatus(109) = 4, english, "quest", "mission" -> inform("[New quest] Wild Animals"), queststatus(109) = 5, "I've received reports of wild animals attacking villagers of Yewdale. If you slay the animals, and bring me ten furs as evidence, Runewick shall be in your debt."
+queststatus(109) = 4, "quest", "mission" -> inform("[Neues Quest] Wilde Tiere"), queststatus(109) = 5, "Mir wurde gemeldet, dass wilde Tiere die Dorfbewohner von Eibenthal angegriffen haben. Wenn ihr diese Biester erschlagt und mir zehn Felle als Beweiß bringt, wäre Runewick in eurer Schuld."
+queststatus(109) = 4, "task", "adventure" -> inform("[New quest] Wild Animals"), queststatus(109) = 5, "I've received reports of wild animals attacking villagers of Yewdale. If you slay the animals, and bring me ten furs as evidence, the town shall be in your debt."
+queststatus(109) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Wilde Tiere"), queststatus(109) = 5, "Mir wurde gemeldet, dass wilde Tiere die Dorfbewohner von Eibenthal angegriffen haben. Wenn ihr diese Biester erschlagt und mir zehn Felle als Beweiß bringt, wäre Runewick in eurer Schuld."
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(109) = 5, item(2586, all) < 10, english, "quest", "mission" -> "I receive new attack reports daily. You must protect the citizens of Yewdale by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised."
@@ -157,10 +158,10 @@ queststatus(109) = 5, item(2586, all) < 10, "task", "adventure" -> "I receive ne
 queststatus(109) = 5, item(2586, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "Nahezu täglich hört man von Tierangriffen. Ihr müßt die Bürger von Eibenthal beschützen, indem ihr die Tiere erschlagt. Wenn ihr mir zehn Felle bringt, werde ich sicherstellen, dass man an höchster Stelle von euren Anstrengungen hört."
 
 -- Quest 3 solved, reward: legionaire's tower shield (2448), (10 rank points)
-queststatus(109) = 5, item(2586, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a legionaire's tower shield. You advance in Archmage Elvaine Morgan's favour."), "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took.", deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, rankpoints + 10
-queststatus(109) = 5, item(2586, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst einen Legionärsschild. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.", deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, rankpoints + 10
-queststatus(109) = 5, item(2586, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded a legionaire's tower shield."), "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took.", deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6
-queststatus(109) = 5, item(2586, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst einen Legionärsschild."), "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.", deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6
+queststatus(109) = 5, item(2586, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a legionaire's tower shield. You advance in Archmage Elvaine Morgan's favour."), deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, rankpoints + 10, "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took."
+queststatus(109) = 5, item(2586, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst einen Legionärsschild. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, rankpoints + 10, "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt."
+queststatus(109) = 5, item(2586, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded a legionaire's tower shield."), deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took."
+queststatus(109) = 5, item(2586, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst einen Legionärsschild."), deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt."
 
 -- No more quests, just nice words of gratitude
 queststatus(109) = 6, english, "quest", "mission" -> "I shall not be needing your help at the moment, my friend. Go, rest. You have certainly earned it."

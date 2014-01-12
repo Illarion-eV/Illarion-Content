@@ -19,7 +19,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 require("gm.base.log")
 require("base.factions")
 require("base.common")
-require("npc.base.guards_static")
 require("base.licence")
 require("scheduled.alchemy")
 module("gm.items.id_382_ceilingtrowel", package.seeall, package.seeall(gm.base.log))
@@ -399,13 +398,12 @@ debug("radius"..radius)
             return;
           end
           local firstFaction = factionIds[dialog:getSelectedIndex()+1];
-          local guards = npc.base.guards_static;
           local modeStrings = {};
-          modeStrings[guards.ACTION_NONE] = "none";
-          modeStrings[guards.ACTION_PASSIVE] = "passive";
-          modeStrings[guards.ACTION_HOSTILE] = "hostile";
-          modeStrings[guards.ACTION_AGGRESSIVE] = "aggressive";
-          local modeValues = {guards.ACTION_NONE, guards.ACTION_PASSIVE, guards.ACTION_HOSTILE, guards.ACTION_AGGRESSIVE};
+          modeStrings[base.factions.RELATION_NEUTRAL] = "neutral";
+          modeStrings[base.factions.RELATION_HOSTILE] = "hostile";
+          modeStrings[base.factions.RELATION_AGGRESSIVE] = "aggressive";
+          modeStrings[base.factions.RELATION_FRIENDLY] = "friendly";
+          local modeValues = {base.factions.RELATION_FRIENDLY, base.factions.RELATION_NEUTRAL, base.factions.RELATION_HOSTILE, base.factions.RELATION_AGGRESSIVE};
           local cbSecondFaction = function (dialog)
             if (not dialog:getSuccess()) then
               return;
@@ -416,7 +414,7 @@ debug("radius"..radius)
                 return;
               end
               local mode = modeValues[dialog:getSelectedIndex()+1];
-              guards.SetMode(firstFaction, secondFaction, mode);
+			  base.factions.setFactionRelation(firstFaction, secondFaction, mode);
             end
             local sd = SelectionDialog("Set guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
             for _,m in ipairs(modeValues) do 
