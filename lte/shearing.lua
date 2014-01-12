@@ -14,20 +14,20 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- Long Time Effect Script: Milking cow and sheep
--- Effect ID: 401
+-- Long Time Effect Script: Shearing sheep
+-- Effect ID: 402
 
 
 require("base.common");
-module("lte.milking", package.seeall)
+module("lte.shearing", package.seeall)
 
-function addEffect(milkingEffect, Animal)
+function addEffect(shearingEffect, Animal)
 
 end
 
-function callEffect(milkingEffect, Animal)
+function callEffect(shearingEffect, Animal)
 
-	local foundAmount, gatherAmount = milkingEffect:findValue("gatherAmount");
+	local foundAmount, gatherAmount = shearingEffect:findValue("gatherAmount");
 	if (not foundAmount) then
 		return false;
 	end
@@ -35,7 +35,7 @@ function callEffect(milkingEffect, Animal)
 		return false;
 	end
 
-	milkingEffect:addValue("gatherAmount", gatherAmount - 1);
-	milkingEffect.nextCalled = 3000; -- call every 5min
+	shearingEffect:addValue("gatherAmount", gatherAmount - 10);
+	shearingEffect.nextCalled = 1800; -- call every 3min
 	return true;
 end

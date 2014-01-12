@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='item.id_6_scissors' WHERE com_itemid IN (6);
 
@@ -33,8 +33,8 @@ function UseItem(User, SourceItem, ltstate)
 		return;
 	end
 	-- look for a nearby sheep
-	for x=-1,1 do 
-		for y=-1,1 do 
+	for x=-1,1 do
+		for y=-1,1 do
 			local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
 			if ( world:isCharacterOnField(pos) ) then
 				targetCharacter = world:getCharacterOnField(pos);
@@ -75,7 +75,7 @@ function UseItemWoolCutting( User, SourceItem, ltstate, Sheep )
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-	
+
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
 		base.common.HighInformNLS( User,
 		"Du musst die Schere in der Hand haben!",
@@ -86,7 +86,7 @@ function UseItemWoolCutting( User, SourceItem, ltstate, Sheep )
 	if not base.common.FitForWork( User ) then -- check minimal food points
 		return
 	end
-	
+
 	if not base.common.IsLookingAt( User, Sheep.pos ) then -- check looking direction
 		base.common.TurnTo( User, Sheep.pos ); -- turn if necessary
 	end
@@ -98,7 +98,23 @@ function UseItemWoolCutting( User, SourceItem, ltstate, Sheep )
 		return;
 	end
 
+	-- check if sheep still gives wool
+	local foundEffect, shearingEffect = Sheep.effects:find(402);
+    if (not foundEffect) then
+		shearingEffect = LongTimeEffect(402, 1800); -- call every 3min
+		shearingEffect:addValue("gatherAmount", 0);
+		Sheep.effects:addEffect(shearingEffect);
+	end
+	local foundAmount, gatherAmount = shearingEffect:findValue("gatherAmount");
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
+
+		if gatherAmount >= 100 then
+			base.common.HighInformNLS( User,
+			"Dieses Schaf wurde kürzlich erst geschoren und gibt momentan keine Wolle.",
+			"This sheep has been sheared recently and doesnt give wool right now." );
+			return;
+		end
 		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User,SourceItem);
 		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 2, 20);
 		User:talk(Character.say, "#me beginnt ein Schaf zu scheren.", "#me starts to shear a sheep.")
@@ -114,18 +130,25 @@ function UseItemWoolCutting( User, SourceItem, ltstate, Sheep )
 	end
 
 	User:learn( woolcutting.LeadSkill, woolcutting.SavedWorkTime[User.id], woolcutting.LearnLimit);
-	local amount = 1; -- set the amount of items that are produced
-	local notCreated = User:createItem( 170, amount, 333, nil); -- create the new produced items
+
+	gatherAmount = gatherAmount + 1
+	shearingEffect:addValue("gatherAmount", gatherAmount);
+
+	local notCreated = User:createItem( 170, 1, 333, nil); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 170, notCreated, User.pos, true, 333, nil);
 		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
-	else -- character can still carry something
+	elseif gatherAmount < 100 then -- character can still carry something and more wool is available
 		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User,SourceItem);
 		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 2, 20);
 		-- make sure the sheep doesn't move away
 		Sheep.movepoints = math.min(Sheep.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
+	else
+		base.common.HighInformNLS( User,
+		"Dieses Schaf ist nun geschoren und gibt keine Wolle mehr.",
+		"This sheep is now sheared properly and doesnt give any more wool." );
 	end
 
 	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
@@ -156,7 +179,7 @@ function UseItemEntrailsCutting( User, SourceItem, ltstate )
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-	
+
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
 		base.common.HighInformNLS( User,
 		"Du musst die Schere in der Hand haben!",
@@ -167,16 +190,16 @@ function UseItemEntrailsCutting( User, SourceItem, ltstate )
 	if not base.common.FitForWork( User ) then -- check minimal food points
 		return
 	end
-	
+
 	-- any other checks?
 
 	if (User:countItemAt("all",63)==0) then -- check for items to work on
-		base.common.HighInformNLS( User, 
-		"Du brauchst Eingeweide um daraus Garn herzustellen.", 
+		base.common.HighInformNLS( User,
+		"Du brauchst Eingeweide um daraus Garn herzustellen.",
 		"You need entrails for producing thread." );
 		return;
 	end
-	
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		entrailscutting.SavedWorkTime[User.id] = entrailscutting:GenWorkTime(User,SourceItem);
 		User:startAction( entrailscutting.SavedWorkTime[User.id], 0, 0, 0, 0);

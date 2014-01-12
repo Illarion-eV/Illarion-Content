@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("item.base.crafts")
 
@@ -53,6 +53,13 @@ product:addIngredient(2, 2) -- Step 1: Flour (2) 1x
 product:addIngredient(52)
 product:addRemnant(51) -- Step 2: Bucket with water (52) 1x
 -------------- BREAD - DONE ----------------
+
+---------------- BANANABREAD - 49 ----------------------
+product = baking:addProduct(catId, 49, 30, 55, 24, 48, 1, {nameDe="Bananenbrot", nameEn="Bananabread"})
+product:addIngredient(2, 2) -- Step 1: Flour (2) 1x
+product:addIngredient(785) -- Step 2: banana juice
+product:addRemnant(790) -- Remnant: Empty JuiceBottle (2498) 1x
+-------------- BANANABREAD - DONE ----------------
 
 ---------------- MUFFIN - 454 ----------------------
 product = baking:addProduct(catId, 454, 45, 65, 64, 128, 2)
@@ -101,7 +108,5 @@ product:addIngredient(517) -- Step 5: Rum (517) 1x
 product:addRemnant(518) -- Remnant: Empty Rum Bottle (518) 1x
 product:addIngredient(2502) -- Step 6: Milk (2502) 1x
 product:addRemnant(2498) -- Remnant: Empty Bottle (2498) 1x
-product:addIngredient(52) -- Step 7: Bucket with water (52) 1x
-product:addRemnant(51) -- Remnant: Empty Bucket (51) 1x
 -- notyet: White Eggs (as alternative to brown eggs)
 -------------- CUSTARD PIE - DONE ----------------
