@@ -62,8 +62,7 @@ function UseItem(User, SourceItem)
     local food = drinkList[ SourceItem.id ];
     if (food ~= nil ) then
 	Evilrockentrance(User, SourceItem, ltstate)
-	end
-        local TargetItem = base.common.GetTargetItem(User, SourceItem);
+	local TargetItem = base.common.GetTargetItem(User, SourceItem);
         if( TargetItem ) then
             for i, combo in pairs(food[4]) do
                 if combo[1] == TargetItem.id then
