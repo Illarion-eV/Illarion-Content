@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.keys")
 require("base.common")
+require("base.factions")
 require("base.lookat")
 
 module("item.keys", package.seeall)
@@ -81,27 +82,31 @@ function SentenceCharacter(User,SourceItem)
 end
 
 function GuardBehaviourTowardsChar(User, SourceItem)
+
+	local modeStrings = {};
+	modeStrings[base.factions.RELATION_NEUTRAL] = "neutral";
+	modeStrings[base.factions.RELATION_HOSTILE] = "hostile";
+	modeStrings[base.factions.RELATION_AGGRESSIVE] = "aggressive";
+	modeStrings[base.factions.RELATION_FRIENDLY] = "friendly";
+	modeStrings[base.factions.RELATION_ACCEPTED] = "Let always pass";
+	local modeValues = {base.factions.RELATION_FRIENDLY, base.factions.RELATION_NEUTRAL, base.factions.RELATION_HOSTILE, base.factions.RELATION_AGGRESSIVE, base.factions.RELATION_ACCEPTED};
     
 	local callback = function(dialog) 
 		local success = dialog:getSuccess() 
 		if success then
 			local selected = dialog:getSelectedIndex()
-			SelectTargetChar(User, SourceItem, selected)
+			SelectTargetChar(User, SourceItem, modeValues[selected])
 		else
 			User:inform("Selection aborted!") 
 		end
     end
-
-	local dialog = SelectionDialog("Guard behaviour", "Select the behaviour you want the guards to have towardas a certain person", callback)
-	dialog:setCloseOnMove()
-	dialog:addOption(0, "None")
-	dialog:addOption(0, "Passive")
-	dialog:addOption(0, "Hostile")
-	dialog:addOption(0, "Aggresive")
-	dialog:addOption(0, "Let always pass")
-
-	User:requestSelectionDialog(dialog)
 	
+	local dialog = SelectionDialog("Guard behaviour", "Select the behaviour you want the guards to have towards a certain person", callback);
+	dialog:setCloseOnMove();
+	for _,m in ipairs(modeValues) do 
+	  dialog:addOption(0, modeStrings[m]);
+	end
+	User:requestSelectionDialog(dialog);	
 end
 
 function SelectTargetChar(User, SourceItem, behaviour)
@@ -149,15 +154,8 @@ function SelectTargetChar(User, SourceItem, behaviour)
 				if not theChar then 
 					User:inform("Character has not been found.")
 				else
-				    local modeList = {}
-					local daysList = {}	
-					modeList["Cadomyr"]  = 191; daysList["Cadomyr"]  = 192
-					modeList["Runewick"] = 193; daysList["Runewick"] = 194
-					modeList["Galmair"]  = 195; daysList["Galmair"]  = 196
-				
-				    local town = SourceItem:getData("townKeyOf")
-					theChar:setQuestProgress(modeList[town],behaviour)
-					theChar:setQuestProgress(daysList[town],days)
+					local townId = base.factions.getTownIdByName(SourceItem:getData("townKeyOf"));
+					base.factions.setIndividualPlayerRelation(theChar, townId, behaviour, days);
 				end
 			else
                 User:inform("You haven't put in all necessary informations.")
