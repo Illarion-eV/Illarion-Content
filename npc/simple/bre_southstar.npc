@@ -21,16 +21,9 @@
 --                                                                            --
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--           Nitram                                                           --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
-
--- ## REPLACE THE nextCycle FUNCTION AND ADD THE REQUIREMENT IN THE LUA CODE OF EACH GUARD ##
--- require("npc.base.guards_static")
-
--- function nextCycle(npcChar)
---   mainNPC:nextCycle(npcChar);
---   npc.base.guards_static.NextCycle(npcChar);
--- end;
 
 name = "Bre Southstar"
 race = dwarf
@@ -47,6 +40,7 @@ autointroduce = on
 
 author = "Kawan Baxter"
 author = "Estralis Seborian"
+author = "Nitram"
 
 lookatDE = "Dieser NPC ist Bre Southstar, die Torw‰chterin."
 lookatUS = "This NPC is Bre Southstar the gate guardian."
@@ -67,6 +61,11 @@ itemSecondHand = 17
 itemHands = 48
 itemTrousers = 367
 itemShoes = 53
+guardWarpTarget = 423, 250, 0
+guardRange = 1, 4, 2, 1
+warpedMonsterMsg "Weg mit dir, widerliche Kreatur!", "Go away, nasty creature!"
+warpedPlayerMsg "Pass bloﬂ auf! Wir brauchen hier kein Gesindel.", "You'd better watch out! We don't need such lowlifes here."
+hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hits the intruder 'Get lost!'"
 
 -- Template Version 1.04, 07/12/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.

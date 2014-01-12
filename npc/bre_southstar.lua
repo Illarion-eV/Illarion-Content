@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Bre Southstar                                            Galmair --
@@ -23,7 +23,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --                                                                            --
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
---                                                Illarion easyNPC Editor 1.02 --
+--           Nitram                                                           --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -35,12 +36,15 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.guard")
 require("npc.base.talk")
 module("npc.bre_southstar", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+mainNPC:setAffiliation(3);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+local guardNPC = npc.base.guard.guardNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -692,6 +696,11 @@ talkingNPC:addCycleText("Ich brauche keinen Mann.", "I'm not looking for a man."
 talkingNPC:addCycleText("In der Bürgerwehr zu sein ist der beste Beruf von allen.", "Civil watch is the best job ever.");
 talkingNPC:addCycleText("Aye, Galvin hat immer recht.", "Aye, Gavin is always right.");
 talkingNPC:addCycleText("Ich wünschte, Galvin wäre manchmal etwas besser gelaunt.", "I wish Gavin would lighten up every now and then.");
+guardNPC:setWarpLocation(423,250,0);
+guardNPC:setGuardRange(1,4,2,1);
+guardNPC:addWarpedMonsterText("Weg mit dir, widerliche Kreatur!", "Go away, nasty creature!");
+guardNPC:addWarpedPlayerText("Pass bloß auf! Wir brauchen hier kein Gesindel.", "You'd better watch out! We don't need such lowlifes here.");
+guardNPC:addHitPlayerText("#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hits the intruder 'Get lost!'");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
@@ -712,12 +721,9 @@ mainNPC:initDone();
 end;
 
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
-function nextCycle(npcChar)
-  mainNPC:nextCycle(npcChar);
-  npc.base.guards_static.NextCycle(npcChar);
-end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

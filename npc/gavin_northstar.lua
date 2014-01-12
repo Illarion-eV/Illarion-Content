@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Gavin Northstar                                          Galmair --
@@ -21,8 +21,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Race: dwarf                      NPC Position:  384, 328, 0            --
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
--- Author:   Kawan Baxter                                                     --
---                                                       easyNPC Parser v1.21 --
+-- Authors:  Kawan Baxter                                                     --
+--           Nitram                                                           --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -31,16 +32,17 @@ VALUES (1, 384, 328, 0, 2, 'Gavin Northstar', 'npc.gavin_northstar', 1, 2, 0, 0,
 ---]]
 
 require("npc.base.basic")
-require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.guard")
 require("npc.base.talk")
-require("npc.base.guards_static")
 module("npc.gavin_northstar", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+mainNPC:setAffiliation(3);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+local guardNPC = npc.base.guard.guardNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -149,7 +151,7 @@ talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addResponse("I relinquished such cares in the pursuit of peace and justice.");
-talkEntry:addResponse("As long as you don?t cause any trouble in Galmair my day is correct");
+talkEntry:addResponse("As long as you don't cause any trouble in Galmair my day is correct");
 talkEntry:addResponse("Galmair is at peace. That is my state of being.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -220,7 +222,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am guard of Galmair?s bridge.");
+talkEntry:addResponse("I am guard of Galmair's bridge.");
 talkEntry:addResponse("I am a Silverstone in the Civil Watch.");
 talkEntry:addResponse("I serve this city by being in the Civil Watch.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -237,7 +239,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am guard of Galmair?s bridge.");
+talkEntry:addResponse("I am guard of Galmair's bridge.");
 talkEntry:addResponse("I am a Silverstone in the Civil Watch.");
 talkEntry:addResponse("I  Serve this city by being in the Civil Watch.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -600,9 +602,14 @@ talkingNPC:addCycleText("Dies ist Galmair. Kommt in Frieden.", "This is Galmair.
 talkingNPC:addCycleText("Ihr habe jetzt grade die Zwergische Siedlung Galmair betetren.", "You have just crossed into The Dwarvan gathering of Galmair");
 talkingNPC:addCycleText("Meine Schwester gehört auch zur Stadtwache.", "My sister is also part of the Civil Watch.");
 talkingNPC:addCycleText("Bedenkt, ich sehe was Ihr tut.", "Remember. I can see what you are doing.");
-talkingNPC:addCycleText("Ich frage mich, wann der Don zum letzten Mal über diese Brücke ging.", "I wonder the last time I?ve seen The Don pass this bridge.");
+talkingNPC:addCycleText("Ich frage mich, wann der Don zum letzten Mal über diese Brücke ging.", "I wonder the last time I've seen The Don pass this bridge.");
 talkingNPC:addCycleText("Jeder der versucht starke Drogen nach Galmair zu schmuggeln wird bestarft!.", "Anyone who tries to sneak strong drugs into Galmair will be punished.");
 talkingNPC:addCycleText("Fall nicht. Geht weiter!", "Do not fall! Move on!");
+guardNPC:setWarpLocation(386,335,0);
+guardNPC:setGuardRange(1,4,2,4);
+guardNPC:addWarpedMonsterText("Weg mit dir, widerliche Kreatur!", "Go away, nasty creature!");
+guardNPC:addWarpedPlayerText("Pass bloß auf! Wir brauchen hier kein Gesindel.", "You'd better watch out! We don't need such lowlifes here.");
+guardNPC:addHitPlayerText("#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hits the intruder 'Get lost!'");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
@@ -623,12 +630,9 @@ mainNPC:initDone();
 end;
 
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
-function nextCycle(npcChar)
-  mainNPC:nextCycle(npcChar);
-  npc.base.guards_static.NextCycle(npcChar);
-end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

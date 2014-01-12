@@ -19,8 +19,9 @@
 -- NPC Race: dwarf                      NPC Position:  384, 328, 0            --
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
--- Author:   Kawan Baxter                                                     --
---                                                       easyNPC Parser v1.21 --
+-- Authors:  Kawan Baxter                                                     --
+--           Nitram                                                           --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 name = "Gavin Northstar"
@@ -37,6 +38,7 @@ defaultLanguage = common
 autointroduce = on
 
 author = "Kawan Baxter"
+author = "Nitram"
 
 lookatDE = ""
 lookatUS = "This NPC is Gavin Daystar the gate guardian, a broad shouldered dwarf"
@@ -57,6 +59,11 @@ itemSecondHand = 95
 itemHands = 530
 itemTrousers = 367
 itemShoes = 771
+guardWarpTarget = 386, 335, 0
+guardRange = 1, 4, 2, 4
+warpedMonsterMsg "Weg mit dir, widerliche Kreatur!", "Go away, nasty creature!"
+warpedPlayerMsg "Pass bloﬂ auf! Wir brauchen hier kein Gesindel.", "You'd better watch out! We don't need such lowlifes here."
+hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hits the intruder 'Get lost!'"
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.

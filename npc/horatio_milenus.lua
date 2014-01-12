@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Horatio Milenus                                          Cadomyr --
@@ -21,8 +21,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Race: human                      NPC Position:  114, 635, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Kawan Baxter, translation by Estralis Seborian                   --
---                                                       easyNPC Parser v1.21 --
+-- Authors:  Kawan Baxter                                                     --
+--           Estralis Seborian                                                --
+--           Nitram                                                           --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -34,13 +36,15 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.guard")
 require("npc.base.talk")
-require("npc.base.guards_static")
 module("npc.horatio_milenus", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+mainNPC:setAffiliation(1);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+local guardNPC = npc.base.guard.guardNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -975,6 +979,11 @@ talkingNPC:addCycleText("Galmair, Galmair, Galmair! Reden die anderen Völker übe
 talkingNPC:addCycleText("Wer zur Königin will, muss zunächst ein den Palast, wer in den Palast will, muss erst in die Stadt und wer in die Stadt will, muss an mir vorbei.", "Those who wish to see the queen must first be allowed into the palace, those allowed into the palace must first enter the city, those entering the city must first speak to me.");
 talkingNPC:addCycleText("Dies ist Cadomyr und der Palast der Edwards. Die derzeitige Regentin der königlichen albarischen Blutlinie ist die weise und wunderschöne Königin Rosaline.", "This is Cadomyr and the palace of the Edwards. The current regent of the Abarian royal Edward's bloodline is Queen Rosaline Edwards, a Queen who is both wise and beautiful.");
 talkingNPC:addCycleText("Rosaline, ihr seid mein Herz und meine Seele.", "Rosaline, you're my heart, you're my soul, I keep it shining everywhere I go.");
+guardNPC:setWarpLocation(114,643,0);
+guardNPC:setGuardRange(2,2,4,4);
+guardNPC:addWarpedMonsterText("Weg mit dir, widerliche Kreatur!", "Go away, nasty creature!");
+guardNPC:addWarpedPlayerText("Pass bloß auf! Wir brauchen hier kein Gesindel.", "You'd better watch out! We don't need such lowlifes here.");
+guardNPC:addHitPlayerText("#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hits the intruder 'Get lost!'");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
@@ -995,12 +1004,9 @@ mainNPC:initDone();
 end;
 
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
-function nextCycle(npcChar)
-  mainNPC:nextCycle(npcChar);
-  npc.base.guards_static.NextCycle(npcChar);
-end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
