@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Manuel Salan                                            Runewick --
@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                Illarion easyNPC Editor 1.02 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -32,13 +32,14 @@ VALUES (0, 1000, 779, -3, 5, 'Manuel Salan', 'npc.manuel_salan', 0, 1, 2, 180, 1
 
 require("npc.base.basic")
 require("npc.base.condition.language")
-require("npc.base.consequence.inform")
 require("npc.base.consequence.arena")
+require("npc.base.consequence.inform")
 require("npc.base.talk")
 module("npc.manuel_salan", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+mainNPC:setAffiliation(2);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();

@@ -12,33 +12,34 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Angelo Rothman                                           Galmair --
 -- NPC Job:  Arena Master                                                     --
 --                                                                            --
--- NPC Race: human                      NPC Position:  338, 154, -6            --
+-- NPC Race: human                      NPC Position:  338, 154, -6           --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                Illarion easyNPC Editor 1.02 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
-INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue")
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
 VALUES (0, 338, 154, -6, 4, 'Angelo Rothman', 'npc.angelo_rothman', 0, 1, 2, 143, 143, 143, 217, 154, 123);
 ---]]
 
 require("npc.base.basic")
 require("npc.base.condition.language")
-require("npc.base.consequence.inform")
 require("npc.base.consequence.arena")
+require("npc.base.consequence.inform")
 require("npc.base.talk")
 module("npc.angelo_rothman", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+mainNPC:setAffiliation(3);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();

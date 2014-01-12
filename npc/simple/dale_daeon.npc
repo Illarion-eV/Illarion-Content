@@ -20,7 +20,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Lillian                                                          --
---                                                     easyNPC Parser v1.23.1 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 name = "Dale Daeon"
@@ -101,17 +101,17 @@ english, "Cadomyr" -> "Cadomyr is the only town I like to spend my time. People 
 "geschichte", "erzähl was", "erzähl etwas" -> "Schreibt Eure eigene Geschichte, indem Ihr in meiner Arena kämpft."
 
 -- arena phrases
-"fight" -> "What beast would you like to fight against today?", request
-"kämpfen" -> "Gegen welches Biest wollt ihr heute kämpfen?", request
-"points" -> "#me looks at his list.", points
-"punkte" -> "#me schaut auf seine Liste.", points
+"fight" -> "What beast would you like to fight against today?", arena(requestMonster)
+"kämpfen" -> "Gegen welches Biest wollt ihr heute kämpfen?", arena(requestMonster)
+"points" -> "#me looks at his list.", arena(getStats)
+"punkte" -> "#me schaut auf seine Liste.", arena(getStats)
 
 -- "fight" -> "Only citizens of Cadomyr are allowed to fight here and prove their strength."
 -- "kämpfen" -> "Nur Bürger Cadomyrs dürfen hier kämpfen und ihre Kraft beweisen."
 -- "points" -> "As I see it, you do not belong to Cadomyr. I will not find you on my list then."
 -- "punkte" -> "Ihr gehört nicht zu Cadomyr, wie ich sehe. Ihr werdet also auch nicht auf meiner Liste stehen."
-"ranklist" -> "#me shows you a piece of parchment, 'Look for yourself who the best ones are here.'", list
-"rangliste" -> "#me zeigt dir ein Stück Pergament: 'Seht für Euch selbst, wer die Besten hier sind.'", list
+"ranklist" -> "#me shows you a piece of parchment, 'Look for yourself who the best ones are here.'", arena(getRanking)
+"rangliste" -> "#me zeigt dir ein Stück Pergament: 'Seht für Euch selbst, wer die Besten hier sind.'", arena(getRanking)
 
 -- monster informations
 english, "beast", "monster" -> "There are several beasts roaming the lands as you might now. I found and captured a few for you to fight against."

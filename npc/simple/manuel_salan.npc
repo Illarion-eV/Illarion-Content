@@ -13,14 +13,14 @@
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
--- NPC Name: Manuel Salan                                       Runewick      --
+-- NPC Name: Manuel Salan                                            Runewick --
 -- NPC Job:  Arena Master                                                     --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  1000, 779, -3          --
 -- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 name = "Manuel Salan"
@@ -101,17 +101,17 @@ english, "Cadomyr" -> "Where is that?"
 "geschichte", "erzähl was", "erzähl etwas" -> "Schreib deine eigene Geschichte, indem du in meiner Arena kämpft."
 
 -- arena phrases
-"fight" -> "What beast would you like to fight against today?", request
-"kämpfen" -> "Gegen welches Biest willst du heute kämpfen?", request
-"points" -> "#me looks at his list.", points
-"punkte" -> "#me schaut auf seine Liste.", points
+"fight" -> "What beast would you like to fight against today?", arena(requestMonster)
+"kämpfen" -> "Gegen welches Biest willst du heute kämpfen?", arena(requestMonster)
+"points" -> "#me looks at his list.", arena(getStats)
+"punkte" -> "#me schaut auf seine Liste.", arena(getStats)
 
 -- "fight" -> "Only citizens of Runewick are allowed to fight here and prove their strength."
 -- "kämpfen" -> "Nur Bürger Runewicks dürfen hier kämpfen und ihre Kraft beweisen."
 -- "points" -> "As I see it, you do not belong to Runewick. I will not find you on my list then."
 -- "punkte" -> "Ihr gehört nicht zu Runewick, wie ich sehe. Ihr werdet also auch nicht auf meiner Liste stehen."
-"ranklist" -> "#me shows you a piece of parchment, 'Look for yourself who the best ones are here.'", list
-"rangliste" -> "#me zeigt dir ein Stück Pergament: 'Schau selbst, wer die Besten hier sind.'", list
+"ranklist" -> "#me shows you a piece of parchment, 'Look for yourself who the best ones are here.'", arena(getRanking)
+"rangliste" -> "#me zeigt dir ein Stück Pergament: 'Schau selbst, wer die Besten hier sind.'", arena(getRanking)
 
 -- monster informations
 english, "beast", "monster" -> "There are several beasts roaming the lands as you might now. I found and captured a few for you to fight against."

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Dale Daeon                                               Cadomyr --
@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Lillian                                                          --
---                                                     easyNPC Parser v1.23.1 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -32,13 +32,14 @@ VALUES (0, 263, 664, 0, 4, 'Dale Daeon', 'npc.dale_daeon', 0, 2, 3, 192, 107, 5,
 
 require("npc.base.basic")
 require("npc.base.condition.language")
-require("npc.base.consequence.inform")
 require("npc.base.consequence.arena")
+require("npc.base.consequence.inform")
 require("npc.base.talk")
 module("npc.dale_daeon", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+mainNPC:setAffiliation(1);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
