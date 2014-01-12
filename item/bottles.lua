@@ -14,7 +14,9 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+
 -- UPDATE common SET com_script='item.bottles' WHERE com_itemid IN (2500, 2496, 2497, 2501, 2499);
+
 require("base.common")
 
 module("item.bottles", package.seeall)
@@ -46,6 +48,8 @@ function InitDrinks()
     end
 end
 
+
+
 function UseItem(User, SourceItem)
 
     if firstcall==nil then
@@ -57,8 +61,8 @@ function UseItem(User, SourceItem)
 
     local food = drinkList[ SourceItem.id ];
     if (food ~= nil ) then
-
-        local TargetItem = base.common.GetTargetItem(User, SourceItem);
+	Evilrockentrance(User, SourceItem, ltstate)
+	local TargetItem = base.common.GetTargetItem(User, SourceItem);
         if( TargetItem ) then
             for i, combo in pairs(food[4]) do
                 if combo[1] == TargetItem.id then
@@ -89,7 +93,7 @@ function UseItem(User, SourceItem)
 								base.common.HighInformNLS(User, "Du kannst nichts mehr halten.", "You can't carry any more.");
 							end
 						end
-						world:erase(SourceItem, 1);
+						world:erase(SourceItem,1);
 					end
 
                     -- cancel after one found item
@@ -105,6 +109,7 @@ function UseItem(User, SourceItem)
         User:inform("unkown bottle item ");
     end
 end
+
 
 function LookAtItem(User, Item)
     local lookAt = base.lookat.GenerateLookAt(User, Item)
@@ -136,9 +141,55 @@ function LookAtItem(User, Item)
             break;
         end
     end
-
+        
     DisplayText = DisplayText..base.common.GetNLS( User, food[1], food[2] );
     lookAt.description = DisplayText
 
     world:itemInform(User, Item, lookAt)
 end
+
+
+
+function Evilrockentrance(User, SourceItem, ltstate)
+  local checkBucket = world:getItemOnField(position(997,199,2))
+  if checkBucket.id == 51 and SourceItem.id == 2496 then
+	local foundSource
+	-- check for empty bucket
+	TargetItem = base.common.GetItemInArea(User.pos, 51);
+	if (TargetItem ~= nil) then
+		if not base.common.IsLookingAt( User, position(997,199,2) ) then -- check looking direction
+			base.common.TurnTo( User, position(997,199,2) ); -- turn if necessary
+		end
+		foundSource=true
+	end
+
+
+	if not foundSource then
+	-- nothing found to fill the bucket.
+	base.common.InformNLS(User,"Du solltest schon einen anderen Eimer zum Umfüllen haben.","You should have another container to transfer the water.");
+	return
+	end
+
+	if ( ltstate == Action.none ) then 
+		User:startAction( 20, 21, 5, 10, 25);
+		User:talk(Character.say, "#me beginnt den Eimer zu befüllen.", "#me starts to fill bucket.")
+		return
+	end
+
+	world:swap(checkBucket,52,999)
+--[[		local checkFullBucket = world:getItemOnField(position(997,199,3))
+		if checkFullBucket.id == 52 then
+			checkFullBucket.wear=255
+			world:changeItem(checkFullBucket)
+		end ]]
+	triggerfield.evilrock.RemoveEntranceTrap(User)
+	
+
+	local notCreated = User:createItem( 2498, 1, 999, nil ); -- create the new produced items
+	if SourceItem.number == 1 then
+		world:erase(SourceItem,1)
+		return
+	end
+  end
+end
+

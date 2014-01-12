@@ -64,7 +64,7 @@ function MoveToField(char)
 	end
 	if math.random(1,100)< chance  and char:increaseAttrib("hitpoints",0)>8000 then --Chance of 10% and Hitpoints above 8000
 		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) or  base.factions.getMembership(char) ~= 3 and fighter ~= 1  then --Newbie and non-fighter protection for non-Galmairian
-		return
+			return
 		end
 		shutup = 0 --player should get message later
 		luckybunch = 0 --we will see if there are galmairians here later
@@ -72,7 +72,7 @@ function MoveToField(char)
 			level = math.random(1,11) --selection of lower monsters for average fighter
 			else
 			level = math.random(1,16) --selection of all monsters for good fighter
-			end
+		end
 		local enemy1 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy2 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy3 = monster[level][math.random(1,table.getn(monster[level]))]

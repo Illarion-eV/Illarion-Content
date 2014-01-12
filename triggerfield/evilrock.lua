@@ -106,13 +106,15 @@ function MoveToField(char)
 				world:makeSound(4,char.pos)
 				world:makeSound(5,char.pos)
 			end
-			local CheckBucket = world:getItemOnField(position(997,199,3))
+			local CheckBucket = world:getItemOnField(position(997,199,2))
+--debug("CheckBucket: "..CheckBucket.id)
 			if CheckBucket.id == 51 then
 			else
 				world:erase(CheckBucket,CheckBucket.number)
-				world:createItemFromId(51, 1, position(997,199,3), true, 333, nil)
-				local CreateBucket = world:getItemOnField(position(997,199,3))				
+				world:createItemFromId(51, 1, position(997,199,2), true, 333, nil)
+				local CreateBucket = world:getItemOnField(position(997,199,2))				
 				CreateBucket.wear=255
+				base.lookat.SetSpecialDescription(CreateBucket,"Wie viel Wasser wohl in diesen Eimer passt?","How much water might fit into this bucket?")
 				world:changeItem(CreateBucket)
 			end
 		end
