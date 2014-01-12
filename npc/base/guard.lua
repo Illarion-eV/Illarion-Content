@@ -139,7 +139,7 @@ function _processPlayers(self, npcChar, radius)
 		if _isPointInGuardArea(self, npcChar, player.pos) then
 			local relation = base.factions.getPlayerRelation(player, self._parent._affiliation);
 			if (relation == base.factions.RELATION_AGGRESSIVE) then
-				char:increaseAttrib("hitpoints", -1000);
+				player:increaseAttrib("hitpoints", -1000);
 				hitPlayers = true;
 				warpedPlayers = true;
 				_warpHostile(self, npcChar, player);
