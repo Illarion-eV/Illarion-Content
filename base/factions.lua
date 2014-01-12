@@ -178,6 +178,15 @@ function getTownNameByID(TownID)
   return "";
 end
 
+function getTownIdByName(name)
+	for i=1, #(TownList) do
+		if (TownList[i].townName == name) then
+			return TownList[i].townID
+		end
+	end
+	return 0;
+end
+
 --[[
 	returns the id of the town the char is a member of
 	@player - characterStruct
@@ -566,4 +575,201 @@ function leaveFaction(originator, Faction, thisNPC)
 	eText="You're now not belonging to any realm. This means you're free but also on your own. Good luck.";
 	outText=base.common.GetNLS(originator,gText,eText);
     thisNPC:talk(Character.say, outText);
+end
+
+--- Relations
+--
+-- The following functions allow checking and controlling the relations between factions.
+
+-- The following constants define the different relations modes.
+RELATION_SELF = -1;		    -- This is the constant returned in case the relation of a faction to itself is checked.
+RELATION_FRIENDLY = 1;      -- The factions have a friendly relationship.
+RELATION_NEUTRAL = 0;		-- The factions have a neutral relationship, guards will only process the members of this faction in case they appear hostile.
+RELATION_HOSTILE = 2;		-- The factions have a hostile relationship. The guards will ensure that the members of this faction stay out of the home town.
+RELATION_AGGRESSIVE = 3;	-- The factions have a aggressive relationship. The guards will engage the members of this faction on sight.
+RELATION_ACCEPTED = 4;		-- This is a special relationship that only applies to individual players. It causes the total relationship to the town to be neutral, even if the relationship of the town and the player faction is hostile or aggressive
+
+--- Get the relation of a town faction to a specific player. This functions takes both the relation of the town faction and the player faction and the
+--- relation of the town faction to the individual player into consideration. Administrators are always considered to be friendly, because they are
+--- very friendly persons in general.
+--
+-- @param player the player
+-- @param townFaction the faction of the town
+-- @return int the relationship constant for the relationship between the town faction and the player
+function getPlayerRelation(player, townFaction)
+	if player:isAdmin() then
+		return RELATION_FRIENDLY;
+	end
+	
+	local individualRelation = getIndividualPlayerRelation(player, townFaction);	
+    local playerFaction = getFaction(char).tid;
+	local factionRelation = GetModeByFaction(townFaction, playerFaction);
+	
+	if (individualRelation == RELATION_ACCEPTED) then
+		return (factionRelation == RELATION_FRIENDLY) and RELATION_FRIENDLY or RELATION_NEUTRAL;
+	end
+	
+	if (factionRelation == RELATION_AGGRESSIVE) then
+		return RELATION_AGGRESSIVE;
+	elseif (factionRelation == RELATION_HOSTILE) then
+		if (individualRelation == RELATION_AGGRESSIVE) then
+			return RELATION_AGGRESSIVE;
+		else
+			return RELATION_HOSTILE;
+		end
+	elseif (factionRelation == RELATION_NEUTRAL) then
+		if (individualRelation == RELATION_AGGRESSIVE) or (individualRelation == RELATION_HOSTILE) then
+			return individualRelation;
+		else
+			return RELATION_NEUTRAL;
+		end
+	else
+		return individualRelation;
+	end
+end
+
+--- Get the relationship between two factions. The looking direction for the relationship is always from the town faction to the player faction.
+--- So if the towns faction is hostile to the players faction and the players faction is neutral to the towns faction the returned result will be hostile.
+--
+-- @param townFaction the faction of the town that is checked
+-- @param playerFaction the faction of the player that is checked
+-- @return int the relationship constant for the relation of the towns faction to the player faction
+function getFactionRelation(townFaction, playerFaction)
+	if (townFaction == playerFaction) then
+		return RELATION_SELF;
+	end
+	
+	local found, relation = ScriptVars:find("Mode_"..tostring(townFaction));
+	if not found then
+		return RELATION_HOSTILE;
+	end
+	relation = relation % (10 ^ (playerFaction + 1));
+	relation = math.floor(relation / (10 ^ playerFaction));
+	
+	if (relation ~= RELATION_FRIENDLY) and (relation ~= RELATION_NEUTRAL) and (relation ~= RELATION_AGGRESSIVE) then
+		return RELATION_HOSTILE; 
+	end
+	return relation;
+end
+
+--- Set the relationship of a faction to another faction. The faction set is the faction from the town faction to the player faction.
+--
+-- @param townFaction the town faction
+-- @param playerFaction the player faction
+-- @param newRelation the new relationship (RELATION_FRIENDLY,RELATION_NEUTRAL,RELATION_HOSTILE,RELATION_AGGRESSIVE)
+function setFactionRelation(townFaction, playerFaction, newRelation)
+	if (newRelation ~= RELATION_FRIENDLY) and (newRelation ~= RELATION_NEUTRAL) and (newRelation ~= RELATION_HOSTILE) and (newRelation ~= RELATION_AGGRESSIVE) then
+		debug("[Error] Applied illegal relationship mode: "..tostring(newRelation));
+		return;
+	end
+	if (townFaction == playerFaction) then
+		return;
+	end
+	
+	-- get mode for all factions
+	local found, relationships = ScriptVars:find("Mode_"..townFaction);
+	local oldRelation = 0;
+	if not found then
+		ScriptVars:set("Mode_".. townFaction, 2222); -- hostile to everyone
+		relationships = 2222;
+		oldRelation = 2;
+	else
+		-- calculate the old mode for the player faction
+		oldRelation = modeAll % (10 ^ (playerFaction + 1));
+		oldRelation = math.floor(oldRelation / (10 ^ playerFaction));
+	end
+	
+	if (oldRelation == newRelation) then
+		return;
+	end;
+	
+	relationships = relationships - (oldRelation * (10 ^ playerFaction));
+	relationships = relationships + (newRelation * (10 ^ playerFaction));
+	
+	relationships = math.max(0, math.min(9999, relationships)); -- must not be negative & exceed 9999 (3 towns + outcasts)
+	ScriptVars:set("Mode_"..townFaction, relationships);
+end
+
+--- Get the individual relationship of a player to a faction. These overwriting values are time limited. 
+--
+-- @param player the player who's relation is queried
+-- @param townFaction the faction 
+-- @return int the relationship constant for the relation of the faction to the individual player
+function getIndividualPlayerRelation(player, townFaction) 
+	local relationId = -1;
+	local daysId = -1;
+	if (townFaction == cadomyr) then
+		relationId = 191;
+		daysId = 192;
+	elseif (townFaction == runewick) then
+		relationId = 193;
+		daysId = 194;
+	elseif (townFaction == galmair) then
+		relationId = 195;
+		daysId = 196;
+	end
+	
+	if (relationId < 0) or (daysId < 0) then
+		return RELATION_NEUTRAL;
+	end
+	
+    local relation = player:getQuestProgress(relationId);
+	
+	if (relation == RELATION_NEUTRAL) then
+		return RELATION_NEUTRAL;
+	end
+	
+	local days, setTime = player:getQuestProgress(daysId);
+	
+	if (relation ~= RELATION_FRIENDLY) and (relation ~= RELATION_NEUTRAL) and (relation ~= RELATION_AGGRESSIVE) and (relation ~= RELATION_ACCEPTED) then
+		debug("[Error] "..base.character.LogText(player).." got illegal value for temporary faction relation. Resetting.");
+		player:setQuestProgress(relationId, RELATION_NEUTRAL);
+		return RELATION_NEUTRAL;
+	end	
+	
+	if (days > 0) then 
+	    local daysInSec = (days / 3) * 24 * 60 * 60;
+	    if ((world:getTime("unix") - setTime) >= daysInSec) then
+		    return RELATION_NEUTRAL;
+		end	
+	end	
+	
+	return relation;
+end
+
+--- Apply a individual relation of a town faction to a player.
+--
+-- @param player the player to receives the new relationship
+-- @param townFaction the faction that is effected
+-- @param newRelation the new relation value
+-- @param the time limited in days for this change to wear off
+function setIndividualPlayerRelation(player, townFaction, newRelation, timeLimitInDays) 
+	if (newRelation ~= RELATION_FRIENDLY) and (newRelation ~= RELATION_NEUTRAL) and (newRelation ~= RELATION_HOSTILE) and (newRelation ~= RELATION_AGGRESSIVE) and (newRelation ~= RELATION_ACCEPTED) then
+		debug("[Error] Applied illegal relationship mode: "..tostring(newRelation));
+		return;
+	end
+	
+	local relationId = -1;
+	local daysId = -1;
+	if (townFaction == cadomyr) then
+		relationId = 191;
+		daysId = 192;
+	elseif (townFaction == runewick) then
+		relationId = 193;
+		daysId = 194;
+	elseif (townFaction == galmair) then
+		relationId = 195;
+		daysId = 196;
+	end
+	if (relationId < 0) or (daysId < 0) then
+		debug("[Error] Can't apply individual relationship for unknown town faction: "..tostring(townFaction));
+		return;
+	end
+	
+	player:setQuestProgress(relationId, newRelation);
+	if (newRelation == RELATION_NEUTRAL) then
+		player:setQuestProgress(daysId, 0);
+	else
+		player:setQuestProgress(daysId, timeLimitInDays);
+	end
 end
