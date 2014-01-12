@@ -602,7 +602,7 @@ function getPlayerRelation(player, townFaction)
 	end
 	
 	local individualRelation = getIndividualPlayerRelation(player, townFaction);	
-    local playerFaction = getFaction(char).tid;
+    local playerFaction = getFaction(player).tid;
 	local factionRelation = GetModeByFaction(townFaction, playerFaction);
 	
 	if (individualRelation == RELATION_ACCEPTED) then
