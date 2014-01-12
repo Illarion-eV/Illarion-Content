@@ -12,14 +12,18 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>.
+with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
+-- empty container with drink
+
 -- UPDATE common SET com_script='item.bottles' WHERE com_itemid IN (2500, 2496, 2497, 2501, 2499);
+
+-- uses items of the new client - don't put this on the RS yet!
 require("base.common")
 
 module("item.bottles", package.seeall)
 
-function InitDrinks()
+function InitDrinks()  -- initialisiert die coolen softdrinks in da hood.
     if ( drinkList == nil) then
         -- nameDE, nameEN, leftover item, { {empty target container, filled target container}, ...}
         drinkList={};
@@ -37,6 +41,8 @@ function InitDrinks()
 
         drinkList[2499] = {  "Ciderflasche", "bottle of cider", 2498,
         { {1858, 1859}, {224, 1861},{2055, 2059},{1840, 1844}, {2185, 2189} } };
+		
+		drinkList[1319] = {  "Rumflasche", "bottle of rum", 1317, nil};
 
         -- init descriptions
         BottleQualDe={"randvolle ","volle ","halbvolle ","fast leere "};
@@ -45,6 +51,8 @@ function InitDrinks()
         BottleQualLm={8,6,3,1};
     end
 end
+
+
 
 function UseItem(User, SourceItem)
 
@@ -57,7 +65,14 @@ function UseItem(User, SourceItem)
 
     local food = drinkList[ SourceItem.id ];
     if (food ~= nil ) then
-
+debug("Player-A: "..User.name)
+	Evilrockentrance(User, SourceItem, ltstate)
+	if Evilrockentrance == true then
+debug("Player-return-A: "..User.name)
+		return
+debug("Player-return-B: "..User.name)
+	end
+debug("Player-B: "..User.name)
         local TargetItem = base.common.GetTargetItem(User, SourceItem);
         if( TargetItem ) then
             for i, combo in pairs(food[4]) do
@@ -81,15 +96,10 @@ function UseItem(User, SourceItem)
 							base.common.InformNLS( User,
 							"Die leere Flasche ist angeschlagen und unbrauchbar.",
 							"The empty bottle is broken and no longer usable.");
+							world:erase(SourceItem,1);
 						else
-							local dataCopy = {descriptionDe=SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn")};
-							local notCreated = User:createItem( food[3], 1, 333, dataCopy); -- create the remnant item
-							if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-								world:createItemFromId(food[3], notCreated, User.pos, true, 333, dataCopy);
-								base.common.HighInformNLS(User, "Du kannst nichts mehr halten.", "You can't carry any more.");
-							end
+							world:swap(SourceItem,food[3],333)
 						end
-						world:erase(SourceItem, 1);
 					end
 
                     -- cancel after one found item
@@ -105,6 +115,7 @@ function UseItem(User, SourceItem)
         User:inform("unkown bottle item ");
     end
 end
+
 
 function LookAtItem(User, Item)
     local lookAt = base.lookat.GenerateLookAt(User, Item)
@@ -136,9 +147,58 @@ function LookAtItem(User, Item)
             break;
         end
     end
-
+        
     DisplayText = DisplayText..base.common.GetNLS( User, food[1], food[2] );
     lookAt.description = DisplayText
 
     world:itemInform(User, Item, lookAt)
 end
+
+
+
+function Evilrockentrance(User, SourceItem, ltstate)
+  local checkBucket = world:getItemOnField(position(997,199,2))
+  if checkBucket.id == 51 and SourceItem.id == 2496 then
+--  if checkBucket.id == 51 then
+debug("Player-51: "..User.name)
+	local foundSource
+	-- check for empty bucket
+	TargetItem = base.common.GetItemInArea(User.pos, 51);
+	if (TargetItem ~= nil) then
+		if not base.common.IsLookingAt( User, position(997,199,2) ) then -- check looking direction
+			base.common.TurnTo( User, position(997,199,2) ); -- turn if necessary
+		end
+		foundSource=true
+	end
+
+
+	if not foundSource then
+	-- nothing found to fill the bucket.
+	base.common.InformNLS(User,"Du solltest schon einen anderen Eimer zum Umfüllen haben.","You should have another container to transfer the water.");
+	return
+	end
+
+	if ( ltstate == Action.none ) then 
+		User:startAction( 20, 21, 5, 10, 25);
+		User:talk(Character.say, "#me beginnt den Eimer zu befüllen.", "#me starts to fill bucket.")
+		return
+	end
+
+	world:swap(checkBucket,52,999)
+--[[		local checkFullBucket = world:getItemOnField(position(997,199,3))
+		if checkFullBucket.id == 52 then
+			checkFullBucket.wear=255
+			world:changeItem(checkFullBucket)
+		end ]]
+	triggerfield.evilrock.RemoveEntranceTrap(User)
+	
+
+	local notCreated = User:createItem( 2498, 1, 999, nil ); -- create the new produced items
+	if SourceItem.number == 1 then
+		world:erase(SourceItem,1)
+		return
+	end
+  end
+debug("Player-51nope: "..User.name)
+end
+
