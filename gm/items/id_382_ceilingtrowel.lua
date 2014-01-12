@@ -399,10 +399,12 @@ debug("radius"..radius)
           end
           local firstFaction = factionIds[dialog:getSelectedIndex()+1];
           local modeStrings = {};
+          modeStrings[base.factions.RELATION_SELF] = "self";
           modeStrings[base.factions.RELATION_NEUTRAL] = "neutral";
           modeStrings[base.factions.RELATION_HOSTILE] = "hostile";
           modeStrings[base.factions.RELATION_AGGRESSIVE] = "aggressive";
           modeStrings[base.factions.RELATION_FRIENDLY] = "friendly";
+          modeStrings[base.factions.RELATION_ACCEPTED] = "accepted player";
           local modeValues = {base.factions.RELATION_FRIENDLY, base.factions.RELATION_NEUTRAL, base.factions.RELATION_HOSTILE, base.factions.RELATION_AGGRESSIVE};
           local cbSecondFaction = function (dialog)
             if (not dialog:getSuccess()) then
@@ -424,7 +426,7 @@ debug("radius"..radius)
           end
           local sd = SelectionDialog("Guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
           for _,f in ipairs(factionIds) do 
-            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[guards.GetModeByFaction(firstFaction, f)]);
+            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[base.factions.getFactionRelation(firstFaction, f)]);
           end
           User:requestSelectionDialog(sd);
         end

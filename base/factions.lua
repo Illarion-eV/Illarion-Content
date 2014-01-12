@@ -602,8 +602,8 @@ function getPlayerRelation(player, townFaction)
 	end
 	
 	local individualRelation = getIndividualPlayerRelation(player, townFaction);	
-    local playerFaction = getFaction(char).tid;
-	local factionRelation = GetModeByFaction(townFaction, playerFaction);
+    local playerFaction = getFaction(player).tid;
+	local factionRelation = getFactionRelation(townFaction, playerFaction);
 	
 	if (individualRelation == RELATION_ACCEPTED) then
 		return (factionRelation == RELATION_FRIENDLY) and RELATION_FRIENDLY or RELATION_NEUTRAL;
@@ -675,7 +675,7 @@ function setFactionRelation(townFaction, playerFaction, newRelation)
 		oldRelation = 2;
 	else
 		-- calculate the old mode for the player faction
-		oldRelation = modeAll % (10 ^ (playerFaction + 1));
+		oldRelation = relationships % (10 ^ (playerFaction + 1));
 		oldRelation = math.floor(oldRelation / (10 ^ playerFaction));
 	end
 	
@@ -721,7 +721,7 @@ function getIndividualPlayerRelation(player, townFaction)
 	
 	local days, setTime = player:getQuestProgress(daysId);
 	
-	if (relation ~= RELATION_FRIENDLY) and (relation ~= RELATION_NEUTRAL) and (relation ~= RELATION_AGGRESSIVE) and (relation ~= RELATION_ACCEPTED) then
+	if (relation ~= RELATION_FRIENDLY) and (relation ~= RELATION_NEUTRAL) and (relation ~= RELATION_AGGRESSIVE) and (relation ~= RELATION_ACCEPTED) and (relation ~= RELATION_HOSTILE) then
 		debug("[Error] "..base.character.LogText(player).." got illegal value for temporary faction relation. Resetting.");
 		player:setQuestProgress(relationId, RELATION_NEUTRAL);
 		return RELATION_NEUTRAL;
