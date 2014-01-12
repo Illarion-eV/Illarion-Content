@@ -603,7 +603,7 @@ function getPlayerRelation(player, townFaction)
 	
 	local individualRelation = getIndividualPlayerRelation(player, townFaction);	
     local playerFaction = getFaction(player).tid;
-	local factionRelation = GetModeByFaction(townFaction, playerFaction);
+	local factionRelation = getFactionRelation(townFaction, playerFaction);
 	
 	if (individualRelation == RELATION_ACCEPTED) then
 		return (factionRelation == RELATION_FRIENDLY) and RELATION_FRIENDLY or RELATION_NEUTRAL;
@@ -675,7 +675,7 @@ function setFactionRelation(townFaction, playerFaction, newRelation)
 		oldRelation = 2;
 	else
 		-- calculate the old mode for the player faction
-		oldRelation = modeAll % (10 ^ (playerFaction + 1));
+		oldRelation = relationships % (10 ^ (playerFaction + 1));
 		oldRelation = math.floor(oldRelation / (10 ^ playerFaction));
 	end
 	
