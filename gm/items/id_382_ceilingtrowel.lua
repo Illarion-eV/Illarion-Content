@@ -424,7 +424,7 @@ debug("radius"..radius)
           end
           local sd = SelectionDialog("Guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
           for _,f in ipairs(factionIds) do 
-            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[guards.GetModeByFaction(firstFaction, f)]);
+            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[base.factions.getFactionRelation(firstFaction, f)]);
           end
           User:requestSelectionDialog(sd);
         end
