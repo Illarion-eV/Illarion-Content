@@ -721,7 +721,7 @@ function getIndividualPlayerRelation(player, townFaction)
 	
 	local days, setTime = player:getQuestProgress(daysId);
 	
-	if (relation ~= RELATION_FRIENDLY) and (relation ~= RELATION_NEUTRAL) and (relation ~= RELATION_AGGRESSIVE) and (relation ~= RELATION_ACCEPTED) then
+	if (relation ~= RELATION_FRIENDLY) and (relation ~= RELATION_NEUTRAL) and (relation ~= RELATION_AGGRESSIVE) and (relation ~= RELATION_ACCEPTED) and (relation ~= RELATION_HOSTILE) then
 		debug("[Error] "..base.character.LogText(player).." got illegal value for temporary faction relation. Resetting.");
 		player:setQuestProgress(relationId, RELATION_NEUTRAL);
 		return RELATION_NEUTRAL;
