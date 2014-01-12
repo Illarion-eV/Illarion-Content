@@ -244,7 +244,7 @@ function UseItemMilking(User, SourceItem, ltstate, Animal)
 	-- check if animal still gives milk
 	local foundEffect, milkingEffect = Animal.effects:find(401);
     if (not foundEffect) then
-		milkingEffect = LongTimeEffect(401, 6000); -- call every 5min
+		milkingEffect = LongTimeEffect(401, 3000); -- call every 5min
 		milkingEffect:addValue("gatherAmount", 0);
 		Animal.effects:addEffect(milkingEffect);
 	end
@@ -273,6 +273,9 @@ function UseItemMilking(User, SourceItem, ltstate, Animal)
 
 	User:learn( milking.LeadSkill, milking.SavedWorkTime[User.id], milking.LearnLimit);
 
+	gatherAmount = gatherAmount + 1
+	milkingEffect:addValue("gatherAmount", gatherAmount);
+
 	world:erase(SourceItem, 1);
 	local notCreated = User:createItem( 2502, 1, 333, nil); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -280,13 +283,16 @@ function UseItemMilking(User, SourceItem, ltstate, Animal)
 		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
-	end
-
-	gatherAmount = gatherAmount + 1
-	milkingEffect:addValue("gatherAmount", gatherAmount);
-	if gatherAmount < 3 then
+	elseif gatherAmount < 3 then  -- character can still carry something and more milk is available
+		if not base.common.CheckItem( User, SourceItem ) then -- no empty bottles left
+			return
+		end
 		milking.SavedWorkTime[User.id] = milking:GenWorkTime(User, SourceItem);
 		Animal.movepoints = -1 * milking.SavedWorkTime[User.id]; -- make sure the animal doesn't move away
 		User:startAction(milking.SavedWorkTime[User.id], 21, 5, 10, 25);
+	else
+		base.common.HighInformNLS( User,
+		"Dieses Tier ist ausreichend gemolken und gibt keine Milch mehr.",
+		"This animal is milked properly and doesnt give any more milk." );
 	end
 end

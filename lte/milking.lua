@@ -36,6 +36,6 @@ function callEffect(milkingEffect, Animal)
 	end
 
 	milkingEffect:addValue("gatherAmount", gatherAmount - 1);
-	milkingEffect.nextCalled = 6000;
+	milkingEffect.nextCalled = 3000; -- call every 5min
 	return true;
 end
