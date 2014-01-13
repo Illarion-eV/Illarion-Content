@@ -394,14 +394,14 @@ function PayOutWage(Recipient,town)
 					"You should earn favour in "..town.." in order to receive rewards for your tribute.");
 
 				log(string.format("[gems] %s got 0 magic gems from %s. Character's rank: %d",
-					base.character.LogText(User), RankedWage, town, RecipientRk))
+					base.character.LogText(Recipient), RankedWage, town, RecipientRk))
 
 			else
 
 				local RankedWage=math.ceil(RecipientRk*baseWageUnit*0.5);
 				endname="";
 				log(string.format("[gems] %s got %d magic gems from %s. Character's rank: %d",
-					base.character.LogText(User), RankedWage, town, RecipientRk));
+					base.character.LogText(Recipient), RankedWage, town, RecipientRk));
 				while RankedWage>0 do
 					local randomGem=math.random(1,2);
 --					local maxGemLevel=math.floor(RankedWage^(1/3))
