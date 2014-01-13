@@ -103,7 +103,7 @@ end
 --@timeStmp Timestamp of the new month
 function NewMonthSwitch(town,timeStmp)
 	--debug("NewMonthSwitch with "..town.." and "..timeStmp);
-	local foundTreasure, currentTreasure = GetTownTreasure(town);
+	local currentTreasure = GetTownTreasure(town);
 	log(string.format("[tax switch] %s's treasure was reset. Old treasure was %d copper coins",
 				town, currentTreasure))
 	--debug("found treasure"..currentTreasure);
