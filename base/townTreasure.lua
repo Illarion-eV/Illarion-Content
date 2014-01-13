@@ -28,6 +28,10 @@ function GetTownTreasure(town)
 		return 0;
 	end
 	local treasureNumber = tonumber(currentTreasure);
+	if (treasureNumber == nil) then
+		debug(string.format("Script variable was found and resolved to %s, but failed to convert to a number!", (currentTreasure == nil) and "nil" or currentTreasure));
+		return 0;
+	end
 	if (treasureNumber > 3000000) then
 		log(string.format("[WARN][Town Treasure] The treasure of %s exceeded 3 million copper coins. Something is wrong. Capping.", town));
 		return 3000000;
