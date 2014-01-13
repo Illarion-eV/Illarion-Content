@@ -394,7 +394,7 @@ function PayOutWage(Recipient,town)
 					"You should earn favour in "..town.." in order to receive rewards for your tribute.");
 
 				log(string.format("[gems] %s got 0 magic gems from %s. Character's rank: %d",
-					base.character.LogText(Recipient), RankedWage, town, RecipientRk))
+					base.character.LogText(Recipient), town, RecipientRk))
 
 			else
 
