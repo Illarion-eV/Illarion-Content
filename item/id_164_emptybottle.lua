@@ -59,7 +59,7 @@ function UseItem(User, SourceItem, ltstate)
 
 	-- The Glutinous Tree
 	local frontItem = base.common.GetFrontItem(User)
-	if frontItem.id == 589 and frontItem.pos == position(376,288,0) then
+	if frontItem and frontItem.id == 589 and frontItem.pos == position(376,288,0) then
 	    GetSlimeFromTree(User, SourceItem, ltstate)
 	end
 	

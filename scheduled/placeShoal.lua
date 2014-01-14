@@ -22,16 +22,17 @@ shoalPositions = {}
 
 function placeShoal()
 
-	local removed = 0
-	for i=1,#shoalPositions-removed do
-	if shoalPositions[i]["counter"] == 0 then
-		if not world:isItemOnField(shoalPositions[i]["shoalPosition"]) or world:getItemOnField(shoalPositions[i]["shoalPosition"]).id ~= 1170 then
-			local shoal = world:createItemFromId(1170,1,shoalPositions[i]["shoalPosition"],true,333,{amount = 20})
-		end
-		table.remove(shoalPositions,i)
-		removed = removed + 1
-	else
-		shoalPositions[i]["counter"] = shoalPositions[i]["counter"] - 1
+	if #shoalPositions == 0 then
+		return
 	end
+	for i=#shoalPositions,1,-1 do
+		if shoalPositions[i]["counter"] == 0 then
+			if not world:isItemOnField(shoalPositions[i]["shoalPosition"]) or world:getItemOnField(shoalPositions[i]["shoalPosition"]).id ~= 1170 then
+				local shoal = world:createItemFromId(1170,1,shoalPositions[i]["shoalPosition"],true,333,{amount = 20})
+			end
+			table.remove(shoalPositions,i)
+		else
+			shoalPositions[i]["counter"] = shoalPositions[i]["counter"] - 1
+		end
 	end
 end

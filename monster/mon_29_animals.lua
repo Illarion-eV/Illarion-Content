@@ -146,9 +146,8 @@ function onDeath(Monster)
 	elseif (MonID==621 or MonID==622 or MonID==1061 or MonID==1071 or MonID==1081) then --chicken
 
         monster.base.drop.AddDropItem(63,1,100,333,0,1); --entrails
-        monster.base.drop.AddDropItem(1149,math.random(1,3),50,333,0,2); --brown egg
-		-- notyet:
-		-- monster.base.drop.AddDropItem(1150,math.random(1,3),50,333,0,2); --white egg
+        --monster.base.drop.AddDropItem(1149,math.random(1,3),50,333,0,2); --brown egg
+		monster.base.drop.AddDropItem(1150,math.random(1,3),50,333,0,2); --white egg
 		monster.base.drop.AddDropItem(1151,math.random(1,2),50,333,0,3); --chicken meat
 
     end

@@ -157,8 +157,8 @@ product:addIngredient(2493) -- Step 4: Carrots(2493) 1x
 product = cooking:addProduct(catId, 1154, 45, 65, 60, 120)
 product:addIngredient(2952) -- Step 1: Plate(2952) 1x
 product:addIngredient(3051) -- Step 2: Sausage(3051) 1x
-product:addIngredient(1149, 2) -- Step 3: Brown Egg (1149) 2x
--- notyet: White Eggs (as alternative to brown eggs)
+product:addIngredient(1150, 2) -- Step 3: White Egg (50) 2x
+
 -------------- FRIED EGGS - DONE ----------------
 
 ---------------- SALMON DISH - 556 ----------------------

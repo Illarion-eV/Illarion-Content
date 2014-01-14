@@ -102,7 +102,7 @@ product:addRemnant(51) -- Step 4: Bucket with water (52) 1x
 product = baking:addProduct(catId, 1153, 95, 100, 175, 350)
 product:addIngredient(2, 3) -- Step 1: Flour (2) 3x
 product:addIngredient(778, 2) -- Step 2: Sugar Cane (778) 2x
-product:addIngredient(1149, 5) -- Step 3: Brown Egg (1149) 5x
+product:addIngredient(1150, 5) -- Step 3: White Egg (1150) 5x
 product:addIngredient(765, 1) -- Step 4: Daydream (765) 1x
 product:addIngredient(517) -- Step 5: Rum (517) 1x
 product:addRemnant(518) -- Remnant: Empty Rum Bottle (518) 1x
