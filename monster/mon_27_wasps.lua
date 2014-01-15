@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.drop")
 require("monster.base.lookat")
@@ -55,7 +55,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     local MonID=Monster:getMonsterType();
     if (MonID==278) then
         world:gfx(9,Monster.pos);
@@ -125,16 +125,16 @@ end
 
 function CreateCircle(gfxid,Damage,CenterPos,Radius,setFlames)
     local irad = math.ceil(Radius);
-    local dim = 2*(irad+1);
+
     local x;
     local y;
-    local map = {};    
+    local map = {};
     for x = -irad-1, irad do
         map[x] = {};
         for y = -irad-1, irad do
             map[x][y] = (x+0.5)*(x+0.5)+(y+0.5)*(y+0.5)-irad*irad > 0
         end;
-    end;   
+    end;
     for x = -irad, irad do
         for y = -irad, irad do
             if not( map[x][y] and  map[x-1][y] and map[x][y-1] and map[x-1][y-1] )
@@ -157,22 +157,16 @@ end;
 function HitChar(Posi,Hitpoints,CenterPos)
     if world:isCharacterOnField(Posi) then
         local Character = world:getCharacterOnField(Posi);
-        if (Character:getType()==1) then
-            if (Character:getMonsterType() == 401) then
-                if not (Posi == CenterPos) then
-                    return
-                end
-            elseif (Character:getMonsterType() == 278) then
-                Character:increaseAttrib("hitpoints",-10000);
-                return
-            end
+
+        if (Character:getType() == 2) then --dont touch npcs
+            return;
         end
-                
-        if (Posi == CenterPos) then			
-			local posX = Character.pos.x+math.random(-9,9)
-			local posY = Character.pos.y+math.random(-9,9)		
-			local LoS = world:LoS(Character.pos, position(posX,posY,Character.pos.z))
-            Character:warp(position(posX,posY,Character.pos.z));
+
+		local posX;
+		local posY;
+        if (Posi == CenterPos) then
+			posX = Character.pos.x+math.random(-9,9)
+			posY = Character.pos.y+math.random(-9,9)
         else
             local Distance = Character:distanceMetricToPosition(CenterPos);
             local Diffx = CenterPos.x - Character.pos.x;
@@ -184,49 +178,59 @@ function HitChar(Posi,Hitpoints,CenterPos)
                 Diffx = 2*Diffx;
                 Diffy = 2*Diffy;
             end
-			local posX = Character.pos.x-Diffx
-			local posY = Character.pos.y-Diffy
+			posX = Character.pos.x-Diffx
+			posY = Character.pos.y-Diffy
+		end
+
 			local listOfStuff = world:LoS(Character.pos, position(posX,posY,Character.pos.z))
-			
+
 			if listOfStuff ~= nil then
+				local minDistance = Character:distanceMetricToPosition(position(posX,posY,Character.pos.z));
+
 				for i, listEntry in pairs(listOfStuff) do
 					local itemPos = listEntry.OBJECT.pos
 					local field = world:getField(itemPos)
-					
+					local tempX = posX;
+					local tempY = posY;
 					-- something not passable is in the way, recalculate position
-					if not field:isPassable() then 
+					if not field:isPassable() then
+						--Character:inform("phi stuff "..i);
 						local phi = base.common.GetPhi(Character.pos, itemPos);
 						if (phi < math.pi / 8) then
-							posX = itemPos.x - 1
+							tempX = itemPos.x - 1
 						elseif (phi < 3 * math.pi / 8) then
-							posX = itemPos.x - 1
-							posY = itemPos.y - 1
+							tempX = itemPos.x - 1
+							tempY = itemPos.y - 1
 						elseif (phi < 5 * math.pi / 8) then
-							posY = itemPos.y - 1
+							tempY = itemPos.y - 1
 						elseif (phi < 7 * math.pi / 8) then
-							posX = itemPos.x + 1
-							posY = itemPos.y - 1
+							tempX = itemPos.x + 1
+							tempY = itemPos.y - 1
 						elseif (phi < 9 * math.pi / 8) then
-							posX = itemPos.x + 1
+							tempX = itemPos.x + 1
 						elseif (phi < 11 * math.pi / 8) then
-							posX = itemPos.x + 1
-							posY = itemPos.y + 1
+							tempX = itemPos.x + 1
+							tempY = itemPos.y + 1
 						elseif (phi < 13 * math.pi / 8) then
-							posY = itemPos.y + 1
+							tempY = itemPos.y + 1
 						elseif (phi < 15 * math.pi / 8) then
-							posX = itemPos.x - 1
-							posY = itemPos.y + 1
+							tempX = itemPos.x - 1
+							tempY = itemPos.y + 1
 						else
-							posX = itemPos.x - 1
+							tempX = itemPos.x - 1
 						end;
-						Character:warp(position(posX,posY,Character.pos.z));
-						return;
+
+						local tempDistance = Character:distanceMetricToPosition(position(tempX,tempY,Character.pos.z));
+						if (  tempDistance < minDistance) then
+							minDistance = tempDistance;
+							posX = tempX;
+							posY = tempY;
+						end
 					end
 				end
 			end
-			Character:warp(position(posX,posY,Character.pos.z));
-            
-        end
+
+		Character:warp(position(posX,posY,Character.pos.z));
         base.common.InformNLS(Character,
         "Getroffen von der Detonation wirst du davon geschleudert.",
         "Hit by the detonation, you get thrown away.");
@@ -238,18 +242,13 @@ function SetNextTrap(Posi,CenterPos)
     if (Posi == CenterPos) then
         return false
     end
-    
+
     if not world:isItemOnField(Posi) then
         return false
     end
-    
+
     TestItem = world:getItemOnField(Posi);
-    
-    -- item.data is deprecated, do not use anymore
-    -- if (TestItem.data ~= 2) then
-    --     return false
-    -- end
-    
+
     if ((TestItem.id >= 377) and (TestItem.id <=381)) then
         local tempmonster = world:createMonster(401,Posi,-50);
         if isValidChar(tempmonster) then
