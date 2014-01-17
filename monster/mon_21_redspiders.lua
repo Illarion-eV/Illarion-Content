@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.drop")
 require("monster.base.lookat")
@@ -20,6 +20,7 @@ require("monster.base.quests")
 require("base.messages");
 require("monster.base.kills")
 require("base.arena")
+require("base.explosion")
 module("monster.mon_21_redspiders", package.seeall)
 
 
@@ -54,7 +55,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     local MonID=Monster:getMonsterType();
     if (MonID==211) then
         world:gfx(9,Monster.pos);
@@ -73,8 +74,8 @@ function enemyOnSight(Monster,Enemy)
     local MonID=Monster:getMonsterType();
 	if (MonID==211) then
 		world:gfx(9,Monster.pos);
-	end 
-	
+	end
+
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
     else
@@ -105,21 +106,16 @@ function onDeath(Monster)
     if base.arena.isArenaMonster(Monster) then
         return
     end
-	
+
 	local MonID=Monster:getMonsterType();
 	if (MonID==211) then -- spider of Fire!!
-	     CreateCircle( 1, 250,Monster.pos,3,false);
-        CreateCircle( 9, 750,Monster.pos,2,true);
-        CreateCircle(44,1000,Monster.pos,1,true);
-        world:gfx(36,Monster.pos);
-        world:makeSound(5,Monster.pos);
+		base.explosion.CreateExplosion(Monster.pos);
     end
 
-	
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -128,10 +124,9 @@ function onDeath(Monster)
 
         end
     end
-    
+
     monster.base.drop.ClearDropping();
-    local MonID=Monster:getMonsterType();
-   if (MonID==211) then --Firespide, Level: 4, Armourtype: heavy, Weapontype: distance
+	if (MonID==211) then --Firespide, Level: 4, Armourtype: heavy, Weapontype: distance
 
         --Category 1: Raw gems
 
@@ -174,141 +169,3 @@ function onDeath(Monster)
     end
     monster.base.drop.Dropping(Monster);
 end
-
-function CreateCircle(gfxid,Damage,CenterPos,Radius,setFlames)
-    local irad = math.ceil(Radius);
-    local dim = 2*(irad+1);
-    local x;
-    local y;
-    local map = {};    
-    for x = -irad-1, irad do
-        map[x] = {};
-        for y = -irad-1, irad do
-            map[x][y] = (x+0.5)*(x+0.5)+(y+0.5)*(y+0.5)-irad*irad > 0
-        end;
-    end;   
-    for x = -irad, irad do
-        for y = -irad, irad do
-            if not( map[x][y] and  map[x-1][y] and map[x][y-1] and map[x-1][y-1] )
-               and( map[x][y] or   map[x-1][y] or  map[x][y-1] or  map[x-1][y-1] ) then
-                HitPos=position( CenterPos.x + x, CenterPos.y + y, CenterPos.z );
-                world:gfx(gfxid,HitPos);
-                HitChar(HitPos,Damage,CenterPos);
-                if not SetNextTrap(HitPos,CenterPos) then
-                    if setFlames then
-                        if (math.random(1,5)==1) then
-                            world:createItemFromId(359,1,HitPos,true,math.random(200,600),nil);
-                        end
-                    end
-                end
-            end;
-        end;
-    end;
-end;
-
-function HitChar(Posi,Hitpoints,CenterPos)
-    if world:isCharacterOnField(Posi) then
-        local Character = world:getCharacterOnField(Posi);
-        if (Character:getType()==1) then
-            if (Character:getMonsterType() == 401) then
-                if not (Posi == CenterPos) then
-                    return
-                end
-            elseif (Character:getMonsterType() == 278) then
-                Character:increaseAttrib("hitpoints",-10000);
-                return
-            end
-        end
-                
-        if (Posi == CenterPos) then			
-			local posX = Character.pos.x+math.random(-9,9)
-			local posY = Character.pos.y+math.random(-9,9)		
-			local LoS = world:LoS(Character.pos, position(posX,posY,Character.pos.z))
-            Character:warp(position(posX,posY,Character.pos.z));
-        else
-            local Distance = Character:distanceMetricToPosition(CenterPos);
-            local Diffx = CenterPos.x - Character.pos.x;
-            local Diffy = CenterPos.y - Character.pos.y;
-            if (Distance == 1) then
-                Diffx = 6*Diffx;
-                Diffy = 6*Diffy;
-            elseif (Distance == 2) then
-                Diffx = 2*Diffx;
-                Diffy = 2*Diffy;
-            end
-			local posX = Character.pos.x-Diffx
-			local posY = Character.pos.y-Diffy
-			local listOfStuff = world:LoS(Character.pos, position(posX,posY,Character.pos.z))
-			
-			if listOfStuff ~= nil then
-				for i, listEntry in pairs(listOfStuff) do
-					local itemPos = listEntry.OBJECT.pos
-					local field = world:getField(itemPos)
-					
-					-- something not passable is in the way, recalculate position
-					if not field:isPassable() then 
-						local phi = base.common.GetPhi(Character.pos, itemPos);
-						if (phi < math.pi / 8) then
-							posX = itemPos.x - 1
-						elseif (phi < 3 * math.pi / 8) then
-							posX = itemPos.x - 1
-							posY = itemPos.y - 1
-						elseif (phi < 5 * math.pi / 8) then
-							posY = itemPos.y - 1
-						elseif (phi < 7 * math.pi / 8) then
-							posX = itemPos.x + 1
-							posY = itemPos.y - 1
-						elseif (phi < 9 * math.pi / 8) then
-							posX = itemPos.x + 1
-						elseif (phi < 11 * math.pi / 8) then
-							posX = itemPos.x + 1
-							posY = itemPos.y + 1
-						elseif (phi < 13 * math.pi / 8) then
-							posY = itemPos.y + 1
-						elseif (phi < 15 * math.pi / 8) then
-							posX = itemPos.x - 1
-							posY = itemPos.y + 1
-						else
-							posX = itemPos.x - 1
-						end;
-						Character:warp(position(posX,posY,Character.pos.z));
-						return;
-					end
-				end
-			end
-			Character:warp(position(posX,posY,Character.pos.z));
-            
-        end
-        base.common.InformNLS(Character,
-        "Getroffen von der Detonation wirst du davon geschleudert.",
-        "Hit by the detonation, you get thrown away.");
-        Character:increaseAttrib("hitpoints",-Hitpoints);
-    end;
-end;
-
-function SetNextTrap(Posi,CenterPos)
-    if (Posi == CenterPos) then
-        return false
-    end
-    
-    if not world:isItemOnField(Posi) then
-        return false
-    end
-    
-    TestItem = world:getItemOnField(Posi);
-    
-    -- item.data is deprecated, do not use anymore
-    -- if (TestItem.data ~= 2) then
-    --     return false
-    -- end
-    
-    if ((TestItem.id >= 377) and (TestItem.id <=381)) then
-        local tempmonster = world:createMonster(401,Posi,-50);
-        if isValidChar(tempmonster) then
-            tempmonster.fightpoints = tempmonster.fightpoints - 100;
-            return true
-        end
-    end
-    return false
-end
-
