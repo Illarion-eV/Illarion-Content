@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Food script
 require("base.common")
@@ -131,9 +131,9 @@ FoodList:add( 354,	nil,	   0,	 2,	{1,1,2,1,0.5,0.5,1,2,1,1}); -- strawberry cake
 FoodList:add( 559,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- lamb dish
 FoodList:add( 554,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- venison dish
 FoodList:add(1152,	nil,	2935,	 2,	{1,1,1,1,0.5,1,1,1,1,1}); -- chicken soup
-FoodList:add(1153,	nil,	   0,	 2,	{1,1,2,1,0.5,0.5,1,2,1,1}); -- custard pie
+FoodList:add(1153,	nil,	   0,	 3,	{1,1,2,1,0.5,0.5,1,2,1,1}); -- custard pie
 FoodList:add(1154,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- egg dish
-FoodList:add(1155,	nil,	2952,	 3,	{1,1,1,1,2,1,1,0.5,1,1}); -- chicken dish
+FoodList:add(1155,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- chicken dish
 
 -- Poisoned Food
 FoodList:add( 162,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 600); -- birth mushroom
@@ -340,10 +340,11 @@ function UseItem(User, SourceItem, ltstate)
             end
           end
           if (newIsBetter) then
-            dietEffect:addValue("buffType", foodItem.buffType);
-            dietEffect:addValue("buffAmount", newBuffAmount);
             dietEffect:addValue("buffExpireStamp", base.common.GetCurrentTimestamp() + newDuration);
             if (newBuffAmount > buffAmount or buffType ~= foodItem.buffType) then
+			  dietEffect:addValue("buffType", foodItem.buffType);
+              dietEffect:addValue("buffAmount", newBuffAmount);
+			  lte.diet.RemoveBuff(dietEffect, User);
               lte.diet.InformPlayer(dietEffect, User);
             end
           end
