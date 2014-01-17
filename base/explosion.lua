@@ -19,6 +19,11 @@ require("base.common")
 
 module("base.explosion", package.seeall)
 
+--[[
+    CreateExplosion
+    Provide an explosion that also throws characters away, in a radios of 3 fields
+    @param integer - Center of the explosion
+]]
 function CreateExplosion(CenterPos)
 
 	function CreateOuterCircle(HitPos)
@@ -34,7 +39,7 @@ function CreateExplosion(CenterPos)
 		return true;
 	end
 
-	base.common.CreateCircle(CenterPos, 3, CreateouterCircle);
+	base.common.CreateCircle(CenterPos, 3, CreateOuterCircle);
 	base.common.CreateCircle(CenterPos, 2, CreateMiddleCircle);
 	base.common.CreateCircle(CenterPos, 1, CreateInnerCircle);
 	world:gfx(36,CenterPos);
@@ -63,7 +68,7 @@ function HitChar(Posi,Hitpoints,CenterPos)
 
 		local posX;
 		local posY;
-        if (Posi == CenterPos) then
+        if (Posi == CenterPos) then -- code path not reached
 			posX = Character.pos.x+math.random(-9,9)
 			posY = Character.pos.y+math.random(-9,9)
         else
