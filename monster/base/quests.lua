@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --Generic 'Kill X monsters' quests by Estralis Seborian
 
@@ -42,7 +42,7 @@ module("monster.base.quests", package.seeall)
 function iniQuests()
 
     --Initilisation
-    
+
     statusId={};
     germanTitle={};
     englishTitle={};
@@ -158,7 +158,7 @@ function iniQuests()
     questList[262]={}; --Soulpain
     questList[271]={}; --Wasp
     questList[272]={}; --Hornet
-    questList[273]={}; --Wasp Queen 
+    questList[273]={}; --Wasp Queen
     questList[274]={}; --Wasp Drone
     questList[278]={}; --Fire Wasp
     questList[301]={}; --Stone Golem
@@ -313,153 +313,153 @@ function iniQuests()
     questList[2000]={}; --Guards
 
     --Quest 1: Galmair Sewers I (77)
-    
+
     local id=1;
-    germanTitle[id]="Die Kanalisation von Galmair I"; 
+    germanTitle[id]="Die Kanalisation von Galmair I";
     englishTitle[id]="Galmair Sewers I";
-    NPCName[id]="Miggs"; 
+    NPCName[id]="Miggs";
     statusId[id]=77;
-    germanRace[id]="Schleime"; 
+    germanRace[id]="Schleime";
     englishRace[id]="slimes";
-    table.insert(questList[611],id); 
-    table.insert(questList[612],id); 
-    table.insert(questList[613],id); 
-    table.insert(questList[614],id); 
-    table.insert(questList[1031],id); 
+    table.insert(questList[611],id);
+    table.insert(questList[612],id);
+    table.insert(questList[613],id);
+    table.insert(questList[614],id);
+    table.insert(questList[1031],id);
 	table.insert(questList[1032],id);
 	table.insert(questList[1033],id);
-    table.insert(questList[1041],id); 
+    table.insert(questList[1041],id);
 	table.insert(questList[1042],id);
 	table.insert(questList[1043],id);
-    table.insert(questList[1051],id); 
+    table.insert(questList[1051],id);
 	table.insert(questList[1052],id);
 	table.insert(questList[1053],id);
-    minimumQueststatus[id]=1; 
-    maximumQueststatus[id]=11; 
-    questLocation[id]=position(298,352,-6); 
+    minimumQueststatus[id]=1;
+    maximumQueststatus[id]=11;
+    questLocation[id]=position(298,352,-6);
     radius[id]=50;
 
     --Quest 2: Galmair Sewers II (77)
 
     local id=2;
-    germanTitle[id]="Die Kanalisation von Galmair II"; 
+    germanTitle[id]="Die Kanalisation von Galmair II";
     englishTitle[id]="Galmair Sewers II";
-    NPCName[id]="Miggs"; 
+    NPCName[id]="Miggs";
     statusId[id]=77;
-    germanRace[id]="stinkige Gullimumien"; 
+    germanRace[id]="stinkige Gullimumien";
     englishRace[id]="smelly sewer mummies";
-    table.insert(questList[101],id); 
-    table.insert(questList[102],id); 
-    table.insert(questList[103],id); 
-    table.insert(questList[104],id); 
-    --table.insert(questList[105],id); 
-    table.insert(questList[106],id);    
-    table.insert(questList[107],id); 
-	table.insert(questList[151],id); 
-	table.insert(questList[152],id); 
+    table.insert(questList[101],id);
+    table.insert(questList[102],id);
+    table.insert(questList[103],id);
+    table.insert(questList[104],id);
+    --table.insert(questList[105],id);
+    table.insert(questList[106],id);
+    table.insert(questList[107],id);
+	table.insert(questList[151],id);
+	table.insert(questList[152],id);
 	table.insert(questList[171],id);
 	table.insert(questList[172],id);
 	table.insert(questList[173],id);
-	table.insert(questList[721],id); 
-	table.insert(questList[731],id); 
-    minimumQueststatus[id]=13; 
-    maximumQueststatus[id]=18; 
-    questLocation[id]=position(298,352,-6); 
+	table.insert(questList[721],id);
+	table.insert(questList[731],id);
+    minimumQueststatus[id]=13;
+    maximumQueststatus[id]=18;
+    questLocation[id]=position(298,352,-6);
     radius[id]=50;
 
     --Quest 3: Galmair Sewers III (77)
 
     local id=3;
-    germanTitle[id]="Die Kanalisation von Galmair III"; 
+    germanTitle[id]="Die Kanalisation von Galmair III";
     englishTitle[id]="Galmair Sewers III";
-    NPCName[id]="Miggs"; 
+    NPCName[id]="Miggs";
     statusId[id]=77;
-    germanRace[id]="Halblingdiebe"; 
+    germanRace[id]="Halblingdiebe";
     englishRace[id]="halfling thieves";
-    table.insert(questList[23],id); 
-    minimumQueststatus[id]=20; 
-    maximumQueststatus[id]=21; 
-    questLocation[id]=position(298,352,-6); 
+    table.insert(questList[23],id);
+    minimumQueststatus[id]=20;
+    maximumQueststatus[id]=21;
+    questLocation[id]=position(298,352,-6);
     radius[id]=50;
 
     --Quest 4: Sir Reginald's Tomb I (78)
 
     local id=4;
-    germanTitle[id]="Sir Reginalds Gruft I"; 
+    germanTitle[id]="Sir Reginalds Gruft I";
     englishTitle[id]="Sir Reginald's Tomb I";
-    NPCName[id]="Grakamesh"; 
+    NPCName[id]="Grakamesh";
     statusId[id]=78;
-    germanRace[id]="Mumien"; 
+    germanRace[id]="Mumien";
     englishRace[id]="mummies";
-    table.insert(questList[101],id); 
-    table.insert(questList[102],id); 
-    table.insert(questList[103],id); 
-    table.insert(questList[104],id); 
-    --table.insert(questList[105],id); 
-    table.insert(questList[106],id);    
+    table.insert(questList[101],id);
+    table.insert(questList[102],id);
+    table.insert(questList[103],id);
+    table.insert(questList[104],id);
+    --table.insert(questList[105],id);
+    table.insert(questList[106],id);
     table.insert(questList[107],id);
-	table.insert(questList[151],id); 
-	table.insert(questList[152],id); 
+	table.insert(questList[151],id);
+	table.insert(questList[152],id);
 	table.insert(questList[171],id);
 	table.insert(questList[172],id);
 	table.insert(questList[173],id);
-	table.insert(questList[721],id); 
-	table.insert(questList[731],id); 	
-    minimumQueststatus[id]=1; 
+	table.insert(questList[721],id);
+	table.insert(questList[731],id);
+    minimumQueststatus[id]=1;
     maximumQueststatus[id]=11;
-    questLocation[id]=position(135,655,-4); 
-    radius[id]=50; 
+    questLocation[id]=position(135,655,-4);
+    radius[id]=50;
 
     --Quest 5: Sir Reginald's Tomb II (78)
 
     local id=5;
-    germanTitle[id]="Sir Reginalds Gruft II"; 
+    germanTitle[id]="Sir Reginalds Gruft II";
     englishTitle[id]="Sir Reginald's Tomb II";
-    NPCName[id]="Grakamesh"; 
+    NPCName[id]="Grakamesh";
     statusId[id]=78;
-    germanRace[id]="Schleime"; 
+    germanRace[id]="Schleime";
     englishRace[id]="slimes";
-    table.insert(questList[611],id); 
-    table.insert(questList[612],id); 
-    table.insert(questList[613],id); 
-    table.insert(questList[614],id); 
-    table.insert(questList[1031],id); 
+    table.insert(questList[611],id);
+    table.insert(questList[612],id);
+    table.insert(questList[613],id);
+    table.insert(questList[614],id);
+    table.insert(questList[1031],id);
 	table.insert(questList[1032],id);
 	table.insert(questList[1033],id);
-    table.insert(questList[1041],id); 
+    table.insert(questList[1041],id);
 	table.insert(questList[1042],id);
 	table.insert(questList[1043],id);
-    table.insert(questList[1051],id); 
+    table.insert(questList[1051],id);
 	table.insert(questList[1052],id);
 	table.insert(questList[1053],id);
-    minimumQueststatus[id]=13; 
+    minimumQueststatus[id]=13;
     maximumQueststatus[id]=18;
-    questLocation[id]=position(135,655,-4); 
-    radius[id]=50; 
+    questLocation[id]=position(135,655,-4);
+    radius[id]=50;
 
     --Quest 6: Sir Reginald's Tomb III (78)
 
     local id=6;
-    germanTitle[id]="Sir Reginalds Gruft III"; 
+    germanTitle[id]="Sir Reginalds Gruft III";
     englishTitle[id]="Sir Reginald's Tomb III";
-    NPCName[id]="Grakamesh"; 
+    NPCName[id]="Grakamesh";
     statusId[id]=78;
-    germanRace[id]="Geisterskelette"; 
+    germanRace[id]="Geisterskelette";
     englishRace[id]="ghosts skeletons";
-    table.insert(questList[115],id); 
-    minimumQueststatus[id]=20; 
+    table.insert(questList[115],id);
+    minimumQueststatus[id]=20;
     maximumQueststatus[id]=21;
-    questLocation[id]=position(135,655,-4); 
-    radius[id]=50; 
+    questLocation[id]=position(135,655,-4);
+    radius[id]=50;
 
     --Quest 7: A cave in the Woods I (79)
 
     local id=7;
-    germanTitle[id]="Eine Höhle im Wald I"; 
+    germanTitle[id]="Eine Höhle im Wald I";
     englishTitle[id]="A cave in the Woods I";
-    NPCName[id]="Myrthe Mildthorn"; 
+    NPCName[id]="Myrthe Mildthorn";
     statusId[id]=79;
-    germanRace[id]="Wölfe"; 
+    germanRace[id]="Wölfe";
     englishRace[id]="wolves";
     table.insert(questList[391],id); --Wolf
     table.insert(questList[392],id); --Welp
@@ -471,91 +471,91 @@ function iniQuests()
     table.insert(questList[411],id); --Lambslaughterer
 	table.insert(questList[421],id); --Grey Tail
     table.insert(questList[431],id); --Redwolf
-    minimumQueststatus[id]=1; 
-    maximumQueststatus[id]=11; 
-    questLocation[id]=position(774,711,0); 
-    radius[id]=40; 
+    minimumQueststatus[id]=1;
+    maximumQueststatus[id]=11;
+    questLocation[id]=position(774,711,0);
+    radius[id]=40;
 
     --Quest 8: A cave in the Woods II (79)
 
     local id=8;
-    germanTitle[id]="Eine Höhle im Wald II"; 
+    germanTitle[id]="Eine Höhle im Wald II";
     englishTitle[id]="A cave in the Woods II";
-    NPCName[id]="Myrthe Mildthorn"; 
+    NPCName[id]="Myrthe Mildthorn";
     statusId[id]=79;
-    germanRace[id]="Hunde"; 
+    germanRace[id]="Hunde";
     englishRace[id]="dogs";
-    table.insert(questList[581],id); 
-    table.insert(questList[582],id); 
-    table.insert(questList[583],id); 
-    table.insert(questList[584],id); 
-    minimumQueststatus[id]=13; 
-    maximumQueststatus[id]=18; 
-    questLocation[id]=position(774,711,0); 
-    radius[id]=40; 
+    table.insert(questList[581],id);
+    table.insert(questList[582],id);
+    table.insert(questList[583],id);
+    table.insert(questList[584],id);
+    minimumQueststatus[id]=13;
+    maximumQueststatus[id]=18;
+    questLocation[id]=position(774,711,0);
+    radius[id]=40;
 
     --Quest 9: A cave in the Woods III (79)
 
     local id=9;
-    germanTitle[id]="Eine Höhle im Wald III"; 
+    germanTitle[id]="Eine Höhle im Wald III";
     englishTitle[id]="A cave in the Woods III";
-    NPCName[id]="Myrthe Mildthorn"; 
+    NPCName[id]="Myrthe Mildthorn";
     statusId[id]=79;
-    germanRace[id]="Spinnen"; 
+    germanRace[id]="Spinnen";
     englishRace[id]="spiders";
-	table.insert(questList[191],id); 
-	table.insert(questList[192],id); 
-	table.insert(questList[193],id); 
-	table.insert(questList[195],id); 
-    table.insert(questList[196],id); 
-    minimumQueststatus[id]=20; 
-    maximumQueststatus[id]=21; 
-    questLocation[id]=position(774,711,0); 
+	table.insert(questList[191],id);
+	table.insert(questList[192],id);
+	table.insert(questList[193],id);
+	table.insert(questList[195],id);
+    table.insert(questList[196],id);
+    minimumQueststatus[id]=20;
+    maximumQueststatus[id]=21;
+    questLocation[id]=position(774,711,0);
     radius[id]=40;
 
     --Quest 10: The Poacher I (4)
 
     local id=10;
-    germanTitle[id]="Der Wilderer I"; 
+    germanTitle[id]="Der Wilderer I";
     englishTitle[id]="The Poacher I";
-    NPCName[id]="Eugene Burton"; 
+    NPCName[id]="Eugene Burton";
     statusId[id]=4;
-    germanRace[id]="Wildschweine"; 
+    germanRace[id]="Wildschweine";
     englishRace[id]="boars";
 	table.insert(questList[241],id); --Pig
 	table.insert(questList[251],id); --Boar
 	table.insert(questList[252],id); --Young Boar
 	table.insert(questList[253],id); --Hog
-    minimumQueststatus[id]=1; 
-    maximumQueststatus[id]=7; 
-    questLocation[id]=position(775,475,0); 
-    radius[id]=75; 
+    minimumQueststatus[id]=1;
+    maximumQueststatus[id]=7;
+    questLocation[id]=position(775,475,0);
+    radius[id]=75;
 
     --Quest 11: The Poacher II (4)
 
     local id=11;
-    germanTitle[id]="Der Wilderer II"; 
+    germanTitle[id]="Der Wilderer II";
     englishTitle[id]="The Poacher II";
-    NPCName[id]="Eugene Burton"; 
+    NPCName[id]="Eugene Burton";
     statusId[id]=4;
-    germanRace[id]="Rinder"; 
+    germanRace[id]="Rinder";
     englishRace[id]="bulls";
     table.insert(questList[371],id); --Cow
 	table.insert(questList[381],id); --Bull
 	table.insert(questList[382],id); --Young Bull
-    minimumQueststatus[id]=9; 
-    maximumQueststatus[id]=21; 
-    questLocation[id]=position(775,475,0); 
-    radius[id]=75; 
+    minimumQueststatus[id]=9;
+    maximumQueststatus[id]=21;
+    questLocation[id]=position(775,475,0);
+    radius[id]=75;
 
     --Quest 12: The Poacher III (4)
 
     local id=12;
-    germanTitle[id]="Der Wilderer III"; 
+    germanTitle[id]="Der Wilderer III";
     englishTitle[id]="The Poacher III";
-    NPCName[id]="Eugene Burton"; 
+    NPCName[id]="Eugene Burton";
     statusId[id]=4;
-    germanRace[id]="Wölfe"; 
+    germanRace[id]="Wölfe";
     englishRace[id]="wolves";
     table.insert(questList[391],id); --Wolf
     table.insert(questList[392],id); --Welp
@@ -567,211 +567,229 @@ function iniQuests()
     table.insert(questList[411],id); --Lambslaughterer
 	table.insert(questList[421],id); --Grey Tail
     table.insert(questList[431],id); --Redwolf
-    minimumQueststatus[id]=23; 
-    maximumQueststatus[id]=29; 
-    questLocation[id]=position(775,475,0); 
-    radius[id]=75; 
+    minimumQueststatus[id]=23;
+    maximumQueststatus[id]=29;
+    questLocation[id]=position(775,475,0);
+    radius[id]=75;
 
     --Quest 13: The Poacher IV (4)
 
     local id=13;
-    germanTitle[id]="Der Wilderer IV"; 
+    germanTitle[id]="Der Wilderer IV";
     englishTitle[id]="The Poacher IV";
-    NPCName[id]="Eugene Burton"; 
+    NPCName[id]="Eugene Burton";
     statusId[id]=4;
-    germanRace[id]="elfische Wildhüter"; 
+    germanRace[id]="elfische Wildhüter";
     englishRace[id]="elven rangers";
-    table.insert(questList[35],id); 
-    minimumQueststatus[id]=31; 
-    maximumQueststatus[id]=32; 
-    questLocation[id]=position(775,475,0); 
-    radius[id]=75; 
+    table.insert(questList[35],id);
+    minimumQueststatus[id]=31;
+    maximumQueststatus[id]=32;
+    questLocation[id]=position(775,475,0);
+    radius[id]=75;
 
     --Quest 14: The Craven Orc II (3)
 
     local id=14;
-    germanTitle[id]="Der feige Ork II"; 
+    germanTitle[id]="Der feige Ork II";
     englishTitle[id]="The Craven Orc II";
-    NPCName[id]="Graznok"; 
+    NPCName[id]="Graznok";
     statusId[id]=3;
-    germanRace[id]="'Lumpenmanns'"; 
+    germanRace[id]="'Lumpenmanns'";
     englishRace[id]="'ragmen'";
-    table.insert(questList[101],id); 
-    table.insert(questList[102],id); 
-    table.insert(questList[103],id); 
-    table.insert(questList[104],id); 
-    table.insert(questList[106],id);    
+    table.insert(questList[101],id);
+    table.insert(questList[102],id);
+    table.insert(questList[103],id);
+    table.insert(questList[104],id);
+    table.insert(questList[106],id);
     table.insert(questList[107],id);
 	table.insert(questList[151],id);
-	table.insert(questList[152],id);	
+	table.insert(questList[152],id);
 	table.insert(questList[171],id);
 	table.insert(questList[172],id);
 	table.insert(questList[173],id);
-	table.insert(questList[721],id); 
-	table.insert(questList[731],id); 
-    minimumQueststatus[id]=3; 
-    maximumQueststatus[id]=8; 
-    questLocation[id]=position(665,415,0); 
-    radius[id]=35; 
+	table.insert(questList[721],id);
+	table.insert(questList[731],id);
+    minimumQueststatus[id]=3;
+    maximumQueststatus[id]=8;
+    questLocation[id]=position(665,415,0);
+    radius[id]=35;
 
     --Quest 15: The Craven Orc III (3)
 
     local id=15;
-    germanTitle[id]="Der feige Ork III"; 
+    germanTitle[id]="Der feige Ork III";
     englishTitle[id]="The Craven Orc III";
-    NPCName[id]="Graznok"; 
+    NPCName[id]="Graznok";
     statusId[id]=3;
-    germanRace[id]="'Knochenmanns'"; 
+    germanRace[id]="'Knochenmanns'";
     englishRace[id]="'bonemen'";
-    table.insert(questList[111],id); 
-    table.insert(questList[112],id); 
-    table.insert(questList[113],id); 
-    table.insert(questList[114],id); 
+    table.insert(questList[111],id);
+    table.insert(questList[112],id);
+    table.insert(questList[113],id);
+    table.insert(questList[114],id);
     table.insert(questList[115],id);
-	table.insert(questList[751],id); 
-    table.insert(questList[753],id); 
-    table.insert(questList[754],id); 
-    table.insert(questList[761],id); 
-    table.insert(questList[762],id); 
-	table.insert(questList[763],id); 
-    table.insert(questList[764],id); 
-    table.insert(questList[782],id); 
-    table.insert(questList[783],id); 
-    table.insert(questList[784],id);	
-    minimumQueststatus[id]=10; 
-    maximumQueststatus[id]=20; 
-    questLocation[id]=position(665,415,0); 
-    radius[id]=35; 
+	table.insert(questList[751],id);
+    table.insert(questList[753],id);
+    table.insert(questList[754],id);
+    table.insert(questList[761],id);
+    table.insert(questList[762],id);
+	table.insert(questList[763],id);
+    table.insert(questList[764],id);
+    table.insert(questList[782],id);
+    table.insert(questList[783],id);
+    table.insert(questList[784],id);
+    minimumQueststatus[id]=10;
+    maximumQueststatus[id]=20;
+    questLocation[id]=position(665,415,0);
+    radius[id]=35;
 
     --Quest 16: The Errant Crusade II
 
     local id=16;
-    englishTitle[id]="The Errant Crusade II"; 
+    englishTitle[id]="The Errant Crusade II";
     germanTitle[id]="Der fehlgeleitete Kreuzzug II";
-    NPCName[id]="Arenius Batavius"; 
+    NPCName[id]="Arenius Batavius";
     statusId[id]=104;
-    englishRace[id]="mummies"; 
+    englishRace[id]="mummies";
     germanRace[id]="Mumien";
-    table.insert(questList[101],id); 
-    table.insert(questList[102],id); 
-    table.insert(questList[103],id); 
-    table.insert(questList[104],id); 
-    table.insert(questList[106],id);    
+    table.insert(questList[101],id);
+    table.insert(questList[102],id);
+    table.insert(questList[103],id);
+    table.insert(questList[104],id);
+    table.insert(questList[106],id);
     table.insert(questList[107],id);
 	table.insert(questList[151],id);
-	table.insert(questList[152],id);	
+	table.insert(questList[152],id);
 	table.insert(questList[171],id);
 	table.insert(questList[172],id);
 	table.insert(questList[173],id);
-	table.insert(questList[721],id); 
-	table.insert(questList[731],id); 	
-    minimumQueststatus[id]=3; 
-    maximumQueststatus[id]=9; 
-    questLocation[id]=position(705,410,-3); 
-    radius[id]=75; 
+	table.insert(questList[721],id);
+	table.insert(questList[731],id);
+    minimumQueststatus[id]=3;
+    maximumQueststatus[id]=9;
+    questLocation[id]=position(705,410,-3);
+    radius[id]=75;
 
     --Quest 17: The Errant Crusade III
 
     local id=17;
-    englishTitle[id]="The Errant Crusade III"; 
+    englishTitle[id]="The Errant Crusade III";
     germanTitle[id]="Der fehlgeleitete Kreuzzug III";
-    NPCName[id]="Arenius Batavius"; 
+    NPCName[id]="Arenius Batavius";
     statusId[id]=104;
-    englishRace[id]="skeletons"; 
+    englishRace[id]="skeletons";
     germanRace[id]="Skelette";
-    table.insert(questList[111],id); 
-    table.insert(questList[112],id); 
-    table.insert(questList[113],id); 
-    table.insert(questList[114],id); 
-    table.insert(questList[115],id); 
-	table.insert(questList[751],id); 
-    table.insert(questList[753],id); 
-    table.insert(questList[754],id); 
-    table.insert(questList[761],id); 
-    table.insert(questList[762],id); 
-	table.insert(questList[763],id); 
-    table.insert(questList[764],id); 
-    table.insert(questList[782],id); 
-    table.insert(questList[783],id); 
-    table.insert(questList[784],id); 
-    minimumQueststatus[id]=11; 
-    maximumQueststatus[id]=23; 
-    questLocation[id]=position(705,410,-3); 
-    radius[id]=75; 
+    table.insert(questList[111],id);
+    table.insert(questList[112],id);
+    table.insert(questList[113],id);
+    table.insert(questList[114],id);
+    table.insert(questList[115],id);
+	table.insert(questList[751],id);
+    table.insert(questList[753],id);
+    table.insert(questList[754],id);
+    table.insert(questList[761],id);
+    table.insert(questList[762],id);
+	table.insert(questList[763],id);
+    table.insert(questList[764],id);
+    table.insert(questList[782],id);
+    table.insert(questList[783],id);
+    table.insert(questList[784],id);
+    minimumQueststatus[id]=11;
+    maximumQueststatus[id]=23;
+    questLocation[id]=position(705,410,-3);
+    radius[id]=75;
 
     --Quest 18: The Errant Crusade IV
 
     local id=18;
-    englishTitle[id]="The Errant Crusade IV"; 
+    englishTitle[id]="The Errant Crusade IV";
     germanTitle[id]="Der fehlgeleitete Kreuzzug IV";
-    NPCName[id]="Arenius Batavius"; 
+    NPCName[id]="Arenius Batavius";
     statusId[id]=104;
-    englishRace[id]="blood mages"; 
+    englishRace[id]="blood mages";
     germanRace[id]="Blutmagier";
-    table.insert(questList[4],id); 
-    minimumQueststatus[id]=26; 
-    maximumQueststatus[id]=28; 
-    questLocation[id]=position(705,410,-3); 
-    radius[id]=75; 
+    table.insert(questList[4],id);
+    minimumQueststatus[id]=26;
+    maximumQueststatus[id]=28;
+    questLocation[id]=position(705,410,-3);
+    radius[id]=75;
 
     --Quest 19: The Errant Crusade V
 
     local id=19;
-    englishTitle[id]="The Errant Crusade V"; 
+    englishTitle[id]="The Errant Crusade V";
     germanTitle[id]="Der fehlgeleitete Kreuzzug V";
-    NPCName[id]="Arenius Batavius"; 
+    NPCName[id]="Arenius Batavius";
     statusId[id]=104;
-    englishRace[id]="demon skeleton warrior"; 
+    englishRace[id]="demon skeleton warrior";
     germanRace[id]="Dämonenskelettkrieger";
-    table.insert(questList[201],id); 
-    minimumQueststatus[id]=30; 
-    maximumQueststatus[id]=31; 
-    questLocation[id]=position(705,410,-3); 
-    radius[id]=75; 
+    table.insert(questList[201],id);
+    minimumQueststatus[id]=30;
+    maximumQueststatus[id]=31;
+    questLocation[id]=position(705,410,-3);
+    radius[id]=75;
 
     --Quest 20: The Errant Crusade VI
 
     local id=20;
-    englishTitle[id]="The Errant Crusade VI"; 
+    englishTitle[id]="The Errant Crusade VI";
     germanTitle[id]="Der fehlgeleitete Kreuzzug VI";
-    NPCName[id]="Arenius Batavius"; 
+    NPCName[id]="Arenius Batavius";
     statusId[id]=104;
-    englishRace[id]="undead fire dragons"; 
+    englishRace[id]="undead fire dragons";
     germanRace[id]="untote Feuerdrachen";
-    table.insert(questList[651],id); 
-    minimumQueststatus[id]=33; 
-    maximumQueststatus[id]=34; 
-    questLocation[id]=position(705,410,-3); 
-    radius[id]=75; 
-	
+    table.insert(questList[651],id);
+    minimumQueststatus[id]=33;
+    maximumQueststatus[id]=34;
+    questLocation[id]=position(705,410,-3);
+    radius[id]=75;
+
 	--Quest 21: The Ghost Oak IV
 
     local id=21;
-    englishTitle[id]="The Ghost Oak IV"; 
+    englishTitle[id]="The Ghost Oak IV";
     germanTitle[id]="Die Geistereiche IV";
-    NPCName[id]="Madoquar"; 
+    NPCName[id]="Madoquar";
     statusId[id]=112;
-    germanRace[id]="Geist der Eiche"; 
+    germanRace[id]="Geist der Eiche";
     englishRace[id]="Oak Ghost";
-    table.insert(questList[743],id); 
-    minimumQueststatus[id]=9; 
-    maximumQueststatus[id]=10; 
-    questLocation[id]=position(501,107,0); 
+    table.insert(questList[743],id);
+    minimumQueststatus[id]=9;
+    maximumQueststatus[id]=10;
+    questLocation[id]=position(501,107,0);
     radius[id]=15;
-	
+
 	--Quest 22: Tutorial Groknar
 
     local id=22;
-    germanTitle[id]="Tutorial"; 
+    germanTitle[id]="Tutorial";
     englishTitle[id]="Tutorial";
-    NPCName[id]="Groknar"; 
+    NPCName[id]="Groknar";
     statusId[id]=311;
-    germanRace[id]="Schweine"; 
+    germanRace[id]="Schweine";
     englishRace[id]="pig";
-    table.insert(questList[241],id); 
-    minimumQueststatus[id]=2; 
-    maximumQueststatus[id]=5; 
-    questLocation[id]=position(41,46,100); 
+    table.insert(questList[241],id);
+    minimumQueststatus[id]=2;
+    maximumQueststatus[id]=5;
+    questLocation[id]=position(41,46,100);
+    radius[id]=50;
+
+    --Quest 23: Elstree Ranger II
+
+    local id=23;
+    germanTitle[id]="Elstree Waldläufer II";
+    englishTitle[id]="Elstree Ranger II";
+    NPCName[id]="Melanie Meadowlark";
+    statusId[id]=500;
+    germanRace[id]="Wildschweine";
+    englishRace[id]="boars";
+	table.insert(questList[241],id); --Pig
+	table.insert(questList[251],id); --Boar
+	table.insert(questList[252],id); --Young Boar
+	table.insert(questList[253],id); --Hog
+    minimumQueststatus[id]=3;
+    maximumQueststatus[id]=28;
+    questLocation[id]=position(786, 474, 0);
     radius[id]=50;
 
 end
@@ -780,7 +798,7 @@ end
 function checkQuest(User,Monster)
 
     local MonID = Monster:getMonsterType();
-    local qList = questList[MonID]; 
+    local qList = questList[MonID];
     local queststatus = 0;
 
     if qList then
@@ -788,18 +806,18 @@ function checkQuest(User,Monster)
         for _,quest in pairs(qList) do
 
             queststatus = User:getQuestProgress(statusId[quest]);
- 
+
             if (queststatus >= minimumQueststatus[quest]) and (queststatus < maximumQueststatus[quest]) and (User:isInRangeToPosition(questLocation[quest],radius[quest])) and (User:isInRange(Monster,12)) then --valid kill
 
                 User:setQuestProgress(statusId[quest],queststatus+1);
-                
+
                 if ((queststatus+1) == (maximumQueststatus[quest])) then --quest finished
 
-                    base.common.InformNLS(User,"[Queststatus] "..germanTitle[quest]..": Du hast "..(queststatus+1-minimumQueststatus[quest]).." von "..(maximumQueststatus[quest]-minimumQueststatus[quest]).." "..germanRace[quest].." besiegt. Kehre zu "..NPCName[quest].." zurück, um deine Belohnung zu erhalten." ,"[Quest status] "..englishTitle[quest]..": You have slain "..(queststatus+1-minimumQueststatus[quest]).." of "..(maximumQueststatus[quest]-minimumQueststatus[quest]).." "..englishRace[quest]..". Return to "..NPCName[quest].." to claim your reward."); 
+                    base.common.InformNLS(User,"[Queststatus] "..germanTitle[quest]..": Du hast "..(queststatus+1-minimumQueststatus[quest]).." von "..(maximumQueststatus[quest]-minimumQueststatus[quest]).." "..germanRace[quest].." besiegt. Kehre zu "..NPCName[quest].." zurück, um deine Belohnung zu erhalten." ,"[Quest status] "..englishTitle[quest]..": You have slain "..(queststatus+1-minimumQueststatus[quest]).." of "..(maximumQueststatus[quest]-minimumQueststatus[quest]).." "..englishRace[quest]..". Return to "..NPCName[quest].." to claim your reward.");
 
                 else --quest not finished
 
-                    base.common.InformNLS(User,"[Queststatus] "..germanTitle[quest]..": Du hast "..(queststatus+1-minimumQueststatus[quest]).." von "..(maximumQueststatus[quest]-minimumQueststatus[quest]).." "..germanRace[quest].." besiegt." ,"[Quest status] "..englishTitle[quest]..": You have slain "..(queststatus+1-minimumQueststatus[quest]).." of "..(maximumQueststatus[quest]-minimumQueststatus[quest]).." "..englishRace[quest].."."); 
+                    base.common.InformNLS(User,"[Queststatus] "..germanTitle[quest]..": Du hast "..(queststatus+1-minimumQueststatus[quest]).." von "..(maximumQueststatus[quest]-minimumQueststatus[quest]).." "..germanRace[quest].." besiegt." ,"[Quest status] "..englishTitle[quest]..": You have slain "..(queststatus+1-minimumQueststatus[quest]).." of "..(maximumQueststatus[quest]-minimumQueststatus[quest]).." "..englishRace[quest]..".");
 
                 end
             end
