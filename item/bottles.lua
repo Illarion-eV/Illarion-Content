@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE common SET com_script='item.bottles' WHERE com_itemid IN (2500, 2496, 2497, 2501, 2499);
 
 require("base.common")
+require("base.lookat")
 
 module("item.bottles", package.seeall)
 
@@ -41,8 +42,8 @@ function InitDrinks()
         { {1858, 1859}, {224, 1861},{2055, 2059},{1840, 1844}, {2185, 2189} } };
 
         -- init descriptions
-        BottleQualDe={"randvolle ","volle ","halbvolle ","fast leere "};
-        BottleQualEn={"brimfull ", "full ","half full ","almost empty "};
+        BottleQualDe={"Randvolle ","Volle ","Halbvolle ","Fast leere "};
+        BottleQualEn={"Brimfull ", "Full ","Half full ","Almost empty "};
 
         BottleQualLm={8,6,3,1};
     end
@@ -141,8 +142,11 @@ function LookAtItem(User, Item)
             break;
         end
     end
-        
+
     DisplayText = DisplayText..base.common.GetNLS( User, food[1], food[2] );
+	if lookAt.description ~= nil then -- append the label
+		DisplayText = DisplayText..". "..lookAt.description;
+	end
     lookAt.description = DisplayText
 
     world:itemInform(User, Item, lookAt)
@@ -170,7 +174,7 @@ function Evilrockentrance(User, SourceItem, ltstate)
 	return
 	end
 
-	if ( ltstate == Action.none ) then 
+	if ( ltstate == Action.none ) then
 		User:startAction( 20, 21, 5, 10, 25);
 		User:talk(Character.say, "#me beginnt den Eimer zu befüllen.", "#me starts to fill bucket.")
 		return
@@ -183,7 +187,7 @@ function Evilrockentrance(User, SourceItem, ltstate)
 			world:changeItem(checkFullBucket)
 		end ]]
 	triggerfield.evilrock.RemoveEntranceTrap(User)
-	
+
 
 	local notCreated = User:createItem( 2498, 1, 999, nil ); -- create the new produced items
 	if SourceItem.number == 1 then
