@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Advari Stonebog                                          Galmair --
@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                    Illarion easyNPC Editor --
+--                                                Illarion easyNPC Editor 2.1.13-18-gb4c8d69 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -41,6 +41,7 @@ module("npc.advari_stonebog", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+mainNPC:setAffiliation(3);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
@@ -726,7 +727,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(552,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(553,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2934,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1151,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1149,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1150,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(51,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(126,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(258,"buySecondary"));
@@ -765,7 +766,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(552,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(553,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2934,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1151,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1149,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1150,"buySecondary"));
 tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
 tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
 tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");

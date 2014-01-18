@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Francois Delacroix                                      Runewick --
@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Regallo                                                          --
---                                                    Illarion easyNPC Editor --
+--                                                Illarion easyNPC Editor 2.1.13-18-gb4c8d69 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -40,6 +40,7 @@ module("npc.francois_delacroix", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+mainNPC:setAffiliation(2);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
@@ -610,7 +611,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(552,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(553,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2934,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1151,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1149,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1150,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(15,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(80,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(81,"sell"));
@@ -652,7 +653,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(552,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(553,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2934,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1151,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1149,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1150,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(15,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(80,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(81,"buyPrimary"));
