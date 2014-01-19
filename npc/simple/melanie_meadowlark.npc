@@ -38,7 +38,7 @@ autointroduce = on
 
 author = "Evie"
 
-lookatDE = "Dieser NPC ist der Waldläufer Melanie Meadowlark."
+lookatDE = "Dieser NPC ist die Waldläuferin Melanie Meadowlark."
 lookatUS = "This NPC is the Ranger Melanie Meadowlark."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -74,31 +74,31 @@ itemShoes = 369
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the ranger Melanie Meadowlark. Keywords: Hello, quest, ranger.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Waldläufer Melanie Meadowlark. Schlüsselwörter: Hallo, Quest, Waldläufer.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Waldläuferin Melanie Meadowlark. Schlüsselwörter: Hallo, Aufgabe, Waldläufer.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted!", "Welcome to Elstree Forest.", "Greetings, Please mind the fairies and stay away from their cakes!"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Gruß!", "Willkommen in Elstree Wald", "Grüße, Bitte gebt auf die Feen acht und bleiben weg von ihrem Kuchen!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Gruß!", "Willkommen im Elstree Wald", "Grüße, bitte gebt auf die Feen Acht und bleibt weg von ihrem Kuchen!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted!", "Welcome to Elstree Forest.", "Greetings, Please mind the fairies and stay away from their cakes!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Tach mein Freund!", "Willkommen in Elstree Wald!", "Grüße, Bitte gabt auf die Feen acht und bleiben weg von ihrem Kuchen!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Tach, mein Freund!", "Willkommen im Elstree Wald", "Grüße, bitte gebt auf die Feen Acht und bleibt weg von ihrem Kuchen!"
 "Farewell", "Bye", "Fare well", "See you" -> "Look at the wonderful world the gods have made for us, honor them in your travels.", "Please visit again.", "Farewell."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Schaut euch die wunderbare Welt an, welche die Götter für uns gemacht haben und ehrt sie auf eueren Reisen.", "Bitte besucht uns erneut.", "Gehabt euch wohl."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Schaut Euch die wunderbare Welt an, welche die Götter für uns gemacht haben und ehrt sie auf eueren Reisen.", "Bitte besucht uns erneut.", "Gehabt euch wohl."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Look at the wonderful world the gods have made for us, honor them in your travels.", "Please visit again.", "Farewell."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Schaut euch die wunderbare Welt an, welche die Götter für uns gemacht haben und ehrt sie auf eueren Reisen.", "Bitte besucht uns erneut.", "Gehabt euch wohl."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Schaut Euch die wunderbare Welt an, welche die Götter für uns gemacht haben und ehrt sie auf eueren Reisen.", "Bitte besucht uns erneut.", "Gehabt euch wohl."
 "How are you", "How feel", "How do you do" -> "I feel grand.", "I am blessed by the Five", "I feel like playing music."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich fühle mich großartig.", "Ich bin von den Fünfen gesegnet.", "Mir ist danach zu musizieren."
 "your name", "who are you", "who art thou" -> "I'm Melanie Meadowlark.", "I'm the Ranger Melanie.", "You can call me Mel, protector of the fairies."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Melanie Meadowlark.", "Ich bin ein Waldläufer namens Melanie.", "Ihr könnt mich Mel nennen, Beschützerin der Feen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Melanie Meadowlark.", "Ich bin eine Waldläuferin namens Melanie.", "Ihr könnt mich Mel nennen, Beschützerin der Feen."
 
 -- Quest 1: gather 10 honeycombs for 500cp
 queststatus(500) = 0, english, "quest", "mission" -> inform("[New quest] Elstree Ranger I"), queststatus(500) = 1, "Help!! We need assistance in the fairy bakery.  We are short on honey, please bring me ten honeycombs."
-queststatus(500) = 0, "quest", "mission" -> inform("[Neue Quest] Elstree Waldläufer I"), queststatus(500) = 1, "Helft uns! Wir brauchen Unterstützung in der Feenbäckerei. Honig ist knapp, so bringt mir bitte zehn Honigwaben."
+queststatus(500) = 0, "quest", "mission" -> inform("[Neue Quest] Elstree Waldläufer I"), queststatus(500) = 1, "Helft uns! Wir brauchen Unterstützung in der Feenbäckerei. Honig ist knapp. So bringt mir bitte zehn Honigwaben."
 queststatus(500) = 0, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger I"), queststatus(500) = 1, "Help!! We need assistance in the fairy bakery.  We are short on honey, please bring me ten honeycombs."
-queststatus(500) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Elstree Waldläufer I"), queststatus(500) = 1, "Helft uns! Wir brauchen Unterstützung in der Feenbäckerei. Honig ist knapp, so bringt mir bitte zehn Honigwaben."
+queststatus(500) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Elstree Waldläufer I"), queststatus(500) = 1, "Helft uns! Wir brauchen Unterstützung in der Feenbäckerei. Honig ist knapp. So bringt mir bitte zehn Honigwaben."
 queststatus(500) = 1, item(2529, all) < 10, english, "quest", "mission" -> "Do you have the honeycombs yet? Without it the baking stalls, which would be horrible."
-queststatus(500) = 1, item(2529, all) < 10, "quest", "mission" -> "Habt ihr die Honigwaben schon? Ohne diese ist das Kuchenbacken unmöglich, das wäre schrecklich."
+queststatus(500) = 1, item(2529, all) < 10, "quest", "mission" -> "Habt ihr die Honigwaben schon? Ohne diese ist das Kuchenbacken unmöglich. Das wäre schrecklich."
 queststatus(500) = 1, item(2529, all) < 10, "task", "adventure", "order" -> "Do you have the honeycombs yet? Without it the baking stalls, which would be horrible."
-queststatus(500) = 1, item(2529, all) < 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Habt ihr die Honigwaben schon? Ohne diese ist das Kuchenbacken unmöglich, das wäre schrecklich."
+queststatus(500) = 1, item(2529, all) < 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Habt ihr die Honigwaben schon? Ohne diese ist das Kuchenbacken unmöglich. Das wäre schrecklich."
 queststatus(500) = 1, item(2529, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(2529, 10), queststatus(500) = 2, "Great! Now the cake baking can go on as scheduled.  You are rewarded five silver."
 queststatus(500) = 1, item(2529, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(2529, 10), queststatus(500) = 2, "Großartig! Das Kuchenbacken kann jetzt weitergehen wie geplant. Du erhälst fünf Silber als Belohnung."
 
@@ -116,41 +116,41 @@ queststatus(500) = 28, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstü
 
 -- Quest 3: visit Nargun's altar, for a cake
 queststatus(500) = 29, english, "quest", "mission" -> inform("[New quest] Elstree Ranger III"), queststatus(500) = 30, "There is a disturbance at the altar of Nargun, please check it out."
-queststatus(500) = 29, "quest", "mission" -> inform("[Neue Quest] Elstree Waldläufer III"), queststatus(500) = 30, "Etwas ist ungewöhnlich an Narguns Altar. Könnt ihr euch das ansehen?"
+queststatus(500) = 29, "quest", "mission" -> inform("[Neue Quest] Elstree Waldläufer III"), queststatus(500) = 30, "Etwas ist ungewöhnlich an Narguns Altar. Könnt ihr Euch das ansehen?"
 queststatus(500) = 29, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger III"), queststatus(500) = 30, "There is a disturbance at the altar of Nargun, please check it out."
-queststatus(500) = 29, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Elstree Waldläufer III"), queststatus(500) = 30, "Etwas ist ungewöhnlich an Narguns Altar. Könnt ihr euch das ansehen?"
+queststatus(500) = 29, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Elstree Waldläufer III"), queststatus(500) = 30, "Etwas ist ungewöhnlich an Narguns Altar. Könnt ihr Euch das ansehen?"
 queststatus(500) = 30, english, "quest", "mission" -> "Did you look after the altar yet? Something is wrong there."
-queststatus(500) = 30, "quest", "mission" -> "Habt ihr den Altar schon kontrolliert? Etwas seltsames geht dort vor."
+queststatus(500) = 30, "quest", "mission" -> "Habt ihr den Altar schon kontrolliert? Etwas Seltsames geht dort vor."
 queststatus(500) = 30, "task", "adventure", "order" -> "Did you look after the altar yet? Something is wrong there."
-queststatus(500) = 30, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Habt ihr den Altar schon kontrolliert? Etwas seltsames geht dort vor."
+queststatus(500) = 30, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Habt ihr den Altar schon kontrolliert? Etwas Seltsames geht dort vor."
 
 -- status (31) set by triggerfield
-queststatus(500) = 31, english, ".+" -> inform("[Quest solved] You are awarded a pie."), item(353, 1, 333), queststatus(500) = 32, "#me giggles lightly  'Oh it seems Nargun was just playing some jokes. Thank you for checking it out.' You receive one apple pie."
-queststatus(500) = 31, ".+" -> inform("[Quest gelöst] Du erhältst einen Kuchen."), item(353, 1, 333), queststatus(500) = 32, "#me kichert leise 'Oh es scheint als ob Nargun nur einen Streich im Sinne hatte. Danke dafür, dass ihr es euch angesehen habt.'  Du erhälst einen Apfelkuchen."
+queststatus(500) = 31, english, ".+" -> inform("[Quest solved] You are awarded a apple pie."), item(353, 1, 333), queststatus(500) = 32, "#me giggles lightly.  'Oh it seems Nargun was just playing some jokes. Thank you for checking it out.'"
+queststatus(500) = 31, ".+" -> inform("[Quest gelöst] Du erhältst einen Apfelkuchen."), item(353, 1, 333), queststatus(500) = 32, "#me kichert leise. 'Oh es scheint als ob Nargun nur einen Streich im Sinne hatte. Danke dafür, dass ihr es euch angesehen habt.'"
 
 -- Quest 4: gather 20 flamegoblet blossoms for 2000cp
 queststatus(500) = 32, english, "quest", "mission" -> inform("[New quest] Elstree Ranger IV"), queststatus(500) = 33, "Oh great your here.  We need some flowers for the arrangements.  Please bring me 20 flamegoblet blossoms."
-queststatus(500) = 32, "quest", "mission" -> inform("[Neue Quest] Elstree Waldläufer IV"), queststatus(500) = 33, "Oh gut dass ihr da seid! Wir brauchen Blumen für den Tischschmuck. Bitte bringt mir 20 Flammenkelchblüten."
+queststatus(500) = 32, "quest", "mission" -> inform("[Neue Quest] Elstree Waldläufer IV"), queststatus(500) = 33, "Oh, gut, dass Ihr da seid! Wir brauchen Blumen für den Tischschmuck. Bitte bringt mir 20 Flammenkelchblüten."
 queststatus(500) = 32, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger IV"), queststatus(500) = 33, "Oh great your here.  We need some flowers for the arrangements.  Please bring me 20 flamegoblet blossoms."
-queststatus(500) = 32, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Elstree Waldläufer IV"), queststatus(500) = 33, "Oh gut dass ihr da seid! Wir brauchen Blumen für den Tischschmuck. Bitte bringt mir 20 Flammenkelchblüten."
+queststatus(500) = 32, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Elstree Waldläufer IV"), queststatus(500) = 33, "Oh, gut, dass Ihr da seid! Wir brauchen Blumen für den Tischschmuck. Bitte bringt mir 20 Flammenkelchblüten."
 queststatus(500) = 33, item(137, all) < 20, english, "quest", "mission" -> "Did you find enough flowers yet? We need them urgently."
 queststatus(500) = 33, item(137, all) < 20, "quest", "mission" -> "Habt Ihr schon genung Blumen gefunden? Wir brauchen sie dringend."
 queststatus(500) = 33, item(137, all) < 20, "task", "adventure", "order" -> "Did you find enough flowers yet? We need them urgently."
 queststatus(500) = 33, item(137, all) < 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Habt Ihr schon genung Blumen gefunden? Wir brauchen sie dringend."
 queststatus(500) = 33, item(137, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded twenty silver coins."), money + 2000, deleteItem(137, 20), queststatus(500) = 34, "Thank you for the flowers. Here a little reward for your help."
-queststatus(500) = 33, item(137, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zwanzig Silberstücke."), money + 2000, deleteItem(137, 20), queststatus(500) = 34, "Danke für die Blumen. Hier eine kleine Belohnung für euere Mühen."
+queststatus(500) = 33, item(137, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zwanzig Silberstücke."), money + 2000, deleteItem(137, 20), queststatus(500) = 34, "Danke für die Blumen. Hier eine kleine Belohnung für Euere Mühen."
 
 -- No more quests, just nice words of gratitude
 queststatus(500) = 34, english, "quest", "mission" -> "There is no more work for you, thank you for the assistance!"
-queststatus(500) = 34, "quest", "mission" -> "Es gibt nichts mehr zu tun. Danke für euere Unterstützung!"
+queststatus(500) = 34, "quest", "mission" -> "Es gibt nichts mehr zu tun. Danke für Eure Unterstützung!"
 queststatus(500) = 34, "task", "adventure", "order" -> "There is no more work for you, thank you for the assistance!"
-queststatus(500) = 34, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es gibt nichts mehr zu tun. Danke für euere Unterstützung!"
+queststatus(500) = 34, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es gibt nichts mehr zu tun. Danke für Eure Unterstützung!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Oh, I am a ranger."
-"beruf" -> "Oh, ich bin ein Waldläufer."
+"beruf" -> "Oh, ich bin eine Waldläuferin."
 english, "job" -> "Oh, I am a ranger."
-"job" -> "Oh, ich bin ein Waldläufer."
+"job" -> "Oh, ich bin eine Waldläuferin."
 english, "Gobaith", "Gobiath" -> "Gobaith needed more Rangers."
 "Gobaith", "Gobiath" -> "Gobaith brauchte mehr Waldläufer."
 "my name" -> "Listen to the Fairies sing!"
@@ -158,9 +158,9 @@ english, "Gobaith", "Gobiath" -> "Gobaith needed more Rangers."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "Ranger" -> "My job is to protect the forest and its inhabitants.", "All of Ushara's creatures are under my protection.", "My job is important to the life of the forest."
-"Waldläufer" -> "Meine Aufgabe ist es, den Wald und seine Bewohner zu schützen.", "Alle Geschöpfe Usharas sind unter meinem Schutz.", "Meine Aufgabe ist es wichtig für das Leben des Waldes."
+"Waldläufer" -> "Meine Aufgabe ist es, den Wald und seine Bewohner zu schützen.", "Alle Geschöpfe Usharas stehen unter meinem Schutz.", "Meine Aufgabe ist wichtig für das Leben des Waldes."
 english, "Elstree" -> "Elstree Forest is the home of the fairies.", "Many plants and animals are at home here.", "I find peace in the Elstree Forest."
-"Elstree" -> "Elstree Wald ist die Heimat der Feen.", "Viele Pflanzen und Tiere sind hier zu Hause.", "Ich finde Frieden im Elstree Wald."
+"Elstree" -> "Der Elstree Wald ist die Heimat der Feen.", "Viele Pflanzen und Tiere sind hier zu Hause.", "Ich finde Frieden im Elstree Wald."
 english, "Fairies" -> "Fairies are delightfully fun creatures."
 "Fee" -> "Feen sind herrlich lustige Kreaturen."
 english, "Flower" -> "The forest is filled with flowers that are not only pretty but useful."
@@ -172,7 +172,7 @@ english, "Flower" -> "The forest is filled with flowers that are not only pretty
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "The Archmage of Runewick is an elf and understands the balance of nature."
-"Erzmagier" -> "Der Erzmagier Runewick ist ein Elf und versteht das Gleichgewicht der Natur."
+"Erzmagier" -> "Der Erzmagier Runewicks ist ein Elf und versteht das Gleichgewicht der Natur."
 english, "Elvaine", "Morgan" -> "The Archmage of Runewick is an elf and understands the balance of nature."
 "Elvaine", "Morgan" -> "Der Erzmagier Runewick ist ein Elf und versteht das Gleichgewicht der Natur."
 english, "Runewick" -> "The scholars of Runewick rarely venture to the forest."
@@ -180,7 +180,7 @@ english, "Runewick" -> "The scholars of Runewick rarely venture to the forest."
 english, "Valerio", "Guilianni", "Don" -> "The Don is more concerned with profit than the forest."
 "Valerio", "Guilianni", "Don" -> "Der Don ist mehr an Gewinn interessiert als an Wäldern."
 english, "Galmair" -> "Galmair is the land of riches, to me the real riches are here."
-"Galmair" -> "Galmair ist das Land der Reichtümer, für mich liegen die wahren Reichtümer aber hier."
+"Galmair" -> "Galmair ist das Land der Reichtümer. Für mich liegen die wahren Reichtümer aber hier."
 "Queen" -> "The Queen has a lovely flower garden!"
 "Königin" -> "Die Königin hat einen schönen Blumengarten!"
 english, "rosaline", "edwards" -> "The Queen has a lovely flower garden!"
@@ -206,9 +206,9 @@ english, "Ushara" -> "Ushara blessed us with this rich and fertile land."
 english, "Mel", "Melanie" -> "Mel is my name!"
 "Mel", "Melanie" -> "Mel ist mein Name!"
 "Yes" -> "Good for you.", "Aye, I see.", "Are you sure?", "If you say so."
-"Ja" -> "Gut für dich.", "Aye, in Ordnung.", "Bist du dir sicher?", "Wenn du das sagst."
+"Ja" -> "Gut für dich.", "Aye, in Ordnung.", "Seid Ihr sicher?", "Wenn Ihr das sagst."
 "No" -> "What a shame.", "Maybe you'll change your mind.", "Well..."
-"Nein" -> "Schade.", "Vielleicht änderst du deine Meinung noch.", "Nun..."
+"Nein" -> "Schade.", "Vielleicht ändert Ihr Eure Meinung noch.", "Nun..."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
@@ -221,11 +221,11 @@ cycletext "Seht euch nur die Blumen an!", "Enjoy the flowers!"
 cycletext "Rettet ein Leben...schenkt einer Fee einen Kuchen!", "Save a life... feed a fairy a cake today!"
 cycletext "Haltet ein, atmet durch, geniesst die Schönheit.", "Stop, take a breathe, and enjoy the splendor."
 cycletext "#me lächelt und spielt entspannt eine Melodie auf der Harfe.", "#me smiles and relaxes, playing some tunes on a harp."
-cycletext "#me lacht während sie eine kleine Fee beim beobachtet, die mit Blumengiessen beschäftigt ist und dabei neckisch andere vorbeifliegende Feen mit Wasser bespritzt.", "#me laughs as she watches a fairy flit around, watering flowers and playfully spraying water over other fairies as they pass nearby."
-cycletext "Beschädigt nicht die Blumen der Feen, sie sorgen sich um jedes einzelne Blütenblatt.", "Don't touch the fairy's flowers, they care for each and every petal."
+cycletext "#me lacht, während sie eine kleine Fee beobachtet, die mit Blumengiessen beschäftigt ist und dabei neckisch andere vorbeifliegende Feen mit Wasser bespritzt.", "#me laughs as she watches a fairy flit around, watering flowers and playfully spraying water over other fairies as they pass nearby."
+cycletext "Beschädigt nicht die Blumen der Feen. Sie sorgen sich um jedes einzelne Blütenblatt.", "Don't touch the fairy's flowers, they care for each and every petal."
 cycletext "#me scherzt mit vorbeifliegenden Feen, indem sie Mehlstaub in deren Richtung bläst.", "#me joins in the play by blowing some flour out of her hand and at a couple of passing fairies.!"
-cycletext "#me erzählt einer Gruppe Feen leise einen Witz deren Lachen daraufhin wie das Klingeln von Glöckchen durch den wald schallt. ", "#me quietly tells a joke to a group of fairies, who's laughter rings like bells throughout the forest."
-cycletext "#me stellt einen klebrigen Kuchen ab, der mit Hollunder- und Blaubeeren gefüllt ist. Sie giesst Honig darüber und wartet auf die Ankunft einiger Feen.", "#me sets out a gooey cake filled with elder berries and black berries, pours honey over the top, and sits back, waiting for the fairies to arrive."
-cycletext "#me beobachtet ein paar Feen die vor dem Spiegel posieren um sich selbst zu bewundern.", "#me watches the fairies preen and admire themselves at a mirror as they twist to and fro to get a better look."
-cycletext "#me kleidet die Feenkönigin mit einem neuen Gewand ein das aus feinster grüner Seide gefertigt und mit goldenen Stickereien verziert ist. Glitzernde Edelsteine sind in Kragen und Ärmel eingearbeitet die im Sonnenlicht funkeln.", "#me gives the fairy queen a new dress made of the finest green silk and adorned with gold thread work. Glittering gemstones have been worked around the collar and sleeves, flashing in the bright sunshine."
-cycletext "#me beobachtet wie die Feen mit den Schmetterlingen tanzen, ein beeindruckendes Spiel von Farben.", "#me watches the fairies dance amongst the butterflies, making it look like an explosion of wings and colors."
+cycletext "#me erzählt einer Gruppe Feen leise einen Witz, deren Lachen daraufhin wie das Klingeln von Glöckchen durch den Wald schallt. ", "#me quietly tells a joke to a group of fairies, who's laughter rings like bells throughout the forest."
+cycletext "#me stellt einen klebrigen Kuchen ab, der mit Holunder- und Blaubeeren gefüllt ist. Sie gießt Honig darüber und wartet auf die Ankunft einiger Feen.", "#me sets out a gooey cake filled with elder berries and black berries, pours honey over the top, and sits back, waiting for the fairies to arrive."
+cycletext "#me beobachtet ein paar Feen, die vor dem Spiegel posieren, um sich selbst zu bewundern.", "#me watches the fairies preen and admire themselves at a mirror as they twist to and fro to get a better look."
+cycletext "#me kleidet die Feenkönigin mit einem neuen Gewand ein, das aus feinster grüner Seide gefertigt und mit goldenen Stickereien verziert ist. Glitzernde Edelsteine sind in Kragen und Ärmel eingearbeitet, die im Sonnenlicht funkeln.", "#me gives the fairy queen a new dress made of the finest green silk and adorned with gold thread work. Glittering gemstones have been worked around the collar and sleeves, flashing in the bright sunshine."
+cycletext "#me beobachtet, wie die Feen mit den Schmetterlingen tanzen - ein beeindruckendes Spiel von Farben.", "#me watches the fairies dance amongst the butterflies, making it look like an explosion of wings and colors."

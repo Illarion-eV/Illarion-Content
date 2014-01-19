@@ -32,7 +32,7 @@ function MoveToField(char)
 	if (queststatus == 30) then
 		char:setQuestProgress(500, 31);
 		base.common.InformNLS(char,
-		"Als du vor den Altar trittst hörst du ein Lachen und aus dem Spiegel des Chaos wirft jemand eine Torte nach dir",
+		"Als du vor den Altar trittst, hörst du ein Lachen und aus dem Spiegel des Chaos wirft jemand eine Torte nach dir.",
 		"Stepping into the alter you hear laughter and a pie is thrown at you from the Mirror of Chaos");
 
 		world:createItemFromId(353, 1, char.pos, true, 333, nil);

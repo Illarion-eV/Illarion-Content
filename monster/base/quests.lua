@@ -777,7 +777,7 @@ function iniQuests()
     --Quest 23: Elstree Ranger II
 
     local id=23;
-    germanTitle[id]="Elstree Waldläufer II";
+    germanTitle[id]="Elstree Waldläuferin II";
     englishTitle[id]="Elstree Ranger II";
     NPCName[id]="Melanie Meadowlark";
     statusId[id]=500;
