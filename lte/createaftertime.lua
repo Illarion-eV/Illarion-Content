@@ -63,6 +63,7 @@ function callEffect(Effect, Character)
 
 findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB") --find variable
 findCreateItemTimeBB, createItemTimeBB = Effect:findValue("createItemTimeBB") --find variable
+findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
 if createItemTimeB ~= 0 then
 	if not createItemTimeA then --check if false
 		createItemTimeA=0 --set 0 if false
@@ -70,6 +71,14 @@ if createItemTimeB ~= 0 then
 	end
 	local findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB") --find variable
  	if createItemTimeA<createItemTimeB then --check if smaller; if yes than nextcall
+debug("createItemTextA: "..createItemText)
+		if informplayeraboutunsuccess == nil then
+			informplayeraboutunsuccess = 0
+		elseif informplayeraboutunsuccess == 2 and createItemText==1 then -- if we have defined text1 for the created item
+			base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
+		end
+		informplayeraboutunsuccess = informplayeraboutunsuccess+1
+
 		local findCreateRepeatA, createRepeatA = Effect:findValue("createRepeatA") --find variable
 		local findCreateRepeatB, createRepeatB = Effect:findValue("createRepeatB") --find variable
 		local createRepeatX=math.random(createRepeatA,createRepeatB) --create random value between variables
@@ -92,6 +101,26 @@ if createItemTimeB ~= 0 then
 			createItemY=math.random(createItemYA,createItemYB) --create random value between variables
 			createItemZ=math.random(createItemZA,createItemZB) --create random value between variables
 			posOfItem = position(createItemX,createItemY,createItemZ) --set value for position
+			local testforaccessabletile = 0
+			if createItemID ~= 0 then
+				repeat
+					createItemX=math.random(createItemXA,createItemXB) --create random value between variables
+					createItemY=math.random(createItemYA,createItemYB) --create random value between variables
+					createItemZ=math.random(createItemZA,createItemZB) --create random value between variables
+					posOfItem = position(createItemX,createItemY,createItemZ) --set value for position
+--					if base.common.GetGroundType(world:getField(posOfItem):tile()) == GroundType.water then
+					if base.common.GetGroundType(world:getField(posOfItem):tile()) == 6 then
+						testforaccessabletile = 0
+					else
+						testforaccessabletile = 1
+					end
+				until (testforaccessabletile==1) --stop repeat
+			else
+				createItemX=math.random(createItemXA,createItemXB) --create random value between variables
+				createItemY=math.random(createItemYA,createItemYB) --create random value between variables
+				createItemZ=math.random(createItemZA,createItemZB) --create random value between variables
+				posOfItem = position(createItemX,createItemY,createItemZ) --set value for position
+			end
 			findCreateItemQualA, createItemQualA = Effect:findValue("createItemQualA") --find variable
 			findCreateItemQualB, createItemQualB = Effect:findValue("createItemQualB") --find variable
 			createItemQual=math.random(createItemQualA,createItemQualB); --create random value between variables
@@ -99,13 +128,13 @@ if createItemTimeB ~= 0 then
 			findCreateGfx, createGfx = Effect:findValue("createGfx") --find variable
   			if findCreateGfx then -- in case we defined a Gfx shown on the created item
 				world:gfx(createGfx,posOfItem) --create gfx
-				end
+			end
 
 			findCreateSound, createSound = Effect:findValue("createSound") --find variable
 			if findCreateSound then -- if we have defined a sound for the created item
 				world:makeSound(createSound,posOfItem) --create sfx
-				end
-			until (i==createRepeatX) --stop repeat
+			end
+		until (i==createRepeatX) --stop repeat
 
 		if createItemID ~= 0 then --an item shall be created
 			PoscreatedItemX=createItemX
@@ -144,16 +173,18 @@ if createItemTimeB ~= 0 then
 			end
 		end
 	end	
-	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
-	if createItemText==1 then -- if we have defined text1 for the created item
+--	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
+--[[	if createItemText==1 then -- if we have defined text1 for the created item
 		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
-	end
+	end ]]--
 
 	if createItemText==2 or createItemText==3 or createItemText==4 or createItemText==5 then -- if we have defined text2..5 for the created item
+debug("createItemText: "..createItemText)
+debug("PosItem: "..PosItem)
 		Character:inform(""..TextDE[createItemText]..PosItemDE[PosItem],""..TextEN[createItemText]..PosItemEN[PosItem])--inform player about result and the direction
 	end
 	
-
+	informplayeraboutunsuccess = 0  --prepare for next script call
 	createItemTimeA=0  --prepare for next script call
 	return false -- callEffect is only needed once, no return true necessary
 
@@ -163,6 +194,14 @@ elseif findCreateItemTimeBB then
 		else
 	end
  	if createItemTimeAA<createItemTimeBB then --check if smaller; if yes than nextcall
+debug("createItemTextB: "..createItemText)
+		if informplayeraboutunsuccess == nil then
+			informplayeraboutunsuccess = 0
+		elseif informplayeraboutunsuccess == 2 and createItemText==1 then -- if we have defined text1 for the created item
+			base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
+		end
+		informplayeraboutunsuccess = informplayeraboutunsuccess+1
+
 		local findCreateRepeatA, createRepeatA = Effect:findValue("createRepeatA") --find variable
 		local findCreateRepeatB, createRepeatB = Effect:findValue("createRepeatB") --find variable
 		local createRepeatX=math.random(createRepeatA,createRepeatB) --create random value between variables
@@ -181,10 +220,10 @@ elseif findCreateItemTimeBB then
 			findCreateItemYB, createItemYB = Effect:findValue("createItemYB") --find variable
 			findCreateItemZA, createItemZA = Effect:findValue("createItemZA") --find variable
 			findCreateItemZB, createItemZB = Effect:findValue("createItemZB") --find variable
-			createItemX=math.random(createItemXA,createItemXB) --create random value between variables
-			createItemY=math.random(createItemYA,createItemYB) --create random value between variables
-			createItemZ=math.random(createItemZA,createItemZB) --create random value between variables
-			posOfItem = position(createItemX,createItemY,createItemZ) --set value for position
+				createItemX=math.random(createItemXA,createItemXB) --create random value between variables
+				createItemY=math.random(createItemYA,createItemYB) --create random value between variables
+				createItemZ=math.random(createItemZA,createItemZB) --create random value between variables
+				posOfItem = position(createItemX,createItemY,createItemZ) --set value for position
 			findCreateItemQualA, createItemQualA = Effect:findValue("createItemQualA") --find variable
 			findCreateItemQualB, createItemQualB = Effect:findValue("createItemQualB") --find variable
 			createItemQual=math.random(createItemQualA,createItemQualB); --create random value between variables
@@ -237,15 +276,16 @@ elseif findCreateItemTimeBB then
 			end
 		end
 	end
-	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
-	if createItemText==1 then -- if we have defined text1 for the created item
+--	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
+--[[	if createItemText==1 then -- if we have defined text1 for the created item
 		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
-	end
+	end ]]--
 
 	if createItemText==2 or createItemText==3 or createItemText==4 or createItemText==5 then -- if we have defined text2..5 for the created item
 		Character:inform(""..TextDE[createItemText]..PosItemDE[PosItem],""..TextEN[createItemText]..PosItemEN[PosItem])--inform player about result and the direction
 	end
 
+	informplayeraboutunsuccess = 0  --prepare for next script call
 	createItemTimeAA=0  --prepare for next script call
 	return false -- callEffect is only needed once, no return true necessary
 end

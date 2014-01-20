@@ -50,7 +50,6 @@ require("lte.longterm_cooldown");
 module("triggerfield.elstree_water_661", package.seeall)
 
 
-
 function MoveToField(char)
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
 		RewardInElstree=0; --nothing will be created
@@ -62,7 +61,7 @@ function MoveToField(char)
 		RewardInElstree=1; --yes, something will be created 
 		createItemID=2554; --pure water will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
---		char:inform("Ah! Eine Fee hat pures Wasser verloren.", "Ah! A fairy lost pure water.") --player get informed that fairy lost element
+		char:inform("Ah! Eine Fee hat pures Wasser verloren.", "Ah! A fairy lost pure water.") --player get informed that fairy lost element
 	end
 	if RewardInElstree==0 then	--check if something will be created
 		createItemTimeBB=math.random(10,20);  --use var2; nothing, thus more lights appear

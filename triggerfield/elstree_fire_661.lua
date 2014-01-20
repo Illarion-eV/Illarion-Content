@@ -49,7 +49,7 @@ function MoveToField(char)
 		RewardInElstree=1; --yes, something will be created 
 		createItemID=2553; --pure fire will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
---		char:inform("Ah! Eine Fee hat pures Feuer verloren.", "Ah! A fairy lost pure fire.") --player get informed that fairy lost element
+		char:inform("Ah! Eine Fee hat pures Feuer verloren.", "Ah! A fairy lost pure fire.") --player get informed that fairy lost element
 	end
 	if RewardInElstree==0 then	--check if something will be created
 		createItemTimeBB=math.random(10,20);  --use var2; nothing, thus more lights appear
