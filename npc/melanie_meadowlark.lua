@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Evie                                                             --
---                                                Illarion easyNPC Editor 2.1.13-18-gb4c8d69 --
+--                                                Illarion easyNPC Editor 2.1.13 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -69,7 +69,7 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Be greeted!");
 talkEntry:addResponse("Welcome to Elstree Forest.");
-talkEntry:addResponse("Greetings, Please mind the fairies and stay away from their cakes!");
+talkEntry:addResponse("Greetings, please mind the fairies and stay away from their cakes!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -98,7 +98,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Be greeted!");
 talkEntry:addResponse("Welcome to Elstree Forest.");
-talkEntry:addResponse("Greetings, Please mind the fairies and stay away from their cakes!");
+talkEntry:addResponse("Greetings, please mind the fairies and stay away from their cakes!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -118,7 +118,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Look at the wonderful world the gods have made for us, honor them in your travels.");
+talkEntry:addResponse("Look at the wonderful world the gods have made for us, honour them in your travels.");
 talkEntry:addResponse("Please visit again.");
 talkEntry:addResponse("Farewell.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -141,7 +141,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Look at the wonderful world the gods have made for us, honor them in your travels.");
+talkEntry:addResponse("Look at the wonderful world the gods have made for us, honour them in your travels.");
 talkEntry:addResponse("Please visit again.");
 talkEntry:addResponse("Farewell.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -183,7 +183,7 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("I'm Melanie Meadowlark.");
-talkEntry:addResponse("I'm the Ranger Melanie.");
+talkEntry:addResponse("I'm the ranger Melanie.");
 talkEntry:addResponse("You can call me Mel, protector of the fairies.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -207,7 +207,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Ranger I"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(500, "=", 1));
-talkEntry:addResponse("Help!! We need assistance in the fairy bakery.  We are short on honey, please bring me ten honeycombs.");
+talkEntry:addResponse("Help!! We need assistance in the fairy bakery.  We are short of honey, please bring me ten honeycombs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -228,7 +228,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Ranger I"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(500, "=", 1));
-talkEntry:addResponse("Help!! We need assistance in the fairy bakery.  We are short on honey, please bring me ten honeycombs.");
+talkEntry:addResponse("Help!! We need assistance in the fairy bakery.  We are short of honey, please bring me ten honeycombs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -293,7 +293,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2529, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(500, "=", 2));
-talkEntry:addResponse("Great! Now the cake baking can go on as scheduled.  You are rewarded five silver.");
+talkEntry:addResponse("Great! Now the cake baking can go ahead as scheduled.  You are rewarded five silver coins.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,7 +316,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Ranger II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(500, "=", 3));
-talkEntry:addResponse("The forest pigs are destroying the flowers!  Please be a good ranger and reduce the population by 25 Elstree forest pigs.");
+talkEntry:addResponse("The forest pigs are destroying the flowers!  Please be a good ranger and reduce the population by twenty five Elstree Forest pigs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -337,7 +337,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Ranger II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(500, "=", 3));
-talkEntry:addResponse("The forest pigs are destroying the flowers!  Please be a good ranger and reduce the population by 25 Elstree forest pigs.");
+talkEntry:addResponse("The forest pigs are destroying the flowers!  Please be a good ranger and reduce the population by twenty five Elstree Forest pigs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -359,7 +359,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(500, "<", 28));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Did you reduce the forest pig population yet? We cant let them destroy all flowers.");
+talkEntry:addResponse("Have you reduced the forest pig population yet? We can't let them destroy all the flowers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -378,7 +378,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(500, "<", 28));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Did you reduce the forest pig population yet? We cant let them destroy all flowers.");
+talkEntry:addResponse("Have you reduced the forest pig population yet? We can't let them destroy all the flowers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -400,7 +400,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(500, "=", 29));
-talkEntry:addResponse("The flowers are safe now. You are rewarded ten silver.");
+talkEntry:addResponse("The flowers are safe now. You are rewarded ten silver coins.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -421,7 +421,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Ranger III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(500, "=", 30));
-talkEntry:addResponse("There is a disturbance at the altar of Nargun, please check it out.");
+talkEntry:addResponse("There is a disturbance at the Altar of Nargun, please check it out.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -442,7 +442,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Ranger III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(500, "=", 30));
-talkEntry:addResponse("There is a disturbance at the altar of Nargun, please check it out.");
+talkEntry:addResponse("There is a disturbance at the Altar of Nargun, please check it out.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -463,7 +463,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(500, "=", 30));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Did you look after the altar yet? Something is wrong there.");
+talkEntry:addResponse("Have you looked over the altar yet? Something is wrong there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -480,7 +480,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(500, "=", 30));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Did you look after the altar yet? Something is wrong there.");
+talkEntry:addResponse("Have you looked over the altar yet? Something is wrong there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -498,7 +498,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(500, "=", 31));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a apple pie."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded an apple pie."));
 talkEntry:addConsequence(npc.base.consequence.item.item(353, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(500, "=", 32));
 talkEntry:addResponse("#me giggles lightly.  'Oh it seems Nargun was just playing some jokes. Thank you for checking it out.'");
@@ -522,7 +522,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Ranger IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(500, "=", 33));
-talkEntry:addResponse("Oh great your here.  We need some flowers for the arrangements.  Please bring me 20 flamegoblet blossoms.");
+talkEntry:addResponse("Oh great, you're here.  We need some flowers for the arrangements.  Please bring me twenty flamegoblet blossoms.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -543,7 +543,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Ranger IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(500, "=", 33));
-talkEntry:addResponse("Oh great your here.  We need some flowers for the arrangements.  Please bring me 20 flamegoblet blossoms.");
+talkEntry:addResponse("Oh great, you're here.  We need some flowers for the arrangements.  Please bring me twenty flamegoblet blossoms.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -565,7 +565,7 @@ talkEntry:addCondition(npc.base.condition.item.item(137, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Did you find enough flowers yet? We need them urgently.");
+talkEntry:addResponse("Have you found enough flowers yet? We need them urgently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -584,7 +584,7 @@ talkEntry:addCondition(npc.base.condition.item.item(137, "all", "<", 20, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Did you find enough flowers yet? We need them urgently.");
+talkEntry:addResponse("Have you found enough flowers yet? We need them urgently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -608,7 +608,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(137, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(500, "=", 34));
-talkEntry:addResponse("Thank you for the flowers. Here a little reward for your help.");
+talkEntry:addResponse("Thank you for the flowers. Here's a little reward for your help.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -702,7 +702,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Listen to the Fairies sing!");
+talkEntry:addResponse("Listen to the fairies sing!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -773,7 +773,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("spider");
-talkEntry:addResponse("Eek!! Don't tell but spiders scare me!");
+talkEntry:addResponse("Eek!! Don't tell anyone but spiders scare me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -825,7 +825,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("The scholars of Runewick rarely venture to the forest.");
+talkEntry:addResponse("The scholars of Runewick rarely venture into the forest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -895,7 +895,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("I think honor is serving the forest, however they say Cadomyr is the land of honor.");
+talkEntry:addResponse("I think honour is serving the forest, however they say Cadomyr is the land of honour.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -907,7 +907,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("In the Elstree forest, the gifts of the gods are everywhere.");
+talkEntry:addResponse("In Elstree forest, gifts of the gods are everywhere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1029,16 +1029,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Seht euch nur die Blumen an!", "Enjoy the flowers!");
 talkingNPC:addCycleText("Rettet ein Leben...schenkt einer Fee einen Kuchen!", "Save a life... feed a fairy a cake today!");
-talkingNPC:addCycleText("Haltet ein, atmet durch, geniesst die Schönheit.", "Stop, take a breathe, and enjoy the splendor.");
+talkingNPC:addCycleText("Haltet ein, atmet durch, geniesst die Schönheit.", "Stop, take a breath, and enjoy the splendour.");
 talkingNPC:addCycleText("#me lächelt und spielt entspannt eine Melodie auf der Harfe.", "#me smiles and relaxes, playing some tunes on a harp.");
 talkingNPC:addCycleText("Beschädigt nicht die Blumen der Feen. Sie sorgen sich um jedes einzelne Blütenblatt.", "Don't touch the fairy's flowers, they care for each and every petal.");
-talkingNPC:addCycleText("#me scherzt mit vorbeifliegenden Feen, indem sie Mehlstaub in deren Richtung bläst.", "#me joins in the play by blowing some flour out of her hand and at a couple of passing fairies.");
+talkingNPC:addCycleText("#me scherzt mit vorbeifliegenden Feen, indem sie Mehlstaub in deren Richtung bläst.", "#me joins in the play by blowing some flour out of her hand at a couple of passing fairies.");
 talkingNPC:addCycleText("#me stellt einen klebrigen Kuchen ab, der mit Holunder- und Blaubeeren gefüllt ist. Sie gießt Honig darüber und wartet offenbarauf die Ankunft einiger Feen.", "#me sets out a gooey cake filled with elder berries and black berries, pours honey over the top, and sits back, obviously waiting for the fairies to arrive.");
-talkingNPC:addCycleText("#me beobachtet die blauen Lichter, die wie der Tanz von Feen wirken - ein beeindruckendes Spiel von Farben.", "#me watches the blue lights which resemble a dance of fairies, making it look like an explosion of colors.");
+talkingNPC:addCycleText("#me beobachtet die blauen Lichter, die wie der Tanz von Feen wirken - ein beeindruckendes Spiel von Farben.", "#me watches the blue lights which resemble a dance of fairies, making it look like an explosion of colour.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(3);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist die Waldläuferin Melanie Meadowlark.", "This NPC is the Ranger Melanie Meadowlark.");
+mainNPC:setLookat("Dieser NPC ist die Waldläuferin Melanie Meadowlark.", "This NPC is the ranger Melanie Meadowlark.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 832);
