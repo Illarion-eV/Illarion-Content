@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Daniel Brock                                            Runewick --
@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 2.1.13-18-gb4c8d69 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -44,6 +44,7 @@ module("npc.daniel_brock", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+mainNPC:setAffiliation(2);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
@@ -274,7 +275,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
-talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
+talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of apple wood from the apple trees outside the city. Then return to the workshop and saw the pieces of apple wood into boards at the workbench with the saw I'll give you, and show them to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -301,7 +302,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
-talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
+talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of apple wood from the apple trees outside the city. Then return to the workshop and saw the pieces of apple wood into boards at the workbench with the saw I'll give you, and show them to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -329,7 +330,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 1));
-talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
+talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of apple wood from the apple trees outside the city. Then return to the workshop and saw the pieces of apple wood into boards at the workbench with the saw I'll give you, and show them to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -354,7 +355,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(9, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 1));
-talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of deciduous wood from the apple trees outside the city. Then return to the workshop and saw the pieces of deciduous wood into boards at the workbench with the saw I'll give you, and show them to me.");
+talkEntry:addResponse("A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of apple wood from the apple trees outside the city. Then return to the workshop and saw the pieces of apple wood into boards at the workbench with the saw I'll give you, and show them to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -381,7 +382,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("board");
 talkEntry:addTrigger("wood");
-talkEntry:addTrigger("deciduous");
+talkEntry:addTrigger("apple");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 2));
 talkEntry:addResponse("Well done, the boards look great. Please keep them for your next task.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -432,7 +433,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2716, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("I wanted ten deciduous wood boards, come back once you have fulfilled this task.");
+talkEntry:addResponse("I wanted ten apple wood boards, come back once you have fulfilled this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -453,7 +454,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.item.item(2715, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 3));
-talkEntry:addResponse("Let's make some plates from the deciduous boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done.");
+talkEntry:addResponse("Let's make some plates from the apple wood boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -476,7 +477,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.item.item(2715, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 3));
-talkEntry:addResponse("Let's make some plates from the deciduous boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done.");
+talkEntry:addResponse("Let's make some plates from the apple wood boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -516,7 +517,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("teller");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 4));
-talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Wenn Ihr nch etwas Zeit habt, dann hätte ich eine weitere Aufgabe für Euch.");
+talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Wenn Ihr noch etwas Zeit habt, dann hätte ich eine weitere Aufgabe für Euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -543,7 +544,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(713, "=", 4));
-talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Wenn Ihr nch etwas Zeit habt, dann hätte ich eine weitere Aufgabe für Euch.");
+talkEntry:addResponse("Gut gemacht, die Teller sehen gut aus. Wenn Ihr noch etwas Zeit habt, dann hätte ich eine weitere Aufgabe für Euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
