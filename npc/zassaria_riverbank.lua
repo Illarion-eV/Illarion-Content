@@ -12,17 +12,17 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
 -- NPC Name: Zassaria Riverbank                                      Runewick --
--- NPC Job:  Message quest giver                                              --
+-- NPC Job:  Fisher                                                           --
 --                                                                            --
 -- NPC Race: lizardman                  NPC Position:  908, 812, 1            --
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                     easyNPC Parser v1.23.1 --
+--                                                Illarion easyNPC Editor 2.1.13-18-gb4c8d69 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -44,6 +44,7 @@ module("npc.zassaria_riverbank", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+mainNPC:setAffiliation(2);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
@@ -520,7 +521,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You solved the quest. You are awarded 10 silver coins and an old wizard hat. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You solved the quest. You are awarded ten silver coins and an old wizard hat. You advance in Archmage Elvaine Morgan's favour."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.item.item(357, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 6));
@@ -533,7 +534,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 5));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du hast das Quest gelöst. Du wirst mit 10 Silbermünzen und einem alten Zauberhut belohnt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du hast das Quest gelöst. Du wirst mit zehn Silbermünzen und einem alten Zauberhut belohnt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.item.item(357, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 6));
@@ -550,7 +551,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
-talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. You can find him upstairs in the tower of fire, the building right there to the west. Zss Zss.");
+talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. You can find him upstairs in the tower of fire, the building right there to the north. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -561,7 +562,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
-talkEntry:addResponse("Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Ihr könnt ihn oben im Turm des Feuers finden, es ist das Gebäude gleich dort im Westen. Zss Zss.");
+talkEntry:addResponse("Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Ihr könnt ihn oben im Turm des Feuers finden, es ist das Gebäude gleich dort im Norden. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -573,7 +574,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
-talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. You can find him upstairs in the tower of fire, the building right there to the west. Zss Zss.");
+talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. You can find him upstairs in the tower of fire, the building right there to the north. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -586,7 +587,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
-talkEntry:addResponse("Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug.  Ihr könnt ihn oben im Turm des Feuers finden, es ist das Gebäude gleich dort im Westen. Zss Zss.");
+talkEntry:addResponse("Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug.  Ihr könnt ihn oben im Turm des Feuers finden, es ist das Gebäude gleich dort im Norden. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -635,7 +636,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You solved the quest. You are awarded 12 silver coins and a new robe in the colour of the ocean. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You solved the quest. You are awarded twelve silver coins and a new robe in the colour of the ocean. You advance in Archmage Elvaine Morgan's favour."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
 talkEntry:addConsequence(npc.base.consequence.item.item(193, 1, 333, {["descriptionEn"] = "This robe has the colour of the sea.", ["descriptionDe"] = "Diese Robe hat die Farbe des Meers."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 9));
@@ -648,7 +649,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 8));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du hast das Quest gelöst. Du wirst mit 12 Silbermünzen und eine neue Robe in der Farbe des Ozeans belohnt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du hast das Quest gelöst. Du wirst mit zwölf Silbermünzen und eine neue Robe in der Farbe des Ozeans belohnt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
 talkEntry:addConsequence(npc.base.consequence.item.item(193, 1, 333, {["descriptionEn"] = "This robe has the colour of the sea.", ["descriptionDe"] = "Diese Robe hat die Farbe des Meers."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 9));
@@ -675,7 +676,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 9));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich II"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich IV"));
 talkEntry:addConsequence(npc.base.consequence.item.item(73, 1, 440, {["nameDe"] = "Echt großer Fisch", ["nameEn"] = "Really big fish", ["descriptionEn"] = "This trout is as large as a salmon.", ["rareness"] = "2", ["descriptionDe"] = "Diese Forelle ist so groß wie ein Lachs!"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 10));
 talkEntry:addResponse("Zss! Zss! Ssschaut, ich habe eine Forelle gefangen, die issst ssso großsss wie ein Lachssss. Aber, zss, Marianne Forgeron, magisssche Ssschmied auss Galmair sssagt, ich lüge! Zss! Zzzeigt ihr diesssen Fisssch!");
@@ -702,7 +703,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich II"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich IV"));
 talkEntry:addConsequence(npc.base.consequence.item.item(73, 1, 440, {["nameDe"] = "Echt großer Fisch", ["nameEn"] = "Really big fish", ["descriptionEn"] = "This trout is as large as a salmon.", ["rareness"] = "2", ["descriptionDe"] = "Diese Forelle ist so groß wie ein Lachs!"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 10));
 talkEntry:addResponse("Zss! Zss! Ssschaut, ich habe eine Forelle gefangen, die issst ssso großsss wie ein Lachssss. Aber, zss, Marianne Forgeron, magisssche Ssschmied auss Galmair sssagt, ich lüge! Zss! Zzzeigt ihr diesssen Fisssch!");
