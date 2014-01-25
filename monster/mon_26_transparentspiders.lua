@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("item.gems")
 require("monster.base.drop")
@@ -47,9 +47,9 @@ msgs:addMessage("#mes Beine machen knackende Geräusche auf dem Boden.", "#me's l
 end
 
 function onSpawn(Monster)
-    
+
 	-- Regeneration for high level monsters
-	local MonID=Monster:getMonsterType() 
+	local MonID=Monster:getMonsterType()
 	if MonID == 262 or MonID == 261 then --Soulpain, Nightmare Spider
 		local find, reg_effect = Monster.effects:find(2);
 		if not find then
@@ -67,7 +67,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     local MonID=Monster:getMonsterType();
     if (MonID==262) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2500,4000},{{51,5}},{},40,1,{25,65}) == true );
@@ -118,11 +118,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -131,10 +131,10 @@ function onDeath(Monster)
 
         end
     end
-    
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
-   if (MonID==261) then --Kingsfright, Level: 7, Armourtype: heavy, Weapontype: distance
+   if (MonID==261) then --Nightmarespider, Level: 7, Armourtype: heavy, Weapontype: distance
 
         --Category 1: Raw gems
 
@@ -164,7 +164,7 @@ function onDeath(Monster)
         monster.base.drop.AddDropItem(3077,math.random(10,30),100,333,0,4); --silver coins
 
 
-    elseif (MonID==262) then --Shadowmuncher: 8, Armourtype: medium, Weapontype: wrestling
+    elseif (MonID==262) then --Soulpain: 8, Armourtype: medium, Weapontype: wrestling
 
         --Category 1: Raw gems
 
@@ -193,17 +193,6 @@ function onDeath(Monster)
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(30,90),100,333,0,4); --silver coins
 
-
-    elseif (MonID==263) then
-        -- Drops
-    elseif (MonID==264) then
-        --Drops
-    elseif (MonID==265) then
-        --Drops
-    elseif (MonID==266) then
-        --Drops
-    else
-        --Drops
     end
     monster.base.drop.Dropping(Monster);
 end

@@ -126,7 +126,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-	if (MonID==211) then --Firespide, Level: 4, Armourtype: heavy, Weapontype: distance
+	if (MonID==211) then --Firespider, Level: 4, Armourtype: heavy, Weapontype: distance
 
         --Category 1: Raw gems
 
@@ -155,17 +155,6 @@ function onDeath(Monster)
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(30,90),100,333,0,4); --copper coins
 
-
-    elseif (MonID==211) then
-        -- Drops
-    elseif (MonID==212) then
-        --Drops
-    elseif (MonID==213) then
-        --Drops
-    elseif (MonID==214) then
-        --Drops
-    else
-        --Drops
     end
     monster.base.drop.Dropping(Monster);
 end

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.drop")
 require("monster.base.lookat")
@@ -54,13 +54,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
-    local MonID=Monster:getMonsterType();
-    if (MonID==211) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{4000,5000},{{8,5}},{},40,1,{25,65}) == true );
-    else
-        return false;
-    end
+
 	return false;
 end
 
@@ -72,11 +66,8 @@ function enemyOnSight(Monster,Enemy)
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-    --local MonID=Monster:getMonsterType();
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
-    elseif (MonID==211) then
-          return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{4000,5000},{{8,5}},{},40,1,{25,65}) == true );
     else
         return false
     end
@@ -106,11 +97,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -119,7 +110,7 @@ function onDeath(Monster)
 
         end
     end
-    
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
    if (MonID==221) then --Gynkese Widow, Level: 6, Armourtype: light, Weapontype: puncture
@@ -149,19 +140,8 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(280,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --diamond ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(10,30),100,333,0,4); --silver coins
 
-
-    elseif (MonID==221) then
-        -- Drops
-    elseif (MonID==222) then
-        --Drops
-    elseif (MonID==223) then
-        --Drops
-    elseif (MonID==224) then
-        --Drops
-    else
-        --Drops
     end
     monster.base.drop.Dropping(Monster);
 end
