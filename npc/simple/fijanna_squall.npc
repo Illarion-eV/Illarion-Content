@@ -84,8 +84,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Findari watch over you.
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Fijanna Spuall, eine wandernde Seherin.", "Ich bin eine reisende Priesterin der Göttin der Luft. Ich heiße Fijanna. Es freut mich dich zu treffen.", "Ich heiße Fijanna. Freut mich dich zu sehen."
 
 -- Fortune telling phrases
-state = 1, money => 100, "Yes" -> state = 2, money - 300, "Very well. I shall tell your fortune. What do you want to hear?"
-state = 1, money => 100, "Ja" -> state = 2, money - 300, "Gut. Ich werde deine Zukunft lesen. Worüber möchtest du etwas erfahren?"
+state = 1, money >= 100, "Yes" -> state = 2, money - 300, "Very well. I shall tell your fortune. What do you want to hear?"
+state = 1, money >= 100, "Ja" -> state = 2, money - 300, "Gut. Ich werde deine Zukunft lesen. Worüber möchtest du etwas erfahren?"
 state = 1, "Yes" -> state = 0, "Seems like, you didn't bring enough coins with you..."
 state = 1, "Ja" -> state = 0, "Sieht so aus als hättest du nicht genügen Münzen mit..."
 state = 1, "No", "Thanks" -> state = 0, "Come back anytime you want to hear about your fortune."
