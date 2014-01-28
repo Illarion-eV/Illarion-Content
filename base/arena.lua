@@ -12,17 +12,17 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --[[
 Script for the arena managers. Purpose: money sink, fame and glory
 
 Players can buy monsters to fight against. Depending on the monster strength, the price rises.
-For every defeated monster the player gets points (corresponding to the monsters strength). 
+For every defeated monster the player gets points (corresponding to the monsters strength).
 Monsters drop no loot. It is all only for the sake of fame and glory.
 
 The arena manager holds a list of the top ten players. Players from other factions can fight too, to
-piss the other faction off. 
+piss the other faction off.
 
 author: Lillian
 
@@ -40,7 +40,7 @@ Level 4: Semistrong monsters award 4 points
 Level 5: Strong monster award 6 points
 Level 6: Really strong monsters award 8 points
 Level 7: Monsters for really, really good fighters 'heroes' award 13 points
-Level 8: Monsters for group fights award 18 points 
+Level 8: Monsters for group fights award 18 points
 Level 9: Unbelieavable strong monsters for 'groups' award 21 points
 ]]
 monsterIDsByLevel = {
@@ -55,16 +55,16 @@ monsterIDsByLevel = {
 	{monsters = {302, 641, 911}, points = 23, price=46000}
 }
 
-arenaInformation = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801}, 
-					{playerPos=nil, monsterPos=position(995,784,-3), newPlayerPos=nil, npcName="Manuel Salan", town="Runewick", quest=802}, 
+arenaInformation = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801},
+					{playerPos=nil, monsterPos=position(995,784,-3), newPlayerPos=nil, npcName="Manuel Salan", town="Runewick", quest=802},
 					{playerPos=nil, monsterPos=position(334,160,-6), newPlayerPos=nil, npcName="Angelo Rothman", town="Galmair", quest=803}}
 
-function requestMonster(User, NPC) 
+function requestMonster(User, NPC)
 	local cbChooseLevel = function (dialog)
 		if (not dialog:getSuccess()) then
 			return;
         end
-		
+
 		local index = dialog:getSelectedIndex()+1;
 		local arena = getArena(User, NPC);
 		local paid = payforMonster(User, index, NPC)
@@ -85,11 +85,11 @@ function requestMonster(User, NPC)
 			return;
 		end
 	end
-	
+
 	if not checkLte(User,NPC) then
 		return
 	end
-	
+
 	if User:getPlayerLanguage() == 0 then
 		sdMonster = SelectionDialog("Monsterstärke", "Wählt wie stark das Monster sein soll, gegen das Ihr kämpfen möchtet:", cbChooseLevel);
 		sdMonster:setCloseOnMove();
@@ -106,14 +106,14 @@ function requestMonster(User, NPC)
 			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
 			sdMonster:addOption(61,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." points)\n Price:"..englishMoney);
 		end
-	end	
+	end
 	User:requestSelectionDialog(sdMonster);
 end
 
 function payforMonster(User, MonsterLevel, NPC)
 	local priceInCP = monsterIDsByLevel[MonsterLevel].price;
 	local germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
-	
+
 	if not base.money.CharHasMoney(User,priceInCP) then --not enough money!
 		gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".";
 		eText="You don't have enough money with you! You'll need"..englishMoney..".";
@@ -133,13 +133,13 @@ function spawnMonster(User, MonsterLevel, arena)
     if not arenaMonster[User.id] then
 		arenaMonster[User.id] = {};
     end
-	
+
 	local monster;
 	world:gfx(31,arenaInformation[arena].monsterPos);
 	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformation[arena].monsterPos,0);
 	if isValidChar(monster) then
 		table.insert( arenaMonster[User.id], monster );
-		
+
 		if not arenaMonsterByMonsterId[monster.id] then
 			arenaMonsterByMonsterId[monster.id] = {};
 		end
@@ -148,8 +148,8 @@ function spawnMonster(User, MonsterLevel, arena)
 end
 
 function isArenaMonster(monster)
-	
-	
+
+
 	if arenaMonsterByMonsterId[monster.id] ~= nil then
 		return arenaMonsterByMonsterId[monster.id][1]
 	end
@@ -190,7 +190,7 @@ function killMonster(User)
 	return true;
 end
 
-function getRandomMonster(level) 
+function getRandomMonster(level)
 	local randomNumber = math.random(1, table.getn(monsterIDsByLevel[level].monsters));
 	return monsterIDsByLevel[level].monsters[randomNumber];
 end
@@ -209,7 +209,7 @@ function isUserInList(User, ranklist)
 		if ranklist[i] == User.name then
 			return true, i;
 		end
-	end	
+	end
 	return false, 0;
 end
 
@@ -218,7 +218,7 @@ function getArenastats(User, NPC)
 	local arena = getArena(User, NPC);
 	local quest = arenaInformation[arena].quest;
 	local points = User:getQuestProgress(quest);
-	
+
 	gText="Ihr habt bereits "..points.." gesammelt. Weiter so!";
 	eText="You have already earnt "..points.." points. Keep it up!";
 	outText=base.common.GetNLS(User,gText,eText);
@@ -228,7 +228,7 @@ end
 function setArenastats(User, arena, points)
 	local quest = arenaInformation[arena].quest;
 	local oldPoints = User:getQuestProgress(quest);
-	
+
 	points = points + oldPoints;
 	User:setQuestProgress(quest, points);
 end
@@ -239,7 +239,7 @@ function sortTable(inputTable)
 	local sortedTable = {}
 	for i=2, #(inputTable), 2 do
 		table.insert(numberTable, inputTable[i]);
-	end	
+	end
 	table.sort(numberTable);
 	for i= 1, #(numberTable) do
 		for j=2, #(inputTable), 2 do
@@ -252,7 +252,7 @@ function sortTable(inputTable)
 	return sortedTable;
 end
 
-function checkLte(User,NPC) 
+function checkLte(User,NPC)
 
 	local foundEffect, myEffect = User.effects:find(18)
 	if foundEffect then
@@ -262,15 +262,29 @@ function checkLte(User,NPC)
 	return true
 end
 
--- reward[x] = {y,z} - x = stones to have collected, y = item id , z= amount of y
-reward = {{61,15},{446,69},{447,103},{448,52},{449,69},{450,103},{451,52},{452,42},{2571,1}}
+-- reward[x] = {y,z} - x = reward points required, y = item id , z= amount of y
+reward = {
+	{61,15}, -- gold coins
+	{446,69}, -- sapphire powder
+	{447,103}, -- ruby powder
+	{448,52}, -- emerald powder
+	{449,69}, -- obsidan powder
+	{450,103}, -- amethyst powder
+	{451,52}, -- topaz powder
+	{452,42}, -- diamond powder
+	{2551,1}, -- pure air
+	{2552,1}, -- pure earth
+	{2553,1}, -- pure fire
+	{2554,1}, -- pure water
+}
 
 function getReward(User, quest)
 	local numberOfRewards = User:getQuestProgress(quest+2)
 	local currentPoints = User:getQuestProgress(quest)
 	local pointsNeededForNewReward = 50;
-	
-	if  currentPoints >= pointsNeededForNewReward*(numberOfRewards+1) then
+
+	-- give a reward at 50, 150, 350, 750, 1550, ..
+	if  currentPoints >= pointsNeededForNewReward*((2^(numberOfRewards+1))-1) then
 		User:setQuestProgress(quest+2, numberOfRewards+1);
 		rewardDialog(User, currentPoints)
 	end
@@ -279,17 +293,17 @@ end
 function rewardDialog(User, points)
 	local title = base.common.GetNLS(User,"Arena Belohnung","Arena reward")
 	local text = base.common.GetNLS(User,"Du hast "..points.." Punkte gesammelt, daher kannst du dir nun eine Belohnung aussuchen.", "You earned "..points.." points, therefore you can pick a reward.")
-	
-	local callback = function(dialog) 
-		local success = dialog:getSuccess() 
+
+	local callback = function(dialog)
+		local success = dialog:getSuccess()
 		if success then
 			selected = dialog:getSelectedIndex()+1
-			User:createItem(reward[selected][1],reward[selected][2], 800, nil);	
+			User:createItem(reward[selected][1],reward[selected][2], 800, nil);
 		end
 	end
 
 	local dialog = SelectionDialog(title, text, callback);
-	
+
 	local itemName;
 	local language = User:getPlayerLanguage();
 	for i=1, #(reward) do
