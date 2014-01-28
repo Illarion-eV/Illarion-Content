@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- CreateAfterTime, id 80
 -- to create a item after some time
@@ -55,7 +55,7 @@ PosItemEN[8]=" south of you.";
 PosItemDE[9]=" unter deinen Beinen.";
 PosItemEN[9]=" underneath your feet.";
 
-function addEffect(Effect, Character)               				
+function addEffect(Effect, Character)
 
 end
 
@@ -71,7 +71,6 @@ if createItemTimeB ~= 0 then
 	end
 	local findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB") --find variable
  	if createItemTimeA<createItemTimeB then --check if smaller; if yes than nextcall
-debug("createItemTextA: "..createItemText)
 		if informplayeraboutunsuccess == nil then
 			informplayeraboutunsuccess = 0
 		elseif informplayeraboutunsuccess == 2 and createItemText==1 then -- if we have defined text1 for the created item
@@ -153,8 +152,8 @@ debug("createItemTextA: "..createItemText)
 		findCreateItemPos, createItemPos = Effect:findValue("createItemPos") --find variable
 		if findCreateItemPos then -- if yes, position of item in relation to character will be checked
 			if PoscreatedItemX < Character.pos.x and PoscreatedItemY < Character.pos.y then
-				PosItem=1	
-			elseif PoscreatedItemX < Character.pos.x and PoscreatedItemY > Character.pos.y then			
+				PosItem=1
+			elseif PoscreatedItemX < Character.pos.x and PoscreatedItemY > Character.pos.y then
 				PosItem=2
 			elseif PoscreatedItemX > Character.pos.x and PoscreatedItemY < Character.pos.y then
 				PosItem=3
@@ -172,18 +171,16 @@ debug("createItemTextA: "..createItemText)
 				PosItem=9
 			end
 		end
-	end	
+	end
 --	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
 --[[	if createItemText==1 then -- if we have defined text1 for the created item
 		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
 	end ]]--
 
 	if createItemText==2 or createItemText==3 or createItemText==4 or createItemText==5 then -- if we have defined text2..5 for the created item
-debug("createItemText: "..createItemText)
-debug("PosItem: "..PosItem)
 		Character:inform(""..TextDE[createItemText]..PosItemDE[PosItem],""..TextEN[createItemText]..PosItemEN[PosItem])--inform player about result and the direction
 	end
-	
+
 	informplayeraboutunsuccess = 0  --prepare for next script call
 	createItemTimeA=0  --prepare for next script call
 	return false -- callEffect is only needed once, no return true necessary
@@ -194,7 +191,6 @@ elseif findCreateItemTimeBB then
 		else
 	end
  	if createItemTimeAA<createItemTimeBB then --check if smaller; if yes than nextcall
-debug("createItemTextB: "..createItemText)
 		if informplayeraboutunsuccess == nil then
 			informplayeraboutunsuccess = 0
 		elseif informplayeraboutunsuccess == 2 and createItemText==1 then -- if we have defined text1 for the created item
@@ -251,13 +247,13 @@ debug("createItemTextB: "..createItemText)
 		createAfter=math.random(createAfterA,createAfterB);  --create random value between variables
 		Effect.nextCalled = createAfter --set time for nextcall
 		return true --callEffect is needed again, return true necessary
-	
+
 	elseif createItemIDB ~= 0 then --item B is necessary
 		findCreateItemPos, createItemPos = Effect:findValue("createItemPos") --find variable
 		if findCreateItemPos then -- if yes, position of item in relation to character will be checked
 			if PoscreatedItemX < Character.pos.x and PoscreatedItemY < Character.pos.y then
-				PosItem=1	
-			elseif PoscreatedItemX < Character.pos.x and PoscreatedItemY > Character.pos.y then			
+				PosItem=1
+			elseif PoscreatedItemX < Character.pos.x and PoscreatedItemY > Character.pos.y then
 				PosItem=2
 			elseif PoscreatedItemX > Character.pos.x and PoscreatedItemY < Character.pos.y then
 				PosItem=3
@@ -295,6 +291,6 @@ function removeEffect(Effect,User)
 
 end
 
-function loadEffect(Effect,User)                  			
+function loadEffect(Effect,User)
 
 end
