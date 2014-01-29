@@ -15,11 +15,11 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --------------------------------------------------------------------------------
--- NPC Name: Marcel Metalfeet                                         Galmair --
+-- NPC Name: Matheus Metalfeet                                           None --
 -- NPC Job:  craftsman                                                        --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  382, 278, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: halfling                   NPC Position:  695, 309, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                Illarion easyNPC Editor 2.1.13-25-gd131f30 --
@@ -27,7 +27,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 382, 278, 0, 4, 'Marcel Metalfeet', 'npc.marcel_metalfeet', 0, 2, 0, 68, 62, 0, 245, 211, 179);
+VALUES (2, 695, 309, 0, 6, 'Matheus Metalfeet', 'npc.matheus_metalfeet', 0, 2, 0, 68, 62, 0, 245, 211, 179);
 ---]]
 
 require("npc.base.basic")
@@ -36,22 +36,22 @@ require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.repair")
 require("npc.base.talk")
-module("npc.marcel_metalfeet", package.seeall)
+module("npc.matheus_metalfeet", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
-mainNPC:setAffiliation(3);
+mainNPC:setAffiliation(0);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Marcel Metalfeet the craftsman. Keywords: repair, work, greetings, religion."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Matheus Metalfeet the craftsman. Keywords: repair."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Marcel Metalfeet der Handwerker. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Matheus Metalfeet der Handwerker. Schlüsselwörter: reparieren."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -63,8 +63,8 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("Hello. You look happy today. Did you eat a nice meal?");
-talkEntry:addResponse("Hello. You do not look too happy today. Are you hungry?");
+talkEntry:addResponse("Hello. Do you have something to repair?");
+talkEntry:addResponse("Hello. Did you bring me a cake?");
 talkEntry:addResponse("Hello. How are you today?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -80,8 +80,8 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
-talkEntry:addResponse("Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegessen?");
-talkEntry:addResponse("Hallo. Du siehst nicht so glücklich aus. Hast du Hunger?");
+talkEntry:addResponse("Hallo. Willst du etwas repariert haben?");
+talkEntry:addResponse("Hallo. Hast du mir einen Kuchen mitgebracht?");
 talkEntry:addResponse("Hallo. Wie geht es dir?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -92,8 +92,8 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hello. You look happy today. Did you eat a nice meal?");
-talkEntry:addResponse("Hello. You do not look too happy today. Are you hungry?");
+talkEntry:addResponse("Hello. Do you have something to repair?");
+talkEntry:addResponse("Hello. Did you bring me a cake?");
 talkEntry:addResponse("Hello. How are you today?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -103,8 +103,8 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegessen?");
-talkEntry:addResponse("Hallo. Du siehst nicht so glücklich aus. Hast du hunger?");
+talkEntry:addResponse("Hallo. Willst du etwas repariert haben?");
+talkEntry:addResponse("Hallo. Hast du mir einen Kuchen mitgebracht?");
 talkEntry:addResponse("Hallo. Wie geht es dir?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -114,7 +114,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Safe journey, and don't forget to take enough food with you!");
+talkEntry:addResponse("Don't forget to bring me a cake next time!");
 talkEntry:addResponse("#me waves goodbye.");
 talkEntry:addResponse("Please come again!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -125,7 +125,7 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("Gute Reise. Und vergiss nicht genug Proviant mit zu nehmen!");
+talkEntry:addResponse("Vergiss nächstes mal nicht mir einen Kuchen mitzubringen!");
 talkEntry:addResponse("#me winkt zum Abschied");
 talkEntry:addResponse("Komm wieder!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -137,7 +137,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Safe journey, and don't forget to take enough food with you!");
+talkEntry:addResponse("Don't forget to bring me a cake next time!");
 talkEntry:addResponse("#me waves goodbye.");
 talkEntry:addResponse("Please come again!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -148,7 +148,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Gute Reise. Und vergiss nicht genug Proviant mit zu nehmen!");
+talkEntry:addResponse("Vergiss nächstes mal nicht mir einen Kuchen mitzubringen!");
 talkEntry:addResponse("#me winkt zum Abschied");
 talkEntry:addResponse("Komm wieder!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -158,9 +158,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I am fine, I just ate my cake.");
-talkEntry:addResponse("I am fine, I'll soon eat my cake.");
-talkEntry:addResponse("I am sad, I ate all my cake.");
+talkEntry:addResponse("I am fine, got something to repair?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,9 +167,7 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("Mir geht es gut. Ich habe eben Kuchen gegessen.");
-talkEntry:addResponse("Mir geht es gut. Ich werde gleich Kuchen essen.");
-talkEntry:addResponse("Ich bin traurig. Ich habe meinen Kuchen aufgegessen.");
+talkEntry:addResponse("Mir geht es gut. Hast du was zu reparieren?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -179,7 +175,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Marcel Metalfeet, at your service.");
+talkEntry:addResponse("Matheus Metalfeet, I can fix your gear.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -189,7 +185,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Marcel Metalfeet, stets zu Diensten.");
+talkEntry:addResponse("Matheus Metalfeet, ich kann alles reparieren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -197,7 +193,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("repair");
 talkEntry:addTrigger("fix");
-talkEntry:addResponse("Let's have a look at this.");
+talkEntry:addResponse("Let's fix this.");
 talkEntry:addConsequence(npc.base.consequence.repair.repair());
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -206,7 +202,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("reparieren");
 talkEntry:addTrigger("instand");
 talkEntry:addTrigger("heile");
-talkEntry:addResponse("Schauen wir nach, was wir hier haben.");
+talkEntry:addResponse("Lasst uns das in Ordnung bringen.");
 talkEntry:addConsequence(npc.base.consequence.repair.repair());
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -229,7 +225,7 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("I verkaufe nichts, aber ich kann allesmögliche für Euch reparieren.");
+talkEntry:addResponse("I verkaufe nichts, aber ich kann alles mögliche für Euch reparieren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -292,19 +288,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I like cake! Everyone else also likes cake! Nice,eh?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Ich mag Kuchen! Und alle andern mögen auch Kuchen. Nett, oder?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
 talkEntry:addResponse("We were created by the Gods to collect and eat the fruits of Illarion.");
 talkEntry:addResponse("The Gods were created from cherry seeds.");
@@ -349,19 +332,19 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("I pray to Oldra. Cake is made of grain.");
+talkEntry:addResponse("I pray to Oldra, like my whole clan!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Ich bete zu Oldra. Kuchen wird auch Korn gemacht.");
+talkEntry:addResponse("Ich bete zu Oldra, wie alle in meinem Clan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Nice to meet you.");
+talkEntry:addResponse("Well met.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -373,7 +356,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Marcel");
+talkEntry:addTrigger("Matheus");
 talkEntry:addTrigger("Metalfeet");
 talkEntry:addResponse("You want me to repair something for you?");
 talkEntry:addResponse("The Metalfeet Clan is proud and mighty.");
@@ -382,7 +365,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Marcel");
+talkEntry:addTrigger("Matheus");
 talkEntry:addTrigger("Metalfeet");
 talkEntry:addResponse("Ich soll etwas für Euch reparieren?");
 talkEntry:addResponse("Der Metalfeet Clan ist stolz und mächtig.");
@@ -392,28 +375,28 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Matheus");
-talkEntry:addResponse("My brother Matheus works at the Hempnecktie.");
+talkEntry:addTrigger("Marcel");
+talkEntry:addResponse("My brother Marcel works in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Matheus");
-talkEntry:addResponse("Mein Bruder Matheus arbeitet in der Hanfschlinge.");
+talkEntry:addTrigger("Marcel");
+talkEntry:addResponse("Mein Bruder Marcel arbeitet in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("brother");
-talkEntry:addResponse("My brother Matheus works at the Hempnecktie.");
+talkEntry:addResponse("My brother Marcel works in Galmair.");
 talkEntry:addResponse("My brothers are craftsmen as well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bruder");
-talkEntry:addResponse("Mein Bruder Matheus arbeitet in der Hanfschlinge.");
+talkEntry:addResponse("Mein Bruder Marcel arbeitet in Galmair.");
 talkEntry:addResponse("Meine Brüder sind auch Handwerker.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -422,9 +405,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Did you say cake?");
-talkEntry:addResponse("Did I hear you say cookies?");
+talkEntry:addResponse("I am hungry.");
 talkEntry:addResponse("Pardon?");
+talkEntry:addResponse("Whatever.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -432,30 +415,31 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Hast du Kuchen gesagt?.");
-talkEntry:addResponse("Hast du eben Kekse gesagt?");
+talkEntry:addResponse("Ich hab Hunger");
 talkEntry:addResponse("Wie bitte?");
+talkEntry:addResponse("Wie auch immer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me summt eine Melodie.", "#me hums a melody.");
-talkingNPC:addCycleText("#me grinst.", "#me grins.");
-talkingNPC:addCycleText("#me isst ein Stück Kuchen, welchen er grade aus seiner Tasche hervorholte.", "#me eats a piece of cake that he just took out from his bag.");
-talkingNPC:addCycleText("Marcel Metalfeet! Ich repariere alles und jeden!", "Marcel Metalfeet! I repair everything and everyone!");
-talkingNPC:addCycleText("#me pfeift eine Melodie.", "#me whistles.");
-talkingNPC:addCycleText("#me schaut sich um.", "#me looks around.");
-talkingNPC:addCycleText("#me leckt sich über die Lippen.", "#me licks his lips.");
-talkingNPC:addCycleText("#me leckt seine Finger ab.", "#me licks his fingers.");
-talkingNPC:addCycleText("#w Ich möchte Kuchen essen... Ich möchte nicht arbeiten.", "#w I want to eat a cake... I do not want to work.");
+talkingNPC:addCycleText("#me pfeift ein lustige Lied.", "#me whistles a funny tune.");
+talkingNPC:addCycleText("#me kichert leise.", "#me giggles softly.");
+talkingNPC:addCycleText("#me kaut Sonnenblumekerne, ab und an spuckt er einen ins Gebüsch.", "#me chews on sunflower seeds, once in a while he spits a seed into the nearby hedge.");
+talkingNPC:addCycleText("Matheus Metalfeet! Ich repariere Ausrüstung!", "Matheus Metalfeet! I repair gear!");
+talkingNPC:addCycleText("Die Metalfeet Brüder können alles richten!", "The Metalfeet brothers can fix everything!");
+talkingNPC:addCycleText("#me beobachtet die Leute neugierig.", "#me curiously observes the people.");
+talkingNPC:addCycleText("#me poliert seine Werkzeuge.", "#me polishes his tools.");
+talkingNPC:addCycleText("#me spuckt einen Sonnenblumenkern auf den Weg.", "#me spits a sunflower seed onto the ground.");
+talkingNPC:addCycleText("Kaputte Rüstung? Kapputtes Schwert? Ich kann helfen!", "Broken armor? Broken sword? I can help!");
+talkingNPC:addCycleText("Faulheit wird bestraft", "Laziness will be punished");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Marcel Metalfeet der Handwerker.", "This NPC is Marcel Metalfeet the craftsman.");
+mainNPC:setLookat("Dieser NPC ist Matheus Metalfeet der Handwerker.", "This NPC is Matheus Metalfeet the craftsman.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 180);
-mainNPC:setEquipment(11, 196);
-mainNPC:setEquipment(5, 311);
+mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(11, 55);
+mainNPC:setEquipment(5, 23);
 mainNPC:setEquipment(6, 9);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 34);
