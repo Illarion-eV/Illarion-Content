@@ -260,11 +260,17 @@ function getFreePos( CenterPos, Rad )
                 return tarPos;
 			else
 				countPos = countPos +1;
-				if countPos > 150 then
+				if countPos > 50 then
 					countPos = 0;
 					return CenterPos;
 				end
             end
-        end
+        else
+			countPos = countPos +1;
+			if countPos > 50 then
+				countPos = 0;
+				return CenterPos;
+			end
+		end
     end
 end
