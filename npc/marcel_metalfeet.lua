@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                Illarion easyNPC Editor 2.1.13-25-gd131f30 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -36,12 +36,14 @@ require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.repair")
 require("npc.base.talk")
+require("npc.base.trade")
 module("npc.marcel_metalfeet", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 mainNPC:setAffiliation(3);
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -349,7 +351,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("I pray to Oldra. Cake is made of grain.");
+talkEntry:addResponse("I pray to Ushara. Cake is made of grain.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -376,45 +378,13 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Marcel");
 talkEntry:addTrigger("Metalfeet");
 talkEntry:addResponse("You want me to repair something for you?");
-talkEntry:addResponse("The Metalfeet Clan is proud and mighty.");
-talkEntry:addResponse("My brothers are craftsmen as well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Marcel");
+talkEntry:addTrigger("Metalfeet");
 talkEntry:addTrigger("Metalfeet");
 talkEntry:addResponse("Ich soll etwas für Euch reparieren?");
-talkEntry:addResponse("Der Metalfeet Clan ist stolz und mächtig.");
-talkEntry:addResponse("Meine Brüder sind auch Handwerker.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Matheus");
-talkEntry:addResponse("My brother Matheus works at the Hempnecktie.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Matheus");
-talkEntry:addResponse("Mein Bruder Matheus arbeitet in der Hanfschlinge.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("brother");
-talkEntry:addResponse("My brother Matheus works at the Hempnecktie.");
-talkEntry:addResponse("My brothers are craftsmen as well.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bruder");
-talkEntry:addResponse("Mein Bruder Matheus arbeitet in der Hanfschlinge.");
-talkEntry:addResponse("Meine Brüder sind auch Handwerker.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -446,6 +416,12 @@ talkingNPC:addCycleText("#me schaut sich um.", "#me looks around.");
 talkingNPC:addCycleText("#me leckt sich über die Lippen.", "#me licks his lips.");
 talkingNPC:addCycleText("#me leckt seine Finger ab.", "#me licks his fingers.");
 talkingNPC:addCycleText("#w Ich möchte Kuchen essen... Ich möchte nicht arbeiten.", "#w I want to eat a cake... I do not want to work.");
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
