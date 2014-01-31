@@ -257,7 +257,7 @@ function UseDarkColumns(User, SourceItem, ltstate)
 		elseif (SourceItem.pos == darkColumnEvilrock[i]) and (User:countItemAt("all", 283) >= 1 or User:countItemAt("all", 46) >= 1 or User:countItemAt("all", 198) >= 1) then
 			base.common.InformNLS(User,"Diese Art von Edelstein scheint nicht zu passen. Vielleicht versuchst du einen einer anderen Art.","This kind of gem does not seem to fit. You might try a different one.")
 		elseif (SourceItem.pos == darkColumnEvilrock[i]) then
-			base.common.InformNLS(User,"Keiner deiner Gegenstände scheint nicht zu passen.","None of your items seems to fit.")
+			base.common.InformNLS(User,"Keiner deiner Gegenstände scheint zu passen.","None of your items seems to fit.")
 		end
 	end
 end

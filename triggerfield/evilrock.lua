@@ -71,6 +71,8 @@ EvilRockAreaNames={"evilrock1","evilrock2","evilrock3","evilrock4","evilrock5","
 attendants={}
 attendants2={}
 --evilrockStory={}
+itemsOnCharContainer={}
+
 
 function MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
@@ -166,13 +168,48 @@ debug("heightOfPlayer: "..heightOfPlayer)
 debug("strengthOfPlayer: "..strengthOfPlayer)
 		local ageOfPlayer = char:increaseAttrib("age",0)	
 debug("ageOfPlayer: "..ageOfPlayer)
-		if weightOfPlayer == nil  then		
+
+
+		local ItemsInBackPack = char:getBackPack()
+		local weightofItemsInBackPack = ItemsInBackPack:weight()
+
+		local ItemsOnBodyBelt = 0
+		local itemsOnChar = {};
+		local itemPosOnChar = {};
+		for i=17,0,-1 do
+			local item = char:getItemAt(i);
+			if (item.id > 0) then
+				table.insert(itemsOnChar, item);
+				table.insert(itemPosOnChar, itemPos[i])
+			end
+		end
+		local language = char:getPlayerLanguage();
+	
+		for i,item in ipairs(itemsOnChar) do
+			local statsofItemsOnChar = world:getItemStatsFromId(item.id)
+			local statsofItemsOnCharWeight = statsofItemsOnChar.Weight
+			if item.itempos >= 11 and item.itempos <= 18 then	
+				numberofItemsOnChar = char:countItemAt("belt",item.id)
+			else
+				numberofItemsOnChar = char:countItemAt("body",item.id)
+			end
+			local weightofItemsOnChar = numberofItemsOnChar * statsofItemsOnCharWeight
+			ItemsOnBodyBelt = ItemsOnBodyBelt + weightofItemsOnChar
+		end
+
+debug("weightOfPlayer: "..weightOfPlayer)
+debug("weightofItemsInBackPack: "..weightofItemsInBackPack)
+debug("ItemsOnBodyBelt: "..ItemsOnBodyBelt)
+		local weightOfPlayerPlusItemsPlusBag = weightOfPlayer+weightofItemsInBackPack+ItemsOnBodyBelt
+debug("weightOfPlayerPlusItemsPlusBag: "..weightOfPlayerPlusItemsPlusBag)
+
+		if weightOfPlayerPlusItemsPlusBag == nil  then		
 			clicksAmountVar = 1
 			WrongWeight(char,clicksAmountVar)
-		elseif weightOfPlayer <= 94 then
+		elseif weightOfPlayerPlusItemsPlusBag <= 12400 then
 			clicksAmountVar = 1
 			WrongWeight(char,clicksAmountVar)
-		elseif weightOfPlayer >= 99 then
+		elseif weightOfPlayerPlusItemsPlusBag >= 13500 then
 			clicksAmountVar = 2
 			WrongWeight(char,clicksAmountVar)		
 		else			
@@ -182,6 +219,9 @@ debug("ageOfPlayer: "..ageOfPlayer)
 	end
 	
 end
+
+
+
 
 stoneChamberStonePosition={position(957,170,-6),position(953,167,-6),position(948,168,-6),position(946,173,-6),position(948,178,-6),position(953,179,-6),position(957,176,-6)}
 stoneChamberStoneKind={283,197,46,285,45,198,284}
