@@ -166,7 +166,7 @@ function UseItemWithField(User,SourceItem,TargetPos)
 		User:requestInputDialog(InputDialog("Play a sound effect.", "Usage: Type in sound effects id." ,false, 255, cbInputDialog))
 		
 	elseif (SourceItem:getData("mode")=="Avatar changes") then			
-		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
+		local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 		local players = {User};
 		for _,player in pairs(playersTmp) do 
 			if (player.id ~= User.id) then 

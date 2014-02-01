@@ -155,7 +155,7 @@ function UseItem(User, SourceItem, ltstate)
 		User:requestSelectionDialog(sdTeleport);
 		
 	elseif (SourceItem:getData("mode")=="Faction info of chars in radius") then
-		local players = world:getPlayersInRangeOf(User.pos, 15);		
+		local players = world:getPlayersInRangeOf(User.pos, 25);		
 		local infos = "";
 		local germanRank, englishRank 
 		
@@ -172,7 +172,7 @@ function UseItem(User, SourceItem, ltstate)
 		User:requestMessageDialog(mDialog)
 		
 	elseif (SourceItem:getData("mode")=="Char Info") then
-		local playersTmp = world:getPlayersInRangeOf(User.pos, 7);
+		local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 		local players = {User};
 		for _,player in pairs(playersTmp) do 
 			if (player.id ~= User.id) then 
@@ -213,7 +213,7 @@ function UseItem(User, SourceItem, ltstate)
 		User:requestSelectionDialog(sdPlayer);
 		
 	elseif (SourceItem:getData("mode")=="Change skills") then
-		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
+		local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 		local players = {User};
 		for _,player in pairs(playersTmp) do 
 			if (player.id ~= User.id) then 
@@ -266,7 +266,7 @@ function UseItem(User, SourceItem, ltstate)
 		User:requestSelectionDialog(sdPlayer);	
 
 	elseif (SourceItem:getData("mode")=="Get/ Set Queststatus") then	
-		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
+		local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 		local players = {User};
 		for _,player in pairs(playersTmp) do 
 			if (player.id ~= User.id) then 
@@ -313,7 +313,7 @@ function UseItem(User, SourceItem, ltstate)
 		User:requestSelectionDialog(sdPlayer);		
 		
 	elseif (SourceItem:getData("mode")=="Instant kill/ revive") then		
-		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
+		local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 		local players = {User};
 		for _,player in pairs(playersTmp) do 
 			if (player.id ~= User.id) then 
