@@ -125,7 +125,7 @@ function UseItem(User, SourceItem)
 				end
 			else
 				User:talk(Character.say, "#me wischt Staub vom Grabstein, der zu Boden f‰llt.", "#me waves over the tombstone and dust drops to the ground.")				
-				base.common.InformNLS(User,"Du findest nichts auﬂer Staub am Grabstein.", "You do not find anything except of dust on the tombstone.")
+				base.common.InformNLS(User,"Du findest nichts auﬂer Staub am Grabstein.", "You do not find anything except for dust on the tombstone.")
 			end
 		end	
 	end

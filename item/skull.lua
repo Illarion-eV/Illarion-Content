@@ -44,11 +44,11 @@ end
 skullDescriptionDE={}
 skullDescriptionEN={}
 skullDescriptionDE[1]="Die Augen leuchten merkwürdig rot. Ob es wohl Sinn macht, die Finger in die Augenhöhlen zu stecken?"
-skullDescriptionEN[1]="The eyes glow funky red. If it is useful to move your fingers inside of the eyeholes?"
+skullDescriptionEN[1]="The eyes glow strangely red. Whether it is useful to move your fingers inside eye holes?"
 skullDescriptionDE[2]="Die Augen leuchten merkwürdig blau. Ob es wohl Sinn macht, die Finger in die Augenhöhlen zu stecken?"
-skullDescriptionEN[2]="The eyes glow funky blue. If it is useful to move your fingers inside of the eyeholes?"
+skullDescriptionEN[2]="The eyes glow strangely blue. Whether it is useful to move your fingers inside eye holes?"
 skullDescriptionDE[3]="Die Augen leuchten merkwürdig grün. Ob es wohl Sinn macht, die Finger in die Augenhöhlen zu stecken?"
-skullDescriptionEN[3]="The eyes glow funky green. If it is useful to move your fingers inside of the eyeholes?"
+skullDescriptionEN[3]="The eyes glow strangely green. Whether it is useful to move your fingers inside eye holes?"
 
 function SkullLookAt(User, Item)
 	local lookAt = ItemLookAt();

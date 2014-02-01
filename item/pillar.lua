@@ -54,7 +54,7 @@ messageE[5]="V. Truth: Keep your word and give no false testimony. The strength 
 messageG[5]="V. Ehrlichkeit: Halte dein Wort und gib kein falsches Zeugnis ab. Du wirst an deinen Worten gemessen.";
 messageE[6]="VI. Justice: In all things be fair and just; never steal, offer your friendship freely, but do not spare your enemy the sword."
 messageG[6]="VI. Gerechtigkeit: Sei gerecht zu jedem. Stehle nicht, gib deine Freundschaft dem Freund und dein Schwert dem Feind.";
-messageE[7]="VII. Courage: Fear is not permissible. Stand in for your honour and sovereign. Never retreat, never surrender."
+messageE[7]="VII. Courage: Fear is not permissible. Stand for your honour and sovereign. Never retreat, never surrender."
 messageG[7]="VII. Courage: Fürchte nicht. Stehe für deinen Herrscher und dein Ehre ein. Kein Rückzug, niemals aufgeben.";
 messageE[8]="VIII. Patriarchy: Obey your father, obey your husband, but never your son."
 messageG[8]="VIII. Patriarchat: Gehorche dem Vater. Gehorche dem Ehemann. Aber gehorche nicht dem Sohn.";
@@ -114,7 +114,7 @@ function LookAtItem(User,Item)
         		User:setQuestProgress(110,0); --start from the beginning
          		if User:getQuestProgress(111)==1 then --change when quest is ready!
               		User:setQuestProgress(111,2); --the player read all laws
-              		base.common.InformNLS(User,"[Queststatus] Du hast nun alle Gesetze Cadomyrs gelesen.","[Quest progress] You read all the Cadomyrian customs."); --sending the message
+              		base.common.InformNLS(User,"[Queststatus] Du hast nun alle Gesetze Cadomyrs gelesen.","[Quest progress] You read all of the Cadomyrian customs."); --sending the message
          		end
       		end   
     else

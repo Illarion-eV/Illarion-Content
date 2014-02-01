@@ -32,15 +32,15 @@ VisionTextDE[1][8]="Der groﬂe Mann wartet kurz bevor er antwortet: 'Bringt Essen
 VisionTextDE[1][9]="Sobald die letzten Worte gesprochen sind, verschwinden alle Schatten.";
 VisionTextEN={};
 VisionTextEN[1]={};
-VisionTextEN[1][1]="The shades of two men appear next to the shrine. Both are well dressed. Then, a tall man enters the building trough the maindoor, followed by a group of warriors, archers and mages.";
+VisionTextEN[1][1]="The shades of two men appear next to the shrine. Both are well dressed. Then, a tall man enters the building through the main door, followed by a group of warriors, archers and mages.";
 VisionTextEN[1][2]="Both men bow to this man, who rushes quickly to them. He asks them: 'What is the state?'";
-VisionTextEN[1][3]="The left man replies with bowed head: 'We are almost done, master'.";
+VisionTextEN[1][3]="The left man replies with bowed head: 'We are almost done, Master'.";
 VisionTextEN[1][4]="'Almost?' The man looks around and turns back to both men. 'And the stone-chamber?'";
-VisionTextEN[1][5]="The right man looks briefly up before he also replies with a bowed head: 'My master, the stone-chamber is ready to host your stones.'";
+VisionTextEN[1][5]="The right man looks briefly up before he also replies with a bowed head: 'My Master, the stone-chamber is ready to host your stones.'";
 VisionTextEN[1][6]="'I will bring them with me the next time, when I come.' The tall man examines the room again and ask then: 'And the dwarf in the mountain town? Does he accept? Or do I have to convince him?'";
-VisionTextEN[1][7]="The left man replies smirking: 'Greedy as the old dwarf is, he could not resist. Much more worse than his son. We observed their miners running some extra shifts.'";
-VisionTextEN[1][8]="The tall man pauses before he replies: 'Bring meals and beverages for supper now. We have to leave quickly to Albar early morning.";
-VisionTextEN[1][9]="As soon as the last words are said, all shades disappear.";
+VisionTextEN[1][7]="The left man replies smirking: 'Greedy as the old dwarf is, he could not resist. Much worse than his son. We observed their miners running some extra shifts.'";
+VisionTextEN[1][8]="The tall man pauses before he replies: 'Bring meals and beverages for supper now. We have to leave soon for Albar, early in the morning.";
+VisionTextEN[1][9]="As soon as the last words are said, all the shades disappear.";
 
 VisionTextDE[2]={};
 VisionTextDE[2][1]="Die Schatten zweier M‰nner erscheinen. Einer steht nahe dem Lesepult, der andere steht zwischen den ersten beiden schwarzen S‰ulen.";
@@ -55,17 +55,17 @@ VisionTextDE[2][9]="W‰hrend er spricht w‰hlt er einige der aufgedeckten Runen an
 VisionTextDE[2][10]="'Hast du eine Ahnung, warum er dieses Gedicht gew‰hlt hat?', fragt der andere Mann. Der eine Mann h‰lt ein f¸r einen Augenblick und antwortet 'Das habe ich doch schon gesagt, oder? Wie dem auch sei, dr¸ck mal besser den Knopf und bring uns hinunter!'";
 VisionTextDE[2][11]="Der andere Mann nickt und dr¸ckt einen Knopf am Lesepult. Die Schatten der beiden M‰nner verschwinden sofort.";
 VisionTextEN[2]={};
-VisionTextEN[2][1]="The shades of two men appear. One stands next to the bookrest, the other one is between the first two black columns.";
+VisionTextEN[2][1]="The shades of two men appear. One stands next to the book rest, the other one is between the first two black columns.";
 VisionTextEN[2][2]="He seems to hold six latent glittering gems in three different colours in his left hand.";
-VisionTextEN[2][3]="It seems as in a response to a question, he nods to the man at the bookrest and takes one of the purple glimmering stones and uses it together with one of the first dark columns, which causes a bright light on the top of the dark column.";
-VisionTextEN[2][4]="'Really?, I didn't know that', the other man asks while the one man walks to the other of those first columns and repeats his action with the other pink latent glimmering stone.";
-VisionTextEN[2][5]="'Yes, each time. You use them and they are gone. The column burns them somehow', the one man replies and walks to the two middle black colums, where he uses his blue shining gems on these two black columns.";
-VisionTextEN[2][6]="The other man asks: 'Do you know where he gets them from? He must have an easy access to them, since he can waste them easily.' 'No idea', the one man anwers before he walks closer and starts using his green glimmering gems with the last two black columns.";
-VisionTextEN[2][7]="'But you have to keep in mind, we don't go down to the stone chamber everyday', he continues and uses the second green gem. Another bright light appears on the top of this balck column. Suddenly, green flashes run up and down of each black column and some hidden lines of runes are revealed on the columns.";
-VisionTextEN[2][8]="The one man walks back to the northwestern black column, where he scratches his head. Then, he starts focused muttering some words, obviously a part of a poem: 'It's burning in his heart,...'.";
-VisionTextEN[2][9]="While he speaks, he selects some of the revealed runes on the black columns and walks between them. A dumb hum intensifies with every selection.";
-VisionTextEN[2][10]="'Do you have an idea, why he chose this poem?', asks the other man. The one man pauses for a second and replies 'I have already told you, haven't I? However, you better press the button and bring us down now!'";
-VisionTextEN[2][11]="The other man nods and presses a button on the bookrest. The shades of both men fade away immediately.";
+VisionTextEN[2][3]="It seems as in a response to a question, he nods to the man at the book rest and takes one of the purple glimmering stones and uses it together with one of the first dark columns, creating a bright light on the top of the dark column.";
+VisionTextEN[2][4]="'Really?, I didn't know that', the other man asks while the man walks to the other of the first pair of columns and repeats his action with the other purple latent glimmering stone.";
+VisionTextEN[2][5]="'Yes, each time. You use them and they are gone. The column burns them somehow', the man replies and walks to the two middle black columns, where he uses his blue shining gems.";
+VisionTextEN[2][6]="The other man asks: 'Do you know where he gets them from? He must have an easy access to them, since he can waste them so easily.' 'No idea', the man answers before he walks closer and starts using his green glimmering gems with the last two black columns.";
+VisionTextEN[2][7]="'But you have to keep in mind, we don't go down to the stone chamber everyday', he continues and uses the second green gem. Another bright light appears on the top of this black column. Suddenly, green flashes run up and down of each black columns and some hidden lines of runes are revealed on the columns.";
+VisionTextEN[2][8]="The man walks back to the northwestern black column, where he scratches his head. Then, he starts focused muttering of some words, obviously a part of a poem: 'It's burning in his heart,...'.";
+VisionTextEN[2][9]="While he speaks, he selects some of the revealed runes on the black columns and walks between them. A dull hum intensifies with every selection.";
+VisionTextEN[2][10]="'Do you have any idea, why he chose this poem?', asks the other man. The man pauses for a second and replies 'I have already told you, haven't I? However, you better press the button and bring us down now!'";
+VisionTextEN[2][11]="The other man nods and presses a button on the book rest. The shades of both men fade away immediately.";
 
 VisionTextDE[3]={};
 VisionTextDE[3][1]="Die Schatten eines Mannes und eines Zwergen erscheinen neben der Werkbank. Beide arbeiten am selben Werkst¸ck. Der Zwerg beschwert sich bei dem Mann: 'So wird das nie etwas. Lass mich dir mal zeigen wie das geht.'";
@@ -77,14 +77,14 @@ VisionTextDE[3][6]="'Arr, so, warum? Ihr sucht nach Diamanten? Nach magischen, o
 VisionTextDE[3][7]="Der Mann begutachtet das Werkst¸ck und nickt: 'Gute Arbeit. Ich muss gestehen, du verstehst dein Handwerk. Ungl¸cklicherweise, redest du zu viel.'";
 VisionTextDE[3][8]="Der Mann zieht einen roten Dolch und beide Schatten verschwinden.";
 VisionTextEN[3]={};
-VisionTextEN[3][1]="The shades of a man and a dwarf appear next to the workbench. Both are working on the same workpiece. The dwarf complains to the man: 'This will never work that way. Let me show you how you have to do it.'";
-VisionTextEN[3][2]="The man steps back and looks at the dwarf while the dwarf swings his hammer against the workpiece. 'You see? You have to hit as I do', the dwarf says.";
-VisionTextEN[3][3]="The dwarf continues 'I am wondering why we are here? We could have build this stronghold whereever and not here at this nasty place.'";
-VisionTextEN[3][4]="'You are not paid for asking questions', the man replies. 'Do your work as you are supposed to do.'";
+VisionTextEN[3][1]="The shades of a man and a dwarf appear next to the workbench. Both are working on the same piece of work. The dwarf complains to the man: 'This will never work that way. Let me show you how you have to do it.'";
+VisionTextEN[3][2]="The man steps back and looks at the dwarf while the dwarf swings his hammer against the piece. 'You see? You have to hit as I do', the dwarf says.";
+VisionTextEN[3][3]="The dwarf continues 'I am wondering why we are here? We could have built this stronghold wherever and not here at this nasty place.'";
+VisionTextEN[3][4]="'You are not paid to ask questions', the man replies. 'Do your work as you are supposed to do.'";
 VisionTextEN[3][5]="The dwarf hisses: 'And you? What are you doing?' The man replies quietly: 'You will see later.'";
-VisionTextEN[3][6]="'Arr, so, why? You are looking for diamonds. Magical ones, don't you? And what for are those engravings at the column over there?', the dwarf asks as he shows the man the finished workpiece.";
-VisionTextEN[3][7]="The man examines the workpiece and nods: 'Very well done. I have to admit, you understand your profession. Unfortunatelly, you talk to much.'";
-VisionTextEN[3][8]="The man draws a red degger and both shades fade away.~'";
+VisionTextEN[3][6]="'Arr, so, why? You are looking for diamonds. Magical ones, aren't you? And what are those engravings for on the column over there?', the dwarf asks as he shows the man the finished piece of work.";
+VisionTextEN[3][7]="The man examines the piece of work and nods: 'Very well done. I have to admit, you understand your profession. Unfortunately, you talk to much.'";
+VisionTextEN[3][8]="The man draws a red dagger and both shades fade away.'";
 
 VisionTextDE[4]={};
 VisionTextDE[4][1]="Es scheint als zwei M‰nner stehen neben einen kleinen Boot am Strand. Einer sagt zu dem anderen in einer verg‰nglichen Stimme: 'Wer dachte, dass es so enden wird? Alles verloren. Er war so m‰chtig und nichts ist ¸brig geblieben von seiner Macht. Alles weg.'";
@@ -98,12 +98,12 @@ VisionTextDE[4][8]="'Nein, niemals. Es h‰tte nicht zweimal geklickt. Ich bin wes
 VisionTextDE[4][9]="Der Mann grinst. 'Ich verstehe! Leb wohl!'";
 VisionTextDE[4][10]="Die Vision der beiden M‰nner verschwindet.";
 VisionTextEN[4]={};
-VisionTextEN[4][1]="It seems as two men stand next to a small boad at the shore. One says to the other in a fading voice: 'Who had thought it would end this way. All lost. He was so powerful but nothing his left from his power. All gone.'";
-VisionTextEN[4][2]="'No one, I guess.' The other man sighs and contiunes: 'He was probably too confident about it. I told him not to split them but he did not want to listen to me. A shame.'";
-VisionTextEN[4][3]="'Where will you go, my friend?', the man asks as he helps the other to prepare the boad.";
-VisionTextEN[4][4]="'No idea, really no idea', the other man at the shore replies. 'And you? Do you have an idea?'";
-VisionTextEN[4][5]="The first man points to the nordeast: 'I heard about a small island northeast from her. I might head there with the next ship, but I haven't decided yet.'";
-VisionTextEN[4][6]="The other man nods and jumps into the boad. 'Where ever you go, I wish you all the best. Take care. If our gods will, our paths might cross again', he says and pushes his boad into the sea.";
+VisionTextEN[4][1]="It seems as though two men stand next to a small boat at the shore. One says to the other in a fading voice: 'Who would have thought it would end this way. All lost. He was so powerful but nothing is left of his power. All gone.'";
+VisionTextEN[4][2]="'No one, I guess.' The other man sighs and continues: 'He was probably too confident about it. I told him not to split them but he did not want to listen to me. A shame.'";
+VisionTextEN[4][3]="'Where will you go, my friend?', the man asks as he helps the other to prepare the boat.";
+VisionTextEN[4][4]="'No idea, really no idea', the other man on the shore replies. 'And you? Do you have any idea?'";
+VisionTextEN[4][5]="The first man points to the north east: 'I heard about a small island north east from here. I might head there with the next ship, but I haven't decided yet.'";
+VisionTextEN[4][6]="The other man nods and jumps into the boat. 'Wherever you go, I wish you all the best. Take care. If our gods will, our paths might cross again', he says and pushes his boat off into the sea.";
 VisionTextEN[4][7]="The man nods and waves. 'I hope so. One last question. Have you ever tried to sit at the throne down there?";
 VisionTextEN[4][8]="No, never. It would not have clicked twice. I have much more weight than he had.";
 VisionTextEN[4][9]="The man grins. 'I see! Farewell!'";
@@ -122,17 +122,17 @@ VisionTextDE[5][9]="Der Mann am Tisch wartet erneut kurz: 'Es w‰re eine Schande,
 VisionTextDE[5][10]="Der andere Mann blickt verwirrt bis der Mann am Tisch sagt: 'Steck sie zu den Toden. Dort wird sie niemand suchen, falls sie ein wenig Anstand haben.'";
 VisionTextDE[5][11]="Der andere Mann erwidert 'Falls!', dreht sich weg und verl‰sst den Raum schnell. Der Schatten des Mannes am Tisch verschwindet ebenfalls.";
 VisionTextEN[5]={};
-VisionTextEN[5][1]="A man who seems to sit writing on a table on the table appears while another one enters the room. 'They say you want to talk to me. What happened?'";
-VisionTextEN[5][2]="The man on the table looks up and turns to the other one. 'We are lost. I do not know how but he lost'.";
+VisionTextEN[5][1]="A man seems to sit writing at a table whilst another appears to enter the room. 'They say you want to talk to me. What happened?'";
+VisionTextEN[5][2]="The man at the table looks up and turns to the other one. 'We are lost. I do not know how but he lost'.";
 VisionTextEN[5][3]="The other one looks shocked and asks: 'Are you sure? Where do you have this information from?'";
 VisionTextEN[5][4]="'My sources are never wrong. Better believe me. We have to prepare everything', the man on the table replies.";
 VisionTextEN[5][5]="'You mean, they know about us?' 'No, not yet. I, however, think it is only a question of time until they find us here. We have to prepare everything and leave. It is over.'";
 VisionTextEN[5][6]="The other man nods 'Do we stick to the plan or do you have something else in mind?";
-VisionTextEN[5][7]="The man on the table looks back on the parchment: 'Burning everything might be a bad idea. The smoke will betray us and directly lead them to us.' He pauses a second before he continues: 'It is better to sink as much as possible into the sea.'";
+VisionTextEN[5][7]="The man at the table looks back over the parchment: 'Burning everything might be a bad idea. The smoke will betray us and lead them directly to us.' He pauses a second before he continues: 'It is better to sink as much as possible into the sea.'";
 VisionTextEN[5][8]="'And those.../keys/?', the other one asks nervously.";
-VisionTextEN[5][9]="The man on the table pauses again for a second. 'It would be a shame, wouldn't it?' He looks thoughtful at the parchments and turns to other man finally: 'Hide them seperately somewhere were no one is looking for.'";
-VisionTextEN[5][10]="The other man looks puzzled until the man on the table says: 'Put them to the death ones. They are not going to look for them there, if they have any decency.'";
-VisionTextEN[5][11]="The other man replies 'If!', turns and leaves the room quickly. The shade of the man on the table also fades away.";
+VisionTextEN[5][9]="The man at the table pauses again for a second. 'It would be a shame, wouldn't it?' He looks thoughtfully at the parchments and turns to the other man finally: 'Hide them separately, somewhere where no one is looking for them.'";
+VisionTextEN[5][10]="The other man looks puzzled until the man at the table says: 'Put them with the dead ones. They are not going to look for them there, not if they have any decency.'";
+VisionTextEN[5][11]="The other man replies 'If!', turns and leaves the room quickly. The shade of the man at the table also fades away.";
 
 VisionTextDE[6]={};
 VisionTextDE[6][1]="Zwei M‰nner erscheinen und sind dabei, die Kammer zu reinigen. Einer fragt den anderen: 'Und er f¸rchtet nicht, dass einer ihn betr¸gen w¸rde?'";
@@ -145,13 +145,13 @@ VisionTextDE[6][7]="'Vielleicht hast du recht', antwortet der erstere w‰hrend er
 VisionTextDE[6][8]="'Vielleicht? Ha! Ich habe immer recht!' Sein Lachen schallt durch die Kammer und beide Schatten verschwinden wieder.";
 VisionTextEN[6]={};
 VisionTextEN[6][1]="The shades of two men appear, who clean the chamber. One of them asks the other one: 'And he is not scared one of them would betray him?'";
-VisionTextEN[6][2]="'It does not seam so. On the other hand, there is a reason why they are called the Trusted Ones', the other man replies.";
-VisionTextEN[6][3]="'Let's assume he can trust them, there is still the question left are they even able to handle them?', the former continues to ask questions.";
-VisionTextEN[6][4]="The other one shrugs: 'I hope for him so. I hope for us! Imagine his anger if one of them goes lost.' He laughs. 'However, it seams you are scared, are you?'";
-VisionTextEN[6][5]="The former man shakes his head: 'No, I am not. I just do not understand his move. I mean... There are seven of them. One should be here if it is true. We... He has three. So, there are three left and no one knows anything about them. What is if someone is just waiting for such a /mistake/ by him. Nothing would be easier then to pick one after the other, now, he has seperated them. Do you understand?'";
-VisionTextEN[6][6]="'What do you worry about that?', the other one hisses back. 'The others are likly seperated as well and why should we waste time instead of taking what we can possess as quickly as possible? Who should stop us? We beat Albar, we beat Salkamar and we are about beating Lor-Angur. Only one of Nargun's tricks might hinder us but not stop us anymore!'";
+VisionTextEN[6][2]="'It does not seem so. On the other hand, there is a reason why they are called the Trusted Ones', the other man replies.";
+VisionTextEN[6][3]="'Let's assume he can trust them, there is still the question left, are they even able to handle them?', the former continues to ask questions.";
+VisionTextEN[6][4]="The other man shrugs: 'I hope so, for his sake. I hope for us! Imagine his anger if one of them gets lost.' He laughs. 'However, it seems you are scared, are you?'";
+VisionTextEN[6][5]="The former man shakes his head: 'No, I am not. I just do not understand his move. I mean... There are seven of them. One should be here if that is true. We... He has three. So, there are three left and no one knows anything about them. What if someone is just waiting for such a /mistake/ by him? Nothing would be easier then to pick up one after the other, now, he has separated them. Do you understand?'";
+VisionTextEN[6][6]="'Why do you worry about that?', the other one hisses back. 'The others are likely separated as well and why should we waste time instead of taking what we can possess as quickly as possible? Who should stop us? We beat Albar, we beat Salkamar and we are about to beat Lor-Angur. Only one of Nargun's tricks might hinder us, but it cannot stop us anymore!'";
 VisionTextEN[6][7]="'Probably, you are right', the former one replies as he continues cleaning.";
-VisionTextEN[6][8]="'Probably? Ha! I am always right!' His laughter bangs through the chamber and both shades fade away.";
+VisionTextEN[6][8]="'Probably? Ha! I am always right!' His laughter rings through the chamber and both shades fade away.";
 
 attendants={}
 attendants2={}
@@ -259,9 +259,9 @@ function UseDarkColumns(User, SourceItem, ltstate)
 		elseif (SourceItem.pos == darkColumnEvilrock[i]) and (User:countItemAt("all", gemsRequired[i]) >= 1) then
 			base.common.InformNLS(User,"Der Edelstein l‰sst sich einsetzen, aber er scheint nicht der Richtige zu sein. Vielleicht versuchst du einen Anderen.","Your gem seems to fit but for some reason it does not seem to be the right one.")
 		elseif (SourceItem.pos == darkColumnEvilrock[i]) and (User:countItemAt("all", 283) >= 1 or User:countItemAt("all", 46) >= 1 or User:countItemAt("all", 198) >= 1) then
-			base.common.InformNLS(User,"Diese Art von Edelstein scheint nicht zu passen. Vielleicht versuchst du eine andere Art.","This kind of gem does not seem to fit. You might try a different one.")
+			base.common.InformNLS(User,"Diese Art von Edelstein scheint nicht zu passen. Vielleicht versuchst du eine andere Art.","This kind of gem does not seem to fit. You might want to try a different one.")
 		elseif (SourceItem.pos == darkColumnEvilrock[i]) then
-			base.common.InformNLS(User,"Keiner deiner Gegenst‰nde scheint zu passen.","None of your items seems to fit.")
+			base.common.InformNLS(User,"Keiner deiner Gegenst‰nde scheint zu passen.","None of your items seem to fit.")
 		end
 	end
 end
@@ -272,7 +272,7 @@ function BlackColumnQuestProgressA(User)
 	for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
 		if (content.areas.PointInArea(player.pos,triggerfield.evilrock.EvilRockAreaNames[2])) then
 			player:setQuestProgress(667,1)
-			base.common.InformNLS(player,"Eine Stimme sagt: 'Flammen, die Welt steht in Flammen!' Anschlieﬂend ist ein Summen zu hˆren und selektierbare Runen erscheinen an den schwarzen S‰ulen.","A voice says: 'Fire, the world is fire!' A hum can be heard afterwards and selectable runes appear on the black columns.")
+			base.common.InformNLS(player,"Eine Stimme sagt: 'Flammen, die Welt steht in Flammen!' Anschlieﬂend ist ein Summen zu hˆren und selektierbare Runen erscheinen an den schwarzen S‰ulen.","A voice says: 'Fire, the world is on fire!' A hum can be heard afterwards and selectable runes appear on the black columns.")
 		else
 		end
 	end
@@ -284,7 +284,7 @@ function BlackColumnQuestProgressB(User,QuestStatusBlackColumn)
 	for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
 		if (content.areas.PointInArea(player.pos,triggerfield.evilrock.EvilRockAreaNames[2])) then
 			if QuestStatusBlackColumn == 16 then
-				base.common.InformNLS(player,"Eine Stimme ruft: 'Flammen, die Welt steht in Flammen!'. Das Summen verst‰rkt sich anschlieﬂend.", "A voice shouts: 'Fire, the world is fire!' The hum intensifies afterwards.")
+				base.common.InformNLS(player,"Eine Stimme ruft: 'Flammen, die Welt steht in Flammen!'. Das Summen verst‰rkt sich anschlieﬂend.", "A voice shouts: 'Fire, the world is on fire!' The hum intensifies afterwards.")
 			else
 				base.common.InformNLS(player,"Das Summen verst‰rkt sich als du den magischen Edelstein einsetzt.", "The hum intensifies as you put in the magical gem.")
 			end
@@ -375,7 +375,7 @@ puzzleOptionsEN[1]="It's burning in his heart,"
 puzzleOptionsEN[2]="and filling him with pain."
 puzzleOptionsEN[3]="It's giving him"
 puzzleOptionsEN[4]="the warmth of terror in reign."
-puzzleOptionsEN[5]="Breathing the mortals heat,"
+puzzleOptionsEN[5]="Breathing the mortal's heat,"
 puzzleOptionsEN[6]="draining from mortal soul."
 puzzleOptionsEN[7]="To fill him with their warmth"
 puzzleOptionsEN[8]="and make his life be whole."
@@ -501,7 +501,7 @@ function beamMeDown(User, SourceItem)
 		if content.areas.PointInArea(player.pos,"evilrock6") then
 			player:warp(position(973,173,-6))
 			player:setQuestProgress(667,0)
-			base.common.InformNLS(player,"Das Summen bricht ab und ein Lichtermantel umschlieﬂt dich, der dich an einen anderen Ort zieht.", "The hum breaks up and a coat of light encloses you and pulls you at a different place.")
+			base.common.InformNLS(player,"Das Summen bricht ab und ein Lichtermantel umschlieﬂt dich, der dich an einen anderen Ort zieht.", "The hum breaks up and a coat of light encloses you and pulls you to a different place.")
 			world:makeSound(13,player.pos)
 			world:gfx(37,player.pos)
 		end
