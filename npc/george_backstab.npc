@@ -59,13 +59,6 @@ itemTrousers = 34
 itemShoes = 0
 
 ------------------------------------------------------------------------------AC
--- Trading
--- Here are all items the NPCs is able to trade. They will be displayed inside
--- the merchant dialog.
-
--- sellItems = 1, 2, 3
--- buyPrimaryItems = 1
--- buySecondaryItems = 2, 3
 
 -- Template Version 1.08, 10/18/2012 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -78,9 +71,6 @@ itemShoes = 0
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
 -- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
 -- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
-
--- TRADING
--- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
 
 -- MANDATORY TRIGGERS
 
