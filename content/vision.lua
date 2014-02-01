@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
 require("triggerfield.evilrock")
@@ -189,7 +189,7 @@ function vision(char,TypeStory)
 			end
 	else
 --debug("attendants-6:nil ")
-	end 
+	end
 end
 
 
@@ -211,7 +211,7 @@ function UseDarkColumns(User, SourceItem, ltstate)
 		return
 	end
 
-	local AmountDarkColumnEvilrock = table.getn(darkColumnEvilrock)	
+	local AmountDarkColumnEvilrock = table.getn(darkColumnEvilrock)
   	for i = 1,AmountDarkColumnEvilrock do
 		if (SourceItem.pos == darkColumnEvilrock[i]) and User:countItemAt("all", gemsRequired[i], {["gemLevel"]="1"}) >= 1 then
 --			local howmuchisit = User:countItemAt("all", 284)
@@ -226,7 +226,7 @@ function UseDarkColumns(User, SourceItem, ltstate)
 				foundSource=true
 			end
 
-			if ( ltstate == Action.none ) then 
+			if ( ltstate == Action.none ) then
 				User:startAction( 20, 21, 5, 28, 55);
 --				User:startAction( 20, 21, 5, 13, 25);
 				User:talk(Character.say, "#me setzt einen magischen Edelstein in die Säule ein.", "#me sets a magical gem into the column.")
@@ -257,9 +257,9 @@ function UseDarkColumns(User, SourceItem, ltstate)
 
 			BlackColumnQuestProgressA(User)
 		elseif (SourceItem.pos == darkColumnEvilrock[i]) and (User:countItemAt("all", gemsRequired[i]) >= 1) then
-			base.common.InformNLS(User,"Der Edelstein lässt sich rein stecken, aber er dürfte scheinbar trotzdem nicht  der richtige sein. Vielleicht versuchst du einen anderen.","Your gem seems to fit but for some reason it does not seem to be the right one.")
+			base.common.InformNLS(User,"Der Edelstein lässt sich einsetzen, aber er scheint nicht der Richtige zu sein. Vielleicht versuchst du einen Anderen.","Your gem seems to fit but for some reason it does not seem to be the right one.")
 		elseif (SourceItem.pos == darkColumnEvilrock[i]) and (User:countItemAt("all", 283) >= 1 or User:countItemAt("all", 46) >= 1 or User:countItemAt("all", 198) >= 1) then
-			base.common.InformNLS(User,"Diese Art von Edelstein scheint nicht zu passen. Vielleicht versuchst du einen einer anderen Art.","This kind of gem does not seem to fit. You might try a different one.")
+			base.common.InformNLS(User,"Diese Art von Edelstein scheint nicht zu passen. Vielleicht versuchst du eine andere Art.","This kind of gem does not seem to fit. You might try a different one.")
 		elseif (SourceItem.pos == darkColumnEvilrock[i]) then
 			base.common.InformNLS(User,"Keiner deiner Gegenstände scheint zu passen.","None of your items seems to fit.")
 		end
@@ -305,7 +305,7 @@ function BlackColumnQuestProgressC(User,QuestStatusBlackColumn)
 			player:setQuestProgress(667,0)
 			base.common.InformNLS(player,"Das Summen bricht ab, die Lichter erlöschen und die Runen an den schwarzen Säulen verschwinden.", "The hum breaks up, lights go out and the runes disappear on the black column.")
 			world:makeSound(27,player.pos)
-			local AmountDarkColumnEvilrock = table.getn(darkColumnEvilrock)	
+			local AmountDarkColumnEvilrock = table.getn(darkColumnEvilrock)
 			for i=1,AmountDarkColumnEvilrock do
 				local DarkColumnEvilrockLightErase = world:getItemOnField(darkColumnEvilrock[i])
 				if DarkColumnEvilrockLightErase.id == 467 then
@@ -321,7 +321,7 @@ end
 
 function UseDarkColumnsPuzzle(User, SourceItem, ltstate)
 
-	local AmountDarkColumnEvilrock = table.getn(darkColumnEvilrock)	
+	local AmountDarkColumnEvilrock = table.getn(darkColumnEvilrock)
   	for i = 1,AmountDarkColumnEvilrock do
 		if (SourceItem.pos == darkColumnEvilrock[i]) and User:getQuestProgress(667) >= 1 and world:getItemOnField(SourceItem.pos).id == 467 then
 
@@ -335,7 +335,7 @@ function UseDarkColumnsPuzzle(User, SourceItem, ltstate)
 				foundSource=true
 			end
 
-			if ( ltstate == Action.none ) then 
+			if ( ltstate == Action.none ) then
 				Puzzle(User,SourceItem)
 --				return
 			end
@@ -433,7 +433,7 @@ function Puzzle(User,SourceItem)
 		until OptionToSelect[1] ~= OptionToSelect[2] and OptionToSelect[1] ~= OptionToSelect[3] and OptionToSelect[2] ~= OptionToSelect[3]
 	end
 
-	
+
 	for j = 1,Amountoptions do
 	   	if  User:getPlayerLanguage() == Player.german then
 			puzzleOptions = puzzleOptionsDE
@@ -444,9 +444,9 @@ function Puzzle(User,SourceItem)
 
 
 	local callback = function(dialog)
-		success = dialog:getSuccess() 
+		success = dialog:getSuccess()
 		if success then
-			local selected = dialog:getSelectedIndex() 
+			local selected = dialog:getSelectedIndex()
 			if (selected == 0) then
 				checkRightChoice(User,QuestStatusBlackColumn,selected)
 			elseif (selected == 1) then
@@ -464,7 +464,7 @@ function Puzzle(User,SourceItem)
 		dialog = SelectionDialog("Black Column Puzzle", "Select your choice but be careful. If you select the wrong answer, you move back to the beginning.", callback)
 	end
 	dialog:setCloseOnMove()
-	
+
 
 	for i = 1,3 do
 		dialog:addOption(2805,puzzleOptions[(OptionToSelect[i])])

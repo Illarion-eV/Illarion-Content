@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
 require("base.seafaring")
@@ -26,8 +26,8 @@ require("base.seafaring")
 module("item.bookrests", package.seeall)
 
 function LookAtItem(User,Item)
-	
-	local lookAt 
+
+	local lookAt
 	-- Bookrest for the Salavesh dungeon!
 	if (Item.pos == position(741,406,-3)) then
 		lookAt = SalaveshLookAt(User, Item)
@@ -38,11 +38,11 @@ function LookAtItem(User,Item)
 --[[	if (Item.pos == position(975,172,0)) then
 		lookAt = EvilrockLookAt(User, Item)
 	end]]
-	-- ferries end	
+	-- ferries end
 
 	-- Bookrest for ferry
-	local Amountferry = table.getn(base.seafaring.ferrySourceItemPos)	
-	for i = 1,Amountferry do	
+	local Amountferry = table.getn(base.seafaring.ferrySourceItemPos)
+	for i = 1,Amountferry do
 		if (Item.pos == base.seafaring.ferrySourceItemPos[i]) then
 			lookAt = FerryLookAt(User, Item)
 		end
@@ -54,12 +54,12 @@ function LookAtItem(User,Item)
 		lookAt = StaticTeleporterLookAt(User, Item)
 	end
 	-- teleporter end
-	
+
 	if lookAt then
 	    world:itemInform(User, Item, lookAt)
 	else
 	    world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
-	end	
+	end
 end
 
 function FerryLookAt(User, Item)
@@ -67,7 +67,7 @@ function FerryLookAt(User, Item)
 --	lookAt.rareness = ItemLookAt.rareItem;
 	if (User:getPlayerLanguage()==0) then
 		lookAt.name = "Fähre";
-		lookAt.description = "Wer bei der nächsten Fahrt mit möchte, sollte sich schnellsten hier in der Nähe ((innerhalb 5 Tiles)) sammeln. Preis: 1 Gold für die ganze Gruppe."
+		lookAt.description = "Wer bei der nächsten Fahrt mit möchte, sollte sich schnellstens hier in der Nähe ((innerhalb 5 Tiles)) sammeln. Preis: 1 Gold für die ganze Gruppe."
 	else
 		lookAt.name = "Ferry";
 		lookAt.description = "Anyone who would like to join for the next trip should gather here ((within five tiles)). Price: one gold for the whole group."
@@ -76,17 +76,17 @@ function FerryLookAt(User, Item)
 end
 
 function StaticTeleporterLookAt(User, Item)
-	
+
 	local lookAt = ItemLookAt();
 	lookAt.name = "Teleporter";
 	return lookAt
 end
 --[[
 function EvilrockLookAt(User, Item)
-    
+
 	local lookAt = ItemLookAt();
 	lookAt.rareness = ItemLookAt.rareItem;
-		
+
 	if (User:getPlayerLanguage()==0) then
 		lookAt.name = "Schaltpult";
 		lookAt.description = "Wo es wohl hinführen wird, falls du es betätigen würdest?"
@@ -98,10 +98,10 @@ function EvilrockLookAt(User, Item)
 end]]
 
 function SalaveshLookAt(User, Item)
-    
+
 	local lookAt = ItemLookAt();
 	lookAt.rareness = ItemLookAt.rareItem;
-		
+
 	if (User:getPlayerLanguage()==0) then
 		lookAt.name = "Tagebuch des Abtes Elzechiel";
 		lookAt.description = "Dieses Buch ist von einer schaurigen Schönheit. Du bist versucht, es dennoch zu lesen..."
@@ -123,7 +123,7 @@ function UseItem(User, SourceItem)
 	if (SourceItem.pos == position(975,173,0)) then
 		local controlpannel = world:getPlayersInRangeOf(position(969,173,0), 8)
 		if User:getQuestProgress(667) >= 25 then
-			local AmountDarkColumnEvilrock = table.getn(content.vision.darkColumnEvilrock)	
+			local AmountDarkColumnEvilrock = table.getn(content.vision.darkColumnEvilrock)
 			for i=1,AmountDarkColumnEvilrock do
 				local DarkColumnEvilrockLightErase = world:getItemOnField(content.vision.darkColumnEvilrock[i])
 				if DarkColumnEvilrockLightErase.id == 467 then
@@ -136,7 +136,7 @@ function UseItem(User, SourceItem)
 		else
 			for i,player in ipairs(controlpannel) do
 				player:inform("Du hörst ein Klicken, aber nichts passiert.", "You hear a clicking but nothing happens.")
-				
+
 			end
 			world:makeSound(22,position(975,173,0))
 		end
@@ -146,11 +146,11 @@ function UseItem(User, SourceItem)
 
 
 	-- ferries
-	local Amountferry = table.getn(base.seafaring.ferrySourceItemPos)	
+	local Amountferry = table.getn(base.seafaring.ferrySourceItemPos)
 	for i = 1,Amountferry do
 		if (SourceItem.pos == base.seafaring.ferrySourceItemPos[i]) then
 			base.seafaring.Ferry(User, SourceItem)
-		end	
+		end
 	end
 	-- ferries end
 
@@ -171,24 +171,24 @@ function StaticTeleporter(User, SourceItem)
 	end
 	local items = {105,61,2701,1909}
 	local targetPos = {position(836,813,0), position(424,245,0),position(127,647,0),position(684,307,0)}
-	
+
 	local callback = function(dialog)
-	
+
 		success = dialog:getSuccess()
 		if success then
 			selected = dialog:getSelectedIndex()
 			if  base.money.CharHasMoney(User,1000) then
-				
+
 				if (targetPos[selected+1].x - SourceItem.pos.x) * (targetPos[selected+1].x - SourceItem.pos.x) < 10 then
 					User:inform("Ihr befindet euch bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
 				else
-				
+
 					User:inform("Ihr habt euch dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
 					base.money.TakeMoneyFromChar(User,1000)
 					world:gfx(45,User.pos)
 					world:makeSound(13,User.pos);
-						
-						
+
+
 					User:warp(targetPos[selected+1])
 					world:gfx(46,User.pos)
 					world:makeSound(4,User.pos);
@@ -196,10 +196,10 @@ function StaticTeleporter(User, SourceItem)
 			else
 				User:inform("Ihr habt nicht genug Geld für diese Reise. Die Reise kostet zehn Silberstücke.", "You don't have enough money for this journey. The journey costs ten silver coins.")
 			end
-		
+
 		end
 	end
-		
+
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
 		dialog = SelectionDialog("Teleporter", "Eine Reise kostet zehn Silberstücke. Wähle eine Ziel aus.", callback)
@@ -207,7 +207,7 @@ function StaticTeleporter(User, SourceItem)
 		dialog = SelectionDialog("Teleporter", "A journey costs ten silver coins. Choose a destination.", callback)
 	end
 	dialog:setCloseOnMove()
-	
+
 	for i=1,#items do
 		dialog:addOption(items[i], names[i])
 	end
