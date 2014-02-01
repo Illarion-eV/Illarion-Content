@@ -33,6 +33,17 @@ function callEffect( Effect, Char ) -- Effect is called
     if Char:idleTime() < 300 then --absolutely no regeneration effect if the player is afk for more than five minutes
 
 
+		--Addition by Envi: Quest 680 (Evil Rock Reward)
+	    theQuestStatus=Char:getQuestProgress(680);
+	
+		if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
+			Char:setQuestProgress(680,theQuestStatus-1); --cooling!
+			if theQuestStatus == 1 then --only for this quest. the player should know when he can do it again.
+				base.common.InformNLS(Char,"[Info] Die Zeit scheint reif, um dein Glück auf der Insel 'Böser Fels' erneut zu versuchen.","[Info] It seems it is time to try again your luck on the island 'Evilrock'."); 
+			end
+		end
+	    --Addition end
+
 		--Addition by Envi: Quest 665 (Evil Rock Vision)
 	    theQuestStatus=Char:getQuestProgress(665);
 	

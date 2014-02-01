@@ -219,6 +219,9 @@
 "664,""Vision"",,,""envi"",""lte for vision script""";
 "665,""Vision"",,,""envi"",""status for vision script""";
 "666,""Mirror of Death (death counter)"",,,""merung"",""counts how often the char died";" can be reduced by sacraficing to Cherga"""
+"667,""Vision"",,,""envi"",""status for bookrests script""";
+"668,""Vision"",,,""envi"",""status for skull script""";
+"669,""Vision"",,,""envi"",""status for grave script""";
 "670,""Crafter development quests"",,,""banduk/envi"",""Truciolo Pialla asks to gather items for carpentry""";
 "671,""Bear"",,,""banduk"",""Feat the bear""";
 "672,""Lotte Silberstreif"",,,""banduk"",""Another game-npc""";
@@ -229,6 +232,8 @@
 "677,,,,""banduk"","
 "678,,,,""banduk"","
 "679,""Gambler Xiao Gongzou"",,,""banduk"",""Contains two games for players"""
+"680,""Vision"",,,""envi"",""status for stonechamber script""";
+"681,""Vision"",,,""envi"",""status for stonechamber script""";
 "700,""Geld_in_Hecke"",,,""Miriam"",""Player finds info about money in the hedge on a barrel"""
 "701,""Ask for me (Runewick message giver quest)"",,,""Miriam"",""Zarissa asks player to talk to different NPCs"""
 "702,""Galmair message giver quest"",,,""Lillian"",""Charwis Irongate asks player to talk to different NPCs"""

@@ -71,18 +71,26 @@ EvilRockAreaNames={"evilrock1","evilrock2","evilrock3","evilrock4","evilrock5","
 attendants={}
 attendants2={}
 --evilrockStory={}
-itemsOnCharContainer={}
+
 
 
 function MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
 		return
 	end
-	
+	if (char.pos == triggerFlameFire[i]) then
+		if player:getQuestProgress(680) ~= 0 then
+			return true
+		end	
+	end
+
 	local AmountFlameFire = table.getn(triggerFlameFire)	
 	for i = 1,AmountFlameFire do	
 		if (char.pos == triggerFlameFire[i]) then
-			base.character.CreateAfterTime (char,100,120,359,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,4,3,5,nil,0) 
+			base.character.CreateAfterTime (char,100,120,359,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,4,3,5,nil,0)
+			if player:getQuestProgress(680) ~= 0 then
+				base.common.InformNLS(player,"Denkst du wirklich, du hättest heute mehr Glück?","Do you really think, you have more luck today?")
+			end
 		end
 	end
 
@@ -149,7 +157,7 @@ function MoveToField(char)
 			end
 			char:setQuestProgress(664,1)
 			StartVision(char,AmountStory,TypeStory)
-debug("StartVision: "..char.name)
+-- debug("StartVision: "..char.name)
 		end
 	end
 	if char.pos == position(977,173,-6) and world:getItemOnField(position(977,173,-6)).id == 10 then
@@ -161,13 +169,13 @@ debug("StartVision: "..char.name)
 	end
 	if char.pos == position(952,173,-6) then
 		local weightOfPlayer = char:increaseAttrib("weight",0)	
-debug("weightOfPlayer: "..weightOfPlayer)
+--debug("weightOfPlayer: "..weightOfPlayer)
 		local heightOfPlayer = char:increaseAttrib("body_height",0)	
-debug("heightOfPlayer: "..heightOfPlayer)
+--debug("heightOfPlayer: "..heightOfPlayer)
 		local strengthOfPlayer = char:increaseAttrib("strength",0)	
-debug("strengthOfPlayer: "..strengthOfPlayer)
+--debug("strengthOfPlayer: "..strengthOfPlayer)
 		local ageOfPlayer = char:increaseAttrib("age",0)	
-debug("ageOfPlayer: "..ageOfPlayer)
+--debug("ageOfPlayer: "..ageOfPlayer)
 
 
 		local ItemsInBackPack = char:getBackPack()
@@ -197,11 +205,11 @@ debug("ageOfPlayer: "..ageOfPlayer)
 			ItemsOnBodyBelt = ItemsOnBodyBelt + weightofItemsOnChar
 		end
 
-debug("weightOfPlayer: "..weightOfPlayer)
-debug("weightofItemsInBackPack: "..weightofItemsInBackPack)
-debug("ItemsOnBodyBelt: "..ItemsOnBodyBelt)
+--debug("weightOfPlayer: "..weightOfPlayer)
+--debug("weightofItemsInBackPack: "..weightofItemsInBackPack)
+--debug("ItemsOnBodyBelt: "..ItemsOnBodyBelt)
 		local weightOfPlayerPlusItemsPlusBag = weightOfPlayer+weightofItemsInBackPack+ItemsOnBodyBelt
-debug("weightOfPlayerPlusItemsPlusBag: "..weightOfPlayerPlusItemsPlusBag)
+--debug("weightOfPlayerPlusItemsPlusBag: "..weightOfPlayerPlusItemsPlusBag)
 
 		if weightOfPlayerPlusItemsPlusBag == nil  then		
 			clicksAmountVar = 1
@@ -233,19 +241,38 @@ clicksAmountEn={"a click","three clicks","two clicks"}
 function RightWeight(char,clicksAmountVar)
 	playerWithRightWeight[char.name] = world:getPlayersInRangeOf(position(960,173,-6), 50)
 	local AmountStoneChamberStones = table.getn(stoneChamberStonePosition)
+	local ChanceForGemsToday = math.random(1,100)
+	if ChanceForGemsToday <= 10 or char:getQuestProgress(681) == 0 then
+		noLuckForGemsToday = true
+	else
+		noLuckForGemsToday = false
+	end
 	for m,player in ipairs(playerWithRightWeight[char.name]) do
 		if (content.areas.PointInArea(player.pos,"evilrockstonechamber")) then
-			base.common.InformNLS(player,"~Du hörst ein "..clicksAmountDe[clicksAmountVar].." .~","~You hear "..clicksAmountEn[clicksAmountVar].." .~")
+			base.common.InformNLS(player,"Der Thron sinkt ein wenig ein und du hörst ein "..clicksAmountDe[clicksAmountVar].." Klicken.","The throne slighty sinks in and you hear "..clicksAmountEn[clicksAmountVar].." .")
 		end
 	end
-	for i = 1,AmountStoneChamberStones do
-		world:makeSound(27,stoneChamberStonePosition[i])
-		world:gfx(46,stoneChamberStonePosition[i])
---		world:createItemFromId(467,1,stoneChamberStonePosition[i],true,333,nil)	
-		if not StoneChamberQuestProgressCheck(char) then
-			world:createItemFromId(stoneChamberStoneKind[i],1,stoneChamberStonePosition[i],true,999,{["gemLevel"]="1"})
+
+	if not StoneChamberQuestProgressCheck(char) then
+		if noLuckForGemsToday == true then
+			for i = 1,AmountStoneChamberStones do
+				world:makeSound(27,stoneChamberStonePosition[i])
+				world:gfx(46,stoneChamberStonePosition[i])
+				world:createItemFromId(stoneChamberStoneKind[i],1,stoneChamberStonePosition[i],true,999,{["gemLevel"]="1"})
+			end
+		else
+			for m,player in ipairs(playerWithRightWeight[char.name]) do
+				world:makeSound(27,player.pos)
+				base.common.InformNLS(player,"Zusätzlich siehst du noch ein kurzes Aufleuchten einer Lichtquelle, welches aber sogleich abstirbt. Hier scheint heute nichts zu funktionieren.","Furthermore, you see a light blinker for a second but nothing happens. It does not seam as anything is working today.")
+			end
+		end
+	else
+		for m,player in ipairs(playerWithRightWeight[char.name]) do
+			world:makeSound(27,player.pos)
+			base.common.InformNLS(player,"Zusätzlich siehst du noch ein kurzes Aufleuchten einer Lichtquelle, welches aber sogleich abstirbt. Hier scheint heute nichts zu funktionieren.","Furthermore, you see a light blinker, which immediatelly disappears. It does not seam as anything is working today.")
 		end
 	end
+	
 	world:createItemFromId(467,1,position(952,173,-6),true,333,nil)
 	playerHasCorrectWeight = true
 end
@@ -256,9 +283,8 @@ function WrongWeight(char,clicksAmountVar)
 	playerWithWrongWeight[char.name] = world:getPlayersInRangeOf(position(960,173,-6), 50)
 	for m,player in ipairs(playerWithWrongWeight[char.name]) do
 		if (content.areas.PointInArea(player.pos,"evilrockstonechamber")) then
-			base.common.InformNLS(player,"~Du hörst ein "..clicksAmountDe[clicksAmountVar].." und eine Stimme ruft: 'Narr, du bist nicht ich!' Anschließend füllt sich der Raum mit Flammen.~","~You hear "..clicksAmountEn[clicksAmountVar].." and a voice shouts: 'Fool, you are not me!' The room fills itself with flames afterwards.~")
+			base.common.InformNLS(player,"Du hörst ein "..clicksAmountDe[clicksAmountVar].." Klicken während der Thron leicht einsinkt und eine Stimme ruft: 'Narr, du bist nicht ich! Hinweg mit dir!' Anschließend füllt sich der Raum mit Flammen.","You hear "..clicksAmountEn[clicksAmountVar].." during the throne slightly sinks in and a voice shouts: 'Fool, you are not me! Leave!' The room fills itself with flames afterwards.")
 			world:makeSound(25,player.pos);
-		else
 		end
 	end
 	for xx=943,960 do
@@ -277,7 +303,7 @@ stoneChamberAttendants={}
 function StoneChamberQuestProgressCheck(char)
 	stoneChamberAttendants[char.name] = world:getPlayersInRangeOf(position(952,173,-6), 50)
 	for m,player in ipairs(stoneChamberAttendants[char.name]) do
-		if player:getQuestProgress(680) ~= 0 then
+		if player:getQuestProgress(680) ~= 0 and player:getQuestProgress(681) ~= 0 then
 			return true
 		end
 	end
@@ -287,7 +313,8 @@ end
 function StoneChamberQuestProgress(char)
 	stoneChamberAttendants[char.name] = world:getPlayersInRangeOf(position(952,173,-6), 50)
 	for m,player in ipairs(stoneChamberAttendants[char.name]) do
-		player:setQuestProgress(680,1)
+		player:setQuestProgress(680,math.random(400,600))
+		player:setQuestProgress(681,1)
 	end
 end
 
