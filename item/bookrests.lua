@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
 require("base.seafaring")
-require("gm.items.townManagement")
+require("base.townManagement")
 
 -- UPDATE common SET com_script='item.bookrests' WHERE com_itemid = 3104;
 -- UPDATE common SET com_script='item.bookrests' WHERE com_itemid = 3105;
@@ -36,9 +36,9 @@ function LookAtItem(User,Item)
 	-- Salavesh end
 
 	-- Bookrest for townManagement
-	local AmountTM = table.getn(gm.items.townManagement.townManagmentItemPos)	
+	local AmountTM = table.getn(base.townManagement.townManagmentItemPos)	
 	for i = 1,AmountTM do
-		if (Item.pos == gm.items.townManagement.townManagmentItemPos[i]) then
+		if (Item.pos == base.townManagement.townManagmentItemPos[i]) then
 			lookAt = TMLookAt(User, Item)
 		end
 	end
@@ -148,10 +148,10 @@ function UseItem(User, SourceItem)
 	-- Evilrock end
 
 	-- TownManagement
-	local AmountTM = table.getn(gm.items.townManagement.townManagmentItemPos)	
+	local AmountTM = table.getn(base.townManagement.townManagmentItemPos)	
 	for i = 1,AmountTM do	
-		if (SourceItem.pos == gm.items.townManagement.townManagmentItemPos[i]) then
-			gm.items.townManagement.townManagmentUseItem(User, SourceItem)
+		if (SourceItem.pos == base.townManagement.townManagmentItemPos[i]) then
+			base.townManagement.townManagmentUseItem(User, SourceItem)
 		end
 	end
 	-- TownManagement end

@@ -20,14 +20,15 @@ require("gm.base.log")
 require("base.factions")
 require("base.common")
 require("base.licence")
-module("gm.items.townManagement", package.seeall, package.seeall(gm.base.log))
+module("base.townManagement", package.seeall, package.seeall(gm.base.log))
 
 
-townManagmentItemPos={position(118,530,0),position(899,775,2),position(344,223,0)}
+townManagmentItemPos={position(118,530,0),position(899,772,2),position(344,223,0)}
 
 toolUseNameDE={"Wache","Lizenz","Schlüssel"}
 toolUseNameEN={"Guard","Licence","Key"}
 
+requiredRank={8,8,9}
 
 function townManagmentUseItem(User, SourceItem)
 
@@ -42,10 +43,6 @@ function townManagmentUseItem(User, SourceItem)
 				toolUse = toolUseNameEN
 			end
 		end
-	end
-
-	if not User:getQuestProgress(680) == toolTown and User:getQuestProgress(680) >= 7 and User:isAdmin() == true then
-		return
 	end
 
 	local callback = function(dialog)
@@ -75,7 +72,7 @@ function townManagmentUseItem(User, SourceItem)
 	for i=1,#toolUse do
 		dialog:addOption(0, toolUse[i])
 	end
-	if User:getQuestProgress(199) == toolTown and User:getQuestProgress(200) >= 7 and User:isAdmin() or User:isAdmin() == true then
+	if User:getQuestProgress(199) == toolTown and User:getQuestProgress(200) >= requiredRank[toolTown] and User:getQuestProgress(202) >= 600 or User:isAdmin() == true then
 		User:requestSelectionDialog(dialog)
 	else
 		base.common.InformNLS(User,"Du hast keine Befugnis hierzu.","You are not supposed to use this.")		
@@ -85,7 +82,7 @@ end
 
 
 function townOfficial(User,toolTown)
-	if User:getQuestProgress(680) == toolTown and User:getQuestProgress(680) >= 7 then
+	if User:getQuestProgress(680) == toolTown and User:getQuestProgress(680) >= 8 then
 	
 	end
 end
@@ -206,21 +203,21 @@ end
 
 
 keyID={}
-keyID[1]={}
-keyID[2]={}
+keyID[1]={3054,3054,3054,2558,2558,2558,2558,2558,2558,2558,2558}
+keyID[2]={2558,2558,2558,2558,2558,2558,2558}
 keyID[3]={3056,3055,2558,2558,2558,2558,2558,2558,2558,2558,2558}
 
 keydoorsID={}
-keydoorsID[1]={}
-keydoorsID[2]={}
+keydoorsID[1]={310,311,312,320,321,322,323,324,325,326,327}
+keydoorsID[2]={201,202,210,211,220,221,222}
 keydoorsID[3]={110,111,120,121,122,123,124,125,126,127,128}
 
 keydoorsnameDE={}
 keydoorsnameEN={}
-keydoorsnameDE[1]={"test"}
-keydoorsnameEN[1]={"test"}
-keydoorsnameDE[2]={"test"}
-keydoorsnameEN[2]={"test"}
+keydoorsnameDE[1]={"Villa Rosaline","Villa Edward","Villa Reginald","Wohnungsquartier - Verantwortung","Wohnungsquartier - Glaube & Gehorsam","Wohnungsquartier - Ehre & Abstammung","Wohnungsquartier - Ehrlichkeit & Gerechtigkeit","Wohnungsquartier - Courage","Wohnungsquartier - Patriarchat","Wohnungsquartier - Besitz","Wohnungsquartier - Wachsamkeit"}
+keydoorsnameEN[1]={"Villa Rosaline","Villa Edward","Villa Reginald","Flat quarter - Responsibility","Flat quarter - Faith & Obedience","Flat quarter - Honour & Lineage","Flat quarter - Truth & Justice","Flat quarter - Courage","Flat quarter - Patriarchy","Flat quarter - Property","Flat quarter - Alertness"}
+keydoorsnameDE[2]={"Turm des Feuers Appartement 1","Turm des Feuers Appartement 2","Turm der Luft Appartement 1","Turm der Luft Appartement 2","Turm der Erde Appartement 1","Turm der Erde Appartement 2","Turm der Erde Appartement 3"}
+keydoorsnameEN[2]={"Tower of Fire Apartment 1","Tower of Fire Apartment 2","Tower of Air Apartment 1","Tower of Air Apartment 2","Tower of Earth Apartment 1","Tower of Earth Apartment 2","Tower of Earth Apartment 3"}
 keydoorsnameDE[3]={"Malachite Haus","Villa Goldader","Wohnung Irmorom","Wohnung Elara","Wohnung Adron","Wohnung Malachin","Wohnung Oldra","Wohnung Nargun","Wohnung Ronagan","Wohnung Sirani","Wohnung Zhambra"}
 keydoorsnameEN[3]={"House of Malachite","Villa Goldvein","Flat Irmorom","Flat Elara","Flat Adron","Flat Malachin","Flat Oldra","Flat Nargun","Flat Ronagan","Flat Sirani","Flat Zhambra"}
 
