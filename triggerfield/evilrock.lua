@@ -188,7 +188,6 @@ function MoveToField(char)
 			local item = char:getItemAt(i);
 			if (item.id > 0) then
 				table.insert(itemsOnChar, item);
-				table.insert(itemPosOnChar, itemPos[i])
 			end
 		end
 		local language = char:getPlayerLanguage();

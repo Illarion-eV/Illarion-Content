@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
 require("base.seafaring")
+require("gm.items.townManagement")
 
 -- UPDATE common SET com_script='item.bookrests' WHERE com_itemid = 3104;
 -- UPDATE common SET com_script='item.bookrests' WHERE com_itemid = 3105;
@@ -34,11 +35,14 @@ function LookAtItem(User,Item)
 	end
 	-- Salavesh end
 
-	-- Bookrest for Evilrock
---[[	if (Item.pos == position(975,172,0)) then
-		lookAt = EvilrockLookAt(User, Item)
-	end]]
-	-- ferries end
+	-- Bookrest for townManagement
+	local AmountTM = table.getn(gm.items.townManagement.townManagmentItemPos)	
+	for i = 1,AmountTM do
+		if (Item.pos == gm.items.townManagement.townManagmentItemPos[i]) then
+			lookAt = TMLookAt(User, Item)
+		end
+	end
+	-- Bookrest for townManagement end
 
 	-- Bookrest for ferry
 	local Amountferry = table.getn(base.seafaring.ferrySourceItemPos)
@@ -81,21 +85,6 @@ function StaticTeleporterLookAt(User, Item)
 	lookAt.name = "Teleporter";
 	return lookAt
 end
---[[
-function EvilrockLookAt(User, Item)
-
-	local lookAt = ItemLookAt();
-	lookAt.rareness = ItemLookAt.rareItem;
-
-	if (User:getPlayerLanguage()==0) then
-		lookAt.name = "Schaltpult";
-		lookAt.description = "Wo es wohl hinführen wird, falls du es betätigen würdest?"
-	else
-		lookAt.name = "Control Panel";
-		lookAt.description = "Where might it lead if you use it?"
-	end
-	return lookAt
-end]]
 
 function SalaveshLookAt(User, Item)
 
@@ -144,6 +133,14 @@ function UseItem(User, SourceItem)
 	end
 	-- Evilrock end
 
+	-- TownManagement
+	local AmountTM = table.getn(gm.items.townManagement.townManagmentItemPos)	
+	for i = 1,AmountTM do	
+		if (SourceItem.pos == gm.items.townManagement.townManagmentItemPos[i]) then
+			gm.items.townManagement.townManagmentUseItem(User, SourceItem)
+		end
+	end
+	-- TownManagement end
 
 	-- ferries
 	local Amountferry = table.getn(base.seafaring.ferrySourceItemPos)

@@ -32,38 +32,40 @@ itemPos[0] = "Backpack"
 
 Location={};
 Coordina={};
-Location[1]="GM Castle";
-Coordina[1]={250,100,0};
-Location[2]="Hemp Necktie Inn";
-Coordina[2]={690,320,0};
-Location[3]="Cadomyr Palace of Her Majesty";
-Coordina[3]={122,521,0};
-Location[4]="Cadomyr Market";
-Coordina[4]={130,600,0};
-Location[5]="Galmair Crest";
-Coordina[5]={337,215,0};
-Location[6]="Galmair Town";
-Coordina[6]={400,250,0};
-Location[7]="Runewick Hall of Elara";
-Coordina[7]={898,775,2};
-Location[8]="Runewick Market";
-Coordina[8]={900,800,1};
-Location[9]="Cadomyr Cornerstone of Candour";
-Coordina[9]={130,700,0};
-Location[10]="Cadomyr Liberty Quarry";
-Coordina[10]={170,620,0};
-Location[11]="Cadomyr Blood Circle Arena";
-Coordina[11]={258,668,0};
-Location[10]="Galmair Balckhole Mine";
-Coordina[10]={338,157,-3};
-Location[12]="Galmair Malachite Mine";
-Coordina[12]={400,355,0};
-Location[10]="Galmair Game Room";
-Coordina[10]={250,290,-5};
-Location[13]="Runewick Yewdale";
-Coordina[13]={750,810,0};
-Location[14]="Runewick Lurnord Bridge";
-Coordina[14]={844,822,0};
+Location[1]="Player";
+Coordina[1]={X,Y,Z};
+Location[2]="GM Castle";
+Coordina[2]={250,100,0};
+Location[3]="Hemp Necktie Inn";
+Coordina[3]={690,320,0};
+Location[4]="Cadomyr Palace of Her Majesty";
+Coordina[4]={122,521,0};
+Location[5]="Cadomyr Market";
+Coordina[5]={130,600,0};
+Location[6]="Galmair Crest";
+Coordina[6]={337,215,0};
+Location[7]="Galmair Town";
+Coordina[7]={400,250,0};
+Location[8]="Runewick Hall of Elara";
+Coordina[8]={898,775,2};
+Location[9]="Runewick Market";
+Coordina[9]={900,800,1};
+Location[10]="Cadomyr Cornerstone of Candour";
+Coordina[10]={130,700,0};
+Location[11]="Cadomyr Liberty Quarry";
+Coordina[11]={170,620,0};
+Location[12]="Cadomyr Blood Circle Arena";
+Coordina[12]={258,668,0};
+Location[13]="Galmair Balckhole Mine";
+Coordina[13]={338,157,-3};
+Location[14]="Galmair Malachite Mine";
+Coordina[14]={400,355,0};
+Location[15]="Galmair Game Room";
+Coordina[15]={250,290,-5};
+Location[16]="Runewick Yewdale";
+Coordina[16]={750,810,0};
+Location[17]="Runewick Lurnord Bridge";
+Coordina[17]={844,822,0};
 
 
 
@@ -139,23 +141,48 @@ function UseItem(User, SourceItem, ltstate)
       sdItems:addOption(item.id,itemName .. " (" .. itemPos[item.itempos] .. ") Count: ".. item.number);
     end	
 		User:requestSelectionDialog(sdItems);
-		
+	
+
+	
 	elseif (SourceItem:getData("mode")=="Teleport") then 	
 		local cbChooseLocation = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
-            end
-            local index = dialog:getSelectedIndex()+1;
-			User:warp(position(Coordina[index][1],Coordina[index][2],Coordina[index][3]))
+			end
+			local index = dialog:getSelectedIndex()+1;
+			if index == 1 then
+			
+				local onlineChars = world:getPlayersOnline()
+
+				local cbChoosePlayerLocation = function (dialog)
+					if (not dialog:getSuccess()) then
+						return;
+					end
+						local warpToPlayer = dialog:getSelectedIndex()+1;
+						User:warp(position(onlineChars[warpToPlayer].pos.x,onlineChars[warpToPlayer].pos.y,onlineChars[warpToPlayer].pos.z)); 
+				end
+				local sdTeleportPlayer = SelectionDialog("Teleporter.", "Choose a destination:", cbChoosePlayerLocation);
+				for i=1,#onlineChars do
+					local checkChar = onlineChars[i]
+					local onlineCharsName = checkChar.name
+					sdTeleportPlayer:addOption(0,onlineCharsName);
+       				end
+				User:requestSelectionDialog(sdTeleportPlayer);
+
+
+			else			
+				User:warp(position(Coordina[index][1],Coordina[index][2],Coordina[index][3]))
+			end
 		end
 		local sdTeleport = SelectionDialog("Teleporter.", "Choose a destination:", cbChooseLocation);
-        for i=1, #(Location) do 
+		for i=1, #(Location) do 
 			sdTeleport:addOption(0,Location[i] .. " (" .. Coordina[i][1]..", "..Coordina[i][2]..", "..Coordina[i][3] .. ")");
-        end	
+       		end	
 		User:requestSelectionDialog(sdTeleport);
 		
+
 	elseif (SourceItem:getData("mode")=="Faction info of chars in radius") then
-		local players = world:getPlayersInRangeOf(User.pos, 25);		
+		local players = world:getPlayersInRangeOf(User.pos, 40);		
 		local infos = "";
 		local germanRank, englishRank 
 		
