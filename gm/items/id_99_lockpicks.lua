@@ -165,7 +165,7 @@ function UseItem(User, SourceItem, ltstate)
 				for i=1,#onlineChars do
 					local checkChar = onlineChars[i]
 					local onlineCharsName = checkChar.name
-					sdTeleportPlayer:addOption(0,onlineCharsName);
+					sdTeleportPlayer:addOption(0,onlineCharsName .. " (" .. checkChar.pos.x..", "..checkChar.pos.y..", "..checkChar.pos.z .. ")");
        				end
 				User:requestSelectionDialog(sdTeleportPlayer);
 

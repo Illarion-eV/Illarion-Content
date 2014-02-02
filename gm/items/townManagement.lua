@@ -25,8 +25,6 @@ module("gm.items.townManagement", package.seeall, package.seeall(gm.base.log))
 
 townManagmentItemPos={position(118,530,0),position(899,775,2),position(344,223,0)}
 
---toolUseNameDE={}
---toolUseNameEN={}
 toolUseNameDE={"Wache","Lizenz","Schlüssel"}
 toolUseNameEN={"Guard","Licence","Key"}
 
@@ -94,7 +92,7 @@ end
 
 
 function TownGuard(User,toolTown)
-debug("TownGuard: "..User.name)
+--debug("TownGuard: "..User.name)
 	local callback = function(dialog)
 		if not dialog:getSuccess() then
 			base.common.InformNLS(User,"Abbruch. Niemand wurd gebannt.","Abortion. No one was banned.")
@@ -156,7 +154,7 @@ end
 
 
 function TownLicence(User,toolTown)
-debug("TownLicence: "..User.name)
+--debug("TownLicence: "..User.name)
 	local factionIds = {0,1,2,3};
 	local FirstLicence = toolTown;
 	local licence = base.licence;
@@ -207,8 +205,63 @@ debug("TownLicence: "..User.name)
 end
 
 
+keyID={}
+keyID[1]={}
+keyID[2]={}
+keyID[3]={3056,3055,2558,2558,2558,2558,2558,2558,2558,2558,2558}
+
+keydoorsID={}
+keydoorsID[1]={}
+keydoorsID[2]={}
+keydoorsID[3]={110,111,120,121,122,123,124,125,126,127,128}
+
+keydoorsnameDE={}
+keydoorsnameEN={}
+keydoorsnameDE[1]={"test"}
+keydoorsnameEN[1]={"test"}
+keydoorsnameDE[2]={"test"}
+keydoorsnameEN[2]={"test"}
+keydoorsnameDE[3]={"Malachite Haus","Villa Goldader","Wohnung Irmorom","Wohnung Elara","Wohnung Adron","Wohnung Malachin","Wohnung Oldra","Wohnung Nargun","Wohnung Ronagan","Wohnung Sirani","Wohnung Zhambra"}
+keydoorsnameEN[3]={"House of Malachite","Villa Goldvein","Flat Irmorom","Flat Elara","Flat Adron","Flat Malachin","Flat Oldra","Flat Nargun","Flat Ronagan","Flat Sirani","Flat Zhambra"}
+
+
 function TownKey(User,toolTown)
-debug("TownKey: "..User.name)	
-	base.common.InformNLS(User,"Kommt bald...","Coming soon...")
+--debug("TownKey: "..User.name)	
+	local keydoorsname
+	local AmountKeyDoors = table.getn(keydoorsnameDE[toolTown])	
+	for j = 1,AmountKeyDoors do
+		if  User:getPlayerLanguage() == Player.german then
+			keydoorsname = keydoorsnameDE[toolTown]
+		else
+			keydoorsname = keydoorsnameEN[toolTown]
+		end
+	end
+
+	if not User:getQuestProgress(680) == toolTown and User:getQuestProgress(680) >= 7 and User:isAdmin() == true then
+		return
+	end
+
+	local callback = function(dialog)
+		success = dialog:getSuccess()
+		if success then
+			selected = dialog:getSelectedIndex() 
+			User:createItem(keyID[toolTown][selected+1],1,999,{["lockId"]=keydoorsID[toolTown][selected+1],["descriptionDe"]=keydoorsnameDE[toolTown][selected+1],["descriptionEn"]=keydoorsnameEN[toolTown][selected+1]})
+	
+		end
+	end
+
+
+	local dialog
+	if User:getPlayerLanguage() == Player.german then
+		dialog = SelectionDialog("Schlüsselgenerator", "Erstelle einen Schlüssel für folgende Türen.", callback)
+	else
+		dialog = SelectionDialog("Key-Generator", "Create a key for following doors.", callback)
+	end
+	dialog:setCloseOnMove()
+	
+	for i=1,#keydoorsname do
+		dialog:addOption(0, keydoorsname[i])
+	end
+	User:requestSelectionDialog(dialog)
 end
 
