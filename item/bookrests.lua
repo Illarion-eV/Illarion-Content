@@ -66,6 +66,7 @@ function LookAtItem(User,Item)
 	end
 end
 
+
 function FerryLookAt(User, Item)
 	local lookAt = ItemLookAt();
 --	lookAt.rareness = ItemLookAt.rareItem;
@@ -75,6 +76,19 @@ function FerryLookAt(User, Item)
 	else
 		lookAt.name = "Ferry";
 		lookAt.description = "Anyone who would like to join for the next trip should gather here ((within five tiles)). Price: one gold for the whole group."
+	end
+	return lookAt
+end
+
+function TMLookAt(User, Item)
+	local lookAt = ItemLookAt();
+--	lookAt.rareness = ItemLookAt.rareItem;
+	if (User:getPlayerLanguage()==0) then
+		lookAt.name = "Stadtverwaltung";
+		lookAt.description = "Instrument zur Verwaltung der Stadt. Nur für offizielle Vertreter."
+	else
+		lookAt.name = "Town Managment";
+		lookAt.description = "Instrument for town management. Only for officials."
 	end
 	return lookAt
 end
