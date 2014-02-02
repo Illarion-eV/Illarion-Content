@@ -40,6 +40,21 @@ end
 
 function UseItem(User, SourceItem, ltstate)
 
+	-- teleport character on use
+		local destCoordX = tonumber(SourceItem:getData("destinationCoordsX"))
+		local destCoordY = tonumber(SourceItem:getData("destinationCoordsY"))
+		local destCoordZ = tonumber(SourceItem:getData("destinationCoordsZ"))
+		if destCoordX and destCoordY and destCoordZ then
+			User:talk(Character.say, "#me öffnet eine Schriftrolle und verschwindet in einem hellen Leuchten.","#me opens a scroll and disappears in a bright light.")
+			world:gfx(31,User.pos)
+			world:gfx(41,User.pos)
+			User:warp(position(destCoordX,destCoordY,destCoordZ))
+			world:gfx(41,User.pos)
+			world:erase(SourceItem,1)
+			return
+		end
+	-- end 
+
 	local spell = SourceItem.quality;
     if (tonumber(SourceItem:getData("scrollData")) == 600) then -- summon creature
         summonCreature( User, SourceItem );
