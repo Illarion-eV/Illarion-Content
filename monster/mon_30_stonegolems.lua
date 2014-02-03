@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("item.gems")
 require("monster.base.drop")
@@ -48,9 +48,9 @@ msgs:addMessage("#me hebt seine imposanten Fäuste und stößt einen donnernden Kri
 end
 
 function onSpawn(Monster)
-    
+
 	-- Regeneration for high level monsters >= level 7
-	local MonID=Monster:getMonsterType() 
+	local MonID=Monster:getMonsterType()
 	if MonID == 302 then --Son of the Mountains
 		local find, reg_effect = Monster.effects:find(2);
 		if not find then
@@ -68,7 +68,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     return false
 end
 
@@ -79,17 +79,17 @@ function enemyOnSight(Monster,Enemy)
 			return true;
 		elseif monster.specialattacks.beholder_spells.Mana_Burn (Monster, Enemy) then
 			return true;
-		else			
+		else
 			return false;
 		end
 	else
 		return false;
 	end
+]]
 
     if init==nil then
         ini(Monster);
-    end]]
-
+    end
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
     if monster.base.drop.DefaultSlowdown( Monster ) then
@@ -113,11 +113,11 @@ local MonID=Monster:getMonsterType();
 	if(MonID == 302) then
 		if monster.specialattacks.mgolem_spells.MGolem_Shield (monster,char) then
 			return true;
-		else 
+		else
 			return false;
 		end
 	end
-	
+
     if init==nil then
         ini(Monster);
     end
@@ -131,11 +131,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
