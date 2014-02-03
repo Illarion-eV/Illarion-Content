@@ -23,10 +23,8 @@ module("item.id_298_woodstack", package.seeall)
 -- UPDATE common SET com_script='item.id_298_woodstack' WHERE com_itemid IN (298);
 
 function UseItem(User, SourceItem)
-    -- User:inform("start fire");
-
-    if (SourceItem:getType()==3) then
-        --User:inform("starting fire");
+    
+	if (SourceItem:getType()==3) then
         SourceItem.wear = 4;
         SourceItem.id = 12;
         SourceItem.number = 3;
