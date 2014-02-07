@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --Function:    Generic trap script
 --Last Update: 01/04/2006
@@ -59,11 +59,8 @@ function CharacterOnField( User )
 end
 
 function LookAtItem(User,Item)
+	base.lookat.SetSpecialName(Item, "Falle", "trap");
     if (User:distanceMetricToPosition(Item.pos)<2 and User:increaseAttrib("perception",0)>15) then
-        if (User:getPlayerLanguage()==0) then
-            world:itemInform(User,Item,"Falle")
-        else
-            world:itemInform(User,Item,"trap")
-        end
+        world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
     end
 end
