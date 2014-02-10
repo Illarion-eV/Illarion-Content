@@ -50,11 +50,7 @@ function abortRoute(theSlime)
 	-- Slime feeding quest in Runewick
 	if theSlime:getMonsterType()==1055 then
 		if theSlime.pos == position(10,6,0) then
-			theSlime.waypoints:addWaypoint(position(12,2,0))
-			theSlime:setOnRoute(true)
-		
-		
-			--[[if world:isItemOnField(tSF.WARP_TO_SLIME_POSITION) and DELETED == false then
+			if world:isItemOnField(tSF.WARP_TO_SLIME_POSITION) and DELETED == false then
 				theSlime:talk(Character.say, "#mes schleimige Masse gleitet über das Futter und absorbiert es. Sein Körper wabbelt kurz ein Objekt tritt aus diesem raus, welches über die Ansperrung kataplutiert.",
 				"#me's slimy mass flows over the feed and absorbs it. Its body wobbles for a short period of time and an oject emerges from it, which is catapulted over the boundary.")
 				local feeding = world:getItemOnField(tSF.WARP_TO_SLIME_POSITION)
@@ -65,15 +61,15 @@ function abortRoute(theSlime)
 				theSlime.movepoints = theSlime.movepoints -30
 			end
 			theSlime.waypoints:addWaypoint(tSF.SLIME_CAVE_POSITION)
-			theSlime:setOnRoute(true)]]
+			theSlime:setOnRoute(true)
 			
 		elseif theSlime.pos == position(12,2,0) then
 			theSlime:increaseAttrib("hitpoints", -10000)
-			--[[theSlime:talk(Character.say, "#me fließt in die Höhlennische zurück.",
+			theSlime:talk(Character.say, "#me fließt in die Höhlennische zurück.",
 			"#me flows back into the small hole.")
 			theSlime:increaseAttrib("hitpoints", -10000)
 			tSF.FEEDING_IN_PROGRESS = false
-			DELETED = false]]
+			DELETED = false
 		end
 	end
 	-- Slime feeding quest in Runewick END
