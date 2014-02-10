@@ -23,39 +23,41 @@ module("gm.items.id_93_medal", package.seeall)
 function UseItemWithField(User,SourceItem,TargetPos)
 
 	-- First check for mode change
-	if (string.find(User.lastSpokenText, "setmode")~=nil) then
+	
 		local modes = {"Monster", "GFX", "SFX", "Avatar changes"}
 		local cbSetMode = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
 			end
-			SourceItem:setData("mode", modes[dialog:getSelectedIndex()+1]);
-			world:changeItem(SourceItem);
+			if dialog:getSelectedIndex()+1 == 1 then
+				monster(User,SourceItem,TargetPos)
+			elseif dialog:getSelectedIndex()+1 == 2 then
+				gfx(User,SourceItem,TargetPos)
+			elseif dialog:getSelectedIndex()+1 == 3 then
+				sfx(User,SourceItem,TargetPos)
+			elseif dialog:getSelectedIndex()+1 == 4 then
+				changeAvatar(User,SourceItem,TargetPos)
+			else 
+				User:inform("no valid function")
+
+			end
 		end
-		local sd = SelectionDialog("Set the mode of this medal.", "To which mode do you want to change it?", cbSetMode);
+		local sd = SelectionDialog("Pick a function of the medal.", "Wich do you want to use?", cbSetMode);
 		for _,m in ipairs(modes) do 
 			sd:addOption(0,m);
 		end
 		User:requestSelectionDialog(sd);
 		return;
-	end
 
-	if (string.find(User.lastSpokenText, "help")) then
-		User:inform("To change the mode of this medal, say \"setmode\" and use it.");
-	end
-	
-	--Additions to circumvent the absence of the counter
+end	
 
-	local a, _, number = string.find(User.lastSpokenText, "(%d+)");
-    if number then
-	    Counter = 1 * number;
-	else
-		Counter=1;
-	end
-	
+function test(User,SourceItem,TargetPos)
+
+	User:inform("test")
+end
 	--Additions end
 	
-	if (SourceItem:getData("mode")=="Monster") then
+function monster(User,SourceItem,TargetPos)
 	
 		local cbInputDialog = function (dialog)
 			if (not dialog:getSuccess()) then
@@ -131,9 +133,9 @@ function UseItemWithField(User,SourceItem,TargetPos)
 			
 		end
 		User:requestInputDialog(InputDialog("Spawn a monster.", "Usage enter: MonsterID [ammount] [radius] [GFX] [SFX]" ,false, 255, cbInputDialog))
+end
 	
-	
-	elseif (SourceItem:getData("mode")=="GFX") then
+function gfx(User,SourceItem,TargetPos)
 		local cbInputDialog = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
@@ -148,8 +150,10 @@ function UseItemWithField(User,SourceItem,TargetPos)
 			end
 		end
 		User:requestInputDialog(InputDialog("Play a graphics effect.", "Usage: Type in graphic effects id. Will be played in front of character." ,false, 255, cbInputDialog))
+end
+
+function sfx(User,SourceItem,TargetPos)	
 		
-	elseif (SourceItem:getData("mode")=="SFX") then		
 		local cbInputDialog = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
@@ -164,9 +168,11 @@ function UseItemWithField(User,SourceItem,TargetPos)
 			end
 		end
 		User:requestInputDialog(InputDialog("Play a sound effect.", "Usage: Type in sound effects id." ,false, 255, cbInputDialog))
-		
-	elseif (SourceItem:getData("mode")=="Avatar changes") then			
-		local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
+end
+
+function changeAvatar(User,SourceItem,TargetPos)
+			
+		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
 		local players = {User};
 		for _,player in pairs(playersTmp) do 
 			if (player.id ~= User.id) then 
@@ -216,35 +222,18 @@ function UseItemWithField(User,SourceItem,TargetPos)
 			sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end		
 		User:requestSelectionDialog(sdPlayer);		
-	else
-        User:inform("To set a mode type 'setmode' and use the medal.");
-    end
-end 
+
+end
+
 
 function UseItem(User, SourceItem)
     UseItemWithField(User,SourceItem,base.common.GetFrontPosition(User));
 end
 
 function LookAtItem(User,Item)
-    if (Item:getData("mode")=="Monster") then
-		base.lookat.SetSpecialName(Item, "Medallie (Monster)","Medal (Monster)")
-		base.lookat.SetSpecialDescription(Item, "Sag die Monster ID und lass den Spaß beginnen.", "Say the monster ID and let the fun begin.");
-    elseif (Item:getData("mode")=="test") then
-        base.lookat.SetSpecialName(Item, "Medallie (test)","Medal (test)");
-		base.lookat.SetSpecialDescription(Item, "Testen neuer Funktionen.", "Testing new item functions.");		
-    elseif (Item:getData("mode")=="GFX") then
-        base.lookat.SetSpecialName(Item, "Medallie (GFX)","Medal (GFX)");
-		base.lookat.SetSpecialDescription(Item, "Sag die GFX ID und lass den Spaß beginnen.", "Say the GFX ID and let the fun begin.");
-	elseif (Item:getData("mode")=="SFX") then
-        base.lookat.SetSpecialName(Item, "Medallie (SFX)","Medal (SFX)");
-		base.lookat.SetSpecialDescription(Item, "Sag die SFX ID und lass den Spaß beginnen.", "Say the SFX ID and let the fun begin.");
-	elseif (Item:getData("mode")=="Avatar changes") then
-        base.lookat.SetSpecialName(Item, "Medallie (Avatar Änderungen)","Medal (Avatar changes)");
-		base.lookat.SetSpecialDescription(Item, "Ändert das Aussehen eines Charakters. Benutze die Medaille.", "Changes appearance of a character. Use the medal.");	
-	else
-		base.lookat.SetSpecialDescription(Item, "Um einen Modus zu setzen sage 'setmode' und benutzt die Medaille.", "To set a mode type 'setmode' and use the medal.");
+		base.lookat.SetSpecialDescription(Item, "Verwende die Medallie zum aufrufen der Funktione.", "Use the medal to pick a function.");
         base.lookat.SetSpecialName(Item, "Medaille", "Medal");
-    end
+
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
 end
 
@@ -260,17 +249,11 @@ function getFreePos( CenterPos, Rad )
                 return tarPos;
 			else
 				countPos = countPos +1;
-				if countPos > 50 then
+				if countPos > 150 then
 					countPos = 0;
 					return CenterPos;
 				end
             end
-        else
-			countPos = countPos +1;
-			if countPos > 50 then
-				countPos = 0;
-				return CenterPos;
-			end
-		end
+        end
     end
 end

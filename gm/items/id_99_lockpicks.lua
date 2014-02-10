@@ -79,36 +79,51 @@ skillNames = {Character.alchemy,Character.carpentry,Character.concussionWeapons,
 
 function UseItem(User, SourceItem, ltstate)
 
-	-- First check for mode change
-	if (string.find(User.lastSpokenText, "setmode")~=nil) then
-		local modes = {"Eraser", "Teleport","Faction info of chars in radius", "Char Info", "Change skills","Get/ Set Queststatus", "Instant kill/ revive"}
-		local cbSetMode = function (dialog)
-			if (not dialog:getSuccess()) then
-				return;
-			end
-			SourceItem:setData("mode", modes[dialog:getSelectedIndex()+1]);
-			world:changeItem(SourceItem);
-		end
-		local sd = SelectionDialog("Set the mode of this lockpicks.", "To which mode do you want to change it?", cbSetMode);
-		for _,m in ipairs(modes) do
-			sd:addOption(0,m);
-		end
-		User:requestSelectionDialog(sd);
-		return;
-	end
-
-	if (string.find(User.lastSpokenText, "help")) then
-		User:inform("To change the mode of these lockpicks, say \"setmode\" and use it.");
-	end
-
-	--if injured, heal!
+		--if injured, heal!
 	if User:increaseAttrib("hitpoints",0)<10000 or User:increaseAttrib("mana",0)<10000 then
 		User:increaseAttrib("hitpoints", 10000)
 		User:increaseAttrib("mana", 10000)
 		User:increaseAttrib("foodlevel", 100000)
 	end
+	
+	
+	-- First check for mode change
+	
+		local modes = {"Eraser", "Teleport","Faction info of chars in radius", "Char Info", "Change skills","Get/ Set Queststatus", "Instant kill/ revive"}
+		local cbSetMode = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			if dialog:getSelectedIndex()+1 == 1 then
+				eraser(User, SourceItem, ltstate)
+			elseif dialog:getSelectedIndex()+1 == 2 then
+				teleporter(User, SourceItem, ltstate)
+			elseif dialog:getSelectedIndex()+1 == 3 then
+				factionInfoOfCharsInRadius(User, SourceItem, ltstate)
+			elseif dialog:getSelectedIndex()+1 == 4 then
+				charInfo(User, SourceItem,ltstate)
+			elseif dialog:getSelectedIndex()+1 == 5 then
+				changeSkills(User, SourceItem, ltstate)
+			elseif dialog:getSelectedIndex()+1 == 6 then
+				getSetQueststatus(User, SourceItem, ltstate)
+			elseif dialog:getSelectedIndex()+1 == 7 then
+				godMode(User, SourceItem, ltstate)
+			
+			end
+		end
+		local sd = SelectionDialog("Pick a function of the lockpicks.", "Wich do you want to use?", cbSetMode);
+		for _,m in ipairs(modes) do
+			sd:addOption(0,m);
+		end
+		User:requestSelectionDialog(sd);
+		return;
+	
 
-	if (SourceItem:getData("mode")=="Eraser") then
+
+end
+	
+function eraser(User, SourceItem, ltstate)
+	
 
 		--get all the items the char has on him, with the stuff in the backpack
 		local itemsOnChar = {};
@@ -141,10 +156,10 @@ function UseItem(User, SourceItem, ltstate)
       sdItems:addOption(item.id,itemName .. " (" .. itemPos[item.itempos] .. ") Count: ".. item.number);
     end
 		User:requestSelectionDialog(sdItems);
+end
 
-
-
-	elseif (SourceItem:getData("mode")=="Teleport") then
+function teleporter(User, SourceItem, ltstate)
+	
 		local cbChooseLocation = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
@@ -179,9 +194,11 @@ function UseItem(User, SourceItem, ltstate)
 			sdTeleport:addOption(0,Location[i] .. " (" .. Coordina[i][1]..", "..Coordina[i][2]..", "..Coordina[i][3] .. ")");
        		end
 		User:requestSelectionDialog(sdTeleport);
+end
 
 
-	elseif (SourceItem:getData("mode")=="Faction info of chars in radius") then
+function factionInfoOfCharsInRadius(User, SourceItem, ltstate)
+	
 		local players = world:getPlayersInRangeOf(User.pos, 40);
 		local infos = "";
 		local germanRank, englishRank
@@ -197,8 +214,10 @@ function UseItem(User, SourceItem, ltstate)
 
 		local mDialog = MessageDialog("Factioninformation",infos, nil)
 		User:requestMessageDialog(mDialog)
-
-	elseif (SourceItem:getData("mode")=="Char Info") then
+end
+	
+function charInfo(User, SourceItem,ltstate)
+		
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 		local players = {User};
 		for _,player in pairs(playersTmp) do
@@ -238,8 +257,10 @@ function UseItem(User, SourceItem, ltstate)
 			sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end
 		User:requestSelectionDialog(sdPlayer);
+end
 
-	elseif (SourceItem:getData("mode")=="Change skills") then
+function changeSkills(User, SourceItem, ltstate)
+
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 		local players = {User};
 		for _,player in pairs(playersTmp) do
@@ -291,8 +312,10 @@ function UseItem(User, SourceItem, ltstate)
 			sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end
 		User:requestSelectionDialog(sdPlayer);
+end
 
-	elseif (SourceItem:getData("mode")=="Get/ Set Queststatus") then
+function getSetQueststatus(User, SourceItem, ltstate)
+	
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 		local players = {User};
 		for _,player in pairs(playersTmp) do
@@ -338,8 +361,10 @@ function UseItem(User, SourceItem, ltstate)
 			sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end
 		User:requestSelectionDialog(sdPlayer);
+end
 
-	elseif (SourceItem:getData("mode")=="Instant kill/ revive") then
+function godMode(User, SourceItem, ltstate)
+	
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 		local players = {User};
 		for _,player in pairs(playersTmp) do
@@ -387,35 +412,14 @@ function UseItem(User, SourceItem, ltstate)
         end
 		User:requestSelectionDialog(sdPlayer);
 
-	end	-- end of modes
-end
+end	-- end of modes
+
 
 function LookAtItem(User,Item)
-    if (Item:getData("mode")=="Eraser") then
-		base.lookat.SetSpecialName(Item, "Dietriche (Eraser)","Lockpicks (Eraser)")
-		base.lookat.SetSpecialDescription(Item, "Aufräumzeit!! Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Clean up time!! Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
-    elseif (Item:getData("mode")=="Teleport") then
-        base.lookat.SetSpecialName(Item, "Dietriche (Teleport)","Lockpicks (Teleport)");
-		base.lookat.SetSpecialDescription(Item, "Ich  bin hier weg. Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche. ", "I'm out of here. Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
-	elseif (Item:getData("mode")=="Faction info of chars in radius") then
-		base.lookat.SetSpecialName(Item, "Dietriche (Fraktionsinfo von Chars in Radius)","Lockpicks (Faction info of chars in radius)");
-		base.lookat.SetSpecialDescription(Item, "Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
-	elseif (Item:getData("mode")=="Char Info") then
-        base.lookat.SetSpecialName(Item, "Dietriche (Char Info)","Lockpicks (Char Info)");
-		base.lookat.SetSpecialDescription(Item, "Char Info. Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Char Info. Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
-	elseif (Item:getData("mode")=="Change skills") then
-		base.lookat.SetSpecialDescription(Item, "Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
-        base.lookat.SetSpecialName(Item, "Dietriche (Skills ändern)", "Lockpicks (Change skills)");
-	elseif (Item:getData("mode")=="Get/ Set Queststatus") then
-		base.lookat.SetSpecialDescription(Item, "Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
-        base.lookat.SetSpecialName(Item, "Dietriche (Get/ Set Queststatus)", "Lockpicks (Get/ Set Queststatus)");
-	elseif (Item:getData("mode")=="Instant kill/ revive") then
-        base.lookat.SetSpecialName(Item, "Dietriche (Godmode)","Lockpicks (Godmode)");
-		base.lookat.SetSpecialDescription(Item, "Instant kill/ revive. Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Instant kill/ revive. Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
-	else
-		base.lookat.SetSpecialDescription(Item, "Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "To set a mode type 'setmode' and use the lockpicks.");
+
+		base.lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum aufrufen der Funktione.", "Use the lockpicks to pick a function.");
         base.lookat.SetSpecialName(Item, "Dietriche", "Lockpicks");
-    end
+
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
 end
 
