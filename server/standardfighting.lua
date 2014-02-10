@@ -117,6 +117,9 @@ function onAttack(Attacker, Defender)
 	-- Find out the attack type and the required combat skill
 	GetAttackType(Attacker);
 	
+	-- Load Skills and Attributes of the attacking character
+    LoadAttribsSkills(Attacker, true);
+	
 	-- Check aiming time for player archers
 	if Attacker.AttackKind==4 and Attacker.Char:getType() == Character.player and not CheckAimingTime(Attacker,Defender.Char,CheckRange(Attacker, Defender.Char)) then
 		return false
@@ -133,9 +136,6 @@ function onAttack(Attacker, Defender)
 
     -- Check if ammunition is needed and use it
     if not HandleAmmunition(Attacker) then return false; end;
-
-    -- Load Skills and Attributes of the attacking character
-    LoadAttribsSkills(Attacker, true);
 
     -- Load weapon data, skills and attributes of the attacked character
     LoadWeapons(Defender);
@@ -203,12 +203,12 @@ AIMING_TIME_LIST = {}
 -- @param inRange Boolean if the defender is in range to aim/shoot at him
 function CheckAimingTime(AttackerList,Defender,inRange)
 	local Attacker = AttackerList["Char"]
-	
+	--[[
 	if not inRange then
 		AIMING_TIME_LIST[Attacker.id] = nil
 		return false
 	end
-	
+	]]
 	if AIMING_TIME_LIST[Attacker.id] == nil then
 		FillAimingTimeList(Attacker,Defender,AttackerList.Weapon.id)
 		return false
@@ -218,20 +218,20 @@ function CheckAimingTime(AttackerList,Defender,inRange)
 			FillAimingTimeList(Attacker,Defender,AttackerList.Weapon.id)
 			return false
 			
-		elseif world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["counter"] > GetNecessaryAimingTime(Attacker, AttackerList.Weapon) + 2 then
+		elseif (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10 > GetNecessaryAimingTime(AttackerList) + 20 then
 			-- that is needed to prevent that someone aims, stops aiming, waits a long time and as soon as he targets the same character again, shoots immediately.
 			-- this has to be done since there is no way to clear the list when someone stops targeting the target
-			AIMING_TIME_LIST[Attacker.id]["counter"] = world:getTime("unix")
-			ShowAimingGfx(Attacker)
+			AIMING_TIME_LIST[Attacker.id]["counter"] = 1
+			AIMING_TIME_LIST[Attacker.id]["started"] = world:getTime("unix")
+			--ShowAimingGfx(AttackerList)
 			return false
 		
-		elseif world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["counter"] <= GetNecessaryAimingTime(Attacker, AttackerList.Weapon) then
-			-- not enough time has passed; display a nice gfx to show that the character is aiming
-		    ShowAimingGfx(Attacker)
+		elseif AIMING_TIME_LIST[Attacker.id]["counter"] <= GetNecessaryAimingTime(AttackerList) and (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10 < math.ceil(GetNecessaryAimingTime(AttackerList)) then
+			-- not enough time has passed; display a nice gfx to show that the character is aiming and increase counter
+		    --ShowAimingGfx(AttackerList)
+			AIMING_TIME_LIST[Attacker.id]["counter"] = AIMING_TIME_LIST[Attacker.id]["counter"] + 1
 		
 		else
-			-- everything fine; reset counter; return true to shoot
-			AIMING_TIME_LIST[Attacker.id]["counter"] = world:getTime("unix")
 			return true 
 		end
 	end
@@ -241,13 +241,12 @@ end
 
 -- Show aiming gfx. The char has to have been standing still for some calls of onAttack before the gfx starts
 -- @param Attacker The character attacking
-function ShowAimingGfx(Attacker)
-	
-	if AIMING_TIME_LIST[Attacker.id]["gfxCounter"] % 7 == 0 then
+function ShowAimingGfx(AttackerList)
+	local Attacker = AttackerList["Char"]
+	if AIMING_TIME_LIST[Attacker.id]["counter"] % 7 == 0 then
 		world:gfx(21,Attacker.pos)
 	end
-	AIMING_TIME_LIST[Attacker.id]["gfxCounter"] = AIMING_TIME_LIST[Attacker.id]["gfxCounter"] + 1
-
+	
 end
 
 -- Store all necessary information in the global list for aiming time
@@ -257,8 +256,8 @@ end
 function FillAimingTimeList(Attacker,Defender,weaponId)
 
 	AIMING_TIME_LIST[Attacker.id] = {}
-	AIMING_TIME_LIST[Attacker.id]["counter"] = world:getTime("unix")  -- seconds
-	AIMING_TIME_LIST[Attacker.id]["gfxCounter"] = 1 -- counting onAttack calls
+	AIMING_TIME_LIST[Attacker.id]["counter"] = 1 -- increased on every call; normally every 1/10 seconds
+	AIMING_TIME_LIST[Attacker.id]["started"] = world:getTime("unix") -- we use that as a security measure. In case onAttack is not called every 1/10 (e.g. lack of ap), the action is excecuted then ext full sec(e.g. if 1.7 seconds are necessary but onAttack hasnt been called properly, the action is xeceuted after 2 sec)
 	AIMING_TIME_LIST[Attacker.id]["weapon"] = weaponId
 	AIMING_TIME_LIST[Attacker.id]["target"] = Defender.id
 	AIMING_TIME_LIST[Attacker.id]["position"] = Attacker.pos.x.." "..Attacker.pos.y.." "..Attacker.pos.z
@@ -268,9 +267,10 @@ end
 -- Calculate time necessary to aim, depedning on attribute and weapon.
 -- @param Attacker The character attacking
 -- @param Weapon The weapon used
+-- @return The time needed for an attack in 1/10 seconds
 function GetNecessaryAimingTime(Attacker)
 	-- we use a default value for every character and weapon; the differences in attributes and weapons come in play when the movepoints are lowered/regenerated
-	return 2
+	return math.floor(CalculateMovepoints(Attacker)+0.5)
 end
 
 --- Calculate the damage that is absorbed by the armor and reduce the stored
@@ -650,6 +650,11 @@ end;
 -- @param Globals The table of the global values
 
 function CauseDamage(Attacker, Defender, Globals)
+
+	if(Attacker.AttackKind == 4) then -- reste counter for archers
+		AIMING_TIME_LIST[Attacker.Char.id]["counter"] = 1
+		AIMING_TIME_LIST[Attacker.Char.id]["started"] = world:getTime("unix")
+	end
 
 	Globals.Damage=Globals.Damage*(math.random(9,10)/10); --Damage is randomised: 80-120%
 
@@ -1619,12 +1624,11 @@ function HandleAmmunition(Attacker)
     return true;
 end;
 
---- Calculate the required movepoints for this attack and reduce the attacker
--- movepoints by the fitting value.
+-- Calculate the required movepoints
 -- @param Attacker The table that stores the values of the attacker
-function HandleMovepoints(Attacker, Globals)
+function CalculateMovepoints(Attacker)
 
-    local weaponFightpoints;
+	local weaponFightpoints;
     if Attacker.IsWeapon then
         weaponFightpoints = Attacker.Weapon.ActionPoints;
 	else
@@ -1640,16 +1644,33 @@ function HandleMovepoints(Attacker, Globals)
     -- The Global Speed Mod (GSM). Increase this to make fights faster.
 	local GlobalSpeedMod = 100;
 
-    local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / GlobalSpeedMod );
+    return math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / GlobalSpeedMod );
 
-	if(Globals.criticalHit==1) then
+
+end
+
+--- Reduce the attacker movepoints by the fitting value.
+-- @param Attacker The table that stores the values of the attacker
+function HandleMovepoints(Attacker, Globals)
+
+    local reduceFightpoints = CalculateMovepoints(Attacker)
+	
+	local fightPointsBeforeCritical = reduceFightpoints
+	if(Globals.criticalHit==1) then -- special attack slashing: very fast strikes, reduced reduction
 		reduceFightpoints = 2;
 	elseif(Globals.criticalHit>0) then
 		reduceFightpoints = reduceFightpoints*1.5;
 	end;
-
-	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints));
-    Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints);
+	
+	-- For player archers, we remove the normal reduction and leave only the reduction because of criticals.
+	-- They have a count BEFORE the shoot.
+	local archerAdjustment = 0
+	if Attacker.AttackKind==4 and Attacker.Char:getType() == Character.player then
+		archerAdjustment = fightPointsBeforeCritical
+	end
+	
+	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints-archerAdjustment));
+    Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints-archerAdjustment);
 
 	Globals["AP"] = reduceFightpoints;
 
