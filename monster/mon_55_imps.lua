@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
+require("monster.base.base")
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
@@ -58,6 +59,10 @@ function enemyOnSight(Monster,Enemy)
     if init==nil then
         ini(Monster);
     end
+	
+	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
+		return true
+	end
     
 	if (MonID==553) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,7,{500,1500},{{4,5},{2,4}},{},40,1,{35,50}) );

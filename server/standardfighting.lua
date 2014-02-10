@@ -124,6 +124,7 @@ function onAttack(Attacker, Defender)
 	
 	-- Check the range between the both fighting characters
     if not CheckRange(Attacker, Defender.Char) then return false; end;
+	
 
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then
@@ -916,144 +917,9 @@ function CheckRange(AttackerStruct, Defender)
 	local distance = AttackerStruct.Char:distanceMetric(Defender);
 
 	if(AttackerStruct.AttackKind == 4 and  AttackerStruct.Char:getType() == 1) then -- if a monster with a bow and large distance
-		if(distance<=4) then
-			AttackerStruct.Char.waypoints:clear();
-
-			local workingpoint = 5-distance;
-			local workingpointb = workingpoint-1;
-
-			local workingpointc = workingpoint+2;
-			local workingpointd = workingpointc-1;
-
-			--Look behind
-			local newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y,AttackerStruct.Char.pos.z);
-
-			local isdiagonal = ((math.abs(Defender.pos.x-AttackerStruct.Char.pos.x)>0) and (math.abs(Defender.pos.y-AttackerStruct.Char.pos.y)>0))
-
-			if not(isdiagonal) then
-
-				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
-					if not (world:getField(newposition):isPassable()) then
-						newposition = position(Defender.pos.x+1,Defender.pos.y-1,AttackerStruct.Char.pos.z)
-					end;
-				else
-					newposition = position(Defender.pos.x+1,Defender.pos.y-1,AttackerStruct.Char.pos.z)
-				end;
-
-				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
-					if not (world:getField(newposition):isPassable()) then
-						newposition = position(Defender.pos.x-1,Defender.pos.y+1,AttackerStruct.Char.pos.z)
-					end;
-				else
-					newposition = position(Defender.pos.x-1,Defender.pos.y+1,AttackerStruct.Char.pos.z)
-				end;
-
-				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
-					if not (world:getField(newposition):isPassable()) then
-						newposition = position(Defender.pos.x+1,Defender.pos.y+1,AttackerStruct.Char.pos.z)
-					end;
-				else
-					newposition = position(Defender.pos.x+1,Defender.pos.y+1,AttackerStruct.Char.pos.z)
-				end;
-
-				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
-					if not (world:getField(newposition):isPassable()) then
-						newposition = position(Defender.pos.x-1,Defender.pos.y-1,AttackerStruct.Char.pos.z)
-					end;
-				else
-					newposition = position(Defender.pos.x-1,Defender.pos.y-1,AttackerStruct.Char.pos.z)
-				end;
-
-			else
-
-				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
-					if not (world:getField(newposition):isPassable()) then
-						newposition = position(Defender.pos.x,Defender.pos.y+1,AttackerStruct.Char.pos.z)
-					end;
-				else
-					newposition = position(Defender.pos.x,Defender.pos.y+1,AttackerStruct.Char.pos.z)
-				end;
-
-				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
-					if not (world:getField(newposition):isPassable()) then
-						newposition = position(Defender.pos.x-1,Defender.pos.y,AttackerStruct.Char.pos.z)
-					end;
-				else
-					newposition = position(Defender.pos.x-1,Defender.pos.y,AttackerStruct.Char.pos.z)
-				end;
-
-				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
-					if not (world:getField(newposition):isPassable()) then
-						newposition = position(Defender.pos.x,Defender.pos.y-1,AttackerStruct.Char.pos.z)
-					end;
-				else
-					newposition = position(Defender.pos.x,Defender.pos.y-1,AttackerStruct.Char.pos.z)
-				end;
-
-				if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
-					if not (world:getField(newposition):isPassable()) then
-						newposition = position(Defender.pos.x+1,Defender.pos.y,AttackerStruct.Char.pos.z)
-					end;
-				else
-					newposition = position(Defender.pos.x+1,Defender.pos.y,AttackerStruct.Char.pos.z)
-				end;
-
-			end;
-
-			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
-				if not (world:getField(newposition):isPassable()) then
-					newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x+2,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y+2,AttackerStruct.Char.pos.z)
-				end;
-			else
-				newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x+2,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y+2,AttackerStruct.Char.pos.z)
-			end;
-
-			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
-				if not (world:getField(newposition):isPassable()) then
-					newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x-2,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y-2,AttackerStruct.Char.pos.z)
-				end;
-			else
-				newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x-2,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y-2,AttackerStruct.Char.pos.z)
-			end;
-
-			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
-				if not (world:getField(newposition):isPassable()) then
-					newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x-2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y-2,AttackerStruct.Char.pos.z)
-				end;
-			else
-				newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x-2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y-2,AttackerStruct.Char.pos.z)
-			end;
-
-			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
-				if not (world:getField(newposition):isPassable()) then
-					newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x+2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y+2,AttackerStruct.Char.pos.z)
-				end;
-			else
-				newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x+2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y+2,AttackerStruct.Char.pos.z)
-			end;
-
-			--Look forward
-			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
-				if not (world:getField(newposition):isPassable()) then
-					newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y,AttackerStruct.Char.pos.z)
-				end;
-			else
-				newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y,AttackerStruct.Char.pos.z)
-			end;
-
-
-			if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
-				if (world:getField(newposition):isPassable()) then
-					--Defender:inform(newposition.x .. " " .. newposition.y .." ".. newposition.z);
-					AttackerStruct.Char.waypoints:addWaypoint(newposition);
-					AttackerStruct.Char:setOnRoute(true);
-				else
-					AttackerStruct.Char:setOnRoute(false);
-				end;
-			else
-				AttackerStruct.Char:setOnRoute(false);
-			end;
-
+		
+		if(distance<=2) then
+			setArcherMonsterOnRoute(AttackerStruct,Defender,distance)
 		else
 			AttackerStruct.Char:setOnRoute(false);
 		end;
@@ -1076,6 +942,184 @@ function CheckRange(AttackerStruct, Defender)
     end;
     return (distance <= 1 );
 end;
+
+-- Makes the monster move away from its target
+-- @param AttackerStruct The table that stores the data of the attacker
+-- @param Defender The character who is attacked
+
+function setArcherMonsterOnRoute(AttackerStruct,Defender,distance)
+
+	AttackerStruct.Char.waypoints:clear();
+
+	local workingpoint = 5-distance;
+	local workingpointb = workingpoint-1;
+
+	local workingpointc = workingpoint+2;
+	local workingpointd = workingpointc-1;
+	
+	local possiblePositions = {}
+	possiblePositions.prefered = {} -- walkable and not in close combat range of the other char
+	possiblePositions.acceptable = {} -- walkable but in close combat range
+	local foundDefender
+	for i=-1,1 do
+		for j=-1,1 do
+			local checkPosition = position(AttackerStruct.Char.pos.x+i, AttackerStruct.Char.pos.y+j, AttackerStruct.Char.pos.z)
+			if world:isCharacterOnField(checkPosition) then
+				local foundCharacter = world:getCharacterOnField(checkPosition)
+				if foundCharacter.id == Defender.id then
+					foundDefender = true
+				end
+			elseif NoNils(world:getField(checkPosition)) and world:getField(checkPosition):isPassable() then
+				if (math.abs(Defender.pos.x-AttackerStruct.Char.pos.x)>1) or (math.abs(Defender.pos.y-AttackerStruct.Char.pos.y)>1) then
+					table.insert(possiblePositions.prefered,checkPosition)
+				else
+					table.insert(possiblePositions.acceptable,checkPosition)
+				end
+			end
+		end
+	end
+	
+	local newposition = false
+	if foundDefender then
+		if #possiblePositions.prefered > 0 then
+			newposition = possiblePositions.prefered[Random.uniform(1,#possiblePositions.prefered)]
+		elseif #possiblePositions.acceptable > 0 then
+			newposition = possiblePositions.acceptable[Random.uniform(1,#possiblePositions.acceptable)]
+		end
+	end
+		
+	if not newposition then
+		--Look behind
+		newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y,AttackerStruct.Char.pos.z);
+	end
+	
+	local isdiagonal = ((math.abs(Defender.pos.x-AttackerStruct.Char.pos.x)>0) and (math.abs(Defender.pos.y-AttackerStruct.Char.pos.y)>0))
+
+	if not(isdiagonal) then
+
+		if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+			if not (world:getField(newposition):isPassable()) then
+				newposition = position(Defender.pos.x+1,Defender.pos.y-1,AttackerStruct.Char.pos.z)
+			end;
+		else
+			newposition = position(Defender.pos.x+1,Defender.pos.y-1,AttackerStruct.Char.pos.z)
+		end;
+
+		if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+			if not (world:getField(newposition):isPassable()) then
+				newposition = position(Defender.pos.x-1,Defender.pos.y+1,AttackerStruct.Char.pos.z)
+			end;
+		else
+			newposition = position(Defender.pos.x-1,Defender.pos.y+1,AttackerStruct.Char.pos.z)
+		end;
+
+		if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+			if not (world:getField(newposition):isPassable()) then
+				newposition = position(Defender.pos.x+1,Defender.pos.y+1,AttackerStruct.Char.pos.z)
+			end;
+		else
+			newposition = position(Defender.pos.x+1,Defender.pos.y+1,AttackerStruct.Char.pos.z)
+		end;
+
+		if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+			if not (world:getField(newposition):isPassable()) then
+				newposition = position(Defender.pos.x-1,Defender.pos.y-1,AttackerStruct.Char.pos.z)
+			end;
+		else
+			newposition = position(Defender.pos.x-1,Defender.pos.y-1,AttackerStruct.Char.pos.z)
+		end;
+
+	else
+
+		if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+			if not (world:getField(newposition):isPassable()) then
+				newposition = position(Defender.pos.x,Defender.pos.y+1,AttackerStruct.Char.pos.z)
+			end;
+		else
+			newposition = position(Defender.pos.x,Defender.pos.y+1,AttackerStruct.Char.pos.z)
+		end;
+
+		if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+			if not (world:getField(newposition):isPassable()) then
+				newposition = position(Defender.pos.x-1,Defender.pos.y,AttackerStruct.Char.pos.z)
+			end;
+		else
+			newposition = position(Defender.pos.x-1,Defender.pos.y,AttackerStruct.Char.pos.z)
+		end;
+
+		if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+			if not (world:getField(newposition):isPassable()) then
+				newposition = position(Defender.pos.x,Defender.pos.y-1,AttackerStruct.Char.pos.z)
+			end;
+		else
+			newposition = position(Defender.pos.x,Defender.pos.y-1,AttackerStruct.Char.pos.z)
+		end;
+
+		if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+			if not (world:getField(newposition):isPassable()) then
+				newposition = position(Defender.pos.x+1,Defender.pos.y,AttackerStruct.Char.pos.z)
+			end;
+		else
+			newposition = position(Defender.pos.x+1,Defender.pos.y,AttackerStruct.Char.pos.z)
+		end;
+
+	end;
+
+	if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+		if not (world:getField(newposition):isPassable()) then
+			newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x+2,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y+2,AttackerStruct.Char.pos.z)
+		end;
+	else
+		newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x+2,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y+2,AttackerStruct.Char.pos.z)
+	end;
+
+	if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+		if not (world:getField(newposition):isPassable()) then
+			newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x-2,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y-2,AttackerStruct.Char.pos.z)
+		end;
+	else
+		newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x-2,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y-2,AttackerStruct.Char.pos.z)
+	end;
+
+	if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+		if not (world:getField(newposition):isPassable()) then
+			newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x-2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y-2,AttackerStruct.Char.pos.z)
+		end;
+	else
+		newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x-2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y-2,AttackerStruct.Char.pos.z)
+	end;
+
+	if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+		if not (world:getField(newposition):isPassable()) then
+			newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x+2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y+2,AttackerStruct.Char.pos.z)
+		end;
+	else
+		newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x+2,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y+2,AttackerStruct.Char.pos.z)
+	end;
+
+	--Look forward
+	if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+		if not (world:getField(newposition):isPassable()) then
+			newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y,AttackerStruct.Char.pos.z)
+		end;
+	else
+		newposition = position(workingpointd*AttackerStruct.Char.pos.x-workingpointc*Defender.pos.x,workingpointd*AttackerStruct.Char.pos.y-workingpointc*Defender.pos.y,AttackerStruct.Char.pos.z)
+	end;
+
+
+	if NoNils(world:getField(newposition)) and NoNils(world:getField(newposition):isPassable()) then
+		if (world:getField(newposition):isPassable()) then
+			--Defender:inform(newposition.x .. " " .. newposition.y .." ".. newposition.z);
+			AttackerStruct.Char.waypoints:addWaypoint(newposition);
+			AttackerStruct.Char:setOnRoute(true);
+		else
+			AttackerStruct.Char:setOnRoute(false);
+		end;
+	else
+		AttackerStruct.Char:setOnRoute(false);
+	end;
+
+end
 
 --- Calculate the effect of the constitution on the damage. Depending on the
 -- constitution this can raise or lower the damage.

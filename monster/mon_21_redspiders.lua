@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+require("monster.base.base")
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
@@ -70,6 +71,9 @@ function enemyOnSight(Monster,Enemy)
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
+		return true
+	end
 
     local MonID=Monster:getMonsterType();
 	if (MonID==211) then

@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
+require("monster.base.base")
 require("item.gems")
 require("monster.base.drop")
 require("monster.base.lookat")
@@ -69,6 +70,10 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
+	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
+		return true
+	end
+	
 	local MonID=Monster:getMonsterType();
     if (MonID==132) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2500,4500},{{2,4},{32,5},{51,5}},{},40,1,{25,65}) == true );
@@ -87,6 +92,9 @@ function enemyOnSight(Monster,Enemy)
         firstWP={};
     end
 	monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
+		return true
+	end
 
     local MonID=Monster:getMonsterType();
     if monster.base.drop.DefaultSlowdown( Monster ) then
