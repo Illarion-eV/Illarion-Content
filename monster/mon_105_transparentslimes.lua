@@ -48,7 +48,8 @@ end
 DELETED = false
 function abortRoute(theSlime)
 	-- Slime feeding quest in Runewick
-	if theSlime:getMonsterType()==1055 then
+	if theSlime:getMonsterType()==1055 
+		local tSF = triggerfield.slimeFeeding
 		if theSlime.pos == position(10,6,0) then
 			if world:isItemOnField(tSF.WARP_TO_SLIME_POSITION) and DELETED == false then
 				theSlime:talk(Character.say, "#mes schleimige Masse gleitet über das Futter und absorbiert es. Sein Körper wabbelt kurz ein Objekt tritt aus diesem raus, welches über die Ansperrung kataplutiert.",
