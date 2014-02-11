@@ -872,7 +872,7 @@ end
 
 
 function LookAtItem(User,Item)
-		base.lookat.SetSpecialDescription(Item,  "Verwende die Kelle zum aufrufen der Funktione.", "Use the lockpicks to trowel a function.");
+		base.lookat.SetSpecialDescription(Item,  "Verwende die Kelle zum aufrufen der Funktione.", "Use the trowel to pick a function.");
         base.lookat.SetSpecialName(Item, "Kelle", "Trowel");
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
 end
