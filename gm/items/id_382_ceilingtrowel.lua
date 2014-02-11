@@ -30,7 +30,7 @@ function UseItem(User, SourceItem)
 	
 
   -- First check for mode change
-  if (string.find(User.lastSpokenText, "setmode")~=nil) then
+
     local modes = {"items", "weather", "factions","Spawnpoint"}
     local cbSetMode = function (dialog)
       if (not dialog:getSuccess()) then
@@ -63,11 +63,6 @@ function UseItem(User, SourceItem)
     end
     User:requestSelectionDialog(sd);
     return;
-  end
-  
-	if (string.find(User.lastSpokenText, "help")) then
-		User:inform("To change the mode of this trowel, say \"setmode\" and use it.");
-	end
 
 end	
 
