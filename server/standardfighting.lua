@@ -651,7 +651,7 @@ end;
 
 function CauseDamage(Attacker, Defender, Globals)
 
-	if(Attacker.AttackKind == 4) then -- reste counter for archers
+	if(Attacker.AttackKind == 4) and Attacker.Char:getType() == Character.player then -- reste counter for archers
 		AIMING_TIME_LIST[Attacker.Char.id]["counter"] = 1
 		AIMING_TIME_LIST[Attacker.Char.id]["started"] = world:getTime("unix")
 	end
