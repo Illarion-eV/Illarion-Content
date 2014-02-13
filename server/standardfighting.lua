@@ -113,6 +113,9 @@ function onAttack(Attacker, Defender)
 
     -- Load the weapons of the attacker
     LoadWeapons(Attacker);
+	if Attacker.Weapon.WeaponType==13 then
+		return false
+	end
 
 	-- Find out the attack type and the required combat skill
 	GetAttackType(Attacker);
