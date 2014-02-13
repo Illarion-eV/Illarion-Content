@@ -92,7 +92,7 @@ end
 
 function guardNPC:nextCycle(npcChar, counter)
     if (counter >= self._nextCycleText) then
-	    self._nextCycleText = 20;
+	    self._nextCycleText = 5;
         
 		local radius = _getCheckRadius(self);
 		_processMonsters(self, npcChar, radius);
@@ -143,7 +143,7 @@ function _processPlayers(self, npcChar, radius)
 				hitPlayers = true;
 				warpedPlayers = true;
 				_warpHostile(self, npcChar, player);
-			elseif (relation == base.factions.RELATION_HOSTILE) or ((relation == base.factions.RELATION_NEUTRAL) and player.attackmode) then
+			elseif (relation == base.factions.RELATION_HOSTILE) --[[or ((relation == base.factions.RELATION_NEUTRAL) and player.attackmode)]] then
 				warpedPlayers = true;
 				_warpHostile(self, npcChar, player);
 			end
