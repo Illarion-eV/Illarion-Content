@@ -21,7 +21,7 @@
 --                                                                            --
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
 name = "Linda Rabon"
@@ -100,11 +100,10 @@ queststatus(126) > 0, queststatus(703) = 9, town = Cadomyr, "task", "adventure",
 queststatus(126) > 0, queststatus(703) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 10, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- 1st quest: Gather 5 cutlery (2647)
-queststatus(126) = 0, queststatus(703) = 9, town = Cadomyr, english, "quest", "mission", "jakob", "lindorn" -> inform("[New quest] A Noble Celebration I"), queststatus(126) = 1, queststatus(703) = 10, "Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them."
+queststatus(126) = 0, queststatus(703) = 9, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> inform("[New quest] A Noble Celebration I"), queststatus(126) = 1, queststatus(703) = 10, "Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them."
 queststatus(126) = 0, queststatus(703) = 9, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> inform("[Neues Quest] Eine edle Feier I"), queststatus(126) = 1, queststatus(703) = 10, "Oh, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?"
 queststatus(126) = 0, queststatus(703) = 9, town = Cadomyr, "task", "adventure", "order" -> inform("[New quest] A Noble Celebration I"), queststatus(126) = 1, queststatus(703) = 10, "Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them."
 queststatus(126) = 0, queststatus(703) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eine edle Feier I"), queststatus(126) = 1, queststatus(703) = 10, "Oj, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?"
-
 queststatus(126) = 0, english, "quest", "mission" -> inform("[New quest] A Noble Celebration I"), queststatus(126) = 1, "Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them."
 queststatus(126) = 0, "quest", "mission" -> inform("[Neues Quest] Eine edle Feier I"), queststatus(126) = 1, "Oh, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?"
 queststatus(126) = 0, "task", "adventure", "order" -> inform("[New quest] A Noble Celebration I"), queststatus(126) = 1, "Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them."
@@ -234,10 +233,6 @@ english, "Zhambra" -> "I'm sorry, I have not made it to that God yet."
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Linda", "Rabon" -> "Good day, how are you?", "Today is a great day for cooking.", "That is me, do you want something.", "Oh, did you need something?", "That is me.", "Hello. I am Linda Rabon. I would be glad to help you with anything that you need."
 "Linda", "Rabon" -> "Einen guten Tag, wie geht es euch?", "Heute ist ein guter Tag zum Kochen.", "Das bin ich. Was benötigt ihr?", "Oh, braucht ihr etwas?", "Das bin ich.", "Hallo, ich bin Linda Rabon. Ich helfe euch gerne weiter."
-"Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
-"Ja" -> "Hab ich was gesagt?", "Hab ich irgendwas gefragt?", "Wie jetzt?"
-"No" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
-"Nein" -> "Hab ich was gesagt?", "Hab ich irgendwas gefragt?", "Wie jetzt?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
