@@ -44,6 +44,7 @@ init=true;
     msgs:addMessage("Ich gehöre keinem Zauberer.", "I am not the property of any wizard.");
     msgs:addMessage("Da werd ich mal ein Auge zudrücken.","I'll turn a blind eye to you.");
     msgs:addMessage("Gehorche.","Obey me.");
+	msgs:addMessage("#me schwebt umher.","#me floats.");
 	
 end
 
