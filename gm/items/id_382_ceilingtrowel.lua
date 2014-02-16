@@ -51,7 +51,7 @@ function UseItem(User, SourceItem)
 		elseif dialog:getSelectedIndex()+1 == 2 then
 			weather(User, SourceItem)
 		elseif dialog:getSelectedIndex()+1 == 3 then
-			faction(User, SourceItem)
+			factionHandling(User, SourceItem)
 		elseif dialog:getSelectedIndex()+1 == 4 then
 		
 			spawnPoint(User, SourceItem)
@@ -263,7 +263,7 @@ end
   All the faction stuff
   ]]
   
-function faction(User, SourceItem)
+function factionHandling(User, SourceItem)
   --faction system
     local cbFaction = function (dialog)
       if (not dialog:getSuccess()) then
