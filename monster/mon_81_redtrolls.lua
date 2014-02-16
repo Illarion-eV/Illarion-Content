@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -46,9 +46,9 @@ msgs:addMessage("#me ist ein gigantischer Troll, dessen weise Augen von dem Anbl
 end
 
 function onSpawn(Monster)
-    
+
 	-- Regeneration for high level monsters >= level 7
-	local MonID=Monster:getMonsterType() 
+	local MonID=Monster:getMonsterType()
 	if MonID == 812 then --Keeper of Fire
 		local find, reg_effect = Monster.effects:find(2);
 		if not find then
@@ -66,7 +66,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     local MonID=Monster:getMonsterType();
     if (MonID==812) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,6,{1000,2000},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1,{30,60}) );
@@ -82,12 +82,14 @@ function enemyOnSight(Monster,Enemy)
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
     local MonID=Monster:getMonsterType();
-    if monster.base.drop.DefaultSlowdown( Monster ) then
+
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
         return true;
     elseif (MonID==812) then
         return ( monster.base.drop.CastHealing( Monster, 4, {1000,2000}, 8, {16, 13}, 40 ) or monster.base.drop.CastMonMagic(Monster,Enemy,4,{1000,2500},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1,{45,70}) );
@@ -120,11 +122,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -137,7 +139,7 @@ function onDeath(Monster)
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
     if (MonID==811) then --Firespitter, Level: 6, Armourtype: medium, Weapontype: distance
-	
+
         --Category 1: Armor
 
         local done=monster.base.drop.AddDropItem(366,1,20,(100*math.random(4,5)+math.random(44,55)),0,1); --leather legs

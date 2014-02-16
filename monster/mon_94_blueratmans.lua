@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -37,6 +37,7 @@ msgs:addMessage("#me gackert.", "#me cackles.");
 end
 
 function enemyNear(Monster,Enemy)
+
 	local MonID=Monster:getMonsterType();
     if init==nil then
         ini(Monster);
@@ -54,19 +55,20 @@ end
 
 function enemyOnSight(Monster,Enemy)
 
+	local MonID=Monster:getMonsterType();
     if init==nil then
         ini(Monster);
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
-    end
-	if (MonID==942) then
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
+	elseif (MonID==942) then
 		return monster.base.drop.CastMonMagic(Monster,Enemy,7,{250-750},{{6,5},{3,5}},{},40,1,{35,50})
 	else
 		return false
@@ -97,12 +99,12 @@ function onDeath(Monster)
         return
     end
 
-	
+
 
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -111,7 +113,7 @@ function onDeath(Monster)
 
         end
     end
-    
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 

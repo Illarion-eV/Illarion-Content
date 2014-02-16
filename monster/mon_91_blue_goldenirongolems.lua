@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("item.gems")
@@ -69,12 +69,13 @@ function enemyOnSight(Monster,Enemy)
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
     else
         return false
     end

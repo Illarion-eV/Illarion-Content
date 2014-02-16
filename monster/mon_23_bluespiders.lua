@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("item.gems")
@@ -48,9 +48,9 @@ msgs:addMessage("#mes Beine machen knackende Geräusche auf dem Boden.", "#me's l
 end
 
 function onSpawn(Monster)
-    
+
 	-- Regeneration for high level monsters
-	local MonID=Monster:getMonsterType() 
+	local MonID=Monster:getMonsterType()
 	if MonID == 232 then --Shadowmuncher
 		local find, reg_effect = Monster.effects:find(2);
 		if not find then
@@ -68,7 +68,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     local MonID=Monster:getMonsterType();
     if (MonID==232) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{3,5},{6,5}},{},40,1,{25,65}) == true );
@@ -84,13 +84,15 @@ function enemyOnSight(Monster,Enemy)
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
     local MonID=Monster:getMonsterType();
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
+
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
     elseif (MonID==232) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{3,5},{6,5}},{},40,1,{25,65}) == true );
     else
@@ -122,11 +124,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -135,7 +137,7 @@ function onDeath(Monster)
 
         end
     end
-    
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
    if (MonID==231) then --Kingsfright, Level: 6, Armourtype: medium, Weapontype: slashing

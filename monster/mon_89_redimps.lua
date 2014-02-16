@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -36,6 +36,7 @@ msgs:addMessage("#me knurrt.", "#me growls.");
 end
 
 function enemyNear(Monster,Enemy)
+
 	local MonID=Monster:getMonsterType();
     if init==nil then
         ini(Monster);
@@ -54,22 +55,21 @@ function enemyNear(Monster,Enemy)
 end
 
 function enemyOnSight(Monster,Enemy)
+
 	local MonID=Monster:getMonsterType();
-	
     if init==nil then
         ini(Monster);
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
-    end
-	
-	if (MonID==892) then
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
+	elseif (MonID==892) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,7,{250,750},{{36,5},{9,5},{38,5}},{},40,1,{35,50}) );
 	elseif (MonID==893) then
         return ( monster.base.drop.CastMonster(Monster,Enemy,15,{622,1032},40) );
@@ -79,7 +79,7 @@ function enemyOnSight(Monster,Enemy)
 end
 
 function onAttacked(Monster,Enemy)
-	
+
     if init==nil then
         ini(Monster);
     end
@@ -100,7 +100,7 @@ function onDeath(Monster)
 
     if base.arena.isArenaMonster(Monster) then
         return
-    end    
+    end
 
 
     monster.base.drop.ClearDropping();

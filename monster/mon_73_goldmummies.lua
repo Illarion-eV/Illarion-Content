@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -51,9 +51,9 @@ msgs:addMessage("#me stöhnt schwer und beugt sich vornüber, eine schwarze Flüssi
 end
 
 function onSpawn(Monster)
-    
+
 	-- Regeneration for high level monsters >= level 7
-	local MonID=Monster:getMonsterType() 
+	local MonID=Monster:getMonsterType()
 	if MonID == 731 then --Dead King
 		local find, reg_effect = Monster.effects:find(2);
 		if not find then
@@ -63,9 +63,8 @@ function onSpawn(Monster)
 end
 
 function enemyNear(Monster,Enemy)
-	
+
 	local MonID=Monster:getMonsterType();
-	
     if init==nil then
         ini(Monster);
     end
@@ -73,7 +72,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
 	if (MonID==731) then
         return ( monster.base.drop.CastMonster(Monster,Enemy,15,{103,593,822},40) );
     else
@@ -82,30 +81,24 @@ function enemyNear(Monster,Enemy)
 end
 
 function enemyOnSight(Monster,Enemy)
-	
-	local MonID=Monster:getMonsterType();
 
+	local MonID=Monster:getMonsterType();
     if init==nil then
         ini(Monster);
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
-	
-	
 
-	if (MonID==731) then
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
+	elseif (MonID==731) then
         return ( monster.base.drop.CastMonster(Monster,Enemy,15,{103,593,822},40) );
     else
         return false;
-    end
-
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
-    else
-        return false
     end
 end
 
@@ -133,11 +126,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -146,7 +139,7 @@ function onDeath(Monster)
 
         end
     end
-    
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 

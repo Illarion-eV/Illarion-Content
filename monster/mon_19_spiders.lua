@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("item.gems")
@@ -48,9 +48,9 @@ msgs:addMessage("#mes Beine machen knackende Geräusche auf dem Boden.", "#me's l
 end
 
 function onSpawn(Monster)
-    
+
 	-- Regeneration for high level monsters
-	local MonID=Monster:getMonsterType() 
+	local MonID=Monster:getMonsterType()
 	if MonID == 195 then --Spider Queen
 		local find, reg_effect = Monster.effects:find(2);
 		if not find then
@@ -68,7 +68,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     local MonID=Monster:getMonsterType();
     if (MonID==195) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{8,5}},{},40,1,{25,65}) == true );
@@ -84,13 +84,15 @@ function enemyOnSight(Monster,Enemy)
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
     local MonID=Monster:getMonsterType();
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
+
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
     elseif (MonID==195) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{8,5}},{},40,1,{25,65}) == true );
     else
@@ -122,11 +124,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -135,7 +137,7 @@ function onDeath(Monster)
 
         end
     end
-    
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
    if (MonID==191) then --Rekrap Retep, Level: 5, Armourtype: medium, Weapontype: slashing
@@ -256,8 +258,8 @@ function onDeath(Monster)
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(10,30),100,333,0,4); --silver coins
-		
-		
+
+
 		elseif (MonID==196) then --Small Spider Level: 2, Armourtype: cloth, Weapontype: wrestling
 
         --Category 1: Raw gems
@@ -307,7 +309,7 @@ end
 function DropSpiderEgg(theSpider)
 
 	if Random.uniform(1,3)==1 then
-	
+
 		theSpider:talk(Character.say,"#me explodiert und hinterlässt ein schleimiges Spinnenei.","#me explodes and a slimey spider egg is left behind.")
 		world:gfx(8,theSpider.pos)
 		local spiderEgg = world:createItemFromId(738,1,theSpider.pos,true,333,nil)
@@ -322,7 +324,7 @@ function DropSpiderEgg(theSpider)
 				if not world:isItemOnField(slimePosition) then
 					local spiderSlime = world:createItemFromId(3102,1,slimePosition,true,333,nil)
 					spiderEgg.wear = 3
-					base.lookat.SetSpecialName(spiderSlime, "Spinnenschleim", "Spider slime") 
+					base.lookat.SetSpecialName(spiderSlime, "Spinnenschleim", "Spider slime")
 					world:changeItem(spiderSlime)
 					if world:isCharacterOnField(slimePosition) then
 						local hitChar = world:getCharacterOnField(slimePosition)

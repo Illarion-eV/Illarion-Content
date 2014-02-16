@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("item.gems")
@@ -63,9 +63,9 @@ msgs:addMessage("#me flüstert lockend: 'Begib dich in Cherga's Umarmung und werd
 end
 
 function onSpawn(Monster)
-    
+
 	-- Regeneration for high level monsters
-	local MonID=Monster:getMonsterType() 
+	local MonID=Monster:getMonsterType()
 	if MonID == 205 or MonID == 204 or MonID == 203 then --Lich, Unholy Archmage, Unholy Akolyth
 		local find, reg_effect = Monster.effects:find(2);
 		if not find then
@@ -83,7 +83,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     local MonID=Monster:getMonsterType();
     if (MonID==202) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{1500,3500},{{36,5},{9,5}},{},40,1,{25,65}) == true );
@@ -103,13 +103,15 @@ function enemyOnSight(Monster,Enemy)
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
     local MonID=Monster:getMonsterType();
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
+
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
     elseif (MonID==202) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{1500,3500},{{36,5},{9,5}},{},40,1,{25,65}) == true );
 	elseif (MonID==204) then
@@ -138,8 +140,8 @@ function onCasted(Monster,Enemy)
 		else
 			return false;
 		end
-	end	
-		
+	end
+
     if init==nil then
         ini(Monster);
     end
@@ -153,11 +155,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -169,7 +171,7 @@ function onDeath(Monster)
 
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
-    
+
 if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype: slashing
 
         --Category 1: Armor
@@ -291,15 +293,15 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
 
 
     elseif (MonID==205) then --Lich, Level: 8, Armourtype: heavy, Weapontype: puncture
-		
-		--[[ The lich drops NOTHING. 
+
+		--[[ The lich drops NOTHING.
 		When it dies, the following function drops a pile of bones from which the lich
 		rises as a weakened version of itself. Kill that and you kill the lich and you get the loot.
 		for the drop: monster.mon_11_skeletons; monster 117 (Weakened Lich)
 		--]]
 		LichPileOfBones(Monster)
-		
-    
+
+
 	elseif (MonID==206) then
         -- Drops
     elseif (MonID==207) then
@@ -315,10 +317,10 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
 end
 
 function LichPileOfBones(theLich)
-	
+
 	theLich:talk(Character.say,"#me zerfällt zu einem Knochenhaufen.","#me collapses into a pile of bones.")
 	world:gfx(45,theLich.pos)
 	world:createItemFromId(498,1,theLich.pos,true,333,nil)
 	table.insert(scheduled.itemEffects.PILE_OF_BONES,{itemPosition = position(theLich.pos.x,theLich.pos.y,theLich.pos.z), itemCounter = 0})
-	
+
 end

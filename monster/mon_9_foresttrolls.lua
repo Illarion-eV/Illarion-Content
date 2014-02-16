@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 require("monster.base.base")
@@ -56,7 +56,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     local MonID=Monster:getMonsterType();
     if (MonID==93) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,6,{1000,1500},{{9,5},{36,5},{2,4}},{{359,320,500,0,7}},40,1,{30,60}) );
@@ -77,7 +77,8 @@ function enemyOnSight(Monster,Enemy)
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
-    if monster.base.drop.DefaultSlowdown( Monster ) then
+
+    if monster.base.base.isMonsterInRange(Monster, Enemy) then
         return true;
     elseif (MonID==93) then
         return ( monster.base.drop.CastHealing( Monster, 4, {1000,2000}, 8, {16, 13}, 40 ) or monster.base.drop.CastMonMagic(Monster,Enemy,4,{1000,2000},{{9,5},{36,5},{2,4}},{{359,320,500,0,7}},40,1,{45,70}) );
@@ -110,12 +111,12 @@ function onDeath(Monster)
         return
     end
 
-	
+
 
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);

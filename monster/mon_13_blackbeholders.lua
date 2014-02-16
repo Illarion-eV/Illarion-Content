@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("item.gems")
@@ -39,19 +39,19 @@ init=true;
     msgs:addMessage("#me guckt.", "#me goggles.");
     msgs:addMessage("#me schwebt einen Meter über dem Boden.", "#me floats three feet over the ground.");
     msgs:addMessage("Die Schönheit liegt in meinen Augen!", "Beauty is in my eyes!");
-    msgs:addMessage("Ich habe das gesehen!", "I saw that!");	
-    msgs:addMessage("#me ist eine beeindruckende Sphäre, die wie durch Magie über dem Boden schwebt.", "#me is an impressive sphere that floats over the ground by magic.");	
+    msgs:addMessage("Ich habe das gesehen!", "I saw that!");
+    msgs:addMessage("#me ist eine beeindruckende Sphäre, die wie durch Magie über dem Boden schwebt.", "#me is an impressive sphere that floats over the ground by magic.");
     msgs:addMessage("#me zwinkert mit einem Auge.", "#me blinks with one of its eyes.");
     msgs:addMessage("Ich gehöre keinem Zauberer.", "I am not the property of any wizard.");
     msgs:addMessage("Da werd ich mal ein Auge zudrücken.","I'll turn a blind eye to you.");
     msgs:addMessage("Gehorche.","Obey me.");
-	
+
 end
 
 function onSpawn(Monster)
-    
+
 	-- Regeneration for high level monsters
-	local MonID=Monster:getMonsterType() 
+	local MonID=Monster:getMonsterType()
 	if MonID == 132 or MonID == 131 then --Eye of Darkness, Shadow Eye
 		local find, reg_effect = Monster.effects:find(2);
 		if not find then
@@ -69,44 +69,41 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
-	
+
 	local MonID=Monster:getMonsterType();
     if (MonID==132) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2500,4500},{{2,4},{32,5},{51,5}},{},40,1,{25,65}) == true );
     else
         return false;
     end
-end	
+end
 
 
 function enemyOnSight(Monster,Enemy)
-    
+
 	local MonID=Monster:getMonsterType();
-	
 	if init==nil then
         ini(Monster);
         firstWP={};
     end
+
 	monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-    local MonID=Monster:getMonsterType();
-    if monster.base.drop.DefaultSlowdown( Monster ) then
+    if monster.base.base.isMonsterInRange(Monster, Enemy) then
         return true;
-	
     elseif (MonID==132) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2500,4500},{{2,4},{32,5},{51,5}},{},40,1,{25,65}) == true );
     else
         return false;
     end
-	
-return false;
 end
 
 
@@ -134,11 +131,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -209,7 +206,7 @@ function onDeath(Monster)
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(30,90),100,333,0,4); --silver coins
-        
+
         -- Drops
     elseif (MonID==133) then
         --Drops

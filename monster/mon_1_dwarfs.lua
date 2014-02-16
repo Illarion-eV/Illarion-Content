@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -31,7 +31,7 @@ function ini(Monster)
     killer={}; --A list that keeps track of who attacked the monster last
     --debug("INI QUEETS MID")
     --Random Messages
-    
+
     msgs = base.messages.Messages();
     msgs:addMessage("#me brummt lautstark.", "#me hums clamorously.");
     msgs:addMessage("#me grummelt wütend.", "#me grumbles furiously.");
@@ -61,8 +61,8 @@ end
 
 function enemyNear(Monster,Enemy)
 
+    local MonID=Monster:getMonsterType();
     if init==nil then
-        --debug ("now initializing monsters!!!")
         ini(Monster);
     end
 
@@ -70,7 +70,6 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 
-    local MonID=Monster:getMonsterType();
     if (MonID==13) then
         return ( monster.base.drop.CastLargeAreaMagic(Monster,15,3,{37,0},{1000, 2000},8,{36,5},60,{35,50}) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonMagic(Monster,Enemy,7,{1000,2000},{{36,5}},{},40,1,{35,50}) );
     else
@@ -80,19 +79,18 @@ end
 
 function enemyOnSight(Monster,Enemy)
 
+	local MonID=Monster:getMonsterType();
     if init==nil then
-        --debug ("now initializing monsters!!!")
         ini(Monster);
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
-	
-	local MonID=Monster:getMonsterType();
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-    if monster.base.drop.DefaultSlowdown( Monster ) then
+    if monster.base.base.isMonsterInRange(Monster, Enemy) then
         return true;
     elseif (MonID==13) then
 		return ( monster.base.drop.CastLargeAreaMagic(Monster,10,3,{37,0},{1000, 2000},8,{36,5},60,{35,50}) or monster.base.drop.CastMonMagic(Monster,Enemy,4,{1000,2000},{{37,5}},{},40,1,{35,50}) or monster.base.drop.CastHealing( Monster, 4, {1000,2000}, 8, {16, 13}, 40 ) );
@@ -102,9 +100,8 @@ function enemyOnSight(Monster,Enemy)
 end
 
 function onAttacked(Monster,Enemy)
---debug ("in onattacked (original)")
+
     if init==nil then
-    --debug ("now initializing monsters!!!")
         ini(Monster);
     end
     monster.base.kills.setLastAttacker(Monster,Enemy)
@@ -114,7 +111,6 @@ end
 function onCasted(Monster,Enemy)
 
     if init==nil then
-    --debug ("now initializing monsters!!!")
         ini(Monster);
     end
     monster.base.kills.setLastAttacker(Monster,Enemy)
@@ -126,11 +122,11 @@ function onDeath(Monster)
     if base.arena.isArenaMonster(Monster) then
         return
     end
-		
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);

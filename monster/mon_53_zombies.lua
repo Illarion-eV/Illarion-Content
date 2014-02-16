@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -36,9 +36,9 @@ msgs:addMessage("#me atmet laut ein und aus.", "#me takes deep breaths.");
 end
 
 function onSpawn(Monster)
-    
+
 	-- Regeneration for high level monsters >= level 7
-	local MonID=Monster:getMonsterType() 
+	local MonID=Monster:getMonsterType()
 	if MonID == 534 then --Zombiegiant
 		local find, reg_effect = Monster.effects:find(2);
 		if not find then
@@ -56,7 +56,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     return false
 end
 
@@ -67,12 +67,13 @@ function enemyOnSight(Monster,Enemy)
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
     else
         return false
     end
@@ -102,11 +103,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -115,7 +116,7 @@ function onDeath(Monster)
 
         end
     end
-    
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
@@ -123,7 +124,7 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
 
         --Category 1: Special Loot
 
-        local done=monster.base.drop.AddDropItem(324,1,20,(100*math.random(4,5)+math.random(44,55)),0,1); --bucket 
+        local done=monster.base.drop.AddDropItem(324,1,20,(100*math.random(4,5)+math.random(44,55)),0,1); --bucket
         if not done then done=monster.base.drop.AddDropItem(92,1,10,(100*math.random(4,5)+math.random(44,55)),0,1); end --oil lamp
         if not done then done=monster.base.drop.AddDropItem(67,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --rubin amulet
         if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(4,5)+math.random(44,55)),nil,1); end --treasure map
@@ -194,9 +195,9 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
         local done=monster.base.drop.AddDropItem(284,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --sapphire
         if not done then done=monster.base.drop.AddDropItem(197,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --amethyst
         if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --ruby
-        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --obsidian 
+        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --obsidian
         if not done then done=monster.base.drop.AddDropItem(45,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --emerald
-		
+
         --Category 3: Mainly rings
 
         local done=monster.base.drop.AddDropItem(282,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --topaz ring
@@ -207,7 +208,7 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(2,5),100,773,0,4); --silver coins
-		
+
 		elseif (MonID==534) then --Zombiegiant, Level: 7, Armourtype: medium, Weapontype: concussion
 
         --Category 1: Special Loot

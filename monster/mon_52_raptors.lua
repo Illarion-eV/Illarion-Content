@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -45,7 +45,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     return false
 end
 
@@ -56,12 +56,13 @@ function enemyOnSight(Monster,Enemy)
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
     else
         return false
     end
@@ -91,11 +92,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -104,7 +105,7 @@ function onDeath(Monster)
 
         end
     end
-    
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
@@ -112,11 +113,11 @@ if (MonID==521) then --Snapper, Level: 4, Armourtype: heavy, Weapontype: wrestli
 
         --Category 1: Plants
 
-        local done=monster.base.drop.AddDropItem(144,3,40,(100*math.random(3,4)+math.random(33,44)),0,1); --virgins weed 
+        local done=monster.base.drop.AddDropItem(144,3,40,(100*math.random(3,4)+math.random(33,44)),0,1); --virgins weed
         if not done then done=monster.base.drop.AddDropItem(145,1,10,(100*math.random(3,4)+math.random(33,44)),0,1); end --heath flower
         if not done then done=monster.base.drop.AddDropItem(158,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --bulbsponge mushroom
         if not done then done=monster.base.drop.AddDropItem(156,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --steppe fern
-        if not done then done=monster.base.drop.AddDropItem(161,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --herder's mushroom 
+        if not done then done=monster.base.drop.AddDropItem(161,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --herder's mushroom
 
         --Category 2: Plants
 
@@ -145,16 +146,16 @@ if (MonID==521) then --Snapper, Level: 4, Armourtype: heavy, Weapontype: wrestli
         local done=monster.base.drop.AddDropItem(135,3,40,(100*math.random(4,5)+math.random(44,55)),0,1); --yellow weed
         if not done then done=monster.base.drop.AddDropItem(141,1,10,(100*math.random(4,5)+math.random(44,55)),0,1); end --black thistle
         if not done then done=monster.base.drop.AddDropItem(145,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --heath flower
-        if not done then done=monster.base.drop.AddDropItem(158,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --bulbsponge mushroom 
-        if not done then done=monster.base.drop.AddDropItem(160,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --red head 
+        if not done then done=monster.base.drop.AddDropItem(158,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --bulbsponge mushroom
+        if not done then done=monster.base.drop.AddDropItem(160,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --red head
 
         --Category 2: Plants
 
-        local done=monster.base.drop.AddDropItem(161,3,40,(100*math.random(4,5)+math.random(44,55)),0,2); --herder's mushroom 
-        if not done then done=monster.base.drop.AddDropItem(159,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --toadstool 
-        if not done then done=monster.base.drop.AddDropItem(157,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --rotten tree bark 
-        if not done then done=monster.base.drop.AddDropItem(156,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --steppe fern 
-        if not done then done=monster.base.drop.AddDropItem(144,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --virgins weed 
+        local done=monster.base.drop.AddDropItem(161,3,40,(100*math.random(4,5)+math.random(44,55)),0,2); --herder's mushroom
+        if not done then done=monster.base.drop.AddDropItem(159,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --toadstool
+        if not done then done=monster.base.drop.AddDropItem(157,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --rotten tree bark
+        if not done then done=monster.base.drop.AddDropItem(156,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --steppe fern
+        if not done then done=monster.base.drop.AddDropItem(144,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --virgins weed
 
         --Category 3: More Plants
 
@@ -172,23 +173,23 @@ if (MonID==521) then --Snapper, Level: 4, Armourtype: heavy, Weapontype: wrestli
 
         --Category 1: Plants
 
-        local done=monster.base.drop.AddDropItem(134,3,40,(100*math.random(4,5)+math.random(44,55)),0,1); --fourleafed oneberry 
+        local done=monster.base.drop.AddDropItem(134,3,40,(100*math.random(4,5)+math.random(44,55)),0,1); --fourleafed oneberry
         if not done then done=monster.base.drop.AddDropItem(133,1,10,(100*math.random(4,5)+math.random(44,55)),0,1); end --sun herb
         if not done then done=monster.base.drop.AddDropItem(145,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --heath flower
-        if not done then done=monster.base.drop.AddDropItem(160,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --red head 
+        if not done then done=monster.base.drop.AddDropItem(160,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --red head
         if not done then done=monster.base.drop.AddDropItem(159,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --toadstool
 
         --Category 2: Plants
 
-        local done=monster.base.drop.AddDropItem(156,3,40,(100*math.random(4,5)+math.random(44,55)),0,2); --steppe fern 
-        if not done then done=monster.base.drop.AddDropItem(161,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --herder's mushroom 
-        if not done then done=monster.base.drop.AddDropItem(158,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --bulbsponge mushroom 
-        if not done then done=monster.base.drop.AddDropItem(141,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --black thistle 
+        local done=monster.base.drop.AddDropItem(156,3,40,(100*math.random(4,5)+math.random(44,55)),0,2); --steppe fern
+        if not done then done=monster.base.drop.AddDropItem(161,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --herder's mushroom
+        if not done then done=monster.base.drop.AddDropItem(158,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --bulbsponge mushroom
+        if not done then done=monster.base.drop.AddDropItem(141,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --black thistle
         if not done then done=monster.base.drop.AddDropItem(133,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --sun herb
 
         --Category 3: More Plants
 
-        local done=monster.base.drop.AddDropItem(144,3,40,(100*math.random(4,5)+math.random(44,55)),0,3); --virgins weed 
+        local done=monster.base.drop.AddDropItem(144,3,40,(100*math.random(4,5)+math.random(44,55)),0,3); --virgins weed
         if not done then done=monster.base.drop.AddDropItem(133,1,10,(100*math.random(4,5)+math.random(44,55)),0,3); end --sun herb
         if not done then done=monster.base.drop.AddDropItem(764,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --daydevil
         if not done then done=monster.base.drop.AddDropItem(766,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --con blossom
@@ -199,7 +200,7 @@ if (MonID==521) then --Snapper, Level: 4, Armourtype: heavy, Weapontype: wrestli
 
 
     elseif (MonID==525) then --Rippertooth, Level: 6, Armourtype: heavy, Weapontype: puncture
-	
+
         --Category 1: Plants
 
         local done=monster.base.drop.AddDropItem(133,3,40,(100*math.random(5,6)+math.random(55,66)),0,1); --sun herb
@@ -226,7 +227,7 @@ if (MonID==521) then --Snapper, Level: 4, Armourtype: heavy, Weapontype: wrestli
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(63,math.random(1,1),100,333,0,4); --entrails
-		
+
     end
     monster.base.drop.Dropping(Monster);
 end

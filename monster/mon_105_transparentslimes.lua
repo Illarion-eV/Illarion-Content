@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -42,7 +42,7 @@ function onSpawn(theSlime)
 	if theSlime:getMonsterType()==1055 then
 		theSlime:setSkinColor(51,51,51)
 	end
-	
+
 end
 
 DELETED = false
@@ -56,14 +56,14 @@ function abortRoute(theSlime)
 				"#me's slimy mass flows over the feed and absorbs it. Its body wobbles for a short period of time and an oject emerges from it, which is catapulted over the boundary.")
 				local feeding = world:getItemOnField(tSF.WARP_TO_SLIME_POSITION)
 				world:erase(feeding,feeding.number)
-				myItemList = tSF.REWARD_LIST[Random.uniform(1,#tSF.REWARD_LIST)] 
+				myItemList = tSF.REWARD_LIST[Random.uniform(1,#tSF.REWARD_LIST)]
 				world:createItemFromId(myItemList.itemId, myItemList.amount, tSF.REWARD_POSITION, true, myItemList.quality, myItemList.data)
 				DELETED = true
 				theSlime.movepoints = theSlime.movepoints -30
 			end
 			theSlime.waypoints:addWaypoint(tSF.SLIME_CAVE_POSITION)
 			theSlime:setOnRoute(true)
-			
+
 		elseif theSlime.pos == position(12,2,0) then
 			theSlime:increaseAttrib("hitpoints", -10000)
 			theSlime:talk(Character.say, "#me fließt in die Höhlennische zurück.",
@@ -85,7 +85,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     return false
 end
 
@@ -96,12 +96,13 @@ function enemyOnSight(Monster,Enemy)
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
     else
         return false
     end
@@ -135,7 +136,7 @@ function onDeath(Monster)
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -144,7 +145,7 @@ function onDeath(Monster)
 
         end
     end
-    
+
 	monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
@@ -176,9 +177,9 @@ if (MonID==1051) then --Ectoplasm, Level: 1, Armourtype: cloth, Weapontype: wres
 
         --Category 4: Perma Loot
 		--
-		
+
 		elseif (MonID==1052) then --Malicious Ectoplasm, Level: 2, Armourtype: cloth, Weapontype: wrestling
-		
+
 		--Category 1: Raw gems
 
         local done=monster.base.drop.AddDropItem(255,1,20,(100*math.random(1,2)+math.random(11,22)),0,1); --raw ruby
@@ -234,7 +235,7 @@ if (MonID==1051) then --Ectoplasm, Level: 1, Armourtype: cloth, Weapontype: wres
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(20,60),100,773,0,4); --copper coins
-	
+
     end
     monster.base.drop.Dropping(Monster);
 end

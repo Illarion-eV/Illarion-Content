@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -57,7 +57,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     local MonID=Monster:getMonsterType();
     if (MonID==53) then
         return ( monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonMagic(Monster,Enemy,6,{1200,2400},{{3,5},{6,5}},{},40,1,{25,60}) );
@@ -69,20 +69,21 @@ function enemyNear(Monster,Enemy)
 end
 
 function enemyOnSight(Monster,Enemy)
+
 	local MonID=Monster:getMonsterType();
     if init==nil then
         ini(Monster);
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
-	
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-    
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
+
+    if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
     elseif (MonID==53) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,6,{1500,3000},{{4,5}},{},40,1,{25,60}) or monster.base.drop.CastHealing( Monster, 4, {2000,3500}, 8, {16, 13}, 40 ) or monster.base.drop.CastParalyze( Monster, Enemy, 5, {-10,-20}, 5, {6,1}, 10 ,{25,60} ) );
     elseif (MonID==54) then
@@ -121,7 +122,7 @@ function onDeath(Monster)
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);

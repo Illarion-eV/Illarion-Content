@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -38,7 +38,7 @@ msgs:addMessage("#me blubbert.", "#me bubbles.");
 end
 
 function enemyNear(Monster,Enemy)
-	
+
     if init==nil then
         ini(Monster);
     end
@@ -46,33 +46,30 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     return false
 end
 
 function enemyOnSight(Monster,Enemy)
+
 	local MonID=Monster:getMonsterType();
-	
     if init==nil then
         ini(Monster);
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
-	
-	if (MonID==553) then
+
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
+	elseif (MonID==553) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,7,{1000,2000},{{4,5}},{},40,1,{35,50}) );
 	else
 		return false;
 	end
-	
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
-    else
-        return false
-    end
 end
 
 function onAttacked(Monster,Enemy)
@@ -98,11 +95,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -111,7 +108,7 @@ function onDeath(Monster)
 
         end
     end
-    
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
@@ -143,9 +140,9 @@ if (MonID==611) then --Stinky Slime, Level: 3, Armourtype: cloth, Weapontype: wr
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(20,60),100,773,0,4); --copper coins
-		
+
 		elseif (MonID==612) then --Slimey Slime, Level: 3, Armourtype: cloth, Weapontype: wrestling
-		
+
 		--Category 1: Raw gems
 
         local done=monster.base.drop.AddDropItem(251,1,20,(100*math.random(2,3)+math.random(22,33)),0,1); --raw amethyst
@@ -201,7 +198,7 @@ if (MonID==611) then --Stinky Slime, Level: 3, Armourtype: cloth, Weapontype: wr
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(30,90),100,773,0,4); --copper coins
-		
+
 		 elseif (MonID==614) then --Cauterizing Slime, Level: 5, Armourtype: cloth, Weapontype: wrestling
 
         --Category 1: Raw gems
@@ -233,7 +230,7 @@ if (MonID==611) then --Stinky Slime, Level: 3, Armourtype: cloth, Weapontype: wr
 
     end
     monster.base.drop.Dropping(Monster);
-	
+
 	-- Glutinous Seedling
 	local foundEffect, Effect = Monster.effects:find(36)
 	if foundEffect then

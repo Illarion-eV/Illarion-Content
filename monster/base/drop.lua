@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
 require("base.messages")
@@ -47,9 +47,9 @@ function AddDropItem(ItemID,Amount,Prob,Qual,DataValue,Category)
 end
 
 function RareArmours(Item)
-	
+
 	local rand = math.random();
-	
+
 	--The chances for an uncommon, rare or exceptional drop
 	local uncommondrop = 1/100;
 	local raredrop = 1/1000;
@@ -85,7 +85,7 @@ end
 function RareWeapons(Item)
 
 	local rand = math.random();
-	
+
 	--The chances for an uncommon, rare or exceptional drop
 	local uncommondrop = 1/100;
 	local raredrop = 1/1000;
@@ -134,7 +134,7 @@ function Dropping(Char)
 					    values[4] = nil; --catching "old" data values
 					end
                     Item=world:createItemFromId(values[1],values[2],Char.pos,true,values[3], values[4]) -- Do not create items with old data
-					
+
 					--This will become the rare artifacts system
 					--[[if isTestserver() then
 						local armourfound, armour;
@@ -177,7 +177,7 @@ end
 function LearnMagicResistance( Char )
     if (MaximalMagicResistance( Char ) > Char:getSkill(Character.magicResistance)) then
         --Char:learn(3,"magic resistance",2,100);
-		--Replace with new learn function, see learn.lua 
+		--Replace with new learn function, see learn.lua
     end
 end
 
@@ -249,7 +249,7 @@ end
 
 --[[ function CastMonMagic(
 	Monster = The Monster casting
-	Enemy = The Target 
+	Enemy = The Target
 	rndTry = 1 : rndTry (number) chance of spell being casted
 	DamageRange = { min Dmg, max Dmg}
 	Effect = { { EffectGfx, EffectSound} { Effect2} etc. }
@@ -257,7 +257,7 @@ end
 	AP = Action Points, reduction of movepoints because of casting
 	LineOfFlight = Gfx that is shown on the Line between Monster and Target 1= puff of smoke all the way
 	CastingTry = {minSkill, maxSkill} Skillbounds for Monster Casting, influence Damage Output, Sucess against Mag Resi of player etc.]]
-	
+
 function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlight,CastingTry)
 -- Disabled this shit with it's 1000 parameters where all sorts of junk is passed in.
 -- Unless someone rewrites it in a clean way, I _will_ soon delete this for good! -- vilarion
@@ -391,14 +391,14 @@ function CastParalyze( Caster, Enemy, rndTry, APPunishment, Range, Effect, AP ,C
 end
 
 function CastMonster(Monster,Enemy,rndTry,monsters,AP)
-    if math.random(1, rndTry) == 1 then	
+    if math.random(1, rndTry) == 1 then
 		local SpawnPos
 
 		local selectedMonsterIndex = math.random(1, table.getn(monsters))
 		local selectedMonsterId = monsters[selectedMonsterIndex]
 
         local i = 0
-        
+
         while i < 20 do
             local XPos = math.random(-2, 2)
             local YPos = math.random(-2, 2)
@@ -406,7 +406,7 @@ function CastMonster(Monster,Enemy,rndTry,monsters,AP)
             if XPos == 0 and YPos == 0 then
                 YPos = -1
             end
-            
+
             local SpawnPos = position(Monster.pos.x + XPos, Monster.pos.y + YPos, Monster.pos.z)
 
             if world:isCharacterOnField(SpawnPos) then
@@ -447,24 +447,12 @@ function SuddenWarp(Monster,Enemy,showGFX)
     return false;
 end
 
-function DefaultSlowdown( monster )
---[[
-    vilarion says: outdated, should be removed; monsters are slower than players anyway
-
-    if (math.random(1,30)==1) then
-        monster.movepoints = monster.movepoints - 40;
-        return true;
-    end
---]]
-    return false;
-end
-
 --Addition by Estralis: A function that makes a monster speak a random message
 
 function MonsterRandomTalk(Monster,msgs)
 
     if (math.random(1,300) == 1 ) then --once each 5 minutes (300) in average a message is spoken
-        
+
         Monster:increaseSkill(Character.commonLanguage,100-Monster:getSkill(Character.commonLanguage)); --if the monster could not talk, it can talk now
 
         germanMessage, englishMessage = msgs:getRandomMessage(); --choses a random message
@@ -520,4 +508,4 @@ end
 function HitChar(Posi,Hitpoints)
 		if world:isCharacterOnField(Posi) then world:getCharacterOnField(Posi):increaseAttrib("hitpoints",-Hitpoints) end;
 		end;
-        
+

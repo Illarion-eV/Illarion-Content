@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -48,7 +48,6 @@ end
 
 function enemyNear(Monster,Enemy)
 
-
     if init==nil then
         ini(Monster);
     end
@@ -62,18 +61,18 @@ end
 
 function enemyOnSight(Monster,Enemy)
 
-
     if init==nil then
         ini(Monster);
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
     else
         return false
     end
@@ -144,7 +143,7 @@ if (MonID==331) then --Silvergolem, Level: 6, Armourtype: medium, Weapontype: pu
         if not done then done=monster.base.drop.AddDropItem(733,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --stone block
         if not done then done=monster.base.drop.AddDropItem(234,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --gold nugget
         if not done then done=monster.base.drop.AddDropItem(2534,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --merinium ore
-        
+
 		--Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 

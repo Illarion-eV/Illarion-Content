@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -79,7 +79,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     local MonID=Monster:getMonsterType();
     if (MonID==63) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,3,{2000,3000},{{9,5},{36,5},{3,5}},{{359,320,500,0,7}},40,1,{25,60})  );
@@ -91,20 +91,20 @@ function enemyNear(Monster,Enemy)
 end
 
 function enemyOnSight(Monster,Enemy)
-    local MonID=Monster:getMonsterType();
 
+	local MonID=Monster:getMonsterType();
     if init==nil then
         ini(Monster);
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
-	
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
+    if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
     elseif (MonID==63) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,3,{2000,3000},{{9,5},{36,5},{3,5}},{{359,320,500,0,7}},40,1,{25,60}) );
 	elseif (MonID==64) then
@@ -138,11 +138,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
 	if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -151,7 +151,7 @@ function onDeath(Monster)
 
         end
     end
-	
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
     if (MonID==61) then --Drow, Level: 6, Armourtype: light, Weapontype: slashing

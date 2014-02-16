@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -44,7 +44,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     return false
 end
 
@@ -55,12 +55,13 @@ function enemyOnSight(Monster,Enemy)
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
     else
         return false
     end
@@ -90,11 +91,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -103,7 +104,7 @@ function onDeath(Monster)
 
         end
     end
-    
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
@@ -111,11 +112,11 @@ if (MonID==871) then --Crippled Swampbeast, Level: 3, Armourtype: light, Weapont
 
         --Category 1: Special Loot
 
-        local done=monster.base.drop.AddDropItem(63,1,20,(100*math.random(2,3)+math.random(22,33)),0,1); --entrails 
+        local done=monster.base.drop.AddDropItem(63,1,20,(100*math.random(2,3)+math.random(22,33)),0,1); --entrails
         if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(2,3)+math.random(22,33)),0,1); end --raw sapphire
         if not done then done=monster.base.drop.AddDropItem(83,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --topas amulet
         if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --obsidian
-        if not done then done=monster.base.drop.AddDropItem(359,1,1,(100*math.random(1,1)+math.random(11,11)),0,1); end --flame 
+        if not done then done=monster.base.drop.AddDropItem(359,1,1,(100*math.random(1,1)+math.random(11,11)),0,1); end --flame
 
         --Category 2: Special Loot
 
@@ -150,7 +151,7 @@ if (MonID==871) then --Crippled Swampbeast, Level: 3, Armourtype: light, Weapont
         --Category 2: Special Loot
 
         local done=monster.base.drop.AddDropItem(198,1,20,(100*math.random(3,4)+math.random(33,44)),0,2); --topaz
-        if not done then done=monster.base.drop.AddDropItem(45,1,10,(100*math.random(3,4)+math.random(33,44)),0,2); end --emerald 
+        if not done then done=monster.base.drop.AddDropItem(45,1,10,(100*math.random(3,4)+math.random(33,44)),0,2); end --emerald
         if not done then done=monster.base.drop.AddDropItem(83,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --topaz amulet
         if not done then done=monster.base.drop.AddDropItem(71,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --sapphire amulet
         if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --ruby
@@ -182,7 +183,7 @@ if (MonID==871) then --Crippled Swampbeast, Level: 3, Armourtype: light, Weapont
         local done=monster.base.drop.AddDropItem(284,1,20,(100*math.random(4,5)+math.random(44,55)),0,2); --sapphire
         if not done then done=monster.base.drop.AddDropItem(197,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --amethyst
         if not done then done=monster.base.drop.AddDropItem(222,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --amulet
-        if not done then done=monster.base.drop.AddDropItem(82,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --obsidian amulet 
+        if not done then done=monster.base.drop.AddDropItem(82,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --obsidian amulet
         if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --sapphire
 
         --Category 3: More Special Loot

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -49,7 +49,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     return false
 end
 
@@ -60,12 +60,13 @@ function enemyOnSight(Monster,Enemy)
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
     else
         return false
     end
@@ -95,11 +96,11 @@ function onDeath(Monster)
         return
     end
 
-	
+
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -108,7 +109,7 @@ function onDeath(Monster)
 
         end
     end
-    
+
 	monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
    if (MonID==491) then --Silverback, Level: 6, Armourtype: medium, Weapontype: concussion
@@ -116,18 +117,18 @@ function onDeath(Monster)
         --Category 1: Special Loot
 
         local done=monster.base.drop.AddDropItem(63,1,50,(100*math.random(1,2)+math.random(11,22)),0,1); --entrails
-		
+
         --Category 2: Perma Loot
         monster.base.drop.AddDropItem(2586,math.random(1,3),100,333,0,2); --fur
-		
+
 	elseif (MonID==492) then --Young Silverback, Level: 5, Armourtype: medium, Weapontype: wrestling
 
         --Category 1: Special Loot
 
         local done=monster.base.drop.AddDropItem(63,1,50,(100*math.random(1,2)+math.random(11,22)),0,1); --entrails
-		
+
         --Category 2: Perma Loot
-        monster.base.drop.AddDropItem(2586,math.random(1,3),100,333,0,2); --fur	
+        monster.base.drop.AddDropItem(2586,math.random(1,3),100,333,0,2); --fur
 	end
     monster.base.drop.Dropping(Monster);
 end

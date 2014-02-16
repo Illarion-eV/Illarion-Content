@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("monster.base.base")
 require("monster.base.drop")
@@ -45,7 +45,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+
     return false
 end
 
@@ -56,12 +56,13 @@ function enemyOnSight(Monster,Enemy)
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
+	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+        return true;
     else
         return false
     end
@@ -94,7 +95,7 @@ function onDeath(Monster)
     if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
-    
+
         if murderer then --Checking for quests
 
             monster.base.quests.checkQuest(murderer,Monster);
@@ -103,7 +104,7 @@ function onDeath(Monster)
 
         end
     end
-    
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
@@ -135,9 +136,9 @@ if (MonID==1041) then --Wandering Garbage, Level: 2, Armourtype: light, Weaponty
 
         --Category 4: Perma Loot
 		monster.base.drop.AddDropItem(3076,math.random(10,30),100,773,0,4); --copper coins
-		
+
 		elseif (MonID==1042) then --Wandering Sewage, Level: 3, Armourtype: light, Weapontype: puncture
-		
+
 		--Category 1: Raw gems
 
         local done=monster.base.drop.AddDropItem(251,1,20,(100*math.random(2,3)+math.random(22,33)),0,1); --raw amethyst
@@ -193,7 +194,7 @@ if (MonID==1041) then --Wandering Garbage, Level: 2, Armourtype: light, Weaponty
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(30,90),100,773,0,4); --copper coins
-	
+
     end
     monster.base.drop.Dropping(Monster);
 end
