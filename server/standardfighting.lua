@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- Fighting System
@@ -77,7 +77,7 @@ function setTarget(monster, candidates)
     local target = 0
 
     for key,candidate in pairs(candidates) do
-        if isPossibleTarget(candidate) and (target == 0
+        if isPossibleTarget(monster, candidate) and (target == 0
                 or isBetterTarget(candidates[target], candidate)) then
             target = key
         end
@@ -86,8 +86,37 @@ function setTarget(monster, candidates)
     return target
 end
 
-function isPossibleTarget(candidate)
-    return candidate:getQuestProgress(36) == 0
+function isArcher(archer, target)
+
+	local lItem = archer:getItemAt(Character.left_tool)
+	local rItem = archer:getItemAt(Character.right_tool)
+	local rAttFound, rAttWeapon = world:getWeaponStruct(rItem.id)
+    local lAttFound, lAttWeapon = world:getWeaponStruct(lItem.id)
+
+	local range = nil;
+	if lAttFound and lAttWeapon.WeaponType == 7 then
+		range = lAttWeapon.Range
+	elseif rAttFound and rAttWeapon.WeaponType == 7 then
+		range = rAttWeapon.Range
+	end
+
+	return range;
+end
+
+function isPossibleTarget(monster, candidate)
+    if (candidate:getQuestProgress(36) ~= 0) then
+		return false;
+	end
+
+	local range = isArcher(monster, candidate)
+	if  range ~= nil and candidate:distanceMetric(monster) > range then
+		return false;
+	elseif candidate:distanceMetric(monster) > 8 then
+		return false;
+	else
+		return true;
+	end
+
 end
 
 function isBetterTarget(currentTarget, candidate)
@@ -101,7 +130,7 @@ end
 -- @param Defender The character who is attacked
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender)
-    
+
 	-- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
@@ -119,18 +148,18 @@ function onAttack(Attacker, Defender)
 
 	-- Find out the attack type and the required combat skill
 	GetAttackType(Attacker);
-	
+
 	-- Load Skills and Attributes of the attacking character
     LoadAttribsSkills(Attacker, true);
-	
+
 	-- Check aiming time for player archers
 	if Attacker.AttackKind==4 and Attacker.Char:getType() == Character.player and not CheckAimingTime(Attacker,Defender.Char,CheckRange(Attacker, Defender.Char)) then
 		return false
 	end
-	
+
 	-- Check the range between the both fighting characters
     if not CheckRange(Attacker, Defender.Char) then return false; end;
-	
+
 
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then
@@ -220,7 +249,7 @@ function CheckAimingTime(AttackerList,Defender,inRange)
 		if AttackerList.Weapon.id ~= AIMING_TIME_LIST[Attacker.id]["weapon"] or Defender.id ~= AIMING_TIME_LIST[Attacker.id]["target"] or Attacker.pos.x.." "..Attacker.pos.y.." "..Attacker.pos.z ~= AIMING_TIME_LIST[Attacker.id]["position"] then
 			FillAimingTimeList(Attacker,Defender,AttackerList.Weapon.id)
 			return false
-			
+
 		elseif (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10 > GetNecessaryAimingTime(AttackerList) + 20 then
 			-- that is needed to prevent that someone aims, stops aiming, waits a long time and as soon as he targets the same character again, shoots immediately.
 			-- this has to be done since there is no way to clear the list when someone stops targeting the target
@@ -228,17 +257,17 @@ function CheckAimingTime(AttackerList,Defender,inRange)
 			AIMING_TIME_LIST[Attacker.id]["started"] = world:getTime("unix")
 			--ShowAimingGfx(AttackerList)
 			return false
-		
+
 		elseif AIMING_TIME_LIST[Attacker.id]["counter"] <= GetNecessaryAimingTime(AttackerList) and (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10 < math.ceil(GetNecessaryAimingTime(AttackerList)) then
 			-- not enough time has passed; display a nice gfx to show that the character is aiming and increase counter
 		    --ShowAimingGfx(AttackerList)
 			AIMING_TIME_LIST[Attacker.id]["counter"] = AIMING_TIME_LIST[Attacker.id]["counter"] + 1
-		
+
 		else
-			return true 
+			return true
 		end
 	end
-	
+
 
 end
 
@@ -249,7 +278,7 @@ function ShowAimingGfx(AttackerList)
 	if AIMING_TIME_LIST[Attacker.id]["counter"] % 7 == 0 then
 		world:gfx(21,Attacker.pos)
 	end
-	
+
 end
 
 -- Store all necessary information in the global list for aiming time
@@ -925,7 +954,7 @@ function CheckRange(AttackerStruct, Defender)
 	local distance = AttackerStruct.Char:distanceMetric(Defender);
 
 	if(AttackerStruct.AttackKind == 4 and  AttackerStruct.Char:getType() == 1) then -- if a monster with a bow and large distance
-		
+
 		if(distance<=2) then
 			setArcherMonsterOnRoute(AttackerStruct,Defender,distance)
 		else
@@ -964,7 +993,7 @@ function setArcherMonsterOnRoute(AttackerStruct,Defender,distance)
 
 	local workingpointc = workingpoint+2;
 	local workingpointd = workingpointc-1;
-	
+
 	local possiblePositions = {}
 	possiblePositions.prefered = {} -- walkable and not in close combat range of the other char
 	possiblePositions.acceptable = {} -- walkable but in close combat range
@@ -986,7 +1015,7 @@ function setArcherMonsterOnRoute(AttackerStruct,Defender,distance)
 			end
 		end
 	end
-	
+
 	local newposition = false
 	if foundDefender then
 		if #possiblePositions.prefered > 0 then
@@ -995,12 +1024,12 @@ function setArcherMonsterOnRoute(AttackerStruct,Defender,distance)
 			newposition = possiblePositions.acceptable[Random.uniform(1,#possiblePositions.acceptable)]
 		end
 	end
-		
+
 	if not newposition then
 		--Look behind
 		newposition = position(workingpoint*AttackerStruct.Char.pos.x-workingpointb*Defender.pos.x,workingpoint*AttackerStruct.Char.pos.y-workingpointb*Defender.pos.y,AttackerStruct.Char.pos.z);
 	end
-	
+
 	local isdiagonal = ((math.abs(Defender.pos.x-AttackerStruct.Char.pos.x)>0) and (math.abs(Defender.pos.y-AttackerStruct.Char.pos.y)>0))
 
 	if not(isdiagonal) then
@@ -1657,21 +1686,21 @@ end
 function HandleMovepoints(Attacker, Globals)
 
     local reduceFightpoints = CalculateMovepoints(Attacker)
-	
+
 	local fightPointsBeforeCritical = reduceFightpoints
 	if(Globals.criticalHit==1) then -- special attack slashing: very fast strikes, reduced reduction
 		reduceFightpoints = 2;
 	elseif(Globals.criticalHit>0) then
 		reduceFightpoints = reduceFightpoints*1.5;
 	end;
-	
+
 	-- For player archers, we remove the normal reduction and leave only the reduction because of criticals.
 	-- They have a count BEFORE the shoot.
 	local archerAdjustment = 0
 	if Attacker.AttackKind==4 and Attacker.Char:getType() == Character.player then
 		archerAdjustment = fightPointsBeforeCritical
 	end
-	
+
 	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints-archerAdjustment));
     Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints-archerAdjustment);
 
@@ -1694,7 +1723,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 			Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Attacker.Weapon.Level,math.max(Defender.DefenseSkill, Defender.parry)) + 20);
 		end
 	end
-	
+
 	local archerAdditional = 0
 	if Attacker.AttackKind==4 then
 		archerAdditional = GetNecessaryAimingTime(Attacker)*10
