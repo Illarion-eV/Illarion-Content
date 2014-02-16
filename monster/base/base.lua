@@ -22,6 +22,12 @@ module("monster.base.base", package.seeall)
 -- Return true if the monster is an archer AND in range. Otherwise false.
 function isMonsterArcherInRange(archer, target)
 
+	return false;
+
+end
+
+function isArcherInRange(archer, target)
+
 	local lItem = archer:getItemAt(Character.left_tool)
 	local rItem = archer:getItemAt(Character.right_tool)
 	local rAttFound, rAttWeapon = world:getWeaponStruct(rItem.id)
@@ -47,13 +53,18 @@ end
 function isMonsterInRange(monster, target)
 
 -- evil hack
-    if (math.random(1,50)==1) then
+    if (Random.uniform(1,50)==1) then
         monster.movepoints = monster.movepoints - 20;
         return true;
     end
 
-    if (monster:distanceMetric(target) > 6) then
-		monster:move(math.random(0,7), true);
+
+	if not isArcherInRange(monster, taget) then
+		return false;
+	end
+
+	if (monster:distanceMetric(target) > 6) then
+		monster:move(Random.uniform(0,7), true);
 		return true;
 	end
 
