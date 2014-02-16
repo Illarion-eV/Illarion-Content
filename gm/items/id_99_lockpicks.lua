@@ -85,10 +85,10 @@ function UseItem(User, SourceItem, ltstate)
 		User:increaseAttrib("mana", 10000)
 		User:increaseAttrib("foodlevel", 100000)
 	end
-	
-	
+
+
 	-- First check for mode change
-	
+
 		local modes = {"Eraser", "Teleport","Faction info of chars in radius", "Char Info", "Change skills","Get/ Set Queststatus", "Instant kill/ revive"}
 		local cbSetMode = function (dialog)
 			if (not dialog:getSuccess()) then
@@ -108,7 +108,7 @@ function UseItem(User, SourceItem, ltstate)
 				getSetQueststatus(User, SourceItem, ltstate)
 			elseif dialog:getSelectedIndex()+1 == 7 then
 				godMode(User, SourceItem, ltstate)
-			
+
 			end
 		end
 		local sd = SelectionDialog("Pick a function of the lockpicks.", "Wich do you want to use?", cbSetMode);
@@ -117,13 +117,13 @@ function UseItem(User, SourceItem, ltstate)
 		end
 		User:requestSelectionDialog(sd);
 		return;
-	
+
 
 
 end
-	
+
 function eraser(User, SourceItem, ltstate)
-	
+
 
 		--get all the items the char has on him, with the stuff in the backpack
 		local itemsOnChar = {};
@@ -159,7 +159,7 @@ function eraser(User, SourceItem, ltstate)
 end
 
 function teleporter(User, SourceItem, ltstate)
-	
+
 		local cbChooseLocation = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
@@ -198,7 +198,7 @@ end
 
 
 function factionInfoOfCharsInRadius(User, SourceItem, ltstate)
-	
+
 		local players = world:getPlayersInRangeOf(User.pos, 40);
 		local infos = "";
 		local germanRank, englishRank
@@ -215,9 +215,9 @@ function factionInfoOfCharsInRadius(User, SourceItem, ltstate)
 		local mDialog = MessageDialog("Factioninformation",infos, nil)
 		User:requestMessageDialog(mDialog)
 end
-	
+
 function charInfo(User, SourceItem,ltstate)
-		
+
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 		local players = {User};
 		for _,player in pairs(playersTmp) do
@@ -242,8 +242,8 @@ function charInfo(User, SourceItem,ltstate)
 			end
 			factionInfo = factionInfo .. "\nExact rankpoints: " .. faction.rankpoints;
 			local mDialog = MessageDialog("Character Info for "..chosenPlayer.name, "HP: "..chosenPlayer:increaseAttrib("hitpoints", 0).." MP: "..chosenPlayer:increaseAttrib("mana", 0)..
-							"\nSTR: "..chosenPlayer:increaseAttrib("strength", 0).." CONST: "..chosenPlayer:increaseAttrib("constitution", 0).." DEX: "..chosenPlayer:increaseAttrib("dexterity", 0)..
-							"\nAGI: "..chosenPlayer:increaseAttrib("agility", 0).." WIL: "..chosenPlayer:increaseAttrib("willpower", 0).." PERC: "..chosenPlayer:increaseAttrib("perception", 0).." ESS: "..chosenPlayer:increaseAttrib("essence", 0)..
+							"\nSTR: "..chosenPlayer:increaseAttrib("strength", 0).." CON: "..chosenPlayer:increaseAttrib("constitution", 0).." DEX: "..chosenPlayer:increaseAttrib("dexterity", 0).." AGI: "..chosenPlayer:increaseAttrib("agility", 0)..
+							"\nINT: "..chosenPlayer:increaseAttrib("intelligence", 0).." WIL: "..chosenPlayer:increaseAttrib("willpower", 0).." PERC: "..chosenPlayer:increaseAttrib("perception", 0).." ESS: "..chosenPlayer:increaseAttrib("essence", 0)..
 							"\nMental Capacity: "..tostring(chosenPlayer:getMentalCapacity())..
 							"\nIdle for [s]: "..tostring(chosenPlayer:idleTime()) ..
 							"\n" .. factionInfo, cbChoosePlayer)
@@ -315,7 +315,7 @@ function changeSkills(User, SourceItem, ltstate)
 end
 
 function getSetQueststatus(User, SourceItem, ltstate)
-	
+
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 		local players = {User};
 		for _,player in pairs(playersTmp) do
@@ -364,7 +364,7 @@ function getSetQueststatus(User, SourceItem, ltstate)
 end
 
 function godMode(User, SourceItem, ltstate)
-	
+
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 		local players = {User};
 		for _,player in pairs(playersTmp) do
