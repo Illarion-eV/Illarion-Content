@@ -160,7 +160,7 @@ german, ".*" -> "Ihr scheint kein Bürger Runewicks zu sein. Ich habe nichts für 
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
-cycletext "Wenn Ihr Hilfe beim schneidern braucht, dann fragt nur mich!", "If you need any help tailoring, just ask me!"
+cycletext "Wenn Ihr Hilfe beim Schneidern braucht, dann fragt nur mich!", "If you need any help tailoring, just ask me!"
 cycletext "#me gähnt verhalten.", "#me yawns restrained."
 cycletext "#me pfeift eine Melodie.", "#me whistles a melody."
 cycletext "#me liest einen Brief.", "#me reads a letter."
