@@ -109,7 +109,7 @@ function isPossibleTarget(monster, candidate)
     if (candidate:getQuestProgress(36) ~= 0) then
 		return false;
 	end
-	
+
 	local distance
 	local monsterId = monster.id
 	if firstTimeList[monsterId] == nil or firstTimeList[monsterId] ~= candidate.id then
@@ -118,12 +118,12 @@ function isPossibleTarget(monster, candidate)
 	else
 		distance = 10
 	end
-	
-	
+
+
 	local range = isArcher(monster, candidate)
 	if  range ~= nil and candidate:distanceMetric(monster) > range then
 		return false;
-	elseif candidate:distanceMetric(monster) > 8 then
+	elseif candidate:distanceMetric(monster) > distance then
 		return false;
 	else
 		return true;
