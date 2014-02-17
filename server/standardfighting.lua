@@ -71,6 +71,8 @@ require("base.gems")
 
 module("server.standardfighting", package.seeall)
 
+firstTimeList = {}
+
 -- selects a target for monster from candidates, 0 means no target found
 -- this default can be overridden by a monster's setTarget entrypoint
 function setTarget(monster, candidates)
@@ -81,8 +83,14 @@ function setTarget(monster, candidates)
                 or isBetterTarget(candidates[target], candidate)) then
             target = key
         end
+
     end
 
+	if target ~= 0 then
+		local monsterId = monster.id;
+		local candidate = candidates[target];
+		firstTimeList[monsterId] = candidate.id;
+	end
     return target
 end
 
@@ -103,7 +111,7 @@ function isArcher(archer, target)
 	return range;
 end
 
-firstTimeList = {}
+
 
 function isPossibleTarget(monster, candidate)
     if (candidate:getQuestProgress(36) ~= 0) then
@@ -112,11 +120,10 @@ function isPossibleTarget(monster, candidate)
 
 	local distance
 	local monsterId = monster.id
-	if firstTimeList[monsterId] == nil or firstTimeList[monsterId] ~= candidate.id then
-		firstTimeList[monsterId] = candidate.id
-		distance = 8
-	else
+	if firstTimeList[monsterId] ~= nil and firstTimeList[monsterId] == candidate.id then
 		distance = 10
+	else
+		distance = 8
 	end
 
 
