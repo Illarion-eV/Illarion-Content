@@ -107,6 +107,12 @@ function isArcher(archer, target)
 	elseif rAttFound and rAttWeapon.WeaponType == 7 then
 		range = rAttWeapon.Range
 	end
+	
+	local blockList = world:LoS( archer.pos, target.pos )
+	local next = next	-- make next-iterator local
+	if (next(blockList)~=nil) then	-- see if there is a "next" (first) object in blockList!
+			return nil;				-- something blocks
+	end
 
 	return range;
 end
