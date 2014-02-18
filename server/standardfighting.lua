@@ -131,7 +131,7 @@ function isPossibleTarget(monster, candidate)
 	if  range ~= nil and candidate:distanceMetric(monster) > range then
 		return false;
 	elseif range then
-		local blockList = world:LoS( archer.pos, target.pos )
+		local blockList = world:LoS( monster.pos, candidate.pos )
 		local next = next	-- make next-iterator local
 		if (next(blockList)~=nil) then	-- see if there is a "next" (first) object in blockList!
 				return false;				-- something blocks
