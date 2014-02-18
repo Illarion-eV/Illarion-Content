@@ -45,8 +45,8 @@ Description[GERMAN][5] = "Besorge fünf geräucherte Fische und bringe sie Zeraris
 Description[ENGLISH][5] = "Obtain five smoked fish and take them back to Zerarisa. Stand in front of a smoke oven and use it to cook raw fish."
 Description[GERMAN][6] = "Geh zu Zerarisa, die sich am Kap des Abschiedes aufhält. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][6] = "Go back to Zerarisa at the Cape Farewell, she will certainly have another task for you."
-Description[GERMAN][7] = "Besorge zehn Stück Leder und bringe sie Zerarisa. Du kannst Leder beim Händler kaufen oder du kannst Rohleder oder Fell am Spannrahmen mit einer Rasierklinge gerben."
-Description[ENGLISH][7] = "Obtain ten pieces of leather and take them back to Zerarisa. You can buy leather from a merchant or tan raw leather or fur with a razor on a strecher."
+Description[GERMAN][7] = "Besorge zehn Stück gegerbtes Leder und bringe sie Zerarisa. Du kannst Leder beim Händler kaufen oder du kannst Rohleder oder Fell am Spannrahmen mit einer Rasierklinge gerben."
+Description[ENGLISH][7] = "Obtain ten pieces of tanned leather and take them back to Zerarisa. You can buy leather from a merchant or tan raw leather or fur with a razor on a strecher."
 Description[GERMAN][8] = "Du hast alle Aufgaben von Zerarisa erfüllt. "
 Description[ENGLISH][8] = "You have fulfilled all the tasks for Zerarisa."
 
