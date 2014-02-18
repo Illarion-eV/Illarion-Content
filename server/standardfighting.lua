@@ -108,12 +108,6 @@ function isArcher(archer, target)
 		range = rAttWeapon.Range
 	end
 	
-	local blockList = world:LoS( archer.pos, target.pos )
-	local next = next	-- make next-iterator local
-	if (next(blockList)~=nil) then	-- see if there is a "next" (first) object in blockList!
-			return nil;				-- something blocks
-	end
-
 	return range;
 end
 
@@ -136,6 +130,12 @@ function isPossibleTarget(monster, candidate)
 	local range = isArcher(monster, candidate)
 	if  range ~= nil and candidate:distanceMetric(monster) > range then
 		return false;
+	elseif range then
+		local blockList = world:LoS( archer.pos, target.pos )
+		local next = next	-- make next-iterator local
+		if (next(blockList)~=nil) then	-- see if there is a "next" (first) object in blockList!
+				return false;				-- something blocks
+		end
 	elseif candidate:distanceMetric(monster) > distance then
 		return false;
 	else
