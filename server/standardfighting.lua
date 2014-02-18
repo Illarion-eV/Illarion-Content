@@ -138,10 +138,9 @@ function isPossibleTarget(monster, candidate)
 		end
 	elseif candidate:distanceMetric(monster) > distance then
 		return false;
-	else
-		return true;
 	end
-
+	
+	return true
 end
 
 function isBetterTarget(currentTarget, candidate)
