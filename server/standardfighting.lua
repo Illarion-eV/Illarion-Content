@@ -107,7 +107,7 @@ function isArcher(archer, target)
 	elseif rAttFound and rAttWeapon.WeaponType == 7 then
 		range = rAttWeapon.Range
 	end
-
+	
 	return range;
 end
 
@@ -130,12 +130,17 @@ function isPossibleTarget(monster, candidate)
 	local range = isArcher(monster, candidate)
 	if  range ~= nil and candidate:distanceMetric(monster) > range then
 		return false;
+	elseif range then
+		local blockList = world:LoS( monster.pos, candidate.pos )
+		local next = next	-- make next-iterator local
+		if (next(blockList)~=nil) then	-- see if there is a "next" (first) object in blockList!
+				return false;				-- something blocks
+		end
 	elseif candidate:distanceMetric(monster) > distance then
 		return false;
-	else
-		return true;
 	end
-
+	
+	return true
 end
 
 function isBetterTarget(currentTarget, candidate)
@@ -785,7 +790,9 @@ function CauseDamage(Attacker, Defender, Globals)
         end;
 
         if (Attacker.AttackKind == 4) then -- Distanzangriff.
-            Defender.Char.movepoints = Defender.Char.movepoints - 5;
+            if Defender.Char:getType() == Character.monster and Attacker.Char:getType() == Character.player then
+				Defender.Char.movepoints = Defender.Char.movepoints - 5;
+			end
             DropAmmo(Attacker, Defender.Char, false);
         end;
     end;
@@ -1584,7 +1591,7 @@ function Counter(Attacker, Defender)
             "#me blockt geschickt den Hieb und macht sich schnell für einen Konter bereit.",
             "#me deftly blocks the hit and quickly readies stance for a counter attack.");
 			base.character.ChangeFightingpoints(Defender.Char,-Defender.Char.fightpoints);
-			Defender.Char.movepoints=21;
+			Defender.Char.fightpoints = 21
 		end;
 	end;
 
@@ -1721,8 +1728,7 @@ function HandleMovepoints(Attacker, Globals)
 	end
 
 	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints-archerAdjustment));
-    Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints-archerAdjustment);
-
+    
 	Globals["AP"] = reduceFightpoints;
 
     return reduceFightpoints;

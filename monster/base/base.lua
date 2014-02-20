@@ -31,11 +31,5 @@ end
 -- Return false if monster should go ahead and aggro the target.
 function isMonsterInRange(monster, target)
 
--- evil hack
-    if (Random.uniform(1,50)==1) then
-        monster.movepoints = monster.movepoints - 20;
-        return true;
-    end
-
 	return false;
 end
