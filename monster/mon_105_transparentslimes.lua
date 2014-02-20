@@ -47,6 +47,7 @@ end
 
 DELETED = false
 function abortRoute(theSlime)
+debug("Position is ".. theSlime.pos.x .." ".. theSlime.pos.y .." ".. theSlime.pos.z)
 	-- Slime feeding quest in Runewick
 	if theSlime:getMonsterType()==1055 then
 		if theSlime.pos == position(10,6,0) then
@@ -60,7 +61,7 @@ function abortRoute(theSlime)
 				DELETED = true
 				theSlime.movepoints = theSlime.movepoints -30
 			end]]
-			theSlime.waypoints:addWaypoint(tSF.SLIME_CAVE_POSITION)
+			theSlime.waypoints:addWaypoint(position(12,2,0))
 			theSlime:setOnRoute(true)
 			
 		elseif theSlime.pos == position(12,2,0) then
