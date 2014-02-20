@@ -114,6 +114,10 @@ end
 
 
 function isPossibleTarget(monster, candidate)
+    if candidate:getType() ~= Character.player then
+        return false
+    end
+    
     if (candidate:getQuestProgress(36) ~= 0) then
 		return false;
 	end
