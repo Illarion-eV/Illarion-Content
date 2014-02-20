@@ -114,7 +114,7 @@ end
 
 
 function isPossibleTarget(monster, candidate)
-    if candidate:getType() ~= Character.player then
+    if candidate:getType() ~= Character.player and candidate.pos.z ~= -40 then
         return false
     end
     
