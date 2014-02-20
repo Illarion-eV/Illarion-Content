@@ -572,7 +572,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		Attacker.WeaponItem.quality = quality * 100 + durability;
 		world:changeItem(Attacker.WeaponItem);
 
-		if (durability == 10) then
+		if (durability < 10) then
 		  base.common.InformNLS(Attacker.Char,
 		  "Deine Waffe hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren.",
 		  "Your weapon has seen better days. You may want to repair it.");
@@ -612,7 +612,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
 		if (durability == 0) then
 			base.common.InformNLS(Defender.Char,
-		  "Dein Gegenstand zerbricht, dies erschwert es dir dich zu verteidigen.",
+		  "Dein Gegenstand zerbricht, dies erschwert es dir, dich zu verteidigen.",
 		  "Your item shatters, making it more difficult for you to defend yourself.");
 		  world:erase(ParryWeapon, 1);
 		  return true;
@@ -622,7 +622,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		ParryWeapon.quality = quality * 100 + durability;
 		world:changeItem(ParryWeapon);
 
-		if (durability == 10) then
+		if (durability < 10) then
 		  base.common.InformNLS(Defender.Char,
 		  "Dein Gegenstand hat schon bessere Zeiten gesehen. Vielleicht solltest du ihn reparieren.",
 		  "Your item has seen better days. You may want to repair it.");
