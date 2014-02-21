@@ -72,7 +72,7 @@ itemShoes = 369
 
 -- quest
 queststatus(642) = 1, item(144, all) > 0, english, "." -> inform("[Quest 'Find Queen Rosaline Edwards' end]"), deleteItem(144, 1), queststatus(642) = 2, rankpoints + 5, "Oh, flowers! However, do not think you can win my favour, but I will accept the attempt this time."
-queststatus(642) = 1, item(144, all) > 0, "." -> inform("[Quest 'Finde Königin Rosaline Edwards' Ende]"), deleteItem(144, 1), queststatus(642) = 2, rankpoints + 5, "Oh, Blumen! Aber glaubt nicht, dass ihr damit meine Gunst gewinnen könnt, auch wenn euren Versuch dieses Mal durchgehen lassen werde."
+queststatus(642) = 1, item(144, all) > 0, "." -> inform("[Quest 'Finde Königin Rosaline Edwards' Ende]"), deleteItem(144, 1), queststatus(642) = 2, rankpoints + 5, "Oh, Blumen! Aber glaubt nicht, dass ihr damit meine Gunst gewinnen könnt, auch wenn Ich euren Versuch dieses Mal durchgehen lassen werde."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Speak, but choose your words wisely for my time is short.", "Ah, a servant of mine, good, what news do you bear from my realm?", "You dare to disturb me? Fine, fortunately for you I needed a distraction."
