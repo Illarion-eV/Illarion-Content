@@ -94,7 +94,7 @@ function GuardBehaviourTowardsChar(User, SourceItem)
 	local callback = function(dialog) 
 		local success = dialog:getSuccess() 
 		if success then
-			local selected = dialog:getSelectedIndex()
+			local selected = dialog:getSelectedIndex()+1
 			SelectTargetChar(User, SourceItem, modeValues[selected])
 		else
 			User:inform("Selection aborted!") 
