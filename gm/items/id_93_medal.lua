@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- UPDATE common SET com_script='gm.items.id_93_medal' WHERE com_itemid=93;
@@ -23,7 +23,7 @@ module("gm.items.id_93_medal", package.seeall)
 function UseItemWithField(User,SourceItem,TargetPos)
 
 	-- First check for mode change
-	
+
 		local modes = {"Monster", "GFX", "SFX", "Avatar changes"}
 		local cbSetMode = function (dialog)
 			if (not dialog:getSuccess()) then
@@ -37,34 +37,34 @@ function UseItemWithField(User,SourceItem,TargetPos)
 				sfx(User,SourceItem,TargetPos)
 			elseif dialog:getSelectedIndex()+1 == 4 then
 				changeAvatar(User,SourceItem,TargetPos)
-			else 
+			else
 				User:inform("no valid function")
 
 			end
 		end
 		local sd = SelectionDialog("Pick a function of the medal.", "Wich do you want to use?", cbSetMode);
-		for _,m in ipairs(modes) do 
+		for _,m in ipairs(modes) do
 			sd:addOption(0,m);
 		end
 		User:requestSelectionDialog(sd);
 		return;
 
-end	
+end
 
 function test(User,SourceItem,TargetPos)
 
 	User:inform("test")
 end
 	--Additions end
-	
+
 function monster(User,SourceItem,TargetPos)
-	
+
 		local cbInputDialog = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
 			end
 			local inputNumber = dialog:getInput();
-						
+
 			if (string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+) (%d+)") ~= nil) then
 				a, b, number, ammount, radius, gfxId, sfxId = string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+) (%d+)");
 				number = tonumber(number);
@@ -72,7 +72,7 @@ function monster(User,SourceItem,TargetPos)
 				radius = tonumber(radius);
 				gfxId = tonumber(gfxId);
 				sfxId = tonumber(sfxId);
-				
+
 			elseif (string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+)") ~= nil) then
 				a, b, number, ammount, radius, gfxId = string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+)");
 				number = tonumber(number);
@@ -80,7 +80,7 @@ function monster(User,SourceItem,TargetPos)
 				radius = tonumber(radius);
 				gfxId = tonumber(gfxId);
 				sfxId = 0;
-			
+
 			elseif (string.find(inputNumber,"(%d+) (%d+) (%d+)") ~= nil) then
 				a, b, number, ammount, radius = string.find(inputNumber,"(%d+) (%d+) (%d+)");
 				number = tonumber(number);
@@ -88,7 +88,7 @@ function monster(User,SourceItem,TargetPos)
 				radius = tonumber(radius);
 				gfxId = 0;
 				sfxId = 0;
-				
+
 			elseif (string.find(inputNumber,"(%d+) (%d+)") ~= nil) then
 				a, b, number, ammount = string.find(inputNumber,"(%d+) (%d+)");
 				number = tonumber(number);
@@ -96,7 +96,7 @@ function monster(User,SourceItem,TargetPos)
 				radius = 0;
 				gfxId = 0;
 				sfxId = 0;
-			
+
 			elseif (string.find(inputNumber,"(%d+)") ~= nil) then
 				a, b, number = string.find(inputNumber,"(%d+)");
 				number = tonumber(number);
@@ -104,37 +104,37 @@ function monster(User,SourceItem,TargetPos)
 				radius = 0;
 				gfxId = 0;
 				sfxId = 0;
-								
+
 			else
 				User:inform("No number");
 			end
-				
+
 			if ammount > 100 then
 			ammount = 100;
 			end
-						
+
 			for i = 1,ammount
-			do	
+			do
 				monPos=getFreePos( TargetPos, radius );
 				local monster = world:createMonster(number,monPos,20);
-				
+
 				if gfxId ~= 0 then
 					world:gfx(gfxId,monPos);
 				end
-				
+
 			end
-			
+
 			User:inform("Creating "..ammount.. " monsters with ID "..number);
-			
+
 			if sfxId ~= 0 then
 				world:makeSound(sfxId,TargetPos);
 			end
-			
-			
+
+
 		end
 		User:requestInputDialog(InputDialog("Spawn a monster.", "Usage enter: MonsterID [ammount] [radius] [GFX] [SFX]" ,false, 255, cbInputDialog))
 end
-	
+
 function gfx(User,SourceItem,TargetPos)
 		local cbInputDialog = function (dialog)
 			if (not dialog:getSuccess()) then
@@ -152,8 +152,8 @@ function gfx(User,SourceItem,TargetPos)
 		User:requestInputDialog(InputDialog("Play a graphics effect.", "Usage: Type in graphic effects id. Will be played in front of character." ,false, 255, cbInputDialog))
 end
 
-function sfx(User,SourceItem,TargetPos)	
-		
+function sfx(User,SourceItem,TargetPos)
+
 		local cbInputDialog = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
@@ -171,21 +171,24 @@ function sfx(User,SourceItem,TargetPos)
 end
 
 function changeAvatar(User,SourceItem,TargetPos)
-			
+
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
 		local players = {User};
-		for _,player in pairs(playersTmp) do 
-			if (player.id ~= User.id) then 
+		for _,player in pairs(playersTmp) do
+			if (player.id ~= User.id) then
 				table.insert(players, player);
 			end
 		end
-			
+
 		local cbChoosePlayer = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
 			end
 			local chosenPlayer = players[dialog:getSelectedIndex()+1];
 			local cbInputDialog = function (dialog)
+				if (not dialog:getSuccess()) then
+					return;
+				end
 				local inputString = dialog:getInput();
 				if (string.find(inputString,"(%a+) (%d+) (%d+) (%d+)") ~= nil) then
 					a, b, modifier, red, green, blue = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)");
@@ -217,11 +220,11 @@ function changeAvatar(User,SourceItem,TargetPos)
 		--Dialog to choose the player
 		local sdPlayer = SelectionDialog("Change the avatar of ...", "First choose a victim:", cbChoosePlayer);
 		local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
-        for _,player in ipairs(players) do 
+        for _,player in ipairs(players) do
 			local race = math.min(player:getRace()+1, table.getn(raceNames));
 			sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
-        end		
-		User:requestSelectionDialog(sdPlayer);		
+        end
+		User:requestSelectionDialog(sdPlayer);
 
 end
 
