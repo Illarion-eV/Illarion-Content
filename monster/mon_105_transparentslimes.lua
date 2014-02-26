@@ -47,7 +47,7 @@ end
 
 DELETED = false
 function abortRoute(theSlime)
-debug("Position is ".. theSlime.pos.x .." ".. theSlime.pos.y .." ".. theSlime.pos.z)
+	--[[
 	-- Slime feeding quest in Runewick
 	if theSlime:getMonsterType()==1055 then
 		if theSlime.pos == position(10,6,0) then
@@ -70,6 +70,7 @@ debug("Position is ".. theSlime.pos.x .." ".. theSlime.pos.y .." ".. theSlime.po
 		end
 	end
 	-- Slime feeding quest in Runewick END
+	]]
 end
 
 function enemyNear(Monster,Enemy)

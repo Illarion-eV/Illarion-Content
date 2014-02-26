@@ -20,9 +20,9 @@ require("base.common")
 module("item.id_456_snowball", package.seeall)
 
 function UseItem(User,SourceItem)
-
+--[[
 	local oldSlime = world:createMonster(1055,position(8,2,0),0)
 	oldSlime.waypoints:addWaypoint(position(10,6,0))
 	oldSlime:setOnRoute(true)
-	
+	]]
 end
