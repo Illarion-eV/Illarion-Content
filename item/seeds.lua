@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- sowing seeds
 require("base.common")
@@ -76,14 +76,14 @@ seedPlantList[779] = 780; --sugarcane
 function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local farming = content.gathering.farming;
-    
+
     if ( seedPlantList[SourceItem.id] == nil ) then
         User:inform("[ERROR] Unknown seed item id: " .. SourceItem.id .. ". Please inform a developer.");
         return;
     end
-	
+
 	local TargetPos = getFreeFieldPosition(User);
-	if TargetPos == nil then	
+	if TargetPos == nil then
 		TargetPos = base.common.GetFrontPosition(User);
 	end
 
@@ -103,7 +103,7 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-	
+
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
 		base.common.HighInformNLS( User,
 		"Du musst das Saatgut in der Hand haben!",
@@ -118,7 +118,7 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.IsLookingAt( User, TargetPos ) then -- check looking direction
 		base.common.TurnTo( User, TargetPos ); -- turn if necessary
 	end
-  
+
 	-- should not stack plants on top of anything
 	if (world:isItemOnField(TargetPos)) then
 		base.common.HighInformNLS(User,
@@ -126,7 +126,7 @@ function UseItem(User, SourceItem, ltstate)
 		"Sowing seeds is only possible at a free spot.");
 		return;
 	end
-	
+
   -- only on farm land
 	local Field = world:getField( TargetPos )
 	local groundType = base.common.GetGroundType( Field:tile() );
@@ -146,7 +146,7 @@ function UseItem(User, SourceItem, ltstate)
 		end
 		return
 	end
-	
+
 	local nextField = getFreeFieldPosition(User);
 	if (nextField~=nil) then  -- there are still free fields
 		base.common.TurnTo( User, nextField); -- turn
@@ -182,13 +182,13 @@ function getFreeFieldPosition(User)
 	local field = world:getField(frontField);
 	local groundType = base.common.GetGroundType(field:tile());
 	local itemOnField = world:isItemOnField(frontField);
-	
+
 	if not itemOnField and groundType == 1 then
 		return frontField;
 	end
 	local Radius = 1;
 	for x=-Radius,Radius do
-		for y=-Radius,Radius do 
+		for y=-Radius,Radius do
 			local checkPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
 			if not world:isItemOnField(checkPos) then
 				field = world:getField(checkPos);
@@ -222,8 +222,8 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
     -- world:erase(SourceItem, SourceItem.number);
     -- world:increase(SourceItem, -SourceItem.number);
     base.common.HighInformNLS(User,
-		"[INFO] Aus technischen Gründen brauchst du zur Zeit eine Sichel, um die Samen aufzuheben.",
-		"[INFO] For technical reasons you currently need a sickle to pick up the seeds.");
+		"Du brauchst eine Sichel, um die Samen zu ernten.",
+		"You need a sickle to harvest the seeds.");
     return false;
   end
   return true;
