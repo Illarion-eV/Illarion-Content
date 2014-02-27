@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --- Base NPC script for trader NPCs
 --
@@ -33,11 +33,11 @@ tradeNPC = base.class.class(function(self, rootNPC)
         return;
     end;
     self["_parent"] = rootNPC;
-    
+
     self["_sellItems"] = {};
-    
+
     self["_buyItems"] = {};
-    
+
     self["_wrongItemMsg"] = base.messages.Messages();
     self["_notEnoughMoneyMsg"] = base.messages.Messages();
     self["_dialogClosedMsg"] = base.messages.Messages();
@@ -48,7 +48,7 @@ function tradeNPC:addItem(item)
     if (item == nil or not item:is_a(tradeNPCItem)) then
         return;
     end;
-    
+
     if (item._type == "sell") then
         table.insert(self._sellItems, item);
     elseif (item._type == "buyPrimary" or item._type == "buySecondary") then
@@ -91,22 +91,22 @@ function tradeNPC:showDialog(npcChar, player)
             elseif (not anyTradeAction and self._dialogClosedNoTradeMsg:hasMessages()) then
                 local msgGerman, msgEnglish = self._dialogClosedNoTradeMsg:getRandomMessage();
                 npcChar:talk(Character.say, msgGerman, msgEnglish);
-            elseif (self._dialogClosedMsg:hasMessages()) then    
+            elseif (self._dialogClosedMsg:hasMessages()) then
                 local msgGerman, msgEnglish = self._dialogClosedMsg:getRandomMessage();
                 npcChar:talk(Character.say, msgGerman, msgEnglish);
             end;
         end;
     end;
-        
+
     local dialog = MerchantDialog(base.common.GetNLS(player, "Handel", "Trade"), callback)
-    
+
     table.foreach(self._sellItems, function(_, item)
         item:addToDialog(player, dialog);
     end);
     table.foreach(self._buyItems, function(_, item)
         item:addToDialog(player, dialog);
     end);
-    
+
     player:requestMerchantDialog(dialog)
 end;
 
@@ -114,32 +114,34 @@ local function isFittingItem(tradeItem, boughtItem)
     if (tradeItem._itemId ~= boughtItem.id) then
         return false;
     end;
-    
+
     if (tradeItem._data ~= nil and tradeItem._data ~= boughtItem.data) then
         return false;
     end;
-    
+
     return true;
 end;
 
 function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
 	-- Buying at special price
-    for index, item in pairs(self._buyItems) do 
+    for index, item in pairs(self._buyItems) do
         if isFittingItem(item, boughtItem) then
             local price = item._price * boughtItem.number
 			local priceStringGerman, priceStringEnglish = base.money.MoneyToString(price);
 			local itemName = base.common.GetNLS(player, world:getItemName(boughtItem.id,0), world:getItemName(boughtItem.id,1));
             if world:erase(boughtItem, boughtItem.number) then
-                base.money.GiveMoneyToChar(player, price);
+			    if (base.money.GiveMoneyToChar(player, price) == false) then
+					base.money.GiveMoneyToPosition(player.pos, price);
+				end
 				base.common.InformNLS(player, "Ihr habt "..boughtItem.number.." "..itemName.." zu einem Preis von "..priceStringGerman.." verkauft.", "You sold "..boughtItem.number.." "..itemName.." at a price of "..priceStringEnglish..".");
 				world:makeSound(24, player.pos)
             end;
             return;
         end;
     end;
-	
+
 	-- Reject item
-	if (self._wrongItemMsg:hasMessages()) then    
+	if (self._wrongItemMsg:hasMessages()) then
 		local msgGerman, msgEnglish = self._wrongItemMsg:getRandomMessage();
 		npcChar:talk(Character.say, msgGerman, msgEnglish);
 	end;
@@ -151,7 +153,7 @@ function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
         base.common.InformNLS(player, "Ein Fehler ist beim Kauf des Items aufgetreten", "An error occurred while buying the item");
         return;
     end;
-    
+
     if (base.money.CharHasMoney(player, item._price * amount)) then
         base.money.TakeMoneyFromChar(player, item._price * amount);
 		local priceStringGerman, priceStringEnglish = base.money.MoneyToString(item._price * amount);
@@ -172,14 +174,14 @@ tradeNPCItem = base.class.class(function(self, id, itemType, nameDe, nameEn, pri
     if (id == nil or id <= 0) then
         error("Invalid ItemID for trade item");
     end;
-    
+
     if (itemType ~= "sell" and itemType ~= "buyPrimary" and itemType ~= "buySecondary") then
         error("Invalid type for trade item");
     end;
-    
+
     self["_itemId"] = id;
     self["_type"] = itemType;
-    
+
     if (nameDe == nil or nameEn == nil) then
         self["_nameDe"] = world:getItemName(id, Player.german);
         self["_nameEn"] = world:getItemName(id, Player.english);
@@ -187,7 +189,7 @@ tradeNPCItem = base.class.class(function(self, id, itemType, nameDe, nameEn, pri
         self["_nameDe"] = nameDe;
         self["_nameEn"] = nameEn;
     end;
-    
+
     if (price == nil) then
         if (itemType == "sell") then
             self["_price"] = world:getItemStatsFromId(id).Worth;
@@ -199,7 +201,7 @@ tradeNPCItem = base.class.class(function(self, id, itemType, nameDe, nameEn, pri
     else
         self["_price"] = price;
     end;
-    
+
     if (itemType == "sell" and stack ~= nil) then
         self["_stack"] = stack;
     else
@@ -209,13 +211,13 @@ tradeNPCItem = base.class.class(function(self, id, itemType, nameDe, nameEn, pri
 			self["_stack"] = 1;
 		end;
     end;
-    
+
 	if (itemType == "sell" and quality ~= nil) then
 		self["_quality"] = quality;
 	else
         self["_quality"] = 580;
 	end;
-    
+
     if (itemType == "sell") then
         self["_data"] = data;
     else
