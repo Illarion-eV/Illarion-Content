@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 module("content.furtunecookies", package.seeall)
 
@@ -77,6 +77,9 @@ function cookie(User)
     elseif (luck==19) then
         germText="Bist du heute der, der du einmal sein wolltest, als du noch jung warst?";
         englText="Follow the dreams you had as a child.";
+    elseif (luck==20) then
+        germText="Besiege deine Ängste oder sie werden dich besiegen.";
+        englText="Conquer your fears or they will conquer you.";
     elseif (luck==21) then
         germText="Sie können herausholen, was in Ihnen steckt.";
         englText="The chief danger in life is taking too many precautions.";
