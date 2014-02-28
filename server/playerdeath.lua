@@ -28,21 +28,21 @@ function playerDeath(deadPlayer)
     if deadPlayer:isAdmin() then --Admins don't die. Failed, noob!
 	
 	    deadPlayer:increaseAttrib("hitpoints",10000); -- Respawn
-		base.common.InformNLS(deadPlayer,"[Wiederbelebung] Admins sterben nicht.","[Respawn] Admins don't die."); --sending a message
+		base.common.HighInformNLS(deadPlayer,"[Wiederbelebung] Admins sterben nicht.","[Respawn] Admins don't die."); --sending a message
 		return; --bailing out!
 			
     elseif deadPlayer.pos.z==100 or deadPlayer.pos.z==101 then --someone died on Noobia!
 	
 	    deadPlayer:increaseAttrib("hitpoints",10000); -- Respawn
 		world:gfx(53,deadPlayer.pos);
-        base.common.InformNLS(deadPlayer,"[Wiederbelebung] Während des Tutorials bist du 'unsterblich'. Im Hauptspiel ist die Wiederbelebung mit merklichen Konsequenzen für deinen Charakter verbunden.","[Respawn] During the tutorial, you are 'immortal'. In the main game, serious consequences for your character are triggered upon respawn."); --sending a message
+        base.common.HighInformNLS(deadPlayer,"[Wiederbelebung] Während des Tutorials bist du 'unsterblich'. Im Hauptspiel ist die Wiederbelebung mit merklichen Konsequenzen für deinen Charakter verbunden.","[Respawn] During the tutorial, you are 'immortal'. In the main game, serious consequences for your character are triggered upon respawn."); --sending a message
         return; --bailing out!
      
     elseif deadPlayer.pos.z==-40 then -- death in the prison mine; no kill taxi!	 
 	
 	    deadPlayer:increaseAttrib("hitpoints",10000); -- Respawn
 		world:gfx(53,deadPlayer.pos);
-        base.common.InformNLS(deadPlayer,"[Wiederbelebung] In der Gefängnismine bist du 'unsterblich'. Weiterarbeiten!","[Respawn] In the prison mine, you are 'immortal'. Work on!"); --sending a message
+        base.common.HighInformNLS(deadPlayer,"[Wiederbelebung] In der Gefängnismine bist du 'unsterblich'. Weiterarbeiten!","[Respawn] In the prison mine, you are 'immortal'. Work on!"); --sending a message
         return; --bailing out!
 		
 	else --valid death
@@ -59,6 +59,7 @@ function playerDeath(deadPlayer)
 
                 if durability <= DURABILITY_LOSS then
                     deadPlayer:increaseAtPos(i, -1)
+					base.common.HighInformNLS(deadPlayer,"[Tod] Einer deiner Gegenstände wurde zerstört.","[Death] One of your items was destroyed."); --sending a message
                 else
                     item.quality = item.quality - DURABILITY_LOSS
                     world:changeItem(item)
@@ -66,8 +67,6 @@ function playerDeath(deadPlayer)
             end
         end
     end
-	
-
 end
 
 function showDeathDialog(deadPlayer)
@@ -75,9 +74,9 @@ function showDeathDialog(deadPlayer)
 	local callback = function(nothing) end; --empty callback
 		
 	if deadPlayer:getPlayerLanguage() == 0 then		
-		dialog = MessageDialog("Tod", "Du bist gestorben. Deine Ausrüstung nimmt schweren Schaden. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten.", callback);
+		dialog = MessageDialog("Tod", "Du bist gestorben. Deine Ausrüstung nimmt schweren Schaden. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten. Du wirst in einer Minute wiederbelebt - so wenn die Götter es wollen.", callback);
 	else		
-		dialog = MessageDialog("Death", "You have died. Your equipment got damaged seriously. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.", callback);
+		dialog = MessageDialog("Death", "You have died. Your equipment got damaged seriously. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm. You will respawn in a minute - so the gods will.", callback);
 	end	
 	
 	deadPlayer:requestMessageDialog(dialog); --showing the text
