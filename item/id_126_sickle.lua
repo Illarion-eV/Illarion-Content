@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- harvesting herbs and field crops
 
@@ -46,7 +46,7 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-	
+
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
 		base.common.HighInformNLS( User,
 		"Du musst die Sichel in der Hand haben!",
@@ -57,7 +57,7 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.FitForWork( User ) then -- check minimal food points
 		return
 	end
-  
+
   -- first try to get only valid items
   local TargetItem = GetHarvestItem(User, true, false, false);
   if (TargetItem == nil) then
@@ -65,26 +65,26 @@ function UseItem(User, SourceItem, ltstate)
     TargetItem = GetHarvestItem(User, false, false, false);
   end
   if ( TargetItem == nil) then
-		base.common.HighInformNLS( User, 
-		"Hier ist nichts, wofür du die Sichel benutzen kannst.", 
+		base.common.HighInformNLS( User,
+		"Hier ist nichts, wofür du die Sichel benutzen kannst.",
 		"There is nothing for which you can use the sickle." );
 		return;
 	end
-  
+
   local TargetPos = TargetItem.pos;
 	if not base.common.IsLookingAt( User, TargetPos ) then -- check looking direction
 		base.common.TurnTo( User, TargetPos ); -- turn if necessary
 	end
-	
+
 	-- there is a harvestable item, but does the ground fit?
 	local harvestProduct = GetValidProduct(TargetItem, false, false);
 	if ( harvestProduct == nil ) then
-		base.common.HighInformNLS( User, 
-		"Diese Pflanze trägt nichts Nützliches, das du mit deiner Sichel schneiden kannst. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.", 
+		base.common.HighInformNLS( User,
+		"Diese Pflanze trägt nichts Nützliches, das du mit deiner Sichel schneiden kannst. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.",
 		"This plant yields nothing useful which you can cut with your sickle. Maybe this type of plant will flourish better in another soil." );
 		return;
 	end
-	-- check the amount 
+	-- check the amount
 	local changeItem = false;
 	local amountStr = TargetItem:getData("amount");
 	local amount = 0;
@@ -105,7 +105,7 @@ function UseItem(User, SourceItem, ltstate)
 		-- check for regrow even at amount==1, so a continuous working is guaranteed
 		-- only non farming items regrow
 		local serverTime = world:getTime("unix");
-		for i=1,MaxAmount do 
+		for i=1,MaxAmount do
 			local t = TargetItem:getData("next_regrow_" .. i);
 			if ( t ~= "" and tonumber(t) <= serverTime ) then
 				-- regrow
@@ -116,8 +116,8 @@ function UseItem(User, SourceItem, ltstate)
 		end
 		if ( amount == 0 ) then
 			-- not regrown...
-			base.common.HighInformNLS( User, 
-			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
+			base.common.HighInformNLS( User,
+			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
 			"This plant is already fully harvested. Give it time to grow again." );
 			if ( changeItem ) then
 				world:changeItem(TargetItem);
@@ -136,17 +136,17 @@ function UseItem(User, SourceItem, ltstate)
 		end
 	elseif ( amount == 0 and harvestProduct.isFarmingItem ) then
 		-- this is a farming item, it can't regrow
-		base.common.HighInformNLS( User, 
-		"Hier kannst du nichts ernten.", 
+		base.common.HighInformNLS( User,
+		"Hier kannst du nichts ernten.",
 		"There is nothing you can harvest." );
 		if ( changeItem ) then
 			world:changeItem(TargetItem);
 		end
 		return;
 	end
-	
+
 	-- since we're here, there is something we can harvest
-	
+
 	local theCraft = content.gathering.herbgathering;
 	if ( harvestProduct.isFarmingItem ) then
 		theCraft = content.gathering.farming;
@@ -207,7 +207,7 @@ function UseItem(User, SourceItem, ltstate)
 		changeItem = true;
 		-- and update the next regrow
 		local regrowOk = false;
-		for i=1,MaxAmount do 
+		for i=1,MaxAmount do
 			local t = TargetItem:getData("next_regrow_" .. i);
 			-- look for a free slot
 			if ( t == "") then
@@ -231,7 +231,7 @@ function UseItem(User, SourceItem, ltstate)
   if ( changeItem ) then
 		world:changeItem(TargetItem);
 	end
-  
+
 	-- since we're here, everything should be alright
 	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], theCraft.LearnLimit);
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
@@ -251,11 +251,11 @@ function UseItem(User, SourceItem, ltstate)
 			User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
 		elseif ( not harvestProduct.isFarmingItem ) then -- no items left
 			base.common.HighInformNLS(User,
-			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
+			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
 			"This plant is already fully harvested. Give it time to grow again." );
     else
-      base.common.HighInformNLS( User, 
-      "Hier ist nichts mehr, was du mit der Sichel ernten kannst.", 
+      base.common.HighInformNLS( User,
+      "Hier ist nichts mehr, was du mit der Sichel ernten kannst.",
       "There is nothing anymore which you can harvest with the sickle." );
 		end
 	end
@@ -277,7 +277,7 @@ function GetValidProduct(TargetItem, OnlyFarming, OnlyNonFarming)
     return harvestProduct;
   end
   local GroundType = base.common.GetGroundType(world:getField(TargetItem.pos):tile());
-	for _,hp in pairs(HarvestItems[TargetItem.id]) do 
+	for _,hp in pairs(HarvestItems[TargetItem.id]) do
 		if (hp.groundType == nil or GroundType == hp.groundType) then
 			if (((not OnlyFarming) or hp.isFarmingItem) and ((not OnlyNonFarming) or (not hp.isFarmingItem))) then
         harvestProduct = hp;
@@ -290,7 +290,7 @@ end
 
 function IsRegrown(Item)
   local serverTime = world:getTime("unix");
-  for i=1,MaxAmount do 
+  for i=1,MaxAmount do
     local t = Item:getData("next_regrow_" .. i);
     if ( t ~= "" and tonumber(t) <= serverTime ) then
       -- At least one slot is regrown.
@@ -311,7 +311,7 @@ function GetHarvestItem(User, OnlyValidProducts, OnlyFarming, OnlyNonFarming)
   end
   local Radius = 1;
   for x=-Radius,Radius do
-    for y=-Radius,Radius do 
+    for y=-Radius,Radius do
       local checkPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
       if (world:isItemOnField(checkPos)) then
         local item = world:getItemOnField(checkPos);
@@ -349,10 +349,10 @@ function InitHarvestItems()
 	-- some definitions
 	MaxAmount = 10;
 	RegrowTime = 300;
-	
+
     -- just for short writing
     local gt = base.common.GroundType;
-    
+
 	-- herbs marked with TODO probably have the wrong name in the database. Correct names in German are given in the old list below
     -- druid herbs
     HarvestItems[273] = {                                   -- flower
@@ -363,84 +363,100 @@ function InitHarvestItems()
     CreateHarvestProduct(763, gt.dirt),                          -- mash flower
     CreateHarvestProduct(767, gt.water)                          -- water blossom
 	}
-    
+
     HarvestItems[274] = {                                   -- fern
     CreateHarvestProduct(140, gt.forest),                        -- donf blade
     CreateHarvestProduct(156, gt.sand),                          -- steppe fern
     CreateHarvestProduct(153, gt.grass),                         -- foot leaf
     CreateHarvestProduct(752, gt.rock)                         -- mandrake
 	}
-    
+
     HarvestItems[301] = {                                   -- hedge
     CreateHarvestProduct(147, gt.forest),                        -- blackberry
     CreateHarvestProduct(142, gt.sand),                          -- sandberry
     CreateHarvestProduct(143, gt.grass),                         -- red elder
     CreateHarvestProduct(136, gt.dirt)                          -- anger berry
     }
-    
+
     HarvestItems[338] = {                                   -- reed
     CreateHarvestProduct(134, gt.grass),                         -- fourleafed oneberry
     CreateHarvestProduct(155, gt.water)                         -- sibanac leaf
     }
-    
+
     HarvestItems[1782] = {                                   -- grass
     CreateHarvestProduct(151, gt.forest),                        -- strawberry
     CreateHarvestProduct(141, gt.rocks),                         -- black thistle
     CreateHarvestProduct(145, gt.grass)                         -- heath flower
     }
-    
+
     HarvestItems[1783] = {                                   -- grass
     CreateHarvestProduct(151, gt.forest),                        -- strawberry
     CreateHarvestProduct(141, gt.rocks),                         -- black thistle
     CreateHarvestProduct(145, gt.grass)                         -- heath flower
     }
-	
+
     HarvestItems[1791] = {                                   -- sunflower
     CreateHarvestProduct(133, nil)                         -- sun herb
     }
-    
+
     HarvestItems[1807] = {                                   -- blooming ceridern
     CreateHarvestProduct(753, nil)                             -- blue bird's berry
     }
-    
+
     -- mushrooms
 	HarvestItems[159] = {									-- toadstool
     CreateHarvestProduct(159, nil)								-- toadstool
     }
-	
+
 	HarvestItems[160] = {									-- red head
     CreateHarvestProduct(160, nil)								-- red head
     }
-	
+
 	HarvestItems[161] = {									-- herder's mushroom
     CreateHarvestProduct(161, nil)								-- herder's mushroom
     }
-	
+
 	HarvestItems[162] = {									-- birth mushroom
     CreateHarvestProduct(162, nil)								-- birth mushroom
     }
-	
+
 	HarvestItems[421] = {									-- bulbsponge mushroom
     CreateHarvestProduct(158, nil)								-- bulbsponge mushroom
     }
-	
+
 	HarvestItems[158] = {									-- bulbsponge mushroom
     CreateHarvestProduct(158, nil)								-- bulbsponge mushroom
     }
-	
+
 	HarvestItems[1790] = {									-- mushroom circle
     CreateHarvestProduct(163, nil)								-- champignon
     }
-    
+
     -- helper herb
-    HarvestItems[2169] = {									-- old log
-    CreateHarvestProduct(157, nil)						-- rotten tree bark
+	HarvestItems[2169] = {									-- old log
+	CreateHarvestProduct(157, nil)						-- rotten tree bark
 	}
-	
+
 	HarvestItems[2170] = {									-- old log
-    CreateHarvestProduct(157, nil)  						-- rotten tree bark
+	CreateHarvestProduct(157, nil)  						-- rotten tree bark
 	}
-	
+
+	HarvestItems[1156] = {									-- old log
+	CreateHarvestProduct(157, nil)						-- rotten tree bark
+	}
+
+	HarvestItems[1157] = {									-- old log
+	CreateHarvestProduct(157, nil)  						-- rotten tree bark
+	}
+
+	HarvestItems[1158] = {									-- old log
+	CreateHarvestProduct(157, nil)						-- rotten tree bark
+	}
+
+	HarvestItems[1159] = {									-- old log
+	CreateHarvestProduct(157, nil)  						-- rotten tree bark
+	}
+
 	-- field crops
 	HarvestItems[290] = {									-- cabbage
     CreateHarvestProduct(290, nil, nil, true)					-- cabbage
@@ -485,7 +501,7 @@ function InitHarvestItems()
   HarvestItems[291] = {								  -- withered cabbage (seeds)
     CreateHarvestProduct(291, nil, nil, true)
     }
-	
+
 	-- anything else
 	HarvestItems[308] = {									-- fir tree
     CreateHarvestProduct(149, nil)								-- fir tree sprout
@@ -496,7 +512,7 @@ function InitHarvestItems()
 	HarvestItems[1813] = {									-- palm tree
     CreateHarvestProduct(80, gt.sand)							-- banana
     }
-	
+
 	HarvestItems[ 1809 ] = {								-- eldan oak
 	CreateHarvestProduct(759, nil, {0.5,0.5,0.5,0.5})			-- nuts (was actually in harvest.lua with 20 MaxAmount, so just let it regrow twice as fast)
 	}
