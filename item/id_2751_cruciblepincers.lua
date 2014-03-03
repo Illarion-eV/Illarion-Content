@@ -20,9 +20,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 require("base.licence")
 require("content.gatheringcraft.oremelting")
 require("content.gatheringcraft.waxproducing")
+require("item.general.metal")
 
 module("item.id_2751_cruciblepincers", package.seeall)
 
+LookAtItem = item.general.metal.LookAtItem
 
 function getFurnace(User)
 	furnaces = {}

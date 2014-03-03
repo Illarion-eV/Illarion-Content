@@ -19,8 +19,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 require("base.licence")
 require("content.gatheringcraft.leatherproducing")
+require("item.general.metal")
 
 module("item.id_2746_razorblade", package.seeall)
+
+LookAtItem = item.general.metal.LookAtItem
 
 function getStretcher(User)
 

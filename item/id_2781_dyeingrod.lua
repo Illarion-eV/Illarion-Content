@@ -19,8 +19,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 require("base.licence")
 require("content.gatheringcraft.dyeing")
+require("item.general.wood")
 
 module("item.id_2781_dyeingrod", package.seeall)
+
+LookAtItem = item.general.wood.LookAtItem
 
 function getBarrel(User)
 

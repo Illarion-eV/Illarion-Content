@@ -19,8 +19,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 require("base.licence")
 require("content.gatheringcraft.bricksproducing")
+require("item.general.wood")
 
 module("item.id_734_brickmould", package.seeall)
+
+LookAtItem = item.general.wood.LookAtItem
 
 function getOven(User)
 

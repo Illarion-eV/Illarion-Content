@@ -19,8 +19,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 require("base.licence")
 require("content.gatheringcraft.boardproducing")
+require("item.general.metal")
 
 module("item.id_9_saw", package.seeall)
+
+LookAtItem = item.general.metal.LookAtItem
 
 function getWorkbench(User)
 	workbenches = {}
