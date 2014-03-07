@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- flail ( 258 )
 
@@ -25,6 +25,8 @@ require("base.common")
 require("content.gathering")
 
 module("item.id_258_flail", package.seeall, package.seeall(item.general.wood))
+
+LookAtItem = item.general.wood.LookAtItem
 
 function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
@@ -46,7 +48,7 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-	
+
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
 		base.common.HighInformNLS( User,
 		"Du musst den Dreschflegel in der Hand haben!",
@@ -59,12 +61,12 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 	if (User:countItemAt("all",249)==0) then -- check for items to work on
-		base.common.HighInformNLS( User, 
-		"Du brauchst Getreidebündel um Getreide zu dreschen.", 
+		base.common.HighInformNLS( User,
+		"Du brauchst Getreidebündel um Getreide zu dreschen.",
 		"You need bundles of grain for flailing grain." );
 		return;
 	end
-	
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		flailing.SavedWorkTime[User.id] = flailing:GenWorkTime(User,SourceItem);
 		User:startAction( flailing.SavedWorkTime[User.id], 0, 0, 0, 0);
@@ -113,8 +115,4 @@ function UseItem(User, SourceItem, ltstate)
 		"Your old flail breaks.");
 		return
 	end
-end
-
-function LookAtItem(User,Item)
-    item.general.wood.LookAtItem(User,Item)
 end

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- mining mit Spitzhacke
 
@@ -39,32 +39,29 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE common SET com_agingspeed = 255, com_objectafterrot = 1250 WHERE com_itemid = 1250;
 -- UPDATE common SET com_agingspeed =  10, com_objectafterrot = 1250 WHERE com_itemid = 1251;
 
-require("item.general.metal")
 require("base.common")
 require("base.treasure")
 require("content.gathering")
 require("base.gatheringcraft")
 require("base.lookat")
 
-module("item.id_2763_pickaxe", package.seeall, package.seeall(item.general.metal))
+module("item.id_2763_pickaxe", package.seeall)
 
 function LookAtItem(User,Item)
 
-     world:itemInform(User,Item,base.lookat.GetItemDescription(User,Item,1,false,false ));
+	world:itemInform(User, Item, base.lookat.GetItemDescription(User, Item, base.lookat.METAL));
 
 	--Noobia addition by Estralis: Examining a pick-axe is a task of NPC Aldania
-
-    if User:getQuestProgress(310)==3 and Item.id==2763 and User:isInRangeToPosition((position (52,24,100)),20) then --only invoked if the user has the quest, examines a pick-axe and is in range of the NPC
+	if User:getQuestProgress(310)==3 and Item.id==2763 and User:isInRangeToPosition((position (52,24,100)),20) then --only invoked if the user has the quest, examines a pick-axe and is in range of the NPC
 		User:setQuestProgress(310,4); --Connection to easyNPC
 		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
 		for i, Aldania in pairs(NPCList) do
-		    base.common.TalkNLS(Aldania, Character.say, "Gegenstände können von unterschiedlicher Güte sein, denk daran, wenn du über sie verhandelst. Meine letzte Lektion ist das Benutzen von Gegenständen. Nimm diese Fackel und entzünde sie!", "See, items can be of differing quality. Keep this in mind when you are negotiating a trade with a merchant. My final lesson is on how to use items. I have given you a torch, try lighting it!");
-		    User:createItem(391,1,333,nil); --Torch
+			base.common.TalkNLS(Aldania, Character.say, "Gegenstände können von unterschiedlicher Güte sein, denk daran, wenn du über sie verhandelst. Meine letzte Lektion ist das Benutzen von Gegenständen. Nimm diese Fackel und entzünde sie!", "See, items can be of differing quality. Keep this in mind when you are negotiating a trade with a merchant. My final lesson is on how to use items. I have given you a torch, try lighting it!");
+			User:createItem(391,1,333,nil); --Torch
 		end
-	    base.common.InformNLS( User,"[Tutorial] Du kannst einen Gegenstand mit einerm Doppelklick benutzen. Doppelklicke die Fackel in deinem Inventar, um sie zu entzünden.","[Tutorial] You can perform a double click on an item to use it. Double click the torch in your inventory to ignite it." );
+		base.common.InformNLS( User,"[Tutorial] Du kannst einen Gegenstand mit einerm Doppelklick benutzen. Doppelklicke die Fackel in deinem Inventar, um sie zu entzünden.","[Tutorial] You can perform a double click on an item to use it. Double click the torch in your inventory to ignite it." );
 	end
-
---Noobia end
+	--Noobia end
 end
 
 function MoveItemAfterMove(User,SourceItem,TargetItem)

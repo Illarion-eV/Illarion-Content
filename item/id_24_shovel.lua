@@ -17,8 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE common SET com_script='item.id_24_shovel' WHERE com_itemid=24;
 
 require("base.common")
-require("item.general.metal")
 require("base.treasure")
+require("item.general.metal")
 require("content.gathering")
 
 module("item.id_24_shovel", package.seeall, package.seeall(item.general.metal))
