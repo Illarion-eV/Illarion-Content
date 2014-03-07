@@ -104,9 +104,9 @@ function StartGathering(User, SourceItem, ltstate)
 	local chance = math.random(1,10);
 	-- 40% for salmon, 60% for trout
 	if (chance <= 4) then
-		fishID = 73; -- salmon
+		fishID = 355; -- salmon
 	else
-		fishID = 355; -- trout;
+		fishID =73; -- trout;
 	end
 
 	-- GFX + Sound for a splash
