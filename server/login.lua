@@ -84,7 +84,7 @@ messageG[52]="[Tipp] Wenn du Probleme bei der Kommunikation mit einem NPC hast, 
 messageG[53]="[Tipp] Obstbäume haben schon so manchen hungrigen Abenteurer gerettet. Allerdings ist ein schmackhafteres Mahl stets vorzuziehen.";
 messageG[54]="[Tipp] Es gibt viele Möglichkeiten, seinen Charakter zu bewegen: Die linke Maustaste, die Pfeiltasten, den Ziffernblock und WASD.";
 messageG[55]="[Tipp] Einen NPC nach einer 'Mission' zu fragen ist ein guter Weg um ein paar einfache Münzen zu verdienen.";
-messageG[56]="[Tipp] Scheue dich nicht, andere Spieler um Hilfe zu bitten. Behandle sie mit Respekt und verwende so weit möglich den out-of-character-Modus (#o).";
+messageG[56]="[Tipp] Scheue dich nicht, andere Spieler um Hilfe zu bitten. Behandle sie mit Respekt und verwende den out-of-character-Modus (#o), wenn nötig.";
 messageG[57]="[Tipp] Mit #i stellst du deinen Charakter anderen Spielern vor. Diese erfahren so den Namen deines Charakters.";
 messageG[58]="[Tipp] Der Illarion-Chat ist auf der Homepage verlinkt. Du erhältst dort technische Unterstützung oder kannst einfach andere Spieler kennenlernen.";
 messageG[59]="[Tipp] Der Vollbildmodus kann im Optionsmenü des Clients aktiviert werden.";
@@ -95,7 +95,16 @@ messageG[63]="[Tipp] Laufen ist schneller als Gehen - halte die linke Maustaste 
 messageG[64]="[Tipp] Die meisten NPCs reagieren auf 'Hilfe' mit der Ausgabe einer Liste ihrer wichtigsten Schlüsselwörter."
 messageG[65]="[Tipp] Die Fertigkeiten deines Charakters kannst du aufrufen, indem du 'C' drückst."
 messageG[66]="[Tipp] Ein Stapel von Gegenständen läßt sich durch Halten der Shift-Taste beim Bewegen auflösen."
---messageG[67]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
+messageG[67]="[Tipp] Hast du dir schon Gedanken zum Hintergrund und zur Vergangenheit deines Charakters gemnacht? Die Illarion-Homepage enthält eine Menge nützliche Informationen über Rassen, Götter und die Geschichte Illarions."
+messageG[68]="[Tipp] Sollte dein Charakter Hunger bekommen, so pflücke ein paar Früchte indem du einen Obstbaum benutzt. Früchte werden gegessen, indem man sie benutzt."
+messageG[69]="[Tipp] Brauchst du Hilfe? Schreibe '!gm Deine Frage' und drücke Return. Sobald ein Gamemaster verfügbar ist wird er dir helfen."
+messageG[70]="[Tipp] Um laut zu rufen, schreibe #s vor deine Nachricht. Um zu flüstern, verwende #w. Für den 'Out-of-character'-Modus verwendest du #o."
+messageG[71]="[Tipp] Klicke und halte die linke Maustaste auf ein weit entferntes Feld um zu laufen."
+messageG[72]="[Tipp] Um deinen Charakter anderen Charakteren vorzustellen, schreibe #i in die Chatbox und drücke Return. Spieler in der näheren Umgebung werden so den Namen deines Charakters erfahren."
+messageG[73]="[Tipp] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Eine List der wichtigsten Schlüsselwörter erhältst du als Antwort auf 'Hilfe'."
+messageG[74]="[Tipp] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du großen Reichtum erlangen."
+messageG[75]="[Tipp] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier."
+--messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
 --English
 messageE={};
@@ -165,7 +174,16 @@ messageE[63]="[Hint] Running is faster than walking - hold down the left mouse b
 messageE[64]="[Hint] Most NPCs react on 'help' with a list of their most important keywords.";
 messageE[65]="[Hint] You can review the skills of your character by hitting 'C'.";
 messageE[66]="[Hint] To split a stack of items, hold shift while moving it.";
---messageE[67]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard.";
+messageE[67]="[Hint] Did you already think about the background and past of your character? The illarion.org homepage contains a lot of information on the races, the gods, and the lore of Illarion."
+messageE[68]="[Hint] If your character ever gets hungry, just harvest some fruits by using a fruit tree. You can then eat the fruits by using them."
+messageE[69]="[Hint] Do you need help? Type '!gm <your question>' and hit enter. As soon as a Gamemaster is available, they will assist you."
+messageE[70]="[Hint] To shout, type #s in front of your message. To whisper, use #w. And use #o for the out of character mode."
+messageE[71]="[Hint] Click and hold the left mouse button while pointing at a distant field to make your character run."
+messageE[72]="[Hint] If you want to introduce your character to other players, type #i in the chatbox and hit return. The players around you will then be able to see your character's name."
+messageE[73]="[Hint] All NPCs react on a number of keywords. You can get a list of the most important keywords for a particular NPC with the command 'help'."
+messageE[74]="[Hint] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy."
+messageE[75]="[Hint] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your character is, and the blue bar shows the mana level of mage characters."
+--messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard.";
 
 -- messages of the day - END
 
@@ -231,7 +249,7 @@ function onLogin( player )
 	end
 
 	--Taxes (has to be redone by "someone")
-	if not player:isAdmin()  and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
+	if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
 		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
 			-- So let there be taxes!
 			local taxText = payTaxes(player);
@@ -281,12 +299,10 @@ function onLogin( player )
 
     end --Noobia end
 
-    if (not base.common.IsOnNoobia(player.pos)) then --Not on Noobia, confuses noobs
+	--Messages of the day
+	dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
+    player:inform(messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
 
-		--Messages of the day
-		dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
-	    player:inform(messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
-    end
 
 	if player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan" then
 		exchangeFactionLeader( player.name );
