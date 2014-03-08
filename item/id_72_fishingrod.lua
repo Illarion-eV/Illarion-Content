@@ -64,8 +64,6 @@ function getShoal(User)
 	return nil;
 end
 
-
-
 function UseItem(User, SourceItem, ltstate)
 
 	if (getWaterTilePosition(User) == nil) then -- fishing only possible on water tiles

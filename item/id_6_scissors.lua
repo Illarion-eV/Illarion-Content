@@ -19,10 +19,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- sheep (monster 18) --> wool (170)
 -- entrails (63) --> thread (50)
 
-require("item.general.metal")
 require("item.base.crafts")
+require("item.general.metal")
 
 module("item.id_6_scissors", package.seeall)
+
+LookAtItem = item.general.metal.LookAtItem
 
 function UseItem(User, SourceItem, ltstate)
 	-- first decide if we're cutting wool or entrails
@@ -239,8 +241,4 @@ function UseItemEntrailsCutting( User, SourceItem, ltstate )
 		"Your old scissors break.");
 		return
 	end
-end
-
-function LookAtItem(User,Item)
-    item.general.metal.LookAtItem(User,Item)
 end

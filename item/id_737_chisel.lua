@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Chisel ( 737 )
 
@@ -24,7 +24,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 require("item.general.metal")
 require("item.base.crafts")
 
-module("item.id_737_chisel", package.seeall, package.seeall(item.general.metal))
+module("item.id_737_chisel", package.seeall)
+
+LookAtItem = item.general.metal.LookAtItem
 
 function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
@@ -39,7 +41,7 @@ function UseItem(User, SourceItem, ltstate)
 		Stones[735].amount = 1;
 		Stones[735].nameDE = "rohen Steine";
 		Stones[735].nameEN = "raw stones";
-		
+
 		Stones[733] = {};
 		Stones[733].productId = 1266;
 		Stones[733].amount = 10;
@@ -63,7 +65,7 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-	
+
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
 		base.common.HighInformNLS( User,
 		"Du musst den Meißel in der Hand haben!",
@@ -74,16 +76,16 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.FitForWork( User ) then -- check minimal food points
 		return
 	end
-	
+
 	-- any other checks?
 
 	if (User:countItemAt("all",733)==0 and User:countItemAt("all",735)==0) then -- check for items to work on
-		base.common.HighInformNLS( User, 
-		"Du brauchst rohe Steine oder Steinquader um sie zu behauen.", 
+		base.common.HighInformNLS( User,
+		"Du brauchst rohe Steine oder Steinquader um sie zu behauen.",
 		"You need raw stones or stone blocks for cutting them." );
 		return;
 	end
-	
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		stonecutting.SavedWorkTime[User.id] = stonecutting:GenWorkTime(User,SourceItem);
 		User:startAction( stonecutting.SavedWorkTime[User.id], 0, 0, 0, 0);
@@ -100,8 +102,8 @@ function UseItem(User, SourceItem, ltstate)
 	-- since we're here, we're working
 	-- But do we still have the stone type we're really working on?
 	if ( User:countItemAt("all",WorkOnStone[User.id]) == 0 ) then
-		base.common.HighInformNLS( User, 
-		"Du hast keine " .. Stones[WorkOnStone[User.id]].nameDE .. " mehr.", 
+		base.common.HighInformNLS( User,
+		"Du hast keine " .. Stones[WorkOnStone[User.id]].nameDE .. " mehr.",
 		"You have no " .. Stones[WorkOnStone[User.id]].nameEN .. " anymore." );
 		return;
 	end
@@ -123,8 +125,8 @@ function UseItem(User, SourceItem, ltstate)
 			stonecutting.SavedWorkTime[User.id] = stonecutting:GenWorkTime(User,SourceItem);
 			User:startAction( stonecutting.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.HighInformNLS( User, 
-			"Du hast keine " .. Stones[WorkOnStone[User.id]].nameDE .. " mehr.", 
+			base.common.HighInformNLS( User,
+			"Du hast keine " .. Stones[WorkOnStone[User.id]].nameDE .. " mehr.",
 			"You have no " .. Stones[WorkOnStone[User.id]].nameEN .. " anymore." );
 		end
 	end
@@ -135,8 +137,4 @@ function UseItem(User, SourceItem, ltstate)
 		"Your old chisel breaks.");
 		return
 	end
-end
-
-function LookAtItem(User,Item)
-    item.general.metal.LookAtItem(User,Item)
 end

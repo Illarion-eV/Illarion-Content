@@ -12,13 +12,13 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='item.id_24_shovel' WHERE com_itemid=24;
 
 require("base.common")
-require("item.general.metal")
 require("base.treasure")
+require("item.general.metal")
 require("content.gathering")
 
 module("item.id_24_shovel", package.seeall, package.seeall(item.general.metal))
@@ -31,7 +31,7 @@ function UseItem(User, SourceItem, ltstate)
 	if ( StoneList == nil ) then
 		StoneList={ 914, 915, 1245, 1246, 1273, 1276 };
 	end
-	
+
 	local TargetPos = base.common.GetFrontPosition(User);
 	local groundTile = world:getField( TargetPos ):tile();
     local groundType = base.common.GetGroundType( groundTile );
@@ -53,7 +53,7 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-	
+
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
 		base.common.HighInformNLS( User,
 		"Du musst die Schaufel in der Hand haben!",
@@ -68,7 +68,7 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.IsLookingAt( User, TargetPos ) then -- check looking direction
 		base.common.TurnTo( User, TargetPos ); -- turn if necessary
 	end
-	
+
 	-- first check for a treasure
 	if (groundType ~= gt.rocks) and
 			base.treasure.DigForTreasure( User, TargetPos, (User:getSkill(Character.mining)/10)+1,
@@ -78,7 +78,7 @@ function UseItem(User, SourceItem, ltstate)
 			false ) then
 		return;
     end
-	
+
 	-- neither sand nor dirt => find nothing
     if (( groundType ~= gt.sand ) and ( groundType ~= gt.dirt )) then
         if ( groundType == gt.field ) then
@@ -108,9 +108,9 @@ function UseItem(User, SourceItem, ltstate)
         end
         return
     end
-	
+
 	-- since we're here, we're digging in sand or dirt
-	
+
 	-- check location, only succeed if there is a stone / water nearby
 	if not LocationCheck(TargetPos,groundType, User) then
         if ( groundType == gt.sand ) then
@@ -125,7 +125,7 @@ function UseItem(User, SourceItem, ltstate)
             return
         end
     end
-	
+
 	local theCraft;
 	local digForDE, digForEN, digForID;
 	if ( groundType == gt.sand ) then
@@ -154,8 +154,7 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], theCraft.LearnLimit);
-	local amount = math.random(1,4); -- set the amount of items that are produced
-	local notCreated = User:createItem( digForID, amount, 333, nil ); -- create the new produced items
+	local notCreated = User:createItem( digForID, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( digForID, notCreated, User.pos, true, 333, nil );
 		base.common.HighInformNLS(User,

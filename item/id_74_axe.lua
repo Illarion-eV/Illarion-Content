@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- lumberjacking
 -- UPDATE common SET com_script='item.id_74_axe' WHERE com_itemid IN (74,2946);
@@ -23,11 +23,13 @@ require("content.gathering")
 
 module("item.id_74_axe", package.seeall)
 
+LookAtItem = item.general.metal.LookAtItem
+
 function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	InitTreeItems();
 	local woodchopping = content.gathering.woodchopping;
-	
+
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
@@ -44,7 +46,7 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-	
+
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
 		base.common.HighInformNLS( User,
 		"Du musst das Beil in der Hand haben!",
@@ -59,8 +61,8 @@ function UseItem(User, SourceItem, ltstate)
 	-- check for tree
 	local TargetItem = base.common.GetFrontItem(User);
 	if ( TargetItem == nil ) then -- if there is no front item, check for nearby tree
-		for x=-1,1 do 
-			for y=-1,1 do 
+		for x=-1,1 do
+			for y=-1,1 do
 				local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
 				if ( world:isItemOnField(pos) ) then
 					TargetItem = world:getItemOnField(pos);
@@ -81,26 +83,26 @@ function UseItem(User, SourceItem, ltstate)
 		"For chopping wood you have to go to a tree." );
 		return;
 	end
-	
+
 	if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
 		base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
 	end
-	
+
 	local tree = TreeItems[TargetItem.id];
-	
+
 	if tree == nil then
 		base.common.HighInformNLS( User,
 		"Du kannst diese Baumart nicht fällen.",
 		"You cannot cut down this kind of tree." );
 		return;
 	end;
-	
+
 	-- check if it is a special and therefore uncuttable tree
 	if TargetItem:getData("uncuttableTree") ~= "" then
 	    preventCutting(User, SourceItem, TargetItem)
 		return
-	end	
-	
+	end
+
 	-- any other checks?
 	local changeItem = false;
 	local amount = TargetItem:getData("wood_amount");
@@ -111,7 +113,7 @@ function UseItem(User, SourceItem, ltstate)
 	else
 		amount = tonumber(amount);
 	end
-	
+
 	if ( amount <= 0 ) then
 		-- should never happen, but handle it nevertheless
 		world:erase(TargetItem, TargetItem.number);
@@ -121,7 +123,7 @@ function UseItem(User, SourceItem, ltstate)
 		"There is no wood anymore that you can chop. Give the tree time to grow again." );
 		return;
 	end
-	
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		woodchopping.SavedWorkTime[User.id] = woodchopping:GenWorkTime(User,SourceItem);
 		User:startAction( woodchopping.SavedWorkTime[User.id], 0, 0, 6, 0);
@@ -183,7 +185,7 @@ function InitTreeItems()
 		return;
 	end
 	TreeItems = {};
-	
+
 	AddTree(  11,125,2560,  56,10,0.4); -- apple tree
     AddTree(  14,125,2560,  56,10,0.4); -- apple tree
     AddTree( 299,541, 543,2786,15,0.4); -- cherry tree
@@ -207,53 +209,23 @@ end
 
 function preventCutting(User, theAxe, theTree)
     local effectId = tonumber(theTree:getData("uncuttableTree"))
-	
+
 	-- security check
 	if effectId == nil then
 	    return
-	end	
-	
+	end
+
 	local textInDe, textInEn
 	if effectId == 1 then
 	    world:gfx(2,User.pos)
 		world:makeSound(13,User.pos)
-		textInDe = "Aus heiterem Himmel wirst du von einem Blitz getroffen!" 
+		textInDe = "Aus heiterem Himmel wirst du von einem Blitz getroffen!"
 		textInEn = "Out of the blue, you are struck by lightning!"
 		User:increaseAttrib("hitpoints",-3000)
 	else
-        textInDe = "Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten." 
+        textInDe = "Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten."
 		textInEn = "As you strike out, you nearly drop the hatchet. You barely keep hold of it"
-	end	
+	end
     User:inform(textInDe, textInEn, Character.highPriority)
 
-end
---[[ old lists
-function initLists(  )
-    -- Initialisierung der Listen
-    if (trees ~= nil) then
-        return
-    end
-    trees = { };
-    logs = { };
-    AddTree(  11,125,560,561,562,563,2560,10,  56); -- Apfelbaum
-    AddTree(  14,125,560,561,562,563,2560,10,  56); -- Apfelbaum
-    AddTree( 299,541,564,565,566,567, 543,15,2786); -- Kirschbaum
-    AddTree( 300,541,564,565,566,567, 543,15,2786); -- Kirschbaum
-    AddTree( 308,309,572,573,574,575,   3,12,   0); -- Tanne
-    AddTree( 586,587,592,593,594,595, 544,10,  56); -- Cachdern-Baum
-    AddTree(1804,542,568,569,570,571, 544,15,  56); -- Naldorbaum
-    AddTree(1809,584,576,577,578,579, 544,24,  56); -- Alter Naldorbaum
-    AddTree(1817,585,580,581,582,583,   3,19,   0); -- Nadelbaum
-end -- function initLists
-
-function AddTree(TreeID,StumpID,NLog,OLog,SLog,WLog,Logs,maxLogs,bough)
-    trees[ TreeID ] = { StumpID, NLog, OLog, SLog, WLog, maxLogs };
-    logs[ NLog ] = {Logs,bough};
-    logs[ OLog ] = {Logs,bough};
-    logs[ SLog ] = {Logs,bough};
-    logs[ WLog ] = {Logs,bough};
-end
---]]
-function LookAtItem(User,Item)
-    item.general.metal.LookAtItem(User,Item)
 end

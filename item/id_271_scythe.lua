@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- scythe ( 271 )
 
@@ -24,7 +24,7 @@ require("base.common")
 require("item.general.metal")
 require("content.gathering")
 
-module("item.id_271_scythe", package.seeall, package.seeall(item.general.metal))
+module("item.id_271_scythe", package.seeall)
 
 LookAtItem = item.general.metal.LookAtItem
 

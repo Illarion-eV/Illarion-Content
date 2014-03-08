@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- wax (431) --> candles (43)
 
@@ -27,14 +27,16 @@ require("base.licence")
 
 module("item.id_429_candlemold", package.seeall)
 
+LookAtItem = item.general.wood.LookAtItem
+
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+	if base.licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
 	content.gathering.InitGathering();
 	local candleproducing = content.gathering.candleproducing;
-	
+
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
@@ -51,7 +53,7 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-  
+
   -- check for some static item around
   local staticTool = base.common.GetItemInArea(User.pos, 428);
   if (staticTool == nil) then
@@ -60,7 +62,7 @@ function UseItem(User, SourceItem, ltstate)
     "You have to work at a chandler table!" );
     return;
   end
-	
+
 	if (SourceItem:getType() ~= 4) then -- tool in hand
 		base.common.HighInformNLS( User,
 		"Du musst die Kerzenform in der Hand haben!",
@@ -75,16 +77,16 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.IsLookingAt( User, staticTool.pos ) then -- check looking direction
 		base.common.TurnTo( User, staticTool.pos ); -- turn if necessary
 	end
-	
+
 	-- any other checks?
 
 	if (User:countItemAt("all",431)==0) then -- check for items to work on
-		base.common.HighInformNLS( User, 
-		"Du brauchst Wachs um Kerzen herzustellen.", 
+		base.common.HighInformNLS( User,
+		"Du brauchst Wachs um Kerzen herzustellen.",
 		"You need wax for producing candles." );
 		return;
 	end
-	
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		candleproducing.SavedWorkTime[User.id] = candleproducing:GenWorkTime(User,SourceItem);
 		User:startAction( candleproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
@@ -124,8 +126,4 @@ function UseItem(User, SourceItem, ltstate)
 		"Your old candle mold breaks.");
 		return
 	end
-end
-
-function LookAtItem(User,Item)
-  item.general.wood.LookAtItem(User,Item)
 end

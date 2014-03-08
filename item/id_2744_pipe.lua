@@ -12,17 +12,16 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- I_2744_pfeife.lua
---
+-- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
+
 require("base.common")
 require("item.general.wood")
 
-module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
+module("item.id_2744_pipe", package.seeall)
 
--- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
-
+LookAtItem = item.general.wood.LookAtItem
 
 function UseItem(User, SourceItem)
 	--local ammountSib = User:countItemAt("belt",155);
@@ -31,12 +30,12 @@ function UseItem(User, SourceItem)
 		base.common.InformNLS( User,
         "Du benötigst Sibanac-Blätter oder Tabak, um Pfeife rauchen zu können.",
         "You need sibanac-leaves or tobacco to smoke a pipe." );
-		
-		
-	elseif (User:countItemAt("belt",155) ~= 0) then 
+
+
+	elseif (User:countItemAt("belt",155) ~= 0) then
 		User:talk(Character.say, "#me nimmt einen tiefen Zug von der Pfeife.", "#me takes a deep drag from the pipe.")
 		User:eraseItem( 155, 1 );
-			
+
 	elseif (User:countItemAt("belt",772) ~= 0) then
 		User:talk(Character.say, "#me nimmt einen tiefen Zug von der Pfeife.", "#me takes a deep drag from the pipe.")
 		User:eraseItem( 772, 1 );
@@ -54,10 +53,4 @@ function UseItem(User, SourceItem)
 			end]]
 
 	end
-end
-
-function LookAtItem(User, Item)
-	
-	local lookat = base.lookat.GetItemDescription(User,Item,2,false,false);
-	world:itemInform(User, Item, lookat)
 end

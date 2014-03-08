@@ -12,20 +12,17 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- Rope
--- reworked to work with new client by Lillian
+-- UPDATE common SET com_script='item.id_2760_rope' WHERE com_itemid=2760;
 
 require("base.common")
-require("base.lookat")
+require("item.general.cloth")
 require("lte.tying_capturer")
-module("item.id_2760_rope", package.seeall)
--- UPDATE common SET com_script='I_2760_seil.lua' WHERE com_itemid=2760;
 
-function LookAtItem(User,Item)
-	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.CLOTH));
-end
+module("item.id_2760_rope", package.seeall)
+
+LookAtItem = item.general.cloth.LookAtItem
 
 function UseItem(User, SourceItem, ltstate)
 

@@ -12,20 +12,22 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='item.id_2715_plane' WHERE com_itemid IN (2715);
 
 require("content.craft.carpentry")
-require("base.lookat")
+require("base.licence")
+require("item.general.wood")
 
 module("item.id_2715_plane", package.seeall)
 
+LookAtItem = item.general.wood.LookAtItem
+
 function UseItem(User, SourceItem, ltstate)
+	if base.licence.licence(User) then --checks if user is citizen or has a licence
+		return -- avoids crafting if user is neither citizen nor has a licence
+	end
+
     content.craft.carpentry.carpentry:showDialog(User, SourceItem)
 end
-
-function LookAtItem(User, Item)
-    world:itemInform(User, Item, base.lookat.GetItemDescription(User, Item, base.lookat.WOOD))
-end
-

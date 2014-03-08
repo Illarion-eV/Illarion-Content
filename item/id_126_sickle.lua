@@ -22,7 +22,7 @@ require("item.general.metal")
 require("base.common")
 require("content.gathering")
 
-module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
+module("item.id_126_sickle", package.seeall)
 
 LookAtItem = item.general.metal.LookAtItem
 
