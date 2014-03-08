@@ -187,6 +187,150 @@ messageE[75]="[Hint] The red bar represents the health of your character. The ye
 
 -- messages of the day - END
 
+function onLogin( player )
+
+	welcomeNewPlayer(player)
+
+	world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
+
+	--General welcome message
+    players=world:getPlayersOnline(); --Reading all players online so we can count them
+
+	if table.getn(players) > 1 then
+
+	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
+
+	else --player is alone
+
+	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist ein Spieler online.","[Login] Welcome to Illarion! There is one player online."); --sending a message
+
+	end
+
+	--Taxes (has to be redone by "someone")
+	if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
+		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
+			-- So let there be taxes!
+			local taxText = payTaxes(player);
+			local gemText = receiveGems(player);
+			if gemText ~= nil or taxText ~= nil then
+				informPlayeraboutTaxandGems(player, gemText, taxText)
+			end
+
+		end
+	end
+
+	--Skill change
+	if player:getSkill(Character.tactics) > 0 or player:getSkill(Character.dodge) > 0 then
+		MergeSkillInform(player);
+	end
+
+	--Noobia handling
+	if (base.common.IsOnNoobia(player.pos)) then --On Noobia
+
+		found, myEffect = player.effects:find(13); --Noob effect
+
+		if not found then --new player!
+
+            newbieEffect = LongTimeEffect(13,1);
+		    player.effects:addEffect(newbieEffect);
+
+		end
+
+		if  player:isInRangeToPosition(position(31,22,100),7) then --only show the dialog if the char is close to the noob spawn
+
+			showNewbieDialog(player);
+
+		end --Dialog
+
+    end --Noobia end
+
+	--Messages of the day
+	dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
+	base.common.InformNLS(player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending a message
+
+	--Exchange leader NPCs if necessary
+	if player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan" then
+		exchangeFactionLeader( player.name );
+	end
+
+	--TEMPORARY SOLUTION TO CATCH BUGGED PLAYERS
+	if player:getMentalCapacity() < 1999 then --Mental Capacity CANNOT drop below 1999 -> Bugged player or cheater
+
+        player:increaseMentalCapacity(2000000); --This is default for new players.
+
+	end
+	--TEMPORARY SOLUTION END
+
+	--IMO a dirty hack to display bars correctly
+	player:increaseAttrib("foodlevel",-1);
+
+	--Check regeneration script
+	find, reg_effect = player.effects:find(2);
+	if not find then
+		player.effects:addEffect( LongTimeEffect(2,10) );
+	end
+
+	--Checking longterm cooldown
+	find, reg_effect = player.effects:find(33);
+	if not find then
+		player.effects:addEffect( LongTimeEffect(33,10) );
+	end
+end
+
+function showNewbieDialog(player)
+
+	local getText = function(deText,enText) return base.common.base.common.GetNLS(player, deText, enText) end
+	
+	local callbackNewbie = function(dialogNewbie) --start callback of Newbie Dialog
+	
+	local callbackSkip = function(dialogSkip) --start of callback of skipping dialog
+		local success = dialogSkip:getSuccess()
+		if success and dialogSkip:getSelectedIndex()==1 then --skipping
+			player:warp(position(36, 97, 100));
+			world:gfx(46, player.pos);
+			if player:getPlayerLanguage() == 0 then --skip message
+				dialogPostSkip = MessageDialog("Einführung", "Du hast entschieden, das Tutorial zu überspringen. Wähle ein Reich aus, welchem dein Charakter zukünftig angehören wird. Gehe hierzu durch eines der Portale auf den kleinen Inseln. Du kannst diese Entscheidung später im Spiel jederzeit revidieren. Viola Baywillow kann dir einiges über die drei Reiche erzählen, frage sie einfach nach 'Hilfe'.", callbackPostSkip);
+			else
+				dialogPostSkip = MessageDialog("Tutorial", "You have decided to skip the tutorial. Please choose which realm you desire to be the home for your character by stepping through the corresponding portal on the three islands. You can reconsider this decision at any time once you have joined the game. Viola Baywillow will provide you with more information on the three available realms, just ask her for 'help'.", callbackPostSkip);
+			end
+	
+		else --continue the tutorial
+			if player:getPlayerLanguage() == 0 then
+				dialogPostSkip = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Bei gehaltener Steuerungstaste läuft dein Charakter.", callbackPostSkip);
+			else
+				dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Holding down the control key makes your character run.", callbackPostSkip);
+			end
+		end
+		
+		local callbackPostSkip = function (dialogPostSkip) end; --empty callback
+		
+		player:requestMessageDialog(dialogPostSkip); --showing the text after skipping dialog
+		
+	end --end of callback of skip dialog
+	
+	local dialogSkip = SelectionDialog(getText("Willkommen zu Illarion!","Welcome to Illarion!"), getText("Die Einführung ist für neue Spieler gedacht. Du kannst es ohne Nachteil auch überspringen.", "The tutorial is recommended for new players. You may skip the tutorial without any disadvantage."), callbackSkip)
+	dialogSkip:addOption(0, getText("Einführung beginnen.","Start the tutorial."))
+	dialogSkip:addOption(0, getText("Einführung überspringen.", "Skip the tutorial."))
+	player:requestSelectionDialog(dialogSkip)
+			
+	end; --end callback of Newbie dialog
+
+	if player:getPlayerLanguage() == 0 then
+	    dialogNewbie = MessageDialog("Willkommen zu Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du gehst von Bord des Schiffes und hast endlich wieder festen Boden unter den Füßen. In diesem Land wirst du vor eine Entscheidung gestellt, die wohl die wichtigste deines Lebens sein wird.\nDas edle Cadomyr, das weise Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen?\n\nWillkommen zu Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen.", callbackNewbie);
+	else
+	    dialogNewbie = MessageDialog("Welcome to Illarion!", "A long, tiresome journey finally comes to an end. You disembark the ship and feel solid ground beneath your feet. In these lands, you will soon be faced with a choice, perhaps the most important of your entire life. Noble Cadomyr, wise Runewick, or wealthy Galmair - whose side shall you join?\n\nWelcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and teach you the controls of the game.", callbackNewbie);
+	end
+			
+	player:requestMessageDialog(dialogNewbie); --showing the welcome text
+	
+end
+
+function setNewbiePos(newbieEffect,Character)
+	newbieEffect:addValue("newbiePosX",Character.pos.x);
+	newbieEffect:addValue("newbiePosY",Character.pos.y);
+	newbieEffect:addValue("newbiePosZ",Character.pos.z);
+end
+
 function welcomeNewPlayer(player)
     if not player:isNewPlayer() then
         player:setQuestProgress(851, 0) -- reset session check for newbie welcome dialog
@@ -229,116 +373,8 @@ function welcomeNewPlayer(player)
 	end
 end
 
-function onLogin( player )
+function payTaxes(taxPayer) --PLEASE use comments! ~Estralis
 
-	welcomeNewPlayer(player)
-
-	world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
-
-	--General welcome message
-    players=world:getPlayersOnline(); --Reading all players online so we can count them
-
-	if table.getn(players) > 1 then
-
-	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
-
-	else --player is alone
-
-	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist ein Spieler online.","[Login] Welcome to Illarion! There is one player online."); --sending a message
-
-	end
-
-	--Taxes (has to be redone by "someone")
-	if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
-		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
-			-- So let there be taxes!
-			local taxText = payTaxes(player);
-			local gemText = receiveGems(player);
-			if gemText ~= nil or taxText ~= nil then
-				informPlayeraboutTaxandGems(player, gemText, taxText)
-			end
-
-		end
-	end
-
-	if player:getSkill(Character.tactics) > 0 or player:getSkill(Character.dodge) > 0 then
-		MergeSkillInform(player);
-	end
-
-	--Noobia handling
-	if (base.common.IsOnNoobia(player.pos)) then --On Noobia
-
-	    if not player:isAdmin() then --non admin chars need help!
-
-            --player:pageGM("This player just logged in on Noobia.");
-
-		end
-
-		found, myEffect = player.effects:find(13); --Noob effect
-
-		if not found then --new player!
-
-            newbieEffect = LongTimeEffect(13,1);
-		    player.effects:addEffect(newbieEffect);
-
-		end
-
-		if  player:isInRangeToPosition(position(31,22,100),7) then --only show the dialog if the char is close to the noob spawn
-
-		    local callbackNewbie = function(dialogNewbie) end; --empty callback
-
-		    if player:getPlayerLanguage() == 0 then
-			    dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du gehst von Bord des Schiffes und hast endlich wieder festen Boden unter den Füßen. In diesem Land wirst du vor eine Entscheidung gestellt, die wohl die wichtigste deines Lebens sein wird.\nDas edle Cadomyr, das weise Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen?\n\nWillkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen indem du 'Tutorial überspringen' zu einem NPC sagst.", callbackNewbie);
-		    else
-			    dialogNewbie = MessageDialog("Welcome to Illarion!", "A long, tiresome journey finally comes to an end. You disembark the ship and feel solid ground beneath your feet. In these lands, you will soon be faced with a choice, perhaps the most important of your entire life. Noble Cadomyr, wise Runewick, or wealthy Galmair - whose side shall you join?\n\nWelcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and teach you the controls of the game. You may skip the tutorial at any time by saying 'skip tutorial' to an NPC.", callbackNewbie);
-		    end
-
-		    player:requestMessageDialog(dialogNewbie); --showing the welcome text
-
-		end --Dialog
-
-    end --Noobia end
-
-	--Messages of the day
-	dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
-    player:inform(messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
-
-
-	if player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan" then
-		exchangeFactionLeader( player.name );
-	end
-
-	--TEMPORARY SOLUTION TO CATCH BUGGED PLAYERS
-	if player:getMentalCapacity() < 1999 then --Mental Capacity CANNOT drop below 1999 -> Bugged player or cheater
-
-        player:increaseMentalCapacity(4000000); --This is default for new players.
-
-	end
-	--TEMPORARY SOLUTION END
-
-	player:increaseAttrib("foodlevel",-1);
-
-	-- Überprüfung für korrekt initiertes Regenerationsskript
-	find, reg_effect = player.effects:find(2);
-	if not find then
-		player.effects:addEffect( LongTimeEffect(2,10) );
-	end
-
-	--Checking longterm cooldown
-	find, reg_effect = player.effects:find(33);
-	if not find then
-		player.effects:addEffect( LongTimeEffect(33,10) );
-	end
-end
-
-function setNewbiePos(newbieEffect,Character)
-	newbieEffect:addValue("newbiePosX",Character.pos.x);
-	newbieEffect:addValue("newbiePosY",Character.pos.y);
-	newbieEffect:addValue("newbiePosZ",Character.pos.z);
-end
-
-
-function payTaxes(taxPayer)
 	local yr=world:getTime("year");
 	local mon=world:getTime("month");
 	local timeStmp=yr*1000+mon;
@@ -352,9 +388,11 @@ function payTaxes(taxPayer)
 		taxPayer:setQuestProgress(123,timeStmp);
 		return payNow(taxPayer)
 	end
+	
 end
 
 function receiveGems(gemRecipient)
+
 	local yr=world:getTime("year");
 	local mon=world:getTime("month"); --- TODO
 	local timeStmp=yr*1000+mon;
@@ -390,6 +428,7 @@ end
 
 -- transfer
 function PayOutWage(Recipient,town)
+
 	local totalTaxes=base.townTreasure.GetPaymentAmount(town)
 	local totalPayers=base.townTreasure.GetTaxpayerNumber(town)
 	local infText = "";
@@ -528,8 +567,6 @@ function MergeSkill(User)
 
 	return;
 end
-
-
 
 function payNow(User)
 --Cadomyr = 100
