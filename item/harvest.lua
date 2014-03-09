@@ -23,6 +23,15 @@ module("item.harvest", package.seeall)
 -- UPDATE common SET com_script='item.harvest' WHERE com_itemid IN (14,300,387, 1809);
 
 function UseItem(User, SourceItem, ltstate)
+	-- Small ugly temporary fix.
+	if SourceItem.id == 1194 then
+		base.common.HighInformNLS(User,
+		  "Dieser Baum ist schon komplett abgeerntet. Gib ihm Zeit um nachzuwachsen.", 
+		  "This tree is already fully harvested. Give it time to grow again." );
+		return
+	end	  
+	-- END
+	
 	content.gathering.InitGathering();
 	InitHarvestItems();
 	local fruitgathering = content.gathering.fruitgathering;
