@@ -25,6 +25,9 @@ module("item.id_24_shovel", package.seeall, package.seeall(item.general.metal))
 
 LookAtItem = item.general.metal.LookAtItem
 
+SAND_PIT = 1208
+CLAY_PIT = 1206
+
 function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	-- the craft has to be determined according to ground type, see below
@@ -60,13 +63,23 @@ function UseItem(User, SourceItem, ltstate)
 		"You have to hold the shovel in your hand!" );
 		return
 	end
+	
+	local foundSource = false;
+	local TargetItem
+	-- check for well or fountain
+	TargetItem = base.common.GetItemInArea(User.pos, SAND_PIT);
+	if (TargetItem == nil) then
+		TargetItem = base.common.GetItemInArea(User.pos, CLAY_PIT);
+	end
+	if (TargetItem ~= nil) then
+	if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
+		base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
+	end
+		foundSource=true
+	end
 
 	if not base.common.FitForWork( User ) then -- check minimal food points
 		return
-	end
-
-	if not base.common.IsLookingAt( User, TargetPos ) then -- check looking direction
-		base.common.TurnTo( User, TargetPos ); -- turn if necessary
 	end
 
 	-- first check for a treasure
@@ -79,56 +92,45 @@ function UseItem(User, SourceItem, ltstate)
 		return;
     end
 
-	-- neither sand nor dirt => find nothing
-    if (( groundType ~= gt.sand ) and ( groundType ~= gt.dirt )) then
-        if ( groundType == gt.field ) then
-            base.common.HighInformNLS( User,
-            "Du gräbst ein kleines Loch in den Ackerboden doch findest du hier gar nichts.",
-            "You dig a small hole into the farming ground. But you find nothing.");
-        elseif ( groundType == gt.forest ) then
-            base.common.HighInformNLS( User,
-            "Du gräbst ein kleines Loch in den Waldboden doch findest du hier gar nichts.",
-            "You dig a small hole into the forest ground. But you find nothing.");
-        elseif ( groundType == gt.grass ) then
-            base.common.HighInformNLS( User,
-            "Du gräbst ein kleines Loch in die Wiese doch findest du hier gar nichts.",
-            "You dig a small hole into the grass. But you find nothing.");
-        elseif ( groundType == gt.rocks ) then
-            base.common.HighInformNLS( User,
-            "Der Boden besteht hier aus solidem Stein. Mit einer Schaufel hast du eindeutig das falsche Werkzeug.",
-            "The ground here is heavy stone. With a shovel you have the wrong tool here for sure.");
-        elseif ( groundType == gt.water ) then
-            base.common.HighInformNLS( User,
-            "Im Wasser mit einer Schaufel zu graben geht zwar relativ leicht, doch der Effekt ist recht gering.",
-            "To dig with a shovel in the water is pretty easy. But sadly there is no effect in doing this.");
-        else
-            base.common.HighInformNLS(User,
-            "Du versuchst an dieser Stelle zu graben, findest aber nichts.",
-            "You attempt to dig here, but you don't find anything.");
-        end
-        return
-    end
-
-	-- since we're here, we're digging in sand or dirt
-
-	-- check location, only succeed if there is a stone / water nearby
-	if not LocationCheck(TargetPos,groundType, User) then
-        if ( groundType == gt.sand ) then
-            base.common.HighInformNLS( User,
-            "Der Wind hat hier allen Sand fortgeweht. Vielleicht solltest du es in der Nähe eines Steins versuchen.",
-            "The wind has blown away the whole sand. Maybe you should try it somewhere near a rock." );
-            return
-        else
-            base.common.HighInformNLS( User,
-            "Der Boden ist hier nicht feucht genug. Vielleicht solltest du es in der Nähe von Wasser versuchen.",
-            "The ground is not wet enough here. Maybe you should try it somewhere near water." );
-            return
-        end
-    end
-
+	if not foundSource then
+		if ( groundType == gt.field ) then
+			base.common.HighInformNLS( User,
+			"Du gräbst ein kleines Loch in den Ackerboden, doch findest du hier gar nichts.",
+			"You dig a small hole into the farming ground. But you find nothing.");
+		elseif ( groundType == gt.sand ) then
+			base.common.HighInformNLS( User,
+			"Du gräbst ein kleines Loch in den Dreck, doch findest du hier gar nichts.",
+			"You dig a small hole into the forest ground. But you find nothing.");
+		elseif ( groundType == gt.sand ) then
+			base.common.HighInformNLS( User,
+			"Du gräbst ein kleines Loch in den Sand, doch findest du hier gar nichts.",
+			"You dig a small hole into the forest ground. But you find nothing.");
+		elseif ( groundType == gt.forest ) then
+			base.common.HighInformNLS( User,
+			"Du gräbst ein kleines Loch in den Waldboden, doch findest du hier gar nichts.",
+			"You dig a small hole into the forest ground. But you find nothing.");
+		elseif ( groundType == gt.grass ) then
+			base.common.HighInformNLS( User,
+			"Du gräbst ein kleines Loch in die Wiese, doch findest du hier gar nichts.",
+			"You dig a small hole into the grass. But you find nothing.");
+		elseif ( groundType == gt.rocks ) then
+			base.common.HighInformNLS( User,
+			"Der Boden besteht hier aus solidem Stein. Mit einer Schaufel hast du eindeutig das falsche Werkzeug.",
+			"The ground here is heavy stone. With a shovel you have the wrong tool here for sure.");
+		elseif ( groundType == gt.water ) then
+			base.common.HighInformNLS( User,
+			"Im Wasser mit einer Schaufel zu graben geht zwar relativ leicht, doch der Effekt ist recht gering.",
+			"To dig with a shovel in the water is pretty easy. But sadly there is no effect in doing this.");
+		else
+			base.common.HighInformNLS(User,
+			"Du versuchst an dieser Stelle zu graben, findest aber nichts.",
+			"You attempt to dig here, but you don't find anything.");
+		end
+	end
+	
 	local theCraft;
 	local digForDE, digForEN, digForID;
-	if ( groundType == gt.sand ) then
+	if ( TargetItem.id == SAND_PIT ) then
 		theCraft = content.gathering.sanddigging;
 		digForDE = "Sand";
 		digForEN = "sand";
@@ -146,11 +148,97 @@ function UseItem(User, SourceItem, ltstate)
 		User:talk(Character.say, "#me beginnt nach " .. digForDE .. " zu graben.", "#me starts to dig for " .. digForEN .. ".")
 		return
 	end
-
+	
+	
+	-- check the amount
+	local MaxAmount = 20
+	local changeItem = false;
+	local amountStr = TargetItem:getData("amount");
+	local amount = 0;
+	if ( amountStr ~= "" ) then
+		amount = tonumber(amountStr);
+	elseif ( TargetItem.wear == 255 ) then
+		-- first time that a (static!) herb item is harvested
+		amount = MaxAmount;
+		TargetItem:setData("amount","" .. MaxAmount);
+		changeItem = true;
+	end
+	if ( amount < 0 ) then
+		-- this should never happen...
+		User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. TargetItem.id .. " at (" .. TargetPos.x .. "," .. TargetPos.y .. "," .. TargetPos.z .. "). Please inform a developer.");
+		return;
+	end
+	if ( amount <= 1 ) then
+		-- check for regrow even at amount==1, so a continuous working is guaranteed
+		-- only non farming items regrow
+		local serverTime = world:getTime("unix");
+		for i=1,MaxAmount do
+			local t = TargetItem:getData("next_regrow_" .. i);
+			if ( t ~= "" and tonumber(t) <= serverTime ) then
+				-- regrow
+				amount = amount + 1;
+				TargetItem:setData("next_regrow_" .. i, "");
+				changeItem = true;
+			end
+		end
+		if ( amount == 0 ) then
+			-- not regrown...
+			base.common.HighInformNLS( User,
+			"An dieser Stelle gibt es nicht mehrs zu holen.",
+			"There isn't anything left in this pit." );
+			if ( changeItem ) then
+				world:changeItem(TargetItem);
+			end
+			return;
+		elseif ( amount > MaxAmount ) then
+			-- this should never happen
+			User:inform("[ERROR] Too high amount " .. amount .. " for item id " .. TargetItem.id .. " at (" .. TargetPos.x .. "," .. TargetPos.y .. "," .. TargetPos.z .. "). Please inform a developer.");
+			if ( changeItem ) then
+				world:changeItem(TargetItem);
+			end
+			return;
+		else
+			TargetItem:setData("amount", "" .. amount);
+			changeItem = true;
+		end
+	end
+	
 	-- since we're here, we're working
 
 	if theCraft:FindRandomItem(User) then
+		if ( changeItem ) then
+			world:changeItem(TargetItem);
+		end
 		return
+	end
+	
+	amount = amount - 1;
+	-- update the amount
+	TargetItem:setData("amount", "" .. amount);
+	changeItem = true;
+	-- and update the next regrow
+	local regrowOk = false;
+	for i=1,MaxAmount do
+		local t = TargetItem:getData("next_regrow_" .. i);
+		-- look for a free slot
+		if ( t == "") then
+			TargetItem:setData("next_regrow_" .. i, "" .. world:getTime("unix") + 300);
+			regrowOk = true;
+			changeItem = true;
+			break;
+		end
+	end
+	if ( not regrowOk ) then
+		-- there was no free slot, this should never happen
+		User:inform("[ERROR] There was no regrow slot for item id " .. TargetItem.id .. " at (" .. TargetPos.x .. "," .. TargetPos.y .. "," .. TargetPos.z .. "). Please inform a developer.");
+		if ( changeItem ) then
+			world:changeItem(TargetItem);
+		end
+		return;
+	end
+	
+  if ( changeItem ) then
+		world:changeItem(TargetItem);
 	end
 
 	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], theCraft.LearnLimit);
@@ -171,42 +259,4 @@ function UseItem(User, SourceItem, ltstate)
 		"Your old shovel breaks.");
 		return
 	end
-end
-
-function LocationCheck(TargetPos,DigginType, User)
-	local gt = base.common.GroundType;
-	if (DigginType == gt.sand) then
-		-- check for a nearby stone
-        local testPos;
-        for Xoff=-1, 1 do
-            for Yoff=-1, 1 do
-                testPos=position( TargetPos.x+Xoff, TargetPos.y+Yoff, TargetPos.z );
-                if world:isItemOnField( testPos ) then
-                    for i, stoneID in pairs(StoneList) do
-                        if ( stoneID == world:getItemOnField( testPos ).id ) then
-                            return true;
-                        end
-                    end
-                end
-            end
-        end
-        return false;
-    elseif (DigginType == gt.dirt) then
-		-- check for nearby water tiles
-		local waterCount = 0;
-		local testPos;
-        for Xoff=-1, 1 do
-            for Yoff=-1, 1 do
-                testPos=position( TargetPos.x+Xoff, TargetPos.y+Yoff, TargetPos.z );
-				if ( base.common.GetGroundType(world:getField(testPos):tile()) == gt.water ) then
-					waterCount = waterCount + 1;
-                end
-				if waterCount >= 2 then
-					return true;
-				end
-            end
-        end
-        return false;
-    end
-    return false
 end
