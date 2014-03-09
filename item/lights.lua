@@ -74,8 +74,8 @@ function UseItem(User, SourceItem, ltstate)
 	end
 	
 	if SourceItem.number > 1 then
-	    User:inform("Du kannst immer nur eine Lichtquelle auf einmal anzünden.",
-					"You can only light up one light source at once.")
+	    User:inform("Du kannst immer nur eine Lichtquelle auf einmal anzünden. Um einen Stapel aufzuteilen, halte die Umschalttaste, während du den Stapel auf ein freies Inventarfeld ziehst.",
+					"You can only light up one light source at once. To split a stack, hold shift while dragging the item stack to a free inventory slot.")
 		return
 	end
 
@@ -90,6 +90,7 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 --Noobia end
+
 	local this = LightsOff[SourceItem.id];
 	if this then
 		local ok, wear = checkReq(User,SourceItem,this)
