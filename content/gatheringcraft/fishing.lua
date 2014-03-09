@@ -101,14 +101,21 @@ function StartGathering(User, SourceItem, ltstate)
 	User:learn( fishing.LeadSkill, fishing.SavedWorkTime[User.id], fishing.LearnLimit);
 	local fished = 1; -- set the amount of items that are produced
 	local fishID = 0;
-	local chance = math.random(1,10);
-	-- 40% for salmon, 60% for trout
-	if (chance <= 4) then
+	local chance = Random.uniform(1,100);
+	if chance <= 45 then
 		fishID = 355; -- salmon
-	else
+	elseif chance <= 75 then
 		fishID =73; -- trout;
+	elseif chance <= 99 then
+		fishID = 1209 -- horse mackerel
+	else
+		fishID = 1210 -- rose fish
 	end
-
+	
+	--[[
+	[23:10] <@Zot-pc> 1210 Rotbarsch rose fish
+[23:10] <@Zot-pc> 1209 Stachelmakrele horse mackerel
+]]
 	-- GFX + Sound for a splash
 	world:gfx(11,SourceItem.pos);
 	world:makeSound(9,SourceItem.pos);
