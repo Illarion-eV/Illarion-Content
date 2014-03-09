@@ -45,7 +45,9 @@ end
 craftList = {
   CreateCraftItem(CreateItem(307), CreateItem(306)),
   CreateCraftItem(CreateItem(73), CreateItem(455)),
-  CreateCraftItem(CreateItem(355), CreateItem(455))
+  CreateCraftItem(CreateItem(355), CreateItem(455)),
+  CreateCraftItem(CreateItem(1209), CreateItem(455)),
+  CreateCraftItem(CreateItem(1210), CreateItem(455))
 };
 
 function UseItem(User, SourceItem, ltstate)
