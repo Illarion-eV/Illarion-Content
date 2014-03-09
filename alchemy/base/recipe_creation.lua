@@ -117,7 +117,7 @@ PLANTS["Desert plants"]         = {137,142,146,156,199,769}
 PLANTS["Swamp plants"]          = {136,138,763}
 PLANTS["Water plants"]          = {155,767}
 PLANTS["Snow plants"]           = {760}
-PLANTS["Multiterras"]           = {15 ,80 ,133,149,157,302,753,759}
+PLANTS["Multiterras"]           = {15 ,80 ,133,149,157,302,753,759,1207}
 PLANTS["Mushrooms"]             = {158,159,160,161,162,163}
 PLANTS["Agricultural products"] = {154,200,201,259,290,772,778,2493}
 

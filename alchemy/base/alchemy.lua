@@ -43,6 +43,7 @@ function InitPlantSubstance()
 	setPlantSubstance(302,"","")
 	setPlantSubstance(772,"","")
 	setPlantSubstance(778,"","")
+	setPlantSubstance(1207,"","")
 	setPlantSubstance(2493,"","")
 
 	setPlantSubstance(138,"","Dracolin")

@@ -20,7 +20,7 @@ require("base.common")
 
 module("item.food", package.seeall)
 
--- UPDATE common SET com_script='item.food' WHERE com_itemid IN (15,49,73,80,81,142,143,147,151,158,159,160,161,162,163,191,199,200,201,302,303,306,307,353,354,355,388,453,454,455,552,553,554,555,556,557,559,2276,2277,2278,2456,2459,2493,2922,2923,2934,2940,3051);
+-- UPDATE common SET com_script='item.food' WHERE com_itemid IN (15,49,73,80,81,142,143,147,151,158,159,160,161,162,163,191,199,200,201,302,303,306,307,353,354,355,388,453,454,455,552,553,554,555,556,557,559,1207,2276,2277,2278,2456,2459,2493,2922,2923,2934,2940,3051);
 
 require("content.furtunecookies")
 require("alchemy.base.alchemy")
@@ -94,6 +94,7 @@ FoodList:add( 759,	 VALUE_LARGE,	   0); -- nuts
 FoodList:add(2493,	 VALUE_LARGE,	   0); -- carrots
 FoodList:add(1149,	 VALUE_SMALL,	   0); -- brown egg
 FoodList:add(1150,	 VALUE_SMALL,	   0); -- white egg
+FoodList:add(1207,	 VALUE_LARGE,	   0); -- orange
 
 -- Racial Food
 FoodList:add(  73,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,true,false,true,true,true,true}); -- trout (lizard)
