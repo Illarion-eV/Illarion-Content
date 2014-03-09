@@ -44,6 +44,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (79,981,0,'triggerfield.ferry');----
 -- INSERT INTO triggerfields VALUES (86,988,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (96,988,0,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (389,272,-6,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (389,273,-6,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (405,275,-6,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (405,276,-6,'triggerfield.ferry');
 
 require("base.common")
 
@@ -52,7 +56,7 @@ module("triggerfield.ferry", package.seeall)
 
 
 
-ferrySourcePos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,855,0),position(615,855,0),position(616,855,0),position(105,833,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0),position(86,988,0),position(96,988,0),position(289,283,0),position(275,275,0),position(288,292,0),position(274,275,0)}
+ferrySourcePos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,855,0),position(615,855,0),position(616,855,0),position(105,833,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0),position(86,988,0),position(96,988,0),position(289,283,0),position(275,275,0),position(288,292,0),position(274,275,0),position(389,272,-6),position(389,273,-6),position(405,275,-6),position(405,276,-6)}
 
 ferryDE={}
 ferryEN={}
@@ -110,6 +114,14 @@ ferryDE[26]={"Quelle der Träume - Höhle"}
 ferryEN[26]={"Well of dreams - Cave"}
 ferryDE[27]={"Galmair"}
 ferryEN[27]={"Galmair"}
+ferryDE[28]={"Ronagan Schrein"}
+ferryEN[28]={"Ronagan Shrine"}
+ferryDE[29]={"Ronagan Schrein"}
+ferryEN[29]={"Ronagan Shrine"}
+ferryDE[30]={"Schlackengrube"}
+ferryEN[30]={"Scoria Mine"}
+ferryDE[31]={"Schlackengrube"}
+ferryEN[31]={"Scoria Mine"}
 
 ferryItem={}
 ferryItem[1]={2701,105}
@@ -139,6 +151,10 @@ ferryItem[24]={61}
 ferryItem[25]={61}
 ferryItem[26]={61}
 ferryItem[27]={61}
+ferryItem[28]={61}
+ferryItem[29]={61}
+ferryItem[30]={61}
+ferryItem[31]={61}
 
 ferryTargetPos={}
 ferryTargetPos[1]={position(102,790,0),position(728,809,0)}
@@ -168,8 +184,12 @@ ferryTargetPos[24]={position(275,274,0)}
 ferryTargetPos[25]={position(290,283,0)}
 ferryTargetPos[26]={position(274,274,0)}
 ferryTargetPos[27]={position(289,292,0)}
+ferryTargetPos[24]={position(405,275,-6)}
+ferryTargetPos[25]={position(405,276,-6)}
+ferryTargetPos[26]={position(389,272,-6)}
+ferryTargetPos[27]={position(389,273,-6)}
 
-noChoiceAndWrapDirectly={24,25,26,27}
+noChoiceAndWrapDirectly={24,25,26,27,28,29,30,31}
 
 function MoveToField(User)
 	local names

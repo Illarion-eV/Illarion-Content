@@ -30,7 +30,7 @@ end
 
 function callEffect(Effect,User)
 	local theQuestStatus=User:getQuestProgress(664)
-User:inform("queststatus"..theQuestStatus,"queststatus"..theQuestStatus)
+--User:inform("queststatus"..theQuestStatus,"queststatus"..theQuestStatus)
 --debug("AmountStoryName: "..User.name)
 --	if User:getQuestProgress(664) == 0 then
 	if User:getQuestProgress(664) == 1 then
