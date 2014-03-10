@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (311, 'groknar_311_noobia');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (311, 'quest.groknar_311_noobia');
 
 require("base.common")
 module("quest.groknar_311_noobia", package.seeall)

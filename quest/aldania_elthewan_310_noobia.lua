@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (310, 'aldania_elthewan_310_noobia');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (310, 'quest.aldania_elthewan_310_noobia');
 
 require("base.common")
 module("quest.aldania_elthewan_310_noobia", package.seeall)

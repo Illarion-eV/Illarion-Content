@@ -64,6 +64,9 @@ itemShoes = 53
 -- Queststatus was set to 1 if the player knows how to walk
 -- 2: The player has spoken something and did all lessons
 
+--reset
+
+"reset" -> "Reset!",queststatus(309)=0,queststatus(310)=0,queststatus(311)=0,queststatus(312)=0,queststatus(313)=0,queststatus(314)=0,queststatus(320)=0
 -- Help
 "Help" -> inform("[Tutorial] This NPC is the tutor Henry Cunnigan. Keywords: Hello, Help, Skip tutorial.")
 "Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
