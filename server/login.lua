@@ -298,9 +298,9 @@ function showNewbieDialog(player)
 	
 		else --continue the tutorial
 			if player:getPlayerLanguage() == 0 then
-				dialogPostSkip = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Bei gehaltener Steuerungstaste läuft dein Charakter.", callbackPostSkip);
+				dialogPostSkip = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Bei gehaltener Steuerungstaste läuft dein Charakter.\n\nDrücke 'Q', um eine Liste deiner Aufgaben einzusehen.", callbackPostSkip);
 			else
-				dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Holding down the control key makes your character run.", callbackPostSkip);
+				dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Holding down the control key makes your character run.\n\nHit 'Q' to review your current quests.", callbackPostSkip);
 			end
 		end
 		
@@ -310,7 +310,7 @@ function showNewbieDialog(player)
 		
 	end --end of callback of skip dialog
 	
-	local dialogSkip = SelectionDialog(getText("Willkommen zu Illarion!","Welcome to Illarion!"), getText("Die Einführung ist für neue Spieler gedacht. Du kannst es ohne Nachteil auch überspringen.", "The tutorial is recommended for new players. You may skip the tutorial without any disadvantage."), callbackSkip)
+	local dialogSkip = SelectionDialog(getText("Willkommen zu Illarion!","Welcome to Illarion!"), getText("Die Einführung ist für neue Spieler gedacht. Du kannst es ohne Nachteil auch überspringen. Sage 'Überspringe die Einführung' zu einem NPC, wenn du die Einführung später abbrechen möchtest.", "The tutorial is recommended for new players. You may skip the tutorial without any disadvantage. Say 'skip tutorial' to any NPC if you want to abort the tutorial later on."), callbackSkip)
 	dialogSkip:addOption(0, getText("Einführung beginnen.","Start the tutorial."))
 	dialogSkip:addOption(0, getText("Einführung überspringen.", "Skip the tutorial."))
 	player:requestSelectionDialog(dialogSkip)
