@@ -52,9 +52,9 @@ function MoveToField(Character)
 	        local callbackNewbie = function(dialogNewbie) end; --empty callback
 			
 	        if Character:getPlayerLanguage() == 0 then
-		        dialogNewbie = MessageDialog("Tutorial","Durch das gesamte Spiel verteilt, kannst du Markierungssteine finden. Wenn du diese Steine doppelt anklickst und somit sammelst, bekommst du Punkte. Wenn du eine bestimmte Anzahl von Punkten gesammelt hast, bekommst du eine Belohnung.\n Versuche es einmal und klicke doppelt auf den Markierungsstein.", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial","Auf das gesamte Spiel verteilt, kannst du Markierungssteine finden. Wenn du diese Steine doppelt anklickst und somit sammelst, bekommst du Punkte. Wenn du eine bestimmte Anzahl von Punkten gesammelt hast, bekommst du eine Belohnung.\n\n Versuche es einmal und klicke doppelt auf den Markierungsstein.", callbackNewbie)
 	        else	
-		        dialogNewbie = MessageDialog("Tutorial", "Throughout the game you can find marker stones. If you double click a stone, and therefore collect it, you will get points for it. When you collect a specific number of stones you will get a reward.\n Try it now and double click the marker stone.", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial", "Throughout the game you can find marker stones. If you double click a stone, and therefore collect it, you will get points for it. When you collect a specific number of stones you will get a reward.\n\n Try it now and double click the marker stone.", callbackNewbie)
 	        end	
 	        Character:requestMessageDialog(dialogNewbie)
 		end

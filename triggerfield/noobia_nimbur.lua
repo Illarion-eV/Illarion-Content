@@ -39,9 +39,9 @@ function MoveToField(Character)
 	        local callbackNewbie = function(dialogNewbie) end; --empty callback
 			
 	        if Character:getPlayerLanguage() == 0 then
-		        dialogNewbie = MessageDialog("Tutorial","An dieser Station wird dir beigebracht, wie man einem Handwerk nachgeht. Nimbur Goldhand ist ein sehr begabter Artisan, der die nötigen Kenntnisse vermittelt, die du benötigst, um die Laufbahn des Handwerkers einzuschlagen.", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial","An dieser Station wird dir beigebracht, wie man einem Handwerk nachgeht. Nimbur Goldhand ist ein sehr begabter Artisan, der die nötigen Kenntnisse vermittelt, die du benötigst, um die Laufbahn des Handwerkers einzuschlagen.\n\nHandwerke erfordern ebenso wie das Sammeln von Ressourcen ein Handwerkzeug und einen Arbeitsplatz sowie die nötigen Rohstoffe.", callbackNewbie)
 	        else	
-		        dialogNewbie = MessageDialog("Tutorial", "At this station, you will learn how to craft items. Nimbur Goldhand is a very skilled artisan who can teach you the necessary steps to get started with a crafting profession.", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial", "At this station, you will learn how to craft items. Nimbur Goldhand is a very skilled artisan who can teach you the necessary steps to get started with a crafting profession.\n\nCrafting requires a hand tool, just like gathering, and a static tool. You also need the necessary resources.", callbackNewbie)
 	        end	
 	        Character:requestMessageDialog(dialogNewbie)
 		end
