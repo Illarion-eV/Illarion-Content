@@ -55,9 +55,9 @@ function MoveToField(Character)
 	        local callbackNewbie = function(dialogNewbie) end; --empty callback
 			
 	        if Character:getPlayerLanguage() == 0 then
-		        dialogNewbie = MessageDialog("Tutorial","An dieser Station wird dir die Elfe Aldania erkläre, wie man Gegenstände anlegt und sie benutzt. Begrüße sie einfach so, wie du es von Henry Cunnigan gelernt hast! Aktiviere deine Chatbox und schreibe 'Hallo'. Du kannst die Chatbox anschließend mit einem weiteren Druck der Returntaste deaktivieren.\n\nUm das Inventar zu öffnen, drücke 'I', 'B' öffnet deine Tasche. Gegenstände können mit der Maus in Inventarfelder gezogen werden und durch einen Doppelklick benutzt werden.", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial","An dieser Station wird dir die Elfe Aldania erkläre, wie man Gegenstände anlegt und sie benutzt. Begrüße sie einfach so, wie du es von Henry Cunnigan gelernt hast! Aktiviere deine Chatbox mit 'Return' und schreibe 'Hallo'.\n\nUm das Inventar zu öffnen, drücke 'I', 'B' öffnet deine Tasche. Gegenstände können mit der Maus in Inventarfelder gezogen werden und durch einen Doppelklick benutzt werden.", callbackNewbie)
 	        else	
-		        dialogNewbie = MessageDialog("Tutorial", "At this station, the elfess Aldania will explain to you how to equip and use items. Greet her as you learned from Henry Cunnigan! Activate your chatbox and type 'Hello'. You can deactivate the chatbox with another hit on the return key.\n\nTo open the inventory, hit 'I', 'B' opens the backpack. Items can be dragged with the mouse to inventory slots and used with a double click.", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial", "At this station, the elfess Aldania will explain to you how to equip and use items. Greet her as you learned from Henry Cunnigan! Activate your chatbox with 'return' and type 'Hello'.\n\nTo open the inventory, hit 'I', 'B' opens the backpack. Items can be dragged with the mouse to inventory slots and used with a double click.", callbackNewbie)
 	        end	
 	        Character:requestMessageDialog(dialogNewbie)
 		end

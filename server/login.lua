@@ -104,6 +104,7 @@ messageG[72]="[Tipp] Um deinen Charakter anderen Charakteren vorzustellen, schre
 messageG[73]="[Tipp] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Eine List der wichtigsten Schlüsselwörter erhältst du als Antwort auf 'Hilfe'."
 messageG[74]="[Tipp] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du großen Reichtum erlangen."
 messageG[75]="[Tipp] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier."
+messageG[76]="[Tipp] Eine Liste deiner Aufgaben erhältst du, indem du 'Q' drückst."
 --messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
 --English
@@ -183,6 +184,7 @@ messageE[72]="[Hint] If you want to introduce your character to other players, t
 messageE[73]="[Hint] All NPCs react on a number of keywords. You can get a list of the most important keywords for a particular NPC with the command 'help'."
 messageE[74]="[Hint] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy."
 messageE[75]="[Hint] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your character is, and the blue bar shows the mana level of mage characters."
+messageE[76]="[Hint] You can review the quests of your character by hitting 'Q'.";
 --messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard.";
 
 -- messages of the day - END
