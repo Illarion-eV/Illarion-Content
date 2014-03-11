@@ -84,8 +84,8 @@ queststatus(311) < 5, english, ".*" -> "Hurr, you afraid of those puny pigs? Off
 queststatus(311) < 5, ".*" -> "Hurr, hast du Angst vor diesen erbärmlichen Schweinen? Geh! Töte mindestens drei von ihnen. Rechtsklicken!"
 
 -- Player killed the pigs. Reward: Simple dagger (27)
-queststatus(311) = 5, english, ".*" -> inform("[Tutorial] You are awarded a simple dagger."), item(27, 1, 366), queststatus(311) = 6, "Good. You might just survive out there. Here, take this dagger. It will stab good. Follow the road, Hammerfist is expecting you. Good travels, %CHARNAME!"
-queststatus(311) = 5, ".*" -> inform("[Tutorial] Du erhältst einen Dolch."), item(27, 1, 366), queststatus(311) = 6, "Gut. Vielleicht wirst du da draußen nun überleben. Hier, nimm diesen Dolch, er wird dir gute Dienste leisten. Folge nun der Straße, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!"
+queststatus(311) = 5, english, ".*" -> inform("[Tutorial] You are awarded a simple dagger."), item(27, 1, 366), queststatus(311) = 6, "Good. You might just survive out there. Here, take this dagger. It will stab good. If you like, you can pick up the remains of the pigs with the 'P' key. Follow the road, Hammerfist is expecting you. Good travels, %CHARNAME!"
+queststatus(311) = 5, ".*" -> inform("[Tutorial] Du erhältst einen Dolch."), item(27, 1, 366), queststatus(311) = 6, "Gut. Vielleicht wirst du da draußen nun überleben. Hier, nimm diesen Dolch, er wird dir gute Dienste leisten. Wenn du willst, kannst du die Überreste der Schweine mit einem Druck auf 'P' aufheben. Folge nun der Straße, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!"
 
 -- Player did all lessons
 queststatus(311) = 6, english, ".*" -> "Hurr, you are prepared to face the threats of this world. Follow the road, Nargon Hammerfist is expecting you. Good travels, %CHARNAME!"

@@ -105,6 +105,8 @@ messageG[73]="[Tipp] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Ei
 messageG[74]="[Tipp] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du großen Reichtum erlangen."
 messageG[75]="[Tipp] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier."
 messageG[76]="[Tipp] Eine Liste deiner Aufgaben erhältst du, indem du 'Q' drückst."
+messageG[77]="[Tipp] Um Beute schnell aufzunehmen, drücke 'P' und du sammelst alle umliegenden Gegenstände ein."
+
 --messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
 --English
@@ -185,6 +187,7 @@ messageE[73]="[Hint] All NPCs react on a number of keywords. You can get a list 
 messageE[74]="[Hint] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy."
 messageE[75]="[Hint] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your character is, and the blue bar shows the mana level of mage characters."
 messageE[76]="[Hint] You can review the quests of your character by hitting 'Q'.";
+messageE[77]="[Hint] To collect loot quickly, press 'P' to collect all items wihtin reach.";
 --messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard.";
 
 -- messages of the day - END
