@@ -184,10 +184,10 @@ ferryTargetPos[24]={position(275,274,0)}
 ferryTargetPos[25]={position(290,283,0)}
 ferryTargetPos[26]={position(274,274,0)}
 ferryTargetPos[27]={position(289,292,0)}
-ferryTargetPos[24]={position(404,275,-6)}
-ferryTargetPos[25]={position(404,276,-6)}
-ferryTargetPos[26]={position(389,272,-6)}
-ferryTargetPos[27]={position(389,273,-6)}
+ferryTargetPos[28]={position(404,275,-6)}
+ferryTargetPos[29]={position(404,276,-6)}
+ferryTargetPos[30]={position(389,272,-6)}
+ferryTargetPos[31]={position(389,273,-6)}
 
 noChoiceAndWrapDirectly={24,25,26,27,28,29,30,31}
 
