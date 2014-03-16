@@ -332,20 +332,32 @@ function leadToCross( Char , Effect )
     end
 
     if cycleCounter>=12 then --Time is over!
-
-        base.common.InformNLS( Char,"[Wiederbelebung] Der Eintritt in Chergas Reich der Toten wird dir verwehrt. Deine Taten auf Illarion sind noch nicht vorüber. Die Götter gewähren dir eine weitere Chance auf die Ebene der Lebenden zurückzukehren.","[Respawn] You are denied access to Cherga's Realm of the Death. Your deeds on Illarion are not over. The gods grant you another chance to return to the Mortal Plane.");
-        world:gfx(31,Char.pos); --GFX, alternatively 16
+		world:gfx(31,Char.pos); --GFX, alternatively 16
         world:makeSound(13,Char.pos); --Healing sound
         factionValues=base.factions.getFaction(Char); --reading the faction values
         Char:warp(crossPosition[factionValues.tid]); --warp to home cross
         Effect:removeValue("cycleCounter"); --stop counting
-
+		showRespawnDialog(Char)
     elseif cycleCounter<12 then
 
         Effect:addValue("cycleCounter",cycleCounter+1); --Counting
 
     end
 
+end
+
+function showRespawnDialog(rebornPlayer)
+
+	local callback = function(nothing) end; --empty callback
+		
+	if rebornPlayer:getPlayerLanguage() == 0 then		
+		dialog = MessageDialog("Wiederbelebung", "Der Eintritt in Chergas Reich der Toten wird dir verwehrt. Deine Taten auf Illarion sind noch nicht vorüber. Die Götter gewähren dir eine weitere Chance auf die Ebene der Lebenden zurückzukehren.", callback);
+	else		
+		dialog = MessageDialog("Respawn", "You are denied access to Cherga's Realm of the Death. Your deeds on Illarion are not over. The gods grant you another chance to return to the Mortal Plane.", callback);
+	end	
+	
+	rebornPlayer:requestMessageDialog(dialog); --showing the text
+		
 end
 
 
