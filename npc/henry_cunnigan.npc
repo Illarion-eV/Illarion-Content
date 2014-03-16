@@ -73,8 +73,8 @@ itemShoes = 53
 "überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."), warp(36, 94, 100)
 
 -- Learn how to shout
-queststatus(309) < 2, english, ".*" -> queststatus(309) = 2, "Welcome to the tutorial, %CHARNAME. Henry Cunnigan, harbourmaster, at your service. Now you know how to talk to NPCs and other characters. Enjoy the rest of the tutorial, %CHARNAME. Now, follow the road to the next lesson on items."
-queststatus(309) < 2, ".*" -> queststatus(309) = 2, "Willkommen zu diesem Tutorial, %CHARNAME. Henry Cunnigan, Hafenmeister, stets zu Diensten. Du weist nun, wie man mit NPCs und anderen Charakteren spricht. Viel Spaß beim Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände."
+queststatus(309) < 2, english, ".*" -> queststatus(309) = 2, "Welcome to the tutorial, %CHARNAME. Henry Cunnigan, harbourmaster, at your service. Now you know how to talk to NPCs and other characters. Enjoy the rest of the tutorial. Now, follow the road to the next lesson on items."
+queststatus(309) < 2, ".*" -> queststatus(309) = 2, "Willkommen zu diesem Tutorial, %CHARNAME. Henry Cunnigan, Hafenmeister, stets zu Diensten. Du weist nun, wie man mit NPCs und anderen Charakteren spricht. Viel Spaß beim Rest des Tutorials. Nun folge der Straße zur nächsten Lektion über Gegenstände."
 
 -- Player did all the lessons
 english, ".*" -> "You have learned everything that I can teach you. Enjoy the rest of the tutorial, %CHARNAME. Now, follow the road to the next lesson on items."

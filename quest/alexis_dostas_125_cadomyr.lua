@@ -25,7 +25,7 @@ ENGLISH = Player.english
 -- Insert the quest title here, in both languages
 Title = {}
 Title[GERMAN] = "Die königlichen Stallungen"
-Title[ENGLISH] = " The Royal Stables"
+Title[ENGLISH] = "The Royal Stables"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do

@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- glassmeltoven(313)
 
 -- clay (26) --> unfired bricks (736)
--- 5x unfired bricks (736) --> 5x bricks (2588)
+-- 1x unfired bricks (736) --> 1x bricks (2588)
 
 -- additional tool: brick mould (734)
 
@@ -33,12 +33,12 @@ function StartGathering(User, SourceItem, ltstate)
 
     if (User:countItemAt("all",26)>0) then
       ProduceUnfiredBricks( User, SourceItem, ltstate );
-    elseif (User:countItemAt("all",736)>4) then
+    elseif (User:countItemAt("all",736)>0) then
       ProduceBricks( User, SourceItem, ltstate );
     else
       base.common.HighInformNLS( User,
-      "Du brauchst Lehm oder fünf ungebrannte Ziegel um mit der Ziegelform hier zu arbeiten.",
-      "You need clay or five unfired bricks to work here with the brick mould." );
+      "Du brauchst Lehm oder ungebrannte Ziegel um mit der Ziegelform hier zu arbeiten.",
+      "You need clay or unfired bricks to work here with the brick mould." );
     end
 end
 
@@ -198,8 +198,8 @@ function ProduceBricks( User, SourceItem, ltstate )
 	end
 
 	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], bricksproducing.LearnLimit);
-	User:eraseItem( 736, 5 ); -- erase the item we're working on
-	local amount = 5; -- set the amount of items that are produced
+	User:eraseItem( 736, 1 ); -- erase the item we're working on
+	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 2588, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 2588, notCreated, User.pos, true, 333, nil );

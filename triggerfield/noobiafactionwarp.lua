@@ -81,18 +81,28 @@ function MoveToField(Character)
 		
 	end
 
+	--Warping the character
     world:gfx(41,Character.pos);
 	world:makeSound(13,Character.pos);
 	Character:warp(destination);
     world:makeSound(13,destination);
     world:gfx(41,Character.pos);
 	
+	--"Finish" all Noobia quests
+	Character:setQuestProgress(309,2); --Henry
+	Character:setQuestProgress(310,4); --Aldania
+	Character:setQuestProgress(311,6); --Groknar
+	Character:setQuestProgress(312,3); --Nargon
+	Character:setQuestProgress(313,3); --Nimbur
+	Character:setQuestProgress(314,1); --Viola
+	Character:setQuestProgress(320,1); --Explorer
+	
 	FactionCheck = base.factions.getFaction(Character);
 	                                                           
-	if (not Character:isAdmin() and not (FactionCheck.tid~=0)) and not oldPlayer then -- admins and chars who are already members of a faction are unaffected and just warped 
+	if (not Character:isAdmin() and not (FactionCheck.tid~=0)) and not oldPlayer then -- Admins and chars who are already members of a faction are unaffected and just warped 
 	    
-		-- We delete some items, if the char has more than one of them
-		local DeleteList = {23,391,2763} --hammer, torch, pick-axe
+		-- Abuse protection: We delete some items, if the char has more than one of them (farmed)
+		local DeleteList = {23,391,392,2763} --hammer, torch, lit torch, pick-axe (relict)
 		for i=1,#DeleteList do
 			itemAmount = Character:countItem(DeleteList[i])
 			Character:eraseItem( DeleteList[i], (itemAmount -1))
@@ -128,10 +138,9 @@ function MoveToField(Character)
 	    dialogNewbie = MessageDialog("Tutorial",dialogNewbieText, callbackNewbie)
 		
 		-- We send him a message box
-		Character:requestMessageDialog(dialogNewbie); --sending the dialog box to tell him that he finshed the tutorial 
+		Character:requestMessageDialog(dialogNewbie); --sending the dialog box to tell him that he finished the tutorial 
 													  --the callback of this box contains the dialog box to tell him to see the first quest giving NPC
-		
-		
+	
 		-- We tell other players about our noob
 		
 	    playerlist = world:getPlayersOnline();

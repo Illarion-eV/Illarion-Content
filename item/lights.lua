@@ -79,22 +79,22 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
---Noobia addition by Estralis: Lighting a torch is a task of NPC Aldania
-
-    if User:getQuestProgress(310)==4 and SourceItem.id==391 and User:isInRangeToPosition((position (52,24,100)),20) then --only invoked if the user has the quest, uses a torch and is in range of the NPC
-		User:setQuestProgress(310,5); --Connection to easyNPC
-		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
-		for i, Aldania in pairs(NPCList) do
-		    base.common.TalkNLS(Aldania, Character.say, "Die Finsternis verheißt meist nichts Gutes. Du solltest immer eine Lichtquelle dabei haben, wenn du in die Dunkelheit hinaus reist oder alte Gemäuer untersuchst. Hier trennen sich nun unsere Wege, lauf einfach weiter die Straße hinunter zu diesem Wilden, Groknar. Er wird dich in die Kriegskunst einführen.", "The darkness can be a real obstacle in Illarion. You should remember to carry a light source when travelling by night, and when exploring caves and dungeons. Well, this is where we part company. Run along to that savage, Groknar, down the road. He will train you in the art of combat.");
-		end
-	end
-
---Noobia end
-
 	local this = LightsOff[SourceItem.id];
 	if this then
 		local ok, wear = checkReq(User,SourceItem,this)
 		if ok then
+		
+		    --Noobia addition by Estralis: Lighting a torch is a task of NPC Aldania
+
+            if User:getQuestProgress(310)==3 and SourceItem.id==391 and User:isInRangeToPosition((position (52,24,100)),20) then --only invoked if the user has the quest, uses a torch and is in range of the NPC
+				User:setQuestProgress(310,4); --Connection to easyNPC
+				NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
+				for i, Aldania in pairs(NPCList) do
+					base.common.TalkNLS(Aldania, Character.say, "Die Finsternis verheißt meist nichts Gutes. Du solltest immer eine Lichtquelle dabei haben, wenn du in die Dunkelheit hinaus reist oder alte Gemäuer untersuchst. Hier trennen sich nun unsere Wege, lauf einfach weiter die Straße hinunter zu diesem Wilden, Groknar. Er wird dich in die Kriegskunst einführen.", "The darkness can be a real obstacle in Illarion. You should remember to carry a light source when travelling by night, and when exploring caves and dungeons. Well, this is where we part company. Run along to that savage, Groknar, down the road. He will train you in the art of combat.");
+				end
+			end
+
+			--Noobia end
 
             --Quest 105: NPC Gregor Remethar "A light at the end of the tunnel"
 
@@ -186,7 +186,7 @@ function giveBack(User, Item, this)
 			myItem = nil;
 		end
 		if not finalItem then
-			-- item is in backpack. Erase it and create an unlit item with proper data value
+			-- Item is in backpack. Erase it and create an unlit item with proper data value
 			local theBackpack=User:getBackPack();
 			if theBackpack~=nil then
 				local i = 0;
@@ -294,10 +294,25 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 			end
 	    end
 	end   ]]
-return
+	
+--Noobia addition by Estralis: Equipping a torch is a task of NPC Aldania
+
+    if User:getQuestProgress(310)==2 and TargetItem.id==391 and User:isInRangeToPosition((position (51,30,100)),20) and TargetItem:getType() == 4 then --only invoked if the user has the quest, moves a torch to a hand slot and is in range of the NPC
+		User:setQuestProgress(310,3); --Connection to easyNPC
+		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
+		for i, Aldania in pairs(NPCList) do
+		    base.common.TalkNLS(Aldania, Character.say, "Sehr gut, nun weißt du, wie man mit Ausrüstung umgeht. Helme, Schuhe und ähnliches werden genauso angelegt. In meiner nächsten Lektion wirst du lernen, wie man Gegenstände benutzt. Entzünde die Fackel mit einem Doppelklick.", "Very good, you know how to properly handle your equipment now. Helmets, shoes and the like are equipped in the same way. My next lesson will allow you to use your items. Ignite the torch with a double click.");
+	    end
+	end
+
+--Noobia end
+
+    return true; --leave savely
+
 end
-   
+
 function LookAtItem(User, Item)
+
 	local ItemName = world:getItemName(Item.id, User:getPlayerLanguage());
 	local TimeLeftI;
 	if(LightsOn[Item.id]) then

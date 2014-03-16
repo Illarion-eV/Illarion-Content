@@ -47,42 +47,6 @@ require("base.lookat")
 
 module("item.id_2763_pickaxe", package.seeall)
 
-function LookAtItem(User,Item)
-
-	world:itemInform(User, Item, base.lookat.GetItemDescription(User, Item, base.lookat.METAL));
-
-	--Noobia addition by Estralis: Examining a pick-axe is a task of NPC Aldania
-	if User:getQuestProgress(310)==3 and Item.id==2763 and User:isInRangeToPosition((position (52,24,100)),20) then --only invoked if the user has the quest, examines a pick-axe and is in range of the NPC
-		User:setQuestProgress(310,4); --Connection to easyNPC
-		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
-		for i, Aldania in pairs(NPCList) do
-			base.common.TalkNLS(Aldania, Character.say, "Gegenstände können von unterschiedlicher Güte sein, denk daran, wenn du über sie verhandelst. Meine letzte Lektion ist das Benutzen von Gegenständen. Nimm diese Fackel und entzünde sie!", "See, items can be of differing quality. Keep this in mind when you are negotiating a trade with a merchant. My final lesson is on how to use items. I have given you a torch, try lighting it!");
-			User:createItem(391,1,333,nil); --Torch
-		end
-		base.common.InformNLS( User,"[Tutorial] Du kannst einen Gegenstand mit einerm Doppelklick benutzen. Doppelklicke die Fackel in deinem Inventar, um sie zu entzünden.","[Tutorial] You can perform a double click on an item to use it. Double click the torch in your inventory to ignite it." );
-	end
-	--Noobia end
-end
-
-function MoveItemAfterMove(User,SourceItem,TargetItem)
-
---Noobia addition by Estralis: Equipping a pick-axe is a task of NPC Aldania
-
-    if User:getQuestProgress(310)==2 and TargetItem.id==2763 and User:isInRangeToPosition((position (51,30,100)),20) and TargetItem:getType() == 4 then --only invoked if the user has the quest, moves a pick-axe to a hand slot and is in range of the NPC
-		User:setQuestProgress(310,3); --Connection to easyNPC
-		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
-		for i, Aldania in pairs(NPCList) do
-		    base.common.TalkNLS(Aldania, Character.say, "Sehr gut, nun weißt du, wie man mit Ausrüstung umgeht. Helme, Schuhe und ähnliches werden genauso angelegt. In meiner nächsten Lektion wirst du lernen, noch mehr über einen Gegenstand zu erfahren, beispielweise seinen Zustand oder die handwerkliche Güte. Untersuche bitte die Spitzhacke, um ihre Qualität einzuschätzen.", "Very good, you know how to properly handle your equipment now. Helmets, shoes and the like are equipped in the same way. My next lesson will allow you to learn more information about your items, such as how damaged and how well-crafted they are. To see the quality of your pick-axe, please examine it now.");
-	    end
-		base.common.InformNLS( User,"[Tutorial] Bewege den Mauszeiger über die Spitzhacke in deinem Inventar um sie zu untersuchen.","[Tutorial] Move the mouse cursor over the pick-axe in your inventory in order to examine it." );
-	end
-
---Noobia end
-
-return true; --leave savely
-
-end
-
 function Init()
     if InitDone then
         return
@@ -253,7 +217,7 @@ Radius 15
 	SetResource( 6, 1276,  256, 9); -- emerald
 	SetResource( 6, 1276,  253, 3); -- sapphire
 
-	----------- Noobia Mine -----------
+	----------- Noobia Mine (increased coal yield) -----------
 	AddArea( 7, position(59,49,100), 15 );
     AddStone( 7, 232 );
     SetResource( 7, 232, 2536, 40); -- copper
@@ -265,11 +229,11 @@ Radius 15
 	SetResource( 7, 914,  255, 3); -- rubys
 	SetResource( 7, 914,  257, 1); -- topas
     AddStone( 7, 1273 );
-    SetResource( 7, 1273,  22, 40); -- iron ore
+    SetResource( 7, 1273,  22, 60); -- iron ore
 	SetResource( 7, 1273,  253, 3); -- sapphire
 	SetResource( 7, 1273,  252, 1); -- obsidian
 	AddStone( 7, 1245 );
-    SetResource( 7, 1245,  21, 60); -- coal
+    SetResource( 7, 1245,  21, 80); -- coal
 	SetResource( 7, 1245,  252, 3); -- obsidian
     SetResource( 7, 1245,  255, 1); -- rubys
     AddStone( 7, 1246 );

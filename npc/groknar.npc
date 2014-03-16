@@ -64,7 +64,7 @@ itemShoes = 697
 -- See also scripts\monster\base\quests.lua
 -- 1: Player arrives at the station
 -- 2: Player got the task to kill three little pigs (241)
--- 3-5: Player kills three little pigs (241). Reward: Club
+-- 3-5: Player kills three little pigs (241). Reward: Dagger
 -- 6: Player did all lessons
 
 -- Help
@@ -76,16 +76,16 @@ itemShoes = 697
 "überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."), warp(36, 94, 100)
 
 -- Learn how to fight
-queststatus(311) < 2, english, ".*" -> inform("[Tutorial] You can attack other creatures by clicking them once with the right mouse button."), item(2664, 1, 366), queststatus(311) = 2, "Hurr! Fresh meat! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take this club and crush three of those pigs over there."
-queststatus(311) < 2, ".*" -> inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du sie mit der rechten Maustaste einmal anklickst."), item(2664, 1, 366), queststatus(311) = 2, "Hurr! Frischfleisch! Ich bin Groknar, der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm diesen Knüppel in die Hand und erschlage drei dieser Schweine dort drüben."
+queststatus(311) < 2, english, ".*" -> item(2664, 1, 366), queststatus(311) = 2, "Hurr! Fresh meat! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Equip this club and crush three of those pigs over there. You can attack puny creatures by clicking them once with the right mouse button."
+queststatus(311) < 2, ".*" -> item(2664, 1, 366), queststatus(311) = 2, "Hurr! Frischfleisch! Ich bin Groknar, der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm diesen Knüppel in die Hand und erschlage drei dieser Schweine dort drüben. Du kannst erbärmliche Kreaturen angreifen, indem du sie mit der rechten Maustaste einmal anklickst."
 
 -- Player seems to have problems with fighting. Weichei!
-queststatus(311) < 5, english, ".*" -> inform("[Tutorial] You can attack other creatures by clicking them once with the right mouse button."), "Hurr, you afraid of those puny pigs? Off! Kill at least three of them."
-queststatus(311) < 5, ".*" -> inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du sie mit der rechten Maustaste einmal anklickst."), "Hurr, hast du Angst vor diesen erbärmlichen Schweinen? Geh! Töte mindestens drei von ihnen."
+queststatus(311) < 5, english, ".*" -> "Hurr, you afraid of those puny pigs? Off! Kill at least three of them. Click right!"
+queststatus(311) < 5, ".*" -> "Hurr, hast du Angst vor diesen erbärmlichen Schweinen? Geh! Töte mindestens drei von ihnen. Rechtsklicken!"
 
 -- Player killed the pigs. Reward: Simple dagger (27)
-queststatus(311) = 5, english, ".*" -> inform("[Tutorial] You are awarded a simple dagger."), item(27, 1, 366), queststatus(311) = 6, "Good. You might just survive out there. Here, take this dagger. It will stab good. Follow the road, Hammerfist is expecting you. Good travels, %CHARNAME!"
-queststatus(311) = 5, ".*" -> inform("[Tutorial] Du erhältst einen Dolch."), item(27, 1, 366), queststatus(311) = 6, "Gut. Vielleicht wirst du da draußen nun überleben. Hier, nimm diesen Dolch, er wird dir gute Dienste leisten. Folge nun der Straße, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!"
+queststatus(311) = 5, english, ".*" -> inform("[Tutorial] You are awarded a simple dagger."), item(27, 1, 366), queststatus(311) = 6, "Good. You might just survive out there. Here, take this dagger. It will stab good. If you like, you can pick up the remains of the pigs with the 'P' key. Follow the road, Hammerfist is expecting you. Good travels, %CHARNAME!"
+queststatus(311) = 5, ".*" -> inform("[Tutorial] Du erhältst einen Dolch."), item(27, 1, 366), queststatus(311) = 6, "Gut. Vielleicht wirst du da draußen nun überleben. Hier, nimm diesen Dolch, er wird dir gute Dienste leisten. Wenn du willst, kannst du die Überreste der Schweine mit einem Druck auf 'P' aufheben. Folge nun der Straße, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!"
 
 -- Player did all lessons
 queststatus(311) = 6, english, ".*" -> "Hurr, you are prepared to face the threats of this world. Follow the road, Nargon Hammerfist is expecting you. Good travels, %CHARNAME!"

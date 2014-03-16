@@ -104,6 +104,10 @@ messageG[72]="[Tipp] Um deinen Charakter anderen Charakteren vorzustellen, schre
 messageG[73]="[Tipp] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Eine List der wichtigsten Schlüsselwörter erhältst du als Antwort auf 'Hilfe'."
 messageG[74]="[Tipp] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du großen Reichtum erlangen."
 messageG[75]="[Tipp] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier."
+messageG[76]="[Tipp] Eine Liste deiner Aufgaben erhältst du, indem du 'Q' drückst."
+messageG[77]="[Tipp] Um Beute schnell aufzunehmen, drücke 'P' und du sammelst alle umliegenden Gegenstände ein."
+messageG[78]="[Tipp] Eine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen."
+
 --messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
 --English
@@ -183,6 +187,9 @@ messageE[72]="[Hint] If you want to introduce your character to other players, t
 messageE[73]="[Hint] All NPCs react on a number of keywords. You can get a list of the most important keywords for a particular NPC with the command 'help'."
 messageE[74]="[Hint] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy."
 messageE[75]="[Hint] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your character is, and the blue bar shows the mana level of mage characters."
+messageE[76]="[Hint] You can review the quests of your character by hitting 'Q'.";
+messageE[77]="[Hint] To collect loot quickly, press 'P' to collect all items wihtin reach.";
+messageE[78]="[Hint] To see an overview of all commands, hit F1.";
 --messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard.";
 
 -- messages of the day - END
@@ -296,9 +303,9 @@ function showNewbieDialog(player)
 	
 		else --continue the tutorial
 			if player:getPlayerLanguage() == 0 then
-				dialogPostSkip = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Bei gehaltener Steuerungstaste läuft dein Charakter.", callbackPostSkip);
+				dialogPostSkip = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Bei gehaltener Steuerungstaste läuft dein Charakter.\n\nEine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen.", callbackPostSkip);
 			else
-				dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Holding down the control key makes your character run.", callbackPostSkip);
+				dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Holding down the control key makes your character run.\n\nTo see an overview of all commands, hit F1.", callbackPostSkip);
 			end
 		end
 		
@@ -308,7 +315,7 @@ function showNewbieDialog(player)
 		
 	end --end of callback of skip dialog
 	
-	local dialogSkip = SelectionDialog(getText("Willkommen zu Illarion!","Welcome to Illarion!"), getText("Die Einführung ist für neue Spieler gedacht. Du kannst es ohne Nachteil auch überspringen.", "The tutorial is recommended for new players. You may skip the tutorial without any disadvantage."), callbackSkip)
+	local dialogSkip = SelectionDialog(getText("Willkommen zu Illarion!","Welcome to Illarion!"), getText("Die Einführung ist für neue Spieler gedacht. Du kannst es ohne Nachteil auch überspringen. \n\nSage 'Überspringe die Einführung' zu einem NPC, wenn du die Einführung später abbrechen möchtest.", "The tutorial is recommended for new players. You may skip the tutorial without any disadvantage. \n\nSay 'skip tutorial' to any NPC if you want to abort the tutorial later on."), callbackSkip)
 	dialogSkip:addOption(0, getText("Einführung beginnen.","Start the tutorial."))
 	dialogSkip:addOption(0, getText("Einführung überspringen.", "Skip the tutorial."))
 	player:requestSelectionDialog(dialogSkip)
