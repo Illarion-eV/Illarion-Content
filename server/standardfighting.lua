@@ -484,17 +484,17 @@ function ArmourDegrade(Defender, Globals)
 
 		local durability = math.mod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
-
+		local nameText=world:getItemName(Globals.HittedItem.id,Defender.Char:getPlayerLanguage());
+		
 		durability = durability - 20;
 
 		if (durability <= 0) then
 			base.common.InformNLS(Defender.Char,
-		  "Dein Artefakt zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
-		  "Your artifact shatters. You should take better care of it next time.");
+		  "Dein Artefakt '"..nameText.."' zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
+		  "Your artifact '"..nameText.."' shatters. You should take better care of it next time.");
 		  world:erase(Globals.HittedItem, 1);
 		  return true;
 		end;
-
 
 		Globals.HittedItem.quality = quality * 100 + durability;
 		--world:changeItem(Globals.HittedItem.WeaponItem);
@@ -502,32 +502,33 @@ function ArmourDegrade(Defender, Globals)
 
 
 		base.common.InformNLS(Defender.Char,
-		"Du solltest dein kaputtes Artefakt ablegen bevor es zerbricht!",
-		"You should take off your broken artifact before it shatters!");
+		"Du solltest dein kaputtes Artefakt '"..nameText.."' ablegen bevor es zerbricht!",
+		"You should take off your broken artifact '"..nameText.."' before it shatters!");
 
-	elseif (base.common.Chance(Globals.Damage, 6000)) then
+	elseif (base.common.Chance(Globals.Damage, 6000)) and (Globals.HittedItem.id ~= 0) then -- do not damage non existing items
 
 		local durability = math.mod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
-
+		local nameText=world:getItemName(Globals.HittedItem.id,Defender.Char:getPlayerLanguage());
+		
+		durability = durability - 1;
+		
 		if (durability == 0) then
 			base.common.InformNLS(Defender.Char,
-		  "Dein Rüstteil zerbricht. Glücklicherweise tritt kein Splitter in deinen Körper ein.",
-		  "Your armour piece shatters. Thankfully, no fragments end up in your body.");
+		  "Dein Rüstungsteil '"..nameText.."' zerbricht. Glücklicherweise tritt kein Splitter in deinen Körper ein.",
+		  "Your armour piece '"..nameText.."' shatters. Thankfully, no fragments end up in your body.");
 		  world:erase(Globals.HittedItem, 1);
 		  return true;
 		end;
-
-		durability = durability - 1;
+		
 		Globals.HittedItem.quality = quality * 100 + durability;
 		--world:changeItem(Globals.HittedItem.WeaponItem);
 		world:changeItem(Globals.HittedItem);
 
-
 		if (durability < 10) then
 		  base.common.InformNLS(Defender.Char,
-		  "Dein Rüstteil hat schon bessere Zeiten gesehen. Vielleicht solltest du es reparieren.",
-		  "Your armour piece has seen better days. You may want to repair it.");
+		  "Dein Rüstungsteil '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du es reparieren.",
+		  "Your armour piece '"..nameText.."' has seen better days. You may want to repair it.");
 		end;
 	end;
 
@@ -539,6 +540,7 @@ end;
 function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
 	local Rarity = NotNil(tonumber(Attacker.WeaponItem:getData("RareWeapon")));
+    local nameText=world:getItemName(Attacker.WeaponItem.id,Attacker.Char:getPlayerLanguage());
 
 	if(Rarity<0) then
 
@@ -548,48 +550,49 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		durability = durability - 20;
 
 		if (durability <= 0) then
-			base.common.InformNLS(Defender.Char,
-		  "Dein Artefakt zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
-		  "Your artifact shatters. You should take better care of it next time.");
+			base.common.InformNLS(Attacker.Char,
+		  "Dein Artefakt '"..nameText.."' zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
+		  "Your artifact '"..nameText.."' shatters. You should take better care of it next time.");
 		  world:erase(Attacker.WeaponItem, 1);
 		  return true;
 		end;
-
 
 		Attacker.WeaponItem.quality = quality * 100 + durability;
 		--world:changeItem(Globals.HittedItem.WeaponItem);
 		world:changeItem(Attacker.WeaponItem);
 
-
 		base.common.InformNLS(Defender.Char,
-		"Du solltest aufhören dein kaputtes Artefakt zu verwenden bevor es zerbricht!",
-		"You should stop wielding your broken artifact before it shatters!");
+		"Du solltest aufhören, dein kaputtes Artefakt '"..nameText.."' zu verwenden, bevor es zerbricht!",
+		"You should stop wielding your broken artifact '"..nameText.."' before it shatters!");
 
-	elseif (base.common.Chance(1, 20)) then
+	elseif (base.common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) then
+
 		local durability = math.mod(Attacker.WeaponItem.quality, 100);
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
 
+		durability = durability - 1;
+				
 		if (durability == 0) then
 			base.common.InformNLS(Attacker.Char,
-		  "Deine Waffe zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
-		  "Your weapon shatters. You shed a single tear and bid it farewell as it moves onto its next life.");
+		  "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
+		  "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves onto its next life.");
 		  world:erase(Attacker.WeaponItem, 1);
 		  return true;
 		end
 
-		durability = durability - 1;
 		Attacker.WeaponItem.quality = quality * 100 + durability;
 		world:changeItem(Attacker.WeaponItem);
 
 		if (durability < 10) then
 		  base.common.InformNLS(Attacker.Char,
-		  "Deine Waffe hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren.",
-		  "Your weapon has seen better days. You may want to repair it.");
+		  "Deine Waffe '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren.",
+		  "Your weapon '"..nameText.."' has seen better days. You may want to repair it.");
 		end;
 	end;
 
 	Rarity = NotNil(tonumber(ParryWeapon:getData("RareWeapon")));
-
+    local nameText=world:getItemName(ParryWeapon.id,Defender.Char:getPlayerLanguage());
+	
 	if(Rarity<0) then
 
 		local durability = math.mod(ParryWeapon.quality, 100);
@@ -599,8 +602,8 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
 		if (durability <= 0) then
 			base.common.InformNLS(Defender.Char,
-		  "Dein Artefakt zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
-		  "Your artifact shatters. You should take better care of it next time.");
+		  "Dein Artefakt '"..nameText.."' zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
+		  "Your artifact '"..nameText.."' shatters. You should take better care of it next time.");
 		  world:erase(ParryWeapon, 1);
 		  return true;
 		end;
@@ -612,29 +615,30 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
 
 		base.common.InformNLS(Defender.Char,
-		"Du solltest aufhören dein kaputtes Artefakt zu verwenden bevor es zerbricht!",
-		"You should stop wielding your broken artifact before it shatters!");
+		"Du solltest aufhören, dein kaputtes Artefakt '"..nameText.."' zu verwenden, bevor es zerbricht!",
+		"You should stop wielding your broken artifact '"..nameText.."' before it shatters!");
 
-	elseif (base.common.Chance(1, 60)) then
+	elseif (base.common.Chance(1, 60)) and (ParryWeapon.id ~= 0) then
 		local durability = math.mod(ParryWeapon.quality, 100);
 		local quality = (ParryWeapon.quality - durability) / 100;
 
+		durability = durability - 1;
+				
 		if (durability == 0) then
 			base.common.InformNLS(Defender.Char,
-		  "Dein Gegenstand zerbricht, dies erschwert es dir, dich zu verteidigen.",
-		  "Your item shatters, making it more difficult for you to defend yourself.");
+		  "Dein Gegenstand '"..nameText.."' zerbricht, dies erschwert es dir, dich zu verteidigen.",
+		  "Your item '"..nameText.."' shatters, making it more difficult for you to defend yourself.");
 		  world:erase(ParryWeapon, 1);
 		  return true;
 		end
 
-		durability = durability - 1;
 		ParryWeapon.quality = quality * 100 + durability;
 		world:changeItem(ParryWeapon);
 
 		if (durability < 10) then
 		  base.common.InformNLS(Defender.Char,
-		  "Dein Gegenstand hat schon bessere Zeiten gesehen. Vielleicht solltest du ihn reparieren.",
-		  "Your item has seen better days. You may want to repair it.");
+		  "Dein Gegenstand '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du ihn reparieren.",
+		  "Your item '"..nameText.."' has seen better days. You may want to repair it.");
 		end;
 	end;
 
