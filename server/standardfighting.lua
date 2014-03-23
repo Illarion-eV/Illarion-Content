@@ -524,7 +524,7 @@ function ArmourDegrade(Defender, Globals)
 		world:changeItem(Globals.HittedItem);
 
 
-		if (durability == 10) then
+		if (durability < 10) then
 		  base.common.InformNLS(Defender.Char,
 		  "Dein Rüstteil hat schon bessere Zeiten gesehen. Vielleicht solltest du es reparieren.",
 		  "Your armour piece has seen better days. You may want to repair it.");
@@ -571,7 +571,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
 		if (durability == 0) then
 			base.common.InformNLS(Attacker.Char,
-		  "Deine Waffe zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl als sie in das nächste Leben über geht.",
+		  "Deine Waffe zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
 		  "Your weapon shatters. You shed a single tear and bid it farewell as it moves onto its next life.");
 		  world:erase(Attacker.WeaponItem, 1);
 		  return true;
