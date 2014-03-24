@@ -325,23 +325,26 @@ function LookAtItem(User, Item)
 		end
 	end
 	
-	if(TimeLeftI == 255) then
-		TimeLeft = base.common.GetNLS(User, "Sie wird nie ausbrennen.", "It will never burn down.");
-	elseif (TimeLeftI == 0) then
-		TimeLeft = base.common.GetNLS(User, "Sie wird sofort ausbrennen.", "It will burn down immediately.");
-	elseif (TimeLeftI == 1) then
-		TimeLeft = base.common.GetNLS(User, "Sie wird demnächst ausbrennen.", "It will burn down anytime soon.");
-	elseif (TimeLeftI == 2) then
-		TimeLeft = base.common.GetNLS(User, "Sie wird bald ausbrennen.", "It will burn down soon.");	
-	elseif (TimeLeftI <= 4) then
-		TimeLeft = base.common.GetNLS(User, "Sie wird nach einer Weile ausbrennen.", "It will burn down in a while.");
-	elseif (TimeLeftI <= PORTABLE_WEAR) then
-		TimeLeft = base.common.GetNLS(User, "Sie wird nicht allzu bald ausbrennen.", "It will not burn down anytime soon.");
-	elseif (TimeLeftI >= PORTABLE_WEAR) then
-		TimeLeft = base.common.GetNLS(User, "Sie wird nach langer Zeit ausbrennen.", "It will burn down in a long time.");
-	end	
+	if TimeLeftI then
 	
-	base.lookat.SetSpecialDescription(Item, TimeLeft, TimeLeft);
+		if(TimeLeftI == 255) then
+			TimeLeft = base.common.GetNLS(User, "Sie wird nie ausbrennen.", "It will never burn down.");
+		elseif (TimeLeftI == 0) then
+			TimeLeft = base.common.GetNLS(User, "Sie wird sofort ausbrennen.", "It will burn down immediately.");
+		elseif (TimeLeftI == 1) then
+			TimeLeft = base.common.GetNLS(User, "Sie wird demnächst ausbrennen.", "It will burn down anytime soon.");
+		elseif (TimeLeftI == 2) then
+			TimeLeft = base.common.GetNLS(User, "Sie wird bald ausbrennen.", "It will burn down soon.");	
+		elseif (TimeLeftI <= 4) then
+			TimeLeft = base.common.GetNLS(User, "Sie wird nach einer Weile ausbrennen.", "It will burn down in a while.");
+		elseif (TimeLeftI <= PORTABLE_WEAR) then
+			TimeLeft = base.common.GetNLS(User, "Sie wird nicht allzu bald ausbrennen.", "It will not burn down anytime soon.");
+		elseif (TimeLeftI >= PORTABLE_WEAR) then
+			TimeLeft = base.common.GetNLS(User, "Sie wird nach langer Zeit ausbrennen.", "It will burn down in a long time.");
+		end
+		base.lookat.SetSpecialDescription(Item, TimeLeft, TimeLeft);
+	end
+	
 	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 end
 
