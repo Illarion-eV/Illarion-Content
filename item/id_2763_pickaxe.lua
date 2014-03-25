@@ -43,9 +43,11 @@ require("base.common")
 require("base.treasure")
 require("content.gathering")
 require("base.gatheringcraft")
-require("base.lookat")
+require("item.general.metal")
 
 module("item.id_2763_pickaxe", package.seeall)
+
+LookAtItem = item.general.metal.LookAtItem
 
 function Init()
     if InitDone then
