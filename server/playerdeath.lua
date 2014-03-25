@@ -59,7 +59,8 @@ function playerDeath(deadPlayer)
 
                 if durability <= DURABILITY_LOSS then
                     deadPlayer:increaseAtPos(i, -1)
-					base.common.HighInformNLS(deadPlayer,"[Tod] Einer deiner Gegenstände wurde zerstört.","[Death] One of your items was destroyed."); --sending a message
+					nameText=world:getItemName(item.id,deadPlayer:getPlayerLanguage());
+					base.common.HighInformNLS(deadPlayer,"[Tod] Dein Gegenstand '"..nameText.."' wurde zerstört.","[Death] Your item '"..nameText.."' was destroyed."); --sending a message
                 else
                     item.quality = item.quality - DURABILITY_LOSS
                     world:changeItem(item)
