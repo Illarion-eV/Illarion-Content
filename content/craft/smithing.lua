@@ -673,68 +673,48 @@ product:addIngredient(236); -- Gold Ingot
 -- elven rainbowsword
 product = smithing:addProduct(catId, 2775, 89, 100, 163, 327, 1);
 product:addIngredient(2585); -- Big Sword Handle
-
 product:addIngredient(2535, 4); -- Iron Ingot
-
 product:addIngredient(2550, 2); -- Copper Ingot
-
 product:addIngredient(46); -- Ruby
-
 product:addIngredient(284); -- Sapphire
 
 -- snake sword
 product = smithing:addProduct(catId, 2788, 86, 100, 159, 318, 1);
 product:addIngredient(2585); -- Big Sword Handle
-
 product:addIngredient(2535, 7); -- Iron Ingot
-
 product:addIngredient(2550, 3); -- Copper Ingot
-
 product:addIngredient(197); -- Amethyst
 
 -- dwarven axe
 product = smithing:addProduct(catId, 2660, 80, 100, 150, 300, 1);
 product:addIngredient(2525); -- Axe Handle
-
 product:addIngredient(2535, 6); -- Iron Ingot
-
 product:addIngredient(2550, 2); -- Copper Ingot
-
 product:addIngredient(236); -- Gold Ingot
-
 product:addIngredient(198); -- Topaz
-
 
 -- broadsword
 product = smithing:addProduct(catId, 2658, 73, 93, 139, 279, 1);
 product:addIngredient(2585); -- Big Sword Handle
-
 product:addIngredient(2535, 6); -- Iron Ingot
-
 product:addIngredient(2550, 4); -- Copper Ingot
-
 product:addIngredient(104); -- Silver Ingot
 
 -- elvensword
 product = smithing:addProduct(catId, 2778, 71, 91, 136, 273, 1);
 product:addIngredient(2585); -- Big Sword Handle
-
 product:addIngredient(2535, 7); -- Iron Ingot
-
 product:addIngredient(104); -- Silver Ingot
 
 -- scimitar
 product = smithing:addProduct(catId, 2757, 54, 74, 111, 222, 1);
 product:addIngredient(2584); -- Sword Handle
-
 product:addIngredient(2535, 7); -- Iron Ingot
-
 product:addIngredient(2550, 3); -- Copper Ingot
 
 -- longsword
 product = smithing:addProduct(catId, 2701, 47, 67, 100, 201, 1);
 product:addIngredient(2584); -- Sword Handle
-
 product:addIngredient(2535, 6); -- Iron Ingot
 
 product:addIngredient(2550, 2); -- Copper Ingot
@@ -742,137 +722,99 @@ product:addIngredient(2550, 2); -- Copper Ingot
 -- light battleaxe
 product = smithing:addProduct(catId, 2629, 39, 59, 88, 177, 1);
 product:addIngredient(2525); -- Axe Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
 
 -- orc axe
 product = smithing:addProduct(catId, 2642, 30, 50, 75, 150, 1);
 product:addIngredient(2525); -- Axe Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
 
 -- serinjah sword
 product = smithing:addProduct(catId, 1, 22, 42, 63, 126, 1);
 product:addIngredient(2584); -- Sword Handle
-
 product:addIngredient(2535, 4); -- Iron Ingot
 
 -- sabre
 product = smithing:addProduct(catId, 25, 15, 35, 52, 105, 1);
 product:addIngredient(2584); -- Sword Handle
-
 product:addIngredient(2535, 3); -- Iron Ingot
 
 -- halfling axe
 product = smithing:addProduct(catId, 2711, 11, 31, 46, 93, 1);
 product:addIngredient(2525); -- Axe Handle
-
 product:addIngredient(2535, 3); -- Iron Ingot
 
 -- short sword
 product = smithing:addProduct(catId, 78, 5, 25, 37, 75, 1);
 product:addIngredient(2584); -- Sword Handle
-
 product:addIngredient(2535,2); -- Iron Ingot
 
 -- battle axe
 product = smithing:addProduct(catId, 2946, 0, 20, 30, 60, 1);
 product:addIngredient(2525); -- Axe Handle
-
 product:addIngredient(2535,2); -- Iron Ingot
-
 
 catId = smithing:addCategory("Stabbing weapons", "Stichwaffen")
 
 -- magical dagger
 product = smithing:addProduct(catId, 2671, 99, 100, 178, 357, 1);
 product:addIngredient(2530); -- Dagger Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(104, 2); -- Silver Ingot
-
 product:addIngredient(2552); -- Pure water
-
 product:addIngredient(446); -- Sapphire Powder
-
 product:addIngredient(45); -- Emerald
-
 product:addIngredient(198); -- Topaz
 
 -- red fire dagger
 product = smithing:addProduct(catId, 2742, 95, 100, 172, 345, 1);
 product:addIngredient(2530); -- Dagger Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(104); -- Silver Ingot
-
 product:addIngredient(447); -- Ruby Powder
-
 product:addIngredient(2553); -- Pure Fire
-
 product:addIngredient(2571); -- Merinium Ingot
 
 -- Malachín dagger
 product = smithing:addProduct(catId, 91, 90, 100, 165, 330, 1);
 product:addIngredient(2530); -- Dagger Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(236); -- Gold Ingot
-
 product:addIngredient(2571); -- Merinium Ingot
-
 product:addIngredient(452); -- Diamond Powder
-
 product:addIngredient(451); -- Topaz Powder
-
 product:addIngredient(446); -- Sapphire Powder
-
 product:addIngredient(46); -- Ruby
-
 product:addIngredient(104); -- Silver Ingot
 
 -- rapier
 product = smithing:addProduct(catId, 2675, 85, 100, 157, 315, 1);
 product:addIngredient(2585); -- Big Sword Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(2550, 2); -- Copper Ingot
-
 product:addIngredient(104); -- Silver
 
 -- red dagger
 product = smithing:addProduct(catId, 2740, 84, 100, 156, 312, 1);
 product:addIngredient(2530); -- Dagger Handle
-
 product:addIngredient(2535, 4); -- Iron Ingot
-
 product:addIngredient(2550, 2); -- Copper Ingot
-
 product:addIngredient(447); -- Ruby Powder
-
 
 --ornate dagger
 product = smithing:addProduct(catId, 190, 40, 60, 90, 180, 1);
 product:addIngredient(2530); -- Dagger Handle
-
 product:addIngredient(2535, 6); -- Iron Ingot
-
 product:addIngredient(2550, 1); -- Copper Ingot
 
 --dagger
 product = smithing:addProduct(catId, 189, 13, 33, 49, 99, 1);
 product:addIngredient(2530); -- Dagger Handle
-
 product:addIngredient(2535, 3); -- Iron Ingot
 
 -- simple dagger
 product = smithing:addProduct(catId, 27, 0, 20, 30, 60, 1);
 product:addIngredient(2530); -- Dagger Handle
-
 product:addIngredient(2535,2); -- Iron Ingot
 
 catId = smithing:addCategory("Two-hand weapons", "Zweihandwaffen")
@@ -880,17 +822,11 @@ catId = smithing:addCategory("Two-hand weapons", "Zweihandwaffen")
 -- magical waraxe
 product = smithing:addProduct(catId, 2626, 97, 100, 175, 351, 1);
 product:addIngredient(2544); -- Large Handle
-
 product:addIngredient(2535, 6); -- Iron Ingot
-
 product:addIngredient(236, 2); -- Gold Ingot
-
 product:addIngredient(2571, 2); -- Merinium Ingot
-
 product:addIngredient(2551); -- Pure Water
-
 product:addIngredient(446); -- Sapphire Powder
-
 product:addIngredient(45); -- Emerald
 
 --Partisan of Light
@@ -908,187 +844,136 @@ product:addIngredient(104); -- Silver Ingot
 -- large fire-waraxe
 product = smithing:addProduct(catId, 2640, 95, 100, 172, 345, 1);
 product:addIngredient(2544); -- Large Handle
-
 product:addIngredient(2535, 7); -- Iron Ingot
-
 product:addIngredient(236); -- Gold Ingot
-
 product:addIngredient(2571); -- Merinium Ingot
-
 product:addIngredient(2553); -- Pure Fire
-
 product:addIngredient(447); -- Ruby Powder
-
 product:addIngredient(198); -- Topaz
-
 product:addIngredient(104); -- Silver Ingot
 
 -- fire waraxe
 product = smithing:addProduct(catId, 2627, 93, 100, 169, 339, 1);
 product:addIngredient(2544); -- Large Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(236, 2); -- Gold Ingot
-
 product:addIngredient(2553); -- Pure Fire
-
 product:addIngredient(2571); -- Merinium Ingot
 
 --Partisan
 product = smithing:addProduct(catId, 1042, 91, 100, 166, 333, 1);
 product:addIngredient(2527); -- Large Ornamented Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(2554); -- Pure Water
-
 product:addIngredient(104, 2); -- Silver Ingot
-
 product:addIngredient(2571); -- Merinium Ingot
 
 --Twinblade Shadow Ranseur
 product = smithing:addProduct(catId, 1050, 87, 100, 160, 321, 1);
 product:addIngredient(2527); -- Large Ornamented Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(197); -- Amethyst
-
 product:addIngredient(449); -- Obsidian Powder
-
 product:addIngredient(104, 2); -- Silver Ingot
 
 -- double axe
 product = smithing:addProduct(catId, 205, 83, 100, 154, 309, 1);
 product:addIngredient(2544); -- Large Handle
-
 product:addIngredient(2535, 9); -- Iron Ingot
-
 product:addIngredient(2550, 3); -- Copper Ingot
-
 product:addIngredient(46); -- Ruby
 
 -- two-handed sword
 product = smithing:addProduct(catId, 2731, 81, 100, 151, 303, 1);
 product:addIngredient(2544); -- Large Handle
-
 product:addIngredient(2535, 8); -- Iron Ingot
-
 product:addIngredient(2550, 4); -- Copper Ingot
-
 product:addIngredient(45); -- Emerald
 
 --Twinblade Ranseur
 product = smithing:addProduct(catId, 1039, 77, 97, 145, 291, 1);
 product:addIngredient(2527); -- Large Ornamented Handle
-
 product:addIngredient(2535, 8); -- Iron Ingot
-
 product:addIngredient(2550, 5); -- Copper Ingot
 
 -- halberd
 product = smithing:addProduct(catId, 77, 62, 82, 123, 246, 1);
 product:addIngredient(2527); -- Large Ornamented Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(2550, 4); -- Copper Ingot
-
 product:addIngredient(104); -- Silver Ingot
 
 -- large waraxe
 product = smithing:addProduct(catId, 188, 60, 80, 120, 240, 1);
 product:addIngredient(2544); -- Large Handle
-
 product:addIngredient(2535, 7); -- Iron Ingot
-
 product:addIngredient(2550, 4); -- Copper Ingot
 
 --Divine Voulge
 product = smithing:addProduct(catId, 1053, 59, 79, 118, 237, 1);
 product:addIngredient(2572); -- Staff Handle
-
 product:addIngredient(2535, 6); -- Iron Ingot
-
 product:addIngredient(2550, 2); -- Copper Ingot
-
 product:addIngredient(236); -- Gold Ingot
-
 product:addIngredient(447); -- Ruby Powder
 
 -- waraxe
 product = smithing:addProduct(catId, 383, 55, 75, 112, 225, 1);
 product:addIngredient(2525); -- Axe Handle
-
 product:addIngredient(2535, 7); -- Iron Ingot
-
 product:addIngredient(2550, 2); -- Copper Ingot
 
 --Voulge
 product = smithing:addProduct(catId, 1048, 45, 65, 97, 195, 1);
 product:addIngredient(2572); -- Staff Handle
-
 product:addIngredient(2535, 6); -- Iron Ingot
-
 product:addIngredient(2550, 1); -- Copper Ingot
 
 -- greatsword
 product = smithing:addProduct(catId, 204, 37, 57, 85, 171, 1);
 product:addIngredient(2584); -- Sword Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
 
 --Ranseur
 product = smithing:addProduct(catId, 1040, 31, 51, 76, 153, 1);
 product:addIngredient(2572); -- Staff Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
 
 --Glaive
 product = smithing:addProduct(catId, 1047, 21, 41, 61, 123, 1);
 product:addIngredient(2572); -- Staff Handle
-
 product:addIngredient(2535, 4); -- Iron Ingot
 
 --Viper Spear
 product = smithing:addProduct(catId, 1049, 20, 40, 60, 120, 1);
 product:addIngredient(2572); -- Staff Handle
-
 product:addIngredient(2535, 4); -- Iron Ingot
 
 -- longaxe
 product = smithing:addProduct(catId, 88, 14, 34, 51, 102, 1);
 product:addIngredient(2525); -- Axe Handle
-
 product:addIngredient(2535, 3); -- Iron Ingot
 
 --Snake Spear
 product = smithing:addProduct(catId, 1038, 12, 32, 48, 96, 1);
 product:addIngredient(2572); -- Staff Handle
-
 product:addIngredient(2535, 3); -- Iron Ingot
 
 -- executioner's axe
 product = smithing:addProduct(catId, 2723, 4, 24, 36, 72, 1);
 product:addIngredient(2525); -- Axe Handle
-
 product:addIngredient(2535,2); -- Iron Ingot
 
 --Simple Spear
 product = smithing:addProduct(catId, 1046, 0, 20, 30, 60, 1);
 product:addIngredient(2572); -- Staff Handle
-
 product:addIngredient(2535,2); -- Iron Ingot
 
-
 catId = smithing:addCategory("Throwing weapons", "Wurfwaffen")
-
 
 -- throwing star
 product = smithing:addProduct(catId, 294, 70, 90, 135, 270, 25);
 product:addIngredient(2535, 20); -- Iron Ingot
-
 product:addIngredient(449, 2); -- Obsidian Powder
 
 --OLD INGREDIENTS

@@ -108,27 +108,20 @@ catId = carving:addCategory("Weapon handles", "Waffengriffe") -- weapon handles
 --Morning star handle
 product = carving:addProduct(catId, 2549, 58, 78, 117, 234, 1);
 product:addIngredient(2786); -- Branch
-
 product:addIngredient(2547); -- Leather
-
 product:addIngredient(2535); -- Copper Ingot
 
 --Large staff handle
 product = carving:addProduct(catId, 2573, 56, 76, 114, 228, 1);
 product:addIngredient(56); -- Bough
-
 product:addIngredient(2547); -- Leather
-
 product:addIngredient(2535); -- Iron Ingot
 
 --large handle
 product = carving:addProduct(catId, 2544, 54, 74, 111, 222, 1);
 product:addIngredient(2786); -- Branch
-
 product:addIngredient(2547); -- Leather
-
 product:addIngredient(2535); -- Iron Ingot
-
 
 --Big sword handle
 product = carving:addProduct(catId, 2585, 52, 72, 108, 216, 1);
@@ -227,63 +220,45 @@ product:addIngredient(2550, 1); -- Copper Ingot
 -- warhammer
 product = carving:addProduct(catId, 226, 64, 84, 126, 252, 1);
 product:addIngredient(2549); -- Morning Star Handle
-
 product:addIngredient(546, 2); -- Naldor Wood Boards
-
 product:addIngredient(2786); -- Branch
-
 product:addIngredient(2535, 3); -- Iron Ingot
-
 product:addIngredient(2550, 1); -- Copper Ingot
 
 -- mage's staff
 product = carving:addProduct(catId, 76, 56, 76, 114, 228, 1);
 product:addIngredient(2572); -- Staff Handle
-
 product:addIngredient(546, 4); -- Naldor Wood Boards
-
 product:addIngredient(545, 1); -- Cherry Wood Boards
-
 product:addIngredient(284); -- Sapphire
-
-
 
 -- war flail
 product = carving:addProduct(catId, 2737, 52, 72, 108, 216, 1);
 product:addIngredient(2548); -- Mace Handle
-
 product:addIngredient(2535, 3); -- Iron Ingot
-
 product:addIngredient(2550, 1); -- Copper Ingot
 
 -- battle flail
 product = carving:addProduct(catId, 231, 38, 58, 87, 174, 1);
 product:addIngredient(2548); -- Mace Handle
-
 product:addIngredient(56); -- Bough
-
 product:addIngredient(2535, 3); -- Iron Ingot
 
 -- simple mage's staff
 product = carving:addProduct(catId, 57, 25, 45, 67, 135, 1);
 product:addIngredient(2572); -- Staff Handle
-
 product:addIngredient(546, 3); -- Naldor Wood Boards
-
 product:addIngredient(46); -- Ruby
 
 -- skull staff
 product = carving:addProduct(catId, 39, 18, 38, 57, 114, 1);
 product:addIngredient(2572); -- Staff Handle
-
 product:addIngredient(546, 3); -- Naldor Wood Boards
-
 product:addIngredient(2716, 1); -- Deciduous Wood Board
 
 -- mace
 product = carving:addProduct(catId, 230, 12, 32, 48, 96, 1);
 product:addIngredient(2548); -- Mace Handle
-
 product:addIngredient(56); -- Bough
 
 product:addIngredient(2535, 2); -- Iron Ingot
@@ -297,23 +272,18 @@ product:addIngredient(56); -- Bough
 -- wooden sword
 product = carving:addProduct(catId, 445, 4, 24, 36, 72, 1);
 product:addIngredient(2543, 3); -- Conifer Wooden Boards
-
 product:addIngredient(2786); -- Branch
-
 
 --wooden dagger
 product = carving:addProduct(catId, 1045, 2, 22, 33, 66, 1);
 product:addIngredient(2543, 2); -- Conifer Wooden Boards
-
 product:addIngredient(2786); -- Branch
 
 -- Club
 product = carving:addProduct(catId, 2664, 0, 20, 30, 60, 1);
 product:addIngredient(56); -- Bough
 
-
 catId = carving:addCategory("Ammunition", "Munition") --ammunition and throwing stuff
-
 
 --Wind Arrows
 product = carving:addProduct(catId, 322, 90, 100, 54, 108, 10)
@@ -323,14 +293,11 @@ product:addIngredient(2551) -- Pure Air: 1x1
 -- javelin
 product = carving:addProduct(catId, 293, 60, 80, 120, 240, 10);
 product:addIngredient(2527, 10); -- Large Ornamented handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
-
 
 -- throwing axe
 product = carving:addProduct(catId, 2645, 50, 70, 105, 210, 20);
 product:addIngredient(56, 10); -- Bough
-
 product:addIngredient(2535, 8); -- Iron Ingot
 
 --Bolt
