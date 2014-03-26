@@ -26,39 +26,28 @@ module("item.id_24_shovel", package.seeall)
 
 LookAtItem = item.general.metal.LookAtItem
 
-SAND_PIT = 1208
-CLAY_PIT = 1206
+function getSandPit(User)
+	local SAND_PIT = 1208;
+	local pitItem = base.common.GetFrontItem(User);
+	if (pitItem ~= nil and pitItem.id == SAND_PIT) then
+		return pitItem;
+	end
+	pitItem = base.common.GetItemInArea(User.pos, SAND_PIT);
+	return pitItem;
+end
+
+function getClayPit(User)
+	local CLAY_PIT = 1206;
+	local pitItem = base.common.GetFrontItem(User);
+	if (pitItem ~= nil and pitItem.id == CLAY_PIT) then
+		return pitItem;
+	end
+	pitItem = base.common.GetItemInArea(User.pos, CLAY_PIT);
+	return pitItem;
+end
 
 function UseItem(User, SourceItem, ltstate)
 
-	-- check for treasure
-	if DigForTreasure(User) then
-		return;
-	end
-
-	local pitItem
-
-	-- check for sand pit
-	pitItem = base.common.GetItemInArea(User.pos, SAND_PIT);
-	if (pitItem ~= nil) then
-		content.gatheringcraft.sanddigging.StartGathering(User, pitItem, ltstate);
-		return;
-	end
-
-	-- check for clay pit
-	pitItem = base.common.GetItemInArea(User.pos, CLAY_PIT);
-	if (pitItem ~= nil) then
-		content.gatheringcraft.claydigging.StartGathering(User, pitItem, ltstate);
-		return;
-	end
-
-	-- inform the user that he digs for nothing
-	DigForNothing(User);
-
-end
-
--- @return  True if found a treasure.
-function DigForTreasure(User)
 	local toolItem = User:getItemAt(5);
 	if ( toolItem.id ~=24 ) then
 		toolItem = User:getItemAt(6);
@@ -74,6 +63,34 @@ function DigForTreasure(User)
 		return
 	end
 
+	-- check for treasure
+	if DigForTreasure(User) then
+		return;
+	end
+
+	local pitItem
+
+	-- check for sand pit
+	pitItem = getSandPit(User);
+	if (pitItem ~= nil) then
+		content.gatheringcraft.sanddigging.StartGathering(User, pitItem, ltstate);
+		return;
+	end
+
+	-- check for clay pit
+	pitItem = getClayPit(User);
+	if (pitItem ~= nil) then
+		content.gatheringcraft.claydigging.StartGathering(User, pitItem, ltstate);
+		return;
+	end
+
+	-- inform the user that he digs for nothing
+	DigForNothing(User);
+
+end
+
+-- @return  True if found a treasure.
+function DigForTreasure(User)
 	local TargetPos = base.common.GetFrontPosition(User);
 	local groundTile = world:getField( TargetPos ):tile();
 	local groundType = base.common.GetGroundType( groundTile );
@@ -90,21 +107,6 @@ function DigForTreasure(User)
 end
 
 function DigForNothing(User)
-	local toolItem = User:getItemAt(5);
-	if ( toolItem.id ~=24 ) then
-		toolItem = User:getItemAt(6);
-		if ( toolItem.id ~= 24 ) then
-			base.common.HighInformNLS( User,
-			"Du musst die Schaufel in der Hand haben!",
-			"You have to hold the shovel in your hand!" );
-			return
-		end
-	end
-
-	if not base.common.FitForWork( User ) then -- check minimal food points
-		return
-	end
-
 	local TargetPos = base.common.GetFrontPosition(User);
 	local groundTile = world:getField( TargetPos ):tile();
 	local groundType = base.common.GetGroundType( groundTile );
@@ -115,12 +117,12 @@ function DigForNothing(User)
 			"You dig a small hole into the farming ground. But you find nothing.");
 	elseif ( groundType == base.common.GroundType.sand ) then
 		base.common.HighInformNLS( User,
-			"Du gräbst ein kleines Loch in den Dreck, doch findest du hier gar nichts.",
-			"You dig a small hole into the forest ground. But you find nothing.");
-	elseif ( groundType == base.common.GroundType.sand ) then
-		base.common.HighInformNLS( User,
 			"Du gräbst ein kleines Loch in den Sand, doch findest du hier gar nichts.",
-			"You dig a small hole into the forest ground. But you find nothing.");
+			"You dig a small hole into the sand. But you find nothing.");
+	elseif ( groundType == base.common.GroundType.dirt ) then
+		base.common.HighInformNLS( User,
+			"Du gräbst ein kleines Loch in den Dreck, doch findest du hier gar nichts.",
+			"You dig a small hole into the dirt. But you find nothing.");
 	elseif ( groundType == base.common.GroundType.forest ) then
 		base.common.HighInformNLS( User,
 			"Du gräbst ein kleines Loch in den Waldboden, doch findest du hier gar nichts.",
