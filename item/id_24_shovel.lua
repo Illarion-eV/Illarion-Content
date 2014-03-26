@@ -31,17 +31,6 @@ CLAY_PIT = 1206
 
 function UseItem(User, SourceItem, ltstate)
 
-	if (SourceItem:getType() ~= 4) then -- tool in Hand
-		base.common.HighInformNLS( User,
-		"Du musst die Schaufel in der Hand haben!",
-		"You have to hold the shovel in your hand!" );
-		return
-	end
-
-	if not base.common.FitForWork( User ) then -- check minimal food points
-		return
-	end
-
 	-- check for treasure
 	if DigForTreasure(User) then
 		return;
@@ -70,6 +59,21 @@ end
 
 -- @return  True if found a treasure.
 function DigForTreasure(User)
+	local toolItem = User:getItemAt(5);
+	if ( toolItem.id ~=24 ) then
+		toolItem = User:getItemAt(6);
+		if ( toolItem.id ~= 24 ) then
+			base.common.HighInformNLS( User,
+			"Du musst die Schaufel in der Hand haben!",
+			"You have to hold the shovel in your hand!" );
+			return
+		end
+	end
+
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+
 	local TargetPos = base.common.GetFrontPosition(User);
 	local groundTile = world:getField( TargetPos ):tile();
 	local groundType = base.common.GetGroundType( groundTile );
@@ -86,6 +90,21 @@ function DigForTreasure(User)
 end
 
 function DigForNothing(User)
+	local toolItem = User:getItemAt(5);
+	if ( toolItem.id ~=24 ) then
+		toolItem = User:getItemAt(6);
+		if ( toolItem.id ~= 24 ) then
+			base.common.HighInformNLS( User,
+			"Du musst die Schaufel in der Hand haben!",
+			"You have to hold the shovel in your hand!" );
+			return
+		end
+	end
+
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+
 	local TargetPos = base.common.GetFrontPosition(User);
 	local groundTile = world:getField( TargetPos ):tile();
 	local groundType = base.common.GetGroundType( groundTile );

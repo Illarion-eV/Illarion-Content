@@ -72,13 +72,6 @@ function StartGathering(User, SourceItem, ltstate)
 		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 	end
 
-	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		claydigging.SavedWorkTime[User.id] = claydigging:GenWorkTime(User,SourceItem);
-		User:startAction( claydigging.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talk(Character.say, "#me beginnt nach Lehm zu graben.", "#me starts to dig for clay.")
-		return
-	end
-
 	-- check the amount
 	local MaxAmount = 20
 	local changeItem = false;
@@ -132,6 +125,15 @@ function StartGathering(User, SourceItem, ltstate)
 		end
 	end
 
+	-- currently not working -> let's go
+
+	if ( ltstate == Action.none ) then
+		claydigging.SavedWorkTime[User.id] = claydigging:GenWorkTime(User,SourceItem);
+		User:startAction( claydigging.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:talk(Character.say, "#me beginnt nach Lehm zu graben.", "#me starts to dig for clay.")
+		return
+	end
+
 	-- since we're here, we're working
 
 	if claydigging:FindRandomItem(User) then
@@ -179,6 +181,7 @@ function StartGathering(User, SourceItem, ltstate)
 		"You can't carry any more.");
 	else -- character can still carry something
 		claydigging.SavedWorkTime[User.id] = claydigging:GenWorkTime(User,SourceItem);
+		User:changeSource(SourceItem);
 		User:startAction( claydigging.SavedWorkTime[User.id], 0, 0, 0, 0);
 	end
 

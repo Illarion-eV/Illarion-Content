@@ -72,14 +72,6 @@ function StartGathering(User, SourceItem, ltstate)
 		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 	end
 
-	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User,SourceItem);
-		User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talk(Character.say, "#me beginnt nach Sand zu graben.", "#me starts to dig for sand.")
-		return
-	end
-
-
 	-- check the amount
 	local MaxAmount = 20
 	local changeItem = false;
@@ -133,6 +125,14 @@ function StartGathering(User, SourceItem, ltstate)
 		end
 	end
 
+	-- currently not working -> let's go
+	if ( ltstate == Action.none ) then
+		sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User,SourceItem);
+		User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:talk(Character.say, "#me beginnt nach Sand zu graben.", "#me starts to dig for sand.")
+		return
+	end
+
 	-- since we're here, we're working
 
 	if sanddigging:FindRandomItem(User) then
@@ -180,6 +180,7 @@ function StartGathering(User, SourceItem, ltstate)
 		"You can't carry any more.");
 	else -- character can still carry something
 		sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User,SourceItem);
+		User:changeSource(SourceItem);
 		User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0);
 	end
 
