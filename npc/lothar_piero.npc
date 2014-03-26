@@ -87,7 +87,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 10% Staffs: 39, 40, 57, 76, 207, 208, 209
 -- 10% Instruments: 90, 332, 333, 335
 -- 10% Wands: 323, 2782, 2783, 2784, 2785
--- 10% Weapons: 445(wooden sword), 1045(wooden dagger), 2664(club) [1044(battle hammer), 1041(Stachelkeule)]
+-- 10% Weapons: 445(wooden sword), 1045(wooden dagger), 2664(club), 1044(battle hammer), 1041(spiked mace)
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
