@@ -505,7 +505,7 @@ function ArmourDegrade(Defender, Globals)
 		"Du solltest dein kaputtes Artefakt '"..nameText.."' ablegen bevor es zerbricht!",
 		"You should take off your broken artifact '"..nameText.."' before it shatters!");
 
-	elseif (base.common.Chance(Globals.Damage, 10000)) and (Globals.HittedItem.id ~= 0) then -- do not damage non existing items
+	elseif (base.common.Chance(Globals.Damage, 12000)) and (Globals.HittedItem.id ~= 0) then -- do not damage non existing items
 
 		local durability = math.mod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
