@@ -353,43 +353,34 @@ product:addIngredient(176, 2); -- Grey Cloth
 -- elven silversteel armour
 product = smithing:addProduct(catId, 2403, 42, 62, 93, 186, 1);
 product:addIngredient(2535, 7); -- Iron Ingot
-
 product:addIngredient(2550, 3); -- Copper Ingot
-
-
 product:addIngredient(2547, 2); -- Leather
+
 -- light elven armour
 product = smithing:addProduct(catId, 2399, 38, 58, 87, 174, 1);
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(2550, 2); -- Copper Ingot
-
 product:addIngredient(2547); -- Leather
 
 -- dwarvenplate
 product = smithing:addProduct(catId, 2395, 36, 56, 84, 168, 1);
 product:addIngredient(2535, 6); -- Iron Ingot
-
 product:addIngredient(2550, 2); -- Copper Ingot
-
 product:addIngredient(2547); -- Leather
 
 -- light breastplate
 product = smithing:addProduct(catId, 2407, 29, 49, 73, 147, 1);
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(2550, 1); -- Copper Ingot
 
 -- steel plate
 product = smithing:addProduct(catId, 2364, 26, 46, 69, 138, 1);
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(2550, 1); -- Copper Ingot
 
 -- Lor-Angur guardian's armour
 product = smithing:addProduct(catId, 2360, 25, 45, 67, 135, 1);
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(2550, 1); -- Copper Ingot
 
 -- mercenary armour

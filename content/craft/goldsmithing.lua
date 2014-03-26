@@ -205,20 +205,12 @@ catId = goldsmithing:addCategory("Weapons", "Waffen")
 -- merinium-plated longsword  
 product = goldsmithing:addProduct(catId, 123, 99, 100, 178, 357, 1);
 product:addIngredient(2584); -- Sword Handle
-
 product:addIngredient(2535, 6); -- Iron Ingot
-
-
 product:addIngredient(2571); -- Merinium Ingot
-
 product:addIngredient(2551); -- Pure Air
-
 product:addIngredient(452); -- Diamond Powder
-
 product:addIngredient(451); -- Topaz Powder
-
 product:addIngredient(46); -- Ruby
-
 product:addIngredient(446); -- Sapphire
 
 -- merinium-plated battle axe

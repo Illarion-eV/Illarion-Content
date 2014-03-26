@@ -259,7 +259,6 @@ product:addIngredient(178) -- White Cloth: 1x1
 product:addIngredient(50, 2*2) -- Thread: 2x2
 product:addIngredient(54) -- Green Cloth: 1x1
 
-
 --Grey White Skirt
 product = tailoring:addProduct(catId, 841, 2, 22, 20, 40)
 product:addIngredient(176) -- Grey Cloth: 1x1
@@ -384,29 +383,23 @@ product:addIngredient(50, 3); -- Thread
 -- studded leather gloves
 product = tailoring:addProduct(catId, 526, 55, 75, 112, 225, 1);
 product:addIngredient(2547, 4); -- Leather
-
 product:addIngredient(2550, 2); -- Copper Ingot
-
 product:addIngredient(2586, 2); -- Fur
-
 product:addIngredient(50, 2); -- Thread
 
 -- thief's gloves
 product = tailoring:addProduct(catId, 384, 30, 50, 75, 150, 1);
 product:addIngredient(178, 3); -- White Cloth
-
 product:addIngredient(50, 2); -- Thread
 
 -- leather gloves
 product = tailoring:addProduct(catId, 48, 26, 46, 69, 138, 1);
 product:addIngredient(2547, 2); -- Leather
-
 product:addIngredient(50, 2); -- Thread
 
 --cloth gloves
 product = tailoring:addProduct(catId, 2295, 10, 30, 45, 90, 1);
 product:addIngredient(178, 3); -- White Cloth
-
 product:addIngredient(50, 1); -- Thread
 
 catId = tailoring:addCategory("Chest armour", "Brustrüstungen") --Chest armours
@@ -414,45 +407,31 @@ catId = tailoring:addCategory("Chest armour", "Brustrüstungen") --Chest armours
 -- full leather armour
 product = tailoring:addProduct(catId, 362, 99, 100, 178, 357, 1);
 product:addIngredient(2547, 15); -- Leather
-
 product:addIngredient(2586, 9); -- Fur
-
 product:addIngredient(176, 6); -- Grey Cloth
-
 product:addIngredient(50, 5); -- Thread
-
 product:addIngredient(2571); -- Merinium Ingot
-
 product:addIngredient(2554); -- Pure Water
 
 -- light hunting armour
 product = tailoring:addProduct(catId, 364, 92, 100, 168, 336, 1);
 product:addIngredient(2547, 10); -- Leather
-
 product:addIngredient(2586, 6); -- Fur
-
 product:addIngredient(176, 4); -- Grey Cloth
-
 product:addIngredient(50, 4); -- Thread
-
 product:addIngredient(2551); -- Pure Air
-
 product:addIngredient(2571); -- Merinium Ingot
 
 -- half leather armour
 product = tailoring:addProduct(catId, 365, 22, 42, 63, 126, 1);
 product:addIngredient(2547, 5); -- Leather
-
 product:addIngredient(2586, 2); -- Fur
-
 product:addIngredient(50, 2); -- Thread
 
 -- leather scale armour
 product = tailoring:addProduct(catId, 363, 18, 38, 57, 114, 1);
 product:addIngredient(2547, 5); -- Leather
-
 product:addIngredient(50, 2); -- Thead
-
 
 catId = tailoring:addCategory("Coats and robes", "Mäntel und Roben") --coats and robes
 
@@ -501,13 +480,11 @@ product:addIngredient(50, 3*2) -- Thread: 3x2
 product:addIngredient(178) -- White Cloth: 1x1
 product:addIngredient(198, 2) -- Topaz: 2x1
 
-
 --Yellow Robe
 product = tailoring:addProduct(catId, 195, 71, 91, 184, 368)
 product:addIngredient(177, 3) -- Yellow Cloth: 3x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
 product:addIngredient(198, 2) -- Topaz: 2x1
-
 
 --Red Mage Robe
 product = tailoring:addProduct(catId, 2377, 68, 88, 176, 352)
@@ -515,7 +492,6 @@ product:addIngredient(174, 3) -- Red Cloth: 3x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
 product:addIngredient(177) -- Yellow Cloth: 1x1
 product:addIngredient(46) -- Ruby: 1x1
-
 
 --Red Priest Robe
 product = tailoring:addProduct(catId, 2419, 65, 85, 168, 336)
@@ -534,8 +510,6 @@ product = tailoring:addProduct(catId, 2420, 59, 79, 160, 320)
 product:addIngredient(175, 5) -- Black Cloth: 5x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
 
-
-
 --Black Coat
 product = tailoring:addProduct(catId, 2384, 57, 77, 190, 380)
 product:addIngredient(175, 5) -- Black Cloth: 5x1
@@ -547,18 +521,15 @@ product:addIngredient(175, 3) -- Black Cloth: 3x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
 product:addIngredient(174) -- Red Cloth: 1x1
 
-
 --Black Robe
 product = tailoring:addProduct(catId, 194, 51, 71, 144, 288)
 product:addIngredient(175, 4) -- Black Cloth: 4x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
 
-
 --Green Robe
 product = tailoring:addProduct(catId, 55, 48, 68, 136, 272)
 product:addIngredient(54, 4) -- Green Cloth: 4x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
-
 
 --White Priest Robe
 product = tailoring:addProduct(catId, 2421, 46, 66, 128, 256)
@@ -570,49 +541,37 @@ product = tailoring:addProduct(catId, 2418, 43, 63, 128, 256)
 product:addIngredient(176, 4) -- Grey Cloth: 4x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
 
-
 --Grey Coat
 product = tailoring:addProduct(catId, 196, 40, 60, 150, 300)
 product:addIngredient(176, 5) -- Grey Cloth: 5x1
 product:addIngredient(50, 5*2) -- Thread: 5x2
-
 
 catId = tailoring:addCategory("Leggings", "Beinzeug") -- leggings
 
 -- fur trousers
 product = tailoring:addProduct(catId, 2113, 93, 100, 169, 339, 1);
 product:addIngredient(2586, 9); -- Fur
-
 product:addIngredient(176, 4); -- Grey Cloth
-
 product:addIngredient(50, 4); -- Thread
-
 product:addIngredient(2571); -- Merinium Ingot
-
 product:addIngredient(2552); -- Pure Earth
 
 -- short fur trousers
 product = tailoring:addProduct(catId, 2114, 65, 85, 127, 255, 1);
 product:addIngredient(2586, 6); -- Fur
-
 product:addIngredient(176, 3); -- Grey Cloth
-
 product:addIngredient(50, 2); -- Thread
 
 -- leather leggings
 product = tailoring:addProduct(catId, 366, 32, 52, 78, 156, 1);
 product:addIngredient(2547, 4); -- Leather
-
 product:addIngredient(2586, 2); -- Fur
-
 product:addIngredient(50, 2); -- Thread
 
 -- short leather leggings
 product = tailoring:addProduct(catId, 367, 14, 34, 51, 102, 1);
 product:addIngredient(2547, 3); -- Leather
-
 product:addIngredient(50, 2); -- Thread
-
 
 catId = tailoring:addCategory("Trousers", "Hosen") -- Pants
 
@@ -620,7 +579,6 @@ catId = tailoring:addCategory("Trousers", "Hosen") -- Pants
 product = tailoring:addProduct(catId, 821, 38, 58, 84, 168)
 product:addIngredient(179, 3) -- Blue Cloth: 3x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
-
 
 --Blue Trousers
 product = tailoring:addProduct(catId, 461, 34, 54, 78, 156)
@@ -631,7 +589,6 @@ product:addIngredient(50, 3*2) -- Thread: 3x2
 product = tailoring:addProduct(catId, 822, 31, 51, 78, 156)
 product:addIngredient(177, 3) -- Yellow Cloth: 3x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
-
 
 --Yellow Trousers
 product = tailoring:addProduct(catId, 460, 28, 48, 72, 144)
@@ -679,70 +636,49 @@ product = tailoring:addProduct(catId, 823, 1, 21, 30, 60)
 product:addIngredient(176, 3) -- Grey Cloth: 3x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
 
-
 catId = tailoring:addCategory("Boots", "Schuhe") -- Footwear
 
 -- serinjah leather boots
 product = tailoring:addProduct(catId, 698, 95, 100, 172, 345, 1);
 product:addIngredient(2547, 5); -- Leather
-
 product:addIngredient(2586, 3); -- Fur
-
 product:addIngredient(176, 3); -- Grey Cloth
-
 product:addIngredient(50, 4); -- Thread
-
 product:addIngredient(2571); -- Merinium Ingot
 
 -- fur boots
 product = tailoring:addProduct(catId, 697, 70, 90, 135, 270, 1);
 product:addIngredient(2586, 5); -- Fur
-
 product:addIngredient(176, 2); -- Grey Cloth
-
 product:addIngredient(50, 2); -- Thread
 
 -- leather boots
 product = tailoring:addProduct(catId, 53, 36, 56, 84, 168, 1);
-
 product:addIngredient(2547, 3); -- Leather
-
 product:addIngredient(2586, 2); -- Fur
-
 product:addIngredient(50, 2); -- Thread
 
 -- dwarfen boots
 product = tailoring:addProduct(catId, 1055, 32, 52, 78, 156, 1);
-
 product:addIngredient(2547, 3); -- Leather
-
 product:addIngredient(2586, 1); -- Fur
-
 product:addIngredient(50, 2); -- Thread
 
 -- Lor-Angur guardians boots
 product = tailoring:addProduct(catId, 1056, 10, 30, 50, 100, 1);
-
 product:addIngredient(2547, 1); -- Leather
-
 product:addIngredient(179, 1); -- Grey Cloth
-
 product:addIngredient(50, 2); -- Thread
 
 -- Solid fur boots
 product = tailoring:addProduct(catId, 1057, 5, 25, 34, 69, 1);
-
 product:addIngredient(2586, 2); -- Fur
-
 product:addIngredient(50, 2); -- Thread
 
 -- leather shoes
 product = tailoring:addProduct(catId, 369, 2, 22, 34, 69, 1);
-
 product:addIngredient(2547, 3); -- Leather
-
 product:addIngredient(50, 2); -- Thread
-
 
 catId = tailoring:addCategory("Other", "Sonstiges") --slings, and more slings + bag
 
