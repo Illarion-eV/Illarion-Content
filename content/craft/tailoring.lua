@@ -272,7 +272,6 @@ catId = tailoring:addCategory("Clothes", "Kleidung") --Man clothes
 product = tailoring:addProduct(catId, 807, 48, 68, 136, 272)
 product:addIngredient(179, 4) -- Blue Cloth: 4x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
-product:addIngredient(2550) -- Copper Ingot: 1x1
 
 --Blue Shirt
 product = tailoring:addProduct(catId, 181, 46, 66, 96, 192)
@@ -283,18 +282,18 @@ product:addIngredient(50, 3*2) -- Thread: 3x2
 product = tailoring:addProduct(catId, 814, 43, 63, 128, 256)
 product:addIngredient(179, 4) -- Blue Cloth: 4x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
-
+product:addIngredient(2550) -- Copper Ingot: 1x1
 
 --Yellow Tunic
 product = tailoring:addProduct(catId, 815, 40, 60, 120, 240)
 product:addIngredient(177, 4) -- Yellow Cloth: 4x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
+product:addIngredient(2550) -- Copper Ingot: 1x1
 
 --Yellow Doublet
 product = tailoring:addProduct(catId, 808, 38, 58, 98, 196)
 product:addIngredient(177, 3) -- Yellow Cloth: 3x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
-product:addIngredient(2550) -- Copper Ingot: 1x1
 
 --Yellow Shirt
 product = tailoring:addProduct(catId, 458, 35, 55, 84, 168)
@@ -305,12 +304,12 @@ product:addIngredient(50, 3*2) -- Thread: 3x2
 product = tailoring:addProduct(catId, 818, 33, 53, 104, 208)
 product:addIngredient(174, 4) -- Red Cloth: 4x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
+product:addIngredient(2550) -- Copper Ingot: 1x1
 
 --Red Doublet
 product = tailoring:addProduct(catId, 811, 30, 50, 84, 168)
 product:addIngredient(174, 3) -- Red Cloth: 3x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
-product:addIngredient(2550) -- Copper Ingot: 1x1
 
 --Red Shirt
 product = tailoring:addProduct(catId, 180, 27, 47, 72, 144)
@@ -321,12 +320,12 @@ product:addIngredient(50, 3*2) -- Thread: 3x2
 product = tailoring:addProduct(catId, 819, 25, 45, 77, 154)
 product:addIngredient(175, 4) -- Black Cloth: 4x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
+product:addIngredient(2550) -- Copper Ingot: 1x1
 
 --Black Doublet
 product = tailoring:addProduct(catId, 812, 22, 42, 70, 140)
 product:addIngredient(175, 3) -- Black Cloth: 3x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
-product:addIngredient(2550) -- Copper Ingot: 1x1
 
 --Black Shirt
 product = tailoring:addProduct(catId, 182, 19, 39, 60, 120)
@@ -342,7 +341,6 @@ product:addIngredient(50, 4*2) -- Thread: 4x2
 product = tailoring:addProduct(catId, 810, 14, 34, 56, 112)
 product:addIngredient(54, 3) -- Green Cloth: 3x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
-product:addIngredient(2550) -- Copper Ingot: 1x1
 
 --Green Shirt
 product = tailoring:addProduct(catId, 457, 12, 32, 48, 96)
@@ -353,23 +351,23 @@ product:addIngredient(50, 3*2) -- Thread: 3x2
 product = tailoring:addProduct(catId, 813, 9, 29, 49, 98)
 product:addIngredient(178, 3) -- White Cloth: 3x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
-product:addIngredient(2550) -- Copper Ingot: 1x1
 
 --White Tunic
 product = tailoring:addProduct(catId, 820, 6, 26, 48, 96)
 product:addIngredient(178, 4) -- White Cloth: 4x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
+product:addIngredient(2550) -- Copper Ingot: 1x1
 
 --Grey Doublet
 product = tailoring:addProduct(catId, 809, 4, 24, 42, 84)
 product:addIngredient(176, 3) -- Grey Cloth: 3x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
-product:addIngredient(2550) -- Copper Ingot: 1x1
 
 --Grey Tunic
 product = tailoring:addProduct(catId, 816, 1, 21, 40, 80)
 product:addIngredient(176, 4) -- Grey Cloth: 4x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
+product:addIngredient(2550) -- Copper Ingot: 1x1
 
 catId = tailoring:addCategory("Gloves", "Handschuhe") -- Leather gloves and hats
 

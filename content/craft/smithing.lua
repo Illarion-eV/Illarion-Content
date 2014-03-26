@@ -117,15 +117,10 @@ catId = smithing:addCategory("Helmets", "Helme")
 -- black visored helmet
 product = smithing:addProduct(catId, 185, 98, 100, 177, 354, 1);
 product:addIngredient(2535, 9); -- Iron Ingot
-
 product:addIngredient(2550, 4); -- Copper Ingot
-
 product:addIngredient(2571, 2); -- Merinium Ingot
-
 product:addIngredient(283); -- Obsidian
-
 product:addIngredient(197); -- Amethyst
-
 product:addIngredient(451); -- Topaz Powder
 
 -- flame helmet
@@ -140,56 +135,38 @@ product:addIngredient(104); -- Silver Ingot
 -- visored helmet
 product = smithing:addProduct(catId, 184, 94, 100, 171, 342, 1);
 product:addIngredient(2535, 9); -- Iron Ingot
-
 product:addIngredient(2550, 3); -- Copper Ingot
-
 product:addIngredient(104); -- Silver Ingot
-
 product:addIngredient(2547); -- Leather
-
 product:addIngredient(197); -- Merinium Ingot
 
 -- salkamaerian paladin's helmet
 product = smithing:addProduct(catId, 2291, 92, 100, 168, 336, 1);
 product:addIngredient(2535, 7); -- Iron Ingot
-
 product:addIngredient(2550, 3); -- Copper Ingot
-
 product:addIngredient(236); -- Gold Ingot
-
 product:addIngredient(2571); -- Merinium ingot
-
 product:addIngredient(447); -- Ruby Powder
-
 product:addIngredient(284); -- Sapphire
 
 -- horned helmet
 product = smithing:addProduct(catId, 7, 88, 100, 162, 324, 1);
 product:addIngredient(2535, 7); -- Iron Ingot
-
 product:addIngredient(2550, 2); -- Copper Ingot
-
 product:addIngredient(2547, 3); -- Leather
-
 product:addIngredient(236); -- Gold Ingot
 
 -- albarian soldier's helmet
 product = smithing:addProduct(catId, 2287, 84, 100, 156, 312, 1);
 product:addIngredient(2535, 6); -- Iron Ingot
-
 product:addIngredient(2550, 3); -- Copper Ingot
-
 product:addIngredient(2547, 3); -- Leather
-
 product:addIngredient(104); -- Silver Ingot
-
 
 -- gynkese mercenarie's helmet
 product = smithing:addProduct(catId, 2302, 70, 90, 135, 270, 1);
 product:addIngredient(2535, 8); -- Iron Ingot
-
 product:addIngredient(2550, 3); -- Copper Ingot
-
 product:addIngredient(176, 2); -- Grey Cloth
 
 -- round steel hat
@@ -200,7 +177,6 @@ product:addIngredient(2550, 3); -- Copper Ingot
 -- pot helmet
 product = smithing:addProduct(catId, 94, 58, 78, 117, 234, 1);
 product:addIngredient(2535, 7); -- Iron Ingot
-
 product:addIngredient(2550, 3); -- Copper Ingot
 
 -- storm cap
@@ -208,16 +184,19 @@ product = smithing:addProduct(catId, 2441, 52, 72, 108, 216, 1);
 product:addIngredient(2535, 6); -- Iron Ingot
 product:addIngredient(2550, 2); -- Copper Ingot
 
+--Serinjah Helmet
+product = smithing:addProduct(catId, 2444, 39, 59, 90, 180, 1)
+product:addIngredient(2535, 5) -- Iron Ingot: 5x1
+product:addIngredient(2550, 2); -- Copper Ingot
+
 -- orc helmet
 product = smithing:addProduct(catId, 16, 34, 54, 81, 162, 1);
-product:addIngredient(2535, 5); -- Iron Ingot
-
+product:addIngredient(2535, 4); -- Iron Ingot
 product:addIngredient(2550, 2); -- Copper Ingot
 
 -- steel hat
 product = smithing:addProduct(catId, 187, 27, 47, 70, 141, 1);
 product:addIngredient(2535, 3); -- Iron Ingot
-
 product:addIngredient(2550, 1); -- Copper Ingot
 
 -- steel cap
@@ -227,7 +206,6 @@ product:addIngredient(2535,4); -- Iron Ingot
 -- chain helmet
 product = smithing:addProduct(catId, 324, 7, 27, 40, 81, 1);
 product:addIngredient(2535,2); -- Iron Ingot
-
 
 catId = smithing:addCategory("Armour", "Rüstungen")
 
