@@ -814,7 +814,7 @@ product:addIngredient(2553); -- Pure Fire
 
 product:addIngredient(2571); -- Merinium Ingot
 
--- Malachí­n dagger
+-- Malachín dagger
 product = smithing:addProduct(catId, 91, 90, 100, 165, 330, 1);
 product:addIngredient(2530); -- Dagger Handle
 
@@ -824,7 +824,7 @@ product:addIngredient(236); -- Gold Ingot
 
 product:addIngredient(2571); -- Merinium Ingot
 
-product:addIngredient(452); -- Dimaond Powder
+product:addIngredient(452); -- Diamond Powder
 
 product:addIngredient(451); -- Topaz Powder
 
