@@ -322,6 +322,9 @@ product:addIngredient(2543, 2); -- Conifer Wooden Boards
 
 product:addIngredient(2786); -- Branch
 
+-- Club
+product = carving:addProduct(catId, 2664, 0, 20, 30, 60, 1);
+product:addIngredient(56); -- Bough
 
 
 catId = carving:addCategory("Ammunition", "Munition") --ammunition and throwing stuff

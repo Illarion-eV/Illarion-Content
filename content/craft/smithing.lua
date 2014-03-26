@@ -108,7 +108,7 @@ product:addIngredient(2535, 2) -- Iron Ingot: 2x1
 product:addIngredient(2544) -- Large handle: 1x1
 
 --Pins
-product = smithing:addProduct(catId, 2738, 0, 20, 5, 10, 5)
+product = smithing:addProduct(catId, 2738, 0, 20, 10, 20, 5)
 product:addIngredient(2535) -- Iron Ingot: 1x1
 
 
