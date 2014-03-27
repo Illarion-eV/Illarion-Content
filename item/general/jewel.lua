@@ -14,8 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
+
 require("base.lookat")
 require("base.common")
+require("item.general.minimumLevel")
 
 module("item.general.jewel", package.seeall)
 
@@ -43,4 +45,19 @@ function UseItem(User, SourceItem, ltstate)
     else
         UseMe[SourceItem.id](User, SourceItem, TargetItem, ltstate)
     end
+end
+
+function MoveItemBeforeMove(User,SourceItem,TargetItem)
+
+	if TargetItem:getType() == 4 then --inventory, not belt
+	
+		return item.general.minimumLevel.checkLevel(User,SourceItem);
+		
+	else
+	
+		return true;
+		
+	end
+	
+	return true; --just in case
 end

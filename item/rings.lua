@@ -16,10 +16,28 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script = 'item.rings' WHERE com_itemid IN (68, 277, 278, 279, 280, 281, 282);
 
+require("base.lookat")
+require("base.common")
+require("item.general.minimumLevel")
 require("item.general.jewel")
 
 module("item.rings", package.seeall)
 
 function LookAtItem(User,Item)
 	item.general.jewel.LookAtItem(User,Item);
+end
+
+function MoveItemBeforeMove(User,SourceItem,TargetItem)
+
+	if TargetItem:getType() == 4 then --inventory, not belt
+	
+		return item.general.minimumLevel.checkLevel(User,SourceItem);
+		
+	else
+	
+		return true;
+		
+	end
+	
+	return true; --just in case
 end

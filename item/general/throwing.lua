@@ -17,11 +17,29 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE common SET com_script='item.id_293_throwing_spear' WHERE com_itemid IN (293);
 
 require("base.lookat")
+require("base.common")
+require("item.general.minimumLevel")
 
 module("item.general.throwing", package.seeall)
 
 --This script can limit equipping throwing weapons without having to show the quality
 
---no lookAt with quality, stackable item
+--No lookAt with quality, stackable items
+
+function MoveItemBeforeMove(User,SourceItem,TargetItem)
+
+	if TargetItem:getType() == 4 then --inventory, not belt
+	
+		return item.general.minimumLevel.checkLevel(User,SourceItem);
+		
+	else
+	
+		return true;
+		
+	end
+	
+	return true; --just in case
+end
+
 	
 
