@@ -353,7 +353,7 @@ function showRespawnDialog(rebornPlayer)
 	if rebornPlayer:getPlayerLanguage() == 0 then		
 		dialog = MessageDialog("Wiederbelebung", "Der Eintritt in Chergas Reich der Toten wird dir verwehrt. Deine Taten auf Illarion sind noch nicht vorüber. Die Götter gewähren dir eine weitere Chance auf die Ebene der Lebenden zurückzukehren.", callback);
 	else		
-		dialog = MessageDialog("Respawn", "You are denied access to Cherga's Realm of the Death. Your deeds on Illarion are not over. The gods grant you another chance to return to the Mortal Plane.", callback);
+		dialog = MessageDialog("Respawn", "You are denied access to Cherga's Realm of the Dead. Your deeds on Illarion are not over. The gods grant you another chance to return to the Mortal Plane.", callback);
 	end	
 	
 	rebornPlayer:requestMessageDialog(dialog); --showing the text
