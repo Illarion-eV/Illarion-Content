@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 require("base.lookat")
 require("base.common")
-require("item.general.minimumLevel")
+require("item.general.checks")
 require("item.general.jewel")
 
 module("item.rings", package.seeall)
@@ -31,7 +31,7 @@ function MoveItemBeforeMove(User,SourceItem,TargetItem)
 
 	if TargetItem:getType() == 4 then --inventory, not belt
 	
-		return item.general.minimumLevel.checkLevel(User,SourceItem);
+		return item.general.checks.checkLevel(User,SourceItem);
 		
 	else
 	

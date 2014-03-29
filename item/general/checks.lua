@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 require("base.common")
 
-module("item.general.minimumLevel", package.seeall)
+module("item.general.checks", package.seeall)
 
 function checkLevel(User,Item)
 

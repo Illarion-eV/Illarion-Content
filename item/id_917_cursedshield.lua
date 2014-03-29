@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 require("base.common")
 require("item.general.metal")
 require("base.lookat")
-require("item.general.minimumLevel")
+require("item.general.checks")
 
 module("item.id_917_cursedshield", package.seeall, package.seeall(item.general.metal))
 
@@ -29,7 +29,7 @@ function MoveItemBeforeMove(User,SourceItem,TargetItem)
 
 	if TargetItem:getType() == 4 then --inventory, not belt
 	
-		return item.general.minimumLevel.checkLevel(User,SourceItem);
+		return item.general.checks.checkLevel(User,SourceItem);
 		
 	else
 	
@@ -46,7 +46,7 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
 
 	if TargetItem:getType() == 4 then --inventory, not belt
 	
-		return item.general.minimumLevel.checkLevel(User,SourceItem);
+		return item.general.checks.checkLevel(User,SourceItem);
 		
 	else
 	

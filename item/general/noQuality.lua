@@ -18,19 +18,19 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 require("base.lookat")
 require("base.common")
-require("item.general.minimumLevel")
+require("item.general.checks")
 
-module("item.general.throwing", package.seeall)
+module("item.general.noQuality", package.seeall)
 
---This script can limit equipping throwing weapons without having to show the quality
+--This script can limit equipping e.g. throwing weapons without having to show the quality
 
---No lookAt with quality, stackable items
+--No lookAt with quality, e.g. for stackable items
 
 function MoveItemBeforeMove(User,SourceItem,TargetItem)
 
 	if TargetItem:getType() == 4 then --inventory, not belt
 	
-		return item.general.minimumLevel.checkLevel(User,SourceItem);
+		return item.general.checks.checkLevel(User,SourceItem);
 		
 	else
 	
