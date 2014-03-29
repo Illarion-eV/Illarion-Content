@@ -19,7 +19,8 @@ require("base.common")
 
 module("item.general.checks", package.seeall)
 
-function checkLevel(User,Item)
+--This function checks whether the user has the necessary level for the item or not
+function checkLevel(User,Item) 
 
 	if checkSkill(User,Item) then
 	
@@ -31,8 +32,11 @@ function checkLevel(User,Item)
 		return true; --Change this to FALSE if you want to prevent equipping. For now, set to true because we do not have enough items.
 	
 	end
+
+	return true; --Just in case
 	
 end
+
 
 function checkSkill(User,Item)
 
@@ -99,7 +103,7 @@ function weaponSkillLevel(User,weapon)
 		
     else
 
-		return 0; --if all fails, the character may not equip the item
+		return 100; --if all fails, the character may equip the item
 		
 	end;
 end;
@@ -119,8 +123,8 @@ function armourSkillLevel(User,armour)
 		return User:getSkill(Character.lightArmour),User:getSkillName(Character.lightArmour);
 	
 	else
-
-		return 0; --if all fails, the character may not equip the item
+		skillString="";
+		return 100,skillString; --if all fails, the character may equip the item
 		
 	end;
 end;
