@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- ds_base_missile.lua
 -- Druidensystem
@@ -22,8 +22,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Liste der IDs mit Objekten aus Holz
 -- WICHTIG: Liste MUSS aufsteigend geordnet sein
 
--- few changes by Merung: 
--- took checkHit out; replaced rabbits with slime; took out damage on item quality or duration 
+-- few changes by Merung:
+-- took checkHit out; replaced rabbits with slime; took out damage on item quality or duration
 
 
 require("base.common")
@@ -48,10 +48,10 @@ end
 function fieldOfRadius( Item, radius )
     local posi = Item.pos
 	local actionfield = { };
-	
+
 	if radius == nil then
 		radius = 2
-	end	
+	end
 
     for x=(-1*radius),radius do
         for y=(-1*radius),radius do
@@ -88,7 +88,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
     if modifier == nil then
         modifier = 1;
     end
-	
+
 	local baseDamage -- the bigger the area, the lower the base damage
 	if #DamagedArea == 1 then
 	    baseDamage = 555
@@ -96,7 +96,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
         baseDamage = 370
     else
 		baseDamage = 277
-	end	
+	end
 
     for i, posi in pairs(DamagedArea) do
         if world:isCharacterOnField( posi ) then
@@ -106,7 +106,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
             -- 277HP - 4995HP
             local qual = Item.quality;
             qual = base.common.Limit(math.floor(qual/100), 1, 9)
-			
+
 			Schaden = baseDamage * qual;
 
             -- Ermittle Summe der als schützend angegebene Attribute
@@ -134,13 +134,13 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
 
             -- Modifier für Attribute mit mehr als 10000 Punkten
             Schaden = math.ceil(Schaden * modifier);
-            
+
 			-- minimal damage
 			local minDamage = math.ceil(75*qual*modifier)
 			if minDamage > Schaden then
 			    Schaden = minDamage
-			end	
-            
+			end
+
 			-- deal damage
 			Person:increaseAttrib( DamagedAttrib, -Schaden );
         end
@@ -318,22 +318,6 @@ function countCharacters( targetPosis )
     return cnt;
 end
 
--- Feststellen wo es Charaktere gibt und einen auswählen
-function selectCharacter( targetPosis )
-    local finePosis = {};
-    for i, posi in pairs(targetPosis) do
-        if world:isCharacterOnField( posi ) then
-            table.insert( finePosis, posi );
-        end
-    end
-
-    if table.getn( finePosis ) == 0 then
-        return;
-    end
-
-    return finePosis[ math.random( 1, table.getn( finePosis ) ) ];
-end
-
 FRUITS_FLOWERS = {15,80,81,143,148,144,147,151,199,302}
 
 function fruitBomb(User, Item, targetArea)
@@ -343,7 +327,7 @@ function fruitBomb(User, Item, targetArea)
 		world:gfx(1,Item.pos)
 		return
 	end
-	
+
     local quality = math.floor(Item.quality/100)
 	local tries = #targetArea/7+(2*quality)
     local theField
@@ -356,12 +340,12 @@ function fruitBomb(User, Item, targetArea)
 		    world:createItemFromId(FRUITS_FLOWERS[math.random(#FRUITS_FLOWERS)],1,thePos,true,333,nil)
 		else
 			table.remove(targetArea,rnd)
-		end	
+		end
 	end
-	for i=1, math.floor(tries/2) do 
+	for i=1, math.floor(tries/2) do
 		world:gfx(52, targetArea[math.random(#targetArea)])
 	end
-	
+
 	local sa = scheduled.alchemy
 	local posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
 	local found = false
@@ -370,12 +354,12 @@ function fruitBomb(User, Item, targetArea)
 			found = true
 		end
 	end
-	
+
 	if not found then
 		table.insert(sa.CENTERS,posAsString)
 		sa.CENTER[posAsString] = {}
 	end
-	
+
 	quality = quality/2
 	if quality % 2 ~= 0 then
 		if math.floor(2)==1 then
@@ -383,14 +367,14 @@ function fruitBomb(User, Item, targetArea)
 		end
 	end
 	quality = math.floor(quality)
-	
+
 	table.insert(sa.CENTER[posAsString],{quality, 0, targetArea})
-	
+
 	local players = world:getPlayersInRangeOf(Item.pos,9)
 	for i=1,#players do
 		players[i]:inform("Ein süßlicher Duft, der an Blumen und Früchte erinnert, breitet sich aus.", "A sweet scent, reminding one of flowers and fruits, starts to spread.")
 	end
-	
+
 end
 
 
@@ -398,7 +382,7 @@ end
 
 -- Voller Hitpoint-Schaden auf 1er-Feld
 function effect_1(User,Item)
-    causeDamage(User, Item, { selectCharacter( fieldOfRadius1( Item ) ) }, "hitpoints", { "strength", "constitution" }, 12, 5 );
+    causeDamage(User, Item, { Item.pos }, "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Voller Hitpoint-Schaden auf 9er-Feld
@@ -428,7 +412,7 @@ end
 
 -- Voller Mana-Schaden auf 1er-Feld
 function effect_6(User,Item)
-    causeDamage(User, Item, { selectCharacter( fieldOfRadius1( Item ) )  }, "mana", { "willpower", "essence" }, 4, 5 );
+    causeDamage(User, Item, { Item.pos }, "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Voller Mana-Schaden auf 9er-Feld
@@ -458,7 +442,7 @@ end
 
 -- Voller Sattmacher-Schaden auf 1er-Feld
 function effect_11(User,Item)
-    causeDamage(User, Item, { selectCharacter( fieldOfRadius1( Item ) ) }, "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
+    causeDamage(User, Item, { Item.pos }, "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
 end
 
 -- Voller Sattmacher-Schaden auf 9er-Feld
@@ -503,7 +487,7 @@ function effect_18(User,Item)
 end
 
 
--- the folling effect are NOT in use ancymore. They are no good fir fighting, just for annoying players. 
+-- the folling effect are NOT in use ancymore. They are no good fir fighting, just for annoying players.
 -- Therefore, we decided to take them out
 --[[
 ---- SCHADEN AUF RüSTUNGEN - HALTBARKEIT ----
