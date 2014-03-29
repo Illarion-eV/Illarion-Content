@@ -110,7 +110,7 @@ function changeItems(User, SourceItem,TargetItem)
     end
 	
 	end
-	User:requestInputDialog(InputDialog("Set an option for the Item", "Possible actions:  setdata <key> <value>, setqual <value>, setwaer <value>, setnumber <value>" ,false, 255, cbInputDialog))	
+	User:requestInputDialog(InputDialog("Set an option for the Item", "Possible actions:  setdata <key> <value>, setqual <value>, setwear <value>, setnumber <value>" ,false, 255, cbInputDialog))	
   end
  end
  
