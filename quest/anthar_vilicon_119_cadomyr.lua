@@ -97,6 +97,27 @@ Start = {117, 528, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
+QuestTarget[1] = {position(117, 528, 0)} 
+QuestTarget[2] = {position(117, 528, 0)} 
+QuestTarget[3] = {position(117, 528, 0)} 
+QuestTarget[4] = {position(117, 528, 0)} 
+QuestTarget[5] = {position(117, 528, 0)} 
+QuestTarget[6] = {position(117, 528, 0)} 
+QuestTarget[7] = {position(117, 528, 0)} 
+QuestTarget[8] = {position(117, 528, 0)} 
+QuestTarget[9] = {position(117, 528, 0)} 
+QuestTarget[10] = {position(117, 528, 0)} 
+QuestTarget[11] = {position(117, 528, 0)} 
+QuestTarget[12] = {position(117, 528, 0)} 
+QuestTarget[13] = {position(117, 528, 0)} 
+QuestTarget[14] = {position(117, 528, 0)} 
+QuestTarget[15] = {position(117, 528, 0)} 
+QuestTarget[16] = {position(117, 528, 0)} 
+QuestTarget[17] = {position(117, 528, 0)} 
+QuestTarget[18] = {position(117, 528, 0)} 
+QuestTarget[19] = {position(117, 528, 0)} 
+QuestTarget[20] = {position(117, 528, 0)} 
+
 --QuestTarget[1] = {position(x, y, 100), position(x, y, 100)}
 
 -- Insert the quest status which is reached at the end of the quest
