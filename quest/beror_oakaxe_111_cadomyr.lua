@@ -74,8 +74,6 @@ Description[ENGLISH][18] = "You have fulfilled all the tasks for Beror Oakaxe."
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 Start = {135, 620, 0}
 
-
-
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
 QuestTarget[1] = {position(135, 620, 0), position(125, 566, 0)} -- statue
