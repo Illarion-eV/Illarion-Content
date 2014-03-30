@@ -179,7 +179,7 @@ function ProduceBricks( User, SourceItem, ltstate )
 	end
 
 	-- any other checks?
-  if (User:countItemAt("all",736)<5) then
+  if (User:countItemAt("all",736)<1) then
 		User:inform("[ERROR] Not enough unfired bricks found. Please inform a developer.");
 		return
 	end
