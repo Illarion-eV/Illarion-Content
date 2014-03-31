@@ -24,28 +24,10 @@ require("content.gathering")
 
 module("content.gatheringcraft.mining", package.seeall)
 
-function StartGathering(User, SourceItem, ltstate)
+function StartGathering(User, rock, ltstate)
 
-	Init();
 	content.gathering.InitGathering();
 	local mining = content.gathering.mining;
-
-
-	local areaId = GetAreaId(User.pos);
-	if (areaId == nil) then
-		base.common.HighInformNLS(User,
-		"Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
-		"The area doesn't look like a good place to mine.");
-		return;
-	end
-
-	local rock = getRock(User, areaId);
-	if (rock == nil) then
-		base.common.HighInformNLS(User,
-		"Du musst neben einem Felsen stehen um Bergbau zu betreiben.",
-		"You have to stand next to a rock to mine.");
-		return
-	end
 
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
@@ -106,6 +88,7 @@ function StartGathering(User, SourceItem, ltstate)
     return
   end
 
+  local areaId = content.gatheringcraft.mining.GetAreaId(User.pos);
   local productId = GetResource(areaId, rock.id);
 
   User:learn( mining.LeadSkill, mining.SavedWorkTime[User.id], mining.LearnLimit);
@@ -121,6 +104,7 @@ function StartGathering(User, SourceItem, ltstate)
     rock = getRock(User, areaId);
     if (rock ~= nil) then  -- there are still items we can work on
       mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, rock);
+	  User:changeSource(rock);
       User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
     else -- no items left (as the rock is still okay, this should never happen... handle it anyway)
       base.common.HighInformNLS(User,
@@ -449,6 +433,7 @@ function GetResource(AreaID, StoneID)
 end
 
 function GetAreaId(TargetPos)
+	Init();
     local XDiff = 0;
     local YDiff = 0;
     for i, AreaData in pairs(Area) do
@@ -477,9 +462,16 @@ function breakRock(Rock)
     return false;
 end
 
+function isMinableRock(AreaId, Rock)
+	if (Rock ~= nil and Area[AreaId]["Stones"][Rock.id] ~= nil) then
+		return true;
+	end
+	return false;
+end
+
 function getRock(User, AreaId)
   local targetItem = base.common.GetFrontItem(User);
-  if (targetItem ~= nil and Area[AreaId]["Stones"][targetItem.id] ~= nil) then
+  if (isMinableRock(AreaId, targetItem)) then
     return targetItem;
   end
   local Radius = 1;
@@ -488,7 +480,7 @@ function getRock(User, AreaId)
       local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
       if (world:isItemOnField(targetPos)) then
         local targetItem = world:getItemOnField(targetPos);
-        if (Area[AreaId]["Stones"][targetItem.id] ~= nil) then
+        if (isMinableRock(AreaId, targetItem)) then
           return targetItem;
         end
       end

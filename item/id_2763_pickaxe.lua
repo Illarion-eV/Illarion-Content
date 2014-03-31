@@ -69,7 +69,23 @@ function UseItem(User, SourceItem, ltstate)
 		return;
 	end
 
-	content.gatheringcraft.mining.StartGathering(User, nil, ltstate);
+	local areaId = content.gatheringcraft.mining.GetAreaId(User.pos);
+	if (areaId == nil) then
+		base.common.HighInformNLS(User,
+		"Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
+		"The area doesn't look like a good place to mine.");
+		return;
+	end
+
+	local rock = content.gatheringcraft.mining.getRock(User, areaId);
+	if (rock == nil) then
+		base.common.HighInformNLS(User,
+		"Du musst neben einem Felsen stehen um Bergbau zu betreiben.",
+		"You have to stand next to a rock to mine.");
+		return
+	end
+
+	content.gatheringcraft.mining.StartGathering(User, rock, ltstate);
 end
 
 -- @return  True if found a treasure.
