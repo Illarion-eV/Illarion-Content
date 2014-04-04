@@ -86,7 +86,7 @@ function UseItem(User, SourceItem, ltstate)
 			-- not regrown...
 			base.common.HighInformNLS( User, 
 			"Dieser Bienenstock ist leer. Gib den Bienen einige Zeit neuen Honig zu machen.", 
-			"This beehive is empty. Give the bees sometime to make new honey." );
+			"This beehive is empty. Give the bees some time to make new honey." );
 			if ( changeItem ) then
 				world:changeItem(SourceItem);
 			end
@@ -164,7 +164,7 @@ function UseItem(User, SourceItem, ltstate)
 			-- only inform for non farming items. Farming items with amount==0 should already be erased.
 			base.common.HighInformNLS(User,
 			"Dieser Bienenstock ist leer. Gib den Bienen einige Zeit neuen Honig zu machen.", 
-			"This beehive is empty. Give the bees sometime to make new honey." );
+			"This beehive is empty. Give the bees some time to make new honey." );
 		end
 	end
 end
