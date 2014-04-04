@@ -25,7 +25,7 @@ module("item.id_463_quill", package.seeall)
 function UseItem(User, SourceItem, ltstate)
 
 	if SourceItem.itempos ~= 5 and SourceItem.itempos ~= 6 then
-	    User:inform("Du musst die Schreibfeder in der Hand halten.","You have to hold the quill in your hand.",Character.lowPriority)
+	    User:inform("Du musst die Schreibfeder in der Hand halten.","You have to hold the quill in your hand.",Character.highPriority)
 		return
 	end
 
@@ -35,7 +35,7 @@ function UseItem(User, SourceItem, ltstate)
 			local selected = dialog:getSelectedIndex()+1
 			if selected == 1 then
 			    if not CheckIfBottleInHand(User, SourceItem) then
-				    User:inform("Du brauchst eine Flasche, um diese zu beschriften.","You need a bottle if you want to label one.",Character.lowPriority)
+				    User:inform("Du brauchst eine Flasche, um diese zu beschriften.","You need a bottle if you want to label one.",Character.highPriority)
 				    return
                 else
                     WriteLabel(User,SourceItem)
@@ -50,14 +50,14 @@ function UseItem(User, SourceItem, ltstate)
 				end
 			elseif selected == 3 then
 			    if not CheckIfContainerPresent(User) then
-				    User:inform("Du brauchst eine Tasche, um diese zu beschriften.","You need a bag if you want to label one.",Character.lowPriority)
+				    User:inform("Du brauchst eine Tasche, um diese zu beschriften.","You need a bag if you want to label one.",Character.highPriority)
 				    return
                 else
                     WriteContainerLabel(User,SourceItem)
 			    end
 			elseif selected == 4 then
 				if not CheckIfEmptyBottlePresent(User) then
-					User:inform("Du brauchst Flaschen von denen du das Etikett entfernen kannst.","You need bottles to remove labels.",Character.lowPriority)
+					User:inform("Du brauchst Flaschen von denen du das Etikett entfernen kannst.","You need bottles to remove labels.",Character.highPriority)
 				    return
 				else
 					removeLabel(User)
