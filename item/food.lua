@@ -274,28 +274,28 @@ function UseItem(User, SourceItem, ltstate)
   -- everything is okay, so fill the foodlevel
   SetNewFoodLevel(User, foodLevel);
 
-  -- inform the player about the food level
-  if  (foodLevel > 55000) then
+  -- inform the player about the food level. Avoid spam.
+  if  (foodLevel > 55000) and ((foodLevel-foodVal) <= 55000) then
     base.common.InformNLS( User,
     "Nur mit Mühe kannst du dir noch etwas hinunter zwingen.",
     "You hardly manage to eat something more.");
-  elseif  (foodLevel > 50000) then
+  elseif  (foodLevel > 50000) and ((foodLevel-foodVal) <= 50000) then
     base.common.InformNLS( User,
     "Du bist sehr satt.",
     "You have had enough.");
-  elseif  (foodLevel > 40000) then
+  elseif  (foodLevel > 40000) and ((foodLevel-foodVal) <= 40000) then
     base.common.InformNLS( User,
     "Du bist satt.",
     "You are stuffed.");
-  elseif  (foodLevel > 30000) then
+  elseif  (foodLevel > 30000) and ((foodLevel-foodVal) <= 30000) then
     base.common.InformNLS( User,
     "Du fühlst dich noch etwas hungrig.",
     "You still feel a little hungry.");
-  elseif  (foodLevel > 20000) then
+  elseif  (foodLevel > 20000) and ((foodLevel-foodVal) <= 20000) then
     base.common.InformNLS( User,
     "Du hast noch immer Hunger.",
     "You are still hungry.");
-  elseif  (foodLevel > 5000) then
+  elseif  (foodLevel > 5000) and ((foodLevel-foodVal) <= 5000) then
     base.common.InformNLS( User,
     "Dein Magen schmerzt noch immer vor Hunger.",
     "Your stomach still hurts because of your hunger.");
