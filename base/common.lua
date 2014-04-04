@@ -442,7 +442,7 @@ function GatheringToolBreaks(user, item)
     item.quality = quality * 100 + durability;
     world:changeItem(item);
     
-    if (durability == 10) then 
+    if (durability < 10) then 
       InformNLS(user,
       "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
       "The tool looks like it could break soon. You should try to get a new one.");
