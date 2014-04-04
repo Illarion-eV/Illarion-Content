@@ -108,8 +108,8 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
                     -------------- Meldungen ausgeben ------------------
                     Char:talk(Character.say, "#me scheint Hunger zu haben, ein lautes Magenknurren ist zu vernehmen.", "#me 's stomach grumbles loudly.")
                     base.common.InformNLS(Char,
-                        "Dein Magen schmerzt. Du bist am verhungern",
-                        "Your stomach hurts. You are going to die of hunger");
+                        "Dein Magen schmerzt. Du bist am verhungern.",
+                        "Your stomach hurts. You are going to die of hunger.");
                     -------------- Meldungen fertig --------------------
                 end
             else -- Tod durch Hunger
