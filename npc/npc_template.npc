@@ -60,14 +60,14 @@ itemShoes = 53
 
 ------------------------------------------------------------------------------AC
 -- Trading
--- Here are all items the NPCs is able to trade. They will be displayed inside
--- the merchant dialog.
+-- Here are all items the NPCs is able to trade. They will be displayed inside the merchant dialog.
+-- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
 
 sellItems = 1, 2, 3
 buyPrimaryItems = 1
 buySecondaryItems = 2, 3
 
--- Template Version 1.08, 10/18/2012 by Estralis Seborian
+-- Template Version 1.09, 04/01/2014 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
 -- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
@@ -76,11 +76,8 @@ buySecondaryItems = 2, 3
 -- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
 -- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
--- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- When you are done, please hit the "Rebuild Script" button
 -- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
-
--- TRADING
--- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
 
 -- MANDATORY TRIGGERS
 
@@ -209,10 +206,6 @@ english, "Gobaith", "Gobiath" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 english, "<NPC first name>", "<NPC last name>" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
