@@ -23,10 +23,10 @@ module("npc.base.condition.questtime", package.seeall)
 questtime = base.class.class(npc.base.condition.condition.condition,
 function(self, comp, quest, month, day, hour)
 	npc.base.condition.condition.condition:init(self);
-    self["month"], self["valuetype"] = npc.base.talk._set_value(month);
-    self["day"], self["valuetype"] = npc.base.talk._set_value(day);
-    self["hour"], self["valuetype"] = npc.base.talk._set_value(hour);
-    self["quest"], self["valuetype"] = npc.base.talk._set_value(quest);
+    self["month"], self["monthtype"] = npc.base.talk._set_value(month);
+    self["day"], self["daytype"] = npc.base.talk._set_value(day);
+    self["hour"], self["hourtype"] = npc.base.talk._set_value(hour);
+    self["quest"] = quest;
     
 	if (comp == ">") then
         self["check"] = _questtime_helper_greater;
@@ -38,19 +38,19 @@ function(self, comp, quest, month, day, hour)
 end);
 
 function _questtime_helper_greater(self, npcChar, texttype, player)
-    local month = npc.base.talk._get_value(self.npc, self.month, self.valuetype);
-    local day = npc.base.talk._get_value(self.npc, self.day, self.valuetype);
-	local hour = npc.base.talk._get_value(self.npc, self.hour, self.valuetype);
-	local quest = npc.base.talk._get_value(self.npc, self.quest, self.valuetype);
+    local month = npc.base.talk._get_value(self.npc, self.month, self.monthtype);
+    local day = npc.base.talk._get_value(self.npc, self.day, self.daytype);
+	local hour = npc.base.talk._get_value(self.npc, self.hour, self.hourtype);
+	local quest = self.quest;
     
 	return npc.base.repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour);
 end;
 
 function _questtime_helper_lesser(self, npcChar, texttype, player)
-    local month = npc.base.talk._get_value(self.npc, self.month, self.valuetype);
-    local day = npc.base.talk._get_value(self.npc, self.day, self.valuetype);
-	local hour = npc.base.talk._get_value(self.npc, self.hour, self.valuetype);
-	local quest = npc.base.talk._get_value(self.npc, self.quest, self.valuetype);
+    local month = npc.base.talk._get_value(self.npc, self.month, self.monthtype);
+    local day = npc.base.talk._get_value(self.npc, self.day, self.daytype);
+	local hour = npc.base.talk._get_value(self.npc, self.hour, self.hourtype);
+	local quest = self.quest;
 	
     return not npc.base.repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour); 
 end;
