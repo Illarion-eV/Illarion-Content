@@ -23,7 +23,11 @@ module("item.id_3110_scroll", package.seeall)
 
 function LookAtItem(User,Item)
 
-    local spell = Item.quality;
+	world:itemInform( User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE) );
+	
+	--The stuff below needs IMO a serious rework! ~Estralis
+	
+    local spell = Item.quality; --Please do NOT use quality in this way. Quality is the quality, nothing else. Use a data key instead.
     if (spell == 101) then -- teleport
         
         User:inform( teleportLookAt( User, Item ) );
@@ -31,11 +35,16 @@ function LookAtItem(User,Item)
     elseif (spell == 102) then -- self-teleport
         
         base.common.InformNLS( User, "Auf der Pergamentrolle ist lediglich das Symbol eines Vogels abgebildet.", "Just the symbol of a bird has been painted on this scroll of parchment." );
+		
     elseif (tonumber(Item:getData("scrollData")) == 600) then -- Summon Creature
-	base.common.InformNLS( User, "Die Pergamentrolle ist mit einem blutroten Siegel verschlossen.", "The scroll is sealed with a bloody red seal." );
+	
+		base.common.InformNLS( User, "Die Pergamentrolle ist mit einem blutroten Siegel verschlossen.", "The scroll is sealed with a bloody red seal." );
+		
     elseif (tonumber(Item:getData("scrollData")) == 666 ) then -- quest scroll
+	
     	base.common.InformNLS( User, "Auf der Pergamentrolle ist das Symbol eines Drachen abgebildet.", "The symbol of a dragon has been painted on this scroll of parchment." );
 	end
+	
 end
 
 function UseItem(User, SourceItem, ltstate)
