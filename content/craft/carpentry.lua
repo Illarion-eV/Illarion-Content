@@ -106,7 +106,6 @@ product:addIngredient(448, 2); -- Emerald Powder
 product:addIngredient(284); -- Sapphire
 product:addIngredient(2551) -- Pure Air: 1x1
 
-
 -- elven shortbow             
 product = carpentry:addProduct(catId, 2685, 80, 100, 150, 300, 1);
 product:addIngredient(546, 3); -- Naldor Wood Boards
