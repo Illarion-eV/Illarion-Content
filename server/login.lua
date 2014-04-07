@@ -188,7 +188,7 @@ messageE[73]="[Hint] All NPCs react on a number of keywords. You can get a list 
 messageE[74]="[Hint] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy."
 messageE[75]="[Hint] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your character is, and the blue bar shows the mana level of mage characters."
 messageE[76]="[Hint] You can review the quests of your character by hitting 'Q'.";
-messageE[77]="[Hint] To collect loot quickly, press 'P' to collect all items wihtin reach.";
+messageE[77]="[Hint] To collect loot quickly, press 'P' to collect all items within reach.";
 messageE[78]="[Hint] To see an overview of all commands, hit F1.";
 --messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard.";
 
