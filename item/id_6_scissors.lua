@@ -114,7 +114,7 @@ function UseItemWoolCutting( User, SourceItem, ltstate, Sheep )
 		if gatherAmount >= 100 then
 			base.common.HighInformNLS( User,
 			"Dieses Schaf wurde kürzlich erst geschoren und gibt momentan keine Wolle.",
-			"This sheep has been sheared recently and doesnt give wool right now." );
+			"This sheep has been sheared recently and doesn't give wool right now." );
 			return;
 		end
 		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User,SourceItem);
@@ -150,7 +150,7 @@ function UseItemWoolCutting( User, SourceItem, ltstate, Sheep )
 	else
 		base.common.HighInformNLS( User,
 		"Dieses Schaf ist nun geschoren und gibt keine Wolle mehr.",
-		"This sheep is now sheared properly and doesnt give any more wool." );
+		"This sheep is now sheared properly and doesn't give any more wool." );
 	end
 
 	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool

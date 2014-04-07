@@ -256,7 +256,7 @@ function UseItemMilking(User, SourceItem, ltstate, Animal)
 		if gatherAmount >= 3 then
 			base.common.HighInformNLS( User,
 			"Dieses Tier wurde rest kürzlich gemolken und gibt momentan keine Milch.",
-			"This animal was milked recently and doesnt give milk right now." );
+			"This animal was milked recently and doesn't give milk right now." );
 			return;
 		end
 		milking.SavedWorkTime[User.id] = milking:GenWorkTime(User, SourceItem);
@@ -293,6 +293,6 @@ function UseItemMilking(User, SourceItem, ltstate, Animal)
 	else
 		base.common.HighInformNLS( User,
 		"Dieses Tier ist ausreichend gemolken und gibt keine Milch mehr.",
-		"This animal is milked properly and doesnt give any more milk." );
+		"This animal is milked properly and doesn't give any more milk." );
 	end
 end

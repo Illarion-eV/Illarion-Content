@@ -339,9 +339,9 @@ queststatus(152) = 13, item(224, all) > 0, english, town = Galmair, ".*" -> info
 queststatus(152) = 13, item(224, all) > 0, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst eine Pfeife. Dein Ansehen bei Don Valerio Guilianni steigt."), deleteItem(224, 1), item(2744, 1, 599), queststatus(152) = 0, queststatus(153) = 48, rankpoints + 5, "Perfekt! Gute Arbeit! Der Don wird erfreut sein, sollte er wieder einen neuen Kelch benötigen. Nun, da Ihr ein feines Instrument zum Trinken besorgt gabt, belohne ich Euch mit einem zum Rauchen!"
 
 -- Quest 13 taken but not solved, repeat the instructions
-queststatus(152) = 13, item(224, all) < 1, english, town = Galmair, "quest", "mission" -> "It doesnt seem like you brought the goblet? Don't come back until you've got one golden goblet for me!"
+queststatus(152) = 13, item(224, all) < 1, english, town = Galmair, "quest", "mission" -> "It doesn't seem like you brought the goblet? Don't come back until you've got one golden goblet for me!"
 queststatus(152) = 13, item(224, all) < 1, town = Galmair, "quest", "mission" -> "Es sieht nicht so aus, als hättet Ihr einen Kelch mitgebracht? Kommt nicht noch mal ohne einen goldenen Kelch wieder!"
-queststatus(152) = 13, item(224, all) < 1, town = Galmair, "task", "adventure", "order" -> "It doesnt seem like you brought the goblet? Don't come back until you've got one golden goblet for me!"
+queststatus(152) = 13, item(224, all) < 1, town = Galmair, "task", "adventure", "order" -> "It doesn't seem like you brought the goblet? Don't come back until you've got one golden goblet for me!"
 queststatus(152) = 13, item(224, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es sieht nicht so aus, als hättet Ihr einen Kelch mitgebracht? Kommt nicht noch mal ohne einen goldenen Kelch wieder!"
 
 -- 14: Quest 14 taken, get a longbow (2708), reward: 80cp, 5 rankpoints
