@@ -174,6 +174,14 @@ function callEffect( Effect, Char ) -- Effect is called
 		end
 		--Addition end
 	
+		--Addition by Estralis: Quest 162/163/164 Glorious Bounty (Palis Nestros) Cooldown
+	    theQuestStatus=Char:getQuestProgress(164);
+	
+		if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
+			Char:setQuestProgress(164,theQuestStatus-1); --cooling!
+		end
+		--Addition end
+		
 	end --all above is only conducted for players that aren't afk for more than five minutes
 
 	--Addition by Estralis: Quest 127/128/129 Caravan of Honour (Phillip Molitor) Countdown
@@ -200,6 +208,33 @@ function callEffect( Effect, Char ) -- Effect is called
 	
 	if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
 		Char:setQuestProgress(128,theQuestStatus-1); --counting down!
+	end
+	--Addition end
+	
+	--Addition by Estralis: Quest 162/163/164 Glorious Bounty (Palis Nestros) Cooldown
+	theQuestStatus=Char:getQuestProgress(163);
+	
+	if theQuestStatus == 1 then --Time over!
+	
+        base.common.InformNLS(Char,"[Kopfgeldstatus] Das Kopfgeld von Palis Nestros kannst du dir abschminken.","[Bounty status] You can kiss the bounty of Palis Nestros goodbye."); -- Feedback!
+		Char:setQuestProgress(162,0);
+		
+	end
+
+	if theQuestStatus == 3 then --Ten minutes left!
+	
+        base.common.InformNLS(Char,"[Kopfgeldstatus] In zehn Minuten läuft dein Kopfgeldvertrag mit Palis Nestros aus.","[Bounty status] In ten minutes, your bounty contract with Palis Nestros will expire."); -- Feedback!
+		
+	end
+	
+	if theQuestStatus == 13 then --One hour left
+	
+	    base.common.InformNLS(Char,"[Kopfgeldstatus] Eine Stunde verbleibt dir, um das Kopfgeld von Palis Nestros zu verdienen.","[Bounty status] One hour left for earning the bounty of Palis Nestros."); -- Feedback!
+	
+	end
+	
+	if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
+		Char:setQuestProgress(163,theQuestStatus-1); --counting down!
 	end
 	--Addition end
 	
