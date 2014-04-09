@@ -792,6 +792,429 @@ function iniQuests()
     questLocation[id]=position(786, 474, 0);
     radius[id]=50;
 
+	--Quest 24: Glorious Bounty
+    local id=24;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Käfer";
+    englishRace[id]="beetles";
+	table.insert(questList[591],id); --All beetles
+	table.insert(questList[592],id); --All beetles
+	table.insert(questList[593],id); --All beetles
+	table.insert(questList[594],id); --All beetles
+	table.insert(questList[981],id); --All beetles
+	table.insert(questList[991],id); --All beetles
+	table.insert(questList[1001],id); --All beetles
+	table.insert(questList[1011],id); --All beetles			
+    minimumQueststatus[id]=1;
+    maximumQueststatus[id]=5;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+    --Quest 25: Glorious Bounty
+    local id=25;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Käfer";
+    englishRace[id]="beetles";
+	table.insert(questList[591],id); --All beetles
+	table.insert(questList[592],id); --All beetles
+	table.insert(questList[593],id); --All beetles
+	table.insert(questList[594],id); --All beetles
+	table.insert(questList[981],id); --All beetles
+	table.insert(questList[991],id); --All beetles
+	table.insert(questList[1001],id); --All beetles
+	table.insert(questList[1011],id); --All beetles			
+    minimumQueststatus[id]=6;
+    maximumQueststatus[id]=14;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+	--Quest 26: Glorious Bounty
+    local id=26;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Käfer";
+    englishRace[id]="beetles";
+	table.insert(questList[591],id); --All beetles
+	table.insert(questList[592],id); --All beetles
+	table.insert(questList[593],id); --All beetles
+	table.insert(questList[594],id); --All beetles
+	table.insert(questList[981],id); --All beetles
+	table.insert(questList[991],id); --All beetles
+	table.insert(questList[1001],id); --All beetles
+	table.insert(questList[1011],id); --All beetles			
+    minimumQueststatus[id]=15;
+    maximumQueststatus[id]=27;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+	--Quest 27: Glorious Bounty
+    local id=27;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Wespen";
+    englishRace[id]="wasps";
+	table.insert(questList[271],id); --All wasps
+	table.insert(questList[272],id); --All wasps
+	table.insert(questList[273],id); --All wasps
+	table.insert(questList[274],id); --All wasps
+	table.insert(questList[278],id); --All wasps
+    minimumQueststatus[id]=28;
+    maximumQueststatus[id]=32;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+
+	--Quest 28: Glorious Bounty
+    local id=28;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Wespen";
+    englishRace[id]="wasps";
+	table.insert(questList[271],id); --All wasps
+	table.insert(questList[272],id); --All wasps
+	table.insert(questList[273],id); --All wasps
+	table.insert(questList[274],id); --All wasps
+	table.insert(questList[278],id); --All wasps
+    minimumQueststatus[id]=33;
+    maximumQueststatus[id]=41;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+	--Quest 29: Glorious Bounty
+    local id=29;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Wespen";
+    englishRace[id]="wasps";
+	table.insert(questList[271],id); --All wasps
+	table.insert(questList[272],id); --All wasps
+	table.insert(questList[273],id); --All wasps
+	table.insert(questList[274],id); --All wasps
+	table.insert(questList[278],id); --All wasps
+    minimumQueststatus[id]=42;
+    maximumQueststatus[id]=54;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+	--Quest 30: Glorious Bounty
+    local id=30;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Hunde";
+    englishRace[id]="dogs";
+	table.insert(questList[581],id); --All dogs
+	table.insert(questList[582],id); --All dogs
+	table.insert(questList[583],id); --All dogs
+	table.insert(questList[584],id); --All dogs
+	table.insert(questList[951],id); --All dogs
+	table.insert(questList[961],id); --All dogs
+	table.insert(questList[962],id); --All dogs
+	table.insert(questList[971],id); --All dogs
+	table.insert(questList[972],id); --All dogs
+    minimumQueststatus[id]=55;
+    maximumQueststatus[id]=59;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+
+	--Quest 31: Glorious Bounty
+    local id=31;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Hunde";
+    englishRace[id]="dogs";
+	table.insert(questList[581],id); --All dogs
+	table.insert(questList[582],id); --All dogs
+	table.insert(questList[583],id); --All dogs
+	table.insert(questList[584],id); --All dogs
+	table.insert(questList[951],id); --All dogs
+	table.insert(questList[961],id); --All dogs
+	table.insert(questList[962],id); --All dogs
+	table.insert(questList[971],id); --All dogs
+	table.insert(questList[972],id); --All dogs
+    minimumQueststatus[id]=60;
+    maximumQueststatus[id]=68;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+	--Quest 32: Glorious Bounty
+    local id=32;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Hunde";
+    englishRace[id]="dogs";
+	table.insert(questList[581],id); --All dogs
+	table.insert(questList[582],id); --All dogs
+	table.insert(questList[583],id); --All dogs
+	table.insert(questList[584],id); --All dogs
+	table.insert(questList[951],id); --All dogs
+	table.insert(questList[961],id); --All dogs
+	table.insert(questList[962],id); --All dogs
+	table.insert(questList[971],id); --All dogs
+	table.insert(questList[972],id); --All dogs
+    minimumQueststatus[id]=69;
+    maximumQueststatus[id]=81;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+	--Quest 33: Glorious Bounty
+    local id=33;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Füchse";
+    englishRace[id]="foxes";
+	table.insert(questList[601],id); --All foxes
+	table.insert(questList[602],id); --All foxes
+	table.insert(questList[603],id); --All foxes
+	table.insert(questList[604],id); --All foxes
+	table.insert(questList[1021],id); --All foxes
+	table.insert(questList[1022],id); --All foxes
+    minimumQueststatus[id]=82;
+    maximumQueststatus[id]=86;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+	--Quest 34: Glorious Bounty
+    local id=34;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Füchse";
+    englishRace[id]="foxes";
+	table.insert(questList[601],id); --All foxes
+	table.insert(questList[602],id); --All foxes
+	table.insert(questList[603],id); --All foxes
+	table.insert(questList[604],id); --All foxes
+	table.insert(questList[1021],id); --All foxes
+	table.insert(questList[1022],id); --All foxes
+    minimumQueststatus[id]=87;
+    maximumQueststatus[id]=95;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+
+	--Quest 35: Glorious Bounty
+    local id=35;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Füchse";
+    englishRace[id]="foxes";
+	table.insert(questList[601],id); --All foxes
+	table.insert(questList[602],id); --All foxes
+	table.insert(questList[603],id); --All foxes
+	table.insert(questList[604],id); --All foxes
+	table.insert(questList[1021],id); --All foxes
+	table.insert(questList[1022],id); --All foxes
+    minimumQueststatus[id]=96;
+    maximumQueststatus[id]=108;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+
+	--Quest 36: Glorious Bounty
+    local id=36;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Menschen";
+    englishRace[id]="humans";
+	table.insert(questList[1],id); --All humans
+	table.insert(questList[2],id); --All humans
+	table.insert(questList[3],id); --All humans
+	table.insert(questList[4],id); --All humans
+	table.insert(questList[5],id); --All humans
+	table.insert(questList[6],id); --All humans
+    minimumQueststatus[id]=109;
+    maximumQueststatus[id]=113;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+	--Quest 37: Glorious Bounty
+    local id=37;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Menschen";
+    englishRace[id]="humans";
+	table.insert(questList[1],id); --All humans
+	table.insert(questList[2],id); --All humans
+	table.insert(questList[3],id); --All humans
+	table.insert(questList[4],id); --All humans
+	table.insert(questList[5],id); --All humans
+	table.insert(questList[6],id); --All humans
+    minimumQueststatus[id]=114;
+    maximumQueststatus[id]=122;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+	--Quest 38: Glorious Bounty
+    local id=38;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Menschen";
+    englishRace[id]="humans";
+	table.insert(questList[1],id); --All humans
+	table.insert(questList[2],id); --All humans
+	table.insert(questList[3],id); --All humans
+	table.insert(questList[4],id); --All humans
+	table.insert(questList[5],id); --All humans
+	table.insert(questList[6],id); --All humans
+    minimumQueststatus[id]=123;
+    maximumQueststatus[id]=135;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+	--Quest 39: Glorious Bounty
+    local id=39;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Orks";
+    englishRace[id]="orcs";
+	table.insert(questList[41],id); --All orcs
+	table.insert(questList[42],id); --All orcs
+	table.insert(questList[43],id); --All orcs
+	table.insert(questList[44],id); --All orcs
+	table.insert(questList[45],id); --All orcs
+	table.insert(questList[46],id); --All orcs
+    minimumQueststatus[id]=136;
+    maximumQueststatus[id]=140;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+	--Quest 40: Glorious Bounty
+    local id=40;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Orks";
+    englishRace[id]="orcs";
+	table.insert(questList[41],id); --All orcs
+	table.insert(questList[42],id); --All orcs
+	table.insert(questList[43],id); --All orcs
+	table.insert(questList[44],id); --All orcs
+	table.insert(questList[45],id); --All orcs
+	table.insert(questList[46],id); --All orcs
+    minimumQueststatus[id]=141;
+    maximumQueststatus[id]=149;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+	--Quest 41: Glorious Bounty
+    local id=41;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Orks";
+    englishRace[id]="orcs";
+	table.insert(questList[41],id); --All orcs
+	table.insert(questList[42],id); --All orcs
+	table.insert(questList[43],id); --All orcs
+	table.insert(questList[44],id); --All orcs
+	table.insert(questList[45],id); --All orcs
+	table.insert(questList[46],id); --All orcs
+    minimumQueststatus[id]=150;
+    maximumQueststatus[id]=162;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+	--Quest 42: Glorious Bounty
+    local id=42;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Golems";
+    englishRace[id]="golems";
+	table.insert(questList[301],id); --All golems
+	table.insert(questList[302],id); --All golems
+	table.insert(questList[311],id); --All golems
+	table.insert(questList[321],id); --All golems
+	table.insert(questList[331],id); --All golems
+	table.insert(questList[341],id); --All golems
+	table.insert(questList[561],id); --All golems
+	table.insert(questList[562],id); --All golems
+	table.insert(questList[911],id); --All golems
+	table.insert(questList[912],id); --All golems
+    minimumQueststatus[id]=163;
+    maximumQueststatus[id]=167;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+
+	--Quest 43: Glorious Bounty
+    local id=43;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Golems";
+    englishRace[id]="golems";
+	table.insert(questList[301],id); --All golems
+	table.insert(questList[302],id); --All golems
+	table.insert(questList[311],id); --All golems
+	table.insert(questList[321],id); --All golems
+	table.insert(questList[331],id); --All golems
+	table.insert(questList[341],id); --All golems
+	table.insert(questList[561],id); --All golems
+	table.insert(questList[562],id); --All golems
+	table.insert(questList[911],id); --All golems
+	table.insert(questList[912],id); --All golems
+    minimumQueststatus[id]=168;
+    maximumQueststatus[id]=176;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+	
+	--Quest 44: Glorious Bounty
+    local id=44;
+    germanTitle[id]="Ruhmhafte Kopfgeldjagd";
+    englishTitle[id]="Glorious Bounty";
+    NPCName[id]="Palis Nestros";
+    statusId[id]=162;
+    germanRace[id]="Golems";
+    englishRace[id]="golems";
+	table.insert(questList[301],id); --All golems
+	table.insert(questList[302],id); --All golems
+	table.insert(questList[311],id); --All golems
+	table.insert(questList[321],id); --All golems
+	table.insert(questList[331],id); --All golems
+	table.insert(questList[341],id); --All golems
+	table.insert(questList[561],id); --All golems
+	table.insert(questList[562],id); --All golems
+	table.insert(questList[911],id); --All golems
+	table.insert(questList[912],id); --All golems
+    minimumQueststatus[id]=177;
+    maximumQueststatus[id]=189;
+    questLocation[id]=position(250, 650, 0);
+    radius[id]=250;
+
 end
 
 
