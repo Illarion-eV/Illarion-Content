@@ -108,6 +108,19 @@ end
 
 function onDeath(Monster)
 
+    if killer and killer[Monster.id] ~= nil then
+
+        murderer=getCharForId(killer[Monster.id]);
+
+        if murderer then --Checking for quests
+
+            monster.base.quests.checkQuest(murderer,Monster);
+            killer[Monster.id]=nil;
+            murderer=nil;
+
+        end
+    end
+
     if base.arena.isArenaMonster(Monster) then
         return
     end
