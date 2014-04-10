@@ -475,8 +475,6 @@ queststatus(162) ~= 0, queststatus(162) < 189, town = Cadomyr, "quest", "mission
 queststatus(162) ~= 0, queststatus(162) < 189, town = Cadomyr, "task", "adventure", "order", "bounty" -> " There are still too many hostile beings in the Kantabi desert. Assassinate twelve golems and come back to me. Get moving, the bounty might get withdrawn any time."
 queststatus(162) ~= 0, queststatus(162) < 189, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> "Es gibt immer noch zu viele Feindseligkeiten in der Kantabiwüste. Richtet zwölf Golems und kehrt zu mir zurück. Los jetzt, sonst wird das Kopfgeld noch zurückgezogen."
 
-
-
 -- Generate stuff end
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
