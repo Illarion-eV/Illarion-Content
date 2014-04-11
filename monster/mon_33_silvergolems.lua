@@ -139,11 +139,12 @@ if (MonID==331) then --Silvergolem, Level: 6, Armourtype: medium, Weapontype: pu
 
         --Category 3: Special Loot
 
-        local done=monster.base.drop.AddDropItem(22,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --iron ore
+        local done=monster.base.drop.AddDropItem(1062,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --silver ore
         if not done then done=monster.base.drop.AddDropItem(733,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --stone block
         if not done then done=monster.base.drop.AddDropItem(234,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --gold nugget
         if not done then done=monster.base.drop.AddDropItem(2534,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --merinium ore
-
+        if not done then done=monster.base.drop.AddDropItem(22,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --iron ore
+		
 		--Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
