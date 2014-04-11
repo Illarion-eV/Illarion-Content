@@ -159,10 +159,10 @@ function callEffect( Effect, Char ) -- Effect is called
 	    --Addition end
 		
 		--Addition by Merung: Quest 162 (Runewick daily missions II)
-	    theQuestStatus=Char:getQuestProgress(162);
+	    theQuestStatus=Char:getQuestProgress(165);
 	
 		if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
-			Char:setQuestProgress(162,theQuestStatus-1); --cooling!
+			Char:setQuestProgress(165,theQuestStatus-1); --cooling!
 		end
 	    --Addition end
 		
