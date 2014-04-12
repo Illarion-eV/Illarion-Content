@@ -74,7 +74,7 @@ function StartGathering(User, rock, ltstate)
   end
 
   if ( ltstate == Action.none ) then -- currently not working -> let's go
-    mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, rock);
+    mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, toolItem);
     User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
     User:talk(Character.say, "#me beginnt mit einer Spitzhacke auf den Stein zu schlagen.", "#me starts to hit the stone with a pick-axe.")
 	User:performAnimation(14);
@@ -103,7 +103,7 @@ function StartGathering(User, rock, ltstate)
   elseif (not rockBroken) then -- character can still carry something and rock is okay
     rock = getRock(User, areaId);
     if (rock ~= nil) then  -- there are still items we can work on
-      mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, rock);
+      mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, toolItem);
 	  User:changeSource(rock);
       User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
     else -- no items left (as the rock is still okay, this should never happen... handle it anyway)

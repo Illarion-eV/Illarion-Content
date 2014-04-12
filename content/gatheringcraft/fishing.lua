@@ -73,7 +73,6 @@ function StartGathering(User, SourceItem, ltstate)
 		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 	end
 
-	-- since we're here, we're working
 	-- check the amount
 	local MaxAmount = 20
 	local changeItem = false;
@@ -86,7 +85,7 @@ function StartGathering(User, SourceItem, ltstate)
 	end
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,nil);
+		fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,toolItem);
 		User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		User:talk(Character.say, "#me beginnt zu fischen.", "#me starts to fish.")
 		return
@@ -96,8 +95,8 @@ function StartGathering(User, SourceItem, ltstate)
 		return
 	end
 
+	-- since we're here, we're working
 
-	-----------
 	User:learn( fishing.LeadSkill, fishing.SavedWorkTime[User.id], fishing.LearnLimit);
 	local fished = 1; -- set the amount of items that are produced
 	local fishID = 0;
@@ -111,7 +110,7 @@ function StartGathering(User, SourceItem, ltstate)
 	else
 		fishID = 1210 -- rose fish
 	end
-	
+
 	--[[
 	[23:10] <@Zot-pc> 1210 Rotbarsch rose fish
 [23:10] <@Zot-pc> 1209 Stachelmakrele horse mackerel
@@ -132,7 +131,7 @@ function StartGathering(User, SourceItem, ltstate)
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
 		if amount > 0 then  -- there are still items we can work on
-			fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,nil);
+			fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,toolItem);
 			User:changeSource(SourceItem);
 			User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		end

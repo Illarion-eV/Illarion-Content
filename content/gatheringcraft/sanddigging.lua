@@ -127,7 +127,7 @@ function StartGathering(User, SourceItem, ltstate)
 
 	-- currently not working -> let's go
 	if ( ltstate == Action.none ) then
-		sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User,SourceItem);
+		sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User,toolItem);
 		User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0);
 		User:talk(Character.say, "#me beginnt nach Sand zu graben.", "#me starts to dig for sand.")
 		return
@@ -179,7 +179,7 @@ function StartGathering(User, SourceItem, ltstate)
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
 	else -- character can still carry something
-		sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User,SourceItem);
+		sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User,toolItem);
 		User:changeSource(SourceItem);
 		User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0);
 	end

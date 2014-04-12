@@ -62,9 +62,6 @@ function StartGathering(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local oremelting = content.gathering.oremelting;
 
-	-- is the target position needed?
-	local TargetPos = base.common.GetFrontPosition(User);
-
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
