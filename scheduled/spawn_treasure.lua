@@ -32,7 +32,7 @@ function spawnTreasure()
 		
 	end
 	
-	treasurePos=position(160,660,-4); --Sir Reginald's tomb
+	treasurePos=position(161,666,-4); --Sir Reginald's tomb
 	
     if table.getn(world:getPlayersInRangeOf(treasurePos,20)) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around and there is no item on the tile
 	
