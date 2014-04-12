@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.gems")
 require("content.lookat.unique")
@@ -82,7 +82,7 @@ gemLevelRareness[10] = ItemLookAt.epicItem
 
 function lookAtFilter(user, lookAt, data)
     local gemLevel = data.gemLevel
-    
+
     if gemLevel then
         if user:getPlayerLanguage() == 0 then
             lookAt.name = gemPrefixDE[gemLevel] .. " magischer " .. lookAt.name
@@ -142,7 +142,7 @@ function LookAtItem(user, item)
     local data = {}
     data.gemLevel = tonumber(item:getData(levelDataKey))
 
-    lookAt = lookAtFilter(user, lookAt, data)    
+    lookAt = lookAtFilter(user, lookAt, data)
 
     world:itemInform(user, item, lookAt)
 end
@@ -151,16 +151,14 @@ function UseItem(User, SourceItem, ltstate)
     if SourceItem:getData(levelDataKey) == "" then
 	    alchemy.base.analysis.CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
 		return
-	end    
-	
+	end
+
 	local TargetItemEvilRock = base.common.GetItemInArea(User.pos, 2805);
 	local AmountDarkColumnEvilrock = table.getn(content.vision.darkColumnEvilrock)
-	if TargetItemEvilRock ~= nil then	
+	if TargetItemEvilRock ~= nil then
 		for i = 1,AmountDarkColumnEvilrock do
 			if TargetItemEvilRock.pos == content.vision.darkColumnEvilrock[i] then
-				if not base.common.IsLookingAt(User,TargetItemEvilRock.pos) then -- check looking direction
-					base.common.TurnTo(User,TargetItemEvilRock.pos); -- turn if necessary
-				end
+				base.common.TurnTo(User,TargetItemEvilRock.pos); -- turn if necessary
 				content.vision.UseDarkColumns(User,TargetItemEvilRock,ltstate)
 				return
 			end
@@ -242,7 +240,7 @@ function getSocketablePositions(user, filter)
 
         if not filter or filter(item) then
             local itemId = item.id
-        
+
             if isSocketable(itemId) then
                 table.insert(socketableTable, slot)
             end
@@ -261,7 +259,7 @@ function getUnsocketablePositions(user, filter)
 
         if not filter or filter(item) then
             local itemId = item.id
-        
+
             if isUnsocketable(itemId) then
                 table.insert(socketableTable, slot)
             end
@@ -279,7 +277,7 @@ function isSocketable(itemId)
 		local weapontype=weaponitem.WeaponType;
 		if weapontype==10 or weapontype==11 or weapontype==14 then -- Ammo or shield. Not socketable
 			return false;
-		else 
+		else
 			return true;
 		end
 	end
@@ -306,18 +304,18 @@ function magicSmith(npc, player)
             end
         end
     end
-    
+
     local title = base.common.GetNLS(player, "Magieschmied", "Magic Blacksmith")
     local text = base.common.GetNLS(player, "Wie kann ich behilflich sein?", "How may I be of assistance?")
     local dialog = SelectionDialog(title, text, callback)
     dialog:setCloseOnMove()
-    
+
     local hammer = 122
     local tongs = 2140
-    
+
     dialog:addOption(hammer, base.common.GetNLS(player, "Edelsteine vereinigen", "Combine gems"))
     dialog:addOption(tongs, base.common.GetNLS(player, "Edelsteine herauslösen", "Unsocket gems"))
-    
+
     player:requestSelectionDialog(dialog)
 end
 
@@ -342,7 +340,7 @@ function unsocketGems(user)
                     for i = 1, #gemDataKey do
                         local itemKey = gemDataKey[i]
                         local level = tonumber(item:getData(itemKey))
-        
+
                         if level and level > 0 then
                             notCreated = user:createItem(gemItem[i], 1, 999, {[levelDataKey] = level})
                             if notCreated > 0 then
@@ -352,7 +350,7 @@ function unsocketGems(user)
                             item:setData(itemKey, "")
                         end
                     end
-                    
+
                     base.money.TakeMoneyFromChar(user, 100000)
                     world:changeItem(item)
 
@@ -379,9 +377,9 @@ function unsocketGems(user)
         dialog:addOption(itemId, name)
     end
 
-    user:requestSelectionDialog(dialog)    
+    user:requestSelectionDialog(dialog)
 end
 
 function itemHasGems(item)
-    return base.gems.getGemBonus(item) > 0    
+    return base.gems.getGemBonus(item) > 0
 end

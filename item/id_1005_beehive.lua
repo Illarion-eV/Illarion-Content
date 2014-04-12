@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='item.id_1005_beehive' WHERE com_itemid=1005;
 
@@ -22,7 +22,7 @@ require("content.gathering")
 module("item.id_1005_beehive", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-	
+
 	content.gathering.InitGathering();
 	local honeygathering = content.gathering.honeygathering;
 
@@ -42,16 +42,14 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-	
+
 	if not base.common.FitForWork( User ) then -- check minimal food points
 		return
 	end
 
-	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
-		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
-	end
-	
-	-- check the amount 
+	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+
+	-- check the amount
 	local MaxAmount = 10
 	local changeItem = false;
 	local amountStr = SourceItem:getData("amount");
@@ -73,7 +71,7 @@ function UseItem(User, SourceItem, ltstate)
 		-- check for regrow even at amount==1, so a continuous working is guaranteed
 		-- only non farming items regrow
 		local serverTime = world:getTime("unix");
-		for i=1,MaxAmount do 
+		for i=1,MaxAmount do
 			local t = SourceItem:getData("next_regrow_" .. i);
 			if ( t ~= "" and tonumber(t) <= serverTime ) then
 				-- regrow
@@ -84,8 +82,8 @@ function UseItem(User, SourceItem, ltstate)
 		end
 		if ( amount == 0 ) then
 			-- not regrown...
-			base.common.HighInformNLS( User, 
-			"Dieser Bienenstock ist leer. Gib den Bienen einige Zeit neuen Honig zu machen.", 
+			base.common.HighInformNLS( User,
+			"Dieser Bienenstock ist leer. Gib den Bienen einige Zeit neuen Honig zu machen.",
 			"This beehive is empty. Give the bees some time to make new honey." );
 			if ( changeItem ) then
 				world:changeItem(SourceItem);
@@ -122,7 +120,7 @@ function UseItem(User, SourceItem, ltstate)
 	changeItem = true;
 	-- and update the next regrow
 	local regrowOk = false;
-	for i=1,MaxAmount do 
+	for i=1,MaxAmount do
 		local t = SourceItem:getData("next_regrow_" .. i);
 		-- look for a free slot
 		if ( t == "") then
@@ -142,11 +140,11 @@ function UseItem(User, SourceItem, ltstate)
 		end
 		return;
 	end
-	
+
 	if ( changeItem ) then
 		world:changeItem(SourceItem);
 	end
-	
+
 	-- since we're here, everything should be alright
 	User:learn( honeygathering.LeadSkill, honeygathering.SavedWorkTime[User.id], honeygathering.LearnLimit);
 	local notCreated = User:createItem( 2529, 1, 333, nil ); -- create the new produced items
@@ -163,7 +161,7 @@ function UseItem(User, SourceItem, ltstate)
 		else -- no items left
 			-- only inform for non farming items. Farming items with amount==0 should already be erased.
 			base.common.HighInformNLS(User,
-			"Dieser Bienenstock ist leer. Gib den Bienen einige Zeit neuen Honig zu machen.", 
+			"Dieser Bienenstock ist leer. Gib den Bienen einige Zeit neuen Honig zu machen.",
 			"This beehive is empty. Give the bees some time to make new honey." );
 		end
 	end

@@ -82,9 +82,7 @@ function ProduceUnfiredBricks( User, SourceItem, ltstate )
 		return
 	end
 
-	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
-		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
-	end
+	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
 	-- any other checks?
   if (User:countItemAt("all",26)==0) then
@@ -174,9 +172,7 @@ function ProduceBricks( User, SourceItem, ltstate )
 		return
 	end
 
-	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
-		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
-	end
+	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
 	-- any other checks?
   if (User:countItemAt("all",736)<1) then

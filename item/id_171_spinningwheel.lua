@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- spinning wheel ( 171 )
 
@@ -30,7 +30,7 @@ require("base.licence")
 module("item.id_171_spinningwheel", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+	if base.licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
@@ -53,11 +53,11 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-	
+
 	-- additional tool item is needed
 	if (User:countItemAt("all",6)==0) then
 		base.common.HighInformNLS( User,
-		"Du brauchst eine Schere um Garn herzustellen.", 
+		"Du brauchst eine Schere um Garn herzustellen.",
 		"You need a pair of scissors for producing thread." );
 		return
 	end
@@ -76,25 +76,23 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
-		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
-	end
-	
+	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+
 	-- any other checks?
 
 	if (User:countItemAt("all",170)<1 and User:countItemAt("all",155)<3) then -- check for items to work on
 		if (User:countItemAt("all",170)==0 and User:countItemAt("all",155)==0) then
-			base.common.HighInformNLS( User, 
-			"Du brauchst Wolle oder Sibanacblätter um Garn herzustellen.", 
+			base.common.HighInformNLS( User,
+			"Du brauchst Wolle oder Sibanacblätter um Garn herzustellen.",
 			"You need wool or sibanac leaves for producing thread." );
 		else
-			base.common.HighInformNLS( User, 
-			"Du hast nicht genug Wolle oder Sibanacblätter um Garn herzustellen.", 
+			base.common.HighInformNLS( User,
+			"Du hast nicht genug Wolle oder Sibanacblätter um Garn herzustellen.",
 			"You don't have enough wool or sibanac leaves for producing thread." );
 		end
 		return;
 	end
-	
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		threadproducing.SavedWorkTime[User.id] = threadproducing:GenWorkTime(User,toolItem);
 		User:startAction( threadproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
@@ -133,8 +131,8 @@ function UseItem(User, SourceItem, ltstate)
 			threadproducing.SavedWorkTime[User.id] = threadproducing:GenWorkTime(User,toolItem);
 			User:startAction( threadproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- not enough items left
-			base.common.HighInformNLS( User, 
-			"Du hast nicht mehr genug Wolle oder Sibanacblätter.", 
+			base.common.HighInformNLS( User,
+			"Du hast nicht mehr genug Wolle oder Sibanacblätter.",
 			"You don't have enough wool or sibanac leaves anymore." );
 		end
 	end

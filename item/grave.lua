@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Tree Script
 -- Envi
@@ -22,13 +22,13 @@ require("content.grave")
 module("item.grave", package.seeall)
 
 -- UPDATE common SET com_script='item.grave' WHERE com_itemid IN (337, 519, 520, 521);
-  
-GraveListGerman = 
+
+GraveListGerman =
 {
 "PLACEHOLDER.",
 };
 
-GraveListEnglish = 
+GraveListEnglish =
 {
 "PLACEHOLDER.",
 };
@@ -52,7 +52,7 @@ function LookAtItemIdent(User,Item)
     local signPerception = content.grave.signPerception;
 
     local lookAt = base.lookat.GenerateLookAt(User, Item)
-    
+
     UserPer = User:increaseAttrib("perception",0);
     tablePosition = Item.pos.x .. Item.pos.y .. Item.pos.z;
 	if signCoo ~= nil then
@@ -97,9 +97,7 @@ function UseItem(User, SourceItem)
 	for t=1,4 do
 		TargetItem = base.common.GetItemInArea(User.pos, graveItemNumbers[t])
 		if (TargetItem ~= nil) then
-			if not base.common.IsLookingAt( User, TargetItem.pos) then -- check looking direction
-				base.common.TurnTo( User, TargetItem.pos); -- turn if necessary
-			end
+			base.common.TurnTo( User, TargetItem.pos); -- turn if necessary
 			foundSource=true
 		end
 	end
@@ -124,10 +122,10 @@ function UseItem(User, SourceItem)
 					player:setQuestProgress(669,playersCurrentStatus+typoOfGem[i])
 				end
 			else
-				User:talk(Character.say, "#me wischt Staub vom Grabstein, der zu Boden f‰llt.", "#me waves over the tombstone and dust drops to the ground.")				
+				User:talk(Character.say, "#me wischt Staub vom Grabstein, der zu Boden f‰llt.", "#me waves over the tombstone and dust drops to the ground.")
 				base.common.InformNLS(User,"Du findest nichts auﬂer Staub am Grabstein.", "You do not find anything except for dust on the tombstone.")
 			end
-		end	
+		end
 	end
 end
 

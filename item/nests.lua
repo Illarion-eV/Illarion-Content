@@ -50,16 +50,13 @@ function UseItem(User, SourceItem, ltstate)
 	-- if not base.common.FitForWork( User ) then -- check minimal food points
 		-- return
 	-- end
-	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
-		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
-	end
-	
-	
+	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+
 	if SourceItem.id == EMPTY_NEST  then
       User:inform("Hier befinden sich keine Eier.","There are no eggs here.",Player.highPriority)
 	  return;
 	end
-	-- check the amount 
+	-- check the amount
 	local amountStr = SourceItem:getData("amount");
 	local amount = 0;
 	if ( amountStr ~= "" ) then
@@ -81,9 +78,9 @@ function UseItem(User, SourceItem, ltstate)
 		User:inform("[ERROR] Zero amount for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
 		return;
 	end
-	
+
 	-- since we're here, there is something we can harvest
-	
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		egggathering.SavedWorkTime[User.id] = egggathering:GenWorkTime(User,nil);
 		User:startAction( egggathering.SavedWorkTime[User.id], 0, 0, 0, 0);
@@ -113,7 +110,7 @@ function UseItem(User, SourceItem, ltstate)
 	end
 	if (amount<=0) then
       base.common.HighInformNLS(User,
-      "Dieses Nest ist leer.", 
+      "Dieses Nest ist leer.",
       "This nest is empty." );
 	  -- reset amount
 		amount = 10;
@@ -123,7 +120,7 @@ function UseItem(User, SourceItem, ltstate)
 		world:swap(SourceItem, EMPTY_NEST, 333);
 		return;
     end
-	
+
 	SourceItem:setData("amount","" .. amount);
 	world:changeItem(SourceItem);
   User:changeSource(SourceItem);

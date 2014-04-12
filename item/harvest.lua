@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Harvest various fruits
 require("base.common")
@@ -23,7 +23,7 @@ module("item.harvest", package.seeall)
 -- UPDATE common SET com_script='item.harvest' WHERE com_itemid IN (14,300,387, 1195, 1809);
 
 function UseItem(User, SourceItem, ltstate)
-	
+
 	content.gathering.InitGathering();
 	InitHarvestItems();
 	local fruitgathering = content.gathering.fruitgathering;
@@ -49,10 +49,8 @@ function UseItem(User, SourceItem, ltstate)
 	-- if not base.common.FitForWork( User ) then -- check minimal food points
 		-- return
 	-- end
-	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
-		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
-	end
-	
+	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+
 	-- any other checks?
 	-- check if there is a harvestable item or any item at all
 	local harvestItem = nil;
@@ -64,7 +62,7 @@ function UseItem(User, SourceItem, ltstate)
 	-- there is a harvestable item, but does the ground fit?
 	local GroundType = base.common.GetGroundType(world:getField(SourceItem.pos):tile());
 	local harvestProduct = nil;
-	for _,hp in pairs(harvestItem) do 
+	for _,hp in pairs(harvestItem) do
 		if (hp.groundType == nil or GroundType == hp.groundType) then
 			harvestProduct = hp;
 			break;
@@ -72,17 +70,17 @@ function UseItem(User, SourceItem, ltstate)
 	end
 	if ( harvestProduct == nil ) then
     if (IsTree[SourceItem.id] == true) then
-      base.common.HighInformNLS( User, 
-      "Dieser Baum trägt keine Früchte. Vielleicht wird diese Art Baum in einem anderen Boden besser gedeihen.", 
+      base.common.HighInformNLS( User,
+      "Dieser Baum trägt keine Früchte. Vielleicht wird diese Art Baum in einem anderen Boden besser gedeihen.",
       "This tree bears no fruits. Maybe this type of tree will flourish better in another soil." );
     else
-      base.common.HighInformNLS( User, 
-      "Diese Pflanze trägt keine Früchte. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.", 
+      base.common.HighInformNLS( User,
+      "Diese Pflanze trägt keine Früchte. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.",
       "This plant bears no fruits. Maybe this type of plant will flourish better in another soil." );
     end
 		return;
 	end
-	-- check the amount 
+	-- check the amount
 	local amountStr = SourceItem:getData("amount");
 	local amount = 0;
 	if ( amountStr ~= "" ) then
@@ -104,9 +102,9 @@ function UseItem(User, SourceItem, ltstate)
 		User:inform("[ERROR] Zero amount for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
 		return;
 	end
-	
+
 	-- since we're here, there is something we can harvest
-	
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User,nil);
 		User:startAction( fruitgathering.SavedWorkTime[User.id], 0, 0, 0, 0);
@@ -137,11 +135,11 @@ function UseItem(User, SourceItem, ltstate)
 	if (amount<=0) then
     if (IsTree[SourceItem.id] == true) then
       base.common.HighInformNLS(User,
-      "Dieser Baum ist schon komplett abgeerntet. Gib ihm Zeit um nachzuwachsen.", 
+      "Dieser Baum ist schon komplett abgeerntet. Gib ihm Zeit um nachzuwachsen.",
       "This tree is already fully harvested. Give it time to grow again." );
     else
       base.common.HighInformNLS(User,
-      "Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
+      "Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
       "This plant is already fully harvested. Give it time to grow again." );
     end
 		-- reset amount
@@ -165,17 +163,17 @@ function InitHarvestItems()
 		return;
 	end
 	HarvestItems = {};
-	
+
 	RegrowTime = 300;
-	
+
   -- just for short writing
   local gt = base.common.GroundType;
-  
+
   IsTree = {};
   IsTree[14] = true;
   IsTree[300] = true;
   IsTree[1195] = true;
-  
+
 	HarvestItems[ 14 ] = {									-- apple tree
 	CreateHarvestProduct(15, nil, nil, 10, 11)					-- apple
 	}
@@ -228,7 +226,7 @@ end
 
         harvestItem[ 300 ] = {                       -- Kirschbaum
         { 0, 0, 302, 299, {6,10,9,0}, 83, 20 } };           -- Alle: Kirsche
-		
+
 		harvestItem[ 1809 ] = {                        -- Eldan-Eiche
         { 0, 0, 759, 0, {5,0,10,10}, 83, 20 } };             -- Alle: Nüsse
 

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Light a fire
 
@@ -52,9 +52,7 @@ function UseItem(User, SourceItem)
       return;
     end
     -- turn to field if necessary
-    if not base.common.IsLookingAt(User,checkPos) then
-      base.common.TurnTo( User, checkPos );
-    end
+	base.common.TurnTo( User, checkPos );
   end
   -- check wether user is under roof
   local potentialRoofPos=position(checkPos.x, checkPos.y, checkPos.z+1);
@@ -67,7 +65,7 @@ function UseItem(User, SourceItem)
     "You wouldn't be able to light a fire in this weather.");
     return;
   end
-  
+
   -- everything is okay, erase the wood and light a fire
   world:erase(SourceItem, 1);
   world:createItemFromId(12,1,checkPos,false,333,nil);

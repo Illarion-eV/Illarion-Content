@@ -220,9 +220,7 @@ function UseDarkColumns(User, SourceItem, ltstate)
 	-- check for dark column
 			TargetItem = darkColumnEvilrock[i];
 			if (TargetItem ~= nil) then
-				if not base.common.IsLookingAt( User, darkColumnEvilrock[i] ) then -- check looking direction
-					base.common.TurnTo( User, darkColumnEvilrock[i] ); -- turn if necessary
-				end
+				base.common.TurnTo( User, darkColumnEvilrock[i] ); -- turn if necessary
 				foundSource=true
 			end
 
@@ -329,9 +327,7 @@ function UseDarkColumnsPuzzle(User, SourceItem, ltstate)
 	-- check for dark column
 			TargetItem = darkColumnEvilrock[i];
 			if (TargetItem ~= nil) then
-				if not base.common.IsLookingAt( User, darkColumnEvilrock[i] ) then -- check looking direction
-					base.common.TurnTo( User, darkColumnEvilrock[i] ); -- turn if necessary
-				end
+				base.common.TurnTo( User, darkColumnEvilrock[i] ); -- turn if necessary
 				foundSource=true
 			end
 

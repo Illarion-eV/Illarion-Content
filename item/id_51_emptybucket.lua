@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- fill bucket from ...
 --- cauldron
@@ -32,9 +32,7 @@ function UseItem(User, SourceItem, ltstate)
   -- check for cauldron
   TargetItem = GetCauldron(User);
   if (TargetItem ~= nil) then
-    if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
-      base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
-    end
+	base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
     FillFromCauldron(User,SourceItem,TargetItem,ltstate);
     return;
   end
@@ -53,18 +51,14 @@ function UseItem(User, SourceItem, ltstate)
     end
   end
   if (TargetItem ~= nil) then
-    if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
-      base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
-    end
+	base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
     foundSource=true
   end
 
   -- check for water tile
   local targetPos = GetWaterTilePosition(User);
   if (targetPos ~= nil) then
-    if not base.common.IsLookingAt( User, targetPos ) then -- check looking direction
-      base.common.TurnTo( User, targetPos ); -- turn if necessary
-    end
+	base.common.TurnTo( User, targetPos ); -- turn if necessary
     foundSource=true
   end
 

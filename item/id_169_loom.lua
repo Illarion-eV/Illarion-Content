@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- 5x wool (170) --> grey cloth (176)
 
@@ -27,13 +27,13 @@ require("base.licence")
 module("item.id_169_loom", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+	if base.licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
 	content.gathering.InitGathering();
 	local weaving = content.gathering.weaving;
-	
+
 	-- is the target position needed?
 	local TargetPos = base.common.GetFrontPosition(User);
 
@@ -53,11 +53,11 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-	
+
 	-- additional tool item is needed
 	if (User:countItemAt("all",6)==0) then
 		base.common.HighInformNLS( User,
-		"Du brauchst eine Schere zum weben.", 
+		"Du brauchst eine Schere zum weben.",
 		"You need a pair of scissors for weaving." );
 		return
 	end
@@ -76,25 +76,23 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
-		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
-	end
-	
+	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+
 	-- any other checks?
 
 	if (User:countItemAt("all",170)<2) then -- check for items to work on
     if (User:countItemAt("all",170)==0) then
-      base.common.HighInformNLS( User, 
-      "Du brauchst Wolle um zu weben.", 
+      base.common.HighInformNLS( User,
+      "Du brauchst Wolle um zu weben.",
       "You need wool for weaving." );
     else
-      base.common.HighInformNLS( User, 
-      "Du hast nicht genug Wolle um zu weben.", 
+      base.common.HighInformNLS( User,
+      "Du hast nicht genug Wolle um zu weben.",
       "You don't have enough wool for weaving." );
     end
 		return;
 	end
-	
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		weaving.SavedWorkTime[User.id] = weaving:GenWorkTime(User,toolItem);
 		User:startAction( weaving.SavedWorkTime[User.id], 0, 0, 0, 0);

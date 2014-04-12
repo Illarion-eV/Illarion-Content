@@ -161,9 +161,7 @@ function Evilrockentrance(User, SourceItem, ltstate)
 	-- check for empty bucket
 	TargetItem = base.common.GetItemInArea(User.pos, 51);
 	if (TargetItem ~= nil) then
-		if not base.common.IsLookingAt( User, position(997,199,2) ) then -- check looking direction
-			base.common.TurnTo( User, position(997,199,2) ); -- turn if necessary
-		end
+		base.common.TurnTo( User, position(997,199,2) ); -- turn if necessary
 		foundSource=true
 	end
 

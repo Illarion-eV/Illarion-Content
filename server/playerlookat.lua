@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Character description
 
@@ -42,22 +42,20 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     LookingAt = LookingAt + ( SourceCharacter:distanceMetric( TargetCharacter ) - 2 ) * ( -8 );
     -- Looking at value is ready
     -- get the language value
-    
+
     --SourceCharacter:inform("mode= "..mode.." lookingat= "..LookingAt);
-    
-    if not base.common.IsLookingAt( SourceCharacter, TargetCharacter.pos ) then
-        base.common.TurnTo( SourceCharacter, TargetCharacter.pos );
-    end
-    
+
+	base.common.TurnTo( SourceCharacter, TargetCharacter.pos );
+
 	if not CustomLookAt then
 		content.lookat.custom.InitCustomLookAt();
 		CustomLookAt = content.lookat.custom.CustomLookAt;
 	end
-	
+
 	if mode == 1 then
 		createDevotionInform(SourceCharacter, TargetCharacter);
 	end
-	
+
     local lang = SourceCharacter:getPlayerLanguage();
     -- inform about stats
     qual,dura=getClothesFactor(TargetCharacter);
@@ -91,10 +89,10 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
         h=TargetCharacter:increaseAttrib("body_height",0)
         m=TargetCharacter:increaseAttrib("weight",0)
         output=output..getFigure(h,m,strength,lang)
-        
+
         --output = output .. getText( "outro_attrib", lang );
         output = output .. getText( "intro_health" , lang );
-        output = output .. getHPText(TargetCharacter:increaseAttrib("hitpoints",0),lang,SourceCharacter) .. " ";   
+        output = output .. getHPText(TargetCharacter:increaseAttrib("hitpoints",0),lang,SourceCharacter) .. " ";
     end
 
     if ( TargetCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
@@ -102,7 +100,7 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     else
         output = output .. ( lang == 0 and "Sie " or "She " );
     end
-    -- Er/Sie | trägt | [ einen | grünen Mantel | ] 
+    -- Er/Sie | trägt | [ einen | grünen Mantel | ]
     output = output .. getText( "intro_items", lang );
     -- Lets check for a coat
     if checkCoat( TargetCharacter, lang, SourceCharacter ) then
@@ -122,19 +120,19 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     end
     output=output..". "; --..getClothesText(qual, dura, lang, TargetCharacter:increaseAttrib( "sex", 0 ),SourceCharacter);
     output=output..getWeaponText( TargetCharacter, lang, SourceCharacter );
-    
+
 		--faction additions
 	Faction = base.factions.get(TargetCharacter);
 	if Faction.rankTown == 0 then
 		factiontext = ( lang ==0 and " ("..base.factions.TownRankList[Faction.rankTown].gRank..")" or " ("..base.factions.TownRankList[Faction.rankTown].eRank..")" );
 	else
-		factiontext = ( (lang ==0 and " ("..base.factions.TownRankList[Faction.rankTown].gRank.." "..base.factions.TownNameGList[Faction.tid][1].."s)" ) 
+		factiontext = ( (lang ==0 and " ("..base.factions.TownRankList[Faction.rankTown].gRank.." "..base.factions.TownNameGList[Faction.tid][1].."s)" )
 				or 	" ("..base.factions.TownRankList[Faction.rankTown].eRank.." of "..base.factions.TownNameEList[Faction.tid][1]..")" );
 	end
 	output = output .. factiontext;
-	
+
     checkCustomInventory(TargetCharacter, SourceCharacter);
-	  
+
     SourceCharacter:sendCharDescription( TargetCharacter.id , output );
     --SourceCharacter:inform("now checking diseaseeeee:");
     --found,diseaseEffect = TargetCharacter.effects:find(28);
@@ -217,7 +215,7 @@ function checkBelt( TargetCharacter, lang, modify, withend, SourceCharacter )
                     end
                     output = output .. getText( "intro_belt", lang );
                 end
-            
+
                 if (( item == 62 ) or ( item == 3076 ) or ( item == 3077 )) then
                     if not got_money then
                         got_money = true;
@@ -280,7 +278,7 @@ function getText( identifier, language )
         textModule[1]["intro_health"]=" and appears to be ";
         initMod=1;
     end
-    
+
     return textModule[language][identifier];
 end
 
@@ -370,7 +368,7 @@ function getClothesQualText(qual, lang)
 end
 
 
--- 
+--
 
 
 function getAge(race,age, language)
@@ -395,7 +393,7 @@ function getAge(race,age, language)
     if (race > 8 ) then
         race = 9;
     end
-    
+
     i = 0;
     repeat
         if( ageList[i+1][race+1] and age < ageList[i+1][race+1] )then
@@ -420,13 +418,13 @@ function getFigure(height, mass, str, lang)
         lowStr[1]={"skinny ", "very petite ", "petite ", " ", "chubby ", "plump ", "fat "};
         normalStr[0]={"schmächtig ", "dünn ", "schlank ", " ", "mollig ", "dick ", "fett "};
         normalStr[1]={"lank ", "thin ", "slim ", " ", "chubby", "plump", "fat"};
-        highStr[0]={"drahtig ", "sehr drahtig ", " ", "athletisch ", "muskulös ", "kräftig ", "stämmig "} 
+        highStr[0]={"drahtig ", "sehr drahtig ", " ", "athletisch ", "muskulös ", "kräftig ", "stämmig "}
         highStr[1]={"wiry ", "very wiry ", " ", "athletic ", "muscular ", "robust ", "sturdy " };
         iniFig=1;
     end
     height=height*2.54/100
     mass=mass/100
-    BMI=mass/(height*height); -- 18.5, 24.9, 29.9, 
+    BMI=mass/(height*height); -- 18.5, 24.9, 29.9,
     -- str= 10 average
     if mass==0 then
         BMI=22;
@@ -483,7 +481,7 @@ function getWeaponText( Char, lang, SourceChar )
 end
 
 function checkCustomInventory(TargetChar, SourceChar)
-	
+
 	local checkItem;
 	local posList = {1,4,9,10};
 	-- check rest of inventory
@@ -506,7 +504,7 @@ function checkCustomInventory(TargetChar, SourceChar)
 end
 
 function handleCustomLookat(TargetChar,SourceChar,Item)
-	
+
 	if Item == nil or Item.id <= 0 or Item.data <= 2^30 then
 		return;
 	end
@@ -557,17 +555,17 @@ end
 function createDevotionInform(SourceCharacter, TargetCharacter)
 	local devotion = TargetCharacter:getQuestProgress(401);
 	local priesthood = TargetCharacter:getQuestProgress(402);
-	
+
 	if devotion == 0 then
 		return;
 	end
 	local sex = TargetCharacter:increaseAttrib("sex", 0);
-	
+
 	if not item.altars.init then
 		item.altars.ini();
 	end
 	local godName = item.altars.godName[devotion];
-	
+
 	local gText, eText = "","";
 	if sex == 0 then
 		gText = "Er ist ein ";
@@ -592,6 +590,6 @@ function createDevotionInform(SourceCharacter, TargetCharacter)
 	end
 	gText = gText .. godName .."s.";
 	eText = eText .. "of " .. godName ".";
-	
+
 	base.common.InformNLS(SourceCharacter, gText, eText);
 end

@@ -57,9 +57,7 @@ function UseItem(User, SourceItem, ltstate)
 		end
 	end
 	if (TargetItem ~= nil) then
-		if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
-			base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
-		end
+		base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
 		UseItemScooping(User, SourceItem, ltstate);
 		return;
 	end
@@ -67,9 +65,7 @@ function UseItem(User, SourceItem, ltstate)
 	-- check for water tile
 	local targetPos = GetWaterTilePosition(User);
 	if (targetPos ~= nil) then
-		if not base.common.IsLookingAt( User, targetPos ) then -- check looking direction
-			base.common.TurnTo( User, targetPos ); -- turn if necessary
-		end
+		base.common.TurnTo( User, targetPos ); -- turn if necessary
 		UseItemScooping(User, SourceItem, ltstate);
 		return;
 	end
@@ -229,9 +225,7 @@ function UseItemMilking(User, SourceItem, ltstate, Animal)
 		return
 	end
 
-	if not base.common.IsLookingAt( User, Animal.pos ) then -- check looking direction
-		base.common.TurnTo( User, Animal.pos ); -- turn if necessary
-	end
+	base.common.TurnTo( User, Animal.pos ); -- turn if necessary
 
 	-- should be fine already, but check it nevertheless
 	if ( Animal == nil or (Animal ~= nil and not isMilkable(Animal) )) then

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- fill cauldron
 -- large empty bottle (2498) --> blue potion (2496) aka bottle with water
@@ -32,9 +32,7 @@ function UseItem(User, SourceItem, ltstate)
   -- look for cauldron
   TargetItem = GetCauldron(User);
   if (TargetItem ~= nil) then
-    if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
-      base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
-    end
+	base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
     WaterIntoCauldron(User,SourceItem,TargetItem,ltstate);
     return;
   end
@@ -59,9 +57,7 @@ function UseItem(User, SourceItem, ltstate)
   end
 
   if (FireItem ~= nil) then
-    if not base.common.IsLookingAt( User, FireItem.pos ) then -- check looking direction
-      base.common.TurnTo( User, FireItem.pos ); -- turn if necessary
-    end
+	base.common.TurnTo( User, FireItem.pos ); -- turn if necessary
     -- TODO is a noobia check needed?
     -- Don't extinguish static fires.
     world:makeSound(9, FireItem.pos);

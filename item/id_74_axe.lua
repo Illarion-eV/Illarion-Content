@@ -84,9 +84,7 @@ function UseItem(User, SourceItem, ltstate)
 		return;
 	end
 
-	if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
-		base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
-	end
+	base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
 
 	local tree = TreeItems[TargetItem.id];
 

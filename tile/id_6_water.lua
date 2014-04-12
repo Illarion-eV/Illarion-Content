@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Fishing Script für Echsen
 
@@ -68,9 +68,7 @@ function useTile(User,Position,ltstate)
 	    return
     end
 
-    if not base.common.IsLookingAt( User, TargetPos ) then
-        base.common.TurnTo( User, TargetPos );
-    end
+	base.common.TurnTo( User, TargetPos );
 
     if ( ltstate == Action.none ) then -- Arbeit noch nicht begonnen -> Los gehts
         User:startAction( GenWorkTime(User), 0, 0, 0, 0);

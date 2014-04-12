@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- pork (307) --> ham (306)
 -- trout (73) --> smoked fish (455)
@@ -51,13 +51,13 @@ craftList = {
 };
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+	if base.licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
 	content.gathering.InitGathering();
 	local smokefood = content.gathering.smokefood;
-  
+
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
@@ -79,10 +79,8 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
-		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
-	end
-	
+	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+
 	-- any other checks?
   local craftItem = nil;
   for _,entry in pairs(craftList) do
@@ -92,12 +90,12 @@ function UseItem(User, SourceItem, ltstate)
     end
   end
 	if (craftItem == nil) then -- check for items to work on
-		base.common.HighInformNLS( User, 
-		"Du brauchst Forellen, Lachs oder rohen Schinken um diese zu räuchern.", 
+		base.common.HighInformNLS( User,
+		"Du brauchst Forellen, Lachs oder rohen Schinken um diese zu räuchern.",
 		"You need trouts, salmons or ham for smoking them." );
 		return;
 	end
-	
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		smokefood.SavedWorkTime[User.id] = smokefood:GenWorkTime(User,nil);
 		User:startAction( smokefood.SavedWorkTime[User.id], 0, 0, 0, 0);
@@ -133,7 +131,7 @@ function UseItem(User, SourceItem, ltstate)
 			User:startAction( smokefood.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
 			base.common.HighInformNLS(User,
-			"Du brauchst Forellen, Lachs oder rohen Schinken um diese zu räuchern.", 
+			"Du brauchst Forellen, Lachs oder rohen Schinken um diese zu räuchern.",
       "You need trouts, salmons or ham for smoking them." );
 		end
 	end

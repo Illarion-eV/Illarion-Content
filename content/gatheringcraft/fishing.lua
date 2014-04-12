@@ -69,9 +69,7 @@ function StartGathering(User, SourceItem, ltstate)
 		return
 	end
 
-	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
-		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
-	end
+	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
 	-- check the amount
 	local MaxAmount = 20
@@ -111,10 +109,6 @@ function StartGathering(User, SourceItem, ltstate)
 		fishID = 1210 -- rose fish
 	end
 
-	--[[
-	[23:10] <@Zot-pc> 1210 Rotbarsch rose fish
-[23:10] <@Zot-pc> 1209 Stachelmakrele horse mackerel
-]]
 	-- GFX + Sound for a splash
 	world:gfx(11,SourceItem.pos);
 	world:makeSound(9,SourceItem.pos);

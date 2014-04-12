@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='item.id_12_campfire' where com_itemid=12;
 
@@ -43,25 +43,23 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
-	
+
 	if not base.common.FitForWork( User ) then -- check minimal food points
 		return
 	end
 
-	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
-		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
-	end
-	
+	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+
 	-- any other checks?
 
 	if ((User:countItemAt("all",2560) == 0) and (User:countItemAt("all",543) == 0) and
 		(User:countItemAt("all",544) == 0) and (User:countItemAt("all",3) == 0)) then -- check for items to work on
-		base.common.HighInformNLS( User, 
-		"Du brauchst Holz um Pottasche zu produzieren.", 
+		base.common.HighInformNLS( User,
+		"Du brauchst Holz um Pottasche zu produzieren.",
 		"You need wood for producing potash." );
 		return;
 	end
-	
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
 		User:startAction( potashproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
@@ -109,7 +107,7 @@ function CharacterOnField(User)
     base.common.InformNLS( User,
       "Du fühlst die aufsteigende Hitze des Feuers.",
       "You feel the heat of the fire." );
-	--Damage from campfires is annoying and abuseable; deactivated.  
+	--Damage from campfires is annoying and abuseable; deactivated.
     --[[if not (User:getQuestProgress(2) > 0) and not (User:increaseAttrib("hitpoints",0) < 2000) then
 		User:increaseAttrib("hitpoints",-math.random(200,400));
 	end]]

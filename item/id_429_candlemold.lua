@@ -74,9 +74,7 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	if not base.common.IsLookingAt( User, staticTool.pos ) then -- check looking direction
-		base.common.TurnTo( User, staticTool.pos ); -- turn if necessary
-	end
+	base.common.TurnTo( User, staticTool.pos ); -- turn if necessary
 
 	-- any other checks?
 

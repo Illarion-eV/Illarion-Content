@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- squeezer
 
@@ -27,7 +27,7 @@ require("base.licence")
 module("item.id_44_squeezer", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence 
+	if base.licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
@@ -55,25 +55,23 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
-		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
-	end
-	
+	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+
 	-- any other checks?
 
 	if (User:countItemAt("all",141)<1) then -- check for items to work on
 		if (User:countItemAt("all",141)==0) then
-			base.common.HighInformNLS( User, 
-			"Du brauchst schwarze Disteln um daraus Öl zu pressen.", 
+			base.common.HighInformNLS( User,
+			"Du brauchst schwarze Disteln um daraus Öl zu pressen.",
 			"You need black thistles for squeezing oil." );
 		else
-			base.common.HighInformNLS( User, 
-			"Du hast nicht genug schwarze Disteln um daraus Öl zu pressen.", 
+			base.common.HighInformNLS( User,
+			"Du hast nicht genug schwarze Disteln um daraus Öl zu pressen.",
 			"You don't have enough black thistles for squeezing oil." );
 		end
 		return;
 	end
-	
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		oilsqueezing.SavedWorkTime[User.id] = oilsqueezing:GenWorkTime(User,nil);
 		User:startAction( oilsqueezing.SavedWorkTime[User.id], 0, 0, 0, 0);

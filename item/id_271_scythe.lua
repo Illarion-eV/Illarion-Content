@@ -85,9 +85,7 @@ function UseItem(User, SourceItem, ltstate)
 
 	-- since we're here, there is some fully grown grain
 
-	if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
-		base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
-	end
+	base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		grainharvesting.SavedWorkTime[User.id] = grainharvesting:GenWorkTime(User,SourceItem);
