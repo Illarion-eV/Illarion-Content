@@ -207,7 +207,7 @@ function ProduceBricks( User, SourceItem, ltstate )
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		if (User:countItemAt("all",736)>4) then  -- there are still items we can work on
+		if (User:countItemAt("all",736)>0) then  -- there are still items we can work on
 			bricksproducing.SavedWorkTime[User.id] = bricksproducing:GenWorkTime(User,toolItem);
 			User:startAction( bricksproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
