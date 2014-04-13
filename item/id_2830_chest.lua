@@ -34,7 +34,7 @@ function UseItem(User,SourceItem)
 
     base.common.InformNLS(User, "Du öffnest die Schatzkiste...", "You open the treasure chest...");
 	world:erase(SourceItem,1);
-	if (level ~= nil) and (level < 10) then
+	if (level ~= nil) and (level~=0) and (level < 10) then
         world:gfx(16,posi);
         world:makeSound(13,posi);
         base.treasure.SpawnTreasure( level, posi );

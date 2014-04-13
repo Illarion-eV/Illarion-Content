@@ -32,8 +32,8 @@ function treasureCheck()
 		if base.treasure.CheckMonsters( thePos ) then
 			world:gfx(16,thePos);
 			world:makeSound(13,thePos);
-			world:createItemFromId(2830,1,thePos,false,333,{trsCat=tostring(treasureCategory[thePos])});
-			--base.treasure.SpawnTreasure(treasureCategory[thePos], thePos)
+			--world:createItemFromId(2830,1,thePos,true,333,{trsCat=tostring(treasureCategory[thePos])});
+			base.treasure.SpawnTreasure(treasureCategory[thePos], thePos)
 		end
 	end
 
