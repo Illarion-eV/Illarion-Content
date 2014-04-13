@@ -26,9 +26,9 @@ function spawnTreasure()
 
 	treasurePos=position(703,421,-3); --Salavesh dungeon
 	
-    if table.getn(world:getPlayersInRangeOf(treasurePos,20)) == 0 then --only spawn a treasure if nobody is around
+    if table.getn(world:getPlayersInRangeOf(treasurePos,20)) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
 	
-		world:createItemFromId(2830,1,treasurePos,true,333,{trsCat=math.random(0,4)}); --spawn the chest
+		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,4)}); --spawn the chest
 		
 	end
 	
@@ -36,22 +36,22 @@ function spawnTreasure()
 	
     if table.getn(world:getPlayersInRangeOf(treasurePos,20)) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
 	
-		world:createItemFromId(2830,1,treasurePos,true,333,{trsCat=math.random(0,1)}); --spawn the chest
+		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
 		
 	end
 		treasurePos=position(769,705,0); --A cave in the woods
 	
     if table.getn(world:getPlayersInRangeOf(treasurePos,20)) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
 	
-		world:createItemFromId(2830,1,treasurePos,true,333,{trsCat=math.random(0,1)}); --spawn the chest
+		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
 		
 	end
 	
-	treasurePos=position(312,374,-6); --Galmair sewers
+	treasurePos=position(308,355,-6); --Galmair sewers
 	
     if table.getn(world:getPlayersInRangeOf(treasurePos,20)) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
 	
-		world:createItemFromId(2830,1,treasurePos,true,333,{trsCat=math.random(0,1)}); --spawn the chess
+		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chess
 		
 	end
 	
