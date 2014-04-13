@@ -24,7 +24,7 @@ module("scheduled.spawn_treasure", package.seeall)
 
 function spawnTreasure()
 
-	treasurePos=position(703,421,-3); --Salavesh dungeon
+	local treasurePos=position(703,421,-3); --Salavesh dungeon
 	
     if table.getn(world:getPlayersInRangeOf(treasurePos,20)) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
 	
@@ -32,14 +32,7 @@ function spawnTreasure()
 		
 	end
 	
-	treasurePos=position(161,666,-4); --Sir Reginald's tomb
-	
-    if table.getn(world:getPlayersInRangeOf(treasurePos,20)) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
-	
-		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
-		
-	end
-		treasurePos=position(769,705,0); --A cave in the woods
+	local treasurePos=position(161,666,-4); --Sir Reginald's tomb
 	
     if table.getn(world:getPlayersInRangeOf(treasurePos,20)) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
 	
@@ -47,7 +40,15 @@ function spawnTreasure()
 		
 	end
 	
-	treasurePos=position(308,355,-6); --Galmair sewers
+	local treasurePos=position(769,705,0); --A cave in the woods
+	
+    if table.getn(world:getPlayersInRangeOf(treasurePos,20)) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
+	
+		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+		
+	end
+	
+	local treasurePos=position(308,355,-6); --Galmair sewers
 	
     if table.getn(world:getPlayersInRangeOf(treasurePos,20)) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
 	
