@@ -33,7 +33,7 @@ function UseItem(User,SourceItem)
     local posi=SourceItem.pos;
 
     base.common.InformNLS(User, "Du öffnest die Schatzkiste...", "You open the treasure chest...");
-	world:erase(SourceItem,1);
+	world:erase(SourceItem,SourceItem.number); --strange hack here
 	if (level ~= nil) and (level~=0) and (level < 10) then
         world:gfx(16,posi);
         world:makeSound(13,posi);

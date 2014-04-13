@@ -46,7 +46,7 @@ module("base.treasure", package.seeall)
                 return ( lang == 0 and "keinen Schatz" or "no treasure" );
             end
         else
-            if ( not level ) then
+            if ( not level ) or ( level == 0) then
                 return ( lang == 0 and "leere Schatzkiste" or "empty treasure chest" );
             elseif ( level <= 2 ) then
                 return ( lang == 0 and "einen kleinen Schatz" or "a small treasure" );
