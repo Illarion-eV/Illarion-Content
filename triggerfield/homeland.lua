@@ -69,7 +69,7 @@ function MoveToField(Character)
 	if Character:getPlayerLanguage() == 0 then
 	    dialogHomeland = MessageDialog("Heimatland","Du verlässt nun das vergleichsweise sichere Heimatland von "..factionString..". Hinter diesem Punkt wirst du wahrscheinlich feindseligen Monstern begegnen. Sei auf der Hut!", callbackHomeland)
 	else	
-		    dialogHomeland = MessageDialog("Homeland", "You are leaving the comparable safe homeland of "..factionString..". Beyond this point, you will most likely encounter hostile monsters. Be on your guard!"", callbackHomeland)
+		    dialogHomeland = MessageDialog("Homeland", "You are leaving the comparable safe homeland of "..factionString..". Beyond this point, you will most likely encounter hostile monsters. Be on your guard!", callbackHomeland)
 	end	
 	        Character:requestMessageDialog(dialogHomeland)
 
