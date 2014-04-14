@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='gm.items.id_382_ceilingtrowel' WHERE com_itemid IN (382);
 
@@ -26,7 +26,7 @@ module("gm.items.id_382_ceilingtrowel", package.seeall)
 function UseItem(User, SourceItem)
 
 	-- First check for mode change
-	local modes = {"items", "weather", "factions","Spawnpoint"}
+	local modes = {"items", "weather", "factions","Spawnpoint"};
 	local cbSetMode = function (dialog)
 		if (not dialog:getSuccess()) then
 			return;
@@ -38,8 +38,8 @@ function UseItem(User, SourceItem)
 			if not TargetItem then
 				TargetItem = base.common.GetFrontItem(User);
 			end
-			
-			if TargetItem == nil then 
+
+			if TargetItem == nil then
 				User:inform("Take an item in your hand or stand infront of an item.");
 			else
 				changeItems(User, SourceItem, TargetItem);
@@ -53,11 +53,11 @@ function UseItem(User, SourceItem)
 		end
 	end
 	local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode);
-	for _, m in ipairs(modes) do 
+	for _, m in ipairs(modes) do
 		sd:addOption(0, m);
 	end
 	User:requestSelectionDialog(sd);
-end	
+end
 
 function changeItems(User, SourceItem, TargetItem)
 
@@ -100,9 +100,9 @@ function changeItems(User, SourceItem, TargetItem)
 			-- LogGMAction(User,User.name.."("..User.id..") changed number of "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..") to "..TargetItem.wear);
 		end
 	end
-	User:requestInputDialog(InputDialog("Set an option for the Item", "Possible actions:  setdata <key> <value>, setqual <value>, setwear <value>, setnumber <value>" ,false, 255, cbInputDialog));	
+	User:requestInputDialog(InputDialog("Set an option for the Item", "Possible actions:  setdata <key> <value>, setqual <value>, setwear <value>, setnumber <value>" ,false, 255, cbInputDialog));
 end
- 
+
   -- if (string.find(User.lastSpokenText,"field")~=nil) then
     -- UseItemWithField(User, SourceItem, User.pos);
   -- end
@@ -130,9 +130,9 @@ end
       -- User:warp(position(newx,newy,0));
     -- end
   -- end
-  
+
  function weather(User, SourceItem)
- 
+
 	currWeather = world.weather;
 
 	local cbInputDialog = function (dialog)
@@ -227,7 +227,7 @@ end
 			end
 		end
 	end
-	User:requestInputDialog(InputDialog("Set an option for the weather", "Possible actions: help, clouds <value>, fog <value>, wind <value>, gust <value>, per <value>, thunder <value>, temp <value> " ,false, 255, cbInputDialog))	
+	User:requestInputDialog(InputDialog("Set an option for the weather", "Possible actions: help, clouds <value>, fog <value>, wind <value>, gust <value>, per <value>, thunder <value>, temp <value> " ,false, 255, cbInputDialog))
 
 	if (currWeather.temperature>-1) then
 		currWeather.percipitation_type=1;
@@ -247,8 +247,8 @@ function factionHandling(User, SourceItem)
 		if (ind == 0) then -- get/set for specific player
 			local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 			local players = {User};
-			for _,player in pairs(playersTmp) do 
-				if (player.id ~= User.id) then 
+			for _,player in pairs(playersTmp) do
+				if (player.id ~= User.id) then
 					table.insert(players, player);
 				end
 			end
@@ -312,7 +312,7 @@ function factionHandling(User, SourceItem)
 							if index == 0 then -- demoting
 								success = base.factions.setSpecialRank(chosenPlayer, 0);
 							else -- promoting
-								success = base.factions.setSpecialRank(chosenPlayer, base.factions.highestRank+tonumber(index));						
+								success = base.factions.setSpecialRank(chosenPlayer, base.factions.highestRank+tonumber(index));
 							end
 
 							if success == false and base.factions.getRankpoints(chosenPlayer) < (base.factions.highestRank-1)*100 then
@@ -322,7 +322,7 @@ function factionHandling(User, SourceItem)
 							else
 								User:inform("Rangchange failed for unknown reasons. Please inform a developer.");
 							end
-					end	
+					end
 
 					local infoText = ""
 					local sd = SelectionDialog("Special rank", infoText, cbSetSpecialRank);
@@ -330,7 +330,7 @@ function factionHandling(User, SourceItem)
 					sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 8));
 					sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 9));
 					sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 10));
-					User:requestSelectionDialog(sd);	
+					User:requestSelectionDialog(sd);
 				end
 			 end
 
@@ -354,19 +354,19 @@ function factionHandling(User, SourceItem)
 			sd:addOption(0, "Change rankpoints");
 			sd:addOption(0, "Change special rank");
 			User:requestSelectionDialog(sd);
-			end 
-		
+			end
+
 			--general playerchoosing part
 			local sd = SelectionDialog("Get/Set faction values for ...", "First choose a player:", cbChoosePlayer);
 			local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
-			for _,player in ipairs(players) do 
+			for _,player in ipairs(players) do
 				local race = math.min(player:getRace()+1, table.getn(raceNames));
 				sd:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
 			end
 			User:requestSelectionDialog(sd);
 
 		-- rankpoints in radius
-		elseif (ind == 1) then 
+		elseif (ind == 1) then
 			local cbRadius = function (dialog)
 				if (not dialog:getSuccess()) then
 					return;
@@ -395,7 +395,7 @@ function factionHandling(User, SourceItem)
 			User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
 
 		-- guard modes
-		elseif (ind == 2) then 
+		elseif (ind == 2) then
 			local factionIds = {0,1,2,3};
 			local cbFirstFaction = function (dialog)
 				if (not dialog:getSuccess()) then
@@ -423,19 +423,19 @@ function factionHandling(User, SourceItem)
 						base.factions.setFactionRelation(firstFaction, secondFaction, mode);
 					end
 					local sd = SelectionDialog("Set guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
-					for _,m in ipairs(modeValues) do 
+					for _,m in ipairs(modeValues) do
 						sd:addOption(0,modeStrings[m]);
 					end
 					User:requestSelectionDialog(sd);
 				end
 				local sd = SelectionDialog("Guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
-				for _,f in ipairs(factionIds) do 
+				for _,f in ipairs(factionIds) do
 					sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[base.factions.getFactionRelation(firstFaction, f)]);
 				end
 				User:requestSelectionDialog(sd);
 			end
 			local sd = SelectionDialog("Get/Set guard modes", "For which faction do you want to get/set values?", cbFirstFaction);
-			for _,f in ipairs(factionIds) do 
+			for _,f in ipairs(factionIds) do
 				sd:addOption(0,base.factions.getTownNameByID(f));
 			end
 			User:requestSelectionDialog(sd);
@@ -463,22 +463,22 @@ function factionHandling(User, SourceItem)
 							return;
 						end
 						local newLicence = licenceValues[dialog:getSelectedIndex()+1];
-						licence.SetLicence(FirstLicence, SecondLicence, newLicence); 
+						licence.SetLicence(FirstLicence, SecondLicence, newLicence);
 					end
 					local sd = SelectionDialog("Set licence", "Set licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to " .. base.factions.getTownNameByID(SecondLicence) .. " to ...", cbSetLicence);
-					for _,m in ipairs(licenceValues) do 
+					for _,m in ipairs(licenceValues) do
 						sd:addOption(0,licenceStrings[m]);
 					end
 					User:requestSelectionDialog(sd);
 				end
 				local sd = SelectionDialog("Licence", "Set licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to ...", cbSecondLicence);
-				for _,f in ipairs(factionIds) do 
-					sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. licenceStrings[licence.GetLicenceByFaction(FirstLicence, f)]); 
+				for _,f in ipairs(factionIds) do
+					sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. licenceStrings[licence.GetLicenceByFaction(FirstLicence, f)]);
 				end
 				User:requestSelectionDialog(sd);
 			end
 			local sd = SelectionDialog("Get/Set licence", "For which faction do you want to get/set values?", cbFirstLicence);
-			for _,f in ipairs(factionIds) do 
+			for _,f in ipairs(factionIds) do
 				sd:addOption(0,base.factions.getTownNameByID(f));
 			end
 			User:requestSelectionDialog(sd);
@@ -494,12 +494,12 @@ end
 
 function spawnPoint(User, SourceItem)
 
-	local modes = {"Monster", "Intervals per spawn", "Time","Effects","Start/Stop","Reset Spawntool"}
+	local modes = {"Monster", "Intervals per spawn", "Time","Effects","Start/Stop","Reset Spawntool"};
 	local cbSetMode = function (dialog)
 		if (not dialog:getSuccess()) then
 			return;
 		end
-		
+
 		local index = dialog:getSelectedIndex() + 1;
 		if index == 1 then
 			spawnMonster(User, SourceItem);
@@ -516,8 +516,8 @@ function spawnPoint(User, SourceItem)
 		end
 	end
 	local sd = SelectionDialog("Set the mode of this Spawnpoint.", "To which mode do you want to change it?", cbSetMode);
-	for _,m in ipairs(modes) do 
-		sd:addOption(0,m);
+	for _, m in ipairs(modes) do
+		sd:addOption(0, m);
 	end
 	User:requestSelectionDialog(sd);
 end
@@ -527,7 +527,7 @@ end
 	-- local gfxId;
 	-- local sfxId;
 	-- local sp = scheduled.spawnpoint;
-	
+
 	-- If input contains numbers, sets input to Data "monsters"
 function spawnMonster(User, SourceItem)
 
@@ -544,8 +544,8 @@ function spawnMonster(User, SourceItem)
 			User:inform("Enter MonsterID");
 		end
 	end
-	User:requestInputDialog(InputDialog("Enter Monster IDs.", "Usage: Enter the IDs of the monsters." ,false, 255, cbInputDialog))
-end	
+	User:requestInputDialog(InputDialog("Enter Monster IDs.", "Usage: Enter the IDs of the monsters." ,false, 255, cbInputDialog));
+end
 
 function spawnIntervalsPerSpawn(User, SourceItem)
 
@@ -560,17 +560,17 @@ function spawnIntervalsPerSpawn(User, SourceItem)
 		local input = dialog:getInput();
 
 		if (string.find(input,"(%d+)") ~= nil) then
-			a, b, intervals = string.find(input,"(%d+)")
-			intervals = intervals
+			local a, b, intervals = string.find(input,"(%d+)");
+			intervals = intervals;
 			SourceItem:setData("intervals", intervals);
 			world:changeItem(SourceItem);
 		end
 	end
-	User:requestInputDialog(InputDialog("Set number of Intervals.", "Usage: Set numer of 5 second intervals per Spawn." ,false, 255, cbInputDialog))
-end	
+	User:requestInputDialog(InputDialog("Set number of Intervals.", "Usage: Set numer of 5 second intervals per Spawn." ,false, 255, cbInputDialog));
+end
 
 function spawnTime(User, SourceItem)
-	
+
 	-- If input contains number, sets input to Data "endurance"
 	local endurance;
 
@@ -581,13 +581,13 @@ function spawnTime(User, SourceItem)
 		local input = dialog:getInput();
 
 		if (string.find(input,"(%d+)") ~= nil) then
-			a, b, endurance = string.find(input,"(%d+)")
-			endurance = endurance
+			local a, b, endurance = string.find(input,"(%d+)");
+			endurance = endurance;
 			SourceItem:setData("endurance", input);
 			world:changeItem(SourceItem);
 		end
 	end
-	User:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the ammounts of total Intervals." ,false, 255, cbInputDialog))
+	User:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the ammounts of total Intervals." ,false, 255, cbInputDialog));
 end
 
 function spawnEffects(User, SourceItem)
@@ -603,26 +603,26 @@ function spawnEffects(User, SourceItem)
 		local input = dialog:getInput();
 
 		if (string.find(input,"(%d+) (%d+)") ~= nil) then
-			a, b, gfxId, sfxId = string.find(input,"(%d+) (%d+)")
+			local a, b, gfxId, sfxId = string.find(input,"(%d+) (%d+)");
 			gfxId = tonumber(gfxId);
 			sfxId = tonumber(sfxId);
 			SourceItem:setData("sfxId", sfxId);
 			SourceItem:setData("gfxId", gfxId);
-			world:changeItem(SourceItem);			
+			world:changeItem(SourceItem);
 		elseif (string.find(input,"(%d+)") ~= nil) then
-			a, b, gfxId = string.find(input,"(%d+)")
+			local a, b, gfxId = string.find(input,"(%d+)");
 			SourceItem:setData("gfxId", input);
 			world:changeItem(SourceItem);
 		end
 	end
-	User:requestInputDialog(InputDialog("Set the graphic and sound appearing at spawn", "Usage: Enter a gfxId [sfxId]" ,false, 255, cbInputDialog))	
+	User:requestInputDialog(InputDialog("Set the graphic and sound appearing at spawn", "Usage: Enter a gfxId [sfxId]" ,false, 255, cbInputDialog))	;
 end
-	
+
 function spawnStartStop(User, SourceItem)
 	local sp = scheduled.spawnpoint;
 
 	--checks if item is on the ground
-		
+
 	--checks to see Datas are not nil and worst case set them 1
 	if (SourceItem:getData("monsters") == "") then
 		SourceItem:setData("monsters", "1")
@@ -660,31 +660,31 @@ function spawnStartStop(User, SourceItem)
 	local fin = 1;
 	local monsterId;
 	local monsterIds = {};
-			
+
 	while fin <= string.len(monsters) do
 		if (string.find(monsters,"(%d+)",fin) ~= nil) then
-			a, b, monsterId = string.find(monsters,"(%d+)",fin)
+			local a, b, monsterId = string.find(monsters, "(%d+)", fin);
 			fin = b + 1;
 			counter = counter +1;
-			monsterIds[counter]	= tonumber(monsterId)
+			monsterIds[counter]	= tonumber(monsterId);
 		else
 			User:inform("Enter MonsterID");
 			fin = string.len(inputNumber);
 		end
 	end
 
-	--set position			
+	--set position
 	local spawnPos = base.common.GetFrontPosition(User);
-			
+
 	--create arrays of informations
-	local spawnInfo = {spawnPos, monsterIds, intervals, endurance, 1, 0, gfxId, sfxId}
-	local found = false
-			
+	local spawnInfo = {spawnPos, monsterIds, intervals, endurance, 1, 0, gfxId, sfxId};
+	local found = false;
+
 	--checks for position in SPAWNDATAS
 	for i=1,#sp.SPAWNDATAS do
 		if sp.SPAWNDATAS[i][1] == spawnPos then
-			found = true
-					
+			found = true;
+
 			if sp.SPAWNDATAS[i][5] == 0 then
 				spawnInfo[5] = 1;
 				world:changeItem(SourceItem);
@@ -697,93 +697,93 @@ function spawnStartStop(User, SourceItem)
 			end
 			--testing from here
 			if sp.SPAWNDATAS[i][4] == nil then
-				User:inform("da steht nichts")
+				User:inform("da steht nichts");
 			end
 			--testing end
 		end
 	end
-			
-	--writes a new entry in SPAWNDATAS if not found 
+
+	--writes a new entry in SPAWNDATAS if not found
 	if not found then
-		table.insert(sp.SPAWNDATAS,spawnInfo)
+		table.insert(sp.SPAWNDATAS, spawnInfo);
 		User:inform("Turned Spawnpoint on");
-	end		
+	end
 end
 
 function spawnReset(User, SourceItem)
 
-	SourceItem:setData("monsters", "1")
-	SourceItem:setData("intervals", "1")
-	SourceItem:setData("endurance", "1")
-	SourceItem:setData("gfxId", "0")
-	SourceItem:setData("sfxId", "0")
+	SourceItem:setData("monsters", "1");
+	SourceItem:setData("intervals", "1");
+	SourceItem:setData("endurance", "1");
+	SourceItem:setData("gfxId", "0");
+	SourceItem:setData("sfxId", "0");
 	world:changeItem(SourceItem);
 end
 
 function guardInfo(chosenPlayer)
-	local guardModes = {"None","Passive","Hostile","Aggressive","Let always pass"}
-	local myInfoText = "\nIndividual guard mode:"
+	local guardModes = {"None","Passive","Hostile","Aggressive","Let always pass"};
+	local myInfoText = "\nIndividual guard mode:";
 
-	local days, setTime = chosenPlayer:getQuestProgress(192)
-	local daysInSec = (days/3)*24*60*60
+	local days, setTime = chosenPlayer:getQuestProgress(192);
+	local daysInSec = (days/3)*24*60*60;
 	if days ~= 0 then
 		if (world:getTime("unix") - setTime >= daysInSec) then
-			chosenPlayer:inform("before nil")
-			days = nil
+			chosenPlayer:inform("before nil");
+			days = nil;
 		else
-			days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
+			days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24);
 		end
 	end
 	if days == 0 then
-		myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." (permanent)"
+		myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." (permanent)";
 	elseif days == nil then
-		myInfoText = myInfoText.."\nCadomyr: None (permanent)"
+		myInfoText = myInfoText.."\nCadomyr: None (permanent)";
 	else
-		myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." ("..days.." days left)"
-	end	
-
-	local days, setTime = chosenPlayer:getQuestProgress(194)
-	local daysInSec = (days/3)*24*60*60
-	if days ~= 0 then
-		if  (world:getTime("unix") - setTime >= daysInSec) then
-			days = nil
-		else
-			days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
-		end
-	end
-	if days == 0 then
-		myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." (permanent)"
-	elseif days == nil then
-		myInfoText = myInfoText.."\nRunewick: None (permanent)"
-	else
-		myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." ("..days.." days left)"
+		myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." ("..days.." days left)";
 	end
 
-	local days, setTime = chosenPlayer:getQuestProgress(196)
-	local daysInSec = (days/3)*24*60*60
+	local days, setTime = chosenPlayer:getQuestProgress(194);
+	local daysInSec = (days/3)*24*60*60;
 	if days ~= 0 then
 		if  (world:getTime("unix") - setTime >= daysInSec) then
-			chosenPlayer:inform("before nil")
-			days = nil
+			days = nil;
 		else
-			days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
+			days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24);
 		end
 	end
 	if days == 0 then
-		myInfoText = myInfoText.."\nGalmair: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." (permanent)"
+		myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." (permanent)";
 	elseif days == nil then
-		myInfoText = myInfoText.."\nGalmair: None (permanent)"
+		myInfoText = myInfoText.."\nRunewick: None (permanent)";
 	else
-		myInfoText = myInfoText.."\nGalmair: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." ("..days.." days left)"
+		myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." ("..days.." days left)";
+	end
+
+	local days, setTime = chosenPlayer:getQuestProgress(196);
+	local daysInSec = (days/3)*24*60*60;
+	if days ~= 0 then
+		if  (world:getTime("unix") - setTime >= daysInSec) then
+			chosenPlayer:inform("before nil");
+			days = nil;
+		else
+			days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24);
+		end
+	end
+	if days == 0 then
+		myInfoText = myInfoText.."\nGalmair: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." (permanent)";
+	elseif days == nil then
+		myInfoText = myInfoText.."\nGalmair: None (permanent)";
+	else
+		myInfoText = myInfoText.."\nGalmair: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." ("..days.." days left)";
 	end
 
 	return myInfoText
 end
 
 function LookAtItem(User, Item)
-	base.lookat.SetSpecialDescription(Item,  "Verwende die Kelle zum aufrufen der Funktionen (items, weather, factions, spawnpoints).", "Use the trowel to pick a function (items, weather, factions, spawnpoints).");
+	base.lookat.SetSpecialDescription(Item, "Verwende die Kelle zum aufrufen der Funktionen (items, weather, factions, spawnpoints).", "Use the trowel to pick a function (items, weather, factions, spawnpoints).");
 	base.lookat.SetSpecialName(Item, "Kelle", "Trowel");
-	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
+	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
 end
 
 function UseItemWithField(User, SourceItem, TargetPos)
@@ -818,16 +818,9 @@ function ChangeRankpoints(User, modifier, value, faction, radius)
 				User:inform("You just "..text.." "..value.." rankpoints to "..player_list[i].name.." of the faction "..base.factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".");
 			else
 --				return;  --bad return, since it would break up as soon someone does not fulfill requirements even if there are more players to be checked.
-			end	
+			end
 		end
-	end	
-end
-
-function Init()
-	if InitDone then
-		return;
 	end
-	InitDone = 1;
 end
 
 function String2Number(str)

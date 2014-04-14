@@ -106,7 +106,7 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 	-- First check for mode change
-	local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive"}
+	local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive"};
 	local cbSetMode = function (dialog)
 		if (not dialog:getSuccess()) then
 			return;
@@ -216,7 +216,7 @@ function factionInfoOfCharsInRadius(User, SourceItem, ltstate)
 			germanRank = "Vogelfrei";
 			englishRank = "Outlaw";
 		end
-		infos = infos..player.name.." - "..englishRank.."/"..germanRank.." - "..base.factions.getRankpoints(player).."\n"
+		infos = infos..player.name.." - "..englishRank.."/"..germanRank.." - "..base.factions.getRankpoints(player).."\n";
 	end
 	local mDialog = MessageDialog("Factioninformation", infos, nil);
 	User:requestMessageDialog(mDialog);
@@ -418,10 +418,8 @@ function godMode(User, SourceItem, ltstate)
 end
 
 function LookAtItem(User, Item)
-
 	base.lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum aufrufen der Funktionen.", "Use the lockpicks to pick a function.");
 	base.lookat.SetSpecialName(Item, "Dietriche", "Lockpicks");
-
 	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
 end
 
