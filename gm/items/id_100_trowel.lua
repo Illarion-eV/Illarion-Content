@@ -14,69 +14,40 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- I_100.lua GM-Kelle
-
-require("base.common")
-
-
-module("gm.items.id_100_trowel", package.seeall)
-
 -- UPDATE common SET com_script='gm.items.id_100_trowel' WHERE com_itemid = 100;
 
+require("base.common")
+module("gm.items.id_100_trowel", package.seeall)
+
 function UseItem(User, SourceItem)
-    local TargetItem = base.common.GetTargetItem(User, SourceItem);
+	local TargetItem = base.common.GetTargetItem(User, SourceItem);
 	if not TargetItem then
 		TargetItem = base.common.GetFrontItem(User);
 	end
 	if (TargetItem ~= nil and TargetItem.id > 0) then
-        if string.find(string.lower(User.lastSpokenText), "setnumber (%d+)") then
+	        if string.find(string.lower(User.lastSpokenText), "setnumber (%d+)") then
 			local a,b, value = string.find(string.lower(User.lastSpokenText), "setnumber (%d+)");
-            world:increase(TargetItem, value - TargetItem.number);
-			return;
-		--[[elseif (TargetItem:getType() == scriptItem.field) then
-            UseItemWithField(User, SourceItem, TargetItem.pos);
-			return;]]
-        end;
-    end;
+			world:increase(TargetItem, value - TargetItem.number);
+			return
+		end
+	end
 
-    -- check if a number was said, if not: don't do anything
-    local a,b, value = string.find(User.lastSpokenText, "(%d+)");
-    if value == nil or tonumber(value) == nil then
-		return;
-    end;
+	-- check if a number was said, if not: don't do anything
+	local a,b, value = string.find(User.lastSpokenText, "(%d+)");
+	if value == nil or tonumber(value) == nil then
+		return
+	end
     
-    local target = base.common.GetFrontPosition(User);
-    
-    local itemId = tonumber(value);
-    local itemQual = 333;
-    local itemData = nil
-    local newItem = world:createItemFromId(itemId, 1, target, true, itemQual, itemData);
+	local target = base.common.GetFrontPosition(User);
+
+	local itemId = tonumber(value);
+	local itemQual = 333;
+	local itemData = nil
+	local newItem = world:createItemFromId(itemId, 1, target, true, itemQual, itemData);
 	newItem.wear = 255;
 	world:changeItem(newItem);
-end;
---[[ -- seems to be a useless function. 
-function UseItemWithField(User,SourceItem,TargetPos)
-    if (ListName == nil) then
-        Ini();
-    end;
+end
 
-    if (Param == 0) then
-        if (ListName[Counter] == nil) then
-            return;
-        end;
-        User:inform(ListName[Counter]..": "..Counter);
-        MyMen=MenuStruct();
-        for key, value in pairs(ItemList[Counter]) do
-            MyMen:addItem(value);
-        end;
-        User:sendMenu(MyMen);
-    else
-        quality = base.common.NormalRnd(111, 999);
-        world:createItemFromId(Param, 1, TargetPos, true, quality, 0);
-        User:inform("ItemID: "..Param.." mit Qual.: "..quality)
-    end;
-end;
-]]
 function Ini()
     ListName={};
     ItemList={};
@@ -204,30 +175,10 @@ function Ini()
     ItemList[61]={173,228,316,1005,2529,2588,2937,2551,2552,2553,2554};
     ListName[62]="Druidensystem";
     ItemList[62]={164,165,166,167,328,329,330,331,1008,127,128,129,3104,3105,3111,3112,3113,3114};
-end;
+end
 
 function LookAtItem(User, Item)
-world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 1))
---[[   
-   --base.common.InformNLS(User, "Blablabla", "Bl ablablablabla");
-	--User:inform ("blabla hätte funktionieren müssen!");
-	if (texts == nil) then
-        texts={};
-        texts[1]="Shift-click the trowel first and the ground then (use trowel with ground) to display a menue for creating items. Use the counter to create different items.";
-        texts[2]="Say the number of the item you want to create and then shift-click the trowel (NOT the ground!); the item will be created in front of you.";
-    end;
-    
-    local a, b, spoken = User.lastSpokenText:find("(%d+)");
-    if (spoken ~= nil) then
-        pagenumber = tonumber(spoken);
-    end;
-    if (pagenumber == nil) then
-        pagenumber = 0;
-    end;
-
-    if pagenumber==0 then
-        User:inform("This is the WOOOONDER trowel. Say a number between 1 and "..table.maxn(texts).." to view that help page and look at me then.");
-    else
-        User:inform(texts[pagenumber]);
-    end;]]
-end;
+	base.lookat.SetSpecialDescription(Item,  "Verwende die Kelle zum aufrufen der Funktionen (create items).", "Use the trowel to pick a function (create items).");
+	base.lookat.SetSpecialName(Item, "Kelle", "Trowel");
+	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
+end
