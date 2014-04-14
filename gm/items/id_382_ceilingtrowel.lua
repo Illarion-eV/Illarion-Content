@@ -23,10 +23,7 @@ require("base.licence")
 require("scheduled.alchemy")
 module("gm.items.id_382_ceilingtrowel", package.seeall)
 
-
 function UseItem(User, SourceItem)
-
-	Init();
 
 	-- First check for mode change
 	local modes = {"items", "weather", "factions","Spawnpoint"}
@@ -35,28 +32,29 @@ function UseItem(User, SourceItem)
 			return;
 		end
 
-		if dialog:getSelectedIndex()+1 == 1 then
+		local index = dialog:getSelectedIndex() + 1;
+		if  index == 1 then
 			local TargetItem = base.common.GetTargetItem(User, SourceItem);
 			if not TargetItem then
 				TargetItem = base.common.GetFrontItem(User);
 			end
 			
 			if TargetItem == nil then 
-				User:inform("Take an item in your hand or stand infront of an item")
+				User:inform("Take an item in your hand or stand infront of an item.");
 			else
-				changeItems(User, SourceItem,TargetItem)
+				changeItems(User, SourceItem, TargetItem);
 			end
-		elseif dialog:getSelectedIndex()+1 == 2 then
-			weather(User, SourceItem)
-		elseif dialog:getSelectedIndex()+1 == 3 then
-			factionHandling(User, SourceItem)
-		elseif dialog:getSelectedIndex()+1 == 4 then
-			spawnPoint(User, SourceItem)
+		elseif index == 2 then
+			weather(User, SourceItem);
+		elseif index == 3 then
+			factionHandling(User, SourceItem);
+		elseif index == 4 then
+			spawnPoint(User, SourceItem);
 		end
 	end
 	local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode);
-	for _,m in ipairs(modes) do 
-		sd:addOption(0,m);
+	for _, m in ipairs(modes) do 
+		sd:addOption(0, m);
 	end
 	User:requestSelectionDialog(sd);
 end	
@@ -102,10 +100,8 @@ function changeItems(User, SourceItem, TargetItem)
 			-- LogGMAction(User,User.name.."("..User.id..") changed number of "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..") to "..TargetItem.wear);
 		end
 	end
-	User:requestInputDialog(InputDialog("Set an option for the Item", "Possible actions:  setdata <key> <value>, setqual <value>, setwear <value>, setnumber <value>" ,false, 255, cbInputDialog))	
+	User:requestInputDialog(InputDialog("Set an option for the Item", "Possible actions:  setdata <key> <value>, setqual <value>, setwear <value>, setnumber <value>" ,false, 255, cbInputDialog));	
 end
- 
- 
  
   -- if (string.find(User.lastSpokenText,"field")~=nil) then
     -- UseItemWithField(User, SourceItem, User.pos);
@@ -137,7 +133,7 @@ end
   
  function weather(User, SourceItem)
  
-	currWeather=world.weather;
+	currWeather = world.weather;
 
 	local cbInputDialog = function (dialog)
 		if (not dialog:getSuccess()) then
@@ -154,7 +150,7 @@ end
 			User:inform("Set temperature: \"temp <value>\" - range: -50 - +50");
 		end
 		if (string.find(input,"clouds (%d+)")~=nil) then
-			a,b,value = string.find(input"clouds (%d+)");
+			local a, b, value = string.find(input"clouds (%d+)");
 			value=value+1-1;
 			if (value<101 and value>-1) then
 				currWeather.cloud_density = value;
@@ -165,7 +161,7 @@ end
 			end
 		end
 		if (string.find(input,"fog (%d+)")~=nil) then
-			a,b,value = string.find(input,"fog (%d+)");
+			local a, b, value = string.find(input,"fog (%d+)");
 			value=value+1-1;
 			if (value<101 and value>-1) then
 				currWeather.fog_density = value;
@@ -176,7 +172,7 @@ end
 			end
 		end
 		if (string.find(input,"wind dir ([-,0-9]+)")~=nil) then
-			a,b,value = string.find(input,"wind dir ([-,0-9]+)");
+			local a, b, value = string.find(input,"wind dir ([-,0-9]+)");
 			value=value+1-1;
 			if (value<101 and value>-101) then
 				currWeather.wind_dir = value;
@@ -187,7 +183,7 @@ end
 			end
 		end
 		if (string.find(input,"gust str (%d+)")~=nil) then
-			a,b,value = string.find(input,"gust str (%d+)");
+			local a, b, value = string.find(input,"gust str (%d+)");
 			value=value+1-1;
 			if (value<101 and value>-1) then
 				currWeather.gust_strength = value;
@@ -198,7 +194,7 @@ end
 			end
 		end
 		if (string.find(input,"per (%d+)")~=nil) then
-			a,b,value = string.find(input,"per (%d+)");
+			local a, b, value = string.find(input,"per (%d+)");
 			value=value+1-1;
 			if (value<101 and value>-1) then
 				currWeather.percipitation_strength = value;
@@ -209,7 +205,7 @@ end
 			end
 		end
 		if (string.find(input,"thunder (%d+)")~=nil) then
-			a,b,value = string.find(input,"thunder (%d+)");
+			local a, b, value = string.find(input,"thunder (%d+)");
 			value=value+1-1;
 			if (value<101 and value>-1) then
 				currWeather.thunderstorm = value;
@@ -220,7 +216,7 @@ end
 			end
 		end
 		if (string.find(input,"temp ([-,0-9]+)")~=nil) then
-			a,b,value = string.find(input,"temp ([-,0-9]+)");
+			local a, b, value = string.find(input,"temp ([-,0-9]+)");
 			value=value+1-1;
 			if (value<51 and value>-51) then
 				currWeather.temperature = value;
@@ -503,18 +499,20 @@ function spawnPoint(User, SourceItem)
 		if (not dialog:getSuccess()) then
 			return;
 		end
-		if dialog:getSelectedIndex()+1 == 1 then
-			spawnMonster(User, SourceItem)
-		elseif dialog:getSelectedIndex()+1 == 2 then
-			spawnIntervalsPerSpawn(User, SourceItem)
-		elseif dialog:getSelectedIndex()+1 == 3 then
-			spawnTime(User, SourceItem)
-		elseif dialog:getSelectedIndex()+1 == 4 then
-			spawnEffects(User, SourceItem)
-		elseif dialog:getSelectedIndex()+1 == 5 then
-			sapwnStartStop(User, SourceItem)
-		elseif dialog:getSelectedIndex()+1 == 6 then
-			spawnReset(User, SourceItem)
+		
+		local index = dialog:getSelectedIndex() + 1;
+		if index == 1 then
+			spawnMonster(User, SourceItem);
+		elseif index == 2 then
+			spawnIntervalsPerSpawn(User, SourceItem);
+		elseif index == 3 then
+			spawnTime(User, SourceItem);
+		elseif index == 4 then
+			spawnEffects(User, SourceItem);
+		elseif index == 5 then
+			spawnStartStop(User, SourceItem);
+		elseif index == 6 then
+			spawnReset(User, SourceItem);
 		end
 	end
 	local sd = SelectionDialog("Set the mode of this Spawnpoint.", "To which mode do you want to change it?", cbSetMode);
@@ -620,7 +618,7 @@ function spawnEffects(User, SourceItem)
 	User:requestInputDialog(InputDialog("Set the graphic and sound appearing at spawn", "Usage: Enter a gfxId [sfxId]" ,false, 255, cbInputDialog))	
 end
 	
-function sapwnStartStop(User, SourceItem)
+function spawnStartStop(User, SourceItem)
 	local sp = scheduled.spawnpoint;
 
 	--checks if item is on the ground
@@ -783,7 +781,7 @@ function guardInfo(chosenPlayer)
 end
 
 function LookAtItem(User, Item)
-	base.lookat.SetSpecialDescription(Item,  "Verwende die Kelle zum aufrufen der Funktione.", "Use the trowel to pick a function.");
+	base.lookat.SetSpecialDescription(Item,  "Verwende die Kelle zum aufrufen der Funktionen (items, weather, factions, spawnpoints).", "Use the trowel to pick a function (items, weather, factions, spawnpoints).");
 	base.lookat.SetSpecialName(Item, "Kelle", "Trowel");
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
 end
