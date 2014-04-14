@@ -72,7 +72,6 @@ skillNames = {
 	Character.concussionWeapons,
 	Character.cookingAndBaking,
 	Character.distanceWeapons,
-	Character.dodge,
 	Character.farming,
 	Character.firingBricks,
 	Character.fishing,
