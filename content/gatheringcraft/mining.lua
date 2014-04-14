@@ -24,7 +24,7 @@ require("content.gathering")
 
 module("content.gatheringcraft.mining", package.seeall)
 
-function StartGathering(User, rock, ltstate)
+function StartGathering(User, SourceItem, ltstate)
 
 	content.gathering.InitGathering();
 	local mining = content.gathering.mining;
@@ -42,7 +42,7 @@ function StartGathering(User, rock, ltstate)
 		return
 	end
 
-	if not base.common.CheckItem( User, rock ) then -- security check
+	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
 
@@ -68,60 +68,59 @@ function StartGathering(User, rock, ltstate)
 		return
 	end
 
-	base.common.TurnTo( User, rock.pos ); -- turn if necessary
+	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
-  if ( ltstate == Action.none ) then -- currently not working -> let's go
-    mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, toolItem);
-    User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
-    User:talk(Character.say, "#me beginnt mit einer Spitzhacke auf den Stein zu schlagen.", "#me starts to hit the stone with a pick-axe.")
+	if ( ltstate == Action.none ) then -- currently not working -> let's go
+		mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, toolItem);
+		User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
+		User:talk(Character.say, "#me beginnt mit einer Spitzhacke auf den Stein zu schlagen.", "#me starts to hit the stone with a pick-axe.")
+		User:performAnimation(14);
+		return
+	end
+
+	-- since we're here, we're working
+
 	User:performAnimation(14);
-    return
-  end
+	if mining:FindRandomItem(User) then
+		return
+	end
 
-  -- since we're here, we're working
+	local areaId = content.gatheringcraft.mining.GetAreaId(User.pos);
+	local productId = GetResource(areaId, SourceItem.id);
 
-  User:performAnimation(14);
-  if mining:FindRandomItem(User) then
-    return
-  end
+	User:learn( mining.LeadSkill, mining.SavedWorkTime[User.id], mining.LearnLimit);
+	local amount = 1; -- set the amount of items that are produced
+	local notCreated = User:createItem( productId, amount, 333, nil ); -- create the new produced items
+	local rockBroken = breakRock(SourceItem);
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( productId, notCreated, User.pos, true, 333, nil );
+		base.common.HighInformNLS(User,
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
+	elseif (not rockBroken) then -- character can still carry something and rock is okay
+		SourceItem = getRock(User, areaId);
+		if (SourceItem ~= nil) then  -- there are still items we can work on
+			mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, toolItem);
+			User:changeSource(SourceItem);
+			User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
+		else -- no items left (as the rock is still okay, this should never happen... handle it anyway)
+			base.common.HighInformNLS(User,
+			"Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
+			"There are no stones for mining anymore.");
+		end
+	else
+		-- rock is broken
+		base.common.HighInformNLS(User,
+		"Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
+		"There are no stones for mining anymore.");
+	end
 
-  local areaId = content.gatheringcraft.mining.GetAreaId(User.pos);
-  local productId = GetResource(areaId, rock.id);
-
-  User:learn( mining.LeadSkill, mining.SavedWorkTime[User.id], mining.LearnLimit);
-  local amount = 1; -- set the amount of items that are produced
-  local notCreated = User:createItem( productId, amount, 333, nil ); -- create the new produced items
-  local rockBroken = breakRock(rock);
-  if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-    world:createItemFromId( productId, notCreated, User.pos, true, 333, nil );
-    base.common.HighInformNLS(User,
-    "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-    "You can't carry any more and the rest drops to the ground.");
-  elseif (not rockBroken) then -- character can still carry something and rock is okay
-    rock = getRock(User, areaId);
-    if (rock ~= nil) then  -- there are still items we can work on
-      mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, toolItem);
-	  User:changeSource(rock);
-      User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
-    else -- no items left (as the rock is still okay, this should never happen... handle it anyway)
-      base.common.HighInformNLS(User,
-      "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
-      "There are no stones for mining anymore.");
-    end
-  else
-    -- rock is broken
-    base.common.HighInformNLS(User,
-    "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
-    "There are no stones for mining anymore.");
-  end
-
-  if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
-    base.common.HighInformNLS(User,
-    "Deine alte Spitzhacke zerbricht.",
-    "Your old pick-axe breaks.");
-    return
-  end
-
+	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
+		base.common.HighInformNLS(User,
+		"Deine alte Spitzhacke zerbricht.",
+		"Your old pick-axe breaks.");
+		return
+	end
 end
 
 
