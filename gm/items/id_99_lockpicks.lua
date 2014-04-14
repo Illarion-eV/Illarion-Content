@@ -111,23 +111,24 @@ function UseItem(User, SourceItem, ltstate)
 		if (not dialog:getSuccess()) then
 			return;
 		end
-		if dialog:getSelectedIndex()+1 == 1 then
+		local index = dialog:getSelectedIndex() + 1;
+		if index == 1 then
 			eraser(User, SourceItem, ltstate)
-		elseif dialog:getSelectedIndex()+1 == 2 then
+		elseif index == 2 then
 			teleporter(User, SourceItem, ltstate)
-		elseif dialog:getSelectedIndex()+1 == 3 then
+		elseif index == 3 then
 			factionInfoOfCharsInRadius(User, SourceItem, ltstate)
-		elseif dialog:getSelectedIndex()+1 == 4 then
+		elseif index == 4 then
 			charInfo(User, SourceItem,ltstate)
-		elseif dialog:getSelectedIndex()+1 == 5 then
+		elseif index == 5 then
 			changeSkills(User, SourceItem, ltstate)
-		elseif dialog:getSelectedIndex()+1 == 6 then
+		elseif index == 6 then
 			getSetQueststatus(User, SourceItem, ltstate)
-		elseif dialog:getSelectedIndex()+1 == 7 then
+		elseif index == 7 then
 			godMode(User, SourceItem, ltstate)
 		end
 	end
-	local sd = SelectionDialog("Pick a function of the lockpicks.", "Wich do you want to use?", cbSetMode);
+	local sd = SelectionDialog("Pick a function of the lockpicks.", "Which do you want to use?", cbSetMode);
 	for _,m in ipairs(modes) do
 		sd:addOption(0,m);
 	end
@@ -420,7 +421,7 @@ end
 
 function LookAtItem(User,Item)
 
-	base.lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum aufrufen der Funktione.", "Use the lockpicks to pick a function.");
+	base.lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum aufrufen der Funktionen.", "Use the lockpicks to pick a function.");
 	base.lookat.SetSpecialName(Item, "Dietriche", "Lockpicks");
 
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
