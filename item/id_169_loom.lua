@@ -129,7 +129,7 @@ function UseItem(User, SourceItem, ltstate)
 	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Schere zerbricht.",
-		"Your old scissor break.");
+		"Your old scissors break.");
 		return
 	end
 end
