@@ -99,7 +99,7 @@ skillNames = {
 function UseItem(User, SourceItem, ltstate)
 
 	--if injured, heal!
-	if User:increaseAttrib("hitpoints",0)<10000 or User:increaseAttrib("mana",0)<10000 then
+	if User:increaseAttrib("hitpoints",0) < 10000 or User:increaseAttrib("mana",0) < 10000 then
 		User:increaseAttrib("hitpoints", 10000);
 		User:increaseAttrib("mana", 10000);
 		User:increaseAttrib("foodlevel", 100000);
@@ -113,24 +113,24 @@ function UseItem(User, SourceItem, ltstate)
 		end
 		local index = dialog:getSelectedIndex() + 1;
 		if index == 1 then
-			eraser(User, SourceItem, ltstate)
+			eraser(User, SourceItem, ltstate);
 		elseif index == 2 then
-			teleporter(User, SourceItem, ltstate)
+			teleporter(User, SourceItem, ltstate);
 		elseif index == 3 then
-			factionInfoOfCharsInRadius(User, SourceItem, ltstate)
+			factionInfoOfCharsInRadius(User, SourceItem, ltstate);
 		elseif index == 4 then
-			charInfo(User, SourceItem,ltstate)
+			charInfo(User, SourceItem,ltstate);
 		elseif index == 5 then
-			changeSkills(User, SourceItem, ltstate)
+			changeSkills(User, SourceItem, ltstate);
 		elseif index == 6 then
-			getSetQueststatus(User, SourceItem, ltstate)
+			getSetQueststatus(User, SourceItem, ltstate);
 		elseif index == 7 then
-			godMode(User, SourceItem, ltstate)
+			godMode(User, SourceItem, ltstate);
 		end
 	end
 	local sd = SelectionDialog("Pick a function of the lockpicks.", "Which do you want to use?", cbSetMode);
-	for _,m in ipairs(modes) do
-		sd:addOption(0,m);
+	for _, m in ipairs(modes) do
+		sd:addOption(0, m);
 	end
 	User:requestSelectionDialog(sd);
 end
@@ -139,7 +139,7 @@ function eraser(User, SourceItem, ltstate)
 
 	--get all the items the char has on him, with the stuff in the backpack
 	local itemsOnChar = {};
-	for i=17,0,-1 do
+	for i = 17, 0, -1 do
 		local item = User:getItemAt(i);
 		if (item.id > 0) then
 			table.insert(itemsOnChar, item);
@@ -162,8 +162,8 @@ function eraser(User, SourceItem, ltstate)
 		end
 	end
 	local sdItems = SelectionDialog("Erase items.", "Choose the item you wish to erase:", cbChooseItem);
-	sdItems:addOption(0,"Front of char");
-	for _,item in ipairs(itemsOnChar) do
+	sdItems:addOption(0, "Front of char");
+	for _, item in ipairs(itemsOnChar) do
 		local itemName = world:getItemName(item.id, 1); -- only english names folks
 		sdItems:addOption(item.id, itemName .. " (" .. itemPos[item.itempos] .. ") Count: ".. item.number);
 	end
@@ -178,7 +178,7 @@ function teleporter(User, SourceItem, ltstate)
 		end
 		local index = dialog:getSelectedIndex() + 1;
 		if index == 1 then
-			local onlineChars = world:getPlayersOnline()
+			local onlineChars = world:getPlayersOnline();
 			local cbChoosePlayerLocation = function (dialog)
 				if (not dialog:getSuccess()) then
 					return;
@@ -187,7 +187,7 @@ function teleporter(User, SourceItem, ltstate)
 				User:warp(position(onlineChars[warpToPlayer].pos.x, onlineChars[warpToPlayer].pos.y, onlineChars[warpToPlayer].pos.z));
 			end
 			local sdTeleportPlayer = SelectionDialog("Teleporter.", "Choose a destination:", cbChoosePlayerLocation);
-			for i=1,#onlineChars do
+			for i = 1, #onlineChars do
 				local checkChar = onlineChars[i];
 				local onlineCharsName = checkChar.name;
 				sdTeleportPlayer:addOption(0, onlineCharsName .. " (" .. checkChar.pos.x..", "..checkChar.pos.y..", "..checkChar.pos.z .. ")");
@@ -198,8 +198,8 @@ function teleporter(User, SourceItem, ltstate)
 		end
 	end
 	local sdTeleport = SelectionDialog("Teleporter.", "Choose a destination:", cbChooseLocation);
-	for i=1, #(Location) do
-		sdTeleport:addOption(0,Location[i] .. " (" .. Coordina[i][1]..", "..Coordina[i][2]..", "..Coordina[i][3] .. ")");
+	for i = 1, #(Location) do
+		sdTeleport:addOption(0, Location[i] .. " (" .. Coordina[i][1]..", "..Coordina[i][2]..", "..Coordina[i][3] .. ")");
 	end
 	User:requestSelectionDialog(sdTeleport);
 end
@@ -210,7 +210,7 @@ function factionInfoOfCharsInRadius(User, SourceItem, ltstate)
 	local infos = "";
 	local germanRank, englishRank;
 
-	for _,player in ipairs(players) do
+	for _, player in ipairs(players) do
 		germanRank, englishRank = base.factions.getRank(player, true);
 		if germanRank == nil or englishRank == nil then
 			germanRank = "Vogelfrei";
@@ -218,15 +218,15 @@ function factionInfoOfCharsInRadius(User, SourceItem, ltstate)
 		end
 		infos = infos..player.name.." - "..englishRank.."/"..germanRank.." - "..base.factions.getRankpoints(player).."\n"
 	end
-	local mDialog = MessageDialog("Factioninformation",infos, nil);
+	local mDialog = MessageDialog("Factioninformation", infos, nil);
 	User:requestMessageDialog(mDialog);
 end
 
-function charInfo(User, SourceItem,ltstate)
+function charInfo(User, SourceItem, ltstate)
 
 	local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 	local players = {User};
-	for _,player in pairs(playersTmp) do
+	for _, player in pairs(playersTmp) do
 		if (player.id ~= User.id) then
 			table.insert(players, player);
 		end
@@ -241,7 +241,7 @@ function charInfo(User, SourceItem,ltstate)
 		local factionInfo = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
 		factionInfo = factionInfo .. "\nChanged towns already (town count): " .. faction.towncnt;
 		if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
-			local germanRank, englishRank = base.factions.getRank(chosenPlayer, true)
+			local germanRank, englishRank = base.factions.getRank(chosenPlayer, true);
 			factionInfo = factionInfo .. "\nRank: " .. englishRank .. "/" .. germanRank;
 		else
 			factionInfo = factionInfo .. "\nRank: no rank " .. faction.rankTown;
@@ -258,9 +258,9 @@ function charInfo(User, SourceItem,ltstate)
 	--Dialog to choose the player
 	local sdPlayer = SelectionDialog("Get the stats of ...", "First choose a character:", cbChoosePlayer);
 	local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"};
-        for _,player in ipairs(players) do
-		local race = math.min(player:getRace()+1, table.getn(raceNames));
-		sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
+        for _, player in ipairs(players) do
+		local race = math.min(player:getRace() + 1, table.getn(raceNames));
+		sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end
 	User:requestSelectionDialog(sdPlayer);
 end
@@ -269,7 +269,7 @@ function changeSkills(User, SourceItem, ltstate)
 
 	local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 	local players = {User};
-	for _,player in pairs(playersTmp) do
+	for _, player in pairs(playersTmp) do
 		if (player.id ~= User.id) then
 			table.insert(players, player);
 		end
@@ -279,7 +279,6 @@ function changeSkills(User, SourceItem, ltstate)
 		if (not dialog:getSuccess()) then
 			return;
 		end
-		local index = dialog:getSelectedIndex(); -- unused?
 		local chosenPlayer = players[dialog:getSelectedIndex() + 1];
 		local skillDialog = function (dialog)
 			if (not dialog:getSuccess()) then
@@ -305,7 +304,7 @@ function changeSkills(User, SourceItem, ltstate)
 			User:requestInputDialog(sdChange);
 		end
 		local sdSkill = SelectionDialog("Select skill", "What skill do you wish to change for "..chosenPlayer.name.."?", skillDialog);
-		for _,skill in ipairs(skillNames) do
+		for _, skill in ipairs(skillNames) do
 			sdSkill:addOption(0,User:getSkillName(skill).." value: "..chosenPlayer:getSkill(skill));
 		end
 		User:requestSelectionDialog(sdSkill);
@@ -313,9 +312,9 @@ function changeSkills(User, SourceItem, ltstate)
 	--Dialog to choose the player
 	local sdPlayer = SelectionDialog("Change a skill.", "First choose a character:", cbChoosePlayer);
 	local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
-        for _,player in ipairs(players) do
-		local race = math.min(player:getRace()+1, table.getn(raceNames));
-		sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
+        for _, player in ipairs(players) do
+		local race = math.min(player:getRace() + 1, table.getn(raceNames));
+		sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end
 	User:requestSelectionDialog(sdPlayer);
 end
@@ -324,7 +323,7 @@ function getSetQueststatus(User, SourceItem, ltstate)
 
 	local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 	local players = {User};
-	for _,player in pairs(playersTmp) do
+	for _, player in pairs(playersTmp) do
 		if (player.id ~= User.id) then
 			table.insert(players, player);
 		end
@@ -334,37 +333,36 @@ function getSetQueststatus(User, SourceItem, ltstate)
 		if (not dialog:getSuccess()) then
 			return;
 		end
-		local index = dialog:getSelectedIndex(); -- unused?
-		local chosenPlayer = players[dialog:getSelectedIndex()+1];
+		local chosenPlayer = players[dialog:getSelectedIndex() + 1];
 		local changeDialog = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
 			end
 			local inputString = dialog:getInput();
-			if (string.find(inputString,"(%d+) (%d+)") ~= nil) then
-				local a, b, quest,status= string.find(inputString,"(%d+) (%d+)");
-				quest=tonumber(quest);
-				status=tonumber(status);
+			if (string.find(inputString, "(%d+) (%d+)") ~= nil) then
+				local a, b, quest, status = string.find(inputString, "(%d+) (%d+)");
+				quest = tonumber(quest);
+				status = tonumber(status);
 				chosenPlayer:setQuestProgress(quest, status);
 				User:inform("Quest " .. quest .. " has been set to " .. status .. "!");
-			elseif (string.find(inputString,"(%d+)") ~= nil) then
-				local a, b, quest = string.find(inputString,"(%d+)");
-				quest=tonumber(quest);
+			elseif (string.find(inputString, "(%d+)") ~= nil) then
+				local a, b, quest = string.find(inputString, "(%d+)");
+				quest = tonumber(quest);
 				User:inform("Quest " .. quest .. " has the status " .. chosenPlayer:getQuestProgress(quest) .. ".");
 			else
 				User:inform("Sorry, I didn't understand you.");
 				User:requestInputDialog(InputDialog("Get/ Set Queststatus for "..chosenPlayer.name, "Usage: To get the value type in the questnumber.\n To set the value type in questnumber and the new status.", false, 255, changeDialog));
 			end
 		end
-		local sdChange = InputDialog("Get/ Set Queststatus for "..chosenPlayer.name, "Usage: To get the value type in the questnumber.\n To set the value type in questnumber and the new status.",false, 255, changeDialog);
+		local sdChange = InputDialog("Get/ Set Queststatus for "..chosenPlayer.name, "Usage: To get the value type in the questnumber.\n To set the value type in questnumber and the new status.", false, 255, changeDialog);
 		User:requestInputDialog(sdChange);
 	end
 	--Dialog to choose the player
 	local sdPlayer = SelectionDialog("Get/ Set Queststatus", "First choose a character:", cbChoosePlayer);
 	local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"};
-        for _,player in ipairs(players) do
-		local race = math.min(player:getRace()+1, table.getn(raceNames));
-		sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
+        for _, player in ipairs(players) do
+		local race = math.min(player:getRace() + 1, table.getn(raceNames));
+		sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end
 	User:requestSelectionDialog(sdPlayer);
 end
@@ -373,7 +371,7 @@ function godMode(User, SourceItem, ltstate)
 
 	local playersTmp = world:getPlayersInRangeOf(User.pos, 25);
 	local players = {User};
-	for _,player in pairs(playersTmp) do
+	for _, player in pairs(playersTmp) do
 		if (player.id ~= User.id) then
 			table.insert(players, player);
 		end
@@ -386,11 +384,11 @@ function godMode(User, SourceItem, ltstate)
 		local index = dialog:getSelectedIndex();
 		if index == 0 then
 			local monsters = world:getMonstersInRangeOf(User.pos, 3);
-			for _,monster in ipairs(monsters) do
+			for _, monster in ipairs(monsters) do
 				monster:increaseAttrib("hitpoints", -10000);
 			end
 		else
-			local chosenPlayer = players[dialog:getSelectedIndex()];
+			local chosenPlayer = players[index];
 			local killDialog = function (dialog)
 				if (not dialog:getSuccess()) then
 					return;
@@ -412,24 +410,24 @@ function godMode(User, SourceItem, ltstate)
 	local sdPlayer = SelectionDialog("Kill or revive...", "First choose a character:", cbChoosePlayer);
 	local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"};
 	sdPlayer:addOption(0, "Kill all Monster in a 3 tile radius");
-        for _,player in ipairs(players) do
+        for _, player in ipairs(players) do
 		local race = math.min(player:getRace() + 1, table.getn(raceNames));
 		sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end
 	User:requestSelectionDialog(sdPlayer);
 end
 
-function LookAtItem(User,Item)
+function LookAtItem(User, Item)
 
 	base.lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum aufrufen der Funktionen.", "Use the lockpicks to pick a function.");
 	base.lookat.SetSpecialName(Item, "Dietriche", "Lockpicks");
 
-	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
+	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
 end
 
 function String2Number(str)
 	if (string.find(str, "(%d+)") ~= nil) then
-		local _,_,num = string.find(str, "(%d+)");
+		local _, _, num = string.find(str, "(%d+)");
 		if (num ~= "") then
 			num = tonumber(num);
 			return num, true;
