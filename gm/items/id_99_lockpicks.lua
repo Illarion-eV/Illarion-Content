@@ -183,8 +183,12 @@ function teleporter(User, SourceItem, ltstate)
 				if (not dialog:getSuccess()) then
 					return;
 				end
-				local warpToPlayer = dialog:getSelectedIndex() + 1;
-				User:warp(position(onlineChars[warpToPlayer].pos.x, onlineChars[warpToPlayer].pos.y, onlineChars[warpToPlayer].pos.z));
+				local warpToPlayer = onlineChars[dialog:getSelectedIndex() + 1];
+				if isValidChar(warpToPlayer) then
+					User:warp(position(warpToPlayer.pos.x, warpToPlayer.pos.y, warpToPlayer.pos.z));
+				else
+					User:inform("This character is not online anymore.");
+				end
 			end
 			local sdTeleportPlayer = SelectionDialog("Teleporter.", "Choose a destination:", cbChoosePlayerLocation);
 			for i = 1, #onlineChars do
