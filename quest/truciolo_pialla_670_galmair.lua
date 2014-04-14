@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (IDQUEST, 'quest.truciolo_pialla_670_galmair');
 
@@ -37,7 +37,7 @@ Description[GERMAN][1] = "Bring 10 Apfelholz, 10 Äste und 1 Säge zu Truciolo Pia
 Description[ENGLISH][1] = "Take ten logs of apple wood, ten boughs and one saw to Truciolo Pialla."
 Description[GERMAN][2] = "Vielleicht solltest du Truciolo Pialla nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
 Description[ENGLISH][2] = "Perhaps you should talk to Truciolo Pialla again, he is sure to have more for you to do."
-Description[GERMAN][3] = "Bring 15 Naldorholz, 1 Kochlöffel, 1 Satz Schnitzmesser und 5 Nadelholzbretter zu Truciolo Pialla."
+Description[GERMAN][3] = "Bring 15 Naldorholzbretter, 1 Kochlöffel, 1 Satz Schnitzmesser und 5 Nadelholzscheite zu Truciolo Pialla."
 Description[ENGLISH][3] = "Take fifteen naldor wood boards, one cooking spoon, one set of carving tools and five conifer wood boards to Truciolo Pialla."
 Description[GERMAN][4] = "Vielleicht solltest du Truciolo Pialla nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
 Description[ENGLISH][4] = "Perhaps you should talk to Truciolo Pialla again, he is sure to have more for you to do."
