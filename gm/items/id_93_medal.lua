@@ -55,37 +55,38 @@ function monster(User, SourceItem, TargetPos)
 			return;
 		end
 
+		local a, b, number, ammount, radius, gfxId, sfxId
 		local inputNumber = dialog:getInput();
 		if (string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+) (%d+)") ~= nil) then
-			local a, b, number, ammount, radius, gfxId, sfxId = string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+) (%d+)");
+			a, b, number, ammount, radius, gfxId, sfxId = string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+) (%d+)");
 			number = tonumber(number);
 			ammount = tonumber(ammount);
 			radius = tonumber(radius);
 			gfxId = tonumber(gfxId);
 			sfxId = tonumber(sfxId);
 		elseif (string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+)") ~= nil) then
-			local a, b, number, ammount, radius, gfxId = string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+)");
+			a, b, number, ammount, radius, gfxId = string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+)");
 			number = tonumber(number);
 			ammount = tonumber(ammount);
 			radius = tonumber(radius);
 			gfxId = tonumber(gfxId);
 			sfxId = 0;
 		elseif (string.find(inputNumber,"(%d+) (%d+) (%d+)") ~= nil) then
-			local a, b, number, ammount, radius = string.find(inputNumber,"(%d+) (%d+) (%d+)");
+			a, b, number, ammount, radius = string.find(inputNumber,"(%d+) (%d+) (%d+)");
 			number = tonumber(number);
 			ammount = tonumber(ammount);
 			radius = tonumber(radius);
 			gfxId = 0;
 			sfxId = 0;
 		elseif (string.find(inputNumber,"(%d+) (%d+)") ~= nil) then
-			local a, b, number, ammount = string.find(inputNumber,"(%d+) (%d+)");
+			a, b, number, ammount = string.find(inputNumber,"(%d+) (%d+)");
 			number = tonumber(number);
 			ammount = tonumber(ammount);
 			radius = 0;
 			gfxId = 0;
 			sfxId = 0;
 		elseif (string.find(inputNumber,"(%d+)") ~= nil) then
-			local a, b, number = string.find(inputNumber,"(%d+)");
+			a, b, number = string.find(inputNumber,"(%d+)");
 			number = tonumber(number);
 			ammount = 1;
 			radius = 0;
@@ -99,11 +100,11 @@ function monster(User, SourceItem, TargetPos)
 			ammount = 100;
 		end
 
-		for i = 1,ammount do
-			monPos=getFreePos( TargetPos, radius );
-			local monster = world:createMonster(number,monPos,20);
+		for i = 1, ammount do
+			monPos = getFreePos( TargetPos, radius );
+			local monster = world:createMonster(number, monPos, 20);
 			if gfxId ~= 0 then
-				world:gfx(gfxId,monPos);
+				world:gfx(gfxId, monPos);
 			end
 		end
 
