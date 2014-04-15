@@ -21,6 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 require("item.base.crafts")
 require("item.general.metal")
+require("base.common")
 
 module("item.id_6_scissors", package.seeall)
 
@@ -143,6 +144,7 @@ function UseItemWoolCutting( User, SourceItem, ltstate, Sheep )
 		"You can't carry any more and the rest drops to the ground.");
 	elseif gatherAmount < 100 then -- character can still carry something and more wool is available
 		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User,SourceItem);
+		User:changeSource(SourceItem);
 		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 2, 20);
 		-- make sure the sheep doesn't move away
 		Sheep.movepoints = math.min(Sheep.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
@@ -226,6 +228,7 @@ function UseItemEntrailsCutting( User, SourceItem, ltstate )
 	else -- character can still carry something
 		if (User:countItemAt("all",63)>0) then  -- there are still items we can work on
 			entrailscutting.SavedWorkTime[User.id] = entrailscutting:GenWorkTime(User,SourceItem);
+			User:changeSource(SourceItem);
 			User:startAction( entrailscutting.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
 			base.common.HighInformNLS(User,
@@ -233,7 +236,7 @@ function UseItemEntrailsCutting( User, SourceItem, ltstate )
 			"You have no entrails anymore.");
 		end
 	end
-
+		
 	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Schere zerbricht.",
