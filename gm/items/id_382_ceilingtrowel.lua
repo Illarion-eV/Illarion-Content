@@ -567,7 +567,7 @@ function spawnPause(User, SourceItem)
 				sp.gmSpawnpointSettings[index][9] = 0;
 			end
 		end
-		local sd = SelectionDialog("Pick a spawnpoint to delete", "To which point do you want to delete?", cbSetMode);
+		local sd = SelectionDialog("Pick a spawnpoint to pause/reactivate", "To which point do you want to pause/reactivate?", cbSetMode);
 		for _,m in ipairs(sp.gmSpawnpointSettings) do 
 			sd:addOption(0,tostring(m[2]));
 		end
@@ -622,7 +622,7 @@ function spawnAmount(User, SourceItem)
 			world:changeItem(SourceItem);
 		end
 	end
-	User:requestInputDialog(InputDialog("Set how limit for monster present at the same time.", "Usage: Set the ammounts of total Intervals." ,false, 255, cbInputDialog))
+	User:requestInputDialog(InputDialog("Set how limit for monster present at the same time.", "Usage: Set the amount of total Intervals." ,false, 255, cbInputDialog))
 end
 
 function spawnTime(User, SourceItem)
