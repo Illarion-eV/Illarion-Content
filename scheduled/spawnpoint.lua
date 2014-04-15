@@ -104,10 +104,12 @@ function checkValue(input)
 end
 
 function updateMonsters(array,number)
-	for i=2, #array[number] do
-		local mon = array[number][i]
-		if not isValidChar(mon) then
-			table.remove(array[number], i)			
+	if #array[number] > 1 then
+		for i=2, #array[number] do
+			local mon = array[number][i];
+			if not isValidChar(mon) then
+				table.remove(array[number], i)			
+			end
 		end
 	end
 end
