@@ -493,50 +493,94 @@ function factionHandling(User, SourceItem)
 end
 
 function spawnPoint(User, SourceItem)
+  --Spawnpoint mode
 
-	local modes = {"Monster", "Intervals per spawn", "Time","Effects","Start/Stop","Reset Spawntool"};
-	local cbSetMode = function (dialog)
-		if (not dialog:getSuccess()) then
-			return;
+		local modes = {"Monster", "Intervals per spawn","Amount of Monsters", "Time","Effects","Start Spawnpoint","Delete Spawnpoint","Pause Spawnpoint", "Reset Spawntool"}
+		local cbSetMode = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			
+			local index = dialog:getSelectedIndex() + 1;
+			if index == 1 then
+				spawnMonster(User, SourceItem)
+			elseif index == 2 then
+				spawnIntervalsPerSpawn(User, SourceItem)
+			elseif index == 3 then
+				spawnAmount(User, SourceItem)
+			elseif index == 4 then
+				spawnTime(User, SourceItem)
+			elseif index == 5 then
+				spawnEffects(User, SourceItem)
+			elseif index == 6 then
+				sapwnStartStop(User, SourceItem)
+			elseif index == 7 then
+				spawnRemove(User, SourceItem)
+			elseif index == 8 then
+				spawnPause(User, SourceItem)
+			elseif index == 9 then
+				spawnReset(User, SourceItem)
+			end
 		end
-
-		local index = dialog:getSelectedIndex() + 1;
-		if index == 1 then
-			spawnMonster(User, SourceItem);
-		elseif index == 2 then
-			spawnIntervalsPerSpawn(User, SourceItem);
-		elseif index == 3 then
-			spawnTime(User, SourceItem);
-		elseif index == 4 then
-			spawnEffects(User, SourceItem);
-		elseif index == 5 then
-			spawnStartStop(User, SourceItem);
-		elseif index == 6 then
-			spawnReset(User, SourceItem);
+		local sd = SelectionDialog("Set the mode of this Spawnpoint.", "To which mode do you want to change it?", cbSetMode);
+		for _,m in ipairs(modes) do 
+			sd:addOption(0,m);
 		end
-	end
-	local sd = SelectionDialog("Set the mode of this Spawnpoint.", "To which mode do you want to change it?", cbSetMode);
-	for _, m in ipairs(modes) do
-		sd:addOption(0, m);
-	end
-	User:requestSelectionDialog(sd);
+		User:requestSelectionDialog(sd);
+		return;
 end
 
-	-- local endurance;
-	-- local intervals;
-	-- local gfxId;
-	-- local sfxId;
-	-- local sp = scheduled.spawnpoint;
 
 	-- If input contains numbers, sets input to Data "monsters"
-function spawnMonster(User, SourceItem)
+function spawnRemove(User, SourceItem)
+  --Spawnpoint mode
+	local sp = scheduled.spawnpoint;
+		local cbSetMode = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			local index = dialog:getSelectedIndex() + 1;
+			User:inform("You removed the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+			table.remove(sp.gmSpawnpointSettings, index);
+			table.remove(sp.gmMonsters, index);
+		end
+		local sd = SelectionDialog("Pick a spawnpoint to delete", "To which point do you want to delete?", cbSetMode);
+		for _,m in ipairs(sp.gmSpawnpointSettings) do 
+			sd:addOption(0,tostring(m[2]));
+		end
+	User:requestSelectionDialog(sd);
+	return;
+end
 
+function spawnPause(User, SourceItem)
+	local sp = scheduled.spawnpoint;
+		local cbSetMode = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			local index = dialog:getSelectedIndex() + 1;
+			if sp.gmSpawnpointSettings[index][9] == 0 then
+				User:inform("You paused the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+				sp.gmSpawnpointSettings[index][9] = 1;
+			else 
+				User:inform("You reactivated the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+				sp.gmSpawnpointSettings[index][9] = 0;
+			end
+		end
+		local sd = SelectionDialog("Pick a spawnpoint to delete", "To which point do you want to delete?", cbSetMode);
+		for _,m in ipairs(sp.gmSpawnpointSettings) do 
+			sd:addOption(0,tostring(m[2]));
+		end
+	User:requestSelectionDialog(sd);
+	return;
+end
+
+function spawnMonster(User, SourceItem)
 	local cbInputDialog = function (dialog)
 		if (not dialog:getSuccess()) then
 			return;
 		end
-		local inputString = dialog:getInput();
-
+	local inputString = dialog:getInput();
 		if (string.find(inputString,"(%d+)") ~= nil) then
 			SourceItem:setData("monsters", inputString);
 			world:changeItem(SourceItem);
@@ -544,177 +588,169 @@ function spawnMonster(User, SourceItem)
 			User:inform("Enter MonsterID");
 		end
 	end
-	User:requestInputDialog(InputDialog("Enter Monster IDs.", "Usage: Enter the IDs of the monsters." ,false, 255, cbInputDialog));
-end
+	User:requestInputDialog(InputDialog("Enter Monster IDs.", "Usage: Enter the IDs of the monsters." ,false, 255, cbInputDialog))
+end	
 
 function spawnIntervalsPerSpawn(User, SourceItem)
-
 	--Write down how many Mobs shall spawn per Minute
 	-- If input contains number, sets input to Data "intervals"
 	local intervals;
-
 	local cbInputDialog = function (dialog)
-		if (not dialog:getSuccess()) then
-			return;
-		end
-		local input = dialog:getInput();
-
+	if (not dialog:getSuccess()) then
+		return;
+	end
+	local input = dialog:getInput();
 		if (string.find(input,"(%d+)") ~= nil) then
-			local a, b, intervals = string.find(input,"(%d+)");
-			intervals = intervals;
+			local a, b, intervals = string.find(input,"(%d+)")
 			SourceItem:setData("intervals", intervals);
 			world:changeItem(SourceItem);
 		end
 	end
-	User:requestInputDialog(InputDialog("Set number of Intervals.", "Usage: Set numer of 5 second intervals per Spawn." ,false, 255, cbInputDialog));
-end
+	User:requestInputDialog(InputDialog("Set number of Intervals.", "Usage: Set numer of 5 second intervals per Spawn." ,false, 255, cbInputDialog))
+end	
 
-function spawnTime(User, SourceItem)
-
-	-- If input contains number, sets input to Data "endurance"
-	local endurance;
-
+function spawnAmount(User, SourceItem)
+	-- If input contains number, sets input to Data "amount"
 	local cbInputDialog = function (dialog)
 		if (not dialog:getSuccess()) then
 			return;
 		end
 		local input = dialog:getInput();
-
 		if (string.find(input,"(%d+)") ~= nil) then
-			local a, b, endurance = string.find(input,"(%d+)");
-			endurance = endurance;
+			local a, b, amount = string.find(input,"(%d+)")
+			SourceItem:setData("amount", input);
+			world:changeItem(SourceItem);
+		end
+	end
+	User:requestInputDialog(InputDialog("Set how limit for monster present at the same time.", "Usage: Set the ammounts of total Intervals." ,false, 255, cbInputDialog))
+end
+
+function spawnTime(User, SourceItem)
+	-- If input contains number, sets input to Data "endurance"
+	local cbInputDialog = function (dialog)
+		if (not dialog:getSuccess()) then
+			return;
+		end
+		local input = dialog:getInput();
+		if (string.find(input,"(%d+)") ~= nil) then
+			local a, b, endurance = string.find(input,"(%d+)")
 			SourceItem:setData("endurance", input);
 			world:changeItem(SourceItem);
 		end
 	end
-	User:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the ammounts of total Intervals." ,false, 255, cbInputDialog));
+	User:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the ammounts of total Intervals." ,false, 255, cbInputDialog))
 end
 
 function spawnEffects(User, SourceItem)
-
 	-- If input contains number, sets input to Data "endurance"
-	local gfxId;
-	local sfxId;
-
 	local cbInputDialog = function (dialog)
 		if (not dialog:getSuccess()) then
 			return;
 		end
 		local input = dialog:getInput();
-
 		if (string.find(input,"(%d+) (%d+)") ~= nil) then
-			local a, b, gfxId, sfxId = string.find(input,"(%d+) (%d+)");
+			local a, b, gfxId, sfxId = string.find(input,"(%d+) (%d+)")
 			gfxId = tonumber(gfxId);
 			sfxId = tonumber(sfxId);
 			SourceItem:setData("sfxId", sfxId);
 			SourceItem:setData("gfxId", gfxId);
-			world:changeItem(SourceItem);
+			world:changeItem(SourceItem);			
 		elseif (string.find(input,"(%d+)") ~= nil) then
-			local a, b, gfxId = string.find(input,"(%d+)");
+			local a, b, gfxId = string.find(input,"(%d+)")
 			SourceItem:setData("gfxId", input);
 			world:changeItem(SourceItem);
 		end
 	end
-	User:requestInputDialog(InputDialog("Set the graphic and sound appearing at spawn", "Usage: Enter a gfxId [sfxId]" ,false, 255, cbInputDialog))	;
+	User:requestInputDialog(InputDialog("Set the graphic and sound appearing at spawn", "Usage: Enter a gfxId [sfxId]" ,false, 255, cbInputDialog))	
 end
 
-function spawnStartStop(User, SourceItem)
-	local sp = scheduled.spawnpoint;
 
-	--checks if item is on the ground
+function sapwnStartStop(User, SourceItem)
+local sp = scheduled.spawnpoint;
 
-	--checks to see Datas are not nil and worst case set them 1
-	if (SourceItem:getData("monsters") == "") then
-		SourceItem:setData("monsters", "1")
-		world:changeItem(SourceItem);
-	end
-
-	if SourceItem:getData("intervals") == "" then
-		SourceItem:setData("intervals", "1")
-		world:changeItem(SourceItem);
-	end
-
-	if SourceItem:getData("endurance") == "" then
-		SourceItem:setData("endurance", "1")
-		world:changeItem(SourceItem);
-	end
-
-	if SourceItem:getData("gfxId") == "" then
-		SourceItem:setData("gfxId", "0")
-		world:changeItem(SourceItem);
-	end
-
-	if SourceItem:getData("sfxId") == "" then
-		SourceItem:setData("sfxId", "0")
-		world:changeItem(SourceItem);
-	end
-
-	local intervals = tostring(SourceItem:getData("intervals"))
-	local endurance = tostring(SourceItem:getData("endurance"))
-	local gfxId = tostring(SourceItem:getData("gfxId"))
-	local sfxId = tostring(SourceItem:getData("sfxId"))
-
-	--convert monster string into an array of monsters
-	local monsters = tostring(SourceItem:getData("monsters"))
+	local spawnPos = base.common.GetFrontPosition(User);
+	
+	checkData(SourceItem,"intervals");
+	checkData(SourceItem,"endurance");
+	checkData(SourceItem,"amount");
+	checkData(SourceItem,"gfxId");
+	checkData(SourceItem,"sfxId");
+	
+	local intervals = tonumber(SourceItem:getData("intervals"));
+	local endurance = tonumber(SourceItem:getData("endurance"));
+	local amount = tonumber(SourceItem:getData("amount"));
+	local gfxId = tonumber(SourceItem:getData("gfxId"));
+	local sfxId = tonumber(SourceItem:getData("sfxId"));
+	local monsters = tostring(SourceItem:getData("monsters"));
+	
+	local length = #sp.gmSpawnpointSettings +1;
+	
+	--Converts monsters String into monsterIds Array
 	local counter = 0;
 	local fin = 1;
 	local monsterId;
 	local monsterIds = {};
-
+	
 	while fin <= string.len(monsters) do
+		
 		if (string.find(monsters,"(%d+)",fin) ~= nil) then
-			local a, b, monsterId = string.find(monsters, "(%d+)", fin);
+				
+			a, b, monsterId = string.find(monsters,"(%d+)",fin)
 			fin = b + 1;
 			counter = counter +1;
-			monsterIds[counter]	= tonumber(monsterId);
+			monsterIds[counter]	= tonumber(monsterId)
 		else
 			User:inform("Enter MonsterID");
 			fin = string.len(inputNumber);
+			return
 		end
 	end
+	
+	if checkData(SourceItem,"monsters") == true then
+		table.insert(sp.gmSpawnpointSettings, length, {monsterIds, spawnPos, amount, intervals, endurance, gfxId, sfxId,0 ,0})
+		table.insert(sp.gmMonsters, length, {spawnPos})
+		User:inform("You've added a spawnpoint at " .. tostring(sp.gmSpawnpointSettings[length][2]));
+		
+	else
+		User:inform("Enter MonsterID");
+	end
+end
 
-	--set position
-	local spawnPos = base.common.GetFrontPosition(User);
+function checkData(SourceItem,data)
+	if SourceItem:getData(data) == "" then
+		SourceItem:setData(data, "0")
+		world:changeItem(SourceItem);
+		return false
+	elseif SourceItem:getData(data) == "0" then
+		return false
+	else
+		return true
+	end
+end
 
-	--create arrays of informations
-	local spawnInfo = {spawnPos, monsterIds, intervals, endurance, 1, 0, gfxId, sfxId};
-	local found = false;
-
-	--checks for position in SPAWNDATAS
-	for i=1,#sp.SPAWNDATAS do
-		if sp.SPAWNDATAS[i][1] == spawnPos then
-			found = true;
-
-			if sp.SPAWNDATAS[i][5] == 0 then
-				spawnInfo[5] = 1;
-				world:changeItem(SourceItem);
-				sp.SPAWNDATAS[i] = spawnInfo;
-				User:inform("Turned Spawnpoint on");
-			else
-				sp.SPAWNDATAS[i][5] = 0;
-				world:changeItem(SourceItem);
-				User:inform("Turned Spawnpoint Off");
+function checkPoint(User,TargetPos)
+local sp = scheduled.spawnpoint;
+	for i=1, #sp.gmSpawnpointSettings do
+		if sp.gmSpawnpointSettings[i][2] == TargetPos then
+		--check function
+		for j=1, #sp.gmMonsters do
+			for k=1, #sp.gmMonsters[i] do
+				User:inform("test")
 			end
-			--testing from here
-			if sp.SPAWNDATAS[i][4] == nil then
-				User:inform("da steht nichts");
-			end
-			--testing end
+			User:inform("next spawn")
+		end
+		return false
 		end
 	end
-
-	--writes a new entry in SPAWNDATAS if not found
-	if not found then
-		table.insert(sp.SPAWNDATAS, spawnInfo);
-		User:inform("Turned Spawnpoint on");
-	end
+	return true
 end
 
 function spawnReset(User, SourceItem)
 
-	SourceItem:setData("monsters", "1");
-	SourceItem:setData("intervals", "1");
-	SourceItem:setData("endurance", "1");
+	SourceItem:setData("monsters", "0");
+	SourceItem:setData("intervals", "0");
+	SourceItem:setData("endurance", "0");
+	SourceItem:setData("amount", "0");
 	SourceItem:setData("gfxId", "0");
 	SourceItem:setData("sfxId", "0");
 	world:changeItem(SourceItem);
