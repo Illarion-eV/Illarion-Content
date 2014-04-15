@@ -424,10 +424,11 @@ function GetBonusFromTool(toolItem)
 end;
 
 function GatheringToolBreaks(user, item)
+ 
   if not user or not item then
     return false;
   end;
-  
+		
   -- reduce durability only each 3rd time
   if (math.random(1, 100) < 33) then
     local durability = math.mod(item.quality, 100);
@@ -441,7 +442,7 @@ function GatheringToolBreaks(user, item)
     durability = durability - 1;
     item.quality = quality * 100 + durability;
     world:changeItem(item);
-    
+	
     if (durability < 10) then 
       InformNLS(user,
       "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
