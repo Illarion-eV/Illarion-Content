@@ -25,71 +25,91 @@ module("scheduled.spawnpoint", package.seeall)
 
 -- conatining all center points
 SPAWNDATAS = {} 
-
+gmSpawnpointSettings = {}
+gmMonsters = {}
 -- get active bomb information by center position
 SPAWNDATA = {}
 
 
+
 function startSpawnpoint()
-
-	spawnpointScheduled()
-	
-
-
+	spawnGM()
 end
 
 
-
--- spawns monsters over a certain period of time
-function spawnpointScheduled()
-
-	if SPAWNDATAS[1] == nil then
+function spawnGM()
+	local mon;
+	if gmSpawnpointSettings[1] == nil then
 		return
 	end
-	
-	for i=1, #SPAWNDATAS do
-	
-		local position = SPAWNDATAS[i][1]
-		local monsterIds = SPAWNDATAS[i][2]
-		local intervals = tonumber(SPAWNDATAS[i][3])
-		local endurance = tonumber(SPAWNDATAS[i][4])
-		local onOff = tonumber(SPAWNDATAS[i][5])
-		local gfxId = tonumber(SPAWNDATAS[i][7])
-		local sfxId = tonumber(SPAWNDATAS[i][8])
-	
-	
-		if onOff == 1 then
-			if SPAWNDATAS[i][6] < endurance then
-				if SPAWNDATAS[i][6] % intervals == 0 then
-					
-					if gfxId > 0 then
-						world:gfx(gfxId,SPAWNDATAS[i][1])
-					end
-					
-					if sfxId > 0 then
-						world:makeSound(sfxId,SPAWNDATAS[i][1])
-					end
-					
-					world:createMonster(SPAWNDATAS[i][2][Random.uniform(1,#SPAWNDATAS[i][2])],SPAWNDATAS[i][1],20)
-				
-				end	
-				SPAWNDATAS[i][6] = SPAWNDATAS[i][6] + 1
-				
-			elseif SPAWNDATAS[i][6] == endurance then
-		
-				
-				while world:isItemOnField(SPAWNDATAS[i][1]) == true do
-						
-					local item = world:getItemOnField(SPAWNDATAS[i][1]);
-					world:erase(item, item.number)
-				
-				end
-				
-				table.remove(SPAWNDATAS,i)
-			
-			end
-			
+	for i=1, #gmSpawnpointSettings do
+		local monsterIds = gmSpawnpointSettings[i][1];
+		local position = gmSpawnpointSettings[i][2];
+		local amount = gmSpawnpointSettings[i][3];
+		local intervals = gmSpawnpointSettings[i][4];
+		local endurance = gmSpawnpointSettings[i][5];
+		local gfxId = gmSpawnpointSettings[i][6];
+		local sfxId = gmSpawnpointSettings[i][7];
+		local pause = gmSpawnpointSettings[i][9];
+		--sets/checks 8 array pos as counter
+		if checkValue(pause) == false then
+		if gmSpawnpointSettings[i][8] == nil then
+			gmSpawnpointSettings[i][8] = 0;
+		else 
+			gmSpawnpointSettings[i][8] = gmSpawnpointSettings[i][8]+1;
 		end
-	end	
-	
+		if checkValue(intervals) == false then
+			intervals = 1
+		end
+		if gmSpawnpointSettings[i][8] % intervals == 0 then
+			--keeps counter from overflow
+			if checkValue(endurance) == false then
+				gmSpawnpointSettings[i][8] = 0
+			end
+			if #gmMonsters[i]-1 < amount then
+				updateMonsters(gmMonsters,i);
+				mon = world:createMonster(monsterIds[Random.uniform(1,#monsterIds)], position,10);
+				if isValidChar(mon) then
+					table.insert(gmMonsters[i],mon);
+					--does GFX with spawn
+					if checkValue(gfxId) == true then
+						world:gfx(gfxId,position)
+					end
+					--Does SFX with spawn
+					if  checkValue(sfxId) == true then
+						world:makeSound(sfxId,position)
+					end
+				end
+			else
+				updateMonsters(gmMonsters,i);
+			end
+		end
+		--Removes spawnpoint if he reaches the maximum number of cycles
+		if checkValue(endurance) == true then
+			if gmSpawnpointSettings[i][8] >= endurance then
+				table.remove(gmSpawnpointSettings, i)
+				table.remove(gmMonsters, i)
+			end
+		end
+		end
+	end
+end
+
+function checkValue(input)
+	if input == 0 then
+		return false
+	else
+		return true
+	end
+end
+
+function updateMonsters(array,number)
+	if #array[number] > 1 then
+		for i=2, #array[number] do
+			local mon = array[number][i];
+			if not isValidChar(mon) then
+				table.remove(array[number], i)			
+			end
+		end
+	end
 end
