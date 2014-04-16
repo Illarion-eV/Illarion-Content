@@ -111,7 +111,7 @@ function StartGathering(User, SourceItem, ltstate)
 	end
 
 	-- since we're here, we're working
-
+	User:performAnimation(5);
 	if theCraft:FindRandomItem(User) then
 		if ( changeItem ) then
 			world:changeItem(SourceItem);
