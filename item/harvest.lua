@@ -136,11 +136,11 @@ function UseItem(User, SourceItem, ltstate)
     if (IsTree[SourceItem.id] == true) then
       base.common.HighInformNLS(User,
       "Dieser Baum ist schon komplett abgeerntet. Gib ihm Zeit um nachzuwachsen.",
-      "This tree is already fully harvested. Give it time to grow again." );
+      "This tree is already completely harvested. Give it time to grow again." );
     else
       base.common.HighInformNLS(User,
       "Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
-      "This plant is already fully harvested. Give it time to grow again." );
+      "This plant is already completely harvested. Give it time to grow again." );
     end
 		-- reset amount
 		amount = harvestProduct.maxAmount;

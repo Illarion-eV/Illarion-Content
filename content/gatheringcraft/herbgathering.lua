@@ -108,7 +108,7 @@ function StartGathering(User, SourceItem, ltstate)
 			-- not regrown...
 			base.common.HighInformNLS( User,
 			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
-			"This plant is already fully harvested. Give it time to grow again." );
+			"This plant is already completely harvested. Give it time to grow again." );
 			if ( changeItem ) then
 				world:changeItem(SourceItem);
 			end
@@ -205,7 +205,7 @@ function StartGathering(User, SourceItem, ltstate)
 		else
 			base.common.HighInformNLS( User,
 			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
-			"This plant is already fully harvested. Give it time to grow again." );
+			"This plant is already completely harvested. Give it time to grow again." );
 		end
 	end
 
