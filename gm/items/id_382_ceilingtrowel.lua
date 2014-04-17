@@ -884,6 +884,6 @@ function specialEggs(User)
 			content.specialeggs.createSpecialEgg(User, tonumber(amount))		
 		end
 	end
-	User:requestInputDialog(InputDialog("How many special eggs to you want to create? (Notice: Eggs will have a normal wear of 3. Increase manually if needed.", "Usage: Enter amount" ,false, 255, cbInputDialog))
+	User:requestInputDialog(InputDialog("Egg creation", "How many special eggs to you want to create? (Notice: Eggs will have a normal wear of 3. Increase manually if needed." ,false, 255, cbInputDialog))
 	
 end
