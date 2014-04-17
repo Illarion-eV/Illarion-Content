@@ -28,6 +28,7 @@ require("alchemy.base.herbs")
 require("content.craft.baking")
 require("content.craft.cooking")
 require("lte.diet")
+require("content.specialeggs")
 
 -- buff types, they have exactly two attributes
 BUFFS = {
@@ -175,6 +176,11 @@ function UseItem(User, SourceItem, ltstate)
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User,SourceItem)
 	if (cauldron ~= nil) and isPlant then
 	    alchemy.base.herbs.UseItem(User, SourceItem, ltstate)
+		return
+	end
+	
+	--check for special eggs
+	if content.specialeggs.checkSpecialEgg(SourceItem, User) then
 		return
 	end
 

@@ -26,7 +26,7 @@ module("gm.items.id_382_ceilingtrowel", package.seeall)
 function UseItem(User, SourceItem)
 
 	-- First check for mode change
-	local modes = {"items", "weather", "factions","Spawnpoint"};
+	local modes = {"items", "weather", "factions","Spawnpoint","Special Egg Creation"};
 	local cbSetMode = function (dialog)
 		if (not dialog:getSuccess()) then
 			return;
@@ -50,6 +50,8 @@ function UseItem(User, SourceItem)
 			factionHandling(User, SourceItem);
 		elseif index == 4 then
 			spawnPoint(User, SourceItem);
+		elseif index == 5 then
+			specialEggs(User)
 		end
 	end
 	local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode);
@@ -868,4 +870,20 @@ function String2Number(str)
 		end
 	end
 	return 0, false;
+end
+
+function specialEggs(User)
+
+	local cbInputDialog = function (dialog)
+		if not dialog:getSuccess() then
+			return;
+		end
+		local input = dialog:getInput();
+		if (string.find(input,"(%d+)") ~= nil) then
+			local a, b, amount = string.find(input,"(%d+)")
+			content.specialeggs.createSpecialEgg(User, tonumber(amount))		
+		end
+	end
+	User:requestInputDialog(InputDialog("How many special eggs to you want to create? (Notice: Eggs will have a normal wear of 3. Increase manually if needed.", "Usage: Enter amount" ,false, 255, cbInputDialog))
+	
 end
