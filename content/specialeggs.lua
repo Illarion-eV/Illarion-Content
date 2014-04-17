@@ -684,7 +684,7 @@ eggIds = {
 
 function createSpecialEgg(user, amount)
 
-	user:createItem(eggIds[Random.uniform(1,#eggIds)],amount,333,{nameDe="Buntes Ei",nameEn="Coloured Egg",descriptionDe="Das Ei ist mir verschiedenen bunten Verzierungen versehen worden.",descriptionDe="There are various colourful decorations on the egg.",rareness=ItemLookAt.uncommonItem,specialEgg="true"})
+	user:createItem(eggIds[Random.uniform(1,#eggIds)],amount,333,{nameDe="Buntes Ei",nameEn="Coloured Egg",descriptionDe="Das Ei ist mir verschiedenen bunten Verzierungen versehen worden.",descriptionEn="There are various colourful decorations on the egg.",rareness=ItemLookAt.uncommonItem,specialEgg="true"})
 
 end
 
