@@ -42,17 +42,17 @@ function MoveToField(Character)
 	location[5]=position(888,646,0); --Runewick
 	location[6]=position(889,646,0); --Runewick
 	
-    if (Character:getQuestProgress(questvalue[1]) == 0) and (Character:getFaceTo() == 1 or Character:getFaceTo() == 2 or Character:getFaceTo() == 3) then --Didn't visit the triggerfield yet
+    if (Character:getQuestProgress(questvalue[1]) == 0) and (Character:getFaceTo() == 1 or Character:getFaceTo() == 2 or Character:getFaceTo() == 3) and (Character.pos == location[1] or Character.pos == location[2]) then --Didn't visit the triggerfield yet
 
 		Character:setQuestProgress(questvalue[1],1); --player was here
 		factionString="Cadomyr";
 		
-	elseif (Character:getQuestProgress(questvalue[2]) == 0) and (Character:getFaceTo() == 1 or Character:getFaceTo() == 2 or Character:getFaceTo() == 3) then --Didn't visit the triggerfield yet
+	elseif (Character:getQuestProgress(questvalue[2]) == 0) and (Character:getFaceTo() == 1 or Character:getFaceTo() == 2 or Character:getFaceTo() == 3) and (Character.pos == location[3] or Character.pos == location[4]) then --Didn't visit the triggerfield yet
 		
 		Character:setQuestProgress(questvalue[2],1); --player was here
 		factionString="Galmair";
 				
-	elseif (Character:getQuestProgress(questvalue[3]) == 0) and (Character:getFaceTo() == 7 or Character:getFaceTo() == 0 or Character:getFaceTo() == 1) then --Didn't visit the triggerfield yet
+	elseif (Character:getQuestProgress(questvalue[3]) == 0) and (Character:getFaceTo() == 7 or Character:getFaceTo() == 0 or Character:getFaceTo() == 1) and (Character.pos == location[5] or Character.pos == location[6]) then --Didn't visit the triggerfield yet
 	
 		Character:setQuestProgress(questvalue[3],1); --player was here
 		factionString="Runewick";
