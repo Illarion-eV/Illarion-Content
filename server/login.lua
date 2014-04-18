@@ -149,7 +149,7 @@ messageE[34]="[Hint] The best alchemists are living in Runewick.";
 messageE[35]="[Hint] The best candle makers are living in Runewick.";
 messageE[36]="[Hint] The best carpenters are living in Runewick.";
 messageE[37]="[Hint] The best cooks are living in Runewick.";
-messageE[38]="[Hint] The best peasants are living in Runewick.";
+messageE[38]="[Hint] The best farmers are living in Runewick.";
 messageE[39]="[Hint] The best herbalists are living in Runewick.";
 messageE[40]="[Hint] The best tailors are living in Runewick.";
 messageE[41]="[Hint] The best blacksmiths are living in Galmair.";
@@ -287,9 +287,9 @@ end
 function showNewbieDialog(player)
 
 	local getText = function(deText,enText) return base.common.base.common.GetNLS(player, deText, enText) end
-	
+
 	local callbackNewbie = function(dialogNewbie) --start callback of Newbie Dialog
-	
+
 	local callbackSkip = function(dialogSkip) --start of callback of skipping dialog
 		local success = dialogSkip:getSuccess()
 		if success and dialogSkip:getSelectedIndex()==1 then --skipping
@@ -300,7 +300,7 @@ function showNewbieDialog(player)
 			else
 				dialogPostSkip = MessageDialog("Tutorial", "You have decided to skip the tutorial. Please choose which realm you desire to be the home for your character by stepping through the corresponding portal on the three islands. You can reconsider this decision at any time once you have joined the game. Viola Baywillow will provide you with more information on the three available realms, just ask her for 'help'.", callbackPostSkip);
 			end
-	
+
 		else --continue the tutorial
 			if player:getPlayerLanguage() == 0 then
 				dialogPostSkip = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Bei gehaltener Steuerungstaste läuft dein Charakter.\n\nEine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen.", callbackPostSkip);
@@ -308,18 +308,18 @@ function showNewbieDialog(player)
 				dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Holding down the control key makes your character run.\n\nTo see an overview of all commands, hit F1.", callbackPostSkip);
 			end
 		end
-		
+
 		local callbackPostSkip = function (dialogPostSkip) end; --empty callback
-		
+
 		player:requestMessageDialog(dialogPostSkip); --showing the text after skipping dialog
-		
+
 	end --end of callback of skip dialog
-	
+
 	local dialogSkip = SelectionDialog(getText("Willkommen zu Illarion!","Welcome to Illarion!"), getText("Die Einführung ist für neue Spieler gedacht. Du kannst es ohne Nachteil auch überspringen. \n\nSage 'Überspringe die Einführung' zu einem NPC, wenn du die Einführung später abbrechen möchtest.", "The tutorial is recommended for new players. You may skip the tutorial without any disadvantage. \n\nSay 'skip tutorial' to any NPC if you want to abort the tutorial later on."), callbackSkip)
 	dialogSkip:addOption(0, getText("Einführung beginnen.","Start the tutorial."))
 	dialogSkip:addOption(0, getText("Einführung überspringen.", "Skip the tutorial."))
 	player:requestSelectionDialog(dialogSkip)
-			
+
 	end; --end callback of Newbie dialog
 
 	if player:getPlayerLanguage() == 0 then
@@ -327,9 +327,9 @@ function showNewbieDialog(player)
 	else
 	    dialogNewbie = MessageDialog("Welcome to Illarion!", "A long, tiresome journey finally comes to an end. You disembark the ship and feel solid ground beneath your feet. In these lands, you will soon be faced with a choice, perhaps the most important of your entire life. Noble Cadomyr, wise Runewick, or wealthy Galmair - whose side shall you join?\n\nWelcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and teach you the controls of the game.", callbackNewbie);
 	end
-			
+
 	player:requestMessageDialog(dialogNewbie); --showing the welcome text
-	
+
 end
 
 function setNewbiePos(newbieEffect,Character)
@@ -395,7 +395,7 @@ function payTaxes(taxPayer) --PLEASE use comments! ~Estralis
 		taxPayer:setQuestProgress(123,timeStmp);
 		return payNow(taxPayer)
 	end
-	
+
 end
 
 function receiveGems(gemRecipient)
@@ -630,7 +630,7 @@ function payNow(User)
 
 	base.townTreasure.ChangeTownTreasure(town,totTax)
 	base.townTreasure.IncreaseTaxpayerNumber(town)
-	
+
 	log(string.format("[taxes] %s paid %d. Faction wealth of %s increased to %d copper.",
 				base.character.LogText(User), totTax, town, base.townTreasure.GetTownTreasure(town)));
     return infText;
