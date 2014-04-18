@@ -22,7 +22,7 @@ module("gm.items.id_93_medal", package.seeall)
 function UseItemWithField(User, SourceItem, TargetPos)
 
 	-- First check for mode change
-	local modes = {"Monster", "GFX", "SFX", "Avatar changes"};
+	local modes = {"Monster", "GFX", "SFX", "Animation", "Avatar changes"};
 	local cbSetMode = function (dialog)
 		if (not dialog:getSuccess()) then
 			return;
@@ -36,6 +36,8 @@ function UseItemWithField(User, SourceItem, TargetPos)
 		elseif index == 3 then
 			sfx(User,SourceItem,TargetPos);
 		elseif index == 4 then
+			animation(User,SourceItem,TargetPos);
+		elseif index == 5 then
 			changeAvatar(User,SourceItem,TargetPos);
 		else
 			User:inform("no valid function");
@@ -151,6 +153,24 @@ function sfx(User, SourceItem, TargetPos)
 		end
 	end
 	User:requestInputDialog(InputDialog("Play a sound effect.", "Usage: Type in sound effects id." ,false, 255, cbInputDialog));
+end
+
+function animation(User, SourceItem, TargetPos)
+
+	local cbInputDialog = function (dialog)
+		if (not dialog:getSuccess()) then
+			return;
+		end
+		local inputNumber = dialog:getInput();
+		if (string.find(inputNumber,"(%d+)") ~= nil) then
+			local a, b, number = string.find(inputNumber,"(%d+)");
+			number = tonumber(number);
+			User:performAnimation(number);
+		else
+			User:inform("No number");
+		end
+	end
+	User:requestInputDialog(InputDialog("Play a animation effect.", "Usage: Type in animation effects id." ,false, 255, cbInputDialog));
 end
 
 function changeAvatar(User, SourceItem, TargetPos)

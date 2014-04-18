@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("item.base.crafts")
 
@@ -260,8 +260,13 @@ product:addIngredient(2716, 1); -- Deciduous Wood Board
 product = carving:addProduct(catId, 230, 12, 32, 48, 96, 1);
 product:addIngredient(2548); -- Mace Handle
 product:addIngredient(56); -- Bough
-
 product:addIngredient(2535, 2); -- Iron Ingot
+
+-- walking stick
+product = carving:addProduct(catId, 1090, 9, 28, 45, 85, 1);
+product:addIngredient(2572); -- Staff Handle
+product:addIngredient(2543, 3); -- Conifer Wooden Boards
+product:addIngredient(56); -- Bough
 
 -- cleric's staff
 product = carving:addProduct(catId, 40, 5, 25, 37, 75, 1);

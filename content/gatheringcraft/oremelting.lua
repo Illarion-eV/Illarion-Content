@@ -75,14 +75,14 @@ function StartGathering(User, SourceItem, ltstate)
 
 		if (SourceItem.id == 2834) then --swapping
 			SourceItem.id = 2837;
-			SourceItem.wear = 4;
+			SourceItem.wear = 255;
 			world:changeItem(SourceItem);
 			User:changeSource(SourceItem);
 		end
 
 		if (SourceItem.id == 2835) then --swapping
 			SourceItem.id = 2836;
-			SourceItem.wear = 4;
+			SourceItem.wear = 255;
 			world:changeItem(SourceItem);
 			User:changeSource(SourceItem);
 		end
