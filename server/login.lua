@@ -85,28 +85,26 @@ messageG[53]="[Tipp] Obstbäume haben schon so manchen hungrigen Abenteurer geret
 messageG[54]="[Tipp] Es gibt viele Möglichkeiten, seinen Charakter zu bewegen: Die linke Maustaste, die Pfeiltasten, den Ziffernblock und WASD.";
 messageG[55]="[Tipp] Einen NPC nach einer 'Mission' zu fragen ist ein guter Weg um ein paar einfache Münzen zu verdienen.";
 messageG[56]="[Tipp] Scheue dich nicht, andere Spieler um Hilfe zu bitten. Behandle sie mit Respekt und verwende den out-of-character-Modus (#o), wenn nötig.";
-messageG[57]="[Tipp] Mit #i stellst du deinen Charakter anderen Spielern vor. Diese erfahren so den Namen deines Charakters.";
+messageG[57]="[Tipp] Um deinen Charakter anderen Charakteren vorzustellen, schreibe #i in die Chatbox und drücke Return. Diese erfahren so den Namen deines Charakters.";
 messageG[58]="[Tipp] Der Illarion-Chat ist auf der Homepage verlinkt. Du erhältst dort technische Unterstützung oder kannst einfach andere Spieler kennenlernen.";
 messageG[59]="[Tipp] Der Vollbildmodus kann im Optionsmenü des Clients aktiviert werden.";
 messageG[60]="[Tipp] Wenn ein neuer Spieler deinem Reich beitritt erhältst du eine kurze Mitteilung. Heiße ihn doch gleich willkommen!";
 messageG[61]="[Tipp] Um der Staatskasse deines Reiches etwas zu spenden, lege es einfach auf das Spendenfeld in der Nähe deines Anführers."
 messageG[62]="[Tipp] Wenn du auf Reisen gehst, nimm stets Proviant mit. Deine Lebenspunkte regenerieren sich nicht, wenn dein Charakter hungrig ist."
-messageG[63]="[Tipp] Laufen ist schneller als Gehen - halte die linke Maustaste gedrückt um zu laufen."
-messageG[64]="[Tipp] Die meisten NPCs reagieren auf 'Hilfe' mit der Ausgabe einer Liste ihrer wichtigsten Schlüsselwörter."
-messageG[65]="[Tipp] Die Fertigkeiten deines Charakters kannst du aufrufen, indem du 'C' drückst."
-messageG[66]="[Tipp] Ein Stapel von Gegenständen läßt sich durch Halten der Shift-Taste beim Bewegen auflösen."
-messageG[67]="[Tipp] Hast du dir schon Gedanken zum Hintergrund und zur Vergangenheit deines Charakters gemnacht? Die Illarion-Homepage enthält eine Menge nützliche Informationen über Rassen, Götter und die Geschichte Illarions."
-messageG[68]="[Tipp] Sollte dein Charakter Hunger bekommen, so pflücke ein paar Früchte indem du einen Obstbaum benutzt. Früchte werden gegessen, indem man sie benutzt."
-messageG[69]="[Tipp] Brauchst du Hilfe? Schreibe '!gm Deine Frage' und drücke Return. Sobald ein Gamemaster verfügbar ist wird er dir helfen."
-messageG[70]="[Tipp] Um laut zu rufen, schreibe #s vor deine Nachricht. Um zu flüstern, verwende #w. Für den 'Out-of-character'-Modus verwendest du #o."
-messageG[71]="[Tipp] Klicke und halte die linke Maustaste auf ein weit entferntes Feld um zu laufen."
-messageG[72]="[Tipp] Um deinen Charakter anderen Charakteren vorzustellen, schreibe #i in die Chatbox und drücke Return. Spieler in der näheren Umgebung werden so den Namen deines Charakters erfahren."
-messageG[73]="[Tipp] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Eine List der wichtigsten Schlüsselwörter erhältst du als Antwort auf 'Hilfe'."
-messageG[74]="[Tipp] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du großen Reichtum erlangen."
-messageG[75]="[Tipp] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier."
-messageG[76]="[Tipp] Eine Liste deiner Aufgaben erhältst du, indem du 'Q' drückst."
-messageG[77]="[Tipp] Um Beute schnell aufzunehmen, drücke 'P' und du sammelst alle umliegenden Gegenstände ein."
-messageG[78]="[Tipp] Eine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen."
+messageG[63]="[Tipp] Die meisten NPCs reagieren auf 'Hilfe' mit der Ausgabe einer Liste ihrer wichtigsten Schlüsselwörter."
+messageG[64]="[Tipp] Die Fertigkeiten deines Charakters kannst du aufrufen, indem du 'C' drückst."
+messageG[65]="[Tipp] Ein Stapel von Gegenständen läßt sich durch Halten der Shift-Taste beim Bewegen auflösen."
+messageG[66]="[Tipp] Hast du dir schon Gedanken zum Hintergrund und zur Vergangenheit deines Charakters gemnacht? Die Illarion-Homepage enthält eine Menge nützliche Informationen über Rassen, Götter und die Geschichte Illarions."
+messageG[67]="[Tipp] Sollte dein Charakter Hunger bekommen, so pflücke ein paar Früchte indem du einen Obstbaum benutzt. Früchte werden gegessen, indem man sie benutzt."
+messageG[68]="[Tipp] Brauchst du Hilfe? Schreibe '!gm Deine Frage' und drücke Return. Sobald ein Gamemaster verfügbar ist wird er dir helfen."
+messageG[69]="[Tipp] Um laut zu rufen, schreibe #s vor deine Nachricht. Um zu flüstern, verwende #w. Für den 'Out-of-character'-Modus verwendest du #o."
+messageG[70]="[Tipp] Klicke und halte die linke Maustaste auf ein weit entferntes Feld um zu laufen."
+messageG[71]="[Tipp] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Eine List der wichtigsten Schlüsselwörter erhältst du als Antwort auf 'Hilfe'."
+messageG[72]="[Tipp] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du großen Reichtum erlangen."
+messageG[73]="[Tipp] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier."
+messageG[74]="[Tipp] Eine Liste deiner Aufgaben erhältst du, indem du 'Q' drückst."
+messageG[75]="[Tipp] Um Beute schnell aufzunehmen, drücke 'P' und du sammelst alle umliegenden Gegenstände ein."
+messageG[76]="[Tipp] Eine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen."
 
 --messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
@@ -149,7 +147,7 @@ messageE[34]="[Hint] The best alchemists are living in Runewick.";
 messageE[35]="[Hint] The best candle makers are living in Runewick.";
 messageE[36]="[Hint] The best carpenters are living in Runewick.";
 messageE[37]="[Hint] The best cooks are living in Runewick.";
-messageE[38]="[Hint] The best peasants are living in Runewick.";
+messageE[38]="[Hint] The best farmers are living in Runewick.";
 messageE[39]="[Hint] The best herbalists are living in Runewick.";
 messageE[40]="[Hint] The best tailors are living in Runewick.";
 messageE[41]="[Hint] The best blacksmiths are living in Galmair.";
@@ -168,28 +166,26 @@ messageE[53]="[Hint] Fruit trees have saved the lives of countless starving trav
 messageE[54]="[Hint] There are many ways to move your character around in Illarion. The left mouse button, arrow keys, num pad, and WASD will all work.";
 messageE[55]="[Hint] Asking an NPC whether they have a 'quest' for you to carry out can be a good way to earn a quick coin or two.";
 messageE[56]="[Hint] Don't be afraid to ask the other players around you for help if you encounter difficulties. But make sure to remain respectful and to use OOC chat (#o), where appropriate.";
-messageE[57]="[Hint] Using the '#i' command will introduce your character to any people around them. The other players will then be able to see your character's name.";
+messageE[57]="[Hint] If you want to introduce your character to other players, type #i in the chatbox and hit return. The other players will then be able to see your character's name.";
 messageE[58]="[Hint] The Illarion chat is linked on the homepage. It is useful for technical assistance and for simply getting to know your fellow players.";
 messageE[59]="[Hint] Fullscreen mode can be activated in the options menu when the client is started.";
 messageE[60]="[Hint] You will receive a notification when a new player chooses to join your realm. Give them a friendly welcome!";
 messageE[61]="[Hint] In order to donate something to your realm's treasury, just place the item on the donation square close to your leader.";
 messageE[62]="[Hint] If you go on a journey, always have some rations with you. Your character's hitpoints won't regenerate if your character is hungry.";
-messageE[63]="[Hint] Running is faster than walking - hold down the left mouse button to run.";
-messageE[64]="[Hint] Most NPCs react on 'help' with a list of their most important keywords.";
-messageE[65]="[Hint] You can review the skills of your character by hitting 'C'.";
-messageE[66]="[Hint] To split a stack of items, hold shift while moving it.";
-messageE[67]="[Hint] Did you already think about the background and past of your character? The illarion.org homepage contains a lot of information on the races, the gods, and the lore of Illarion."
-messageE[68]="[Hint] If your character ever gets hungry, just harvest some fruits by using a fruit tree. You can then eat the fruits by using them."
-messageE[69]="[Hint] Do you need help? Type '!gm <your question>' and hit enter. As soon as a Gamemaster is available, they will assist you."
-messageE[70]="[Hint] To shout, type #s in front of your message. To whisper, use #w. And use #o for the out of character mode."
-messageE[71]="[Hint] Click and hold the left mouse button while pointing at a distant field to make your character run."
-messageE[72]="[Hint] If you want to introduce your character to other players, type #i in the chatbox and hit return. The players around you will then be able to see your character's name."
-messageE[73]="[Hint] All NPCs react on a number of keywords. You can get a list of the most important keywords for a particular NPC with the command 'help'."
-messageE[74]="[Hint] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy."
-messageE[75]="[Hint] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your character is, and the blue bar shows the mana level of mage characters."
-messageE[76]="[Hint] You can review the quests of your character by hitting 'Q'.";
-messageE[77]="[Hint] To collect loot quickly, press 'P' to collect all items within reach.";
-messageE[78]="[Hint] To see an overview of all commands, hit F1.";
+messageE[63]="[Hint] Most NPCs react on 'help' with a list of their most important keywords.";
+messageE[64]="[Hint] You can review the skills of your character by hitting 'C'.";
+messageE[65]="[Hint] To split a stack of items, hold shift while moving it.";
+messageE[66]="[Hint] Did you already think about the background and past of your character? The illarion.org homepage contains a lot of information on the races, the gods, and the lore of Illarion."
+messageE[67]="[Hint] If your character ever gets hungry, just harvest some fruits by using a fruit tree. You can then eat the fruits by using them."
+messageE[68]="[Hint] Do you need help? Type '!gm <your question>' and hit enter. As soon as a Gamemaster is available, they will assist you."
+messageE[69]="[Hint] To shout, type #s in front of your message. To whisper, use #w. And use #o for the out of character mode."
+messageE[70]="[Hint] Click and hold the left mouse button while pointing at a distant field to make your character run."
+messageE[71]="[Hint] All NPCs react on a number of keywords. You can get a list of the most important keywords for a particular NPC with the command 'help'."
+messageE[72]="[Hint] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy."
+messageE[73]="[Hint] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your character is, and the blue bar shows the mana level of mage characters."
+messageE[74]="[Hint] You can review the quests of your character by hitting 'Q'.";
+messageE[75]="[Hint] To collect loot quickly, press 'P' to collect all items within reach.";
+messageE[76]="[Hint] To see an overview of all commands, hit F1.";
 --messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard.";
 
 -- messages of the day - END
@@ -287,9 +283,9 @@ end
 function showNewbieDialog(player)
 
 	local getText = function(deText,enText) return base.common.base.common.GetNLS(player, deText, enText) end
-	
+
 	local callbackNewbie = function(dialogNewbie) --start callback of Newbie Dialog
-	
+
 	local callbackSkip = function(dialogSkip) --start of callback of skipping dialog
 		local success = dialogSkip:getSuccess()
 		if success and dialogSkip:getSelectedIndex()==1 then --skipping
@@ -300,7 +296,7 @@ function showNewbieDialog(player)
 			else
 				dialogPostSkip = MessageDialog("Tutorial", "You have decided to skip the tutorial. Please choose which realm you desire to be the home for your character by stepping through the corresponding portal on the three islands. You can reconsider this decision at any time once you have joined the game. Viola Baywillow will provide you with more information on the three available realms, just ask her for 'help'.", callbackPostSkip);
 			end
-	
+
 		else --continue the tutorial
 			if player:getPlayerLanguage() == 0 then
 				dialogPostSkip = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Bei gehaltener Steuerungstaste läuft dein Charakter.\n\nEine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen.", callbackPostSkip);
@@ -308,18 +304,18 @@ function showNewbieDialog(player)
 				dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Holding down the control key makes your character run.\n\nTo see an overview of all commands, hit F1.", callbackPostSkip);
 			end
 		end
-		
+
 		local callbackPostSkip = function (dialogPostSkip) end; --empty callback
-		
+
 		player:requestMessageDialog(dialogPostSkip); --showing the text after skipping dialog
-		
+
 	end --end of callback of skip dialog
-	
+
 	local dialogSkip = SelectionDialog(getText("Willkommen zu Illarion!","Welcome to Illarion!"), getText("Die Einführung ist für neue Spieler gedacht. Du kannst es ohne Nachteil auch überspringen. \n\nSage 'Überspringe die Einführung' zu einem NPC, wenn du die Einführung später abbrechen möchtest.", "The tutorial is recommended for new players. You may skip the tutorial without any disadvantage. \n\nSay 'skip tutorial' to any NPC if you want to abort the tutorial later on."), callbackSkip)
 	dialogSkip:addOption(0, getText("Einführung beginnen.","Start the tutorial."))
 	dialogSkip:addOption(0, getText("Einführung überspringen.", "Skip the tutorial."))
 	player:requestSelectionDialog(dialogSkip)
-			
+
 	end; --end callback of Newbie dialog
 
 	if player:getPlayerLanguage() == 0 then
@@ -327,9 +323,9 @@ function showNewbieDialog(player)
 	else
 	    dialogNewbie = MessageDialog("Welcome to Illarion!", "A long, tiresome journey finally comes to an end. You disembark the ship and feel solid ground beneath your feet. In these lands, you will soon be faced with a choice, perhaps the most important of your entire life. Noble Cadomyr, wise Runewick, or wealthy Galmair - whose side shall you join?\n\nWelcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and teach you the controls of the game.", callbackNewbie);
 	end
-			
+
 	player:requestMessageDialog(dialogNewbie); --showing the welcome text
-	
+
 end
 
 function setNewbiePos(newbieEffect,Character)
@@ -395,7 +391,7 @@ function payTaxes(taxPayer) --PLEASE use comments! ~Estralis
 		taxPayer:setQuestProgress(123,timeStmp);
 		return payNow(taxPayer)
 	end
-	
+
 end
 
 function receiveGems(gemRecipient)
@@ -630,7 +626,7 @@ function payNow(User)
 
 	base.townTreasure.ChangeTownTreasure(town,totTax)
 	base.townTreasure.IncreaseTaxpayerNumber(town)
-	
+
 	log(string.format("[taxes] %s paid %d. Faction wealth of %s increased to %d copper.",
 				base.character.LogText(User), totTax, town, base.townTreasure.GetTownTreasure(town)));
     return infText;

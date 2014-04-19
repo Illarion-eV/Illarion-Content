@@ -20,9 +20,8 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                     easyNPC Parser v1.23.1 --
+--                                                      easyNPC Parser v1.23.1--
 --------------------------------------------------------------------------------
-
 name = "Joey Licavoli"
 race = human
 sex = male
@@ -169,11 +168,15 @@ queststatus(712) = 14, town = Galmair, "quest", "mission" -> "Ich bin sicher, Ih
 queststatus(712) = 14, town = Galmair, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
 queststatus(712) = 14, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 queststatus(712) < 14, english, town = Galmair, ".*" -> "I could use some help, just ask me for a task."
 queststatus(712) < 14, german, town = Galmair, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
-english, ".*" -> "You are not a citizen of Galmair. I don't have anything for you to do."
-german, ".*" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, town = Galmair, ".*" -> "I don't have anything for you to do.", "Have a good day!", "There is nothing you can do for me but go forward and prosper."
+german, town = Galmair, ".*" -> "Ich habe nichts für Euch zu tun.", "Ich wünsche euch einen schönen Tag.", "Es gibt nichts, was Ihr tun könntet für mich. Möge euch Wohlstand anheim fallen."
+
+english, chance(20.0), ".*" -> "You are not a citizen of Galmair. I don't have anything for you to do."
+german, chance(20.0), ".*" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -183,3 +186,8 @@ german, ".*" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für E
 cycletext "Willkommen in Galmair!", "Welcome to Galmair!"
 cycletext "Wenn Ihr Hilfe benötigt, sprecht mich einfach an.", "If you need help, just speak to me."
 cycletext "Wenn Ihr neu hier seid, bin ich Euer Mann.", "If you're new to this realm, I'm your man."
+cycletext "Möge Irmorom euch segnen.", "May Irmorom bless you."
+cycletext "#me blickt voll Stolz auf die Stadtmauern.", "#me gazes on the town walls with pride."
+cycletext "Galmair, das Land des Reichtums und des Wohlstands, ist das perfekte Heim für euch.", "Galmair, the land of wealth and prosperity, is the perfect home for you."
+cycletext "Ein Leben in Reichtum erwartet euch hier in Galmair.", "A life of riches awaits you here in Galmair."
+cycletext "Jenseits diese Tore findet ihr euere Zukunft.", "Beyond these gates you will find your future."

@@ -12,10 +12,18 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+require("base.common")
 module("server.depot", package.seeall)
 
 function onOpenDepot(User, Depot)
-    return true
-end 
+  local pos = Depot.pos;
+
+  -- This nil check is a backward compatibility hack.
+  -- It can be removed after next server upgrade.
+  if pos ~= nil then
+    base.common.TurnTo( User, pos ); -- turn if necessary
+  end
+  return true
+end
