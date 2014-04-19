@@ -23,6 +23,7 @@
 --                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
+
 name = "Gorgophone"
 race = human
 sex = female
@@ -44,7 +45,6 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the spider Gorgophone. Keywords: Hello, quest, spider.")
@@ -202,9 +202,9 @@ queststatus(520) = 80, ".+" -> inform("[Quest gelöst] Du erhältst 180 Silberstüc
 
 -- Quest 9: kill 50 soulpain; gems
 queststatus(520) = 81, english, "quest", "mission" -> inform("[New quest] Gorgophones' Nest"), queststatus(520) = 82, "#me looks around at her offspring, which wander all around her, before looking up at you.  In her quiet raspy voice she says, 'As you can see, my offspring have come forth into the world. You must ensure their safety by killing fifty soulpain.'"
-queststatus(520) = 81, "quest", "mission" -> inform("[Neue Quest] Das Nest der Gorgophone"), queststatus(520) = 82, "#me beobachtet ihre Nachkommen, die um sie herum krabblen, befor sie dir einen Blick zuwirft. In ihrer rauhen, leisen Stimme sagt sie dir: "Wie du siehst sind meine Nachkommen ausgeschlüpft. Du musst ihre Sicherheit gewährleisten, töte 50 Seelenpein."
+queststatus(520) = 81, "quest", "mission" -> inform("[Neue Quest] Das Nest der Gorgophone"), queststatus(520) = 82, "#me beobachtet ihre Nachkommen, die um sie herum krabblen, befor sie dir einen Blick zuwirft. In ihrer rauhen, leisen Stimme sagt sie dir: 'Wie du siehst sind meine Nachkommen ausgeschlüpft. Du musst ihre Sicherheit gewährleisten, töte 50 Seelenpein.'"
 queststatus(520) = 81, "task", "adventure", "order" -> inform("[New quest] Gorgophones' Nest"), queststatus(520) = 82,  "#me looks around at her offspring, which wander all around her, before looking up at you.  In her quiet raspy voice she says, 'As you can see, my offspring have come forth into the world. You must ensure their safety by killing fifty soulpain.'"
-queststatus(520) = 81, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Das Nest der Gorgophone"), queststatus(520) = 82, "#me beobachtet ihre Nachkommen, die um sie herum krabblen, befor sie dir einen Blick zuwirft. In ihrer rauhen, leisen Stimme sagt sie dir: "Wie du siehst sind meine Nachkommen ausgeschlüpft. Du musst ihre Sicherheit gewährleisten, töte 50 Seelenpein."
+queststatus(520) = 81, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Das Nest der Gorgophone"), queststatus(520) = 82, "#me beobachtet ihre Nachkommen, die um sie herum krabblen, befor sie dir einen Blick zuwirft. In ihrer rauhen, leisen Stimme sagt sie dir: 'Wie du siehst sind meine Nachkommen ausgeschlüpft. Du musst ihre Sicherheit gewährleisten, töte 50 Seelenpein.'"
 
 queststatus(520) > 82, queststatus(520) < 133, english, "quest", "mission" -> "You didn't kill the spider army yet? Please go ahead, I need your help! Kill 50 soulpain."
 queststatus(520) > 82, queststatus(520) < 133, "quest", "mission" -> "Du hast die Armeen der Spinnen noch nicht beseitigt? Bitte erledige die Sache, ich brauch doch deine Hilfe! Töte 50 Seelenpein."
@@ -215,7 +215,7 @@ queststatus(520) = 133, english, ".+" -> inform("[Quest solved] You are awarded 
 queststatus(520) = 133, ".+" -> inform("[Quest gelöst] Du erhältst Edelsteine."), money + 18000, queststatus(520) = 134, "#me krabbelt übers Netz und eilt zu dir. 'Du hast meine Erwartungen bei Weitem übertroffen. Für deine hingebungsvolle Hilfe werde ich dich mit meinen teuersten Schätzen belohnen.'"
 
 -- No more regular quests
-queststatus(520) = 134, english, "quest", "Guardian of my Breed, I have no more tasks for you."
+queststatus(520) = 134, english, "quest" -> "Guardian of my Breed, I have no more tasks for you."
 queststatus(520) = 134, "quest", "mission" -> "Hüter meiner Brut, ich habe keine weiteren Aufgaben für dich."
 queststatus(520) = 134, "task", "adventure", "order" -> "Guardian of my Breed, I have no more tasks for you."
 queststatus(520) = 145, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hüter meiner Brut, ich habe keine weiteren Aufgaben für dich."
