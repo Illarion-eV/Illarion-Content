@@ -1929,8 +1929,8 @@ function NewbieIsland(Attacker, Defender)
         _AntiSpamVar[Attacker.id] =_AntiSpamVar[Attacker.id] + 1;
     else
         base.common.InformNLS(Attacker,
-        "[Tutorial] Du darfst während des Tutorials noch keine anderen Spieler angreifen. Klicke nochmals auf deinen Gegner in der Angriffsliste um den Kampf abzubrechen.",
-        "[Tutorial] You are not allowed to attack other players during the tutorial. Click again on your enemy in the attack list to cancel the attack.");
+        "[Tutorial] Du darfst während des Tutorials noch keine anderen Spieler angreifen. Klicke nochmals rechts auf deinen Gegner um den Kampf abzubrechen.",
+        "[Tutorial] You are not allowed to attack other players during the tutorial. Right click again on your enemy to cancel the attack.");
         _AntiSpamVar[Attacker.id] = 0;
     end;
     return false;
