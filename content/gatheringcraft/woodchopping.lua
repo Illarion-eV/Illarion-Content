@@ -49,8 +49,8 @@ function StartGathering(User, SourceItem, ltstate)
 	-- additional tool item is needed
 	if (User:countItemAt("all",74)==0) then
 		base.common.HighInformNLS( User,
-		"Du brauchst eine Angel um zu fischen.",
-		"You need a fishing rod for catching fish." );
+		"Du brauchst ein Beil um Holz zu hacken.",
+		"You need a hatchet to chop wood." );
 		return
 	end
 	local toolItem = User:getItemAt(5);
@@ -58,8 +58,8 @@ function StartGathering(User, SourceItem, ltstate)
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 74 ) then
 			base.common.HighInformNLS( User,
-			"Du musst die Angel in der Hand haben!",
-			"You have to hold the fishing rod in your hand!" );
+			"Du musst das Beil in der Hand haben!",
+			"You have to hold the hatchet in your hand!" );
 			return
 		end
 	end
