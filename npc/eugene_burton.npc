@@ -191,9 +191,9 @@ queststatus(4) = 32, english, ".+" -> inform("[Quest solved] You are awarded rub
 queststatus(4) = 32, ".+" -> inform("[Quest gelöst] Du erhältst einen Rubinring und einen magischen Rubin."), item(68, 1, 888), item(46, 1, 333, "gemLevel" = "1"), queststatus(4) = 33, "Hurra! Kein elfischer Halunke wird sich mir nun noch in den Weg stellen, wenn ich jagen gehen... natürlich, um meine Kinder zu ernähren, versteht sich. Hier, nehmt diesen Ring, er hat mir lange genug gehört."
 
 -- No more quests, just nice words of gratitude
-queststatus(4) = 33, english, "quest", "mission" -> end, "My friyou helped me and my family more than enough. Thank you and may Malachín bless you."
+queststatus(4) = 33, english, "quest", "mission" -> end, "My friend, you helped me and my family more than enough. Thank you and may Malachín bless you."
 queststatus(4) = 33, "quest", "mission" -> "Mein Freund, ihr habt mir und meiner Familie mehr als genug geholfen. Habt dank und möge Malachín euch segnen."
-queststatus(4) = 33, "task", "adventure" -> end, "My friyou helped me and my family more than enough. Thank you and may Malachín bless you."
+queststatus(4) = 33, "task", "adventure" -> end, "My friend, you helped me and my family more than enough. Thank you and may Malachín bless you."
 queststatus(4) = 33, "Auftrag", "Aufgabe", "Abenteuer" -> "Mein Freund, ihr habt mir und meiner Familie mehr als genug geholfen. Habt dank und möge Malachín euch segnen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
@@ -273,7 +273,7 @@ english, "Oldra" -> "Oldra didn't do me any good. So, she is a goddess, but not 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "If I had something for trading, I'd sell everything to feed my family, I swear."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Hätte ich etwas zum handeln, so würde ich alles veräußern, um meine Familie zu ernähren. Das schwöre ich."
-"tell something" -> "I don't have the time to chat with you when my family are starving. Perhaps you can help me with a task?"
+"tell something" -> "I don't have the time to chat with you when my family is starving. Perhaps you can help me with a task?"
 "erzähl was", "erzähl etwas" -> "Ich habe nicht die Zeit, mit euch zu plaudern; meine Familie ist am Verhungern. Vielleicht könnt ihr mir bei einer Aufgabe helfen?"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
@@ -302,6 +302,6 @@ cycletext "#me nießt.", "#me sneezes."
 cycletext "#me sortiert einige Felle, offensichtlich bedacht, dies nicht allzu auffällig zu tun.", "#me sorts some fur, obviously trying to hide them."
 cycletext "#me zählt die Pfeile in einem fein bestickten Köcher.", "#me counts arrows in a decorated quiver."
 cycletext "#me spitzt einen langen Stock mit einem Messer an.", "#me carves a long stick with a knife."
-cycletext "Psst, wollt ihr bestes Fell... oh! Ich habe nichts gesagt.", "Shh, want to have best fur... uh, nevermind!"
+cycletext "Psst, wollt ihr bestes Fell... oh! Ich habe nichts gesagt.", "Shh, do you want to have best fur... uh, nevermind!"
 cycletext "#me steckt grinsend einen Stock in eine sofort zuschnappende Falle.", "#me sticks a stick into a snapping trap, grinning."
 cycletext "Shh!", "Shh!"
