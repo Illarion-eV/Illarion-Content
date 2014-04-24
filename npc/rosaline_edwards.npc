@@ -72,7 +72,7 @@ itemShoes = 369
 
 -- quest
 queststatus(642) = 1, item(144, all) > 0, english, "." -> inform("[Quest 'Find Queen Rosaline Edwards' end]"), deleteItem(144, 1), queststatus(642) = 2, rankpoints + 5, "Oh, flowers! However, do not think you can win my favour, but I will accept the attempt this time."
-queststatus(642) = 1, item(144, all) > 0, "." -> inform("[Quest 'Finde Königin Rosaline Edwards' Ende]"), deleteItem(144, 1), queststatus(642) = 2, rankpoints + 5, "Oh, Blumen! Aber glaubt nicht, dass ihr damit meine Gunst gewinnen könnt, auch wenn Ich euren Versuch dieses Mal durchgehen lassen werde."
+queststatus(642) = 1, item(144, all) > 0, "." -> inform("[Quest 'Finde Königin Rosaline Edwards' Ende]"), deleteItem(144, 1), queststatus(642) = 2, rankpoints + 5, "Oh, Blumen! Aber glaubt nicht, dass ihr damit meine Gunst gewinnen könnt, auch wenn ich euren Versuch dieses Mal durchgehen lassen werde."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Speak, but choose your words wisely for my time is short.", "Ah, a servant of mine, good, what news do you bear from my realm?", "You dare to disturb me? Fine, fortunately for you I needed a distraction."
@@ -287,11 +287,12 @@ english, "STFU" -> "I heard that, scum!"
 cycletext "#me kämmt sich die Haare und flucht vor sich hin.", "#me combs her hair, cursing under her breath about sand."
 cycletext "Auf die Knie! Sofort!", "Kneel before the Gods and honour your Queen!"
 cycletext "Vernünftige Diener zu finden wird auch immer schwieriger.", "Finding proper servants becomes harder and harder..."
-cycletext "Wo ist Hassan schon wieder! Schickt nach meinem Fächelwedler, mir ist heiß!", "Where is Hassan again? Send word to my fan waver, it is hot!"
+cycletext "Wo ist Hassan schon wieder! Schickt nach meinem Fächerwedler, mir ist heiß!", "Where is Hassan again? Send word to my fan waver, it is hot!"
 cycletext "#me starrt auf ihre in fein gefertigte Sandalen gekleideten Füße und murmelt: 'Blau könnte meinen Zehennägeln auch mal gut stehen.'", "#me stares at her feet, clad in fine sandals, murmuring, 'I should consider painting my toenails blue.'"
 cycletext "Diplomatie, Urteile, regieren, Krieg führen - eine Königin hat es nicht leicht. Alles für Cadomyr!", "Diplomacy, sentencing, ruling, warfare - a queen has a hard day. All for Cadomyr!"
 cycletext "Gehorcht!", "Obey!"
 cycletext "Bringt mir Eselsmilch und bereitet mein Bad vor.", "Bring forth the donkey milk and prepare my bath."
 cycletext "Befehle, Befehle, Befehle. Warum muss ich immer jedem sagen, was er zu tun hat? Denkt denn hier niemand außer mir?", "Orders, orders, orders. Why do I have to tell everyone what do? Can't they read my mind yet?"
 cycletext "Cadomyr wurde nicht auf Sand gebaut; Cadomyr wurde auf Traditionen gebaut, die älter sind als so manches Sandkorn.", "Cadomyr was not founded on sand; it was founded on traditions, even older than most sand grains."
-cycletext "Wer hat da ein Licht auf Fenstersims entzündet? Was geht nur wieder in diesem Palast vor sich.", "Tell Hassan to come and feed me some grapes!"
+cycletext "Wer hat da ein Licht auf dem Fenstersims entzündet? Was geht nur wieder in diesem Palast vor sich.", "This candle in the window? Who lit that?"
+cycletext "Benachrichtigt Hassan, dass er mir Trauben bringe!", "Tell Hassan to come and feed me some grapes!"
