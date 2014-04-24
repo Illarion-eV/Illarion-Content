@@ -173,5 +173,9 @@ function QuestFinalStatus()
 end
 
 function QuestAvailability(user, status)
-    return Player.questAvailable
+    if status == 0 then
+        return Player.questAvailable
+    else
+        return Player.questNotAvailable
+    end
 end
