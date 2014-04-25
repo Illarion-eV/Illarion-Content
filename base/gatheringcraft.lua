@@ -153,61 +153,22 @@ function GatheringCraft:FindRandomItem(User)
 	end
 	
 	if(table.getn(self.RandomItems) > 0) then
-		-- choose only one item and check for probability
-		--[[
-		-- pick a random item
-		local ind = math.random(1,table.getn(self.RandomItems));
-		-- check for probability
-		if (math.random() <= self.RandomItems[ind].Probability*self.FastActionFactor) then
-			base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
-			local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
-			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-				world:createItemFromId( self.RandomItems[ind].ID, notCreated, User.pos, true, self.RandomItems[ind].Quality, self.RandomItems[ind].Data );
-				base.common.InformNLS(User,
-				"Du kannst nichts mehr halten.",
-				"You can't carry any more.");
-			end
-			return true;
-		end
-		--]]
-		
-		-- check each item independently in a random order
-		--[[
-		local itemIndexList = {};
-		-- just create a list with all indices
-		for it = 1, table.getn(self.RandomItems), 1 do
-			table.insert(itemIndexList, it);
-		end
-		-- shuffle it
-		local shuffledIndices = base.common.Shuffle(itemIndexList);
-		-- check for each item
-		for it = 1, table.getn(shuffledIndices), 1 do 
-			local ind = shuffledIndices[it];
-			if (math.random() <= self.RandomItems[ind].Probability*self.FastActionFactor) then
-				base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
-				local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
-				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-					world:createItemFromId( self.RandomItems[ind].ID, notCreated, User.pos, true, self.RandomItems[ind].Quality, self.RandomItems[ind].Data );
-					base.common.InformNLS(User,
-					"Du kannst nichts mehr halten.",
-					"You can't carry any more.");
-				end
-				return true;
-			end
-		end
-		--]]
 		
 		-- check all items with same random number and choose any possible item again randomly
-		---[[
+
 		local itemIndexList = {};
-		local rand = math.random();
+
 		-- list all items that are possible
 		for it = 1, table.getn(self.RandomItems), 1 do
+			local rand = math.random();
+			
 			if (rand <= self.RandomItems[it].Probability*self.FastActionFactor) then
+			
 				table.insert(itemIndexList, it);
+			
 			end
 		end
-		if ( table.getn(itemIndexList) > 0 ) then
+		if ( table.getn(itemIndexList) > 0 ) then -- For the unlikely case that two items were found at once, we just give one to the player
 			local ind = itemIndexList[math.random(1,table.getn(itemIndexList))];
 			base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
 			local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
@@ -219,7 +180,7 @@ function GatheringCraft:FindRandomItem(User)
 			end
 			return true;
 		end
-		--]]
+
 	end
 	return false;
 end
