@@ -17,7 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (520, 'quest.gorgophone_520_wilderness');
 
 require("base.common")
-module("quest.gorgophone_520_wilderness)", package.seeall)
+require("base.factions")
+module("quest.gorgophone_520_wilderness", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -25,7 +26,7 @@ ENGLISH = Player.english
 -- Insert the quest title here, in both languages
 Title = {}
 Title[GERMAN] = "Das Nest der Gorgophone"
-Title[ENGLISH] = "Gorgophones' Nest"
+Title[ENGLISH] = "Gorgophone's Nest"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
@@ -308,17 +309,19 @@ Description[GERMAN][131] = "Töte Seelenpein Spinnen für Gorgophone. Du musst noc
 Description[ENGLISH][131] = "Kill soul pain for Gorgophone. You still need 1."
 Description[GERMAN][132] = "Kehre zu Gorgophone zurück, du hast ihre Aufgabe erledigt."
 Description[ENGLISH][132] = "Return to Gorgophone, you have completed her task."
+Description[GERMAN][133] = "Du hast alle Aufgaben der Gorgophone erledigt."
+Description[ENGLISH][133] = "You have completed all tasks of Gorgophone."
 
-local npcPos = position(852, 497, -6);
+npcPos = position(852, 497, -6);
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = npcPos
+Start = npcPos;
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {npcPos}
-QuestTarget[2] = {npcPos}
-
+for i = 1, 132 do
+  QuestTarget[i] = {npcPos};
+end
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 133
@@ -348,5 +351,9 @@ function QuestFinalStatus()
 end
 
 function QuestAvailability(user, status)
-    return Player.questAvailable
+    if status == 0 then
+        return Player.questAvailable
+    else
+        return Player.questNotAvailable
+    end
 end
