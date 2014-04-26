@@ -48,7 +48,7 @@ radius = 0
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the spider Gorgophone. Keywords: Hello, quest, spider.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Spinne Gorgophone. Schlüsselwörter: Hallo, Quest, spinne.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Spinne Gorgophone. Schlüsselwörter: Hallo, Quest, spinne.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me clicks her jaws and looks at you assessingly."
@@ -60,7 +60,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me clicks her jaws and looks at yo
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me turns away from you and returns to her web."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me dreht sich weg und kehrt in ihr Netz zurück."
 "How are you", "How feel", "How do you do" -> "#me looks up at you and mutters 'I am as I always am. Working on my web and tending to my egg sac.'"
-"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "#me schaut dich an und murmelt 'Mir geht es wie immer. Arbeiten an meinem Netz und Pflege meines Kokons.'"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "#me schaut dich an und murmelt 'Mir geht es wie immer. Ich arbeite an meinem Netz und Pflege meinen Kokon.'"
 "your name", "who are you", "who art thou" -> "#me cleans her gnashing fangs before responding 'I am Gorgophone, the grim slayer. Mother of thousands of Gynkese Widows on the land. Maybe you know my children.'"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me reinigt ihre knirschenden Fänge bevor sie antwortet 'Ich bin Gorgophone, die grimmige Schlächterin. Mutter von Tausenden von Gynk Witwen in diesem Reich. Vielleicht kennt ihr meine Kinder.'"
 
@@ -90,7 +90,7 @@ english, "mating" -> "In a violent act, I try to kill my mate after mating as he
 
 -- Quest 1: kill 25 small spider; 25 silver
 queststatus(520) = 0, english, "quest", "mission" -> inform("[New quest] Gorgophones' Nest"), queststatus(520) = 1, "#me looks up at you through her pitch black eyes, obviously trying to determine what to do with you. In a very raspy voice that is soft, muffled, and difficult to understand, she speaks to you: 'You will help me. My offspring will not thrive in this area as too many arachnids, like me, have moved into my territory. I will allow you to live in return for your help. Kill twenty five small spiders and come back to tell me of your victory.'"
-queststatus(520) = 0, "quest", "mission" -> inform("[Neue Quest] Das Nest der Gorgophone"), queststatus(520) = 1, "#me betrachtet dich mit ihren pechschwarzen Augen und scheit zu überlegen was sie mit dir anstellen soll. Mir rauher, leiser Stimme spricht sie in schwer verständlicher Sprache zu dir: 'Du wirst mir helfen. Meine Nachkommen können in dieser Gegend nicht wohl gedeihen, da zu viele andere Spinnen in dieses Gebiet gezogen sind. Ich werde dich am Leben lassen als Lohn für deine Hilfe. Töte 25 Kleine Spinnen und berichte mir, wenn du erfolgreich warst.'"
+queststatus(520) = 0, "quest", "mission" -> inform("[Neue Quest] Das Nest der Gorgophone"), queststatus(520) = 1, "#me betrachtet dich mit ihren pechschwarzen Augen und scheint zu überlegen was sie mit dir anstellen soll. Mit rauher, leiser Stimme spricht sie in schwer verständlicher Sprache zu dir: 'Du wirst mir helfen. Meine Nachkommen können in dieser Gegend nicht wohl gedeihen, da zu viele andere Spinnen in dieses Gebiet gezogen sind. Ich werde dich am Leben lassen als Lohn für deine Hilfe. Töte 25 Kleine Spinnen und berichte mir, wenn du erfolgreich warst.'"
 queststatus(520) = 0, "task", "adventure", "order" -> inform("[New quest] Gorgophones' Nest"), queststatus(520) = 1, "#me looks up at you through her pitch black eyes, obviously trying to determine what to do with you. In a very raspy voice that is soft, muffled, and difficult to understand, she speaks to you: 'You will help me. My offspring will not thrive in this area as too many arachnids, like me, have moved into my territory. I will allow you to live in return for your help. Kill twenty five small spiders and come back to tell me of your victory.'"
 queststatus(520) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Das Nest der Gorgophone"), queststatus(520) = 1, "#me betrachtet dich mit ihren pechschwarzen Augen und scheit zu überlegen was sie mit dir anstellen soll. Mir rauher, leiser Stimme spricht sie in schwer verständlicher Sprache zu dir: 'Du wirst mir helfen. Meine Nachkommen können in dieser Gegend nicht wohl gedeihen, da zu viele andere Spinnen in dieses Gebiet gezogen sind. Ich werde dich am Leben lassen als Lohn für deine Hilfe. Töte 25 Kleine Spinnen und berichte mir, wenn du erfolgreich warst.'"
 
@@ -109,9 +109,9 @@ queststatus(520) = 27, "task", "adventure", "order" -> inform("[New quest] Gorgo
 queststatus(520) = 27, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Das Nest der Gorgophone"), queststatus(520) = 28, "Du scheinst fähig zu arbeiten. Bring mir abgefülltes Wasser das ich für meine Nachkommen einlagern kann. Ich brauche fünf volle Flaschen, da ich bald hunderte von Nachkommen haben werde, und es muss von einer natürlichen Quelle kommen. Kein Brunnenwasser oder Salzwasser darf es sein. *dreht sich um und krabbelt davon ohne auf eine Antwort zu warten*"
 
 queststatus(520) = 28, item(2496, all) < 5, english, "quest", "mission" -> "You need to work faster. Five brimful bottles of water to store for my offspring, I said! Now bring them. *turns and skitters away without waiting for a response*"
-queststatus(520) = 28, item(2496, all) < 5, "quest", "mission" -> "Du musst schneller arbeiten. Fünf randvolle Flaschen mit Wasser das ich für meine Nachkommen einlagern kann, sage ich! Bring sie mir. *dreht sich um und krabbelt davon ohne auf eine Antwort zu warten*"
+queststatus(520) = 28, item(2496, all) < 5, "quest", "mission" -> "Du musst schneller arbeiten. Fünf randvolle Flaschen mit Wasser das ich für meine Nachkommen einlagern kann, sagte ich! Bring sie mir. *dreht sich um und krabbelt davon ohne auf eine Antwort zu warten*"
 queststatus(520) = 28, item(2496, all) < 5, "task", "adventure", "order" -> "You need to work faster. Five brimful bottles of water to store for my offspring, I said! Now bring them. *turns and skitters away without waiting for a response*"
-queststatus(520) = 28, item(2496, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du musst schneller arbeiten. Fünf randvolle Flaschen mit Wasser das ich für meine Nachkommen einlagern kann, sage ich! Bring sie mir. *dreht sich um und krabbelt davon ohne auf eine Antwort zu warten*"
+queststatus(520) = 28, item(2496, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du musst schneller arbeiten. Fünf randvolle Flaschen mit Wasser das ich für meine Nachkommen einlagern kann, sagte ich! Bring sie mir. *dreht sich um und krabbelt davon ohne auf eine Antwort zu warten*"
 -- tbd: handle bottles that are not brimful
 queststatus(520) = 28, item(2496, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded twenty five silver coins."), money + 2500, deleteItem(2496, 5), queststatus(520) = 29, "#me takes one bottle per leg and moves away on only three legs. She is shuffling her loot off somewhere into her web before returning to give you a small bag of silver."
 queststatus(520) = 28, item(2496, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 25 Silberstücke."), money + 2500, deleteItem(2496, 5), queststatus(520) = 29, "#me nimmt je eine Flasche pro Bein und bewegt sich auf nur drei freien Beinen davon. Sie lagert die Beute irgenwo in ihrem Netz ein bevor sie mit einem Beutel voll Silbermünzen zurückkommt."
@@ -156,7 +156,7 @@ queststatus(520) = 69, item(249, all) < 60, "task", "adventure", "order" -> "My 
 queststatus(520) = 69, item(249, all) < 60, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Meine Nachkommen werden Schwierigkeiten haben ohne einen warmen Platz. Ich brauche immer noch 60 Getreidebündel um die kalten Steine zu bedecken."
 
 queststatus(520) = 69, item(249, all) > 59, english, ".+" -> inform("[Quest solved] You are awarded 100 silver coins."), money + 10000, deleteItem(249, 60), queststatus(520) = 70, "#me gives you a blank look through her black eyes as she takes the bundles and tucks them away for later use. 'Thank you and here is a small reward. Alas, I noticed I need more help if you are willing.'"
-queststatus(520) = 69, item(249, all) > 59, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, deleteItem(249, 60), queststatus(520) = 70, "#me starrt dich mit ihren pechschwarzen Augen lange an, bevor sie die Bündel wegpackt. 'Danke und hier eine kleine Belohnung. Ach, ich stelle fest, dass noch mehr Hilfe von Nöten sein wird, wenn es dir beliebt.'"
+queststatus(520) = 69, item(249, all) > 59, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, deleteItem(249, 60), queststatus(520) = 70, "#me starrt dich mit ihren pechschwarzen Augen lange an, bevor sie die Bündel wegpackt. 'Danke und hier eine kleine Belohnung. Ach, ich stellte fest, dass noch mehr Hilfe von Nöten sein wird, wenn es dir beliebt.'"
 
 -- Quest 6: 250 spools of thread; 100 silver
 queststatus(520) = 70, english, "quest", "mission" -> inform("[New quest] Gorgophones' Nest"), queststatus(520) = 71, "I need to make immediate repairs to my web and hope thread will help. Bring me 250 spools of thread."
