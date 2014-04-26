@@ -173,11 +173,15 @@ queststatus(703) = 14, town = Cadomyr, "quest", "mission" -> "Ich bin sicher, Ih
 queststatus(703) = 14, town = Cadomyr, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
 queststatus(703) = 14, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 queststatus(703) < 14, town = Cadomyr, english, ".*" -> "I could use some help, just ask me for a task."
 queststatus(703) < 14, town = Cadomyr, german, ".*" -> "Ich könnte etwas Hilfe gebrauchen. Fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
-english, ".*" -> "You are not a citizen of Cadomyr. I don't have anything for you to do."
-german, ".*" -> "Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, town = Cadomyr, ".*" -> "I don't have anything for you to do.", "Have a good day!", "There is nothing you can do for me but go forward and prosper."
+german, town = Cadomyr, ".*" -> "Ich habe nichts für Euch zu tun.", "Ich wünsche euch einen schönen Tag.", "Es gibt nichts, was Ihr tun könntet für mich. Möge euch Wohlstand anheim fallen."
+
+english, chance(20.0), ".*" -> "You are not a citizen of Cadomyr. I don't have anything for you to do."
+german, chance(20.0), ".*" -> "Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -187,3 +191,8 @@ german, ".*" -> "Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Eu
 cycletext "Willkommen in Cadomyr!", "Welcome to Cadomyr!"
 cycletext "Wenn Ihr Hilfe benötigt, sprecht mich einfach an.", "If you need help, just speak to me."
 cycletext "Wenn Ihr neu hier seid, bin ich Euer Mann.", "If you're new to this realm, I'm your man."
+cycletext "May Zhambra guide you!", "Möge Zhambra euch geleiten!"
+cycletext "Cadomyr, herein resides those with honour and pride in their hearts.", "Cadomyr, hier leben jene mit Ehre und Stolz in ihren Herzen."
+cycletext "#me stares off into the desert with a look of determination in his eyes", "#me starrt in die Wüste mit einem Ausdruck der Entschlossenheit in seinen Augen."
+cycletext "All hail the Queen!", "Lang lebe die Königin!"
+cycletext "Beyond these gates you will find your future.", "Innerhalb dieser Tore findet ihr eure Zukunft."
