@@ -355,9 +355,13 @@ function welcomeNewPlayer(player)
 					if success then
 						local selected = dialog:getSelectedIndex()+1
 						if selected == 1 then
-							user:warp(player.pos)
-							world:gfx(46, player.pos)
-							user:setQuestProgress(850, user:getQuestProgress(850)+1)
+							if isValidChar(player) then
+								user:warp(player.pos)
+								world:gfx(46, player.pos)
+								user:setQuestProgress(850, user:getQuestProgress(850)+1)
+							else
+								user:inform("This character is not online anymore.");
+							end
 						elseif selected == 2 then
 							-- nothing
 						elseif selected == 3 then
