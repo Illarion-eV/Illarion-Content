@@ -34,13 +34,13 @@ function callEffect(newbieEffect,Character)
 	    return false; --removing the effect
 	end	
 	
-	foundRoundCount, roundCount = newbieEffect:findValue("roundCount"); --each 2nd call yields a hint on tutorial, the other a general hint
+	foundRoundCount, roundCount = newbieEffect:findValue("roundCount"); 
 
-	if foundRoundCount then --Help	
+	if foundRoundCount then 
 		
 		roundCount = roundCount + 1; --Counting
 		
-		if roundCount == 15 then --Let us check for players that required more than fifteen minutes for Noobia.
+		if roundCount == 30 then --Let us check for players that required more than thirty minutes for Noobia.
 
             Character:pageGM("This player could use assistance on Noobia.");
 				
