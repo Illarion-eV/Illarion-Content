@@ -79,9 +79,9 @@ itemShoes = 771
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. I assume you came to me for a bounty mission, not to talk about the weather? It is not cloudy today."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Ich nehme an, ihr seid zu mir wegene eines Kopfgeldauftrages zu mir gekommen und nicht, um über das Wetter zu reden. Es ist zumindestens nicht wolkig heute."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Ich nehme an, ihr seid zu mir wegen eines Kopfgeldauftrages zu mir gekommen und nicht, um über das Wetter zu reden. Es ist zumindest nicht wolkig heute."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted. I assume you came to me for a bounty mission, not to talk about the weather? It is not cloudy today."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt. Ich nehme an, ihr seid zu mir wegene eines Kopfgeldauftrages zu mir gekommen und nicht, um über das Wetter zu reden. Es ist zumindestens nicht wolkig heute."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt. Ich nehme an, ihr seid zu mir wegen eines Kopfgeldauftrages zu mir gekommen und nicht, um über das Wetter zu reden. Es ist zumindest nicht wolkig heute."
 "Farewell", "Bye", "Fare well", "See you" -> "Just go away."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Geht doch einfach."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Just go away."
@@ -89,7 +89,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Just go away."
 "How are you", "How feel", "How do you do" -> "Let us stop this meaningless talking and start hunting orcs!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Lasst uns mit diesem sinnbefreiten Palaver aufhören und ein paar Orks jagen!"
 "your name", "who are you", "who art thou" -> "My name is Palis Nestros. I enforce the decrees of her majesty when it comes to death penalties."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Palis Nestroy. Ich vollstrecke die Urteile ihrer Majestät, soweit sie tödlich sind."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Palis Nestros. Ich vollstrecke die Urteile ihrer Majestät, soweit sie tödlich sind."
 
 -- OPTIONAL TRIGGERS
 
