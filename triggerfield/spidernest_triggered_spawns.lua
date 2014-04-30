@@ -87,7 +87,7 @@ function Init()
 
     messageG={}; --German informs
     messageG[1]="Du bringst ein Nest durcheinander und wirst von Spinnen umzingelt!";
-    messageG[2]="Du schreckts eine spinne auf und wirst sofort angegriffen!";
+    messageG[2]="Du schreckst eine Spinne auf und wirst sofort angegriffen!";
 
     messageE={}; --English informs
     messageE[1]="You disturb a nest of spiders and are swarmed!";
