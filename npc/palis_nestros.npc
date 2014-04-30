@@ -108,13 +108,13 @@ town = Runewick, "task", "adventure", "order", "bounty" -> "I doubt your Archmag
 town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> "Ich nehme an, euer Erzmagier ist nicht mit der Kopfgeldjagd einverstanden. Ich vergebe nur Aufträge an Bürger Cadomyrs."
 
 -- Catching quest triggers of those who have to wait for a new quest
-queststatus(164) ~= 0, english, town = Cadomyr, "quest", "mission" -> "No bounties today, it wasn't always so.", "No bounties today, my money has gone away.", "No bounties today, it seems a common sight."
+queststatus(164) ~= 0, english, town = Cadomyr, "quest", "mission" -> "No bounties today, it wasn't always so.", "No bounties today, my money has gone away.", "No bounties today, you get used to it."
 queststatus(164) ~= 0, town = Cadomyr, "quest", "mission" -> "Heute keine Kopfgelder, es war nicht immer so.", "Heute keine Kopfgelder, das Geld ist mir ausgegangen.", "Heute keine Kopfgelder, man gewöhnt sich dran."
 queststatus(164) ~= 0, town = Cadomyr, "task", "adventure", "order" -> "No bounties today, it wasn't always so.", "No bounties today, my money is gone.", "No bounties today, you get used to it."
 queststatus(164) ~= 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Heute keine Kopfgelder, es war nicht immer so.", "Heute keine Kopfgelder, das Geld ist mir ausgegangen.", "Heute keine Kopfgelder, man gewöhnt sich dran."
 
 -- Small Talk
-"Hastings", "Baron", english -> "Baron Hastings claims the throne because he disagrees with a woman being souvereign of Cadomyr. I disagree with any disloyalty!"
+"Hastings", "Baron", english -> "Baron Hastings claims the throne because he disagrees with a woman being sovereign of Cadomyr. I disagree with any disloyalty!"
 "Hastings", "Baron" -> "Baron Hastings beansprucht den Thron für sich, da es ihm missfällt, dass eine Frau Herrscher Cadomyrs ist. Mir missfällt seine Illoyalität!"
 "Milk" -> "No milk today."
 "Milch" -> "Heute gibt es keine Milch."
