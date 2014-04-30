@@ -25,13 +25,7 @@ function InitAlchemy()
 	InitPotions()
 end
 
--- the list of plants with their substances
-plantSubstanceList = {};
-
 function InitPlantSubstance()
-    if plantSubstanceList == nil then
-	    plantSubstanceList = {}
-	end
 
 	setPlantSubstance(15,"","")
 	setPlantSubstance(80,"","")
@@ -539,7 +533,7 @@ end
 
 function GetCauldronInfront(User,Item)
     local retVal = nil
-    Item = base.common.base.common.GetFrontItem(User)
+    Item = base.common.GetFrontItem(User)
 	if (Item ~= nil) and (Item.id >= 1008) and (Item.id <= 1018) then
 	    retVal = Item
 	end
@@ -702,7 +696,7 @@ function SetQuality(User,Item)
 	local mean =  base.common.Scale(1,9,(attribQuali + skillQuali))
 -- normal distribution; mean determined by skill and attributes; fixed standard deviation
 	local quality = Random.normal(mean, 4.5);
-	quality = base.common.limit(quality, 1, 9);
+	quality = base.common.Limit(quality, 1, 9);
 
 	Item:setData("potionQuality",quality*100+99)-- duarability is useless, we set it anway
 end
