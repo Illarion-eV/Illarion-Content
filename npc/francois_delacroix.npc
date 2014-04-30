@@ -73,7 +73,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 10% Tools (Farmer): 51, 126, 258, 271, 312
 -- 5% Tools (Fisher): 72
 -- 10% Animal skins: 69, 2547, 2586
--- 10% Crops: 154, 200, 201, 290, 249, 259, 772, 778, 2493
+-- 10% Crops: 154, 200, 201, 290, 249, 772, 778, 2493
 -- 5% Fish: 73, 355, 455
 -- 10% Seeds: 259, 291, 534, 728, 773, 779, 2494, 2917
 -- 10% Milk: 330
