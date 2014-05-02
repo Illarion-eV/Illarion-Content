@@ -901,7 +901,7 @@ function HitChance(Attacker, Defender, Globals)
 	end
 
 	--The Shield Scaling Factor (SSF). Changes how much the top shield is better than the worse one.
-	local ShieldScalingFactor =5;
+	local ShieldScalingFactor =5; --For what do we have database numbers!? ~Estralis
 
 	local Rarity = NotNil(tonumber(parryItem:getData("RareWeapon")));
 
