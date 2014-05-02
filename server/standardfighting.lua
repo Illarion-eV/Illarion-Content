@@ -912,6 +912,7 @@ function HitChance(Attacker, Defender, Globals)
 	local parryweapondefense = parryWeapon.Defence+Rarity*20;
 	local defenderdefense = (100/ShieldScalingFactor) + parryweapondefense*(1-1/ShieldScalingFactor);
 
+	--THIS IS SHIT!!! EITHER YOU TAKE THE DB VALUES OR NOT! ~Estralis
 	if(parryWeapon.WeaponType~=14) then
 		defenderdefense = defenderdefense/2;
 	end
