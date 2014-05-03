@@ -55,24 +55,34 @@ function UseItem(User, SourceItem, ltstate)
 	-- noone infront... perhaps climb down a well then.
 	local TargetItem = base.common.GetFrontItem(User);
 
-	if TargetItem == nil or ( TargetItem.id ~= 2207 ) then
-		return;
-    end
+	if TargetItem ~= nil and ( TargetItem.id == 2207 ) then
 
-	if (TargetItem.pos == position(528, 555, 0)) then
-        User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
-        User:warp(position(518,559, -3));
-	elseif (TargetItem.pos == position(367, 253, 0)) then
-        User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
-        User:warp(position(292, 377, -6));
-    elseif (TargetItem.pos == position(787,801,0)) then
-        User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
-		User:warp(position(797,791,-3));
-	else
-    	base.common.InformNLS( User,
-			"Das Wasser steht recht hoch im Brunnen. Hier hinein zu klettern bringt nichts.",
-            "The water is rather high in the well. To climb in here is useless.");
-    end
+		if (TargetItem.pos == position(528, 555, 0)) then
+			User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
+			User:warp(position(518,559, -3));
+		elseif (TargetItem.pos == position(367, 253, 0)) then
+			User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
+			User:warp(position(292, 377, -6));
+		elseif (TargetItem.pos == position(787,801,0)) then
+			User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
+			User:warp(position(797,791,-3));
+		elseif (TargetItem.pos == position(854, 414, 0)) then
+			User:talk(Character.say, "#me klettert an einem Seil in das dunkle Loch hinab.", "#me climbs down into the dark hole on a rope.")
+			User:warp(position(925, 518, -6));
+		else
+			base.common.InformNLS( User,
+				"Das Wasser steht recht hoch im Brunnen. Hier hinein zu klettern bringt nichts.",
+				"The water is rather high in the well. To climb in here is useless.");
+		end
+	end
+
+	-- ... or perhaps climb down a hole.
+	if TargetItem ~= nil and ( TargetItem.id == 1206 ) then
+		if (TargetItem.pos == position(854, 414, 0)) then
+			User:talk(Character.say, "#me klettert an einem Seil in das dunkle Loch hinab.", "#me climbs down into the dark hole on a rope.")
+			User:warp(position(925, 518, -6));
+		end
+	end
 end
 
 function MoveItemBeforeMove( User, SourceItem, TargetItem )
