@@ -60,15 +60,6 @@ function UseItem(User, SourceItem, ltstate)
 		if (TargetItem.pos == position(528, 555, 0)) then
 			User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
 			User:warp(position(518,559, -3));
-		elseif (TargetItem.pos == position(367, 253, 0)) then
-			User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
-			User:warp(position(292, 377, -6));
-		elseif (TargetItem.pos == position(787,801,0)) then
-			User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
-			User:warp(position(797,791,-3));
-		elseif (TargetItem.pos == position(854, 414, 0)) then
-			User:talk(Character.say, "#me klettert an einem Seil in das dunkle Loch hinab.", "#me climbs down into the dark hole on a rope.")
-			User:warp(position(925, 518, -6));
 		else
 			base.common.InformNLS( User,
 				"Das Wasser steht recht hoch im Brunnen. Hier hinein zu klettern bringt nichts.",
