@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+require("monster.base.monstermagic")
 require("monster.base.base")
 require("item.gems")
 require("monster.base.drop")
@@ -34,18 +35,6 @@ killer={}; --A list that keeps track of who attacked the monster last
 msgs = base.messages.Messages();
 msgs:addMessage("#me knurrt.", "#me growls.");
 
-end
-
-function onSpawn(Monster)
-
-	-- Regeneration for high level monsters >= level 7
-	local MonID=Monster:getMonsterType()
-	if MonID == 681 then --Shiny Deathdragon
-		local find, reg_effect = Monster.effects:find(2);
-		if not find then
-			Monster.effects:addEffect( LongTimeEffect(2,10) );
-		end
-	end
 end
 
 function FireBreath(Monster,Enemy)
@@ -137,6 +126,7 @@ function enemyOnSight(Monster,Enemy)
         ini(Monster);
     end
 
+	monster.base.monstermagic.regeneration(Monster); --if an enemy is around, the monster regenerates slowly
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then

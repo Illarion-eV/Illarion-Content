@@ -153,7 +153,7 @@ function Dropping(Char)
                 end
             end
         end
-        local checkItems = {61,293,294,64,549,322,237,1266,3076,3077};
+        local checkItems = {61,293,294,64,549,322,237,1266,3076,3077}; --ffs use comments! ~Estralis
         for i,CheckItemItemid in pairs(checkItems) do
             ItemCnt = Char:countItem(CheckItemItemid);
             if (ItemCnt > 0) then
@@ -172,13 +172,6 @@ function SpellResistence( Char )
     local ResTry=base.common.Limit(CSkill * ( ( CEss*3 + CWil*2 ) / 63 ), 0, 100 );
 
     return base.common.Limit( math.floor( ResTry * math.random(8,12)/10 ), 0, 100 );
-end
-
-function LearnMagicResistance( Char )
-    if (MaximalMagicResistance( Char ) > Char:getSkill(Character.magicResistance)) then
-        --Char:learn(3,"magic resistance",2,100);
-		--Replace with new learn function, see learn.lua
-    end
 end
 
 function MaximalMagicResistance( Char )
@@ -231,7 +224,7 @@ function CastLargeAreaMagic( monster, rndTry, LoadupRounds, LoadupEffect, Damage
         local Damage = base.common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
         if Damage > 0 then
             target:increaseAttrib("hitpoints",-Damage);
-            LearnMagicResistance( target );
+
             if ( Effect[1] > 0 ) then
                 world:gfx(Effect[1],target.pos);
             end
@@ -298,7 +291,7 @@ function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlig
                     local Damage = base.common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
                     if Damage > 0 then
                         Enemy:increaseAttrib("hitpoints",-Damage);
-                        LearnMagicResistance( Enemy );
+
                         if ( Effect[EffectTry][1] > 0 ) then
                             world:gfx(Effect[EffectTry][1],targetPos);
                         end
@@ -373,7 +366,7 @@ function CastParalyze( Caster, Enemy, rndTry, APPunishment, Range, Effect, AP ,C
         local Damage = base.common.ScaleUnlimited( APPunishment[1], APPunishment[2], CastTry );
         if Damage > 0 then
             Enemy.movepoints = Enemy.movepoints - Damage;
-            LearnMagicResistance( Enemy );
+
             if ( Effect[1] > 0 ) then
                 world:gfx(Effect[1][1],Enemy.pos);
             end
