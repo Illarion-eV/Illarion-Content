@@ -33,7 +33,7 @@ module("triggerfield.galmair_bridges1_660", package.seeall)
     monster[4]={31,32,33,34}; --elf 35
     monster[5]={41,42,43,45}; --orc 44
     monster[6]={51,53,53,54,55}; -- lizard 
-    monster[7]={91,92,93,95,791,792,801,812}; -- troll 94,802,811
+    monster[7]={91,92,93,95,791,792,801}; -- troll 94,802,811,812
     monster[8]={101,102,103,104,106,151,152,171,172,173}; -- mummy
     monster[9]={111,112,113,114,115}; --skeleton
     monster[10]={921,922,932,941,942}; --rats 931
@@ -68,7 +68,7 @@ function MoveToField(char)
 		end
 		shutup = 0 --player should get message later
 		luckybunch = 0 --we will see if there are galmairians here later
-		if (char:getSkill(Character.parry)<=70) then --check of skills of fighter
+		if (char:getSkill(Character.parry)<=80) then --check of skills of fighter
 			level = math.random(1,11) --selection of lower monsters for average fighter
 			else
 			level = math.random(1,16) --selection of all monsters for good fighter
@@ -76,8 +76,8 @@ function MoveToField(char)
 		local enemy1 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy2 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy3 = monster[level][math.random(1,table.getn(monster[level]))]
-		local enemy4 = monster[level][math.random(1,table.getn(monster[level]))]
-		local enemy5 = monster[level][math.random(1,table.getn(monster[level]))]
+	--	local enemy4 = monster[level][math.random(1,table.getn(monster[level]))]
+	--	local enemy5 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy6 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy7 = monster[level][math.random(1,table.getn(monster[level]))]
 		local enemy8 = monster[level][math.random(1,table.getn(monster[level]))]
@@ -87,10 +87,10 @@ function MoveToField(char)
         	world:createMonster(enemy2,position(483,249,0),0);
 		world:gfx(41,position(483,250,0));
         	world:createMonster(enemy3,position(483,250,0),0);
-		world:gfx(41,position(482,251,0));
+	--[[	world:gfx(41,position(482,251,0));
         	world:createMonster(enemy4,position(482,251,0),0);
 		world:gfx(41,position(475,251,0));
-        	world:createMonster(enemy5,position(475,251,0),0);
+        	world:createMonster(enemy5,position(475,251,0),0); ]]--
 		world:gfx(41,position(474,250,0));
         	world:createMonster(enemy6,position(474,250,0),0);
  		world:gfx(41,position(474,249,0));
@@ -119,13 +119,13 @@ function MoveFromField(char)
 	if char:getType() ~= Character.player then --monster start moving
 		for i,player in ipairs(hero) do
 		if base.factions.getMembership(player) == 3 then --check if galmairians are there
-			base.character.DeathAfterTime(char,math.random(10,20),0,1,true) --kill trigger monster
+			base.character.DeathAfterTime(char,math.random(5,10),0,1,true) --kill trigger monster
 			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüsten zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have paid your taxes to the Don and he protects you!")	--praise the don message for the player
 			shutup = 1 --stop spam in the future
 			player:setQuestProgress(660,math.random(300,600)) --lte set for all players around
 			local monsters = world:getMonstersInRangeOf(player.pos, 10); --get all monster in player range 
 				for i,mon in ipairs(monsters) do
-				base.character.DeathAfterTime(mon,math.random(10,20),0,33,true) --kill all monsters
+				base.character.DeathAfterTime(mon,math.random(5,10),0,33,true) --kill all monsters
 				end
 			return
 			

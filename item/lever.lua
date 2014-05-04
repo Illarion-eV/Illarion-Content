@@ -34,6 +34,7 @@ require("handler.warpgroup");
 require("handler.createmonster");
 require("handler.eraseplayeritem")
 require("handler.createplayeritem")
+require("triggerfield.evilrock")
 
 module("item.lever", package.seeall)
 
@@ -102,6 +103,35 @@ function init()
 	evilrock2:bind(1, handler.createitem.createItem(position(977,173,-6),10, 666, 1));
 	evilrock2:bind(1, handler.createsound.createSound(position(977,173,-6),4));
 
+
+	evilrock3 = base.lever.Lever(position(966,169,2),true); --create lever object
+	evilrock3:bind(0, triggerfield.evilrock.executePortalLeverRiddle(position(966,169,2)));
+	evilrock3:bind(1, triggerfield.evilrock.executePortalLeverRiddle(position(966,169,2)));
+	evilrock4 = base.lever.Lever(position(967,169,2),true); --create lever object
+	evilrock4:bind(0, triggerfield.evilrock.executePortalLeverRiddle(position(967,169,2)));
+	evilrock4:bind(1, triggerfield.evilrock.executePortalLeverRiddle(position(967,169,2)));
+	evilrock5 = base.lever.Lever(position(968,169,2),true); --create lever object
+	evilrock5:bind(0, triggerfield.evilrock.executePortalLeverRiddle(position(968,169,2)));
+	evilrock5:bind(1, triggerfield.evilrock.executePortalLeverRiddle(position(968,169,2)));
+	evilrock6 = base.lever.Lever(position(969,169,2),true); --create lever object
+	evilrock6:bind(0, triggerfield.evilrock.executePortalLeverRiddle(position(969,169,2)));
+	evilrock6:bind(1, triggerfield.evilrock.executePortalLeverRiddle(position(969,169,2)));
+	evilrock7 = base.lever.Lever(position(970,169,2),true); --create lever object
+	evilrock7:bind(0, triggerfield.evilrock.executePortalLeverRiddle(position(970,169,2)));
+	evilrock7:bind(1, triggerfield.evilrock.executePortalLeverRiddle(position(970,169,2)));
+	evilrock8 = base.lever.Lever(position(971,169,2),true); --create lever object
+	evilrock8:bind(0, triggerfield.evilrock.executePortalLeverRiddle(position(971,169,2)));
+	evilrock8:bind(1, triggerfield.evilrock.executePortalLeverRiddle(position(971,169,2)));
+	evilrock9 = base.lever.Lever(position(972,169,2),true); --create lever object
+	evilrock9:bind(0, triggerfield.evilrock.executePortalLeverRiddle(position(972,169,2)));
+	evilrock9:bind(1, triggerfield.evilrock.executePortalLeverRiddle(position(972,169,2)));
+	evilrock10 = base.lever.Lever(position(973,169,2),true); --create lever object
+	evilrock10:bind(0, triggerfield.evilrock.executePortalLeverRiddle(position(973,169,2)));
+	evilrock10:bind(1, triggerfield.evilrock.executePortalLeverRiddle(position(973,169,2)));
+	evilrock11 = base.lever.Lever(position(974,169,2),true); --create lever object
+	evilrock11:bind(0, triggerfield.evilrock.executePortalLeverRiddle(position(974,169,2)));
+	evilrock11:bind(1, triggerfield.evilrock.executePortalLeverRiddle(position(974,169,2)));
+
 	
 	-- Wall appear / disappear in dwarf Dungeon
 	dronrul1 = base.lever.Lever(position(446,754,-3),true);
@@ -159,6 +189,15 @@ function init()
 	AddToLevers(elevator2);
 	AddToLevers(evilrock1);
 	AddToLevers(evilrock2);
+	AddToLevers(evilrock3);
+	AddToLevers(evilrock4);
+	AddToLevers(evilrock5);
+	AddToLevers(evilrock6);
+	AddToLevers(evilrock7);
+	AddToLevers(evilrock8);
+	AddToLevers(evilrock9);
+	AddToLevers(evilrock10);
+	AddToLevers(evilrock11);
 	AddToLevers(dronrul1);
 	AddToLevers(killerhuhn);
 	AddToLevers(ki1);
@@ -211,6 +250,16 @@ function init()
     AddToLevers(riddleLever4);
     AddToLevers(riddleLever5);  --]]
     
+
+	evilrock2 = base.lever.Lever(position(977,175,-6),true); --create lever object
+	evilrock2:bind(0, handler.deleteitem.deleteItem(position(977,173,-6),10));
+	evilrock2:bind(1, handler.createitem.createItem(position(977,173,-6),10, 666, 1));
+	evilrock2:bind(1, handler.createsound.createSound(position(977,173,-6),4));
+
+
+	evilrock3 = base.lever.Lever(position(966,169,2),true); --create lever object
+	evilrock3:bind(0, triggerfield.evilrock.PortalLeverRiddle(User));
+	evilrock3:bind(1, triggerfield.evilrock.PortalLeverRiddle(User));
     --------------------------------lever quest fal-fal---------------------------
     
     --[[for x=117,119 do

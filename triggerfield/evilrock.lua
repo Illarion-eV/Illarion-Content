@@ -55,7 +55,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (964,173,-6,'triggerfield.evilrock');
 -- INSERT INTO triggerfields VALUES (964,174,-6,'triggerfield.evilrock');
 
+-- INSERT INTO triggerfields VALUES (970,171,2,'triggerfield.evilrock');
+
 require("base.common")
+require("base.class")
 module("triggerfield.evilrock", package.seeall)
 
 
@@ -161,11 +164,50 @@ function MoveToField(char)
 		end
 	end
 	if char.pos == position(977,173,-6) and world:getItemOnField(position(977,173,-6)).id == 10 then
-		world:gfx(41,char.pos);
-		world:makeSound(13,char.pos);
-		char:warp(position(929,187,1))
-		world:gfx(41,char.pos);
-		world:makeSound(13,char.pos);
+		local checkRedPortal = world:getItemOnField(position(970,171,2))
+		if checkRedPortal.id == 798 then
+			world:erase(checkRedPortal,checkRedPortal.number)
+		end 
+		if char:getFaceTo() == 1 or char:getFaceTo() == 2 or char:getFaceTo() == 3 then
+			world:gfx(41,char.pos);
+			world:makeSound(13,char.pos);
+			char:warp(position(929,187,1))
+			world:gfx(41,char.pos);
+			world:makeSound(13,char.pos);
+		elseif char:getFaceTo() == 5 or char:getFaceTo() == 6 or char:getFaceTo() == 7 then
+			world:gfx(41,char.pos);
+			world:makeSound(13,char.pos);
+			char:warp(position(966,171,2))
+			world:gfx(41,char.pos);
+			world:makeSound(13,char.pos);
+		end
+	end
+	if char.pos == position(970,171,2) and world:getItemOnField(position(970,171,2)).id == 798 then
+		if CheckPortalLeverRiddle1(char) == true then
+			world:gfx(41,char.pos);
+			world:makeSound(13,char.pos);
+			char:warp(position(836,813,0))
+			world:gfx(41,char.pos);
+			world:makeSound(13,char.pos);
+		elseif CheckPortalLeverRiddle2(char) == true then
+			world:gfx(41,char.pos);
+			world:makeSound(13,char.pos);
+			char:warp(position(127,647,0))
+			world:gfx(41,char.pos);
+			world:makeSound(13,char.pos);
+		elseif CheckPortalLeverRiddle3(char) == true then
+			world:gfx(41,char.pos);
+			world:makeSound(13,char.pos);
+			char:warp(position(684,307,0))
+			world:gfx(41,char.pos);
+			world:makeSound(13,char.pos);
+		elseif CheckPortalLeverRiddle4(char) == true then
+			world:gfx(41,char.pos);
+			world:makeSound(13,char.pos);
+			char:warp(position(424,245,0))
+			world:gfx(41,char.pos);
+			world:makeSound(13,char.pos);
+		end
 	end
 	if char.pos == position(952,173,-6) then
 		local weightOfPlayer = char:increaseAttrib("weight",0)	
@@ -375,3 +417,65 @@ function RemoveEntranceTrap(char)
 		end
 	end
 end
+
+
+
+executePortalLeverRiddle = base.class.class(function(leverriddle, posi)
+    leverriddle.pos=posi;
+end);
+
+function executePortalLeverRiddle:execute()
+	char=self.player
+	PortalLeverRiddle(char)
+end
+
+
+
+function PortalLeverRiddle(char)
+	world:makeSound(22,position(970,171,2))
+	if CheckPortalLeverRiddle1(char) == true or CheckPortalLeverRiddle2(char) == true or CheckPortalLeverRiddle3(char) == true or CheckPortalLeverRiddle4(char) == true then
+		world:gfx(32,position(970,171,2))
+		world:makeSound(4,position(970,171,2))
+		world:createItemFromId(798,1,position(970,171,2),true,666,nil)
+	else
+		local checkRedPortal = world:getItemOnField(position(970,171,2))
+		if checkRedPortal.id == 798 then
+			world:erase(checkRedPortal,checkRedPortal.number)
+			world:makeSound(4,position(970,171,2))
+			world:gfx(5,position(970,171,2))
+		end
+	end
+end
+
+function CheckPortalLeverRiddle1(char)
+	if world:getItemOnField(position(966,169,2)).id == 436 and world:getItemOnField(position(967,169,2)).id == 436 and world:getItemOnField(position(968,169,2)).id ~= 436 and world:getItemOnField(position(969,169,2)).id ~= 436 and world:getItemOnField(position(970,169,2)).id ~= 436 and world:getItemOnField(position(971,169,2)).id ~= 436 and world:getItemOnField(position(972,169,2)).id ~= 436 and world:getItemOnField(position(973,169,2)).id ~= 436 and world:getItemOnField(position(974,169,2)).id == 436 then
+		return true
+	else
+		return false
+	end
+end
+
+function CheckPortalLeverRiddle2(char)
+	if world:getItemOnField(position(966,169,2)).id == 436 and world:getItemOnField(position(967,169,2)).id ~= 436 and world:getItemOnField(position(968,169,2)).id == 436 and world:getItemOnField(position(969,169,2)).id ~= 436 and world:getItemOnField(position(970,169,2)).id ~= 436 and world:getItemOnField(position(971,169,2)).id == 436 and world:getItemOnField(position(972,169,2)).id ~= 436 and world:getItemOnField(position(973,169,2)).id ~= 436 and world:getItemOnField(position(974,169,2)).id ~= 436 then
+		return true
+	else
+		return false
+	end
+end
+
+function CheckPortalLeverRiddle3(char)
+	if world:getItemOnField(position(966,169,2)).id == 436 and world:getItemOnField(position(967,169,2)).id ~= 436 and world:getItemOnField(position(968,169,2)).id ~= 436 and world:getItemOnField(position(969,169,2)).id == 436 and world:getItemOnField(position(970,169,2)).id ~= 436 and world:getItemOnField(position(971,169,2)).id ~= 436 and world:getItemOnField(position(972,169,2)).id ~= 436 and world:getItemOnField(position(973,169,2)).id == 436 and world:getItemOnField(position(974,169,2)).id ~= 436 then
+		return true
+	else
+		return false
+	end
+end
+
+function CheckPortalLeverRiddle4(char)
+	if world:getItemOnField(position(966,169,2)).id == 436 and world:getItemOnField(position(967,169,2)).id ~= 436 and world:getItemOnField(position(968,169,2)).id ~= 436 and world:getItemOnField(position(969,169,2)).id == 436 and world:getItemOnField(position(970,169,2)).id ~= 436 and world:getItemOnField(position(971,169,2)).id ~= 436 and world:getItemOnField(position(972,169,2)).id == 436 and world:getItemOnField(position(973,169,2)).id ~= 436 and world:getItemOnField(position(974,169,2)).id ~= 436 then
+		return true
+	else
+		return false
+	end
+end
+
