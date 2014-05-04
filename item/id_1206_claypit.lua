@@ -20,7 +20,32 @@ require("content.gatheringcraft.claydigging")
 
 module("item.id_1206_claypit", package.seeall)
 
+holePosition = position(854, 414, 0);
+
 function UseItem(User, SourceItem, ltstate)
 
-	content.gatheringcraft.claydigging.StartGathering(User, SourceItem, ltstate);
+  if SourceItem.pos == holePosition then
+    base.common.InformNLS(User,
+      "Vielleicht kannst du mit einem Seil hinabklettern?",
+      "Maybe you can climb down with a rope?");
+    return;
+  end
+
+  content.gatheringcraft.claydigging.StartGathering(User, SourceItem, ltstate);
+end
+
+function LookAtItem(User, Item)
+
+  local lookAt = base.lookat.GenerateLookAt(User, Item);
+
+  if Item.pos == holePosition then
+	lookAt.name = base.common.GetNLS(User,
+      "Ein tiefes Loch",
+      "A deep hole");
+    lookAt.description = base.common.GetNLS(User,
+      "Dieses Loch scheint bodenlos.",
+      "This hole looks bottomless.");
+  end
+
+  world:itemInform(User, Item, lookAt);
 end
