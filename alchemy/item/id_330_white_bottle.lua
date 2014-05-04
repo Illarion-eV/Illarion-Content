@@ -72,7 +72,7 @@ function DrinkPotion(User,SourceItem)
 	  
 	    User:increaseSkill(ListLanguages[potionEffectId-599],newSkill)]]
  		local duration = math.floor(SourceItem.quality/100)*600*10 
-		local myEffect = LongTimeEffect(329,duration)
+		local myEffect = LongTimeEffect(330,duration)
 		User.effects:addEffect(myEffect);
     end
   end
