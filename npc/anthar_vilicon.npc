@@ -90,7 +90,7 @@ itemShoes = 771
 -- 17: Quest 17 taken, get a red white skirt (843), reward: topaz (198), 5 rankpoints
 -- 18: Quest 18 taken, get 15 coal (21), reward: 1000cp, 5 rankpoints
 -- 19: Quest 19 taken, get a pot helmet (94), reward: gold ingot (236), 5 rankpoints
--- 20: Quest 20 taken, get a gold nugget, reward: 500cp, 5 rankpoints
+-- 20: Quest 20 taken, get a gold ingot, reward: 500cp, 5 rankpoints
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Anthar Vilicon the chancellor. Keywords: Hello, Mission, Chancellor, Cadomyr, Elf.")
@@ -434,21 +434,21 @@ queststatus(119) = 19, item(94, all) < 1, town = Cadomyr, "quest", "mission" -> 
 queststatus(119) = 19, item(94, all) < 1, town = Cadomyr, "task", "adventure", "order" -> "Look at me. Do I look like I am joking? If Baron Hastings' men catch our guard unprepared, it is your head that pays for that. So, get that pot helmet for our recruit!"
 queststatus(119) = 19, item(94, all) < 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Schaut mich mal an. Sehe ich aus, als wenn ich scherzen würde? Wenn Baron Hastings Männer unsere Wache unvorbereitet vorfinden werdet ihr mit eurem Kopf bezahlen. Also holt jetzt diesen Topfhelm für unseren Rekruten!"
 
--- Quest 20: Gather a gold nugget (234)
-queststatus(119) = 0, english, chance(100.0), town = Cadomyr, "quest", "mission" -> inform("[New Quest] Do a good turn daily for Cadomyr"), queststatus(119) = 20, "Today, I have a personal request rather than an order. Could you please bring me a gold nugget - I want to forge a special gift, a bracelet, for my Queen to prove my loyality."
-queststatus(119) = 0, german, chance(100.0), town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), queststatus(119) = 20, "Heute habe ich keinen Befehl für euch sondern eine persönliche Bitte. Könntet ihr mir bitte ein Goldnugget bringen - ich möchte der Königin ein besonderes Geschenk, einen Armreif, schmieden um ihr meine Ergebenheit zu beweisen."
-queststatus(119) = 0, chance(100.0), town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] Do a good turn daily for Cadomyr"), queststatus(119) = 20, "Today, I have a personal request rather than an order. Could you please bring me a gold nugget - I want to forge a special gift, a bracelet, for my Queen to prove my loyality."
-queststatus(119) = 0, chance(100.0), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), queststatus(119) = 20, "Heute habe ich keinen Befehl für euch sondern eine persönliche Bitte. Könntet ihr mir bitte ein Goldnugget bringen - ich möchte der Königin ein besonderes Geschenk, einen Armreif, schmieden um ihr meine Ergebenheit zu beweisen."
+-- Quest 20: Gather a gold ingot (236)
+queststatus(119) = 0, english, chance(100.0), town = Cadomyr, "quest", "mission" -> inform("[New Quest] Do a good turn daily for Cadomyr"), queststatus(119) = 20, "Today, I have a personal request rather than an order. Could you please bring me a gold ingot - I want to forge a special gift, a bracelet, for my Queen to prove my loyality."
+queststatus(119) = 0, german, chance(100.0), town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), queststatus(119) = 20, "Heute habe ich keinen Befehl für euch sondern eine persönliche Bitte. Könntet ihr mir bitte einen Goldbarren bringen - ich möchte der Königin ein besonderes Geschenk, einen Armreif, schmieden um ihr meine Ergebenheit zu beweisen."
+queststatus(119) = 0, chance(100.0), town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] Do a good turn daily for Cadomyr"), queststatus(119) = 20, "Today, I have a personal request rather than an order. Could you please bring me a gold ingot - I want to forge a special gift, a bracelet, for my Queen to prove my loyality."
+queststatus(119) = 0, chance(100.0), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), queststatus(119) = 20, "Heute habe ich keinen Befehl für euch sondern eine persönliche Bitte. Könntet ihr mir bitte einen Goldbarren bringen - ich möchte der Königin ein besonderes Geschenk, einen Armreif, schmieden um ihr meine Ergebenheit zu beweisen."
 
 -- Quest 20 solved, reward: 500cp, 5 rankpoints, delay: 5h
-queststatus(119) = 20, item(234, all) > 0, english, town = Cadomyr, ".*" -> inform("[Quest solved] You are awarded five silver coins. You advance in Queen Rosaline Edwards' favour."), money + 500, deleteItem(234, 1), queststatus(119) = 0, queststatus(120) = 60, rankpoints + 5, "I thank you very much. I shall start to forge the golden bracelet for the Queen as soon as I finished my other duties - spare time might be the right word."
-queststatus(119) = 20, item(234, all) > 0, town = Cadomyr, ".*" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), money + 500, deleteItem(234, 1), queststatus(119) = 0, queststatus(120) = 60, rankpoints + 5, "Ich danke euch vielmals. Ich sollte mit dem Schmieden des goldenen Armreifes für die Königin beginnen, sobald ich mit meinen anderen Verpflichtungen fertig bin. Ich glaube, das nennt man dann Feierabend."
+queststatus(119) = 20, item(236, all) > 0, english, town = Cadomyr, ".*" -> inform("[Quest solved] You are awarded five silver coins. You advance in Queen Rosaline Edwards' favour."), money + 500, deleteItem(236, 1), queststatus(119) = 0, queststatus(120) = 60, rankpoints + 5, "I thank you very much. I shall start to forge the golden bracelet for the Queen as soon as I finished my other duties - spare time might be the right word."
+queststatus(119) = 20, item(236, all) > 0, town = Cadomyr, ".*" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), money + 500, deleteItem(236, 1), queststatus(119) = 0, queststatus(120) = 60, rankpoints + 5, "Ich danke euch vielmals. Ich sollte mit dem Schmieden des goldenen Armreifes für die Königin beginnen, sobald ich mit meinen anderen Verpflichtungen fertig bin. Ich glaube, das nennt man dann Feierabend."
 
 -- Quest 20 taken but not solved, repeat the instructions
-queststatus(119) = 20, item(234, all) < 1, english, town = Cadomyr, "quest", "mission" -> "Out of my sight and do not dare to come back before you brought me a gold nugget."
-queststatus(119) = 20, item(234, all) < 1, town = Cadomyr, "quest", "mission" -> "Aus meinen Augen und wagt es nicht eher wiederzukommen, als dass ihr nicht ein Goldnugget dabei habt."
-queststatus(119) = 20, item(234, all) < 1, town = Cadomyr, "task", "adventure", "order" -> "Out of my sight and do not dare to come back before you brought me a gold nugget."
-queststatus(119) = 20, item(234, all) < 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Aus meinen Augen und wagt es nicht eher wiederzukommen, als dass ihr nicht ein Goldnugget dabei habt."
+queststatus(119) = 20, item(236, all) < 1, english, town = Cadomyr, "quest", "mission" -> "Out of my sight and do not dare to come back before you brought me a gold ingot."
+queststatus(119) = 20, item(236, all) < 1, town = Cadomyr, "quest", "mission" -> "Aus meinen Augen und wagt es nicht eher wiederzukommen, als dass ihr nicht einen Goldbarren dabei habt."
+queststatus(119) = 20, item(236, all) < 1, town = Cadomyr, "task", "adventure", "order" -> "Out of my sight and do not dare to come back before you brought me a gold ingot."
+queststatus(119) = 20, item(236, all) < 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Aus meinen Augen und wagt es nicht eher wiederzukommen, als dass ihr nicht einen Goldbarren dabei habt."
 
 -- Outlaw exception: If 'quest' is not triggered until here, the speaker is an outlaw or an error occured. Condition town=none does not work!
 english, "quest", "mission" -> "I have a special assignment for you: Go back to Wilderland and don't come back to the palace unless her Majesty summons you."

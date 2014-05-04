@@ -79,39 +79,45 @@ itemShoes = 771
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. I assume you came to me for a bounty mission, not to talk about the weather? It is not cloudy today."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Ich nehme an, ihr seid zu mir wegene eines Kopfgeldauftrages zu mir gekommen und nicht, um über das Wetter zu reden. Es ist zumindestens nicht wolkig heute."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Ich nehme an, ihr seid zu mir wegen eines Kopfgeldauftrages zu mir gekommen und nicht, um über das Wetter zu reden. Es ist zumindest nicht wolkig heute."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted. I assume you came to me for a bounty mission, not to talk about the weather? It is not cloudy today."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt. Ich nehme an, ihr seid zu mir wegene eines Kopfgeldauftrages zu mir gekommen und nicht, um über das Wetter zu reden. Es ist zumindestens nicht wolkig heute."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt. Ich nehme an, ihr seid zu mir wegen eines Kopfgeldauftrages zu mir gekommen und nicht, um über das Wetter zu reden. Es ist zumindest nicht wolkig heute."
 "Farewell", "Bye", "Fare well", "See you" -> "Just go away."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Geht doch einfach."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Just go away."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Geht doch einfach."
 "How are you", "How feel", "How do you do" -> "Let us stop this meaningless talking and start hunting orcs!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Lasst uns mit diesem sinnbefreiten Palaver aufhören und ein paar Orks jagen!"
-"your name", "who are you", "who art thou" -> "My name is Palis Nestros. I enforce the decrees of her majesty when it comes to death penalties."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Palis Nestroy. Ich vollstrecke die Urteile ihrer Majestät, soweit sie tödlich sind."
+"your name", "who are you", "who art thou" -> "My name is Palis Nestros. I enforce the decrees of Her Majesty when it comes to death penalties."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Palis Nestros. Ich vollstrecke die Urteile ihrer Majestät, soweit sie tödlich sind."
 
 -- OPTIONAL TRIGGERS
 
--- Catching quest triggers of other factions' members. 
+-- Catching quest triggers of other factions' members.
 english, town = none, "quest", "mission" -> "Farewell. I do not issue bounties to outlaws."
 town = none, "quest", "mission" -> "Guten Tag. Ich vergebe keine Aufträge an Ausgestoßene."
 town = none, "task", "adventure", "order", "bounty" -> "Farewell. I do not issue bounties to outlaws."
 town = none, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> "Guten Tag. Ich vergebe keine Aufträge an Ausgestoßene."
-english, town = Galmair, "quest", "mission" -> "So, a Galmairian who wants a Cadomyrian bounty? I think you misunderstood, probably there is a bounty put on your head, but I won't pay it to you."
+english, town = Galmair, "quest", "mission" -> "So, a Galmairian who wants a Cadomyrian bounty? I think you misunderstand, probably there is a bounty put on your head, but I won't pay it to you."
 town = Galmair, "quest", "mission" -> "Jemand aus Galmair möchte ein Kopfgeld aus Cadomyr kassieren? Ich denke, das habt ihr falsch verstanden, wahrscheinlich ist ein Preis auf euren Kopf ausgesetzt, den werde ich euch aber jetzt nicht auszahlen."
-town = Galmair, "task", "adventure", "order", "bounty" -> "So, a Galmairian who wants a Cadomyrian bounty? I think you misunderstood, probably there is a put bounty on your head, but I won't pay it to you."
+town = Galmair, "task", "adventure", "order", "bounty" -> "So, a Galmairian who wants a Cadomyrian bounty? I think you misunderstand, probably there is a put bounty on your head, but I won't pay it to you."
 town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> "Jemand aus Galmair möchte ein Kopfgeld aus Cadomyr kassieren? Ich denke, das habt ihr falsch verstanden, wahrscheinlich ist ein Preis auf euren Kopf ausgesetzt, den werde ich euch aber jetzt nicht auszahlen."
-english, town = Runewick, "quest", "mission" -> "I doubt your archmage agrees with bounty hunting. I only issue missions to Cadomyrians."
+english, town = Runewick, "quest", "mission" -> "I doubt your Archmage agrees with bounty hunting. I only issue missions to Cadomyrians."
 town = Runewick, "quest", "mission" -> "Ich nehme an, euer Erzmagier ist nicht mit der Kopfgeldjagd einverstanden. Ich vergebe nur Aufträge an Bürger Cadomyrs."
-town = Runewick, "task", "adventure", "order", "bounty" -> "I doubt your archmage agrees with bounty hunting. I only issue missions to Cadomyrians."
+town = Runewick, "task", "adventure", "order", "bounty" -> "I doubt your Archmage agrees with bounty hunting. I only issue missions to Cadomyrians."
 town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> "Ich nehme an, euer Erzmagier ist nicht mit der Kopfgeldjagd einverstanden. Ich vergebe nur Aufträge an Bürger Cadomyrs."
 
 -- Catching quest triggers of those who have to wait for a new quest
-queststatus(164) ~= 0, english, town = Cadomyr, "quest", "mission" -> "No bounties today, it wasn't always so.", "No bounties today, my money has gone away.", "No bounties today, it seems a common sight."
+queststatus(164) ~= 0, english, town = Cadomyr, "quest", "mission" -> "No bounties today, it wasn't always so.", "No bounties today, my money has gone away.", "No bounties today, you get used to it."
 queststatus(164) ~= 0, town = Cadomyr, "quest", "mission" -> "Heute keine Kopfgelder, es war nicht immer so.", "Heute keine Kopfgelder, das Geld ist mir ausgegangen.", "Heute keine Kopfgelder, man gewöhnt sich dran."
-queststatus(164) ~= 0, town = Cadomyr, "task", "adventure", "order" -> "No bounties today, it wasn't always so.", "No bounties today, my money has gone away.", "No bounties today, it seems a common sight."
+queststatus(164) ~= 0, town = Cadomyr, "task", "adventure", "order" -> "No bounties today, it wasn't always so.", "No bounties today, my money is gone.", "No bounties today, you get used to it."
 queststatus(164) ~= 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Heute keine Kopfgelder, es war nicht immer so.", "Heute keine Kopfgelder, das Geld ist mir ausgegangen.", "Heute keine Kopfgelder, man gewöhnt sich dran."
+
+-- Small Talk
+"Hastings", "Baron", english -> "Baron Hastings claims the throne because he disagrees with a woman being sovereign of Cadomyr. I disagree with any disloyalty!"
+"Hastings", "Baron" -> "Baron Hastings beansprucht den Thron für sich, da es ihm missfällt, dass eine Frau Herrscher Cadomyrs ist. Mir missfällt seine Illoyalität!"
+"Milk" -> "No milk today."
+"Milch" -> "Heute gibt es keine Milch."
 
 -- ATTENTION: The lines below are generated. Do not do any manual changes. Tell me (Estralis) what is wrong and I will regenerate the lines.
 -- A quest is chosen at random!
@@ -120,13 +126,13 @@ queststatus(164) ~= 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befeh
 
 -- Bounty 1: Kill four beetles (21) in three hours
 -- 1: Bounty 1 taken, kill four beetles, reward: one sp, 2 rankpoints
-queststatus(162) = 0, english, chance(4.761904762), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill four beetles."), "Time for a bounty hunt! Her majesty has authorised me to pay a bounty of one silver coin for the heads of four beetles. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 1, queststatus(163) = 36
+queststatus(162) = 0, english, chance(4.761904762), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill four beetles."), "Time for a bounty hunt! Her Majesty has authorised me to pay a bounty of one silver coin for the heads of four beetles. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 1, queststatus(163) = 36
 queststatus(162) = 0, german, chance(4.761904762), town = Cadomyr, "quest", "mission" -> inform("[Neues Kopfgeld] Töte vier Käfer."), "Zeit für eine Kopfgeldjagd! Ihre Majestät hat mich ermächtigt, ein Kopfgeld von einem Silberstück an denjenigen auszuzahlen, der vier Käfer erschlägt. Geht in die Kantabiwüste und macht sie zu einem besseren Ort.", queststatus(162) = 1, queststatus(163) = 36
-queststatus(162) = 0, chance(4.761904762), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill four beetles."), "Time for a bounty hunt! Her majesty has authorised me to pay a bounty of one silver coin for the heads of four beetles. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 1, queststatus(163) = 36
+queststatus(162) = 0, chance(4.761904762), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill four beetles."), "Time for a bounty hunt! Her Majesty has authorised me to pay a bounty of one silver coin for the heads of four beetles. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 1, queststatus(163) = 36
 queststatus(162) = 0, chance(4.761904762), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> inform("[Neues Kopfgeld] Töte vier Käfer."), "Zeit für eine Kopfgeldjagd! Ihre Majestät hat mich ermächtigt, ein Kopfgeld von einem Silberstück an denjenigen auszuzahlen, der vier Käfer erschlägt. Geht in die Kantabiwüste und macht sie zu einem besseren Ort .", queststatus(162) = 1, queststatus(163) = 36
 
 -- Bounty 1 solved, reward: one sp, 5 rankpoints, delay: 5h
-queststatus(162) = 5, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded one silver coin."), "Ah, another deed of glory. You fulfilled your assignment, so I will fulfill my mine. Accept this bounty.", money + 100, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
+queststatus(162) = 5, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded one silver coin."), "Ah, another deed of glory. You fulfilled your assignment, so I will fulfil mine. Accept this bounty.", money + 100, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
 queststatus(162) = 5, town = Cadomyr, ".*" -> inform("[Kopfgeld erhalten] Du erhältst ein Silberstück."), "Ah, eine erneute Ruhmestat. Ihr habt euren Auftrag erledigt und so werde ich meinen Dienst tun. Nehmt euer Kopfgeld.", money + 100, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
 
 -- Bounty 1 taken but not solved, repeat the instructions
@@ -137,19 +143,19 @@ queststatus(162) ~= 0, queststatus(162) < 5, town = Cadomyr, "Auftrag", "Aufgabe
 
 -- Bounty 6: Kill eight beetles (21) in three hours
 -- 6: Bounty 6 taken, get eight beetles, reward: two sp, 4 rankpoints
-queststatus(162) = 0, english, chance(5), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill eight beetles."), "Her majesty put a bounty on the heads of eight beetles. If you want to earn two silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 6, queststatus(163) = 36
+queststatus(162) = 0, english, chance(5), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill eight beetles."), "Her Majesty put a bounty on the heads of eight beetles. If you want to earn two silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 6, queststatus(163) = 36
 queststatus(162) = 0, german, chance(5), town = Cadomyr, "quest", "mission" -> inform("[Neues Kopfgeld] Töte acht Käfer."), "Ihre Majestät hat ein Kopfgeld auf acht Käfer ausgesetzt. Wenn ihr euch zwei Silberstücke verdienen möchtet, beendet ihr Leben in der Kantabiwüste. Tot oder nicht lebendig!", queststatus(162) = 6, queststatus(163) = 36
-queststatus(162) = 0, chance(5), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill eight beetles."), "Her majesty put a bounty on the heads of eight beetles. If you want to earn two silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 6, queststatus(163) = 36
+queststatus(162) = 0, chance(5), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill eight beetles."), "Her Majesty put a bounty on the heads of eight beetles. If you want to earn two silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 6, queststatus(163) = 36
 queststatus(162) = 0, chance(5), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> inform("[Neues Kopfgeld] Töte acht Käfer."), "Ihre Majestät hat ein Kopfgeld auf acht Käfer ausgesetzt. Wenn ihr euch zwei Silberstücke verdienen möchtet, beendet ihr Leben in der Kantabiwüste. Tot oder nicht lebendig!", queststatus(162) = 6, queststatus(163) = 36
 
 -- Bounty 6 solved, reward: two sp, 4 rankpoints, delay: 5h
-queststatus(162) = 14, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded two silver coins."), "That was close. Orders of her majesty should be followed immediately. Anyway, here is your bounty.", money + 200, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
+queststatus(162) = 14, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded two silver coins."), "That was close. Orders of her Majesty should be followed immediately. Anyway, here is your bounty.", money + 200, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
 queststatus(162) = 14, town = Cadomyr, ".*" -> inform("[Kopfgeld erhalten] Du erhältst zwei Silberstücke."), "Gerade noch rechtzeitig. Befehle ihrer Majestät sind sofort zu befolgen. Egal, hier ist euer Kopfgeld.", money + 200, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
 
 -- Bounty 6 taken but not solved, repeat the instructions
-queststatus(162) ~= 0, queststatus(162) < 14, english, town = Cadomyr, "quest", "mission" -> "The bounty is put on eight beetles in the Kantabi Desert. May I did not make myself clear, but they are not meant to survive the day."
+queststatus(162) ~= 0, queststatus(162) < 14, english, town = Cadomyr, "quest", "mission" -> "The bounty is put on eight beetles in the Kantabi Desert. Maybe I did not make myself clear, but they are not meant to survive the day."
 queststatus(162) ~= 0, queststatus(162) < 14, town = Cadomyr, "quest", "mission" -> "Es ist ein Kopfgeld auf acht Käfer in der Kantabiwüste ausgesetzt. Ich hab mich wohl nicht klar ausgedrückt, sie sollen den Tag nicht überleben."
-queststatus(162) ~= 0, queststatus(162) < 14, town = Cadomyr, "task", "adventure", "order", "bounty" -> "The bounty is put on eight beetles in the Kantabi Desert. May I did not make myself clear, but they are not meant to survive the day."
+queststatus(162) ~= 0, queststatus(162) < 14, town = Cadomyr, "task", "adventure", "order", "bounty" -> "The bounty is put on eight beetles in the Kantabi Desert. Maybe I did not make myself clear, but they are not meant to survive the day."
 queststatus(162) ~= 0, queststatus(162) < 14, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> "Es ist ein Kopfgeld auf acht Käfer in der Kantabiwüste ausgesetzt. Ich hab mich wohl nicht klar ausgedrückt, sie sollen den Tag nicht überleben."
 
 -- Bounty 15: Kill twelve beetles (21) in three hours
@@ -171,13 +177,13 @@ queststatus(162) ~= 0, queststatus(162) < 27, town = Cadomyr, "Auftrag", "Aufgab
 
 -- Bounty 28: Kill four wasps (22) in three hours
 -- 28: Bounty 28 taken, kill four wasps, reward: two sp, 2 rankpoints
-queststatus(162) = 0, english, chance(5.555555556), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill four wasps."), "Time for a bounty hunt! Her majesty has authorised me to pay a bounty of two silver coins for the heads of four wasps. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 28, queststatus(163) = 36
+queststatus(162) = 0, english, chance(5.555555556), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill four wasps."), "Time for a bounty hunt! Her Majesty has authorised me to pay a bounty of two silver coins for the heads of four wasps. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 28, queststatus(163) = 36
 queststatus(162) = 0, german, chance(5.555555556), town = Cadomyr, "quest", "mission" -> inform("[Neues Kopfgeld] Töte vier Wespen."), "Zeit für eine Kopfgeldjagd! Ihre Majestät hat mich ermächtigt, ein Kopfgeld von zwei Silberstücken an denjenigen auszuzahlen, der vier Wespen erschlägt. Geht in die Kantabiwüste und macht sie zu einem besseren Ort.", queststatus(162) = 28, queststatus(163) = 36
-queststatus(162) = 0, chance(5.555555556), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill four wasps."), "Time for a bounty hunt! Her majesty has authorised me to pay a bounty of two silver coins for the heads of four wasps. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 28, queststatus(163) = 36
+queststatus(162) = 0, chance(5.555555556), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill four wasps."), "Time for a bounty hunt! Her Majesty has authorised me to pay a bounty of two silver coins for the heads of four wasps. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 28, queststatus(163) = 36
 queststatus(162) = 0, chance(5.555555556), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> inform("[Neues Kopfgeld] Töte vier Wespen."), "Zeit für eine Kopfgeldjagd! Ihre Majestät hat mich ermächtigt, ein Kopfgeld von zwei Silberstücken an denjenigen auszuzahlen, der vier Wespen erschlägt. Geht in die Kantabiwüste und macht sie zu einem besseren Ort .", queststatus(162) = 28, queststatus(163) = 36
 
 -- Bounty 28 solved, reward: two sp, 5 rankpoints, delay: 5h
-queststatus(162) = 32, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded two silver coins."), "Ah, another deed of glory. You fulfilled your assignment, so I will fulfill my mine. Accept this bounty.", money + 200, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
+queststatus(162) = 32, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded two silver coins."), "Ah, another deed of glory. You fulfilled your assignment, so I will fulfil mine. Accept this bounty.", money + 200, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
 queststatus(162) = 32, town = Cadomyr, ".*" -> inform("[Kopfgeld erhalten] Du erhältst zwei Silberstücke."), "Ah, eine erneute Ruhmestat. Ihr habt euren Auftrag erledigt und so werde ich meinen Dienst tun. Nehmt euer Kopfgeld.", money + 200, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
 
 -- Bounty 28 taken but not solved, repeat the instructions
@@ -188,19 +194,19 @@ queststatus(162) ~= 0, queststatus(162) < 32, town = Cadomyr, "Auftrag", "Aufgab
 
 -- Bounty 33: Kill eight wasps (22) in three hours
 -- 33: Bounty 33 taken, get eight wasps, reward: four sp, 4 rankpoints
-queststatus(162) = 0, english, chance(5.882352941), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill eight wasps."), "Her majesty put a bounty on the heads of eight wasps. If you want to earn four silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 33, queststatus(163) = 36
+queststatus(162) = 0, english, chance(5.882352941), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill eight wasps."), "Her Majesty put a bounty on the heads of eight wasps. If you want to earn four silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 33, queststatus(163) = 36
 queststatus(162) = 0, german, chance(5.882352941), town = Cadomyr, "quest", "mission" -> inform("[Neues Kopfgeld] Töte acht Wespen."), "Ihre Majestät hat ein Kopfgeld auf acht Wespen ausgesetzt. Wenn ihr euch vier Silberstücke verdienen möchtet, beendet ihr Leben in der Kantabiwüste. Tot oder nicht lebendig!", queststatus(162) = 33, queststatus(163) = 36
-queststatus(162) = 0, chance(5.882352941), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill eight wasps."), "Her majesty put a bounty on the heads of eight wasps. If you want to earn four silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 33, queststatus(163) = 36
+queststatus(162) = 0, chance(5.882352941), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill eight wasps."), "Her Majesty put a bounty on the heads of eight wasps. If you want to earn four silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 33, queststatus(163) = 36
 queststatus(162) = 0, chance(5.882352941), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> inform("[Neues Kopfgeld] Töte acht Wespen."), "Ihre Majestät hat ein Kopfgeld auf acht Wespen ausgesetzt. Wenn ihr euch vier Silberstücke verdienen möchtet, beendet ihr Leben in der Kantabiwüste. Tot oder nicht lebendig!", queststatus(162) = 33, queststatus(163) = 36
 
 -- Bounty 33 solved, reward: four sp, 4 rankpoints, delay: 5h
-queststatus(162) = 41, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded four silver coins."), "That was close. Orders of her majesty should be followed immediately. Anyway, here is your bounty.", money + 400, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
+queststatus(162) = 41, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded four silver coins."), "That was close. Orders of her Majesty should be followed immediately. Anyway, here is your bounty.", money + 400, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
 queststatus(162) = 41, town = Cadomyr, ".*" -> inform("[Kopfgeld erhalten] Du erhältst vier Silberstücke."), "Gerade noch rechtzeitig. Befehle ihrer Majestät sind sofort zu befolgen. Egal, hier ist euer Kopfgeld.", money + 400, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
 
 -- Bounty 33 taken but not solved, repeat the instructions
-queststatus(162) ~= 0, queststatus(162) < 41, english, town = Cadomyr, "quest", "mission" -> "The bounty is put on eight wasps in the Kantabi Desert. May I did not make myself clear, but they are not meant to survive the day."
+queststatus(162) ~= 0, queststatus(162) < 41, english, town = Cadomyr, "quest", "mission" -> "The bounty is put on eight wasps in the Kantabi Desert. Maybe I did not make myself clear, but they are not meant to survive the day."
 queststatus(162) ~= 0, queststatus(162) < 41, town = Cadomyr, "quest", "mission" -> "Es ist ein Kopfgeld auf acht Wespen in der Kantabiwüste ausgesetzt. Ich hab mich wohl nicht klar ausgedrückt, sie sollen den Tag nicht überleben."
-queststatus(162) ~= 0, queststatus(162) < 41, town = Cadomyr, "task", "adventure", "order", "bounty" -> "The bounty is put on eight wasps in the Kantabi Desert. May I did not make myself clear, but they are not meant to survive the day."
+queststatus(162) ~= 0, queststatus(162) < 41, town = Cadomyr, "task", "adventure", "order", "bounty" -> "The bounty is put on eight wasps in the Kantabi Desert. Maybe I did not make myself clear, but they are not meant to survive the day."
 queststatus(162) ~= 0, queststatus(162) < 41, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> "Es ist ein Kopfgeld auf acht Wespen in der Kantabiwüste ausgesetzt. Ich hab mich wohl nicht klar ausgedrückt, sie sollen den Tag nicht überleben."
 
 -- Bounty 42: Kill twelve wasps (22) in three hours
@@ -222,13 +228,13 @@ queststatus(162) ~= 0, queststatus(162) < 54, town = Cadomyr, "Auftrag", "Aufgab
 
 -- Bounty 55: Kill four dogs (26) in three hours
 -- 55: Bounty 55 taken, kill four dogs, reward: three sp, 2 rankpoints
-queststatus(162) = 0, english, chance(6.666666667), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill four dogs."), "Time for a bounty hunt! Her majesty has authorised me to pay a bounty of three silver coins for the heads of four dogs. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 55, queststatus(163) = 36
+queststatus(162) = 0, english, chance(6.666666667), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill four dogs."), "Time for a bounty hunt! Her Majesty has authorised me to pay a bounty of three silver coins for the heads of four dogs. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 55, queststatus(163) = 36
 queststatus(162) = 0, german, chance(6.666666667), town = Cadomyr, "quest", "mission" -> inform("[Neues Kopfgeld] Töte vier Hunde."), "Zeit für eine Kopfgeldjagd! Ihre Majestät hat mich ermächtigt, ein Kopfgeld von drei Silberstücken an denjenigen auszuzahlen, der vier Hunde erschlägt. Geht in die Kantabiwüste und macht sie zu einem besseren Ort.", queststatus(162) = 55, queststatus(163) = 36
-queststatus(162) = 0, chance(6.666666667), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill four dogs."), "Time for a bounty hunt! Her majesty has authorised me to pay a bounty of three silver coins for the heads of four dogs. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 55, queststatus(163) = 36
+queststatus(162) = 0, chance(6.666666667), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill four dogs."), "Time for a bounty hunt! Her Majesty has authorised me to pay a bounty of three silver coins for the heads of four dogs. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 55, queststatus(163) = 36
 queststatus(162) = 0, chance(6.666666667), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> inform("[Neues Kopfgeld] Töte vier Hunde."), "Zeit für eine Kopfgeldjagd! Ihre Majestät hat mich ermächtigt, ein Kopfgeld von drei Silberstücken an denjenigen auszuzahlen, der vier Hunde erschlägt. Geht in die Kantabiwüste und macht sie zu einem besseren Ort .", queststatus(162) = 55, queststatus(163) = 36
 
 -- Bounty 55 solved, reward: three sp, 5 rankpoints, delay: 5h
-queststatus(162) = 59, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded three silver coins."), "Ah, another deed of glory. You fulfilled your assignment, so I will fulfill my mine. Accept this bounty.", money + 300, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
+queststatus(162) = 59, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded three silver coins."), "Ah, another deed of glory. You fulfilled your assignment, so I will fulfil mine. Accept this bounty.", money + 300, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
 queststatus(162) = 59, town = Cadomyr, ".*" -> inform("[Kopfgeld erhalten] Du erhältst drei Silberstücke."), "Ah, eine erneute Ruhmestat. Ihr habt euren Auftrag erledigt und so werde ich meinen Dienst tun. Nehmt euer Kopfgeld.", money + 300, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
 
 -- Bounty 55 taken but not solved, repeat the instructions
@@ -239,19 +245,19 @@ queststatus(162) ~= 0, queststatus(162) < 59, town = Cadomyr, "Auftrag", "Aufgab
 
 -- Bounty 60: Kill eight dogs (26) in three hours
 -- 60: Bounty 60 taken, get eight dogs, reward: six sp, 4 rankpoints
-queststatus(162) = 0, english, chance(7.142857143), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill eight dogs."), "Her majesty put a bounty on the heads of eight dogs. If you want to earn six silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 60, queststatus(163) = 36
+queststatus(162) = 0, english, chance(7.142857143), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill eight dogs."), "Her Majesty put a bounty on the heads of eight dogs. If you want to earn six silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 60, queststatus(163) = 36
 queststatus(162) = 0, german, chance(7.142857143), town = Cadomyr, "quest", "mission" -> inform("[Neues Kopfgeld] Töte acht Hunde."), "Ihre Majestät hat ein Kopfgeld auf acht Hunde ausgesetzt. Wenn ihr euch sechs Silberstücke verdienen möchtet, beendet ihr Leben in der Kantabiwüste. Tot oder nicht lebendig!", queststatus(162) = 60, queststatus(163) = 36
-queststatus(162) = 0, chance(7.142857143), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill eight dogs."), "Her majesty put a bounty on the heads of eight dogs. If you want to earn six silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 60, queststatus(163) = 36
+queststatus(162) = 0, chance(7.142857143), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill eight dogs."), "Her Majesty put a bounty on the heads of eight dogs. If you want to earn six silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 60, queststatus(163) = 36
 queststatus(162) = 0, chance(7.142857143), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> inform("[Neues Kopfgeld] Töte acht Hunde."), "Ihre Majestät hat ein Kopfgeld auf acht Hunde ausgesetzt. Wenn ihr euch sechs Silberstücke verdienen möchtet, beendet ihr Leben in der Kantabiwüste. Tot oder nicht lebendig!", queststatus(162) = 60, queststatus(163) = 36
 
 -- Bounty 60 solved, reward: six sp, 4 rankpoints, delay: 5h
-queststatus(162) = 68, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded six silver coins."), "That was close. Orders of her majesty should be followed immediately. Anyway, here is your bounty.", money + 600, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
+queststatus(162) = 68, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded six silver coins."), "That was close. Orders of her Majesty should be followed immediately. Anyway, here is your bounty.", money + 600, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
 queststatus(162) = 68, town = Cadomyr, ".*" -> inform("[Kopfgeld erhalten] Du erhältst sechs Silberstücke."), "Gerade noch rechtzeitig. Befehle ihrer Majestät sind sofort zu befolgen. Egal, hier ist euer Kopfgeld.", money + 600, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
 
 -- Bounty 60 taken but not solved, repeat the instructions
-queststatus(162) ~= 0, queststatus(162) < 68, english, town = Cadomyr, "quest", "mission" -> "The bounty is put on eight dogs in the Kantabi Desert. May I did not make myself clear, but they are not meant to survive the day."
+queststatus(162) ~= 0, queststatus(162) < 68, english, town = Cadomyr, "quest", "mission" -> "The bounty is put on eight dogs in the Kantabi Desert. Maybe I did not make myself clear, but they are not meant to survive the day."
 queststatus(162) ~= 0, queststatus(162) < 68, town = Cadomyr, "quest", "mission" -> "Es ist ein Kopfgeld auf acht Hunde in der Kantabiwüste ausgesetzt. Ich hab mich wohl nicht klar ausgedrückt, sie sollen den Tag nicht überleben."
-queststatus(162) ~= 0, queststatus(162) < 68, town = Cadomyr, "task", "adventure", "order", "bounty" -> "The bounty is put on eight dogs in the Kantabi Desert. May I did not make myself clear, but they are not meant to survive the day."
+queststatus(162) ~= 0, queststatus(162) < 68, town = Cadomyr, "task", "adventure", "order", "bounty" -> "The bounty is put on eight dogs in the Kantabi Desert. Maybe I did not make myself clear, but they are not meant to survive the day."
 queststatus(162) ~= 0, queststatus(162) < 68, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> "Es ist ein Kopfgeld auf acht Hunde in der Kantabiwüste ausgesetzt. Ich hab mich wohl nicht klar ausgedrückt, sie sollen den Tag nicht überleben."
 
 -- Bounty 69: Kill twelve dogs (26) in three hours
@@ -273,13 +279,13 @@ queststatus(162) ~= 0, queststatus(162) < 81, town = Cadomyr, "Auftrag", "Aufgab
 
 -- Bounty 82: Kill four foxes (73) in three hours
 -- 82: Bounty 82 taken, kill four foxes, reward: four sp, 2 rankpoints
-queststatus(162) = 0, english, chance(8.333333333), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill four foxes."), "Time for a bounty hunt! Her majesty has authorised me to pay a bounty of four silver coins for the heads of four foxes. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 82, queststatus(163) = 36
+queststatus(162) = 0, english, chance(8.333333333), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill four foxes."), "Time for a bounty hunt! Her Majesty has authorised me to pay a bounty of four silver coins for the heads of four foxes. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 82, queststatus(163) = 36
 queststatus(162) = 0, german, chance(8.333333333), town = Cadomyr, "quest", "mission" -> inform("[Neues Kopfgeld] Töte vier Füchse."), "Zeit für eine Kopfgeldjagd! Ihre Majestät hat mich ermächtigt, ein Kopfgeld von vier Silberstücken an denjenigen auszuzahlen, der vier Füchse erschlägt. Geht in die Kantabiwüste und macht sie zu einem besseren Ort.", queststatus(162) = 82, queststatus(163) = 36
-queststatus(162) = 0, chance(8.333333333), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill four foxes."), "Time for a bounty hunt! Her majesty has authorised me to pay a bounty of four silver coins for the heads of four foxes. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 82, queststatus(163) = 36
+queststatus(162) = 0, chance(8.333333333), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill four foxes."), "Time for a bounty hunt! Her Majesty has authorised me to pay a bounty of four silver coins for the heads of four foxes. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 82, queststatus(163) = 36
 queststatus(162) = 0, chance(8.333333333), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> inform("[Neues Kopfgeld] Töte vier Füchse."), "Zeit für eine Kopfgeldjagd! Ihre Majestät hat mich ermächtigt, ein Kopfgeld von vier Silberstücken an denjenigen auszuzahlen, der vier Füchse erschlägt. Geht in die Kantabiwüste und macht sie zu einem besseren Ort .", queststatus(162) = 82, queststatus(163) = 36
 
 -- Bounty 82 solved, reward: four sp, 5 rankpoints, delay: 5h
-queststatus(162) = 86, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded four silver coins."), "Ah, another deed of glory. You fulfilled your assignment, so I will fulfill my mine. Accept this bounty.", money + 400, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
+queststatus(162) = 86, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded four silver coins."), "Ah, another deed of glory. You fulfilled your assignment, so I will fulfil mine. Accept this bounty.", money + 400, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
 queststatus(162) = 86, town = Cadomyr, ".*" -> inform("[Kopfgeld erhalten] Du erhältst vier Silberstücke."), "Ah, eine erneute Ruhmestat. Ihr habt euren Auftrag erledigt und so werde ich meinen Dienst tun. Nehmt euer Kopfgeld.", money + 400, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
 
 -- Bounty 82 taken but not solved, repeat the instructions
@@ -290,19 +296,19 @@ queststatus(162) ~= 0, queststatus(162) < 86, town = Cadomyr, "Auftrag", "Aufgab
 
 -- Bounty 87: Kill eight foxes (73) in three hours
 -- 87: Bounty 87 taken, get eight foxes, reward: eight sp, 4 rankpoints
-queststatus(162) = 0, english, chance(9.090909091), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill eight foxes."), "Her majesty put a bounty on the heads of eight foxes. If you want to earn eight silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 87, queststatus(163) = 36
+queststatus(162) = 0, english, chance(9.090909091), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill eight foxes."), "Her Majesty put a bounty on the heads of eight foxes. If you want to earn eight silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 87, queststatus(163) = 36
 queststatus(162) = 0, german, chance(9.090909091), town = Cadomyr, "quest", "mission" -> inform("[Neues Kopfgeld] Töte acht Füchse."), "Ihre Majestät hat ein Kopfgeld auf acht Füchse ausgesetzt. Wenn ihr euch acht Silberstücke verdienen möchtet, beendet ihr Leben in der Kantabiwüste. Tot oder nicht lebendig!", queststatus(162) = 87, queststatus(163) = 36
-queststatus(162) = 0, chance(9.090909091), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill eight foxes."), "Her majesty put a bounty on the heads of eight foxes. If you want to earn eight silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 87, queststatus(163) = 36
+queststatus(162) = 0, chance(9.090909091), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill eight foxes."), "Her Majesty put a bounty on the heads of eight foxes. If you want to earn eight silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 87, queststatus(163) = 36
 queststatus(162) = 0, chance(9.090909091), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> inform("[Neues Kopfgeld] Töte acht Füchse."), "Ihre Majestät hat ein Kopfgeld auf acht Füchse ausgesetzt. Wenn ihr euch acht Silberstücke verdienen möchtet, beendet ihr Leben in der Kantabiwüste. Tot oder nicht lebendig!", queststatus(162) = 87, queststatus(163) = 36
 
 -- Bounty 87 solved, reward: eight sp, 4 rankpoints, delay: 5h
-queststatus(162) = 95, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded eight silver coins."), "That was close. Orders of her majesty should be followed immediately. Anyway, here is your bounty.", money + 800, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
+queststatus(162) = 95, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded eight silver coins."), "That was close. Orders of her Majesty should be followed immediately. Anyway, here is your bounty.", money + 800, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
 queststatus(162) = 95, town = Cadomyr, ".*" -> inform("[Kopfgeld erhalten] Du erhältst acht Silberstücke."), "Gerade noch rechtzeitig. Befehle ihrer Majestät sind sofort zu befolgen. Egal, hier ist euer Kopfgeld.", money + 800, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
 
 -- Bounty 87 taken but not solved, repeat the instructions
-queststatus(162) ~= 0, queststatus(162) < 95, english, town = Cadomyr, "quest", "mission" -> "The bounty is put on eight foxes in the Kantabi Desert. May I did not make myself clear, but they are not meant to survive the day."
+queststatus(162) ~= 0, queststatus(162) < 95, english, town = Cadomyr, "quest", "mission" -> "The bounty is put on eight foxes in the Kantabi Desert. Maybe I did not make myself clear, but they are not meant to survive the day."
 queststatus(162) ~= 0, queststatus(162) < 95, town = Cadomyr, "quest", "mission" -> "Es ist ein Kopfgeld auf acht Füchse in der Kantabiwüste ausgesetzt. Ich hab mich wohl nicht klar ausgedrückt, sie sollen den Tag nicht überleben."
-queststatus(162) ~= 0, queststatus(162) < 95, town = Cadomyr, "task", "adventure", "order", "bounty" -> "The bounty is put on eight foxes in the Kantabi Desert. May I did not make myself clear, but they are not meant to survive the day."
+queststatus(162) ~= 0, queststatus(162) < 95, town = Cadomyr, "task", "adventure", "order", "bounty" -> "The bounty is put on eight foxes in the Kantabi Desert. Maybe I did not make myself clear, but they are not meant to survive the day."
 queststatus(162) ~= 0, queststatus(162) < 95, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> "Es ist ein Kopfgeld auf acht Füchse in der Kantabiwüste ausgesetzt. Ich hab mich wohl nicht klar ausgedrückt, sie sollen den Tag nicht überleben."
 
 -- Bounty 96: Kill twelve foxes (73) in three hours
@@ -324,13 +330,13 @@ queststatus(162) ~= 0, queststatus(162) < 108, town = Cadomyr, "Auftrag", "Aufga
 
 -- Bounty 109: Kill four humans (314) in three hours
 -- 109: Bounty 109 taken, kill four humans, reward: six sp, 2 rankpoints
-queststatus(162) = 0, english, chance(11.11111111), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill four humans."), "Time for a bounty hunt! Her majesty has authorised me to pay a bounty of six silver coins for the heads of four humans. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 109, queststatus(163) = 36
+queststatus(162) = 0, english, chance(11.11111111), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill four humans."), "Time for a bounty hunt! Her Majesty has authorised me to pay a bounty of six silver coins for the heads of four humans. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 109, queststatus(163) = 36
 queststatus(162) = 0, german, chance(11.11111111), town = Cadomyr, "quest", "mission" -> inform("[Neues Kopfgeld] Töte vier Menschen."), "Zeit für eine Kopfgeldjagd! Ihre Majestät hat mich ermächtigt, ein Kopfgeld von sechs Silberstücken an denjenigen auszuzahlen, der vier Menschen erschlägt. Geht in die Kantabiwüste und macht sie zu einem besseren Ort.", queststatus(162) = 109, queststatus(163) = 36
-queststatus(162) = 0, chance(11.11111111), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill four humans."), "Time for a bounty hunt! Her majesty has authorised me to pay a bounty of six silver coins for the heads of four humans. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 109, queststatus(163) = 36
+queststatus(162) = 0, chance(11.11111111), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill four humans."), "Time for a bounty hunt! Her Majesty has authorised me to pay a bounty of six silver coins for the heads of four humans. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 109, queststatus(163) = 36
 queststatus(162) = 0, chance(11.11111111), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> inform("[Neues Kopfgeld] Töte vier Menschen."), "Zeit für eine Kopfgeldjagd! Ihre Majestät hat mich ermächtigt, ein Kopfgeld von sechs Silberstücken an denjenigen auszuzahlen, der vier Menschen erschlägt. Geht in die Kantabiwüste und macht sie zu einem besseren Ort .", queststatus(162) = 109, queststatus(163) = 36
 
 -- Bounty 109 solved, reward: six sp, 5 rankpoints, delay: 5h
-queststatus(162) = 113, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded six silver coins."), "Ah, another deed of glory. You fulfilled your assignment, so I will fulfill my mine. Accept this bounty.", money + 600, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
+queststatus(162) = 113, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded six silver coins."), "Ah, another deed of glory. You fulfilled your assignment, so I will fulfil mine. Accept this bounty.", money + 600, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
 queststatus(162) = 113, town = Cadomyr, ".*" -> inform("[Kopfgeld erhalten] Du erhältst sechs Silberstücke."), "Ah, eine erneute Ruhmestat. Ihr habt euren Auftrag erledigt und so werde ich meinen Dienst tun. Nehmt euer Kopfgeld.", money + 600, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
 
 -- Bounty 109 taken but not solved, repeat the instructions
@@ -341,19 +347,19 @@ queststatus(162) ~= 0, queststatus(162) < 113, town = Cadomyr, "Auftrag", "Aufga
 
 -- Bounty 114: Kill eight humans (314) in three hours
 -- 114: Bounty 114 taken, get eight humans, reward: twelve sp, 4 rankpoints
-queststatus(162) = 0, english, chance(12.5), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill eight humans."), "Her majesty put a bounty on the heads of eight humans. If you want to earn twelve silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 114, queststatus(163) = 36
+queststatus(162) = 0, english, chance(12.5), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill eight humans."), "Her Majesty put a bounty on the heads of eight humans. If you want to earn twelve silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 114, queststatus(163) = 36
 queststatus(162) = 0, german, chance(12.5), town = Cadomyr, "quest", "mission" -> inform("[Neues Kopfgeld] Töte acht Menschen."), "Ihre Majestät hat ein Kopfgeld auf acht Menschen ausgesetzt. Wenn ihr euch zwölf Silberstücke verdienen möchtet, beendet ihr Leben in der Kantabiwüste. Tot oder nicht lebendig!", queststatus(162) = 114, queststatus(163) = 36
-queststatus(162) = 0, chance(12.5), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill eight humans."), "Her majesty put a bounty on the heads of eight humans. If you want to earn twelve silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 114, queststatus(163) = 36
+queststatus(162) = 0, chance(12.5), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill eight humans."), "Her Majesty put a bounty on the heads of eight humans. If you want to earn twelve silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 114, queststatus(163) = 36
 queststatus(162) = 0, chance(12.5), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> inform("[Neues Kopfgeld] Töte acht Menschen."), "Ihre Majestät hat ein Kopfgeld auf acht Menschen ausgesetzt. Wenn ihr euch zwölf Silberstücke verdienen möchtet, beendet ihr Leben in der Kantabiwüste. Tot oder nicht lebendig!", queststatus(162) = 114, queststatus(163) = 36
 
 -- Bounty 114 solved, reward: twelve sp, 4 rankpoints, delay: 5h
-queststatus(162) = 122, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded twelve silver coins."), "That was close. Orders of her majesty should be followed immediately. Anyway, here is your bounty.", money + 1200, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
+queststatus(162) = 122, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded twelve silver coins."), "That was close. Orders of her Majesty should be followed immediately. Anyway, here is your bounty.", money + 1200, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
 queststatus(162) = 122, town = Cadomyr, ".*" -> inform("[Kopfgeld erhalten] Du erhältst zwölf Silberstücke."), "Gerade noch rechtzeitig. Befehle ihrer Majestät sind sofort zu befolgen. Egal, hier ist euer Kopfgeld.", money + 1200, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
 
 -- Bounty 114 taken but not solved, repeat the instructions
-queststatus(162) ~= 0, queststatus(162) < 122, english, town = Cadomyr, "quest", "mission" -> "The bounty is put on eight humans in the Kantabi Desert. May I did not make myself clear, but they are not meant to survive the day."
+queststatus(162) ~= 0, queststatus(162) < 122, english, town = Cadomyr, "quest", "mission" -> "The bounty is put on eight humans in the Kantabi Desert. Maybe I did not make myself clear, but they are not meant to survive the day."
 queststatus(162) ~= 0, queststatus(162) < 122, town = Cadomyr, "quest", "mission" -> "Es ist ein Kopfgeld auf acht Menschen in der Kantabiwüste ausgesetzt. Ich hab mich wohl nicht klar ausgedrückt, sie sollen den Tag nicht überleben."
-queststatus(162) ~= 0, queststatus(162) < 122, town = Cadomyr, "task", "adventure", "order", "bounty" -> "The bounty is put on eight humans in the Kantabi Desert. May I did not make myself clear, but they are not meant to survive the day."
+queststatus(162) ~= 0, queststatus(162) < 122, town = Cadomyr, "task", "adventure", "order", "bounty" -> "The bounty is put on eight humans in the Kantabi Desert. Maybe I did not make myself clear, but they are not meant to survive the day."
 queststatus(162) ~= 0, queststatus(162) < 122, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> "Es ist ein Kopfgeld auf acht Menschen in der Kantabiwüste ausgesetzt. Ich hab mich wohl nicht klar ausgedrückt, sie sollen den Tag nicht überleben."
 
 -- Bounty 123: Kill twelve humans (314) in three hours
@@ -375,13 +381,13 @@ queststatus(162) ~= 0, queststatus(162) < 135, town = Cadomyr, "Auftrag", "Aufga
 
 -- Bounty 136: Kill four orcs (355) in three hours
 -- 136: Bounty 136 taken, kill four orcs, reward: eight sp, 2 rankpoints
-queststatus(162) = 0, english, chance(16.66666667), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill four orcs."), "Time for a bounty hunt! Her majesty has authorised me to pay a bounty of eight silver coins for the heads of four orcs. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 136, queststatus(163) = 36
+queststatus(162) = 0, english, chance(16.66666667), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill four orcs."), "Time for a bounty hunt! Her Majesty has authorised me to pay a bounty of eight silver coins for the heads of four orcs. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 136, queststatus(163) = 36
 queststatus(162) = 0, german, chance(16.66666667), town = Cadomyr, "quest", "mission" -> inform("[Neues Kopfgeld] Töte vier Orks."), "Zeit für eine Kopfgeldjagd! Ihre Majestät hat mich ermächtigt, ein Kopfgeld von acht Silberstücken an denjenigen auszuzahlen, der vier Orks erschlägt. Geht in die Kantabiwüste und macht sie zu einem besseren Ort.", queststatus(162) = 136, queststatus(163) = 36
-queststatus(162) = 0, chance(16.66666667), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill four orcs."), "Time for a bounty hunt! Her majesty has authorised me to pay a bounty of eight silver coins for the heads of four orcs. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 136, queststatus(163) = 36
+queststatus(162) = 0, chance(16.66666667), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill four orcs."), "Time for a bounty hunt! Her Majesty has authorised me to pay a bounty of eight silver coins for the heads of four orcs. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 136, queststatus(163) = 36
 queststatus(162) = 0, chance(16.66666667), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> inform("[Neues Kopfgeld] Töte vier Orks."), "Zeit für eine Kopfgeldjagd! Ihre Majestät hat mich ermächtigt, ein Kopfgeld von acht Silberstücken an denjenigen auszuzahlen, der vier Orks erschlägt. Geht in die Kantabiwüste und macht sie zu einem besseren Ort .", queststatus(162) = 136, queststatus(163) = 36
 
 -- Bounty 136 solved, reward: eight sp, 5 rankpoints, delay: 5h
-queststatus(162) = 140, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded eight silver coins."), "Ah, another deed of glory. You fulfilled your assignment, so I will fulfill my mine. Accept this bounty.", money + 800, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
+queststatus(162) = 140, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded eight silver coins."), "Ah, another deed of glory. You fulfilled your assignment, so I will fulfil mine. Accept this bounty.", money + 800, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
 queststatus(162) = 140, town = Cadomyr, ".*" -> inform("[Kopfgeld erhalten] Du erhältst acht Silberstücke."), "Ah, eine erneute Ruhmestat. Ihr habt euren Auftrag erledigt und so werde ich meinen Dienst tun. Nehmt euer Kopfgeld.", money + 800, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
 
 -- Bounty 136 taken but not solved, repeat the instructions
@@ -392,19 +398,19 @@ queststatus(162) ~= 0, queststatus(162) < 140, town = Cadomyr, "Auftrag", "Aufga
 
 -- Bounty 141: Kill eight orcs (355) in three hours
 -- 141: Bounty 141 taken, get eight orcs, reward: sixteen sp, 4 rankpoints
-queststatus(162) = 0, english, chance(20), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill eight orcs."), "Her majesty put a bounty on the heads of eight orcs. If you want to earn sixteen silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 141, queststatus(163) = 36
+queststatus(162) = 0, english, chance(20), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill eight orcs."), "Her Majesty put a bounty on the heads of eight orcs. If you want to earn sixteen silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 141, queststatus(163) = 36
 queststatus(162) = 0, german, chance(20), town = Cadomyr, "quest", "mission" -> inform("[Neues Kopfgeld] Töte acht Orks."), "Ihre Majestät hat ein Kopfgeld auf acht Orks ausgesetzt. Wenn ihr euch sechzehn Silberstücke verdienen möchtet, beendet ihr Leben in der Kantabiwüste. Tot oder nicht lebendig!", queststatus(162) = 141, queststatus(163) = 36
-queststatus(162) = 0, chance(20), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill eight orcs."), "Her majesty put a bounty on the heads of eight orcs. If you want to earn sixteen silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 141, queststatus(163) = 36
+queststatus(162) = 0, chance(20), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill eight orcs."), "Her Majesty put a bounty on the heads of eight orcs. If you want to earn sixteen silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 141, queststatus(163) = 36
 queststatus(162) = 0, chance(20), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> inform("[Neues Kopfgeld] Töte acht Orks."), "Ihre Majestät hat ein Kopfgeld auf acht Orks ausgesetzt. Wenn ihr euch sechzehn Silberstücke verdienen möchtet, beendet ihr Leben in der Kantabiwüste. Tot oder nicht lebendig!", queststatus(162) = 141, queststatus(163) = 36
 
 -- Bounty 141 solved, reward: sixteen sp, 4 rankpoints, delay: 5h
-queststatus(162) = 149, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded sixteen silver coins."), "That was close. Orders of her majesty should be followed immediately. Anyway, here is your bounty.", money + 1600, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
+queststatus(162) = 149, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded sixteen silver coins."), "That was close. Orders of her Majesty should be followed immediately. Anyway, here is your bounty.", money + 1600, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
 queststatus(162) = 149, town = Cadomyr, ".*" -> inform("[Kopfgeld erhalten] Du erhältst sechzehn Silberstücke."), "Gerade noch rechtzeitig. Befehle ihrer Majestät sind sofort zu befolgen. Egal, hier ist euer Kopfgeld.", money + 1600, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
 
 -- Bounty 141 taken but not solved, repeat the instructions
-queststatus(162) ~= 0, queststatus(162) < 149, english, town = Cadomyr, "quest", "mission" -> "The bounty is put on eight orcs in the Kantabi Desert. May I did not make myself clear, but they are not meant to survive the day."
+queststatus(162) ~= 0, queststatus(162) < 149, english, town = Cadomyr, "quest", "mission" -> "The bounty is put on eight orcs in the Kantabi Desert. Maybe I did not make myself clear, but they are not meant to survive the day."
 queststatus(162) ~= 0, queststatus(162) < 149, town = Cadomyr, "quest", "mission" -> "Es ist ein Kopfgeld auf acht Orks in der Kantabiwüste ausgesetzt. Ich hab mich wohl nicht klar ausgedrückt, sie sollen den Tag nicht überleben."
-queststatus(162) ~= 0, queststatus(162) < 149, town = Cadomyr, "task", "adventure", "order", "bounty" -> "The bounty is put on eight orcs in the Kantabi Desert. May I did not make myself clear, but they are not meant to survive the day."
+queststatus(162) ~= 0, queststatus(162) < 149, town = Cadomyr, "task", "adventure", "order", "bounty" -> "The bounty is put on eight orcs in the Kantabi Desert. Maybe I did not make myself clear, but they are not meant to survive the day."
 queststatus(162) ~= 0, queststatus(162) < 149, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> "Es ist ein Kopfgeld auf acht Orks in der Kantabiwüste ausgesetzt. Ich hab mich wohl nicht klar ausgedrückt, sie sollen den Tag nicht überleben."
 
 -- Bounty 150: Kill twelve orcs (355) in three hours
@@ -426,13 +432,13 @@ queststatus(162) ~= 0, queststatus(162) < 162, town = Cadomyr, "Auftrag", "Aufga
 
 -- Bounty 163: Kill four golems (726) in three hours
 -- 163: Bounty 163 taken, kill four golems, reward: ten sp, 2 rankpoints
-queststatus(162) = 0, english, chance(33.33333333), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill four golems."), "Time for a bounty hunt! Her majesty has authorised me to pay a bounty of ten silver coins for the heads of four golems. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 163, queststatus(163) = 36
+queststatus(162) = 0, english, chance(33.33333333), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill four golems."), "Time for a bounty hunt! Her Majesty has authorised me to pay a bounty of ten silver coins for the heads of four golems. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 163, queststatus(163) = 36
 queststatus(162) = 0, german, chance(33.33333333), town = Cadomyr, "quest", "mission" -> inform("[Neues Kopfgeld] Töte vier Golems."), "Zeit für eine Kopfgeldjagd! Ihre Majestät hat mich ermächtigt, ein Kopfgeld von zehn Silberstücken an denjenigen auszuzahlen, der vier Golems erschlägt. Geht in die Kantabiwüste und macht sie zu einem besseren Ort.", queststatus(162) = 163, queststatus(163) = 36
-queststatus(162) = 0, chance(33.33333333), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill four golems."), "Time for a bounty hunt! Her majesty has authorised me to pay a bounty of ten silver coins for the heads of four golems. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 163, queststatus(163) = 36
+queststatus(162) = 0, chance(33.33333333), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill four golems."), "Time for a bounty hunt! Her Majesty has authorised me to pay a bounty of ten silver coins for the heads of four golems. Set out to the Kantabi desert and make it a better place.", queststatus(162) = 163, queststatus(163) = 36
 queststatus(162) = 0, chance(33.33333333), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> inform("[Neues Kopfgeld] Töte vier Golems."), "Zeit für eine Kopfgeldjagd! Ihre Majestät hat mich ermächtigt, ein Kopfgeld von zehn Silberstücken an denjenigen auszuzahlen, der vier Golems erschlägt. Geht in die Kantabiwüste und macht sie zu einem besseren Ort .", queststatus(162) = 163, queststatus(163) = 36
 
 -- Bounty 163 solved, reward: ten sp, 5 rankpoints, delay: 5h
-queststatus(162) = 167, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded ten silver coins."), "Ah, another deed of glory. You fulfilled your assignment, so I will fulfill my mine. Accept this bounty.", money + 1000, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
+queststatus(162) = 167, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded ten silver coins."), "Ah, another deed of glory. You fulfilled your assignment, so I will fulfil mine. Accept this bounty.", money + 1000, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
 queststatus(162) = 167, town = Cadomyr, ".*" -> inform("[Kopfgeld erhalten] Du erhältst zehn Silberstücke."), "Ah, eine erneute Ruhmestat. Ihr habt euren Auftrag erledigt und so werde ich meinen Dienst tun. Nehmt euer Kopfgeld.", money + 1000, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 2
 
 -- Bounty 163 taken but not solved, repeat the instructions
@@ -443,19 +449,19 @@ queststatus(162) ~= 0, queststatus(162) < 167, town = Cadomyr, "Auftrag", "Aufga
 
 -- Bounty 168: Kill eight golems (726) in three hours
 -- 168: Bounty 168 taken, get eight golems, reward: twenty sp, 4 rankpoints
-queststatus(162) = 0, english, chance(50), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill eight golems."), "Her majesty put a bounty on the heads of eight golems. If you want to earn twenty silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 168, queststatus(163) = 36
+queststatus(162) = 0, english, chance(50), town = Cadomyr, "quest", "mission" -> inform("[New Bounty] Kill eight golems."), "Her Majesty put a bounty on the heads of eight golems. If you want to earn twenty silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 168, queststatus(163) = 36
 queststatus(162) = 0, german, chance(50), town = Cadomyr, "quest", "mission" -> inform("[Neues Kopfgeld] Töte acht Golems."), "Ihre Majestät hat ein Kopfgeld auf acht Golems ausgesetzt. Wenn ihr euch zwanzig Silberstücke verdienen möchtet, beendet ihr Leben in der Kantabiwüste. Tot oder nicht lebendig!", queststatus(162) = 168, queststatus(163) = 36
-queststatus(162) = 0, chance(50), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill eight golems."), "Her majesty put a bounty on the heads of eight golems. If you want to earn twenty silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 168, queststatus(163) = 36
+queststatus(162) = 0, chance(50), town = Cadomyr, "task", "adventure", "order", "bounty" -> inform("[New Bounty] Kill eight golems."), "Her Majesty put a bounty on the heads of eight golems. If you want to earn twenty silver coins, end their life in the Kantabi desert. Dead or not alive!", queststatus(162) = 168, queststatus(163) = 36
 queststatus(162) = 0, chance(50), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> inform("[Neues Kopfgeld] Töte acht Golems."), "Ihre Majestät hat ein Kopfgeld auf acht Golems ausgesetzt. Wenn ihr euch zwanzig Silberstücke verdienen möchtet, beendet ihr Leben in der Kantabiwüste. Tot oder nicht lebendig!", queststatus(162) = 168, queststatus(163) = 36
 
 -- Bounty 168 solved, reward: twenty sp, 4 rankpoints, delay: 5h
-queststatus(162) = 176, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded twenty silver coins."), "That was close. Orders of her majesty should be followed immediately. Anyway, here is your bounty.", money + 2000, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
+queststatus(162) = 176, english, town = Cadomyr, ".*" -> inform("[Bounty finished] You are awarded twenty silver coins."), "That was close. Orders of her Majesty should be followed immediately. Anyway, here is your bounty.", money + 2000, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
 queststatus(162) = 176, town = Cadomyr, ".*" -> inform("[Kopfgeld erhalten] Du erhältst zwanzig Silberstücke."), "Gerade noch rechtzeitig. Befehle ihrer Majestät sind sofort zu befolgen. Egal, hier ist euer Kopfgeld.", money + 2000, queststatus(162) = 0, queststatus(163) = 0, queststatus(164) = 60, rankpoints + 4
 
 -- Bounty 168 taken but not solved, repeat the instructions
-queststatus(162) ~= 0, queststatus(162) < 176, english, town = Cadomyr, "quest", "mission" -> "The bounty is put on eight golems in the Kantabi Desert. May I did not make myself clear, but they are not meant to survive the day."
+queststatus(162) ~= 0, queststatus(162) < 176, english, town = Cadomyr, "quest", "mission" -> "The bounty is put on eight golems in the Kantabi Desert. Maybe I did not make myself clear, but they are not meant to survive the day."
 queststatus(162) ~= 0, queststatus(162) < 176, town = Cadomyr, "quest", "mission" -> "Es ist ein Kopfgeld auf acht Golems in der Kantabiwüste ausgesetzt. Ich hab mich wohl nicht klar ausgedrückt, sie sollen den Tag nicht überleben."
-queststatus(162) ~= 0, queststatus(162) < 176, town = Cadomyr, "task", "adventure", "order", "bounty" -> "The bounty is put on eight golems in the Kantabi Desert. May I did not make myself clear, but they are not meant to survive the day."
+queststatus(162) ~= 0, queststatus(162) < 176, town = Cadomyr, "task", "adventure", "order", "bounty" -> "The bounty is put on eight golems in the Kantabi Desert. Maybe I did not make myself clear, but they are not meant to survive the day."
 queststatus(162) ~= 0, queststatus(162) < 176, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kopfgeld" -> "Es ist ein Kopfgeld auf acht Golems in der Kantabiwüste ausgesetzt. Ich hab mich wohl nicht klar ausgedrückt, sie sollen den Tag nicht überleben."
 
 -- Bounty 177: Kill twelve golems (726) in three hours
@@ -478,7 +484,7 @@ queststatus(162) ~= 0, queststatus(162) < 189, town = Cadomyr, "Auftrag", "Aufga
 -- Generate stuff end
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-english, "Malachin", "Malachín" -> "The god of hunters. I am a bounty hunter. So, who is my god?"
+english, "Malachin", "Malachín" -> "The God of Hunters. I am a bounty hunter. So, who is my god?"
 "Malachin", "Malachín" -> "Der Gott der Jäger. Ich bin ein Kopfgeldjäger. Also, wer ist wohl mein Gott?"
 english, "Zhambra" -> "I do not favour Zhambra. A comrade may save you on the fields of glory, but is it really glorious to rely on that?"
 "Zhambra" -> "Ich kann Zhambra nicht viel abgewinnen. Ein Kamerad vermag einen zwar auf dem Schlachtfeld der Ehre erretten, aber ist es wirklich ehrenhaft, sich darauf zu verlassen?"
@@ -489,12 +495,12 @@ english, "Zhambra" -> "I do not favour Zhambra. A comrade may save you on the fi
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me kratzt sich an der Nase.", "#me scratches his nose."
-cycletext "Was für eine Schönheit unsere Königin doch ist...", "What a beauty our queen is..."
+cycletext "Was für eine Schönheit unsere Königin doch ist...", "What a beauty our Queen is..."
 cycletext "Zahltag!", "Payday!"
 cycletext "Wieso redet jeder mit mir nur über Kopfgelder?", "Why does everyone just talk about bounties?"
 cycletext "#me verjagt eine Taube.", "#me scares away a dove."
 cycletext "#me verjagt eine Ratte.", "#me scares away a rat."
-cycletext "Ein guter Tag zum Sterben, eh, Hastings?", "A good day to day, eh, Hastings?"
-cycletext "Auf den Baron Hastings gibt es kein Kopfgeld. Sein Leben ist keinen Pfifferling wert.", "There is no bounty put on Baron Hastings. His life is not worth a nickel."
+cycletext "Ein guter Tag zum Sterben, eh, Hastings?", "A good day to die, eh, Hastings?"
+cycletext "Auf den Baron Hastings gibt es kein Kopfgeld. Sein Leben ist keinen Pfifferling wert.", "There is no bounty put on Baron Hastings. His life is not worth a copper."
 cycletext "Auf, auf! Vorbei die Rast.", "On and on, the rest is over."
 cycletext "Mahlzeit.", "Good day."

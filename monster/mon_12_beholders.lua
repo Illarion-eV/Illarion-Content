@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+require("monster.base.monstermagic")
 require("monster.base.base")
 require("item.gems")
 require("monster.base.drop")
@@ -48,18 +49,6 @@ init=true;
 
 end
 
-function onSpawn(Monster)
-
-	-- Regeneration for high level monsters >= level 7
-	local MonID=Monster:getMonsterType()
-	if MonID == 125 or MonID == 124 or MonID == 123 then --Terror Eyes, Deadly Eye, Eye of Horror
-		local find, reg_effect = Monster.effects:find(2);
-		if not find then
-			Monster.effects:addEffect( LongTimeEffect(2,10) );
-		end
-	end
-end
-
 function enemyNear(Monster,Enemy)
 
     if init==nil then
@@ -84,7 +73,8 @@ function enemyOnSight(Monster,Enemy)
         ini(Monster);
         firstWP={};
     end
-
+	
+	monster.base.monstermagic.regeneration(Monster); --if an enemy is around, the monster regenerates slowly
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then

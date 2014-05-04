@@ -429,8 +429,8 @@ function GatheringToolBreaks(user, item)
     return false;
   end;
 		
-  -- reduce durability only each 3rd time
-  if (math.random(1, 100) < 33) then
+  -- reduce durability only each 4th time
+  if (math.random(1, 100) < 25) then
     local durability = math.mod(item.quality, 100);
     local quality = (item.quality - durability) / 100;
     

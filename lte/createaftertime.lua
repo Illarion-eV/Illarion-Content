@@ -73,7 +73,7 @@ if createItemTimeB ~= 0 then
  	if createItemTimeA<createItemTimeB then --check if smaller; if yes than nextcall
 		if informplayeraboutunsuccess == nil then
 			informplayeraboutunsuccess = 0
-		elseif informplayeraboutunsuccess == 2 and createItemText==1 then -- if we have defined text1 for the created item
+		elseif informplayeraboutunsuccess == 1 and createItemText==1 then -- if we have defined text1 for the created item
 			base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
 		end
 		informplayeraboutunsuccess = informplayeraboutunsuccess+1
@@ -144,7 +144,11 @@ if createItemTimeB ~= 0 then
 		createItemTimeA=createItemTimeA+1 --counter for nextcall
 		findCreateAfterA, createAfterA = Effect:findValue("createAfterA") --find variable
 		findCreateAfterB, createAfterB = Effect:findValue("createAfterB") --find variable
-		createAfter=math.random(createAfterA,createAfterB);  --create random value between variables
+		if createItemTimeA==0 then
+			createAfter=createAfterA
+		else	
+			createAfter=math.random(createAfterA,createAfterB);  --create random value between variables
+		end
 		Effect.nextCalled = createAfter --set time for nextcall
 		return true --callEffect is needed again, return true necessary
 
@@ -193,7 +197,7 @@ elseif findCreateItemTimeBB then
  	if createItemTimeAA<createItemTimeBB then --check if smaller; if yes than nextcall
 		if informplayeraboutunsuccess == nil then
 			informplayeraboutunsuccess = 0
-		elseif informplayeraboutunsuccess == 2 and createItemText==1 then -- if we have defined text1 for the created item
+		elseif informplayeraboutunsuccess == 1 and createItemText==1 then -- if we have defined text1 for the created item
 			base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
 		end
 		informplayeraboutunsuccess = informplayeraboutunsuccess+1
@@ -244,7 +248,11 @@ elseif findCreateItemTimeBB then
 		createItemTimeAA=createItemTimeAA+1 --counter for nextcall
 		findCreateAfterA, createAfterA = Effect:findValue("createAfterA") --find variable
 		findCreateAfterB, createAfterB = Effect:findValue("createAfterB") --find variable
-		createAfter=math.random(createAfterA,createAfterB);  --create random value between variables
+		if createItemTimeAA==0 then
+			createAfter=createAfterA
+		else	
+			createAfter=math.random(createAfterA,createAfterB);  --create random value between variables
+		end
 		Effect.nextCalled = createAfter --set time for nextcall
 		return true --callEffect is needed again, return true necessary
 

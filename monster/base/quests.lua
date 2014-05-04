@@ -807,12 +807,12 @@ function iniQuests()
 	table.insert(questList[981],id); --All beetles
 	table.insert(questList[991],id); --All beetles
 	table.insert(questList[1001],id); --All beetles
-	table.insert(questList[1011],id); --All beetles			
+	table.insert(questList[1011],id); --All beetles
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=5;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
     --Quest 25: Glorious Bounty
     local id=25;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -828,12 +828,12 @@ function iniQuests()
 	table.insert(questList[981],id); --All beetles
 	table.insert(questList[991],id); --All beetles
 	table.insert(questList[1001],id); --All beetles
-	table.insert(questList[1011],id); --All beetles			
+	table.insert(questList[1011],id); --All beetles
     minimumQueststatus[id]=6;
     maximumQueststatus[id]=14;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
 	--Quest 26: Glorious Bounty
     local id=26;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -849,12 +849,12 @@ function iniQuests()
 	table.insert(questList[981],id); --All beetles
 	table.insert(questList[991],id); --All beetles
 	table.insert(questList[1001],id); --All beetles
-	table.insert(questList[1011],id); --All beetles			
+	table.insert(questList[1011],id); --All beetles
     minimumQueststatus[id]=15;
     maximumQueststatus[id]=27;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
 	--Quest 27: Glorious Bounty
     local id=27;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -890,7 +890,7 @@ function iniQuests()
     maximumQueststatus[id]=41;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
 	--Quest 29: Glorious Bounty
     local id=29;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -908,7 +908,7 @@ function iniQuests()
     maximumQueststatus[id]=54;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
 	--Quest 30: Glorious Bounty
     local id=30;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -952,7 +952,7 @@ function iniQuests()
     maximumQueststatus[id]=68;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
 	--Quest 32: Glorious Bounty
     local id=32;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -974,7 +974,7 @@ function iniQuests()
     maximumQueststatus[id]=81;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
 	--Quest 33: Glorious Bounty
     local id=33;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -993,7 +993,7 @@ function iniQuests()
     maximumQueststatus[id]=86;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
 	--Quest 34: Glorious Bounty
     local id=34;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -1050,7 +1050,7 @@ function iniQuests()
     maximumQueststatus[id]=113;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
 	--Quest 37: Glorious Bounty
     local id=37;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -1069,7 +1069,7 @@ function iniQuests()
     maximumQueststatus[id]=122;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
 	--Quest 38: Glorious Bounty
     local id=38;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -1088,7 +1088,7 @@ function iniQuests()
     maximumQueststatus[id]=135;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
 	--Quest 39: Glorious Bounty
     local id=39;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -1107,7 +1107,7 @@ function iniQuests()
     maximumQueststatus[id]=140;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
 	--Quest 40: Glorious Bounty
     local id=40;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -1126,7 +1126,7 @@ function iniQuests()
     maximumQueststatus[id]=149;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
 	--Quest 41: Glorious Bounty
     local id=41;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -1145,7 +1145,7 @@ function iniQuests()
     maximumQueststatus[id]=162;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
 	--Quest 42: Glorious Bounty
     local id=42;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -1191,7 +1191,7 @@ function iniQuests()
     maximumQueststatus[id]=176;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
-	
+
 	--Quest 44: Glorious Bounty
     local id=44;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
@@ -1214,6 +1214,76 @@ function iniQuests()
     maximumQueststatus[id]=189;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
+
+	--Quest 45: Gorgophone's nest
+    local id=45;
+    germanTitle[id]="Das Nest der Gorgophone";
+    englishTitle[id]="Gorgophone's Nest";
+    NPCName[id]="Gorgophone";
+    statusId[id]=520;
+    germanRace[id]="kleine Spinnen";
+    englishRace[id]="small spiders";
+	table.insert(questList[196],id); --Small Spider
+    minimumQueststatus[id]=1;
+    maximumQueststatus[id]=26;
+    questLocation[id]=position(852, 497, -6);
+    radius[id]=200;
+
+	--Quest 46: Gorgophone's nest
+    local id=46;
+    germanTitle[id]="Das Nest der Gorgophone";
+    englishTitle[id]="Gorgophone's Nest";
+    NPCName[id]="Gorgophone";
+    statusId[id]=520;
+    germanRace[id]="Rekrap Retep Spinnen";
+    englishRace[id]="Rekrap Retep spiders";
+	table.insert(questList[191],id); --Rekrap Retep
+    minimumQueststatus[id]=30;
+    maximumQueststatus[id]=50;
+    questLocation[id]=position(852, 497, -6);
+    radius[id]=200;
+
+	--Quest 47: Gorgophone's nest
+    local id=47;
+    germanTitle[id]="Das Nest der Gorgophone";
+    englishTitle[id]="Gorgophone's Nest";
+    NPCName[id]="Gorgophone";
+    statusId[id]=520;
+    germanRace[id]="Taranteln";
+    englishRace[id]="tarantulas";
+	table.insert(questList[193],id); --Tarantula
+    minimumQueststatus[id]=52;
+    maximumQueststatus[id]=67;
+    questLocation[id]=position(852, 497, -6);
+    radius[id]=200;
+
+	--Quest 48: Gorgophone's nest
+    local id=48;
+    germanTitle[id]="Das Nest der Gorgophone";
+    englishTitle[id]="Gorgophone's Nest";
+    NPCName[id]="Gorgophone";
+    statusId[id]=520;
+    germanRace[id]="Spinnenköniginnen";
+    englishRace[id]="Spider Queens";
+	table.insert(questList[195],id); --SpiderQueen
+    minimumQueststatus[id]=75;
+    maximumQueststatus[id]=80;
+    questLocation[id]=position(852, 497, -6);
+    radius[id]=200;
+
+	--Quest 49: Gorgophone's nest
+    local id=49;
+    germanTitle[id]="Das Nest der Gorgophone";
+    englishTitle[id]="Gorgophone's Nest";
+    NPCName[id]="Gorgophone";
+    statusId[id]=520;
+    germanRace[id]="Seelenpein Spinnen";
+    englishRace[id]="Soulpain spiders";
+	table.insert(questList[262],id); --Soulpain
+    minimumQueststatus[id]=82;
+    maximumQueststatus[id]=132;
+    questLocation[id]=position(852, 497, -6);
+    radius[id]=200;
 
 end
 

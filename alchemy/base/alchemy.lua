@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- ds_base_alchemy.lua
 
@@ -25,13 +25,7 @@ function InitAlchemy()
 	InitPotions()
 end
 
--- the list of plants with their substances
-plantSubstanceList = {};
-
 function InitPlantSubstance()
-    if plantSubstanceList == nil then
-	    plantSubstanceList = {}
-	end
 
 	setPlantSubstance(15,"","")
 	setPlantSubstance(80,"","")
@@ -539,7 +533,7 @@ end
 
 function GetCauldronInfront(User,Item)
     local retVal = nil
-    Item = base.common.base.common.GetFrontItem(User)
+    Item = base.common.GetFrontItem(User)
 	if (Item ~= nil) and (Item.id >= 1008) and (Item.id <= 1018) then
 	    retVal = Item
 	end
@@ -701,10 +695,8 @@ function SetQuality(User,Item)
 -- the mean
 	local mean =  base.common.Scale(1,9,(attribQuali + skillQuali))
 -- normal distribution; mean determined by skill and attributes; fixed standard deviation
-	local quality
-	repeat
-	    quality = Random.normal(mean, 4.5)
-	until (quality >= 1 and quality <= 9)
+	local quality = Random.normal(mean, 4.5);
+	quality = base.common.Limit(quality, 1, 9);
 
 	Item:setData("potionQuality",quality*100+99)-- duarability is useless, we set it anway
 end

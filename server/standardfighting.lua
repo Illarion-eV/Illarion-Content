@@ -901,7 +901,7 @@ function HitChance(Attacker, Defender, Globals)
 	end
 
 	--The Shield Scaling Factor (SSF). Changes how much the top shield is better than the worse one.
-	local ShieldScalingFactor =5;
+	local ShieldScalingFactor =5; --For what do we have database numbers!? ~Estralis
 
 	local Rarity = NotNil(tonumber(parryItem:getData("RareWeapon")));
 
@@ -912,6 +912,7 @@ function HitChance(Attacker, Defender, Globals)
 	local parryweapondefense = parryWeapon.Defence+Rarity*20;
 	local defenderdefense = (100/ShieldScalingFactor) + parryweapondefense*(1-1/ShieldScalingFactor);
 
+	--THIS IS SHIT!!! EITHER YOU TAKE THE DB VALUES OR NOT! ~Estralis
 	if(parryWeapon.WeaponType~=14) then
 		defenderdefense = defenderdefense/2;
 	end
