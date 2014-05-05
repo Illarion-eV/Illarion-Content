@@ -423,23 +423,6 @@ function CastMonster(Monster,Enemy,rndTry,monsters,AP)
 	return false
 end
 
-
-function SuddenWarp(Monster,Enemy,showGFX)
-    if (math.random(10) == 1) then
-        local XOffset = math.random(-5,5);
-        local YOffset = math.random(-5,5);
-        if (math.sqrt((XOffset*XOffset) + (YOffset*YOffset)) < 2) then
-            XOffset = 2;
-        end
-        if showGFX then world:gfx(41,Monster.pos) end;
-        Monster:warp(position(Enemy.pos.x+XOffset,Enemy.pos.y+YOffset,Enemy.pos.z));
-        if showGFX then world:gfx(41,Monster.pos) end;
-        Monster.movepoints = Monster.movepoints - 10;
-        return true;
-    end
-    return false;
-end
-
 --Addition by Estralis: A function that makes a monster speak a random message
 
 function MonsterRandomTalk(Monster,msgs)

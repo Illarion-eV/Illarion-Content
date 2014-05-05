@@ -61,7 +61,7 @@ function enemyNear(Monster,Enemy)
 
     local MonID=Monster:getMonsterType();
     if (MonID==53) then
-        return ( monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonMagic(Monster,Enemy,6,{1200,2400},{{3,5},{6,5}},{},40,1,{25,60}) );
+        return ( monster.base.monstermagic.SuddenWarp(Monster,Enemy) or monster.base.drop.CastMonMagic(Monster,Enemy,6,{1200,2400},{{3,5},{6,5}},{},40,1,{25,60}) );
     elseif (MonID==54) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,3000},{{16,0},{37,0}},{{360,320,500,0,1}},40,0,{25,60}) == true or monster.base.drop.CastMonMagic(Monster,Enemy,6,{1200,2400},{{37,5}},{},40,1,{25,60}));
     else

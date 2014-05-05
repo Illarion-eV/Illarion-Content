@@ -72,7 +72,7 @@ function enemyNear(Monster,Enemy)
     end
 
     if (MonID==13) then
-        return ( monster.base.drop.CastLargeAreaMagic(Monster,15,3,{37,0},{1000, 2000},8,{36,5},60,{35,50}) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonMagic(Monster,Enemy,7,{1000,2000},{{36,5}},{},40,1,{35,50}) );
+        return ( monster.base.drop.CastLargeAreaMagic(Monster,15,3,{37,0},{1000, 2000},8,{36,5},60,{35,50}) or monster.base.monstermagic.SuddenWarp(Monster,Enemy) or monster.base.drop.CastMonMagic(Monster,Enemy,7,{1000,2000},{{36,5}},{},40,1,{35,50}) );
     else
         return false
     end
