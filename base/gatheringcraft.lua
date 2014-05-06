@@ -186,64 +186,22 @@ function GatheringCraft:FindRandomItem(User)
 end
 
 -- Generate working time for gathering actions
+-- Replaced old monster function with a simple one
 function GatheringCraft:GenWorkTime(User, toolItem)
+  
+  local minTime = 12; --Minimum time for skill 100 and normal tool
+  local maxTime = 60; --Maximum time for skill 0 and normal tool
+
   local skill  = math.min(100,math.max(0,User:getSkill(self.LeadSkill)));
-  local attribName = base.common.GetLeadAttributeName(Skill);  
-  local attrib = 5;
-  if attribName ~= nil then
-    math.min(20,math.max(0,User:increaseAttrib(attribName, 0)));
-  end
-
-  --[[ DESCRIPTION
-  Assume a gaussian distribution. The mean is determined by the skill.
-  The standard deviation is determined by the attribute value.
-  The algorithm approximates a skewed gaussian, where the skew linearly 
-  depends on the attribute. For attribute==10, there is no skew.
-  For attribute<10 the gaussian is skewed in positive direction, 
-  for attribute>10 the gaussian is skewed in negative direction.
-  The skew is approximated by simply two gaussians with the same mean 
-  but with different standard deviations, depending if the sample falls 
-  to the left or right of the mean. This decision is just uniformly sampled.
-  ]]
-
-  local minTime = 10;
-  local maxTime = 50;
-
+  workTime=base.common.Scale(maxTime, minTime, skill); --scaling with the skill
+  
   -- apply the quality bonus
   if ( toolItem ~= nil ) then
-    local qual = math.min(9,math.max(1,math.floor(toolItem.quality/100))) - 1; -- quality integer in [0,8]
-    maxTime = maxTime - maxTime*0.25*(qual/8);
+    local qual = math.min(9,math.max(1,math.floor(toolItem.quality/100))); -- quality integer in [0,9]
+	workTime = workTime - workTime*0.20*((qual-5)/4); --+/-20% depending on tool quality
   end
 
-  -- mean of the gaussian is determined by the skill
-  local mean = maxTime - (maxTime-minTime)*skill/100;
+  workTime = workTime*self.FastActionFactor; --for fast actions.
 
-  local minSdev = (maxTime-minTime)/10;
-  local maxSdev = (maxTime-minTime)/5;
-
-  -- decide randomly if time is added or subtracted
-  local dir = math.random(0,1)*2-1; -- dir is now element of {-1,1}
-
-  -- scale standard deviation according to attribute value, which should be in [0,20]
-  local sdev = (maxSdev-minSdev)*attrib/20;
-  if (sdev<0) then
-    -- time is subtracted => large sdev is good
-    sdev = minSdev + sdev;
-  else
-    -- time is added => small sdev is good
-    sdev = maxSdev - sdev;
-  end
-
-  -- draw a sample from a normal distribution
-  local workTime = Random.normal(0, sdev)
-  -- depending on dir, add or subtract the time
-  workTime = mean + dir*math.abs(workTime);
-  workTime = math.min(maxTime, math.max(minTime, workTime));
-
-  workTime = workTime*self.FastActionFactor;
-
-  -- clamp at last
-  workTime = math.min(maxTime, math.max(5, workTime));
-
-  return math.floor(workTime);
+  return math.ceil(workTime);
 end
