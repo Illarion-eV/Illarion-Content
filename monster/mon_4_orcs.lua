@@ -64,7 +64,7 @@ function enemyNear(Monster,Enemy)
     end
 
     if (MonID==45) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,6,{1000,2000},{{51,5},{2,4}},{},40,1,{50,60}) or monster.base.drop.CastHealing( Monster, 6, {1000,2000}, 8, {16, 13}, 40 ) );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,6,{1000,2000},{{51,5},{2,4}},{},40,1,{50,60}) or monster.base.monstermagic.CastHealing( Monster, {1000,2000}) );
     else
         return false
     end
@@ -87,7 +87,7 @@ function enemyOnSight(Monster,Enemy)
     if monster.base.base.isMonsterInRange(Monster, Enemy) then
         return true;
     elseif (MonID==45) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{1000,2000},{{51,5},{2,4}},{},40,1,{50,60}) or monster.base.drop.CastHealing( Monster, 5, {1000,2000}, 8, {16, 13}, 40 ) );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{1000,2000},{{51,5},{2,4}},{},40,1,{50,60}) or monster.base.monstermagic.CastHealing( Monster, {1000,2000}) );
     else
         return false
     end

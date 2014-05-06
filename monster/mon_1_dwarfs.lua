@@ -95,7 +95,7 @@ function enemyOnSight(Monster,Enemy)
     if monster.base.base.isMonsterInRange(Monster, Enemy) then
         return true;
     elseif (MonID==13) then
-		return ( monster.base.drop.CastLargeAreaMagic(Monster,10,3,{37,0},{1000, 2000},8,{36,5},60,{35,50}) or monster.base.drop.CastMonMagic(Monster,Enemy,4,{1000,2000},{{37,5}},{},40,1,{35,50}) or monster.base.drop.CastHealing( Monster, 4, {1000,2000}, 8, {16, 13}, 40 ) );
+		return ( monster.base.drop.CastLargeAreaMagic(Monster,10,3,{37,0},{1000, 2000},8,{36,5},60,{35,50}) or monster.base.drop.CastMonMagic(Monster,Enemy,4,{1000,2000},{{37,5}},{},40,1,{35,50}) or monster.base.monstermagic.CastHealing( Monster, {1000,2000}) );
     else
         return false
     end

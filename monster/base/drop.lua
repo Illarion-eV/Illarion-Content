@@ -319,46 +319,6 @@ function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlig
     return false;
 end
 
-function CastHealing( Caster, rndTry, HealAmmount, Range, Effect, AP )
-    if (math.random(1,rndTry)~=1) then
-        return false;
-    end
-
-    -- Look for my friends
-    local other_monsters = world:getMonstersInRangeOf( Caster.pos, Range );
-    if table.getn( other_monsters ) == 0 then
-        return false;
-    end
-
-    -- Scan Monsters and select wounded
-    local monsters_in_need = {};
-    for i, monster in pairs(other_monsters) do
-        if ( monster:increaseAttrib("hitpoints", 0 ) < 10000 ) then
-            table.insert( monsters_in_need, i );
-        end
-    end
-
-    if table.getn( monsters_in_need ) == 0 then
-        return false;
-    end
-
-    -- Select monster to help
-    local selected_monster = math.random( 1, table.getn( monsters_in_need ) );
-
-    other_monsters[ selected_monster ]:increaseAttrib( "hitpoints", math.random( HealAmmount[1], HealAmmount[2] ) );
-
-    if Effect[1] ~= 0 and Effect[1] ~= nil then
-        world:gfx( Effect[1], other_monsters[ selected_monster ].pos );
-    end
-    if Effect[2] ~= 0 and Effect[2] ~= nil then
-        world:makeSound( Effect[2], other_monsters[ selected_monster ].pos );
-    end
-
-    other_monsters[ selected_monster ].movepoints = other_monsters[ selected_monster ].movepoints - AP;
-
-    return true;
-end
-
 function CastParalyze( Caster, Enemy, rndTry, APPunishment, Range, Effect, AP ,CastingTry )
     if (math.random(1,rndTry)==1) and (Caster.pos.z==Enemy.pos.z) then
         local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( Enemy );

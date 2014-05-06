@@ -82,7 +82,7 @@ function enemyOnSight(Monster,Enemy)
 	if monster.base.base.isMonsterInRange(Monster, Enemy) then
         return true;
     elseif (MonID==812) then
-        return ( monster.base.drop.CastHealing( Monster, 4, {1000,2000}, 8, {16, 13}, 40 ) or monster.base.drop.CastMonMagic(Monster,Enemy,4,{1000,2500},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1,{45,70}) );
+        return ( monster.base.monstermagic.CastHealing(Monster, {1000,2000}) or monster.base.drop.CastMonMagic(Monster,Enemy,4,{1000,2500},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1,{45,70}) );
     else
         return false;
     end
