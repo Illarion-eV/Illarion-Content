@@ -629,6 +629,7 @@ function iniQuests()
     table.insert(questList[114],id);
     table.insert(questList[115],id);
 	table.insert(questList[751],id);
+	table.insert(questList[751],id);
     table.insert(questList[753],id);
     table.insert(questList[754],id);
     table.insert(questList[761],id);
