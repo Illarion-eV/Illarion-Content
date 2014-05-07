@@ -1286,7 +1286,7 @@ function iniQuests()
     maximumQueststatus[id]=132;
     questLocation[id]=position(852, 497, -6);
     radius[id]=200;
-	
+
 	--Quest 50: Spy Informant
     local id=50;
     germanTitle[id]="Spitzel Informant";
@@ -1301,10 +1301,10 @@ function iniQuests()
 	table.insert(questList[274],id); --All wasps
 	table.insert(questList[278],id); --All wasps
     minimumQueststatus[id]=1;
-    maximumQueststatus[id]=5;	
+    maximumQueststatus[id]=5;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 51: Spy Informant
     local id=51;
     germanTitle[id]="Spitzel Informant";
@@ -1319,10 +1319,10 @@ function iniQuests()
 	table.insert(questList[274],id); --All wasps
 	table.insert(questList[278],id); --All wasps
     minimumQueststatus[id]=6;
-    maximumQueststatus[id]=14;	
+    maximumQueststatus[id]=14;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 52: Spy Informant
     local id=52;
     germanTitle[id]="Spitzel Informant";
@@ -1337,10 +1337,10 @@ function iniQuests()
 	table.insert(questList[274],id); --All wasps
 	table.insert(questList[278],id); --All wasps
     minimumQueststatus[id]=15;
-    maximumQueststatus[id]=27;	
+    maximumQueststatus[id]=27;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 53: Spy Informant
     local id=53;
     germanTitle[id]="Spitzel Informant";
@@ -1363,10 +1363,10 @@ function iniQuests()
 	table.insert(questList[1052],id); -- all slimes
 	table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=28;
-    maximumQueststatus[id]=32;	
+    maximumQueststatus[id]=32;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 54: Spy Informant
     local id=54;
     germanTitle[id]="Spitzel Informant";
@@ -1389,10 +1389,10 @@ function iniQuests()
 	table.insert(questList[1052],id); -- all slimes
 	table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=33;
-    maximumQueststatus[id]=41;	
+    maximumQueststatus[id]=41;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 55: Spy Informant
     local id=55;
     germanTitle[id]="Spitzel Informant";
@@ -1415,10 +1415,10 @@ function iniQuests()
 	table.insert(questList[1052],id); -- all slimes
 	table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=42;
-    maximumQueststatus[id]=54;	
+    maximumQueststatus[id]=54;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 56: Spy Informant
     local id=56;
     germanTitle[id]="Spitzel Informant";
@@ -1437,10 +1437,10 @@ function iniQuests()
 	table.insert(questList[971],id); --All dogs
 	table.insert(questList[972],id); --All dogs
     minimumQueststatus[id]=55;
-    maximumQueststatus[id]=59;	
+    maximumQueststatus[id]=59;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 57: Spy Informant
     local id=57;
     germanTitle[id]="Spitzel Informant";
@@ -1459,10 +1459,10 @@ function iniQuests()
 	table.insert(questList[971],id); --All dogs
 	table.insert(questList[972],id); --All dogs
     minimumQueststatus[id]=60;
-    maximumQueststatus[id]=68;	
+    maximumQueststatus[id]=68;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 58: Spy Informant
     local id=58;
     germanTitle[id]="Spitzel Informant";
@@ -1481,10 +1481,10 @@ function iniQuests()
 	table.insert(questList[971],id); --All dogs
 	table.insert(questList[972],id); --All dogs
     minimumQueststatus[id]=69;
-    maximumQueststatus[id]=81;	
+    maximumQueststatus[id]=81;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 59: Spy Informant
     local id=59;
     germanTitle[id]="Spitzel Informant";
@@ -1500,10 +1500,10 @@ function iniQuests()
 	table.insert(questList[1021],id); --All foxes
 	table.insert(questList[1022],id); --All foxes
     minimumQueststatus[id]=82;
-    maximumQueststatus[id]=86;	
+    maximumQueststatus[id]=86;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 60: Spy Informant
     local id=60;
     germanTitle[id]="Spitzel Informant";
@@ -1519,10 +1519,10 @@ function iniQuests()
 	table.insert(questList[1021],id); --All foxes
 	table.insert(questList[1022],id); --All foxes
     minimumQueststatus[id]=87;
-    maximumQueststatus[id]=95;	
+    maximumQueststatus[id]=95;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 61: Spy Informant
     local id=61;
     germanTitle[id]="Spitzel Informant";
@@ -1538,178 +1538,178 @@ function iniQuests()
 	table.insert(questList[1021],id); --All foxes
 	table.insert(questList[1022],id); --All foxes
     minimumQueststatus[id]=96;
-    maximumQueststatus[id]=108;	
+    maximumQueststatus[id]=108;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 62: Spy Informant
     local id=62;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
     NPCName[id]="Bula Glasha";
     statusId[id]=181;
-    germanRace[id]="ratten";
+    germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[921],id; -- all rats
+	table.insert(questList[921],id); -- all rats
 	table.insert(questList[922],id); --all rats
 	table.insert(questList[931],id); --all rats
 	table.insert(questList[932],id); --all rats
 	table.insert(questList[941],id); --all rats
 	table.insert(questList[942],id); --all rats
     minimumQueststatus[id]=109;
-    maximumQueststatus[id]=113;	
+    maximumQueststatus[id]=113;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 63: Spy Informant
     local id=63;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
     NPCName[id]="Bula Glasha";
     statusId[id]=181;
-    germanRace[id]="ratten";
+    germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[921],id; -- all rats
+	table.insert(questList[921],id); -- all rats
 	table.insert(questList[922],id); --all rats
 	table.insert(questList[931],id); --all rats
 	table.insert(questList[932],id); --all rats
 	table.insert(questList[941],id); --all rats
 	table.insert(questList[942],id); --all rats
     minimumQueststatus[id]=114;
-    maximumQueststatus[id]=122;	
+    maximumQueststatus[id]=122;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 64: Spy Informant
     local id=64;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
     NPCName[id]="Bula Glasha";
     statusId[id]=181;
-    germanRace[id]="ratten";
+    germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[921],id; -- all rats
+	table.insert(questList[921],id); -- all rats
 	table.insert(questList[922],id); --all rats
 	table.insert(questList[931],id); --all rats
 	table.insert(questList[932],id); --all rats
 	table.insert(questList[941],id); --all rats
 	table.insert(questList[942],id); --all rats
     minimumQueststatus[id]=123;
-    maximumQueststatus[id]=135;	
+    maximumQueststatus[id]=135;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 65: Spy Informant
     local id=65;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
     NPCName[id]="Bula Glasha";
     statusId[id]=181;
-    germanRace[id]="Barin";
+    germanRace[id]="Bären";
     englishRace[id]="bears";
-	table.insert(questList[491],id; -- all bears
+	table.insert(questList[491],id); -- all bears
 	table.insert(questList[492],id); --all bears
 	table.insert(questList[501],id); --all bears
 	table.insert(questList[502],id); --all bears
 	table.insert(questList[511],id); --all bears
 	table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=136;
-    maximumQueststatus[id]=140;	
+    maximumQueststatus[id]=140;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 66: Spy Informant
     local id=66;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
     NPCName[id]="Bula Glasha";
     statusId[id]=181;
-    germanRace[id]="Barin";
+    germanRace[id]="Bären";
     englishRace[id]="bears";
-	table.insert(questList[491],id; -- all bears
+	table.insert(questList[491],id); -- all bears
 	table.insert(questList[492],id); --all bears
 	table.insert(questList[501],id); --all bears
 	table.insert(questList[502],id); --all bears
 	table.insert(questList[511],id); --all bears
 	table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=141;
-    maximumQueststatus[id]=149;	
+    maximumQueststatus[id]=149;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 67: Spy Informant
     local id=67;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
     NPCName[id]="Bula Glasha";
     statusId[id]=181;
-    germanRace[id]="Barin";
+    germanRace[id]="Bären";
     englishRace[id]="bears";
-	table.insert(questList[491],id; -- all bears
+	table.insert(questList[491],id); -- all bears
 	table.insert(questList[492],id); --all bears
 	table.insert(questList[501],id); --all bears
 	table.insert(questList[502],id); --all bears
 	table.insert(questList[511],id); --all bears
 	table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=150;
-    maximumQueststatus[id]=162;	
+    maximumQueststatus[id]=162;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 68: Spy Informant
     local id=68;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
     NPCName[id]="Bula Glasha";
     statusId[id]=181;
-    germanRace[id]="trolle";
+    germanRace[id]="Trolle";
     englishRace[id]="trolls";
-	table.insert(questList[91]],id; --all trolls
+	table.insert(questList[91],id); --all trolls
 	table.insert(questList[92],id); --all trolls
 	table.insert(questList[93],id); --all trolls
 	table.insert(questList[94],id); --all trolls
 	table.insert(questList[95],id); --all trolls
 	table.insert(questList[96],id); --all trolls
     minimumQueststatus[id]=163;
-    maximumQueststatus[id]=167;	
+    maximumQueststatus[id]=167;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 69: Spy Informant
     local id=69;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
     NPCName[id]="Bula Glasha";
     statusId[id]=181;
-    germanRace[id]="trolle";
+    germanRace[id]="Trolle";
     englishRace[id]="trolls";
-	table.insert(questList[91]],id; --all trolls
+	table.insert(questList[91],id); --all trolls
 	table.insert(questList[92],id); --all trolls
 	table.insert(questList[93],id); --all trolls
 	table.insert(questList[94],id); --all trolls
 	table.insert(questList[95],id); --all trolls
 	table.insert(questList[96],id); --all trolls
     minimumQueststatus[id]=168;
-    maximumQueststatus[id]=176;	
+    maximumQueststatus[id]=176;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 70: Spy Informant
     local id=70;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
     NPCName[id]="Bula Glasha";
     statusId[id]=181;
-    germanRace[id]="trolle";
+    germanRace[id]="Trolle";
     englishRace[id]="trolls";
-	table.insert(questList[91]],id; --all trolls
+	table.insert(questList[91],id); --all trolls
 	table.insert(questList[92],id); --all trolls
 	table.insert(questList[93],id); --all trolls
 	table.insert(questList[94],id); --all trolls
 	table.insert(questList[95],id); --all trolls
 	table.insert(questList[96],id); --all trolls
     minimumQueststatus[id]=177;
-    maximumQueststatus[id]=189;	
+    maximumQueststatus[id]=189;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
 
