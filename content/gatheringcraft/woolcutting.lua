@@ -132,7 +132,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 		"This sheep is now sheared properly and doesn't give any more wool." );
 	end
 
-	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem, woolcutting:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Schere zerbricht.",
 		"Your old scissors break.");

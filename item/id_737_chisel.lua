@@ -131,7 +131,7 @@ function UseItem(User, SourceItem, ltstate)
 		end
 	end
 
-	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem, stonecutting:GenWorkTime(User,SourceItem) ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Dein alter Meiﬂel zerbricht.",
 		"Your old chisel breaks.");

@@ -115,7 +115,7 @@ function StartGathering(User, SourceItem, ltstate)
 		"There are no stones for mining anymore.");
 	end
 
-	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem, mining:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Spitzhacke zerbricht.",
 		"Your old pick-axe breaks.");

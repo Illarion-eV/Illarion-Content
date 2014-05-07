@@ -113,7 +113,7 @@ function StartGathering(User, SourceItem, ltstate)
 		end
 	end
 
-	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem, glassingotproducing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Dein altes Glasblasrohr zerbricht.",
 		"Your old glass blow pipe breaks.");

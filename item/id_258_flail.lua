@@ -109,7 +109,7 @@ function UseItem(User, SourceItem, ltstate)
 		end
 	end
 
-	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem, flailing:GenWorkTime(User,SourceItem) ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Dein alter Dreschflegel zerbricht.",
 		"Your old flail breaks.");

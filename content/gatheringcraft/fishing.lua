@@ -138,7 +138,7 @@ function StartGathering(User, SourceItem, ltstate)
 		return
 	end
 
-	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem, fishing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Angel zerbricht.",
 		"Your old fishing rod breaks.");

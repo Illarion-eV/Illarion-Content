@@ -423,14 +423,17 @@ function GetBonusFromTool(toolItem)
     return 0, 0, 0, 0;
 end;
 
-function GatheringToolBreaks(user, item)
+function GatheringToolBreaks(user, item, workTime)
  
   if not user or not item then
     return false;
   end;
-		
-  -- reduce durability only each 4th time
-  if (math.random(1, 100) < 25) then
+
+  -- WorkTime is between 12-60 cycles depending on skill, +/-20% is the tool influence
+  -- Reduce durability at 4-20%, meaning a tool will last 500-2500 actions.
+  
+  if (math.random(1, 100) < (workTime/3)) then
+
     local durability = math.mod(item.quality, 100);
     local quality = (item.quality - durability) / 100;
     

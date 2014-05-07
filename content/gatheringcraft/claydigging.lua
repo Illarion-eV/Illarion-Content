@@ -183,7 +183,7 @@ function StartGathering(User, SourceItem, ltstate)
 		User:startAction( claydigging.SavedWorkTime[User.id], 0, 0, 0, 0);
 	end
 
-	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem, claydigging:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Schaufel zerbricht.",
 		"Your old shovel breaks.");

@@ -118,7 +118,7 @@ function UseItem(User, SourceItem, ltstate)
 		end
 	end
 
-	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem, candleproducing:GenWorkTime(User,SourceItem) ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Kerzenform zerbricht.",
 		"Your old candle mold breaks.");
