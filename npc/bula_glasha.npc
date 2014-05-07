@@ -1,0 +1,505 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Bula Glasha                                              Galmair --
+-- NPC Job:  Informant                                                        --
+--                                                                            --
+-- NPC Race: orc                        NPC Position:  407, 232, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
+--                                                                            --
+-- Author:   Evie                                                             --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Bula Glasha"
+race = orc
+sex = female
+position = 407, 232, 0
+direction = west
+affiliation = "Galmair"
+job = "Informant"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Evie"
+
+lookatDE = "Dieser NPC ist Bula Glasha der Informant."
+lookatUS = "This NPC is Bula Glasha the Informant."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 4
+beardID = 0
+colorHair = 215, 176, 45
+colorSkin = 68, 117, 32
+
+itemHead = 0
+itemChest = 819
+itemCoat = 2420
+itemMainHand = 84
+itemSecondHand = 95
+itemHands = 48
+itemTrousers = 826
+itemShoes = 1054
+
+-- Template Version 1.08, 10/18/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Bula Glasha the Informant. Keywords: Hello, mission.")
+"Hilfe" -> inform("[Spielhilfe] [Hilfe] Dieser NPC ist Bula Glasha, Informant. Schlüsselwörter: Hallo, Auftrag.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas. Joo want work?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas. Du wollen Arbeit?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Joo want work?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Du wollen Arbeit?"
+"Farewell", "Bye", "Fare well", "See you" -> "Farebbas."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Farebbas."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebbas"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebbas"
+"How are you", "How feel", "How do you do" -> "Hurr! Mes bes goods."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Hurr! Wir sein gut."
+"your name", "who are you", "who art thou" -> "Joo can calls mes Bula Glasha. Mes have special job yubba."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Du sagen Bula Glasha zu mir, ich Dir geben besonderen Auftrag.""
+
+-- OPTIONAL TRIGGERS
+
+-- Catching quest triggers of other factions' members.
+english, town = none, "quest", "mission" -> "Meh nub work wif joo outlaws."
+town = none, "quest", "mission" -> "Ich nix haben Arbeit für Gesetzlose"
+town = none, "task", "adventure", "order"-> "Meh nub work wif joo outlaws."
+town = none, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich nix haben Arbeit für Gesetzlose"
+english, town = Cadomyr, "quest", "mission" -> "Meh nub work wif dah Oomie woman's citizens."
+town = Cadomyr, "quest", "mission" -> "Wir nicht arbeiten mit Weiba aus Stadt"
+town = Cadomyr, "task", "adventure", "order" -> "Meh nub work wif dah Oomie woman's citizens."
+town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir nicht arbeiten mit Weiba aus Stadt"
+english, town = Runewick, "quest", "mission" -> "Nubba, meh not work wif dey long ears citizens."
+town = Runewick, "quest", "mission" -> "Nubba, wir nicht arbeiten mit Baumkuschlern."
+town = Runewick, "task", "adventure", "order" -> "Nubba, meh not work wif dey long ears citizens."
+town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nubba, wir nicht arbeiten mit Baumkuschlern"
+
+-- Catching quest triggers of those who have to wait for a new quest
+queststatus(183) ~= 0, english, town = Galmair, "quest", "mission" -> "Nubba, nub information to beh gaddered now."
+queststatus(183) ~= 0, town = Galmair, "quest", "mission" -> "Heute keine Kopfgelder, es war nicht immer so.", "Nubba, keine Informationen gesammelt."
+queststatus(183) ~= 0, town = Galmair, "task", "adventure", "order" -> "Nubba, nub information to beh gaddered now."
+queststatus(183) ~= 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nubba, keine Informationen gesammelt."
+
+-- Small Talk
+"Information", english -> "Information bes good, Yubba."
+"Information" -> "Seien gute Information, Yubba."
+"Don", english -> "Dey Don is mes boss."
+"Don" -> "Der Don ist Boss von mir. "
+
+-- A quest is chosen at random!
+-- Countdown is saved in queststatus (182)
+-- Cooldown works like this: Set queststatus (183) to delay time [minutes]/5. Example: 5 hours = 300 minutes -> queststatus(183) = 60
+
+-- Information 1: Kill four wasps in three hours
+-- 1: Information 1 taken, kill four wasps, reward: one sp, 2 rankpoints
+queststatus(181) = 0, english, chance(4.761904762), town = Galmair, "quest", "mission" -> inform("[New Information] Kill four wasps."), "Da Don needs information. Scout da area and smash foor wasps, yus reward is won silber coin.", queststatus(181) = 1, queststatus(182) = 36
+queststatus(181) = 0, german, chance(4.761904762), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte vier Wespen."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier Wespen zu Brei! Ich dir geben ein Silba zur Belohnung!", queststatus(181) = 1, queststatus(182) = 36
+queststatus(181) = 0, chance(4.761904762), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill four wasps."), "Da Don needs information. Scout da area and smash foor wasps, yus reward is won silber coin.", queststatus(181) = 1, queststatus(182) = 36
+queststatus(181) = 0, chance(4.761904762), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte vier Wespen."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier Wespen zu Brei! Ich dir geben ein Silba zur Belohnung!", queststatus(181) = 1, queststatus(182) = 36
+
+-- Information 1 solved, reward: one sp, 5 rankpoints, delay: 5h
+queststatus(181) = 5, english, town = Galmair, ".*" -> inform("[Information collected.] You are awarded one silver coin."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 100, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
+queststatus(181) = 5, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst ein Silberstück."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 100, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
+
+-- Information 1 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 6: Kill eight wasps in three hours
+-- 6: Information 6 taken, get eight wasps, reward: two sp, 4 rankpoints
+queststatus(181) = 0, english, chance(5), town = Galmair, "quest", "mission" -> inform("[New Information] Kill eight wasps."), "Da Don needs information. Scout da area and smash ate wasps, yus reward is tuuh silber coins.", queststatus(181) = 6, queststatus(182) = 36
+queststatus(181) = 0, german, chance(5), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte acht Wespen."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau acht Wespen zu Brei! Ich dir geben zwei Silberstücke zur Belohnung!", queststatus(181) = 6, queststatus(182) = 36
+queststatus(181) = 0, chance(5), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill eight wasps."), "Da Don needs information. Scout da area and smash ate wasps, yus reward is tuuh silber coins.", queststatus(181) = 6, queststatus(182) = 36
+queststatus(181) = 0, chance(5), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte acht Wespen."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau acht Wespen zu Brei! Ich dir geben zwei Silberstücke zur Belohnung!", queststatus(181) = 6, queststatus(182) = 36
+
+-- Information 6 solved, reward: two sp, 4 rankpoints, delay: 5h
+queststatus(181) = 14, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded two silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 200, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 4
+queststatus(181) = 14, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst zwei Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 200, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 4
+
+-- Information 6 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 15: Kill twelve wasps in three hours
+-- 15: Information 15 taken, get twelve wasps, reward: three sp, 6 rankpoints
+queststatus(181) = 0, english, chance(5.263157895), town = Galmair, "quest", "mission" -> inform("[New Information] Kill twelve wasps."), "Da Don needs information. Scout da area and smash delve wasps, yus reward be dree silber coins.", queststatus(181) = 15, queststatus(182) = 36
+queststatus(181) = 0, german, chance(5.263157895), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte zwölf Wespen."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf Wespen zu Brei! Ich dir geben drei Silberstücke zur Belohnung!", queststatus(181) = 15, queststatus(182) = 36
+queststatus(181) = 0, chance(5.263157895), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill twelve wasps."), "Da Don needs information. Scout da area and smash delve wasps, yus reward be dree silber coins.", queststatus(181) = 15, queststatus(182) = 36
+queststatus(181) = 0, chance(5.263157895), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform("[Neues Informationen] Töte zwölf Wespen."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf Wespen zu Brei! Ich dir geben drei Silberstücke zur Belohnung!", queststatus(181) = 15, queststatus(182) = 36
+
+-- Information 15 solved, reward: three sp, 6 rankpoints, delay: 5h
+queststatus(181) = 27, english, town = Galmair, ".*" -> inform("[Information Collected.] You are awarded three silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 300, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 6
+queststatus(181) = 27, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst drei Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 300, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 6
+
+-- Information 15 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 28: Kill four slimes in three hours
+-- 28: Information 28 taken, kill four slimes, reward: two sp, 2 rankpoints
+queststatus(181) = 0, english, chance(5.555555556), town = Galmair, "quest", "mission" -> inform("[New Information] Kill four slimes."), "Da Don needs information. Scout da area and smash foor slimes, yus reward bes tuuh silber coins.", queststatus(181) = 28, queststatus(182) = 36
+queststatus(181) = 0, german, chance(5.555555556), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte vier Schleime."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier Schleime zu Brei! Ich dir geben zwei Silberstücke zur Belohnung!", queststatus(181) = 28, queststatus(182) = 36
+queststatus(181) = 0, chance(5.555555556), town = Galmair, "task", "adventure", "order" ->inform("[New Information] Kill four slimes."), "Da Don needs information. Scout da area and smash foor slimes, yus reward bes tuuh silber coins.", queststatus(181) = 28, queststatus(182) = 36
+queststatus(181) = 0, chance(5.555555556), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform("[Neues Informationen] Töte vier Schleime."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier Schleime zu Brei! Ich dir geben zwei Silberstücke zur Belohnung!", queststatus(181) = 28, queststatus(182) = 36
+.
+-- Information 28 solved, reward: two sp, 5 rankpoints, delay: 5h
+queststatus(181) = 32, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded two silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 200, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
+queststatus(181) = 32, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst zwei Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 200, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
+
+-- Information 28 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 33: Kill eight slimes in three hours
+-- 33: Information 33 taken, get eight Slimes, reward: four sp, 4 rankpoints
+queststatus(181) = 0, english, chance(5.882352941), town = Galmair, "quest", "mission" -> inform("[New Information] Kill eight slimes."), "Da Don needs information. Scout da area and smash ate slimes, yus reward bes foor silber coins.", queststatus(181) = 33, queststatus(182) = 36
+queststatus(181) = 0, german, chance(5.882352941), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte acht Schleime."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau acht Schleime zu Brei! Ich dir geben vier Silberstücke zur Belohnung!", queststatus(181) = 33, queststatus(182) = 36
+queststatus(181) = 0, chance(5.882352941), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill eight slimes."), "Da Don needs information. Scout da area and smash ate slimes, yus reward bes foor silber coins.", queststatus(181) = 33, queststatus(182) = 36
+queststatus(181) = 0, chance(5.882352941), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte acht Schleime."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau acht Schleime zu Brei! Ich dir geben vier Silberstücke zur Belohnung!", queststatus(181) = 33, queststatus(182) = 36
+
+-- Information 33 solved, reward: four sp, 4 rankpoints, delay: 5h
+queststatus(181) = 41, english, town = Galmair, ".*" -> inform("[Information collected.] You are awarded four silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 400, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 4
+queststatus(181) = 41, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst vier Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 400, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 4
+
+-- Information 33 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 42: Kill twelve slimes in three hours
+-- 42: Information 42 taken, get twelve Slimes, reward: six sp, 6 rankpoints
+queststatus(181) = 0, english, chance(6.25), town = Galmair, "quest", "mission" -> inform("[New information] Kill twelve slimes."), "Da Don needs information. Scout da area and smash delve slimes, yus reward bes ate silber coins.", queststatus(181) = 42, queststatus(182) = 36
+queststatus(181) = 0, german, chance(6.25), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte zwölf Schleime."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf Schleime zu Brei! Ich dir geben sechs Silberstücke zur Belohnung!", queststatus(181) = 42, queststatus(182) = 36
+queststatus(181) = 0, chance(6.25), town = Galmair, "task", "adventure", "order"->inform("[New information] Kill twelve slimes."), "Da Don needs information. Scout da area and smash delve slimes, yus reward bes ate silber coins.", queststatus(181) = 42, queststatus(182) = 36
+queststatus(181) = 0, chance(6.25), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte zwölf Schleime."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf Schleime zu Brei! Ich dir geben sechs Silberstücke zur Belohnung!", queststatus(181) = 42, queststatus(182) = 36
+
+-- Information 42 solved, reward: six sp, 6 rankpoints, delay: 5h
+queststatus(181) = 54, english, town = Galmair, ".*" -> inform("[Information Collected] You are awarded six silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 600, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 6
+queststatus(181) = 54, town = Galmair, ".*" -> inform("Informationen erhalten] Du erhältst sechs Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 600, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 6
+
+-- Information 42 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 55: Kill four dogsin three hours
+-- 55: Information 55 taken, kill four dogs, reward: three sp, 2 rankpoints
+queststatus(181) = 0, english, chance(6.666666667), town = Galmair, "quest", "mission" -> inform("[New Information] Kill four dogs."), "Da Don needs information. Scout da area and smash foor dogs, yus reward bes dree silber coins.", queststatus(181) = 55, queststatus(182) = 36
+queststatus(181) = 0, german, chance(6.666666667), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte vier Hunde."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier Hunde zu Brei! Ich dir geben  drei Silberstücke zur Belohnung!", queststatus(181) = 55, queststatus(182) = 36
+queststatus(181) = 0, chance(6.666666667), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill four dogs."), "Da Don needs information. Scout da area and smash foor dogs, yus reward bes dree silber coins.", queststatus(181) = 55, queststatus(182) = 36
+queststatus(181) = 0, chance(6.666666667), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte vier Hunde."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier Hunde zu Brei! Ich dir geben  drei Silberstücke zur Belohnung!", queststatus(181) = 55, queststatus(182) = 36
+
+-- Information 55 solved, reward: three sp, 5 rankpoints, delay: 5h
+queststatus(181) = 59, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded three silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 300, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
+queststatus(181) = 59, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst drei Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 300, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
+
+-- Information 55 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 60: Kill eight dogs in three hours
+-- 60: Informtion 60 taken, get eight dogs, reward: six sp, 4 rankpoints
+queststatus(181) = 0, english, chance(7.142857143), town = Galmair, "quest", "mission" -> inform("[New information] Kill eight dogs."), "Da Don needs information. Scout da area and smash ate dogs, yus reward bes sex silber coins.", queststatus(181) = 60, queststatus(182) = 36
+queststatus(181) = 0, german, chance(7.142857143), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte acht Hunde."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau acht Hunde zu Brei! Ich dir geben sechs Silberstücke zur Belohnung!", queststatus(181) = 60, queststatus(182) = 36
+queststatus(181) = 0, chance(7.142857143), town = Galmair, "task", "adventure", "order" -> inform("[New information] Kill eight dogs."), "Da Don needs information. Scout da area and smash ate dogs, yus reward bes sex silber coins.", queststatus(181) = 60, queststatus(182) = 36
+queststatus(181) = 0, chance(7.142857143), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform("[Neues Informationen] Töte acht Hunde."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau acht Hunde zu Brei! Ich dir geben sechs Silberstücke zur Belohnung!", queststatus(181) = 60, queststatus(182) = 36
+
+-- Information 60 solved, reward: six sp, 4 rankpoints, delay: 5h
+queststatus(181) = 68, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded six silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 600, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 4
+queststatus(181) = 68, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst sechs Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 600, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 4
+
+-- Information 60 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 69: Kill twelve dogs in three hours
+-- 69: Information 69 taken, get twelve dogs, reward: nine sp, 6 rankpoints
+queststatus(181) = 0, english, chance(7.692307692), town = Galmair, "quest", "mission" -> inform("[New Information] Kill twelve dogs."), "Da Don needs information. Scout da area and smash delve dogs, yus reward bes nyne silber coins.", queststatus(181) = 69, queststatus(182) = 36
+queststatus(181) = 0, german, chance(7.692307692), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte zwölf Hunde."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf Hunde zu Brei! Ich dir geben neun Silberstücke zur Belohnung!", queststatus(181) = 69, queststatus(182) = 36
+queststatus(181) = 0, chance(7.692307692), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill twelve dogs."), "Da Don needs information. Scout da area and smash delve dogs, yus reward bes nyne silber coins.", queststatus(181) = 69, queststatus(182) = 36
+queststatus(181) = 0, chance(7.692307692), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte zwölf Hunde."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf Hunde zu Brei! Ich dir geben neun Silberstücke zur Belohnung!", queststatus(181) = 69, queststatus(182) = 36
+
+-- Informtion 69 solved, reward: nine sp, 6 rankpoints, delay: 5h
+queststatus(181) = 81, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded nine silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 900, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 6
+queststatus(181) = 81, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst neun Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 900, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 6
+
+-- Information 69 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 82: Kill four foxes in three hours
+-- 82: Information 82 taken, kill four foxes, reward: four sp, 2 rankpoints
+queststatus(181) = 0, english, chance(8.333333333), town = Galmair, "quest", "mission" -> inform("[New Information] Kill four foxes."), "Da Don needs information. Scout da area and smash foor foxes, yus reward bes foor silber coins.", queststatus(181) = 82, queststatus(163) = 36
+queststatus(181) = 0, german, chance(8.333333333), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte vier Füchse."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier Füchse zu Brei! Ich dir geben vier Silberstücke zur Belohnung!", queststatus(181) = 82, queststatus(182) = 36
+queststatus(181) = 0, chance(8.333333333), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill four foxes."), "Da Don needs information. Scout da area and smash foor foxes, yus reward bes foor silber coins.", queststatus(181) = 82, queststatus(163) = 36
+queststatus(181) = 0, chance(8.333333333), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte vier Füchse."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier Füchse zu Brei! Ich dir geben vier Silberstücke zur Belohnung!", queststatus(181) = 82, queststatus(182) = 36
+
+-- Information 82 solved, reward: four sp, 5 rankpoints, delay: 5h
+queststatus(181) = 86, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded four silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 400, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
+queststatus(181) = 86, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst vier Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 400, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
+
+-- Information 82 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 87: Kill eight foxes in three hours
+-- 87: Information 87 taken, get eight foxes, reward: eight sp, 4 rankpoints
+queststatus(181) = 0, english, chance(9.090909091), town = Galmair, "quest", "mission" -> inform("[New Information] Kill eight foxes."), "Da Don needs information. Scout da area and smash ate foxes, yus reward bes ate silber coins.", queststatus(181) = 87, queststatus(182) = 36
+queststatus(181) = 0, german, chance(9.090909091), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte acht Füchse."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vacht Füchse zu Brei! Ich dir geben acht Silberstücke zur Belohnung!", queststatus(181) = 87, queststatus(182) = 36
+queststatus(181) = 0, chance(9.090909091), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill eight foxes."), "Da Don needs information. Scout da area and smash ate foxes, yus reward bes ate silber coins.", queststatus(181) = 87, queststatus(182) = 36
+queststatus(181) = 0, chance(9.090909091), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte acht Füchse."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vacht Füchse zu Brei! Ich dir geben acht Silberstücke zur Belohnung!", queststatus(181) = 87, queststatus(182) = 36
+
+-- Information 87 solved, reward: eight sp, 4 rankpoints, delay: 5h
+queststatus(181) = 95, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded eight silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 800, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 4
+queststatus(181) = 95, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst acht Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 800, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 4
+
+-- Information 87 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 96: Kill twelve foxes in three hours
+-- 96: Information 96 taken, get twelve foxes, reward: twelve sp, 6 rankpoints
+queststatus(181) = 0, english, chance(10), town = Galmair, "quest", "mission" -> inform("[New Information] Kill twelve foxes."), "Da Don needs information. Scout da area and smash delve foxes, yus reward bes delve silber coins.", queststatus(162) = 96, queststatus(163) = 36
+queststatus(181) = 0, german, chance(10), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte zwölf Füchse."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf Füchse zu Brei! Ich dir geben zwölf Silberstücke zur Belohnung!", queststatus(181) = 96, queststatus(182) = 36
+queststatus(181) = 0, chance(10), town = Galmair, "task", "adventure", "order"-> inform("[New Information] Kill twelve foxes."), "Da Don needs information. Scout da area and smash delve foxes, yus reward bes delve silber coins.", queststatus(162) = 96, queststatus(163) = 36
+queststatus(181) = 0, german, chance(10), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte zwölf Füchse."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf Füchse zu Brei! Ich dir geben zwölf Silberstücke zur Belohnung!", queststatus(181) = 96, queststatus(182) = 36
+
+-- Information 96 solved, reward: twelve sp, 6 rankpoints, delay: 5h
+queststatus(181) = 108, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded twelve silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 1200, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 6
+queststatus(181) = 108, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst zwölf Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 1200, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 6
+
+-- Information 96 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 109: Kill four rats in three hours
+-- 109: Information 109 taken, kill four rats, reward: six sp, 2 rankpoints
+queststatus(181) = 0, english, chance(11.11111111), town = Galmair, "quest", "mission" -> inform("[New Information] Kill four rats."), "Da Don needs information. Scout da area and smash foor rats, yus reward bes sex silber coins.", queststatus(181) = 109, queststatus(182) = 36
+queststatus(181) = 0, german, chance(11.11111111), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte vier ratten."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier ratten zu Brei! Ich dir geben sechs Silberstücke zur Belohnung!", queststatus(181) = 109, queststatus(182) = 36
+queststatus(181) = 0, chance(11.11111111), town = Galmair, "task", "adventure", "order"-> inform("[New Information] Kill four rats."), "Da Don needs information. Scout da area and smash foor rats, yus reward bes sex silber coins.", queststatus(181) = 109, queststatus(182) = 36
+queststatus(181) = 0, chance(11.11111111), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte vier ratten."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier ratten zu Brei! Ich dir geben sechs Silberstücke zur Belohnung!", queststatus(181) = 109, queststatus(182) = 36
+
+-- Information 109 solved, reward: six sp, 5 rankpoints, delay: 5h
+queststatus(181) = 113, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded six silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 600, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
+queststatus(181) = 113, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst sechs Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 600, queststatus(162) = 0, queststatus(181) = 0, queststatus(182) = 60, rankpoints + 2
+
+-- Information 109 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 114: Kill eight rats in three hours
+-- 114: Information 114 taken, get eight rats, reward: twelve sp, 4 rankpoints
+queststatus(181) = 0, english, chance(12.5), town = Galmair, "quest", "mission" -> inform("[New Information] Kill eight rats."), "Da Don needs information. Scout da area and smash ate rats, yus reward bes delve silber coins.", queststatus(181) = 114, queststatus(182) = 36
+queststatus(181) = 0, german, chance(12.5), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte acht ratten."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau acht ratten zu Brei! Ich dir geben zwölf Silberstücke zur Belohnung!", queststatus(181) = 114, queststatus(182) = 36
+queststatus(181) = 0, chance(12.5), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill eight rats."), "Da Don needs information. Scout da area and smash ate rats, yus reward bes delve silber coins.", queststatus(181) = 114, queststatus(182) = 36
+queststatus(181) = 0, chance(12.5), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte acht ratten."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau acht ratten zu Brei! Ich dir geben zwölf Silberstücke zur Belohnung!", queststatus(181) = 114, queststatus(182) = 36
+
+-- Information 114 solved, reward: twelve sp, 4 rankpoints, delay: 5h
+queststatus(181) = 122, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded twelve silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 1200, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 4
+queststatus(181) = 122, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst zwölf Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 1200, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 4
+
+-- Information 114 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 123: Kill twelve rats in three hours
+-- 123: Information 123 taken, get twelve rats, reward: eighteen sp, 6 rankpoints
+queststatus(181) = 0, english, chance(14.28571429), town = Galmair, "quest", "mission" -> inform("[New Information] Kill twelve rats."), "Da Don needs information. Scout da area and smash delve rats, yus reward bes den and ate silber coins.", queststatus(162) = 123, queststatus(163) = 36
+queststatus(181) = 0, german, chance(14.28571429), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte zwölf ratten."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf ratten zu Brei! Ich dir geben achtzehn Silberstücke zur Belohnung!", queststatus(181) = 123, queststatus(182) = 36
+queststatus(181) = 0, chance(14.28571429), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill twelve rats."), "Da Don needs information. Scout da area and smash delve rats, yus reward bes den and ate silber coins.", queststatus(162) = 123, queststatus(163) = 36
+queststatus(181) = 0, chance(14.28571429), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte zwölf ratten."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf ratten zu Brei! Ich dir geben achtzehn Silberstücke zur Belohnung!", queststatus(181) = 123, queststatus(182) = 36
+
+-- Information 123 solved, reward: eighteen sp, 6 rankpoints, delay: 5h
+queststatus(181) = 135, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded eighteen silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 1800, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 6
+queststatus(181) = 135, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst achtzehn Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 1800, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 6
+
+-- Information 123 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 136: Kill four bears in three hours
+-- 136: Information 136 taken, kill four bears, reward: eight sp, 2 rankpoints
+queststatus(181) = 0, english, chance(16.66666667), town = Galmair, "quest", "mission" -> inform("[New Information] Kill four bears."), "Da Don needs information. Scout da area and smash foor bears, yus reward bes ate silber coins.", queststatus(181) = 136, queststatus(182) = 36
+queststatus(181) = 0, german, chance(16.66666667), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte vier barin."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier barin zu Brei! Ich dir geben acht Silberstücke zur Belohnung!", queststatus(181) = 136, queststatus(182) = 36
+queststatus(181) = 0, chance(16.66666667), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill four bears."), "Da Don needs information. Scout da area and smash foor bears, yus reward bes ate silber coins.", queststatus(181) = 136, queststatus(182) = 36
+queststatus(181) = 0, chance(16.66666667), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte vier barin."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier barin zu Brei! Ich dir geben acht Silberstücke zur Belohnung!", queststatus(181) = 136, queststatus(182) = 36", queststatus(162) = 136, queststatus(163) = 36
+
+-- Information 136 solved, reward: eight sp, 5 rankpoints, delay: 5h
+queststatus(181) = 140, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded eight silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 800, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
+queststatus(181) = 140, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst acht Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 800, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
+
+-- Information 136 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 141: Kill eight bears in three hours
+-- 141: Information 141 taken, get eight bears, reward: sixteen sp, 4 rankpoints
+queststatus(181) = 0, english, chance(20), town = Galmair, "quest", "mission" -> inform("[New Information] Kill eight bears."), "Da Don needs information. Scout da area and smash ate bears, yus reward bes sex and den silber coins.", queststatus(181) = 141, queststatus(182) = 36
+queststatus(181) = 0, german, chance(20), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte acht barin."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau acht barin zu Brei! Ich dir gebensechzehn Silberstücke zur Belohnung!", queststatus(181) = 141, queststatus(182) = 36
+queststatus(181) = 0, chance(20), town = Galmair, "task", "adventure", "order"-> inform("[New Information] Kill eight bears."), "Da Don needs information. Scout da area and smash ate bears, yus reward bes sex and den silber coins.", queststatus(181) = 141, queststatus(182) = 36
+queststatus(181) = 0, chance(20), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte acht barin."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau acht barin zu Brei! Ich dir gebensechzehn Silberstücke zur Belohnung!", queststatus(181) = 141, queststatus(182) = 36
+
+-- Information 141 solved, reward: sixteen sp, 4 rankpoints, delay: 5h
+queststatus(181) = 149, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded sixteen silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 1600, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 4
+queststatus(181) = 149, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst sechzehn Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 1600, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 4
+
+-- Information 141 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 150: Kill twelve bears in three hours
+-- 150: Information 150 taken, get twelve bears, reward: twenty four sp, 6 rankpoints
+queststatus(181) = 0, english, chance(25), town = Galmair, "quest", "mission" -> inform("[New Information] Kill twelve bears."), "Da Don needs information. Scout da area and smash delve bears, yus reward bes denty foor silber coins.", queststatus(181) = 150, queststatus(182) = 36
+queststatus(181) = 0, german, chance(25), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte zwölf barin."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf barin zu Brei! Ich dir geben vierundzwanzig Silberstücke zur Belohnung!", queststatus(181) = 150, queststatus(182) = 36
+queststatus(181) = 0, chance(25), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill twelve bears."), "Da Don needs information. Scout da area and smash delve bears, yus reward bes denty foor silber coins.", queststatus(181) = 150, queststatus(182) = 36
+queststatus(181) = 0, chance(25), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte zwölf barin."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf barin zu Brei! Ich dir geben vierundzwanzig Silberstücke zur Belohnung!", queststatus(181) = 150, queststatus(182) = 36
+
+-- Information 150 solved, reward: twenty four sp, 6 rankpoints, delay: 5h
+queststatus(181) = 162, english, town = Galmair, ".*" -> inform("[Information Collected] You are awarded twenty four silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 2400, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 6
+queststatus(181) = 162, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst vierundzwanzig Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 2400, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 6
+
+-- Information 150 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 163: Kill four trolls in three hours
+-- 163: Information 163 taken, kill four trolls, reward: ten sp, 2 rankpoints
+queststatus(181) = 0, english, chance(33.33333333), town = Galmair, "quest", "mission" -> inform("[New Information] Kill four trolls."), "Da Don needs information. Scout da area and smash foor trolls, yus reward bes den silber coins.", queststatus(181) = 163, queststatus(182) = 36
+queststatus(181) = 0, german, chance(33.33333333), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte vier trolle."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier trolle zu Brei! Ich dir geben zehn Silberstücke zur Belohnung!", queststatus(181) = 163, queststatus(182) = 36
+queststatus(181) = 0, chance(33.33333333), town = Galmair, "task", "adventure", "order"-> inform("[New Information] Kill four trolls."), "Da Don needs information. Scout da area and smash foor trolls, yus reward bes den silber coins.", queststatus(181) = 163, queststatus(182) = 36
+queststatus(181) = 0, chance(33.33333333), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte vier trolle."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier trolle zu Brei! Ich dir geben zehn Silberstücke zur Belohnung!", queststatus(181) = 163, queststatus(182) = 36
+
+--  Information 163 solved, reward: ten sp, 5 rankpoints, delay: 5h
+queststatus(181) = 167, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded ten silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 1000, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
+queststatus(181) = 167, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst zehn Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 1000, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
+
+-- Information 163 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 168: Kill eight trolls in three hours
+-- 168: Information 168 taken, get eight trolls, reward: twenty sp, 4 rankpoints
+queststatus(181) = 0, english, chance(50), town = Galmair, "quest", "mission" -> inform("[New Information] Kill eight trolls."), "Da Don needs information. Scout da area and smash ate trolls, yus reward bes denty silber coins.!", queststatus(181) = 168, queststatus(182) = 36
+queststatus(181) = 0, german, chance(50), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte acht trolle."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau acht trolle zu Brei! Ich dir geben zwanzig Silberstücke zur Belohnung!", queststatus(181) = 168, queststatus(182) = 36
+queststatus(181) = 0, chance(50), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill eight trolls."), "Da Don needs information. Scout da area and smash ate trolls, yus reward bes denty silber coins.!", queststatus(181) = 168, queststatus(182) = 36
+queststatus(181) = 0, chance(50), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte acht trolle."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau acht trolle zu Brei! Ich dir geben zwanzig Silberstücke zur Belohnung!", queststatus(181) = 168, queststatus(182) = 36
+
+-- Information 168 solved, reward: twenty sp, 4 rankpoints, delay: 5h
+queststatus(181) = 176, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded twenty silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 2000, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 4
+queststatus(181) = 176, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst zwanzig Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 2000, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 4
+
+-- Information 168 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Information 177: Kill twelve trolls in three hours
+-- 177: Information 177 taken, get twelve trolls, reward: thirty sp, 6 rankpoints
+queststatus(181) = 0, english, chance(100), town = Galmair, "quest", "mission" -> inform("[New Information] Kill twelve trolls."), "Da Don needs information. Scout da area and smash delve trolls, yus reward bes dirty silber coins.", queststatus(181) = 177, queststatus(182) = 36
+queststatus(181) = 0, german, chance(100), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte zwölf trolle."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf trolle zu Brei! Ich dir geben dreißig Silberstücke zur Belohnung!", queststatus(181) = 177, queststatus(182) = 36
+queststatus(181) = 0, chance(100), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill twelve trolls."), "Da Don needs information. Scout da area and smash delve trolls, yus reward bes dirty silber coins.", queststatus(181) = 177, queststatus(182) = 36
+queststatus(181) = 0, chance(100), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte zwölf trolle."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf trolle zu Brei! Ich dir geben dreißig Silberstücke zur Belohnung!", queststatus(181) = 177, queststatus(182) = 36
+
+-- Information 177 solved, reward: thirty sp, 6 rankpoints, delay: 5h
+queststatus(181) = 189, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded thirty silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 3000, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 6
+queststatus(181) = 189, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst dreißig Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 3000, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 6
+
+-- Information 177 taken but not solved, repeat the instructions
+queststatus(181) ~= 0, queststatus(181) < 5, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "quest", "mission" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "task", "adventure", "order" -> "Da Don needs da information, yus wasting time!"
+queststatus(181) ~= 0, queststatus(181) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don braucht Informationen. Du verschwenden Zeit!"
+
+-- Generate stuff end
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+english, "Ronagan" -> "Ronagan protects all ob us dat live in da shadows."
+"Ronagan", -> "Ronagan beschützt uns, wir im Schatten leben."
+english, "Nargun" -> "Nargun likes da mischief, yub."
+"Nargun" -> "Nargun liebt das Unheil, yub."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Ich viel wissen.", "Mes knows many tings."
+cycletext "Ich hier, Du gehen zu Information, los, los.", "Mehs da un joo go to fer infermations, hurr hurr."
+cycletext "#me sieht sich um mit einem verschlagenen Blick.", "#me glances around with a shifty gaze."
+cycletext "He Du! Da seien Arbweit für Dich,", "Hey yus! Ober 'ere ders be work for joo."
+cycletext "#me blickt den Weg entlang als würde er jemand erwarten.", "#me gazes at the alley entrance as if expecting someone to enter."
+cycletext "Yubba, der Don freuen sich wenn Du mir helfen.", "Yubba, da Don be pleased if yus helps mes."
+cycletext "Hurr hurr, wir wissen Antwort.", "Hurr hurr, mes knows da answer."
+cycletext "Du denken ich nicht wissen und seinen dumm?", "Whubs joo tinks, dat mes no nuttin an bes stupid?"
+cycletext "Die plumpe Regel der Stadt.", "Da stumpy rule dis town."
+cycletext "Wir Dich schlagen wenn uns nicht helfen. ", "Mes smash dey uns not helpin'."
