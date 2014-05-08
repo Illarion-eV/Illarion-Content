@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
 require("base.treasure")
@@ -111,9 +111,9 @@ function GatheringCraft:FindRandomItem(User)
       return true;
     end
   end
-  
+
 	base.common.GetHungry(User, self.FoodLevel);
-  
+
   -- FindRandomItem is called when the User is currently working. If there was
   -- a reload, the working time will be nil. Check for this case.
   if (self.SavedWorkTime[User.id] == nil) then
@@ -121,12 +121,12 @@ function GatheringCraft:FindRandomItem(User)
     -- exactly the original value.
     self.SavedWorkTime[User.id] = self:GenWorkTime(User,nil);
   end
-	
+
 	-- check for Noobia
 	if (base.common.IsOnNoobia(User.pos)) then
 		return false;
 	end
-	
+
 	if (self.Treasure > 0) then
 		local rand = math.random();
 		if(rand < self.Treasure*self.FastActionFactor) and base.treasure.createMap(User) then
@@ -134,7 +134,7 @@ function GatheringCraft:FindRandomItem(User)
 			return true;
 		end
 	end
-	
+
 	if (table.getn(self.Monsters) > 0) then
 		local ra = math.random(table.getn(self.Monsters));
 		local pa = math.random();
@@ -151,9 +151,9 @@ function GatheringCraft:FindRandomItem(User)
 			return true;
 		end
 	end
-	
+
 	if(table.getn(self.RandomItems) > 0) then
-		
+
 		-- check all items with same random number and choose any possible item again randomly
 
 		local itemIndexList = {};
@@ -161,11 +161,11 @@ function GatheringCraft:FindRandomItem(User)
 		-- list all items that are possible
 		for it = 1, table.getn(self.RandomItems), 1 do
 			local rand = math.random();
-			
+
 			if (rand <= self.RandomItems[it].Probability*self.FastActionFactor) then
-			
+
 				table.insert(itemIndexList, it);
-			
+
 			end
 		end
 		if ( table.getn(itemIndexList) > 0 ) then -- For the unlikely case that two items were found at once, we just give one to the player
@@ -186,19 +186,18 @@ function GatheringCraft:FindRandomItem(User)
 end
 
 -- Generate working time for gathering actions
--- Replaced old monster function with a simple one
 function GatheringCraft:GenWorkTime(User, toolItem)
-  
+
   local minTime = 12; --Minimum time for skill 100 and normal tool
   local maxTime = 60; --Maximum time for skill 0 and normal tool
 
-  local skill  = math.min(100,math.max(0,User:getSkill(self.LeadSkill)));
-  workTime=base.common.Scale(maxTime, minTime, skill); --scaling with the skill
-  
+  local skill  = base.common.Limit(User:getSkill(self.LeadSkill), 0, 100);
+  local workTime = base.common.Scale(maxTime, minTime, skill); --scaling with the skill
+
   -- apply the quality bonus
   if ( toolItem ~= nil ) then
-    local qual = math.min(9,math.max(1,math.floor(toolItem.quality/100))); -- quality integer in [0,9]
-	workTime = workTime - workTime*0.20*((qual-5)/4); --+/-20% depending on tool quality
+    local qual = base.common.Limit(math.floor(toolItem.quality/100), 1, 9); -- quality integer in [1,9]
+    workTime = workTime - workTime*0.20*((qual-5)/4); --+/-20% depending on tool quality
   end
 
   workTime = workTime*self.FastActionFactor; --for fast actions.
