@@ -27,7 +27,7 @@ function UseItem(User, SourceItem)
   if (SourceItem:getType()~=3) then
     -- item is not on a field, try to light a fire at the front position.
     checkPos = base.common.GetFrontPosition(User);
-    local posOkay = true;
+
     -- there should be no item on the field
     if (world:getField(checkPos):countItems() > 0) then
       base.common.HighInformNLS(User,
