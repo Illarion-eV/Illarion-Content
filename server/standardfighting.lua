@@ -789,19 +789,21 @@ function CauseDamage(Attacker, Defender, Globals)
 		if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
 
             base.common.ParalyseCharacter(Defender.Char, 7, false, true);
-            lte.chr_reg.stallRegeneration(Defender.Char, 20);
-
+			lte.chr_reg.stallRegeneration(Defender.Char, 60); --stall regeneration for one minute
+			
 		end
 
         return true;
+		
     else
+	
         if not base.character.ChangeHP(Defender.Char, -Globals.Damage) then
 
 		--removed: Call of base.playerdeath
 
         end;
 
-        if (Attacker.AttackKind == 4) then -- Distanzangriff.
+        if (Attacker.AttackKind == 4) then -- Ranged attack
             if Defender.Char:getType() == Character.monster and Attacker.Char:getType() == Character.player then
 				Defender.Char.movepoints = Defender.Char.movepoints - 5;
 			end
