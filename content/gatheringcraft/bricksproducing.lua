@@ -124,7 +124,7 @@ function ProduceUnfiredBricks( User, SourceItem, ltstate )
 		end
 	end
 
-	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem, bricksproducing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Ziegelform zerbricht.",
 		"Your old brick mould breaks.");
