@@ -122,7 +122,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 		"You can't carry any more and the rest drops to the ground.");
 	elseif gatherAmount < 100 then -- character can still carry something and more wool is available
 		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User, toolItem);
-		User:changeSource(SourceAnimal);
+		--User:changeSource(SourceAnimal);
 		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 2, 20);
 		-- make sure the sheep doesn't move away
 		SourceAnimal.movepoints = math.min(SourceAnimal.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
