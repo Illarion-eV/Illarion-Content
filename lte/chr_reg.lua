@@ -30,7 +30,7 @@ crossPosition[1]= position(102,562,0);       -- Cadomyr
 crossPosition[2]= position(854,804,0);       -- Runewick
 crossPosition[3]= position(345,266,0);       -- Galmair
 
-TimeFactor = 1; -- Time between two effect calls in seconds. All effects scale with this number.
+TimeFactor = 1; -- Time between two effect calls in seconds. All effects scale with this number. Attention: If you change this number, also change it in server.standardfighting
 EffectID = 2;
 
 function addEffect( Effect, Character)
@@ -362,8 +362,6 @@ function leadToCross( Char , Effect )
         Effect:addValue("cycleCounter",1); --Start counting
     end
 
-	Char:inform("Counter: "..cycleCounter);
-	
     if cycleCounter>=(60/TimeFactor) then --One minute is over!
 	
 		world:gfx(31,Char.pos); --GFX, alternatively 16

@@ -789,7 +789,8 @@ function CauseDamage(Attacker, Defender, Globals)
 		if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
 
             base.common.ParalyseCharacter(Defender.Char, 7, false, true);
-			lte.chr_reg.stallRegeneration(Defender.Char, 60); --stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
+			TimeFactor=1; -- See lte.chr_reg
+			lte.chr_reg.stallRegeneration(Defender.Char, 60/TimeFactor); -- Stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
 			
 		end
 
@@ -797,12 +798,6 @@ function CauseDamage(Attacker, Defender, Globals)
 		
     else
 	
-        if not base.character.ChangeHP(Defender.Char, -Globals.Damage) then
-
-		--removed: Call of base.playerdeath
-
-        end;
-
         if (Attacker.AttackKind == 4) then -- Ranged attack
             if Defender.Char:getType() == Character.monster and Attacker.Char:getType() == Character.player then
 				Defender.Char.movepoints = Defender.Char.movepoints - 5;
