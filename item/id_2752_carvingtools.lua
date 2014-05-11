@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_2752_carvingtools' WHERE itm_id IN (2752);
 
 local carving = require("content.craft.carving")
-local licence = require("base.licence")
 local wood = require("item.general.wood")
 
 module("item.id_2752_carvingtools", package.seeall)
@@ -25,9 +24,5 @@ module("item.id_2752_carvingtools", package.seeall)
 LookAtItem = wood.LookAtItem
 
 function UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
     carving.carving:showDialog(User, SourceItem)
 end

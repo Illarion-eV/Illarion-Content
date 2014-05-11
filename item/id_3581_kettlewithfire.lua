@@ -17,14 +17,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_3581_kettle' WHERE itm_id IN (3581);
 
 local cooking = require("content.craft.cooking")
-local licence = require("base.licence")
 
 module("item.id_3581_kettlewithfire", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
     cooking.cooking:showDialog(User, SourceItem)
 end
