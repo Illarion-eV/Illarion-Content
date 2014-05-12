@@ -26,7 +26,9 @@ function LookAtItem(User,Item)
 	world:itemInform( User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE) );
 	
 	--The stuff below needs IMO a serious rework! ~Estralis
+	--Deactivated the lookAt for now. If anyone wants to use this, please rework without abusing quality. ~Estralis
 	
+	--[[
     local spell = Item.quality; --Please do NOT use quality in this way. Quality is the quality, nothing else. Use a data key instead.
     if (spell == 101) then -- teleport
         
@@ -43,7 +45,7 @@ function LookAtItem(User,Item)
     elseif (tonumber(Item:getData("scrollData")) == 666 ) then -- quest scroll
 	
     	base.common.InformNLS( User, "Auf der Pergamentrolle ist das Symbol eines Drachen abgebildet.", "The symbol of a dragon has been painted on this scroll of parchment." );
-	end
+	end]]
 	
 end
 
@@ -64,6 +66,8 @@ function UseItem(User, SourceItem, ltstate)
 		end
 	-- end 
 
+	--[[DEACTIVATED - Do not use quality in this way ~Estralis
+	
 	local spell = SourceItem.quality;
     if (tonumber(SourceItem:getData("scrollData")) == 600) then -- summon creature
         summonCreature( User, SourceItem );
@@ -79,7 +83,9 @@ function UseItem(User, SourceItem, ltstate)
 		world:gfx(31,User.pos);
 		world:erase(SourceItem,1);
     end;
+	]]
 end
+
 
 function teleportTarget( Item )
     local x, y, z, dat;
