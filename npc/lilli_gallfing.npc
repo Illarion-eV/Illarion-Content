@@ -50,12 +50,12 @@ beardID = 0
 colorHair = 205, 92, 92
 colorSkin = 245, 200, 145
 itemHead = 0
-itemChest = 182
+itemChest = 817
 itemCoat = 2418
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 0
-itemTrousers = 842
+itemTrousers = 843
 itemShoes = 0
 
 -- Help
