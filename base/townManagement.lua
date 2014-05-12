@@ -28,7 +28,7 @@ townManagmentItemPos={position(118,530,0),position(899,772,2),position(344,223,0
 toolUseNameDE={"Wache","Lizenz","Schlüssel"}
 toolUseNameEN={"Guard","Licence","Key"}
 
-requiredRank={8,8,9}
+requiredRank={9,9,9} -- Great line, really. How is one supposed to know what town is which entry? Use comments plz! ~Estralis
 
 function townManagmentUseItem(User, SourceItem)
 
@@ -89,10 +89,10 @@ end
 
 
 function TownGuard(User,toolTown)
---debug("TownGuard: "..User.name)
+
 	local callback = function(dialog)
 		if not dialog:getSuccess() then
-			base.common.InformNLS(User,"Abbruch. Niemand wurd gebannt.","Abortion. No one was banned.")
+			base.common.InformNLS(User,"Abbruch. Niemand wurde gebannt.","Aborted. No one was banned.")
 			return
 		else 
 			local myString = dialog:getInput()
@@ -132,15 +132,15 @@ function TownGuard(User,toolTown)
 				else
 					local townId = toolTown
 					base.factions.setIndividualPlayerRelation(theChar, townId, base.factions.RELATION_HOSTILE, 3);
-					base.common.InformNLS(User,theChar.name.." ist für einen Zwergentag gebannt",theChar.name.." is banned for one dwarven day.")
+					base.common.InformNLS(User,theChar.name.." ist für einen Zwergentag gebannt.",theChar.name.." is banned for one dwarven day.")
 				end
 			else
-				base.common.InformNLS(User,"Du hast nicht alle notwendige Information angegeben.","You haven't put in all necessary informations.")
+				base.common.InformNLS(User,"Du hast nicht alle notwendige Information angegeben.","You haven't put in all necessary information.")
 			end
 		end	
 	end
 	if  User:getPlayerLanguage() == Player.german then
-		local dialog = InputDialog("Charkter, der gebannt werden soll.","Gib an: [Name|ID] Beispiel: Max Mustermann",false,255,callback)
+		local dialog = InputDialog("Charakter, der gebannt werden soll.","Gib an: [Name|ID] Beispiel: Max Mustermann",false,255,callback)
 		User:requestInputDialog(dialog)	
 	else
 		local dialog = InputDialog("Character that should be banned.","Insert: [Name|ID] Example: John Doe",false,255,callback)
@@ -151,7 +151,7 @@ end
 
 
 function TownLicence(User,toolTown)
---debug("TownLicence: "..User.name)
+
 	local factionIds = {0,1,2,3};
 	local FirstLicence = toolTown;
 	local licence = base.licence;
