@@ -217,11 +217,6 @@ function InitGathering()
 		woolcutting:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
 		--potashproducing
-		potashproducing:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour Brágon, the God of Fire, awards you with a treasure of Pure Fire."); --Pure fire
-		potashproducing:AddRandomItem(item.gems.getMagicGemId(item.gems.EMERALD),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"In der Asche erspähst du einen grün funkelnden Gegenstand. Du findest einen magischen Smaragd.","Amidst the burning rubble and potash you spot a green sparkling object. To your fortune it is a magical emerald."); --Magical emerald
-		potashproducing:SetTreasureMap(prob_rarely,"Fein säuberlich aufgerollt findest du eine Schatzkarte in einem ausgehöhlten Ast. Gut, dass du das Holz noch nicht verbrannt hattest!","Nestled in a hollowed-out branch you find a treasure map neatly rolled up. Luckily you did not burn it yet!");
-		potashproducing:AddMonster(271,prob_rarely,"Angezogen vom Licht des wärmenden Feuers, taucht eine agressive Wespe auf.","Attracted to the bright warm light of your fire a aggressive wasp comes after you.",4,7);
-
 		potashproducing:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
 		--entrailscutting
