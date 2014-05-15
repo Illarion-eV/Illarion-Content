@@ -101,7 +101,8 @@ if createItemTimeB ~= 0 then
 			createItemZ=math.random(createItemZA,createItemZB) --create random value between variables
 			posOfItem = position(createItemX,createItemY,createItemZ) --set value for position
 			local testforaccessabletile = 0
-			if createItemID ~= 0 then
+			findCreateItemFieldAccess, createItemFieldAccess = Effect:findValue("createItemFieldAccess") --find variable
+			if createItemID ~= 0 and createItemFieldAccess == nil or createItemID ~= 0 and createItemFieldAccess == 0 then
 				repeat
 					createItemX=math.random(createItemXA,createItemXB) --create random value between variables
 					createItemY=math.random(createItemYA,createItemYB) --create random value between variables
