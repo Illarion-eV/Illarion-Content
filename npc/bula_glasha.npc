@@ -32,7 +32,7 @@ affiliation = "Galmair"
 job = "Informant"
 
 language = common
-language = human
+language = orc
 defaultLanguage = common
 autointroduce = on
 
