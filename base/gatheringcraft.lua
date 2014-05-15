@@ -103,7 +103,7 @@ end
 
 -- @return If something was done
 function GatheringCraft:FindRandomItem(User)
-
+--[[Deactivate the call of interrupting messages.
   if math.random(1,100) == 50 then --why complicated if you can solve it simple... 1% chance for an interruption
     if(table.getn(self.InterruptMsg) > 0) then
       local m = math.random(table.getn(self.InterruptMsg));
@@ -111,6 +111,7 @@ function GatheringCraft:FindRandomItem(User)
       return true;
     end
   end
+--]]
 
 	base.common.GetHungry(User, self.FoodLevel);
 
