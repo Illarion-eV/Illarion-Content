@@ -105,6 +105,9 @@ messageG[73]="[Tipp] Der rote Balken repräsentiert die Gesundheit deines Charakt
 messageG[74]="[Tipp] Eine Liste deiner Aufgaben erhältst du, indem du 'Q' drückst."
 messageG[75]="[Tipp] Um Beute schnell aufzunehmen, drücke 'P' und du sammelst alle umliegenden Gegenstände ein."
 messageG[76]="[Tipp] Eine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen."
+messageG[77]="[Tipp] Wie schnell deine Fertigkeiten steigen, hängt vor allem davon ab, wie viel Zeit du im Spiel verbringst."
+messageG[78]="[Tipp] Es ist nicht nötig, den ganzen Tag hart zu arbeiten, um deine Fertigkeiten zu steigern. Mach auch mal eine Pause um dich zu unterhalten oder die Welt zu erkunden."
+
 --messageG[XX]="[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um."
 --messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
@@ -186,6 +189,9 @@ messageE[73]="[Hint] The red bar represents the health of your character. The ye
 messageE[74]="[Hint] You can review the quests of your character by hitting 'Q'.";
 messageE[75]="[Hint] To collect loot quickly, press 'P' to collect all items within reach.";
 messageE[76]="[Hint] To see an overview of all commands, hit F1.";
+messageE[77]="[Hint] The speed of skillgain is mainly determined by the time you spend in the game.";
+messageE[78]="[Hint] It is not necessary to work all day long to raise your skills. Take a break to chat or explore the world!";
+
 --messageE[XX]="[Hint] CTRL toggles walking/running.";
 --messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard.";
 

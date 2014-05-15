@@ -46,8 +46,8 @@ wrongLangUS = "#me looks at you confused."
 radius = 0
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the spider Gorgophone. Keywords: Hello, quest, spider.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Spinne Gorgophone. Schlüsselwörter: Hallo, Quest, spinne.")
+"Help" -> inform("[Game Help] This NPC is the spider Gorgophone. Keywords: Hello, quest, spider, exit.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Spinne Gorgophone. Schlüsselwörter: Hallo, Quest, Spinne, Ausgang.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me clicks her jaws and looks at you appraisingly."
@@ -72,10 +72,13 @@ english, "Gobaith", "Gobiath" -> "I know nothing of that land."
 "Gobaith", "Gobiath" -> "Ich weiß nichts von diesem Land."
 "my name" -> "I am Gorgophone, the grim slayer."
 "mein Name" -> "Ich bin Gorgophone, die grimmige Schlächterin."
+english, "exit", "way out", "escape" -> "There is an exit somewhere. Maybe you will find it before you die."
+"Ausgang" -> "Es gibt einen Ausgang irgendwo. Vielleicht findet ihr ihn, bevor ihr hier zugrunde geht."
 
--- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"Mother" -> "I am mother of many... hundreds... maybe thousands?"
-"Mutter" -> "Ich bin Mutter von vielen ... Hunderten ... vielleicht Tausenden."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his environment
+"mother", "spider" -> "I am mother of many... hundreds... maybe thousands?"
+"Mutter", "Spinne" -> "Ich bin Mutter von vielen ... Hunderten ... vielleicht Tausenden."
 english, "egg" -> "My egg sac is like a cocoon and is suspended from my large web, containing hundreds of eggs."
 "Ei" -> "Mein Eierbündel ist wie ein Kokon und hängt an meinem Netz, mit Hunderten von Eiern."
 english, "eat" -> " I puncture my prey with my fangs and administer digestive enzymes into the corpses. By using these enzymes, and my gnashing fangs, the prey's body liquefies, letting me suck up the resulting fluid."
@@ -252,7 +255,7 @@ english, "Gorgophone" -> "That is me, the grim slayer."
 "Gorgophone" -> "Das bin ich, die grimmige Schlächterin."
 "Yes" -> "#me scampers happily."
 "Ja" -> "#me huscht glücklich hin und her."
-"No" -> "me glares evilly."
+"No" -> "#me glares evilly."
 "Nein" -> "#me starrt böse."
 
 -- Cycle Texts - Messages spoken automatically in random intervals.

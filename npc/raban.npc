@@ -100,21 +100,21 @@ english, "Ciao", "Adieu", "Au revoir" -> "Ushara may guide your way.", "Farewell
 
 -- 1st quest: Take a tool and gather 10 raw materials for 500cp.
 queststatus(66) = 0, english, "quest", "mission" -> inform("[New quest] Raban's Grove I"), item(126, 1, 399), queststatus(66) = 1, "So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around."
-queststatus(66) = 0, "quest", "mission" -> inform("[Neues Quest] Rabans Hain I"), item(126, 1, 399), queststatus(66) = 1, "So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehn Setzlinge von den Fichten des Hains."
+queststatus(66) = 0, "quest", "mission" -> inform("[Neues Quest] Rabans Hain I"), item(126, 1, 399), queststatus(66) = 1, "So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehn Sprösslinge von den Tannen des Hains."
 queststatus(66) = 0, "task", "adventure", "order" -> inform("[New quest] Raban's Grove I"), item(126, 1, 399), queststatus(66) = 1, "So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around."
-queststatus(66) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Rabans Hain I"), item(126, 1, 399), queststatus(66) = 1, "So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehn Setzlinge von den Fichten des Hains."
+queststatus(66) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Rabans Hain I"), item(126, 1, 399), queststatus(66) = 1, "So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehn Sprösslinge von den Tannen des Hains."
 
 -- Quest 1 solved
 skill(herblore) < 90, queststatus(66) = 1, item(149, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and your herb lore skill increases."), skill(herblore) + 1, money + 500, deleteItem(149, 10), queststatus(66) = 2, "Thank you very much for the fir tree seedlings. Here, have these shiny discs, I have no use for them."
 queststatus(66) = 1, item(149, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(149, 10), queststatus(66) = 2, "Thank you very much for the fir tree seedlings. Here, have these shiny discs, I have no use for them."
-skill(herblore) < 90, queststatus(66) = 1, item(149, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Kräuterkundefertigkeit steigt."), skill(herblore) + 1, money + 500, deleteItem(149, 10), queststatus(66) = 2, "Habt besten Dank für die Fichtensetzlinge. Nehmt diese glänzenden Scheiben, ich habe keinen Bedarf an ihnen."
-queststatus(66) = 1, item(149, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(149, 10), queststatus(66) = 2, "Habt besten Dank für die Fichtensetzlinge. Nehmt diese glänzenden Scheiben, ich habe keinen Bedarf an ihnen."
+skill(herblore) < 90, queststatus(66) = 1, item(149, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Kräuterkundefertigkeit steigt."), skill(herblore) + 1, money + 500, deleteItem(149, 10), queststatus(66) = 2, "Habt besten Dank für die Tannensprösslinge. Nehmt diese glänzenden Scheiben, ich habe keinen Bedarf an ihnen."
+queststatus(66) = 1, item(149, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(149, 10), queststatus(66) = 2, "Habt besten Dank für die Tannensprösslinge. Nehmt diese glänzenden Scheiben, ich habe keinen Bedarf an ihnen."
 
 -- Quest 1 not solved, repeat the instructions
 queststatus(66) = 1, english, "quest", "mission" -> "So, how is your progress in finding ten fir tree seedlings?"
-queststatus(66) = 1, "quest", "mission" -> "Und, wie kommt ihr voran mit dem Finden von zehn Fichtensetzlingen?"
+queststatus(66) = 1, "quest", "mission" -> "Und, wie kommt ihr voran mit dem Finden von zehn Tannensprösslinge?"
 queststatus(66) = 1, "task", "adventure", "order" -> "So, how is your progress in finding ten fir tree seedlings?"
-queststatus(66) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Und, wie kommt ihr voran mit dem Finden von zehn Fichtensetzlingen?"
+queststatus(66) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Und, wie kommt ihr voran mit dem Finden von zehn Tannensprösslinge?"
 
 -- 2nd quest: Gather 20 different raw materials for 1000cp.
 queststatus(66) = 2, english, "quest", "mission" -> inform("[New quest] Raban's Grove II"), queststatus(66) = 3, "How kind of you that you want to assist me one more time. Could you gather twenty blackberries, sweet gifts of Oldra?"
@@ -202,7 +202,7 @@ english, "Bruno" -> "That name sounds familiar, but living in solitude, I forget
 "herbs" -> "You can gather herbs with a sickle. But do not cut too many... Ushara won't be pleased if you plunder her treasury."
 "Kräuter" -> "Ihr könnt Kräuter mit einer Sichel sammeln. Aber schneidet nicht zu viele ab - Ushara wird nicht erfreut sein, wenn ihr ihren Garten plündert."
 queststatus(66) = 0, "sickle" -> "With sickles, you can cut fir tree seedlings to plant new trees. If you want to help me, ask me for a task."
-queststatus(66) = 0, "Sichel" -> "Mit einer Sichel könnt ihr Fichtensetzlinge schneiden um neue Bäume zu pflanzen. Wenn ihr mir dabei helfen wollt, fragt mich nach einem Auftrag."
+queststatus(66) = 0, "Sichel" -> "Mit einer Sichel könnt ihr Tannensprösslinge schneiden um neue Bäume zu pflanzen. Wenn ihr mir dabei helfen wollt, fragt mich nach einem Auftrag."
 "sickle" -> "In case you need a new sickle, ask for William in Runewick. If he is still alive after all these years we didn't meet."
 "Sichel" -> "Wenn du einen neue Sichel benötigst, fragt nach William in Runewick. Ich hoffe, er ist nach all diesen Jahren, die wir uns nicht sahen, noch am Leben."
 "virgin" -> "Virgin's weed only grows in rocky terrain, so you'll have to head for the mountains if you need any."
