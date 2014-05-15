@@ -31,7 +31,7 @@ function MoveToField(char)
 		if PlayerIsNaked(char) == true then
 			PayGemsToMeetHer(char)
 		elseif char.pos == position(451,543,0) then
-			base.common.InformNLS(char,"Du hÃ¶rst etwas flÃ¼stern: 'Du hast zu viel an.'","You hear a wisper: 'You wear too much yet.'")
+			base.common.InformNLS(char,"Du hörst etwas flüstern: 'Du hast zu viel an.'","You hear a wisper: 'You wear too much yet.'")
 		end
 	end
 end
@@ -67,10 +67,10 @@ function PayGemsToMeetHer(char)
 		if success then
 			local selected = dialog:getSelectedIndex()
 			if PlayerHasTheRightGems(char,requiredGems) == true then
-				char:inform("Du hÃ¶rst etwas flÃ¼stern: 'Du bist wÃ¼rdig und sollst eintreten.", "You hear a wisper: 'You prove yourself worthy and shall enter.'")
+				char:inform("Du hörst etwas flüstern: 'Du bist würdig und sollst eintreten.", "You hear a wisper: 'You prove yourself worthy and shall enter.'")
 				WrapPlayerUp(char,requiredGems)
 			else
-				char:inform("Du hÃ¶rst etwas flÃ¼stern: 'Willst du mich provozieren? Bringe, was ich fordere oder es wird dein Ende sein!'", "You hear a wisper: 'Do you want to provoke me? Bring what I demand or it will be your end!'")
+				char:inform("Du hörst etwas flüstern: 'Willst du mich provozieren? Bringe, was ich fordere oder es wird dein Ende sein!'", "You hear a wisper: 'Do you want to provoke me? Bring what I demand or it will be your end!'")
 				if (char:increaseAttrib("hitpoints",0)>5000) then
 					char:increaseAttrib("hitpoints", -5000)
 					world:makeSound(3,char.pos);
@@ -81,7 +81,7 @@ function PayGemsToMeetHer(char)
 		
 	local dialog
 	if char:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Tribut", "Zahle den Tribut, wenn du eintreten mÃ¶chtest.", callback)
+		dialog = SelectionDialog("Tribut", "Zahle den Tribut, wenn du eintreten möchtest.", callback)
 	else
 		dialog = SelectionDialog("Tribute", "Pay the tribute if you like to enter.", callback)
 	end
