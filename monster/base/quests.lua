@@ -1717,7 +1717,7 @@ function iniQuests()
     maximumQueststatus[id]=189;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
-	
+
 	--Quest 71: The Researcher
 	local id=71;
     germanTitle[id]="Die Forscher";
@@ -1740,7 +1740,7 @@ function iniQuests()
 	table.insert(questList[1052],id); -- all slimes
 	table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=1;
-    maximumQueststatus[id]=5;	
+    maximumQueststatus[id]=5;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
@@ -1766,10 +1766,10 @@ function iniQuests()
 	table.insert(questList[1052],id); -- all slimes
 	table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=6;
-    maximumQueststatus[id]=14;	
+    maximumQueststatus[id]=14;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 73: The Researcher
 	local id=73;
     germanTitle[id]="Die Forscher";
@@ -1792,10 +1792,10 @@ function iniQuests()
 	table.insert(questList[1052],id); -- all slimes
 	table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=15;
-    maximumQueststatus[id]=27;	
+    maximumQueststatus[id]=27;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 74: The Researcher
 	local id=74;
     germanTitle[id]="Die Forscher";
@@ -1814,11 +1814,11 @@ function iniQuests()
 	table.insert(questList[971],id); --All dogs
 	table.insert(questList[972],id); --All dogs
     minimumQueststatus[id]=28;
-    maximumQueststatus[id]=32;	
+    maximumQueststatus[id]=32;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
-	
+
+
 	--Quest 75: The Researcher
 	local id=75;
     germanTitle[id]="Die Forscher";
@@ -1837,10 +1837,10 @@ function iniQuests()
 	table.insert(questList[971],id); --All dogs
 	table.insert(questList[972],id); --All dogs
     minimumQueststatus[id]=33;
-    maximumQueststatus[id]=41;	
+    maximumQueststatus[id]=41;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 76: The Researcher
 	local id=76;
     germanTitle[id]="Die Forscher";
@@ -1859,10 +1859,10 @@ function iniQuests()
 	table.insert(questList[971],id); --All dogs
 	table.insert(questList[972],id); --All dogs
     minimumQueststatus[id]=42;
-    maximumQueststatus[id]=54;	
+    maximumQueststatus[id]=54;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 77: The Researcher
 	local id=77;
     germanTitle[id]="Die Forscher";
@@ -1882,10 +1882,10 @@ function iniQuests()
 	table.insert(questList[421],id); --All Wolves
     table.insert(questList[431],id); --All Wolves
     minimumQueststatus[id]=55;
-    maximumQueststatus[id]=59;	
+    maximumQueststatus[id]=59;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 78: The Researcher
 	local id=78;
     germanTitle[id]="Die Forscher";
@@ -1905,10 +1905,10 @@ function iniQuests()
 	table.insert(questList[421],id); --All Wolves
     table.insert(questList[431],id); --All Wolves
     minimumQueststatus[id]=60;
-    maximumQueststatus[id]=68;	
+    maximumQueststatus[id]=68;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 79: The Researcher
 	local id=79;
     germanTitle[id]="Die Forscher";
@@ -1928,10 +1928,10 @@ function iniQuests()
 	table.insert(questList[421],id); --All Wolves
     table.insert(questList[431],id); --All Wolves
     minimumQueststatus[id]=69;
-    maximumQueststatus[id]=81;	
+    maximumQueststatus[id]=81;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 80: The Researcher
 	local id=80;
     germanTitle[id]="Die Forscher";
@@ -1940,17 +1940,17 @@ function iniQuests()
     statusId[id]=184;
 	germanRace[id]="Bärin";
     englishRace[id]="bears";
-	table.insert(questList[491],id; -- all bears
+	table.insert(questList[491],id); -- all bears
 	table.insert(questList[492],id); --all bears
 	table.insert(questList[501],id); --all bears
 	table.insert(questList[502],id); --all bears
 	table.insert(questList[511],id); --all bears
 	table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=82;
-    maximumQueststatus[id]=86;	
+    maximumQueststatus[id]=86;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 81: The Researcher
 	local id=81;
     germanTitle[id]="Die Forscher";
@@ -1959,17 +1959,17 @@ function iniQuests()
     statusId[id]=184;
     germanRace[id]="Bärin";
     englishRace[id]="bears";
-	table.insert(questList[491],id; -- all bears
+	table.insert(questList[491],id); -- all bears
 	table.insert(questList[492],id); --all bears
 	table.insert(questList[501],id); --all bears
 	table.insert(questList[502],id); --all bears
 	table.insert(questList[511],id); --all bears
 	table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=87;
-    maximumQueststatus[id]=95;	
+    maximumQueststatus[id]=95;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 82: The Researcher
 	local id=82;
     germanTitle[id]="Die Forscher";
@@ -1978,17 +1978,17 @@ function iniQuests()
     statusId[id]=184;
 	ermanRace[id]="Bärin";
 	englishRace[id]="bear";
-	table.insert(questList[491],id; -- all bears
+	table.insert(questList[491],id); -- all bears
 	table.insert(questList[492],id); --all bears
 	table.insert(questList[501],id); --all bears
 	table.insert(questList[502],id); --all bears
 	table.insert(questList[511],id); --all bears
 	table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=96;
-    maximumQueststatus[id]=108;	
+    maximumQueststatus[id]=108;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 83: The Researcher
 	local id=83;
     germanTitle[id]="Die Forscher";
@@ -2004,10 +2004,10 @@ function iniQuests()
 	table.insert(questList[5],id); --All humans
 	table.insert(questList[6],id); --All humans
     minimumQueststatus[id]=109;
-    maximumQueststatus[id]=113;	
+    maximumQueststatus[id]=113;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 84: The Researcher
 	local id=84;
     germanTitle[id]="Die Forscher";
@@ -2023,10 +2023,10 @@ function iniQuests()
 	table.insert(questList[5],id); --All humans
 	table.insert(questList[6],id); --All humans
     minimumQueststatus[id]=114;
-    maximumQueststatus[id]=122;	
+    maximumQueststatus[id]=122;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 85: The Researcher
 	local id=85;
     germanTitle[id]="Die Forscher";
@@ -2042,10 +2042,10 @@ function iniQuests()
 	table.insert(questList[5],id); --All humans
 	table.insert(questList[6],id); --All humans
     minimumQueststatus[id]=123;
-    maximumQueststatus[id]=135;	
+    maximumQueststatus[id]=135;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 86: The Researcher
 	local id=86;
     germanTitle[id]="Die Forscher";
@@ -2059,10 +2059,10 @@ function iniQuests()
 	table.insert(questList[43],id); --Orc Thief
 	table.insert(questList[55],id); --Lizard Thief
 	minimumQueststatus[id]=136;
-    maximumQueststatus[id]=140;	
+    maximumQueststatus[id]=140;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 87: The Researcher
 	local id=87;
     germanTitle[id]="Die Forscher";
@@ -2076,10 +2076,10 @@ function iniQuests()
 	table.insert(questList[43],id); --Orc Thief
 	table.insert(questList[55],id); --Lizard Thief
 	minimumQueststatus[id]=141;
-    maximumQueststatus[id]=149;	
+    maximumQueststatus[id]=149;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 88: The Researcher
 	local id=88;
     germanTitle[id]="Die Forscher";
@@ -2093,10 +2093,10 @@ function iniQuests()
 	table.insert(questList[43],id); --Orc Thief
 	table.insert(questList[55],id); --Lizard Thief
 	minimumQueststatus[id]=150;
-    maximumQueststatus[id]=162;	
+    maximumQueststatus[id]=162;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 89: The Researcher
 	local id=89;
     germanTitle[id]="Die Forscher";
@@ -2110,10 +2110,10 @@ function iniQuests()
 	table.insert(questList[533],id); --All Zombies
 	table.insert(questList[534],id); --All Zombies
 	minimumQueststatus[id]=163;
-    maximumQueststatus[id]=167;	
+    maximumQueststatus[id]=167;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 90: The Researcher
 	local id=90;
     germanTitle[id]="Die Forscher";
@@ -2127,10 +2127,10 @@ function iniQuests()
 	table.insert(questList[533],id); --All Zombies
 	table.insert(questList[534],id); --All Zombies
 	minimumQueststatus[id]=168;
-    maximumQueststatus[id]=176;	
+    maximumQueststatus[id]=176;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 91: The Researcher
 	local id=91;
     germanTitle[id]="Die Forscher";
@@ -2144,7 +2144,7 @@ function iniQuests()
 	table.insert(questList[533],id); --All Zombies
 	table.insert(questList[534],id); --All Zombies
 	minimumQueststatus[id]=177;
-    maximumQueststatus[id]=189;	
+    maximumQueststatus[id]=189;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 end

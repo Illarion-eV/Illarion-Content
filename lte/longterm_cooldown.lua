@@ -189,9 +189,9 @@ function callEffect( Effect, Char ) -- Effect is called
 			Char:setQuestProgress(183,theQuestStatus-1); --cooling!
 		end
 		--Addition end
-		
+
 		--Addition by Caldarion: Quest 184/185/186 The Researcher (Maelyrra Umrielyth) Cooldown
-	    theQuestStatus=Char:getQuestProgress(185);
+	    theQuestStatus=Char:getQuestProgress(186);
 
 		if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
 			Char:setQuestProgress(186,theQuestStatus-1); --cooling!
@@ -307,7 +307,7 @@ function callEffect( Effect, Char ) -- Effect is called
 		Char:setQuestProgress(185,theQuestStatus-1); --counting down!
 	end
 	--Addition end
-	
+
 	Effect.nextCalled = 3000; --Effect gets called each 5 minutes
 
 	return true; --No idea why!

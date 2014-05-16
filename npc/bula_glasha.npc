@@ -75,7 +75,7 @@ itemShoes = 1054
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Bula Glasha the Informant. Keywords: Hello, mission.")
-"Hilfe" -> inform("[Spielhilfe] [Hilfe] Dieser NPC ist Bula Glasha, Informant. Schlüsselwörter: Hallo, Auftrag.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bula Glasha, Informant. Schlüsselwörter: Hallo, Auftrag.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas. Joo want work?"

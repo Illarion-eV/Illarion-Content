@@ -63,7 +63,7 @@ itemShoes = 369
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Maelyrra Umrielyth the researcher. Keywords: Hello, mission.")
-"Hilfe" -> inform("[Spielhilfe] [Hilfe] Dieser NPC ist Maelyrra Umrielyth, Forscher. Schlüsselwörter: Hallo, Auftrag.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Maelyrra Umrielyth, Forscher. Schlüsselwörter: Hallo, Auftrag.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. Have you come to be of assistance?", "Greets to you too.", "Greetings, its a beautiful day."
@@ -173,7 +173,7 @@ queststatus(184) ~= 0, queststatus(184) < 27, town = Runewick, "Auftrag", "Aufga
 -- 28: Research 28 taken, kill four dogs, reward: two sp, 2 rankpoints
 queststatus(184) = 0, english, chance(5.555555556), town = Runewick, "quest", "mission" -> inform("[New Research] Kill four dogs."), "The Archmage wishes to know what the dogs are attacking, please kill four and bring the remains.", queststatus(184) = 28, queststatus(185) = 36
 queststatus(184) = 0, german, chance(5.555555556), town = Runewick, "quest", "mission" -> inform("[Neue Forschungsaufgabe] Töte vier Hunde."), "Elvain Morgan wüscht zu wissen was nur die Hunde befallen hat? Sie geben keine Ruhe. Bitte bringe mir 4 tote Hunde damit ich sie für den Erzmagier untersuchen kann.", queststatus(184) = 28, queststatus(185) = 36
-queststatus(184) = 0, chance(5.555555556), town = Runewick, "task", "adventure", "order" ->inform("[New Information] Kill four dogs."),  "The Archmage wishes to know what the dogs are attacking, please kill four and bring the remains.", queststatus(184) = 28, queststatus(185) = 36", queststatus(184) = 28, queststatus(185) = 36
+queststatus(184) = 0, chance(5.555555556), town = Runewick, "task", "adventure", "order" ->inform("[New Information] Kill four dogs."),  "The Archmage wishes to know what the dogs are attacking, please kill four and bring the remains.", queststatus(184) = 28, queststatus(185) = 36
 queststatus(184) = 0, chance(5.555555556), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform("[Neue Forschungsaufgabe] Töte vier Hunde."), "Elvain Morgan wüscht zu wissen was nur die Hunde befallen hat? Sie geben keine Ruhe. Bitte bringe mir 4 tote Hunde damit ich sie für den Erzmagier untersuchen kann.", queststatus(184) = 28, queststatus(185) = 36
 .
 -- Research 28 solved, reward: two sp, 5 rankpoints, delay: 5h
@@ -453,7 +453,7 @@ queststatus(184) = 176, english, town = Runewick, ".*" -> inform("[Research coll
 queststatus(184) = 176, town = Runewick, ".*" -> inform("[Forschungsaufgabe abgeschlossen] Du erhältst zwanzig Silberstücke."), "Ich weiß nicht was das Ergebnis des Experiments aussagt. Am Besten ich schreib einen Bericht. Und ihr bekommt diese Münzen als Dank.", money + 2000, queststatus(184) = 0, queststatus(185) = 0, queststatus(186) = 60, rankpoints + 4
 
 -- Research 168 taken but not solved, repeat the instructions
-queststatus(184) ~= 0, queststatus(184) < 17\6, english, town = Runewick, "quest", "mission" -> "We need 8 dead zombies for an experiment.  Please hurry.""
+queststatus(184) ~= 0, queststatus(184) < 176, english, town = Runewick, "quest", "mission" -> "We need 8 dead zombies for an experiment.  Please hurry."
 queststatus(184) ~= 0, queststatus(184) < 176, town = Runewick, "quest", "mission" -> "Erinnert ihr euch? Ihr nehmt an einem Experiment teil, bei dem ihr 8 Zombies töten sollt."
 queststatus(184) ~= 0, queststatus(184) < 176, town = Runewick, "task", "adventure", "order" -> "We need 8 dead zombies for an experiment.  Please hurry."
 queststatus(184) ~= 0, queststatus(184) < 176, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Erinnert ihr euch? Ihr nehmt an einem Experiment teil, bei dem ihr 8 Zombies töten sollt."
@@ -479,7 +479,7 @@ queststatus(184) ~= 0, queststatus(184) < 189, town = Runewick, "Auftrag", "Aufg
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 english, "Ushara" -> "We must research all manifestations of evil on Ushara's gift."
-"Ushara", -> "Woher kommen die teuflichen Auswüchse Usharas Gaben? Das müssen wir genau untersuchen."
+"Ushara" -> "Woher kommen die teuflichen Auswüchse Usharas Gaben? Das müssen wir genau untersuchen."
 english, "Elara" -> "Goddess Elara, grant us knowledge."
 "Elara" -> "Elara bietet uns Wissen an. Folgen wir ihr zur Erkenntnis."
 
