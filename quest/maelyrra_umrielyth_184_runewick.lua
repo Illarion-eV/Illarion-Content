@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (184, 'quest.maelyrra_umrielyth_184_runewick');
 
@@ -634,4 +634,13 @@ end
 
 function QuestFinalStatus()
     return FINAL_QUEST_STATUS
+end
+
+function QuestAvailability(user, status)
+	-- only available if cooldown
+    if status == 0 and user:getQuestProgress(186) == 0 then
+        return Player.questAvailable
+    else
+        return Player.questNotAvailable
+    end
 end
