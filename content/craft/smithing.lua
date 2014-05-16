@@ -212,142 +212,92 @@ catId = smithing:addCategory("Armour", "Rüstungen")
 -- nightplate
 product = smithing:addProduct(catId, 2363, 99, 100, 178, 357, 1);
 product:addIngredient(2535, 25); -- Iron Ingot
-
 product:addIngredient(2550, 8); -- Copper Ingot
-
 product:addIngredient(2552); -- Pure Earth
-
 product:addIngredient(2571, 2); -- Merinium Ingot
-
 product:addIngredient(283); -- Obsidian
-
 product:addIngredient(450); -- Amethyst Powder
-
 product:addIngredient(284); -- Sapphire
 
 -- elven state armour
 product = smithing:addProduct(catId, 2400, 97, 100, 175, 351, 1);
 product:addIngredient(2535, 20); -- Iron Ingot
-
 product:addIngredient(2550, 8); -- Copper Ingot
-
 product:addIngredient(236); -- Gold Ingot
-
 product:addIngredient(2552); -- Pure Earth
-
 product:addIngredient(2571, 2); -- Merinium Ingot
-
 product:addIngredient(448); -- Emerald Powder
-
 product:addIngredient(284); -- Sapphire
-
 product:addIngredient(46); -- Ruby
-
 product:addIngredient(104); -- Silver Ingot
 
 -- salkamaerian officer's armour
 product = smithing:addProduct(catId, 2365, 93, 100, 169, 339, 1);
 product:addIngredient(2535, 20); -- Iron Ingot
-
 product:addIngredient(2550, 8); -- Copper Ingot
-
 product:addIngredient(236, 2); -- Gold Ingot
-
 product:addIngredient(2547, 8); -- Leather
-
 product:addIngredient(176, 8); -- Grey Cloth
-
 product:addIngredient(198); -- Topaz
-
 product:addIngredient(2571); -- Merinum Ingot
-
 product:addIngredient(2552); -- Pure Earth
 
 -- heavy plate armour
 product = smithing:addProduct(catId, 2393, 90, 100, 165, 330, 1);
 product:addIngredient(2535, 25); -- Iron Ingot
-
 product:addIngredient(2550, 10); -- Copper Ingot
-
 product:addIngredient(104, 2); -- Silver Ingot
-
 product:addIngredient(2547, 9); -- Leather
-
 product:addIngredient(176, 9); -- Grey Cloth
-
 product:addIngredient(2571); -- Merinium Ingot
-
 product:addIngredient(2552); -- Pure Earth
 
 -- albarian noble's armour
 product = smithing:addProduct(catId, 2367, 86, 100, 159, 318, 1);
 product:addIngredient(2535, 15); -- Iron Ingot
-
 product:addIngredient(2550, 5); -- Copper Ingot
-
 product:addIngredient(236); -- Gold Ingot
-
 product:addIngredient(2547, 5); -- Leather
-
 product:addIngredient(176, 5); -- Grey Cloth
-
 product:addIngredient(46); -- Ruby
-
 product:addIngredient(198); -- Topaz
 
 -- shadowplate
 product = smithing:addProduct(catId, 2357, 82, 100, 153, 306, 1);
 product:addIngredient(2535, 18); -- Iron Ingot
-
 product:addIngredient(2550, 5); -- Copper Ingot
-
 product:addIngredient(2547,7); -- Leather
-
 product:addIngredient(176,7); -- Grey Cloth
-
 product:addIngredient(449); -- Obsidian powder
 
 
 -- salkamaerian armour
 product = smithing:addProduct(catId, 2389, 72, 92, 138, 276, 1);
 product:addIngredient(2535, 14); -- Iron Ingot
-
 product:addIngredient(2550, 5); -- Copper Ingot
-
 product:addIngredient(236); -- Gold Ingot
-
 product:addIngredient(2547, 7); -- Leather
-
 product:addIngredient(176, 7); -- Grey Cloth
 
 -- albarian steel plate
 product = smithing:addProduct(catId, 2369, 68, 88, 132, 264, 1);
 product:addIngredient(2535, 12); -- Iron Ingot
-
 product:addIngredient(2550, 4); -- Copper Ingot
-
 product:addIngredient(2547, 4); -- Leather
-
 product:addIngredient(176, 4); -- Grey Cloth
 
 -- dwarven state armour
 product = smithing:addProduct(catId, 2390, 56, 76, 114, 228, 1);
 product:addIngredient(2535, 8); -- Iron Ingot
-
 product:addIngredient(2550, 3); -- Copper Ingot
-
 product:addIngredient(2547, 3); -- Leather
-
 product:addIngredient(176, 2); -- Grey Cloth
 
 -- lizard armour
 product = smithing:addProduct(catId, 696, 52, 72, 108, 216, 1);
 product:addIngredient(2535, 7); -- Iron Ingot
-
 product:addIngredient(2550, 3); -- Copper Ingot
-
 product:addIngredient(2547, 3); -- Leather
-
 product:addIngredient(176, 2); -- Grey Cloth
 
 -- elven silversteel armour
@@ -400,47 +350,32 @@ catId = smithing:addCategory("Gloves", "Handschuhe")
 -- knight gloves
 product = smithing:addProduct(catId, 531, 93, 100, 169, 339, 1);
 product:addIngredient(2535, 7); -- Iron Ingot
-
 product:addIngredient(2550, 2); -- Copper Ingot
-
 product:addIngredient(104, 2); -- Silver Ingot
-
 product:addIngredient(2547, 3); -- Leather
-
 product:addIngredient(2571); -- Merinium Ingot
-
 product:addIngredient(46); -- Ruby
 
 -- Salkamarian steel gloves
 product = smithing:addProduct(catId, 528, 91, 100, 166, 333, 1);
 product:addIngredient(2535, 8); -- Iron Ingot
-
 product:addIngredient(2550, 3); -- Copper Ingot
-
 product:addIngredient(236); -- Gold Ingot
-
 product:addIngredient(2547, 4); -- Leather
-
 product:addIngredient(2571); -- Merinium Ingot
-
 product:addIngredient(198); -- Topaz
-
 product:addIngredient(104); -- Silver Ingot
 
 -- Albarian steelgloves
 product = smithing:addProduct(catId, 530, 75, 95, 142, 285, 1);
 product:addIngredient(2535, 8); -- Iron Ingot
-
 product:addIngredient(2550, 5); -- Copper Ingot
-
 product:addIngredient(2547, 3); -- Leather
 
 -- dwarven metal gloves
 product = smithing:addProduct(catId, 529, 46, 66, 99, 198, 1);
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(2550, 2); -- Copper Ingot
-
 product:addIngredient(2547, 1); -- Leather
 
 -- steel gloves
@@ -452,31 +387,22 @@ catId = smithing:addCategory("Pants", "Hosen")
 -- iron greaves
 product = smithing:addProduct(catId, 2116, 93, 100, 169, 339, 1);
 product:addIngredient(2535, 12); -- Iron Ingot
-
 product:addIngredient(2550, 5); -- Copper Ingot
-
 product:addIngredient(104, 2); -- Silver Ingot
-
 product:addIngredient(2547, 5); -- Leather
-
 product:addIngredient(2571); -- Mernium Ingot
-
 product:addIngredient(2552); -- Pure Earth
 
 -- chain pants
 product = smithing:addProduct(catId, 2111, 90, 100, 165, 330, 1);
 product:addIngredient(2535, 8); -- Iron Ingot
-
 product:addIngredient(451); -- Topaz Powder
-
 product:addIngredient(2571); -- Merinium Ingot
-
 product:addIngredient(2552); -- Pure Earth
 
 -- short chain trousers
 product = smithing:addProduct(catId, 2112, 64, 84, 126, 252, 1);
 product:addIngredient(2535, 8); -- Iron Ingot
-
 product:addIngredient(2550, 3); -- Copper Ingot
 
 -- steel greaves
@@ -495,54 +421,36 @@ catId = smithing:addCategory("Boots", "Schuhe")
 -- knight boots
 product = smithing:addProduct(catId, 770, 92, 100, 168, 336, 1);
 product:addIngredient(2535, 9); -- Iron Ingot
-
 product:addIngredient(2550, 5); -- Copper Ingot
-
 product:addIngredient(104, 2); -- Silver Ingot
-
 product:addIngredient(2547, 4); -- Leather
-
 product:addIngredient(2571); -- Merinium Ingot
-
 product:addIngredient(284); -- Sapphire
 
 -- salkamarian steel boots
 product = smithing:addProduct(catId, 699, 90, 100, 165, 330, 1);
 product:addIngredient(2535, 8); -- Iron Ingot
-
 product:addIngredient(2550, 4); -- Copper Ingot
-
 product:addIngredient(104); -- Silver Ingot
-
 product:addIngredient(2547, 4); -- Leather
-
 product:addIngredient(2571); -- Mernium Ingot
-
 product:addIngredient(45); -- Emerald
 
 -- albarian steel boots
 product = smithing:addProduct(catId, 771, 66, 86, 129, 258, 1);
-
 product:addIngredient(2535, 7); -- Iron Ingot
-
 product:addIngredient(2550, 4); -- Copper Ingot
-
 product:addIngredient(2547, 3); -- Leather
 
 -- elven silversteel boots
 product = smithing:addProduct(catId, 1058, 40, 60, 85, 190, 1);
-
 product:addIngredient(2535, 6); -- Iron Ingot
-
 product:addIngredient(2550, 2); -- Copper Ingot
-
 product:addIngredient(2547, 2); -- Leather
 
 -- steel boots
 product = smithing:addProduct(catId, 326, 28, 48, 72, 144, 1);
-
 product:addIngredient(2535, 4); -- Iron Ingot
-
 product:addIngredient(2550, 1); -- Copper Ingot
 
 catId = smithing:addCategory("Slashing weapons", "Schnittwaffen")
@@ -550,93 +458,59 @@ catId = smithing:addCategory("Slashing weapons", "Schnittwaffen")
 -- magical dwarven axe
 product = smithing:addProduct(catId, 2662, 99, 100, 177, 354, 1);
 product:addIngredient(2525); -- Axe Handle
-
 product:addIngredient(2535, 6); -- Iron Ingot
-
 product:addIngredient(236, 2); -- Gold Ingot
-
 product:addIngredient(2551); -- Pure Air
-
 product:addIngredient(2571, 2); -- Merinium Ingot
-
 product:addIngredient(198); -- Topaz
-
 product:addIngredient(446); -- Sapphire Powder
 
 -- magical broadsword
 product = smithing:addProduct(catId, 2654, 98, 100, 175, 351, 1);
 product:addIngredient(2585); -- Big Sword Handle
-
 product:addIngredient(2535, 6); -- Iron Ingot
-
 product:addIngredient(104, 2); -- Silver Ingot
-
 product:addIngredient(2551); -- Pure air
-
 product:addIngredient(2571, 2); -- Merinium Ingot
-
 product:addIngredient(448); -- Emerald Powder
-
 product:addIngredient(284); -- Sapphire
 
 --fire broadsword
 product = smithing:addProduct(catId, 2656, 97, 100, 175, 351, 1);
 product:addIngredient(2585); -- Big Sword Handle
-
 product:addIngredient(2535, 6); -- Iron Ingot
-
 product:addIngredient(104, 2); -- Silver Ingot
-
 product:addIngredient(2553); -- Pure Fire
-
 product:addIngredient(2571, 2); -- Merninium ingot
-
 product:addIngredient(451); -- Topaz Powder
-
 product:addIngredient(46); -- Ruby
-
 product:addIngredient(197); -- Amethyst
 
 -- magical serinjah-sword
 product = smithing:addProduct(catId, 2693, 94, 100, 171, 342, 1);
 product:addIngredient(2585); -- Big Sword Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(2551); -- Pure Air
-
 product:addIngredient(2571); -- Merinium Ingot
-
 product:addIngredient(236); -- Gold Ingot
-
 product:addIngredient(451); -- Topaz Powder
-
 product:addIngredient(285); -- Diamond
-
 product:addIngredient(46); -- Ruby
 
 -- magical longsword
 product = smithing:addProduct(catId, 2704, 93, 100, 169, 339, 1);
 product:addIngredient(2585); -- Big Sword Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(2554); -- Pure Water
-
 product:addIngredient(2571); -- Merinium Ingot
-
 product:addIngredient(104); -- Silver Ingot
 
 -- fire longsword
 product = smithing:addProduct(catId, 206, 92, 100, 168, 336, 1);
 product:addIngredient(2585); -- Big Sword Handle
-
 product:addIngredient(2535, 5); -- Iron Ingot
-
 product:addIngredient(2553); -- Pure Fire
-
 product:addIngredient(2571); -- Mernium Ingot
-
 product:addIngredient(236); -- Gold Ingot
 
 -- elven rainbowsword
@@ -685,7 +559,6 @@ product:addIngredient(2550, 3); -- Copper Ingot
 product = smithing:addProduct(catId, 2701, 47, 67, 100, 201, 1);
 product:addIngredient(2584); -- Sword Handle
 product:addIngredient(2535, 6); -- Iron Ingot
-
 product:addIngredient(2550, 2); -- Copper Ingot
 
 -- light battleaxe
