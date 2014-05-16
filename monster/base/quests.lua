@@ -1717,7 +1717,436 @@ function iniQuests()
     maximumQueststatus[id]=189;
 	questLocation[id]=position(514, 178, 0);
     radius[id]=250;
+	
+	--Quest 71: The Researcher
+	local id=71;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Schleime";
+    englishRace[id]="Slimes";
+	table.insert(questList[611],id); -- all slimes
+    table.insert(questList[612],id); -- all slimes
+    table.insert(questList[613],id); -- all slimes
+    table.insert(questList[614],id); -- all slimes
+    table.insert(questList[1031],id); -- all slimes
+	table.insert(questList[1032],id); -- all slimes
+	table.insert(questList[1033],id); -- all slimes
+    table.insert(questList[1041],id); -- all slimes
+	table.insert(questList[1042],id); -- all slimes
+	table.insert(questList[1043],id); -- all slimes
+    table.insert(questList[1051],id); -- all slimes
+	table.insert(questList[1052],id); -- all slimes
+	table.insert(questList[1053],id); -- all slimes
+    minimumQueststatus[id]=1;
+    maximumQueststatus[id]=5;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
 
+	--Quest 72: The Researcher
+	local id=72;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Schleime";
+    englishRace[id]="Slimes";
+	table.insert(questList[611],id); -- all slimes
+    table.insert(questList[612],id); -- all slimes
+    table.insert(questList[613],id); -- all slimes
+    table.insert(questList[614],id); -- all slimes
+    table.insert(questList[1031],id); -- all slimes
+	table.insert(questList[1032],id); -- all slimes
+	table.insert(questList[1033],id); -- all slimes
+    table.insert(questList[1041],id); -- all slimes
+	table.insert(questList[1042],id); -- all slimes
+	table.insert(questList[1043],id); -- all slimes
+    table.insert(questList[1051],id); -- all slimes
+	table.insert(questList[1052],id); -- all slimes
+	table.insert(questList[1053],id); -- all slimes
+    minimumQueststatus[id]=6;
+    maximumQueststatus[id]=14;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 73: The Researcher
+	local id=73;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Schleime";
+    englishRace[id]="Slimes";
+	table.insert(questList[611],id); -- all slimes
+    table.insert(questList[612],id); -- all slimes
+    table.insert(questList[613],id); -- all slimes
+    table.insert(questList[614],id); -- all slimes
+    table.insert(questList[1031],id); -- all slimes
+	table.insert(questList[1032],id); -- all slimes
+	table.insert(questList[1033],id); -- all slimes
+    table.insert(questList[1041],id); -- all slimes
+	table.insert(questList[1042],id); -- all slimes
+	table.insert(questList[1043],id); -- all slimes
+    table.insert(questList[1051],id); -- all slimes
+	table.insert(questList[1052],id); -- all slimes
+	table.insert(questList[1053],id); -- all slimes
+    minimumQueststatus[id]=15;
+    maximumQueststatus[id]=27;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 74: The Researcher
+	local id=74;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Hunde";
+    englishRace[id]="dogs";
+	table.insert(questList[581],id); --All dogs
+	table.insert(questList[582],id); --All dogs
+	table.insert(questList[583],id); --All dogs
+	table.insert(questList[584],id); --All dogs
+	table.insert(questList[951],id); --All dogs
+	table.insert(questList[961],id); --All dogs
+	table.insert(questList[962],id); --All dogs
+	table.insert(questList[971],id); --All dogs
+	table.insert(questList[972],id); --All dogs
+    minimumQueststatus[id]=28;
+    maximumQueststatus[id]=32;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	
+	--Quest 75: The Researcher
+	local id=75;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Hunde";
+    englishRace[id]="dogs";
+	table.insert(questList[581],id); --All dogs
+	table.insert(questList[582],id); --All dogs
+	table.insert(questList[583],id); --All dogs
+	table.insert(questList[584],id); --All dogs
+	table.insert(questList[951],id); --All dogs
+	table.insert(questList[961],id); --All dogs
+	table.insert(questList[962],id); --All dogs
+	table.insert(questList[971],id); --All dogs
+	table.insert(questList[972],id); --All dogs
+    minimumQueststatus[id]=33;
+    maximumQueststatus[id]=41;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 76: The Researcher
+	local id=76;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Hunde";
+    englishRace[id]="dogs";
+	table.insert(questList[581],id); --All dogs
+	table.insert(questList[582],id); --All dogs
+	table.insert(questList[583],id); --All dogs
+	table.insert(questList[584],id); --All dogs
+	table.insert(questList[951],id); --All dogs
+	table.insert(questList[961],id); --All dogs
+	table.insert(questList[962],id); --All dogs
+	table.insert(questList[971],id); --All dogs
+	table.insert(questList[972],id); --All dogs
+    minimumQueststatus[id]=42;
+    maximumQueststatus[id]=54;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 77: The Researcher
+	local id=77;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Wölfe";
+    englishRace[id]="wolves";
+    table.insert(questList[391],id); --All Wolves
+    table.insert(questList[392],id); --All Wolves
+    table.insert(questList[393],id); --All Wolves
+    table.insert(questList[394],id); --All Wolves
+	table.insert(questList[395],id); --All Wolves
+    table.insert(questList[396],id); --All Wolves
+    table.insert(questList[401],id); --All Wolves
+    table.insert(questList[411],id); --All Wolves
+	table.insert(questList[421],id); --All Wolves
+    table.insert(questList[431],id); --All Wolves
+    minimumQueststatus[id]=55;
+    maximumQueststatus[id]=59;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 78: The Researcher
+	local id=78;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Wölfe";
+    englishRace[id]="wolves";
+    table.insert(questList[391],id); --All Wolves
+    table.insert(questList[392],id); --All Wolves
+    table.insert(questList[393],id); --All Wolves
+    table.insert(questList[394],id); --All Wolves
+	table.insert(questList[395],id); --All Wolves
+    table.insert(questList[396],id); --All Wolves
+    table.insert(questList[401],id); --All Wolves
+    table.insert(questList[411],id); --All Wolves
+	table.insert(questList[421],id); --All Wolves
+    table.insert(questList[431],id); --All Wolves
+    minimumQueststatus[id]=60;
+    maximumQueststatus[id]=68;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 79: The Researcher
+	local id=79;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Wölfe";
+    englishRace[id]="wolves";
+    table.insert(questList[391],id); --All Wolves
+    table.insert(questList[392],id); --All Wolves
+    table.insert(questList[393],id); --All Wolves
+    table.insert(questList[394],id); --All Wolves
+	table.insert(questList[395],id); --All Wolves
+    table.insert(questList[396],id); --All Wolves
+    table.insert(questList[401],id); --All Wolves
+    table.insert(questList[411],id); --All Wolves
+	table.insert(questList[421],id); --All Wolves
+    table.insert(questList[431],id); --All Wolves
+    minimumQueststatus[id]=69;
+    maximumQueststatus[id]=81;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 80: The Researcher
+	local id=80;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+	germanRace[id]="Bärin";
+    englishRace[id]="bears";
+	table.insert(questList[491],id; -- all bears
+	table.insert(questList[492],id); --all bears
+	table.insert(questList[501],id); --all bears
+	table.insert(questList[502],id); --all bears
+	table.insert(questList[511],id); --all bears
+	table.insert(questList[512],id); --all bears
+    minimumQueststatus[id]=82;
+    maximumQueststatus[id]=86;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 81: The Researcher
+	local id=81;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Bärin";
+    englishRace[id]="bears";
+	table.insert(questList[491],id; -- all bears
+	table.insert(questList[492],id); --all bears
+	table.insert(questList[501],id); --all bears
+	table.insert(questList[502],id); --all bears
+	table.insert(questList[511],id); --all bears
+	table.insert(questList[512],id); --all bears
+    minimumQueststatus[id]=87;
+    maximumQueststatus[id]=95;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 82: The Researcher
+	local id=82;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+	ermanRace[id]="Bärin";
+	englishRace[id]="bear";
+	table.insert(questList[491],id; -- all bears
+	table.insert(questList[492],id); --all bears
+	table.insert(questList[501],id); --all bears
+	table.insert(questList[502],id); --all bears
+	table.insert(questList[511],id); --all bears
+	table.insert(questList[512],id); --all bears
+    minimumQueststatus[id]=96;
+    maximumQueststatus[id]=108;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 83: The Researcher
+	local id=83;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Menschen";
+    englishRace[id]="humans";
+	table.insert(questList[1],id); --All humans
+	table.insert(questList[2],id); --All humans
+	table.insert(questList[3],id); --All humans
+	table.insert(questList[4],id); --All humans
+	table.insert(questList[5],id); --All humans
+	table.insert(questList[6],id); --All humans
+    minimumQueststatus[id]=109;
+    maximumQueststatus[id]=113;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 84: The Researcher
+	local id=84;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Menschen";
+    englishRace[id]="humans";
+	table.insert(questList[1],id); --All humans
+	table.insert(questList[2],id); --All humans
+	table.insert(questList[3],id); --All humans
+	table.insert(questList[4],id); --All humans
+	table.insert(questList[5],id); --All humans
+	table.insert(questList[6],id); --All humans
+    minimumQueststatus[id]=114;
+    maximumQueststatus[id]=122;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 85: The Researcher
+	local id=85;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Menschen";
+    englishRace[id]="humans";
+	table.insert(questList[1],id); --All humans
+	table.insert(questList[2],id); --All humans
+	table.insert(questList[3],id); --All humans
+	table.insert(questList[4],id); --All humans
+	table.insert(questList[5],id); --All humans
+	table.insert(questList[6],id); --All humans
+    minimumQueststatus[id]=123;
+    maximumQueststatus[id]=135;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 86: The Researcher
+	local id=86;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Diebe";
+    englishRace[id]="thieves";
+	table.insert(questList[5],id); --Human Thief
+	table.insert(questList[23],id); --Halfling Thief
+	table.insert(questList[43],id); --Orc Thief
+	table.insert(questList[55],id); --Lizard Thief
+	minimumQueststatus[id]=136;
+    maximumQueststatus[id]=140;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 87: The Researcher
+	local id=87;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Diebe";
+    englishRace[id]="thieves";
+	table.insert(questList[5],id); --Human Thief
+	table.insert(questList[23],id); --Halfling Thief
+	table.insert(questList[43],id); --Orc Thief
+	table.insert(questList[55],id); --Lizard Thief
+	minimumQueststatus[id]=141;
+    maximumQueststatus[id]=149;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 88: The Researcher
+	local id=88;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="Diebe";
+    englishRace[id]="thieves";
+	table.insert(questList[5],id); --Human Thief
+	table.insert(questList[23],id); --Halfling Thief
+	table.insert(questList[43],id); --Orc Thief
+	table.insert(questList[55],id); --Lizard Thief
+	minimumQueststatus[id]=150;
+    maximumQueststatus[id]=162;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 89: The Researcher
+	local id=89;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="zombies";
+    englishRace[id]="zombies";
+	table.insert(questList[531],id); --All Zombies
+	table.insert(questList[532],id); --All Zombies
+	table.insert(questList[533],id); --All Zombies
+	table.insert(questList[534],id); --All Zombies
+	minimumQueststatus[id]=163;
+    maximumQueststatus[id]=167;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 90: The Researcher
+	local id=90;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="zombies";
+    englishRace[id]="zombies";
+	table.insert(questList[531],id); --All Zombies
+	table.insert(questList[532],id); --All Zombies
+	table.insert(questList[533],id); --All Zombies
+	table.insert(questList[534],id); --All Zombies
+	minimumQueststatus[id]=168;
+    maximumQueststatus[id]=176;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
+	
+	--Quest 91: The Researcher
+	local id=91;
+    germanTitle[id]="Die Forscher";
+    englishTitle[id]="The Researcher";
+    NPCName[id]="Maelyrra Umrielyth";
+    statusId[id]=184;
+    germanRace[id]="zombies";
+    englishRace[id]="zombies";
+	table.insert(questList[531],id); --All Zombies
+	table.insert(questList[532],id); --All Zombies
+	table.insert(questList[533],id); --All Zombies
+	table.insert(questList[534],id); --All Zombies
+	minimumQueststatus[id]=177;
+    maximumQueststatus[id]=189;	
+	questLocation[id]=position(811, 735, 0);
+    radius[id]=300;
 end
 
 

@@ -189,6 +189,14 @@ function callEffect( Effect, Char ) -- Effect is called
 			Char:setQuestProgress(183,theQuestStatus-1); --cooling!
 		end
 		--Addition end
+		
+		--Addition by Caldarion: Quest 184/185/186 The Researcher (Maelyrra Umrielyth) Cooldown
+	    theQuestStatus=Char:getQuestProgress(185);
+
+		if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
+			Char:setQuestProgress(186,theQuestStatus-1); --cooling!
+		end
+		--Addition end
 
 	end --all above is only conducted for players that aren't afk for more than five minutes
 
@@ -273,6 +281,33 @@ function callEffect( Effect, Char ) -- Effect is called
 	end
 	--Addition end
 
+		--Addition by Caldarion: Quest 184/185/186 The Researcher (Maelyrra Umrielyth) Cooldown
+	theQuestStatus=Char:getQuestProgress(185);
+
+	if theQuestStatus == 1 then --Time over!
+
+        base.common.InformNLS(Char,"[Forschung Status] Du warst zu langsam um die Informationen zu beschaffen, du bekommst keine Belohnung.","[Research status] You were too slow collecting data, you have lost your fee."); -- Feedback!
+		Char:setQuestProgress(184,0);
+
+	end
+
+	if theQuestStatus == 3 then --Ten minutes left!
+
+        base.common.InformNLS(Char,"[Forschung Status] In zehn Minuten ist deine Chance vestrichen, um Informationen für Maelyrra Umrielyth zu sammeln.","[Research status] In ten minutes, your chance to collect information for Maelyrra Umrielyth will be over."); -- Feedback!
+
+	end
+
+	if theQuestStatus == 13 then --One hour left
+
+	    base.common.InformNLS(Char,"[Forschung Status] Eine Stunde verbleibt um Forschung für Maelyrra Umrielyth zu sammeln.","[Research status] One hour left for earning the research fee of Maelyrra Umrielyth."); -- Feedback!
+
+	end
+
+	if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
+		Char:setQuestProgress(185,theQuestStatus-1); --counting down!
+	end
+	--Addition end
+	
 	Effect.nextCalled = 3000; --Effect gets called each 5 minutes
 
 	return true; --No idea why!
