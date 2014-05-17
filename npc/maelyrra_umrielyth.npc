@@ -165,9 +165,9 @@ queststatus(184) = 27, town = Runewick, ".*" -> inform("[Forschungsaufgabe abges
 
 -- Research 15 taken but not solved, repeat the instructions
 queststatus(184) ~= 0, queststatus(184) < 27, english, town = Runewick, "quest", "mission" -> "I really need to finish my research, can you hurry to complete your task of killing 12 slimes?"
-queststatus(184) ~= 0, queststatus(184) < 27, town = Runewick, "quest", "mission" -> "Es ist nicht gut, wenn ihr die Überreste zu lange aufhebt.Bitte, wir brauchen 12 Schleime."
+queststatus(184) ~= 0, queststatus(184) < 27, town = Runewick, "quest", "mission" -> "Es ist nicht gut, wenn ihr die Überreste zu lange aufhebt. Bitte, wir brauchen 12 Schleime."
 queststatus(184) ~= 0, queststatus(184) < 27, town = Runewick, "task", "adventure", "order" -> "I really need to finish my research, can you hurry to complete your task of killing 12 slimes?"
-queststatus(184) ~= 0, queststatus(184) < 27, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es ist nicht gut, wenn ihr die Überreste zu lange aufhebt.Bitte, wir brauchen 12 Schleime."
+queststatus(184) ~= 0, queststatus(184) < 27, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es ist nicht gut, wenn ihr die Überreste zu lange aufhebt. Bitte, wir brauchen 12 Schleime."
 
 -- Research 28: Kill four dogs in three hours
 -- 28: Research 28 taken, kill four dogs, reward: two sp, 2 rankpoints
@@ -291,9 +291,9 @@ queststatus(184) ~= 0, queststatus(184) < 86, town = Runewick, "Auftrag", "Aufga
 -- Research 87: Kill eight bears in three hours
 -- 87: Research 87 taken, get eight bears, reward: eight sp, 4 rankpoints
 queststatus(184) = 0, english, chance(9.090909091), town = Runewick, "quest", "mission" -> inform("[New research] Kill eight bears."), "I need you to kill 8 bears, so I can examine if they are foaming at the mouth.", queststatus(184) = 87, queststatus(185) = 36
-queststatus(184) = 0, german, chance(9.090909091), town = Runewick, "quest", "mission" -> inform("[Neue Forschungsaufgabe] Töte acht Bären."), "Habt ihr schon einmal Schaum im Maul eines Bären gesehen? Dann hoffen wir mal, dass ihr jetzt nicht findet. I müsst nämlich 8 Bären auf Schaum im Maul untersuchen, Tote Bären, versteht sich.", queststatus(184) = 87, queststatus(185) = 36
+queststatus(184) = 0, german, chance(9.090909091), town = Runewick, "quest", "mission" -> inform("[Neue Forschungsaufgabe] Töte acht Bären."), "Habt ihr schon einmal Schaum im Maul eines Bären gesehen? Dann hoffen wir mal, dass ihr jetzt welche findet. Ich müsste nämlich 8 Bären auf Schaum im Maul untersuchen, Tote Bären, versteht sich.", queststatus(184) = 87, queststatus(185) = 36
 queststatus(184) = 0, chance(9.090909091), town = Runewick, "task", "adventure", "order" -> inform("[New research] Kill eight bears."), "I need you to kill 8 bears, so I can examine if they are foaming at the mouth.", queststatus(184) = 87, queststatus(185) = 36
-queststatus(184) = 0, chance(9.090909091), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Forschungsaufgabe] Töte acht Bären."), "Habt ihr schon einmal Schaum im Maul eines Bären gesehen? Dann hoffen wir mal, dass ihr jetzt nicht findet. I müsst nämlich 8 Bären auf Schaum im Maul untersuchen, Tote Bären, versteht sich.", queststatus(184) = 87, queststatus(185) = 36
+queststatus(184) = 0, chance(9.090909091), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Forschungsaufgabe] Töte acht Bären."), "Habt ihr schon einmal Schaum im Maul eines Bären gesehen? Dann hoffen wir mal, dass ihr jetzt welche findet. Ich müsste nämlich 8 Bären auf Schaum im Maul untersuchen, Tote Bären, versteht sich.", queststatus(184) = 87, queststatus(185) = 36
 
 -- Research 87 solved, reward: eight sp, 4 rankpoints, delay: 5h
 queststatus(184) = 95, english, town = Runewick, ".*" -> inform("[Research collected] You are awarded eight silver coins."), "Thank you so much! Here have some coins I must get to work!", money + 800, queststatus(184) = 0, queststatus(185) = 0, queststatus(186) = 60, rankpoints + 4
