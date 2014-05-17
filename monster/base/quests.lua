@@ -1976,7 +1976,7 @@ function iniQuests()
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
-	ermanRace[id]="Bärin";
+	germanRace[id]="Bärin";
 	englishRace[id]="bear";
 	table.insert(questList[491],id); -- all bears
 	table.insert(questList[492],id); --all bears
