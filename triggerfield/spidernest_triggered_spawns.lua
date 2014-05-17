@@ -136,7 +136,7 @@ function Init()
 	waypoint[50]=position(926, 515, -6);
 	waypoint[51]=position(911, 502, -6);
 	waypoint[52]=position(891, 486, -6);
-	
+
 
     messageG={}; --German informs
     messageG[1]="Du bringst ein Nest durcheinander und wirst von Spinnen umzingelt!";
@@ -154,7 +154,7 @@ function MoveToField(User)
 
     Init(); --Initialising
 
-    if User:getType() == 0 and User:increaseAttrib("hitpoints",0)>0 and math.random(1,4) == 1 then --only player characters trigger the triggerfield at a chance of 20%
+    if User:getType() == 0 and User:increaseAttrib("hitpoints", 0) > 0 and math.random(1,4) == 1 then --only player characters trigger the triggerfield at a chance of 20%
 
 		local theWaypoint;
 		for i = 1, #waypoint do
@@ -164,7 +164,18 @@ function MoveToField(User)
 			end
 		end
 
-		if theWaypoint >= 0 and theWaypoint <= 21 then -- small spider swarm
+		-- skip if already tripped in the last 5 minutes
+		if (world:isItemOnField(User.pos) == true) then
+			local skele = world:getItemOnField(User.pos);
+			local serverTime = world:getTime("unix");
+			local trippingTime = skele:getData("tripping_time");
+
+			if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
+				return;
+			end
+		end
+
+		if theWaypoint >= 1 and theWaypoint <= 21 then -- small spider swarm
 
             base.common.InformNLS(User,messageG[1],messageE[1]); --sending a message
 
@@ -185,6 +196,13 @@ function MoveToField(User)
 
 		end --all events handled
 
+		-- safe tripping time
+		if (world:isItemOnField(User.pos) == true) then
+			local skele = world:getItemOnField(User.pos);
+			local serverTime = world:getTime("unix");
+			skele:setData("tripping_time", serverTime);
+			world:changeItem(skele);
+		end
     end --triggerfield
 
 end --function
