@@ -184,25 +184,27 @@ function AddTree(TreeId, TrunkId, LogId, BoughId, Amount, BoughProbability)
 end
 
 function preventCutting(User, theAxe, theTree)
-    local effectId = tonumber(theTree:getData("uncuttableTree"))
+    
+	local effectType = theTree:getData("treeProtectionType")
 
-	-- security check
-	if effectId == nil then
-	    return
-	end
-
-	local textInDe, textInEn
-	if effectId == 1 then
+	if effectType == "lightning" then
 	    world:gfx(2,User.pos)
 		world:makeSound(13,User.pos)
-		textInDe = "Aus heiterem Himmel wirst du von einem Blitz getroffen!"
-		textInEn = "Out of the blue, you are struck by lightning!"
+		User:inform("Aus heiterem Himmel wirst du von einem Blitz getroffen!", "Out of the blue, you are struck by lightning!", Character.highPriority)
 		User:increaseAttrib("hitpoints",-3000)
+	elseif effectType == "axeSlippingOff" then
+        User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.", Character.highPriority)
+	elseif effectType == "slimyAcid" then
+		world:gfx(8,User.pos)
+		world:gfx(11,User.pos)
+		world:makeSound(9,User.pos)
+		User:increaseAttrib("hitpoints",-1000)
+		User:talk(Character.say, "#me wird von einem dicken Batzen Schleim getroffen, der aus der Baumkrone heraustropfte.", "#me is hit by a big blob of slime which droped down from the treetrop.")
+		User:inform("Der Schleim verursacht ein überaus schmerzhaftes Brennen auf deiner Haut.", "The slime causes very painful burning to your skin.", Character.highPriority)
 	else
-        textInDe = "Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten."
-		textInEn = "As you strike out, you nearly drop the hatchet. You barely keep hold of it"
+		User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.", Character.highPriority)
+		debug("Tree at " .. theTree.x .. ", " .. theTree.y .. ", " .. theTree.z .. " is missing a proper data value for the data key treeProtectionType")
 	end
-    User:inform(textInDe, textInEn, Character.highPriority)
 
 end
 
