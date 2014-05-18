@@ -12,18 +12,19 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- Tree Script
--- Envi
-require("base.common")
-require("content.tree")
-require("base.lookat")
-require("alchemy.base.teacher")
-
-module("item.tree", package.seeall)
 
 -- UPDATE common SET com_script='item.tree' WHERE com_itemid IN (308, 586, 1804, 1807, 1808, 1809, 1817, 960, 961, 962, 963, 589);
+
+require("alchemy.base.teacher")
+require("base.common")
+require("base.lookat")
+require("content.gatheringcraft.herbgathering")
+require("content.gatheringcraft.woodchopping")
+require("content.tree")
+
+module("item.tree", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
     -- alchemy stuff
@@ -32,6 +33,20 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 	-- alchemy end
+
+	-- Try to harvest herbs first
+	if content.gatheringcraft.herbgathering.isHerbItem(SourceItem) and
+			content.gatheringcraft.herbgathering.GetValidProduct(SourceItem) and
+			User:countItemAt("body",126) > 0 then
+		content.gatheringcraft.herbgathering.StartGathering(User, SourceItem, ltstate);
+		return;
+	end
+
+	-- Try to chop tree
+	if content.gatheringcraft.woodchopping.isChoppableTree(SourceItem) then
+		content.gatheringcraft.woodchopping.StartGathering(User, SourceItem, ltstate);
+		return;
+	end
 end
 
 function LookAtItem(User,Item)
@@ -41,7 +56,7 @@ function LookAtItem(User,Item)
 		return
 	end
 	-- alchemy end
-	
+
 	-- fetching local references
     local signNameDe     = content.tree.signNameDe
 	local signNameEn     = content.tree.signNameEn
@@ -73,5 +88,5 @@ function LookAtItem(User,Item)
 	end
 
 	world:itemInform(User, Item, lookAt)
-    
+
 end
