@@ -14,20 +14,41 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("base.lookat")
 
 -- UPDATE common SET com_script='item.id_2207_well' WHERE com_itemid IN (2207);
 
+require("base.common")
+require("base.lookat")
+
 module("item.id_2207_well", package.seeall)
 
+wellPosition1 = position(528, 555, 0);
+
+function UseItem(User, SourceItem, ltstate)
+
+  if (SourceItem:getData("modifier") == "wishing well") then
+    base.common.InformNLS(User,
+      "Vielleicht kann sich einer deiner Wünsche erfüllen, wenn du etwas hineinwirfst?",
+      "Maybe one of your wishes come true, if you pitch something in?");
+  elseif SourceItem.pos == wellPosition1 then
+    base.common.InformNLS(User,
+      "Vielleicht kannst du mit einem Seil hinabklettern?",
+      "Maybe you can climb down with a rope?");
+  end
+
+end
+
 function LookAtItem(User, Item)
-    if ( Item:getData("modifier") == "wishing well" ) then
-		base.lookat.SetSpecialName(Item, "Wunschbrunnen", "wishing well")
-		world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
-    else
-	    world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
-    end
+
+  local lookAt = base.lookat.GenerateLookAt(User, Item);
+
+  if ( Item:getData("modifier") == "wishing well" ) then
+    lookAt.name = base.common.GetNLS(User, "Wunschbrunnen", "wishing well");
+  elseif Item.pos == wellPosition1 then
+    lookAt.name = base.common.GetNLS(User, "Ausgetrockneter Brunnen", "Dry well");
+  end
+
+  world:itemInform(User, Item, lookAt);
 end
 
 
