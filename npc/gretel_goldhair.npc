@@ -137,8 +137,8 @@ queststatus(206) = 1, town = Galmair, "task", "adventure", "order" -> "Donating 
 queststatus(206) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Spenden ist eigentlich ganz einfach: Legt einen Gegenstand auf den Spendenplatz. Einfach, oder?"
 
 -- Quest 1 solved, reward: +20 rankpoints
-queststatus(206) = 2, english, town = Galmair, ".*" -> inform("[Quest solved] You advance in Don Valerio Guilianni's favour."), queststatus(206) = 3, rankpoints + 20, "Thank you for your donation!"
-queststatus(206) = 2, town = Galmair, ".*" -> inform("[Quest solved] You advance in Don Valerio Guilianni's favour."), queststatus(206) = 3, rankpoints + 20, "Danke für Eure Spende!"
+queststatus(206) = 2, english, town = Galmair, ".*" -> inform("[Quest solved] Gretel is satisfied."), queststatus(206) = 3, rankpoints + 20, "Thank you for your donation!"
+queststatus(206) = 2, town = Galmair, ".*" -> inform("[Quest solved] Gretel ist zufrieden."), queststatus(206) = 3, rankpoints + 20, "Danke für Eure Spende!"
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(206) = 3, english, town = Galmair, "quest", "mission" -> "Ask Cormac, maybe he has something for you to do, but come back again and donate more to the Don!"

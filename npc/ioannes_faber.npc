@@ -106,8 +106,8 @@ queststatus(151) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[N
 queststatus(151) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Schatzkammer Cadomyrs"), queststatus(151) = 1, "Als loyaler Bürger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer Majestät, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!"
 
 -- Quest 1 solved, reward: 20 rankpoints
-queststatus(151) = 2, english, town = Cadomyr, ".*" -> inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."), queststatus(151) = 3, rankpoints + 20, "I see that you have learnt how you can donate your wealth to the treasury. Next time, donate more! I will mention your name when talking to the Queen next time."
-queststatus(151) = 2, town = Cadomyr, ".*" -> inform("[Quest gelöst] Dein Ansehen bei Königin Rosaline Edwards steigt."), queststatus(151) = 3, rankpoints + 20, "Nun, ihr habt verstanden, wie man etwas an die Schatzkammer spendet. Das nächste Mal spendet ihr aber gefälligst mehr! Ich werde euren Namen in meinem nächsten Gespräch mit der Königin erwähnen."
+queststatus(151) = 2, english, town = Cadomyr, ".*" -> inform("[Quest solved] Ioannes is satisfied."), queststatus(151) = 3, rankpoints + 20, "I see that you have learnt how you can donate your wealth to the treasury. Next time, donate more! I will mention your name when talking to the Queen next time."
+queststatus(151) = 2, town = Cadomyr, ".*" -> inform("[Quest gelöst] Ioannes ist zufrieden."), queststatus(151) = 3, rankpoints + 20, "Nun, ihr habt verstanden, wie man etwas an die Schatzkammer spendet. Das nächste Mal spendet ihr aber gefälligst mehr! Ich werde euren Namen in meinem nächsten Gespräch mit der Königin erwähnen."
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(151) = 1, english, town = Cadomyr, "quest", "mission" -> "Donating is quite easy, just drop your items on the donation place. Obey!"

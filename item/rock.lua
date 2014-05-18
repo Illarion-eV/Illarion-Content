@@ -25,7 +25,7 @@ module("item.rock", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
     -- alchemy stuff
-	if SourceItem.pos == position(75,651,0) then
+	if SourceItem.pos == position(75,651,0) or SourceItem.pos == position(873,878,0) then
 		alchemy.base.teacher.UseItem(User, SourceItem, ltstate)
 		return
 	end
@@ -51,7 +51,7 @@ end
 
 function LookAtItem(User,Item)
     -- alchemy stuff
-	if Item.pos == position(75,651,0) then
+	if Item.pos == position(75,651,0) or Item.pos == position(873,878,0) then
 		alchemy.base.teacher.LookAtItem(User, Item)
 		return
 	end

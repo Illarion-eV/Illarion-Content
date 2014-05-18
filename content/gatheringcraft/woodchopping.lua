@@ -122,6 +122,8 @@ function StartGathering(User, SourceItem, ltstate)
 	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], theCraft.LearnLimit);
 	amount = amount - 1;
 	SourceItem:setData("wood_amount", "" .. amount);
+	world:changeItem(SourceItem);
+
 	local producedItemId = tree.LogId;
 	if (math.random() <= tree.BoughProbability ) then
 		producedItemId = tree.BoughId;
@@ -135,6 +137,7 @@ function StartGathering(User, SourceItem, ltstate)
 	else -- character can still carry something
 		if (amount > 0) then  -- there are still items we can work on
 			theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,toolItem);
+			User:changeSource(SourceItem);
 			User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 6, 0);
 		end
 	end
@@ -152,8 +155,7 @@ function StartGathering(User, SourceItem, ltstate)
 		"There is no wood anymore that you can chop. Give the tree time to grow again." );
 		return;
 	end
-	SourceItem:setData("wood_amount","" .. amount);
-	world:changeItem(SourceItem);
+
 end
 
 function InitTreeItems()
@@ -208,11 +210,20 @@ function preventCutting(User, theAxe, theTree)
 
 end
 
-function getChopableTree(User)
+function isChoppableTree(targetItem)
 	InitTreeItems();
 
-	local targetItem = base.common.GetFrontItem(User);
 	if targetItem ~= nil and TreeItems[targetItem.id] ~= nil then
+		return true;
+	end
+
+	return false;
+end
+
+function getChopableTree(User)
+
+	local targetItem = base.common.GetFrontItem(User);
+	if isChoppableTree(targetItem) then
 		return targetItem;
 	end
 
@@ -221,7 +232,7 @@ function getChopableTree(User)
 			local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
 			if ( world:isItemOnField(pos) ) then
 				targetItem = world:getItemOnField(pos);
-				if ( targetItem ~= nil and TreeItems[targetItem.id] ~= nil) then
+				if isChoppableTree(targetItem) then
 					return targetItem;
 				end
 			end

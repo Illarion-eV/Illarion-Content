@@ -15,40 +15,40 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE common SET com_script='item.id_1206_claypit' WHERE com_itemid=1206;
+-- UPDATE common SET com_script='item.id_2207_well' WHERE com_itemid IN (2207);
 
 require("base.common")
 require("base.lookat")
-require("content.gatheringcraft.claydigging")
 
-module("item.id_1206_claypit", package.seeall)
+module("item.id_2207_well", package.seeall)
 
-holePosition = position(854, 414, 0);
+wellPosition1 = position(528, 555, 0);
 
 function UseItem(User, SourceItem, ltstate)
 
-  if SourceItem.pos == holePosition then
+  if (SourceItem:getData("modifier") == "wishing well") then
+    base.common.InformNLS(User,
+      "Vielleicht kann sich einer deiner Wünsche erfüllen, wenn du etwas hineinwirfst?",
+      "Maybe one of your wishes come true, if you pitch something in?");
+  elseif SourceItem.pos == wellPosition1 then
     base.common.InformNLS(User,
       "Vielleicht kannst du mit einem Seil hinabklettern?",
       "Maybe you can climb down with a rope?");
-    return;
   end
 
-  content.gatheringcraft.claydigging.StartGathering(User, SourceItem, ltstate);
 end
 
 function LookAtItem(User, Item)
 
   local lookAt = base.lookat.GenerateLookAt(User, Item);
 
-  if Item.pos == holePosition then
-	lookAt.name = base.common.GetNLS(User,
-      "Ein tiefes Loch",
-      "A deep hole");
-    lookAt.description = base.common.GetNLS(User,
-      "Dieses Loch scheint bodenlos.",
-      "This hole looks bottomless.");
+  if ( Item:getData("modifier") == "wishing well" ) then
+    lookAt.name = base.common.GetNLS(User, "Wunschbrunnen", "wishing well");
+  elseif Item.pos == wellPosition1 then
+    lookAt.name = base.common.GetNLS(User, "Ausgetrockneter Brunnen", "Dry well");
   end
 
   world:itemInform(User, Item, lookAt);
 end
+
+

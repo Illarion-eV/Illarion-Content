@@ -61,7 +61,7 @@ function MoveToField(char)
 		RewardInElstree=1; --yes, something will be created 
 		createItemID=2554; --pure water will be created
 		char:setQuestProgress(661,math.random(60,100)) --lte set
-		char:inform("Ah! Eine Fee hat pures Wasser verloren.", "Ah! A fairy lost pure water.") --player get informed that fairy lost element
+--		char:inform("Ah! Eine Fee hat pures Wasser verloren.", "Ah! A fairy lost pure water.") --player get informed that fairy lost element
 	end
 	if RewardInElstree==0 then	--check if something will be created
 		createItemTimeBB=math.random(10,20);  --use var2; nothing, thus more lights appear
@@ -94,6 +94,7 @@ function MoveToField(char)
 --	createRepeatA=1 --min repeat; moved to top
 --	createRepeatB=5 --max repeat; moved to top
 	createItemPos=1 --check of position set
-	base.character.CreateAfterTime (char,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos) -- call .lte.createaftertime
+	createItemFieldAccess=nil
+	base.character.CreateAfterTime (char,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos,createItemFieldAccess) -- call .lte.createaftertime
 
 end

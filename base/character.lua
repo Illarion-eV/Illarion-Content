@@ -135,7 +135,8 @@ end;
 -- @param createItemTextEN The English text shown on the created item, nil for no text
 -- @param createGfx The GFX shown on the created item, nil for no GFX
 -- @param createSound The sound played on created item, nil for no sound
-function CreateAfterTime(Character,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos)
+-- @param createItemFieldAccess Should field of created item be accessable, nil or 0 for accessable
+function CreateAfterTime(Character,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos,createItemFieldAccess)
 	find, myEffect = Character.effects:find(80)
 	if find then
 		return
@@ -168,6 +169,9 @@ function CreateAfterTime(Character,createItemTimeB,createItemTimeBB,createItemID
 		myEffect:addValue("createAfterB",createAfterB)
 		myEffect:addValue("createRepeatA",createRepeatA)
 		myEffect:addValue("createRepeatB",createRepeatB)
+		if createItemFieldAccess ~= nil then
+			myEffect:addValue("createItemFieldAccess",createItemFieldAccess)
+		end
 		if createItemPos ~= nil then
 			myEffect:addValue("createItemPos",createItemPos)
 		end

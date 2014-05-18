@@ -135,12 +135,8 @@ queststatus(709) = 9, item(1266, all) < 20, english, town = Galmair, ".+" -> "Zs
 queststatus(709) = 9, item(1266, all) < 20, town = Galmair, ".+" -> "Zsss, dasss nicht ssein 20 kleine Steiness die ich wollte. Komm wieder wenn du Sssteine haben!"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-queststatus(709) = 10, english, town = Galmair, ".*" -> "Zsss, I don't have any other thingsss for yous to do. Thank yous for the help though, zsss!"
-queststatus(709) = 10, german, town = Galmair, ".*" -> "Zsss, ich haben nichtsss weiter für dich zu tun. Aber dankes nochmal für deine Hilfe, zsss!"
 queststatus(709) < 10, english, town = Galmair, ".*" -> "I could ussse sssome help, just asssk me for a tasssk, zsss."
 queststatus(709) < 10, german, town = Galmair, ".*" -> "Ich könnte etwasss Hilfe gebrauchen, fragss michse ruhig nach einer Aufgabe."
-english, ".*" -> "You are not a citizzsen of Galmairss. I don't have anything for yous to do, zsss."
-german, ".*" -> "Du ssscheint kein Bürgers Galmairs zu sssein. Ich hab nichtsss für dichss zu tun, zsss."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
