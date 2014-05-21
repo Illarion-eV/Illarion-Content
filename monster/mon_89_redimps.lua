@@ -49,7 +49,7 @@ function enemyNear(Monster,Enemy)
 	if (MonID==892) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,7,{250,750},{{36,5},{9,5},{38,5}},{},40,1,{35,50}) );
 	elseif (MonID==893) then
-        return ( monster.base.drop.CastMonster(Monster,Enemy,15,{622,1032},40) );
+        return ( monster.base.monstermagic.CastMonster(Monster, {622, 1032}) );
     else
         return false;
     end
@@ -74,7 +74,7 @@ function enemyOnSight(Monster,Enemy)
 	elseif (MonID==892) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,7,{250,750},{{36,5},{9,5},{38,5}},{},40,1,{35,50}) );
 	elseif (MonID==893) then
-        return ( monster.base.drop.CastMonster(Monster,Enemy,15,{622,1032},40) );
+        return ( monster.base.monstermagic.CastMonster(Monster, {622, 1032}) );
     else
         return false;
     end

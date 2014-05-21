@@ -63,7 +63,7 @@ function enemyNear(Monster,Enemy)
     if (MonID==53) then
         return ( monster.base.monstermagic.SuddenWarp(Monster,Enemy) or monster.base.drop.CastMonMagic(Monster,Enemy,6,{1200,2400},{{3,5},{6,5}},{},40,1,{25,60}) );
     elseif (MonID==54) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,3000},{{16,0},{37,0}},{{360,320,500,0,1}},40,0,{25,60}) == true or monster.base.drop.CastMonMagic(Monster,Enemy,6,{1200,2400},{{37,5}},{},40,1,{25,60}));
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,3000},{{16,0},{37,0}},{{360,320,500,0,1}},40,0,{25,60}) or monster.base.drop.CastMonMagic(Monster,Enemy,6,{1200,2400},{{37,5}},{},40,1,{25,60}));
     else
         return false;
     end
@@ -87,9 +87,9 @@ function enemyOnSight(Monster,Enemy)
     if monster.base.base.isMonsterInRange(Monster, Enemy) then
         return true;
     elseif (MonID==53) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,6,{1500,3000},{{4,5}},{},40,1,{25,60}) or monster.base.monstermagic.CastHealing(Monster, {2000,3500}) or monster.base.drop.CastParalyze( Monster, Enemy, 5, {-10,-20}, 5, {6,1}, 10 ,{25,60} ) );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,6,{1500,3000},{{4,5}},{},40,1,{25,60}) or monster.base.monstermagic.CastHealing(Monster, {2000,3500}) or monster.base.monstermagic.CastParalyze(Monster, Enemy, {25,60}) );
     elseif (MonID==54) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,3000},{{16,0},{37,0}},{{360,320,500,0,0}},40,0,{35,50}) == true );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,3000},{{16,0},{37,0}},{{360,320,500,0,0}},40,0,{35,50}) );
     else
         return false;
     end
