@@ -25,7 +25,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (849, 536, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (848, 533, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (921, 542, -6,'triggerfield.spidernest_triggered_spawns');
--- INSERT INTO triggerfields VALUES (918, 517, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (892, 492, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (910, 521, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (920, 500, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (905, 491, -6,'triggerfield.spidernest_triggered_spawns');
@@ -38,21 +38,21 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- INSERT INTO triggerfields VALUES (844, 472, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (837, 462, -6,'triggerfield.spidernest_triggered_spawns');
--- INSERT INTO triggerfields VALUES (844, 480, -6,'triggerfield.spidernest_triggered_spawns');
--- INSERT INTO triggerfields VALUES (834, 453, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (852, 487, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (845, 452, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (856, 471, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (866, 476, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (884, 477, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (873, 501, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (865, 520, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (908, 508, -6,'triggerfield.spidernest_triggered_spawns');
--- INSERT INTO triggerfields VALUES (898, 519, -6,'triggerfield.spidernest_triggered_spawns');
--- INSERT INTO triggerfields VALUES (844, 527, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (898, 518, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (865, 528, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (894, 529, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (872, 542, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (884, 527, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (864, 509, -6,'triggerfield.spidernest_triggered_spawns');
--- INSERT INTO triggerfields VALUES (899, 505, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (882, 504, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (917, 493, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (920, 466, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (903, 456, -6,'triggerfield.spidernest_triggered_spawns');
@@ -66,7 +66,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (917, 544, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (926, 515, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (911, 502, -6,'triggerfield.spidernest_triggered_spawns');
--- INSERT INTO triggerfields VALUES (891, 486, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (891, 483, -6,'triggerfield.spidernest_triggered_spawns');
 
 
 require("base.common")
@@ -94,7 +94,7 @@ function Init()
     waypoint[9]=position(849, 536, -6);
     waypoint[10]=position(848, 533, -6);
 	waypoint[11]=position(921, 542, -6);
-    waypoint[12]=position(918, 517, -6);
+    waypoint[12]=position(892, 492, -6);
     waypoint[13]=position(910, 521, -6);
 	waypoint[14]=position(920, 500, -6);
 	waypoint[15]=position(905, 491, -6);
@@ -107,21 +107,21 @@ function Init()
 
 	waypoint[22]=position(844, 472, -6); -- one big spider
     waypoint[23]=position(837, 462, -6);
-    waypoint[24]=position(844, 480, -6);
-    waypoint[25]=position(834, 453, -6);
+    waypoint[24]=position(852, 487, -6);
+    waypoint[25]=position(845, 452, -6);
 	waypoint[26]=position(856, 471, -6);
     waypoint[27]=position(866, 476, -6);
     waypoint[28]=position(884, 477, -6);
     waypoint[29]=position(873, 501, -6);
     waypoint[30]=position(865, 520, -6);
     waypoint[31]=position(908, 508, -6);
-	waypoint[32]=position(898, 519, -6);
-    waypoint[33]=position(844, 527, -6);
+	waypoint[32]=position(898, 518, -6);
+    waypoint[33]=position(865, 528, -6);
     waypoint[34]=position(894, 529, -6);
 	waypoint[35]=position(872, 542, -6);
 	waypoint[36]=position(884, 527, -6);
 	waypoint[37]=position(864, 509, -6);
-	waypoint[38]=position(899, 505, -6);
+	waypoint[38]=position(882, 504, -6);
 	waypoint[39]=position(917, 493, -6);
 	waypoint[40]=position(920, 466, -6);
 	waypoint[41]=position(903, 456, -6);
@@ -135,7 +135,7 @@ function Init()
 	waypoint[49]=position(917, 544, -6);
 	waypoint[50]=position(926, 515, -6);
 	waypoint[51]=position(911, 502, -6);
-	waypoint[52]=position(891, 486, -6);
+	waypoint[52]=position(891, 483, -6);
 
 
     messageG={}; --German informs
