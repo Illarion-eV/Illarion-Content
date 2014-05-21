@@ -15,6 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
+require("base.character")
+require("lte.chr_reg");
 
 module("monster.base.monstermagic", package.seeall)
 
@@ -243,13 +245,120 @@ function CastLargeAreaMagic(monster, DamageRange, CastingTry, rndTry)
         CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
         local Damage = base.common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
         if Damage > 0 then
-            target:increaseAttrib("hitpoints",-Damage);
+            DealMagicDamage(target, Damage);
             world:gfx(36, target.pos);
         else
             world:gfx(12, target.pos);
         end
         world:makeSound(5, target.pos);
     end
-	monster.movepoints = monster.movepoints - 60;
+    monster.movepoints = monster.movepoints - 60;
     return true;
+end
+
+
+-- A simple fireball spell
+
+function CastFireball(Monster, Enemy, DamageRange, CastingTry, rndTry)
+    if rndTry == nil then
+        rndTry = 30; -- Once every 30 seconds in average
+    end
+
+    if (math.random(1, rndTry) ~= 1) then
+        return false;
+    end
+
+    local blockList = world:LoS(Monster.pos, Enemy.pos)
+    local next = next -- make next-iterator local
+    if (next(blockList) ~= nil) then -- see if there is a "next" (first) object in blockList!
+        return false; -- something blocks
+    end
+
+    base.common.CreateLine(Monster.pos, Enemy.pos, function(targetPos)
+        if world:isCharacterOnField( targetPos ) then
+            local Enemy = world:getCharacterOnField( targetPos );
+            local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( Enemy );
+            CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
+            local Damage = base.common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
+            if Damage > 0 then
+                DealMagicDamage(Enemy, Damage);
+                world:gfx(44, targetPos);
+            else
+                world:gfx(12, targetPos);
+            end
+            world:makeSound(5, targetPos);
+            return false;
+        end;
+        world:gfx(1, targetPos);
+        return true;
+    end );
+    base.common.TalkNLS( Monster, Character.say,
+        "#me murmelt eine mystische Formel.",
+        "#me mumbles a mystical formula.");
+
+    Monster.movepoints = Monster.movepoints - 40;
+    return true;
+end
+
+-- A flame field on the ground
+
+function CastFlamefield(Monster, Enemy, QualityRange, rndTry)
+    if rndTry == nil then
+        rndTry = 30; -- Once every 30 seconds in average
+    end
+
+    if (math.random(1, rndTry) ~= 1) then
+        return false;
+    end
+
+    local blockList = world:LoS(Monster.pos, Enemy.pos)
+    local next = next -- make next-iterator local
+    if (next(blockList) ~= nil) then -- see if there is a "next" (first) object in blockList!
+        return false; -- something blocks
+    end
+
+    base.common.CreateLine(Monster.pos, Enemy.pos, function(targetPos)
+        if world:isCharacterOnField( targetPos ) then
+            if world:isItemOnField( targetPos ) then
+                local foundItem = world:getItemOnField( targetPos );
+                if ( foundItem.id == 359 ) then
+                    foundItem.quality = math.min( QualityRange[2], foundItem.quality + QualityRange[1] );
+                    return false;
+                end
+            end
+            world:createItemFromId(359, 1, targetPos, true, math.random(QualityRange[1], QualityRange[2]), nil);
+            world:makeSound(5, targetPos);
+            return false;
+        end;
+        world:gfx(1, targetPos);
+        return true;
+    end );
+    base.common.TalkNLS( Monster, Character.say,
+        "#me murmelt eine mystische Formel.",
+        "#me mumbles a mystical formula.");
+
+    Monster.movepoints = Monster.movepoints - 40;
+    return true;
+end
+
+-- Helper function to handle the Brink of Death
+
+function DealMagicDamage(Target, Damage)
+    if base.character.IsPlayer(Target)
+        and base.character.WouldDie(Target, Damage + 1)
+        and not base.character.AtBrinkOfDeath(Target) then
+        -- Character would die.
+        base.character.ToBrinkOfDeath(Target);
+        base.common.TalkNLS(Target, Character.say,
+            "#me geht zu Boden.",
+            "#me falls to the ground.");
+
+        if not Target:isAdmin() then --Admins don't want to get paralysed!
+            base.common.ParalyseCharacter(Target, 7, false, true);
+            TimeFactor = 1; -- See lte.chr_reg
+            lte.chr_reg.stallRegeneration(Target, 60/TimeFactor); -- Stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
+        end
+    else
+        Target:increaseAttrib("hitpoints", -Damage);
+    end
 end
