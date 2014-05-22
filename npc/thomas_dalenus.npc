@@ -124,7 +124,7 @@ english, "quest", "mission" -> "If you are searching for a quest, go to Cape Far
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht."
 
 -- Quest by NPC mirarie Bragolin (Writing history )
-queststatus(317) = 3, english, "Mirarie", "Bragolin", "letter", "message" -> queststatus(317) = 4, "I'm sorry, I don't have time. I still needed to finish that dress. Please tell Lady Bragolin that I'll notify her soon."
+queststatus(317) = 3, english, "Mirarie", "Bragolin", "letter", "message" -> queststatus(317) = 4, "I'm sorry, I don't have time. I still need to finish that dress. Please tell Lady Bragolin that I'll notify her soon."
 queststatus(317) = 3, "Mirarie", "Bragolin", "Brief", "Nachricht" -> queststatus(317) = 4, "Tut mei leid. Ich habe grade keine Zeit, ich muss noch ein Kleid fertig nähen. Sagst doch bitte Fräulein Bragolin, dass ich mich bei ihr melden werde."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
@@ -140,7 +140,7 @@ english, "Gobaith", "Gobiath" -> "Let's not talk about sad things, please."
 -- More small talk; add at least five triggers
 "tailor" -> "When I made the dress of queen Rosaline, I worked all day and night. It was such an honour! Is there anything I can tailor for you?"
 "Schneider" -> "Als ich das Kleid der Königin Rosaline gefertigt habe, hab ich den ganzen Tag und die ganze Nacht gearbeitet. Es war so eine Ehre! Gibt es etwas, was ich für dich schneidern kann?"
-"trader", "merchant", "collegue", "vendor", "market" -> "The amount of goods,d on this marketplace, is magnificient. We're notrs by heart, but everyone needs something sometimes.", trade, trade
+"trader", "merchant", "collegue", "vendor", "market" -> "The amount of goods on this marketplace is magnificent. We're not a nation of traders by heart, but everyone needs something sometimes.", trade, trade
 "händler", "kollege", "höker", "markt" -> "Die Menge an Waren, die auf diesem Markt gehandelt werden, sind schon beeindruckend. Wir sind zwar kein Volk von Händlern, aber jeder braucht mal etwas."
 "dye" -> "To dye clothes is tricky. You need various ingredients like herbs. Better buy dyed clothes from me instead of wasting your time."
 "färbe", "farbe" -> "Stoffe zu Färben ist aufwändig. Man braucht eine Reihe von Wirkstoffen, so wie Kräuter. Kauft besser gefärbte Stoffe direkt bei mir."
@@ -158,7 +158,7 @@ english, "Runewick" -> "I was told they prefer silk in Runewick.", "Runewick, we
 "Runewick" -> "Mir wurde erzählt, dass man in Runewick Seide bevorzugt.", "Runewick, nun, ein Handel mit Runewick dauert immer so lange, immer dieses Gelaber."
 english, "Valerio", "Guilianni", "Don" -> "The Don once ordered trousers for his ruffians from me. I refused, of course."
 "Valerio", "Guilianni", "Don" -> "Der Don hat einst Hosen für seine Schlägertrupps bei mir bestellt. Ich hab abgelehnt, wie sich von selbst versteht."
-english, "Galmair" -> "I am honest, I do not like Galmair. I prefer towith honourable men.", trade
+english, "Galmair" -> "I am honest, I do not like Galmair. I prefer to act with honourable men.", trade
 "Galmair" -> "Ich bin ganz ehrlich; ich mag Galmair nicht. Ich ziehe es vor, mit ehrbahren Leuten zu handeln."
 "Queen" -> "Did you notice the blue dress the queen wears from time to time? My masterpiece!"
 "Königin" -> "Habt ihr das blaue Kleid bemerkt, welches die Königin manchmal trägt? Mein Meisterwerk!"
@@ -170,9 +170,9 @@ english, "Cadomyr" -> "I tailor for the queen, I tailor for every noble man of C
 -- Main land factions
 english, "albar" -> "Once, the lords of Albar ordered a shipment of clothes. But somehow, they never paid me. I suspect Galmairian thugs are behind this!"
 "albar" -> "Einst bestellten die Herren von Albar eine Ladung Stoffe. Aber irgendwie wurde ich nie entlohnt. Ich vermute, dass Halunken aus Galmair dahinterstecken."
-english, "gynk", "gync" -> "I will neverwith anyone from Gynk. They never fulfill a contract.", trade
+english, "gynk", "gync" -> "I will never trade again with anyone from Gynk. They never fulfill a contract.", trade
 "gync", "gynk" -> "Ich werde niemals mit jemanden aus Gynk handeln. Die halten sich nicht an geschlossene Verträge."
-english, "salkama" -> "The women of Salkamar are too thin, I was told. Who can tailor a dress for a dash?"
+english, "salkama" -> "The women of Salkamar are too thin, I was told. Who can tailor a dress for a stick figure?"
 "salkama" -> "Die Damen aus Salkamar sind alle zu dünn, sagt man. Wie soll man für einen Strich in der Landschaft ein Kleid schneidern?"
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
@@ -184,7 +184,7 @@ english, "Malachin", "Malachín" -> "Malachin is the god of battles and hunting. 
 "Malachin", "Malachín" -> "Malachin ist der Gott der Schlachten und der Jagd. Ich würde auch gerne Kämpfen und Jagen, aber ich bin besser in der Schneiderei."
 
 -- Catching typical NPC phrases
-"tell something" -> "Neverwith Galmair. Just saying.", trade
+"tell something" -> "Never trade with Galmair. Just saying.", trade
 "erzähl was", "erzähl etwas" -> "Handelt niemals mit Galmair, sage ich."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
@@ -205,10 +205,10 @@ english, "Thomas", "Dalenus" -> "There are many by the name of Thomas, but few o
 cycletext "Autsch!", "Ouch!"
 cycletext "#me zerschneidet einige Stoffbahnen.", "#me cuts some clothes."
 cycletext "#me stickt ein Muster in ein Stoffstück.", "#me stitches a pattern into a piece of cloth."
-cycletext "Maßgeschneiderte Kleider für die Frau, Hüte für euch und Röcke für die Töchter!", "Tailored dresses for you wife, hats for you and a skirts for your daughter!"
+cycletext "Maßgeschneiderte Kleider für die Frau, Hüte für euch und Röcke für die Töchter!", "Tailored dresses for your wife, hats for you and a skirt for your daughter!"
 cycletext "Kommt herein und findet heraus... was ich anzubieten habe!", "Come in and find out... what I have to offer!"
 cycletext "Kundschaft!", "Customers!"
-cycletext "Einmal gekleidet sein wie Königin Rosaline - beste Kleider im Angebot.", "Once dressed like Queen Rosaline - I offer best dresses."
+cycletext "Einmal gekleidet sein wie Königin Rosaline - beste Kleider im Angebot.", "For once, be dressed like Queen Rosaline - I offer best dresses."
 cycletext "Thomas Dalenus ist euer Mann, wenn es um Stickereien geht!", "Thomas Dalenus is your man for stitching!"
 cycletext "Eine Frau ohne Kleid ist meist nur halb so schön.", "A woman without a dress is commonly half as beautiful."
 cycletext "#me streicht ein fein gewobenes Kleid glatt.", "#me smoothes down a finely woven dress."
