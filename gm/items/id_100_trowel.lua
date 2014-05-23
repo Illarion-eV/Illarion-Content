@@ -28,6 +28,7 @@ function UseItem(User, SourceItem)
 	        if string.find(string.lower(User.lastSpokenText), "setnumber (%d+)") then
 			local a,b, value = string.find(string.lower(User.lastSpokenText), "setnumber (%d+)");
 			world:increase(TargetItem, value - TargetItem.number);
+			User:logAdmin("modifies stack size of item " .. world:getItemName(TargetItem.id, Player.english) .. "(" .. TargetItem.id .. ") from " .. TargetItem.number .. " to " .. value)
 			return
 		end
 	end
@@ -46,6 +47,7 @@ function UseItem(User, SourceItem)
 	local newItem = world:createItemFromId(itemId, 1, target, true, itemQual, itemData);
 	newItem.wear = 255;
 	world:changeItem(newItem);
+	User:logAdmin("creates static item " .. world:getItemName(itemId, Player.english) .. "(" .. itemId .. ") at " .. tostring(target))
 end
 
 function Ini()
