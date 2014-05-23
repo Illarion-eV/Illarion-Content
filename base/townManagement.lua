@@ -16,11 +16,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 
-require("gm.base.log")
 require("base.factions")
 require("base.common")
 require("base.licence")
-module("base.townManagement", package.seeall, package.seeall(gm.base.log))
+module("base.townManagement", package.seeall)
 
 
 townManagmentItemPos={position(118,530,0),position(899,772,2),position(344,223,0)}

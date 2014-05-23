@@ -18,7 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE common SET com_script='gm.items.id_99_lockpicks' WHERE com_itemid=99;
 
-require("gm.base.log")
 require("base.common")
 require("base.factions")
 
