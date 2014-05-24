@@ -83,10 +83,10 @@ english, "job" -> "I'm a candle maker, I'm responsible for the city lights."
 "job" -> "Ich bin Kerzenmacher, ich kümmere mich um die Beleuchtung unserer schönen Stadt."
 
 -- Quests
-queststatus(706) = 0, town = Cadomyr, english, "quest", "mission" -> "A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives right there on the tables, so please collect twenty honeycombs for me and I'll teach you how to make wax from them.", queststatus(706) = 1
-queststatus(706) = 0, town = Cadomyr, "quest", "mission" -> "Eine Aufgabe..nun, Ihr könntet mir erstmal einige Honigwaben bringen, diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche bei den Bienenstöcken gleich da vorne bei den Tischen finden. Bringt mir 20 Waben und ich zeige Euch wie man Wachs herstellt.", queststatus(706) = 1
-queststatus(706) = 0, town = Cadomyr, "task", "adventure", "order" -> "A task..well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives right there on the tables, so please collect twenty honeycombs for me and I'll teach you how to make wax from them.", queststatus(706) = 1
-queststatus(706) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Eine Aufgabe..nun, Ihr könntet mir erstmal einige Honigwaben bringen, diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche bei den Bienenstöcken gleich da vorne bei den Tischen finden. Bringt mir 20 Waben und ich zeige Euch wie man Wachs herstellt.", queststatus(706) = 1
+queststatus(706) = 0, town = Cadomyr, english, "quest", "mission" -> "A task... well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives right there on the tables, so please collect twenty honeycombs for me and I'll teach you how to make wax from them.", queststatus(706) = 1
+queststatus(706) = 0, town = Cadomyr, "quest", "mission" -> "Eine Aufgabe... nun, Ihr könntet mir erstmal einige Honigwaben bringen, diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche bei den Bienenstöcken gleich da vorne bei den Tischen finden. Bringt mir 20 Waben und ich zeige Euch wie man Wachs herstellt.", queststatus(706) = 1
+queststatus(706) = 0, town = Cadomyr, "task", "adventure", "order" -> "A task... well, you could gather honeycombs for me, you will need them to make wax anyway. There are two beehives right there on the tables, so please collect twenty honeycombs for me and I'll teach you how to make wax from them.", queststatus(706) = 1
+queststatus(706) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Eine Aufgabe... nun, Ihr könntet mir erstmal einige Honigwaben bringen, diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche bei den Bienenstöcken gleich da vorne bei den Tischen finden. Bringt mir 20 Waben und ich zeige Euch wie man Wachs herstellt.", queststatus(706) = 1
 queststatus(706) = 1, item(2529, all) > 19, town = Cadomyr, english, "quest", "mission", "honey", "comb" -> "Well done, thank you. Please keep the honeycombs for your next task.", queststatus(706) = 2
 queststatus(706) = 1, item(2529, all) > 19, town = Cadomyr, "quest", "mission", "honig", "wabe" -> "Gut gemacht, danke. Bitte behaltet die Honigwaben für Eure nächste Aufgabe.", queststatus(706) = 2
 queststatus(706) = 1, item(2529, all) > 19, town = Cadomyr, "task", "adventure", "order" -> "Well done, thank you. Please keep the honeycombs for your next task.", queststatus(706) = 2
@@ -124,13 +124,6 @@ queststatus(706) = 7, item(390, all) > 1, town = Cadomyr, "Auftrag", "Aufgabe", 
 queststatus(706) = 7, item(390, all) < 2, town = Cadomyr, english, ".+" -> "I want two bottles of lamp oil, please come back once you are done with this task."
 queststatus(706) = 7, item(390, all) < 2, town = Cadomyr, ".+" -> "Ich wollte zwei Flaschen mit Lampenöl, bitte kommt wieder wenn Ihr fertig seid."
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-queststatus(706) = 8, town = Cadomyr, english, ".*" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(706) = 8, town = Cadomyr, german, ".*" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
-queststatus(706) < 8, town = Cadomyr, english, ".*" -> "I could use some help, just ask me for a task."
-queststatus(706) < 8, town = Cadomyr, german, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
-english, ".*" -> "You are not a citizen of Cadomyr. I don't have anything for you to do."
-german, ".*" -> "Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun."
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
@@ -138,6 +131,6 @@ german, ".*" -> "Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Eu
 
 cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
 cycletext "#me kratzt sich am Kopf.", "#me scratches his head."
-cycletext "Wenn ihr Hilfe beim kerzenmachen braucht dann fragt nur mich!", "If you need any help candle making, just ask me!"
+cycletext "Wenn ihr Hilfe beim Kerzenmachen braucht, dann fragt nur mich!", "If you need any help making candles, just ask me!"
 cycletext "#me gähnt verhalten.", "#me yawns restrained."
 cycletext "#me schaut sich kurz um und kratzt sich anschließend an seinem Hintern.", "#me looks around briefly and scratches his bum."

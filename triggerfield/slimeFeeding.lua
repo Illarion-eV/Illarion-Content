@@ -104,16 +104,15 @@ function setSign()
 			local itemId = SLIME_DIET_ITEMS[day]["itemId"]
 			local amount = SLIME_DIET_ITEMS[day]["amount"]
 			base.lookat.SetSpecialName(signSlimeFeeding, "Regeln für das Füttern des alten Schleims", "Rules for feeding the old slime")
-			base.lookat.SetSpecialDescription(signSlimeFeeding,"Zur Prävention von postmeraldilierterem Fieber bis auf weiteres gesperrt.","Closed until further notice to prevent post-meraldilised fever")
-			--[[base.lookat.SetSpecialDescription(signSlimeFeeding,"Heutiges Futter: "..world:getItemName(itemId,Player.german)..", Anzahl: "..amount.." // Beachten: Nur Gegenstandsteleporter nutzen; pro Person nur einmal im Monat füttern (Überfressungsprävention); nur vorgegebenes Futter verwenden (Nährstoffversorgungssicherstellung); niemals sollen zwei Personen gleichzeitig füttern (Unentscheidbarkeitssyndromverhinderung); KEINE FÜTTERUNG IM MAS!",
-			"Today's feeding: "..world:getItemName(itemId,Player.english)..", amount: "..amount.." // Keep in mind: Use only the object teleporter; every person may feed the slime only once a month (prevention of overeating); use only the food allowed on the current day (securing of nutrient supply); two people should never ever feed simultaneously (prevention of undecidability syndrome); NO FEEDING DURING MAS!")]]
+			base.lookat.SetSpecialDescription(signSlimeFeeding,"Heutiges Futter: "..world:getItemName(itemId,Player.german)..", Anzahl: "..amount.." // Beachten: Nur Gegenstandsteleporter nutzen; pro Person nur einmal im Monat füttern (Überfressungsprävention); nur vorgegebenes Futter verwenden (Nährstoffversorgungssicherstellung); niemals sollen zwei Personen gleichzeitig füttern (Unentscheidbarkeitssyndromverhinderung); KEINE FÜTTERUNG IM MAS!",
+			"Today's feeding: "..world:getItemName(itemId,Player.english)..", amount: "..amount.." // Keep in mind: Use only the object teleporter; every person may feed the slime only once a month (prevention of overeating); use only the food allowed on the current day (securing of nutrient supply); two people should never ever feed simultaneously (prevention of undecidability syndrome); NO FEEDING DURING MAS!")
 			world:changeItem(signSlimeFeeding)
 		end
 		
 	end
 	
 end
---[[
+
 function PutItemOnField(Item,User)
 	if Item.pos ~= TELEPORTER_FIELD or world:getTime("month")==16 then
 		RefuseItem(Item)
@@ -148,7 +147,7 @@ function NewMonth(User)
 	if qstStatus == 0 or month > world:getTime("month") or year > world:getTime("year") then
 		return true
 	end
-	return false
+	return false	
 end
 
 function RefuseItem(Item)
@@ -171,11 +170,10 @@ function SlimeCreation()
 
     local oldSlime = world:createMonster(OLD_SLIME,SLIME_CAVE_POSITION,0)
 	oldSlime:talk(Character.say, "#me fließt aus der Höhlennische und beginnt sich in Richtung des Futters zu bewegen.",
-	"#me flows out from the small hole to the ground and start to move towards the feed.")
-	oldSlime.movepoints = oldSlime.movepoints - 30
+	"#me flows out from the small hole and starts to move towards the feed.")
+	oldSlime.movepoints = oldSlime.movepoints - 50
 	oldSlime.waypoints:addWaypoint(WARP_TO_SLIME_POSITION)
 	oldSlime:setOnRoute(true)
 	FEEDING_IN_PROGRESS = true
 	
 end
-]]

@@ -25,22 +25,48 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (849, 536, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (848, 533, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (921, 542, -6,'triggerfield.spidernest_triggered_spawns');
--- INSERT INTO triggerfields VALUES (918, 517, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (892, 492, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (910, 521, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (920, 500, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (905, 491, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (884, 542, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (866, 545, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (876, 528, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (849, 492, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (854, 498, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (856, 492, -6,'triggerfield.spidernest_triggered_spawns');
 
 -- INSERT INTO triggerfields VALUES (844, 472, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (837, 462, -6,'triggerfield.spidernest_triggered_spawns');
--- INSERT INTO triggerfields VALUES (844, 480, -6,'triggerfield.spidernest_triggered_spawns');
--- INSERT INTO triggerfields VALUES (834, 453, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (852, 487, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (845, 452, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (856, 471, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (866, 476, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (884, 477, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (873, 501, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (865, 520, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (908, 508, -6,'triggerfield.spidernest_triggered_spawns');
--- INSERT INTO triggerfields VALUES (898, 519, -6,'triggerfield.spidernest_triggered_spawns');
--- INSERT INTO triggerfields VALUES (844, 527, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (898, 518, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (865, 528, -6,'triggerfield.spidernest_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (894, 529, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (872, 542, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (884, 527, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (864, 509, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (882, 504, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (917, 493, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (920, 466, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (903, 456, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (858, 456, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (846, 476, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (836, 502, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (849, 516, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (836, 527, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (917, 517, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (918, 541, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (917, 544, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (926, 515, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (911, 502, -6,'triggerfield.spidernest_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (891, 483, -6,'triggerfield.spidernest_triggered_spawns');
 
 
 require("base.common")
@@ -68,22 +94,49 @@ function Init()
     waypoint[9]=position(849, 536, -6);
     waypoint[10]=position(848, 533, -6);
 	waypoint[11]=position(921, 542, -6);
-    waypoint[12]=position(918, 517, -6);
+    waypoint[12]=position(892, 492, -6);
     waypoint[13]=position(910, 521, -6);
+	waypoint[14]=position(920, 500, -6);
+	waypoint[15]=position(905, 491, -6);
+	waypoint[16]=position(884, 542, -6);
+	waypoint[17]=position(866, 545, -6);
+	waypoint[18]=position(876, 528, -6);
+	waypoint[19]=position(849, 492, -6);
+	waypoint[20]=position(854, 498, -6);
+	waypoint[21]=position(856, 492, -6);
 
-	waypoint[14]=position(844, 472, -6); -- one big spider
-    waypoint[15]=position(837, 462, -6);
-    waypoint[16]=position(844, 480, -6);
-    waypoint[17]=position(834, 453, -6);
-	waypoint[18]=position(856, 471, -6);
-    waypoint[19]=position(866, 476, -6);
-    waypoint[20]=position(884, 477, -6);
-    waypoint[21]=position(873, 501, -6);
-    waypoint[22]=position(865, 520, -6);
-    waypoint[23]=position(908, 508, -6);
-	waypoint[24]=position(898, 519, -6);
-    waypoint[25]=position(844, 527, -6);
-    waypoint[26]=position(894, 529, -6);
+	waypoint[22]=position(844, 472, -6); -- one big spider
+    waypoint[23]=position(837, 462, -6);
+    waypoint[24]=position(852, 487, -6);
+    waypoint[25]=position(845, 452, -6);
+	waypoint[26]=position(856, 471, -6);
+    waypoint[27]=position(866, 476, -6);
+    waypoint[28]=position(884, 477, -6);
+    waypoint[29]=position(873, 501, -6);
+    waypoint[30]=position(865, 520, -6);
+    waypoint[31]=position(908, 508, -6);
+	waypoint[32]=position(898, 518, -6);
+    waypoint[33]=position(865, 528, -6);
+    waypoint[34]=position(894, 529, -6);
+	waypoint[35]=position(872, 542, -6);
+	waypoint[36]=position(884, 527, -6);
+	waypoint[37]=position(864, 509, -6);
+	waypoint[38]=position(882, 504, -6);
+	waypoint[39]=position(917, 493, -6);
+	waypoint[40]=position(920, 466, -6);
+	waypoint[41]=position(903, 456, -6);
+	waypoint[42]=position(858, 456, -6);
+	waypoint[43]=position(846, 476, -6);
+	waypoint[44]=position(836, 502, -6);
+	waypoint[45]=position(849, 516, -6);
+	waypoint[46]=position(836, 527, -6);
+	waypoint[47]=position(917, 517, -6);
+	waypoint[48]=position(918, 541, -6);
+	waypoint[49]=position(917, 544, -6);
+	waypoint[50]=position(926, 515, -6);
+	waypoint[51]=position(911, 502, -6);
+	waypoint[52]=position(891, 483, -6);
+
 
     messageG={}; --German informs
     messageG[1]="Du bringst ein Nest durcheinander und wirst von Spinnen umzingelt!";
@@ -101,7 +154,7 @@ function MoveToField(User)
 
     Init(); --Initialising
 
-    if User:getType() == 0 and User:increaseAttrib("hitpoints",0)>0 and math.random(1,4) == 1 then --only player characters trigger the triggerfield at a chance of 20%
+    if User:getType() == 0 and User:increaseAttrib("hitpoints", 0) > 0 and math.random(1,4) == 1 then --only player characters trigger the triggerfield at a chance of 20%
 
 		local theWaypoint;
 		for i = 1, #waypoint do
@@ -111,7 +164,18 @@ function MoveToField(User)
 			end
 		end
 
-		if theWaypoint >= 0 and theWaypoint <= 13 then -- small spider swarm
+		-- skip if already tripped in the last 5 minutes
+		if (world:isItemOnField(User.pos) == true) then
+			local skele = world:getItemOnField(User.pos);
+			local serverTime = world:getTime("unix");
+			local trippingTime = skele:getData("tripping_time");
+
+			if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
+				return;
+			end
+		end
+
+		if theWaypoint >= 1 and theWaypoint <= 21 then -- small spider swarm
 
             base.common.InformNLS(User,messageG[1],messageE[1]); --sending a message
 
@@ -121,7 +185,7 @@ function MoveToField(User)
 				world:gfx(41, monPos); -- swirly
 			end
 
-		elseif theWaypoint >= 14 and theWaypoint <= 26 then -- one big spider
+		elseif theWaypoint >= 22 and theWaypoint <= 52 then -- one big spider
 
             base.common.InformNLS(User,messageG[2],messageE[2]); --sending a message
 
@@ -132,6 +196,13 @@ function MoveToField(User)
 
 		end --all events handled
 
+		-- safe tripping time
+		if (world:isItemOnField(User.pos) == true) then
+			local skele = world:getItemOnField(User.pos);
+			local serverTime = world:getTime("unix");
+			skele:setData("tripping_time", serverTime);
+			world:changeItem(skele);
+		end
     end --triggerfield
 
 end --function

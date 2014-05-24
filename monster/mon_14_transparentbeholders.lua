@@ -61,7 +61,7 @@ function enemyNear(Monster,Enemy)
 
 	local MonID=Monster:getMonsterType();
     if (MonID==143) then
-        return ( monster.base.drop.CastMonster(Monster,Enemy,15,{611,1031,1051},40) );
+        return ( monster.base.monstermagic.CastMonster(Monster, {611, 1031, 1051}) );
     else
         return false;
 	end
@@ -76,7 +76,7 @@ function enemyOnSight(Monster,Enemy)
 
 	monster.base.monstermagic.regeneration(Monster); --if an enemy is around, the monster regenerates slowly
 	monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
-		
+
 	local MonID=Monster:getMonsterType();
 
 	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
@@ -86,7 +86,7 @@ function enemyOnSight(Monster,Enemy)
 	if monster.base.base.isMonsterInRange(Monster, Enemy) then
         return true;
     elseif (MonID==143) then
-        return ( monster.base.drop.CastMonster(Monster,Enemy,15,{611,1031,1051},40) );
+        return ( monster.base.monstermagic.CastMonster(Monster, {611, 1031, 1051}) );
     else
         return false;
 	end

@@ -14,8 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+
 -- UPDATE common SET com_script='item.id_1206_claypit' WHERE com_itemid=1206;
 
+require("base.common")
+require("base.lookat")
 require("content.gatheringcraft.claydigging")
 
 module("item.id_1206_claypit", package.seeall)

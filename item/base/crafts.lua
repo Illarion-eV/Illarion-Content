@@ -523,6 +523,7 @@ function Craft:checkMaterial(user, productId)
 end
 
 function Craft:generateQuality(user, productId, toolItem)
+
     if self.npcCraft then
         return 999
     end
@@ -530,20 +531,24 @@ function Craft:generateQuality(user, productId, toolItem)
     local product = self.products[productId]
     local scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
      
-    local quality = base.common.Scale(5, 8, scalar)
+    local quality = base.common.Scale(4, 8, scalar)
     local toolQuality = math.floor(toolItem.quality/100)
     
     quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2))); -- +2 for a perfect tool, -2 for a crappy tool
-	quality = quality + math.random(-1,1); -- Final scatter!
-    
+	    
     quality = math.floor(quality)
 	quality = base.common.Limit(quality, 1, 9)
-    
+	
+	quality = quality + math.random(-1,1); -- Final scatter!
+	quality = base.common.Limit(quality, 1, 9)
+	    
     local durability = 99
     return quality * 100 + durability
+	
 end
 
 function Craft:locationFine(user)
+
     self:turnToTool(user)
 
     local staticTool = base.common.GetFrontItemID(user)

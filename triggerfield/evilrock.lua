@@ -90,9 +90,9 @@ function MoveToField(char)
 	local AmountFlameFire = table.getn(triggerFlameFire)	
 	for i = 1,AmountFlameFire do	
 		if (char.pos == triggerFlameFire[i]) then
-			base.character.CreateAfterTime (char,100,120,359,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,4,3,5,nil,0)
-			if player:getQuestProgress(680) ~= 0 then
-				base.common.InformNLS(player,"Denkst du wirklich, du hättest heute mehr Glück?","Do you really think you will have more luck today?")
+			base.character.CreateAfterTime (char,100,120,359,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,4,4,7,nil,nil,1)
+			if char:getQuestProgress(680) ~= 0 then
+				base.common.InformNLS(char,"Denkst du wirklich, du hättest heute mehr Glück?","Do you really think you will have more luck today?")
 			end
 		end
 	end
@@ -100,14 +100,14 @@ function MoveToField(char)
 	local AmountFlameIce = table.getn(triggerFlameIce)	
 	for i = 1,AmountFlameIce do	
 		if (char.pos == triggerFlameIce[i]) then
-			base.character.CreateAfterTime (char,100,120,360,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,5,3,5,nil,0) 
+			base.character.CreateAfterTime (char,100,120,360,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,5,4,7,nil,nil,1) 
 		end
 	end
 
 	local AmountFlamePoison = table.getn(triggerFlamePoison)	
 	for i = 1,AmountFlamePoison do	
 		if (char.pos == triggerFlamePoison[i]) then
-			base.character.CreateAfterTime (char,100,120,372,nil,1,1,986,998,211,223,0,0,600,600,1,1,nil,13,3,5,nil,0) 
+			base.character.CreateAfterTime (char,100,120,372,nil,1,1,986,998,211,223,0,0,600,600,1,1,nil,13,4,7,nil,nil,1) 
 		end
 	end
 

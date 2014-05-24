@@ -41,7 +41,7 @@ module("triggerfield.galmair_bridges2_660", package.seeall)
     monster[12]={782,783}; --golden skeleton 784
     monster[13]={301,311,321,331,341}; --golem 
     monster[14]={851,852,853,861,862,863,871,872,873,881,882,883}; --hellhound
-    monster[15]={62,63,64,65}; -- drow 61
+    monster[15]={62,63,64}; -- drow 61,65
     monster[16]={201,202,203,204}; --demon skeleton 205 
 
 
@@ -108,39 +108,39 @@ end
 function MoveFromField(char)
 	if shutup ~= 0 then --stop spam
 		return
-		end
-	hero = world:getPlayersInRangeOf(char.pos, 15); --lets see if there is a player around
-		for i,player in ipairs(hero) do
+	end
+	hero = world:getPlayersInRangeOf(char.pos, 20); --lets see if there is a player around
+	for i,player in ipairs(hero) do
 		if base.factions.getMembership(player) == 3 then --check if galmairians are there
 			luckybunch = 1 --if non-galmairians are together with galmairians
-			else
-			end
+		else
 		end
+	end
 	if char:getType() ~= Character.player then --monster start moving
 		for i,player in ipairs(hero) do
-		if base.factions.getMembership(player) == 3 then --check if galmairians are there
-			base.character.DeathAfterTime(char,math.random(5,10),0,1,true) --kill trigger monster
-			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüsten zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have paid your taxes to the Don and he protects you!")	--praise the don message for the player
-			shutup = 1 --stop spam in the future
-			player:setQuestProgress(660,math.random(300,600)) --lte set for all players around
-			local monsters = world:getMonstersInRangeOf(player.pos, 10); --get all monster in player range 
+			if base.factions.getMembership(player) == 3 then --check if galmairians are there
+				base.character.DeathAfterTime(char,math.random(5,10),0,1,true) --kill trigger monster
+				player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüsten zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have paid your taxes to the Don and he protects you!")	--praise the don message for the player
+				shutup = 1 --stop spam in the future
+				player:setQuestProgress(660,math.random(300,600)) --lte set for all players around
+				local monsters = world:getMonstersInRangeOf(player.pos, 35); --get all monster in player range 
 				for i,mon in ipairs(monsters) do
-				base.character.DeathAfterTime(mon,math.random(5,10),0,33,true) --kill all monsters
+					base.character.DeathAfterTime(mon,math.random(5,10),0,33,true) --kill all monsters
 				end
-			return
+				return
 			
-		elseif luckybunch ~= 0 then -- glamairians are here...lucky you
-			player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair euch mit ihren Armbrüsten zuwinken. Gut, dass du jemanden dabei hattest, der dem Don Steuern zahlst und daher beschützt wird vom Don!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have someone with you who has paid taxes to the Don and is thus protected by the Don!")	--wäähh wrong faction but together with friends message for the player
-			shutup = 1 --stop spam in the future
-			player:setQuestProgress(660,math.random(300,600)) --lte set for all players around
-		else -- no galmairians are here...bad luck
-			player:inform("Du wirfst einen Blick zur Stadtmauer von Galmair und siehst die Wachen dort wie sie dich und dein Schicksal beobachten. Was, wenn du nur dem Don deine Steuern zahlen würdest?", "You look to the town wall of Galmair and see guards on the wall watching your fate. What if you had only paid your taxes to the Don?")	--wäähh wrong faction message for the player
-			shutup = 1 --stop spam in the future
-			player:setQuestProgress(660,math.random(300,600)) --lte set for all players around
+			elseif luckybunch ~= 0 then -- glamairians are here...lucky you
+				player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair euch mit ihren Armbrüsten zuwinken. Gut, dass du jemanden dabei hattest, der dem Don Steuern zahlst und daher beschützt wird vom Don!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have someone with you who has paid taxes to the Don and is thus protected by the Don!")	--wäähh wrong faction but together with friends message for the player
+				shutup = 1 --stop spam in the future
+				player:setQuestProgress(660,math.random(300,600)) --lte set for all players around
+			else -- no galmairians are here...bad luck
+				player:inform("Du wirfst einen Blick zur Stadtmauer von Galmair und siehst die Wachen dort wie sie dich und dein Schicksal beobachten. Was, wenn du nur dem Don deine Steuern zahlen würdest?", "You look to the town wall of Galmair and see guards on the wall watching your fate. What if you had only paid your taxes to the Don?")	--wäähh wrong faction message for the player
+				shutup = 1 --stop spam in the future
+				player:setQuestProgress(660,math.random(300,600)) --lte set for all players around
 
-		end
+			end
 		end	
 	else
-	return
+		return
 	end
 end

@@ -264,6 +264,8 @@ function CreateHarvestProduct(ProductId, GroundType, GrowFactors)
 end
 
 function isHerbItem(Plant)
+	InitHerbItems();
+
 	if (Plant ~= nil and HerbItems[Plant.id] ~= nil and Plant.wear == 255) then
 		return true;
 	end
@@ -271,7 +273,6 @@ function isHerbItem(Plant)
 end
 
 function getHerbItem(User, OnlyValidProducts)
-	InitHerbItems();
 
 	local targetItem = base.common.GetFrontItem(User);
 	if (isHerbItem(targetItem)) then

@@ -45,17 +45,17 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 3
-colorHair = 0, 0, 0
+hairID = 7
+colorHair = 22, 22, 22
 colorSkin = 249, 206, 181
-itemHead = 832
-itemChest = 846
-itemCoat = 2418
+itemHead = 356
+itemChest = 362
+itemCoat = 2419
 itemMainHand = 2780
 itemSecondHand = 64
 itemHands = 48
 itemTrousers = 2114
-itemShoes = 369
+itemShoes = 698
 
 -- NPC by Evie, revised by Caldarion
 

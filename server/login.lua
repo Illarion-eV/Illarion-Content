@@ -98,14 +98,17 @@ messageG[66]="[Tipp] Hast du dir schon Gedanken zum Hintergrund und zur Vergange
 messageG[67]="[Tipp] Sollte dein Charakter Hunger bekommen, so pflücke ein paar Früchte indem du einen Obstbaum benutzt. Früchte werden gegessen, indem man sie benutzt."
 messageG[68]="[Tipp] Brauchst du Hilfe? Schreibe '!gm Deine Frage' und drücke Return. Sobald ein Gamemaster verfügbar ist wird er dir helfen."
 messageG[69]="[Tipp] Um laut zu rufen, schreibe #s vor deine Nachricht. Um zu flüstern, verwende #w. Für den 'Out-of-character'-Modus verwendest du #o."
-messageG[70]="[Tipp] Klicke und halte die linke Maustaste auf ein weit entferntes Feld um zu laufen."
+messageG[70]="[Tipp] Klicke mit der linken Maustaste auf ein entferntes Feld um automatisch dorthin zu gehen."
 messageG[71]="[Tipp] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Eine List der wichtigsten Schlüsselwörter erhältst du als Antwort auf 'Hilfe'."
 messageG[72]="[Tipp] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du großen Reichtum erlangen."
 messageG[73]="[Tipp] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier."
 messageG[74]="[Tipp] Eine Liste deiner Aufgaben erhältst du, indem du 'Q' drückst."
 messageG[75]="[Tipp] Um Beute schnell aufzunehmen, drücke 'P' und du sammelst alle umliegenden Gegenstände ein."
 messageG[76]="[Tipp] Eine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen."
+messageG[77]="[Tipp] Wie schnell deine Fertigkeiten steigen, hängt vor allem davon ab, wie viel Zeit du im Spiel verbringst."
+messageG[78]="[Tipp] Es ist nicht nötig, den ganzen Tag hart zu arbeiten, um deine Fertigkeiten zu steigern. Mach auch mal eine Pause um dich zu unterhalten oder die Welt zu erkunden."
 
+--messageG[XX]="[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um."
 --messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
 --English
@@ -179,13 +182,17 @@ messageE[66]="[Hint] Did you already think about the background and past of your
 messageE[67]="[Hint] If your character ever gets hungry, just harvest some fruits by using a fruit tree. You can then eat the fruits by using them."
 messageE[68]="[Hint] Do you need help? Type '!gm <your question>' and hit enter. As soon as a Gamemaster is available, they will assist you."
 messageE[69]="[Hint] To shout, type #s in front of your message. To whisper, use #w. And use #o for the out of character mode."
-messageE[70]="[Hint] Click and hold the left mouse button while pointing at a distant field to make your character run."
+messageE[70]="[Hint] Click with the left mouse button while pointing at a distant field to make your character walk there automatically."
 messageE[71]="[Hint] All NPCs react on a number of keywords. You can get a list of the most important keywords for a particular NPC with the command 'help'."
 messageE[72]="[Hint] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy."
 messageE[73]="[Hint] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your character is, and the blue bar shows the mana level of mage characters."
 messageE[74]="[Hint] You can review the quests of your character by hitting 'Q'.";
 messageE[75]="[Hint] To collect loot quickly, press 'P' to collect all items within reach.";
 messageE[76]="[Hint] To see an overview of all commands, hit F1.";
+messageE[77]="[Hint] The speed of skillgain is mainly determined by the time you spend in the game.";
+messageE[78]="[Hint] It is not necessary to work all day long to raise your skills. Take a break to chat or explore the world!";
+
+--messageE[XX]="[Hint] CTRL toggles walking/running.";
 --messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard.";
 
 -- messages of the day - END

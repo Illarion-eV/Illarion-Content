@@ -136,8 +136,8 @@ queststatus(205) = 1, town = Runewick, "task", "adventure", "order" -> "Just dro
 queststatus(205) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Werft das was ihr nicht braucht oder was ihr spenden wollt hier auf das Feld. Es ist nicht schwer Runewick zu einem bessren Ort zu machen!"
 
 -- Quest 1 solved, reward: +20 rankpoints
-queststatus(205) = 2, english, town = Runewick, ".*" -> inform("[Quest solved] You advance in Archmage Elvaine Morgan favour."), queststatus(205) = 3, rankpoints + 20, "Thank you for you help!", "Thank you for your support!"
-queststatus(205) = 2, town = Runewick, ".*" -> inform("[Quest gelöst] Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), queststatus(205) = 3, rankpoints + 20, "Vielen Dank für Eure Hilfe!", "Vielen Dank für Eure Unterstützung!"
+queststatus(205) = 2, english, town = Runewick, ".*" -> inform("[Quest solved] Neiran is satisfied."), queststatus(205) = 3, rankpoints + 20, "Thank you for you help!", "Thank you for your support!"
+queststatus(205) = 2, town = Runewick, ".*" -> inform("[Quest gelöst] Neiran ist zufrieden."), queststatus(205) = 3, rankpoints + 20, "Vielen Dank für Eure Hilfe!", "Vielen Dank für Eure Unterstützung!"
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(205) = 3, english, "quest", "mission" -> "#me smiles happily and adds something to a list.", "I'm busy right now, please come again later."

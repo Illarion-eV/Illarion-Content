@@ -47,16 +47,16 @@ wrongLangUS = "#me looks at you confused."
 radius = 0
 hairID = 7
 beardID = 0
-colorHair = 255, 20, 147
+colorHair = 205, 92, 92
 colorSkin = 245, 200, 145
 itemHead = 0
-itemChest = 182
-itemCoat = 2418
+itemChest = 834
+itemCoat = 0
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 0
-itemTrousers = 844
-itemShoes = 0
+itemTrousers = 0
+itemShoes = 369
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Lilli Gallfing the tailor. Keywords: quest")

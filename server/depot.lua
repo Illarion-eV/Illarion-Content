@@ -18,12 +18,8 @@ require("base.common")
 module("server.depot", package.seeall)
 
 function onOpenDepot(User, Depot)
-  local pos = Depot.pos;
 
-  -- This nil check is a backward compatibility hack.
-  -- It can be removed after next server upgrade.
-  if pos ~= nil then
-    base.common.TurnTo( User, pos ); -- turn if necessary
-  end
+  base.common.TurnTo( User, Depot.pos ); -- turn if necessary
+
   return true
 end

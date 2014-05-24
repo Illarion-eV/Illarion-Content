@@ -72,7 +72,7 @@ function enemyNear(Monster,Enemy)
     end
 
     if (MonID==13) then
-        return ( monster.base.drop.CastLargeAreaMagic(Monster,15,3,{37,0},{1000, 2000},8,{36,5},60,{35,50}) or monster.base.monstermagic.SuddenWarp(Monster,Enemy) or monster.base.drop.CastMonMagic(Monster,Enemy,7,{1000,2000},{{36,5}},{},40,1,{35,50}) );
+        return ( monster.base.monstermagic.CastLargeAreaMagic(Monster, {1000, 2000}, {35, 50}) or monster.base.monstermagic.SuddenWarp(Monster, Enemy) );
     else
         return false
     end
@@ -95,7 +95,7 @@ function enemyOnSight(Monster,Enemy)
     if monster.base.base.isMonsterInRange(Monster, Enemy) then
         return true;
     elseif (MonID==13) then
-		return ( monster.base.drop.CastLargeAreaMagic(Monster,10,3,{37,0},{1000, 2000},8,{36,5},60,{35,50}) or monster.base.drop.CastMonMagic(Monster,Enemy,4,{1000,2000},{{37,5}},{},40,1,{35,50}) or monster.base.monstermagic.CastHealing( Monster, {1000,2000}) );
+		return ( monster.base.monstermagic.CastLargeAreaMagic(Monster, {1000, 2000}, {35, 50}) or monster.base.monstermagic.CastFireball(Monster, Enemy, {1000, 2000}, {35, 50}) or monster.base.monstermagic.CastHealing( Monster, {1000, 2000}) );
     else
         return false
     end

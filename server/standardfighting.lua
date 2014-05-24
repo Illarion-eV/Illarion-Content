@@ -789,19 +789,18 @@ function CauseDamage(Attacker, Defender, Globals)
 		if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
 
             base.common.ParalyseCharacter(Defender.Char, 7, false, true);
-            lte.chr_reg.stallRegeneration(Defender.Char, 20);
-
+			TimeFactor=1; -- See lte.chr_reg
+			lte.chr_reg.stallRegeneration(Defender.Char, 60/TimeFactor); -- Stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
+			
 		end
-
+		
         return true;
+		
     else
-        if not base.character.ChangeHP(Defender.Char, -Globals.Damage) then
-
-		--removed: Call of base.playerdeath
-
-        end;
-
-        if (Attacker.AttackKind == 4) then -- Distanzangriff.
+	
+		base.character.ChangeHP(Defender.Char,-Globals.Damage); -- Finally dealing the damage.
+	
+        if (Attacker.AttackKind == 4) then -- Ranged attack
             if Defender.Char:getType() == Character.monster and Attacker.Char:getType() == Character.player then
 				Defender.Char.movepoints = Defender.Char.movepoints - 5;
 			end
@@ -1443,8 +1442,6 @@ end;
 -- @param Globals The table of the global values
 function CheckCriticals(Attacker, Defender, Globals)
 
-
-
 	local chance=1;
 	local weapontype = 8;
 	if Attacker.IsWeapon then
@@ -1752,14 +1749,11 @@ end;
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP, Globals)
 
-
 	-- Attacker learns weapon skill
 	if Attacker.Skillname then
-		if Attacker.AttackKind == 0 then
-			Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.DefenseSkill, Defender.parry) + 20);
-		else
-			Attacker.Char:learn(Attacker.Skillname, AP/2, math.min(Attacker.Weapon.Level,math.max(Defender.DefenseSkill, Defender.parry)) + 20);
-		end
+	
+		Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.DefenseSkill + 20, Defender.parry + 20));
+			
 	end
 
 	local archerAdditional = 0
@@ -1767,30 +1761,40 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 		archerAdditional = GetNecessaryAimingTime(Attacker)*10
 	end
 
-	-- Defender learns armor skill
+	-- Defender learns armour skill
 	if Defender.DefenseSkillName then
 		local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
 
-		if(armourfound and armour.Level<=Defender.DefenseSkill) then
-			Defender.Char:learn(Defender.DefenseSkillName,(AP+archerAdditional)/2,math.min(armour.Level,Attacker.skill)+20);
+		if armourfound then
+		
+			Defender.Char:learn(Defender.DefenseSkillName,(AP+archerAdditional)/3,Attacker.skill + 20);
+			
 		end
+		
 	end
 
 	-- Defender learns parry skill
 	local parryWeapon;
+	
 	--Choose which weapon has the largest defense
 	if Defender.IsWeapon then
 		parryWeapon = Defender.Weapon;
 	end
+	
 	if Defender.SecIsWeapon then
+	
 		if not parryWeapon then
 			parryWeapon = Defender.SecWeapon;
 		elseif (parryWeapon.Defence < Defender.SecWeapon.Defence) then
 			parryWeapon = Defender.SecWeapon;
 		end
+		
 	end
-	if (parryWeapon and parryWeapon.Level<=Defender.parry) then
-		Defender.Char:learn(Character.parry, AP/2, Attacker.skill + 20)
+	
+	if parryWeapon then
+	
+		Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 20)
+		
 	end
 end;
 
@@ -1857,7 +1861,7 @@ function LoadWeapons(CharStruct)
 		if rWType==10 or rWType==11 or rWType==12 or rWType==14 then -- Ammo or shield in right hand: switch r and l hand!
 			isRWp=0;
 		end
---		debug("*** FOUND WP IN R!");
+
 	else
 		isRWp=0;
 	end
@@ -1867,13 +1871,13 @@ function LoadWeapons(CharStruct)
 		if lWType==10 or lWType==11 or lWType==12 or lWType==14 then -- Ammo or shield in right hand: switch r and l hand!
 			isLWp=0;
 		end
---		debug("*** FOUND WP IN L!");
+
 	else
 		isLWp=0;
 	end
 
 	if isRWp==0 and isLWp==1 then 	-- switch weapons
---	debug("*** SWITCHING WEAPONS NOW!");
+
 		rItem,lItem = lItem,rItem;
 		rAttFound,lAttFound = lAttFound,rAttFound;
 		rAttWeapon,lAttWeapon = lAttWeapon,rAttWeapon;
@@ -1886,8 +1890,6 @@ function LoadWeapons(CharStruct)
     CharStruct["SecWeaponItem"] = lItem;
     CharStruct["SecIsWeapon"] = lAttFound;
     CharStruct["SecWeapon"] = lAttWeapon;
---	CharStruct.Char:talk(Character.say,"**** WPTYPE R: "..CharStruct.Weapon.WeaponType);
---	CharStruct.Char:talk(Character.say,"**** WPTYPE L: "..CharStruct.SecWeapon.WeaponType);
 
 end;
 
