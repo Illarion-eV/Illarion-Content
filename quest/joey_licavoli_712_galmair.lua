@@ -86,8 +86,8 @@ QuestTarget[11] = {position(425, 247, 0), position(341, 218, 0)} -- Gretel Goldh
 QuestTarget[12] = {position(425, 247, 0)}
 QuestTarget[13] = {position(425, 247, 0), position(388, 238, 0)} -- Groktan Flintsplit
 QuestTarget[14] = {position(425, 247, 0)}
-QuestTarget[13] = {position(425, 247, 0), position(412, 291, 0)} -- Pipillo
-QuestTarget[14] = {position(425, 247, 0)}
+QuestTarget[15] = {position(425, 247, 0), position(412, 291, 0)} -- Pipillo
+QuestTarget[16] = {position(425, 247, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 16
