@@ -103,13 +103,56 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Always keep moving!", "Tood
 "your name", "who are you", "who art thou" -> "Phillibald, portalbook merchant. That's me.", "I am the merchant Phillibald.", "Phillibald is my name, I trade portal books."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Phillibald, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Phillibald", "Phillibald mein Name, ich handle mit Portalbüchern"
 
--- Catching quest triggers
-english, "quest", "mission" -> "I do not issue quests, but I can sell you books to go to other places."
-"quest", "mission" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
-"task", "adventure", "order" -> "I do not issue quests, but I can sell you books to go to other places."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
+-- Quest
+-- fix if quest started and sent to NPC by Florain
+queststatus(221) > 0, queststatus(820) = 19, english, town = Runewick, "quest", "mission", "Florain", "dreyndel" -> queststatus(820) = 20, "Ah Florain send you but you already ask me for something to do."
+queststatus(221) > 0, queststatus(820) = 19, town = Runewick, "quest", "mission", "Florain", "dreyndel" -> queststatus(820) = 20, "Ah Florain hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
+queststatus(221) > 0, queststatus(820) = 19, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 20, "Ah Florain send you but you already ask me for something to do."
+queststatus(221) > 0, queststatus(820) = 19, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 20, "Ah Florain hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
 
--- Easter Egg
+-- 1st quest: fetch an apple pie
+-- Give out quest 1 and coins
+queststatus(221) = 0, queststatus(820) = 19, english, town = Runewick, "quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hello, I am starving and can't leave my business.   Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(221) = 0, queststatus(820) = 19, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
+queststatus(221) = 0, queststatus(820) = 19, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hello, I am starving and can't leave my business.   Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(221) = 0, queststatus(820) = 19, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
+
+queststatus(221) = 0, english, town = Runewick,"quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, "Hello, I am starving and can't leave my business.   Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(221) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(221) = 1, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
+queststatus(221) = 0, town = Runewick, "task", "adventure" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, "Hello, I am starving and can't leave my business.   Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(221) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(221) = 1, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
+
+-- Quest 1 complete, reward one portalbook to Runewick, +5 rankpoints
+queststatus(221) = 1, item(353, all) > 0, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a portal book to Runewick."), deleteItem(353, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Runewick", "nameEN"="Portal book to Runewick", "destinationCoordsY" = "813", "destinationCoordsX" = "836", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Runewick", "descriptionDe" = "Portal nach Runewick"), queststatus(221) = 2, rankpoints + 5, "Oh, thank you so much.  Take this book as a reward."
+queststatus(221) = 1, item(353, all) > 0, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst Portalbuch nach Runewick"), deleteItem(353, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Runewick", "nameEN"="Portal book to Runewick", "destinationCoordsY" = "813", "destinationCoordsX" = "836", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Runewick", "descriptionDe" = "Portal nach Runewick"), queststatus(221) = 2, rankpoints + 5, "Oh, vielen vielen Dank. Hier, nimm dieses Buch als Belohnung."
+
+-- Quest 1 taken but not finished
+queststatus(221) = 1, item(353, all) < 1, town = Runewick, english, "quest", "mission" -> "I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the tavern?"
+queststatus(221) = 1, item(353, all) < 1, town = Runewick, "quest", "mission" -> "Ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen?"
+queststatus(221) = 1, item(353, all) < 1, town = Runewick, "task", "adventure" -> "I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the tavern?"
+queststatus(221) = 1, item(353, all) < 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen?"
+
+-- Quest 2 received, fetch grape juice
+queststatus(221) = 2, english, town = Runewick,"quest", "mission" -> inform("[New quest] Bookseller Helper II"), money + 600, queststatus(221) = 3, "The cake was so good! Would you mind going back to the tavern to fetch me some grape juice to wash it down now? *hands over more coins*"
+queststatus(221) = 2, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Buchhändler-Helfer II"), money + 600, queststatus(221) = 3, "Der Kuchen war richtig lecker! Würde es dir was ausmachen nochmal in die Taverne zu gehen und mir etwas Traubensaft zu besorgen, damit ich die Krümel runterspülen kann? *reicht mehr Münzen rüber*"
+queststatus(221) = 2, town = Runewick, "task", "adventure" -> inform("[New quest] Bookseller Helper II"), money + 600, queststatus(221) = 3, "The cake was so good! Would you mind going back to the tavern to fetch me some grape juice to wash it down now? *hands over more coins*"
+queststatus(221) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Buchhändler-Helfer II"), money + 600, queststatus(221) = 3, "Der Kuchen war richtig lecker! Würde es dir was ausmachen nochmal in die Taverne zu gehen und mir etwas Traubensaft zu besorgen, damit ich die Krümel runterspülen kann? *reicht mehr Münzen rüber*"
+
+-- Quest 2 complete, reward one portalbook to Runewick, +5 rankpoints
+queststatus(221) = 3, item(791, all) > 0, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a portal book to Runewick."), deleteItem(791, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Runewick", "nameEN"="Portal book to Runewick", "destinationCoordsY" = "813", "destinationCoordsX" = "836", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Runewick", "descriptionDe" = "Portal nach Runewick"), queststatus(221) = 4, rankpoints + 5, "Oh, thank you so much.  Take this book as a reward."
+queststatus(221) = 3, item(791, all) > 0, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst Portalbuch nach Runewick"), deleteItem(791, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Runewick", "nameEN"="Portal book to Runewick", "destinationCoordsY" = "813", "destinationCoordsX" = "836", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Runewick", "descriptionDe" = "Portal nach Runewick"), queststatus(221) = 4, rankpoints + 5, "Oh, vielen vielen Dank. Hier, nimm dieses Buch als Belohnung."
+
+-- Quest 2 taken but not completed
+queststatus(221) = 3, item(791, all) < 1, town = Runewick, english, "quest", "mission" -> "Would you mind going back to the tavern to fetch me some grape juice to wash it down now?"
+queststatus(221) = 3, item(791, all) < 1, town = Runewick, "quest", "mission" -> "Würde es dir was ausmachen nochmal in die Taverne zu gehen und mir etwas Traubensaft zu besorgen, damit ich die Krümel runterspülen kann?"
+queststatus(221) = 3, item(791, all) < 1, town = Runewick, "task", "adventure" -> "Would you mind going back to the tavern to fetch me some grape juice to wash it down now?"
+queststatus(221) = 3, item(791, all) < 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Würde es dir was ausmachen nochmal in die Taverne zu gehen und mir etwas Traubensaft zu besorgen, damit ich die Krümel runterspülen kann?"
+
+-- All quests done
+queststatus(221) = 4, town = Runewick, english, "quest", "mission" -> "I have nothing left for you today, you have taken care of me admirably."
+queststatus(221) = 4, town = Runewick, "quest", "mission" -> "Heute gibt es nichts mehr für dich zu tuen, du hast dich wunderbar um mich gekümmert."
+queststatus(221) = 4, town = Runewick, "task", "adventure" -> "I have nothing left for you today, you have taken care of me admirably."
+queststatus(221) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Heute gibt es nichts mehr für dich zu tuen, du hast dich wunderbar um mich gekümmert."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a merchant of portal books."

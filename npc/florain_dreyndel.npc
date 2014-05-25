@@ -184,11 +184,21 @@ queststatus(820) = 17, "quest", "mission" -> "Lilith Needlehand sucht jemanden, 
 queststatus(820) = 17, "task", "adventure", "order" -> "Lilith Needlehand the tailor is looking for someone to lend a hand. She can be found just around the corner from Uriel, downstairs in the Fower of Fire north of the marketplace."
 queststatus(820) = 17, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Lilith Needlehand sucht jemanden, der ihr behilflich ist. Ihr könnt sie in der Nähe von Uriel finden. Die Treppe runter in dem Turm des Feuers nördlich vom Marktplatz."
 
+-- Phillibald
+queststatus(820) = 18, english, "quest", "mission" -> queststatus(820) = 19, "Phillibald was looking for you. Search for him in the library of air and ask him for a task."
+queststatus(820) = 18, "quest", "mission" -> queststatus(820) = 19, "Phillibald hat nach dir gefragt. Suche er in der  Bibliothek der Luft und frag er nach einer Aufgabe."
+queststatus(820) = 18, "task", "adventure", "order" -> queststatus(820) = 19, "Phillibald was looking for you. Search for him in the library of air and ask him for a task."
+queststatus(820) = 18, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 19, "Phillibald hat nach dir gefragt. Suche er in der  Bibliothek der Luft und frag er nach einer Aufgabe."
+queststatus(820) = 19, english, "quest", "mission" -> "Phillibald was looking for you. Search for him in the library of air and ask him for a task."
+queststatus(820) = 19, "quest", "mission" -> "Phillibald hat nach dir gefragt. Suche er in der  Bibliothek der Luft und frag er nach einer Aufgabe."
+queststatus(820) = 19, "task", "adventure", "order" -> "Phillibald was looking for you. Search for him in the library of air and ask him for a task."
+queststatus(820) = 19, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Phillibald hat nach dir gefragt. Suche er in der  Bibliothek der Luft und frag er nach einer Aufgabe."
+
 -- All done
-queststatus(820) = 18, english, "quest", "mission" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
-queststatus(820) = 18, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
-queststatus(820) = 18, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
-queststatus(820) = 18, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
+queststatus(820) = 20, english, "quest", "mission" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
+queststatus(820) = 20, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
+queststatus(820) = 20, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
+queststatus(820) = 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, ".*" -> "I cannot help you with that. Why not ask Elesil Daelwon over there, I'm sure she has the answer."

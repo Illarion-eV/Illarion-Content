@@ -66,9 +66,12 @@ Description[GERMAN][16] = "Gehe zu Florain zurück, wenn du weitere Aufgaben benö
 Description[ENGLISH][16] = "Go back to Florain if you need more tasks."
 Description[GERMAN][17] = "Gehe zu Lilith Needlehand und frag sie nach einer Aufgabe. Sie ist im Untergeschoss vom Turm des Feuers, das Gebäude nördlich des Marktplatzes von Runewick. Sie ist in ihrer Werkstatt zu finden, gleich um die Ecke von Uriel Urch."
 Description[ENGLISH][17] = "Go to Lilith Needlehand and ask her for a task. She can be found in the basement of the Tower of Fire, the building to the north of Runewick's marketplace. She will be in her workshop right around the corner from Uriel Urch."
-Description[GERMAN][18] = "Florain Dreyndel kannn dir nun nicht mehr weiterhelfen. Frage einfach jeden, den du triffst nach Aufgaben und du wirst gut zurecktkommen."
-Description[ENGLISH][18] = "Florain Dreyndel cannot help you any further now. Just ask everyone you meet for tasks and you will get around just fine."
-
+Description[GERMAN][18] = "Gehe zu Florain zurück, wenn du weitere Aufgaben benötigst."
+Description[ENGLISH][18] = "Go back to Florain if you need more tasks."
+Description[GERMAN][19] = "Phillibald hat nach dir gefragt. Suche er in der  Bibliothek der Luft und frag er nach einer Aufgabe."
+Description[ENGLISH][19] = "Phillibald was looking for you. Search for him in the library of air and ask him for a task."
+Description[GERMAN][20] = "Florain Dreyndel kannn dir nun nicht mehr weiterhelfen. Frage einfach jeden, den du triffst nach Aufgaben und du wirst gut zurecktkommen."
+Description[ENGLISH][20] = "Florain Dreyndel cannot help you any further now. Just ask everyone you meet for tasks and you will get around just fine."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 Start = {833, 815, 0}
@@ -93,9 +96,11 @@ QuestTarget[15] = {position(902, 773, 0)} -- Uriel
 QuestTarget[16] = {position(833, 815, 0)} -- Florain
 QuestTarget[17] = {position(893, 756, 0)} -- Lilith
 QuestTarget[18] = {position(833, 815, 0)} -- Florain
+QuestTarget[19] = {position(901, 831, 1)} -- Phillibald
+QuestTarget[20] = {position(833, 815, 0)} -- Florain
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 18
+FINAL_QUEST_STATUS = 20
 
 
 function QuestTitle(user)
