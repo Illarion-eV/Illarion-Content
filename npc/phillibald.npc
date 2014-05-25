@@ -105,21 +105,21 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Always keep moving!", "Tood
 
 -- Quest
 -- fix if quest started and sent to NPC by Florain
-queststatus(221) > 0, queststatus(820) = 19, english, town = Runewick, "quest", "mission", "Florain", "dreyndel" -> queststatus(820) = 20, "Ah Florain send you but you already ask me for something to do."
+queststatus(221) > 0, queststatus(820) = 19, english, town = Runewick, "quest", "mission", "Florain", "dreyndel" -> queststatus(820) = 20, "Ah Florain sent you but you already asked me for something to do."
 queststatus(221) > 0, queststatus(820) = 19, town = Runewick, "quest", "mission", "Florain", "dreyndel" -> queststatus(820) = 20, "Ah Florain hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
-queststatus(221) > 0, queststatus(820) = 19, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 20, "Ah Florain send you but you already ask me for something to do."
+queststatus(221) > 0, queststatus(820) = 19, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 20, "Ah Florain sent you but you already asked me for something to do."
 queststatus(221) > 0, queststatus(820) = 19, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 20, "Ah Florain hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
 
 -- 1st quest: fetch an apple pie
 -- Give out quest 1 and coins
-queststatus(221) = 0, queststatus(820) = 19, english, town = Runewick, "quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hello, I am starving and can't leave my business.   Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(221) = 0, queststatus(820) = 19, english, town = Runewick, "quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hello, I am starving and can't leave my business.  Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
 queststatus(221) = 0, queststatus(820) = 19, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
-queststatus(221) = 0, queststatus(820) = 19, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hello, I am starving and can't leave my business.   Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(221) = 0, queststatus(820) = 19, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hello, I am starving and can't leave my business.  Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
 queststatus(221) = 0, queststatus(820) = 19, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
 
-queststatus(221) = 0, english, town = Runewick,"quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, "Hello, I am starving and can't leave my business.   Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(221) = 0, english, town = Runewick,"quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, "Hello, I am starving and can't leave my business.  Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
 queststatus(221) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(221) = 1, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
-queststatus(221) = 0, town = Runewick, "task", "adventure" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, "Hello, I am starving and can't leave my business.   Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(221) = 0, town = Runewick, "task", "adventure" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, "Hello, I am starving and can't leave my business.  Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
 queststatus(221) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(221) = 1, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
 
 -- Quest 1 complete, reward one portalbook to Runewick, +5 rankpoints

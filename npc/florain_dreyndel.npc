@@ -185,13 +185,13 @@ queststatus(820) = 17, "task", "adventure", "order" -> "Lilith Needlehand the ta
 queststatus(820) = 17, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Lilith Needlehand sucht jemanden, der ihr behilflich ist. Ihr könnt sie in der Nähe von Uriel finden. Die Treppe runter in dem Turm des Feuers nördlich vom Marktplatz."
 
 -- Phillibald
-queststatus(820) = 18, english, "quest", "mission" -> queststatus(820) = 19, "Phillibald was looking for you. Search for him in the library of air and ask him for a task."
+queststatus(820) = 18, english, "quest", "mission" -> queststatus(820) = 19, "Phillibald was looking for you. Search for him in the Library of Air and ask him for a task."
 queststatus(820) = 18, "quest", "mission" -> queststatus(820) = 19, "Phillibald hat nach dir gefragt. Suche er in der  Bibliothek der Luft und frag er nach einer Aufgabe."
-queststatus(820) = 18, "task", "adventure", "order" -> queststatus(820) = 19, "Phillibald was looking for you. Search for him in the library of air and ask him for a task."
+queststatus(820) = 18, "task", "adventure", "order" -> queststatus(820) = 19, "Phillibald was looking for you. Search for him in the Library of Air and ask him for a task."
 queststatus(820) = 18, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 19, "Phillibald hat nach dir gefragt. Suche er in der  Bibliothek der Luft und frag er nach einer Aufgabe."
-queststatus(820) = 19, english, "quest", "mission" -> "Phillibald was looking for you. Search for him in the library of air and ask him for a task."
+queststatus(820) = 19, english, "quest", "mission" -> "Phillibald was looking for you. Search for him in the Library of Air and ask him for a task."
 queststatus(820) = 19, "quest", "mission" -> "Phillibald hat nach dir gefragt. Suche er in der  Bibliothek der Luft und frag er nach einer Aufgabe."
-queststatus(820) = 19, "task", "adventure", "order" -> "Phillibald was looking for you. Search for him in the library of air and ask him for a task."
+queststatus(820) = 19, "task", "adventure", "order" -> "Phillibald was looking for you. Search for him in the Library of Air and ask him for a task."
 queststatus(820) = 19, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Phillibald hat nach dir gefragt. Suche er in der  Bibliothek der Luft und frag er nach einer Aufgabe."
 
 -- All done
