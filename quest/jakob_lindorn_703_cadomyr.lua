@@ -59,9 +59,12 @@ Description[GERMAN][12] = "Geh zu Jakob Lindorn beim Teleporter in Cadomyr, er h
 Description[ENGLISH][12] = "Go to Jakob Lindorn at the teleporter of Cadomyr, he is sure to have another task for you."
 Description[GERMAN][13] = "Reret Odohir, die Notarin Cadomyrs hat eine Aufgabe für dich. Such sie. Du kannst sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor."
 Description[ENGLISH][13] = "Reret Odohir, the notary of Cadomyr, has a task for you if you search for her. You can find her in the building northwest of the tavern, it's the house with the colourful pillar."
-Description[GERMAN][14] = "Du hast alle Aufgaben von Jakob Lindorn erfüllt."
-Description[ENGLISH][14] = "You have fulfilled all the tasks for Jakob Lindorn."
-
+Description[GERMAN][14] = "Geh zu Jakob Lindorn beim Teleporter in Cadomyr, er hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][14] = "Go to Jakob Lindorn at the teleporter of Cadomyr, he is sure to have another task for you."
+Description[GERMAN][15] = "Such Evera in das Tor und hilf ihr, wenn sie eine Aufgabe für dich hat."
+Description[ENGLISH][15] = "Search for Evera inside the gate and help her if she has a task for you."
+Description[GERMAN][16] = "Du hast alle Aufgaben von Jakob Lindorn erfüllt."
+Description[ENGLISH][16] = "You have fulfilled all the tasks for Jakob Lindorn."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 Start = {124, 649, 0}
@@ -82,9 +85,11 @@ QuestTarget[11] = {position(124, 649, 0), position(46, 683, 0)}  -- Zerarisa
 QuestTarget[12] = {position(124, 649, 0)}
 QuestTarget[13] = {position(124, 649, 0), position(106, 553, 0)} -- Reret Odohir
 QuestTarget[14] = {position(124, 649, 0)}
+QuestTarget[15] = {position(124, 649, 0), position(139, 622, 0)} -- Evera
+QuestTarget[16] = {position(124, 649, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 14
+FINAL_QUEST_STATUS = 16
 
 
 function QuestTitle(user)
