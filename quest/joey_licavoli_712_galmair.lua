@@ -59,8 +59,12 @@ Description[GERMAN][12] = "Geh zu Joey Licavoli beim Teleporter in Galmair. Er h
 Description[ENGLISH][12] = "Go to Joey Licavoli at the teleporter of Galmair, he is sure to have another task for you."
 Description[GERMAN][13] = "Groktan Flintsplit hat vielleicht eine Aufgabe für dich. Suche ihn im Haus des Schuldeneintreibers und frag, was du für ihn tun kannst. Groktan Flintsplit hält sich in dem Gebäude mit dem roten Ziegeldachach im Osten des Palastes auf."
 Description[ENGLISH][13] = "Groktan Flintsplit probably has a task for you. Search for him in the house of the debt-collector and ask him for a task. Groktan Flintsplit can be found in the building with the red roof east of the palace."
-Description[GERMAN][14] = "Du hast alle Aufgaben von Joey Licavoli erfüllt."
-Description[ENGLISH][14] = "You have fulfilled all the tasks for Joey Licavoli."
+Description[GERMAN][14] = "Geh zu Joey Licavoli beim Teleporter in Galmair. Er hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][14] = "Go to Joey Licavoli at the teleporter of Galmair, he is sure to have another task for you."
+Description[GERMAN][15] = "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe."
+Description[ENGLISH][15] = "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
+Description[GERMAN][16] = "Du hast alle Aufgaben von Joey Licavoli erfüllt."
+Description[ENGLISH][16] = "You have fulfilled all the tasks for Joey Licavoli."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
@@ -82,9 +86,11 @@ QuestTarget[11] = {position(425, 247, 0), position(341, 218, 0)} -- Gretel Goldh
 QuestTarget[12] = {position(425, 247, 0)}
 QuestTarget[13] = {position(425, 247, 0), position(388, 238, 0)} -- Groktan Flintsplit
 QuestTarget[14] = {position(425, 247, 0)}
+QuestTarget[13] = {position(425, 247, 0), position(412, 291, 0)} -- Pipillo
+QuestTarget[14] = {position(425, 247, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 14
+FINAL_QUEST_STATUS = 16
 
 
 function QuestTitle(user)

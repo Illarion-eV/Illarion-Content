@@ -162,14 +162,24 @@ queststatus(712) = 13, town = Galmair, "quest", "mission" -> "Groktan Flintsplit
 queststatus(712) = 13, town = Galmair, "task", "adventure", "order" -> "Groktan Flintsplit has a task for you, please visit him in the house of the debt collector. That is the building with the red roof, shortly before the palace."
 queststatus(712) = 13, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Groktan Flintsplit hat eine Aufgabe für Euch. Besucht ihn doch bitte im Haus des Schuldeneintreibers. Es ist das Gebäude mit dem roten Ziegeldachach kurz vor dem Palast."
 
--- All done
-queststatus(712) = 14, english, town = Galmair, "quest", "mission" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
-queststatus(712) = 14, town = Galmair, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
-queststatus(712) = 14, town = Galmair, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
-queststatus(712) = 14, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
+-- Pipillo
+queststatus(712) = 14, english, town = Galmair, "quest", "mission" -> queststatus(712) = 15, "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
+queststatus(712) = 14, town = Galmair, "quest", "mission" -> queststatus(712) = 15, "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe.""
+queststatus(712) = 14, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 15, "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
+queststatus(712) = 14, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 15, "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe.""
+queststatus(712) = 15, english, town = Galmair, "quest", "mission" -> "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
+queststatus(712) = 15, town = Galmair, "quest", "mission" -> "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe.""
+queststatus(712) = 15, town = Galmair, "task", "adventure", "order" -> "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
+queststatus(712) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe.""
 
-queststatus(712) < 14, english, town = Galmair, ".*" -> "I could use some help, just ask me for a task."
-queststatus(712) < 14, german, town = Galmair, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
+-- All done
+queststatus(712) = 16, english, town = Galmair, "quest", "mission" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
+queststatus(712) = 16, town = Galmair, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
+queststatus(712) = 16, town = Galmair, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
+queststatus(712) = 16, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
+
+queststatus(712) < 16, english, town = Galmair, ".*" -> "I could use some help, just ask me for a task."
+queststatus(712) < 16, german, town = Galmair, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, town = Galmair, ".*" -> "I don't have anything for you to do.", "Have a good day!", "There is nothing you can do for me but go forward and prosper."

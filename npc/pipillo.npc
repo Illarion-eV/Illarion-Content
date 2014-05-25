@@ -104,13 +104,56 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Always keep moving!", "Tood
 "your name", "who are you", "who art thou" -> "Pipillo, portal book merchant. That's me.", "I am the merchant Pipillo.", "Pipillo is my name, I trade portal books."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Pipillo, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Pipillo", "Pipillo mein Name, ich handle mit Portalbüchern"
 
--- Catching quest triggers
-english, "quest", "mission" -> "I do not issue quests, but I can sell you books to go to other places."
-"quest", "mission" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
-"task", "adventure", "order" -> "I do not issue quests, but I can sell you books to go to other places."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
+-- Quest
+-- fix if quest started and sent to NPC by Joey
+queststatus(220) > 0, queststatus(712) = 15, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 16, "Ah Joey send you but you already ask me for something to do."
+queststatus(220) > 0, queststatus(712) = 15, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 16, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
+queststatus(220) > 0, queststatus(712) = 15, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 16, "Ah Joey send you but you already ask me for something to do."
+queststatus(220) > 0, queststatus(712) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 16, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
 
--- Easter Egg
+-- 1st quest: fetch an apple pie
+-- Give out quest 1 and coins
+queststatus(220) = 0, queststatus(712) = 15, english, town = Galmair, "quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(220) = 1, queststatus(712) = 16, "Hello, I am starving and can't leave my business.   Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(220) = 0, queststatus(712) = 15, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(220) = 1, queststatus(712) = 16, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
+queststatus(220) = 0, queststatus(712) = 15, town = Galmair, "task", "adventure", "order" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(220) = 1, queststatus(712) = 16, "Hello, I am starving and can't leave my business.   Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(220) = 0, queststatus(712) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(220) = 1, queststatus(712) = 16, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
+
+queststatus(220) = 0, english, town = Galmair,"quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(220) = 1, "Hello, I am starving and can't leave my business.   Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(220) = 0, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(220) = 1, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
+queststatus(220) = 0, town = Galmair, "task", "adventure" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(220) = 1, "Hello, I am starving and can't leave my business.   Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(220) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(220) = 1, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!""
+
+-- Quest 1 complete, reward one portalbook to Galmair, +5 rankpoints
+queststatus(220) = 1, item(353, all) > 0, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded a portal book to Galmair."), deleteItem(353, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Galmair", "nameEN"="Portal book to Galmair", "destinationCoordsY" = "245", "destinationCoordsX" = "424", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Galmair", "descriptionDe" = "Portal nach Galmair"), queststatus(220) = 2, rankpoints + 5, "Oh, thank you so much.  Take this book as a reward."
+queststatus(220) = 1, item(353, all) > 0, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst Portalbuch nach Galmair"), deleteItem(353, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Galmair", "nameEN"="Portal book to Galmair", "destinationCoordsY" = "245", "destinationCoordsX" = "424", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Galmair", "descriptionDe" = "Portal nach Galmair"), queststatus(220) = 2, rankpoints + 5, "Oh, vielen vielen Dank. Hier, nimm dieses Buch als Belohnung."
+
+-- Quest 1 taken but not finished
+queststatus(220) = 1, item(353, all) < 1, town = Galmair, english, "quest", "mission" -> "I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the tavern? "
+queststatus(220) = 1, item(353, all) < 1, town = Galmair, "quest", "mission" -> "Ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen?"
+queststatus(220) = 1, item(353, all) < 1, town = Galmair, "task", "adventure" -> "I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the tavern? "
+queststatus(220) = 1, item(353, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen?"
+
+-- Quest 2 received, fetch grape juice
+queststatus(220) = 2, english, town = Galmair,"quest", "mission" -> inform("[New quest] Bookseller Helper II"), money + 600, queststatus(220) = 3, "The cake was so good! Would you mind going back to the tavern to fetch me some grape juice to wash it down now? *hands over more coins*"
+queststatus(220) = 2, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Buchhändler-Helfer II"), money + 600, queststatus(220) = 3, "Der Kuchen war richtig lecker! Würde es dir was ausmachen nochmal in die Taverne zu gehen und mir etwas Traubensaft zu besorgen, damit ich die Krümel runterspülen kann? *reicht mehr Münzen rüber*"
+queststatus(220) = 2, town = Galmair, "task", "adventure" -> inform("[New quest] Bookseller Helper II"), money + 600, queststatus(220) = 3, "The cake was so good! Would you mind going back to the tavern to fetch me some grape juice to wash it down now? *hands over more coins*"
+queststatus(220) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Buchhändler-Helfer II"), money + 600, queststatus(220) = 3, "Der Kuchen war richtig lecker! Würde es dir was ausmachen nochmal in die Taverne zu gehen und mir etwas Traubensaft zu besorgen, damit ich die Krümel runterspülen kann? *reicht mehr Münzen rüber*"
+
+-- Quest 2 complete, reward one portalbook to Galmair, +5 rankpoints
+queststatus(220) = 3, item(791, all) > 0, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded a portal book to Galmair."), deleteItem(791, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Galmair", "nameEN"="Portal book to Galmair", "destinationCoordsY" = "245", "destinationCoordsX" = "424", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Galmair", "descriptionDe" = "Portal nach Galmair"), queststatus(220) = 4, rankpoints + 5, "Oh, thank you so much.  Take this book as a reward."
+queststatus(220) = 3, item(791, all) > 0, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst Portalbuch nach Galmair"), deleteItem(791, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Galmair", "nameEN"="Portal book to Galmair", "destinationCoordsY" = "245", "destinationCoordsX" = "424", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Galmair", "descriptionDe" = "Portal nach Galmair"), queststatus(220) = 4, rankpoints + 5, "Oh, vielen vielen Dank. Hier, nimm dieses Buch als Belohnung."
+
+-- Quest 2 taken but not completed
+queststatus(220) = 3, item(791, all) < 1, town = Galmair, english, "quest", "mission" -> "Would you mind going back to the tavern to fetch me some grape juice to wash it down now?"
+queststatus(220) = 3, item(791, all) < 1, town = Galmair, "quest", "mission" -> "Würde es dir was ausmachen nochmal in die Taverne zu gehen und mir etwas Traubensaft zu besorgen, damit ich die Krümel runterspülen kann?"
+queststatus(220) = 3, item(791, all) < 1, town = Galmair, "task", "adventure" -> "Would you mind going back to the tavern to fetch me some grape juice to wash it down now?"
+queststatus(220) = 3, item(791, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Würde es dir was ausmachen nochmal in die Taverne zu gehen und mir etwas Traubensaft zu besorgen, damit ich die Krümel runterspülen kann?"
+
+-- All quests done
+queststatus(220) = 4, town = Galmair, english, "quest", "mission" -> "I have nothing left for you today, you have taken care of me admirably."
+queststatus(220) = 4, town = Galmair, "quest", "mission" -> "Heute gibt es nichts mehr für dich zu tuen, du hast dich wunderbar um mich gekümmert."
+queststatus(220) = 4, town = Galmair, "task", "adventure" -> "I have nothing left for you today, you have taken care of me admirably."
+queststatus(220) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Heute gibt es nichts mehr für dich zu tuen, du hast dich wunderbar um mich gekümmert."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a merchant of portal books."
