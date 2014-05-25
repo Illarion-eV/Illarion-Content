@@ -36,7 +36,7 @@ Description[ENGLISH] = {}
 Description[GERMAN][1] = "Bitte bring Evera einen Apfelkuchen."
 Description[ENGLISH][1] = "Please bring Evera an apple pie."
 Description[GERMAN][2] = "Rede mit Evera, vielleicht hat sie eine Aufgabe für dich."
-Description[ENGLISH][2] = "Check with Evera he may have another task for you."
+Description[ENGLISH][2] = "Check with Evera, she may have another task for you."
 
 Description[GERMAN][3] = "Bitte bring Evera ein Flasche Traubensaft."
 Description[ENGLISH][3] = "Please bring Evera a bottle of grape juice."
