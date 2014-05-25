@@ -102,7 +102,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Always keep moving!", "Tood
 "How are you", "How feel", "How do you do" -> "I feel excited, thinking about all the places to travel to.", "I'm itching to make another journey."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin so aufgeregt, wenn ich nur an all die Orte denke an die man Reisen kann.", "Es juckt mich in den Füßen, eine Reise zu machen."
 "your name", "who are you", "who art thou" -> "Pipillo, portal book merchant. That's me.", "I am the merchant Pipillo.", "Pipillo is my name, I trade portal books."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Pipillo, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Pipillo", "Pipillo mein Name, ich handle mit Portalbüchern"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Pipillo, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Pipillo.", "Pipillo mein Name, ich handle mit Portalbüchern."
 
 -- Quest
 -- fix if quest started and sent to NPC by Joey
@@ -125,7 +125,7 @@ queststatus(220) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> infor
 
 -- Quest 1 complete, reward one portalbook to Galmair, +5 rankpoints
 queststatus(220) = 1, item(353, all) > 0, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded a portal book to Galmair."), deleteItem(353, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Galmair", "nameEN"="Portal book to Galmair", "destinationCoordsY" = "245", "destinationCoordsX" = "424", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Galmair", "descriptionDe" = "Portal nach Galmair"), queststatus(220) = 2, rankpoints + 5, "Oh, thank you so much.  Take this book as a reward."
-queststatus(220) = 1, item(353, all) > 0, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst Portalbuch nach Galmair"), deleteItem(353, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Galmair", "nameEN"="Portal book to Galmair", "destinationCoordsY" = "245", "destinationCoordsX" = "424", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Galmair", "descriptionDe" = "Portal nach Galmair"), queststatus(220) = 2, rankpoints + 5, "Oh, vielen vielen Dank. Hier, nimm dieses Buch als Belohnung."
+queststatus(220) = 1, item(353, all) > 0, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst ein Portalbuch nach Galmair"), deleteItem(353, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Galmair", "nameEN"="Portal book to Galmair", "destinationCoordsY" = "245", "destinationCoordsX" = "424", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Galmair", "descriptionDe" = "Portal nach Galmair"), queststatus(220) = 2, rankpoints + 5, "Oh, vielen vielen Dank. Hier, nimm dieses Buch als Belohnung."
 
 -- Quest 1 taken but not finished
 queststatus(220) = 1, item(353, all) < 1, town = Galmair, english, "quest", "mission" -> "I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the tavern?"
@@ -141,7 +141,7 @@ queststatus(220) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> infor
 
 -- Quest 2 complete, reward one portalbook to Galmair, +5 rankpoints
 queststatus(220) = 3, item(791, all) > 0, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded a portal book to Galmair."), deleteItem(791, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Galmair", "nameEN"="Portal book to Galmair", "destinationCoordsY" = "245", "destinationCoordsX" = "424", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Galmair", "descriptionDe" = "Portal nach Galmair"), queststatus(220) = 4, rankpoints + 5, "Oh, thank you so much.  Take this book as a reward."
-queststatus(220) = 3, item(791, all) > 0, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst Portalbuch nach Galmair"), deleteItem(791, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Galmair", "nameEN"="Portal book to Galmair", "destinationCoordsY" = "245", "destinationCoordsX" = "424", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Galmair", "descriptionDe" = "Portal nach Galmair"), queststatus(220) = 4, rankpoints + 5, "Oh, vielen vielen Dank. Hier, nimm dieses Buch als Belohnung."
+queststatus(220) = 3, item(791, all) > 0, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst ein Portalbuch nach Galmair"), deleteItem(791, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Galmair", "nameEN"="Portal book to Galmair", "destinationCoordsY" = "245", "destinationCoordsX" = "424", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Galmair", "descriptionDe" = "Portal nach Galmair"), queststatus(220) = 4, rankpoints + 5, "Oh, vielen vielen Dank. Hier, nimm dieses Buch als Belohnung."
 
 -- Quest 2 taken but not completed
 queststatus(220) = 3, item(791, all) < 1, town = Galmair, english, "quest", "mission" -> "Would you mind going back to the tavern to fetch me some grape juice to wash it down now?"
@@ -151,9 +151,9 @@ queststatus(220) = 3, item(791, all) < 1, town = Galmair, "Auftrag", "Aufgabe", 
 
 -- All quests done
 queststatus(220) = 4, town = Galmair, english, "quest", "mission" -> "I have nothing left for you today, you have taken care of me admirably."
-queststatus(220) = 4, town = Galmair, "quest", "mission" -> "Heute gibt es nichts mehr für dich zu tuen, du hast dich wunderbar um mich gekümmert."
+queststatus(220) = 4, town = Galmair, "quest", "mission" -> "Heute gibt es nichts mehr für dich zu tun, du hast dich wunderbar um mich gekümmert."
 queststatus(220) = 4, town = Galmair, "task", "adventure" -> "I have nothing left for you today, you have taken care of me admirably."
-queststatus(220) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Heute gibt es nichts mehr für dich zu tuen, du hast dich wunderbar um mich gekümmert."
+queststatus(220) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Heute gibt es nichts mehr für dich zu tun, du hast dich wunderbar um mich gekümmert."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a merchant of portal books."

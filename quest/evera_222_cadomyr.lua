@@ -82,7 +82,7 @@ function QuestFinalStatus()
 end
 
 function QuestAvailability(user, status)
-    if base.factions.isGalmairCitizen(user) and status == 0 then
+    if base.factions.isCadomyrCitizen(user) and status == 0 then
         return Player.questAvailable
     else
         return Player.questNotAvailable

@@ -102,7 +102,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Always keep moving!", "Tood
 "How are you", "How feel", "How do you do" -> "I feel excited, thinking about all the places to travel to.", "I'm itching to make another journey."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin so aufgeregt, wenn ich nur an all die Orte denke an die man Reisen kann.", "Es juckt mich in den Füßen, eine Reise zu machen."
 "your name", "who are you", "who art thou" -> "Evera, the portal book merchant. That's me.", "I am the merchant, Evera.", "Evera is my name, I trade portal books."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Evera, Portalbuchhändlerin. Das bin ich.", "Ich bin die Händlerin Evera", "Evera mein Name, ich handle mit Portalbüchern"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Evera, Portalbuchhändlerin. Das bin ich.", "Ich bin die Händlerin Evera.", "Evera mein Name, ich handle mit Portalbüchern."
 
 -- Quest
 -- fix if quest started and sent to NPC by Jakob
@@ -125,7 +125,7 @@ queststatus(222) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> infor
 
 -- Quest 1 complete, reward one portalbook to Cadomyr, +5 rankpoints
 queststatus(222) = 1, item(353, all) > 0, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded a portal book to Cadomyr."), deleteItem(353, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Cadomyr", "nameEN"="Portal book to Cadomyr", "destinationCoordsY" = "647", "destinationCoordsX" = "127", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Cadomyr", "descriptionDe" = "Portal nach Cadomyr"), queststatus(222) = 2, rankpoints + 5, "Oh, thank you so much.  Take this book as a reward."
-queststatus(222) = 1, item(353, all) > 0, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst Portalbuch nach Cadomyr"), deleteItem(353, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Cadomyr", "nameEN"="Portal book to Cadomyr", "destinationCoordsY" = "647", "destinationCoordsX" = "127", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Cadomyr", "descriptionDe" = "Portal nach Cadomyr"), queststatus(222) = 2, rankpoints + 5, "Oh, vielen vielen Dank. Hier, nimm dieses Buch als Belohnung."
+queststatus(222) = 1, item(353, all) > 0, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst ein Portalbuch nach Cadomyr"), deleteItem(353, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Cadomyr", "nameEN"="Portal book to Cadomyr", "destinationCoordsY" = "647", "destinationCoordsX" = "127", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Cadomyr", "descriptionDe" = "Portal nach Cadomyr"), queststatus(222) = 2, rankpoints + 5, "Oh, vielen vielen Dank. Hier, nimm dieses Buch als Belohnung."
 
 -- Quest 1 taken but not finished
 queststatus(222) = 1, item(353, all) < 1, town = Cadomyr, english, "quest", "mission" -> "I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the tavern?"
@@ -141,7 +141,7 @@ queststatus(222) = 2, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> infor
 
 -- Quest 2 complete, reward one portalbook to Cadomyr, +5 rankpoints
 queststatus(222) = 3, item(791, all) > 0, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded a portal book to Cadomyr."), deleteItem(791, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Cadomyr", "nameEN"="Portal book to Cadomyr", "destinationCoordsY" = "647", "destinationCoordsX" = "127", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Cadomyr", "descriptionDe" = "Portal nach Cadomyr"), queststatus(222) = 4, rankpoints + 5, "Oh, thank you so much.  Take this book as a reward."
-queststatus(222) = 3, item(791, all) > 0, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst Portalbuch nach Cadomyr"), deleteItem(791, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Cadomyr", "nameEN"="Portal book to Cadomyr", "destinationCoordsY" = "647", "destinationCoordsX" = "127", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Cadomyr", "descriptionDe" = "Portal nach Cadomyr"), queststatus(222) = 4, rankpoints + 5, "Oh, vielen vielen Dank. Hier, nimm dieses Buch als Belohnung."
+queststatus(222) = 3, item(791, all) > 0, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst ein Portalbuch nach Cadomyr"), deleteItem(791, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Cadomyr", "nameEN"="Portal book to Cadomyr", "destinationCoordsY" = "647", "destinationCoordsX" = "127", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Cadomyr", "descriptionDe" = "Portal nach Cadomyr"), queststatus(222) = 4, rankpoints + 5, "Oh, vielen vielen Dank. Hier, nimm dieses Buch als Belohnung."
 
 -- Quest 2 taken but not completed
 queststatus(222) = 3, item(791, all) < 1, town = Cadomyr, english, "quest", "mission" -> "Would you mind going back to the tavern to fetch me some grape juice to wash it down now?"
@@ -151,9 +151,9 @@ queststatus(222) = 3, item(791, all) < 1, town = Cadomyr, "Auftrag", "Aufgabe", 
 
 -- All quests done
 queststatus(222) = 4, town = Cadomyr, english, "quest", "mission" -> "I have nothing left for you today, you have taken care of me admirably."
-queststatus(222) = 4, town = Cadomyr, "quest", "mission" -> "Heute gibt es nichts mehr für dich zu tuen, du hast dich wunderbar um mich gekümmert."
+queststatus(222) = 4, town = Cadomyr, "quest", "mission" -> "Heute gibt es nichts mehr für dich zu tun, du hast dich wunderbar um mich gekümmert."
 queststatus(222) = 4, town = Cadomyr, "task", "adventure" -> "I have nothing left for you today, you have taken care of me admirably."
-queststatus(222) = 4, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Heute gibt es nichts mehr für dich zu tuen, du hast dich wunderbar um mich gekümmert."
+queststatus(222) = 4, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Heute gibt es nichts mehr für dich zu tun, du hast dich wunderbar um mich gekümmert."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a merchant of portal books."
