@@ -164,13 +164,13 @@ queststatus(712) = 13, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befeh
 
 -- Pipillo
 queststatus(712) = 14, english, town = Galmair, "quest", "mission" -> queststatus(712) = 15, "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
-queststatus(712) = 14, town = Galmair, "quest", "mission" -> queststatus(712) = 15, "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe.""
+queststatus(712) = 14, town = Galmair, "quest", "mission" -> queststatus(712) = 15, "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe."
 queststatus(712) = 14, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 15, "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
-queststatus(712) = 14, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 15, "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe.""
+queststatus(712) = 14, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 15, "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe."
 queststatus(712) = 15, english, town = Galmair, "quest", "mission" -> "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
-queststatus(712) = 15, town = Galmair, "quest", "mission" -> "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe.""
+queststatus(712) = 15, town = Galmair, "quest", "mission" -> "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe."
 queststatus(712) = 15, town = Galmair, "task", "adventure", "order" -> "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
-queststatus(712) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe.""
+queststatus(712) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe."
 
 -- All done
 queststatus(712) = 16, english, town = Galmair, "quest", "mission" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."

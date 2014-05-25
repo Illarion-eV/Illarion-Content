@@ -121,16 +121,16 @@ queststatus(220) = 0, queststatus(712) = 15, town = Galmair, "Auftrag", "Aufgabe
 queststatus(220) = 0, english, town = Galmair,"quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(220) = 1, "Hello, I am starving and can't leave my business.   Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
 queststatus(220) = 0, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(220) = 1, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
 queststatus(220) = 0, town = Galmair, "task", "adventure" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(220) = 1, "Hello, I am starving and can't leave my business.   Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
-queststatus(220) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(220) = 1, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!""
+queststatus(220) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(220) = 1, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
 
 -- Quest 1 complete, reward one portalbook to Galmair, +5 rankpoints
 queststatus(220) = 1, item(353, all) > 0, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded a portal book to Galmair."), deleteItem(353, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Galmair", "nameEN"="Portal book to Galmair", "destinationCoordsY" = "245", "destinationCoordsX" = "424", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Galmair", "descriptionDe" = "Portal nach Galmair"), queststatus(220) = 2, rankpoints + 5, "Oh, thank you so much.  Take this book as a reward."
 queststatus(220) = 1, item(353, all) > 0, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst Portalbuch nach Galmair"), deleteItem(353, 1), item(1061, 1, 999, "nameDE"="Portalbuch nach Galmair", "nameEN"="Portal book to Galmair", "destinationCoordsY" = "245", "destinationCoordsX" = "424", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Galmair", "descriptionDe" = "Portal nach Galmair"), queststatus(220) = 2, rankpoints + 5, "Oh, vielen vielen Dank. Hier, nimm dieses Buch als Belohnung."
 
 -- Quest 1 taken but not finished
-queststatus(220) = 1, item(353, all) < 1, town = Galmair, english, "quest", "mission" -> "I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the tavern? "
+queststatus(220) = 1, item(353, all) < 1, town = Galmair, english, "quest", "mission" -> "I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the tavern?"
 queststatus(220) = 1, item(353, all) < 1, town = Galmair, "quest", "mission" -> "Ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen?"
-queststatus(220) = 1, item(353, all) < 1, town = Galmair, "task", "adventure" -> "I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the tavern? "
+queststatus(220) = 1, item(353, all) < 1, town = Galmair, "task", "adventure" -> "I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the tavern?"
 queststatus(220) = 1, item(353, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen?"
 
 -- Quest 2 received, fetch grape juice

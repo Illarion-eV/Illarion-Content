@@ -25,7 +25,7 @@ ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 Title = {}
-Title[GERMAN] = "BuchhÃ¤ndler-Helfer"
+Title[GERMAN] = "Buchhändler-Helfer"
 Title[ENGLISH] = "Bookseller Helper"
 
 -- Insert an extensive description of each status here, in both languages
@@ -35,12 +35,12 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Bitte bring Pipillo einen Apfelkuchen."
 Description[ENGLISH][1] = "Please bring Pipillo an apple pie."
-Description[GERMAN][2] = "Rede mit Pipillo, vielleicht hat er eine Aufgabe fÃ¼r dich."
+Description[GERMAN][2] = "Rede mit Pipillo, vielleicht hat er eine Aufgabe für dich."
 Description[ENGLISH][2] = "Check with Pipillo he may have another task for you."
 
 Description[GERMAN][3] = "Bitte bring Pipillo ein Flasche Traubensaft"
 Description[ENGLISH][3] = "Please bring Pipillo a bottle of grape juice."
-Description[GERMAN][4] = "Du hast alle Aufgaben fÃ¼r Pipillo erledigt."
+Description[GERMAN][4] = "Du hast alle Aufgaben für Pipillo erledigt."
 Description[ENGLISH][4] = "You have completed all of Pipillo's tasks."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
