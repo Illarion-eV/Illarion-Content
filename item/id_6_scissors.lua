@@ -28,9 +28,6 @@ module("item.id_6_scissors", package.seeall)
 LookAtItem = item.general.metal.LookAtItem
 
 function getLoom(User)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
 
 	local LOOM = 169;
 	local item = base.common.GetFrontItem(User);
@@ -42,9 +39,6 @@ function getLoom(User)
 end
 
 function getWheel(User)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
 
 	local WHEEL = 171;
 	local item = base.common.GetFrontItem(User);
@@ -92,6 +86,9 @@ function UseItem(User, SourceItem, ltstate)
 	-- check for spinning wheel
 	target = getWheel(User);
 	if (target ~= nil) then
+		if base.licence.licence(User) then --checks if user is citizen or has a licence
+			return -- avoids crafting if user is neither citizen nor has a licence
+		end
 		content.gatheringcraft.threadproducing.StartGathering(User, target, ltstate);
 		return;
 	end
@@ -99,6 +96,9 @@ function UseItem(User, SourceItem, ltstate)
 	-- check for loom
 	target = getLoom(User);
 	if (target ~= nil) then
+		if base.licence.licence(User) then --checks if user is citizen or has a licence
+			return -- avoids crafting if user is neither citizen nor has a licence
+		end
 		content.gatheringcraft.weaving.StartGathering(User, target, ltstate);
 		return;
 	end
