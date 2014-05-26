@@ -44,7 +44,7 @@ msgs:addMessage("#me hinterlässt eine schleimige Spur.", "#me leaves a mucilagin
 msgs:addMessage("#me riecht nach Abfall.", "#me reeks of dump.");
 msgs:addMessage("#me spuckt Schleimbatzen.", "#me spits out lumps of slime.");
 msgs:addMessage("#mes Gestalt wandelt sich in einen Ball.", "#me's shape morphs int a ball.");
-msgs:addMessage("#me drückt sich flach uf den Boden.", "#me flattens itself plain to the ground.");
+msgs:addMessage("#me drückt sich flach auf den Boden.", "#me flattens itself plain to the ground.");
 end
 
 function onSpawn(theSlime)
