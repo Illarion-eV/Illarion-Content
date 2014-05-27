@@ -149,21 +149,25 @@ function eraser(User, SourceItem, ltstate)
 		if (not dialog:getSuccess()) then
 			return;
 		end
+
+		local chosenItem;
 		local index = dialog:getSelectedIndex();
 		if (index == 0) then
-			local frontitem = base.common.GetFrontItem(User);
-			if frontitem ~= nil then
-				world:erase(frontitem, frontitem.number);
+			chosenItem = base.common.GetFrontItem(User);
+			if chosenItem ~= nil then
+				world:erase(chosenItem, chosenItem.number);
+				User:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(base.common.GetFrontPosition(User)));
 			end
 		else
-			local chosenItem = itemsOnChar[index];
+			chosenItem = itemsOnChar[index];
 			world:erase(chosenItem, chosenItem.number);
+			User:logAdmin("erases " ..chosenItem.number.. " items from inventory: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ")");
 		end
 	end
 	local sdItems = SelectionDialog("Erase items.", "Choose the item you wish to erase:", cbChooseItem);
 	sdItems:addOption(0, "Front of char");
 	for _, item in ipairs(itemsOnChar) do
-		local itemName = world:getItemName(item.id, 1); -- only english names folks
+		local itemName = world:getItemName(item.id, Player.english);
 		sdItems:addOption(item.id, itemName .. " (" .. itemPos[item.itempos] .. ") Count: ".. item.number);
 	end
 	User:requestSelectionDialog(sdItems);
@@ -301,7 +305,9 @@ function changeSkills(User, SourceItem, ltstate)
 					User:inform("Value has to be between 0 and 100.");
 					return;
 				end
-				chosenPlayer:increaseSkill(chosenSkill, skillValue - chosenPlayer:getSkill(chosenSkill));
+				local delta = skillValue - chosenPlayer:getSkill(chosenSkill);
+				chosenPlayer:increaseSkill(chosenSkill, delta);
+				User:logAdmin("changes skill of character " .. chosenPlayer.name .. ". " .. chosenPlayer:getSkillName(chosenSkill) .. ": " .. chosenPlayer:getSkill(chosenSkill) - delta .. "->" .. chosenPlayer:getSkill(chosenSkill));
 			end
 			local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..User:getSkillName(chosenSkill).."\nCurrent value: " .. chosenPlayer:getSkill(chosenSkill), false, 255, changeDialog);
 			User:requestInputDialog(sdChange);
@@ -348,6 +354,7 @@ function getSetQueststatus(User, SourceItem, ltstate)
 				status = tonumber(status);
 				chosenPlayer:setQuestProgress(quest, status);
 				User:inform("Quest " .. quest .. " has been set to " .. status .. "!");
+				User:logAdmin("changes queststatus of character " .. chosenPlayer.name .. ". Quest" .. quest .. " has been set to " .. status);
 			elseif (string.find(inputString, "(%d+)") ~= nil) then
 				local a, b, quest = string.find(inputString, "(%d+)");
 				quest = tonumber(quest);
@@ -390,6 +397,7 @@ function godMode(User, SourceItem, ltstate)
 			for _, monster in ipairs(monsters) do
 				monster:increaseAttrib("hitpoints", -10000);
 			end
+			User:logAdmin("instant kills " .. #monsters .. " monsters at " .. tostring(User.pos));
 		else
 			local chosenPlayer = players[index];
 			local killDialog = function (dialog)
@@ -399,8 +407,10 @@ function godMode(User, SourceItem, ltstate)
 				local index = dialog:getSelectedIndex();
 				if index == 0 then --let's kill it
 					chosenPlayer:increaseAttrib("hitpoints", -10000);
+					User:logAdmin("instant kills character " .. chosenPlayer.name);
 				elseif index == 1 then --let's revive it
 					chosenPlayer:increaseAttrib("hitpoints", 10000);
+					User:logAdmin("instant revives character " .. chosenPlayer.name);
 				end
 			end
 			local sdKill = SelectionDialog("Play god", "What do you wish to do to "..chosenPlayer.name.."?", killDialog);

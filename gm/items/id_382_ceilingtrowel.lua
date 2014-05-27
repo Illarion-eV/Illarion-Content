@@ -63,42 +63,43 @@ end
 function changeItems(User, SourceItem, TargetItem)
 
 	if (TargetItem == nil or TargetItem.id == 0) then
-    		return;
-    	end
+		return;
+	end
 
 	local cbInputDialog = function (dialog)
 		if (not dialog:getSuccess()) then
 			return;
 		end
+
 		local input = dialog:getInput();
 
 		if (string.find(input,"setdata (%a+) (.+)")~=nil) then
-			a,b,dataString,newdata=string.find(input,"setdata (%a+) (.+)");
+			local a,b,dataString,newdata = string.find(input,"setdata (%a+) (.+)");
 			TargetItem:setData(dataString,newdata);
 			world:changeItem(TargetItem);
-			User:inform("Data of "..world:getItemName(TargetItem.id,0).." set to key: " ..dataString.." value: "..TargetItem:getData(dataString));
-			-- LogGMAction(User,User.name.."("..User.id..") changed data of "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..") to "..TargetItem.data);
+			User:inform("Data of "..world:getItemName(TargetItem.id, Player.english).." set to key: " ..dataString.." value: "..TargetItem:getData(dataString));
+			User:logAdmin("changed data of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to key: " ..dataString.." value: "..TargetItem:getData(dataString));
 		end
 		if (string.find(input,"setqual (%d)(%d)(%d)")~=nil) then
-			a,b,newqual=string.find(input,"setqual (%d+)");
+			local a,b,newqual=string.find(input,"setqual (%d+)");
 			TargetItem.quality=newqual+1-1;
 			world:changeItem(TargetItem);
-			User:inform("Quality of "..world:getItemName(TargetItem.id,0).." set to "..TargetItem.quality);
-			-- LogGMAction(User,User.name.."("..User.id..") changed quality of "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..") to "..TargetItem.quality);
+			User:inform("Quality of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.quality);
+			User:logAdmin("changed quality of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.quality);
 		end
 		if (string.find(input,"setwear (%d+)")~=nil) then
-			a,b,newwear=string.find(input,"setwear (%d+)");
+			local a,b,newwear = string.find(input,"setwear (%d+)");
 			TargetItem.wear=newwear+1-1;
 			world:changeItem(TargetItem);
-			User:inform("Wear of "..world:getItemName(TargetItem.id,0).." set to "..TargetItem.wear);
-			-- LogGMAction(User,User.name.."("..User.id..") changed wear of "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..") to "..TargetItem.wear);
+			User:inform("Wear of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.wear);
+			User:logAdmin("changed wear of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.wear);
 		end
 		if (string.find(input,"setnumber (%d+)")~=nil) then
-			a,b,newwear=string.find(input,"setnumber (%d+)");
+			local a,b,newwear = string.find(input,"setnumber (%d+)");
 			TargetItem.number=math.min(250,newwear+1-1);
 			world:changeItem(TargetItem);
-			User:inform("Amount of "..world:getItemName(TargetItem.id,0).." set to "..TargetItem.number);
-			-- LogGMAction(User,User.name.."("..User.id..") changed number of "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..") to "..TargetItem.wear);
+			User:inform("Amount of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.number);
+			User:logAdmin("changed number of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.number);
 		end
 	end
 	User:requestInputDialog(InputDialog("Set an option for the Item", "Possible actions:  setdata <key> <value>, setqual <value>, setwear <value>, setnumber <value>" ,false, 255, cbInputDialog));
@@ -156,7 +157,7 @@ end
 			if (value<101 and value>-1) then
 				currWeather.cloud_density = value;
 				User:inform("cloud density changed to: "..value);
-				-- LogGMAction(User,User.name.."("..User.id..") changed cloud densitiy to: "..value);
+				User:logAdmin("changed cloud densitiy to: "..value);
 			else
 				User:inform("Failed changing cloud desity: out of range (0-100)");
 			end
@@ -167,7 +168,7 @@ end
 			if (value<101 and value>-1) then
 				currWeather.fog_density = value;
 				User:inform("fog density changed to: "..value);
-				-- LogGMAction(User,User.name.."("..User.id..") changed fog densitiy to: "..value);
+				User:logAdmin("changed fog densitiy to: "..value);
 			else
 				User:inform("Failed changing fog desity: out of range (0-100)");
 			end
@@ -178,7 +179,7 @@ end
 			if (value<101 and value>-101) then
 				currWeather.wind_dir = value;
 				User:inform("wind direction changed to: "..value);
-				-- LogGMAction(User,User.name.."("..User.id..") changed wind direction to: "..value);
+				User:logAdmin("changed wind direction to: "..value);
 			else
 				User:inform("Failed changing wind direction: out of range (-100 - +100)");
 			end
@@ -189,7 +190,7 @@ end
 			if (value<101 and value>-1) then
 				currWeather.gust_strength = value;
 				User:inform("gust strength changed to: "..value);
-				-- LogGMAction(User,User.name.."("..User.id..") changed gust strength to: "..value);
+				User:logAdmin("changed gust strength to: "..value);
 			else
 				User:inform("Failed changing gust strength: out of range (0-100)");
 			end
@@ -200,7 +201,7 @@ end
 			if (value<101 and value>-1) then
 				currWeather.percipitation_strength = value;
 				User:inform("percipitation strength changed to: "..value);
-				-- LogGMAction(User,User.name.."("..User.id..") changed percipitation strength to: "..value);
+				User:logAdmin("changed percipitation strength to: "..value);
 			else
 				User:inform("Failed changing percipitation strength: out of range (0-100)");
 			end
@@ -211,7 +212,7 @@ end
 			if (value<101 and value>-1) then
 				currWeather.thunderstorm = value;
 				User:inform("thunderstorm changed to: "..value);
-				-- LogGMAction(User,User.name.."("..User.id..") changed thunderstorm to: "..value);
+				User:logAdmin("changed thunderstorm to: "..value);
 			else
 				User:inform("Failed changing thunderstorm: out of range (0-100)");
 			end
@@ -222,7 +223,7 @@ end
 			if (value<51 and value>-51) then
 				currWeather.temperature = value;
 				User:inform("temperature changed to: "..value);
-				-- LogGMAction(User,User.name.."("..User.id..") changed temperature to: "..value);
+				User:logAdmin("changed temperature to: "..value);
 			else
 				User:inform("Failed changing temperature: out of range (-50 - +50)");
 			end
@@ -501,7 +502,7 @@ function spawnPoint(User, SourceItem)
 			if (not dialog:getSuccess()) then
 				return;
 			end
-			
+
 			local index = dialog:getSelectedIndex() + 1;
 			if index == 1 then
 				spawnMonster(User, SourceItem)
@@ -524,7 +525,7 @@ function spawnPoint(User, SourceItem)
 			end
 		end
 		local sd = SelectionDialog("Set the mode of this Spawnpoint.", "To which mode do you want to change it?", cbSetMode);
-		for _,m in ipairs(modes) do 
+		for _,m in ipairs(modes) do
 			sd:addOption(0,m);
 		end
 		User:requestSelectionDialog(sd);
@@ -546,7 +547,7 @@ function spawnRemove(User, SourceItem)
 			table.remove(sp.gmMonsters, index);
 		end
 		local sd = SelectionDialog("Pick a spawnpoint to delete", "To which point do you want to delete?", cbSetMode);
-		for _,m in ipairs(sp.gmSpawnpointSettings) do 
+		for _,m in ipairs(sp.gmSpawnpointSettings) do
 			sd:addOption(0,tostring(m[2]));
 		end
 	User:requestSelectionDialog(sd);
@@ -563,13 +564,13 @@ function spawnPause(User, SourceItem)
 			if sp.gmSpawnpointSettings[index][9] == 0 then
 				User:inform("You paused the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
 				sp.gmSpawnpointSettings[index][9] = 1;
-			else 
+			else
 				User:inform("You reactivated the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
 				sp.gmSpawnpointSettings[index][9] = 0;
 			end
 		end
 		local sd = SelectionDialog("Pick a spawnpoint to pause/reactivate", "To which point do you want to pause/reactivate?", cbSetMode);
-		for _,m in ipairs(sp.gmSpawnpointSettings) do 
+		for _,m in ipairs(sp.gmSpawnpointSettings) do
 			sd:addOption(0,tostring(m[2]));
 		end
 	User:requestSelectionDialog(sd);
@@ -590,7 +591,7 @@ function spawnMonster(User, SourceItem)
 		end
 	end
 	User:requestInputDialog(InputDialog("Enter Monster IDs.", "Usage: Enter the IDs of the monsters." ,false, 255, cbInputDialog))
-end	
+end
 
 function spawnIntervalsPerSpawn(User, SourceItem)
 	--Write down how many Mobs shall spawn per Minute
@@ -608,7 +609,7 @@ function spawnIntervalsPerSpawn(User, SourceItem)
 		end
 	end
 	User:requestInputDialog(InputDialog("Set number of Intervals.", "Usage: Set numer of 5 second intervals per Spawn." ,false, 255, cbInputDialog))
-end	
+end
 
 function spawnAmount(User, SourceItem)
 	-- If input contains number, sets input to Data "amount"
@@ -655,14 +656,14 @@ function spawnEffects(User, SourceItem)
 			sfxId = tonumber(sfxId);
 			SourceItem:setData("sfxId", sfxId);
 			SourceItem:setData("gfxId", gfxId);
-			world:changeItem(SourceItem);			
+			world:changeItem(SourceItem);
 		elseif (string.find(input,"(%d+)") ~= nil) then
 			local a, b, gfxId = string.find(input,"(%d+)")
 			SourceItem:setData("gfxId", input);
 			world:changeItem(SourceItem);
 		end
 	end
-	User:requestInputDialog(InputDialog("Set the graphic and sound appearing at spawn", "Usage: Enter a gfxId [sfxId]" ,false, 255, cbInputDialog))	
+	User:requestInputDialog(InputDialog("Set the graphic and sound appearing at spawn", "Usage: Enter a gfxId [sfxId]" ,false, 255, cbInputDialog))
 end
 
 
@@ -670,32 +671,32 @@ function sapwnStartStop(User, SourceItem)
 local sp = scheduled.spawnpoint;
 
 	local spawnPos = base.common.GetFrontPosition(User);
-	
+
 	checkData(SourceItem,"intervals");
 	checkData(SourceItem,"endurance");
 	checkData(SourceItem,"amount");
 	checkData(SourceItem,"gfxId");
 	checkData(SourceItem,"sfxId");
-	
+
 	local intervals = tonumber(SourceItem:getData("intervals"));
 	local endurance = tonumber(SourceItem:getData("endurance"));
 	local amount = tonumber(SourceItem:getData("amount"));
 	local gfxId = tonumber(SourceItem:getData("gfxId"));
 	local sfxId = tonumber(SourceItem:getData("sfxId"));
 	local monsters = tostring(SourceItem:getData("monsters"));
-	
+
 	local length = #sp.gmSpawnpointSettings +1;
-	
+
 	--Converts monsters String into monsterIds Array
 	local counter = 0;
 	local fin = 1;
 	local monsterId;
 	local monsterIds = {};
-	
+
 	while fin <= string.len(monsters) do
-		
+
 		if (string.find(monsters,"(%d+)",fin) ~= nil) then
-				
+
 			a, b, monsterId = string.find(monsters,"(%d+)",fin)
 			fin = b + 1;
 			counter = counter +1;
@@ -706,12 +707,12 @@ local sp = scheduled.spawnpoint;
 			return
 		end
 	end
-	
+
 	if checkData(SourceItem,"monsters") == true then
 		table.insert(sp.gmSpawnpointSettings, length, {monsterIds, spawnPos, amount, intervals, endurance, gfxId, sfxId,0 ,0})
 		table.insert(sp.gmMonsters, length, {spawnPos})
 		User:inform("You've added a spawnpoint at " .. tostring(sp.gmSpawnpointSettings[length][2]));
-		
+
 	else
 		User:inform("Enter MonsterID");
 	end
@@ -880,9 +881,9 @@ function specialEggs(User)
 		local input = dialog:getInput();
 		if (string.find(input,"(%d+)") ~= nil) then
 			local a, b, amount = string.find(input,"(%d+)")
-			content.specialeggs.createSpecialEgg(User, tonumber(amount))		
+			content.specialeggs.createSpecialEgg(User, tonumber(amount))
 		end
 	end
 	User:requestInputDialog(InputDialog("Egg creation", "How many special eggs to you want to create? (Notice: Eggs will have a normal wear of 3. Increase manually if needed." ,false, 255, cbInputDialog))
-	
+
 end

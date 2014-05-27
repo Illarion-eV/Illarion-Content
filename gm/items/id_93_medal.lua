@@ -110,7 +110,8 @@ function monster(User, SourceItem, TargetPos)
 			end
 		end
 
-		User:inform("Creating "..ammount.. " monsters with ID "..number);
+		User:inform("Creating "..ammount.. " monsters with ID "..number.." (radius = "..radius..")");
+		User:logAdmin("creates "..ammount.. " monsters with ID "..number.." (radius = "..radius..")");
 
 		if sfxId ~= 0 then
 			world:makeSound(sfxId,TargetPos);
@@ -202,7 +203,11 @@ function changeAvatar(User, SourceItem, TargetPos)
 					chosenPlayer:setHairColor(red, green, blue);
 				elseif modifier == "skincolor" then
 					chosenPlayer:setSkinColor(red, green, blue);
+				else
+					User:inform("Sorry, I didn't understand you.");
+					return;
 				end
+				User:logAdmin("changes avatar of "..chosenPlayer.name..": Set " ..modifier.." to RGB ("..red..", "..green..", "..blue..")");
 			elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
 				local a, b, modifier, id = string.find(inputString,"(%a+) (%d+)");
 				id = tonumber(id);
@@ -212,7 +217,11 @@ function changeAvatar(User, SourceItem, TargetPos)
 					chosenPlayer:setBeard(id);
 				elseif modifier == "hair" then
 					chosenPlayer:setHair(id);
+				else
+					User:inform("Sorry, I didn't understand you.");
+					return;
 				end
+				User:logAdmin("changes avatar of "..chosenPlayer.name..": Set " ..modifier.." to ID "..id);
 			else
 				User:inform("Sorry, I didn't understand you.");
 				User:requestInputDialog(InputDialog("Change the appearance for the selected character.", "Usage: race <id>, beard <id>, hair <id>, haircolor <red> <green> <blue>, skincolor <red> <green> <blue>" ,false, 255, cbInputDialog))
