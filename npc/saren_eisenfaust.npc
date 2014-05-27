@@ -14,9 +14,9 @@
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Saren Eisenfaust                                         Galmair --
--- NPC Job:  stuff for skill                                                  --
+-- NPC Job:  stuff for smithing skill                                                  --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  377, 279, 0            --
+-- NPC Race: dwarf                      NPC Position:  376, 281, 0            --
 -- NPC Sex:  male                       NPC Direction: west	                  --
 --                                                                            --
 -- Authors:  Someone                                                          --
@@ -27,10 +27,10 @@
 name = "Saren Eisenfaust"
 race = dwarf
 sex = male
-position = 377, 279, 0
+position = 376, 281, 0
 direction = west
 affiliation = "Galmair"
-job = "stuff for skill"
+job = "stuff for smithing skill"
 
 language = common
 language = dwarf
