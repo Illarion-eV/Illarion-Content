@@ -19,8 +19,8 @@
 -- NPC Race: dwarf                      NPC Position:  376, 281, 0            --
 -- NPC Sex:  male                       NPC Direction: west	                  --
 --                                                                            --
--- Authors:  Someone                                                          --
---           & Rincewind                                                      --
+-- Authors:  Rincewind                                                        --
+--                                                                            --
 --                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
@@ -37,8 +37,7 @@ language = dwarf
 defaultLanguage = common
 autointroduce = on
 
-author = "Someone"
-author = "& Rincewind"
+author = "Rincewind"
 
 lookatDE = "Ein in Fellen gekleideter Zwerg, stolz trägt er seinen prächtigen Bart zur Schau."
 lookatUS = "A proud looking dwarf, dressed in fur has an enormous beard."
@@ -76,8 +75,8 @@ itemShoes = 697
 -- 8: Quest 4 solved
 
 -- Help
-"Help" -> "[Game Help] This NPC is the smith Saren Eisenfaust. Keywords: pickaxe, mine, adventure, tell something, Sevenhill."
-"Hilfe" -> "[Spielhilfe] Dieser NPC ist der Schmied Saren Eisenfaust. Schlüsselwörter: Aufgaben, Mine, Spitzhacke, Erzähl was, Siebenberg."
+"Help" -> inform("[Game Help] This NPC is the smith Saren Eisenfaust. Keywords: pickaxe, mine, adventure, tell something, Sevenhill.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmied Saren Eisenfaust. Schlüsselwörter: Aufgaben, Mine, Spitzhacke, Erzähl was, Siebenberg.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day, what do ya want?", "Irmorom with ya, do ya need anything?"
@@ -191,15 +190,15 @@ english, "Gobaith", "Gobiath" -> "Gobaith! Aye. My cousin fourth removed lived t
 "my name" -> "Aye. It's a pleasure.", "So, so? Well, then. How may I help you?", "By Irmorom! So you would like to become a smith, or what?"
 "mein Name" -> "Aye. Freut mich 'n Bekanntschaft zu machn.", "Soso? Na, dann - wie kann ich dir helfn?", "Bei Irmorom, is mir ne Freude."
 
--- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his environment
 "dwarf" -> "Dwarves don't drink shandy, they drink it pure! Halflings mix wine with fruit juices and call it a spritzer. Ha'ak! A real dwarf would rather shave his beard. Arr."
 "Silverbrand" -> "Silverbrand? There's not much I know about. But my cousin lived there a while."
 "smith" -> "A smith needs a hammer and ore of course. You can buy everything at the market. With coal, ore is smelted to make ingots. Ingots, you can smith with. Got it?", "Search for an anvil to smith. The furnace you need to smelt ore."
 "pickaxe" -> "You can mine for ore with it, a merchant can surely sell ya one if you lose yours."
 "Spitzhacke" -> "Damit kannst du das Erz abbauen, ein Händler kann dir sicher eine verkaufen wenn du deine verlierst."
-"Schmied" -> "N' Schmied braucht nen Hammer. Und Erz natürlich. Das kannste alles am Markt kaufn. Erz schmilzst du mit Kohle zu Barren. Und die schmiedet man.", "Du musst zu einem Amboss gehn, wenn du schmieden willst. An der Esse kannst du Erz schmelzn."
+"Schmied" -> "N' Schmied braucht nen Hammer. Und Erz natürlich. Das kannste alles am Markt kaufn. Erz schmilzt du mit Kohle zu Barren. Und die schmiedet man.", "Du musst zu einem Amboss gehn, wenn du schmieden willst. An der Esse kannst du Erz schmelzn."
 "Silberbrand" -> "Silberbrand? Weiß ich nich viel von. Aber mein Cousin hat dort ne Weile gelebt."
-"Zwerg" -> "Ein Zwerg trinkt die Mischung pur! - Bei den Halblingen mischen sie Wein mit Früchte-saft. Das nennen sie Schorle oder Spritzer. Ha'ak! Aber ein echter Zwerg trinkt nicht's Gestrecktes!"
+"Zwerg" -> "Ein Zwerg trinkt die Mischung pur! - Bei den Halblingen mischen sie Wein mit Fruchtsaft. Das nennen sie Schorle oder Spritzer. Ha'ak! Aber ein echter Zwerg trinkt nichts Gestrecktes!"
 english, "mine" -> "Arr, you can find the mine if you follow the path south of the workshop. That's the house with the brown roof!"
 german, "Mine" -> "Arr, du kannst die Mine finden wenn du der Straße südlich von der Werkstatt folgst. Dat is das Haus mit dem bräunlichen Dach!"
 
@@ -219,17 +218,17 @@ english, "Galmair" -> "Fine town, really fine town you know... but only if ya ha
 english, "rosaline", "edwards" -> "Don't know her personally but wouldn't mind if she really is as good looking as they say. Hear she's a harsh leader though."
 "rosaline", "edwards" -> "Kenn die nicht persönlich aber würde mich nicht weigern wenn sie wirklich so gut aussieht wie man sagt. Man sagt auch das sie eine taffe Herrscherin is."
 english, "Cadomyr" -> "Well, a little hot there but the Queen is supposed to be good looking, wouldn't mind if she came here."
-"Cadomyr" -> "Nun, ein bisschen warm dort, aber die Königin soll gutaussehen. Würde nichts dagegen haben, wenn sie mal herkommt."
+"Cadomyr" -> "Nun, ein bisschen warm dort, aber die Königin soll gut aussehen. Würde nichts dagegen haben, wenn sie mal herkommt."
 
 -- Main land factions
 english, "albar" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill!"
-"albar" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber villeicht interssiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
+"albar" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht interessiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
 english, "gynk", "gync" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill!"
-"gync", "gynk" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber villeicht interssiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
+"gync", "gynk" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht interessiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
 english, "salkama" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill!"
-"salkama" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber villeicht interssiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
+"salkama" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht interessiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
 "sevenhill" -> "'Tunnel pigs' can also be found in Sevenhill. This is not an insulting term for lazy miners, but rather refers to a very large, fat, and nearly naked type of rodent. This animal is well known at most dwarven settlements and is considered a delicacy.", "Sevenhill, also known as Siebenberg, is one of the greatest dwarven mines and it's halls and wealth are legendary. The town is located in deep caverns under a range of seven mountains, but only dwarves know the exact location.", " Humans are not permitted in Sevenhill and only a few trusted lizardmen and elves have ever been welcomed into the city. Heavily armed dwarven squads guard every entrance.", "Many of the city's exits end in many mountain valleys where crops and livestock are farmed. The infamous 'dwarven cheese' is also produced here; an incredibly strong smelling kind of cheese, highly thought of by dwarves, but completely unpalatable to humans, halflings and elves.", "Sevenhill is home to seven dwarven clans. It is said that Irmorom blesses those dwarves who make a pilgrimage to all of the four sanctuaries, located under Sevenhill. Many famous dwarves, are said to have been there on pilgrimages."
-"siebenberg" -> "'Tunnelschwein', dass ist kein Schimpfnamen für faule Minenarbeiter, sondern ?n Nagetier. Erinnert an enorm große, fast nackte, fette Ratten. Dieses Tier ist in eigentlich unter allen Zwergen bekannt und oft delikat zubereitet.", "Siebenberg ist die Heimat von sieben Zwergenklans. Es wird gesagt, dass ein Zwerg, der zu allen vier Heiligtümern Siebenbergs pilgert und dort zu Irmorom betet, von diesem gesegnet wird.", "Siebenberg ist eine der größten bekannten Zwergenminen, ihre Hallen und deren Reichtum sind legendär. Die Stadt befindet sich in den tiefen Höhlen unter den Siebenhügelbergen, die genaue Lage ist nur Zwergen bekannt.", "Menschen finden keinen Einlass nach Siebenberg und nur wenige Echsenmenschen oder Elfen ? von denen bekannt ist, dass sie nicht versuchen würden, glänzende Dinge aus kostbaren Verzierungen herauszubrechen.", "Es werden  Ziegen gehalten, deren Milch hauptsächlich zum  bekannten Zwergenkäse verarbeitet wird! Eine besonders übelriechende Käsesorte, die von uns Zwergen sehr geschätzt wird, aber die anderen Völker scheinen ihn nicht besonders zu schätzen."
+"siebenberg" -> "'Tunnelschwein', dass ist kein Schimpfname für faule Minenarbeiter, sondern ein Nagetier. Erinnert an enorm große, fast nackte, fette Ratten. Dieses Tier ist in eigentlich unter allen Zwergen bekannt und oft delikat zubereitet.", "Siebenberg ist die Heimat von sieben Zwergenklans. Es wird gesagt, dass ein Zwerg, der zu allen vier Heiligtümern Siebenbergs pilgert und dort zu Irmorom betet, von diesem gesegnet wird.", "Siebenberg ist eine der größten bekannten Zwergenminen, ihre Hallen und deren Reichtum sind legendär. Die Stadt befindet sich in den tiefen Höhlen unter den Siebenhügelbergen, die genaue Lage ist nur Zwergen bekannt.", "Menschen finden keinen Einlass nach Siebenberg und nur wenige Echsenmenschen oder Elfen ? von denen bekannt ist, dass sie nicht versuchen würden, glänzende Dinge aus kostbaren Verzierungen herauszubrechen.", "Es werden  Ziegen gehalten, deren Milch hauptsächlich zum  bekannten Zwergenkäse verarbeitet wird! Eine besonders übelriechende Käsesorte, die von uns Zwergen sehr geschätzt wird, aber die anderen Völker scheinen ihn nicht besonders zu schätzen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I follow Irmorom, the father of the dwarven kind and hallow of the crafters... and Brágon, whose flames melt the ores."
@@ -247,7 +246,7 @@ english, "Irmorom" -> "Smithing is the craft of the dwarves. Irmorom taught us a
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Saren", "Eisenfaust" -> "What's up?", "Aye?", "#me nods once and raises an eyebrow."
-"Saren", "Eisenfaust" -> "Aye?", "Wat gibt's?", "#me nickt dir zun und zieht eine Braue hoch."
+"Saren", "Eisenfaust" -> "Aye?", "Wat gibt's?", "#me nickt dir zu und zieht eine Braue hoch."
 "Yes" -> "Aye, then go and collect those things I asked you for.", "If ya say so.", "Alright, have fun!"
 "Ja" -> "Aye, dann mach dich auf dem Weg und sammel was ich von dir wollte!", "Na wenn du meinst", "Is gut, viel Vergnügen!"
 "No" -> "What did ya say? I hope I didn't hear ya correctly!", "You say no... no to me, who do ya think your speaking to?", "With that attitude, ya won't become a good smith."
@@ -263,12 +262,12 @@ german, chance(20.0), ".*" -> "Eh..wat hast du grad über meine Mutter gesagt?", 
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me streicht sich über seinen langen Bart.", "#me untangles his long beard."
-cycletext "#me blickt sich mistrauisch um und kratzt sich anschließend breit grinsend am Hintern.", "#me looks around suspiciously then scratches his buttocks and grins broadly."
+cycletext "#me blickt sich misstrauisch um und kratzt sich anschließend breit grinsend am Hintern.", "#me looks around suspiciously then scratches his buttocks and grins broadly."
 cycletext "#me nimmt eine Bierflasche aus seiner Tasche und trinkt einen Schluck", "#me pulls a bottle of beer from his bag and takes a swig."
 cycletext "#me wischt sich mit dem Handrücken über die Stirn.", "#me wipes with his hand over his forehead."
 cycletext "#me brummt leise etwas in seinen Bart.", "#me grumbles something into his beard."
-cycletext "#me streicht mit zusammengeniffenen Augen über sein Hemd aus Pferdehaar, etwas Staub löst sich daraus und schwebt zu Boden.", "#me pats his shirt made of horse-hair. Some dust gets released and sinks to the ground."
+cycletext "#me streicht mit zusammengekniffenen Augen über sein Hemd aus Pferdehaar, etwas Staub löst sich daraus und schwebt zu Boden.", "#me pats his shirt made of horse-hair. Some dust gets released and sinks to the ground."
 cycletext "#me grinst breit, ein goldener Zahn blitzt hervor.", "#me shows a broad grin, a golden tooth is shown for a second."
 cycletext "#me pfeift die Melodie eines alten Bergwerkliedes.", "#me whistles the tune of an old miner's song."
 cycletext "#me kratzt sich an der knubbeligen Nase.", "#me scratches his knobby nose."
-cycletext "#me blickt mit zusammengeniffenen Augen in den Himmel.", "#me glances to the sky with narrowed eyes."
+cycletext "#me blickt mit zusammengekniffenen Augen in den Himmel.", "#me glances to the sky with narrowed eyes."
