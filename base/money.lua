@@ -489,8 +489,8 @@ function MoneyToString(money)
 
     gp,sp,cp=base.money.MoneyToCoins(money); --converting to gp, sp and cp
 
-	local estring = " ";
-	local gstring = " ";
+	local estring = "";
+	local gstring = "";
 
 	if gp ~= 0 then -- at least one gold coin
 		estring = estring..gp.." gold coin";
