@@ -32,6 +32,6 @@ function UseItem(User, SourceItem, ltstate)
 	else
 		base.common.HighInformNLS(User,
             "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: Hammer oder Feinschmiedehammer",
-            "To work here you have to hold a tool in your hand: Hammer of finesmithing hammer")
+            "To work here you have to hold a tool in your hand: Hammer or finesmithing hammer")
 	end
 end
