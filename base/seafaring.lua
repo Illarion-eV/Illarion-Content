@@ -114,7 +114,7 @@ pirateDoors={position(354,873,0),position(355,873,0)}
 travlerslist={}
 
 function Ferry(User, SourceItem)
-	local chanceforpirateattack = math.random(1,100)
+	local chanceforpirateattack = math.random(1,10)
 	local names
 	local namestravel
 	local Amountferry = table.getn(ferrySourceItemPos)	
@@ -347,7 +347,6 @@ function piratesPiratesKill(User)
 end
 
 
-
 function piratesPiratesRule(User)
 	for i,player in ipairs(travlerslist[User.name]) do
 		player:inform("Malachín war woll mit den Piraten. Sie sind in der Lage das Schiff zu überlaufen und setzen alle Anwensenden ihrem Glück mit Cherga aus. Wird Cherga Gnade haben?", "Malachin was obviously with the pirates. They overrun the ship and all passenger have to face Cherga. Will Cherga have mercy on you?")
@@ -360,13 +359,11 @@ function piratesPiratesRule(User)
 end
 
 
-
 function piratesTimeWarning(User)
 	for i,player in ipairs(travlerslist[User.name]) do
 		player:inform("[Hinweis] Es ist nur noch eine Minute übrig, das Schiff von den Piraten zu säubern. Vielleicht sollte die Hilfe von George Backstab doch in Anspruch genommen werden. Hierzu einfach die Verliestür unten im Schiffsbauch öffnen.", "[Hint] There is only one minute left to clear the boat of pirates. You should probably consider using the help of George Backstab. Just open the door down in the ship's hold.")
 	end
 end
-
 
 
 function piratesFlee(User)
