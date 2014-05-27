@@ -28,22 +28,22 @@ ferryEN={}
 --ferryEN[1]={"Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
 ferryDE[1]={"Cadomyr - Verlorener Hafen","Leuchtturm","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}  ---replace this with the one above
 ferryEN[1]={"Cadomyr - Lost Harbour","Lighthouse","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
---ferryDE[2]={"Cadomyr Hafen","Bauern Insel","Cadomyr - Verlorener Hafen (inklusive Weiterfahrt)","Leuchtturm","Einsame Inseln","Ostland Hafen","Nördlicher Hafen"} --for the future with farmer island & lonely islands
---ferryEN[2]={"Cadomyr Harbour","Farmer Island","Cadomyr - Lost Harbour (journey to Cadomyr included)","Lighthouse","Lonely Islands","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
-ferryDE[2]={"Cadomyr Hafen","Cadomyr - Verlorener Hafen (inklusive Weiterfahrt)","Leuchtturm","Ostland Hafen","Nördlicher Hafen"}  ---replace this with the one above
-ferryEN[2]={"Cadomyr Harbour","Cadomyr - Lost Harbour (journey to Cadomyr included)","Lighthouse","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
+--ferryDE[2]={"Cadomyr Hafen","Bauern Insel","Cadomyr - Verlorener Hafen","Leuchtturm","Einsame Inseln","Ostland Hafen","Nördlicher Hafen"} --for the future with farmer island & lonely islands
+--ferryEN[2]={"Cadomyr Harbour","Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
+ferryDE[2]={"Cadomyr Hafen","Cadomyr - Verlorener Hafen","Leuchtturm","Ostland Hafen","Nördlicher Hafen"}  ---replace this with the one above
+ferryEN[2]={"Cadomyr Harbour","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
 ferryDE[3]={"Cadomyr Hafen","Runewick Hafen","Nördlicher Hafen"}
 ferryEN[3]={"Cadomyr Harbour","Runewick Harbour","Northern Harbour"}
 --ferryDE[4]={"Cadomyr Hafen","Runewick Hafen","Ostland Hafen","Böser Fels"}  ---for the future with Evil Rock
 --ferryEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour","Evil Rock"}  ---for the future with Evil Rock
 ferryDE[4]={"Cadomyr Hafen","Runewick Hafen","Ostland Hafen"}  ---replace this with the one above
 ferryEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour"}  ---replace this with the one above
-ferryDE[5]={"Nördliche Inseln - Ra","Nördliche Inseln -  Hept","Nördliche Inseln - Yeg","Unüberwindbarer Limes"}
+ferryDE[5]={"Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Unüberwindbarer Limes"}
 ferryEN[5]={"Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Insurmountable Limes"}
 
 ferrytravelDE={}
 ferrytravelEN={}
---ferrytravelDE[1]={"der Bauern Insel","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","zu den Einsamen Inseln","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"} --for the future with farmer island & lonely islands
+--ferrytravelDE[1]={"der Bauerninsel","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","zu den Einsamen Inseln","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"} --for the future with farmer island & lonely islands
 --ferrytravelEN[1]={"Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
 ferrytravelDE[1]={"nach Cadomyr - Verlorener Hafen","zum Leuchtturm","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"}  ---replace this with the one above 
 ferrytravelEN[1]={"Cadomyr - Lost Harbour","Lighthouse","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
@@ -164,7 +164,7 @@ function Ferry(User, SourceItem)
 							world:gfx(1,player.pos)
 							world:makeSound(9,player.pos)
 							player:warp(targetPos[selected+1])
-							world:gfx(11,player.pos)
+							--world:gfx(11,player.pos)
 							world:makeSound(9,player.pos)
 						end
 					end
