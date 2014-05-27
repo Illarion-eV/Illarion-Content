@@ -63,7 +63,7 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItem = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000), stack(1), quality(333)
+sellItem = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000), stack(1), quality(999)
 "Help" -> inform("[Game Help] This NPC is Vallaria Medrota the healer an alchemy teacher. Keywords: recipes, alchemy, book")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Vallaria Medrota die Heilerin und Alchemielehrerin. Schlüsselwörter: Rezepte, Alchemie, Buch")
 "handel", "kauf", "Buch" -> "Bei mir könnt Ihr das Standardwerk der Alchemie erwerben.", trade
