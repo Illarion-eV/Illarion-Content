@@ -75,7 +75,7 @@ itemShoes = 697
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the carver Truciolo Pialla. Keywords: task, wood, adventure, carver, tell something, forest.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schnitzer Truciolo Pialla. Schlüsselwörter: Aufgaben, Holz, Aufgabe, schnitzer, Erzähl was, Wald.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schnitzer Truciolo Pialla. Schlüsselwörter: Aufgaben, Holz, Aufgabe, Schnitzer, Erzähl was, Wald.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeting, what do you want?", "The Five with you, may I help you?"
@@ -197,7 +197,7 @@ english, "elf"-> "Nobody else ever made such fine wooden items. As you know, eac
 "forest" -> "I love the forest, even if quite dangerous monsters live there. I love a warm and safe bed as well though, so you won't find me sleeping in trees."
 "wald" -> "Ich liebe die Stille der Wälder. Aber hier gibt es so viele Monster. Und ich habe auch gerne ein trockenes und warmes Bett."
 "wood" -> "It depends on what wood you need! You can find every kind of tree right before the town."
-"Holz", -> "Du findest jede beliebige Baumart gleich vor der Stadt. Such dir die aus, deren Holz du gerade benötigst."
+"Holz" -> "Du findest jede beliebige Baumart gleich vor der Stadt. Such dir die aus, deren Holz du gerade benötigst."
 "carver" -> "A carver needs a saw, carving tools and a slicer, and wood of course. Saw the wood to boards. There is a workbench in the workshop. Got it?", "Search for the workbench to start with, there is one in the workshop."
 "schnitzer" -> "Ein Holzschnitzer braucht eine Säge, Schnitzmesser und einen Hobel. Und Holz natürlich. Das kann man alles am Markt kaufen. Zuerst sägst du das Holz zu Brettern. Und aus denen werden dann die tollsten Dinge.", "Du musst zu einer Werkbank gehen, wenn du schnitzen willst. Du findest eine in der Werkstatt."
 "hatchet" -> "You can cut any tree with it. A merchant can surely sell you one if you lose yours."
@@ -231,7 +231,7 @@ english, "gynk", "gync" -> "Forgive me... I don't know about the human towns, bu
 english, "salkama" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the Silverlake Forest?"
 "salkama" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber veilleicht interssiert ihr Euch dafür über meine Heimat zu sprechen, den Silberseewald."
 "siverlake" -> "I can't remember eating anything more delicious than a Silverlake sturgeon, but you need the right receipe.", "Around the Silverlake live a number of elven clans. It is said that anybody who walks around the lake on a dark, new moon night will be blessed by the Five.", "The best carvers come out of the forest around the Silverlake, and so it has been for hundreds of years now.", "Humans, dwarves and lizardmen don't visit us often, I can't say they are welcome.", "No we have no animals. There are enough wild animals to hunt in the forest and the rivers."
-"Silbersee" -> "Es gibt nichts Besseres zu essen als einen gedünsteten Silberseestör. Aber man brauch die richtigen Zutaten.", "Rund um den Silbersee leben viele Elfenclans. Es wird gesagt, dass jemand, der in einer Neumondnacht allein um den See geht, von den Göttern gesegnet wird.", "Die besten Schnitzer kommen aus den Wäldern um den Silbersee. Und das schon seit hunderten von Jahren.", "Menschen, Zwerge oder Echsenmenschen finden selten zu uns. Und wir sehen sie auch nicht so gerne dort.", "Nein, wir züchten dort keine Tiere. In den Wäldern und Flüssen lebt genug jagdbares Wild."
+"Silbersee" -> "Es gibt nichts Besseres zu essen als einen gedünsteten Silberseestör. Aber man braucht die richtigen Zutaten.", "Rund um den Silbersee leben viele Elfenclans. Es wird gesagt, dass jemand, der in einer Neumondnacht allein um den See geht, von den Göttern gesegnet wird.", "Die besten Schnitzer kommen aus den Wäldern um den Silbersee. Und das schon seit hunderten von Jahren.", "Menschen, Zwerge oder Echsenmenschen finden selten zu uns. Und wir sehen sie auch nicht so gerne dort.", "Nein, wir züchten dort keine Tiere. In den Wäldern und Flüssen lebt genug jagdbares Wild."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I follow the Five, the Elders Gods that created the world as we know nowadays."
@@ -242,13 +242,13 @@ english, "Bragon", "Brágon" -> "The flame of Brágon warms the living as a part o
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Do I look like a merchant? I don't think so!", "No, I don't buy anything and I won't ever sell anything to you!", "Maybe some other time, not today."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Sehe ich aus wie ein Händler, ich denke nicht!", "Nein, ich kaufe und verkaufe nichts. Erst recht nicht an dich!", "Ein ander mal vielleicht, heute nich."
-"tell something" -> "No, it's a fairy tale that the figure is in the wood if I start working. In reality, it's in my head.", "They say in the swamps of Gynk there exists a tree with marvelous wood. Some of the best sculptures are made from it. This one is a just simple Naldor. I'd pay a lot, if I could get such fine wood here.", "I'd bet the Don will cut his hair in a moment, I've finished this statuette. So tell me, how I should cut the hair on the wood?"
+"tell something" -> "No, it's a fairy tale that the figure is in the wood if I start working. In reality, it's in my head.", "They say in the swamps of Gynk there exists a tree with marvellous wood. Some of the best sculptures are made from it. This one is a just simple Naldor. I'd pay a lot, if I could get such fine wood here.", "I'd bet the Don will cut his hair in a moment, I've finished this statuette. So tell me, how I should cut the hair on the wood?"
 "erzähl was", "erzähl etwas" -> "Wenn ich anfange zu arbeiten, ist die Figur, die ich schnitze, nicht im Holz drin, sondern sie ist in meinem Kopf.", "Es heißt in den Sümpfen Galmairs wächst ein erstaunlicher Baum. Sein Holz ist das Beste, was sich Bildschnitzer vorstellen können. Ich würde einiges dafür geben, könnte ich davon etwas haben.", "Ich möchte fast wetten der Don lässt sich an dem Tag die Haare schneiden, an dem ich sein Bildnis fertig habe. Nur sagt, wie soll ich die Haare aus Holz schneiden?"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Truciolo", "Pialla" -> "What's up?", "Sorry?", "#me nods once and raises an eyebrow."
 "Truciolo", "Pialla" -> "Ja?", "Was wollt ihr?", "#me nickt dir zu und zieht eine Braue hoch."
-"Yes" -> "Sure, then go and collect those things I asked you for.", "If you say so.", "Alright, have fun!"
+"Yes" -> "Sure, then go and collect those things I asked you for.", "If you say so.", "All right, have fun!"
 "Ja" -> "Aber nun mal los. Mach dich auf den Weg und sammel was ich von dir wollte!", "Na wenn du meinst", "Ist gut, viel Vergnügen!"
 "No" -> "What did you say? I hope I didn't hear you correctly!", "You say no... no to me, who do you think you're speaking to?", "With that attitude, you won't become a good carver."
 "Nein" -> "Was sagst du da. Ich hoffe ich habe mich verhört?!", "Du sagst Nein...nein zu mir? Was denkst du mit wem du sprichst?!", "Dann nicht. So wird nie was aus dir!"
@@ -267,8 +267,8 @@ cycletext "#me blickt sich mistrauisch um und schaut auf ein Bild des Don.", "#m
 cycletext "#me nimmt eine Flasche aus seiner Tasche und trinkt einen Schluck", "#me pulls a bottle from his bag and takes a swig."
 cycletext "#me wischt sich mit dem Handrücken über die Stirn.", "#me wipes his hand over his forehead."
 cycletext "#me brummt leise etwas vor sich hin.", "#me grumbles something to himself."
-cycletext "#me streicht mit zusammengeniffenen Augen über seine Arbeit. Etwas Staub löst sich daraus und schwebt zu Boden.", "#me pats the piece of wood he is working on. Some dust gets released and sinks to the ground."
+cycletext "#me streicht mit zusammengekniffenen Augen über seine Arbeit. Etwas Staub löst sich daraus und schwebt zu Boden.", "#me pats the piece of wood he is working on. Some dust gets released and sinks to the ground."
 cycletext "#me lächelt verträumt.", "#me smiles dreamily."
 cycletext "#me pfeift die Melodie eines alten elfischen Schlachtliedes.", "#me whistles the tune of an old battle song."
 cycletext "#me schaut sich einen besonders langen Span an.", "#me examines a very long splinter."
-cycletext "#me blickt mit zusammengeniffenen Augen in den Himmel.", "#me glances to the sky with narrowed eyes."
+cycletext "#me blickt mit zusammengekniffenen Augen in den Himmel.", "#me glances to the sky with narrowed eyes."
