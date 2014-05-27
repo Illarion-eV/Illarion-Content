@@ -181,7 +181,7 @@ function StaticTeleporter(User, SourceItem)
 		names = {"Runewick","Galmair","Cadomyr","Hemp Necktie Inn"}
 	end
 	local items = {105,61,2701,1909}
-	local targetPos = {position(836,813,0), position(424,245,0),position(127,647,0),position(684,307,0)}
+	local targetPos = {position(835,813,0), position(423,246,0),position(126,647,0),position(684,307,0)}
 
 	local callback = function(dialog)
 
