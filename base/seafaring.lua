@@ -140,15 +140,12 @@ function Ferry(User, SourceItem)
 			local selected = dialog:getSelectedIndex()
 			if  base.money.CharHasMoney(User,1000) then
 				
---				if (targetPos[selected+1].x - SourceItem.pos.x) * (targetPos[selected+1].x - SourceItem.pos.x) < 10 then
---					User:inform("Du befindest dich bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
---				else
 					base.money.TakeMoneyFromChar(User,1000)
 					local travlers = world:getPlayersInRangeOf(SourceItem.pos, 5) 
 					travlerslist[User.name] = travlers
---	debug("travler: "..User.name)
+
 					if chanceforpirateattack< 6 and SomeoneThere(User) ~= true then --chance of 20% and noone else is there
-						previousselected = {}						
+						--[[previousselected = {}						
 						previousselected[User.name] = selected
 						piratesAttack(User)
 						for i,player in ipairs(travlerslist[User.name]) do
@@ -159,7 +156,8 @@ function Ferry(User, SourceItem)
 							player:warp(position(352,870,1))
 							world:gfx(11,player.pos)
 							world:makeSound(9,player.pos)
-						end
+						end]]
+						--Deactivated. Please make this pirate attack more sound. See Mantis ~Estralis
  					else
 						for i,player in ipairs(travlerslist[User.name]) do
 							player:inform("Du hast dich dazu entschlossen, " ..namestravel[selected+1].. " zu Reisen.", "You have chosen to travel to " ..namestravel[selected+1]..".")
@@ -170,7 +168,7 @@ function Ferry(User, SourceItem)
 							world:makeSound(9,player.pos)
 						end
 					end
---				end
+
 			else
 				User:inform("Du hast nicht genug Geld für diese Reise. Die Reise kostet zehn Silberstücke für eine Überfahrt.", "You don't have enough money for this journey. The journey costs ten silver coins for one passage.")
 			end
