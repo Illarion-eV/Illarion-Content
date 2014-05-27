@@ -81,17 +81,17 @@ itemShoes = 697
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day, what do ya want?", "Irmorom with ya, do ya need anything?"
-"Grüÿ", "Gruÿ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach auch, wat gibts?", "Irmorom zum Gruÿe, brauchst du wat?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach auch, wat gibts?", "Irmorom zum Gruße, brauchst du wat?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "What do ya want, eh? We say greetings around here.", "Aye, whatever.", "You won't go far with that greeting around here."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Wat willste, eh? Dat heiÿt Tach!", "Aye, wat auch immer.", "Damit kommste hier nich weit, es heiÿt Tach!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Wat willste, eh? Dat heißt Tach!", "Aye, wat auch immer.", "Damit kommste hier nich weit, es heißt Tach!"
 "Farewell", "Bye", "Fare well", "See you" -> "Aye, take care.", "Irmorom with ya!", "Until next time!"
-"Tschüÿ", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Aye, machs gut.", "Irmorom mit dir!", "Man sieht sich."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Aye, machs gut.", "Irmorom mit dir!", "Man sieht sich."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Aye, take care.", "Irmorom with ya!", "Until next time!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Aye, machs gut.", "Irmorom mit dir!", "Man sieht sich."
 "How are you", "How feel", "How do you do" -> "Can't say anything's bothering me and ya?", "So-so, but I'm fine right now."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann nich klagen und du?", "Ganz gut und selbst?", "Mal so, mal so, aber gerade geht es mir ganz gut."
 "your name", "who are you", "who art thou" -> "I'm Saren and who are you?", "I'm called Saren, Saren Eisenfaust, and what's your name?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÿt" -> "Ich bin der Saren und wer bist du?", "Man nennt mich Saren, Saren Eisenfaust und wie nennt man dich?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der Saren und wer bist du?", "Man nennt mich Saren, Saren Eisenfaust und wie nennt man dich?"
 
 -- 1st quest
 queststatus(81) = 0, skill(smithing) < 80, english, town = Galmair, "quest", "mission" -> "I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal, along with 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.", item(2763, 1, 399), queststatus(81) = 1
@@ -103,11 +103,11 @@ queststatus(81) = 1, skill(smithing) >= 20, item(21, all) > 9, item(22, all) > 9
 queststatus(81) = 1, skill(smithing) < 20, item(21, all) > 9, item(22, all) > 9, item(23, all) > 0, english, town = Galmair, ".+" -> inform("[Quest finished!] You feel like you really learnt something. Further tasks are waiting for you."), "Arr, good job. Now watch me, so that you actually learn something!", skill(smithing) + 2, deleteItem(21, 10), deleteItem(22, 10), deleteItem(23, 1), queststatus(81) = 2, rankpoints + 5
 queststatus(81) = 1, skill(smithing) < 20, item(21, all) > 9, item(22, all) > 9, item(23, all) > 0, town = Galmair, ".+" -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du etwas dazu gelernt. Es gibt aber noch mehr zu tun."), "Arr, gut gemacht. Jetzt schau mir gut zu, damit du auch wat lernst!", skill(smithing) + 2, deleteItem(21, 10), deleteItem(22, 10), deleteItem(23, 1), queststatus(81) = 2, rankpoints + 5
 queststatus(81) = 1, item(21, all) < 10, english, ".+" -> "Arr, if you try to trick me, I won't help you. I want 10 lumps of coal, 10 chunks of iron ore and a hammer!"
-queststatus(81) = 1, item(21, all) < 10, ".+" -> "Arr, wenn du dir mit mir einen Spaÿ erlauben willst, werd ich dir nich helfen. Ich wollte 10 Brocken Kohle, 10 Klumpen Eisenerz und einen Hammer!"
+queststatus(81) = 1, item(21, all) < 10, ".+" -> "Arr, wenn du dir mit mir einen Spaß erlauben willst, werd ich dir nich helfen. Ich wollte 10 Brocken Kohle, 10 Klumpen Eisenerz und einen Hammer!"
 queststatus(81) = 1, item(22, all) < 10, english, ".+" -> "Arr, if you try to trick me, I won't help you. I want 10 lumps of coal, 10 chunks of iron ore and a hammer!"
-queststatus(81) = 1, item(22, all) < 10, ".+" -> "Arr, wenn du dir mit mir einen Spaÿ erlauben willst, werd ich dir nich helfen. Ich wollte 10 Brocken Kohle, 10 Klumpen Eisenerz und einen Hammer!"
+queststatus(81) = 1, item(22, all) < 10, ".+" -> "Arr, wenn du dir mit mir einen Spaß erlauben willst, werd ich dir nich helfen. Ich wollte 10 Brocken Kohle, 10 Klumpen Eisenerz und einen Hammer!"
 queststatus(81) = 1, item(23, all) < 1, english, ".+" -> "Arr, if you try to trick me, I won't help you. I want 10 lumps of coal, 10 chunks of iron ore and a hammer!"
-queststatus(81) = 1, item(23, all) < 1, ".+" -> "Arr, wenn du dir mit mir einen Spaÿ erlauben willst, werd ich dir nich helfen. Ich wollte 10 Brocken Kohle, 10 Klumpen Eisenerz und einen Hammer!"
+queststatus(81) = 1, item(23, all) < 1, ".+" -> "Arr, wenn du dir mit mir einen Spaß erlauben willst, werd ich dir nich helfen. Ich wollte 10 Brocken Kohle, 10 Klumpen Eisenerz und einen Hammer!"
 
 -- 2nd quest
 queststatus(81) = 2, skill(smithing) < 80, english, town = Galmair, "quest", "mission" -> "Aye, I have a task for ya if you are interested. I need 15 copper ore, new crucible-pincers, a fine smith hammer and 5 iron ingots!", queststatus(81) = 3
@@ -198,10 +198,10 @@ english, "Gobaith", "Gobiath" -> "Gobaith! Aye. My cousin fourth removed lived t
 "pickaxe" -> "You can mine for ore with it, a merchant can surely sell ya one if you lose yours."
 "Spitzhacke" -> "Damit kannst du das Erz abbauen, ein Händler kann dir sicher eine verkaufen wenn du deine verlierst."
 "Schmied" -> "N' Schmied braucht nen Hammer. Und Erz natürlich. Das kannste alles am Markt kaufn. Erz schmilzst du mit Kohle zu Barren. Und die schmiedet man.", "Du musst zu einem Amboss gehn, wenn du schmieden willst. An der Esse kannst du Erz schmelzn."
-"Silberbrand" -> "Silberbrand? Weiÿ ich nich viel von. Aber mein Cousin hat dort ne Weile gelebt."
+"Silberbrand" -> "Silberbrand? Weiß ich nich viel von. Aber mein Cousin hat dort ne Weile gelebt."
 "Zwerg" -> "Ein Zwerg trinkt die Mischung pur! - Bei den Halblingen mischen sie Wein mit Früchte-saft. Das nennen sie Schorle oder Spritzer. Ha'ak! Aber ein echter Zwerg trinkt nicht's Gestrecktes!"
 english, "mine" -> "Arr, you can find the mine if you follow the path south of the workshop. That's the house with the brown roof!"
-german, "Mine" -> "Arr, du kannst die Mine finden wenn du der Straÿe südlich von der Werkstatt folgst. Dat is das Haus mit dem bräunlichen Dach!"
+german, "Mine" -> "Arr, du kannst die Mine finden wenn du der Straße südlich von der Werkstatt folgst. Dat is das Haus mit dem bräunlichen Dach!"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Don't know him, who's that supposed to be?"
@@ -213,7 +213,7 @@ english, "Runewick" -> "Runewick is the city full of them mage-folk right? Don't
 english, "Valerio", "Guilianni", "Don" -> "Well, nothing much to say. He's the leader of Galmair and does a really good job."
 "Valerio", "Guilianni", "Don" -> "Nun, gibt nicht viel zu sagen. Er ist der Anführer von Galmair und macht seine Arbeit sehr gut."
 english, "Galmair" -> "Fine town, really fine town you know... but only if ya have enough silver coins in your pocket, you know what I mean?"
-"Galmair" -> "Tolle Stadt, wirklich tolle Stadt weiÿt du. Aber nur wenn du genug Silbermünzen in der Tasche hast, weiÿt du was ich meine?"
+"Galmair" -> "Tolle Stadt, wirklich tolle Stadt weißt du. Aber nur wenn du genug Silbermünzen in der Tasche hast, weißt du was ich meine?"
 "Queen" -> "Don't know her personally but wouldn't mind if she really is as good looking as they say. Hear she's a harsh leader though."
 "Königin" -> "Kenn die nicht persönlich aber würde mich nicht weigern wenn sie wirklich so gut aussieht wie man sagt. Man sagt auch das sie eine taffe Herrscherin is."
 english, "rosaline", "edwards" -> "Don't know her personally but wouldn't mind if she really is as good looking as they say. Hear she's a harsh leader though."
@@ -223,13 +223,13 @@ english, "Cadomyr" -> "Well, a little hot there but the Queen is supposed to be 
 
 -- Main land factions
 english, "albar" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill!"
-"albar" -> "Vergebt mir... Ich weiÿ viel zu wenig über die Städte der Menschen. Aber villeicht interssiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
+"albar" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber villeicht interssiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
 english, "gynk", "gync" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill!"
-"gync", "gynk" -> "Vergebt mir... Ich weiÿ viel zu wenig über die Städte der Menschen. Aber villeicht interssiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
+"gync", "gynk" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber villeicht interssiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
 english, "salkama" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the homeland of my clan, Sevenhill!"
-"salkama" -> "Vergebt mir... Ich weiÿ viel zu wenig über die Städte der Menschen. Aber villeicht interssiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
+"salkama" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber villeicht interssiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
 "sevenhill" -> "'Tunnel pigs' can also be found in Sevenhill. This is not an insulting term for lazy miners, but rather refers to a very large, fat, and nearly naked type of rodent. This animal is well known at most dwarven settlements and is considered a delicacy.", "Sevenhill, also known as Siebenberg, is one of the greatest dwarven mines and it's halls and wealth are legendary. The town is located in deep caverns under a range of seven mountains, but only dwarves know the exact location.", " Humans are not permitted in Sevenhill and only a few trusted lizardmen and elves have ever been welcomed into the city. Heavily armed dwarven squads guard every entrance.", "Many of the city's exits end in many mountain valleys where crops and livestock are farmed. The infamous 'dwarven cheese' is also produced here; an incredibly strong smelling kind of cheese, highly thought of by dwarves, but completely unpalatable to humans, halflings and elves.", "Sevenhill is home to seven dwarven clans. It is said that Irmorom blesses those dwarves who make a pilgrimage to all of the four sanctuaries, located under Sevenhill. Many famous dwarves, are said to have been there on pilgrimages."
-"siebenberg" -> "'Tunnelschwein',  daÿ ist kein Schimpfnamen für faule Minenarbeiter, sondern ?n Nagetier. Erinnert an enorm groÿe, fast nackte, fette Ratten. Dieses Tier ist in eigentlich unter allen Zwergen bekannt und oft delikat zubereitet.", "Siebenberg ist die Heimat von sieben Zwergenklans. Es wird gesagt, dass ein Zwerg, der zu allen vier Heiligtümern Siebenbergs pilgert und dort zu Irmorom betet, von diesem gesegnet wird.", "Siebenberg ist eine der gröÿten bekannten Zwergenminen, ihre Hallen und deren Reichtum sind legendär. Die Stadt befindet sich in den tiefen Höhlen unter den Siebenhügelbergen, die genaue Lage ist nur Zwergen bekannt.", "Menschen finden keinen Einlass nach Siebenberg und nur wenige Echsenmenschen oder Elfen ? von denen bekannt ist, dass sie nicht versuchen würden, glänzende Dinge aus kostbaren Verzierungen herauszubrechen.", "Es werden  Ziegen gehalten, deren Milch hauptsächlich zum  bekannten Zwergenkäse verarbeitet wird! Eine besonders übelriechende Käsesorte, die von uns Zwergen sehr geschätzt wird, aber die anderen Völker scheinen ihn nicht besonders zu schätzen."
+"siebenberg" -> "'Tunnelschwein', dass ist kein Schimpfnamen für faule Minenarbeiter, sondern ?n Nagetier. Erinnert an enorm große, fast nackte, fette Ratten. Dieses Tier ist in eigentlich unter allen Zwergen bekannt und oft delikat zubereitet.", "Siebenberg ist die Heimat von sieben Zwergenklans. Es wird gesagt, dass ein Zwerg, der zu allen vier Heiligtümern Siebenbergs pilgert und dort zu Irmorom betet, von diesem gesegnet wird.", "Siebenberg ist eine der größten bekannten Zwergenminen, ihre Hallen und deren Reichtum sind legendär. Die Stadt befindet sich in den tiefen Höhlen unter den Siebenhügelbergen, die genaue Lage ist nur Zwergen bekannt.", "Menschen finden keinen Einlass nach Siebenberg und nur wenige Echsenmenschen oder Elfen ? von denen bekannt ist, dass sie nicht versuchen würden, glänzende Dinge aus kostbaren Verzierungen herauszubrechen.", "Es werden  Ziegen gehalten, deren Milch hauptsächlich zum  bekannten Zwergenkäse verarbeitet wird! Eine besonders übelriechende Käsesorte, die von uns Zwergen sehr geschätzt wird, aber die anderen Völker scheinen ihn nicht besonders zu schätzen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I follow Irmorom, the father of the dwarven kind and hallow of the crafters... and Brágon, whose flames melt the ores."
@@ -243,7 +243,7 @@ english, "Irmorom" -> "Smithing is the craft of the dwarves. Irmorom taught us a
 "what sell", "what buy", "list wares", "price of" -> "Do I look like a merchant? I don't think so!", "Nah, I don't buy anything and I won't ever sell something to you!", "Maybe some other time, not today."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Sehe ich aus wie ein Händler, ich denke nicht!", "Nay, ich kauf nix und verkaufen tu ich erst recht nix an dich!", "Ein ander mal vielleicht, heute nich."
 "tell something" -> "Do you know, Gremle Oxenlimb, my sister's husband? He affirms that he beat up a golem with his bare hands. Ga strak ja'ada! Such a fibbed tale.", "They say Eygir Goldmalt brews the best beer, but I prefer Yeseult Bockbrew's.", "Rustbeard Grimhilds cousin is a good friend of mine, but he can't bear even half a mug of beer. When drunk he sings bawdy songs and throws hatchets targeting young women's plaits."
-"erzähl was", "erzähl etwas" -> "Kennt ihr Gremle Ochsenschenkel, meinen Schwager? Er behauptet er würde einem Golem im Faustkampf besiegen. Ga strak ja'ada! So'ne erlogene Geschichte.", "Es heiÿt Eygir Goldmalz braut das beste Bier, aber mir schmeckt das von Yseult Bockbräu viel besser. ", "Rostbart Grimhilds-Vetter ist ein guter Bekannter von mir. Aber der verträgt kein Bier nicht. Hat der einen halben Humpen drin, fängt er an unflätig zu singen und mit Beilen nach den Zöpfen von jungn' Fraun zu werfn."
+"erzähl was", "erzähl etwas" -> "Kennt ihr Gremle Ochsenschenkel, meinen Schwager? Er behauptet er würde einem Golem im Faustkampf besiegen. Ga strak ja'ada! So'ne erlogene Geschichte.", "Es heißt Eygir Goldmalz braut das beste Bier, aber mir schmeckt das von Yseult Bockbräu viel besser. ", "Rostbart Grimhilds-Vetter ist ein guter Bekannter von mir. Aber der verträgt kein Bier nicht. Hat der einen halben Humpen drin, fängt er an unflätig zu singen und mit Beilen nach den Zöpfen von jungn' Fraun zu werfn."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Saren", "Eisenfaust" -> "What's up?", "Aye?", "#me nods once and raises an eyebrow."
@@ -263,7 +263,7 @@ german, chance(20.0), ".*" -> "Eh..wat hast du grad über meine Mutter gesagt?", 
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me streicht sich über seinen langen Bart.", "#me untangles his long beard."
-cycletext "#me blickt sich mistrauisch um und kratzt sich anschlieÿend breit grinsend am Hintern.", "#me looks around suspiciously then scratches his buttocks and grins broadly."
+cycletext "#me blickt sich mistrauisch um und kratzt sich anschließend breit grinsend am Hintern.", "#me looks around suspiciously then scratches his buttocks and grins broadly."
 cycletext "#me nimmt eine Bierflasche aus seiner Tasche und trinkt einen Schluck", "#me pulls a bottle of beer from his bag and takes a swig."
 cycletext "#me wischt sich mit dem Handrücken über die Stirn.", "#me wipes with his hand over his forehead."
 cycletext "#me brummt leise etwas in seinen Bart.", "#me grumbles something into his beard."
