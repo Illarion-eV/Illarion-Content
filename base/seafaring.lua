@@ -81,8 +81,8 @@ ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),}
 ferryTargetPos[5]={position(364,49,0),position(415,85,0),position(478,34,0),position(682,45,0)}
 
 
-pirateOptionsDE={"Kämpfe gegen die Piraten","Fliehe vor den Piraten (25% Erfolgschance, ansonsten wartet der Kampf)","Zahle zehn Goldstücke, um verschont zu bleiben."}
-pirateOptionsEN={"Fight against the pirates","Flee from the pirates (25% chance of success, otherwise you have to fight)","Pay ten gold coins in order to be spared"}
+pirateOptionsDE={"Kämpfe gegen die Piraten","Fliehe vor den Piraten (25% Erfolgschance, ansonsten wartet der Kampf)","Zahle ein Goldstück, um verschont zu bleiben."}
+pirateOptionsEN={"Fight against the pirates","Flee from the pirates (25% chance of success, otherwise you have to fight)","Pay a gold coin in order to be spared"}
 
 pirateItem={1,53,61}
 
@@ -114,7 +114,7 @@ pirateDoors={position(354,873,0),position(355,873,0)}
 travlerslist={}
 
 function Ferry(User, SourceItem)
-	local chanceforpirateattack = math.random(1,10)
+	local chanceforpirateattack = math.random(1,100)
 	local names
 	local namestravel
 	local Amountferry = table.getn(ferrySourceItemPos)	
@@ -138,12 +138,12 @@ function Ferry(User, SourceItem)
 		success = dialog:getSuccess()
 		if success then
 			local selected = dialog:getSelectedIndex()
-			if  base.money.CharHasMoney(User,10000) then
+			if  base.money.CharHasMoney(User,1000) then
 				
 --				if (targetPos[selected+1].x - SourceItem.pos.x) * (targetPos[selected+1].x - SourceItem.pos.x) < 10 then
 --					User:inform("Du befindest dich bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
 --				else
-					base.money.TakeMoneyFromChar(User,10000)
+					base.money.TakeMoneyFromChar(User,1000)
 					local travlers = world:getPlayersInRangeOf(SourceItem.pos, 5) 
 					travlerslist[User.name] = travlers
 --	debug("travler: "..User.name)
@@ -152,7 +152,7 @@ function Ferry(User, SourceItem)
 						previousselected[User.name] = selected
 						piratesAttack(User)
 						for i,player in ipairs(travlerslist[User.name]) do
-							player:inform("[Hinweis] Piraten nähern sich dem Schiff. Folgende Möglichkeiten stehen zur Wahl: Kämpfen, fliehen oder zehn Goldstücke zahlen. Wenn keine Entscheidung in der nächsten Minute getroffen wird, dann bleibt nur eine Option zur Wahl: Kämpfen.", "[Information] Pirates are coming closer to your ship. You can choose between the following options: fight, flee or pay ten gold coins. If you do not make your decision within the next minute, there will be only one option left: fight.")
+							player:inform("[Hinweis] Piraten nähern sich dem Schiff. Folgende Möglichkeiten stehen zur Wahl: Kämpfen, fliehen oder ein Goldstück zahlen. Wenn keine Entscheidung in der nächsten Minute getroffen wird, dann bleibt nur eine Option zur Wahl: Kämpfen.", "[Information] Pirates are coming closer to your ship. You can choose between the following options: fight, flee or pay a gold coin. If you do not make your decision within the next minute, there will be only one option left: fight.")
 							player:inform("[Hinweis 2] Auswählen in der Auswahl-Box kann die Person, die für die Fährenfahrt bezahlt hat.", "[Information 2] The person who paid for the ferry trip can select an option in the selection box.")
 							world:gfx(1,player.pos)
 							world:makeSound(9,player.pos)
@@ -172,7 +172,7 @@ function Ferry(User, SourceItem)
 					end
 --				end
 			else
-				User:inform("Du hast nicht genug Geld für diese Reise. Die Reise kostet ein Goldstück für eine Überfahrt.", "You don't have enough money for this journey. The journey costs one gold coin for one passage.")
+				User:inform("Du hast nicht genug Geld für diese Reise. Die Reise kostet zehn Silberstücke für eine Überfahrt.", "You don't have enough money for this journey. The journey costs ten silver coins for one passage.")
 			end
 		
 		end
@@ -180,9 +180,9 @@ function Ferry(User, SourceItem)
 		
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Fähre", "Eine Reise kostet ein Goldstück für die ganze Gruppe. Wähle eine Ziel aus.", callback)
+		dialog = SelectionDialog("Fähre", "Eine Reise kostet zehn Silberstücke für die ganze Gruppe. Wähle eine Ziel aus.", callback)
 	else
-		dialog = SelectionDialog("Ferry", "A journey costs one gold coin for the group. Choose a destination.", callback)
+		dialog = SelectionDialog("Ferry", "A journey costs ten silver coins for the group. Choose a destination.", callback)
 	end
 	dialog:setCloseOnMove()
 	
@@ -223,7 +223,7 @@ function piratesAttack(User)
 	local dialog
 
 	if  User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Piraten Angriff", "Piraten nähern sich dem Schiff. Folgende Möglichkeiten zur Wahl:", callback)
+		dialog = SelectionDialog("Piratenangriff", "Piraten nähern sich dem Schiff. Folgende Möglichkeiten zur Wahl:", callback)
 	else
 		dialog = SelectionDialog("Pirates attack", "Pirates are coming closer to your ship. You can choose between the following options.", callback)
 	end
@@ -293,7 +293,6 @@ function piratesFight(User)
 end
 
 
-
 function piratesPiratesAreThere(User)
 	local monsters = world:getMonstersInRangeOf(position(352,870,1), 20); --get all monster in player range 
 	for i,mon in ipairs(monsters) do
@@ -349,7 +348,7 @@ end
 
 function piratesPiratesRule(User)
 	for i,player in ipairs(travlerslist[User.name]) do
-		player:inform("Malachín war woll mit den Piraten. Sie sind in der Lage das Schiff zu überlaufen und setzen alle Anwensenden ihrem Glück mit Cherga aus. Wird Cherga Gnade haben?", "Malachin was obviously with the pirates. They overrun the ship and all passenger have to face Cherga. Will Cherga have mercy on you?")
+		player:inform("Malachín war wohl mit den Piraten. Sie sind in der Lage das Schiff zu überlaufen und setzen alle Anwesenden ihrem Glück mit Cherga aus. Wird Cherga Gnade haben?", "Malachín was obviously with the pirates. They overrun the ship and all passenger have to face Cherga. Will Cherga have mercy on you?")
 		base.character.DeathAfterTime(player,math.random(10,30),0,27,true) --kill all players
 	end
 	local monsters = world:getMonstersInRangeOf(position(352,870,1), 20); --get all monster in player range 
@@ -395,8 +394,8 @@ function piratesPay(User)
 		User:inform("[Hinweis] Es ist zu spät. Die Auswahlzeit ist abgelaufen.", "[Information] It is too late. The time for selecting an option has passed.")
 		return
 	end
-	if base.money.CharHasMoney(User,100000) then
-		base.money.TakeMoneyFromChar(User,100000)
+	if base.money.CharHasMoney(User,10000) then
+		base.money.TakeMoneyFromChar(User,10000)
 		for i,player in ipairs(travlerslist[User.name]) do
 			player:inform("Das Gold ist weg, aber dafür das gewünschte Ziel erreicht.", "The gold is gone but in return you reach your final destination safely.")
 			world:gfx(1,player.pos)
