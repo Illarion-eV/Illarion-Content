@@ -20,30 +20,26 @@ require("base.factions")
 
 module("base.seafaring", package.seeall)
 
-
-
-
-
 ferrySourceItemPos={position(101,790,0),position(727,809,0),position(888,485,0),position(870,285,0),position(451,95,0)}
 
 ferryDE={}
 ferryEN={}
---ferryDE[1]={"Bauern Insel (inklusive Rück- oder Weiterfahrt)","Cadomyr - Verlorener Hafen (inklusive Rückfahrt)","Leuchtturm (keine Rück- oder Weiterfahrt möglich)","Einsame Inseln  (inklusive Rück- oder Weiterfahrt)","Runewick Hafen (Einwegticket)","Ostland Hafen (Einwegticket)","Nördlicher Hafen (Einwegticket)"} --for the future with farmer island & lonely islands
---ferryEN[1]={"Farmer Island (return journey included)","Cadomyr - Lost Harbour (return journey included)","Lighthouse (no return possible)","Lonely Islands (return journey included)","Runewick Harbour (one way ticket)","Eastland Harbour (one way ticket)","Northern Harbour (one way ticket)"} --for the future with farmer island & lonely islands
-ferryDE[1]={"Cadomyr - Verlorener Hafen (inklusive Rückfahrt)","Leuchtturm (keine Rück- oder Weiterfahrt möglich)","Runewick Hafen (Einwegticket)","Ostland Hafen (Einwegticket)","Nördlicher Hafen (Einwegticket)"}  ---replace this with the one above
-ferryEN[1]={"Cadomyr - Lost Harbour (return journey included)","Lighthouse (no return possible)","Runewick Harbour (one way ticket)","Eastland Harbour (one way ticket)","Northern Harbour (one way ticket)"}  ---replace this with the one above
---ferryDE[2]={"Cadomyr Hafen (Einwegticket)","Bauern Insel (inklusive Rück- oder Weiterfahrt)","Cadomyr - Verlorener Hafen (inklusive Weiterfahrt)","Leuchtturm (keine Rück- oder Weiterfahrt möglich)","Einsame Inseln (inklusive Rück- oder Weiterfahrt)","Ostland Hafen (Einwegticket)","Nördlicher Hafen (Einwegticket)"} --for the future with farmer island & lonely islands
---ferryEN[2]={"Cadomyr Harbour (one way ticket)","Farmer Island (return journey included)","Cadomyr - Lost Harbour (journey to Cadomyr included)","Lighthouse (no return possible)","Lonely Islands (return journey included)","Eastland Harbour (one way ticket)","Northern Harbour (one way ticket)"} --for the future with farmer island & lonely islands
-ferryDE[2]={"Cadomyr Hafen (Einwegticket)","Cadomyr - Verlorener Hafen (inklusive Weiterfahrt)","Leuchtturm (keine Rück- oder Weiterfahrt möglich)","Ostland Hafen (Einwegticket)","Nördlicher Hafen (Einwegticket)"}  ---replace this with the one above
-ferryEN[2]={"Cadomyr Harbour (one way ticket)","Cadomyr - Lost Harbour (journey to Cadomyr included)","Lighthouse (no return possible)","Eastland Harbour (one way ticket)","Northern Harbour (one way ticket)"}  ---replace this with the one above
-ferryDE[3]={"Cadomyr Hafen (Einwegticket)","Runewick Hafen (Einwegticket)","Nördlicher Hafen (Einwegticket)"}
-ferryEN[3]={"Cadomyr Harbour (one way ticket)","Runewick Harbour (one way ticket)","Northern Harbour (one way ticket)"}
---ferryDE[4]={"Cadomyr Hafen (Einwegticket)","Runewick Hafen (Einwegticket)","Ostland Hafen (Einwegticket)","Böser Fels (inklusive Rückfahrt)"}  ---for the future with Evil Rock
---ferryEN[4]={"Cadomyr Harbour (one way ticket)","Runewick Harbour (one way ticket)","Eastland Harbour (one way ticket)","Evil Rock (return journey included)"}  ---for the future with Evil Rock
-ferryDE[4]={"Cadomyr Hafen (Einwegticket)","Runewick Hafen (Einwegticket)","Ostland Hafen (Einwegticket)"}  ---replace this with the one above
-ferryEN[4]={"Cadomyr Harbour (one way ticket)","Runewick Harbour (one way ticket)","Eastland Harbour (one way ticket)"}  ---replace this with the one above
-ferryDE[5]={"Nördliche Inseln -  Ra (inklusive Rück- oder Weiterfahrt)","Nördliche Inseln -  Hept (inklusive Rück- oder Weiterfahrt)","Nördliche Inseln -  Yeg (inklusive Rück- oder Weiterfahrt)","Unüberwindbarer Limes (keine Rück- oder Weiterfahrt möglich)"}
-ferryEN[5]={"Northern Islands -  Ra (return journey included)","Northern Islands -  Hept (return journey included)","Northern Islands -  Yeg (return journey included)","Insurmountable Limes (no return possible)"}
+--ferryDE[1]={"Bauerninsel","Cadomyr - Verlorener Hafen","Leuchtturm","Einsame Inseln ","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"} --for the future with farmer island & lonely islands
+--ferryEN[1]={"Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
+ferryDE[1]={"Cadomyr - Verlorener Hafen","Leuchtturm","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}  ---replace this with the one above
+ferryEN[1]={"Cadomyr - Lost Harbour","Lighthouse","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
+--ferryDE[2]={"Cadomyr Hafen","Bauern Insel","Cadomyr - Verlorener Hafen (inklusive Weiterfahrt)","Leuchtturm","Einsame Inseln","Ostland Hafen","Nördlicher Hafen"} --for the future with farmer island & lonely islands
+--ferryEN[2]={"Cadomyr Harbour","Farmer Island","Cadomyr - Lost Harbour (journey to Cadomyr included)","Lighthouse","Lonely Islands","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
+ferryDE[2]={"Cadomyr Hafen","Cadomyr - Verlorener Hafen (inklusive Weiterfahrt)","Leuchtturm","Ostland Hafen","Nördlicher Hafen"}  ---replace this with the one above
+ferryEN[2]={"Cadomyr Harbour","Cadomyr - Lost Harbour (journey to Cadomyr included)","Lighthouse","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
+ferryDE[3]={"Cadomyr Hafen","Runewick Hafen","Nördlicher Hafen"}
+ferryEN[3]={"Cadomyr Harbour","Runewick Harbour","Northern Harbour"}
+--ferryDE[4]={"Cadomyr Hafen","Runewick Hafen","Ostland Hafen","Böser Fels"}  ---for the future with Evil Rock
+--ferryEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour","Evil Rock"}  ---for the future with Evil Rock
+ferryDE[4]={"Cadomyr Hafen","Runewick Hafen","Ostland Hafen"}  ---replace this with the one above
+ferryEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour"}  ---replace this with the one above
+ferryDE[5]={"Nördliche Inseln - Ra","Nördliche Inseln -  Hept","Nördliche Inseln - Yeg","Unüberwindbarer Limes"}
+ferryEN[5]={"Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Insurmountable Limes"}
 
 ferrytravelDE={}
 ferrytravelEN={}
@@ -116,7 +112,6 @@ piratesSpawnTop={position(351,863,2),position(355,862,2),position(357,863,2)}
 pirateDoors={position(354,873,0),position(355,873,0)}
 
 travlerslist={}
-
 
 function Ferry(User, SourceItem)
 	local chanceforpirateattack = math.random(1,100)
@@ -197,12 +192,6 @@ function Ferry(User, SourceItem)
 	User:requestSelectionDialog(dialog)
 end
 
-
-
-
-
-
-
 function piratesAttack(User)
 	local options
 	local Amountoptions = table.getn(pirateOptionsDE)	
@@ -213,7 +202,6 @@ function piratesAttack(User)
 			pirateOptions = pirateOptionsEN
 		end
 	end
-
 
 	local callback = function(dialog)
 		success = dialog:getSuccess() 
@@ -246,7 +234,6 @@ function piratesAttack(User)
 	end
 	User:requestSelectionDialog(dialog)
 
-
 	User:setQuestProgress(662,36)
 	User:setQuestProgress(663,0)
 
@@ -257,7 +244,6 @@ function piratesAttack(User)
 		end
 	end
 
-
 	find, myEffect = User.effects:find(82)
 	if find then 
 		return
@@ -266,7 +252,6 @@ function piratesAttack(User)
 	end
 	User.effects:addEffect(myEffect)
 end
-
 
 
 function piratesFight(User)
@@ -406,7 +391,6 @@ function piratesFlee(User)
 		piratesFight(User)
 	end
 end
-
 
 
 function piratesPay(User)
