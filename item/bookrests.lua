@@ -176,9 +176,9 @@ function StaticTeleporter(User, SourceItem)
 
     local names
 	if  User:getPlayerLanguage() == Player.german then
-		names = {"Runewick","Galmair","Cadomyr","Hanfschlinge"}
+		names = {"Runewick","Galmair","Cadomyr","Gasthof zur Hanfschlinge"}
 	else
-		names = {"Runewick","Galmair","Cadomyr","Necktie"}
+		names = {"Runewick","Galmair","Cadomyr","Hemp Necktie Inn"}
 	end
 	local items = {105,61,2701,1909}
 	local targetPos = {position(836,813,0), position(424,245,0),position(127,647,0),position(684,307,0)}
