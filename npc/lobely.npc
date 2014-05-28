@@ -83,8 +83,8 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- This NPC will sell portal books back to the three major towns and the Wilderland tavern.
 -- S/he and the others of their family will be sprawled across the map, also selling portal books to the location they are at.
 -- Intention of this sort of NPC is to act as a Safepoint to be discovered by players to allow quick travel to certain places in the wilderness (for a heavy price!).
-"handel", "verkauf", "portal" -> "Hiho, lass uns handeln!", trade
-"trade", "sell", "portal" -> "Hiho, let's trade!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb", "portal" -> "Hiho, lass uns handeln!", trade
+"sell", "buy", "wares", "price", "trade", "purchase", "portal" -> "Hiho, let's trade!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the portal book merchant Lobely. Keywords: Hello, portal, trade.")
