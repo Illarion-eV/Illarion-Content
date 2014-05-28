@@ -109,21 +109,21 @@ queststatus(70) = 0, "bowl" -> "I'm preparing some dough but it won't last. Mayb
 queststatus(70) = 0, "Schüssel" -> "Ich rühre etwas Teig an aber der wird nicht reichen. Vielleicht könnt Ihr mir ja bei dieser Aufgabe helfen."
 
 -- fix
-queststatus(70) > 0, queststatus(820) = 11, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 12, "Ah Florain send you but you already ask me for something to do."
+queststatus(70) > 0, queststatus(820) = 11, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 12, "Ah Florain sent you but you already asked me for something to do."
 queststatus(70) > 0, queststatus(820) = 11, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 12, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
-queststatus(70) > 0, queststatus(820) = 11, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 12, "Ah Florain send you but you already ask me for something to do."
+queststatus(70) > 0, queststatus(820) = 11, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 12, "Ah Florain sent you but you already asked me for something to do."
 queststatus(70) > 0, queststatus(820) = 11, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 12, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- 1st quest: Take a tool and gather 10 bundles of grain for 50cp
-queststatus(70) = 0, queststatus(820) = 11, english, "quest", "mission", "florain", "dreyndel" -> inform("[New quest] Yewdale I"), item(271, 1, 399), queststatus(70) = 1, queststatus(820) = 12, "For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the ears myself."
+queststatus(70) = 0, queststatus(820) = 11, english, "quest", "mission", "florain", "dreyndel" -> inform("[New quest] Yewdale I"), item(271, 1, 399), queststatus(70) = 1, queststatus(820) = 12, "For my recipe, I need wheat. Please take this scythe and get me ten bundles of grain. I will then hand pick the grain from the ears myself."
 queststatus(70) = 0, queststatus(820) = 11, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Eibenthal I"), item(271, 1, 399), queststatus(70) = 1, queststatus(820) = 12, "Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen."
-queststatus(70) = 0, queststatus(820) = 11, "task", "adventure", "order" -> inform("[New quest] Yewdale I"), item(271, 1, 399), queststatus(70) = 1, queststatus(820) = 12, "For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the ears myself."
+queststatus(70) = 0, queststatus(820) = 11, "task", "adventure", "order" -> inform("[New quest] Yewdale I"), item(271, 1, 399), queststatus(70) = 1, queststatus(820) = 12, "For my recipe, I need wheat. Please take this scythe and get me ten bundles of grain. I will then hand pick the grain from the ears myself."
 queststatus(70) = 0, queststatus(820) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eibenthal I"), item(271, 1, 399), queststatus(70) = 1, queststatus(820) = 12, "Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen."
 
 -- 1st quest: Take a tool and gather 10 bundles of grain for 50cp
-queststatus(70) = 0, english, "quest", "mission" -> inform("[New quest] Yewdale I"), item(271, 1, 399), queststatus(70) = 1, "For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the ears myself."
+queststatus(70) = 0, english, "quest", "mission" -> inform("[New quest] Yewdale I"), item(271, 1, 399), queststatus(70) = 1, "For my recipe, I need wheat. Please take this scythe and get me ten bundles of grain. I will then hand pick the grain from the ears myself."
 queststatus(70) = 0, "quest", "mission" -> inform("[Neues Quest] Eibenthal I"), item(271, 1, 399), queststatus(70) = 1, "Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen."
-queststatus(70) = 0, "task", "adventure", "order" -> inform("[New quest] Yewdale I"), item(271, 1, 399), queststatus(70) = 1, "For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the ears myself."
+queststatus(70) = 0, "task", "adventure", "order" -> inform("[New quest] Yewdale I"), item(271, 1, 399), queststatus(70) = 1, "For my recipe, I need wheat. Please take this scythe and get me ten bundles of grain. I will then hand pick the grain from the ears myself."
 queststatus(70) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eibenthal I"), item(271, 1, 399), queststatus(70) = 1, "Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen."
 
 -- Quest 1 solved
@@ -177,19 +177,19 @@ queststatus(70) = 4, "task", "adventure", "order" -> inform("[New quest] Yewdale
 queststatus(70) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eibenthal III"), queststatus(70) = 5, "Ich denke, ein paar Zwiebeln würden die Soße etwas aufpeppen. Versucht bitte, mindestens fünf Zwiebeln zu finden."
 
 -- Quest 3 solved
-skill(farming) < 90, queststatus(70) = 5, item(201, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your farming skill increases."), skill(farming) + 1, money + 1000, deleteItem(201, 5), queststatus(70) = 6, rankpoints + 15, "Fantastic! You've really managed to come up with five onions. Here, have some silver coins, but how embarrassing, I have a probem with the recipe now."
+skill(farming) < 90, queststatus(70) = 5, item(201, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your farming skill increases."), skill(farming) + 1, money + 1000, deleteItem(201, 5), queststatus(70) = 6, rankpoints + 15, "Fantastic! You've really managed to come up with five onions. Here, have some silver coins, but how embarrassing, I have a problem with the recipe now."
 queststatus(70) = 5, item(201, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(201, 5), queststatus(70) = 6, rankpoints + 15, "Fantastic! You've really managed to come up with five onions. Here, have some silver coins, but how embarrassing, I have a problem with the recipe now."
 skill(farming) < 90, queststatus(70) = 5, item(201, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Landwirtschaftsfertigkeit steigt."), skill(farming) + 1, money + 1000, deleteItem(201, 5), queststatus(70) = 6, rankpoints + 15, "Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept."
 queststatus(70) = 5, item(201, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(201, 5), queststatus(70) = 6, rankpoints + 15, "Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept."
-skill(farming) < 90, queststatus(70) = 5, item(201, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your farming skill increases."), skill(farming) + 1, money + 1000, deleteItem(201, 5), queststatus(70) = 6, "Fantastic! You've really managed to come up with five onions. Here, have some silver coins, but how embarrassing, I have a probem with the recipe now."
+skill(farming) < 90, queststatus(70) = 5, item(201, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your farming skill increases."), skill(farming) + 1, money + 1000, deleteItem(201, 5), queststatus(70) = 6, "Fantastic! You've really managed to come up with five onions. Here, have some silver coins, but how embarrassing, I have a problem with the recipe now."
 queststatus(70) = 5, item(201, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(201, 5), queststatus(70) = 6, "Fantastic! You've really managed to come up with five onions. Here, have some silver coins, but how embarrassing, I have a problem with the recipe now."
 skill(farming) < 90, queststatus(70) = 5, item(201, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Landwirtschaftsfertigkeit steigt."), skill(farming) + 1, money + 1000, deleteItem(201, 5), queststatus(70) = 6, "Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept."
 queststatus(70) = 5, item(201, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(201, 5), queststatus(70) = 6, "Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept."
 
 -- Quest 3 not solved, repeat the instructions
-queststatus(70) = 5, english, "quest", "mission" -> "I hope you are able to find at least five onions so that I can spice up my sauce.", "I know that they are hard to find but I would need at least five onions."
+queststatus(70) = 5, english, "quest", "mission" -> "I hope you are able to find at least five onions so that I can spice up my sauce.", "I know that they are hard to find, but I would need at least five onions."
 queststatus(70) = 5, "quest", "mission" -> "Ich hoffe Ihr könnt mindestens fünf Zwiebeln finden, so dass ich meine Soße etwas aufpeppen kann.", "Ich weiß, dass sie schwer zu finden sind, aber ich bräuchte mindestens fünf Zwiebeln."
-queststatus(70) = 5, "task", "adventure", "order", "recipe", "bowl" -> "I hope you are able to find at least five onions so that I can spice up my sauce.", "I know that they are hard to find but I would need at least five onions."
+queststatus(70) = 5, "task", "adventure", "order", "recipe", "bowl" -> "I hope you are able to find at least five onions so that I can spice up my sauce.", "I know that they are hard to find, but I would need at least five onions."
 queststatus(70) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "Schüssel" -> "Ich hoffe Ihr könnt mindestens fünf Zwiebeln finden, so dass ich meine Soße etwas aufpeppen kann.", "Ich weiß, dass sie schwer zu finden sind, aber ich bräuchte mindestens fünf Zwiebeln."
 
 -- 4th quest: Gather 10 salmon fish for 200cp. Link to Fishing quest in Zzyathis. Hint how to get there.
@@ -323,12 +323,12 @@ english, "Nana", "Winterbutter" -> "That's me!", "Oh, indeed, I am Nana Winterbu
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me rührt etwas Teig in einer Schüssel in ihrem linken Arm um.", "#me stirs some dough in a bowl held in her left arm."
-cycletext "#me starrt besorgt in die Schüssel in ihrem linken Arm.", "#me stares worried into the bowl held in her left arm."
+cycletext "#me starrt besorgt in die Schüssel in ihrem linken Arm.", "#me stares worriedly into the bowl held in her left arm."
 cycletext "Das wird nie und nimmer reichen.", "This won't never ever last."
 cycletext "#me gießt vorsichtig etwas Wasser in Schüssel in ihrem linken Arm.", "#me carefully pours some water into the bowl held in her left arm."
 cycletext "Vielleicht sollte ich doch etwas anderes kochen.", "Maybe I should cook something else."
 cycletext "Willkommen im Eibenthal!", "Welcome to Yewdale!"
 cycletext "#me nascht von einem Teig, den sie gerade anrührt.", "#me tastes the dough she's stirring."
 cycletext "Und noch etwas Knoblauch... oder besser nicht?", "And a little bit of garlic... or not?"
-cycletext "Ohje, ohje.", "O my dear."
+cycletext "Ohje, ohje.", "Oh, my dear."
 cycletext "Das wird lecker!", "That's going to be tasty!"
