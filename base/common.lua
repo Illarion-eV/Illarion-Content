@@ -1298,7 +1298,7 @@ end
 
 
 --[[
-    converts a given hour of day to a string like: early morning, morning,
+    Converts a given hour of day to a string like: early morning, morning,
     @param hour the hour which should be converted
     @return ger, eng strings
 ]]
@@ -1328,6 +1328,23 @@ function Hour_To_String(hour)
     else
         return "vor Mitternacht", "before midnight";
     end;
+end;
+
+--[[
+    Converts a numeric month to a string like: Elos, Tanos,...
+    @param month the moth which should be converted
+    @return string
+]]
+function Month_To_String(month)
+
+	MonthNames = {"Elos", "Tanos", "Zhas", "Ushos", "Siros", "Ronas", "Bras", "Eldas", "Irmas", "Malas", "Findas", "Olos", "Adras", "Naras", "Chos", "Mas"}; --List of our abstruse months
+	
+    if (month >= 1) and (month <= 16) then --only valid months
+        return MonthNames[month]; --return the month as string
+    else
+        return "[ERROR] Corrupted date, please inform a developer.";
+    end
+
 end;
 
 function fold(ar, f, neutral)
