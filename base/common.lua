@@ -1314,17 +1314,17 @@ function Hour_To_String(hour)
     elseif (hour >= 8 and hour < 10) then
         return "morgens", "at morning";
     elseif (hour >= 10 and hour < 12) then
-        return "vor Mittag", "before midday";
+        return "vormittags", "before noon";
     elseif (hour >= 12 and hour < 14) then
-        return "mittags", "at midday";
+        return "mittags", "at noon";
     elseif (hour >= 14 and hour < 16) then
-        return "nachmittag", "afternoon";
+        return "nachmittags", "afternoon";
     elseif (hour >= 16 and hour < 18) then
-        return "früher abend", "early evening";
+        return "früher Abend", "early evening";
     elseif (hour >= 18 and hour < 20) then
         return "abends","at evening";
     elseif (hour >= 20 and hour < 22) then
-        return "später abend", "late evening";
+        return "später Abend", "late evening";
     else
         return "vor Mitternacht", "before midnight";
     end;

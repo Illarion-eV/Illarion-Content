@@ -213,11 +213,11 @@ function onLogin( player )
 	
 	if table.getn(players) > 1 then
 
-	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Heute ist der "..datum..". "..monthString.." "..hourStringG..". Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! Today is "..datum.." "..monthString.." "..hourStringE..". There are "..table.getn(players).." players online."); --sending a message
+	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Heute ist der "..datum..". "..monthString..", "..hourStringG..". Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! Today is "..datum.." "..monthString..", "..hourStringE..". There are "..table.getn(players).." players online."); --sending a message
 
 	else --player is alone
 		
-	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Heute ist der "..datum..". "..monthString.." "..hourStringG..". Ein Spieler ist online.","[Login] Welcome to Illarion! Today is "..datum.." "..monthString.." "..hourStringE..". One player is online."); --sending a message
+	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Heute ist der "..datum..". "..monthString..", "..hourStringG..". Ein Spieler ist online.","[Login] Welcome to Illarion! Today is "..datum.." "..monthString..", "..hourStringE..". One player is online."); --sending a message
 
 	end
 
