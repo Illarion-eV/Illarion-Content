@@ -1736,9 +1736,9 @@ function GetLeadAttributeName(Skill)
     leadAttribTable={};
     leadAttribTable[Character.tailoring]="dexterity"
     leadAttribTable[Character.alchemy]="essence"
-    --leadAttribTable[Character.tactics]="perception"
+    --leadAttribTable[Character.tactics]="perception" --deactivated
     leadAttribTable[Character.farming]="constitution"
-    leadAttribTable[Character.poisoning]="perception"
+    --leadAttribTable[Character.poisoning]="perception" --deactivated
     leadAttribTable[Character.harp]="dexterity"
     leadAttribTable[Character.woodcutting]="constitution"
     leadAttribTable[Character.smithing]="dexterity"
@@ -1755,7 +1755,7 @@ function GetLeadAttributeName(Skill)
     leadAttribTable[Character.flute]="dexterity"
     leadAttribTable[Character.parry]="agility"
     leadAttribTable[Character.lute]="dexterity"
-    leadAttribTable[Character.dodge]="agility"
+    --leadAttribTable[Character.dodge]="agility" --deactivated
     leadAttribTable[Character.herblore]="constitution"
     leadAttribTable[Character.mining]="constitution"
     leadAttribTable[Character.glassBlowing]="dexterity"
