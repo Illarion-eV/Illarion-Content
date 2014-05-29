@@ -111,7 +111,7 @@ function monster(User, SourceItem, TargetPos)
 		end
 
 		User:inform("Creating "..ammount.. " monsters with ID "..number.." (radius = "..radius..")");
-		User:logAdmin("creates "..ammount.. " monsters with ID "..number.." (radius = "..radius..")");
+		User:logAdmin("creates "..ammount.. " monsters with ID "..number.." at "..tostring(TargetPos).." (radius = "..radius..")");
 
 		if sfxId ~= 0 then
 			world:makeSound(sfxId,TargetPos);

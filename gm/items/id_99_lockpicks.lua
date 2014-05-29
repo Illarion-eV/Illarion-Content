@@ -307,7 +307,7 @@ function changeSkills(User, SourceItem, ltstate)
 				end
 				local delta = skillValue - chosenPlayer:getSkill(chosenSkill);
 				chosenPlayer:increaseSkill(chosenSkill, delta);
-				User:logAdmin("changes skill of character " .. chosenPlayer.name .. ". " .. chosenPlayer:getSkillName(chosenSkill) .. ": " .. chosenPlayer:getSkill(chosenSkill) - delta .. "->" .. chosenPlayer:getSkill(chosenSkill));
+				User:logAdmin("changes skill of character " .. chosenPlayer.name .. ". " .. chosenPlayer:getSkillName(chosenSkill) .. ": " .. chosenPlayer:getSkill(chosenSkill) - delta .. " to " .. chosenPlayer:getSkill(chosenSkill));
 			end
 			local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..User:getSkillName(chosenSkill).."\nCurrent value: " .. chosenPlayer:getSkill(chosenSkill), false, 255, changeDialog);
 			User:requestInputDialog(sdChange);
@@ -354,7 +354,7 @@ function getSetQueststatus(User, SourceItem, ltstate)
 				status = tonumber(status);
 				chosenPlayer:setQuestProgress(quest, status);
 				User:inform("Quest " .. quest .. " has been set to " .. status .. "!");
-				User:logAdmin("changes queststatus of character " .. chosenPlayer.name .. ". Quest" .. quest .. " has been set to " .. status);
+				User:logAdmin("changes queststatus of character " .. chosenPlayer.name .. ". Quest ID " .. quest .. " set to value " .. status);
 			elseif (string.find(inputString, "(%d+)") ~= nil) then
 				local a, b, quest = string.find(inputString, "(%d+)");
 				quest = tonumber(quest);
