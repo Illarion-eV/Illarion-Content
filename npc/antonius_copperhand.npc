@@ -63,8 +63,8 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 122, 2140, 92, 393, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 1858, 1054, 84, 98, 85, 297, 389, 398, 124, 229, 192
-buySecondaryItems = 122, 2140, 92, 393, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 1858, 1054, 84, 98, 85, 123, 297, 389, 398, 444, 124, 229, 192, 296
+sellItems = 122, 2140, 92, 393, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 1858, 1054, 84, 98, 85, 297, 389, 398, 124, 229, 192, 2647
+buySecondaryItems = 122, 2140, 92, 393, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 1858, 1054, 84, 98, 85, 123, 297, 389, 398, 444, 124, 229, 192, 296, 2647
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
@@ -81,7 +81,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5% Gems: 45, 46, 197, 198, 283, 284, 285
 -- 5% Jewellery: 62, 67, 71, 79, 82, 83, 222
 -- 5% Rings: 68, 235, 277, 278, 279, 280, 281, 282
--- 5% misc finesmithing: 1858 (goblet)
+-- 5% misc finesmithing: 1858 (goblet), 2647 (cutlery)
 -- 5% Boots: 1054
 -- 5% Swords: 84, 98, 85 (123)
 -- 5% Daggers: 297, 389, 398 (444)
