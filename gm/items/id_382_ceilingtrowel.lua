@@ -431,6 +431,7 @@ function factionHandling(User, SourceItem)
 						end
 						local mode = modeValues[dialog:getSelectedIndex()+1];
 						base.factions.setFactionRelation(firstFaction, secondFaction, mode);
+						User:logAdmin("changes guard mode of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to " .. modeStrings[mode]);
 					end
 					local sd = SelectionDialog("Set guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
 					for _,m in ipairs(modeValues) do
@@ -474,6 +475,7 @@ function factionHandling(User, SourceItem)
 						end
 						local newLicence = licenceValues[dialog:getSelectedIndex()+1];
 						licence.SetLicence(FirstLicence, SecondLicence, newLicence);
+						User:logAdmin("changes licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to " .. base.factions.getTownNameByID(SecondLicence) .. " to " .. licenceStrings[newLicence]);
 					end
 					local sd = SelectionDialog("Set licence", "Set licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to " .. base.factions.getTownNameByID(SecondLicence) .. " to ...", cbSetLicence);
 					for _,m in ipairs(licenceValues) do
@@ -551,6 +553,7 @@ function spawnRemove(User, SourceItem)
 			end
 			local index = dialog:getSelectedIndex() + 1;
 			User:inform("You removed the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+			User:logAdmin("removed the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
 			table.remove(sp.gmSpawnpointSettings, index);
 			table.remove(sp.gmMonsters, index);
 		end
@@ -571,9 +574,11 @@ function spawnPause(User, SourceItem)
 			local index = dialog:getSelectedIndex() + 1;
 			if sp.gmSpawnpointSettings[index][9] == 0 then
 				User:inform("You paused the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+				User:logAdmin("paused the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
 				sp.gmSpawnpointSettings[index][9] = 1;
 			else
 				User:inform("You reactivated the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+				User:logAdmin("reactivated the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
 				sp.gmSpawnpointSettings[index][9] = 0;
 			end
 		end
@@ -676,8 +681,8 @@ end
 
 
 function sapwnStartStop(User, SourceItem)
-local sp = scheduled.spawnpoint;
 
+	local sp = scheduled.spawnpoint;
 	local spawnPos = base.common.GetFrontPosition(User);
 
 	checkData(SourceItem,"intervals");
@@ -698,14 +703,13 @@ local sp = scheduled.spawnpoint;
 	--Converts monsters String into monsterIds Array
 	local counter = 0;
 	local fin = 1;
-	local monsterId;
 	local monsterIds = {};
 
 	while fin <= string.len(monsters) do
 
 		if (string.find(monsters,"(%d+)",fin) ~= nil) then
 
-			a, b, monsterId = string.find(monsters,"(%d+)",fin)
+			local a, b, monsterId = string.find(monsters,"(%d+)",fin)
 			fin = b + 1;
 			counter = counter +1;
 			monsterIds[counter]	= tonumber(monsterId)
@@ -719,8 +723,8 @@ local sp = scheduled.spawnpoint;
 	if checkData(SourceItem,"monsters") == true then
 		table.insert(sp.gmSpawnpointSettings, length, {monsterIds, spawnPos, amount, intervals, endurance, gfxId, sfxId,0 ,0})
 		table.insert(sp.gmMonsters, length, {spawnPos})
-		User:inform("You've added a spawnpoint at " .. tostring(sp.gmSpawnpointSettings[length][2]));
-
+		User:inform("You added a spawnpoint at " .. tostring(sp.gmSpawnpointSettings[length][2]));
+		User:logAdmin("added a spawnpoint at " .. tostring(sp.gmSpawnpointSettings[length][2]));
 	else
 		User:inform("Enter MonsterID");
 	end
