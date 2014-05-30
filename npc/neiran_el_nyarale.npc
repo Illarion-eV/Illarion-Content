@@ -112,10 +112,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the Five 
 
 -- Quest 1: Donate something to the treasury
 -- fix
-queststatus(205) > 0, queststatus(820) = 7, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 8, "Ah Florain send you but you already ask me for something to do."
-queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 8, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
-queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 8, "Ah Florain send you but you already ask me for something to do."
-queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 8, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(205) > 0, queststatus(820) = 7, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 8, "Ah, Florain sent you but you already asked me for something to do."
+queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 8, "Ah, Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 8, "Ah, Florain sent you but you already asked me for something to do."
+queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 8, "Ah, Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- 1: Quest 1 taken, donate something to the treasury, reward: 20 rankpoints
 queststatus(205) = 0, queststatus(820) = 7, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[New Quest] Runewick Treasury"), queststatus(205) = 1, queststatus(820) = 8, "Do you want a task? Donate some of your wealth and contribute to ensuring the city stays clean! The donation platform is right next to me."
@@ -130,13 +130,13 @@ queststatus(205) = 0, town = Runewick, "task", "adventure", "order" -> inform("[
 queststatus(205) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Schatzkammer Runewicks"), queststatus(205) = 1, "Ihr möchtet eine Aufgabe? Spendet einen Teil eures Reichtums und sorgt dafür dass die Stadt sauber bleibt! Die Spendenplattform ist gleich neben mir."
 
 -- Quest 1 taken but not solved, repeat the instructions
-queststatus(205) = 1, english, town = Runewick, "quest", "mission" -> "Just drop whatever you do not need or want here on the field to donate it to the treasury . It is not difficult to make Runewick a better place!"
+queststatus(205) = 1, english, town = Runewick, "quest", "mission" -> "Just drop whatever you do not need or want here on the field to donate it to the treasury. It is not difficult to make Runewick a better place!"
 queststatus(205) = 1, town = Runewick, "quest", "mission" -> "Werft das was ihr nicht braucht oder was ihr spenden wollt hier auf das Feld. Es ist nicht schwer Runewick zu einem bessren Ort zu machen!"
-queststatus(205) = 1, town = Runewick, "task", "adventure", "order" -> "Just drop whatever you do not need or want here on the field to donate it to the treasury . It is not difficult to make Runewick a better place!"
+queststatus(205) = 1, town = Runewick, "task", "adventure", "order" -> "Just drop whatever you do not need or want here on the field to donate it to the treasury. It is not difficult to make Runewick a better place!"
 queststatus(205) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Werft das was ihr nicht braucht oder was ihr spenden wollt hier auf das Feld. Es ist nicht schwer Runewick zu einem bessren Ort zu machen!"
 
 -- Quest 1 solved, reward: +20 rankpoints
-queststatus(205) = 2, english, town = Runewick, ".*" -> inform("[Quest solved] Neiran is satisfied."), queststatus(205) = 3, rankpoints + 20, "Thank you for you help!", "Thank you for your support!"
+queststatus(205) = 2, english, town = Runewick, ".*" -> inform("[Quest solved] Neiran is satisfied."), queststatus(205) = 3, rankpoints + 20, "Thank you for your help!", "Thank you for your support!"
 queststatus(205) = 2, town = Runewick, ".*" -> inform("[Quest gelöst] Neiran ist zufrieden."), queststatus(205) = 3, rankpoints + 20, "Vielen Dank für Eure Hilfe!", "Vielen Dank für Eure Unterstützung!"
 
 -- Final dialogue: No more quests, just nice hints
@@ -150,9 +150,9 @@ queststatus(701) = 7, english, "Zassaria", "lizard", "lamp", "collection", "rive
 queststatus(701) = 7, "Zassaria", "echse", "Lampe", "Sammlung" -> queststatus(701) = 8, "Öllampensammlung? Ich habe da eine ganze Menge Öllampen vor ein paar Tagen entsorgt...aber, das war doch nicht Lady Zassarias Öllampensammlung, oder?"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I am the guard here. I guard the donation platform.", "I tell newcomers how to donate part of their wealth to Runewick to make the city a little bit better than it already is.", "I help to keep the steets clean. Do you want to help me with this task?"
+"profession" -> "I am the guard here. I guard the donation platform.", "I tell newcomers how to donate part of their wealth to Runewick to make the city a little bit better than it already is.", "I help to keep the streets clean. Do you want to help me with this task?"
 "beruf" -> "Ich bin Wächter hier. Ich hüte die Spendenplattform.", "Ich erkläre Neuankömmlingen wie sie einen Teil ihres Reichtums an Runewick spenden können um die Stadt ein wenig besser zu machen als sie bereits ist.", "Ich helfe die Straßen sauber zu halten. Möchtet ihr mir bei dieser Aufgabe behilflich sein?"
-english, "job" -> "I am the guard here. I guard the donation platform.", "I tell newcomers how to donate part of their wealth to Runewick to make the city a little bit better than it already is.", "I help to keep the steets clean. Do you want to help me with this task?"
+english, "job" -> "I am the guard here. I guard the donation platform.", "I tell newcomers how to donate part of their wealth to Runewick to make the city a little bit better than it already is.", "I help to keep the streets clean. Do you want to help me with this task?"
 "job" -> "Ich bin Wächter hier. Ich hüte die Spendenplattform.", "Ich erkläre Neuankömmlingen wie sie einen Teil ihres Reichtums an Runewick spenden können um die Stadt ein wenig besser zu machen als sie bereits ist.", "Ich helfe die Straßen sauber zu halten. Möchtet ihr mir bei dieser Aufgabe behilflich sein?"
 "tell something" -> "I do not have much to tell, if you want to hear about adventures, then better to go on adventures yourself."
 "erzähl was", "erzähl etwas" -> "Ich habe nicht viel zu erzählen, wenn ihr etwas über Abenteuer hören wollt, geht besser selbst welche erleben."
@@ -174,7 +174,7 @@ english, "religion" -> "We elves pray to the five Elder Gods."
 "Erzmagier" -> "Der Erzmagier ist ein weiser Mann.", "Der Erzmagier heißt Elvaine Morgan.", "Dank des Erzmagiers haben wir diese Spendenplattform in dem Bürger einen Teil ihres Reichtums spenden können."
 english, "Elvaine", "Morgan" -> "Elvaine Morgan is a wise man.", "Elvaine Morgan is the Archmage.", "Thanks to the Archmage we have this donation platform where citizens can donate part of their wealth."
 "Elvaine", "Morgan" -> "Elvaine Morgan ist ein weiser Mann.", "Elvaine Morgan ist der Erzmagier.", "Dank des Erzmagiers haben wir diese Spendenplattform in dem Bürger einen Teil ihres Reichtums spenden können."
-english, "Runewick" -> "Yes, this is Runewick.", "Let's keep the steets of Runewick clean!", "Many people here study magic. Why did you come here?"
+english, "Runewick" -> "Yes, this is Runewick.", "Let's keep the streets of Runewick clean!", "Many people here study magic. Why did you come here?"
 "Runewick" -> "Ja, dies ist Runewick.", "Lasst uns die Straßen von Runewick sauber halten!", "Viele Leute hier studieren Magie. Warum seid ihr hier?"
 english, "Valerio", "Guilianni", "Don" -> "No, that's not me.", "He is not here.", "He was never here, as far as I know."
 "Valerio", "Guilianni", "Don" -> "Nein, das bin ich nicht.", "Der ist nicht hier.", "So weit ich weiß, war er nicht hier."
@@ -203,7 +203,7 @@ english, "Gobaith", "Gobiath" -> " I've never been to this place.", "It was...a 
 "my name" -> "Nice to meet you! ", "Good to see you!", "#me smiles friendly."
 "mein Name" -> "Feut mich!", "Schön euch zu treffen!", "#me lächelt freundlich."
 english, "Neiran", "el Nyarale", "Nyarale" -> "That's me. How can I help you?", "#me raises a hand and waves.", "#me looks around, 'Who called for me?'", "#me smiles friendly"
-"Neiran", "el Nyarale", "Nyarale" -> "Das bin ich. Was kann ich für Euch tun?", "#me hebt eine Hand und winkt.", "#me bickt sich um: 'Wer rief nach mir?'", "#me smiles friendly"
+"Neiran", "el Nyarale", "Nyarale" -> "Das bin ich. Was kann ich für Euch tun?", "#me hebt eine Hand und winkt.", "#me bickt sich um: 'Wer rief nach mir?'", "#me lächelt freundlich."
 "Yes" -> "#me nods slowly.", "#me smiles.", "I am happy to hear you say so!"
 "Ja" -> "#me nickt langsam.", "#me lächelt.", "Es freut mich, dass ihr das sagt.."
 "No" -> "I didn't expect that answer.", "#me raises an eyebrow.", "I shall give you some more time to consider your answer, but at the moment you seem to be...still inexperienced."
@@ -223,7 +223,7 @@ cycletext "#me schaut sich um.", "#me looks around."
 cycletext "#me lächelt und lässt einige Münzen auf die magische Oberfläche fallen.", "#me smiles and drops some coins onto the magical surface."
 cycletext "Was ist wahrer Reichtum? Wissen oder Münzen?", "What is of greater value? Knowledge or coins?"
 cycletext "Münzen, Waffen, Schmuck und Besteck, alles kann eingeschmolzen werden! Spendet an unsere schönen Stadt.", "Coins, weapons, jewellery, cutlery... everything can be melted down!"
-cycletext "Spendet Roh- und Baustoffe, wir bessern die Straßen von Runewick aus!", "Donate building material and ressouces, we repair the streets of Runewick!"
+cycletext "Spendet Roh- und Baustoffe, wir bessern die Straßen von Runewick aus!", "Donate building material and resources, we repair the streets of Runewick!"
 cycletext "Spendet Papier und Tinte, die Bibliothek von Runewick wird es Euch danken!", "Donate ink and paper, for the libraries of Runewick!"
 cycletext "Ich werde von eurem Einsatz für unsere schöne Stadt beim Erzmagier sprechen - zögert nicht!", "I'll tell the Archmage about your support for the town! Do not hesitate to donate."
 cycletext "#me sieht glücklich aus.", "#me seems to be happy."
