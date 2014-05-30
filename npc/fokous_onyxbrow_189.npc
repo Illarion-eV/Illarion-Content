@@ -1,0 +1,274 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Fokous Onyxbrow                                          Galmair --
+-- NPC Job:  Beer Supply Quartermaster                                        --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  348, 273, 0            --
+-- NPC Sex:  male                       NPC Direction: east                   --
+--                                                                            --
+-- Author:   Evie                                                             --
+--                                                       easyNPC Parser v1.23 --
+--------------------------------------------------------------------------------
+
+name = "Fokous Onyxbrow"
+race = dwarf
+sex = male
+position = 348, 273, 0
+direction = east
+affiliation = "Galmair"
+job = "Beer Supply Quartermaster"
+
+language = common
+language = dwarf
+defaultLanguage = common
+autointroduce = on
+
+author = "Evie"
+
+lookatDE = "Dieser NPC ist Fokous Onyxbrow, der bierlieferant quartiermeister."
+lookatUS = "This NPC is Fokous Onyxbrow, the beer supply quartermaster."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 3
+beardID = 4
+colorHair = 26, 16, 6
+colorSkin = 217, 155, 100
+itemHead = 187
+itemChest = 2365
+itemCoat = 2384
+itemMainHand = 2662
+itemSecondHand = 2284
+itemHands = 2295
+itemTrousers = 2116
+itemShoes = 699
+
+-- NPC by Evie
+-- Fokous Onyxbrow, Beer Supply Quartermaster of Galmair
+
+-- queststatus(189) Overview
+-- QuestID=189
+-- 0: No Quest taken
+-- 1: Quest 1 taken - kill 5 rats, player receives rope
+-- 2-6: Killing 5 rats
+-- 7: Quest 1 solved, reward: 2000 cp, +5 rankpoints
+-- 8: Quest 2 taken - Collect 10 fur
+-- 9: Quest 2 solved, reward  2000 cp, +5 rankpoints
+-- 10: Quest 3 taken - kill 10 aggressive rats and muskrats
+-- 11-20: killing 10 aggressive rats and muskrats
+-- 21: Quest 3 solved, reward: 3000 cp, +10 rankpoints
+-- 22: Quest 4 taken - collect 25 grain
+-- 23: Quest 4 solved - reward: 3000cp, +10 rankpoints
+-- 24: Quest 5 taken -  kill 10 sewer rats
+-- 25-34: killing sewer rats
+-- 35 Quest 5 solved -  reward: 3000 cp, +10 rankpoints
+-- 36 Quest 6  taken -  collect 10 raw leather
+-- 37 Quest 6 solved -  reward: 3000 cp, +15 rankpoints
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Fokous Onyxbrow, the Beer Supply Quartermaster. Keywords: Hello, rats, quest, beer.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Fokous Onyxbrow, Bierlieferungsquartier. Schlüsselwörter: Hallo, ratten, Quest, Bier.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Arr!!! Greetins."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Arr!!! Grüsse."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Arr!!! Greetins."
+"Hiho", "Hallo", "Hey", "Greeb" ->"Arr!!! Grüsse."
+"Farewell", "Bye", "Fare well", "See you" -> "Go on with you, I have work to do."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Hinfort mit dir, ich habe zu arbeiten."
+english, "Ciao", "Adieu", "Au revoir" -> "Go on with you, I have work to do."
+"Ciao", "Adieu", "Au revoir" -> "Hinfort mit dir, ich habe zu arbeiten."
+"How are you", "How feel", "How do you do" -> "I could use a beer."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich könnte ein Bier vertragen."
+"your name", "who are you", "who art thou" -> "Arr!! Call me Fokous, Fokous Onyxbrow."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Arr!! Ich bin Fokous, Fokous Onyxbrow."
+
+-- Catching quest triggers of other factions' members.
+english, town = none, "quest", "mission" -> "#me looks at you with suspicious eyes 'I do not have work for non citizens, you could be a spy!'"
+town = none, "quest", "mission" -> "#me schaut ihn misstrausch an 'Für Fremde hab ich keine Arbeit, du könntest ein Spion sein!'"
+town = none, "task", "adventure", "order"-> "#me looks at you with suspicious eyes 'I do not have work for non citizens, you could be a spy!'"
+town = none, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schaut ihn misstrausch an 'Für Fremde hab ich keine Arbeit, du könntest ein Spion sein!'"
+english, town = Cadomyr, "quest", "mission" -> "#me looks at you with suspicious eyes 'I do not have work for non citizens, you could be a spy!'"
+town = Cadomyr, "quest", "mission" -> "#me schaut ihn misstrausch an 'Für Fremde hab ich keine Arbeit, du könntest ein Spion sein!'"
+town = Cadomyr, "task", "adventure", "order" -> "#me looks at you with suspicious eyes 'I do not have work for non citizens, you could be a spy!'"
+town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schaut ihn misstrausch an 'Für Fremde hab ich keine Arbeit, du könntest ein Spion sein!'"
+english, town = Runewick, "quest", "mission" -> "#me looks at you with suspicious eyes 'I do not have work for non citizens, you could be a spy!'"
+town = Runewick, "quest", "mission" -> "#me schaut ihn misstrausch an 'Für Fremde hab ich keine Arbeit, du könntest ein Spion sein!'"
+town = Runewick, "task", "adventure", "order" -> "#me looks at you with suspicious eyes 'I do not have work for non citizens, you could be a spy!'"
+town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schaut ihn misstrausch an 'Für Fremde hab ich keine Arbeit, du könntest ein Spion sein!'"
+
+.--- fix if quest started and sent to NPC by Joey
+queststatus(189) > 0, queststatus(712) = 17, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 18, "Ah Joey send you but you already ask me for something to do."
+queststatus(189) > 0, queststatus(712) = 17, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 18, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
+queststatus(189) > 0, queststatus(712) = 17, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 18, "Ah Joey send you but you already ask me for something to do."
+queststatus(189) > 0, queststatus(712) = 17, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 18, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
+
+-- 1st quest: Kill 5 rats, player receives rope
+-- Give out quest 1 and a rope
+queststatus(189) = 0, queststatus(712) = 17, english, town = Galmair, "quest", "mission" -> inform("[New quest] Save Da Beer I"), item(2760, 1, 566), queststatus(189) = 1, queststatus(712) = 18, "Arr!! Dere be rats in da storage and dey be drinkin' da beer!!! Go now and kill me 5, dis can not continue! Take dis rope and access da area through dis well just over dere. (Place the rope in your belt or hand and double click it to use it in front of the well)"
+queststatus(189) = 0, queststatus(712) = 17, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Speichern Sie das Bier I"), item(2760, 1, 566), queststatus(189) = 1, queststatus(712) = 18, "Arr!! Da sind Ratten im Lager und die saufen das Bier!!! So kann das nicht weitergehen, los töte 5 von ihnen für mich! Nimm dieses Seil und kletter damit in den Brunnen da drüben. (Nimm das Seil in die Hand oder lege ees an den Gürtel und klicke zweimal darauf, während du vor dem Brunnen stehst)"
+queststatus(189) = 0, queststatus(712) = 17, town = Galmair, "task", "adventure", "order" -> inform("[New quest] Save Da Beer I"), item(2760, 1, 566), queststatus(189) = 1, queststatus(712) = 18, "Arr!! Dere be rats in da storage and dey be drinkin' da beer!!! Go now and kill me 5, dis can not continue! Take dis rope and access da area through dis well just over dere. (Place the rope in your belt or hand and double click it to use it in front of the well)"
+queststatus(189) = 0, queststatus(712) = 17, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Speichern Sie das Bier I"), item(2760, 1, 566), queststatus(189) = 1, queststatus(712) = 18, "Arr!! Da sind Ratten im Lager und die saufen das Bier!!! So kann das nicht weitergehen, los töte 5 von ihnen für mich! Nimm dieses Seil und kletter damit in den Brunnen da drüben. (Nimm das Seil in die Hand oder lege ees an den Gürtel und klicke zweimal darauf, während du vor dem Brunnen stehst)"
+
+queststatus(189) = 0, english, town = Galmair,"quest", "mission" -> inform("[New quest] Save Da Beer I"), item(2760, 1, 566), queststatus(189) = 1, "Arr!! Dere be rats in da storage and dey be drinkin' da beer!!! Go now and kill me 5, dis can not continue! Take dis rope and access da area through dis well just over dere. (Place the rope in your belt or hand and double click it to use it in front of the well)"
+queststatus(189) = 0, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Speichern Sie das Bier I"), item(2760, 1, 566), queststatus(189) = 1, "Arr!! Da sind Ratten im Lager und die saufen das Bier!!! So kann das nicht weitergehen, los töte 5 von ihnen für mich! Nimm dieses Seil und kletter damit in den Brunnen da drüben. (Nimm das Seil in die Hand oder lege ees an den Gürtel und klicke zweimal darauf, während du vor dem Brunnen stehst)"
+queststatus(189) = 0, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer I"), item(2760, 1, 566), queststatus(189) = 1, "Arr!! Dere be rats in da storage and dey be drinkin' da beer!!! Go now and kill me 5, dis can not continue! Take dis rope and access da area through dis well just over dere. (Place the rope in your belt or hand and double click it to use it in front of the well)"
+queststatus(189) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Speichern Sie das Bier I"), item(2760, 1, 566), queststatus(19) = 1, "Arr!! Da sind Ratten im Lager und die saufen das Bier!!! So kann das nicht weitergehen, los töte 5 von ihnen für mich! Nimm dieses Seil und kletter damit in den Brunnen da drüben. (Nimm das Seil in die Hand oder lege ees an den Gürtel und klicke zweimal darauf, während du vor dem Brunnen stehst)"
+
+-- Quest 1 solved, reward: 2000cp, +5 rankpoints
+queststatus(189) = 6, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(189) = 7, rankpoints + 5, "#me takes a long drink of beer, 'Here is your reward, but there is more work to be done!"
+queststatus(189) = 6, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(187) = 7, rankpoints + 5, "#me nimmt einen ordentlichen Schluck Bier, 'Hier ist deine Belohnung, aber es gibt noch mehr Arbeit zu erledigen!'"
+
+-- Quest 1 taken but not solved, repeat the instructions
+queststatus(189) > 0, queststatus(189) < 6, english, town = Galmair, "quest", "mission" -> "The beer supply is in grave danger, hurry up and kill 5 rats."
+queststatus(189) > 0, queststatus(189) < 6, town = Galmair, "quest", "mission" -> "Der Bier Nachschub ist in ernster Gefahr, los beeil dich und töte 5 Ratten."
+queststatus(189) > 0, queststatus(189) < 6, town = Galmair, "task", "adventure" -> "The beer supply is in grave danger, hurry up and kill 5 rats."
+queststatus(189) > 0, queststatus(189) < 6, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Der Bier Nachschub ist in ernster Gefahr, los beeil dich und töte 5 Ratten."
+
+-- 2nd quest: Collect 10 rat furs
+-- Give out quest 2
+queststatus(189) = 7, english, town = Galmair, "quest", "mission" -> inform("[New quest] Save Da Beer II"), queststatus(189) = 8, "Arr!! Da Don is not pleased we have lost so much beer.  Go kill some more of da rats and bring me back 10 furs as evidence!"
+queststatus(189) = 7, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Speichern Sie das Bier II"), queststatus(189) = 8, "Arr!! Der Don wird über den Verlust von soviel Bier nicht glücklich sein. Los töte noch mehr von den Ratten und bringe mir 10 ihrer Felle als Beweis!"
+queststatus(189) = 7, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer II"), queststatus(189) = 8, "Arr!! Da Don is not pleased we have lost so much beer.  Go kill some more of da rats and bring me back 10 furs as evidence!"
+queststatus(189) = 7, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Speichern Sie das Bier II"), queststatus(189) = 8, "Arr!! Der Don wird über den Verlust von soviel Bier nicht glücklich sein. Los töte noch mehr von den Ratten und bringe mir 10 ihrer Felle als Beweis!"
+
+-- Quest 2 solved, reward: 2000cp, +5 rankpoints
+queststatus(189) = 8,  item(2586, all) > 9, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2586, 10), queststatus(189)= 9, rankpoints + 5, "Arr! The Don be happy your helping. Come back later for more work."
+queststatus(189) = 8,  item(2586, all) > 9, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(2586, 10), queststatus(189)= 9, rankpoints + 5, "Arr! Über deine Hilfe wird der Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
+
+-- Quest 2 taken but not solved, repeat the instructions
+queststatus(189) = 8, item(2586, all) < 10, town = Galmair, english, "quest", "mission" -> "I will not be paying you on your word alone, bring me those 10 rat furs."
+queststatus(189) = 8, item(2586, all) < 10, town = Galmair, "quest", "mission" -> "Ich werde dich nicht nur auf deine Aussage hin bezahlen, bring mir die 10 Rattenfelle."
+queststatus(189) = 8, item(2586, all) < 10, town = Galmair, "task", "adventure" -> "I will not be paying you on your word alone, bring me those 10 rat furs."
+queststatus(189) = 8, item(2586, all) < 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich werde dich nicht nur auf deine Aussage hin bezahlen, bring mir die 10 Rattenfelle."
+
+-- 3rd quest: Kill 10 Agressive Rats and Muskrats
+-- Give out quest 3
+queststatus(189) = 9, town = Galmair, english, "quest", "mission" -> inform("[New quest] Save Da Beer III"), queststatus(189) = 10, "Dere be ugly different kinds a rats down dere. Go kill 10 aggressive rats muskrats."
+queststatus(189) = 9, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Speichern Sie das Bier III"), queststatus(189) = 10, "Es gibt verschiedene hässliche Arten von Ratten da unten. Geh und töte jeweils 10 Aggressive Ratten und Bisamratten."
+queststatus(189) = 9, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer III"), queststatus(189) = 10, "Dere be ugly different kinds a rats down dere. Go kill 10 aggressive rats muskrats."
+queststatus(189) = 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Speichern Sie das Bier III"), queststatus(189) = 10, "Es gibt verschiedene hässliche Arten von Ratten da unten. Geh und töte jeweils 10 Aggressive Ratten und Bisamratten."
+
+-- Quest 3 solved, reward: 30 silver, +10 rankpoints
+queststatus(189) = 20, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, queststatus(189) = 21, rankpoints + 10, "Arr! The Don be happy your helping. Come back later for more work."
+queststatus(189) = 20, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, queststatus(189) = 21, rankpoints + 10, "Arr! Über deine Hilfe wird der Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
+
+-- Quest 3 taken but not solved, repeat the instructions
+queststatus(189) > 9, queststatus(189) < 20, town = Galmair, english, "quest", "mission" -> "I reckon ye aren't done with this yet.  Kill 10 agressive rats and muskrats!"
+queststatus(189) > 9, queststatus(189) < 20, town = Galmair, "quest", "mission" -> "Ich glaube nicht, dass du schon fertig bist. Töte zehn aggressive und zehn Bisamratten!"
+queststatus(189) > 9, queststatus(189) < 20, town = Galmair, "task", "adventure" -> "I reckon ye aren't done with this yet.  Kill 10 agressive rats and muskrats!"
+queststatus(189) > 9, queststatus(189) < 20, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich glaube nicht, dass du schon fertig bist. Töte zehn aggressive und zehn Bisamratten!"
+
+-- 4th quest collect 25 grain from cistern rats
+-- Giving out quest 4
+queststatus(189) = 21, english, town = Galmair, "quest", "mission" -> inform("[New quest] Save Da Beer IV"), queststatus(189) = 22, "Our farmers be demanding grain back so dey can make da beer! Gather 25 grain from dese here rats, for da beer!"
+queststatus(189) = 21, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Speichern Sie das Bier IV"), queststatus(189) = 22, "Unsere Bauern brauchen ihr Getreide zurück um mehr Bier zu brauen! Sammle 25 Bündel Getreide von den Ratten hier."
+queststatus(189) = 21, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer IV"), queststatus(189) = 22, "Our farmers be demanding grain back so dey can make da beer! Gather 25 grain from dese here rats, for da beer!"
+queststatus(189) = 21, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Speichern Sie das Bier IV"), queststatus(189) = 22, "Unsere Bauern brauchen ihr Getreide zurück um mehr Bier zu brauen! Sammle 25 Bündel Getreide von den Ratten hier."
+
+-- Quest 4 solved, 30 silver, +10 rankpoints
+queststatus(189) = 22, item(259, all) > 25, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, deleteItem(259, 25), queststatus(189) = 23, rankpoints + 10, "Arr! The Don be happy your helping. Come back later for more work."
+queststatus(189) = 22, item(259, all) > 25, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, deleteItem(259, 25), queststatus(189) = 23, rankpoints + 10, "Arr! Über deine Hilfe wird der Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
+
+-- Quest 4 taken but not finished
+queststatus(189) = 22, item(259, all) < 25, town = Galmair, english, "quest", "mission" -> "The farmers need 25 grain to make beer! Get to work!"
+queststatus(189) = 22, item(259, all) < 25, town = Galmair, "quest", "mission" -> "Die Bauern brauchen 25 Getreidebündel um Bier zu brauen! Ab an die Arbeit!"
+queststatus(189) = 22, item(259, all) < 25, town = Galmair, "task", "adventure" -> "The farmers need 25 grain to make beer! Get to work!"
+queststatus(189) = 22, item(259, all) < 25, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Die Bauern brauchen 25 Getreidebündel um Bier zu brauen! Ab an die Arbeit!"
+
+-- Quest 5 Kill 10 Sewer rats
+-- Give out quest 5
+queststatus(189) = 23, town = Galmair, english, "quest", "mission" -> inform("[New quest] Save Da Beer V"), queststatus(189) = 24, "To furder save our beer, kill 10 sewer rats."
+queststatus(189) = 23, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Speichern Sie das Bier V"), queststatus(189) = 24, "Um unser Bier auch weiterhin zu beschützen, töte 10 Kanalratten."
+queststatus(189) = 23, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer V"), queststatus(189) = 24, "To furder save our beer, kill 10 sewer rats."
+queststatus(189) = 23, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Speichern Sie das Bier V"), queststatus(189) = 24, "Um unser Bier auch weiterhin zu beschützen, töte 10 Kanalratten."
+
+-- Quest 5 solved, 30 silver, +10 rankpoints
+queststatus(189) = 34, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, queststatus(189) = 35, rankpoints + 10, "Arr! The Don be happy your helping. Come back later for more work."
+queststatus(189) = 34, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, queststatus(189) = 35, rankpoints + 10, "Arr! Über deine Hilfe wird der Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
+
+-- Quest 5 taken but not solved
+queststatus(189) > 23, queststatus(189) < 34, town = Galmair, english, "quest", "mission" -> "I reckon ye aren't done with this yet.  Kill 10 sewer rats!"
+queststatus(189) > 23, queststatus(189) < 34, town = Galmair, "quest", "mission" -> "Ich glaube nicht, dass du schon fertig bist. Töte zehn Kanalratten!"
+queststatus(189) > 23, queststatus(189) < 34, town = Galmair, "task", "adventure" -> "I reckon ye aren't done with this yet.  Kill 10 sewer rats!"
+queststatus(189) > 23, queststatus(189) < 34, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich glaube nicht, dass du schon fertig bist. Töte zehn Kanalratten!"
+
+-- Quest 6  Collect 10 raw leather
+-- Give out Quest 6
+queststatus(189) = 35, english, town = Galmair, "quest", "mission" -> inform("[New quest] Save Da Beer VI"), queststatus(189) = 36, "It has just come to me attention that many of da rats carry da plague, collect 10 raw leather from da plague rats to diminish their numbers."
+queststatus(189) = 35, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Speichern Sie das Bier VI"), queststatus(189) = 36, "Mir ist gerade aufgefallen das viele der Ratten hier die Pest haben, sammle 10 rohe Lede von den Pestratten hier um ihr Anzahl zu dezimieren."
+queststatus(189) = 35, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer VI"), queststatus(189) = 36, "It has just come to me attention that many of da rats carry da plague, collect 10 raw leather from da plague rats to diminish their numbers."
+queststatus(189) = 35, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Speichern Sie das Bier VI"), queststatus(189) = 36, "Mir ist gerade aufgefallen das viele der Ratten hier die Pest haben, sammle 10 rohe Lede von den Pestratten hier um ihr Anzahl zu dezimieren."
+
+-- Quest 6 solved, 30 silver, +15 rankpoints
+queststatus(189) = 36, item(69, all) > 9, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, deleteItem(69, 10), queststatus(189) = 37, rankpoints + 15, "Da beer supply be safe.  Me and da Don thanks ye!"
+queststatus(189) = 36, item(69, all) > 9, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, deleteItem(69, 10), queststatus(189) = 37, rankpoints + 15, "Arr!!! Das Bier ist gerettet, ich habe nichts mehr für dich zu tun."
+
+-- Quest 6 taken but not finished
+queststatus(189) = 36, item(69, all) < 25, town = Galmair, english, "quest", "mission" -> "Reduce da plague, and bring me 10 raw leather from da plague rats!"
+queststatus(189) = 36, item(69, all) < 25, town = Galmair, "quest", "mission" -> "Los, bring mir 10 rohe Leder von den Pestratten!"
+queststatus(189) = 36, item(69, all) < 25, town = Galmair, "task", "adventure" -> "Reduce da plague, and bring me 10 raw leather from da plague rats!"
+queststatus(189) = 36, item(69, all) < 25, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Los, bring mir 10 rohe Leder von den Pestratten!"
+
+-- No more quests, just nice words of gratitude
+queststatus(189) = 37, town = Galmair, english, "quest", "mission" -> "Arr!!! Da beer be safe, I have no more work for you."
+queststatus(189) = 37, town = Galmair, "quest", "mission" -> "Arr!!! Das Bier ist gerettet, ich habe nichts mehr für dich zu tun."
+queststatus(189) = 37, town = Galmair, "task", "adventure" -> "Arr!!! Da beer be safe, I have no more work for you."
+queststatus(189) = 37, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Arr!!! Das Bier ist gerettet, ich habe nichts mehr für dich zu tun."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "Meh job is Beer Supply Quartermaster.  Its a special task from the Don himself!"
+"beruf" -> "Von Beruf bin ich der Quartiermeister für's Bierlager. Das is nen Spezialauftrag vom Don persönlich!"
+english, "job" -> "Meh job is Beer Supply Quartermaster.  Its a special task from the Don himself!"
+"job" -> "Von Beruf bin ich der Quartiermeister für's Bierlager. Das is nen Spezialauftrag vom Don persönlich!"
+"rat" -> "The rats, they be taken me ... I mean da Don's beer!"
+"ratten" -> "Dir Ratten, sie haben mein Bier.... meine das Bier des Don's gestohlen!"
+"Beer" -> "Beer!!  Arr!! There be always room for one more."
+"Bier" -> "Bier!!! Arr!! Es ist immer Platz für noch eins."
+"my name" -> "Arr!! Call me Fokous, Fokous Onyxbrow."
+"mein Name" -> "Arr!! Ich bin Fokous, Fokous Onyxbrow."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+english, "Nargun" -> "Arr!! Nargun has sent rats into the well!"
+"Nargun" -> "Arr!! Nargun hat uns Ratten in den Brunnen geschickt!"
+english, "Irmorom" -> "All honour Irmorom our father."
+"Irmorom" -> "Alle Ehre für Irmorom unseren Vater."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I'm not a trader. You can give me your money, though."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler. Ihr könnt mir aber trotzdem euer Gold geben."
+"tell something" -> "Leave me alone."
+"erzähl was", "erzähl etwas" ->  "Haut ab."
+
+-- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Bald kann ich unten kommen um aus diesem fürchterlichen Wetter herauszukommen.", "Soon, I can get below to get out of this awful weather!"
+cycletext "#me grummelt und schaut auf seinen leeren Bierkrug.", "#me grumbles and stares at his empty beer mug."
+cycletext "Läuse und Ungeziefer jucken mich nicht!", "Lice and vermin don't bother me!"
+cycletext "Wenn der Don das herausfindet wird er all mein Gold wollen!", "The Don will have my gold if he finds out about this!"
+cycletext "#me kratzt sich am Bart und einige Läuse springen heraus.", "#me scratches his beard and some lice jumps out."
+cycletext "#me nimmt einen großzügien Schluck aus der Bierflasche.", "#me drinks heartily from a bottle of beer."
+cycletext "#me rülpst laut.", "#me belches loudly."
+cycletext "#me nimmt einen großen Schluck Bier und wischt sich den Mund mit dem Ärmel ab.", "#me wipes the sleeve of his coat over his mouth after taking a large drink of beer."
+cycletext "#me verschüttet etwas Bier und flucht laut in irgendeinem alten Zwergendialekt.", "#me spills his beer and begins swearing loudly in some old dwarven dialect."
+cycletext "Arr! Ich brauche mehr Bier!", "Arr!! Me needs more beer!"

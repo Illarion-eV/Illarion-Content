@@ -172,19 +172,28 @@ queststatus(712) = 15, town = Galmair, "quest", "mission" -> "Pipillo hat nach d
 queststatus(712) = 15, town = Galmair, "task", "adventure", "order" -> "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
 queststatus(712) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe."
 
--- All done
-queststatus(712) = 16, english, town = Galmair, "quest", "mission" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
-queststatus(712) = 16, town = Galmair, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
-queststatus(712) = 16, town = Galmair, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
-queststatus(712) = 16, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
+-- Fokous Onyxbrow
+queststatus(712) = 16, english, town = Galmair, "quest", "mission" -> queststatus(712) = 17, "Fokous Onyxbrow probably has a task for you.  Search for him in the marketplace of Galmair and ask him for a task."
+queststatus(712) = 16, town = Galmair, "quest", "mission" -> queststatus(712) = 17, "Fokous Onyxbrow hat vielleicht eine Aufgabe für dich. Suche ihn am Marktplatz von Galmair und frag, was du für ihn tun kannst."
+queststatus(712) = 16, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 17, "Fokous Onyxbrow probably has a task for you.  Search for him in the marketplace of Galmair and ask him for a task."
+queststatus(712) = 16, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 17, "Fokous Onyxbrow hat vielleicht eine Aufgabe für dich. Suche ihn am Marktplatz von Galmair und frag, was du für ihn tun kannst."
+queststatus(712) = 17, english, town = Galmair, "quest", "mission" -> "Fokous Onyxbrow probably has a task for you.  Search for him in the marketplace of Galmair and ask him for a task."
+queststatus(712) = 17, town = Galmair, "quest", "mission" -> "Fokous Onyxbrow hat vielleicht eine Aufgabe für dich. Suche ihn am Marktplatz von Galmair und frag, was du für ihn tun kannst.."
+queststatus(712) = 17, town = Galmair, "task", "adventure", "order" -> "Fokous Onyxbrow probably has a task for you.  Search for him in the marketplace of Galmair and ask him for a task."
+queststatus(712) = 17, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Fokous Onyxbrow hat vielleicht eine Aufgabe für dich. Suche ihn am Marktplatz von Galmair und frag, was du für ihn tun kannst."
 
-queststatus(712) < 16, english, town = Galmair, ".*" -> "I could use some help, just ask me for a task."
-queststatus(712) < 16, german, town = Galmair, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
+-- All done
+queststatus(712) = 18, english, town = Galmair, "quest", "mission" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
+queststatus(712) = 18, town = Galmair, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
+queststatus(712) = 18, town = Galmair, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
+queststatus(712) = 18, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
+
+queststatus(712) < 18, english, town = Galmair, ".*" -> "I could use some help, just ask me for a task."
+queststatus(712) < 18, german, town = Galmair, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, town = Galmair, ".*" -> "I don't have anything for you to do.", "Have a good day!", "There is nothing you can do for me but go forward and prosper."
-german, town = Galmair, ".*" -> "Ich habe nichts für Euch zu tun.", "Ich wünsche euch einen schönen Tag.", "Es gibt nichts, was Ihr tun könntet für mich. Möge euch Wohlstand anheim fallen."
-
+english, chance(20.0), town = Galmair, ".*" -> "I don't have anything for you to do.", "Have a good day!", "There is nothing you can do for me but go forward and prosper."
+german, chance(20.0), town = Galmair, ".*" -> "Ich habe nichts für Euch zu tun.", "Ich wünsche euch einen schönen Tag.", "Es gibt nichts, was Ihr tun könntet für mich. Möge euch Wohlstand anheim fallen."
 english, chance(20.0), ".*" -> "You are not a citizen of Galmair. I don't have anything for you to do."
 german, chance(20.0), ".*" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
 

@@ -63,8 +63,12 @@ Description[GERMAN][14] = "Geh zu Jakob Lindorn beim Teleporter in Cadomyr, er h
 Description[ENGLISH][14] = "Go to Jakob Lindorn at the teleporter of Cadomyr, he is sure to have another task for you."
 Description[GERMAN][15] = "Such Evera in das Tor und hilf ihr, wenn sie eine Aufgabe für dich hat."
 Description[ENGLISH][15] = "Search for Evera inside the gate and help her if she has a task for you."
-Description[GERMAN][16] = "Du hast alle Aufgaben von Jakob Lindorn erfüllt."
-Description[ENGLISH][16] = "You have fulfilled all the tasks for Jakob Lindorn."
+Description[GERMAN][16] = "Geh zu Jakob Lindorn beim Teleporter in Cadomyr, er hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][16] = "Go to Jakob Lindorn at the teleporter of Cadomyr, he is sure to have another task for you."
+Description[GERMAN][17] = "Finde Jeremiah Horanfeld, den Schädlingswächter und frag ihn, ob er eine Aufgabe für dich hat. Jeremiah hält sich oft in Cadomyr Marktplatzes auf."
+Description[ENGLISH][17] = "Find Jeremiah Horanfeld, the vermin monitor and ask him if he has a task for you. Jeremiah can be often found in the marketplace in Cadomyr."
+Description[GERMAN][18] = "Du hast alle Aufgaben von Jakob Lindorn erfüllt."
+Description[ENGLISH][18] = "You have fulfilled all the tasks for Jakob Lindorn."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 Start = {124, 649, 0}
@@ -87,9 +91,11 @@ QuestTarget[13] = {position(124, 649, 0), position(106, 553, 0)} -- Reret Odohir
 QuestTarget[14] = {position(124, 649, 0)}
 QuestTarget[15] = {position(124, 649, 0), position(139, 622, 0)} -- Evera
 QuestTarget[16] = {position(124, 649, 0)}
+QuestTarget[17] = {position(124, 649, 0), position(104, 600, 0)} -- Jeremiah Horanfeld
+QuestTarget[18] = {position(124, 649, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 16
+FINAL_QUEST_STATUS = 18
 
 
 function QuestTitle(user)

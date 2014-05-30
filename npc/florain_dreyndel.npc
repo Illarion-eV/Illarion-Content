@@ -194,17 +194,28 @@ queststatus(820) = 19, "quest", "mission" -> "Phillibald hat nach dir gefragt. S
 queststatus(820) = 19, "task", "adventure", "order" -> "Phillibald was looking for you. Search for him in the Library of Air and ask him for a task."
 queststatus(820) = 19, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Phillibald hat nach dir gefragt. Suche er in der  Bibliothek der Luft und frag er nach einer Aufgabe."
 
+-- Cilivren Itiireae
+queststatus(820) = 20, english, "quest", "mission" -> queststatus(820) = 21, "See Cilivren Itiireae and ask her for a task.  She can be found south of the fields."
+queststatus(820) = 20, "quest", "mission" -> queststatus(820) = 21, "Gehe zu Cilivren Itiireae und frag sie nach einer Aufgabe. Sie kann südlich der Felder gefunden werden."
+queststatus(820) = 20, "task", "adventure", "order" -> queststatus(820) = 21, "See Cilivren Itiireae and ask her for a task.  She can be found south of the fields."
+queststatus(820) = 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 21, "Gehe zu Cilivren Itiireae und frag sie nach einer Aufgabe. Sie kann südlich der Felder gefunden werden."
+queststatus(820) = 21, english, "quest", "mission" -> "See Cilivren Itiireae and ask her for a task.  She can be found south of the fields."
+queststatus(820) = 21, "quest", "mission" -> "Gehe zu Cilivren Itiireae und frag sie nach einer Aufgabe. Sie kann südlich der Felder gefunden werden."
+queststatus(820) = 21, "task", "adventure", "order" -> "See Cilivren Itiireae and ask her for a task.  She can be found south of the fields."
+queststatus(820) = 21, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gehe zu Cilivren Itiireae und frag sie nach einer Aufgabe. Sie kann südlich der Felder gefunden werden."
+
 -- All done
-queststatus(820) = 20, english, "quest", "mission" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
-queststatus(820) = 20, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
-queststatus(820) = 20, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
-queststatus(820) = 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
+queststatus(820) = 22, english, "quest", "mission" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
+queststatus(820) = 22, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
+queststatus(820) = 22, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
+queststatus(820) = 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, ".*" -> "I cannot help you with that. Why not ask Elesil Daelwon over there, I'm sure she has the answer."
-german, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Elesil Daelwon dort drüben, ich bin mir sicher sie hat eine Antwort."
--- english, ".*" -> "I cannot help you with that. Why not ask a fellow citizen you meet, I'm sure someone has the answer."
--- german, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht einen anderen Bürger, ich bin mir sicher das jemand eine Antwort hat."
+english, chance(20.0), town = Runewick, ".*" -> "I cannot help you with that. Why not ask a fellow citizen you meet, I'm sure someone has the answer."
+german, chance(20.0), town = Runewick, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht einen anderen Bürger, ich bin mir sicher das jemand eine Antwort hat."
+english, chance(20.0), ".*" -> "I cannot help you with that. Why not ask Elesil Daelwon over there, I'm sure she has the answer."
+german, chance(20.0), ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Elesil Daelwon dort drüben, ich bin mir sicher sie hat eine Antwort."
+
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -218,4 +229,3 @@ cycletext "Wenn Ihr neu hier seid, bin ich Euer Mann.", "If you're new to this r
 cycletext "Runewick, Stadt des Wissens und der Weisheit.", "Runewick, town of knowledge and wisdom."
 cycletext "Wir sind ein Reich von gutmütigen und aufrichtigen Leuten, ich bin mir sicher, dass Ihr es hier mögen werdet.", "We are a realm of just and kind people, I'm sure you will enjoy it here."
 cycletext "#me nickt den Umstehenden freundlich zu.", "#me nods friendly to the nearby people."
-
