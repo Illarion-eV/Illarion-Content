@@ -92,7 +92,7 @@ buySecondaryItems = 2
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you!", "#me smiles, 'Greetings'", "Good day, how can I help you?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt!", "#me lächlet: 'Grüße'", "Guten Tag, wie kann ich euch helfen?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt!", "#me lächelt: 'Grüße'", "Guten Tag, wie kann ich euch helfen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello hello!", "Good day, how can I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo hallo!", "Guten Tag, wie kann ich euch helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell!", "See you soon again.", "#me waves: 'Have a good day!'"
@@ -131,9 +131,9 @@ queststatus(205) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befeh
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(205) = 1, english, town = Runewick, "quest", "mission" -> "Just drop whatever you do not need or want here on the field to donate it to the treasury. It is not difficult to make Runewick a better place!"
-queststatus(205) = 1, town = Runewick, "quest", "mission" -> "Werft das was ihr nicht braucht oder was ihr spenden wollt hier auf das Feld. Es ist nicht schwer Runewick zu einem bessren Ort zu machen!"
+queststatus(205) = 1, town = Runewick, "quest", "mission" -> "Werft das was ihr nicht braucht oder was ihr spenden wollt hier auf das Feld. Es ist nicht schwer Runewick zu einem besseren Ort zu machen!"
 queststatus(205) = 1, town = Runewick, "task", "adventure", "order" -> "Just drop whatever you do not need or want here on the field to donate it to the treasury. It is not difficult to make Runewick a better place!"
-queststatus(205) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Werft das was ihr nicht braucht oder was ihr spenden wollt hier auf das Feld. Es ist nicht schwer Runewick zu einem bessren Ort zu machen!"
+queststatus(205) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Werft das was ihr nicht braucht oder was ihr spenden wollt hier auf das Feld. Es ist nicht schwer Runewick zu einem besseren Ort zu machen!"
 
 -- Quest 1 solved, reward: +20 rankpoints
 queststatus(205) = 2, english, town = Runewick, ".*" -> inform("[Quest solved] Neiran is satisfied."), queststatus(205) = 3, rankpoints + 20, "Thank you for your help!", "Thank you for your support!"
@@ -162,15 +162,15 @@ english, "job" -> "I am the guard here. I guard the donation platform.", "I tell
 "Spendenplattform", "spende", "plattform" -> "Das ist keine Müllkippe! Das ist die Spendenplattform, hier könnt ihr einen Teil eures Reichtums zum Wohle Runewicks spenden!"
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "I follow the five Elder Gods, they created Illarion."
-"Gott", "Götter" -> "Ich folge den fünf alten Göttern, sie erschufen Illarion."
+"god" -> "I follow the five Elder Gods, they created the world."
+"Gott", "Götter" -> "Ich folge den fünf alten Göttern, sie erschufen die Welt."
 english, "religion" -> "We elves pray to the five Elder Gods."
 "religion" -> "Wir Elfen beten zu den fünf alten Göttern."
 "faith" -> "We elves pray to the five Elder Gods."
 "Glaube" -> "Wir Elfen beten zu den fünf alten Göttern."
 
 -- Optional: Faction stuff
-"archmage" -> "The Archmage is a wise man.", "The Archmage is called Elvain Morgan.", "Thanks to the Archmage we have this donation platform where citizens can donate part of their wealth."
+"archmage" -> "The Archmage is a wise man.", "The Archmage is called Elvaine Morgan.", "Thanks to the Archmage we have this donation platform where citizens can donate part of their wealth."
 "Erzmagier" -> "Der Erzmagier ist ein weiser Mann.", "Der Erzmagier heißt Elvaine Morgan.", "Dank des Erzmagiers haben wir diese Spendenplattform in dem Bürger einen Teil ihres Reichtums spenden können."
 english, "Elvaine", "Morgan" -> "Elvaine Morgan is a wise man.", "Elvaine Morgan is the Archmage.", "Thanks to the Archmage we have this donation platform where citizens can donate part of their wealth."
 "Elvaine", "Morgan" -> "Elvaine Morgan ist ein weiser Mann.", "Elvaine Morgan ist der Erzmagier.", "Dank des Erzmagiers haben wir diese Spendenplattform in dem Bürger einen Teil ihres Reichtums spenden können."
@@ -203,7 +203,7 @@ english, "Gobaith", "Gobiath" -> " I've never been to this place.", "It was...a 
 "my name" -> "Nice to meet you! ", "Good to see you!", "#me smiles friendly."
 "mein Name" -> "Feut mich!", "Schön euch zu treffen!", "#me lächelt freundlich."
 english, "Neiran", "el Nyarale", "Nyarale" -> "That's me. How can I help you?", "#me raises a hand and waves.", "#me looks around, 'Who called for me?'", "#me smiles friendly"
-"Neiran", "el Nyarale", "Nyarale" -> "Das bin ich. Was kann ich für Euch tun?", "#me hebt eine Hand und winkt.", "#me bickt sich um: 'Wer rief nach mir?'", "#me lächelt freundlich."
+"Neiran", "el Nyarale", "Nyarale" -> "Das bin ich. Was kann ich für Euch tun?", "#me hebt eine Hand und winkt.", "#me blickt sich um: 'Wer rief nach mir?'", "#me lächelt freundlich."
 "Yes" -> "#me nods slowly.", "#me smiles.", "I am happy to hear you say so!"
 "Ja" -> "#me nickt langsam.", "#me lächelt.", "Es freut mich, dass ihr das sagt.."
 "No" -> "I didn't expect that answer.", "#me raises an eyebrow.", "I shall give you some more time to consider your answer, but at the moment you seem to be...still inexperienced."
