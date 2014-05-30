@@ -38,7 +38,7 @@ autointroduce = on
 
 author = "merung"
 
-lookatDE = "Dieser NPC ist Vallaria Medrota der Heilerin und Alchemielehrerin."
+lookatDE = "Dieser NPC ist Vallaria Medrota die Heilerin und Alchemielehrerin."
 lookatUS = "This NPC is Vallaria Medrota the healer and alchemy teacher."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -85,19 +85,19 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell", "Goodbye.", "Hav
 
 -- tasks-- leraning recipes
 english, "quest", "mission" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
-"quest", "mission" -> "Wenn Ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
+"quest", "mission" -> "Wenn Ihr ein die richtige Herstellung eines Tranks lernen wollt, schaut hier auf die Liste auf meinem Tisch."
 "task", "adventure", "order", "recipe", "learn", "lesson" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "lernen", "Unterricht" -> "Wenn Ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "lernen", "Unterricht" -> "Wenn Ihr ein die richtige Herstellung eines Tranks lernen wollt, schaut hier auf die Liste auf meinem Tisch."
 
 -- small talk
 "profession" -> "I am a healer and I can teach you some helpful alchemical recipes, if you are also an alchemist."
-"beruf" -> "Ich bin Heilerin und kann Euch einige nützliche Rezepzte lehren, wenn Ihr auch ein Alchemist seid."
+"beruf" -> "Ich bin Heilerin und kann Euch einige nützliche Rezepte lehren, wenn Ihr auch ein Alchemist seid."
 english, "job" -> "I am a healer and I can teach you some helpful alchemical recipes, if you are one of us."
-"job" -> "Ich bin Heilerin und kann Euch einige nützliche Rezepzte lehren, wenn Ihr auch ein Alchemist seid."
+"job" -> "Ich bin Heilerin und kann Euch einige nützliche Rezepte lehren, wenn Ihr auch ein Alchemist seid."
 "tell something" -> "How about you tell me something?"
-"erzähl was", "erzähl etwas" -> "Erzhält Ihr mir doch was."
+"erzähl was", "erzähl etwas" -> "Erzählt Ihr mir doch was."
 english, "druid" -> "Druids are actually rather strange people. Most of them are excellent alchemists, true. But well. They indeed have some mazy ideas: spirits of nature, will of nature and all those things."
-"druid" -> "Druiden sind schon ein sonderbarer Schlag. Die meisten von ihnen sind zwar exellente Alchemisten, aber nun ja. Sie haben doch schon recht wirre Ideen: Naturgeister, Wille der Natur und all sowas."
+"druid" -> "Druiden sind schon ein sonderbarer Schlag. Die meisten von ihnen sind zwar exzellente Alchemisten, aber nun ja. Sie haben doch schon recht wirre Ideen: Naturgeister, Wille der Natur und all sowas."
 english, "alchemy", "alchemist" -> "Alchemists are masters of potions, have profound knowledge about the herbs, and are keen observer of the world."
 "alchemie", "alchimi", "alchemist" -> "Alchemisten sind Meister der Tränke, Kenner der Kräuter und gute Beobachter der Welt."
 "heal", "medicine", "medical" -> "Medicine. If you know the art of creating medicine very well, you can fight against all diseases."
@@ -135,6 +135,6 @@ cycletext "#me sortiert einige Kräuter.", "#me sorts some herbs."
 cycletext "#me beschriftet eine Flasche.", "#me labels a bottle."
 cycletext "#me füllt einen Trank ab.", "#me fills a potion into a bottle."
 cycletext "#me lässt einen Rubin fallen und hebt ihn seufzend wieder auf.", "#me drops a ruby and picks it up with a sigh."
-cycletext "Adrazin...Adrazin...immwer wieder Adrazin!", "Adrazin...Adrazin...and again: Adrazin!"
+cycletext "Adrazin...Adrazin...immer wieder Adrazin!", "Adrazin...Adrazin...and again: Adrazin!"
 cycletext "Das nächste mal sollte ich darauf achten, was ich in den Kessel tue.", "Next time, I should take care what I fill into the cauldron."
 cycletext "Jemand, der noch nie was zum explodieren gebracht hat, ist kein richtiger Alchemist.", "Someone who has never caused an explosion can hardly be called an alchemist."
