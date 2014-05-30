@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --Teleporters in the Salavesh Dungeon
 --Estralis Seborian
@@ -23,8 +23,10 @@ module("triggerfield.salavesh_teleport", package.seeall)
 
 function MoveToField( User )
 
- if User:getType() == 0 then --monsters are unaffected
- 
+	if User:getType() ~= Character.player then
+		return
+	end
+
     if User.pos == position(731,441,-3) then --To the dragon chamber
         base.common.InformNLS(User,"Du trittst durch das Portal. Eine wohlmöglich schlechte Idee!","You step through the portal. A bad idea!"); --sending a message
 	    world:gfx(41,User.pos);
@@ -52,7 +54,5 @@ function MoveToField( User )
         world:gfx(41,User.pos);
         world:makeSound(13,User.pos);
 	end
-	
- end
- 
+
 end
