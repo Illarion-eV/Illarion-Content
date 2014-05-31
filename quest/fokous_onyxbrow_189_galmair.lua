@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (187, 'quest.fokous_onyxbrow_189_galmair');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (189, 'quest.fokous_onyxbrow_189_galmair');
 
 require("base.common")
 require("base.factions")
