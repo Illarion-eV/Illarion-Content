@@ -2158,8 +2158,8 @@ function iniQuests()
     englishTitle[id]="Vermin Monitor";
     NPCName[id]="Jeremiah Horanfeld";
     statusId[id]=187;
-    germanRace[id]="rat";
-    englishRace[id]="ratten";
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
 	table.insert(questList[1111],id); --Rat
 	table.insert(questList[1112],id); --Small Rat
 	minimumQueststatus[id]=1;
@@ -2173,9 +2173,9 @@ function iniQuests()
     englishTitle[id]="Vermin Monitor";
     NPCName[id]="Jeremiah Horanfeld";
     statusId[id]=187;
-    germanRace[id]="rat";
-    englishRace[id]="ratten";
-	table.insert(questList[1113],id); --Agressive Rat
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1113],id); --Aggressive Rat
 	table.insert(questList[1114],id); --Muskrat Rat
 	minimumQueststatus[id]=10;
     maximumQueststatus[id]=20;
@@ -2188,8 +2188,8 @@ function iniQuests()
     englishTitle[id]="Vermin Monitor";
     NPCName[id]="Jeremiah Horanfeld";
     statusId[id]=187;
-    germanRace[id]="rat";
-    englishRace[id]="ratten";
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
 	table.insert(questList[1116],id); --Sewer Rat
 	minimumQueststatus[id]=24;
     maximumQueststatus[id]=34;
@@ -2198,12 +2198,12 @@ function iniQuests()
 
 	--Quest 95: Save The Field
 	local id=95;
-    germanTitle[id]="Sie das Feld";
+    germanTitle[id]="Rette die Äcker";
     englishTitle[id]="Save The Field";
     NPCName[id]="Cilivren Itiireae";
     statusId[id]=188;
-    germanRace[id]="rat";
-    englishRace[id]="ratten";
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
 	table.insert(questList[1111],id); --Rat
 	table.insert(questList[1112],id); --Small Rat
 	minimumQueststatus[id]=1;
@@ -2213,13 +2213,13 @@ function iniQuests()
 
 	--Quest 96: Save The Field
 	local id=96;
-    germanTitle[id]="Sie das Feld";
+    germanTitle[id]="Rette die Äcker";
     englishTitle[id]="Save The Field";
     NPCName[id]="Cilivren Itiireae";
     statusId[id]=188;
-    germanRace[id]="rat";
-    englishRace[id]="ratten";
-	table.insert(questList[1113],id); --Agressive Rat
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1113],id); --Aggressive Rat
 	table.insert(questList[1114],id); --Muskrat Rat
 	minimumQueststatus[id]=10;
     maximumQueststatus[id]=20;
@@ -2228,12 +2228,12 @@ function iniQuests()
 
 	--Quest 97: Save The Field
 	local id=97;
-    germanTitle[id]="Sie das Feld";
+    germanTitle[id]="Rette die Äcker";
     englishTitle[id]="Save The Field";
     NPCName[id]="Cilivren Itiireae";
     statusId[id]=188;
-    germanRace[id]="rat";
-    englishRace[id]="ratten";
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
 	table.insert(questList[1116],id); --Sewer Rat
 	minimumQueststatus[id]=24;
     maximumQueststatus[id]=34;
@@ -2242,12 +2242,12 @@ function iniQuests()
 
 	--Quest 98: Save Da Beer
 	local id=98;
-    germanTitle[id]="Sie das Bier";
+    germanTitle[id]="Rette das Bierlager";
     englishTitle[id]="Save Da Beer";
     NPCName[id]="Fokous Onyxbrow";
     statusId[id]=189;
-    germanRace[id]="rat";
-    englishRace[id]="ratten";
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
 	table.insert(questList[1111],id); --Rat
 	table.insert(questList[1112],id); --Small Rat
 	minimumQueststatus[id]=1;
@@ -2257,13 +2257,13 @@ function iniQuests()
 
 	--Quest 99: Save Da Beer
 	local id=99;
-    germanTitle[id]="Sie das Bier";
+    germanTitle[id]="Rette das Bierlager";
     englishTitle[id]="Save Da Beer";
     NPCName[id]="Fokous Onyxbrow";
     statusId[id]=189;
-    germanRace[id]="rat";
-    englishRace[id]="ratten";
-	table.insert(questList[1113],id); --Agressive Rat
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1113],id); --Aggressive Rat
 	table.insert(questList[1114],id); --Muskrat Rat
 	minimumQueststatus[id]=10;
     maximumQueststatus[id]=20;
@@ -2272,12 +2272,12 @@ function iniQuests()
 
 	--Quest 100: Save Da Beer
 	local id=100;
-    germanTitle[id]="Sie das Bier";
+    germanTitle[id]="Rette das Bierlager";
     englishTitle[id]="Save Da Beer";
     NPCName[id]="Fokous Onyxbrow";
     statusId[id]=189;
-    germanRace[id]="rat";
-    englishRace[id]="ratten";
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
 	table.insert(questList[1116],id); --Sewer Rat
 	minimumQueststatus[id]=24;
     maximumQueststatus[id]=34;
