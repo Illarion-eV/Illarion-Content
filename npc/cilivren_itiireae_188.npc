@@ -81,7 +81,7 @@ itemShoes = 697
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Cilivren Itiireae, the Guardian of the Fields. Keywords: Hello, rats, quest, knowledge.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Cilivren Itiireae, the Wächter der Felder. Schlüsselwörter: Hallo, ratten, Quest, Wissen.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Cilivren Itiireae, the Wächter der Felder. Schlüsselwörter: Hallo, Ratten, Quest, Wissen.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be Greeted."
@@ -99,17 +99,17 @@ english, "Ciao", "Adieu", "Au revoir" -> "May the five guide you."
 
 -- Catching quest triggers of other factions' members.
 english, town = none, "quest", "mission" -> "Only those from the realm of wisdom will find work here."
-town = none, "quest", "mission" -> "Nur Jene aus dem Reich der Wahrheit werden hier etwas zu tun finden."
+town = none, "quest", "mission" -> "Nur Jene aus dem Reich der Weisheit werden hier etwas zu tun finden."
 town = none, "task", "adventure", "order"-> "Only those from the realm of wisdom will find work here."
-town = none, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nur Jene aus dem Reich der Wahrheit werden hier etwas zu tun finden."
+town = none, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nur Jene aus dem Reich der Weisheit werden hier etwas zu tun finden."
 english, town = Cadomyr, "quest", "mission" -> "Only those from the realm of wisdom will find work here."
-town = Cadomyr, "quest", "mission" -> "Nur Jene aus dem Reich der Wahrheit werden hier etwas zu tun finden."
+town = Cadomyr, "quest", "mission" -> "Nur Jene aus dem Reich der Weisheit werden hier etwas zu tun finden."
 town = Cadomyr, "task", "adventure", "order" -> "Only those from the realm of wisdom will find work here."
-town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nur Jene aus dem Reich der Wahrheit werden hier etwas zu tun finden."
+town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nur Jene aus dem Reich der Weisheit werden hier etwas zu tun finden."
 english, town = Galmair, "quest", "mission" -> "Only those from the realm of wisdom will find work here."
-town = Galmair, "quest", "mission" -> "Nur Jene aus dem Reich der Wahrheit werden hier etwas zu tun finden."
+town = Galmair, "quest", "mission" -> "Nur Jene aus dem Reich der Weisheit werden hier etwas zu tun finden."
 town = Galmair, "task", "adventure", "order" -> "Only those from the realm of wisdom will find work here."
-town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nur Jene aus dem Reich der Wahrheit werden hier etwas zu tun finden."
+town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nur Jene aus dem Reich der Weisheit werden hier etwas zu tun finden."
 
 .--- fix if quest started and sent to NPC by Florian
 queststatus(188) > 0, queststatus(820) = 21, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 22, "Ah Florain sent you but you already asked me for something to do."
@@ -119,19 +119,19 @@ queststatus(188) > 0, queststatus(820) = 21, town = Runewick, "Auftrag", "Aufgab
 
 -- 1st quest: Kill 5 rats, player receives rope
 -- Give out quest 1 and a rope
-queststatus(188) = 0, queststatus(820) = 21, english, town = Runewick, "quest", "mission" -> inform("[New quest] Save The Field I"), item(2760, 1, 566), queststatus(188) = 1, queststatus(820) = 22, "The rats are carrying off the farmers crops, please descend into the cursed well they have taken over and kill 5 rats.  I will provide you with a rope. (Place the rope in your belt or hand and double click it to use it in front of the well)."
-queststatus(188) = 0, queststatus(820) = 21, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Sparen Sie das Feld I"), item(2760, 1, 566), queststatus(188) = 1, queststatus(820) = 22, "Die Ratten verschleppen die Ernte der Bauern. Bitte steige in diesen verfluchten Schacht hinab und töte 5 Ratten, da sie überhand genommen haben. (Lege das Seil in deinen Gürtel oder in die Hand und doppelklicke darauf um es zu benutzen)."
-queststatus(188) = 0, queststatus(820) = 21, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Save The Field  I"), item(2760, 1, 566), queststatus(188) = 1, queststatus(820) = 22, "The rats are carrying off the farmers crops, please descend into the cursed well they have taken over and kill 5 rats.  I will provide you with a rope. (Place the rope in your belt or hand and double click it to use it in front of the well)."
-queststatus(188) = 0, queststatus(820) = 21, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Sparen Sie das Feld I"), item(2760, 1, 566), queststatus(188) = 1, queststatus(820) = 22, "Die Ratten verschleppen die Ernte der Bauern. Bitte steige in diesen verfluchten Schacht hinab und töte 5 Ratten, da sie überhand genommen haben. (Lege das Seil in deinen Gürtel oder in die Hand und doppelklicke darauf um es zu benutzen)."
+queststatus(188) = 0, queststatus(820) = 21, english, town = Runewick, "quest", "mission" -> inform("[New quest] Save The Field I. (Place the rope in your belt or hand and double click it to use it in front of the well)"), item(2760, 1, 566), queststatus(188) = 1, queststatus(820) = 22, "The rats are carrying off the farmers crops, please descend into the cursed well they have taken over and kill 5 rats. I will provide you with a rope."
+queststatus(188) = 0, queststatus(820) = 21, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Rette die Äcker I. (Lege das Seil in deinen Gürtel oder in die Hand und doppelklicke darauf um es zu benutzen)"), item(2760, 1, 566), queststatus(188) = 1, queststatus(820) = 22, "Die Ratten verschleppen die Ernte der Bauern. Bitte steige in diesen verwünschten Schacht hinab und töte 5 Ratten, da sie überhand genommen haben."
+queststatus(188) = 0, queststatus(820) = 21, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Save The Field I. (Place the rope in your belt or hand and double click it to use it in front of the well)"), item(2760, 1, 566), queststatus(188) = 1, queststatus(820) = 22, "The rats are carrying off the farmers crops, please descend into the cursed well they have taken over and kill 5 rats. I will provide you with a rope."
+queststatus(188) = 0, queststatus(820) = 21, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Rette die Äcker I. (Lege das Seil in deinen Gürtel oder in die Hand und doppelklicke darauf um es zu benutzen)"), item(2760, 1, 566), queststatus(188) = 1, queststatus(820) = 22, "Die Ratten verschleppen die Ernte der Bauern. Bitte steige in diesen verwünschten Schacht hinab und töte 5 Ratten, da sie überhand genommen haben."
 
-queststatus(188) = 0, english, town = Runewick,"quest", "mission" -> inform("[New quest] Save The Field I"), item(2760, 1, 566), queststatus(188) = 1, "The rats are carrying off the farmers crops, please descend into the cursed well they have taken over and kill 5 rats.  I will provide you with a rope. (Place the rope in your belt or hand and double click it to use it in front of the well)."
-queststatus(188) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Sparen Sie das Feld I"), item(2760, 1, 566), queststatus(188) = 1, "Die Ratten verschleppen die Ernte der Bauern. Bitte steige in diesen verfluchten Schacht hinab und töte 5 Ratten, da sie überhand genommen haben. (Lege das Seil in deinen Gürtel oder in die Hand und doppelklicke darauf um es zu benutzen)."
-queststatus(188) = 0, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Field I"), item(2760, 1, 566), queststatus(188) = 1, "The rats are carrying off the farmers crops, please descend into the cursed well they have taken over and kill 5 rats.  I will provide you with a rope. (Place the rope in your belt or hand and double click it to use it in front of the well)."
-queststatus(188) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Sparen Sie das Feld I"), item(2760, 1, 566), queststatus(18) = 1, "Die Ratten verschleppen die Ernte der Bauern. Bitte steige in diesen verfluchten Schacht hinab und töte 5 Ratten, da sie überhand genommen haben. (Lege das Seil in deinen Gürtel oder in die Hand und doppelklicke darauf um es zu benutzen)."
+queststatus(188) = 0, english, town = Runewick,"quest", "mission" -> inform("[New quest] Save The Field I. (Place the rope in your belt or hand and double click it to use it in front of the well)"), item(2760, 1, 566), queststatus(188) = 1, "The rats are carrying off the farmers crops, please descend into the cursed well they have taken over and kill 5 rats. I will provide you with a rope."
+queststatus(188) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Rette die Äcker I. (Lege das Seil in deinen Gürtel oder in die Hand und doppelklicke darauf um es zu benutzen)"), item(2760, 1, 566), queststatus(188) = 1, "Die Ratten verschleppen die Ernte der Bauern. Bitte steige in diesen verwünschten Schacht hinab und töte 5 Ratten, da sie überhand genommen haben."
+queststatus(188) = 0, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Field I. (Place the rope in your belt or hand and double click it to use it in front of the well)"), item(2760, 1, 566), queststatus(188) = 1, "The rats are carrying off the farmers crops, please descend into the cursed well they have taken over and kill 5 rats. I will provide you with a rope."
+queststatus(188) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette die Äcker I. (Lege das Seil in deinen Gürtel oder in die Hand und doppelklicke darauf um es zu benutzen)"), item(2760, 1, 566), queststatus(18) = 1, "Die Ratten verschleppen die Ernte der Bauern. Bitte steige in diesen verwünschten Schacht hinab und töte 5 Ratten, da sie überhand genommen haben."
 
 -- Quest 1 solved, reward: 2000cp, +5 rankpoints
-queststatus(188) = 6, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(188) = 7, rankpoints + 5, "#me smiles glancing over the field to her left 'Thank you perhaps you could assist more?'"
-queststatus(188) = 6, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(188) = 7, rankpoints + 5, "#me läßt lächelnd den Blick über das Feld zu ihrer linken streifen.'Vielleicht kannst du noch mehr helfen?'"
+queststatus(188) = 6, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(188) = 7, rankpoints + 5, "#me smiles glancing over the field to her right 'Thank you perhaps you could assist more?'"
+queststatus(188) = 6, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(188) = 7, rankpoints + 5, "#me lässt lächelnd den Blick über das Feld zu ihrer rechten streifen 'Vielleicht kannst du noch mehr helfen?'"
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(188) > 0, queststatus(188) < 6, english, town = Runewick, "quest", "mission" -> "The farmers can't withstand much more theft by the rats, please hurry up and kill 5 rats."
@@ -142,9 +142,9 @@ queststatus(188) > 0, queststatus(188) < 6, town = Runewick, "Auftrag", "Aufgabe
 -- 2nd quest: Collect 10 rat furs
 -- Give out quest 2
 queststatus(188) = 7, english, town = Runewick, "quest", "mission" -> inform("[New quest] Save The Field II"), queststatus(188) = 8, "Please descend into the well again and harvest 10 rat furs.  The tailors need it to make gloves."
-queststatus(188) = 7, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Speichern Sie das Feld II"), queststatus(188) = 8, "Bitte steige nochmals in den Schacht hinab und sammle 10 Rattenfelle. Der Schneider braucht sie um Handschuhe zu machen."
+queststatus(188) = 7, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Rette die Äcker II"), queststatus(188) = 8, "Bitte steige nochmals in den Schacht hinab und sammle 10 Rattenfelle. Der Schneider braucht sie um Handschuhe zu machen."
 queststatus(188) = 7, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Field II"), queststatus(188) = 8, "Please descend into the well again and harvest 10 rat furs.  The tailors need it to make gloves."
-queststatus(188) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Speichern Sie das Feld II"), queststatus(188) = 8, "Bitte steige nochmals in den Schacht hinab und sammle 10 Rattenfelle. Der Schneider braucht sie um Handschuhe zu machen."
+queststatus(188) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette die Äcker II"), queststatus(188) = 8, "Bitte steige nochmals in den Schacht hinab und sammle 10 Rattenfelle. Der Schneider braucht sie um Handschuhe zu machen."
 
 -- Quest 2 solved, reward: 2000cp, +5 rankpoints
 queststatus(188) = 8,  item(2586, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2586, 10), queststatus(188)= 9, rankpoints + 5, "The Archmage will be most pleased to hear of your assistance."
@@ -159,9 +159,9 @@ queststatus(188) = 8, item(2586, all) < 10, town = Runewick, "Auftrag", "Aufgabe
 -- 3rd quest: Kill 10 Agressive Rats and Muskrats
 -- Give out quest 3
 queststatus(188) = 9, town = Runewick, english, "quest", "mission" -> inform("[New quest] Save The Field III"), queststatus(188) = 10, "The different rat species seem more aggressive. Please kill 10 aggressive rats and muskrats to further help our farmers."
-queststatus(188) = 9, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Speichern Sie das Feld III"), queststatus(188) = 10, "Die verschiedenen Rattenarten sind unterschiedlich aggressiv. Bitte töte 10 aggressive und Bisamratten um unseren Bauern zu helfen."
+queststatus(188) = 9, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Rette die Äcker III"), queststatus(188) = 10, "Die verschiedenen Rattenarten sind unterschiedlich aggressiv. Bitte töte 10 aggressive Ratten und Bisamratten um unseren Bauern zu helfen."
 queststatus(188) = 9, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Field III"), queststatus(188) = 10, "The different rat species seem more aggressive. Please kill 10 aggressive rats and muskrats to further help our farmers."
-queststatus(188) = 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Speichern Sie das Feld III"), queststatus(188) = 10, "Die verschiedenen Rattenarten sind unterschiedlich aggressiv. Bitte töte 10 aggressive und Bisamratten um unseren Bauern zu helfen."
+queststatus(188) = 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette die Äcker III"), queststatus(188) = 10, "Die verschiedenen Rattenarten sind unterschiedlich aggressiv. Bitte töte 10 aggressive Ratten und Bisamratten um unseren Bauern zu helfen."
 
 -- Quest 3 solved, reward: 30 silver, +10 rankpoints
 queststatus(188) = 20, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, queststatus(188) = 21, rankpoints + 10, "The Archmage will be most pleased to hear of your assistance."
@@ -169,16 +169,16 @@ queststatus(188) = 20, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhält
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(188) > 9, queststatus(188) < 20, town = Runewick, english, "quest", "mission" -> "Kill 10 of the more aggressive rats and muskrats."
-queststatus(188) > 9, queststatus(188) < 20, town = Runewick, "quest", "mission" -> "Töte 10 der aggressiven und Bisamratten."
+queststatus(188) > 9, queststatus(188) < 20, town = Runewick, "quest", "mission" -> "Töte 10 der aggressiven Ratten und Bisamratten."
 queststatus(188) > 9, queststatus(188) < 20, town = Runewick, "task", "adventure" -> "Kill 10 of the more aggressive rats and muskrats."
-queststatus(188) > 9, queststatus(188) < 20, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Töte 10 der aggressiven und Bisamratten."
+queststatus(188) > 9, queststatus(188) < 20, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Töte 10 der aggressiven Ratten und Bisamratten."
 
 -- 4th quest collect 25 grain from cistern rats
 -- Giving out quest 4
 queststatus(188) = 21, english, town = Runewick, "quest", "mission" -> inform("[New quest] Save The Fields IV"), queststatus(188) = 22, "Our farmers are demanding some grain back. Gather 25 grain from these here rats, for Runewick!"
-queststatus(188) = 21, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Speichern Sie das Feld IV"), queststatus(188) = 22, "Unsere Bauern hätten gern etwas Getreide zurück. Sammle 25 Getreide von diesen Ratten, für Runewick!"
+queststatus(188) = 21, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Rette die Äcker IV"), queststatus(188) = 22, "Unsere Bauern hätten gern etwas Getreide zurück. Sammle 25 Getreide von diesen Ratten, für Runewick!"
 queststatus(188) = 21, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Fields IV"), queststatus(188) = 22, "Our farmers are demanding some grain back. Gather 25 grain from these here rats, for Runewick!"
-queststatus(188) = 21, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Speichern Sie das Feld IV"), queststatus(188) = 22, "Unsere Bauern hätten gern etwas Getreide zurück. Sammle 25 Getreide von diesen Ratten, für Runewick!"
+queststatus(188) = 21, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette die Äcker IV"), queststatus(188) = 22, "Unsere Bauern hätten gern etwas Getreide zurück. Sammle 25 Getreide von diesen Ratten, für Runewick!"
 
 -- Quest 4 solved, 30 silver, +10 rankpoints
 queststatus(188) = 22, item(259, all) > 25, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, deleteItem(259, 25), queststatus(188) = 23, rankpoints + 10, "The Archmage will be most pleased to hear of your assistance."
@@ -186,16 +186,16 @@ queststatus(188) = 22, item(259, all) > 25, town = Runewick, ".+" -> inform("[Qu
 
 -- Quest 4 taken but not finished
 queststatus(188) = 22, item(259, all) < 25, town = Runewick, english, "quest", "mission" -> "We need to keep the farmers happy, bring 25 grain."
-queststatus(188) = 22, item(259, all) < 25, town = Runewick, "quest", "mission" -> "Wir müssen die Farmer bei Laune halten. Bringe 25 Getreide."
+queststatus(188) = 22, item(259, all) < 25, town = Runewick, "quest", "mission" -> "Wir müssen die Bauern bei Laune halten. Bringe 25 Getreide."
 queststatus(188) = 22, item(259, all) < 25, town = Runewick, "task", "adventure" -> "We need to keep the farmers happy, bring 25 grain."
-queststatus(188) = 22, item(259, all) < 25, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Wir müssen die Farmer bei Laune halten. Bringe 25 Getreide."
+queststatus(188) = 22, item(259, all) < 25, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Wir müssen die Bauern bei Laune halten. Bringe 25 Getreide."
 
 -- Quest 5 Kill 10 Sewer rats
 -- Give out quest 5
 queststatus(188) = 23, town = Runewick, english, "quest", "mission" -> inform("[New quest] Save The Fields V"), queststatus(188) = 24, "To further help our realm, please kill 10 sewer rats."
-queststatus(188) = 23, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Speichern Sie das Feld V"), queststatus(188) = 24, "Töte 10 Kanalratten um unserem Reich zu helfen."
+queststatus(188) = 23, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Rette die Äcker V"), queststatus(188) = 24, "Töte 10 Kanalratten um unserem Reich zu helfen."
 queststatus(188) = 23, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Fields V"), queststatus(188) = 24, "To further help our realm, please kill 10 sewer rats."
-queststatus(188) = 23, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Speichern Sie das Feld V"), queststatus(188) = 24, "Töte 10 Kanalratten um unserem Reich zu helfen."
+queststatus(188) = 23, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette die Äcker V"), queststatus(188) = 24, "Töte 10 Kanalratten um unserem Reich zu helfen."
 
 -- Quest 5 solved, 30 silver, +10 rankpoints
 queststatus(188) = 34, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, queststatus(188) = 35, rankpoints + 10, "The Archmage will be most pleased to hear of your assistance."
@@ -203,16 +203,16 @@ queststatus(188) = 34, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhält
 
 -- Quest 5 taken but not solved
 queststatus(188) > 23, queststatus(188) < 34, town = Runewick, english, "quest", "mission" -> "For the safety of the crops, you still need to kill 10 sewer rats."
-queststatus(188) > 23, queststatus(188) < 34, town = Runewick, "quest", "mission" -> "Du mußt noch 10 Kanalratten töten um die Ernte zu sichern."
+queststatus(188) > 23, queststatus(188) < 34, town = Runewick, "quest", "mission" -> "Du musst noch 10 Kanalratten töten um die Ernte zu sichern."
 queststatus(188) > 23, queststatus(188) < 34, town = Runewick, "task", "adventure" -> "For the safety of the crops, you still need to kill 10 sewer rats."
-queststatus(188) > 23, queststatus(188) < 34, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Du mußt noch 10 Kanalratten töten um die Ernte zu sichern."
+queststatus(188) > 23, queststatus(188) < 34, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Du musst noch 10 Kanalratten töten um die Ernte zu sichern."
 
 -- Quest 6  Collect 10 raw leather
 -- Give out Quest 6
 queststatus(188) = 35, english, town = Runewick, "quest", "mission" -> inform("[New quest] Save The Fields VI"), queststatus(188) = 36, "It has just come to our attention that many of the rats carry the plague. Please collect 10 raw leather from the plague rats to diminish their numbers and help our researchers study them."
-queststatus(188) = 35, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Speichern Sie das Feld VI"), queststatus(188) = 36, "Wir sind darauf aufmerksam geworden, das viele dieser Ratten die Krankheit verbreiten. Bitte sammle 10 Rohleder von den kranken Ratten um ihre Anzahl zu vermindern und unseren Forschern zu helfen."
+queststatus(188) = 35, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Rette die Äcker VI"), queststatus(188) = 36, "Wir sind darauf aufmerksam geworden, das viele dieser Ratten die Krankheit verbreiten. Bitte sammle 10 Rohleder von den kranken Ratten um ihre Anzahl zu vermindern und unseren Forschern zu helfen."
 queststatus(188) = 35, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Fields VI"), queststatus(188) = 36, "It has just come to our attention that many of the rats carry the plague. Please collect 10 raw leather from the plague rats to diminish their numbers and help our researchers study them."
-queststatus(188) = 35, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Speichern Sie das Feld VI"), queststatus(188) = 36, "Wir sind darauf aufmerksam geworden, das viele dieser Ratten die Krankheit verbreiten. Bitte sammle 10 Rohleder von den kranken Ratten um ihre Anzahl zu vermindern und unseren Forschern zu helfen."
+queststatus(188) = 35, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette die Äcker VI"), queststatus(188) = 36, "Wir sind darauf aufmerksam geworden, das viele dieser Ratten die Krankheit verbreiten. Bitte sammle 10 Rohleder von den kranken Ratten um ihre Anzahl zu vermindern und unseren Forschern zu helfen."
 
 -- Quest 6 solved, 30 silver, +15 rankpoints
 queststatus(188) = 36, item(69, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, deleteItem(69, 10), queststatus(188) = 37, rankpoints + 15, "You have successfully helped save the crops, the Archmage and I are grateful."
@@ -220,21 +220,21 @@ queststatus(188) = 36, item(69, all) > 9, town = Runewick, ".+" -> inform("[Ques
 
 -- Quest 6 taken but not finished
 queststatus(188) = 36, item(69, all) < 25, town = Runewick, english, "quest", "mission" -> "Please bring 10 raw leather from sewer rats to prove you have defeated the diseased ones."
-queststatus(188) = 36, item(69, all) < 25, town = Runewick, "quest", "mission" -> "Bitte bringe mir 10 Rohleder von Kanalratten um zu beweisen das Du die Kranken vernichtet hast"
+queststatus(188) = 36, item(69, all) < 25, town = Runewick, "quest", "mission" -> "Bitte bringe mir 10 Rohleder von Kanalratten um zu beweisen das Du die Kranken vernichtet hast."
 queststatus(188) = 36, item(69, all) < 25, town = Runewick, "task", "adventure" -> "Please bring 10 raw leather from sewer rats to prove you have defeated the diseased ones."
-queststatus(188) = 36, item(69, all) < 25, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Bitte bringe mir 10 Rohleder von Kanalratten um zu beweisen das Du die Kranken vernichtet hast"
+queststatus(188) = 36, item(69, all) < 25, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Bitte bringe mir 10 Rohleder von Kanalratten um zu beweisen das Du die Kranken vernichtet hast."
 
 -- No more quests, just nice words of gratitude
-queststatus(188) = 37, town = Runewick,english, "quest", "mission" -> "Thank you once again.  I have no more work for you."
+queststatus(188) = 37, town = Runewick,english, "quest", "mission" -> "Thank you once again. I have no more work for you."
 queststatus(188) = 37, town = Runewick, "quest", "mission" -> "Nochmals danke. Ich habe nichts weiter für Dich zu tun."
-queststatus(188) = 37, town = Runewick, "task", "adventure" -> "Thank you once again.  I have no more work for you."
+queststatus(188) = 37, town = Runewick, "task", "adventure" -> "Thank you once again. I have no more work for you."
 queststatus(188) = 37, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Nochmals danke. Ich habe nichts weiter für Dich zu tun."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "My job is Guadian of the fields, I help protect the farmers and their crops."
-"beruf" -> "Meine Aufgabe ist es die Felder zu bewachen. Ich helfe die Bauern und ihre Ernte zu bewachen."
-english, "job" -> "My job is Guadian of the fields, I help protect the farmers and their crops."
-"job" -> "Meine Aufgabe ist es die Felder zu bewachen. Ich helfe die Bauern und ihre Ernte zu bewachen."
+"profession" -> "My job is Guardian of the Fields, I help protect the farmers and their crops."
+"beruf" -> "Ich bin der Wächter der Felder. Ich bewache die Bauern und ihre Ernte."
+english, "job" -> "My job is Guardian of the Fields, I help protect the farmers and their crops."
+"job" -> "Ich bin der Wächter der Felder. Ich bewache die Bauern und ihre Ernte."
 "rat" -> "The rats are steal more crops every day."
 "ratten" -> "Jeden Tag stehlen die Ratten mehr Getreide."
 "knowledge" -> "Knowledge is the cornerstone of all things."
@@ -263,9 +263,9 @@ cycletext "Die Bauern drohen zu streiken. Die Ratten müssen gestoppt werden.", "
 cycletext "Die Ratten schleppen täglich mehr Essen weg.", "The rats carry off more food every day."
 cycletext "Der Erzmagier ist ein sehr weiser Mann.", "The Archmage is a very wise man."
 cycletext "#me sucht das Gelände voller Stolz ab.", "#me scans the area with pride."
-cycletext "#me erschaudert sichtbar vor Ekel, als eine große Ratte nahe vorbeirennt.", "#me visibly shudders in revulsion as a large rat scampers nearby."
+cycletext "#me erschaudert sichtbar vor Ekel, als eine große Ratte nahe vorbei rennt.", "#me visibly shudders in revulsion as a large rat scampers nearby."
 cycletext "#me bereitet ihren Bogen und Pfeile vor, auf etwas in der Ferne zielend.", "#me prepares her bow and arrow, taking aim at a target in the distance."
-cycletext "Du da, komm hilf bei dieser Pest.", "You there, come help with these pests."
-cycletext "Es muß etwas getan werden. Gibt es hier eine brave Seele dafür?", "Something must be done, is there any brave souls about?"
-cycletext "#me lächelt zu den Lebewesen am Boden", "#me smiles to the creatures above ground."
+cycletext "Du da, komm hilf mit gegen dieses Ungeziefer.", "You there, come help with these pests."
+cycletext "Es muss etwas getan werden. Gibt es hier eine mutige Seele dafür?", "Something must be done, is there any brave souls about?"
+cycletext "#me lächelt zu den Lebewesen am Boden.", "#me smiles to the creatures above ground."
 cycletext "Das Leben ist voller Prüfungen. Diese Ratten sind meine.", "Life is full of trials, these rats are mine."
