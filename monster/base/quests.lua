@@ -358,7 +358,6 @@ function iniQuests()
     table.insert(questList[102],id);
     table.insert(questList[103],id);
     table.insert(questList[104],id);
-    table.insert(questList[105],id);
     table.insert(questList[106],id);
     table.insert(questList[107],id);
 	table.insert(questList[151],id);
@@ -401,7 +400,6 @@ function iniQuests()
     table.insert(questList[102],id);
     table.insert(questList[103],id);
     table.insert(questList[104],id);
-    table.insert(questList[105],id);
     table.insert(questList[106],id);
     table.insert(questList[107],id);
 	table.insert(questList[151],id);
@@ -2153,7 +2151,7 @@ function iniQuests()
     maximumQueststatus[id]=189;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
-	
+
 	--Quest 92: Vermin Monitor
 	local id=92;
     germanTitle[id]="Schädlingswächter";
@@ -2168,7 +2166,7 @@ function iniQuests()
     maximumQueststatus[id]=6;
 	questLocation[id]=position(125,565,-6);
     radius[id]=40;
-	
+
 	--Quest 93: Vermin Monitor
 	local id=93;
     germanTitle[id]="Schädlingswächter";
@@ -2183,7 +2181,7 @@ function iniQuests()
     maximumQueststatus[id]=20;
 	questLocation[id]=position(125,565,-6);
     radius[id]=40;
-	
+
 	--Quest 94: Vermin Monitor
 	local id=94;
     germanTitle[id]="Schädlingswächter";
@@ -2212,7 +2210,7 @@ function iniQuests()
     maximumQueststatus[id]=6;
 	questLocation[id]=position(832,832,-3);
     radius[id]=35;
-	
+
 	--Quest 96: Save The Field
 	local id=96;
     germanTitle[id]="Sie das Feld";
@@ -2227,7 +2225,7 @@ function iniQuests()
     maximumQueststatus[id]=20;
 	questLocation[id]=position(840,840,-6);
     radius[id]=50;
-	
+
 	--Quest 97: Save The Field
 	local id=97;
     germanTitle[id]="Sie das Feld";
@@ -2241,7 +2239,7 @@ function iniQuests()
     maximumQueststatus[id]=34;
 	questLocation[id]=position(840,840,-6);
     radius[id]=50;
-	
+
 	--Quest 98: Save Da Beer
 	local id=98;
     germanTitle[id]="Sie das Bier";
@@ -2256,7 +2254,7 @@ function iniQuests()
     maximumQueststatus[id]=6;
 	questLocation[id]=position(370,470,-6);
     radius[id]=30;
-	
+
 	--Quest 99: Save Da Beer
 	local id=99;
     germanTitle[id]="Sie das Bier";
@@ -2271,7 +2269,7 @@ function iniQuests()
     maximumQueststatus[id]=20;
 	questLocation[id]=position(370,470,-6);
     radius[id]=30;
-	
+
 	--Quest 100: Save Da Beer
 	local id=100;
     germanTitle[id]="Sie das Bier";
@@ -2285,7 +2283,7 @@ function iniQuests()
     maximumQueststatus[id]=34;
 	questLocation[id]=position(370,470,-6);
     radius[id]=30;
-	
+
 end
 
 
