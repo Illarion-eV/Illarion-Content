@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.keys")
 require("base.common")
@@ -25,17 +25,17 @@ module("item.keys", package.seeall)
 
 function UseItem(User, SourceItem)
     local DoorItem = base.common.GetFrontItem( User );
-    
-	if SourceItem:getData("townKeyOf") ~= "" then 
+
+	if SourceItem:getData("townKeyOf") ~= "" then
 	    -- sentence char to forced labour
 		SentenceCharacter(User,SourceItem)
 	    return
-	end	
+	end
 
-	if base.keys.CheckKey(SourceItem,DoorItem,User) then	
+	if base.keys.CheckKey(SourceItem,DoorItem,User) then
         if base.keys.LockDoor(DoorItem) then
             base.common.InformNLS(User,"Du sperrst die Tür ab.","You lock the door.");
-        elseif base.keys.UnlockDoor(DoorItem) then            
+        elseif base.keys.UnlockDoor(DoorItem) then
             base.common.InformNLS(User,"Du sperrst die Tür auf.","You unlock the door.");
         end
     else
@@ -44,31 +44,31 @@ function UseItem(User, SourceItem)
 end
 
 function SentenceCharacter(User,SourceItem)
-	
+
 	if User:isAdmin() == false then
       local charname = User.name;
       	if (charname ~= "Elvaine Morgan" and charname ~= "Valerio Guilianni" and charname ~= "Rosaline Edwards") then
           return; -- for now only GMs are supposed to use the keys
         end;
-    end;	
-	
+    end;
+
 	local myTown = SourceItem:getData("townKeyOf")
 	if not (myTown == "Cadomyr" or myTown == "Runewick" or myTown == "Galmair" or myTown == "None") then
         User:inform("This prison key does not belong to any town.")
         return
     end
 
-	local callback = function(dialog) 
-		local success = dialog:getSuccess() 
+	local callback = function(dialog)
+		local success = dialog:getSuccess()
 		if success then
-			local selected = dialog:getSelectedIndex()+1 
+			local selected = dialog:getSelectedIndex()+1
 			if selected == 1 then
 			    LabourCamp(User, SourceItem)
 			elseif selected == 2 then
-                GuardBehaviourTowardsChar(User, SourceItem)			
+                GuardBehaviourTowardsChar(User, SourceItem)
 		    end
 		else
-			User:inform("Selection aborted!") 
+			User:inform("Selection aborted!")
 		end
 	end
 
@@ -78,7 +78,7 @@ function SentenceCharacter(User,SourceItem)
 	dialog:addOption(0, "Set behaviour of guards towards a certain person")
 
 	User:requestSelectionDialog(dialog)
-	
+
 end
 
 function GuardBehaviourTowardsChar(User, SourceItem)
@@ -90,32 +90,32 @@ function GuardBehaviourTowardsChar(User, SourceItem)
 	modeStrings[base.factions.RELATION_FRIENDLY] = "friendly";
 	modeStrings[base.factions.RELATION_ACCEPTED] = "Let always pass";
 	local modeValues = {base.factions.RELATION_FRIENDLY, base.factions.RELATION_NEUTRAL, base.factions.RELATION_HOSTILE, base.factions.RELATION_AGGRESSIVE, base.factions.RELATION_ACCEPTED};
-    
-	local callback = function(dialog) 
-		local success = dialog:getSuccess() 
+
+	local callback = function(dialog)
+		local success = dialog:getSuccess()
 		if success then
 			local selected = dialog:getSelectedIndex()+1
 			SelectTargetChar(User, SourceItem, modeValues[selected])
 		else
-			User:inform("Selection aborted!") 
+			User:inform("Selection aborted!")
 		end
     end
-	
+
 	local dialog = SelectionDialog("Guard behaviour", "Select the behaviour you want the guards to have towards a certain person", callback);
 	dialog:setCloseOnMove();
-	for _,m in ipairs(modeValues) do 
+	for _,m in ipairs(modeValues) do
 	  dialog:addOption(0, modeStrings[m]);
 	end
-	User:requestSelectionDialog(dialog);	
+	User:requestSelectionDialog(dialog);
 end
 
 function SelectTargetChar(User, SourceItem, behaviour)
-    
+
     local callback = function(dialog)
 	    if not dialog:getSuccess() then
 		    User:inform("Abortion. No one was sentenced to anything.")
 			return
-		else 
+		else
             local myString = dialog:getInput()
 			local myCharId
 			local myCharName
@@ -129,7 +129,7 @@ function SelectTargetChar(User, SourceItem, behaviour)
 			elseif string.find(myString,"(%d+)") then
 			    a,b,days = string.find(myString,"(%d+)")
                 days = tonumber(days)
-				if a-2 > 1 then 
+				if a-2 > 1 then
 					myCharName=string.sub (myString, 1,a-2)
                     allFound = true
                 end
@@ -143,24 +143,33 @@ function SelectTargetChar(User, SourceItem, behaviour)
 					    if checkChar.id == myCharId then
 						    theChar = checkChar
 				            break
-						end	
-			        else 
+						end
+			        else
          			    if checkChar.name == myCharName then
 		                    theChar = checkChar
 				            break
 						end
-                    end	
-                end    
-				if not theChar then 
+                    end
+                end
+				if not theChar then
 					User:inform("Character has not been found.")
 				else
+					local modeStrings = {};
+					modeStrings[base.factions.RELATION_NEUTRAL] = "neutral";
+					modeStrings[base.factions.RELATION_HOSTILE] = "hostile";
+					modeStrings[base.factions.RELATION_AGGRESSIVE] = "aggressive";
+					modeStrings[base.factions.RELATION_FRIENDLY] = "friendly";
+					modeStrings[base.factions.RELATION_ACCEPTED] = "Let always pass";
+
 					local townId = base.factions.getTownIdByName(SourceItem:getData("townKeyOf"));
 					base.factions.setIndividualPlayerRelation(theChar, townId, behaviour, days);
+					User:inform("You changed guard behaviour of " .. SourceItem:getData("townKeyOf") .. " towards character " .. theChar.name .. " to " .. modeStrings[behaviour] .. " for " .. days .. " days.");
+					User:logAdmin("changes guard behaviour of " .. SourceItem:getData("townKeyOf") .. " towards character " .. theChar.name .. " to " .. modeStrings[behaviour] .. " for " .. days .. " days.");
 				end
 			else
                 User:inform("You haven't put in all necessary informations.")
             end
-		end	
+		end
 	end
 	local dialog = InputDialog("Set behaviour","Insert: [Name|ID] [days] Example: John Doe 100; Notice: Days are ig days. If it should be permanent, set it to 0",false,255,callback)
 	User:requestInputDialog(dialog)
@@ -168,24 +177,24 @@ end
 
 function LabourCamp(User, SourceItem)
 
-    local townId 
+    local townId
     if SourceItem:getData("townKeyOf") == "Cadomyr" then
         townId = 1
-	elseif SourceItem:getData("townKeyOf") == "Runewick" then 
+	elseif SourceItem:getData("townKeyOf") == "Runewick" then
 	    townId = 2
 	elseif SourceItem:getData("townKeyOf") == "Galmair" then
 	    townId = 3
 	elseif SourceItem:getData("townKeyOf") == "None" then
 	    townId = 0
-	else 
+	else
         return
-    end		
-	
+    end
+
 	local callback = function(dialog)
 	    if not dialog:getSuccess() then
 		    User:inform("Abortion. No one was sentenced to anything.")
 			return
-		else 
+		else
             local myString = dialog:getInput()
 			local myPrisonerId
 			local myPrisonerName
@@ -199,7 +208,7 @@ function LabourCamp(User, SourceItem)
 			elseif string.find(myString,"(%d+)") then
 			    a,b,workLoad = string.find(myString,"(%d+)")
                 workLoad = tonumber(workLoad)
-				if a-2 > 1 then 
+				if a-2 > 1 then
 					myPrisonerName=string.sub (myString, 1,a-2)
                     allFound = true
                 end
@@ -213,37 +222,40 @@ function LabourCamp(User, SourceItem)
 					    if checkChar.id == myPrisonerId then
 						    thePrisoner = checkChar
 				            break
-						end	
-			        else 
+						end
+			        else
          			    if checkChar.name == myPrisonerName then
 		                    thePrisoner = checkChar
 				            break
 						end
-                    end	
-                end    
-				if not thePrisoner then 
+                    end
+                end
+				if not thePrisoner then
 					User:inform("Character has not been found.")
 				else
 					thePrisoner:setQuestProgress(25,workLoad)
 					thePrisoner:setQuestProgress(26,townId)
-					world:gfx(41,thePrisoner.pos); 
-					world:makeSound(1,thePrisoner.pos); 
+					world:gfx(41,thePrisoner.pos);
+					world:makeSound(1,thePrisoner.pos);
 					thePrisoner:warp( position(-495,-484,-40) )
 					world:gfx(41,thePrisoner.pos)
-				    
+
 					local callbackLabour = function(dialogLabour) end
-		            if thePrisoner:getPlayerLanguage() == 0 then		
+		            if thePrisoner:getPlayerLanguage() == 0 then
 			            dialogLabour = MessageDialog("Arbeitslager","Du wurdest verurteilt "..workLoad.." Rohstoffe aus der Mine abzubauen. Erfülle deine Strafe und du darfst wieder gehen. Spitzhacke und Essen bekommst du beim Aufseher.", callbackLabour)
-		            else		
+		            else
 			            dialogLabour = MessageDialog("Labour camp" ,"You have been sentenced to collect "..workLoad.." resources in the mine. If you have served your sentence, you are free to go. You can get a pick-axe and food from the guard.", callbackLabour)
-		            end	
+		            end
 		            thePrisoner:requestMessageDialog(dialogLabour)
 				    thePrisoner:createItem(2763,1,777,nil)
+
+					User:inform("You sentence character " .. thePrisoner.name .. " to collect " .. workLoad .. " resources.");
+					User:logAdmin("sentences character " .. thePrisoner.name .. " to collect " .. workLoad .. " resources.");
 				end
 			else
                 User:inform("You haven't put in all necessary informations.")
             end
-		end	
+		end
 	end
 	local dialog = InputDialog("Sentence to forced labour","Insert: [Name|ID] [workload] Example: John Doe 300",false,255,callback)
 	User:requestInputDialog(dialog)
@@ -254,7 +266,7 @@ end
 
 function LookAtItem(User,Item)
 	local data = Item:getData("lockId");
-	
+
 	if tonumber(data) == 666 and User:isAdmin() then
 		base.lookat.SetSpecialDescription(Item, "Generalschlüssel", "Masterkey")
 	end
