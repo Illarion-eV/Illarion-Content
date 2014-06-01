@@ -177,19 +177,28 @@ queststatus(703) = 15, town = Cadomyr, "quest", "mission" -> "Such Evera in das 
 queststatus(703) = 15, town = Cadomyr, "task", "adventure", "order" -> "Search for Evera inside the gate and help her if she has a task for you."
 queststatus(703) = 15, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Such Evera in das Tor und hilf ihr, wenn sie eine Aufgabe für dich hat."
 
--- All done
-queststatus(703) = 16, town = Cadomyr, english, "quest", "mission" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
-queststatus(703) = 16, town = Cadomyr, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
-queststatus(703) = 16, town = Cadomyr, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
-queststatus(703) = 16, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
+-- Jeremiah Horanfeld
+queststatus(703) = 16, town = Cadomyr, english, "quest", "mission" -> queststatus(703) = 17, "Find Jeremiah Horanfeld, the vermin monitor and ask him if he has a task for you. Jeremiah can be often found in the marketplace in Cadomyr."
+queststatus(703) = 16, town = Cadomyr, "quest", "mission" -> queststatus(703) = 17, "Finde Jeremiah Horanfeld, den Schädlingswächter und frag ihn, ob er eine Aufgabe für dich hat. Jeremiah hält sich oft in Cadomyr Marktplatzes auf."
+queststatus(703) = 16, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 17, "Find Jeremiah Horanfeld, the vermin monitor and ask him if he has a task for you. Jeremiah can be often found in the marketplace in Cadomyr.."
+queststatus(703) = 16, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 17, "Finde Jeremiah Horanfeld, den Schädlingswächter und frag ihn, ob er eine Aufgabe für dich hat. Jeremiah hält sich oft in Cadomyr Marktplatzes auf."
+queststatus(703) = 17, town = Cadomyr, english, "quest", "mission" -> "Find Jeremiah Horanfeld, the vermin monitor and ask him if he has a task for you. Jeremiah can be often found in the marketplace in Cadomyr."
+queststatus(703) = 17, town = Cadomyr, "quest", "mission" -> "Finde Jeremiah Horanfeld, den Schädlingswächter und frag ihn, ob er eine Aufgabe für dich hat. Jeremiah hält sich oft in Cadomyr Marktplatzes auf."
+queststatus(703) = 17, town = Cadomyr, "task", "adventure", "order" -> "Find Jeremiah Horanfeld, the vermin monitor and ask him if he has a task for you. Jeremiah can be often found in the marketplace in Cadomyr."
+queststatus(703) = 17, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Finde Jeremiah Horanfeld, den Schädlingswächter und frag ihn, ob er eine Aufgabe für dich hat. Jeremiah hält sich oft in Cadomyr Marktplatzes auf."
 
-queststatus(703) < 16, town = Cadomyr, english, ".*" -> "I could use some help, just ask me for a task."
-queststatus(703) < 16, town = Cadomyr, german, ".*" -> "Ich könnte etwas Hilfe gebrauchen. Fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
+-- All done
+queststatus(703) = 18, town = Cadomyr, english, "quest", "mission" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
+queststatus(703) = 18, town = Cadomyr, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
+queststatus(703) = 18, town = Cadomyr, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
+queststatus(703) = 18, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
+
+queststatus(703) < 18, town = Cadomyr, english, ".*" -> "I could use some help, just ask me for a task."
+queststatus(703) < 18, town = Cadomyr, german, ".*" -> "Ich könnte etwas Hilfe gebrauchen. Fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, town = Cadomyr, ".*" -> "I don't have anything for you to do.", "Have a good day!", "There is nothing you can do for me but go forward and prosper."
-german, town = Cadomyr, ".*" -> "Ich habe nichts für Euch zu tun.", "Ich wünsche euch einen schönen Tag.", "Es gibt nichts, was Ihr tun könntet für mich. Möge euch Wohlstand anheim fallen."
-
+english, chance(20.0), town = Cadomyr, ".*" -> "I don't have anything for you to do.", "Have a good day!", "There is nothing you can do for me but go forward and prosper."
+german, chance(20.0), town = Cadomyr, ".*" -> "Ich habe nichts für Euch zu tun.", "Ich wünsche euch einen schönen Tag.", "Es gibt nichts, was Ihr tun könntet für mich. Möge euch Wohlstand anheim fallen."
 english, chance(20.0), ".*" -> "You are not a citizen of Cadomyr. I don't have anything for you to do."
 german, chance(20.0), ".*" -> "Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun."
 

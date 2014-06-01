@@ -63,8 +63,12 @@ Description[GERMAN][14] = "Geh zu Joey Licavoli beim Teleporter in Galmair. Er h
 Description[ENGLISH][14] = "Go to Joey Licavoli at the teleporter of Galmair, he is sure to have another task for you."
 Description[GERMAN][15] = "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe."
 Description[ENGLISH][15] = "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
-Description[GERMAN][16] = "Du hast alle Aufgaben von Joey Licavoli erfüllt."
-Description[ENGLISH][16] = "You have fulfilled all the tasks for Joey Licavoli."
+Description[GERMAN][16] = "Geh zu Joey Licavoli beim Teleporter in Galmair. Er hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][16] = "Go to Joey Licavoli at the teleporter of Galmair, he is sure to have another task for you."
+Description[GERMAN][17] = "Fokous Onyxbrow hat vielleicht eine Aufgabe für dich. Suche ihn am Marktplatz von Galmair und frag, was du für ihn tun kannst."
+Description[ENGLISH][17] = "Fokous Onyxbrow probably has a task for you.  Search for him in the marketplace of Galmair and ask him for a task."
+Description[GERMAN][18] = "Du hast alle Aufgaben von Joey Licavoli erfüllt."
+Description[ENGLISH][18] = "You have fulfilled all the tasks for Joey Licavoli."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
@@ -88,9 +92,11 @@ QuestTarget[13] = {position(425, 247, 0), position(388, 238, 0)} -- Groktan Flin
 QuestTarget[14] = {position(425, 247, 0)}
 QuestTarget[15] = {position(425, 247, 0), position(412, 291, 0)} -- Pipillo
 QuestTarget[16] = {position(425, 247, 0)}
+QuestTarget[17] = {position(425, 247, 0), position(348, 273, 0)} -- Fokous Onyxbrow
+QuestTarget[18] = {position(425, 247, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 16
+FINAL_QUEST_STATUS = 18
 
 
 function QuestTitle(user)

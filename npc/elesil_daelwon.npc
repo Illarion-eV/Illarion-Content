@@ -121,7 +121,7 @@ english, "Numila", "Irunnleh" -> "She is a geographer and can be found in the Li
 "event" -> "I do not think that you have time to listen to all my knowledge about events in this place, therefore, I recommend the history book in our libraries."
 "Ereignis", "Geschehnis" -> "Ich denke nicht, dass ihr die Zeit habt all meinem Wissen über sämtliche stattgefunden Ereignisse euer Gehör zu schenken. Daher empfehle ich unser Geschichtsbuch in unseren Bibliotheken."
 "law" -> "If you can read, I suggest you read the law book in our libraries. If you cannot read, I suggest to move to either Galmair or Cadomyr."
-"Gesetz" -> "Wenn ihr des Lesens mächtig seid, dann empfehle ich unser Gesetzesbuch in unseren Bibliotheken. Wenn ihr es nicht seid, dann empfehle ich euch nach Galmair oder Cadomyr umzuziehen."
+"Gesetz" -> "Wenn ihr des Lesens mächtig seid, dann empfehle ich unser Gesetzbuch in unseren Bibliotheken. Wenn ihr es nicht seid, dann empfehle ich euch nach Galmair oder Cadomyr umzuziehen."
 "ruler" -> "Our highest advisor is Archmage Elvaine Morgan. He founded this place of wisdom and might be found either in his chamber - the Chamber of the Archmage - or in the Hall of Elara."
 "Herrscher" -> "Unser höchster Ratgeber ist Erzmagier Elvaine Morgan. Er hat diesen Ort der Weisheit erschaffen und kann entweder in seiner Kammer - der Kammer des Erzmagiers - oder in der Halle der Elara gefunden werden."
 
@@ -213,8 +213,8 @@ english, "Hall Elara", "Elara Hall" -> "The Hall of Elara can be found on the se
 
 -- "Rooms" -> "" --placeholder for rooms if they can be rent
 -- "Guild" -> ""
-english, "Hinterland" -> inform("[Keywords] Fire of Triumph, Holy Oak, Twin Eyes Islands, Oldra's Column, Mermaid, Lurnord bridge"), "The Hinterland of Runewick contains the following locations: Fire of Triumph, Holy Oak, Woodcutter's Camp, Twin Eyes Islands, Oldra's Column, Lurnord bridge and Mermaid"
-"Hinterland" -> inform("[Schlüsselwörter] Feuer des Triumphes, Heilige Eiche, Zwillingsaugeninseln, Oldras Säule, Meerjungfrau, Lurnord Brücke"), "Das Hinterland von Runewick enthält folgende Orte: Feuer des Triumphes, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninseln, Oldras Säule, Lurnord Brücke und Meerjungfrau"
+english, "Hinterland" -> inform("[Keywords] Fire of Triumph, Holy Oak, Twin Eyes Islands, Oldra's Column, Mermaid, Lurnord bridge"), "The Hinterland of Runewick contains the following locations: Fire of Triumph, Holy Oak, Woodcutter's Camp, Twin Eyes Islands, Oldra's Column, Lurnord bridge and Mermaid."
+"Hinterland" -> inform("[Schlüsselwörter] Feuer des Triumphes, Heilige Eiche, Zwillingsaugeninseln, Oldras Säule, Meerjungfrau, Lurnord Brücke"), "Das Hinterland von Runewick enthält folgende Orte: Feuer des Triumphes, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninseln, Oldras Säule, Lurnord Brücke und Meerjungfrau."
 "Fire Triumph", "Triumph Fire" -> "It can be found on the north after the Lurnord Bridge *points behind her* and the Holy Oak. This place reminds us of our involvement and victory in a campaign between Cadomyr and Galmair. Unfortunately, some actions went wrong."
 "Feuer Triumph", "Triumph Feuer" -> "Dieser Ort kann nördlich nach der Lurnord Brücke *deutet hinter sich* und der Heiligen Eiche gefunden werden und erinnert an unsere Einflussnahme und unseren Sieg in einer Auseinandersetzung zwischen Cadomyr und Galmair. Leider ging einiges schief."
 "Holy Oak" -> "This is a holy and very old tree found to the north after the Lurnord Bridge *points behind her*. You will find more information there."
@@ -266,7 +266,7 @@ english, "Cadomyr" -> "There are not many reasons to travel there. Exceptions ar
 "erzähl was", "erzähl etwas" -> "Falls notwendig würde ich euch über Runewick informieren, seine Gebäude, Orte, Ereignisse, Leute, Geschichte oder Götter. Und wenn erwünscht, wären auch mindestens eine Aufgabe zu lösen."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Primarly, we pray to three gods in Runewick. They are Adron, Oldra and Elara of course, my favorite god."
+"god" -> "Primarily, we pray to three gods in Runewick. They are Adron, Oldra and Elara of course, my favourite god."
 "Gott", "Götter" -> "Bevorzugt beten wir drei Götter in Runewick an. Die wären Adron, Oldra und natürlich Elara, meine bevorzugte Gottheit."
 english, "Adron" -> "Adron's followers are mostly tavern keepers or vine growers, some bards as well. They believe that when they die, there will be an orgy that lasts forever, and the really bad or evil ones will be condemned to be servants until they are enlightened."
 "Adron" -> "Seine Anhänger sind meistens Gastwirte oder Weinbauern. Auch einigen Barden. Sie glauben, wenn sie sterben, wird es eine Orgie zu ihren Ehren geben, die niemals enden wird. Solche, die in Sünde gelebt haben, werden verurteilt, als Diener zu leben."
@@ -277,7 +277,7 @@ english, "Cherga" -> "The Goddess of Spirits and the Underworld. She likes balan
 english, "Elara" -> "Her followers believe in the power of wisdom. Some of these people are praying to be told great secrets, or even the secret of life. As legend tells, one holy man has been told it after long prayers and discussions with the Goddess."
 "Elara" -> "Ihre Anhänger glauben an die Macht der Weisheit. Einige dieser Anhänger beten, um geheimes und altes Wissen zu erlangen oder um den Sinn des Lebens zu erfahren. Eine Legende erzählt von einem Mann, der so lange betete, bis sich ihm dieser offenbarte."
 english, "Eldan" -> "One of the Elder Gods, he is also known as the God of Spirit."
-"Eldan" -> "Einer der alten Götter. Er ist auch bekannt als Gott des Geists."
+"Eldan" -> "Einer der alten Götter. Er ist auch bekannt als Gott des Geistes."
 english, "Findari" -> "One of the Elder Gods, she is also known as the Goddess of Air. There is a shrine dedicated to her at the top of the Tower of Air."
 "Findari" -> "Eine der alten Götter. Sie ist auch als Göttin der Luft bekannt. Es gibt einen Schrein auf der Spitze des Turms der Luft."
 english, "Irmorom" -> "One of the unimportant Younger Gods. You can find followers in Galmair."
@@ -319,7 +319,7 @@ english, "Elesil", "Daelwon" -> "Yes, that is my name. What do you want informat
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "Huh, what shall I give you information about? Do you mind just asking for help as a first step?"
-german, chance(20.0), ".*" -> "Huh, woüber wünscht ihr Information? Vielleicht begnügt ihr euch erst mal nach Hilfe zu fragen?"
+german, chance(20.0), ".*" -> "Huh, worüber wünscht ihr Information? Vielleicht begnügt ihr euch erst mal nach Hilfe zu fragen?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

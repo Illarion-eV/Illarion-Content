@@ -205,11 +205,16 @@ english, "salkama" -> "Nice place. They have some very tasty food there as well.
 "tell something" -> "Me and my family like to hike and explore, I bet you can find my siblings at other places if you just look closely!"
 "erzähl was", "erzähl etwas" -> "Ich und meine Familie wandern und entdecken gern. Ich bin mir sicher du kannst meine anderen Geschwister an anderen Orten finden wenn du nur genau guckst!"
 
--- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
-
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Ich kann euch an interessante Orte bringen.", "I can take you to interesting places."
+cycletext "#me stapelt einige Bücher auf.", "#me stacks some books."
+cycletext "Ihr solltet mal verreisen!", "You should go on a trip."
+cycletext "Ich verkaufe Portalbücher! Braucht ihr eines?", "I sell portal books! Do you need one?"
+cycletext "It's magic!", "Das ist Magie!"
+cycletext "Der sichere Weg zu reisen! Portalbücher!", "The safe way to travel! Portal books!"
+cycletext "Die Götter haben diese Welt für uns erschaffen um sie zu entdecken und darin zu reisen.", "The Gods created this world for us to discover and travel within it."
+cycletext "Unsere Dienste werden in allen Städten gerne in Anspruch genommen.", "Our services are well sought in all three towns."

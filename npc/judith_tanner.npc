@@ -105,9 +105,9 @@ queststatus(715) = 1, item(170, all) > 19, town = Runewick, "Auftrag", "Aufgabe"
 queststatus(715) = 1, item(170, all) < 20, town = Runewick, english, ".+" -> "That isn't twenty bales of wool yet, please come back once you've finished this task."
 queststatus(715) = 1, item(170, all) < 20, town = Runewick, ".+" -> "Das sind noch keine 20 Wollballen, die ich haben wollte. Kommt wieder, wenn Ihr die Aufgabe erledigt habt."
 queststatus(715) = 2, town = Runewick, english, "quest", "mission" -> "You want another task? Alright, please go to the loom over there and make two sheets of grey cloth. Furthermore, go to the spinning wheel and produce five spools of thread from the remaining wool.", queststatus(715) = 3
-queststatus(715) = 2, town = Runewick, "quest", "mission" -> "Ihr wollt noch eine Aufgabe? Von mir aus gerne. Bitte geht zum Webstuhl da vorne und macht aus den zwei übrigen Knäulen grauen Stoff und aus den anderen zehn Knäulen beim Spinnrad daneben Garn.", queststatus(715) = 3
+queststatus(715) = 2, town = Runewick, "quest", "mission" -> "Ihr wollt noch eine Aufgabe? Von mir aus gerne. Bitte geht zum Webstuhl da vorne und macht aus den zwei übrigen Knäueln grauen Stoff und aus den anderen zehn Knäueln beim Spinnrad daneben Garn.", queststatus(715) = 3
 queststatus(715) = 2, town = Runewick, "task", "adventure", "order" -> "You want another task? Alright, please go to the loom over there and make two sheets of grey cloth. Furthermore, go to the spinning wheel and produce five spools of thread from the remaining wool.", queststatus(715) = 3
-queststatus(715) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr wollt noch eine Aufgabe? Von mir aus gerne. Bitte geht zum Webstuhl da vorne und macht aus den zwei übrigen Knäulen grauen Stoff und aus den anderen zehn Knäulen beim Spinnrad daneben Garn.", queststatus(715) = 3
+queststatus(715) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr wollt noch eine Aufgabe? Von mir aus gerne. Bitte geht zum Webstuhl da vorne und macht aus den zwei übrigen Knäueln grauen Stoff und aus den anderen zehn Knäueln beim Spinnrad daneben Garn.", queststatus(715) = 3
 queststatus(715) = 3, item(176, all) > 1, item(50, all) > 4, town = Runewick, english, "quest", "mission", "thread", "cloth", "grey" -> "Well done, thank you. Do you want another task?", deleteItem(176, 2), deleteItem(50, 5), queststatus(715) = 4
 queststatus(715) = 3, item(176, all) > 1, item(50, all) > 4, town = Runewick, "quest", "mission", "garn", "stoff", "grau" -> "Gut gemacht, danke. Wollt Ihr eine weitere Aufgabe?", deleteItem(176, 2), deleteItem(50, 5), queststatus(715) = 4
 queststatus(715) = 3, item(176, all) > 1, item(50, all) > 4, town = Runewick, "task", "adventure", "order" -> "Well done, thank you. Do you want another task?", deleteItem(176, 2), deleteItem(50, 5), queststatus(715) = 4
@@ -148,7 +148,7 @@ queststatus(715) = 9, item(174, all) < 5, town = Runewick, english, ".+" -> "You
 queststatus(715) = 9, item(174, all) < 5, town = Runewick, ".+" -> "Ihr habt die Aufgabe noch nicht erfüllt, wie ich sehe. Kommt doch bitte wieder, wenn Ihr die fünf Rollen roten Stoff zusammen habt."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-queststatus(715) = 10, town = Runewick, english, ".*" -> "I don't have anything for you to do anymore. Thank you for the help though!"
+queststatus(715) = 10, town = Runewick, english, ".*" -> "I don't have anything for you to do any more. Thank you for the help though!"
 queststatus(715) = 10, town = Runewick, german, ".*" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
 queststatus(715) < 10, town = Runewick, english, ".*" -> "I could use some help, just ask me for a task."
 queststatus(715) < 10, town = Runewick, german, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
@@ -164,3 +164,8 @@ cycletext "Wenn Ihr Hilfe beim Schneidern braucht, dann fragt nur mich!", "If yo
 cycletext "#me gähnt verhalten.", "#me yawns restrained."
 cycletext "#me pfeift eine Melodie.", "#me whistles a melody."
 cycletext "#me liest einen Brief.", "#me reads a letter."
+cycletext "Ich kenne mich aus mit feinsten Gewändern.", "Ich know everything about finest garments."
+cycletext "#me rollt eine Spule Garn auf.", "#me rolls up a clew of yarn."
+cycletext "Die besten Schneider arbeiten hier in dieser Schneiderei!", "The best tailors use to work in this tailor's shop!"
+cycletext "#me legt bunte Hemden zusammen.", "#me folds coloured shirts."
+cycletext "#me pfeift eine fröhliche Melodie, während sie ein Kleid bestickt.", "#me whistles a merry melody as she embroiders a dress."

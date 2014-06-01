@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO triggerfields VALUES (364,49,0,'triggerfield.northernislands_661');
 -- INSERT INTO triggerfields VALUES (363,56,0,'triggerfield.northernislands_661');
@@ -59,6 +59,10 @@ createNorthItemYA={59,49,7}
 createNorthItemYB={78,79,30}
 
 function MoveFromField(char)
+	if char:getType() ~= Character.player then
+		return
+	end
+
 	for i = 1,3 do
 		local AmountPos = table.getn(NorthPos[i])
 		for j = 1,AmountPos do
@@ -72,7 +76,7 @@ function MoveFromField(char)
 				NorthItemYB = createNorthItemYB[i]
        			end
 		end
-	end	
+	end
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
 		RewardInNorth=0; --nothing will be created
 		elseif math.random(1,100) < 96 then --chance check if lte=0 and character is player
@@ -88,17 +92,17 @@ function MoveFromField(char)
 		createItemTimeBB=math.random(5,20);  --use var2; nothing, thus more lights appear
 		createItemTimeB=0;
 		createItemIDB=NorthItemIDB; -- flame will be created
-		createGfx=NorthGfx --light 
+		createGfx=NorthGfx --light
 		createRepeatA=2 --min three lights at the same time
 		createRepeatB=5 --up to five lights at the same time
 		createItemText=nil --no text-set 1 in .lte.createaftertime.lua
 		else
 		createItemTimeB=1 --use var1; yes, thus light only one time
 		createGfx=46 --light (beam me up)
-		createRepeatA=1 --only one light 
+		createRepeatA=1 --only one light
 		createRepeatB=1 --only one light
 		createItemText=nil --no text-set 2 .lte.createaftertime.lua
-		end		
+		end
 	createItemAmountA=1; --amount of element min
 	createItemAmountB=1; --amount of element max
 	createItemXA=NorthItemXA; --area X min

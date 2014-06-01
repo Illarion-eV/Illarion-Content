@@ -270,6 +270,7 @@ function factionHandling(User, SourceItem)
 						faction.tid = ind;
 						faction.rankpoints = 0;
 						base.factions.setFaction(chosenPlayer, faction);
+						User:logAdmin("changes faction of character " .. chosenPlayer.name .. " to " .. base.factions.getMembershipByName(chosenPlayer));
 					--change towncount
 					elseif (ind == 4) then
 						local cbSetCount = function (dialog)
@@ -281,8 +282,10 @@ function factionHandling(User, SourceItem)
 								User:inform("no number");
 								return;
 							end
+							local oldValue = faction.towncnt;
 							faction.towncnt = countValue;
 							base.factions.setFaction(chosenPlayer, faction);
+							User:logAdmin("changes town count of character " .. chosenPlayer.name .. " from " .. oldValue .. " to " .. countValue);
 						end
 						User:requestInputDialog(InputDialog("Set town count", "", false, 255, cbSetCount));
 					--change the rankpoints
@@ -297,7 +300,9 @@ function factionHandling(User, SourceItem)
 								return;
 							end
 							if base.factions.getMembership(chosenPlayer) > 0 and base.factions.getMembership(chosenPlayer) < 4 then
+								local oldValue = faction.rankpoints;
 								base.factions.setRankpoints(chosenPlayer, rankpoints);
+								User:logAdmin("changes rankpoints of character " .. chosenPlayer.name .. " from " .. oldValue .. " to " .. rankpoints);
 							else
 								User:inform("Player does not belong to any faction. Rankpoints not changed.");
 							end
@@ -309,6 +314,7 @@ function factionHandling(User, SourceItem)
 							if (not dialog:getSuccess()) then
 								return;
 							end
+							local _, oldRank = base.factions.getRank(chosenPlayer, true)
 							local success;
 							local index = dialog:getSelectedIndex();
 							if index == 0 then -- demoting
@@ -321,6 +327,8 @@ function factionHandling(User, SourceItem)
 								User:inform("Rangchange failed. Player has not enough rankpoints. Current rankpoints: "..base.factions.getRankpoints(chosenPlayer));
 							elseif success == true then
 								User:inform("Rankchange for "..chosenPlayer.name.." successful.");
+								local _, newRank = base.factions.getRank(chosenPlayer, true)
+								User:logAdmin("changes special rank of character " .. chosenPlayer.name .. " from " .. oldRank .. " to " .. newRank);
 							else
 								User:inform("Rangchange failed for unknown reasons. Please inform a developer.");
 							end
@@ -375,18 +383,18 @@ function factionHandling(User, SourceItem)
 				end
 				local inputString = dialog:getInput();
 				if (string.find(inputString,"(%a+) (%d+) (%d+) (%d+)") ~= nil) then
-					a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)");
+					local a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)");
 					value=tonumber(value);
 					faction=tonumber(faction)
 					radius=tonumber(radius);
 					ChangeRankpoints(User,modifier,value,faction,radius);
 				elseif (string.find(inputString,"(%a+) (%d+) (%d+)") ~= nil) then
-					a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+)");
+					local a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+)");
 					faction=tonumber(faction)
 					value=tonumber(value);
 					ChangeRankpoints(User,modifier,value,faction,radius);
 				elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
-					a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)");
+					local a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)");
 					value=tonumber(value);
 					ChangeRankpoints(User,modifier,value,faction,radius);
 				else
@@ -423,6 +431,7 @@ function factionHandling(User, SourceItem)
 						end
 						local mode = modeValues[dialog:getSelectedIndex()+1];
 						base.factions.setFactionRelation(firstFaction, secondFaction, mode);
+						User:logAdmin("changes guard mode of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to " .. modeStrings[mode]);
 					end
 					local sd = SelectionDialog("Set guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
 					for _,m in ipairs(modeValues) do
@@ -466,6 +475,7 @@ function factionHandling(User, SourceItem)
 						end
 						local newLicence = licenceValues[dialog:getSelectedIndex()+1];
 						licence.SetLicence(FirstLicence, SecondLicence, newLicence);
+						User:logAdmin("changes licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to " .. base.factions.getTownNameByID(SecondLicence) .. " to " .. licenceStrings[newLicence]);
 					end
 					local sd = SelectionDialog("Set licence", "Set licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to " .. base.factions.getTownNameByID(SecondLicence) .. " to ...", cbSetLicence);
 					for _,m in ipairs(licenceValues) do
@@ -543,6 +553,7 @@ function spawnRemove(User, SourceItem)
 			end
 			local index = dialog:getSelectedIndex() + 1;
 			User:inform("You removed the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+			User:logAdmin("removed the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
 			table.remove(sp.gmSpawnpointSettings, index);
 			table.remove(sp.gmMonsters, index);
 		end
@@ -563,9 +574,11 @@ function spawnPause(User, SourceItem)
 			local index = dialog:getSelectedIndex() + 1;
 			if sp.gmSpawnpointSettings[index][9] == 0 then
 				User:inform("You paused the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+				User:logAdmin("paused the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
 				sp.gmSpawnpointSettings[index][9] = 1;
 			else
 				User:inform("You reactivated the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+				User:logAdmin("reactivated the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
 				sp.gmSpawnpointSettings[index][9] = 0;
 			end
 		end
@@ -668,8 +681,8 @@ end
 
 
 function sapwnStartStop(User, SourceItem)
-local sp = scheduled.spawnpoint;
 
+	local sp = scheduled.spawnpoint;
 	local spawnPos = base.common.GetFrontPosition(User);
 
 	checkData(SourceItem,"intervals");
@@ -690,14 +703,13 @@ local sp = scheduled.spawnpoint;
 	--Converts monsters String into monsterIds Array
 	local counter = 0;
 	local fin = 1;
-	local monsterId;
 	local monsterIds = {};
 
 	while fin <= string.len(monsters) do
 
 		if (string.find(monsters,"(%d+)",fin) ~= nil) then
 
-			a, b, monsterId = string.find(monsters,"(%d+)",fin)
+			local a, b, monsterId = string.find(monsters,"(%d+)",fin)
 			fin = b + 1;
 			counter = counter +1;
 			monsterIds[counter]	= tonumber(monsterId)
@@ -711,8 +723,8 @@ local sp = scheduled.spawnpoint;
 	if checkData(SourceItem,"monsters") == true then
 		table.insert(sp.gmSpawnpointSettings, length, {monsterIds, spawnPos, amount, intervals, endurance, gfxId, sfxId,0 ,0})
 		table.insert(sp.gmMonsters, length, {spawnPos})
-		User:inform("You've added a spawnpoint at " .. tostring(sp.gmSpawnpointSettings[length][2]));
-
+		User:inform("You added a spawnpoint at " .. tostring(sp.gmSpawnpointSettings[length][2]));
+		User:logAdmin("added a spawnpoint at " .. tostring(sp.gmSpawnpointSettings[length][2]));
 	else
 		User:inform("Enter MonsterID");
 	end
@@ -851,9 +863,11 @@ function ChangeRankpoints(User, modifier, value, faction, radius)
 			if faction == nil or faction == 99 then
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
 				User:inform("You just "..text.." "..value.." rankpoints to everyone in a radius of ".. radius.." ("..player_list[i].name..").");
+				User:logAdmin(text .. " " .. value .. " rankpoints to character " .. player_list[i].name);
 			elseif tonumber(faction) == tonumber(Factionvalues.tid) then
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
 				User:inform("You just "..text.." "..value.." rankpoints to "..player_list[i].name.." of the faction "..base.factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".");
+				User:logAdmin(text .. " " ..value.. " rankpoints to character " .. player_list[i].name .. " of the faction " .. base.factions.getTownNameByID(Factionvalues.tid));
 			else
 --				return;  --bad return, since it would break up as soon someone does not fulfill requirements even if there are more players to be checked.
 			end

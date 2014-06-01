@@ -310,6 +310,12 @@ function iniQuests()
     questList[1061]={}; --Brown Chicken
     questList[1071]={}; --Crazy Chicken
     questList[1081]={}; --Black Chicken
+	questList[1111]={}; --Rat
+	questList[1112]={}; --Small Rat
+	questList[1113]={}; --Agressive Rat
+	questList[1114]={}; --Muskrat
+	questList[1115]={}; --Plague Rat
+	questList[1116]={}; --Sewer Rat
     questList[2000]={}; --Guards
 
     --Quest 1: Galmair Sewers I (77)
@@ -352,7 +358,6 @@ function iniQuests()
     table.insert(questList[102],id);
     table.insert(questList[103],id);
     table.insert(questList[104],id);
-    --table.insert(questList[105],id);
     table.insert(questList[106],id);
     table.insert(questList[107],id);
 	table.insert(questList[151],id);
@@ -395,7 +400,6 @@ function iniQuests()
     table.insert(questList[102],id);
     table.insert(questList[103],id);
     table.insert(questList[104],id);
-    --table.insert(questList[105],id);
     table.insert(questList[106],id);
     table.insert(questList[107],id);
 	table.insert(questList[151],id);
@@ -2147,6 +2151,139 @@ function iniQuests()
     maximumQueststatus[id]=189;
 	questLocation[id]=position(811, 735, 0);
     radius[id]=300;
+
+	--Quest 92: Vermin Monitor
+	local id=92;
+    germanTitle[id]="Schädlingswächter";
+    englishTitle[id]="Vermin Monitor";
+    NPCName[id]="Jeremiah Horanfeld";
+    statusId[id]=187;
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1111],id); --Rat
+	table.insert(questList[1112],id); --Small Rat
+	minimumQueststatus[id]=1;
+    maximumQueststatus[id]=6;
+	questLocation[id]=position(125,565,-6);
+    radius[id]=40;
+
+	--Quest 93: Vermin Monitor
+	local id=93;
+    germanTitle[id]="Schädlingswächter";
+    englishTitle[id]="Vermin Monitor";
+    NPCName[id]="Jeremiah Horanfeld";
+    statusId[id]=187;
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1113],id); --Aggressive Rat
+	table.insert(questList[1114],id); --Muskrat Rat
+	minimumQueststatus[id]=10;
+    maximumQueststatus[id]=20;
+	questLocation[id]=position(125,565,-6);
+    radius[id]=40;
+
+	--Quest 94: Vermin Monitor
+	local id=94;
+    germanTitle[id]="Schädlingswächter";
+    englishTitle[id]="Vermin Monitor";
+    NPCName[id]="Jeremiah Horanfeld";
+    statusId[id]=187;
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1116],id); --Sewer Rat
+	minimumQueststatus[id]=24;
+    maximumQueststatus[id]=34;
+	questLocation[id]=position(125,565,-6);
+    radius[id]=40;
+
+	--Quest 95: Save The Field
+	local id=95;
+    germanTitle[id]="Rette die Äcker";
+    englishTitle[id]="Save The Field";
+    NPCName[id]="Cilivren Itiireae";
+    statusId[id]=188;
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1111],id); --Rat
+	table.insert(questList[1112],id); --Small Rat
+	minimumQueststatus[id]=1;
+    maximumQueststatus[id]=6;
+	questLocation[id]=position(832,832,-3);
+    radius[id]=35;
+
+	--Quest 96: Save The Field
+	local id=96;
+    germanTitle[id]="Rette die Äcker";
+    englishTitle[id]="Save The Field";
+    NPCName[id]="Cilivren Itiireae";
+    statusId[id]=188;
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1113],id); --Aggressive Rat
+	table.insert(questList[1114],id); --Muskrat Rat
+	minimumQueststatus[id]=10;
+    maximumQueststatus[id]=20;
+	questLocation[id]=position(840,840,-6);
+    radius[id]=50;
+
+	--Quest 97: Save The Field
+	local id=97;
+    germanTitle[id]="Rette die Äcker";
+    englishTitle[id]="Save The Field";
+    NPCName[id]="Cilivren Itiireae";
+    statusId[id]=188;
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1116],id); --Sewer Rat
+	minimumQueststatus[id]=24;
+    maximumQueststatus[id]=34;
+	questLocation[id]=position(840,840,-6);
+    radius[id]=50;
+
+	--Quest 98: Save Da Beer
+	local id=98;
+    germanTitle[id]="Rette das Bierlager";
+    englishTitle[id]="Save Da Beer";
+    NPCName[id]="Fokous Onyxbrow";
+    statusId[id]=189;
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1111],id); --Rat
+	table.insert(questList[1112],id); --Small Rat
+	minimumQueststatus[id]=1;
+    maximumQueststatus[id]=6;
+	questLocation[id]=position(370,470,-6);
+    radius[id]=30;
+
+	--Quest 99: Save Da Beer
+	local id=99;
+    germanTitle[id]="Rette das Bierlager";
+    englishTitle[id]="Save Da Beer";
+    NPCName[id]="Fokous Onyxbrow";
+    statusId[id]=189;
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1113],id); --Aggressive Rat
+	table.insert(questList[1114],id); --Muskrat Rat
+	minimumQueststatus[id]=10;
+    maximumQueststatus[id]=20;
+	questLocation[id]=position(370,470,-6);
+    radius[id]=30;
+
+	--Quest 100: Save Da Beer
+	local id=100;
+    germanTitle[id]="Rette das Bierlager";
+    englishTitle[id]="Save Da Beer";
+    NPCName[id]="Fokous Onyxbrow";
+    statusId[id]=189;
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1116],id); --Sewer Rat
+	minimumQueststatus[id]=24;
+    maximumQueststatus[id]=34;
+	questLocation[id]=position(370,470,-6);
+    radius[id]=30;
+
 end
 
 
