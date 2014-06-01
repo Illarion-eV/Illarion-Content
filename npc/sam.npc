@@ -136,7 +136,7 @@ german, "salkama" -> "Isch komm ausch Salkamar. Aber wasch sollt misch dort geha
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Eh-h? Do you think you're some kind of friend of mine or what? I don't know you! I only talk about gods with friends.", "Leave me alone! I don't wanna think about gods with you around."
-"Gott", "Götter" -> "Eh-h? Bischt du 'n freund von mir? Isch kenn disch nich, nur mit mein'n Freunden sprech isch über Götter.", "Hau ab! Isch will allein über die Götter grübeln."
+"Gott", "Götter" -> "Eh-h? Bischt du 'n Freund von mir? Isch kenn disch nich, nur mit mein'n Freunden sprech isch über Götter.", "Hau ab! Isch will allein über die Götter grübeln."
 
 -- Catching quest triggers
 english, "quest" -> "Do I look like someone who has work for you? Leave, you stupid farmer!"
