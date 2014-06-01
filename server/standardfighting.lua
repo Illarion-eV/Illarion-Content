@@ -733,10 +733,7 @@ function CauseDamage(Attacker, Defender, Globals)
     --Attacker.Char:inform("Dealt damage: ".. Globals.Damage .. " HP."); --Debugging
 	--Defender.Char:inform("Received damage: ".. Globals.Damage .. " HP."); --Debugging
 
-    if base.character.IsPlayer(Defender.Char)
-        and base.character.WouldDie(Defender.Char, Globals.Damage + 1)
-        --and (Attacker.AttackKind ~= 4)
-        and not base.character.AtBrinkOfDeath(Defender.Char) then
+    if base.character.IsPlayer(Defender.Char) and not Defender.Char:isAdmin() and base.character.WouldDie(Defender.Char, Globals.Damage + 1) and not base.character.AtBrinkOfDeath(Defender.Char) then
         -- Character would die. Nearly killing him and moving him back in case it's possible
         base.character.ToBrinkOfDeath(Defender.Char);
 

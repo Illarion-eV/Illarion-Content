@@ -122,14 +122,14 @@ queststatus(701) = 1, town = Runewick, "task", "adventure", "order" -> "Sss... N
 queststatus(701) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nizar fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
 
 -- 1st quest solved, reward sabre,boots, rankpoints +2
-queststatus(701) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with some coins, an old sabre found at the bottom of the sea and a pair of new boots."), money + 600, item(25, 1, 333), item(53, 1, 333), queststatus(701) = 3, rankpoints + 2, "Ssso you talked to Missster Nizar? Tsss. Well, thank you for your help... Zss..."
-queststatus(701) = 2, town = Runewick, ".+" -> inform("[Quest gelöst] Du hast das Quest gelöst und erhältst zum Dank etwas Geld, einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat und ein Paar neue Stiefel."), money + 600, item(25, 1, 333), item(53, 1, 333), queststatus(701) = 3, rankpoints + 2, "Ihr habt also mit Missster Nizar gessssprochen? Tsss. Nun, danke für Eure Hilfe..Zss..."
+queststatus(701) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zassaria with some coins, an old sabre found at the bottom of the sea and a pair of new boots."), money + 600, item(25, 1, 333), item(53, 1, 333), queststatus(701) = 3, rankpoints + 2, "Ssso you talked to Missster Nizar? Tsss. Well, thank you for your help... Zss..."
+queststatus(701) = 2, town = Runewick, ".+" -> inform("[Quest gelöst] Du hast das Quest gelöst und erhältst zum Dank etwas Geld, einen Säbel den Zassaria auf dem Grund des Meeres gefunden hat und ein Paar neue Stiefel."), money + 600, item(25, 1, 333), item(53, 1, 333), queststatus(701) = 3, rankpoints + 2, "Ihr habt also mit Missster Nizar gessssprochen? Tsss. Nun, danke für Eure Hilfe..Zss..."
 
 -- 2nd quest: Talk to Argentus Almsbag
 queststatus(701) = 3, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me II"), queststatus(701) = 4, "Ssso, you came to help me again? Zss. Thatsss very nice of you. Sss. I haven't sssseen Argentusss Almsbag for a while. Zzz. Pleassse, asssk him if he would ssstill like to buy fisssh. The fisssh are ssstarting to sssmell."
-queststatus(701) = 3, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag für mich II"), queststatus(701) = 4, "Sssso, du kommssst um mir zzzu helfen? Wie nett. Zss. Argenutsss Almsbag hat sssich ssschon lange nicht mehr bei mir blicken lassssen. Fragt ihn, ob er noch Fisssch kaufen möchte. Zss. Der Fisssch beginnt zzzu riechen."
+queststatus(701) = 3, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag für mich II"), queststatus(701) = 4, "Sssso, Ihr kommt um mir zzzu helfen? Wie nett. Zss. Argenutsss Almsbag hat sssich ssschon lange nicht mehr bei mir blicken lassssen. Fragt ihn, ob er noch Fisssch kaufen möchte. Zss. Der Fisssch beginnt zzzu riechen."
 queststatus(701) = 3, town = Runewick, "task", "adventure", "order" -> inform("[New quest] ask for me II"), queststatus(701) = 4, "Ssso, you came to help me again? Zss. Thatsss very nice of you. Sss. I haven't sssseen Argentusss Almsbag for a while. Zzz. Pleassse, asssk him if he would ssstill like to buy fisssh. The fissh are ssstarting to sssmell."
-queststatus(701) = 3, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich II"), queststatus(701) = 4, "Sssso, du kommssst um mir zzzu helfen? Wie nett. Zss. Argenutsss Almsbag hat sssich ssschon lange nicht mehr bei mir blicken lassssen. Fragt ihn, ob er noch Fisssch kaufen möchte. Zss. Der Fisssch beginnt zzzu riechen."
+queststatus(701) = 3, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich II"), queststatus(701) = 4, "Sssso, ihr kommt um mir zzzu helfen? Wie nett. Zss. Argenutsss Almsbag hat sssich ssschon lange nicht mehr bei mir blicken lassssen. Fragt ihn, ob er noch Fisssch kaufen möchte. Zss. Der Fisssch beginnt zzzu riechen."
 
 -- 2nd quest,  not solved repeat the instructions = Talk to Argentus Almsbag
 queststatus(701) = 4, english, town = Runewick, "quest", "mission" -> "Pleassse asssk Argentusss Almsssbag about hisss fisssh order. Zsss."
@@ -156,7 +156,7 @@ queststatus(701) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befeh
 
 -- 3rd quest solved, Talk to Neiran el Nyarale, reward robe (blue), 12 silver, + 5 rankpoints
 queststatus(701) = 8, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the quest. You are awarded twelve silver coins and a new robe in the colour of the ocean."), money + 1200, item(193, 1, 333, "descriptionEn" = "This robe has the colour of the sea.", "descriptionDe" = "Diese Robe hat die Farbe des Meers."), queststatus(701) = 9, rankpoints + 5, "What? He saysss he threw them away? Zss! Zss! Firssst I ssshall thank you for assking Neiran el Nyarale. Zzzs. Take thisss as a present. Then I will talk to him! Zss... "
-queststatus(701) = 8, town = Runewick, ".+" -> inform("[Quest gelöst] Du hast das Quest gelöst. Du wirst mit zwölf Silbermünzen und eine neue Robe in der Farbe des Ozeans belohnt."), money + 1200, item(193, 1, 333, "descriptionEn" = "This robe has the colour of the sea.", "descriptionDe" = "Diese Robe hat die Farbe des Meers."), queststatus(701) = 9, rankpoints + 5, "Wasss? Veggeworfen hat er sssie? Zss! Zss! Zzzuerssst will ich Euch danken, dassss Ihr mit Neiran el Nyarale spracht. Nehmt diesss alsss Gessschenk. Dann werde ich mir ihm ssssprechen! Zss..."
+queststatus(701) = 8, town = Runewick, ".+" -> inform("[Quest gelöst] Du hast das Quest gelöst. Du wirst mit zwölf Silbermünzen und eine neue Robe in der Farbe des Ozeans belohnt."), money + 1200, item(193, 1, 333, "descriptionEn" = "This robe has the colour of the sea.", "descriptionDe" = "Diese Robe hat die Farbe des Meers."), queststatus(701) = 9, rankpoints + 5, "Wasss? Weggeworfen hat er sssie? Zss! Zss! Zzzuerssst will ich Euch danken, dassss Ihr mit Neiran el Nyarale spracht. Nehmt diesss alsss Gessschenk. Dann werde ich mir ihm ssssprechen! Zss..."
 
 -- 4th quest talk to Marinanne Forgeron
 queststatus(701) = 9, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me IV"), item(73, 1, 440, "nameDe" = "Echt großer Fisch", "nameEn" = "Really big fish", "descriptionEn" = "This trout is as large as a salmon.", "rareness" = "2", "descriptionDe" = "Diese Forelle ist so groß wie ein Lachs!"), queststatus(701) = 10, "Zss! Zss! Look, I caught thiss trout. It'sss asss large asss a salmon, but, Marinna Forgeron, magical sssmith from Galmair does not believe me! Zss! Zss! Sssshow her thisss fisssh, please. Ssss."
@@ -208,7 +208,7 @@ english, "quest", "mission" -> "I have no tasssk for people who do not belong to
 english, "job" -> "I work asss a fisssher. It'sss fun. Zss."
 "job" -> "Ich arbeite alsss Fischerin. Esss macht Spaßsss. Zss."
 "tell something" -> "Do you know there'sss a difference between Zsss, Tsss and Ssss?", "Usssually marriages between my people are arranged by the parentsss. Sss. Usssually."
-"erzähl was", "erzähl etwas", "erzähl mir was", "erzählt mir was" -> "Wissst ihr, dasss es einen Unterschied zzzwischen Zsss, Tss und Ssss?", "Normalerweisse werden Ehen in meinem Volk arrangiert. Ssss. Normalerweissse."
+"erzähl was", "erzähl etwas", "erzähl mir was", "erzählt mir was" -> "Wissst ihr, dasss es einen Unterschied gibt zzzwischen Zsss, Tss und Ssss?", "Normalerweisse werden Ehen in meinem Volk arrangiert. Ssss. Normalerweissse."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Lizzardsss pray to Zzzelphia. To whom do you pray?"
@@ -244,3 +244,6 @@ cycletext "#me zischt.", "#me hisses."
 cycletext "Zss!", "Zss!"
 cycletext "Tsss...", "Tsss..."
 cycletext "#me lässt ihren Schwanz hin und her schnellen.", "#me wags her tail back and forth."
+cycletext "Zelphia, Ssss!", "Zelphia, Ssss!"
+cycletext "Möge Mutter euch mit Regen sssegnen.", "May Mother blesss you with rain."
+cycletext "#me hantiert mit einem Tiegel, mit der Aufschrift 'Schweifpolitur'", "#me tampers with a cup, which is labelled 'Tail Polish'."

@@ -152,9 +152,13 @@ end
 
 function MoveToField(User)
 
+	if User:getType() ~= Character.player then
+		return
+	end
+
     Init(); --Initialising
 
-    if User:getType() == 0 and User:increaseAttrib("hitpoints", 0) > 0 and math.random(1,4) == 1 then --only player characters trigger the triggerfield at a chance of 20%
+    if math.random(1,4) == 1 then --only player characters trigger the triggerfield at a chance of 20%
 
 		local theWaypoint;
 		for i = 1, #waypoint do

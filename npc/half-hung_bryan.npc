@@ -61,7 +61,7 @@ itemShoes = 53
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Half-hung Bryan the innkeeper of The Hemp Necktie Inn . Keywords: Inn, Necktie, Law, Farmer")
+"Help" -> inform("[Game Help] This NPC is Half-hung Bryan the innkeeper of The Hemp Necktie Inn. Keywords: Inn, Necktie, Law, Farmer")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Half-hung Bryan der Gastwirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Gasthof, Strick, Gesetz, Knecht")
 
 -- General speech

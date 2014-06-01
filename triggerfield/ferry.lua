@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO triggerfields VALUES (614,863,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (615,863,0,'triggerfield.ferry');
@@ -192,6 +192,10 @@ ferryTargetPos[31]={position(389,273,-6)}
 noChoiceAndWrapDirectly={24,25,26,27,28,29,30,31}
 
 function MoveToField(User)
+	if User:getType() ~= Character.player then
+		return
+	end
+
 	local names
 	local Amountferry = table.getn(ferrySourcePos)
 	local AmountWrapDirectly = 4
@@ -223,18 +227,18 @@ function MoveToField(User)
 --User:inform("names: "..names,"names: "..names)
 --User:inform("items: "..items,"items: "..items)
 -- User:inform("targetPos: ","targetPos: ")
-	
+
 	local callback = function(dialog)
-	
+
 		success = dialog:getSuccess()
 		if success then
 			selected = dialog:getSelectedIndex()
 --			if  base.money.CharHasMoney(User,10000) then
-				
+
 				if (targetPos[selected+1].x - User.pos.x) * (targetPos[selected+1].x - User.pos.x) < 6 then
 					User:inform("Du befindest dich bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
 				else
-				
+
 
 --					base.money.TakeMoneyFromChar(User,10000)
 
@@ -247,10 +251,10 @@ function MoveToField(User)
 						world:makeSound(9,player.pos);
 						player:warp(targetPos[selected+1])
 						world:gfx(11,player.pos)
-						world:makeSound(9,player.pos);	
+						world:makeSound(9,player.pos);
 					end
-						
---					handler.warpgroup.warpGroup(SourceItem.pos, 5, position(1,1,0), 42 )	
+
+--					handler.warpgroup.warpGroup(SourceItem.pos, 5, position(1,1,0), 42 )
 --					User:warp(targetPos[selected+1])
 --					world:gfx(11,User.pos)
 --					world:makeSound(9,User.pos);
@@ -258,10 +262,10 @@ function MoveToField(User)
 --			else
 --				User:inform("Ihr habt nicht genug Geld für diese Reise. Die Reise kostet ein Goldstück für eine Überfahrt.", "You don't have enough money for this journey. The journey costs one gold coin for one passage.")
 --			end
-		
+
 		end
 	end
-		
+
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
 		dialog = SelectionDialog("Fähre", "Wähle eine Ziel aus.", callback)
@@ -269,7 +273,7 @@ function MoveToField(User)
 		dialog = SelectionDialog("Ferry", "Choose a destination.", callback)
 	end
 	dialog:setCloseOnMove()
-	
+
 	for i=1,#items do
 		dialog:addOption(items[i], names[i])
 	end

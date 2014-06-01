@@ -33,11 +33,11 @@ Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Gehe zu Daniel Brock und frag ihn nach einer Aufgabe. Er ist im Turm der Luft zu finden.\n Von Florain aus, einfach über die lange Brücke nach Osten und durch das blaue Portal gehen. Am Marktplatz angekommen, ist der Turm der Luft das Gebäude im Süden. Dort einfach eine Etage nach unten und durch die Tür gehen."
-Description[ENGLISH][1] = "Got to Daniel Brock and ask him for a task. \n From Florain's position just go over the long bridge to the east and through the blue portal. When you arrived on the marketplace, the tower of air is the building to the south. There just go one floor down and through the door."
+Description[ENGLISH][1] = "Go to Daniel Brock and ask him for a task. \n From Florain's position just go over the long bridge to the east and through the blue portal. When you arrived on the marketplace, the tower of air is the building to the south. There just go one floor down and through the door."
 Description[GERMAN][2] = "Gehe zu Florain zurück, wenn du weitere Aufgaben benötigst."
 Description[ENGLISH][2] = "Go back to Florain if you need more tasks."
 Description[GERMAN][3] = "Gehe zu Judith Tanner und frag sie nach einer Aufgabe. Sie ist im Turm des Feuers zu finden.\n Vom Marktplatz aus einfach in das Gebäude im Norden gehen, dem Turm des Feuers, und gleich nach dem Betreten nach links um ins Untergeschoss zu gelanden. Dort direkt durch die Tür rechts von der kleinen Taverne gehen."
-Description[ENGLISH][3] = "Go to Judith Tanner and ask her for a task. She can be found in the tower of fire.\m From the marketplace just go to the building in the north, the tower of fire, and after entering to the left to go down one floor. There just go through the door on the right of the small tavern."
+Description[ENGLISH][3] = "Go to Judith Tanner and ask her for a task. She can be found in the tower of fire.\n From the marketplace just go to the building in the north, the tower of fire, and after entering to the left to go down one floor. There just go through the door on the right of the small tavern."
 Description[GERMAN][4] = "Gehe zu Florain zurück, wenn du weitere Aufgaben benötigst."
 Description[ENGLISH][4] = "Go back to Florain if you need more tasks."
 Description[GERMAN][5] = "Gehe zu Zassaria Riverbank und frag sie nach einer Aufgabe. Sie ist auf dem Marktplatz von Runewick zu finden.\n Von Florain aus, einfach über die lange Brücke nach Osten gehen und am Ende durch das blaue Portal. Zassaria ist eine Echse, du kannst sie also nicht verpassen."
@@ -66,9 +66,16 @@ Description[GERMAN][16] = "Gehe zu Florain zurück, wenn du weitere Aufgaben benö
 Description[ENGLISH][16] = "Go back to Florain if you need more tasks."
 Description[GERMAN][17] = "Gehe zu Lilith Needlehand und frag sie nach einer Aufgabe. Sie ist im Untergeschoss vom Turm des Feuers, das Gebäude nördlich des Marktplatzes von Runewick. Sie ist in ihrer Werkstatt zu finden, gleich um die Ecke von Uriel Urch."
 Description[ENGLISH][17] = "Go to Lilith Needlehand and ask her for a task. She can be found in the basement of the Tower of Fire, the building to the north of Runewick's marketplace. She will be in her workshop right around the corner from Uriel Urch."
-Description[GERMAN][18] = "Florain Dreyndel kannn dir nun nicht mehr weiterhelfen. Frage einfach jeden, den du triffst nach Aufgaben und du wirst gut zurecktkommen."
-Description[ENGLISH][18] = "Florain Dreyndel cannot help you any further now. Just ask everyone you meet for tasks and you will get around just fine."
-
+Description[GERMAN][18] = "Gehe zu Florain zurück, wenn du weitere Aufgaben benötigst."
+Description[ENGLISH][18] = "Go back to Florain if you need more tasks."
+Description[GERMAN][19] = "Phillibald hat nach dir gefragt. Suche er in der  Bibliothek der Luft und frag er nach einer Aufgabe."
+Description[ENGLISH][19] = "Phillibald was looking for you. Search for him in the Library of Air and ask him for a task."
+Description[GERMAN][20] = "Gehe zu Florain zurück, wenn du weitere Aufgaben benötigst."
+Description[ENGLISH][20] = "Go back to Florain if you need more tasks."
+Description[GERMAN][21] = "Gehe zu Cilivren Itiireae und frag sie nach einer Aufgabe. Sie kann südlich der Felder gefunden werden."
+Description[ENGLISH][21] = "See Cilivren Itiireae and ask her for a task.  She can be found south of the fields."
+Description[GERMAN][22] = "Florain Dreyndel kannn dir nun nicht mehr weiterhelfen. Frage einfach jeden, den du triffst nach Aufgaben und du wirst gut zurecktkommen."
+Description[ENGLISH][22] = "Florain Dreyndel cannot help you any further now. Just ask everyone you meet for tasks and you will get around just fine."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 Start = {833, 815, 0}
@@ -93,9 +100,13 @@ QuestTarget[15] = {position(902, 773, 0)} -- Uriel
 QuestTarget[16] = {position(833, 815, 0)} -- Florain
 QuestTarget[17] = {position(893, 756, 0)} -- Lilith
 QuestTarget[18] = {position(833, 815, 0)} -- Florain
+QuestTarget[19] = {position(901, 831, 1)} -- Phillibald
+QuestTarget[20] = {position(833, 815, 0)} -- Florain
+QuestTarget[21] = {position(843, 844, 0)} -- Cilivren
+QuestTarget[22] = {position(833, 815, 0)} -- Florain
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 18
+FINAL_QUEST_STATUS = 22
 
 
 function QuestTitle(user)

@@ -38,7 +38,7 @@ autointroduce = on
 
 author = "merung"
 
-lookatDE = "Dieser NPC ist Joseph Quatrilla  der Lehrmeister der Alchemie."
+lookatDE = "Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie."
 lookatUS = "This NPC is Joseph Quatrilla the master of alchemy."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -63,19 +63,7 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItem = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000), stack(1), quality(333)
-sellItem = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000), stack(1), quality(333)
-
--- ----------------------------------------------------------------------------
--- NPC Name: Joseph Quatrilla                                         Cadomyr --
--- NPC Job:  Alchemist                                                        --
--- --
--- NPC Race: human                      NPC Position:  138, 543, 0            --
--- NPC Sex:  male                       NPC Direction: west                   --
--- --
--- Author:   merung                                                           --
--- easyNPC Parser v1.22 --
--- ------------------------------------------------------------------------------
+sellItem = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000), stack(1), quality(999)
 
 -- help
 "Help" -> inform("[Game Help] This NPC is Joseph Quatrilla the master of alchemy. Keywords: recipes, alchemy, book")
@@ -144,9 +132,6 @@ english, "adrazin", "echolon", "hyperborelium", "dracolin", "orcanol", "fenolin"
 english, "Joseph", "Quatrilla" -> "That's me. Correct."
 "Joseph", "Quatrilla" -> "Das bin ich. Richtig erkannt."
 
--- ----------------------------------------------------------------------------
--- cycle Texts
-
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
@@ -159,6 +144,6 @@ cycletext "#me sortiert einige Kräuter.", "#me sorts some herbs."
 cycletext "#me beschriftet eine Flasche.", "#me labels a bottle."
 cycletext "#me füllt einen Trank ab.", "#me pours a potion into a bottle."
 cycletext "#me lässt einen Rubin fallen und hebt ihn seufzend wieder auf.", "#me drops a ruby, picking it up again with a sigh."
-cycletext "Adrazin...Adrazin...immwer wieder Adrazin!", "Adrazin...Adrazin...and again, Adrazin!"
+cycletext "Adrazin... Adrazin... immer wieder Adrazin!", "Adrazin... Adrazin... and again, Adrazin!"
 cycletext "Das nächste mal sollte ich darauf achten, was ich in den Kessel tue.", "Next time, I should take care what I pour into the cauldron."
-cycletext "Jemand, der noch nie was zum explodieren gebracht hat, ist kein richtiger Alchemist.", "Someone who never have caused and explosion can hardly be called an alchemist."
+cycletext "Jemand, der noch nie was zum explodieren gebracht hat, ist kein richtiger Alchemist.", "Someone who never have caused an explosion can hardly be called an alchemist."

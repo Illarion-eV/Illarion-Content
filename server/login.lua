@@ -205,14 +205,19 @@ function onLogin( player )
 
 	--General welcome message
     players=world:getPlayersOnline(); --Reading all players online so we can count them
-
+	
+	--Reading current date
+	datum=world:getTime("day");
+	monthString=base.common.Month_To_String(world:getTime("month"));
+	hourStringG, hourStringE=base.common.Hour_To_String(world:getTime("hour"));
+	
 	if table.getn(players) > 1 then
 
-	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
+	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Heute ist der "..datum..". "..monthString.." "..hourStringG..". Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! Today is "..datum.." "..monthString.." "..hourStringE..". There are "..table.getn(players).." players online."); --sending a message
 
 	else --player is alone
-
-	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist ein Spieler online.","[Login] Welcome to Illarion! There is one player online."); --sending a message
+		
+	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Heute ist der "..datum..". "..monthString.." "..hourStringG..". Ein Spieler ist online.","[Login] Welcome to Illarion! Today is "..datum.." "..monthString.." "..hourStringE..". One player is online."); --sending a message
 
 	end
 

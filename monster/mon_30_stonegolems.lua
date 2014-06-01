@@ -159,7 +159,7 @@ if (MonID==301) then --Stone Golem, Level: 4, Armourtype: light, Weapontype: con
         monster.base.drop.AddDropItem(3076,math.random(30,90),100,333,0,4); --copper coins
 
 
-    elseif (MonID==302) then --Son of the Mountains, Level: 9, Armourtype: medium, Weapontype: slashing
+    elseif (MonID==302) then --Son of the Mountains, Level: 9, Armourtype: medium, Weapontype: concussion
 
         --Category 1: Raw gems
 

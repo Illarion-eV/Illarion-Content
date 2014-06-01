@@ -426,9 +426,9 @@ queststatus(184) ~= 0, queststatus(184) < 162, town = Runewick, "Auftrag", "Aufg
 
 -- Research 163: Kill four zombies in three hours
 -- 163: Research 163 taken, kill four Zombies, reward: ten sp, 2 rankpoints
-queststatus(184) = 0, english, chance(33.33333333), town = Runewick, "quest", "mission" -> inform("[New Reearch] Kill four zombies."), "There is research to be done and help required getting the information, kill four zombies so we may experiment.", queststatus(184) = 163, queststatus(185) = 36
+queststatus(184) = 0, english, chance(33.33333333), town = Runewick, "quest", "mission" -> inform("[New Research] Kill four zombies."), "There is research to be done and help required getting the information, kill four zombies so we may experiment.", queststatus(184) = 163, queststatus(185) = 36
 queststatus(184) = 0, german, chance(33.33333333), town = Runewick, "quest", "mission" -> inform("[Neue Forschungsaufgabe] Töte vier Zombies."), "Wir müssen ein Experiment wagen. Kann man Untote töten? Finde es heraus und beende die Qualen von 4 Zombies.", queststatus(184) = 163, queststatus(185) = 36
-queststatus(184) = 0, chance(33.33333333), town = Runewick, "task", "adventure", "order"-> inform("[New Reearch] Kill four zombies."), "There is research to be done and help required getting the information, kill four zombies so we may experiment.", queststatus(184) = 163, queststatus(185) = 36
+queststatus(184) = 0, chance(33.33333333), town = Runewick, "task", "adventure", "order"-> inform("[New Research] Kill four zombies."), "There is research to be done and help required getting the information, kill four zombies so we may experiment.", queststatus(184) = 163, queststatus(185) = 36
 queststatus(184) = 0, chance(33.33333333), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Forschungsaufgabe] Töte vier Zombies."), "Wir müssen ein Experiment wagen. Kann man Untote töten? Finde es heraus und beende die Qualen von 4 Zombies.", queststatus(184) = 163, queststatus(185) = 36
 
 -- Research 163 solved, reward: ten sp, 5 rankpoints, delay: 5h

@@ -20,34 +20,30 @@ require("base.factions")
 
 module("base.seafaring", package.seeall)
 
-
-
-
-
 ferrySourceItemPos={position(101,790,0),position(727,809,0),position(888,485,0),position(870,285,0),position(451,95,0)}
 
 ferryDE={}
 ferryEN={}
---ferryDE[1]={"Bauern Insel (inklusive Rück- oder Weiterfahrt)","Cadomyr - Verlorener Hafen (inklusive Rückfahrt)","Leuchtturm (keine Rück- oder Weiterfahrt möglich)","Einsame Inseln  (inklusive Rück- oder Weiterfahrt)","Runewick Hafen (Einwegticket)","Ostland Hafen (Einwegticket)","Nördlicher Hafen (Einwegticket)"} --for the future with farmer island & lonely islands
---ferryEN[1]={"Farmer Island (return journey included)","Cadomyr - Lost Harbour (return journey included)","Lighthouse (no return possible)","Lonely Islands (return journey included)","Runewick Harbour (one way ticket)","Eastland Harbour (one way ticket)","Northern Harbour (one way ticket)"} --for the future with farmer island & lonely islands
-ferryDE[1]={"Cadomyr - Verlorener Hafen (inklusive Rückfahrt)","Leuchtturm (keine Rück- oder Weiterfahrt möglich)","Runewick Hafen (Einwegticket)","Ostland Hafen (Einwegticket)","Nördlicher Hafen (Einwegticket)"}  ---replace this with the one above
-ferryEN[1]={"Cadomyr - Lost Harbour (return journey included)","Lighthouse (no return possible)","Runewick Harbour (one way ticket)","Eastland Harbour (one way ticket)","Northern Harbour (one way ticket)"}  ---replace this with the one above
---ferryDE[2]={"Cadomyr Hafen (Einwegticket)","Bauern Insel (inklusive Rück- oder Weiterfahrt)","Cadomyr - Verlorener Hafen (inklusive Weiterfahrt)","Leuchtturm (keine Rück- oder Weiterfahrt möglich)","Einsame Inseln (inklusive Rück- oder Weiterfahrt)","Ostland Hafen (Einwegticket)","Nördlicher Hafen (Einwegticket)"} --for the future with farmer island & lonely islands
---ferryEN[2]={"Cadomyr Harbour (one way ticket)","Farmer Island (return journey included)","Cadomyr - Lost Harbour (journey to Cadomyr included)","Lighthouse (no return possible)","Lonely Islands (return journey included)","Eastland Harbour (one way ticket)","Northern Harbour (one way ticket)"} --for the future with farmer island & lonely islands
-ferryDE[2]={"Cadomyr Hafen (Einwegticket)","Cadomyr - Verlorener Hafen (inklusive Weiterfahrt)","Leuchtturm (keine Rück- oder Weiterfahrt möglich)","Ostland Hafen (Einwegticket)","Nördlicher Hafen (Einwegticket)"}  ---replace this with the one above
-ferryEN[2]={"Cadomyr Harbour (one way ticket)","Cadomyr - Lost Harbour (journey to Cadomyr included)","Lighthouse (no return possible)","Eastland Harbour (one way ticket)","Northern Harbour (one way ticket)"}  ---replace this with the one above
-ferryDE[3]={"Cadomyr Hafen (Einwegticket)","Runewick Hafen (Einwegticket)","Nördlicher Hafen (Einwegticket)"}
-ferryEN[3]={"Cadomyr Harbour (one way ticket)","Runewick Harbour (one way ticket)","Northern Harbour (one way ticket)"}
---ferryDE[4]={"Cadomyr Hafen (Einwegticket)","Runewick Hafen (Einwegticket)","Ostland Hafen (Einwegticket)","Böser Fels (inklusive Rückfahrt)"}  ---for the future with Evil Rock
---ferryEN[4]={"Cadomyr Harbour (one way ticket)","Runewick Harbour (one way ticket)","Eastland Harbour (one way ticket)","Evil Rock (return journey included)"}  ---for the future with Evil Rock
-ferryDE[4]={"Cadomyr Hafen (Einwegticket)","Runewick Hafen (Einwegticket)","Ostland Hafen (Einwegticket)"}  ---replace this with the one above
-ferryEN[4]={"Cadomyr Harbour (one way ticket)","Runewick Harbour (one way ticket)","Eastland Harbour (one way ticket)"}  ---replace this with the one above
-ferryDE[5]={"Nördliche Inseln -  Ra (inklusive Rück- oder Weiterfahrt)","Nördliche Inseln -  Hept (inklusive Rück- oder Weiterfahrt)","Nördliche Inseln -  Yeg (inklusive Rück- oder Weiterfahrt)","Unüberwindbarer Limes (keine Rück- oder Weiterfahrt möglich)"}
-ferryEN[5]={"Northern Islands -  Ra (return journey included)","Northern Islands -  Hept (return journey included)","Northern Islands -  Yeg (return journey included)","Insurmountable Limes (no return possible)"}
+--ferryDE[1]={"Bauerninsel","Cadomyr - Verlorener Hafen","Leuchtturm","Einsame Inseln ","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"} --for the future with farmer island & lonely islands
+--ferryEN[1]={"Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
+ferryDE[1]={"Cadomyr - Verlorener Hafen","Leuchtturm","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}  ---replace this with the one above
+ferryEN[1]={"Cadomyr - Lost Harbour","Lighthouse","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
+--ferryDE[2]={"Cadomyr Hafen","Bauern Insel","Cadomyr - Verlorener Hafen","Leuchtturm","Einsame Inseln","Ostland Hafen","Nördlicher Hafen"} --for the future with farmer island & lonely islands
+--ferryEN[2]={"Cadomyr Harbour","Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
+ferryDE[2]={"Cadomyr Hafen","Cadomyr - Verlorener Hafen","Leuchtturm","Ostland Hafen","Nördlicher Hafen"}  ---replace this with the one above
+ferryEN[2]={"Cadomyr Harbour","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
+ferryDE[3]={"Cadomyr Hafen","Runewick Hafen","Nördlicher Hafen"}
+ferryEN[3]={"Cadomyr Harbour","Runewick Harbour","Northern Harbour"}
+--ferryDE[4]={"Cadomyr Hafen","Runewick Hafen","Ostland Hafen","Böser Fels"}  ---for the future with Evil Rock
+--ferryEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour","Evil Rock"}  ---for the future with Evil Rock
+ferryDE[4]={"Cadomyr Hafen","Runewick Hafen","Ostland Hafen"}  ---replace this with the one above
+ferryEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour"}  ---replace this with the one above
+ferryDE[5]={"Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Unüberwindbarer Limes"}
+ferryEN[5]={"Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Insurmountable Limes"}
 
 ferrytravelDE={}
 ferrytravelEN={}
---ferrytravelDE[1]={"der Bauern Insel","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","zu den Einsamen Inseln","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"} --for the future with farmer island & lonely islands
+--ferrytravelDE[1]={"der Bauerninsel","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","zu den Einsamen Inseln","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"} --for the future with farmer island & lonely islands
 --ferrytravelEN[1]={"Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
 ferrytravelDE[1]={"nach Cadomyr - Verlorener Hafen","zum Leuchtturm","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"}  ---replace this with the one above 
 ferrytravelEN[1]={"Cadomyr - Lost Harbour","Lighthouse","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
@@ -85,8 +81,8 @@ ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),}
 ferryTargetPos[5]={position(364,49,0),position(415,85,0),position(478,34,0),position(682,45,0)}
 
 
-pirateOptionsDE={"Kämpfe gegen die Piraten","Fliehe vor den Piraten (25% Erfolgschance, ansonsten wartet der Kampf)","Zahle zehn Goldstücke, um verschont zu bleiben."}
-pirateOptionsEN={"Fight against the pirates","Flee from the pirates (25% chance of success, otherwise you have to fight)","Pay ten gold coins in order to be spared"}
+pirateOptionsDE={"Kämpfe gegen die Piraten","Fliehe vor den Piraten (25% Erfolgschance, ansonsten wartet der Kampf)","Zahle ein Goldstück, um verschont zu bleiben."}
+pirateOptionsEN={"Fight against the pirates","Flee from the pirates (25% chance of success, otherwise you have to fight)","Pay a gold coin in order to be spared"}
 
 pirateItem={1,53,61}
 
@@ -117,7 +113,6 @@ pirateDoors={position(354,873,0),position(355,873,0)}
 
 travlerslist={}
 
-
 function Ferry(User, SourceItem)
 	local chanceforpirateattack = math.random(1,100)
 	local names
@@ -143,41 +138,39 @@ function Ferry(User, SourceItem)
 		success = dialog:getSuccess()
 		if success then
 			local selected = dialog:getSelectedIndex()
-			if  base.money.CharHasMoney(User,10000) then
+			if  base.money.CharHasMoney(User,1000) then
 				
---				if (targetPos[selected+1].x - SourceItem.pos.x) * (targetPos[selected+1].x - SourceItem.pos.x) < 10 then
---					User:inform("Du befindest dich bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
---				else
-					base.money.TakeMoneyFromChar(User,10000)
+					base.money.TakeMoneyFromChar(User,1000)
 					local travlers = world:getPlayersInRangeOf(SourceItem.pos, 5) 
 					travlerslist[User.name] = travlers
---	debug("travler: "..User.name)
+
 					if chanceforpirateattack< 6 and SomeoneThere(User) ~= true then --chance of 20% and noone else is there
-						previousselected = {}						
+						--[[previousselected = {}						
 						previousselected[User.name] = selected
 						piratesAttack(User)
 						for i,player in ipairs(travlerslist[User.name]) do
-							player:inform("[Hinweis] Piraten nähern sich dem Schiff. Folgende Möglichkeiten stehen zur Wahl: Kämpfen, fliehen oder zehn Goldstücke zahlen. Wenn keine Entscheidung in der nächsten Minute getroffen wird, dann bleibt nur eine Option zur Wahl: Kämpfen.", "[Information] Pirates are coming closer to your ship. You can choose between the following options: fight, flee or pay ten gold coins. If you do not make your decision within the next minute, there will be only one option left: fight.")
+							player:inform("[Hinweis] Piraten nähern sich dem Schiff. Folgende Möglichkeiten stehen zur Wahl: Kämpfen, fliehen oder ein Goldstück zahlen. Wenn keine Entscheidung in der nächsten Minute getroffen wird, dann bleibt nur eine Option zur Wahl: Kämpfen.", "[Information] Pirates are coming closer to your ship. You can choose between the following options: fight, flee or pay a gold coin. If you do not make your decision within the next minute, there will be only one option left: fight.")
 							player:inform("[Hinweis 2] Auswählen in der Auswahl-Box kann die Person, die für die Fährenfahrt bezahlt hat.", "[Information 2] The person who paid for the ferry trip can select an option in the selection box.")
 							world:gfx(1,player.pos)
 							world:makeSound(9,player.pos)
 							player:warp(position(352,870,1))
 							world:gfx(11,player.pos)
 							world:makeSound(9,player.pos)
-						end
+						end]]
+						--Deactivated. Please make this pirate attack more sound. See Mantis ~Estralis
  					else
 						for i,player in ipairs(travlerslist[User.name]) do
 							player:inform("Du hast dich dazu entschlossen, " ..namestravel[selected+1].. " zu Reisen.", "You have chosen to travel to " ..namestravel[selected+1]..".")
 							world:gfx(1,player.pos)
 							world:makeSound(9,player.pos)
 							player:warp(targetPos[selected+1])
-							world:gfx(11,player.pos)
+							--world:gfx(11,player.pos)
 							world:makeSound(9,player.pos)
 						end
 					end
---				end
+
 			else
-				User:inform("Du hast nicht genug Geld für diese Reise. Die Reise kostet ein Goldstück für eine Überfahrt.", "You don't have enough money for this journey. The journey costs one gold coin for one passage.")
+				User:inform("Du hast nicht genug Geld für diese Reise. Die Reise kostet zehn Silberstücke für eine Überfahrt.", "You don't have enough money for this journey. The journey costs ten silver coins for one passage.")
 			end
 		
 		end
@@ -185,9 +178,9 @@ function Ferry(User, SourceItem)
 		
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Fähre", "Eine Reise kostet ein Goldstück für die ganze Gruppe. Wähle eine Ziel aus.", callback)
+		dialog = SelectionDialog("Fähre", "Eine Reise kostet zehn Silberstücke für die ganze Gruppe. Wähle eine Ziel aus.", callback)
 	else
-		dialog = SelectionDialog("Ferry", "A journey costs one gold coin for the group. Choose a destination.", callback)
+		dialog = SelectionDialog("Ferry", "A journey costs ten silver coins for the group. Choose a destination.", callback)
 	end
 	dialog:setCloseOnMove()
 	
@@ -196,12 +189,6 @@ function Ferry(User, SourceItem)
 	end
 	User:requestSelectionDialog(dialog)
 end
-
-
-
-
-
-
 
 function piratesAttack(User)
 	local options
@@ -213,7 +200,6 @@ function piratesAttack(User)
 			pirateOptions = pirateOptionsEN
 		end
 	end
-
 
 	local callback = function(dialog)
 		success = dialog:getSuccess() 
@@ -235,7 +221,7 @@ function piratesAttack(User)
 	local dialog
 
 	if  User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Piraten Angriff", "Piraten nähern sich dem Schiff. Folgende Möglichkeiten zur Wahl:", callback)
+		dialog = SelectionDialog("Piratenangriff", "Piraten nähern sich dem Schiff. Folgende Möglichkeiten zur Wahl:", callback)
 	else
 		dialog = SelectionDialog("Pirates attack", "Pirates are coming closer to your ship. You can choose between the following options.", callback)
 	end
@@ -245,7 +231,6 @@ function piratesAttack(User)
 		dialog:addOption(pirateItem[i],pirateOptions[i])
 	end
 	User:requestSelectionDialog(dialog)
-
 
 	User:setQuestProgress(662,36)
 	User:setQuestProgress(663,0)
@@ -257,7 +242,6 @@ function piratesAttack(User)
 		end
 	end
 
-
 	find, myEffect = User.effects:find(82)
 	if find then 
 		return
@@ -266,7 +250,6 @@ function piratesAttack(User)
 	end
 	User.effects:addEffect(myEffect)
 end
-
 
 
 function piratesFight(User)
@@ -306,7 +289,6 @@ function piratesFight(User)
 	end
 
 end
-
 
 
 function piratesPiratesAreThere(User)
@@ -362,10 +344,9 @@ function piratesPiratesKill(User)
 end
 
 
-
 function piratesPiratesRule(User)
 	for i,player in ipairs(travlerslist[User.name]) do
-		player:inform("Malachín war woll mit den Piraten. Sie sind in der Lage das Schiff zu überlaufen und setzen alle Anwensenden ihrem Glück mit Cherga aus. Wird Cherga Gnade haben?", "Malachin was obviously with the pirates. They overrun the ship and all passenger have to face Cherga. Will Cherga have mercy on you?")
+		player:inform("Malachín war wohl mit den Piraten. Sie sind in der Lage das Schiff zu überlaufen und setzen alle Anwesenden ihrem Glück mit Cherga aus. Wird Cherga Gnade haben?", "Malachín was obviously with the pirates. They overrun the ship and all passenger have to face Cherga. Will Cherga have mercy on you?")
 		base.character.DeathAfterTime(player,math.random(10,30),0,27,true) --kill all players
 	end
 	local monsters = world:getMonstersInRangeOf(position(352,870,1), 20); --get all monster in player range 
@@ -375,13 +356,11 @@ function piratesPiratesRule(User)
 end
 
 
-
 function piratesTimeWarning(User)
 	for i,player in ipairs(travlerslist[User.name]) do
 		player:inform("[Hinweis] Es ist nur noch eine Minute übrig, das Schiff von den Piraten zu säubern. Vielleicht sollte die Hilfe von George Backstab doch in Anspruch genommen werden. Hierzu einfach die Verliestür unten im Schiffsbauch öffnen.", "[Hint] There is only one minute left to clear the boat of pirates. You should probably consider using the help of George Backstab. Just open the door down in the ship's hold.")
 	end
 end
-
 
 
 function piratesFlee(User)
@@ -408,14 +387,13 @@ function piratesFlee(User)
 end
 
 
-
 function piratesPay(User)
 	if User:getQuestProgress(663) == 1 then
 		User:inform("[Hinweis] Es ist zu spät. Die Auswahlzeit ist abgelaufen.", "[Information] It is too late. The time for selecting an option has passed.")
 		return
 	end
-	if base.money.CharHasMoney(User,100000) then
-		base.money.TakeMoneyFromChar(User,100000)
+	if base.money.CharHasMoney(User,10000) then
+		base.money.TakeMoneyFromChar(User,10000)
 		for i,player in ipairs(travlerslist[User.name]) do
 			player:inform("Das Gold ist weg, aber dafür das gewünschte Ziel erreicht.", "The gold is gone but in return you reach your final destination safely.")
 			world:gfx(1,player.pos)

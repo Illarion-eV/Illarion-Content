@@ -1298,7 +1298,7 @@ end
 
 
 --[[
-    converts a given hour of day to a string like: early morning, morning,
+    Converts a given hour of day to a string like: early morning, morning,
     @param hour the hour which should be converted
     @return ger, eng strings
 ]]
@@ -1310,24 +1310,41 @@ function Hour_To_String(hour)
     elseif (hour >= 4 and hour < 6) then
         return "vor Sonnenaufgang", "before sunset";
     elseif (hour >= 6 and hour < 8) then
-        return "früher Morgen", "early morning";
+        return "am frühen Morgen", "in the early morning";
     elseif (hour >= 8 and hour < 10) then
-        return "morgens", "at morning";
+        return "am Morgen", "in the morning";
     elseif (hour >= 10 and hour < 12) then
-        return "vor Mittag", "before midday";
+        return "am Vormittag", "before noon";
     elseif (hour >= 12 and hour < 14) then
-        return "mittags", "at midday";
+        return "gegen Mittag", "at noon";
     elseif (hour >= 14 and hour < 16) then
-        return "nachmittag", "afternoon";
+        return "am Nachmittag", "in the afternoon";
     elseif (hour >= 16 and hour < 18) then
-        return "früher abend", "early evening";
+        return "am frühen Abend", "in the early evening";
     elseif (hour >= 18 and hour < 20) then
-        return "abends","at evening";
+        return "am Abend","in the evening";
     elseif (hour >= 20 and hour < 22) then
-        return "später abend", "late evening";
+        return "am späten Abend", "in the late evening";
     else
         return "vor Mitternacht", "before midnight";
     end;
+end;
+
+--[[
+    Converts a numeric month to a string like: Elos, Tanos,...
+    @param month the moth which should be converted
+    @return string
+]]
+function Month_To_String(month)
+
+	MonthNames = {"Elos", "Tanos", "Zhas", "Ushos", "Siros", "Ronas", "Bras", "Eldas", "Irmas", "Malas", "Findas", "Olos", "Adras", "Naras", "Chos", "Mas"}; --List of our abstruse months
+	
+    if (month >= 1) and (month <= 16) then --only valid months
+        return MonthNames[month]; --return the month as string
+    else
+        return "[ERROR] Corrupted date, please inform a developer.";
+    end
+
 end;
 
 function fold(ar, f, neutral)
@@ -1719,9 +1736,9 @@ function GetLeadAttributeName(Skill)
     leadAttribTable={};
     leadAttribTable[Character.tailoring]="dexterity"
     leadAttribTable[Character.alchemy]="essence"
-    --leadAttribTable[Character.tactics]="perception"
+    --leadAttribTable[Character.tactics]="perception" --deactivated
     leadAttribTable[Character.farming]="constitution"
-    leadAttribTable[Character.poisoning]="perception"
+    --leadAttribTable[Character.poisoning]="perception" --deactivated
     leadAttribTable[Character.harp]="dexterity"
     leadAttribTable[Character.woodcutting]="constitution"
     leadAttribTable[Character.smithing]="dexterity"
@@ -1738,7 +1755,7 @@ function GetLeadAttributeName(Skill)
     leadAttribTable[Character.flute]="dexterity"
     leadAttribTable[Character.parry]="agility"
     leadAttribTable[Character.lute]="dexterity"
-    leadAttribTable[Character.dodge]="agility"
+    --leadAttribTable[Character.dodge]="agility" --deactivated
     leadAttribTable[Character.herblore]="constitution"
     leadAttribTable[Character.mining]="constitution"
     leadAttribTable[Character.glassBlowing]="dexterity"

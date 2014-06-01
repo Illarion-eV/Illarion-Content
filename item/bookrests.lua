@@ -72,10 +72,10 @@ function FerryLookAt(User, Item)
 --	lookAt.rareness = ItemLookAt.rareItem;
 	if (User:getPlayerLanguage()==0) then
 		lookAt.name = "Fähre";
-		lookAt.description = "Wer bei der nächsten Fahrt mit möchte, sollte sich schnellstens hier in der Nähe ((innerhalb 5 Tiles)) sammeln. Preis: 1 Gold für die ganze Gruppe."
+		lookAt.description = "Wer bei der nächsten Fahrt mit möchte, sollte sich schnellstens hier innerhalb von fünf Schritten sammeln. Preis: Zehn Silberstücke für die ganze Gruppe."
 	else
 		lookAt.name = "Ferry";
-		lookAt.description = "Anyone who would like to join for the next trip should gather here ((within five tiles)). Price: one gold for the whole group."
+		lookAt.description = "Anyone who would like to join for the next trip should gather here within five steps. Price: Ten silver pieces for the whole group."
 	end
 	return lookAt
 end
@@ -176,26 +176,26 @@ function StaticTeleporter(User, SourceItem)
 
     local names
 	if  User:getPlayerLanguage() == Player.german then
-		names = {"Runewick","Galmair","Cadomyr","Hanfschlinge"}
+		names = {"Runewick","Galmair","Cadomyr","Gasthof zur Hanfschlinge"}
 	else
-		names = {"Runewick","Galmair","Cadomyr","Necktie"}
+		names = {"Runewick","Galmair","Cadomyr","Hemp Necktie Inn"}
 	end
 	local items = {105,61,2701,1909}
-	local targetPos = {position(836,813,0), position(424,245,0),position(127,647,0),position(684,307,0)}
+	local targetPos = {position(835,813,0), position(423,246,0),position(126,647,0),position(684,307,0)}
 
 	local callback = function(dialog)
 
 		success = dialog:getSuccess()
 		if success then
 			selected = dialog:getSelectedIndex()
-			if  base.money.CharHasMoney(User,1000) then
+			if  base.money.CharHasMoney(User,500) then
 
 				if (targetPos[selected+1].x - SourceItem.pos.x) * (targetPos[selected+1].x - SourceItem.pos.x) < 10 then
 					User:inform("Ihr befindet euch bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
 				else
 
 					User:inform("Ihr habt euch dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
-					base.money.TakeMoneyFromChar(User,1000)
+					base.money.TakeMoneyFromChar(User,500)
 					world:gfx(45,User.pos)
 					world:makeSound(13,User.pos);
 
@@ -205,7 +205,7 @@ function StaticTeleporter(User, SourceItem)
 					world:makeSound(4,User.pos);
 				end
 			else
-				User:inform("Ihr habt nicht genug Geld für diese Reise. Die Reise kostet zehn Silberstücke.", "You don't have enough money for this journey. The journey costs ten silver coins.")
+				User:inform("Ihr habt nicht genug Geld für diese Reise. Die Reise kostet fünf Silberstücke.", "You don't have enough money for this journey. The journey costs five silver coins.")
 			end
 
 		end
@@ -213,9 +213,9 @@ function StaticTeleporter(User, SourceItem)
 
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Teleporter", "Eine Reise kostet zehn Silberstücke. Wähle eine Ziel aus.", callback)
+		dialog = SelectionDialog("Teleporter", "Eine Reise kostet fünf Silberstücke. Wähle eine Ziel aus.", callback)
 	else
-		dialog = SelectionDialog("Teleporter", "A journey costs ten silver coins. Choose a destination.", callback)
+		dialog = SelectionDialog("Teleporter", "A journey costs five silver coins. Choose a destination.", callback)
 	end
 	dialog:setCloseOnMove()
 
