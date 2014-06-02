@@ -1304,7 +1304,7 @@ end
 ]]
 function Hour_To_String(hour)
     if (hour >= 0 and hour < 2 or hour == 24) then
-        return "um Mitternacht", "at midnight";
+        return "gegen Mitternacht", "at midnight";
     elseif (hour >= 2 and hour < 4) then
         return "nach Mitternacht", "after midnight";
     elseif (hour >= 4 and hour < 6) then
