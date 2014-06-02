@@ -1304,27 +1304,27 @@ end
 ]]
 function Hour_To_String(hour)
     if (hour >= 0 and hour < 2 or hour == 24) then
-        return "um Mitternacht", "at midnight";
+        return "gegen Mitternacht", "at midnight";
     elseif (hour >= 2 and hour < 4) then
         return "nach Mitternacht", "after midnight";
     elseif (hour >= 4 and hour < 6) then
         return "vor Sonnenaufgang", "before sunset";
     elseif (hour >= 6 and hour < 8) then
-        return "am frühen Morgen", "in the early morning";
+        return "früher Morgen", "in the early morning";
     elseif (hour >= 8 and hour < 10) then
-        return "am Morgen", "in the morning";
+        return "morgens", "in the morning";
     elseif (hour >= 10 and hour < 12) then
-        return "am Vormittag", "before noon";
+        return "vormittags", "before noon";
     elseif (hour >= 12 and hour < 14) then
         return "gegen Mittag", "at noon";
     elseif (hour >= 14 and hour < 16) then
-        return "am Nachmittag", "in the afternoon";
+        return "nachmittags", "in the afternoon";
     elseif (hour >= 16 and hour < 18) then
-        return "am frühen Abend", "in the early evening";
+        return "früher Abend", "in the early evening";
     elseif (hour >= 18 and hour < 20) then
-        return "am Abend","in the evening";
+        return "abends","in the evening";
     elseif (hour >= 20 and hour < 22) then
-        return "am späten Abend", "in the late evening";
+        return "später Abend", "in the late evening";
     else
         return "vor Mitternacht", "before midnight";
     end;
