@@ -210,8 +210,8 @@ function onLogin( player )
 	datum=world:getTime("day");
 	monthString=base.common.Month_To_String(world:getTime("month"));
 	hourStringG, hourStringE=base.common.Hour_To_String(world:getTime("hour"));
-	
-	lastDigit=datum%10 --Is it st, nd or rd?
+
+	lastDigit=datum%10; --Is it st, nd or rd?
 	
 	if lastDigit == 1 then 
 		extensionString="st" 
@@ -225,16 +225,16 @@ function onLogin( player )
 		
 	if table.getn(players) > 1 then
 
-	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..extensionString.." of "..monthString..". There are "..table.getn(players).." players online."); --sending a message
+	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". There are "..table.getn(players).." players online."); --sending a message
 
 	else --player is alone
 		
-	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Heute ist der "..datum..". "..monthString.." "..hourStringG..". Ein Spieler ist online.","[Login] Welcome to Illarion! Today is "..datum.." "..monthString.." "..hourStringE..". One player is online."); --sending a message
+	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Ein Spieler ist online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". One player is online."); --sending a message
 
 	end
 
 	--Taxes (has to be redone by "someone")
-	if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gemss. Not on Noobia!
+	if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes or get gems. Not on Noobia!
 		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
 			-- So let there be taxes!
 			local taxText = payTaxes(player);
