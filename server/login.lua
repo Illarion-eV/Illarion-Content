@@ -229,7 +229,7 @@ function onLogin( player )
 
 	else --player is alone
 		
-	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Heute ist der "..datum..". "..monthString.." "..hourStringG..". Ein Spieler ist online.","[Login] Welcome to Illarion! Today is "..datum.." "..monthString.." "..hourStringE..". One player is online."); --sending a message
+	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Ein Spieler ist online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..extensionString.." of "..monthString..". One player is online."); --sending a message
 
 	end
 
