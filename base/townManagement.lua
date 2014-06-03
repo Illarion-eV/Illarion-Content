@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 
@@ -21,18 +21,19 @@ require("base.common")
 require("base.licence")
 module("base.townManagement", package.seeall)
 
-
+ -- Cadomyr, Runewick, Galmair
 townManagmentItemPos={position(118,530,0),position(899,772,2),position(344,223,0)}
+requiredRank={9,8,8}
 
 toolUseNameDE={"Wache","Lizenz","Schlüssel"}
 toolUseNameEN={"Guard","Licence","Key"}
 
-requiredRank={9,9,9} -- Great line, really. How is one supposed to know what town is which entry? Use comments plz! ~Estralis
+
 
 function townManagmentUseItem(User, SourceItem)
 
 	local toolUse
-	local AmountToolFunct = table.getn(toolUseNameDE)	
+	local AmountToolFunct = table.getn(toolUseNameDE)
 	for j = 1,AmountToolFunct do
 		if (SourceItem.pos == townManagmentItemPos[j]) then
 			toolTown = j
@@ -47,7 +48,7 @@ function townManagmentUseItem(User, SourceItem)
 	local callback = function(dialog)
 		success = dialog:getSuccess()
 		if success then
-			selected = dialog:getSelectedIndex() 
+			selected = dialog:getSelectedIndex()
 			if selected == 0 then
 				TownGuard(User,toolTown)
 			elseif selected == 1 then
@@ -55,7 +56,7 @@ function townManagmentUseItem(User, SourceItem)
 			elseif selected == 2 then
 				TownKey(User,toolTown)
 			end
-	
+
 		end
 	end
 
@@ -67,14 +68,14 @@ function townManagmentUseItem(User, SourceItem)
 		dialog = SelectionDialog("Town Management", "Instrument for town management. Only for officials.", callback)
 	end
 	dialog:setCloseOnMove()
-	
+
 	for i=1,#toolUse do
 		dialog:addOption(0, toolUse[i])
 	end
 	if User:getQuestProgress(199) == toolTown and User:getQuestProgress(200) >= requiredRank[toolTown] and User:getQuestProgress(202) >= 600 or User:isAdmin() == true then
 		User:requestSelectionDialog(dialog)
 	else
-		base.common.InformNLS(User,"Du hast keine Befugnis hierzu.","You are not supposed to use this.")		
+		base.common.InformNLS(User,"Du hast keine Befugnis hierzu.","You are not supposed to use this.")
 		return
 	end
 end
@@ -82,7 +83,7 @@ end
 
 function townOfficial(User,toolTown)
 	if User:getQuestProgress(680) == toolTown and User:getQuestProgress(680) >= 8 then
-	
+
 	end
 end
 
@@ -93,7 +94,7 @@ function TownGuard(User,toolTown)
 		if not dialog:getSuccess() then
 			base.common.InformNLS(User,"Abbruch. Niemand wurde gebannt.","Aborted. No one was banned.")
 			return
-		else 
+		else
 			local myString = dialog:getInput()
 			local myCharId
 			local myCharName
@@ -118,16 +119,16 @@ function TownGuard(User,toolTown)
 						if checkChar.id == myCharId then
 							theChar = checkChar
 							break
-						end	
-				        else 
+						end
+				        else
 					if checkChar.name == myCharName then
 							theChar = checkChar
 							break
 						end
-					end	
-				end    
+					end
+				end
 				if not theChar then
-					base.common.InformNLS(User,"Charakter wurde nicht gefunden.","Character has not been found.") 
+					base.common.InformNLS(User,"Charakter wurde nicht gefunden.","Character has not been found.")
 				else
 					local townId = toolTown
 					base.factions.setIndividualPlayerRelation(theChar, townId, base.factions.RELATION_HOSTILE, 3);
@@ -136,14 +137,14 @@ function TownGuard(User,toolTown)
 			else
 				base.common.InformNLS(User,"Du hast nicht alle notwendige Information angegeben.","You haven't put in all necessary information.")
 			end
-		end	
+		end
 	end
 	if  User:getPlayerLanguage() == Player.german then
 		local dialog = InputDialog("Charakter, der gebannt werden soll.","Gib an: [Name|ID] Beispiel: Max Mustermann",false,255,callback)
-		User:requestInputDialog(dialog)	
+		User:requestInputDialog(dialog)
 	else
 		local dialog = InputDialog("Character that should be banned.","Insert: [Name|ID] Example: John Doe",false,255,callback)
-		User:requestInputDialog(dialog)	
+		User:requestInputDialog(dialog)
 	end
 
 end
@@ -185,17 +186,17 @@ function TownLicence(User,toolTown)
 				return;
 			end
 			local newLicence = licenceValues[dialog:getSelectedIndex()+1];
-			licence.SetLicence(FirstLicence, SecondLicence, newLicence); 
+			licence.SetLicence(FirstLicence, SecondLicence, newLicence);
 		end
 		local sd = SelectionDialog(TextSetLicence, TextSetLicenceOf .. base.factions.getTownNameByID(FirstLicence) .. TextWithRespctToA .. base.factions.getTownNameByID(SecondLicence) .. TextTo, cbSetLicence);
-		for _,m in ipairs(licenceValues) do 
+		for _,m in ipairs(licenceValues) do
 			sd:addOption(0,licenceStrings[m]);
 		end
 		User:requestSelectionDialog(sd);
 	end
 	local sd = SelectionDialog(TextLicence, TextSetLicenceOf .. base.factions.getTownNameByID(FirstLicence) .. TextWithRespctToB, cbSecondLicence);
-	for _,f in ipairs(factionIds) do 
-		sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. licenceStrings[licence.GetLicenceByFaction(FirstLicence, f)]); 
+	for _,f in ipairs(factionIds) do
+		sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. licenceStrings[licence.GetLicenceByFaction(FirstLicence, f)]);
 	end
 	User:requestSelectionDialog(sd);
 end
@@ -222,9 +223,9 @@ keydoorsnameEN[3]={"House of Malachite","Villa Goldvein","Flat Irmorom","Flat El
 
 
 function TownKey(User,toolTown)
---debug("TownKey: "..User.name)	
+--debug("TownKey: "..User.name)
 	local keydoorsname
-	local AmountKeyDoors = table.getn(keydoorsnameDE[toolTown])	
+	local AmountKeyDoors = table.getn(keydoorsnameDE[toolTown])
 	for j = 1,AmountKeyDoors do
 		if  User:getPlayerLanguage() == Player.german then
 			keydoorsname = keydoorsnameDE[toolTown]
@@ -240,9 +241,9 @@ function TownKey(User,toolTown)
 	local callback = function(dialog)
 		success = dialog:getSuccess()
 		if success then
-			selected = dialog:getSelectedIndex() 
+			selected = dialog:getSelectedIndex()
 			User:createItem(keyID[toolTown][selected+1],1,999,{["lockId"]=keydoorsID[toolTown][selected+1],["descriptionDe"]=keydoorsnameDE[toolTown][selected+1],["descriptionEn"]=keydoorsnameEN[toolTown][selected+1]})
-	
+
 		end
 	end
 
@@ -254,7 +255,7 @@ function TownKey(User,toolTown)
 		dialog = SelectionDialog("Key-Generator", "Create a key for following doors.", callback)
 	end
 	dialog:setCloseOnMove()
-	
+
 	for i=1,#keydoorsname do
 		dialog:addOption(0, keydoorsname[i])
 	end
