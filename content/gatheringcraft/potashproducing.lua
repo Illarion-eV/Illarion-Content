@@ -83,7 +83,7 @@ function StartGathering(User, SourceItem, ltstate)
 			end
 	end
 	User:eraseItem( woodID, 1 ); -- erase the item we're working on
-	local amount = 3; -- set the amount of items that are produced
+	local amount = 2; -- set the amount of items that are produced
 	local notCreated = User:createItem( 314, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 314, notCreated, User.pos, true, 333, nil );
