@@ -35,7 +35,7 @@ killer={}; --A list that keeps track of who attacked the monster last
 
 msgs = base.messages.Messages();
 msgs:addMessage("#me atmet laut ein und aus.", "#me takes deep breaths.");
-msgs:addMessage("#me ist mit Wunden übersäht", "#me is littered with wounds.");
+msgs:addMessage("#me ist mit Wunden übersäht.", "#me is littered with wounds.");
 msgs:addMessage("#me macht ächzende Geräusche.", "#me makes groaning noises.");
 msgs:addMessage("#me spuckt etwas Blut auf den Boden.", "#me spits out some blood.");
 msgs:addMessage("#me starrt ins Leere.", "#me stares into oblivion.");
@@ -63,7 +63,7 @@ function enemyNear(Monster,Enemy)
     end
 
 	if (MonID==731) then
-        return ( monster.base.monstermagic.CastMonster(Monster {103, 593, 822}) );
+        return ( monster.base.monstermagic.CastMonster(Monster, {103, 593, 822}) );
     else
         return false;
     end
