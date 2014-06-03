@@ -132,7 +132,7 @@ queststatus(189) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> infor
 
 -- Quest 1 solved, reward: 2000cp, +5 rankpoints
 queststatus(189) = 6, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(189) = 7, rankpoints + 5, "#me takes a long drink of beer, 'Here is your reward, but there is more work to be done!'"
-queststatus(189) = 6, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(187) = 7, rankpoints + 5, "#me nimmt einen ordentlichen Schluck Bier, 'Hier ist deine Belohnung, aber es gibt noch mehr Arbeit zu erledigen!'"
+queststatus(189) = 6, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(189) = 7, rankpoints + 5, "#me nimmt einen ordentlichen Schluck Bier, 'Hier ist deine Belohnung, aber es gibt noch mehr Arbeit zu erledigen!'"
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(189) > 0, queststatus(189) < 6, english, town = Galmair, "quest", "mission" -> "The beer supply is in grave danger, hurry up and kill 5 rats."
