@@ -174,7 +174,7 @@ queststatus(187) > 9, queststatus(187) < 20, town = Cadomyr, "quest", "mission" 
 queststatus(187) > 9, queststatus(187) < 20, town = Cadomyr, "task", "adventure" -> "Kill 10 of the more aggressive rats and muskrats."
 queststatus(187) > 9, queststatus(187) < 20, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Töte 10 der aggressiven Ratten und Bisamratten."
 
--- 4th quest collect 25 grain from cistern rats
+-- 4th quest collect 25 pottash from cistern rats
 -- Giving out quest 4
 queststatus(187) = 21, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor IV"), queststatus(187) = 22, "Now this is a good test of your skill. Gather 25 potash from these here rats, for Cadomyr!"
 queststatus(187) = 21, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Schädlingswächter IV"), queststatus(187) = 22, "Dies ist eine gute Möglichkeit deine Fähigkeiten zu testen. Sammle 25 Pottasche von diesen Ratten."
@@ -182,8 +182,8 @@ queststatus(187) = 21, town = Cadomyr, "task", "adventure" -> inform("[New quest
 queststatus(187) = 21, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Schädlingswächter IV"), queststatus(187) = 22, "Dies ist eine gute Möglichkeit deine Fähigkeiten zu testen. Sammle 25 Pottasche von diesen Ratten."
 
 -- Quest 4 solved, 30 silver, +10 rankpoints
-queststatus(187) = 22, item(314, all) > 25, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, deleteItem(314, 25), queststatus(187) = 23, rankpoints + 10, "The Queen will be most pleased when I tell her of your efforts."
-queststatus(187) = 22, item(314, all) > 25, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, deleteItem(314, 25), queststatus(187) = 23, rankpoints + 10, "Die Königin wird sehr erfreut sein, wenn ich Ihr von deinen Bemühungen berichte."
+queststatus(187) = 22, item(314, all) > 24, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, deleteItem(314, 25), queststatus(187) = 23, rankpoints + 10, "The Queen will be most pleased when I tell her of your efforts."
+queststatus(187) = 22, item(314, all) > 24, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, deleteItem(314, 25), queststatus(187) = 23, rankpoints + 10, "Die Königin wird sehr erfreut sein, wenn ich Ihr von deinen Bemühungen berichte."
 
 -- Quest 4 taken but not finished
 queststatus(187) = 22, item(314, all) < 25, town = Cadomyr, english, "quest", "mission" -> "Test your skill and bring me 25 potash from the rats."
@@ -220,10 +220,10 @@ queststatus(187) = 36, item(69, all) > 9, english, town = Cadomyr, ".+" -> infor
 queststatus(187) = 36, item(69, all) > 9, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, deleteItem(69, 10), queststatus(187) = 37, rankpoints + 15, "Du hast deinen Mut und deine Ehre bewiesen. Du wirst ein guter Diener der Königin sein."
 
 -- Quest 6 taken but not finished
-queststatus(187) = 36, item(69, all) < 25, town = Cadomyr, english, "quest", "mission" -> "Please bring ten pieces of raw leather from sewer rats to prove you have defeated the diseased ones."
-queststatus(187) = 36, item(69, all) < 25, town = Cadomyr, "quest", "mission" -> "Bitte bringe zehn Stücke Rohleder von Kanalratten um zu beweisen, dass du die erkrankten besiegt hast."
-queststatus(187) = 36, item(69, all) < 25, town = Cadomyr, "task", "adventure" -> "Please bring ten pieces of raw leather from sewer rats to prove you have defeated the diseased ones."
-queststatus(187) = 36, item(69, all) < 25, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Bitte bringe zehn Stücke Rohleder von Kanalratten um zu beweisen, dass du die erkrankten besiegt hast."
+queststatus(187) = 36, item(69, all) < 10, town = Cadomyr, english, "quest", "mission" -> "Please bring ten pieces of raw leather from sewer rats to prove you have defeated the diseased ones."
+queststatus(187) = 36, item(69, all) < 10, town = Cadomyr, "quest", "mission" -> "Bitte bringe zehn Stücke Rohleder von Kanalratten um zu beweisen, dass du die erkrankten besiegt hast."
+queststatus(187) = 36, item(69, all) < 10, town = Cadomyr, "task", "adventure" -> "Please bring ten pieces of raw leather from sewer rats to prove you have defeated the diseased ones."
+queststatus(187) = 36, item(69, all) < 10, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Bitte bringe zehn Stücke Rohleder von Kanalratten um zu beweisen, dass du die erkrankten besiegt hast."
 
 -- No more quests, just nice words of gratitude
 queststatus(187) = 37, town = Cadomyr, english, "quest", "mission" -> "You have done your duty, I have no more work for you."

@@ -182,8 +182,8 @@ queststatus(189) = 21, town = Galmair, "task", "adventure" -> inform("[New quest
 queststatus(189) = 21, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette das Bierlager IV"), queststatus(189) = 22, "Unsere Bauern brauchen ihr Getreide zurück um mehr Bier zu brauen! Sammle 25 Bündel Getreide von den Ratten hier."
 
 -- Quest 4 solved, 30 silver, +10 rankpoints
-queststatus(189) = 22, item(259, all) > 25, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, deleteItem(259, 25), queststatus(189) = 23, rankpoints + 10, "Arr! The Don be happy your helping. Come back later for more work."
-queststatus(189) = 22, item(259, all) > 25, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, deleteItem(259, 25), queststatus(189) = 23, rankpoints + 10, "Arr! Über deine Hilfe wird der Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
+queststatus(189) = 22, item(259, all) > 24, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, deleteItem(259, 25), queststatus(189) = 23, rankpoints + 10, "Arr! The Don be happy your helping. Come back later for more work."
+queststatus(189) = 22, item(259, all) > 24, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, deleteItem(259, 25), queststatus(189) = 23, rankpoints + 10, "Arr! Über deine Hilfe wird der Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
 
 -- Quest 4 taken but not finished
 queststatus(189) = 22, item(259, all) < 25, town = Galmair, english, "quest", "mission" -> "The farmers need 25 grain to make beer! Get to work!"
@@ -220,10 +220,10 @@ queststatus(189) = 36, item(69, all) > 9, english, town = Galmair, ".+" -> infor
 queststatus(189) = 36, item(69, all) > 9, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, deleteItem(69, 10), queststatus(189) = 37, rankpoints + 15, "Arr!!! Das Bier ist gerettet, ich habe nichts mehr für dich zu tun."
 
 -- Quest 6 taken but not finished
-queststatus(189) = 36, item(69, all) < 25, town = Galmair, english, "quest", "mission" -> "Reduce da plague, and bring me 10 raw leather from da plague rats!"
-queststatus(189) = 36, item(69, all) < 25, town = Galmair, "quest", "mission" -> "Los, bring mir 10 Rohleder von den Pestratten!"
-queststatus(189) = 36, item(69, all) < 25, town = Galmair, "task", "adventure" -> "Reduce da plague, and bring me 10 raw leather from da plague rats!"
-queststatus(189) = 36, item(69, all) < 25, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Los, bring mir 10 Rohleder von den Pestratten!"
+queststatus(189) = 36, item(69, all) < 10, town = Galmair, english, "quest", "mission" -> "Reduce da plague, and bring me 10 raw leather from da plague rats!"
+queststatus(189) = 36, item(69, all) < 10, town = Galmair, "quest", "mission" -> "Los, bring mir 10 Rohleder von den Pestratten!"
+queststatus(189) = 36, item(69, all) < 10, town = Galmair, "task", "adventure" -> "Reduce da plague, and bring me 10 raw leather from da plague rats!"
+queststatus(189) = 36, item(69, all) < 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Los, bring mir 10 Rohleder von den Pestratten!"
 
 -- No more quests, just nice words of gratitude
 queststatus(189) = 37, town = Galmair, english, "quest", "mission" -> "Arr!!! Da beer be safe, I have no more work for you."

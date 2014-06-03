@@ -181,8 +181,8 @@ queststatus(188) = 21, town = Runewick, "task", "adventure" -> inform("[New ques
 queststatus(188) = 21, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette die Äcker IV"), queststatus(188) = 22, "Unsere Bauern hätten gern etwas Getreide zurück. Sammle 25 Getreide von diesen Ratten, für Runewick!"
 
 -- Quest 4 solved, 30 silver, +10 rankpoints
-queststatus(188) = 22, item(259, all) > 25, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, deleteItem(259, 25), queststatus(188) = 23, rankpoints + 10, "The Archmage will be most pleased to hear of your assistance."
-queststatus(188) = 22, item(259, all) > 25, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, deleteItem(259, 25), queststatus(188) = 23, rankpoints + 10, "Der Erzmagier wird über deine Hilfe sehr erfreut sein."
+queststatus(188) = 22, item(259, all) > 24, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, deleteItem(259, 25), queststatus(188) = 23, rankpoints + 10, "The Archmage will be most pleased to hear of your assistance."
+queststatus(188) = 22, item(259, all) > 24, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, deleteItem(259, 25), queststatus(188) = 23, rankpoints + 10, "Der Erzmagier wird über deine Hilfe sehr erfreut sein."
 
 -- Quest 4 taken but not finished
 queststatus(188) = 22, item(259, all) < 25, town = Runewick, english, "quest", "mission" -> "We need to keep the farmers happy, bring 25 grain."
@@ -219,10 +219,10 @@ queststatus(188) = 36, item(69, all) > 9, english, town = Runewick, ".+" -> info
 queststatus(188) = 36, item(69, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, deleteItem(69, 10), queststatus(188) = 37, rankpoints + 15, "Du hast erfolgreich geholfen die Ernte zu beschützen, der Erzmagier und ich sind dankbar."
 
 -- Quest 6 taken but not finished
-queststatus(188) = 36, item(69, all) < 25, town = Runewick, english, "quest", "mission" -> "Please bring 10 raw leather from sewer rats to prove you have defeated the diseased ones."
-queststatus(188) = 36, item(69, all) < 25, town = Runewick, "quest", "mission" -> "Bitte bringe mir 10 Rohleder von Kanalratten um zu beweisen das Du die Kranken vernichtet hast."
-queststatus(188) = 36, item(69, all) < 25, town = Runewick, "task", "adventure" -> "Please bring 10 raw leather from sewer rats to prove you have defeated the diseased ones."
-queststatus(188) = 36, item(69, all) < 25, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Bitte bringe mir 10 Rohleder von Kanalratten um zu beweisen das Du die Kranken vernichtet hast."
+queststatus(188) = 36, item(69, all) < 10, town = Runewick, english, "quest", "mission" -> "Please bring 10 raw leather from sewer rats to prove you have defeated the diseased ones."
+queststatus(188) = 36, item(69, all) < 10, town = Runewick, "quest", "mission" -> "Bitte bringe mir 10 Rohleder von Kanalratten um zu beweisen das Du die Kranken vernichtet hast."
+queststatus(188) = 36, item(69, all) < 10, town = Runewick, "task", "adventure" -> "Please bring 10 raw leather from sewer rats to prove you have defeated the diseased ones."
+queststatus(188) = 36, item(69, all) < 10, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Bitte bringe mir 10 Rohleder von Kanalratten um zu beweisen das Du die Kranken vernichtet hast."
 
 -- No more quests, just nice words of gratitude
 queststatus(188) = 37, town = Runewick,english, "quest", "mission" -> "Thank you once again. I have no more work for you."
