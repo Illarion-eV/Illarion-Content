@@ -210,7 +210,7 @@ function onLogin( player )
 	datum=world:getTime("day");
 	monthString=base.common.Month_To_String(world:getTime("month"));
 	hourStringG, hourStringE=base.common.Hour_To_String(world:getTime("hour"));
-	
+
 	lastDigit=datum%10; --Is it st, nd or rd?
 	
 	if lastDigit == 1 then 
