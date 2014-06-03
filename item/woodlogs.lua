@@ -54,6 +54,9 @@ function UseItem(User, SourceItem)
     -- turn to field if necessary
 	base.common.TurnTo( User, checkPos );
   end
+  
+  --Weather is not shown by the client. So, players can only guess that it rains. Deactivated. ~Estralis
+  --[[
   -- check wether user is under roof
   local potentialRoofPos=position(checkPos.x, checkPos.y, checkPos.z+1);
   local potRoof=world:getField(potentialRoofPos);
@@ -65,6 +68,7 @@ function UseItem(User, SourceItem)
     "You wouldn't be able to light a fire in this weather.");
     return;
   end
+]]
 
   -- everything is okay, erase the wood and light a fire
   world:erase(SourceItem, 1);
