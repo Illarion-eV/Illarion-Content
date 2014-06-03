@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
 module("scheduled.spawnpoint", package.seeall)
@@ -24,7 +24,7 @@ module("scheduled.spawnpoint", package.seeall)
 
 
 -- conatining all center points
-SPAWNDATAS = {} 
+SPAWNDATAS = {}
 gmSpawnpointSettings = {}
 gmMonsters = {}
 -- get active bomb information by center position
@@ -55,7 +55,7 @@ function spawnGM()
 		if checkValue(pause) == false then
 		if gmSpawnpointSettings[i][8] == nil then
 			gmSpawnpointSettings[i][8] = 0;
-		else 
+		else
 			gmSpawnpointSettings[i][8] = gmSpawnpointSettings[i][8]+1;
 		end
 		if checkValue(intervals) == false then
@@ -105,10 +105,10 @@ end
 
 function updateMonsters(array,number)
 	if #array[number] > 1 then
-		for i=2, #array[number] do
+		for i = #array[number], 2, -1 do
 			local mon = array[number][i];
 			if not isValidChar(mon) then
-				table.remove(array[number], i)			
+				table.remove(array[number], i)
 			end
 		end
 	end
