@@ -133,6 +133,7 @@ function TownGuard(User,toolTown)
 					local townId = toolTown
 					base.factions.setIndividualPlayerRelation(theChar, townId, base.factions.RELATION_HOSTILE, 3);
 					base.common.InformNLS(User,theChar.name.." ist für einen Zwergentag gebannt.",theChar.name.." is banned for one dwarven day.")
+					User:logAdmin("bans " .. theChar.name .. " for one day from " .. base.factions.getTownNameByID(townId));
 				end
 			else
 				base.common.InformNLS(User,"Du hast nicht alle notwendige Information angegeben.","You haven't put in all necessary information.")
@@ -187,6 +188,9 @@ function TownLicence(User,toolTown)
 			end
 			local newLicence = licenceValues[dialog:getSelectedIndex()+1];
 			licence.SetLicence(FirstLicence, SecondLicence, newLicence);
+			licenceStrings[licence.PERMISSION_NONE] = "restricted";
+			licenceStrings[licence.PERMISSION_ACTIVE] = "granted";
+			User:logAdmin("sets license of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to " .. base.factions.getTownNameByID(SecondLicence) .. " to " .. licenceStrings[newLicence] );
 		end
 		local sd = SelectionDialog(TextSetLicence, TextSetLicenceOf .. base.factions.getTownNameByID(FirstLicence) .. TextWithRespctToA .. base.factions.getTownNameByID(SecondLicence) .. TextTo, cbSetLicence);
 		for _,m in ipairs(licenceValues) do
@@ -241,9 +245,9 @@ function TownKey(User,toolTown)
 	local callback = function(dialog)
 		success = dialog:getSuccess()
 		if success then
-			selected = dialog:getSelectedIndex()
-			User:createItem(keyID[toolTown][selected+1],1,999,{["lockId"]=keydoorsID[toolTown][selected+1],["descriptionDe"]=keydoorsnameDE[toolTown][selected+1],["descriptionEn"]=keydoorsnameEN[toolTown][selected+1]})
-
+			selected = dialog:getSelectedIndex() + 1
+			User:createItem(keyID[toolTown][selected],1,999,{["lockId"]=keydoorsID[toolTown][selected],["descriptionDe"]=keydoorsnameDE[toolTown][selected],["descriptionEn"]=keydoorsnameEN[toolTown][selected]})
+			User:logAdmin("creates a key for " .. keydoorsnameEN[toolTown][selected]);
 		end
 	end
 
