@@ -13,7 +13,7 @@
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
--- NPC Name: Gerry Deloid                                        Cadomyr      --
+-- NPC Name: Gerald Deloid                                        Cadomyr      --
 -- NPC Job:  Candle maker                                                     --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  126, 572, 0            --
@@ -23,7 +23,7 @@
 --                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
-name = "Gerry Deloid"
+name = "Gerald Deloid"
 race = human
 sex = male
 position = 126, 572, 0
@@ -59,22 +59,22 @@ itemTrousers = 183
 itemShoes = 53
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Gerry Deloid the candle maker. Keywords: quest")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Gerry Deloid der Kerzenmacher. Schlüsselwörter: Quest")
+"Help" -> inform("[Game Help] This NPC is Gerald Deloid the candle maker. Keywords: quest")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Gerald Deloid der Kerzenmacher. Schlüsselwörter: Quest")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, can I help you?", "Nice to meet you, I'm Gerry Deloid."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Gerry Deloid."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, can I help you?", "Nice to meet you, I'm Gerry Deloid."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Gerry Deloid"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, can I help you?", "Nice to meet you, I'm Gerald Deloid."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Gerald Deloid."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, can I help you?", "Nice to meet you, I'm Gerald Deloid."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Gerald Deloid"
 "Farewell", "Bye", "Fare well", "See you" -> "I wish you a nice day.", "I hope we meet again, goodbye."
 "Tschüß", "Tschüss", "Wiedersehen" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe wir sehen uns wieder, auf bald!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I hope we meet again, goodbye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe wir sehen uns wieder, auf bald!"
 "How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke für die Nachfrage."
-"your name", "who are you", "who art thou" -> "I'm Gerry Deloid, who are you?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Gerry Deloid, wer bist du?"
+"your name", "who are you", "who art thou" -> "I'm Gerald Deloid, who are you?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Gerald Deloid, wer bist du?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a candle maker, I'm responsible for the city lights."

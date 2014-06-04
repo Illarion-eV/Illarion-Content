@@ -97,8 +97,8 @@ english, "Cadomyr" -> "This is Cadomyr, my home. We are a realm of honourable an
 "Cadomyr" -> "Dies is Cadomyr, mein Zuhause. Wir sind ein Reich von ehrenvollen und aufrichtigen Leuten. Ich bin mir sicher, dass Ihr es hier mögen werdet."
 english, "work" -> "You can find the workshop really easily. Go through the main gate north from here, then turn right and follow the street, go through the gate, turn left and go through the next gate. From here you go north until you reach a building to your right with a little garden and some tools outside."
 german, "Werk" -> "Die Werkstatt könnt Ihr ganz leicht finden. Geht durch das Haupttor im Norden, dann biegt nach rechts ab, geht durch das Tor, nun erneut nach Norden, dann öffnet Ihr das Tor zu eurer Linken und geht nach Norden. Die Werkstatt ist kurz vor dem Palast auf der rechten Seite."
-english, "craft" -> "You want to know more about the crafts of Cadomyr? Well then go and visit Berri Firegold, Gerry Deloid, Lilli Gallfing or Zlatxhol, they can tell you more about the crafts than me. You can find them in the workshop in the north of the city."
-german, "hand" -> "Ihr wollt mehr über die Handwerke in Cadomyr wissen? Dann besucht Berri Firegold, Gerry Deloid, Lilli Gallfing oder Zlatxhol. Sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt sie alle in der Werkstatt im Norden der Stadt finden."
+english, "craft" -> "You want to know more about the crafts of Cadomyr? Well then go and visit Berri Firegold, Gerald Deloid, Lilli Gallfing or Zlatxhol, they can tell you more about the crafts than me. You can find them in the workshop in the north of the city."
+german, "hand" -> "Ihr wollt mehr über die Handwerke in Cadomyr wissen? Dann besucht Berri Firegold, Gerald Deloid, Lilli Gallfing oder Zlatxhol. Sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt sie alle in der Werkstatt im Norden der Stadt finden."
 
 -- Quests
 -- Berri
