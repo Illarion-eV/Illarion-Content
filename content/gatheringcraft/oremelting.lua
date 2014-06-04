@@ -20,8 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Forge off: 2837
 -- Forge on: 2834
 
--- coal (21) + { iron ore (22), copper ore (2536), gold nuggets (234), silver ore (1062),
---               merinium ore (2534) + pure fire (2553) }
+-- coal (21) + { iron ore (22), copper ore (2536), gold nuggets (234), silver ore (1062), merinium ore (2534)}
 --          --> {iron (2535), copper (2550), silver (104), gold (236), merinium (2571)} ingot
 
 -- additional tool: crucible-pincers (2751)
@@ -146,24 +145,12 @@ function StartGathering(User, SourceItem, ltstate)
   local oreItem = nil;
   for _,i in pairs(OreList) do
     if (User:countItemAt("all",i.ore.id)>=i.ore.amount) then
-      if (i.ore.id == 2534) then
-        -- that's merinium (should be the last in the list), we need pure fire
-        if (User:countItemAt("all",2553) == 0) then
-          base.common.HighInformNLS( User,
-          "Du brauchst reines Feuer um Meriniumerz zu schmelzen.",
-          "You need pure fire for melting merinium ore." );
-          return;
-        else
-          oreItem = i;
-          break;
-        end
-      else
-        -- something else than merinium, everything is fine.
         oreItem = i;
         break;
-      end
     end
   end
+  
+  
   if (oreItem == nil) then
 		base.common.HighInformNLS( User,
 		"Du brauchst Eisenerz, Kupfererz, Silbererz, Goldnuggets oder Meriniumerz um es zu schmelzen.",
@@ -227,10 +214,7 @@ function StartGathering(User, SourceItem, ltstate)
 	User:learn( oremelting.LeadSkill, oremelting.SavedWorkTime[User.id], oremelting.LearnLimit);
 	User:eraseItem( oreItem.ore.id, oreItem.ore.amount ); -- erase the item we're working on
   User:eraseItem( CoalItem.id, CoalItem.amount );
-  if (oreItem.ore.id == 2534) then
-    -- merinium, erase pure fire too.
-    User:eraseItem(2553, 1);
-  end
+
 	local amount = oreItem.product.amount; -- set the amount of items that are produced
 	local notCreated = User:createItem( oreItem.product.id, amount, 333, nil ); -- create the new produced items
   local nextActionStarted = false;
@@ -242,16 +226,11 @@ function StartGathering(User, SourceItem, ltstate)
 	else -- character can still carry something
     if (User:countItemAt("all",CoalItem.id)>=CoalItem.amount) then  -- there are still items we can work on
       if (User:countItemAt("all",oreItem.ore.id)>=oreItem.ore.amount) then
-        if (oreItem.ore.id == 2534 and User:countItemAt("all",2553) == 0) then
-        -- merinium requires pure fire
-          base.common.HighInformNLS( User,
-          "Du brauchst reines Feuer um Meriniumerz zu schmelzen.",
-          "You need pure fire for melting merinium ore." );
-        else
+
           oremelting.SavedWorkTime[User.id] = oremelting:GenWorkTime(User,toolItem);
           User:startAction( oremelting.SavedWorkTime[User.id], 0, 0, 0, 0);
           nextActionStarted = true;
-        end
+
       else -- no ore
         base.common.HighInformNLS(User,
         "Du brauchst Eisenerz, Kupfererz, Silbererz, Goldnuggets oder Meriniumerz um es zu schmelzen.",
