@@ -1316,7 +1316,7 @@ function Hour_To_String(hour)
     elseif (hour >= 10 and hour < 12) then
         return "vormittags", "before noon";
     elseif (hour >= 12 and hour < 14) then
-        return "gegen Mittag", "at noon";
+        return "gegen Mittag", "around noon";
     elseif (hour >= 14 and hour < 16) then
         return "nachmittags", "in the afternoon";
     elseif (hour >= 16 and hour < 18) then
