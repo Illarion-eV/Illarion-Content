@@ -45,7 +45,7 @@ function PutItemOnField(Item,User)
 		if town then -- security check: only if the char as been sent to forced labour by a faction
 		
 			local theItemStats=world:getItemStats(Item)
-			itemNumberPay = base.common.Limit(workLoad-Item.number,0,nil) -- we do only count the items a char has to deliver
+			itemNumberPay = base.common.Limit(Item.number,0,workLoad) -- we do only count the items a char has to deliver
 			local payToFaction = itemNumberPay*theItemStats.Worth*0.1 -- 10% of teh value
 			
 			if town ~= "None" then	
