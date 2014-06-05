@@ -25,7 +25,7 @@ module("gm.items.id_382_ceilingtrowel", package.seeall)
 function UseItem(User, SourceItem)
 
 	-- First check for mode change
-	local modes = {"items", "weather", "factions","Spawnpoint","Special Egg Creation"};
+	local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Egg Creation"};
 	local cbSetMode = function (dialog)
 		if (not dialog:getSuccess()) then
 			return;
@@ -82,21 +82,21 @@ function changeItems(User, SourceItem, TargetItem)
 		end
 		if (string.find(input,"setqual (%d)(%d)(%d)")~=nil) then
 			local a,b,newqual=string.find(input,"setqual (%d+)");
-			TargetItem.quality=newqual+1-1;
+			TargetItem.quality=tonumber(newqual);
 			world:changeItem(TargetItem);
 			User:inform("Quality of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.quality);
 			User:logAdmin("changed quality of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.quality);
 		end
 		if (string.find(input,"setwear (%d+)")~=nil) then
 			local a,b,newwear = string.find(input,"setwear (%d+)");
-			TargetItem.wear=newwear+1-1;
+			TargetItem.wear=tonumber(newwear);
 			world:changeItem(TargetItem);
 			User:inform("Wear of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.wear);
 			User:logAdmin("changed wear of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.wear);
 		end
 		if (string.find(input,"setnumber (%d+)")~=nil) then
 			local a,b,newwear = string.find(input,"setnumber (%d+)");
-			TargetItem.number=math.min(250,newwear+1-1);
+			TargetItem.number=math.min(250,tonumber(newwear));
 			world:changeItem(TargetItem);
 			User:inform("Amount of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.number);
 			User:logAdmin("changed number of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.number);
@@ -105,37 +105,9 @@ function changeItems(User, SourceItem, TargetItem)
 	User:requestInputDialog(InputDialog("Set an option for the Item", "Possible actions:  setdata <key> <value>, setqual <value>, setwear <value>, setnumber <value>" ,false, 255, cbInputDialog));
 end
 
-  -- if (string.find(User.lastSpokenText,"field")~=nil) then
-    -- UseItemWithField(User, SourceItem, User.pos);
-  -- end
-  -- if (string.find(User.lastSpokenText,"count (%d+)")~=nil) then
-    -- a,b,countID=string.find(User.lastSpokenText,"count (%d+)");
-    -- countID = countID+1-1;
-    -- User:inform("User:countItem("..countID..") = "..User:countItem(countID));
-    -- User:inform("User:countItemAt(\"all\", "..countID..") = "..User:countItemAt("all",countID));
-    -- User:inform("User:countItemAt(\"belt\", "..countID..") = "..User:countItemAt("belt",countID));
-    -- User:inform("User:countItemAt(\"body\", "..countID..") = "..User:countItemAt("body",countID));
-    -- User:inform("User:countItemAt(\"backpack\", "..countID..") = "..User:countItemAt("backpack",countID));
-    -- User:inform("User:countItemAt(\"all\", "..countID..", 0) = "..User:countItemAt("all",countID));
-    -- User:inform("User:countItemAt(\"belt\", "..countID..", 0) = "..User:countItemAt("belt",countID));
-    -- User:inform("User:countItemAt(\"body\", "..countID..", 0) = "..User:countItemAt("body",countID));
-    -- User:inform("User:countItemAt(\"backpack\", "..countID..", 0) = "..User:countItemAt("backpack",countID));
-    -- local Bag = User:getBackPack();
-    -- User:inform("Bag:countItem("..countID..") = "..Bag:countItem(countID));
-    -- User:inform("Bag:countItem("..countID..", 0) = "..Bag:countItem(countID));
-  -- end
-  -- if ((string.find(User.lastSpokenText,"show map")~=nil)) then
-    -- User:inform("Okay, now showing map");
-    -- for i=1, 200 do
-      -- newx=math.random(0,1024);
-      -- newy=math.random(0,1024);
-      -- User:warp(position(newx,newy,0));
-    -- end
-  -- end
+function weather(User, SourceItem)
 
- function weather(User, SourceItem)
-
-	currWeather = world.weather;
+	local currWeather = world.weather;
 
 	local cbInputDialog = function (dialog)
 		if (not dialog:getSuccess()) then
@@ -153,7 +125,7 @@ end
 		end
 		if (string.find(input,"clouds (%d+)")~=nil) then
 			local a, b, value = string.find(input"clouds (%d+)");
-			value=value+1-1;
+			value=tonumber(value);
 			if (value<101 and value>-1) then
 				currWeather.cloud_density = value;
 				User:inform("cloud density changed to: "..value);
@@ -164,7 +136,7 @@ end
 		end
 		if (string.find(input,"fog (%d+)")~=nil) then
 			local a, b, value = string.find(input,"fog (%d+)");
-			value=value+1-1;
+			value=tonumber(value);
 			if (value<101 and value>-1) then
 				currWeather.fog_density = value;
 				User:inform("fog density changed to: "..value);
@@ -175,7 +147,7 @@ end
 		end
 		if (string.find(input,"wind dir ([-,0-9]+)")~=nil) then
 			local a, b, value = string.find(input,"wind dir ([-,0-9]+)");
-			value=value+1-1;
+			value=tonumber(value);
 			if (value<101 and value>-101) then
 				currWeather.wind_dir = value;
 				User:inform("wind direction changed to: "..value);
@@ -186,7 +158,7 @@ end
 		end
 		if (string.find(input,"gust str (%d+)")~=nil) then
 			local a, b, value = string.find(input,"gust str (%d+)");
-			value=value+1-1;
+			value=tonumber(value);
 			if (value<101 and value>-1) then
 				currWeather.gust_strength = value;
 				User:inform("gust strength changed to: "..value);
@@ -197,7 +169,7 @@ end
 		end
 		if (string.find(input,"per (%d+)")~=nil) then
 			local a, b, value = string.find(input,"per (%d+)");
-			value=value+1-1;
+			value=tonumber(value);
 			if (value<101 and value>-1) then
 				currWeather.percipitation_strength = value;
 				User:inform("percipitation strength changed to: "..value);
@@ -208,7 +180,7 @@ end
 		end
 		if (string.find(input,"thunder (%d+)")~=nil) then
 			local a, b, value = string.find(input,"thunder (%d+)");
-			value=value+1-1;
+			value=tonumber(value);
 			if (value<101 and value>-1) then
 				currWeather.thunderstorm = value;
 				User:inform("thunderstorm changed to: "..value);
@@ -219,7 +191,7 @@ end
 		end
 		if (string.find(input,"temp ([-,0-9]+)")~=nil) then
 			local a, b, value = string.find(input,"temp ([-,0-9]+)");
-			value=value+1-1;
+			value=tonumber(value);
 			if (value<51 and value>-51) then
 				currWeather.temperature = value;
 				User:inform("temperature changed to: "..value);
@@ -505,89 +477,83 @@ function factionHandling(User, SourceItem)
 end
 
 function spawnPoint(User, SourceItem)
-  --Spawnpoint mode
 
-		local modes = {"Monster", "Intervals per spawn","Amount of Monsters", "Time","Effects","Start Spawnpoint","Delete Spawnpoint","Pause Spawnpoint", "Reset Spawntool"}
-		local cbSetMode = function (dialog)
-			if (not dialog:getSuccess()) then
-				return;
-			end
+	local modes = {"Monster", "Intervals per spawn", "Amount of Monsters", "Time", "Effects", "Start Spawnpoint", "Delete Spawnpoint", "Pause Spawnpoint", "Reset Spawntool"};
+	local cbSetMode = function (dialog)
+		if (not dialog:getSuccess()) then
+			return;
+		end
 
-			local index = dialog:getSelectedIndex() + 1;
-			if index == 1 then
-				spawnMonster(User, SourceItem)
-			elseif index == 2 then
-				spawnIntervalsPerSpawn(User, SourceItem)
-			elseif index == 3 then
-				spawnAmount(User, SourceItem)
-			elseif index == 4 then
-				spawnTime(User, SourceItem)
-			elseif index == 5 then
-				spawnEffects(User, SourceItem)
-			elseif index == 6 then
-				sapwnStartStop(User, SourceItem)
-			elseif index == 7 then
-				spawnRemove(User, SourceItem)
-			elseif index == 8 then
-				spawnPause(User, SourceItem)
-			elseif index == 9 then
-				spawnReset(User, SourceItem)
-			end
+		local index = dialog:getSelectedIndex() + 1;
+		if index == 1 then
+			spawnMonster(User, SourceItem);
+		elseif index == 2 then
+			spawnIntervalsPerSpawn(User, SourceItem);
+		elseif index == 3 then
+			spawnAmount(User, SourceItem);
+		elseif index == 4 then
+			spawnTime(User, SourceItem);
+		elseif index == 5 then
+			spawnEffects(User, SourceItem);
+		elseif index == 6 then
+			sapwnStartStop(User, SourceItem);
+		elseif index == 7 then
+			spawnRemove(User, SourceItem);
+		elseif index == 8 then
+			spawnPause(User, SourceItem);
+		elseif index == 9 then
+			spawnReset(User, SourceItem);
 		end
-		local sd = SelectionDialog("Set the mode of this Spawnpoint.", "To which mode do you want to change it?", cbSetMode);
-		for _,m in ipairs(modes) do
-			sd:addOption(0,m);
-		end
-		User:requestSelectionDialog(sd);
-		return;
+	end
+	local sd = SelectionDialog("Set the mode of this Spawnpoint.", "To which mode do you want to change it?", cbSetMode);
+	for _,m in ipairs(modes) do
+		sd:addOption(0,m);
+	end
+	User:requestSelectionDialog(sd);
 end
 
-
-	-- If input contains numbers, sets input to Data "monsters"
 function spawnRemove(User, SourceItem)
-  --Spawnpoint mode
+
 	local sp = scheduled.spawnpoint;
-		local cbSetMode = function (dialog)
-			if (not dialog:getSuccess()) then
-				return;
-			end
-			local index = dialog:getSelectedIndex() + 1;
-			User:inform("You removed the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
-			User:logAdmin("removed the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
-			table.remove(sp.gmSpawnpointSettings, index);
-			table.remove(sp.gmMonsters, index);
+	local cbSetMode = function (dialog)
+		if (not dialog:getSuccess()) then
+			return;
 		end
-		local sd = SelectionDialog("Pick a spawnpoint to delete", "To which point do you want to delete?", cbSetMode);
-		for _,m in ipairs(sp.gmSpawnpointSettings) do
-			sd:addOption(0,tostring(m[2]));
-		end
+		local index = dialog:getSelectedIndex() + 1;
+		User:inform("You removed the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+		User:logAdmin("removed the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+		table.remove(sp.gmSpawnpointSettings, index);
+		table.remove(sp.gmMonsters, index);
+	end
+	local sd = SelectionDialog("Pick a spawnpoint to delete", "To which point do you want to delete?", cbSetMode);
+	for _,m in ipairs(sp.gmSpawnpointSettings) do
+		sd:addOption(0,tostring(m[2]));
+	end
 	User:requestSelectionDialog(sd);
-	return;
 end
 
 function spawnPause(User, SourceItem)
 	local sp = scheduled.spawnpoint;
-		local cbSetMode = function (dialog)
-			if (not dialog:getSuccess()) then
-				return;
-			end
-			local index = dialog:getSelectedIndex() + 1;
-			if sp.gmSpawnpointSettings[index][9] == 0 then
-				User:inform("You paused the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
-				User:logAdmin("paused the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
-				sp.gmSpawnpointSettings[index][9] = 1;
-			else
-				User:inform("You reactivated the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
-				User:logAdmin("reactivated the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
-				sp.gmSpawnpointSettings[index][9] = 0;
-			end
+	local cbSetMode = function (dialog)
+		if (not dialog:getSuccess()) then
+			return;
 		end
-		local sd = SelectionDialog("Pick a spawnpoint to pause/reactivate", "To which point do you want to pause/reactivate?", cbSetMode);
-		for _,m in ipairs(sp.gmSpawnpointSettings) do
-			sd:addOption(0,tostring(m[2]));
+		local index = dialog:getSelectedIndex() + 1;
+		if sp.gmSpawnpointSettings[index][9] == 0 then
+			User:inform("You paused the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+			User:logAdmin("paused the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+			sp.gmSpawnpointSettings[index][9] = 1;
+		else
+			User:inform("You reactivated the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+			User:logAdmin("reactivated the spawnpoint at " ..tostring(sp.gmMonsters[index][1]));
+			sp.gmSpawnpointSettings[index][9] = 0;
 		end
+	end
+	local sd = SelectionDialog("Pick a spawnpoint to pause/reactivate", "To which point do you want to pause/reactivate?", cbSetMode);
+	for _,m in ipairs(sp.gmSpawnpointSettings) do
+		sd:addOption(0,tostring(m[2]));
+	end
 	User:requestSelectionDialog(sd);
-	return;
 end
 
 function spawnMonster(User, SourceItem)
@@ -595,7 +561,7 @@ function spawnMonster(User, SourceItem)
 		if (not dialog:getSuccess()) then
 			return;
 		end
-	local inputString = dialog:getInput();
+		local inputString = dialog:getInput();
 		if (string.find(inputString,"(%d+)") ~= nil) then
 			SourceItem:setData("monsters", inputString);
 			world:changeItem(SourceItem);
@@ -743,17 +709,18 @@ function checkData(SourceItem,data)
 end
 
 function checkPoint(User,TargetPos)
-local sp = scheduled.spawnpoint;
+
+	local sp = scheduled.spawnpoint;
 	for i=1, #sp.gmSpawnpointSettings do
 		if sp.gmSpawnpointSettings[i][2] == TargetPos then
-		--check function
-		for j=1, #sp.gmMonsters do
-			for k=1, #sp.gmMonsters[i] do
-				User:inform("test")
+			--check function
+			for j=1, #sp.gmMonsters do
+				for k=1, #sp.gmMonsters[i] do
+					User:inform("test")
+				end
+				User:inform("next spawn")
 			end
-			User:inform("next spawn")
-		end
-		return false
+			return false
 		end
 	end
 	return true
