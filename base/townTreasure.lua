@@ -32,26 +32,12 @@ function GetTownTreasure(town)
 		debug(string.format("Script variable was found and resolved to %s, but failed to convert to a number!", (currentTreasure == nil) and "nil" or currentTreasure));
 		return 0;
 	end
-	if (treasureNumber > 3000000) then
-		log(string.format("[WARN][Town Treasure] The treasure of %s exceeded 3 million copper coins. Something is wrong. Capping.", town));
-		return 3000000;
+	if (treasureNumber > 10000000) then
+		log(string.format("[WARN][Town Treasure] The treasure of %s exceeded 10 million copper coins. Something is wrong. Capping.", town));
+		return 10000000;
 	end
 	return treasureNumber;	
 end
-
--- get the itemID of a gem for each town.
---@town The corresponding town as string: "Cadomyr"|"Runewick"|"Galmair"
---@gemNr The number (1 or 2) of the gem
-function GetTownGem(town,gemNr)
-	if town=="Cadomyr" then
-		
-	end
-end
-
-				--Runewick: Emerald and Ruby
-				--Cadomyr: Topaz and Amethyst
-				--Galmair: Bluestond and Blackstone
-
 
 -- get the amount of taxes collected to determine the amount of gems to pay out
 -- @town Town which treasure we want to get as a string: "Cadomyr"|"Runewick"|"Galmair"
