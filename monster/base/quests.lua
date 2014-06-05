@@ -1942,14 +1942,14 @@ function iniQuests()
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
-	germanRace[id]="Bärin";
-    englishRace[id]="bears";
-	table.insert(questList[491],id); -- all bears
-	table.insert(questList[492],id); --all bears
-	table.insert(questList[501],id); --all bears
-	table.insert(questList[502],id); --all bears
-	table.insert(questList[511],id); --all bears
-	table.insert(questList[512],id); --all bears
+    germanRace[id]="Füchse";
+    englishRace[id]="foxes";
+	table.insert(questList[601],id); --All foxes
+	table.insert(questList[602],id); --All foxes
+	table.insert(questList[603],id); --All foxes
+	table.insert(questList[604],id); --All foxes
+	table.insert(questList[1021],id); --All foxes
+	table.insert(questList[1022],id); --All foxes
     minimumQueststatus[id]=82;
     maximumQueststatus[id]=86;
 	questLocation[id]=position(811, 735, 0);
@@ -1961,14 +1961,14 @@ function iniQuests()
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
-    germanRace[id]="Bärin";
-    englishRace[id]="bears";
-	table.insert(questList[491],id); -- all bears
-	table.insert(questList[492],id); --all bears
-	table.insert(questList[501],id); --all bears
-	table.insert(questList[502],id); --all bears
-	table.insert(questList[511],id); --all bears
-	table.insert(questList[512],id); --all bears
+    germanRace[id]="Füchse";
+    englishRace[id]="foxes";
+	table.insert(questList[601],id); --All foxes
+	table.insert(questList[602],id); --All foxes
+	table.insert(questList[603],id); --All foxes
+	table.insert(questList[604],id); --All foxes
+	table.insert(questList[1021],id); --All foxes
+	table.insert(questList[1022],id); --All foxes
     minimumQueststatus[id]=87;
     maximumQueststatus[id]=95;
 	questLocation[id]=position(811, 735, 0);
@@ -1980,14 +1980,14 @@ function iniQuests()
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
-	germanRace[id]="Bärin";
-	englishRace[id]="bear";
-	table.insert(questList[491],id); -- all bears
-	table.insert(questList[492],id); --all bears
-	table.insert(questList[501],id); --all bears
-	table.insert(questList[502],id); --all bears
-	table.insert(questList[511],id); --all bears
-	table.insert(questList[512],id); --all bears
+    germanRace[id]="Füchse";
+    englishRace[id]="foxes";
+	table.insert(questList[601],id); --All foxes
+	table.insert(questList[602],id); --All foxes
+	table.insert(questList[603],id); --All foxes
+	table.insert(questList[604],id); --All foxes
+	table.insert(questList[1021],id); --All foxes
+	table.insert(questList[1022],id); --All foxes
     minimumQueststatus[id]=96;
     maximumQueststatus[id]=108;
 	questLocation[id]=position(811, 735, 0);
