@@ -96,10 +96,12 @@ function StartGathering(User, SourceItem, ltstate)
 	end
 
   local tanItemId = 0;
-  if (User:countItemAt("all",69)>0) then
-    tanItemId = 69;
-  elseif (User:countItemAt("all",2586)>0) then
+  if (User:countItemAt("all",2586)>0) then
     tanItemId = 2586;
+	productId = 69;
+  elseif (User:countItemAt("all",69)>0) then
+    tanItemId = 69;
+	productId = 2547;
   end
   if (tanItemId == 0) then
     User:inform("[ERROR] No tanning item found. Please inform a developer.");
@@ -108,9 +110,9 @@ function StartGathering(User, SourceItem, ltstate)
 	User:learn( leatherproducing.LeadSkill, leatherproducing.SavedWorkTime[User.id], leatherproducing.LearnLimit);
 	User:eraseItem( tanItemId, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
-	local notCreated = User:createItem( 2547, amount, 333, nil ); -- create the new produced items
+	local notCreated = User:createItem( productId, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( 2547, notCreated, User.pos, true, 333, nil );
+		world:createItemFromId( productId, notCreated, User.pos, true, 333, nil );
 		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
