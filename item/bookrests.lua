@@ -196,13 +196,12 @@ function StaticTeleporter(User, SourceItem)
 
 					User:inform("Ihr habt euch dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
 					base.money.TakeMoneyFromChar(User,500)
-					world:gfx(45,User.pos)
+					world:gfx(46,User.pos)
 					world:makeSound(13,User.pos);
-
 
 					User:warp(targetPos[selected+1])
 					world:gfx(46,User.pos)
-					world:makeSound(4,User.pos);
+					world:makeSound(13,User.pos);
 				end
 			else
 				User:inform("Ihr habt nicht genug Geld für diese Reise. Die Reise kostet fünf Silberstücke.", "You don't have enough money for this journey. The journey costs five silver coins.")
