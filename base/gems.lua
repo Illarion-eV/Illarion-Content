@@ -34,7 +34,7 @@ function getGemBonus(item)
         if gStrength<gemMin then gemMin=gStrength end;
     end
 
-    return gemSum+gemMin*6*2;
+    return gemSum+gemMin*6;
 
 end
 

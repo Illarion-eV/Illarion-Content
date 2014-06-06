@@ -694,7 +694,7 @@ function CalculateDamage(Attacker, Globals)
     DexterityBonus = (Attacker.dexterity - 6) * 1;
     SkillBonus = (Attacker.skill - 20) * 1.5;
     --TacticsBonus = (Attacker.tactics - 20) * 0.5;
-    GemBonus = 0.5*base.gems.getGemBonus(Attacker.WeaponItem);
+    GemBonus = base.gems.getGemBonus(Attacker.WeaponItem);
 
 	--Quality Bonus: Multiplies final value by 0.91-1.09
 	QualityBonus = 0.91+0.02*math.floor(Attacker.WeaponItem.quality/100);
