@@ -1738,50 +1738,50 @@ function GetLeadAttributeName(Skill)
     leadAttribTable={};
 	
 	--Dexterity: All crafting skills for final products and instruments (please remove these skills in future)
-    leadAttribTable[Character.tailoring]="dexterity"
+	leadAttribTable[Character.tailoring]="dexterity"
 	leadAttribTable[Character.smithing]="dexterity"
 	leadAttribTable[Character.gemcutting]="dexterity"
 	leadAttribTable[Character.carpentry]="dexterity"
-    leadAttribTable[Character.cookingAndBaking]="dexterity"
-    leadAttribTable[Character.goldsmithing]="dexterity"
+	leadAttribTable[Character.cookingAndBaking]="dexterity"
+	leadAttribTable[Character.goldsmithing]="dexterity"
 	leadAttribTable[Character.glassBlowing]="dexterity"
 	leadAttribTable[Character.harp]="dexterity"
 	leadAttribTable[Character.horn]="dexterity"
 	leadAttribTable[Character.flute]="dexterity"
-    leadAttribTable[Character.lute]="dexterity"
+	leadAttribTable[Character.lute]="dexterity"
 	
 	--Constitution: All gathering skills
 	leadAttribTable[Character.herblore]="constitution"
-    leadAttribTable[Character.mining]="constitution"
-    leadAttribTable[Character.fishing]="constitution"
-    leadAttribTable[Character.firingBricks]="constitution"
+	leadAttribTable[Character.mining]="constitution"
+	leadAttribTable[Character.fishing]="constitution"
+	leadAttribTable[Character.firingBricks]="constitution"
 	leadAttribTable[Character.farming]="constitution"
-    leadAttribTable[Character.woodcutting]="constitution"
-	
+	leadAttribTable[Character.woodcutting]="constitution"
+		
 	--Agility: Defensive fighting skills
 	leadAttribTable[Character.parry]="agility"
 	leadAttribTable[Character.heavyArmour]="agility"
 	leadAttribTable[Character.mediumArmour]="agility"
 	leadAttribTable[Character.lightArmour]="agility"
-		
-    --Perception: Archery
+			
+	--Perception: Archery
 	leadAttribTable[Character.distanceWeapons]="perception"
-    
+		
 	--Strength: Offensive fighting skills
-    leadAttribTable[Character.slashingWeapons]="strength"
+	leadAttribTable[Character.slashingWeapons]="strength"
 	leadAttribTable[Character.wrestling]="strength"
-    leadAttribTable[Character.concussionWeapons]="strength"
+	leadAttribTable[Character.concussionWeapons]="strength"
 	leadAttribTable[Character.punctureWeapons]="strength"
 
 	--Essence: Alchemy
-    leadAttribTable[Character.alchemy]="essence"
-	
+	leadAttribTable[Character.alchemy]="essence"
+		
 	--Intelligence: Magic
 	--No skills yet
-	
+		
 	--Willpower: Priests
 	--No skills yet
-	
+		
 	--Deactivated skills	
 	--leadAttribTable[Character.dodge]="agility" --deactivated
 	--leadAttribTable[Character.tactics]="perception" --deactivated
