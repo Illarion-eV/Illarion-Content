@@ -61,7 +61,7 @@ function learn(user, skill, actionPoints, learnLimit)
             
 			
 			--If you want to debug... But there is no bug here!
-			user:inform("Skill= "..skillName..", actionPoints="..actionPoints..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease.."!");
+			--user:inform("Skill= "..skillName..", actionPoints="..actionPoints..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease.."!");
 						
 			while minorIncrease>0 do --for the rare case that an action results in two swirlies, we have this loop
 			
