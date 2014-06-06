@@ -78,10 +78,10 @@ function MoveToField(User)
 
 		User:pageGM("This character did his/her work in the labour camp and left it now.")
         -- Warp him home with some SFX and GFX		
-		world:gfx(41,User.pos);
+		world:gfx(46,User.pos);
 	    world:makeSound(13,User.pos);
 		User:forceWarp(dest);
-        world:gfx(41,User.pos);
+        world:gfx(46,User.pos);
         world:makeSound(13,User.pos);
     end	
 end
