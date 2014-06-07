@@ -106,12 +106,12 @@ gemCraft = item.base.crafts.Craft:new{
 }
 
 local categoryId = {}
-categoryId[EMERALD] = gemCraft:addCategory("emerald", "Smaragd")
-categoryId[RUBY] = gemCraft:addCategory("ruby", "Rubin")
-categoryId[OBSIDIAN] = gemCraft:addCategory("obsidian", "Obsidian")
-categoryId[SAPPHIRE] = gemCraft:addCategory("sapphire", "Saphir")
-categoryId[AMETHYST] = gemCraft:addCategory("amethyst", "Amethyst")
-categoryId[TOPAZ] = gemCraft:addCategory("topaz", "Topas")
+categoryId[EMERALD] = gemCraft:addCategory("Emerald", "Smaragd")
+categoryId[RUBY] = gemCraft:addCategory("Ruby", "Rubin")
+categoryId[OBSIDIAN] = gemCraft:addCategory("Obsidian", "Obsidian")
+categoryId[SAPPHIRE] = gemCraft:addCategory("Sapphire", "Saphir")
+categoryId[AMETHYST] = gemCraft:addCategory("Amethyst", "Amethyst")
+categoryId[TOPAZ] = gemCraft:addCategory("Topaz", "Topas")
 
 local gem, level, product
 for gem=1,7 do
