@@ -253,7 +253,7 @@ english, "salkama" -> "Salkamar is a nice place. It's sunny there.", "I've never
 "salkama" -> "Salkamar ist ein schöner Ort. Dort ist es recht sonnig.", "Ich war noch nie in Salkamar, ich glaube dieser Ort liegt am Meer."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "The month were named after the 16 Gods, we should name one month after the archmage!", "I pray to Zhambra. To which god do you pray?"
+"god" -> "The months were named after the 16 Gods, we should name one month after the archmage!", "I pray to Zhambra. To which god do you pray?"
 "Gott", "Götter" -> "Nach den 16 Göttern wurden die Monate des Jahres benannt. Wir sollten einem Monat nach dem Erzmagier benennen!", "Ich bete zu Zhambar. Zu welchem Gott betet Ihr?"
 english, "Adron" -> "I don't worship this god."
 "Adron" -> "Ich verehre diesen Gott nicht."

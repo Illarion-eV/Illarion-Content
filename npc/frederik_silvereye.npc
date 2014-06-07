@@ -84,6 +84,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin with you.", "Farew
 "your name", "who are you", "who art thou" -> "My name is Frederik Silvereye, I take care of the new arrivals in this place.", "I'm Frederik Silvereye, I am the notary of Galmair.", "You can call me Frederik Silvereye, as notary of this town I could put you on the citizen list of this beautiful place."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Frederik Silvereye, ich kümmere mich um die Neuankömmlinge dieses Ortes.", "Mein Name ist Frederik Silvereye, ich bin der Notar Galmairs.", "Man nennt mich Frederik Silvereye, als Notar kann Ich euch zum Bürger unseres schönen Ortes eintragen."
 
+-- Player is already citizen
+english, town = Galmair, "become citizen", "gain citizenship" -> town = Galmair, "You are already a citizen of Galmair!"
+town = Galmair, "Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid bereits Bürger von Galmair!"
+
 -- Becoming citizen in Galmair
 english, town = Cadomyr, "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
 town = Cadomyr, "Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
@@ -93,10 +97,6 @@ english, town = None, "become citizen", "gain citizenship" -> town = Galmair, "Y
 town = None, "Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
 english, "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
 "Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
-
--- Player is already citizen
-english, town = Galmair, "become citizen", "gain citizenship" -> town = Galmair, "You are already a citizen of Galmair!"
-town = Galmair, "Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid bereits Bürger von Galmair!"
 
 -- terminating citizenship, leaving Galmair (208)
 english, town = Galmair, "give up citizenship", "terminating citizen ship", "leave", "leaving" -> queststatus(208) = 1, "Oh, you no longer want to be a citizen of Galmair?"

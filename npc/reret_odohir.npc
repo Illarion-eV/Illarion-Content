@@ -99,6 +99,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare well!", "#me smiles at
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I sell nothing, but I can register you as a citizen. Just tell me, if you want to become a citizen."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ick verkauf nichts, aber ich kann Euch als Bürger eintragen. Sagt mir einfach wenn Ihr Bürger dieser Stadt werden möchtet."
 
+-- Player is already citizen
+english, town = Cadomyr, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Oh! You are already a citizen of Cadomyr."
+town = Cadomyr, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Oh! Ihr seid bereits Bürger von Cadomyr."
+
 -- Becoming citizen in Cadomyr
 english, town = Galmair, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents..."
 town = Galmair, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten..."
@@ -106,10 +110,6 @@ english, town = Runewick, "join Cadomyr", "become citizen", "gain citizenship" -
 town = Runewick, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten..."
 english, town = None, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents..."
 town = None, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten..."
-
--- Player is already citizen
-english, town = Cadomyr, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Oh! You are already a citizen of Cadomyr."
-town = Cadomyr, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Oh! Ihr seid bereits Bürger von Cadomyr."
 
 -- terminating citiienship, leaving in Cadomyr (209)
 english, town = Cadomyr, "give up citizenship", "terminate", "leave", "leaving" -> queststatus(209) = 1, "You want to give up citizenship in Cadomyr. Are you sure?"
