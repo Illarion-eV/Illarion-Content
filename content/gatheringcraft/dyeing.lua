@@ -29,11 +29,11 @@ module("content.gatheringcraft.dyeing", package.seeall)
 
 -- format: {dyeID, neededClothID, producedClothID}
 dyersList = {
-  {2678, {178, 176}, 175},  -- black
-  {2679, {178, 176}, 54},   -- green
-  {2680, {178, 176}, 179},  -- blue
-  {2681, {178, 176}, 174},  -- red
-  {2682, {178, 176}, 177},  -- yellow
+  {2678, {176,0}, 175},  -- black
+  {2679, {176,0}, 54},   -- green
+  {2680, {176,0}, 179},  -- blue
+  {2681, {176,0}, 174},  -- red
+  {2682, {176,0}, 177},  -- yellow
   {2683, {176,0}, 178}   -- white
 };
 
@@ -95,8 +95,8 @@ function StartGathering(User, SourceItem, ltstate)
 
 	if (dye == nil) then -- check for items to work on
 		base.common.HighInformNLS( User,
-		"Du brauchst weiﬂe Farbe und grauen Stoff oder eine andere Farbe und weiﬂen oder grauen Stoff um zu f‰rben.",
-		"You need white dye and grey cloth or any other dye and white or grey cloth for dyeing." );
+		"Du brauchst grauen Stoff und F‰rbemittel um zu f‰rben.",
+		"You need grey cloth and dye for dyeing." );
 		return;
 	end
 
