@@ -64,7 +64,7 @@ cisternList = {	add = function ( self, pos, direction, german, english, hours, m
 }
 
 --cistern_dungeon triggers using Ambient.lua as a guide
-cisternList:add( position(840,848,-6),nil,"Die Brücke knarrt laut und unheilvoll während du darüber läufst.","The bridge creaks ominously and loud as you walk over it.",nil,nil,50); --cistern_dungeon_-6
+cisternList:add( position(840,848,-6),nil,"Die Brücke knarrt laut und unheilvoll während du darüber läufst.","The bridge creaks ominously and loud as you walk over it.",nil,nil,30); --cistern_dungeon_-6
 cisternList:add( position(823,832,-6),nil,"Du hörst das Trippeln vieler kleiner Füsse, als du um die Ecke gehst.","You hear the scurrying of lots of little feet as you round the corner.",nil,nil,30); --cistern_dungeon_-6
 cisternList:add( position(822,832,-6),nil,"Du hörst das Trippeln vieler kleiner Füsse, als du um die Ecke gehst.","You hear the scurrying of lots of little feet as you round the corner.",nil,nil,30); --cistern_dungeon_-6
 cisternList:add( position(821,832,-6),nil,"Du hörst das Trippeln vieler kleiner Füsse, als du um die Ecke gehst.","You hear the scurrying of lots of little feet as you round the corner.",nil,nil,30); --cistern_dungeon_-6

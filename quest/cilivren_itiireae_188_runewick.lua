@@ -33,88 +33,91 @@ Title[ENGLISH] = "Save The Field"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Töte in der Zisterne 5 Ratten, Du musst noch 5 töten."
-Description[ENGLISH][1] = "Kill 5 rats in the Cistern, you still have 5 left."
-Description[GERMAN][2] = "Töte in der Zisterne 5 Ratten, Du musst noch 4 töten."
-Description[ENGLISH][2] = "Kill 5 rats in the Cistern, you still have 4 left."
-Description[GERMAN][3] = "Töte in der Zisterne 5 Ratten, Du musst noch 3 töten."
-Description[ENGLISH][3] = "Kill 5 rats in the Cistern, you still have 3 left."
-Description[GERMAN][4] = "Töte in der Zisterne 5 Ratten, Du musst noch 2 töten."
-Description[ENGLISH][4] = "Kill 5 rats in the Cistern, you still have 2 left."
-Description[GERMAN][5] = "Töte in der Zisterne 5 Ratten, Du musst noch 1 töten."
-Description[ENGLISH][5] = "Kill 5 rats in the Cistern, you still have 1 left."
+Description[GERMAN][1] = "Töte in der Zisterne fünf Ratten, Du musst noch fünf töten."
+Description[ENGLISH][1] = "Kill five rats in the Cistern, you still have five left."
+Description[GERMAN][2] = "Töte in der Zisterne fünf Ratten, Du musst noch vier töten."
+Description[ENGLISH][2] = "Kill five rats in the Cistern, you still have four left."
+Description[GERMAN][3] = "Töte in der Zisterne fünf Ratten, Du musst noch drei töten."
+Description[ENGLISH][3] = "Kill five rats in the Cistern, you still have three left."
+Description[GERMAN][4] = "Töte in der Zisterne fünf Ratten, Du musst noch zwei töten."
+Description[ENGLISH][4] = "Kill five rats in the Cistern, you still have two left."
+Description[GERMAN][5] = "Töte in der Zisterne fünf Ratten, Du musst noch eine töten."
+Description[ENGLISH][5] = "Kill five rats in the Cistern, you still have one left."
 Description[GERMAN][6] = "Kehre zu Cilivren Itiireae für Deine Belohnung zurück."
-Description[ENGLISH][6] = "Return to Cilivren Itiireae for you reward."
+Description[ENGLISH][6] = "Return to Cilivren Itiireae for your reward."
 
 Description[GERMAN][7] = "Kehre zurück zur Bereichswächterin Cilivren Itiireae, sie hat möglicherweise noch eine Aufgabe für Dich."
 Description[ENGLISH][7] = "Check back with Field Guardian Cilivren Itiireae, she may have another task for you."
 
-Description[GERMAN][8] = "Sammle 10 Rattenfelle und bringe sie zu Cilivren Itiireae."
+Description[GERMAN][8] = "Sammle zehn Rattenfelle und bringe sie zu Cilivren Itiireae."
 Description[ENGLISH][8] = "Collect ten rat furs and bring them to Cilivren Itiireae."
 Description[GERMAN][9] = "Vielleicht hat Cilivren Itiireae eine weitere Aufgabe für Dich."
 Description[ENGLISH][9] = "Perhaps Cilivren Itiireae has another task to be done."
 
-Description[GERMAN][10] = "Töte 10 aggressive Ratten und Bisamratten, Du benötigst noch 10."
-Description[ENGLISH][10] = "Kill 10 Agressive and Muskrats, you still need 10."
-Description[GERMAN][11] = "Töte 10 aggressive Ratten und Bisamratten, Du benötigst noch 9."
-Description[ENGLISH][11] = "Kill 10 Agressive and Muskrats, you still need 9."
-Description[GERMAN][12] = "Töte 10 aggressive Ratten und Bisamratten, Du benötigst noch 8."
-Description[ENGLISH][12] = "Kill 10 Agressive and Muskrats, you still need 8."
-Description[GERMAN][13] = "Töte 10 aggressive Ratten und Bisamratten, Du benötigst noch 7."
-Description[ENGLISH][13] = "Kill 10 Agressive and Muskrats, you still need 7."
-Description[GERMAN][14] = "Töte 10 aggressive Ratten und Bisamratten, Du benötigst noch 6."
-Description[ENGLISH][14] = "Kill 10 Agressive and Muskrats, you still need 6."
-Description[GERMAN][15] = "Töte 10 aggressive Ratten und Bisamratten, Du benötigst noch 5."
-Description[ENGLISH][15] = "Kill 10 Agressive and Muskrats, you still need 5."
-Description[GERMAN][16] = "Töte 10 aggressive Ratten und Bisamratten, Du benötigst noch 4."
-Description[ENGLISH][16] = "Kill 10 Agressive and Muskrats, you still need 4."
-Description[GERMAN][17] = "Töte 10 aggressive Ratten und Bisamratten, Du benötigst noch 3."
-Description[ENGLISH][17] = "Kill 10 Agressive and Muskrats, you still need 3."
-Description[GERMAN][18] = "Töte 10 aggressive Ratten und Bisamratten, Du benötigst noch 2."
-Description[ENGLISH][18] = "Kill 10 Agressive and Muskrats, you still need 2."
-Description[GERMAN][19] = "Töte 10 aggressive Ratten und Bisamratten, Du benötigst noch 1."
-Description[ENGLISH][19] = "Kill 10 Agressive and Muskrats, you still need 1."
+Description[GERMAN][10] = "Töte in der Zisterne zehn Ratten, Du musst noch zehn töten."
+Description[ENGLISH][10] = "Kill ten rats in the Cistern, you still have ten left."
+Description[GERMAN][11] = "Töte in der Zisterne zehn Ratten, Du musst noch neun töten."
+Description[ENGLISH][11] = "Kill ten rats in the Cistern, you still have nine left."
+Description[GERMAN][12] = "Töte in der Zisterne zehn Ratten, Du musst noch acht töten."
+Description[ENGLISH][12] = "Kill ten rats in the Cistern, you still have eight left."
+Description[GERMAN][13] = "Töte in der Zisterne zehn Ratten, Du musst noch sieben töten."
+Description[ENGLISH][13] = "Kill ten rats in the Cistern, you still have seven left."
+Description[GERMAN][14] = "Töte in der Zisterne zehn Ratten, Du musst noch sechs töten."
+Description[ENGLISH][14] = "Kill ten rats in the Cistern, you still have six left."
+Description[GERMAN][15] = "Töte in der Zisterne zehn Ratten, Du musst noch fünf töten."
+Description[ENGLISH][15] = "Kill ten rats in the Cistern, you still have five left."
+Description[GERMAN][16] = "Töte in der Zisterne zehn Ratten, Du musst noch vier töten."
+Description[ENGLISH][16] = "Kill ten rats in the Cistern, you still have four left."
+Description[GERMAN][17] = "Töte in der Zisterne zehn Ratten, Du musst noch drei töten."
+Description[ENGLISH][17] = "Kill ten rats in the Cistern, you still have three left."
+Description[GERMAN][18] = "Töte in der Zisterne zehn Ratten, Du musst noch zwei töten."
+Description[ENGLISH][18] = "Kill ten rats in the Cistern, you still have two left."
+Description[GERMAN][19] = "Töte in der Zisterne zehn Ratten, Du musst noch eine töten."
+Description[ENGLISH][19] = "Kill ten rats in the Cistern, you still have one left."
 Description[GERMAN][20] = "Kehre zu Cilivren Itiireae für Deine Belohnung zurück."
-Description[ENGLISH][20] = "Return to Cilivren Itiireae for you reward."
+Description[ENGLISH][20] = "Return to Cilivren Itiireae for your reward."
 
 Description[GERMAN][21] = "Kehre zurück zur Bereichswächterin Cilivren Itiireae, sie hat möglicherweise noch eine Aufgabe für Dich."
 Description[ENGLISH][21] = "Check back with Field Guardian Cilivren Itiireae, she may have another task for you."
 
-Description[GERMAN][22] = "Sammle 25 Getreide von den Zisternenratten."
-Description[ENGLISH][22] = "Collect 25 grain from the Cistern rats."
+Description[GERMAN][22] = "Sammle fünfzehn Rattenfelle und bringe sie zu Cilivren Itiireae."
+Description[ENGLISH][22] = "Collect fifteen rat furs and bring them to Cilivren Itiireae."
 Description[GERMAN][23] = "Vielleicht hat Cilivren Itiireae eine weitere Aufgabe für Dich."
 Description[ENGLISH][23] = "Perhaps Cilivren Itiireae has another task to be done."
 
-Description[GERMAN][24] = "Töte 10 Kanalratten, Du benötigst noch 10."
-Description[ENGLISH][24] = "Kill 10 Sewer Rats, you still need 10."
-Description[GERMAN][25] = "Töte 10 Kanalratten, Du benötigst noch 9."
-Description[ENGLISH][25] = "Kill 10 Sewer Rats, you still need 9."
-Description[GERMAN][26] = "Töte 10 Kanalratten, Du benötigst noch 8."
-Description[ENGLISH][26] = "Kill 10 Sewer Rats, you still need 8."
-Description[GERMAN][27] = "Töte 10 Kanalratten, Du benötigst noch 7."
-Description[ENGLISH][27] = "Kill 10 Sewer Rats, you still need 7."
-Description[GERMAN][28] = "Töte 10 Kanalratten, Du benötigst noch 6."
-Description[ENGLISH][28] = "Kill 10 Sewer Rats, you still need 6."
-Description[GERMAN][29] = "Töte 10 Kanalratten, Du benötigst noch 5."
-Description[ENGLISH][29] = "Kill 10 Sewer Rats, you still need 5."
-Description[GERMAN][30] = "Töte 10 Kanalratten, Du benötigst noch 4."
-Description[ENGLISH][30] = "Kill 10 Sewer Rats, you still need 4."
-Description[GERMAN][31] = "Töte 10 Kanalratten, Du benötigst noch 3."
-Description[ENGLISH][31] = "Kill 10 Sewer Rats, you still need 3."
-Description[GERMAN][32] = "Töte 10 Kanalratten, Du benötigst noch 2."
-Description[ENGLISH][32] = "Kill 10 Sewer Rats, you still need 2."
-Description[GERMAN][33] = "Töte 10 Kanalratten, Du benötigst noch 1."
-Description[ENGLISH][33] = "Kill 10 Sewer Rats, you still need 1."
+Description[GERMAN][24] = "Töte in der Zisterne zehn Ratten, Du musst noch zehn töten."
+Description[ENGLISH][24] = "Kill ten rats in the Cistern, you still have ten left."
+Description[GERMAN][25] = "Töte in der Zisterne zehn Ratten, Du musst noch neun töten."
+Description[ENGLISH][25] = "Kill ten rats in the Cistern, you still have nine left."
+Description[GERMAN][26] = "Töte in der Zisterne zehn Ratten, Du musst noch acht töten."
+Description[ENGLISH][26] = "Kill ten rats in the Cistern, you still have eight left."
+Description[GERMAN][27] = "Töte in der Zisterne zehn Ratten, Du musst noch sieben töten."
+Description[ENGLISH][27] = "Kill ten rats in the Cistern, you still have seven left."
+Description[GERMAN][28] = "Töte in der Zisterne zehn Ratten, Du musst noch sechs töten."
+Description[ENGLISH][28] = "Kill ten rats in the Cistern, you still have six left."
+Description[GERMAN][29] = "Töte in der Zisterne zehn Ratten, Du musst noch fünf töten."
+Description[ENGLISH][29] = "Kill ten rats in the Cistern, you still have five left."
+Description[GERMAN][30] = "Töte in der Zisterne zehn Ratten, Du musst noch vier töten."
+Description[ENGLISH][30] = "Kill ten rats in the Cistern, you still have four left."
+Description[GERMAN][31] = "Töte in der Zisterne zehn Ratten, Du musst noch drei töten."
+Description[ENGLISH][31] = "Kill ten rats in the Cistern, you still have three left."
+Description[GERMAN][32] = "Töte in der Zisterne zehn Ratten, Du musst noch zwei  töten."
+Description[ENGLISH][32] = "Kill ten rats in the Cistern, you still have two left."
+Description[GERMAN][33] = "Töte in der Zisterne zehn Ratten, Du musst noch eine töten."
+Description[ENGLISH][33] = "Kill ten rats in the Cistern, you still have one left."
 Description[GERMAN][34] = "Kehre zu Cilivren Itiireae für Deine Belohnung zurück."
-Description[ENGLISH][34] = "Return to Cilivren Itiireae for you reward."
+Description[ENGLISH][34] = "Return to Cilivren Itiireae for your reward."
 
 Description[GERMAN][35] = "Kehre zurück zur Bereichswächterin Cilivren Itiireae, sie hat möglicherweise noch eine Aufgabe für Dich."
 Description[ENGLISH][35] = "Check back with Field Guardian Cilivren Itiireae, she may have another task for you."
 
-Description[GERMAN][36] = "Sammle 10 Rohleder von den Pest Ratten und bringe diese zu Cilivren Itiireae."
-Description[ENGLISH][36] = "Collect 10 raw leather from the plague rats in the Cistern  and return them to Cilivren Itiireae."
-Description[GERMAN][37] = "Du hast alle Aufgaben von Cilivren Itiireae erfüllt."
-Description[ENGLISH][37] = "You have fulfilled all of Cilivren Itiireae's tasks."
+Description[GERMAN][36] = "Töte in der Zisterne den Rattenmenschen"
+Description[ENGLISH][36] = "Kill the Ratman boss in the Cistern."
+Description[GERMAN][37] = "Kehre zu Cilivren Itiireae für Deine Belohnung zurück."
+Description[ENGLISH][37] = "Return to Cilivren Itiireae for your reward."
+
+Description[GERMAN][38] = "Du hast alle Aufgaben von Cilivren Itiireae erfüllt."
+Description[ENGLISH][38] = "You have fulfilled all of Cilivren Itiireae's tasks."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 Start = {843, 844, 0}
@@ -128,12 +131,9 @@ QuestTarget[3] = {position(843, 844, 0), position(832,832,-3)}
 QuestTarget[4] = {position(843, 844, 0), position(832,832,-3)}
 QuestTarget[5] = {position(843, 844, 0), position(832,832,-3)}
 QuestTarget[6] = {position(843, 844, 0), position(832,832,-3)}
-
 QuestTarget[7] = {position(843, 844, 0)}
-
 QuestTarget[8] = {position(843, 844, 0)}
 QuestTarget[9] = {position(843, 844, 0)}
-
 QuestTarget[10] = {position(843, 844, 0), position(840,840,-6)}
 QuestTarget[11] = {position(843, 844, 0), position(840,840,-6)}
 QuestTarget[12] = {position(843, 844, 0), position(840,840,-6)}
@@ -145,12 +145,9 @@ QuestTarget[17] = {position(843, 844, 0), position(840,840,-6)}
 QuestTarget[18] = {position(843, 844, 0), position(840,840,-6)}
 QuestTarget[19] = {position(843, 844, 0), position(840,840,-6)}
 QuestTarget[20] = {position(843, 844, 0), position(840,840,-6)}
-
 QuestTarget[21] = {position(843, 844, 0)}
-
 QuestTarget[22] = {position(843, 844, 0)}
 QuestTarget[23] = {position(843, 844, 0)}
-
 QuestTarget[24] = {position(843, 844, 0), position(840,840,-6)}
 QuestTarget[25] = {position(843, 844, 0), position(840,840,-6)}
 QuestTarget[26] = {position(843, 844, 0), position(840,840,-6)}
@@ -162,14 +159,13 @@ QuestTarget[31] = {position(843, 844, 0), position(840,840,-6)}
 QuestTarget[32] = {position(843, 844, 0), position(840,840,-6)}
 QuestTarget[33] = {position(843, 844, 0), position(840,840,-6)}
 QuestTarget[34] = {position(843, 844, 0), position(840,840,-6)} 
-
 QuestTarget[35] = {position(843, 844, 0)}
-
-QuestTarget[36] = {position(843, 844, 0)}
-QuestTarget[37] = {position(7843, 844, 0)}
+QuestTarget[36] = {position(843, 844, 0), position(840,840,-6)} 
+QuestTarget[37] = {position(843, 844, 0)}
+QuestTarget[38] = {position(843, 844, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 37
+FINAL_QUEST_STATUS = 38
 
 
 function QuestTitle(user)
