@@ -66,7 +66,7 @@ gemDataKey[TOPAZ] = "magicalTopaz"
 levelDataKey = "gemLevel"
 
 gemPrefixDE = {"latent", "bedingt", "leicht", "m‰ﬂig", "durchschnittlich", "bemerkenswert", "stark", "sehr stark", "unglaublich", "einzigartig"}
-gemPrefixEN = {"latent", "limited", "slight", "moderate", "average", "notable", "strong", "very strong", "unbelievable", "unique"}
+gemPrefixEN = {"Latent", "Limited", "Slight", "Moderate", "Average", "Notable", "Strong", "Very Strong", "Unbelievable", "Unique"}
 
 gemLevelRareness = {}
 gemLevelRareness[1] = ItemLookAt.uncommonItem
@@ -87,7 +87,7 @@ function lookAtFilter(user, lookAt, data)
         if user:getPlayerLanguage() == 0 then
             lookAt.name = gemPrefixDE[gemLevel] .. " magischer " .. lookAt.name
         else
-            lookAt.name = gemPrefixEN[gemLevel] .. " magical " .. lookAt.name
+            lookAt.name = gemPrefixEN[gemLevel] .. " Magical " .. lookAt.name
         end
 
         lookAt.rareness = gemLevelRareness[gemLevel]
