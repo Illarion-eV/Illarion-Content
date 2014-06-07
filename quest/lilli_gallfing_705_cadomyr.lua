@@ -49,8 +49,8 @@ Description[GERMAN][7] = "Stell fünf Eimer mit roter Farbe für Lilli Gallfing in
 Description[ENGLISH][7] = "Produce five buckets of red dye for Lilli Gallfing in the workshop of Cadomyr. To produce red dye you first have to make a fire, for this you have to place the wood on the ground and use it. Once you have done that take the mortar in your hand and use it whilst standing in front of the fire."
 Description[GERMAN][8] = "Geh zu Lilli Gallfing in der Werkstatt von Cadomyr, sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][8] = "Go to Lilli Gallfing in the workshop of Cadomyr, she is sure to have another task for you."
-Description[GERMAN][9] = "Färbe fünf Rollen roten Stoff bei dem schwarzen Fass in der Schneiderei von Cadomyr für Lilli Gallfing die sich in der Werkstatt von Cadomyr aufhält. Um die Stoffe herzustellen musst du den Färberstab in die Hand nehmen, anschließend benutzt du das schwarze Fass während du die Eimer mit Farbe und den weißen Stoff in deinem Inventar hast."
-Description[ENGLISH][9] = "Dye five bolts of cloth red for Lilli Gallfing in the workshop of Cadomyr, using the black barrel in the workshop. To dye the cloth you have to take the dyeing rod in your hand and use the black barrel whilst having red dye and white cloth in your inventory."
+Description[GERMAN][9] = "Färbe fünf Rollen roten Stoff bei dem schwarzen Fass in der Schneiderei von Cadomyr für Lilli Gallfing die sich in der Werkstatt von Cadomyr aufhält. Um die Stoffe herzustellen musst du den Färberstab in die Hand nehmen. Anschließend benutzt du das schwarze Fass während du die Eimer mit Farbe und den grauen Stoff in deinem Inventar hast."
+Description[ENGLISH][9] = " Dye five bolts of cloth red for Lilli Gallfing in the workshop of Cadomyr, using the black barrel in the workshop. To dye the cloth you have to take the dyeing rod in your hand and use the black barrel whilst having red dye and grey cloth in your inventory."
 Description[GERMAN][10] = "Du hast alle Aufgaben von Lilli Gallfing erfüllt."
 Description[ENGLISH][10] = "You have fulfilled all the tasks for Lilli Gallfing."
 
