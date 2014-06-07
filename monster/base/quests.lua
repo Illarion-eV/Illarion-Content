@@ -1559,12 +1559,12 @@ function iniQuests()
     statusId[id]=181;
     germanRace[id]="Rattenmenschen";
     englishRace[id]="Ratmen";
-	table.insert(questList[921],id); -- all rats
-	table.insert(questList[922],id); --all rats
-	table.insert(questList[931],id); --all rats
-	table.insert(questList[932],id); --all rats
-	table.insert(questList[941],id); --all rats
-	table.insert(questList[942],id); --all rats
+	table.insert(questList[921],id);  --all ratmen
+	table.insert(questList[922],id);  --all ratmen
+	table.insert(questList[931],id);  --all ratmen
+	table.insert(questList[932],id);  --all ratmen
+	table.insert(questList[941],id);  --all ratmen
+	table.insert(questList[942],id);  --all ratmen
     minimumQueststatus[id]=109;
     maximumQueststatus[id]=113;
 	questLocation[id]=position(514, 178, 0);
@@ -1578,12 +1578,12 @@ function iniQuests()
     statusId[id]=181;
     germanRace[id]="Rattenmenschen";
     englishRace[id]="Ratmen";
-	table.insert(questList[921],id); -- all rats
-	table.insert(questList[922],id); --all rats
-	table.insert(questList[931],id); --all rats
-	table.insert(questList[932],id); --all rats
-	table.insert(questList[941],id); --all rats
-	table.insert(questList[942],id); --all rats
+	table.insert(questList[921],id);  --all ratmen
+	table.insert(questList[922],id); --all ratmen
+	table.insert(questList[931],id);  --all ratmen
+	table.insert(questList[932],id); --all ratmen
+	table.insert(questList[941],id); --all ratmen
+	table.insert(questList[942],id);  --all ratmen
     minimumQueststatus[id]=114;
     maximumQueststatus[id]=122;
 	questLocation[id]=position(514, 178, 0);
@@ -1597,12 +1597,12 @@ function iniQuests()
     statusId[id]=181;
     germanRace[id]="Rattenmenschen";
     englishRace[id]="Ratmen";
-	table.insert(questList[921],id); -- all rats
-	table.insert(questList[922],id); --all rats
-	table.insert(questList[931],id); --all rats
-	table.insert(questList[932],id); --all rats
-	table.insert(questList[941],id); --all rats
-	table.insert(questList[942],id); --all rats
+	table.insert(questList[921],id); --all ratmen
+	table.insert(questList[922],id);  --all ratmen
+	table.insert(questList[931],id); --all ratmen
+	table.insert(questList[932],id);  --all ratmen
+	table.insert(questList[941],id); --all ratmen
+	table.insert(questList[942],id);  --all ratmen
     minimumQueststatus[id]=123;
     maximumQueststatus[id]=135;
 	questLocation[id]=position(514, 178, 0);
@@ -2162,6 +2162,10 @@ function iniQuests()
     englishRace[id]="rats";
 	table.insert(questList[1111],id); --Rat
 	table.insert(questList[1112],id); --Small Rat
+	table.insert(questList[1113],id); --Agressive Rat
+	table.insert(questList[1114],id); --Muskrat
+	table.insert(questList[1115],id); --Plague Rat
+	table.insert(questList[1116],id); --Sewer Rat
 	minimumQueststatus[id]=1;
     maximumQueststatus[id]=6;
 	questLocation[id]=position(125,565,-6);
@@ -2175,8 +2179,12 @@ function iniQuests()
     statusId[id]=187;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1113],id); --Aggressive Rat
-	table.insert(questList[1114],id); --Muskrat Rat
+	table.insert(questList[1111],id); --Rat
+	table.insert(questList[1112],id); --Small Rat
+	table.insert(questList[1113],id); --Agressive Rat
+	table.insert(questList[1114],id); --Muskrat
+	table.insert(questList[1115],id); --Plague Rat
+	table.insert(questList[1116],id); --Sewer Rat
 	minimumQueststatus[id]=10;
     maximumQueststatus[id]=20;
 	questLocation[id]=position(125,565,-6);
@@ -2190,6 +2198,11 @@ function iniQuests()
     statusId[id]=187;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
+	table.insert(questList[1111],id); --Rat
+	table.insert(questList[1112],id); --Small Rat
+	table.insert(questList[1113],id); --Agressive Rat
+	table.insert(questList[1114],id); --Muskrat
+	table.insert(questList[1115],id); --Plague Rat
 	table.insert(questList[1116],id); --Sewer Rat
 	minimumQueststatus[id]=24;
     maximumQueststatus[id]=34;
@@ -2206,6 +2219,10 @@ function iniQuests()
     englishRace[id]="rats";
 	table.insert(questList[1111],id); --Rat
 	table.insert(questList[1112],id); --Small Rat
+	table.insert(questList[1113],id); --Agressive Rat
+	table.insert(questList[1114],id); --Muskrat
+	table.insert(questList[1115],id); --Plague Rat
+	table.insert(questList[1116],id); --Sewer Rat
 	minimumQueststatus[id]=1;
     maximumQueststatus[id]=6;
 	questLocation[id]=position(832,832,-3);
@@ -2219,8 +2236,12 @@ function iniQuests()
     statusId[id]=188;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1113],id); --Aggressive Rat
-	table.insert(questList[1114],id); --Muskrat Rat
+	table.insert(questList[1111],id); --Rat
+	table.insert(questList[1112],id); --Small Rat
+	table.insert(questList[1113],id); --Agressive Rat
+	table.insert(questList[1114],id); --Muskrat
+	table.insert(questList[1115],id); --Plague Rat
+	table.insert(questList[1116],id); --Sewer Rat
 	minimumQueststatus[id]=10;
     maximumQueststatus[id]=20;
 	questLocation[id]=position(840,840,-6);
@@ -2234,6 +2255,11 @@ function iniQuests()
     statusId[id]=188;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
+	table.insert(questList[1111],id); --Rat
+	table.insert(questList[1112],id); --Small Rat
+	table.insert(questList[1113],id); --Agressive Rat
+	table.insert(questList[1114],id); --Muskrat
+	table.insert(questList[1115],id); --Plague Rat
 	table.insert(questList[1116],id); --Sewer Rat
 	minimumQueststatus[id]=24;
     maximumQueststatus[id]=34;
@@ -2250,6 +2276,10 @@ function iniQuests()
     englishRace[id]="rats";
 	table.insert(questList[1111],id); --Rat
 	table.insert(questList[1112],id); --Small Rat
+	table.insert(questList[1113],id); --Agressive Rat
+	table.insert(questList[1114],id); --Muskrat
+	table.insert(questList[1115],id); --Plague Rat
+	table.insert(questList[1116],id); --Sewer Rat
 	minimumQueststatus[id]=1;
     maximumQueststatus[id]=6;
 	questLocation[id]=position(370,470,-6);
@@ -2263,8 +2293,12 @@ function iniQuests()
     statusId[id]=189;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1113],id); --Aggressive Rat
-	table.insert(questList[1114],id); --Muskrat Rat
+	table.insert(questList[1111],id); --Rat
+	table.insert(questList[1112],id); --Small Rat
+	table.insert(questList[1113],id); --Agressive Rat
+	table.insert(questList[1114],id); --Muskrat
+	table.insert(questList[1115],id); --Plague Rat
+	table.insert(questList[1116],id); --Sewer Rat
 	minimumQueststatus[id]=10;
     maximumQueststatus[id]=20;
 	questLocation[id]=position(370,470,-6);
@@ -2278,12 +2312,58 @@ function iniQuests()
     statusId[id]=189;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
+	table.insert(questList[1111],id); --Rat
+	table.insert(questList[1112],id); --Small Rat
+	table.insert(questList[1113],id); --Agressive Rat
+	table.insert(questList[1114],id); --Muskrat
+	table.insert(questList[1115],id); --Plague Rat
 	table.insert(questList[1116],id); --Sewer Rat
 	minimumQueststatus[id]=24;
     maximumQueststatus[id]=34;
 	questLocation[id]=position(370,470,-6);
     radius[id]=30;
+	
+	--Quest 101: Vermin Monitor
+	local id=101;
+    germanTitle[id]="Schädlingswächter";
+    englishTitle[id]="Vermin Monitor";
+    NPCName[id]="Jeremiah Horanfeld";
+    statusId[id]=187;
+    germanRace[id]="Rattenmenschen";
+    englishRace[id]="ratman";
+	table.insert(questList[571],id); --Nuzzler
+	minimumQueststatus[id]=36;
+    maximumQueststatus[id]=37;
+	questLocation[id]=position(125,565,-6);
+    radius[id]=40;
 
+	--Quest 102: Save The Field
+	local id=102;
+    germanTitle[id]="Rette die Äcker";
+    englishTitle[id]="Save The Field";
+    NPCName[id]="Cilivren Itiireae";
+    statusId[id]=188;
+    germanRace[id]="Rattenmenschen";
+    englishRace[id]="ratman";
+	table.insert(questList[571],id); --Nuzzler
+	minimumQueststatus[id]=36;
+    maximumQueststatus[id]=37;
+	questLocation[id]=position(840,840,-6);
+    radius[id]=50;
+	
+	--Quest 103: Save Da Beer
+	local id=103;
+    germanTitle[id]="Rette das Bierlager";
+    englishTitle[id]="Save Da Beer";
+    NPCName[id]="Fokous Onyxbrow";
+    statusId[id]=189;
+    germanRace[id]="Rattenmenschen";
+    englishRace[id]="ratman";
+	table.insert(questList[571],id); --Nuzzler
+	minimumQueststatus[id]=36;
+    maximumQueststatus[id]=37;
+	questLocation[id]=position(370,470,-6);
+    radius[id]=30;	
 end
 
 
