@@ -65,7 +65,7 @@ gemDataKey[TOPAZ] = "magicalTopaz"
 
 levelDataKey = "gemLevel"
 
-gemPrefixDE = {"latent", "bedingt", "leicht", "m‰ﬂig", "durchschnittlich", "bemerkenswert", "stark", "sehr stark", "unglaublich", "einzigartig"}
+gemPrefixDE = {"Latent", "Bedingt", "Leicht", "M‰ﬂig", "Durchschnittlich", "Bemerkenswert", "Stark", "Sehr stark", "Unglaublich", "Einzigartig"}
 gemPrefixEN = {"Latent", "Limited", "Slight", "Moderate", "Average", "Notable", "Strong", "Very Strong", "Unbelievable", "Unique"}
 
 gemLevelRareness = {}
