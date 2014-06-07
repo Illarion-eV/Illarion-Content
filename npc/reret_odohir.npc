@@ -80,8 +80,8 @@ itemShoes = 45
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Reret Odohir die Notarin von Cadomyr. Schlüsselwörter: 'Cadomyr beitreten', 'Cadomyr verlassen', 'Rang', 'Lizenz'.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Greetings.", "Be greeted, nice to see you here.", "Be greeted, I am the notary of this town."
-"Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt.", "Grüße.", "Grüße, schön Euch mal wieder hier zu sehen.", "Zum Gruße, ich bin die Notarin dieser Stadt."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted, nice to see you here.", "Be greeted, I am the notary of this town."
+"Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße, schön Euch mal wieder hier zu sehen.", "Zum Gruße, ich bin die Notarin dieser Stadt."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Greetings.", "Greetings, nice to see you again", "Be greeted, I am the notary of this town."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Grüße.", "Grüße, schön Euch mal wieder hier zu sehen.", "Zum Gruße, ich bin die Notarin dieser Stadt."
 "Farewell", "Bye", "Fare well", "See you" -> "Fare well!", "Bye!", "#me smiles at you and waves."
