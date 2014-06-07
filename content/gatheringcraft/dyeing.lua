@@ -151,8 +151,8 @@ function StartGathering(User, SourceItem, ltstate)
 			User:startAction( dyeing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
 			base.common.HighInformNLS(User,
-			"Du hast keine Farbe und passenden Stoff mehr.",
-			"You have no dye and respective cloth anymore.");
+			"Du hast keine Farbe oder Stoff mehr.",
+			"You have no dye or cloth anymore.");
 		end
 	end
 
