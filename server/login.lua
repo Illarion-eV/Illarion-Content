@@ -217,7 +217,7 @@ function onLogin( player )
 		extensionString="st" 
 	elseif lastDigit == 2 and datum ~= 12 then
 		extensionString="nd" 	
-	elseif lastDigit == 3 and datum ~=13 then
+	elseif lastDigit == 3 and datum ~= 13 then
 		extensionString="rd" 
 	else
 		extensionString="th" --default
