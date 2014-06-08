@@ -45,8 +45,8 @@ function onSpawn(theHuman)
     local hairBlonde = {210,200,10} -- Blonde hair Red,Green,Blue
 	local hairBlack = {10,10,10} -- Black hair Red,Green,Blue
 	local hairRed = {205,30,30} -- Red hair Red,Green,Blue
-	local hairBrunet = {90,50,10} -- Brunet hair Red,Green,Blue
-	local hairColors = {hairBlonde, hairBlack, hairRed, hairBrunet}
+	local hairBrunette = {90,50,10} -- Brunette hair Red,Green,Blue
+	local hairColors = {hairBlonde, hairBlack, hairRed, hairBrunette}
 	local myHairColor = hairColors[math.random(#hairColors)]
 	theHuman:setAttrib("sex",mySex);
     theHuman:setSkinColor(red,green,blue);
