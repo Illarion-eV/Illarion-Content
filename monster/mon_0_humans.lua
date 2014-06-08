@@ -26,36 +26,35 @@ require("base.messages");
 module("monster.mon_0_humans", package.seeall)
 
 function onSpawn(theHuman)
-    if theHuman:getMonsterType()<6 then
-        mySex=0;
-    else
-        mySex=1;
-    end
-    var=20; -- variation of color, +/- var
-    baseR=245;  -- baseRed
-	baseG=200;  -- baseGreen
-	baseB=150;  -- baseBlue
-    red=math.min(255,baseR-var+math.random(2*var));
-    green=math.min(255,baseG-var+math.random(2*var));
-    blue=math.min(255,baseB-var+math.random(2*var));
-    myHair={};
-    myHair[0]={1,2,3};    -- list of possible hair IDs
-    myHair[1]={1,4,7};
-	myBeard={};
-	myBeard[0]={1,3,4,5,6,8}  -- list of possible beard IDs
-	myBeard[1]={0}
-    hairBlonde=(210,200,10) -- Blonde hair Red,Green,Blue
-	hairBlack=(10,10,10) -- Black hair Red,Green,Blue
-	hairRed=(205,30,30) -- Red hair Red,Green,Blue
-	hairBrunet=(90,50,10) -- Brunet hair Red,Green,Blue
-	myhairColor={hairBlonde,hairBlack,hairRed,hairBrunet}
+
+	local mySex = math.random(0,1);
+
+    local var=20; -- variation of color, +/- var
+    local baseR=245;  -- baseRed
+	local baseG=200;  -- baseGreen
+	local baseB=150;  -- baseBlue
+    local red = math.min(255, baseR + math.random(-var, var));
+    local green = math.min(255, baseG + math.random(-var, var));
+    local blue = math.min(255, baseB + math.random(-var, var));
+    local myHair = {};
+    myHair[0] = {1,2,3};    -- list of possible hair IDs
+    myHair[1] = {1,4,7};
+	local myBeard = {};
+	myBeard[0] = {1,3,4,5,6,8}  -- list of possible beard IDs
+	myBeard[1] = {0}
+    local hairBlonde = {210,200,10} -- Blonde hair Red,Green,Blue
+	local hairBlack = {10,10,10} -- Black hair Red,Green,Blue
+	local hairRed = {205,30,30} -- Red hair Red,Green,Blue
+	local hairBrunet = {90,50,10} -- Brunet hair Red,Green,Blue
+	local hairColors = {hairBlonde, hairBlack, hairRed, hairBrunet}
+	local myHairColor = hairColors[math.random(#hairColors)]
 	theHuman:setAttrib("sex",mySex);
     theHuman:setSkinColor(red,green,blue);
-    theHuman:setHair( myHair[mySex][math.random(1,#myHair[mySex])] );
-    theHuman:setHairColor(math.random[myhairColor])
-	theHuman:setBeardColor=HairColor
+    theHuman:setHair( myHair[mySex][math.random(#myHair[mySex])] );
+    theHuman:setHairColor(myHairColor[1], myHairColor[2], myHairColor[3] );
+	theHuman:setBeard(myBeard[mySex][math.random(#myBeard[mySex])]);
  end
- 
+
 function ini(Monster)
 
 init=true;
