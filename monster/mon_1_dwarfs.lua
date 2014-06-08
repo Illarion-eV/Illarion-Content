@@ -47,11 +47,11 @@ function onSpawn(theDwarf)
 	local hairBrunette = {150,80,20} -- Brunette hair Red,Green,Blue
 	local hairColors = {hairBlonde, hairBlack, hairRed, hairBrunette}
 	local myHairColor = hairColors[math.random(#hairColors)]
-	theHuman:setAttrib("sex",mySex);
-    theHuman:setSkinColor(red,green,blue);
-    theHuman:setHair( myHair[mySex][math.random(#myHair[mySex])] );
-    theHuman:setHairColor(myHairColor[1], myHairColor[2], myHairColor[3] );
-	theHuman:setBeard(myBeard[mySex][math.random(#myBeard[mySex])]);
+	theDwarf:setAttrib("sex",mySex);
+    theDwarf:setSkinColor(red,green,blue);
+    theDwarf:setHair( myHair[mySex][math.random(#myHair[mySex])] );
+    theDwarf:setHairColor(myHairColor[1], myHairColor[2], myHairColor[3] );
+	theDwarf:setBeard(myBeard[mySex][math.random(#myBeard[mySex])]);
  end
 
 function ini(Monster)
