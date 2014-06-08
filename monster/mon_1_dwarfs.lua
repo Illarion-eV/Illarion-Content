@@ -24,6 +24,35 @@ require("base.arena")
 require("base.messages");
 module("monster.mon_1_dwarfs", package.seeall)
 
+function onSpawn(theDwarf)
+
+	local mySex = math.random(0,1);
+
+    local var=20; -- variation of color, +/- var
+    local baseR=245;  -- baseRed
+	local baseG=200;  -- baseGreen
+	local baseB=150;  -- baseBlue
+    local red = math.min(255, baseR + math.random(-var, var));
+    local green = math.min(255, baseG + math.random(-var, var));
+    local blue = math.min(255, baseB + math.random(-var, var));
+    local myHair = {};
+    myHair[0] = {1,2,3};    -- list of possible hair IDs
+    myHair[1] = {1,4,7};
+	local myBeard = {};
+	myBeard[0] = {1,2,4}  -- list of possible beard IDs
+	myBeard[1] = {0}
+    local hairBlonde = {240,180,50} -- Blonde hair Red,Green,Blue
+	local hairBlack = {10,10,10} -- Black hair Red,Green,Blue
+	local hairRed = {180,10,10} -- Red hair Red,Green,Blue
+	local hairBrunette = {150,80,20} -- Brunette hair Red,Green,Blue
+	local hairColors = {hairBlonde, hairBlack, hairRed, hairBrunette}
+	local myHairColor = hairColors[math.random(#hairColors)]
+	theHuman:setAttrib("sex",mySex);
+    theHuman:setSkinColor(red,green,blue);
+    theHuman:setHair( myHair[mySex][math.random(#myHair[mySex])] );
+    theHuman:setHairColor(myHairColor[1], myHairColor[2], myHairColor[3] );
+	theHuman:setBeard(myBeard[mySex][math.random(#myBeard[mySex])]);
+ end
 
 function ini(Monster)
     --debug("INI MONSTER START")
