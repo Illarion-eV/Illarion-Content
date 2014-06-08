@@ -33,15 +33,15 @@ module("base.treasure", package.seeall)
             elseif ( level == 4 ) then
                 return ( lang == 0 and "ein Schmugglerversteck" or "a hiding place of smugglers loot" );
             elseif ( level == 5 ) then
-                return ( lang == 0 and "Versteck von Gnom-Forschern" or "a hiding place of gnome researchers" );
+                return ( lang == 0 and "Versteck von Zwergenhändlern" or "a stash of dwarven traders" );
             elseif ( level == 6 ) then
                 return ( lang == 0 and "eine Absturzstelle eines silbrigen Objektes" or "the site of a crashed silver object" );
             elseif ( level == 7 ) then
-                return ( lang == 0 and "einen Piratenschatz" or "a pirate's treasure" );
+                return ( lang == 0 and "eine Kiste mit Piratenbeute" or "a pirate's booty" );
             elseif ( level == 8 ) then
                 return ( lang == 0 and "einen eventuell verlassenen Drachenhort" or "a probably abandoned dragon treasure" );
             elseif ( level == 9 ) then
-                return ( lang == 0 and "einen Yr-Schatz" or "an Yr treasure" );
+                return ( lang == 0 and "einen Schatz aus Nabranoo" or "a treasure from Nabranoo" );
             else
                 return ( lang == 0 and "keinen Schatz" or "no treasure" );
             end
