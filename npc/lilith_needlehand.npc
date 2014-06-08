@@ -88,9 +88,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me waves excitedly.", "Goo
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Lilith Needlehand und ich bin eine Schneiderin. Es ist schön, deine Bekanntschaft zu machen."
 
 -- fix
-queststatus(73) > 0, queststatus(820) = 17, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 18, "Ah Florain send you but you already ask me for something to do."
+queststatus(73) > 0, queststatus(820) = 17, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 18, "Ah Florain sent you but you already asked me for something to do."
 queststatus(73) > 0, queststatus(820) = 17, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 18, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
-queststatus(73) > 0, queststatus(820) = 17, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 18, "Ah Florain send you but you already ask me for something to do."
+queststatus(73) > 0, queststatus(820) = 17, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 18, "Ah Florain sent you but you already asked me for something to do."
 queststatus(73) > 0, queststatus(820) = 17, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 18, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- 1st quest: Gather 20 wool coming from florain
