@@ -135,31 +135,22 @@ function onDeath(Monster)
 
         monster.base.drop.AddDropItem(63,1,50,333,0,1); --entrails
         monster.base.drop.AddDropItem(2586,1,100,333,0,1); --fur
-        monster.base.drop.AddDropItem(259,1,10,333,0,2); --grain
-        monster.base.drop.AddDropItem(314,1,10,333,0,2); --potash
+
 
     elseif (MonID == 1114) then --Muskrat, lvl2
 
         monster.base.drop.AddDropItem(63,1,50,333,0,1); --entrails
         monster.base.drop.AddDropItem(2586,1,100,333,0,1); --fur
-        monster.base.drop.AddDropItem(259,1,10,333,0,2); --grain
-        monster.base.drop.AddDropItem(314,1,10,333,0,2); --potash
 
     elseif (MonID == 1115) then --Plague Rat, lvl3
 
         monster.base.drop.AddDropItem(63,1,50,333,0,1); --entrails
         monster.base.drop.AddDropItem(69,1,100,333,0,1); --raw leather
-        monster.base.drop.AddDropItem(170,1,10,333,0,2); --wool
-        monster.base.drop.AddDropItem(26,1,10,333,0,2); --clay
-        monster.base.drop.AddDropItem(391,1,10,333,0,2); --torch
 
     elseif (MonID == 1116) then --Sewer Rat, lvl3
 
         monster.base.drop.AddDropItem(63,1,50,333,0,1); --entrails
         monster.base.drop.AddDropItem(2586,1,100,333,0,1); --fur
-        monster.base.drop.AddDropItem(170,1,10,333,0,2); --wool
-        monster.base.drop.AddDropItem(191,1,10,333,0,2); --roll
-        monster.base.drop.AddDropItem(2745,1,10,333,0,2); --parchment
 
     end
     monster.base.drop.Dropping(Monster);
