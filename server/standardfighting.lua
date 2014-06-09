@@ -107,7 +107,7 @@ function isArcher(archer, target)
 	elseif rAttFound and rAttWeapon.WeaponType == 7 then
 		range = rAttWeapon.Range
 	end
-	
+
 	return range;
 end
 
@@ -117,7 +117,7 @@ function isPossibleTarget(monster, candidate)
     if candidate:getType() ~= Character.player and candidate.pos.z ~= -40 then
         return false
     end
-    
+
     if (candidate:getQuestProgress(36) ~= 0) then
 		return false;
 	end
@@ -143,7 +143,7 @@ function isPossibleTarget(monster, candidate)
 	elseif candidate:distanceMetric(monster) > distance then
 		return false;
 	end
-	
+
 	return true
 end
 
@@ -366,7 +366,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 
 	--Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
 
-	
+
 	-- B I G mistake below: Level 0 armours have a armourValue of exactly 0. A dude in plate armour has the same armorValue as a naked moron- FIX!!! ~Estralis
 	local ArmourDefenseScalingFactor = 2;
 	local GeneralScalingFactor = 2.8;
@@ -469,7 +469,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 				armourValue = armourValue + armour.punctureArmor;
 			end;
 		end;
-		  
+
     Globals.Damage = Globals.Damage - (Globals.Damage * armourValue * qualitymod / 140);
 
 	Globals.Damage = skillmod*Globals.Damage;
@@ -488,7 +488,7 @@ function ArmourDegrade(Defender, Globals)
 		local durability = math.mod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
 		local nameText=world:getItemName(Globals.HittedItem.id,Defender.Char:getPlayerLanguage());
-		
+
 		durability = durability - 20;
 
 		if (durability <= 0) then
@@ -508,15 +508,15 @@ function ArmourDegrade(Defender, Globals)
 		"Du solltest dein kaputtes Artefakt '"..nameText.."' ablegen bevor es zerbricht!",
 		"You should take off your broken artifact '"..nameText.."' before it shatters!");
 
-		
+
 	elseif (base.common.Chance(Globals.Damage, 12000)) and (Globals.HittedItem.id ~= 0) then -- do not damage non existing items
 
 		local durability = math.mod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
 		local nameText=world:getItemName(Globals.HittedItem.id,Defender.Char:getPlayerLanguage());
-		
+
 		durability = durability - 1;
-		
+
 		if (durability == 0) then
 			base.common.InformNLS(Defender.Char,
 		  "Dein Rüstungsteil '"..nameText.."' zerbricht. Glücklicherweise tritt kein Splitter in deinen Körper ein.",
@@ -524,7 +524,7 @@ function ArmourDegrade(Defender, Globals)
 		  world:erase(Globals.HittedItem, 1);
 		  return true;
 		end;
-		
+
 		Globals.HittedItem.quality = quality * 100 + durability;
 		--world:changeItem(Globals.HittedItem.WeaponItem);
 		world:changeItem(Globals.HittedItem);
@@ -575,7 +575,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
 
 		durability = durability - 1;
-				
+
 		if (durability == 0) then
 			base.common.InformNLS(Attacker.Char,
 		  "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
@@ -596,7 +596,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
 	Rarity = NotNil(tonumber(ParryWeapon:getData("RareWeapon")));
     local nameText=world:getItemName(ParryWeapon.id,Defender.Char:getPlayerLanguage());
-	
+
 	if(Rarity<0) then
 
 		local durability = math.mod(ParryWeapon.quality, 100);
@@ -627,7 +627,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		local quality = (ParryWeapon.quality - durability) / 100;
 
 		durability = durability - 1;
-				
+
 		if (durability == 0) then
 			base.common.InformNLS(Defender.Char,
 		  "Dein Gegenstand '"..nameText.."' zerbricht, dies erschwert es dir, dich zu verteidigen.",
@@ -788,15 +788,15 @@ function CauseDamage(Attacker, Defender, Globals)
             base.common.ParalyseCharacter(Defender.Char, 7, false, true);
 			TimeFactor=1; -- See lte.chr_reg
 			lte.chr_reg.stallRegeneration(Defender.Char, 60/TimeFactor); -- Stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
-			
+
 		end
-		
+
         return true;
-		
+
     else
-	
+
 		base.character.ChangeHP(Defender.Char,-Globals.Damage); -- Finally dealing the damage.
-	
+
         if (Attacker.AttackKind == 4) then -- Ranged attack
             if Defender.Char:getType() == Character.monster and Attacker.Char:getType() == Character.player then
 				Defender.Char.movepoints = Defender.Char.movepoints - 5;
@@ -1486,7 +1486,7 @@ function Specials(Attacker, Defender, Globals)
                     "#me delivers a painful back attack.");
         elseif(Globals.criticalHit==4) then -- 2HS
             base.common.TalkNLS(Attacker.Char, Character.say,
-                    "#me führ einen gewaltigen Hieb aus und schlägt "..seinihr.."en Gegner zurück.",
+                    "#me führt einen gewaltigen Hieb aus und schlägt "..seinihr.."en Gegner zurück.",
                     "#me delivers a broad attack, knocking back "..hisher.." opponent.");
         elseif(Globals.criticalHit==5) then -- 2HC
             base.common.TalkNLS(Attacker.Char, Character.say,
@@ -1735,7 +1735,7 @@ function HandleMovepoints(Attacker, Globals)
 	end
 
 	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints-archerAdjustment));
-    
+
 	Globals["AP"] = reduceFightpoints;
 
     return reduceFightpoints;
@@ -1748,9 +1748,9 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 
 	-- Attacker learns weapon skill
 	if Attacker.Skillname then
-	
+
 		Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.DefenseSkill + 10, Defender.parry + 10));
-			
+
 	end
 
 	local archerAdditional = 0
@@ -1763,35 +1763,35 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 		local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
 
 		if armourfound then
-		
+
 			Defender.Char:learn(Defender.DefenseSkillName,(AP+archerAdditional)/3,Attacker.skill + 10);
-			
+
 		end
-		
+
 	end
 
 	-- Defender learns parry skill
 	local parryWeapon;
-	
+
 	--Choose which weapon has the largest defense
 	if Defender.IsWeapon then
 		parryWeapon = Defender.Weapon;
 	end
-	
+
 	if Defender.SecIsWeapon then
-	
+
 		if not parryWeapon then
 			parryWeapon = Defender.SecWeapon;
 		elseif (parryWeapon.Defence < Defender.SecWeapon.Defence) then
 			parryWeapon = Defender.SecWeapon;
 		end
-		
+
 	end
-	
+
 	if parryWeapon then
-	
+
 		Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 10)
-		
+
 	end
 end;
 
