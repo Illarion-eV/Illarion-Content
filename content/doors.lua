@@ -287,6 +287,13 @@ function initDoors()
 	AddDoor({100, 576, 0}, false,"Tavern Unicorn Lion","Taverne Einhörniger Löwe");
 	AddDoor({113, 586, 0}, false,"Tavern Unicorn Lion","Taverne Einhörniger Löwe");
 
+
+--Hemptie Necktie Inn
+	AddDoor({699, 311, 1}, 401,"Trolls Bane","Trolls Bane")
+	AddDoor({699, 323, 1}, 402,"Silverbrand","Silberbrand")
+	AddDoor({709, 315, 1}, 403,"Greenbriar","Greenbriar")
+	AddDoor({709, 319, 1}, 404,"Varshikar","Varshikar")
+
 	-- Irundar xxx
     --AddDoor( -42, 193, -9,  X00); -- Irundar Gate
     --AddDoor( -49, 174, -9,  X01); -- Irundar Smith
