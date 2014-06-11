@@ -12,20 +12,6 @@
 -- 
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
--- Illarion Server
---
--- This program is free software: you can redistribute it and/or modify it under
--- the terms of the GNU Affero General Public License as published by the Free
--- Software Foundation, either version 3 of the License, or (at your option) any
--- later version.
---
--- This program is distributed in the hope that it will be useful, but WITHOUT
--- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
--- FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
--- details.
---
--- You should have received a copy of the GNU Affero General Public License
--- along with this program. If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Jeremiah Horanfeld                                       Cadomyr --
 -- NPC Job:  Vermin Monitor                                                   --
@@ -98,14 +84,14 @@ itemShoes = 771
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Jeremiah Horanfeld, der Schädlingswächter. Schlüsselwörter: Hallo, Ratten, Quest, Stolz, Auftrag, Aufgabe, Abenteuer, mission.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings, it is a lovely day."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße, es ist ein schöner Tag."
-english, "Hiho", "Hallo", "Hey", "Greeb", "Hi" -> "Greetings, it is a lovely day."
-"Hiho", "Hallo", "Hey", "Greeb" ->"Grüße, es ist ein schöner Tag."
-"Farewell", "Bye", "Fare well", "See you" -> "Farewell, until we meet again."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mach's gut bis wir uns wiedersehen."
-english, "Ciao", "Adieu", "Au revoir" -> "Farewell, until we meet again."
-"Ciao", "Adieu", "Au revoir" -> "Mach's gut bis wir uns wiedersehen."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings, it is a lovely day.", "Greetings in the name of the Queen. Have you come to serve the kingdom?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße, es ist ein schöner Tag.", "Sei gegrüßt im Namen der Königin. Bist du gekommen um ihrem Reich zu dienen?"
+english, "Hiho", "Hallo", "Hey", "Greeb", "Hi" -> "Greetings, it is a lovely day.", "Greetings in the name of the Queen. Have you come to serve the kingdom?"
+"Hiho", "Hallo", "Hey", "Greeb" ->"Grüße, es ist ein schöner Tag.", "Sei gegrüßt im Namen der Königin. Bist du gekommen um ihrem Reich zu dienen?"
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell, until we meet again.", "May the sun of the desert keep you warm til we meet again."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mach's gut bis wir uns wiedersehen.", "Mögen die Sonne der Wüste die wärmen bis wir uns wieder treffen."
+english, "Ciao", "Adieu", "Au revoir" -> "Farewell, until we meet again.", "May the sun of the desert keep you warm til we meet again."
+"Ciao", "Adieu", "Au revoir" -> "Mach's gut bis wir uns wiedersehen.", "Mögen die Sonne der Wüste die wärmen bis wir uns wieder treffen."
 "How are you", "How feel", "How do you do" -> "I am quite well."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut."
 "your name", "who are you", "who art thou" -> "My name is Jeremiah Horanfeld, I am the Queen's own Vermin Monitor."
@@ -255,12 +241,38 @@ english, "job" -> "I am a Vermin Monitor, like my father, and his father before 
 "Stolz" -> "Man muss Stolz zeigen, bei allem was man tut."
 english, "name" -> "My name is Jeremiah Horanfeld, I am the Queen's own Vermin Monitor."
 "name" -> "Mein Name ist Jeremiah Horanfeld. Ich bin der Rattenfänger der Königin."
+"honour" -> "There is no greater honour than serving my Queen."
+"ehre" -> "Es gibt keine größere Ehre als meiner Königin zu dienen."
+"ratman" -> "The ratman in the well has a group of rat thugs in his command."
+"rattenmenschen" -> "Der Rattenmann am Wall hat eine Bande von Rattengangstern unter seinem Kommando.":
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "I don't know much about the Archmage, but who would follow a man who spends his time reading?"
+"Erzmagier" -> "Ich weiß nicht viel über den Erzmagier. Aber wer folgt jemanden der immer nur liest?"
+english, "Elvaine", "Morgan" -> "I don't know much about the Archmage, but who would follow a man who spends his time reading?"
+"Elvaine", "Morgan" -> "Ich weiß nicht viel über den Erzmagier. Aber wer folgt jemanden der immer nur liest?"
+english, "Runewick" -> "The residents of Runewick spend all their time in the library.  How can they defend their ruler like that?"
+"Runewick" -> "Die Bewohner Runewick´s verbringen ihre gesamte Zeit in der Bibliothek. Wie können sie so ihren Herrscher beschützen?"
+english, "Valerio", "Guilianni", "Don" -> "There is no honour in having vast sums of money gained from cheating and stealing like the Don does."
+"Valerio", "Guilianni", "Don" -> "Es ist keine Ehre solche Unmengen von Geld durch Bestehlen und Betrügen zu ergaunern wie es der Don tut."
+english, "Galmair" -> "Galmair is the town of greed. They are only concerned where their next coin comes from."
+"Galmair" -> "Galmair ist die Stadt der Habgier. Sie sind nur daran interessiert wo ihre nächste Münze herkommt."
+"Queen" -> "All Hail the Queen. I serve Her Majesty with my life."
+"Königin" -> "Alle bejubeln die Königin. Ich diene ihrer Majestät mit meinem Leben."
+english, "rosaline", "edwards" -> "All Hail the Queen. I serve Her Majesty with my life."
+"rosaline", "edwards" -> "Alle bejubeln die Königin. Ich diene ihrer Majestät mit meinem Leben."
+english, "Cadomyr" -> "Cadomyr is the vast and great desert town. It is an honour to be allowed to live here."
+"Cadomyr" -> "Cadomyr ist die gewaltige Wüstenstadt. Es ist eine Ehre in ihr leben zu dürfen."
+english, "Necktie", "Hemp", "Inn" -> "The rubbish outlaws at the Necktie Inn have no honour."
+"Gasthof", "Hanfs", "schlinge", "Necktie"-> "Die Ausgestoßenen des Necktie Inn´s haben keine Ehre."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 english, "Malachin" -> "Malachin, god of the hunt, will guide you if you let him."
 "Malachin" -> "Malachin, der Gott der Jagd wird dich leiten, wenn DU ihm vertraust."
 english, "Zhambra" -> "By the mercy of Zhambra, our subjects are loyal to our Queen."
 "Zhambra" -> "Bei der Gnade Zhambras, unsere Diener stehen loyal zur Königin."
+english, "Sirani" -> "One day the Goddess Sirani will find me my true love."
+"Sirani" -> "Eines Tages wird mich die Göttin Sirani finden, meine wahre Liebe."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I'm not a trader."
@@ -283,3 +295,4 @@ cycletext "#me looks around with pride.", "#me looks around with pride."
 cycletext "Dies ist die Wüste. Selbst das Rattenjagen ist eine ehrbare Tätigkeit.", "Here in the desert, even rat hunting is an honourable profession."
 cycletext "#me reckt seinen Brustkorb so vor, das die Rüstung im Sonnenlicht glänzt", "#me puffs out his chest, making his armour glint in the sun as you arrive."
 cycletext "Ich bin ein loyaler Diener der Königin. Das solltest du auch sein!", "I am the Queens loyal subject. You should be too!"
+cycletext "Ich habe es mit vergifteten Karotten im Schacht versucht, aber sie haben keine Wirkung auf diese Ratten.", "I have tried poisoned carrots in the well, but they had no effect on those rats!"
