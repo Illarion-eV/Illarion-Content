@@ -24,6 +24,31 @@ require("base.arena")
 require("base.messages");
 module("monster.mon_2_halflings", package.seeall)
 
+function onSpawn(theHalfling)
+
+	local mySex = math.random(0,1);
+
+    local var=20; -- variation of color, +/- var
+    local baseR=245;  -- baseRed
+	local baseG=200;  -- baseGreen
+	local baseB=150;  -- baseBlue
+    local red = math.min(255, baseR + math.random(-var, var));
+    local green = math.min(255, baseG + math.random(-var, var));
+    local blue = math.min(255, baseB + math.random(-var, var));
+    local myHair = {};
+    myHair[0] = {1,2};    -- list of possible hair IDs
+    myHair[1] = {1,4};
+    local hairBlonde = {230,220,100} -- Blonde hair Red,Green,Blue
+	local hairBlack = {10,10,10} -- Black hair Red,Green,Blue
+	local hairRed = {165,10,10} -- Red hair Red,Green,Blue
+	local hairBrunette = {75,10,10} -- Brunette hair Red,Green,Blue
+	local hairColors = {hairBlonde, hairBlack, hairRed, hairBrunette}
+	local myHairColor = hairColors[math.random(#hairColors)]
+	theHalfling:setAttrib("sex",mySex);
+    theHalfling:setSkinColor(red,green,blue);
+    theHalfling:setHair( myHair[mySex][math.random(#myHair[mySex])] );
+    theHalfling:setHairColor(myHairColor[1], myHairColor[2], myHairColor[3] );
+ end
 
 function ini(Monster)
 

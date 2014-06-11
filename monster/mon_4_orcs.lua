@@ -24,7 +24,32 @@ require("base.arena")
 require("base.messages");
 module("monster.mon_4_orcs", package.seeall)
 
+function onSpawn(theOrc)
 
+	local mySex = math.random(0,1);
+
+    local var=20; -- variation of color, +/- var
+    local baseR=50;  -- baseRed
+	local baseG=120;  -- baseGreen
+	local baseB=30;  -- baseBlue
+    local red = math.min(255, baseR + math.random(-var, var));
+    local green = math.min(255, baseG + math.random(-var, var));
+    local blue = math.min(255, baseB + math.random(-var, var));
+    local myHair = {};
+    myHair[0] = {1,2,3,4,5};    -- list of possible hair IDs
+    myHair[1] = {1,4,7,8};
+    local hairBlonde = {240,230,90} -- Blonde hair Red,Green,Blue
+	local hairPurple = {128,0,128} -- Purple hair Red,Green,Blue
+	local hairRed = {165,10,10} -- Red hair Red,Green,Blue
+	local hairBrunette = {128,64,0} -- Brunette hair Red,Green,Blue
+	local hairColors = {hairBlonde, hairPurple, hairRed, hairBrunette}
+	local myHairColor = hairColors[math.random(#hairColors)]
+	theOrc:setAttrib("sex",mySex);
+    theOrc:setSkinColor(red,green,blue);
+    theOrc:setHair( myHair[mySex][math.random(#myHair[mySex])] );
+    theOrc:setHairColor(myHairColor[1], myHairColor[2], myHairColor[3] );
+ end
+ 
 function ini(Monster)
 
 init=true;

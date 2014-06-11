@@ -38,7 +38,7 @@ function onSpawn(theHuman)
     local blue = math.min(255, baseB + math.random(-var, var));
     local myHair = {};
     myHair[0] = {1,2,3};    -- list of possible hair IDs
-    myHair[1] = {1,4,7};
+    myHair[1] = {1,4,7,8};
 	local myBeard = {};
 	myBeard[0] = {1,3,4,5,6,8}  -- list of possible beard IDs
 	myBeard[1] = {0}

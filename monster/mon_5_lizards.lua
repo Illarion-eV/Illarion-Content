@@ -24,7 +24,28 @@ require("base.arena")
 require("base.messages");
 module("monster.mon_5_lizards", package.seeall)
 
+function onSpawn(theLizard)
 
+	local mySex = math.random(0,1);
+
+    local red = math.random(0,255)
+    local green = math.random(0,255)
+    local blue = math.random(0,255)
+    local myHair = {};
+    myHair[0] = {1,2,3,4,5,6};    -- list of possible hair IDs
+    myHair[1] = {1,2,3,4,5,6};
+    local hairTeal = {0,128,128} -- Teal hair Red,Green,Blue
+	local hairPurple = {128,0,128} -- Purple hair Red,Green,Blue
+	local hairRed = {165,10,10} -- Red hair Red,Green,Blue
+	local hairGreen = {0,128,64} -- Green hair Red,Green,Blue
+	local hairColors = {hairTeal, hairPurple, hairRed, hairGreen}
+	local myHairColor = hairColors[math.random(#hairColors)]
+	theLizard:setAttrib("sex",mySex);
+    theLizard:setSkinColor(red,green,blue);
+    theLizard:setHair( myHair[mySex][math.random(#myHair[mySex])] );
+    theLizard:setHairColor(myHairColor[1], myHairColor[2], myHairColor[3] );
+ end
+ 
 function ini(Monster)
 
 init=true;

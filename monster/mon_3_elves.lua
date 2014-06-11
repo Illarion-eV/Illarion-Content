@@ -24,7 +24,32 @@ require("base.arena")
 require("base.messages");
 module("monster.mon_3_elves", package.seeall)
 
+function onSpawn(theElf)
 
+	local mySex = math.random(0,1);
+
+    local var=20; -- variation of color, +/- var
+    local baseR=255;  -- baseRed
+	local baseG=230;  -- baseGreen
+	local baseB=210;  -- baseBlue
+    local red = math.min(255, baseR + math.random(-var, var));
+    local green = math.min(255, baseG + math.random(-var, var));
+    local blue = math.min(255, baseB + math.random(-var, var));
+    local myHair = {};
+    myHair[0] = {1,2};    -- list of possible hair IDs
+    myHair[1] = {1,4,7,8};
+    local hairBlonde = {255,157,98} -- Blonde hair Red,Green,Blue
+	local hairPurple = {64,0,64} -- Purple hair Red,Green,Blue
+	local hairGreen = {0,64,64} -- Green hair Red,Green,Blue
+	local hairBrunette = {128,64,64} -- Brunette hair Red,Green,Blue
+	local hairColors = {hairBlonde, hairPurple, hairGreen, hairBrunette}
+	local myHairColor = hairColors[math.random(#hairColors)]
+	theElf:setAttrib("sex",mySex);
+    theElf:setSkinColor(red,green,blue);
+    theElf:setHair( myHair[mySex][math.random(#myHair[mySex])] );
+    theElf:setHairColor(myHairColor[1], myHairColor[2], myHairColor[3] );
+ end
+ 
 function ini(Monster)
 
 init=true;
