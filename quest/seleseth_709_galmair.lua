@@ -33,8 +33,8 @@ Title[ENGLISH] = "Gem grinding and brick making"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Sammel zehn Klumpen Lehm beim See, im Westen der Stadt, für Seleseth in der Werkstatt von Galmair. Um den Lehm zu sammeln, musst du die Schauefel in die Hand nehmen und an einer Stelle, wo es Dreck nahe am Wasser gibt, graben."
-Description[ENGLISH][1] = "Collect ten clumps of clay at the lake on the west side of the city for Seleseth in the workshop of Galmair. You can collect the clay if you take the shovel in your hand and use it on a spot where there is dirt next to the water."
+Description[GERMAN][1] = "Sammle zehn Klumpen Lehm ín den Lehmgruben östlich der Stadt Nahe der Kupferbrücke und bringe sie zu Seleseth in der Werkstatt von Galmair. Lehm sammelst du, in dem die Schaufel in die Hand nimmst und sie bei einer Lehmgrube benutzt."
+Description[ENGLISH][1] = "Collect ten clumps of clay in the clay pit east of the city gates near the Copper Bridge for Seleseth in the workshop of Galmair. You can collect the clay if you take the shovel in your hand and use it on a spot where a clay pit is in the mud."
 Description[GERMAN][2] = "Geh zu Seleseth in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go to Seleseth in the workshop of Galmair, he is sure to have another task for you."
 Description[GERMAN][3] = "Stelle zehn Ziegel am Glasschmelzofen für Seleseth in Galmair her. Um die Ziegel herzustellen, musst du die Ziegelform in die Hand nehmen und den Ofen benutzen. So stellst du ungebrannte Ziegel her. Anschließend wiederholst du das ganze und hast gebrannte Ziegel."
@@ -61,7 +61,7 @@ Start = {387, 277, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(387, 277, 0), position(292, 285, 0)} -- Clay
+QuestTarget[1] = {position(387, 277, 0), position(467, 250, 0)} -- Clay Pit
 QuestTarget[2] = {position(387, 277, 0)} 
 QuestTarget[3] = {position(387, 277, 0), position(385, 270, 0)} -- Glass melting oven
 QuestTarget[4] = {position(387, 277, 0)} 
