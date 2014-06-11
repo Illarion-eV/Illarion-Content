@@ -89,8 +89,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Simeon Ureses, der königliche Waffenmeister."
 
 -- repair triggers
-english, "repair", "fix" -> "Let's have a look at this.", repair
-"reparieren", "instand", "heile" -> "Schauen wir nach, was wir hier haben.", repair
+"repair", "fix", "polish", "mend", "patch", "darn" -> "Let's have a look at this.", repair
+"reparier", "instand", "heil" -> "Schauen wir nach, was wir hier haben.", repair
 
 -- OPTIONAL TRIGGERS
 

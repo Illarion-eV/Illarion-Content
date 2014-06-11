@@ -103,8 +103,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Safe journey, and don't for
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Marcel Metalfeet, stets zu Diensten."
 
 -- repair triggers
-english, "repair", "fix" -> "Let's have a look at this.", repair
-"reparieren", "instand", "heile" -> "Schauen wir nach, was wir hier haben.", repair
+"repair", "fix", "polish", "mend", "patch", "darn" -> "Let's have a look at this.", repair
+"reparier", "instand", "heil" -> "Schauen wir nach, was wir hier haben.", repair
 
 -- OPTIONAL TRIGGERS
 
