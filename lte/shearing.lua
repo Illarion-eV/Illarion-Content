@@ -35,7 +35,7 @@ function callEffect(shearingEffect, Animal)
 		return false;
 	end
 	
-	if gatherAmount >= 20 then
+	if gatherAmount >= 10 then
 		newAmount=0; --Restock wool
 		shearingEffect:addValue("gatherAmount", newAmount);
 		world:makeSound(2, Animal.pos); --Baah!
