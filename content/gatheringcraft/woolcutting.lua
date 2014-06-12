@@ -81,7 +81,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 	-- check if sheep still gives wool
 	local foundEffect, shearingEffect = SourceAnimal.effects:find(402);
     if (not foundEffect) then
-		shearingEffect = LongTimeEffect(402, 1800); -- call every 3 minutes
+		shearingEffect = LongTimeEffect(402, 3600); -- call every 6 minutes
 		shearingEffect:addValue("gatherAmount", 0);
 		SourceAnimal.effects:addEffect(shearingEffect);
 	end
