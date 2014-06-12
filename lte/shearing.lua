@@ -41,7 +41,7 @@ function callEffect(shearingEffect, Animal)
 		world:makeSound(2, Animal.pos); --Baah!
 	end
 	
-	shearingEffect.nextCalled = 3600; -- call every 6 minutes
+	shearingEffect.nextCalled = 7200; -- call every 12 minutes
 	
 	return true;
 	
