@@ -81,7 +81,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 	-- check if sheep still gives wool
 	local foundEffect, shearingEffect = SourceAnimal.effects:find(402);
     if (not foundEffect) then
-		shearingEffect = LongTimeEffect(402, 1800); -- call every 3 minutes
+		shearingEffect = LongTimeEffect(402, 7200); -- call every 12 minutes
 		shearingEffect:addValue("gatherAmount", 0);
 		SourceAnimal.effects:addEffect(shearingEffect);
 	end
@@ -89,7 +89,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 	
-		if gatherAmount >= 20 then
+		if gatherAmount >= 10 then
 			base.common.HighInformNLS( User,
 			"Dieses Schaf wurde kürzlich erst geschoren und gibt momentan keine Wolle.",
 			"This sheep has been sheared recently and doesn't give wool right now." );
@@ -123,7 +123,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
-	elseif gatherAmount < 20 then -- character can still carry something and more wool is available
+	elseif gatherAmount < 10 then -- character can still carry something and more wool is available
 		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User, toolItem);
 
 		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 2, 20);
