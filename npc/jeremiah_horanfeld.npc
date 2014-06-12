@@ -240,17 +240,17 @@ queststatus(187) > 35, queststatus(187) < 37, town = Cadomyr, "Auftrag", "Aufgab
 
 -- No more quests, just nice words of gratitude
 queststatus(187) = 38, town = Cadomyr, english, "quest", "mission" -> "You have done your duty. I have no more work for you."
-queststatus(187) = 38, town = Cadomyr, "quest", "mission" -> "Du hast deine Arbeit getan. Ich habe Nichts mehr für dich zu tun."
+queststatus(187) = 38, town = Cadomyr, "quest", "mission" -> "Du hast deine Arbeit getan. Ich habe nichts mehr für dich zu tun."
 queststatus(187) = 38, town = Cadomyr, "task", "adventure" -> "You have done your duty. I have no more work for you."
-queststatus(187) = 38, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Du hast deine Arbeit getan. Ich habe Nichts mehr für dich zu tun."
+queststatus(187) = 38, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Du hast deine Arbeit getan. Ich habe nichts mehr für dich zu tun."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a Vermin Monitor, like my father, and his father before him!"
 "beruf" -> "Ich bin ein Schädlingswächter, wie mein Vater und Großvater vor mir."
 english, "job" -> "I am a Vermin Monitor, like my father, and his father before him!"
 "job" -> "Ich bin ein Schädlingswächter, wie mein Vater und Großvater vor mir."
+"ratte" -> "Mein Vater war auch Schädlingswächter!"
 "rat" -> "My father was a vermin monitor too!"
-"ratten" -> "Mein Vater war auch Schädlingswächter!"
 "pride" -> "One must exhibit pride in all they do!"
 "Stolz" -> "Man muss Stolz zeigen, bei allem was man tut."
 english, "name" -> "My name is Jeremiah Horanfeld, I am the Queen's own Vermin Monitor."
