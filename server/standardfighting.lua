@@ -1736,6 +1736,14 @@ function HandleMovepoints(Attacker, Globals)
 
 	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints-archerAdjustment));
 
+	
+	if Attacker.Char:getType() == Character.monster then 
+	--This is merely a hack. Without this, monsters just "fly" over tiles while attacking because they do not invest movepoints. Strangely, if we do the same for players, they get stalled. A profound solution is needed, most probably, this is a server issue. The line below does the job for now, but it's not a clean solution. ~Estralis
+
+		base.character.ChangeMovepoints(Attacker.Char,-math.floor(reduceFightpoints-archerAdjustment));
+	
+	end
+	
 	Globals["AP"] = reduceFightpoints;
 
     return reduceFightpoints;

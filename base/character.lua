@@ -60,7 +60,9 @@ end;
 -- @param User The character thats movepoints are supposed to change
 -- @param Value The amount of movepoints that are added
 function ChangeMovepoints(User, Value)
+
     User.movepoints = User.movepoints + Value;
+	
 end;
 
 --- Change the fighting points of a character by the value handed over.
@@ -69,7 +71,9 @@ end;
 -- @info This is currently set to change the movepoints also because the
 --          fighting points do not seem to work on the current server
 function ChangeFightingpoints(User, Value)
+
     User.fightpoints = User.fightpoints + Value;
+	
 end;
 
 --- Check if the character is a player character.
