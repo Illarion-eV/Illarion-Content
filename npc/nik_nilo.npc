@@ -65,9 +65,9 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 734, 23, 24, 2763, 737, 736, 2588, 733, 735, 1266, 21, 22, 234, 1062, 2536, 26, 310, 374, 390, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+sellItems = 734, 23, 24, 2763, 737, 736, 2588, 733, 735, 1266, 21, 22, 234, 1062, 2536, 26, 310, 390, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 buyPrimaryItems = 734, 23, 24, 2763, 737, 736, 2588, 733, 735, 1266, 21, 22, 234, 1062, 2536
-buySecondaryItems = 26, 310, 374, 390, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+buySecondaryItems = 26, 310, 390, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you cannot afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
@@ -81,7 +81,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 10% Stones: 733, 735, 1266
 -- 10% Coal, Ores, Nuggets: 21, 22, 234, 2536
 -- 5% Clay: 26
--- 5% Stuff: 310, 374, 390, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+-- 5% Stuff: 310, 390, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I trade with rocks and stones that are as hard as my muscles!", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich handel mit Felsen und Steinen, die so hart sind wie meine Muskeln!", trade

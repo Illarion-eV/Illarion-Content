@@ -65,8 +65,8 @@ itemShoes = 369
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 311, 312, 2672, 164, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726, 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
-buySecondaryItems = 311, 312, 2672, 164, 518, 790, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726, 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+sellItems = 311, 312, 2672, 164, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726, 310, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+buySecondaryItems = 311, 312, 2672, 164, 518, 790, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726, 310, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
@@ -78,7 +78,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5% Tools (Glass blower): 311, 312
 -- 5% Glass products: 75, 164, 292, 315, 1317, 1908, 2055, 2457, 2498
 -- 5% Glass resources: 41, 314, 316, 726
--- 5% Stuff: 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+-- 5% Stuff: 310, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 
 -- Quest triggers currently blank, to be added at a later date
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade

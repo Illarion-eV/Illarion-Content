@@ -154,8 +154,8 @@ module("base.treasure", package.seeall)
 			{6,1,nil},{9,1,nil},{23,1,nil},{24,1,nil},{47,1,nil},{51,1,nil},{58,1,nil},{72,1,nil},{74,1,nil},{118,1,nil},{121,1,nil},{122,1,nil},{126,1,nil},{227,1,nil},{258,1,nil},{271,1,nil},{311,1,nil},{312,1,nil},
 			-- Tools: candle mold, brick mould, chisel, tongs, plane, razor blade, crucible-pincers, carving tools rope, pick-axe, dying rod,
 			{429,1,nil}, {734,1,nil}, {737,1,nil}, {2140,1,nil}, {2715,1,nil},  {2746,1,nil}, {2751,1,nil}, {2752,1,nil}, {2760,1,nil}, {2763,1,nil}, {2781,1,nil},
-			-- Misc: wicker basket, flute, panpipe, drum, oil lamp, mirror, trap set, lantern, ( lit oil lamp,)
-			{799,1,nil}, {90,1,nil}, {532,1,nil}, {533,1,nil}, {92,1,nil}, {336,1,nil}, {374,1,nil}, {393,1,nil}, --{397,1,nil},
+			-- Misc: wicker basket, flute, panpipe, drum, oil lamp, mirror, lantern, ( lit oil lamp,)
+			{799,1,nil}, {90,1,nil}, {532,1,nil}, {533,1,nil}, {92,1,nil}, {336,1,nil}, {393,1,nil}, --{397,1,nil},
 			-- Shields/Armor: horned helmet,  steel boots, short leather legs, round metal shield,
 			{7,1,nil}, {326,1,nil}, {367,1,nil}, {186,1,nil},
 			-- Weapons: executioner's axe, poisened executioner's axe, serinjah-sword, poisoned serinjah-sword, shortsword, sling, cleric's staff, short bow, mace,
