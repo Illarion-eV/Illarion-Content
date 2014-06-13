@@ -85,8 +85,8 @@ itemShoes = 53
 -- 8: Quest 4 solved
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the cook Nana Winterbutter. Keywords: Hello, quest, bowl, cook, cooking.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Köchin Nana Winterbutter. Schlüsselwörter: Hallo, Quest, Schüssel, Koch, Kochen.")
+"Help" -> inform("[Game Help] This NPC is the cook Nana Winterbutter. Keywords: Hello, quest, bowl, cook, cooking, berries.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Köchin Nana Winterbutter. Schlüsselwörter: Hallo, Quest, Schüssel, Koch, Kochen, Beeren.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings! Maybe you could help me with a recipe?"
@@ -261,6 +261,8 @@ english, "Gobaith", "Gobiath" -> "I do not want to talk about that... Let's talk
 "Sichel" -> "Ihr könnt eine Sichel verwenden um Gemüse einzusammeln sobald es reif ist. Oder Ihr verwendet sie um Kräuter und Pilze zu sammeln."
 english, "Valandil", "Elensar" -> "My best regards to Valandil!"
 "Valandil", "Elensar" -> "Grüßt Valandil fein von mir!"
+"Berries" -> "Mmmm, yes, grow them right here myself, in Yewdale. My own species developed just for the Archmage himself. Morgan Berries grow big and plump, but aren't too sweet, just like he likes them!"
+"Beeren" -> "Mmmm, ja, ich baue sie hier selber an, in Yewdale. Meine eigene Sorte, nur für den Erzmagier gezüchtet. Morgan Beeren wachsen groß und prall, aber sie sind nicht zu süss, genauso wie er sie mag!"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Mr Morgan is a very nice man, elf, wizard, ruler... anyway, he is nice!"
@@ -332,3 +334,6 @@ cycletext "#me nascht von einem Teig, den sie gerade anrührt.", "#me tastes the 
 cycletext "Und noch etwas Knoblauch... oder besser nicht?", "And a little bit of garlic... or not?"
 cycletext "Ohje, ohje.", "Oh, my dear."
 cycletext "Das wird lecker!", "That's going to be tasty!"
+cycletext "#me schaut, mit Stolz, über sein Feld mit extra gezüchteten Morgan Beeren.", "#me looks out with pride over her field of specially grown Morgan Berries."
+cycletext "#me hält sich eine Morgan Beere nah vor das Gesicht um sie genauer zu betrachten.", "#me holds a Morgan Berry up close to her face as she examines it closely."
+cycletext "Ich hab fast vergessen, dass der Erzmagier will, dass ich ihm so schnell wie möglich noch einen Korb mit Morgan Beeren schicke. * Sie packt ihren Kochlöffel zur Seite und beginnt hastig einen Korb mit den prallen Beeren zu packen.*","I nearly forgot, the Archmage asked that I send over another basket of Morgan Berries right away! *She tucks her cooking spoon away and hastily begins to prepare a basket of the perfectly plump cherries.*"
