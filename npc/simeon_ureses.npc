@@ -71,8 +71,8 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keywords: Hello, armourer, dwarves, Irmorom, repair.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom, reparieren.")
+"Help" -> inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keywords: Hello, armourer, dwarves, Irmorom, repair, fix, polish, mend, patch, darn.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom, reparier, instand, heil, polier, flicken.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
@@ -90,7 +90,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt
 
 -- repair triggers
 "repair", "fix", "polish", "mend", "patch", "darn" -> "Let's have a look at this.", repair
-"reparier", "instand", "heil" -> "Schauen wir nach, was wir hier haben.", repair
+"reparier", "instand", "heil", "polier", "flicken" -> "Schauen wir nach, was wir hier haben.", repair
 
 -- OPTIONAL TRIGGERS
 

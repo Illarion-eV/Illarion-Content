@@ -85,8 +85,8 @@ buySecondaryItems = 2, 3
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Marcel Metalfeet the craftsman. Keywords: repair, work, greetings, religion.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Marcel Metalfeet der Handwerker. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion.")
+"Help" -> inform("[Game Help] This NPC is Marcel Metalfeet the craftsman. Keywords: repair, work, greetings, religion, fix, polish, mend, patch, darn.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Marcel Metalfeet der Handwerker. Schlüsselwörter: reparier, arbeiten, Grüße, Religion, instand, heil, polier, flicken.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello. You look happy today. Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
@@ -104,7 +104,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Safe journey, and don't for
 
 -- repair triggers
 "repair", "fix", "polish", "mend", "patch", "darn" -> "Let's have a look at this.", repair
-"reparier", "instand", "heil" -> "Schauen wir nach, was wir hier haben.", repair
+"reparier", "instand", "heil", "polier", "flicken" -> "Schauen wir nach, was wir hier haben.", repair
 
 -- OPTIONAL TRIGGERS
 

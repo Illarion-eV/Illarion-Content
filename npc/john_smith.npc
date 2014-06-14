@@ -73,8 +73,8 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is John Smith the smith. Keywords: Greetings, repair.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist John Smith der Schmied. Schlüsselwörter: Grüße, kaufe, reparieren.")
+"Help" -> inform("[Game Help] This NPC is John Smith the smith. Keywords: Greetings, repair, fix, polish, mend, patch, darn.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist John Smith der Schmied. Schlüsselwörter: Grüße, reparier, instand, heil, polier, flicken.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. How are you today?", "Greetings in the name of Irmorom."
@@ -92,7 +92,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a good day!", "Fare we
 
 -- repair triggers
 "repair", "fix", "polish", "mend", "patch", "darn" -> "Let's have a look at this.", repair
-"reparier", "instand", "heil" -> "Schauen wir nach, was wir hier haben.", repair
+"reparier", "instand", "heil", "polier", "flicken" -> "Schauen wir nach, was wir hier haben.", repair
 
 -- OPTIONAL TRIGGERS
 
