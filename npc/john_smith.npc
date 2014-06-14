@@ -74,7 +74,7 @@ itemShoes = 53
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is John Smith the smith. Keywords: Greetings, repair, fix, polish, mend, patch, darn.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist John Smith der Schmied. Schlüsselwörter: Grüße, reparier, instand, heil, polier, flicken.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist John Smith der Schmied. Schlüsselwörter: Grüße, reparier, instand, heil, polier, flicke.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. How are you today?", "Greetings in the name of Irmorom."
@@ -92,12 +92,12 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a good day!", "Fare we
 
 -- repair triggers
 "repair", "fix", "polish", "mend", "patch", "darn" -> "Let's have a look at this.", repair
-"reparier", "instand", "heil", "polier", "flicken" -> "Schauen wir nach, was wir hier haben.", repair
+"reparier", "instand", "heil", "polier", "flick" -> "Schauen wir nach, was wir hier haben.", repair
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "trade", "purchase" -> "I do not sell weapons or amoury, but I can reprair them. Interested?"
+"sell", "buy", "wares", "trade", "purchase" -> "I do not sell weapons or armoury, but I can repair them. Interested?"
 "kauf", "waren", "Handel", "veräußer", "erwerb" -> "Ich verkaufe keine Waffen und Rüstung, aber ich kann sie reparieren. Interesse?"
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
@@ -125,7 +125,7 @@ english, "Adron" -> "I do not pray to this god."
 "Adron" -> "Ich bete nicht zu diesem Gott."
 english, "Bragon", "Brágon" -> "I do not pray to this god."
 "Bragon", "Brágon" -> "Ich bete nicht zu diesem Gott."
-english, "Cherga" -> "I do not pray to thid god."
+english, "Cherga" -> "I do not pray to this god."
 "Cherga" -> "Ich bete nicht zu diesem Gott."
 english, "Elara" -> "I do not pray to this god."
 "Elara" -> "Ich bete nicht zu diesem Gott."
@@ -176,7 +176,7 @@ english, "Cadomyr" -> "Cadomyr is Cadomyr,... what ever this means."
 english, "albar" -> "Albar? It is a far away place, right?"
 "albar" -> "Albar? Das ist weit weg, oder?"
 english, "gynk", "gync" -> "Gynk... I've heard that word before."
-"gync", "gynk" -> "Gynk... Das hab ich schonmal gehört."
+"gync", "gynk" -> "Gynk... Das hab ich schon mal gehört."
 english, "salkama" -> "#me shrugs his shoulders."
 "salkama" -> "#me zuckt mit den Schultern."
 
@@ -186,7 +186,7 @@ english, "Gobaith", "Gobiath" -> "Ehm...?", "Really?", "Sorry, I never heard abo
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Nice to meet you.", "A pleasure.", "Welcome. How can I help you?"
-"mein Name" -> "Freut mich.", "Ganz meinerseits.", "Wilkommen. Wie kann ich Euch helfen?"
+"mein Name" -> "Freut mich.", "Ganz meinerseits.", "Willkommen. Wie kann ich Euch helfen?"
 english, "John", "Smith" -> "That's me!", "Yes?", "#me waves."
 "John", "Smith" -> "Das bin ich!", "Ja?", "#me winkt."
 "Yes" -> "#me nods.", "Exactly!"
@@ -196,7 +196,7 @@ english, "John", "Smith" -> "That's me!", "Yes?", "#me waves."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "#me nods.", "Welcome. How can I help you?", "Ehm...?", "Really?", "#me shrugs his shoulders."
-german, chance(20.0), ".*" -> "#me nickt.", "Wilkommen. Wie kann ich Euch helfen?", "Ähm...?", "Wirklich?", "#me zuckt mit den Schultern."
+german, chance(20.0), ".*" -> "#me nickt.", "Willkommen. Wie kann ich Euch helfen?", "Ähm...?", "Wirklich?", "#me zuckt mit den Schultern."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -205,9 +205,9 @@ german, chance(20.0), ".*" -> "#me nickt.", "Wilkommen. Wie kann ich Euch helfen
 
 cycletext "#me pfeift eine Melodie.", "#me whistles a melody."
 cycletext "#me prüft sein Werkzeug.", "#me checks his tools."
-cycletext "#me schaut sich um.", "#me lookes around."
+cycletext "#me schaut sich um.", "#me looks around."
 cycletext "Ich repariere alles!", "I repair everything."
 cycletext "#me klopft mit einem Hammer auf ein Stück Eisen.", "#me hits a piece of iron with a hammer."
-cycletext "#me schaut aus dem Fenster", "#me lookes out of the window."
+cycletext "#me schaut aus dem Fenster", "#me looks out of the window."
 cycletext "#me isst einen Apfel.", "#me eats an apple."
-cycletext "#me spuck einen Apfelkern auf den Boden.", "#me spits an apple seed to the ground."
+cycletext "#me spuckt einen Apfelkern auf den Boden.", "#me spits an apple seed to the ground."

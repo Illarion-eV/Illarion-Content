@@ -86,13 +86,13 @@ buySecondaryItems = 2, 3
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Marcel Metalfeet the craftsman. Keywords: repair, work, greetings, religion, fix, polish, mend, patch, darn.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Marcel Metalfeet der Handwerker. Schlüsselwörter: reparier, arbeiten, Grüße, Religion, instand, heil, polier, flicken.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Marcel Metalfeet der Handwerker. Schlüsselwörter: reparier, arbeiten, Grüße, Religion, instand, heil, polier, flicke.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello. You look happy today. Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegessen?", "Hallo. Du siehst nicht so glücklich aus. Hast du Hunger?", "Hallo. Wie geht es dir?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckeres gegessen?", "Hallo. Du siehst nicht so glücklich aus. Hast du Hunger?", "Hallo. Wie geht es dir?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello. You look happy today. Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegessen?", "Hallo. Du siehst nicht so glücklich aus. Hast du hunger?", "Hallo. Wie geht es dir?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckeres gegessen?", "Hallo. Du siehst nicht so glücklich aus. Hast du hunger?", "Hallo. Wie geht es dir?"
 "Farewell", "Bye", "Fare well", "See you" -> "Safe journey, and don't forget to take enough food with you!", "#me waves goodbye.", "Please come again!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gute Reise. Und vergiss nicht genug Proviant mit zu nehmen!", "#me winkt zum Abschied", "Komm wieder!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Safe journey, and don't forget to take enough food with you!", "#me waves goodbye.", "Please come again!"
@@ -104,13 +104,13 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Safe journey, and don't for
 
 -- repair triggers
 "repair", "fix", "polish", "mend", "patch", "darn" -> "Let's have a look at this.", repair
-"reparier", "instand", "heil", "polier", "flicken" -> "Schauen wir nach, was wir hier haben.", repair
+"reparier", "instand", "heil", "polier", "flick" -> "Schauen wir nach, was wir hier haben.", repair
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I do not sell anything, but I can repair all kinds of things for you."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "I verkaufe nichts, aber ich kann allesmögliche für Euch reparieren."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "I verkaufe nichts, aber ich kann alles mögliche für Euch reparieren."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "I don't have anything to do for you."

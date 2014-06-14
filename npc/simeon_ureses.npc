@@ -72,7 +72,7 @@ itemShoes = 53
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keywords: Hello, armourer, dwarves, Irmorom, repair, fix, polish, mend, patch, darn.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom, reparier, instand, heil, polier, flicken.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom, reparier, instand, heil, polier, flicke.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
@@ -90,7 +90,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt
 
 -- repair triggers
 "repair", "fix", "polish", "mend", "patch", "darn" -> "Let's have a look at this.", repair
-"reparier", "instand", "heil", "polier", "flicken" -> "Schauen wir nach, was wir hier haben.", repair
+"reparier", "instand", "heil", "polier", "flick" -> "Schauen wir nach, was wir hier haben.", repair
 
 -- OPTIONAL TRIGGERS
 
@@ -126,7 +126,7 @@ english, "Bragon", "Brágon" -> "Brágon grants me the fire for forging but he doe
 english, "Irmorom", "Oldra" -> "Irmorom, the god of crafting, is the only god I really pray to. I respect them all, though. Even Oldra!"
 "Irmorom", "Oldra" -> "Irmorom, der Gott des Handwerkes, ist der einzige Gott, zu dem ich bete. Ich respektiere sie aber alle, sogar Oldra!"
 english, "Malachin", "Malachín" -> "So, I am with Cadomyr so I have to pray to Malachín? You need to learn a lot..."
-"Malachin", "Malachín" -> "So, ich bin also aus Cadomyr, also muss ich zu Malachín beten? Ihr müßt noch eine Menge lernen..."
+"Malachin", "Malachín" -> "So, ich bin also aus Cadomyr, also muss ich zu Malachín beten? Ihr müsst noch eine Menge lernen..."
 
 -- Optional: Faction stuff
 "Queen" -> "I serve the queen because she is the queen. Did I make myself clear?"
