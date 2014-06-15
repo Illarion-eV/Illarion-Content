@@ -58,6 +58,7 @@ Bragon: 903,773,5
 Malachin: 137,678,1
 Zhambra: 142,564,0
 Sirani: 176,761,0
+Sirani: 176,762,0
 Oldra: 799, 757 0]]
 
 require("base.common")
