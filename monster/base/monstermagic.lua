@@ -354,7 +354,7 @@ function DealMagicDamage(Target, Damage)
             "#me falls to the ground.");
 
         if not Target:isAdmin() then --Admins don't want to get paralysed!
-            base.common.ParalyseCharacter(Target, 7, false, true);
+            base.common.ParalyseCharacter(Target, 2, false, true);
             TimeFactor = 1; -- See lte.chr_reg
             lte.chr_reg.stallRegeneration(Target, 60/TimeFactor); -- Stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
         end
