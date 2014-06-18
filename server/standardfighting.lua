@@ -1578,11 +1578,11 @@ function Specials(Attacker, Defender, Globals)
 
         if targetPos ~= startPos then
             Defender.Char:warp(targetPos)
+			base.common.ParalyseCharacter(Defender.Char, 2, false, true);
         end;
 	elseif(Globals.criticalHit==5) then
 		--Stun
-		local stuntime = 2;
-		base.common.ParalyseCharacter(Defender.Char, stuntime, false, true);
+		base.common.ParalyseCharacter(Defender.Char, 2, false, true);
 	end;
 
 end;
