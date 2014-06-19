@@ -34,8 +34,14 @@ function callEffect(milkingEffect, Animal)
 	if (gatherAmount <= 0) then
 		return false;
 	end
-
-	milkingEffect:addValue("gatherAmount", gatherAmount - 1);
-	milkingEffect.nextCalled = 3000; -- call every 5min
+	
+	if gatherAmount >= 3 then
+		newAmount=0; --Restock milk
+		milkingEffect:addValue("gatherAmount", newAmount);
+	end
+	
+	milkingEffect.nextCalled = 7200; -- call every 12 minutes
+	
 	return true;
+	
 end

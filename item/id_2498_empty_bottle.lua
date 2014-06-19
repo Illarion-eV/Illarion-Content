@@ -80,8 +80,8 @@ function UseItem(User, SourceItem, ltstate)
 
 	-- nothing found to fill the bottle
 	base.common.InformNLS(User,
-	  "Du kannst Flaschen an einem Brunnen oder an einem Gewässer füllen, oder ein geeignetes Tier melken.",
-	  "You can fill bottles at a well or at some waters, or milk an adequate domestic animal.");
+	  "Du kannst Flaschen an einem Brunnen oder an einem Gewässer füllen, oder ein geeignetes Tier melken. Lämmer und Bullen können aus naheliegenden Gründen nicht gemolken werden.",
+	  "You can fill bottles at a well or at some waters, or milk an adequate domestic animal. Lamps and bulls cannot be milked, obviously.");
 
 end
 

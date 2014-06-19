@@ -59,8 +59,8 @@ function StartGathering(User, SourceAnimal, ltstate)
 
 	if (User:countItemAt("all",2498) == 0) then -- check for items to work on
 		base.common.HighInformNLS( User,
-		"Du brauchst eine leere Flasche um zu melken.",
-		"You need an empty bottle for milking." );
+		"Du brauchst eine groﬂe leere Flasche um zu melken.",
+		"You need a large empty bottle for milking." );
 		return;
 	end
 
@@ -75,7 +75,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 	-- check if animal still gives milk
 	local foundEffect, milkingEffect = SourceAnimal.effects:find(401);
     if (not foundEffect) then
-		milkingEffect = LongTimeEffect(401, 3000); -- call every 5min
+		milkingEffect = LongTimeEffect(401, 7200); -- call every 12 minutes
 		milkingEffect:addValue("gatherAmount", 0);
 		SourceAnimal.effects:addEffect(milkingEffect);
 	end
