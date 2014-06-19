@@ -203,16 +203,14 @@ queststatus(74) = 2, "Gott", "Götter" -> "#me nickt und streicht durch seinen Ba
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Business, eh? Not here! Meet me... wait... nevermind!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Geschäfte, häh? Nicht hier! Triff mich... Moment mal... Vergiss es!"
-"tell something" -> "Moep."
-"erzähl was", "erzähl etwas" -> "Moep."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Cormac" -> "So, you think you know my name? Did I tell it to you? Did I!?"
 "Cormac" -> "So, du denkst also, du kennst meinen Namen? Hab ich ihn dir gesagt? Hab ich etwas!?"
-"Yes" -> "Pardon?", "Fine.", "Moep.", "Got beer?"
-"Ja" -> "Pardon?", "Fein.", "Moep.", "Haste Bier?"
-"No" -> "Pardon?", "Fine.", "Moep.", "Got beer?"
-"Nein" -> "Pardon?", "Fein.", "Moep.", "Haste Bier?"
+"Yes" -> "Pardon?", "Fine.", "Got beer?"
+"Ja" -> "Pardon?", "Fein.", "Haste Bier?"
+"No" -> "Pardon?", "Fine.", "Got beer?"
+"Nein" -> "Pardon?", "Fein.", "Haste Bier?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

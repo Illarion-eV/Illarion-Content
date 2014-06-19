@@ -343,8 +343,8 @@ english, "hummi", "olaficht" -> "That's me! If you're after information look no 
 "Nein" -> "Nein?", "'Nein' ist das Gegenteil von 'Ja'. *kichert*", "'Nein' bedeutet 'No' in der neuen Sprache. *kichert*"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(100.0), ".*" -> "Duddli, do-da, ask me for help."
-german, chance(100.0), ".*" -> "Duddli, duddla, frag mich nach Hilfe."
+english, chance(20.0), ".*" -> "Duddli, do-da, ask me for help."
+german, chance(20.0), ".*" -> "Duddli, duddla, frag mich nach Hilfe."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

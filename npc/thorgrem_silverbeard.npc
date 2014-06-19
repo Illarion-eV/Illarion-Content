@@ -104,54 +104,78 @@ queststatus(708) = 0, town = Galmair, "quest", "mission" -> item(2763, 1, 333), 
 queststatus(708) = 0, town = Galmair, "task", "adventure", "order" -> item(2763, 1, 333), queststatus(708) = 1, "Could you bring me 10 pieces of iron ore from the Malachite Mine and also 10 lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore."
 queststatus(708) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2763, 1, 333), queststatus(708) = 1, "Kannst du mir 10 Brocken Eisenerz von der Malachitmine und außerdem noch 10 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen."
 
--- not enough stuff
+-- first quest solved
 queststatus(708) = 1, item(21, all) > 9, item(22, all) > 9, english, town = Galmair, "quest", "mission", "coal", "iron" -> queststatus(708) = 2, "Well done, thank you. I'll take ten pieces of ore and ten lumps of coal. You can keep the other ten for your next task."
 queststatus(708) = 1, item(21, all) > 9, item(22, all) > 9, town = Galmair, "quest", "mission", "kohle", "eisen" -> queststatus(708) = 2, "Gut gemacht, danke. Ich nehme zehn Stück vom Erz und zehn von der Kohle. Den Rest kannst du für die nächste Aufgabe behalten."
 queststatus(708) = 1, item(21, all) > 9, item(22, all) > 9, town = Galmair, "task", "adventure", "order" -> queststatus(708) = 2, "Well done, thank you. I'll take ten pieces of ore and ten lumps of coal. You can keep the other ten for your next task."
 queststatus(708) = 1, item(21, all) > 9, item(22, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(708) = 2, "Gut gemacht, danke. Ich nehme zehn Stück vom Erz und zehn von der Kohle. Den Rest kannst du für die nächste Aufgabe behalten."
 
--- first quest solved
-queststatus(708) = 1, item(21, all) < 10, english, town = Galmair, ".+" -> "That's not everything I was looking for. Did you forget that I told you to bring me 10 pieces of iron ore and 10 lumps of coal?"
-queststatus(708) = 1, item(21, all) < 10, town = Galmair, ".+" -> "Da fehlt aber noch etwas. Ich wollte 10 Eisenerze sowie 10 Kohleklumpen von dir. Hast du das vergessen?"
-queststatus(708) = 1, item(22, all) < 10, english, town = Galmair, ".+" -> "That's not everything I was looking for. Did you forget that I told you to bring me 10 pieces of iron ore and 10 lumps of coal?"
-queststatus(708) = 1, item(22, all) < 10, town = Galmair, ".+" -> "Da fehlt aber noch etwas. Ich wollte 10 Eisenerze und 10 Kohleklumpen von dir. Hast du das vergessen?"
+-- not enough stuff
+queststatus(708) = 1, item(21, all) < 10, english, town = Galmair, "quest", "mission", "coal", "iron" -> "That's not everything I was looking for. Did you forget that I told you to bring me 10 pieces of iron ore and 10 lumps of coal?"
+queststatus(708) = 1, item(21, all) < 10, town = Galmair, "quest", "mission", "kohle", "eisen" -> "Da fehlt aber noch etwas. Ich wollte 10 Eisenerze sowie 10 Kohleklumpen von dir. Hast du das vergessen?"
+queststatus(708) = 1, item(22, all) < 10, english, town = Galmair, "task", "adventure", "order" -> "That's not everything I was looking for. Did you forget that I told you to bring me 10 pieces of iron ore and 10 lumps of coal?"
+queststatus(708) = 1, item(22, all) < 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Da fehlt aber noch etwas. Ich wollte 10 Eisenerze und 10 Kohleklumpen von dir. Hast du das vergessen?"
 
 -- second quest
 queststatus(708) = 2, english, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(708) = 3, "I have another task for you, aye. Could you smelt me ten iron ingots at the furnace over there? Here I'll even give you the crucible-pincers for smelting the ore."
 queststatus(708) = 2, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(708) = 3, "Ich hätte einen weitere Aufgabe für dich, aye. Kannst du zehn Eisenbarren bei der Esse neben mir schmelzen? Hier, ich gebe dir sogar eine Tiegelzange zum schmelzen."
 queststatus(708) = 2, town = Galmair, "task", "adventure", "order" -> item(2751, 1, 333), queststatus(708) = 3, "I have another task for you, aye. Could you smelt me ten iron ingots at the furnace over there? Here I'll even give you the crucible-pincers for smelting the ore."
 queststatus(708) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2751, 1, 333), queststatus(708) = 3, "Ich hätte einen weitere Aufgabe für dich, aye. Kannst du zehn Eisenbarren bei der Esse neben mir schmelzen? Hier, ich gebe dir sogar eine Tiegelzange zum schmelzen."
+
+-- second quest complete
 queststatus(708) = 3, item(2535, all) > 9, english, town = Galmair, "quest", "mission", "iron", "ingots" -> queststatus(708) = 4, "Well done. Please keep the iron ingots for your next task."
 queststatus(708) = 3, item(2535, all) > 9, town = Galmair, "quest", "mission", "eisen", "barren" -> queststatus(708) = 4, "Gut gemacht. Bitte behalte die Eisenbarren für deine nächste Aufgabe."
 queststatus(708) = 3, item(2535, all) > 9, town = Galmair, "task", "adventure", "order" -> queststatus(708) = 4, "Well done. Please keep the iron ingots for your next task."
 queststatus(708) = 3, item(2535, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(708) = 4, "Gut gemacht. Bitte behalte die Eisenbarren für deine nächste Aufgabe"
-queststatus(708) = 3, item(2535, all) < 10, english, town = Galmair, ".+" -> "That's not ten iron ingots yet. Please come back later when you've finished the task."
-queststatus(708) = 3, item(2535, all) < 10, town = Galmair, ".+" -> "Das sind noch keine 10 Eisenbarren, die ich von dir wollte. Komm wieder, wenn du die Aufgabe erledigt hast."
+
+-- not enough stuff
+queststatus(708) = 3, item(2535, all) < 10, english, town = Galmair, "quest", "mission", "iron", "ingots" -> "That's not ten iron ingots yet. Please come back later when you've finished the task."
+queststatus(708) = 3, item(2535, all) < 10, town = Galmair, "quest", "mission", "eisen", "barren" -> "Das sind noch keine 10 Eisenbarren, die ich von dir wollte. Komm wieder, wenn du die Aufgabe erledigt hast."
+queststatus(708) = 3, item(2535, all) < 10, english, town = Galmair, "task", "adventure", "order" -> "That's not ten iron ingots yet. Please come back later when you've finished the task."
+queststatus(708) = 3, item(2535, all) < 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Das sind noch keine 10 Eisenbarren, die ich von dir wollte. Komm wieder, wenn du die Aufgabe erledigt hast."
+
+-- third task
 queststatus(708) = 4, english, town = Galmair, "quest", "mission" -> item(23, 1, 333), item(122, 1, 333), queststatus(708) = 5, "You want another task? Well alright. Could you smith me five pins and five goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handle is for finesmithing. Here I'll give you one of each kind so you can practise a little bit."
 queststatus(708) = 4, town = Galmair, "quest", "mission" -> item(23, 1, 333), item(122, 1, 333), queststatus(708) = 5, "Du willst noch eine Aufgabe? Na gut, meinetwegen. Bitte stell mir fünf Nägel, sowie fünf Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht, der mit dem roten Griff für das Feinschmieden. Hier ich gebe dir jeweils einen zum üben."
 queststatus(708) = 4, town = Galmair, "task", "adventure", "order" -> item(23, 1, 333), item(122, 1, 333), queststatus(708) = 5, " wYou want another task? Well alright. Could you smith me five pins and five goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handle is for finesmithing. Here I'll give you one of each kind so you can practise a little bit."
 queststatus(708) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(23, 1, 333), item(122, 1, 333), queststatus(708) = 5, "Du willst noch eine Aufgabe? Na gut, meinetwegen. Bitte stell mir fünf Nägel, sowie fünf Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht, der mit dem roten Griff für das Feinschmieden. Hier ich gebe dir jeweils einen zum üben."
+
+-- third quest complete
 queststatus(708) = 5, item(2738, all) > 4, item(1858, all) > 4, english, town = Galmair, "quest", "mission", "pin", "goblet" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(708) = 6, "Well done, thank you very much. I don't think you need my help any longer, good luck!"
 queststatus(708) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Galmair, "quest", "mission", "nägel", "kelch" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(708) = 6, "Gut gemacht, vielen Dank. Ich denke, du kommst nun auch ohne meine Hilfe zurecht."
 queststatus(708) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Galmair, "task", "adventure", "order" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(708) = 6, "Well done, thank you very much. I don't think you need my help any longer, good luck!"
 queststatus(708) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(708) = 6, "Gut gemacht, vielen Dank. Ich denke, du kommst nun auch ohne meine Hilfe zurecht."
-queststatus(708) = 5, item(2738, all) < 5, english, town = Galmair, ".+" -> "You haven't solved the task yet. Please come back again if you have five pins and five goblets for me."
-queststatus(708) = 5, item(2738, all) < 5, town = Galmair, ".+" -> "Du hast die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bring mir fünf Nägel und fünf Kelche."
-queststatus(708) = 5, item(1858, all) < 5, english, town = Galmair, ".+" -> "You haven't solved the task yet. Please come back again if you have five pins and fünf goblets for me."
-queststatus(708) = 5, item(1858, all) < 5, town = Galmair, ".+" -> "Du hast die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bring mir fünf Nägel und fünf Kelche."
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-queststatus(708) < 6, english, town = Galmair, ".*" -> "I could use some help, just ask me for a task."
-queststatus(708) < 6, german, town = Galmair, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe."
+-- not enough stuff
+queststatus(708) = 5, item(2738, all) < 5, english, town = Galmair, "quest", "mission", "pin", "goblet" -> "You haven't solved the task yet. Please come back again if you have five pins and five goblets for me."
+queststatus(708) = 5, item(2738, all) < 5, town = Galmair, "quest", "mission", "nägel", "kelch" -> "Du hast die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bring mir fünf Nägel und fünf Kelche."
+queststatus(708) = 5, item(1858, all) < 5, english, town = Galmair, "task", "adventure", "order" -> "You haven't solved the task yet. Please come back again if you have five pins and fünf goblets for me."
+queststatus(708) = 5, item(1858, all) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bring mir fünf Nägel und fünf Kelche."
 
+-- Response after quest is done
+queststatus(708) = 6, english, town = Galmair, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
+queststatus(708) = 6, town = Galmair, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+queststatus(708) = 6, town = Galmair, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
+queststatus(708) = 6, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+
+-- No quests for Non Galmairians
+english, "quest", "mission" -> "You are not a citizen of Galmair. I don't have anything for you to do."
+"quest", "mission" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
+"task", "adventure", "order" -> "You are not a citizen of Galmair. I don't have anything for you to do."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
+cycletext "#me schaut sich gereizt um.", "#me looks about crankily."
 cycletext "#me streicht sich über seinen Bart.", "#me runs a hand over his beard."
 cycletext "Wenn du Hilfe beim Schmieden brauchst, dann frag mich nur!", "If you need any help smithing, just ask me!"
 cycletext "#me gähnt verhalten.", "#me yawns restrained."
 cycletext "Ein Bier! Bringt mir ein Bier!", "A beer, bring me a beer!"
 cycletext "#me grummelt.", "#me grumbles."
+cycletext "#me wirft den Hammer weg und blickt auf den Amboß.", "#me tosses a hammer to the ground and looks at the anvil."
+cycletext "Arr Es gibt nichts Besseres als Schmieden.", "Arrr! There isn't anything better than smithing."
+cycletext "#me untersucht die Qualität eines Eisenbarrens.", "#me examines the quality of an iron ingot."
+cycletext "#mes Kleidung ist voller Metallspäne.", "#me's clothes are covered in metal shards."
+cycletext "Mit diesem Hammer kann ich alles schmieden.", "With this hammer I can make anything."
