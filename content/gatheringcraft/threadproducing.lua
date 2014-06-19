@@ -16,10 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- spinning wheel ( 171 )
-
--- 2x wool (170)  --> thread (50)
--- 3x sibanac leaf (155) --> thread (50)
-
+-- wool (170)  --> thread (50)
 -- additional tool: scissors (6)
 
 require("base.common")
@@ -75,16 +72,10 @@ function StartGathering(User, SourceItem, ltstate)
 
 	-- any other checks?
 
-	if (User:countItemAt("all",170)<1 and User:countItemAt("all",155)<3) then -- check for items to work on
-		if (User:countItemAt("all",170)==0 and User:countItemAt("all",155)==0) then
-			base.common.HighInformNLS( User,
-			"Du brauchst Wolle oder Sibanacblätter um Garn herzustellen.",
-			"You need wool or sibanac leaves for producing thread." );
-		else
-			base.common.HighInformNLS( User,
-			"Du hast nicht genug Wolle oder Sibanacblätter um Garn herzustellen.",
-			"You don't have enough wool or sibanac leaves for producing thread." );
-		end
+	if (User:countItemAt("all",170)<1) then -- check for items to work on
+
+			base.common.HighInformNLS( User,"Du brauchst Wolle um Garn herzustellen.","You need wool for producing thread." );
+
 		return;
 	end
 
@@ -104,31 +95,30 @@ function StartGathering(User, SourceItem, ltstate)
 	User:learn( threadproducing.LeadSkill, threadproducing.SavedWorkTime[User.id], threadproducing.LearnLimit);
 	local itemId = 170; -- first check for wool
 	local eraseCount = 1;
+
 	if ( User:countItemAt("all",170)<1 ) then
-		itemId = 155; -- not enough wool, then there must be enough sibanac leaves
-		eraseCount = 3;
-		if ( User:countItemAt("all",155)<3 ) then
-			-- this should never happen ...
-			User:inform("[ERROR] Not enough wool and sibanac leaves. Please inform a developer.");
-			return;
-		end
+		-- this should never happen ...
+		User:inform("[ERROR] Not enough wool. Please inform a developer.");
+		return;
 	end
+	
 	User:eraseItem( itemId, eraseCount ); -- erase the item we're working on
 
 	local notCreated = User:createItem( 50, 1, 333, nil ); -- create the new produced items
+	
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 50, notCreated, User.pos, true, 333, nil );
 		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		if ((User:countItemAt("all",170)>=1 or User:countItemAt("all",155)>=3)) then  -- there are still items we can work on
+		if (User:countItemAt("all",170)>=1) then  -- there are still items we can work on
 			threadproducing.SavedWorkTime[User.id] = threadproducing:GenWorkTime(User,toolItem);
 			User:startAction( threadproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- not enough items left
 			base.common.HighInformNLS( User,
-			"Du hast nicht mehr genug Wolle oder Sibanacblätter.",
-			"You don't have enough wool or sibanac leaves anymore." );
+			"Du hast nicht mehr genug Wolle.",
+			"You don't have enough wool anymore." );
 		end
 	end
 
