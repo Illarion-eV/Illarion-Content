@@ -250,7 +250,7 @@ english, "Gobaith", "Gobiath" -> "I do not want to talk about that... Let's talk
 "tomato" -> "You can plant tomato seeds in fertile soil. Be sure to fasten the growing plants to poles so that they grow straight up."
 "Tomate" -> "Ihr könnt Tomatensamen in fruchtbaren Boden geben. Geht sicher die heranwachsenden Pflanzen an Stangen zu befestigen, damit sie senkrecht nach oben wachsen."
 "mushroom" -> "Mushrooms love shadowy places and can be found in forests. You will need a sharp sickle to gather them."
-"Pilze", "Champignon" -> "Pilze lieben schattige Plätze und können in Wäldern gefunden werden. Ihr werdet eine scharfe Sichel brauchen, um sie zu sammeln."
+"Pilz", "Champignon" -> "Pilze lieben schattige Plätze und können in Wäldern gefunden werden. Ihr werdet eine scharfe Sichel brauchen, um sie zu sammeln."
 "fish" -> "I know how to prepare fish but it seems that I always forget what the fish are called. You better ask someone else if you want to know more about fish."
 "Fisch" -> "Ich weiß wie man Fisch zubereitet, aber es scheint, als würde ich immer vergessen, wie die Fischen heißen."
 "onion" -> "Onions are tasty, aren't they? But your breath turns... bah!"
@@ -262,7 +262,7 @@ english, "Gobaith", "Gobiath" -> "I do not want to talk about that... Let's talk
 english, "Valandil", "Elensar" -> "My best regards to Valandil!"
 "Valandil", "Elensar" -> "Grüßt Valandil fein von mir!"
 "Berry", "Berries" -> "Mmmm, yes, grow them right here myself, in Yewdale. My own species developed just for the Archmage himself. Morganberries grow big and plump, but aren't too sweet, just like he likes them!"
-"Beeren" -> "Mmmm, ja, ich baue sie hier selber an, in Yewdale. Meine eigene Sorte, nur für den Erzmagier gezüchtet. Morganbeeren wachsen groß und prall, aber sie sind nicht zu süß, genauso wie er sie mag!"
+"Beere" -> "Mmmm, ja, ich baue sie hier selber an, in Yewdale. Meine eigene Sorte, nur für den Erzmagier gezüchtet. Morganbeeren wachsen groß und prall, aber sie sind nicht zu süß, genauso wie er sie mag!"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Mr Morgan is a very nice man, elf, wizard, ruler... anyway, he is nice!"
