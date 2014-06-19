@@ -35,7 +35,7 @@ function callEffect(milkingEffect, Animal)
 		return false;
 	end
 	
-	if gatherAmount >= 3 then
+	if gatherAmount >= 2 then
 		newAmount=0; --Restock milk
 		milkingEffect:addValue("gatherAmount", newAmount);
 	end

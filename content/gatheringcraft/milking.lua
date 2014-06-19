@@ -84,7 +84,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 	-- currently not working, let's go
 	if ( ltstate == Action.none ) then
 
-		if gatherAmount >= 3 then
+		if gatherAmount >= 2 then
 			base.common.HighInformNLS( User,
 			"Dieses Tier wurde rest kürzlich gemolken und gibt momentan keine Milch.",
 			"This animal was milked recently and doesn't give milk right now." );
@@ -114,7 +114,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
-	elseif gatherAmount < 3 then  -- character can still carry something and more milk is available
+	elseif gatherAmount < 2 then  -- character can still carry something and more milk is available
 		if User:countItemAt("all",2498) == 0 then -- no empty bottles left
 			return
 		end
