@@ -189,7 +189,7 @@ end
 -- Generate working time for gathering actions
 function GatheringCraft:GenWorkTime(User, toolItem)
 
-  local minTime = 20; --Minimum time for skill 100 and normal tool
+  local minTime = 12; --Minimum time for skill 100 and normal tool
   local maxTime = 60; --Maximum time for skill 0 and normal tool
 
   local skill  = base.common.Limit(User:getSkill(self.LeadSkill), 0, 100);
