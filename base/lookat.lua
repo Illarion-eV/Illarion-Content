@@ -90,21 +90,23 @@ function GenerateLookAt(user, item, material)
     
     local isGerman = user:getPlayerLanguage() == Player.german
     
-    local usedName
+    local defaultName, usedName
     if isGerman then
+        defaultName = itemCommon.German
         usedName = item:getData("nameDe")
     else
+        defaultName = itemCommon.English
         usedName = item:getData("nameEn")
     end
     if base.common.IsNilOrEmpty(usedName) then
-        usedName = world:getItemName(item.id, user:getPlayerLanguage())
+        usedName = defaultName
     end
 
     lookAt.name = TitleCase(usedName)
     
     local rarenessData = item:getData("rareness")
-    if rarenessData == nil then
-        lookAt.rareness = ItemLookAt.commonItem
+    if rarenessData == "" then
+        lookAt.rareness = itemCommon.Rareness;
     else
         local value = tonumber(rarenessData)
         if value ~= nil then
@@ -112,14 +114,18 @@ function GenerateLookAt(user, item, material)
         end
     end
     
-    local usedDescription
+    local defaultDescription, usedDescription
     if isGerman then
+        defaultDescription = itemCommon.GermanDescription
         usedDescription = item:getData("descriptionDe")
     else
+        defaultDescription = itemCommon.EnglishDescription
         usedDescription = item:getData("descriptionEn")
     end
     
-    if not base.common.IsNilOrEmpty(usedDescription) then
+    if base.common.IsNilOrEmpty(usedDescription) then
+        lookAt.description = defaultDescription
+    else
         lookAt.description = usedDescription
     end
     
