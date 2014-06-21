@@ -323,3 +323,7 @@ cycletext "#me blickt herum mit ihren geschlossenen Augen.", "#me seemingly look
 cycletext "#me untersucht ihr Kleid.", "#me examines her dress."
 cycletext "#me kämmt ihr Haar.", "#me combs her hair."
 cycletext "#me isst einen Apfel.", "#me eats an apple."
+cycletext "#me schreibt einen Brief.", "#me writes a letter."
+cycletext "#me summt etwas vor sich hin.", "#me hums to herself."
+cycletext "#me schaut sich gereizt um.", "#me looks about crankily."
+cycletext "#me verstaut eine Flasche in ihrem Beutel.", "#me stores a bottle in their bag."

@@ -134,3 +134,6 @@ cycletext "#me schließt für einen Moment ihre Augen.", "#me closes her eyes for 
 cycletext "Ich spüre den Wind...", "I feel the wind..."
 cycletext "Kannst du den Wind hören?", "Can you hear the wind?"
 cycletext "#me atmet tief ein.", "#me takes a deep breath."
+cycletext "#me schaut zu den Wolken.", "#me gazes at the clouds."
+cycletext "#me schaut sich freundlich um.", "#me looks around friendly."
+cycletext "Ich liebe das heutige Wetter.  Man sagt, morgen soll es regnen.", "I love the weather today; they say there is rain coming tomorrow."
