@@ -213,3 +213,10 @@ english, "salkama" -> "Nice place. They have some very tasty food there as well.
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Ich kann euch an interessante Orte bringen.", "I can take you to interesting places."
+cycletext "#me stapelt einige Bücher auf.", "#me stacks some books."
+cycletext "Ihr solltet mal verreisen!", "You should go on a trip."
+cycletext "Ich verkaufe Portalbücher! Braucht ihr eines?", "I sell portal books! Do you need one?"
+cycletext "Das ist Magie!", "It's magic!"
+cycletext "Der sichere Weg zu reisen! Portalbücher!", "The safe way to travel! Portal books!"
+cycletext "Die Götter haben diese Welt für uns erschaffen um sie zu entdecken und darin zu reisen.", "The Gods created this world for us to discover and travel within it."
+cycletext "Unsere Dienste werden in allen Städten gerne in Anspruch genommen.", "Our services are well sought in all three towns."

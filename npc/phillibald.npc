@@ -113,14 +113,14 @@ queststatus(221) > 0, queststatus(820) = 19, town = Runewick, "Auftrag", "Aufgab
 
 -- 1st quest: fetch an apple pie
 -- Give out quest 1 and coins
-queststatus(221) = 0, queststatus(820) = 19, english, town = Runewick, "quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hello, I am starving and can't leave my business.  Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(221) = 0, queststatus(820) = 19, english, town = Runewick, "quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hello, I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
 queststatus(221) = 0, queststatus(820) = 19, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
-queststatus(221) = 0, queststatus(820) = 19, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hello, I am starving and can't leave my business.  Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(221) = 0, queststatus(820) = 19, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hello, I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
 queststatus(221) = 0, queststatus(820) = 19, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(221) = 1, queststatus(820) = 20, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
 
-queststatus(221) = 0, english, town = Runewick,"quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, "Hello, I am starving and can't leave my business.  Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(221) = 0, english, town = Runewick,"quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, "Hello, I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
 queststatus(221) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(221) = 1, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
-queststatus(221) = 0, town = Runewick, "task", "adventure" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, "Hello, I am starving and can't leave my business.  Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
+queststatus(221) = 0, town = Runewick, "task", "adventure" -> inform("[New quest] Bookseller Helper I"), money + 2000, queststatus(221) = 1, "Hello, I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the tavern?  Here are the coins!"
 queststatus(221) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2000, queststatus(221) = 1, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus der Taverne besorgen? Hier sind die Münzen für den Kuchen!"
 
 -- Quest 1 complete, reward one portalbook to Runewick, +5 rankpoints
@@ -214,7 +214,7 @@ cycletext "Ich kann euch an interessante Orte bringen.", "I can take you to inte
 cycletext "#me stapelt einige Bücher auf.", "#me stacks some books."
 cycletext "Ihr solltet mal verreisen!", "You should go on a trip."
 cycletext "Ich verkaufe Portalbücher! Braucht ihr eines?", "I sell portal books! Do you need one?"
-cycletext "It's magic!", "Das ist Magie!"
+cycletext "Das ist Magie!", "It's magic!"
 cycletext "Der sichere Weg zu reisen! Portalbücher!", "The safe way to travel! Portal books!"
 cycletext "Die Götter haben diese Welt für uns erschaffen um sie zu entdecken und darin zu reisen.", "The Gods created this world for us to discover and travel within it."
 cycletext "Unsere Dienste werden in allen Städten gerne in Anspruch genommen.", "Our services are well sought in all three towns."

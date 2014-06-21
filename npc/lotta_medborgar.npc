@@ -309,8 +309,10 @@ german, chance(20.0), ".*" -> "Huh, über welche Orte wünscht ihr Information? Vi
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Wer etwas über die Orte hier in der Umgebung wissen will, soll mich nur nach diesen Orten fragen.", "If someone wants to know something about the places around here, they just need to ask me about those places."
-cycletext "#me kratzt sich im Gesicht.", "#me paddles her face."
+cycletext "#me kratzt sich im Gesicht.", "#me scratches her face."
 cycletext "#me blickt herum mit ihren weit geöffneten Augen.", "#me looks around with wide opened eyes."
 cycletext "#me untersucht ihre Rüstung.", "#me examines her armour."
-cycletext "#me streichelt ihren Bauch.", "#me pats her belly."
+cycletext "#me streichelt ihren Bauch.", "#me rubs her belly."
 cycletext "#me isst eine Wurst.", "#me eats a sausage."
+cycletext "Im Adras rutschen einem die Getränke nur so die Kehle herunter.", "In Adras the drinks flow freely."
+cycletext "#me verstaut eine Flasche in ihrem Beutel.", "#me stores a bottle in their bag."
