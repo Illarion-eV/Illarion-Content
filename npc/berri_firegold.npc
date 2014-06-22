@@ -142,14 +142,17 @@ queststatus(704) = 5, item(2738, all) < 5, town = Cadomyr, ".+" -> "Ihr habt die
 queststatus(704) = 5, item(1858, all) < 5, english, town = Cadomyr, ".+" -> "You haven't solved the task yet. Please come back again if you have five pins and five goblets for me."
 queststatus(704) = 5, item(1858, all) < 5, town = Cadomyr, ".+" -> "Ihr habt die Aufgabe noch nicht erfüllt, wie ich sehe. Bitte bringt mir 5 Nägel und 5 Kelche."
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-queststatus(704) = 6, english, town = Cadomyr, ".*" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(704) = 6, german, town = Cadomyr, ".*" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
-queststatus(704) < 6, english, town = Cadomyr, ".*" -> "I could use some help, just ask me for a task."
-queststatus(704) < 6, german, town = Cadomyr, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
-english, ".*" -> "You are not a citizen of Cadomyr. I don't have anything for you to do."
-german, ".*" -> "Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun."
+-- Response after quest is done
+queststatus(704) = 6, english, town = Cadomyr, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
+queststatus(704) = 6, town = Cadomyr, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+queststatus(704) = 6, town = Cadomyr, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
+queststatus(704) = 6, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
 
+-- No quests for Non Cadomyrians
+english, "quest", "mission" -> "You are not a citizen of Cadomyr. I don't have anything for you to do."
+"quest", "mission" -> "Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun."
+"task", "adventure", "order" -> "You are not a citizen of Cadomyr. I don't have anything for you to do."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun."
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
@@ -161,3 +164,8 @@ cycletext "Wenn Ihr Hilfe beim schmieden braucht, dann fragt nur mich!", "If you
 cycletext "#me gähnt verhalten.", "#me yawns restrained."
 cycletext "Ein Bier! Bringt mir ein Bier!", "A beer, bring me a beer!"
 cycletext "#me grummelt.", "#me grumbles."
+cycletext "#me wirft den Hammer weg und blickt auf den Amboß.", "#me tosses a hammer to the ground and looks at the anvil."
+cycletext "Arr Es gibt nichts Besseres als Schmieden.", "Arrr! There isn't anything better than smithing."
+cycletext "#me untersucht die Qualität eines Eisenbarrens.", "#me examines the quality of an iron ingot."
+cycletext "#mes Kleidung ist voller Metallspäne.", "#me's clothes are covered in metal shards."
+cycletext "Mit diesem Hammer kann ich alles schmieden.", "With this hammer I can make anything."

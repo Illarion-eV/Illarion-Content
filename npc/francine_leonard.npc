@@ -132,22 +132,29 @@ queststatus(714) = 7, item(3051, all) > 4, town = Runewick, "Auftrag", "Aufgabe"
 queststatus(714) = 7, item(3051, all) < 5, town = Runewick, english, ".+" -> "You haven't solved the task yet. Come back once you have five sausages for me."
 queststatus(714) = 7, item(3051, all) < 5, town = Runewick, ".+" -> "Ihr habt die Aufgabe noch nicht erfüllt, wie ich sehe. Bitte bringt mir fünf Würstchen."
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-queststatus(714) = 8, town = Runewick, english, ".*" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(714) = 8, town = Runewick, german, ".*" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+-- Response after quest is done
+queststatus(714) = 8, english, town = Runewick, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
+queststatus(714) = 8, town = Runewick, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+queststatus(714) = 8, town = Runewick, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
+queststatus(714) = 8, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
 
-queststatus(714) < 8, town = Runewick, english, ".*" -> "I could use some help, just ask me for a task."
-queststatus(714) < 8, town = Runewick, german, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
+-- No quests for Non Runewickians
+english, "quest", "mission" -> "You are not a citizen of Runewick. I don't have anything for you to do."
+"quest", "mission" -> "Ihr scheint kein Bürger Runewicks zu sein. Ich habe nichts für Euch zu tun."
+"task", "adventure", "order" -> "You are not a citizen of Runewick. I don't have anything for you to do."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr scheint kein Bürger Runewicks zu sein. Ich habe nichts für Euch zu tun."
 
-english, ".*" -> "You are not a citizen of Runewick. I don't have anything for you to do."
-german, ".*" -> "Ihr scheint kein Bürger Runewick zu sein. Ich habe nichts für Euch zu tun."
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
+cycletext "#me rührt den Eintopf, der über dem Feuer brodelt, um.", "#me stirs a pot of stew bubbling over the fire."
 cycletext "Wenn Ihr Hilfe beim Kochen und Backen braucht, dann fragt nur mich!", "If you need any help with baking and cooking, just ask me!"
-cycletext "#me gähnt verhalten.", "#me yawns restrained."
+cycletext "#me schaut sich freundlich um.", "#me looks around friendly."
 cycletext "#me pfeift eine Melodie.", "#me whistles a melody."
 cycletext "#me liest einen Brief.", "#me reads a letter."
+cycletext "#me schneidet eine Zwiebel in kleine Stücke und weint dabei.", "#me carefully cuts some onions into small pieces, a tear rolling from her eye."
+cycletext "Das ist das beste Gericht, das ich je gemacht habe!", "This is the best dish I have ever made!"
+cycletext "Die geheime Zutat ist eine Prise Liebe!", "The secret ingredient is a pinch of love!"
+cycletext "#me wendet ein Stück Fleisch welches über dem Feuer brät.", "#me turns a piece of meat roasting over the fire."

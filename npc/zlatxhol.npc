@@ -134,9 +134,17 @@ queststatus(707) = 9, item(790, all) > 4, town = Cadomyr, "Auftrag", "Aufgabe", 
 queststatus(707) = 9, item(790, all) < 5, town = Cadomyr, english, ".+" -> "Zsss, they are not the five bottlesss I was looking for. Come backsss when you have the bottlesss!"
 queststatus(707) = 9, item(790, all) < 5, town = Cadomyr, ".+" -> "Zsss, dasss nicht ssein fünf leere Flassschen die ich wollte. Komm wieder wenn du Flasschen haben!"
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-queststatus(707) < 10, town = Cadomyr, english, ".*" -> "I could ussse sssome help, just asssk me for a task, zsss."
-queststatus(707) < 10, town = Cadomyr, german, ".*" -> "Ich könnte etwasss Hilfe gebrauchen, fragss michs ruhig nach einer Aufgabe. Ich habe sssicher etwass für dichss zu tun, zsss."
+-- Response after quest is done
+queststatus(707) = 10, english, town = Cadomyr, "quest", "mission" -> "Zsss, I don't have any other thingsss for yous to do. Thank yous for the help though, zsss!"
+queststatus(707) = 10, town = Cadomyr, "quest", "mission" ->  "Zsss, ich haben nichtsss weiter für dich zu tun. Aber dankes nochmal für deine Hilfe, zsss!"
+queststatus(707) = 10, town = Cadomyr, "task", "adventure", "order" -> "Zsss, I don't have any other thingsss for yous to do. Thank yous for the help though, zsss!"
+queststatus(707) = 10, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->  "Zsss, ich haben nichtsss weiter für dich zu tun. Aber dankes nochmal für deine Hilfe, zsss!"
+
+-- No quests for Non Cadomyrians
+english, "quest", "mission" -> "You are not a citizzsen of Cadomyrss. I don't haves anything for yous to do, zsss."
+"quest", "mission" -> "Du ssscheint kein Bürgers Cadomyr zu sssein. Ich hab nichtsss für dichss zu tun, zsss."
+"task", "adventure", "order" -> "You are not a citizzsen of Cadomyrss. I don't haves anything for yous to do, zsss."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du ssscheint kein Bürgers Cadomyr zu sssein. Ich hab nichtsss für dichss zu tun, zsss."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

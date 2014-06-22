@@ -134,10 +134,17 @@ queststatus(709) = 9, item(1266, all) > 19, town = Galmair, "Auftrag", "Aufgabe"
 queststatus(709) = 9, item(1266, all) < 20, english, town = Galmair, ".+" -> "Zsss, they are not the twenty sssmall ssstonesz that I was looking for. Come backsss when you have the ssstonesz!"
 queststatus(709) = 9, item(1266, all) < 20, town = Galmair, ".+" -> "Zsss, dasss nicht ssein 20 kleine Steiness die ich wollte. Komm wieder wenn du Sssteine haben!"
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-queststatus(709) < 10, english, town = Galmair, ".*" -> "I could ussse sssome help, just asssk me for a tasssk, zsss."
-queststatus(709) < 10, german, town = Galmair, ".*" -> "Ich könnte etwasss Hilfe gebrauchen, fragss michse ruhig nach einer Aufgabe."
+-- Response after quest is done
+queststatus(709) = 10, english, town = Galmair, "quest", "mission" -> "Zsss, I don't have any other thingsss for yous to do. Thank yous for the help though, zsss!"
+queststatus(709) = 10, town = Galmair, "quest", "mission" -> "Zsss, ich haben nichts weiter für dich zu tun. Aber dankes nochmal für deine Hilfe, zsss!"
+queststatus(709) = 10, town = Galmair, "task", "adventure", "order" -> "Zsss, I don't have any other thingsss for yous to do. Thank yous for the help though, zsss!"
+queststatus(709) = 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zsss, ich haben nichts weiter für dich zu tun. Aber dankes nochmal für deine Hilfe, zsss!"
 
+-- No quests for Non Galmairians
+english, "quest", "mission" -> "You are not a citizzsen of Galmairss. I don't have anything for yous to do, zsss."
+"quest", "mission" -> "Du ssscheint kein Bürgers Galmairs zu sssein. Ich hab nichtsss für dichss zu tun, zsss."
+"task", "adventure", "order" -> "You are not a citizzsen of Galmairss. I don't have anything for yous to do, zsss."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du ssscheint kein Bürgers Galmairs zu sssein. Ich hab nichtsss für dichss zu tun, zsss."
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.

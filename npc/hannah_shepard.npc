@@ -133,14 +133,14 @@ queststatus(711) = 7, item(3051, all) < 5, english, town = Galmair, ".+" -> "You
 queststatus(711) = 7, item(3051, all) < 5, town = Galmair, ".+" -> "Ihr habt die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bringt mir fünf Würstchen."
 
 -- Response after quest is done
-queststatus(711) = 8, english, town = Galmair, "quest", "mission", "sausage" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(711) = 8, town = Galmair, "quest", "mission", "wurst", "würstchen" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+queststatus(711) = 8, english, town = Galmair, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
+queststatus(711) = 8, town = Galmair, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
 queststatus(711) = 8, town = Galmair, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
 queststatus(711) = 8, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
 
 -- No quests for Non Galmairians
-english, "quest", "mission", "sausage"-> "You are not a citizen of Galmair. I don't have anything for you to do."
-"quest", "mission", "wurst", "würstchen" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
+english, "quest", "mission" -> "You are not a citizen of Galmair. I don't have anything for you to do."
+"quest", "mission" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
 "task", "adventure", "order" -> "You are not a citizen of Galmair. I don't have anything for you to do."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
 

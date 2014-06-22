@@ -123,8 +123,12 @@ queststatus(710) < 6, german, town = Galmair, ".*" -> "Ich könnte etwas Hilfe ge
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
-cycletext "#me kratzt sich am Kopf.", "#me scratches his head."
 cycletext "Wenn du Hilfe beim Schreinern brauchst, dann frag' mich nur!", "If you need any help in carpentry, just ask me!"
 cycletext "#me gähnt verhalten.", "#me yawns restrained."
-cycletext "#me schaut sich kurz um und kratzt sich anschließend an seinem Hintern.", "#me looks around briefly and scratches his bum."
+cycletext "Der beste Tischler, das bin ich!", "The best cabinetmaker, that is me!"
+cycletext "#me schnitzt eine Holzfigur mit einem kleinen Messer.", "#me carves a figurine in wood with a small knife."
+cycletext "#me hat Sägespäne auf seinem Hemd.", "#me has sawdust on his shirt."
+cycletext "#me hat eine abgenutzte Axt in seinem Gürtel.", "#me has a worn hatchet hanging from his belt."
+cycletext "#me hobelt sorgfältig an einem Stück Holz, einen Bogen ausformend.", "#me carefully planes a piece of lumber, forming a bow."
+cycletext "Es gibt keine bessere Arbeit als mit Holz.", "There is no finer work than woodwork."
+cycletext "Es gibt nichts, was ich nicht mit meinen treuen Schnitzmessern machen kann.","There is nothing I can't make with my trusty carving knives."
