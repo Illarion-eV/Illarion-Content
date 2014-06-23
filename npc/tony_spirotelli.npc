@@ -114,9 +114,17 @@ queststatus(710) = 5, item(2717, all) > 24, town = Galmair, "Auftrag", "Aufgabe"
 queststatus(710) = 5, item(2717, all) < 25, english, town = Galmair, ".+" -> "I wanted twenty five pins and cotters, come back once you have fulfilled this task."
 queststatus(710) = 5, item(2717, all) < 25, town = Galmair, ".+" -> "Ich wollte 25 Nägel und Keile, komm wieder wenn du die Aufgabe erfüllt hast."
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-queststatus(710) < 6, english, town = Galmair, ".*" -> "I could use some help, just ask me for a task."
-queststatus(710) < 6, german, town = Galmair, ".*" -> "Ich könnte etwas Hilfe gebrauchen, frag mich ruhig nach einer Aufgabe."
+-- Response after quest is done
+queststatus(710) = 6, english, town = Galmair, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
+queststatus(710) = 6, town = Galmair, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+queststatus(710) = 6, town = Galmair, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
+queststatus(710) = 6, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+
+-- No quests for Non Galmairians
+english, "quest", "mission" -> "You are not a citizen of Galmair. I don't have anything for you to do."
+"quest", "mission" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
+"task", "adventure", "order" -> "You are not a citizen of Galmair. I don't have anything for you to do."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
