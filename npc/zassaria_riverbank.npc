@@ -123,7 +123,7 @@ queststatus(701) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befeh
 
 -- 1st quest solved, reward sabre,boots, rankpoints +2
 queststatus(701) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zassaria with some coins, an old sabre found at the bottom of the sea and a pair of new boots."), money + 600, item(25, 1, 333), item(53, 1, 333), queststatus(701) = 3, rankpoints + 2, "Ssso you talked to Missster Nizar? Tsss. Well, thank you for your help... Zss..."
-queststatus(701) = 2, town = Runewick, ".+" -> inform("[Quest gelöst] Du hast das Quest gelöst und erhältst zum Dank etwas Geld, einen Säbel den Zassaria auf dem Grund des Meeres gefunden hat und ein Paar neue Stiefel."), money + 600, item(25, 1, 333), item(53, 1, 333), queststatus(701) = 3, rankpoints + 2, "Ihr habt also mit Missster Nizar gessssprochen? Tsss. Nun, danke für Eure Hilfe..Zss..."
+queststatus(701) = 2, town = Runewick, ".+" -> inform("[Quest gelöst] Du hast das Quest gelöst und erhältst zum Dank etwas Geld, einen Säbel den Zassaria auf dem Grund des Meeres gefunden hat und ein Paar neue Stiefel."), money + 600, item(25, 1, 333), item(53, 1, 333), queststatus(701) = 3, rankpoints + 2, "Ihr habt also mit Missster Nizar gessssprochen? Tsss. Nun, danke für Eure Hilfe... Zss..."
 
 -- 2nd quest: Talk to Argentus Almsbag
 queststatus(701) = 3, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me II"), queststatus(701) = 4, "Ssso, you came to help me again? Zss. Thatsss very nice of you. Sss. I haven't sssseen Argentusss Almsbag for a while. Zzz. Pleassse, asssk him if he would ssstill like to buy fisssh. The fisssh are ssstarting to sssmell."
