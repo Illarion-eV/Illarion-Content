@@ -76,9 +76,9 @@ function InitGathering()
 		-- egg gathering
 		egggathering:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour Brágon, the god of fire, rewards you with a treasure of Pure Fire."); --Pure fire
 		egggathering:AddRandomItem(item.gems.getMagicGemId(item.gems.OBSIDIAN),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Während du Eier sammelst, bemerkst du einen Stein, welcher sich  als wirklich beachtenswert herausstellt. Du findest einen magischen Obsidian.","While you collect eggs you notice a strange stone. You find a magical obsidian!"); --Magical obsidian
-		egggathering:AddRandomItem(249,1,333,{},prob_occasionally,"Du findest einen ganzen Getreidebündel in dem Nest!","You find a whole bundle of grain!"); --bundle of grain
-		egggathering:AddRandomItem(259,1,333,{},prob_frequently,"Du findest eine handvoll Getreide.","You find some grain."); --Steppe fern
-		egggathering:SetTreasureMap(prob_rarely,"Im Nest findest du eine Karte.","You find a map in the nest");
+		egggathering:AddRandomItem(249,1,333,{},prob_occasionally,"Für dieses Nest wurde ein ganzes Bündel Getreide als Nistmaterial verwendet.","A bundle of grain was used as nesting material for this nest."); --bundle of grain
+		egggathering:AddRandomItem(463,1,333,{},prob_frequently,"Du findest eine besonders große Feder, mit der man sicher auch gut schreiben kann.","You find a big feather that looks suitable for writing."); --Quill
+		egggathering:SetTreasureMap(prob_rarely,"Unter dem Nest findest du eine Karte. Kein gutes Versteck!","Under the nest, you find a map. Not a good hiding place.");
 		egggathering:AddMonster(1081,prob_rarely,"Während du die Eier stiehlst, hüpft ein wütendes Hühnchen aus dem Nest.","While you steal eggs an angry chickens hops out of the nest!",4,7);
 
 		egggathering:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
