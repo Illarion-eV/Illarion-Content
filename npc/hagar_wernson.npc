@@ -236,7 +236,6 @@ cycletext "#me pustet den Staub aus einem Bierkrug.", "#me blows dust out of a m
 cycletext "#me reisst sich Haare aus der Nase.", "#me picks hair out of his nose."
 cycletext "Von den blauen Wellen kommen wir!... unser Käpt'n iss so blöd wie wir!... an den Rudern unsrer Boote, krieg'n wir Blasen anner Pfote.... von den blauen Wellen kommen wir!...", "oh beat the drum slowly, an' play the flute only, as they carry me along... cause I'm a young pirate, an' I surely done wrong..."
 cycletext "#me riecht nach vergammeltem Fleisch und feuchtem Schafsfell.", "#me smells of putrefied meat and wet sheepskin."
-cycletext "#me kratzt sich abwesend unterm Kilt.", "#me absently scratches himself under his kilt."
-cycletext "#me sieht sich gelangweilt um.", "#me looks around bored."
+cycletext "#me kratzt sich abwesend unter dem Kilt.", "#me absently scratches himself under his kilt."
 cycletext "#me trocknet sich mit dem Geschirrtuch unter den Achseln.", "#me dries his armpits with the dishrag."
 cycletext "#mes Atem riecht nach schalem Bier.", "#me's breath smells of stale beer."
