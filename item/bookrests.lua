@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 require("base.common")
 require("base.seafaring")
 require("base.townManagement")
+require("base.factions")
 
 -- UPDATE common SET com_script='item.bookrests' WHERE com_itemid = 3104;
 -- UPDATE common SET com_script='item.bookrests' WHERE com_itemid = 3105;
@@ -172,6 +173,24 @@ function UseItem(User, SourceItem)
 	-- static teleporter end
 end
 
+function usingHomeTeleporter(User,factionNames,teleporterPos)
+	local userFaction = base.factions.getMembershipByName(User)
+	for i=1,#factionNames do
+		if factionNames[i] == userFaction and User:distanceMetricToPosition(teleporterPos[i]) < 5 then
+			return true
+		end
+	end
+	return false
+end
+
+function NecktieHomeTravel(User,factionNames,teleporterPos,selected)
+	local userFaction = base.factions.getMembershipByName(User)
+	if (factionNames[selected]==userFaction and User:distanceMetricToPosition(teleporterPos[4]) < 5) or (selected == 4 and usingHomeTeleporter(User,factionNames,teleporterPos)) then
+		return true
+	end
+	return false
+end
+
 function StaticTeleporter(User, SourceItem)
 
     local names
@@ -185,21 +204,25 @@ function StaticTeleporter(User, SourceItem)
 
 	local callback = function(dialog)
 
-		success = dialog:getSuccess()
+		local success = dialog:getSuccess()
 		if success then
-			selected = dialog:getSelectedIndex()
-			if  base.money.CharHasMoney(User,500) then
+			local selected = dialog:getSelectedIndex()+1
+			local userFaction = base.factions.getMembershipByName(User)
+			-- Check wether the char has enough money or travels from necktie to hometown or vice versa
+			if (base.money.CharHasMoney(User,500) or NecktieHomeTravel(User,names,targetPos,selected)) then
 
-				if (targetPos[selected+1].x - SourceItem.pos.x) * (targetPos[selected+1].x - SourceItem.pos.x) < 10 then
-					User:inform("Ihr befindet euch bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
+				if User:distanceMetricToPosition(targetPos[selected]) < 5 then
+					User:inform("Ihr befindet euch bereits in " ..names[selected]..".", "You are already in "..names[selected]..".")
 				else
 
-					User:inform("Ihr habt euch dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
-					base.money.TakeMoneyFromChar(User,500)
+					User:inform("Ihr habt euch dazu entschlossen nach " ..names[selected].. " zu Reisen.", "You have chosen to travel to " ..names[selected]..".")
+					if not NecktieHomeTravel(User,names,targetPos,selected) then
+						base.money.TakeMoneyFromChar(User,500)
+					end
 					world:gfx(46,User.pos)
 					world:makeSound(13,User.pos);
 
-					User:warp(targetPos[selected+1])
+					User:warp(targetPos[selected])
 					world:gfx(46,User.pos)
 					world:makeSound(13,User.pos);
 				end
@@ -212,9 +235,9 @@ function StaticTeleporter(User, SourceItem)
 
 	local dialog
 	if User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Teleporter", "Eine Reise kostet fünf Silberstücke. Wähle eine Ziel aus.", callback)
+		dialog = SelectionDialog("Teleporter", "Eine Reise kostet fünf Silberstücke; doch das Reisen zwischen dem Gasthof zur Schlinge und deiner Heimatstadt ist kostenlos. Wähle eine Ziel aus.", callback)
 	else
-		dialog = SelectionDialog("Teleporter", "A journey costs five silver coins. Choose a destination.", callback)
+		dialog = SelectionDialog("Teleporter", "A journey costs five silver coins; but traveling between the Hemp Necktie Inn and your home town is free. Choose a destination.", callback)
 	end
 	dialog:setCloseOnMove()
 
