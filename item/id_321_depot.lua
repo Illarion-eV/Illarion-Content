@@ -37,5 +37,5 @@ function LookAtItem(User, Item)
         lookAt.description = base.common.GetNLS(User, "Gasthof zur Hanfschlinge", "The Hemp Necktie Inn")
     end
     
-    world:itemInform(User, Item, lookAt)
+    return lookAt
 end

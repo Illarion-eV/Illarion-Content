@@ -71,7 +71,7 @@ function LookAtItem(User,Item)
 	end
 	
 	if lookAt then
-	    world:itemInform(User, Item, lookAt) --Send the custom lookAt
+	    return lookAt --Send the custom lookAt
 	else
 	
 		-- fetching local references
@@ -99,7 +99,7 @@ function LookAtItem(User,Item)
 			end
 		end
 		
-		world:itemInform(User, Item, lookAt)
+		return lookAt
 		
 	end
 end

@@ -39,7 +39,7 @@ function LookAtItem(User, Item)
         end
     end
 	
-    world:itemInform(User, Item, lookAt)
+    return lookAt
 end
 
 function UseItem(User, SourceItem)

@@ -180,5 +180,5 @@ function SupportPotion(User,support,potion)
 end
 
 function LookAtItem(User,Item)
-	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))   
+	return base.lookat.GenerateLookAt(User, Item, 0)   
 end

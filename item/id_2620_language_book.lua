@@ -146,7 +146,7 @@ function LookAtItem(User,Item)
     else
         base.lookat.SetSpecialName(Item, "Lehrbuch der "..GetLanguage(langcode,false),"Textbook of the "..GetLanguage(langcode,true));
     end
-	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
+	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end
 
 function Learning(User,Value,Skillname)

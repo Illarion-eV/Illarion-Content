@@ -363,8 +363,8 @@ function LookAtItem(User, Item)
 		local lookAt = ItemLookAt()
 		lookAt.name = base.common.GetNLS(User, "Schriftrolle", "Scroll")
 		lookAt.description = base.common.GetNLS(User, "Alchemierezepte", "Alchemy recipes")
-		world:itemInform(User, Item, lookAt)
+		return lookAt
 	else
-		world:itemInform( User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE) );
+		return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 	end    
 end

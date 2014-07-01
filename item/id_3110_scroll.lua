@@ -23,7 +23,7 @@ module("item.id_3110_scroll", package.seeall)
 
 function LookAtItem(User,Item)
 
-	world:itemInform( User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE) );
+	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 	
 end
 

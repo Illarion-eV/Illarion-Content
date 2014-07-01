@@ -61,5 +61,5 @@ function LookAtItem(User, Item)
   if (Item.pos == position(894, 627, 0)) then
 		base.lookat.SetSpecialDescription(Item, "Eine merkwürdige Steinwand.", "A peculiar rock wall.");
   end
-  world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
+  return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end

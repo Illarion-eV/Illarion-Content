@@ -69,7 +69,7 @@ function LookAtItem(User, Item)
     lookAt.name = base.common.GetNLS(User, "Zisterne von Runewick", "Runewick Cavern");
   end
 
-  world:itemInform(User, Item, lookAt);
+  return lookAt
 end
 
 

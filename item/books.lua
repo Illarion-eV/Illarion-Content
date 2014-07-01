@@ -76,5 +76,5 @@ function LookAtItem(User,Item)
 			end
 		end
 	end
-	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
+	return base.lookat.GenerateLookAt(User, Item, 0)
 end   

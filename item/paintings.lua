@@ -151,7 +151,7 @@ function LookAtItemIdent(User,Item)
         lookAt.description = base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val])
     end
 
-    world:itemInform(User, Item, lookAt)
+    return lookAt
 end
 
 --[[

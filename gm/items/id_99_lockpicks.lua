@@ -433,7 +433,7 @@ end
 function LookAtItem(User, Item)
 	base.lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum aufrufen der Funktionen.", "Use the lockpicks to pick a function.");
 	base.lookat.SetSpecialName(Item, "Dietriche", "Lockpicks");
-	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
+	return base.lookat.GenerateLookAt(User, Item, base.lookat.METAL)
 end
 
 function String2Number(str)

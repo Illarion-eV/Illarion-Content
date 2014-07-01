@@ -149,7 +149,7 @@ function LookAtItem(User, Item)
 	end
     lookAt.description = DisplayText
 
-    world:itemInform(User, Item, lookAt)
+    return lookAt
 end
 
 

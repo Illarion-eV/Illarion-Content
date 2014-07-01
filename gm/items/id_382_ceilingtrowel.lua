@@ -800,7 +800,7 @@ end
 function LookAtItem(User, Item)
 	base.lookat.SetSpecialDescription(Item, "Verwende die Kelle zum aufrufen der Funktionen (items, weather, factions, spawnpoints).", "Use the trowel to pick a function (items, weather, factions, spawnpoints).");
 	base.lookat.SetSpecialName(Item, "Kelle", "Trowel");
-	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
+	return base.lookat.GenerateLookAt(User, Item, base.lookat.METAL)
 end
 
 function UseItemWithField(User, SourceItem, TargetPos)

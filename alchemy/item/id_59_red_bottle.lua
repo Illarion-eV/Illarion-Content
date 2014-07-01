@@ -175,5 +175,5 @@ function UseItem(User, SourceItem, ltstate)
 end
 
 function LookAtItem(User,Item)
-    world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
+    return base.lookat.GenerateLookAt(User, Item, 0)
 end

@@ -52,7 +52,7 @@ function LookAtItemIdent(User,Item)
 		end
 	end 
 
-    world:itemInform(User, Item, lookAt)
+    return lookAt
 
 end
 

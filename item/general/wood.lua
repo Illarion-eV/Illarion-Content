@@ -31,7 +31,7 @@ module("item.general.wood", package.seeall)
 -- UPDATE common SET com_script='item.general.wood' WHERE com_itemid IN ();
 
 function LookAtItem(user, item)
-    world:itemInform(user, item, base.lookat.GenerateLookAt(user, item, base.lookat.WOOD));
+    return base.lookat.GenerateLookAt(user, item, base.lookat.WOOD)
 end
 
 function MoveItemBeforeMove(User,SourceItem,TargetItem)

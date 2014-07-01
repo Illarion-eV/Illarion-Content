@@ -34,12 +34,12 @@ function LookAtItem(PLAYER, item)
       and ADDITIONALCONDITIONS(PLAYER)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
 
-    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
+   
 
     HANDLER(PLAYER)
 
     questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
-    return true
+    return itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
   end
 
   return false
@@ -48,7 +48,7 @@ end
 function itemInformNLS(player, item, textDe, textEn)
   local lookAt = base.lookat.GenerateLookAt(player, item)
   lookAt.description = base.common.GetNLS(player, textDe, textEn)
-  world:itemInform(player, item, lookAt)
+  return lookAt
 end
 
 

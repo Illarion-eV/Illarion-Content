@@ -320,7 +320,7 @@ function LookAtItem(User, Item)
         initi=1;
     end
     --User:inform(questA:getLeverHint(Item.pos)); --since everything from questA is deactivated, lets deactivate this aswell
-	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
+	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end
 
 function AddToLevers(myLever)

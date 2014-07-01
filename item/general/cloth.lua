@@ -31,7 +31,7 @@ module("item.general.cloth", package.seeall)
 -- UPDATE common SET com_script='item.general.cloth' WHERE com_itemid IN (89);
 
 function LookAtItem(user, item)
-    world:itemInform(user, item, base.lookat.GenerateLookAt(user, item, base.lookat.CLOTH));
+    return base.lookat.GenerateLookAt(user, item, base.lookat.CLOTH)
 end;
 
 function MoveItemBeforeMove(User,SourceItem,TargetItem)

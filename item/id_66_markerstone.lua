@@ -50,5 +50,5 @@ function LookAtItem(User,Item)
 			base.lookat.SetSpecialDescription( Item, "Du hast diesen Markierungsstein der Abenteurergilde bereits früher gefunden; er trägt die Nummer "..stonedata,"You have already found that marker stone of the Explorers' Guild earlier; it has the number "..stonedata);
 		end
     end
-	world:itemInform(User,Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE) );    
+	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)  
 end

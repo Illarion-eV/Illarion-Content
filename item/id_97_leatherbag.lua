@@ -30,7 +30,7 @@ function LookAtItem(User,Item)
         lookAt.description = bagLabel
     end
 
-    world:itemInform(User, Item, lookAt)
+    return lookAt
 end
 
 function UseItem(User, Item)

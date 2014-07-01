@@ -24,7 +24,7 @@ module("item.id_2830_chest", package.seeall)
 function LookAtItem(User, Item)
     local TreasureName = base.treasure.GetTreasureName(tonumber(Item:getData("trsCat")), User:getPlayerLanguage(), false );
 	base.lookat.SetSpecialDescription(Item,TreasureName, TreasureName);
-	world:itemInform( User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE) );
+	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end
 
 function UseItem(User,SourceItem)

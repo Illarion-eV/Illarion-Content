@@ -309,7 +309,7 @@ function LookAtItem(user, item)
         end
     end
 
-    world:itemInform(user, item, lookAt)
+    return lookAt
 end
 
 function UseItem(user, item, target, counter, param, ltstate)

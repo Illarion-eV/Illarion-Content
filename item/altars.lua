@@ -179,7 +179,7 @@ function LookAtItem( User, Item )
       end
     end -- younger gods
   end --dedicated altar
-  world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
+  return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end --function
 
 function UseItem(User, SourceItem, ltstate)

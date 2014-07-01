@@ -33,12 +33,12 @@ function LookAtItem(PLAYER, item)
       and PLAYER:getQuestProgress(QUEST_NUMBER) < ADDITIONAL_QUESTSTATE then
 
 	base.lookat.SetSpecialDescription(item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
-	world:itemInform(PLAYER,item,base.lookat.GenerateLookAt(PLAYER, item, base.lookat.NONE));
+	
     
     HANDLER(PLAYER)
     
     questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
-    return true
+    return base.lookat.GenerateLookAt(PLAYER, item, base.lookat.NONE)
   end
 
   return false

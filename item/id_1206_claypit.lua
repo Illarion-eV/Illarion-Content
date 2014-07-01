@@ -50,5 +50,5 @@ function LookAtItem(User, Item)
       "This hole looks bottomless.");
   end
 
-  world:itemInform(User, Item, lookAt);
+  return lookAt
 end

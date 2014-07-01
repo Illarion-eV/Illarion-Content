@@ -271,5 +271,5 @@ function LookAtItem(User,Item)
 		base.lookat.SetSpecialDescription(Item, "Generalschlüssel", "Masterkey")
 	end
 
-   world:itemInform( User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE) )
+   return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end

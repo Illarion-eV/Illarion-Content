@@ -26,9 +26,6 @@ module("server.itemlookat", package.seeall)
 --
 -- @param[in] player 	the player that is supposed to receive the inform
 -- @param[in] item      the item the player is looking at
--- @return TRUE in case the script generated the lookat
 function lookAtItem(player, item)
-	local lookAt = base.lookat.GenerateLookAt(player, item)
-	world:itemInform(player, item, lookAt)
-	return true
+	return base.lookat.GenerateLookAt(player, item)
 end

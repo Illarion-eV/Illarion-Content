@@ -58,7 +58,6 @@ function LookAtItem(User,Item)
 	-- alchemy end
 
 	-- tbd: custom loockat for minable rocks
-    local lookAt = base.lookat.GenerateLookAt(User, Item)
-	world:itemInform(User, Item, lookAt)
-
+    return base.lookat.GenerateLookAt(User, Item)
+	
 end

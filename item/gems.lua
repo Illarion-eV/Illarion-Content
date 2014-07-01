@@ -144,7 +144,7 @@ function LookAtItem(user, item)
 
     lookAt = lookAtFilter(user, lookAt, data)
 
-    world:itemInform(user, item, lookAt)
+    return lookAt
 end
 
 function UseItem(User, SourceItem, ltstate)

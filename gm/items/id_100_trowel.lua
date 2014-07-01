@@ -53,5 +53,5 @@ end
 function LookAtItem(User, Item)
 	base.lookat.SetSpecialDescription(Item, "Verwende die Kelle zum aufrufen der Funktionen (create items).", "Use the trowel to pick a function (create items).");
 	base.lookat.SetSpecialName(Item, "Kelle", "Trowel");
-	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
+	return base.lookat.GenerateLookAt(User, Item, base.lookat.METAL)
 end

@@ -53,5 +53,5 @@ function UseItem(User, SourceItem)
 end
 
 function LookAtItem(User,Item)
-    world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
+    return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end

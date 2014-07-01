@@ -33,5 +33,5 @@ function UseItem(User, SourceItem, ltstate)
 end
 
 function LookAtItem(User, Item)
-    world:itemInform(User, Item, base.lookat.GetItemDescription(User, Item, base.lookat.WOOD))
+    return base.lookat.GetItemDescription(User, Item, base.lookat.WOOD)
 end

@@ -32,7 +32,7 @@ function LookAtItem(User,Item)
 	else
 		base.lookat.SetSpecialName(Item,"Verrottendes Skelett","rotting skeleton"); --default
     end
-	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
+	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end
 
 function UseItem(User, SourceItem, ltstate)

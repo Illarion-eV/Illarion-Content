@@ -246,7 +246,7 @@ end
 function LookAtItem(User, Item)
 	base.lookat.SetSpecialDescription(Item, "Verwende die Medallie zum aufrufen der Funktionen.", "Use the medal to pick a function.");
 	base.lookat.SetSpecialName(Item, "Medaille", "Medal");
-	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
+	return base.lookat.GenerateLookAt(User, Item, base.lookat.METAL)
 end
 
 function getFreePos(CenterPos, Rad)

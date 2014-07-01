@@ -345,7 +345,7 @@ function LookAtItem(User, Item)
 		base.lookat.SetSpecialDescription(Item, TimeLeft, TimeLeft);
 	end
 	
-	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
+	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end
 
 -- dirty quick fix for old data

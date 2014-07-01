@@ -32,5 +32,5 @@ function LookAtItem(User, Item)
 	if Item.pos == position(138, 551, 0) or Item.pos == position(358, 217, 0) or Item.pos == position(896, 761, 1) then
 		base.lookat.SetSpecialDescription(Item, "Rangliste der Entdeckergilde.", "Ranklist of the explorer guild");
 	end
-	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
+	return lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end
