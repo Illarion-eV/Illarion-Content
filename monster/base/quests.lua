@@ -2226,10 +2226,48 @@ function iniQuests()
 	minimumQueststatus[id]=1;
     maximumQueststatus[id]=6;
 	questLocation[id]=position(832,832,-3);
-    radius[id]=35;
-
-	--Quest 96: Save The Field
+    radius[id]=50;
+	
+	--Quest 96: Save The Field (SECOND LEVEL)
 	local id=96;
+    germanTitle[id]="Rette die Äcker";
+    englishTitle[id]="Save The Field";
+    NPCName[id]="Cilivren Itiireae";
+    statusId[id]=188;
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1111],id); --Rat
+	table.insert(questList[1112],id); --Small Rat
+	table.insert(questList[1113],id); --Agressive Rat
+	table.insert(questList[1114],id); --Muskrat
+	table.insert(questList[1115],id); --Plague Rat
+	table.insert(questList[1116],id); --Sewer Rat
+	minimumQueststatus[id]=1;
+    maximumQueststatus[id]=6;
+	questLocation[id]=position(840,840,-6);
+    radius[id]=50;
+	
+	--Quest 97: Save The Field
+	local id=97;
+    germanTitle[id]="Rette die Äcker";
+    englishTitle[id]="Save The Field";
+    NPCName[id]="Cilivren Itiireae";
+    statusId[id]=188;
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1111],id); --Rat
+	table.insert(questList[1112],id); --Small Rat
+	table.insert(questList[1113],id); --Agressive Rat
+	table.insert(questList[1114],id); --Muskrat
+	table.insert(questList[1115],id); --Plague Rat
+	table.insert(questList[1116],id); --Sewer Rat
+	minimumQueststatus[id]=10;
+    maximumQueststatus[id]=20;
+	questLocation[id]=position(832,832,-3);
+    radius[id]=50;
+	
+	--Quest 98: Save The Field (SECOND LEVEL)
+	local id=98;
     germanTitle[id]="Rette die Äcker";
     englishTitle[id]="Save The Field";
     NPCName[id]="Cilivren Itiireae";
@@ -2247,8 +2285,27 @@ function iniQuests()
 	questLocation[id]=position(840,840,-6);
     radius[id]=50;
 
-	--Quest 97: Save The Field
-	local id=97;
+	--Quest 99: Save The Field
+	local id=99;
+    germanTitle[id]="Rette die Äcker";
+    englishTitle[id]="Save The Field";
+    NPCName[id]="Cilivren Itiireae";
+    statusId[id]=188;
+    germanRace[id]="Ratten";
+    englishRace[id]="rats";
+	table.insert(questList[1111],id); --Rat
+	table.insert(questList[1112],id); --Small Rat
+	table.insert(questList[1113],id); --Agressive Rat
+	table.insert(questList[1114],id); --Muskrat
+	table.insert(questList[1115],id); --Plague Rat
+	table.insert(questList[1116],id); --Sewer Rat
+	minimumQueststatus[id]=24;
+    maximumQueststatus[id]=34;
+	questLocation[id]=position(832,832,-3);
+    radius[id]=50;
+	
+	--Quest 100: Save The Field (SECOND LEVEL)
+	local id=100;
     germanTitle[id]="Rette die Äcker";
     englishTitle[id]="Save The Field";
     NPCName[id]="Cilivren Itiireae";
@@ -2266,8 +2323,8 @@ function iniQuests()
 	questLocation[id]=position(840,840,-6);
     radius[id]=50;
 
-	--Quest 98: Save Da Beer
-	local id=98;
+	--Quest 101: Save Da Beer
+	local id=101;
     germanTitle[id]="Rette das Bierlager";
     englishTitle[id]="Save Da Beer";
     NPCName[id]="Fokous Onyxbrow";
@@ -2285,8 +2342,8 @@ function iniQuests()
 	questLocation[id]=position(370,470,-6);
     radius[id]=30;
 
-	--Quest 99: Save Da Beer
-	local id=99;
+	--Quest 102: Save Da Beer
+	local id=102;
     germanTitle[id]="Rette das Bierlager";
     englishTitle[id]="Save Da Beer";
     NPCName[id]="Fokous Onyxbrow";
@@ -2304,8 +2361,8 @@ function iniQuests()
 	questLocation[id]=position(370,470,-6);
     radius[id]=30;
 
-	--Quest 100: Save Da Beer
-	local id=100;
+	--Quest 103: Save Da Beer
+	local id=103;
     germanTitle[id]="Rette das Bierlager";
     englishTitle[id]="Save Da Beer";
     NPCName[id]="Fokous Onyxbrow";
@@ -2323,8 +2380,8 @@ function iniQuests()
 	questLocation[id]=position(370,470,-6);
     radius[id]=30;
 	
-	--Quest 101: Vermin Monitor
-	local id=101;
+	--Quest 104: Vermin Monitor
+	local id=104;
     germanTitle[id]="Schädlingswächter";
     englishTitle[id]="Vermin Monitor";
     NPCName[id]="Jeremiah Horanfeld";
@@ -2337,8 +2394,8 @@ function iniQuests()
 	questLocation[id]=position(125,565,-6);
     radius[id]=40;
 
-	--Quest 102: Save The Field
-	local id=102;
+	--Quest 105: Save The Field
+	local id=105;
     germanTitle[id]="Rette die Äcker";
     englishTitle[id]="Save The Field";
     NPCName[id]="Cilivren Itiireae";
@@ -2351,8 +2408,8 @@ function iniQuests()
 	questLocation[id]=position(840,840,-6);
     radius[id]=50;
 	
-	--Quest 103: Save Da Beer
-	local id=103;
+	--Quest 106: Save Da Beer
+	local id=106;
     germanTitle[id]="Rette das Bierlager";
     englishTitle[id]="Save Da Beer";
     NPCName[id]="Fokous Onyxbrow";
