@@ -75,7 +75,6 @@ english, "Gobaith", "Gobiath" -> "I know nothing of that land."
 english, "exit", "way out", "escape" -> "There is an exit somewhere. Maybe you will find it before you die."
 "Ausgang" -> "Es gibt einen Ausgang irgendwo. Vielleicht findet ihr ihn, bevor ihr hier zugrunde geht."
 
-
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his environment
 "mother", "spider" -> "I am mother of many... hundreds... maybe thousands?"
 "Mutter", "Spinne" -> "Ich bin Mutter von vielen ... Hunderten ... vielleicht Tausenden."
@@ -160,19 +159,19 @@ queststatus(520) = 69, item(249, all) < 60, "Auftrag", "Aufgabe", "Abenteuer", "
 queststatus(520) = 69, item(249, all) > 59, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins."), money + 10000, deleteItem(249, 60), queststatus(520) = 70, "#me gives you a blank look through her black eyes as she takes the bundles and tucks them away for later use, 'Thank you and here is a small reward. Alas, I noticed I need more help if you are willing?'"
 queststatus(520) = 69, item(249, all) > 59, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, deleteItem(249, 60), queststatus(520) = 70, "#me starrt dich mit ihren pechschwarzen Augen lange an, bevor sie die Bündel wegpackt. 'Danke und hier eine kleine Belohnung. Ach, ich stellte fest, dass noch mehr Hilfe von Nöten sein wird, wenn es dir beliebt.'"
 
--- Quest 6: 250 spools of thread; 100 silver
-queststatus(520) = 70, english, "quest", "mission" -> inform("[New quest] Gorgophones' Nest"), queststatus(520) = 71, "I need to make immediate repairs to my web and hope thread will help. Bring me two hundred and fifty spools of thread."
-queststatus(520) = 70, "quest", "mission" -> inform("[Neue Quest] Das Nest der Gorgophone"), queststatus(520) = 71, "Ich muss dringend Reparaturen am Netz ausführen und Garn wird helfen. Bring mir 250 Rollen Garn."
-queststatus(520) = 70, "task", "adventure", "order" -> inform("[New quest] Gorgophones' Nest"), queststatus(520) = 71, "I need to make immediate repairs to my web and hope thread will help. Bring me two hundred and fifty spools of thread."
-queststatus(520) = 70, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Das Nest der Gorgophone"), queststatus(520) = 71, "Ich muss dringend Reparaturen am Netz ausführen und Garn wird helfen. Bring mir 250 Rollen Garn."
+-- Quest 6: 75 spools of thread; 100 silver
+queststatus(520) = 70, english, "quest", "mission" -> inform("[New quest] Gorgophones' Nest"), queststatus(520) = 71, "I need to make immediate repairs to my web and hope thread will help. Bring me 75 spools of thread."
+queststatus(520) = 70, "quest", "mission" -> inform("[Neue Quest] Das Nest der Gorgophone"), queststatus(520) = 71, "Ich muss dringend Reparaturen am Netz ausführen und Garn wird helfen. Bring mir 75 Rollen Garn."
+queststatus(520) = 70, "task", "adventure", "order" -> inform("[New quest] Gorgophones' Nest"), queststatus(520) = 71, "I need to make immediate repairs to my web and hope thread will help. Bring me 75 spools of thread."
+queststatus(520) = 70, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Das Nest der Gorgophone"), queststatus(520) = 71, "Ich muss dringend Reparaturen am Netz ausführen und Garn wird helfen. Bring mir 75 Rollen Garn."
 
-queststatus(520) = 71, item(50, all) < 250, english, "quest", "mission" -> "My offspring will be in trouble without a protective web. I still need two hundred and fifty spools of thread for repairs."
-queststatus(520) = 71, item(50, all) < 250, "quest", "mission" -> "Meine Nachkommen werden Schwierigkeiten haben ohne ein schützendes Netz. Ich brauche immer noch 250 Rollen Garn für Reparaturen."
-queststatus(520) = 71, item(50, all) < 250, "task", "adventure", "order" -> "My offspring will be in trouble without a protective web. I still need two hundred and fifty spools of thread for repairs."
-queststatus(520) = 71, item(50, all) < 250, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Meine Nachkommen werden Schwierigkeiten haben ohne ein schützendes Netz. Ich brauche immer noch 250 Rollen Garn für Reparaturen."
+queststatus(520) = 71, item(50, all) < 75, english, "quest", "mission" -> "My offspring will be in trouble without a protective web. I still need 75 spools of thread for repairs."
+queststatus(520) = 71, item(50, all) < 75, "quest", "mission" -> "Meine Nachkommen werden Schwierigkeiten haben ohne ein schützendes Netz. Ich brauche immer noch 75 Rollen Garn für Reparaturen."
+queststatus(520) = 71, item(50, all) < 75, "task", "adventure", "order" -> "My offspring will be in trouble without a protective web. I still need 75 spools of thread for repairs."
+queststatus(520) = 71, item(50, all) < 75, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Meine Nachkommen werden Schwierigkeiten haben ohne ein schützendes Netz. Ich brauche immer noch 75 Rollen Garn für Reparaturen."
 
-queststatus(520) = 71, item(50, all) > 249, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins."), money + 10000, deleteItem(50, 255), queststatus(520) = 72, "Ah, thank you! *She says in a rather quiet and raspy voice as she takes the thread and partially unravels one spool, testing the strength of the line* Perhaps you would help me again when you have time?"
-queststatus(520) = 71, item(50, all) > 249, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, deleteItem(50, 255), queststatus(520) = 72, "Ich danke dir! *sie murmelt leise vor sich hin während sie eine Spule Garn abrollt und die deren Stärke testet.* Vielleicht würdest du mir abermals helfen, wenn die Zeit es erlaubt?"
+queststatus(520) = 71, item(50, all) > 74, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins."), money + 10000, deleteItem(50, 75), queststatus(520) = 72, "Ah, thank you! *She says in a rather quiet and raspy voice as she takes the thread and partially unravels one spool, testing the strength of the line* Perhaps you would help me again when you have time?"
+queststatus(520) = 71, item(50, all) > 74, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, deleteItem(50, 75), queststatus(520) = 72, "Ich danke dir! *sie murmelt leise vor sich hin während sie eine Spule Garn abrollt und die deren Stärke testet.* Vielleicht würdest du mir abermals helfen, wenn die Zeit es erlaubt?"
 
 -- Quest 7: divine voulge spear; 150 silver
 queststatus(520) = 72, english, "quest", "mission" -> inform("[New quest] Gorgophones' Nest"), queststatus(520) = 73, "My web grows too large, please bring me a divine voulge spear, which can be placed in the ground as a support. Don't be cheap, make sure it isn't weak."
