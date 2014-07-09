@@ -145,14 +145,14 @@ queststatus(820) = 9, "task", "adventure", "order" -> "My friend Baldo Proudtoe 
 queststatus(820) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Mein Freund Baldo Proudtoe kann auch immer etwas Hilfe benötigen. Ihr könnt ihn im Garten finden. Geht einfach zurück zum Marktplatz und geht durch das rote Portal."
 
 -- Nana
-queststatus(820) = 10, english, "quest", "mission" -> queststatus(820) = 11, "Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just north of here on the other side of the bridge."
-queststatus(820) = 10, "quest", "mission" -> queststatus(820) = 11, "Nana Winterbutter, eine großartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich nördlich von hier finden, auf der anderen Seite der Brücke."
-queststatus(820) = 10, "task", "adventure", "order" -> queststatus(820) = 11, "Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just north of here on the other side of the bridge."
-queststatus(820) = 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 11, "Nana Winterbutter, eine großartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich nördlich von hier finden, auf der anderen Seite der Brücke."
-queststatus(820) = 11, english, "quest", "mission" -> "Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just north of here on the other side of the bridge."
-queststatus(820) = 11, "quest", "mission" -> "Nana Winterbutter, eine großartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich nördlich von hier finden, auf der anderen Seite der Brücke."
-queststatus(820) = 11, "task", "adventure", "order" -> "Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just north of here on the other side of the bridge."
-queststatus(820) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nana Winterbutter, eine großartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich nördlich von hier finden, auf der anderen Seite der Brücke."
+queststatus(820) = 10, english, "quest", "mission" -> queststatus(820) = 11, "Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just west of here on the other side of the bridge."
+queststatus(820) = 10, "quest", "mission" -> queststatus(820) = 11, "Nana Winterbutter, eine großartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich westen von hier finden, auf der anderen Seite der Brücke."
+queststatus(820) = 10, "task", "adventure", "order" -> queststatus(820) = 11, "Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just west of here on the other side of the bridge."
+queststatus(820) = 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 11, "Nana Winterbutter, eine großartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich westen von hier finden, auf der anderen Seite der Brücke."
+queststatus(820) = 11, english, "quest", "mission" -> "Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just west of here on the other side of the bridge."
+queststatus(820) = 11, "quest", "mission" -> "Nana Winterbutter, eine großartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich westen von hier finden, auf der anderen Seite der Brücke."
+queststatus(820) = 11, "task", "adventure", "order" -> "Nana Winterbutter, a great cook if I might add, is also always looking for someone to help. You can find her just west of here on the other side of the bridge."
+queststatus(820) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nana Winterbutter, eine großartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich westen von hier finden, auf der anderen Seite der Brücke."
 
 -- Madeline
 queststatus(820) = 12, english, "quest", "mission" -> queststatus(820) = 13, "A little bird told me that the apprentice Madeline Clarbelis could use some help. You can find her easily. Just go back to the marketplace, through the Tower of Fire to the north and leave it over the bridge to the east into the Tower of Earth."
@@ -215,7 +215,6 @@ english, chance(20.0), town = Runewick, ".*" -> "I cannot help you with that. Wh
 german, chance(20.0), town = Runewick, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht einen anderen Bürger, ich bin mir sicher das jemand eine Antwort hat."
 english, chance(20.0), ".*" -> "I cannot help you with that. Why not ask Elesil Daelwon over there, I'm sure she has the answer."
 german, chance(20.0), ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Elesil Daelwon dort drüben, ich bin mir sicher sie hat eine Antwort."
-
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
