@@ -343,7 +343,7 @@ function iniQuests()
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=11;
     questLocation[id]=position(298,352,-6);
-    radius[id]=50;
+    radius[id]=65;
 
     --Quest 2: Galmair Sewers II (77)
 
@@ -370,7 +370,7 @@ function iniQuests()
     minimumQueststatus[id]=13;
     maximumQueststatus[id]=18;
     questLocation[id]=position(298,352,-6);
-    radius[id]=50;
+    radius[id]=65;
 
     --Quest 3: Galmair Sewers III (77)
 
@@ -385,7 +385,7 @@ function iniQuests()
     minimumQueststatus[id]=20;
     maximumQueststatus[id]=21;
     questLocation[id]=position(298,352,-6);
-    radius[id]=50;
+    radius[id]=65;
 
     --Quest 4: Sir Reginald's Tomb I (78)
 
