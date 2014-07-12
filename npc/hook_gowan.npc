@@ -17,7 +17,7 @@
 -- NPC Job:  trader                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  706, 308, 0            --
--- NPC Sex:  male                       NPC Direction: southwest              --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                     easyNPC Parser v1.23.1 --
@@ -27,7 +27,7 @@ name = "Hook Gowan"
 race = human
 sex = male
 position = 706, 308, 0
-direction = southwest
+direction = south
 affiliation = "None"
 job = "trader"
 
