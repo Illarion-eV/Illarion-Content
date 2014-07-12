@@ -223,7 +223,7 @@ function initDoors()
 	AddDoor({946, 769, 1}, 223, "Danger, keep out!", "ACHTUNG! Lebensgefahr!")
 	
 	-- Slums
-	AddDoor({900, 817, 0}, false, "Pit Latrine", "Scheiﬂhaus")
+	AddDoor({900, 817, 0}, false, "Pit Latrine", "Latrine")
 	
 	--Homelands 25x
     AddDoor({749, 802, 0}, 250,"Quadruped Red Bird","Vierbeiniger Roter Vogel")
@@ -289,7 +289,7 @@ function initDoors()
 
 
 --Hemptie Necktie Inn
-	AddDoor({699, 311, 1}, 401,"Trolls Bane","Trolls Bane")
+	AddDoor({699, 311, 1}, 401,"Troll's Bane","Troll's Bane")
 	AddDoor({699, 323, 1}, 402,"Silverbrand","Silberbrand")
 	AddDoor({709, 315, 1}, 403,"Greenbriar","Greenbriar")
 	AddDoor({709, 319, 1}, 404,"Varshikar","Varshikar")
