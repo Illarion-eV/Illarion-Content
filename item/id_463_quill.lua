@@ -146,7 +146,7 @@ function WriteContainerLabel(User,SourceItem)
 			local bag = CheckIfContainerPresent(User) -- check for the bag again
 			if bag then
 				local labelText = dialog:getInput()
-				base.lookat.SetSpecialDescription(bag,"Beschriftung: ".."\""..labelText.."\"","Label: ".."\""..labelText.."\"")
+				base.lookat.SetSpecialDescription(bag,labelText,labelText)
 				world:changeItem(bag)
 			else
                 User:inform("Du brauchst eine Tasche, um diese zu beschriften.","You need a bag if you want to label one.")
@@ -174,7 +174,7 @@ function WriteLabel(User,SourceItem)
 				--	return
 				--end
 				local labelText = dialog:getInput()
-				base.lookat.SetSpecialDescription(bottle,"Flaschenetikett: ".."\""..labelText.."\"","Bottle label: ".."\""..labelText.."\"")
+				base.lookat.SetSpecialDescription(bottle,labelText,labelText)
 				world:changeItem(bottle)
 			else
                 User:inform("Du brauchst eine Flasche, um diese zu beschriften.","You need a bottle if you want to label one.")
