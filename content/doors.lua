@@ -316,6 +316,7 @@ function initDoors()
 end
 
 function AddDoor(posList,lockId, lookAtEN, lookAtDE, lockedOnreload)
+if true then return end
     local DoorPos=position(posList[1],posList[2],posList[3]);
 	if world:isItemOnField(DoorPos) then
         local thisDoor = world:getItemOnField(DoorPos);
