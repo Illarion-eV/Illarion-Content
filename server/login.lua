@@ -606,7 +606,7 @@ function payNow(User)
 --Hemp Necktie Inn = 103 (not a faction!)
     local infText = "";
 
-	 -- no memeber of any town
+	 -- no member of any town
 	local town = base.factions.getMembershipByName(User)
 	if town == "None" then
 	    return;

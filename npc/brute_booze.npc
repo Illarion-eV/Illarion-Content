@@ -17,7 +17,7 @@
 -- NPC Job:  adventurer                                                       --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  674, 320, 0            --
--- NPC Sex:  male                       NPC Direction: southwest              --
+-- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                     easyNPC Parser v1.23.1 --
@@ -27,7 +27,7 @@ name = "Brute Booze"
 race = orc
 sex = male
 position = 674, 320, 0
-direction = southwest
+direction = north
 affiliation = "None"
 job = "adventurer"
 

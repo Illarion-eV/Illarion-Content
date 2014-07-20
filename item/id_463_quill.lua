@@ -33,14 +33,14 @@ function UseItem(User, SourceItem, ltstate)
 		local success = dialog:getSuccess()
 		if success then
 			local selected = dialog:getSelectedIndex()+1
-			if selected == 1 then
+			if selected == 2 then
 			    if not CheckIfBottleInHand(User, SourceItem) then
 				    User:inform("Du brauchst eine Flasche, um diese zu beschriften.","You need a bottle if you want to label one.",Character.highPriority)
 				    return
                 else
                     WriteLabel(User,SourceItem)
 			    end
-			elseif selected == 2 then
+			elseif selected == 3 then
 			    local parchment = alchemy.base.recipe_creation.GetParchmentQuill(User)
 				parchment = alchemy.base.recipe_creation.IsParchmentOK(User,parchment,ingredientsList)
 				if not parchment then
@@ -48,7 +48,7 @@ function UseItem(User, SourceItem, ltstate)
 				else
 				    alchemy.base.recipe_creation.FirstMenu(User, ingredientsList)
 				end
-			elseif selected == 3 then
+			elseif selected == 1 then
 			    if not CheckIfContainerPresent(User) then
 				    User:inform("Du brauchst eine Tasche, um diese zu beschriften.","You need a bag if you want to label one.",Character.highPriority)
 				    return
@@ -67,9 +67,9 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 	local dialog = SelectionDialog(getText(User,"Schreibfeder","Quill") , getText(User,"Wähle aus, was du machen willst.","Select what you want to do.") , callback)
+	dialog:addOption(0, getText(User,"Tasche beschriften","Label bag"))
 	dialog:addOption(0, getText(User,"Flasche beschriften","Label a bottle"))
 	dialog:addOption(0, getText(User,"Alchemierezept schreiben","Write an alchemy recipe"))
-	dialog:addOption(0, getText(User,"Tasche beschriften","Label bag"))
 	dialog:addOption(0, getText(User,"Flaschenetikett entfernen","Remove label of a bottle"))
 
 	User:requestSelectionDialog(dialog)
@@ -146,8 +146,9 @@ function WriteContainerLabel(User,SourceItem)
 			local bag = CheckIfContainerPresent(User) -- check for the bag again
 			if bag then
 				local labelText = dialog:getInput()
-				base.lookat.SetSpecialDescription(bag,"Beschriftung: ".."\""..labelText.."\"","Label: ".."\""..labelText.."\"")
+				base.lookat.SetSpecialDescription(bag,labelText,labelText)
 				world:changeItem(bag)
+				User:inform("Du beschriftest die Tasche mit '"..labelText.."'.","You label the bag as '"..labelText.."'.")
 			else
                 User:inform("Du brauchst eine Tasche, um diese zu beschriften.","You need a bag if you want to label one.")
             end
@@ -174,8 +175,10 @@ function WriteLabel(User,SourceItem)
 				--	return
 				--end
 				local labelText = dialog:getInput()
-				base.lookat.SetSpecialDescription(bottle,"Flaschenetikett: ".."\""..labelText.."\"","Bottle label: ".."\""..labelText.."\"")
+				base.lookat.SetSpecialDescription(bottle,labelText,labelText)
 				world:changeItem(bottle)
+				User:inform("Du beschriftest die Flasche mit '"..labelText.."'.","You label the bottle as '"..labelText.."'.")
+				
 			else
                 User:inform("Du brauchst eine Flasche, um diese zu beschriften.","You need a bottle if you want to label one.")
             end
