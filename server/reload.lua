@@ -33,12 +33,9 @@ module("server.reload", package.seeall)
 
 function onReload()
     -- logToFile("start onReload");
-    content.doors.initDoors();
     initDepots();
     --initExplorerStones();
     initAltars();
-    content.signpost.InitWegweiser();
-	content.tree.InitTree()
 	initNoobia();
 	initTreasureChests();
     alchemy.base.alchemy.InitAlchemy();
