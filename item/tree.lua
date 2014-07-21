@@ -22,7 +22,6 @@ require("base.common")
 require("base.lookat")
 require("content.gatheringcraft.herbgathering")
 require("content.gatheringcraft.woodchopping")
-require("content.tree")
 
 module("item.tree", package.seeall)
 

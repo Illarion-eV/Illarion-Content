@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Tree Script
 -- Envi
 require("base.common")
-require("content.pillar")
 require("base.lookat")
 require("content.vision")
 

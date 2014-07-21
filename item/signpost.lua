@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Wegweiserskript
 -- Nitram
 require("base.common")
-require("content.signpost")
 require("base.lookat")
 require("triggerfield.slimeFeeding")
 

@@ -20,13 +20,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 require("base.common")
 require("base.doors")
-require("content.doors")
-require("content.signpost")
 require("content.gods")
 require("item.lever")
 require("content.areas")
 require("alchemy.base.alchemy")
-require("content.tree")
 require("content.rentrooms")
 
 module("server.reload", package.seeall)
