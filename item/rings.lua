@@ -24,7 +24,7 @@ require("item.general.jewel")
 module("item.rings", package.seeall)
 
 function LookAtItem(User,Item)
-	item.general.jewel.LookAtItem(User,Item);
+	return item.general.jewel.LookAtItem(User,Item);
 end
 
 function MoveItemBeforeMove(User,SourceItem,TargetItem)
