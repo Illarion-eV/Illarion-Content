@@ -71,12 +71,12 @@ spidernestList = {	add = function ( self, pos, direction, german, english, hours
 }
 
 --spidernest triggers using Ambient.lua as a guide
-spidernestList:add( position(909,515,-6),nil,"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
-spidernestList:add( position(909,516,-6),nil,"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
-spidernestList:add( position(909,518,-6),nil,"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
-spidernestList:add( position(909,519,-6),nil,"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
-spidernestList:add( position(909,520,-6),nil,"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
-spidernestList:add( position(909,521,-6),nil,"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
+spidernestList:add( position(909,515,-6),{5,6,7},"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
+spidernestList:add( position(909,516,-6),{5,6,7},"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
+spidernestList:add( position(909,518,-6),{5,6,7},"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
+spidernestList:add( position(909,519,-6),{5,6,7},"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
+spidernestList:add( position(909,520,-6),{5,6,7},"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
+spidernestList:add( position(909,521,-6),{5,6,7},"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
 
 function MoveToField(Char)
 	local this = getspidernest(Char);
