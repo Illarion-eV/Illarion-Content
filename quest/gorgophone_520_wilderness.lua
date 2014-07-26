@@ -181,8 +181,8 @@ Description[ENGLISH][69] = "Collect sixty grain bundles for Gorgophone."
 Description[GERMAN][70] = "Rede mit Gorgophone, sie hat villeicht eine weitere Aufgabe für dich."
 Description[ENGLISH][70] = "Check with Gorgophone she may have another task for you."
 
-Description[GERMAN][71] = "Gorgophone braucht 250 Spindeln Garn von dir."
-Description[ENGLISH][71] = "Collect 250 spools of thread for Gorgophone."
+Description[GERMAN][71] = "Gorgophone braucht 75 Spindeln Garn von dir."
+Description[ENGLISH][71] = "Collect 75 spools of thread for Gorgophone."
 Description[GERMAN][72] = "Rede mit Gorgophone, sie hat villeicht eine weitere Aufgabe für dich."
 Description[ENGLISH][72] = "Check with Gorgophone she may have another task for you."
 

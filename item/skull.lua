@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
 
@@ -21,76 +21,26 @@ require("base.common")
 
 module("item.skull", package.seeall)
 
-skullSourceItemPos={position(989,247,0),position(990,241,0),position(997,226,0)}
-
---[[
-function LookAtItem(User,Item)
-
-	local AmountSkull = table.getn(skullSourceItemPos)
-	for i = 1,AmountSkull do	
-		if (Item.pos == skullSourceItemPos[i]) then
-			lookAt = SkullLookAt(User, Item)
-		end
-	end
-	
-	if lookAt then
-	    return lookAt
-	else
-	    return base.lookat.GenerateLookAt(User, Item, 0)
-	end	
-end
-
-
-skullDescriptionDE={}
-skullDescriptionEN={}
-skullDescriptionDE[1]="Die Augen leuchten merkwürdig rot. Ob es wohl Sinn macht, die Finger in die Augenhöhlen zu stecken?"
-skullDescriptionEN[1]="The eyes glow strangely red. Whether it is useful to move your fingers inside eye holes?"
-skullDescriptionDE[2]="Die Augen leuchten merkwürdig blau. Ob es wohl Sinn macht, die Finger in die Augenhöhlen zu stecken?"
-skullDescriptionEN[2]="The eyes glow strangely blue. Whether it is useful to move your fingers inside eye holes?"
-skullDescriptionDE[3]="Die Augen leuchten merkwürdig grün. Ob es wohl Sinn macht, die Finger in die Augenhöhlen zu stecken?"
-skullDescriptionEN[3]="The eyes glow strangely green. Whether it is useful to move your fingers inside eye holes?"
-
-function SkullLookAt(User, Item)
-	local lookAt = ItemLookAt();
-	local AmountDescription = table.getn(skullDescriptionEN)
-	for i = 1,AmountDescription do
-		if (Item.pos == skullSourceItemPos[i]) then
-			if (User:getPlayerLanguage()==0) then
-				lookAt.name = "Schädel";
-				lookAt.description = skullDescriptionDE[i]
-			else
-				lookAt.name = "Skull";
-				lookAt.description = skullDescriptionDE[i]
-			end
-		end
-	end
-	return lookAt
-end ]]--
-
-
-typoOfFlame={359,360,372}
 
 function UseItem(User, SourceItem)
-	local AmountSkull = table.getn(skullSourceItemPos)
-	for i = 1,AmountSkull do
+	-- Evilrock skulls
+	local skullSourceItemPos={position(989,247,0),position(990,241,0),position(997,226,0)}
+	local typoOfFlame={359,360,372}
+
+	for i = 1, #skullSourceItemPos do
 		if (SourceItem.pos == skullSourceItemPos[i]) then
 			local flame = typoOfFlame[i]
 			BlowOutFlames(User,flame)
+			if User:getQuestProgress(668) ~= 1 then
+				User:inform("Nichts passiert als du die Finger in die Augenhöhlen des Schädels reinsteckst.", "Nothing happens as you put your fingers into the eye holes of the skull.")
+			end
+			User:setQuestProgress(668,0)
 		end
 	end
-	if User:getQuestProgress(668) ~= 1 then
-		User:inform("Nichts passiert als du die Finger in die Augenhöhlen des Schädels reinsteckst.", "Nothing happens as you put your fingers into the eye holes of the skull.")
-	end
-	User:setQuestProgress(668,0)
 end
-
-
-
 
 function BlowOutFlames(User,flame)
 
---debug("test1: "..User.name)
-	local AmountSkull = table.getn(skullSourceItemPos)
 	for xx=986,998 do
 		for yy=211,235 do
 			local positionFlame = position(xx,yy,0)
@@ -104,6 +54,5 @@ function BlowOutFlames(User,flame)
 			end
 		end
 	end
-
-end 
+end
 

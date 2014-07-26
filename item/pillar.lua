@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Tree Script
 -- Envi
 require("base.common")
-require("content.pillar")
 require("base.lookat")
 require("content.vision")
 
@@ -26,16 +25,6 @@ module("item.pillar", package.seeall)
 -- Edit by faladron 13. April 2012 added lines 72 - 92 for Endurance Cave Quest
 
 -- UPDATE common SET com_script='item.pillar' WHERE com_itemid IN (272, 440, 441, 442, 443, 467, 692, 693, 694, 695, 2805);
-
-PillarListGerman = 
-{
-"PLACEHOLDER.",
-};
-
-PillarListEnglish = 
-{
-"PLACEHOLDER.",
-};
 
 function LookAtItem(User,Item)
 
@@ -73,34 +62,7 @@ function LookAtItem(User,Item)
 	if lookAt then
 	    return lookAt --Send the custom lookAt
 	else
-	
-		-- fetching local references
-		local signTextDe     = content.pillar.signTextDe;
-		local signTextEn     = content.pillar.signTextEn;
-		local signCoo        = content.pillar.signCoo;
-		local signItemId     = content.pillar.signItemId;
-		local signPerception = content.pillar.signPerception;
-
-		local lookAt = base.lookat.GenerateLookAt(User, Item)
-
-		UserPer = User:increaseAttrib("perception",0);
-		tablePosition = Item.pos.x .. Item.pos.y .. Item.pos.z;
-		if signCoo ~= nil then
-			if (signCoo[tablePosition] ~= nil) then
-				for i, signpos in pairs(signCoo[tablePosition]) do
-					if (Item.pos == signpos) then
-						if (UserPer >= signPerception[tablePosition][i]) then
-							lookAt.description = base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name))
-						else
-							lookAt.description = base.common.GetNLS(User,"Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.","You recognise something, but you cannot read it, because you are too blind.")
-						end
-					end
-				end
-			end
-		end
-		
-		return lookAt
-		
+		return base.lookat.GenerateLookAt(User, Item)
 	end
 end
 

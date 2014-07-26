@@ -15,7 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 require("base.common")
-require("content.paintings")
 require("base.lookat")
 
 module("item.paintings", package.seeall)
@@ -117,35 +116,9 @@ PaintingListEnglish =
 };    
 			  
 
-function LookAtItemIdent(User,Item)
-    local test = "no value";
+function LookAtItem(User, Item)
     
-    -- fetching local references
-    local signTextDe     = content.paintings.signTextDe;
-    local signTextEn     = content.paintings.signTextEn;
-    local signCoo        = content.paintings.signCoo;
-    local signItemId     = content.paintings.signItemId;
-    local signPerception = content.paintings.signPerception;
-
     local lookAt = base.lookat.GenerateLookAt(User, Item)
-
-    UserPer = User:increaseAttrib("perception",0);
-    tablePosition = Item.pos.x .. Item.pos.y .. Item.pos.z;
-	if signCoo ~= nil then
-		if (signCoo[tablePosition] ~= nil) then
-			for i, signpos in pairs(signCoo[tablePosition]) do
-				if (Item.pos == signpos) then
-					if (UserPer >= signPerception[tablePosition][i]) then
-							lookAt.description = base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name))
-					else
-						  	lookAt.description = base.common.GetNLS(User,"Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.","You recognise something, but you cannot read it, because you are too blind.")
-					end
-
-				end
-			end
-		end
-	end 
-							 
     if lookAt.description == "" then
         val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
         lookAt.description = base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val])
@@ -153,9 +126,3 @@ function LookAtItemIdent(User,Item)
 
     return lookAt
 end
-
---[[
-	LookAtItemIdent
-	identity of LookAtItem
-  ]]
-LookAtItem = LookAtItemIdent;

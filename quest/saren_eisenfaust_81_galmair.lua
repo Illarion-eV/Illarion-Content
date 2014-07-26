@@ -45,8 +45,8 @@ Description[GERMAN][5] = "Bring 10 Eisenbarren, 10 Goldbarren, 5 zwergische Meta
 Description[ENGLISH][5] = "Bring 10 iron ingots, 10 gold ingots, 5 dwarven metal gloves and 4 sword handles to Saren Eisenfaust"
 Description[GERMAN][6] = "Vielleicht solltest du Saren Eisenfaust nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
 Description[ENGLISH][6] = "Perhaps you should talk to Saren Eisenfaust again, he is sure to have more for you to do."
-Description[GERMAN][7] = "Bring 15 Kupferbarren, 10 Kriegshämmer, 10 Hellebarden und 2 salkamaerische Rüstungen zu Saren Eisenfaust."
-Description[ENGLISH][7] = "Bring 15 copper ingots, 10 warhammers, 10 halberds and 2 salkamaerian armours to Saren Eisenfaust"
+Description[GERMAN][7] = "Bring 15 Kupferbarren, 3 leichte Elfenrüstung, 10 Hellebarden und 2 salkamaerische Rüstungen zu Saren Eisenfaust."
+Description[ENGLISH][7] = "Bring 15 copper ingots, 3 light elven armour, 10 halberds and 2 salkamaerian armours to Saren Eisenfaust"
 Description[GERMAN][8] = "Du hast alle Aufgaben von Saren Eisenfaust erfüllt."
 Description[ENGLISH][8] = "You have fulfilled all tasks of Saren Eisenfaust."
 

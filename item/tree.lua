@@ -22,7 +22,6 @@ require("base.common")
 require("base.lookat")
 require("content.gatheringcraft.herbgathering")
 require("content.gatheringcraft.woodchopping")
-require("content.tree")
 
 module("item.tree", package.seeall)
 
@@ -57,36 +56,6 @@ function LookAtItem(User,Item)
 	end
 	-- alchemy end
 
-	-- fetching local references
-    local signNameDe     = content.tree.signNameDe
-	local signNameEn     = content.tree.signNameEn
-	local signTextDe     = content.tree.signTextDe;
-    local signTextEn     = content.tree.signTextEn;
-    local signCoo        = content.tree.signCoo;
-    local signItemId     = content.tree.signItemId;
-    local signPerception = content.tree.signPerception;
-
-    local lookAt = base.lookat.GenerateLookAt(User, Item)
-
-    local UserPer = User:increaseAttrib("perception",0);
-	local tablePosition = tostring(Item.pos.x).." "..tostring(Item.pos.y).." "..tostring(Item.pos.z);
-    if signCoo ~= nil then
-		if (signCoo[tablePosition] ~= nil) then
-			for i, signpos in pairs(signCoo[tablePosition]) do
-				if (Item.pos == signpos) then
-					if signNameDe[tablePosition][i] and signNameEn[tablePosition][i] then
-						lookAt.name = base.common.GetNLS(User, signNameDe[tablePosition][i],signNameEn[tablePosition][i])
-					end
-					if (UserPer >= signPerception[tablePosition][i]) then
-						lookAt.description = base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name))
-					else
-						lookAt.description = base.common.GetNLS(User,"Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.","You recognise something, but you cannot read it, because you are too blind.")
-					end
-				end
-			end
-		end
-	end
-
-	return lookAt
+	return base.lookat.GenerateLookAt(User, Item)
 
 end
