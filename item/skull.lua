@@ -37,6 +37,87 @@ function UseItem(User, SourceItem)
 			User:setQuestProgress(668,0)
 		end
 	end
+
+	-- Spidercave skulls, scavenger hunt
+	local questStep = User:getQuestProgress(521);
+
+	if questStep == 0 and SourceItem.pos == position(905, 515, -6) then
+		User:inform("Du hörst eine Stimme in deinen Gedanken 'Suche und finde mein Zauberauge der Pein! Der nächste Schädel auf dem Pfade mit einem Hinweis ist nahe der bösen Witwe Gorgophone zu finden!'",
+					"You hear a voice in you head 'Seek and ye shall find, my Magical Torturous Eye! The next skull on the path with a clue is found near the evil widow, Gorgophone!'");
+		User:setQuestProgress(521, 1);
+
+	elseif questStep == 1 and SourceItem.pos == position(849, 498, -6) then
+		User:inform("Du hörst eine Stimme in deinen Gedanken 'Das Zauberauge der Pein ist weggekullert und wurde von einer spinne mitgenommen. Alles was ich hörte ist, dass es in einem Schädel weit von hier versteckt wurde, nahe eines roten Brutbündels im Nordosten der Höhle.'",
+					"You hear a voice in you head 'The Magical Torturous Eye rolled away from me and was stolen by a spider. Last I heard it was being secreted away in a skull far away from here, near a red egg sac all alone in the North East somewhere.'");
+		User:setQuestProgress(521, 2);
+
+	elseif questStep == 2 and SourceItem.pos == position(923, 451, -6) then
+		User:inform("Du hörst eine Stimme in deinen Gedanken 'Ich war im Besitz des Zauberauges der Pein für eine kurze Zeit. Die Spinne räumt es immer wieder um. Sie trug es in den Südwesten zu einem großen Tümpel, das habe ich gesehen.'",
+					"You hear a voice in you head 'I did have the Magical Torturous Eve for but a short time. The spider keeps moving it around and around. It headed Southwest last I saw to a large lake.'");
+		User:setQuestProgress(521, 3);
+
+	elseif questStep == 3 and SourceItem.pos == position(837, 524, -6) then
+		User:talk(Character.say, "#me wird davon überrascht, dass bei Berührung mehrere Rubine aus dem Totenschädel kullern, leider ist keiner davon das gesuchte Zauberauge der Pein.",
+								"#me becomes surprised, looking into the eyes of the skull several rubies come tumbling out, but, sadly, none is the Magical Torturous Eye. ");
+		local notCreated = User:createItem(46, 25, 333, nil); -- 25 rubies
+		if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+			world:createItemFromId(46, notCreated, User.pos, true, 333, nil);
+			base.common.HighInformNLS(User,
+				"Du kannst nichts mehr halten.",
+				"You can't carry any more.");
+		end
+		User:inform("Ein Pfeil ist in die Seite des Schädels geritzt der nach Osten zeigt. Darunter ist eine große Pfütze und viele Totenschädel abgebildet.",
+					"An arrow can be seen scratched into the side of the skull, pointing east of here. Underneath is a large puddle of water or mud and many skulls on the drawing.");
+		User:setQuestProgress(521, 4);
+
+	elseif questStep == 4 and SourceItem.pos == position(928, 536, -6) then
+		User:inform("Du hörst eine Stimme in deinen Gedanken 'Es war hier aber jetzt nicht mehr. Schau dort wo du hereingkommen bist, hofentlich ist es immer noch dort.'",
+					"You hear a voice in you head 'It's gone. It was here, but no longer. Look back where you came in, hopefully it is still there.'");
+		User:setQuestProgress(521, 5);
+
+	elseif questStep == 5 and SourceItem.pos == position(925, 521, -6) then
+		User:inform("Jemand hat einen Pfeil in den Schädel geritzt, der nach Norden zeigt. Auch das Bild eines Totenkopfs wurd eingeritzt, der im Wasser liegt.",
+					"An arrow has been carved by someone on the side of the skull, pointing to the north. There is a picture of a skull sitting in water.");
+		User:setQuestProgress(521, 6);
+
+	elseif questStep == 6 and SourceItem.pos == position(899, 503, -6) then
+		User:inform("Als du den Schädel berührst beginnen dessen Augen grün zu glühen und eine Giftwolke steigt auf. Eine körperlose Stimme spricht 'Ein Tarantel hat es mitgenommen und im Nordwesten versteckt. In einem Schädel nahe eines Warnschildes.'",
+					"As you touch the skull, the eyes glow green and poison rises from them. A disembodied voice says 'A tarantula has taken it somewhere off in the Northwest. The skull lays near an evil sign.'");
+		world:createItemFromId(372, 1, SourceItem.pos, true, 333, nil); -- poison cloud
+		User:setQuestProgress(521, 7);
+
+	elseif questStep == 7 and SourceItem.pos == position(839, 455, -6) then
+		User:inform("Du hörst eine Stimme in deinen Gedanken 'Ich sah eine Spinne etwas wegtragen, sie kann nicht weit sein! Sie muss in der Nähe sein. Halte Ausschau nach Schlamm, da ihre Beine bedeckt davon waren.'",
+					"You hear a voice in you head 'I saw a spider scrabble off with something, it can't have gotten far! Must be near here somewhere. Look where there is mud as its feet were covered in the stuff.'");
+		User:setQuestProgress(521, 8);
+
+	elseif questStep == 8 and SourceItem.pos == position(845, 464, -6) then
+		User:inform("Eine Spinne huscht aus dem Schädel heraus und greift dich an, nachdem sie einen großen, rot glänzenden Stein in dem Totenschädel versteckt.",
+					"A spider scurries out of the skull and attacks you after pushing a bright stone that flashes red back into the skull for safekeeping.");
+		local monPos = getFreePos(SourceItem.pos, 3 ); -- radius 3 around skull
+		world:createMonster(232, monPos, 0); -- shadowmuncher
+		world:gfx(41, monPos); -- swirly
+		User:setQuestProgress(521, 9);
+
+	elseif questStep == 9 and SourceItem.pos == position(845, 464, -6) then
+		User:inform("Du holst einen großen roten Edelstein aus dem Totenschädel hervor. Es ist das Zauberauge der Pein!",
+					"you retrieve a large red gem from the skull. It is the Torturous Eye!");
+		local notCreated = User:createItem(46, 1, 333, {gemLevel = 1}); -- 1 latent ruby
+		if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+			world:createItemFromId(46, notCreated, User.pos, true, 333, {gemLevel = 1});
+			base.common.HighInformNLS(User,
+				"Du kannst nichts mehr halten.",
+				"You can't carry any more.");
+		end
+		User:setQuestProgress(521, 10);
+
+	elseif questStep == 10 and SourceItem.pos == position(905, 515, -6) then
+		User:inform("Du hörst eine Stimme in deinen Gedanken 'Mein Zauberauge der Pein, du hast es gefunden! Behalte und behüte es, ich hab ja noch ein anderes für mich selbst.'",
+					"You hear a voice in you head 'My Magical Torturous Eye, you found it! Keep it though, after all I have another one left for myself.'");
+		User:setQuestProgress(521, 11);
+
+	end
+
 end
 
 function BlowOutFlames(User,flame)
