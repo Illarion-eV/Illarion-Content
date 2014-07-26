@@ -799,7 +799,7 @@ function iniQuests()
 	table.insert(questList[252],id); --Young Boar
 	table.insert(questList[253],id); --Hog
     minimumQueststatus[id]=3;
-    maximumQueststatus[id]=28;
+    maximumQueststatus[id]=13;
     questLocation[id]=position(786, 474, 0);
     radius[id]=50;
 
