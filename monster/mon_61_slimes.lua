@@ -132,11 +132,11 @@ if (MonID==611) then --Stinky Slime, Level: 3, Armourtype: cloth, Weapontype: wr
         if not done then done=monster.base.drop.AddDropItem(252,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --raw obsidian
         if not done then done=monster.base.drop.AddDropItem(256,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --raw emerald
 
-        --Category 2: Raw gems + cutted gems
+        --Category 2: Raw gems + cut gems
 
         local done=monster.base.drop.AddDropItem(255,1,20,(100*math.random(2,3)+math.random(22,33)),0,2); --raw ruby
         if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(2,3)+math.random(22,33)),0,2); end --raw sapphire
-        if not done then done=monster.base.drop.AddDropItem(198,5,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --topaz
+        if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --topaz
         if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --obsidian
         if not done then done=monster.base.drop.AddDropItem(45,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --emerald
 
@@ -161,11 +161,11 @@ if (MonID==611) then --Stinky Slime, Level: 3, Armourtype: cloth, Weapontype: wr
         if not done then done=monster.base.drop.AddDropItem(254,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --raw diamond
         if not done then done=monster.base.drop.AddDropItem(257,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --raw topaz
 
-        --Category 2: Raw gems + cutted gems
+        --Category 2: Raw gems + cut gems
 
         local done=monster.base.drop.AddDropItem(251,1,20,(100*math.random(2,3)+math.random(22,33)),0,2); --raw amethyst
         if not done then done=monster.base.drop.AddDropItem(256,1,10,(100*math.random(2,3)+math.random(22,33)),0,2); end --raw emerald
-        if not done then done=monster.base.drop.AddDropItem(46,5,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --ruby
+        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --ruby
         if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --diamond
         if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --topaz
 
@@ -190,7 +190,7 @@ if (MonID==611) then --Stinky Slime, Level: 3, Armourtype: cloth, Weapontype: wr
         if not done then done=monster.base.drop.AddDropItem(257,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --raw topaz
         if not done then done=monster.base.drop.AddDropItem(257,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --raw diamond
 
-        --Category 2: Raw gems + cutted gems
+        --Category 2: Raw gems + cut gems
 
         local done=monster.base.drop.AddDropItem(256,1,20,(100*math.random(3,4)+math.random(33,44)),0,2); --raw emerald
         if not done then done=monster.base.drop.AddDropItem(252,1,10,(100*math.random(3,4)+math.random(33,44)),0,2); end --raw obsidian
@@ -219,7 +219,7 @@ if (MonID==611) then --Stinky Slime, Level: 3, Armourtype: cloth, Weapontype: wr
         if not done then done=monster.base.drop.AddDropItem(252,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --raw obsidian
         if not done then done=monster.base.drop.AddDropItem(255,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --raw ruby
 
-        --Category 2: Raw gems + cutted gems
+        --Category 2: Raw gems + cut gems
 
         local done=monster.base.drop.AddDropItem(257,1,20,(100*math.random(4,5)+math.random(44,55)),0,2); --raw topaz
         if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --raw sapphire
