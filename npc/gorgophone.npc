@@ -212,8 +212,8 @@ queststatus(520) > 81, queststatus(520) < 132, "quest", "mission" -> "Du hast di
 queststatus(520) > 81, queststatus(520) < 132, "task", "adventure", "order" -> "You haven't killed the spider army yet? Please go ahead, I need your help! Kill fifty Soulpain."
 queststatus(520) > 81, queststatus(520) < 132, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast die Armeen der Spinnen noch nicht beseitigt? Bitte erledige die Sache, ich brauch doch deine Hilfe! Töte 50 Seelenpein."
 -- tbd: offer a choice dialog for gem reward
-queststatus(520) = 132, english, ".+" -> inform("[Quest solved] You are rewarded with gems."), item(285, 160), queststatus(520) = 133, "#me skitters over her web, rushing over to you. 'You have far exceeded my best hopes for clearing the area. For your dedicated help, I will give you your choice of my greatest treasures.'"
-queststatus(520) = 132, ".+" -> inform("[Quest gelöst] Du erhältst Edelsteine."), item(285, 160), queststatus(520) = 133, "#me krabbelt übers Netz und eilt zu dir. 'Du hast meine Erwartungen bei Weitem übertroffen. Für deine hingebungsvolle Hilfe werde ich dich mit meinen teuersten Schätzen belohnen.'"
+queststatus(520) = 132, english, ".+" -> inform("[Quest solved] You are rewarded with gems."), item(285, 160), queststatus(520) = 133, "#me skitters over her web, rushing over to you. 'You have far exceeded my best hopes for clearing the area. For your dedicated help, I will give you some of my greatest treasures.'"
+queststatus(520) = 132, ".+" -> inform("[Quest gelöst] Du erhältst Edelsteine."), item(285, 160), queststatus(520) = 133, "#me krabbelt übers Netz und eilt zu dir. 'Du hast meine Erwartungen bei Weitem übertroffen. Für euere hingebungsvolle Hilfe werde ich euch mit meinen wertvollsten Schätzen belohnen.'"
 
 -- No more regular quests
 queststatus(520) = 133, english, "quest" -> "Guardian of my Brood, I have no more tasks for you."
