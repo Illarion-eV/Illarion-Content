@@ -213,7 +213,7 @@ queststatus(520) > 81, queststatus(520) < 132, "task", "adventure", "order" -> "
 queststatus(520) > 81, queststatus(520) < 132, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast die Armeen der Spinnen noch nicht beseitigt? Bitte erledige die Sache, ich brauch doch deine Hilfe! Töte 50 Seelenpein."
 -- tbd: offer a choice dialog for gem reward
 queststatus(520) = 132, english, ".+" -> inform("[Quest solved] You are rewarded with gems."), item(285, 160), queststatus(520) = 133, "#me skitters over her web, rushing over to you. 'You have far exceeded my best hopes for clearing the area. For your dedicated help, I will give you some of my greatest treasures.'"
-queststatus(520) = 132, ".+" -> inform("[Quest gelöst] Du erhältst Edelsteine."), item(285, 160), queststatus(520) = 133, "#me krabbelt übers Netz und eilt zu dir. 'Du hast meine Erwartungen bei Weitem übertroffen. Für euere hingebungsvolle Hilfe werde ich euch mit meinen wertvollsten Schätzen belohnen.'"
+queststatus(520) = 132, ".+" -> inform("[Quest gelöst] Du erhältst Edelsteine."), item(285, 160), queststatus(520) = 133, "#me krabbelt übers Netz und eilt zu dir. 'Du hast meine Erwartungen bei Weitem übertroffen. Für deine hingebungsvolle Hilfe werde ich dich mit meinen wertvollsten Schätzen belohnen.'"
 
 -- No more regular quests
 queststatus(520) = 133, english, "quest" -> "Guardian of my Brood, I have no more tasks for you."
@@ -266,7 +266,7 @@ cycletext "#me betastet einen Strang der sich im Netz bewegt und eilt hinaus, um
 cycletext "#me findet einen Edelstein und schiebt ihn herum, um ihn zu verstecken.", "#me finds a gemstone and pushes it around to hide it away."
 cycletext "#me durchsticht ihre Beute mit ihren Reißzähnen und verspritzt ihre Verdauungsenzyme.", "#me punctures her prey with her fangs and administers her digestive enzymes."
 cycletext "#me prüft ihren Eiersack, der aussieht wie ein Kokon und an ihrem Netz hängt.", "#me checks her egg sac, which looks like a cocoon and is suspended from her web."
-cycletext "#me benutzt ihre knirschenden Fänge, um die Überreste des Körpers ihrer Beute vollständig zu verflüssigen und saugt ihre Mahlzeit auf.", "#me uses her gnashing fangs to complete the liquefication of the remains of her prey's body and sucks up her meal."
+cycletext "#me benutzt ihre knirschenden Fänge, um die Überreste des Körpers ihrer Beute vollständig zu verflüssigen und saugt ihre Mahlzeit auf.", "#me uses her gnashing fangs to complete the liquefaction of the remains of her prey's body and sucks up her meal."
 cycletext "#me flitzt herum, um ihr Netz zu reparieren und nach ihrer nächsten Mahlzeit zu suchen.", "#me skitters around, repairing her large web and searching for her next meal."
 cycletext "#me reinigt ihre Zähne, während sie alle anstarrt, die in der Nähe sind", "#me cleans her fangs as she glares at all who come near."
 cycletext "#me läuft herum und vergrößert ihr Netz.", "#me runs around enlarging her web."
