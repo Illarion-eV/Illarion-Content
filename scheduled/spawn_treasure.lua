@@ -28,7 +28,7 @@ function spawnTreasure()
 	
     if table.getn(world:getPlayersInRangeOf(treasurePos,20)) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
 	
-		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,4)}); --spawn the chest
+		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(1,4)}); --spawn the chest
 		
 	end
 	
