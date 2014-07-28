@@ -211,7 +211,7 @@ function UseItem(User, SourceItem, ltstate)
 	-- user should not fight
 	if User.attackmode then
     base.common.HighInformNLS( User,
-    "Du kannst nicht wï¿½hrend eines Kampfes essen.",
+    "Du kannst nicht während eines Kampfes essen.",
     "You cannot eat during a fight.");
     return;
   end
@@ -221,7 +221,7 @@ function UseItem(User, SourceItem, ltstate)
     if (math.random(1,100)==1) then
       local deText, enText = content.furtunecookies.cookie();
       base.common.InformNLS( User,
-      "Du findest ein Stï¿½ck Papier in dem Keks: \""..deText.."\"",
+      "Du findest ein Stück Papier in dem Keks: \""..deText.."\"",
       "You find a piece of paper inside the cookie: \""..enText.."\"");
     end
   end
@@ -248,7 +248,7 @@ function UseItem(User, SourceItem, ltstate)
 		if ( notCreated > 0 ) then
 			world:createItemFromId( foodItem.leftover, notCreated, User.pos, true, 333, nil );
 			base.common.HighInformNLS(User,
-			"Du kannst nichts mehr halten und lï¿½sst das Geschirr zu Boden fallen.",
+			"Du kannst nichts mehr halten und lässt das Geschirr zu Boden fallen.",
 			"You can't carry any more and let the dishes drop to the ground.");
 		end
     end
@@ -259,7 +259,7 @@ function UseItem(User, SourceItem, ltstate)
   if (poison ~= nil) then
     User:setPoisonValue( base.common.Limit( (User:getPoisonValue() + poison) , 0, 10000) );
     base.common.HighInformNLS(User,
-    "Du fï¿½hlst dich krank und etwas benommen.",
+    "Du f?hlst dich krank und etwas benommen.",
     "You feel sick and a little dizzy.");
     SetNewFoodLevel(User, foodLevel-foodVal);
     return;
@@ -284,7 +284,7 @@ function UseItem(User, SourceItem, ltstate)
   -- inform the player about the food level. Avoid spam.
   if  (foodLevel > 55000) and ((foodLevel-foodVal) <= 55000) then
     base.common.InformNLS( User,
-    "Nur mit Mï¿½he kannst du dir noch etwas hinunter zwingen.",
+    "Nur mit M?he kannst du dir noch etwas hinunter zwingen.",
     "You hardly manage to eat something more.");
   elseif  (foodLevel > 50000) and ((foodLevel-foodVal) <= 50000) then
     base.common.InformNLS( User,
@@ -296,7 +296,7 @@ function UseItem(User, SourceItem, ltstate)
     "You are stuffed.");
   elseif  (foodLevel > 30000) and ((foodLevel-foodVal) <= 30000) then
     base.common.InformNLS( User,
-    "Du fï¿½hlst dich noch etwas hungrig.",
+    "Du f?hlst dich noch etwas hungrig.",
     "You still feel a little hungry.");
   elseif  (foodLevel > 20000) and ((foodLevel-foodVal) <= 20000) then
     base.common.InformNLS( User,
