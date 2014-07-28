@@ -106,21 +106,25 @@ english, "job" -> "My profession is to transmute magical gems. I have several ae
 "job" -> "Mein Beruf ist es, magische Edelsteine zu vereinen. Ich habe mehrere Zeitalter an Erfahrung, also stellt meine Kompetenz nicht in Frage."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"gem" -> "I know a lot about all the gems. Just throw in a keyword!"
+"gem" -> "I know a lot about all the gems. Just tell me what gem you are interested in!"
 english, "Amethyst" -> "Amethysts are the the clubs amongst gems. Their beauty is rather crude but natural."
 "Ruby" -> "Some say, rubies were made of Brágon's fire, but I know better why they are so red..."
 english, "Obsidian" -> "Obsidian is known to be used in dark rituals, but keep in mind that evil deeds are done by evil men, not by gems."
+"Blackstone" -> "Obsidian is known to be used in dark rituals, but keep in mind that evil deeds are done by evil men, not by gems."
 "Sapphire" -> "Those who don't know any better see a connection between sapphires and Tanora. How I laughed when I first heard that rumour!"
+"Bluestone" -> "Those who don't know any better see a connection between sapphires and Tanora. How I laughed when I first heard that rumour!"
 "Emerald" -> "Emeralds are the gems many people forgot about; I have never heard idiotic theories about their origin."
 "Topaz" -> "I keep wondering why some people search for topaz along the shores. You may as well wait for them to drop from the sky."
 "Diamond" -> "The diamond is the king amongst the gems. They are extremely rare and powerful."
-"Edelstein" -> "Ich weiß eine Menge über die Edelsteine. Gebt mir einfach ein Stichwort!"
+"Edelstein" -> "Ich weiß eine Menge über die Edelsteine. Sagt mir einfach, welche Edelsteine euch interessieren!"
 "Amethyst" -> "Die Amethysten sind die Knüppel unter den Edelsteinen. Ihre Schönheit ist von roher, aber natürlicher Art."
 "Rubin" -> "Manche glauben, Rubine wurden aus Brágons Feuer geschaffen, aber ich weiß, warum sie wirklich so rot sind..."
 "Obsidian" -> "Der Obsidian ist dafür bekannt, in dunklen Ritualen Verwendung zu finden. Denkt aber immer daran, dass diejenigen böse sind, die Böses tun, und nicht die Edelsteine."
+"Schwarzstein" -> "Der Obsidian ist dafür bekannt, in dunklen Ritualen Verwendung zu finden. Denkt aber immer daran, dass diejenigen böse sind, die Böses tun, und nicht die Edelsteine."
 "Saphir" -> "Die Unwissenden denken, Tanora hötte etwas mit den Saphiren zu tun. Wie habe ich gelacht, als ich diesen Quatsch das erste mal gehört habe."
+"Blaustein" -> "Die Unwissenden denken, Tanora hötte etwas mit den Saphiren zu tun. Wie habe ich gelacht, als ich diesen Quatsch das erste mal gehört habe."
 "Smaragd" -> "Viele haben vergessen, dass es Smaragde überhaupt gibt. Ich habe noch keine schwachsinnigen Theorien über ihre Herkunft gehört."
-"Topaz" -> "Ich wundere mich immer wieder darüber, warum die Leute Topase an der Küste suchen. Genausogut könnte man darauf warten, dass sie einem auf den Kopf fallen."
+"Topas" -> "Ich wundere mich immer wieder darüber, warum die Leute Topase an der Küste suchen. Genausogut könnte man darauf warten, dass sie einem auf den Kopf fallen."
 "Diamant" -> "Die Diamanten sind die Könige der Edelsteine. Sie sind äußerst selten und mächtig."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights

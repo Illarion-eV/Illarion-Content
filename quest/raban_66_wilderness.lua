@@ -44,8 +44,8 @@ Description[GERMAN][5] = "Sammel fünf Champignons und bringe diese Raban. Nimm e
 Description[ENGLISH][5] = "Collect five champignons and bring them back to Raban. Use a sickle in your hand while standing in front of a mushroom circle."
 Description[GERMAN][6] = "Geh zu Raban in Rabans Hain. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][6] = "Go back to Raban in Raban's Grove, he certainly has another task for you."
-Description[GERMAN][7] = "Besorge zehnmal groben Sand und bringe sie Raban. Nimm eine Schaufel in die Hand und benutze sie, während du vor einem Stein im Sand stehst."
-Description[ENGLISH][7] = "Produce ten coarse sand and bring them to Raban. Use a shovel in your hand while standing in front of a stone in the desert."
+Description[GERMAN][7] = "Besorge zehn Schaufeln voll groben Sand und bringe sie Raban. Nimm eine Schaufel in die Hand und benutze sie, während du vor einer Sandgrube stehst."
+Description[ENGLISH][7] = "Gather ten piles of coarse sand and bring them to Raban. Use a shovel in your hand while standing in front of a sand pit."
 Description[GERMAN][8] = "Du hast alle Aufgaben von Raban erfüllt."
 Description[ENGLISH][8] = "You have fulfilled all the tasks for Raban."
 
