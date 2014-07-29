@@ -76,7 +76,7 @@ function UseItem(User, SourceItem)
 		User:setQuestProgress(521, 5);
 
 	elseif questStep == 5 and SourceItem.pos == position(925, 521, -6) then
-		User:inform("Jemand hat einen Pfeil in den Schädel geritzt, der nach Norden zeigt. Auch das Bild eines Totenkopfs wurd eingeritzt, der im Wasser liegt.",
+		User:inform("Jemand hat einen Pfeil in den Schädel geritzt, der nach Norden zeigt. Auch das Bild eines Totenkopfs wurde eingeritzt, der im Wasser liegt.",
 					"An arrow has been carved by someone on the side of the skull, pointing to the north. There is a picture of a skull sitting in water.");
 		User:setQuestProgress(521, 6);
 
