@@ -102,7 +102,7 @@ function UseItem(User, SourceItem)
 	elseif questStep == 9 and SourceItem.pos == position(845, 464, -6) then
 		User:inform("Du holst einen großen roten Edelstein aus dem Totenschädel hervor. Es ist das Zauberauge der Pein!",
 					"you retrieve a large red gem from the skull. It is the Torturous Eye!");
-		local notCreated = User:createItem(46, 1, 333, {gemLevel = 1}); -- 1 latent ruby
+		local notCreated = User:createItem(46, 1, 333, {["gemLevel"] = 1}); -- 1 latent ruby
 		if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 			world:createItemFromId(46, notCreated, User.pos, true, 333, {["gemLevel"] = 1});
 			base.common.HighInformNLS(User,
