@@ -104,7 +104,7 @@ function UseItem(User, SourceItem)
 					"you retrieve a large red gem from the skull. It is the Torturous Eye!");
 		local notCreated = User:createItem(46, 1, 333, {gemLevel = 1}); -- 1 latent ruby
 		if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-			world:createItemFromId(46, notCreated, User.pos, true, 333, {gemLevel = 1});
+			world:createItemFromId(46, notCreated, User.pos, true, 333, {["gemLevel"] = 1});
 			base.common.HighInformNLS(User,
 				"Du kannst nichts mehr halten.",
 				"You can't carry any more.");
@@ -118,6 +118,28 @@ function UseItem(User, SourceItem)
 
 	end
 
+	-- Spidercave skulls, scavenger hunt
+	-- as long as the quest is in progress, spawns some spiders when wrong skull is chosen
+	if questStep > 0 and questStep < 10 then
+		local skullPos = {
+			position(844, 495, -6),
+			position(856, 505, -6),
+			position(919, 457, -6),
+			position(842, 534, -6),
+			position(923, 539, -6),
+			position(925, 542, -6),
+			position(923, 543, -6),
+			position(927, 544, -6),
+			position(892, 506, -6),
+			position(862,451,-6)
+		}
+		for i = 1, #skullPos do
+			if (SourceItem.pos == skullPos[i]) then
+				SpawnSpider(User, SourceItem);
+				return;
+			end
+		end
+	end
 end
 
 function BlowOutFlames(User,flame)
@@ -137,3 +159,30 @@ function BlowOutFlames(User,flame)
 	end
 end
 
+function SpawnSpider(User, skullItem)
+
+	-- skip if already tripped in the last 5 minutes
+	local trippingTime = skullItem:getData("tripping_time");
+
+	if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
+		User:inform("Du findest nichts in diesem Totenschädel.",
+					"You find nothing inside this skull.");
+		return;
+	end
+
+	local monList = {191, 192, 193, 211, 262} -- Rekrap Retep, Pitservant, Tarantula, Firespider, Soulpain
+	local monID = monList[math.random(1, #monList)];
+	for i = 1, math.random(1,2) do -- random count
+		local monPos = getFreePos(skullItem.pos, 2); -- radius 2 around skull
+		world:createMonster(monID, monPos, 0);
+		world:gfx(41, monPos); -- swirly
+	end
+	User:inform("Schlechte Wahl, Abenteuerer! Etwas springt aus dem Totenschädel heraus und greift dich an.",
+				"Wrong choice traveler! Something hops out of the skull and attacks you.");
+
+	-- safe tripping time
+	local serverTime = world:getTime("unix");
+	skullItem:setData("tripping_time", serverTime);
+	world:changeItem(skullItem);
+
+end
