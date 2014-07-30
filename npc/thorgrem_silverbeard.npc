@@ -141,10 +141,10 @@ queststatus(708) = 4, town = Galmair, "task", "adventure", "order" -> item(23, 1
 queststatus(708) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(23, 1, 333), item(122, 1, 333), queststatus(708) = 5, "Du willst noch eine Aufgabe? Na gut, meinetwegen. Bitte stell mir fünf Nägel, sowie fünf Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht, der mit dem roten Griff für das Feinschmieden. Hier ich gebe dir jeweils einen zum üben."
 
 -- third quest complete
-queststatus(708) = 5, item(2738, all) > 4, item(1858, all) > 4, english, town = Galmair, "quest", "mission", "pin", "goblet" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(708) = 6, "Well done, thank you very much. I don't think you need my help any longer, good luck!"
-queststatus(708) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Galmair, "quest", "mission", "nägel", "kelch" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(708) = 6, "Gut gemacht, vielen Dank. Ich denke, du kommst nun auch ohne meine Hilfe zurecht."
-queststatus(708) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Galmair, "task", "adventure", "order" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(708) = 6, "Well done, thank you very much. I don't think you need my help any longer, good luck!"
-queststatus(708) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(708) = 6, "Gut gemacht, vielen Dank. Ich denke, du kommst nun auch ohne meine Hilfe zurecht."
+queststatus(708) = 5, item(2738, all) > 4, item(1858, all) > 4, english, town = Galmair, "quest", "mission", "pin", "goblet" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(708) = 6, "Well done, thank you very much. You should return to me once you've advanced some in blacksmithing!"
+queststatus(708) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Galmair, "quest", "mission", "nägel", "kelch" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(708) = 6, "Need translation."
+queststatus(708) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Galmair, "task", "adventure", "order" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(708) = 6, "Well done, thank you very much. You should return to me once you've advanced some in blacksmithing!"
+queststatus(708) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(708) = 6, "Need translation."
 
 -- not enough stuff
 queststatus(708) = 5, item(2738, all) < 5, english, town = Galmair, "quest", "mission", "pin", "goblet" -> "You haven't solved the task yet. Please come back again if you have five pins and five goblets for me."
@@ -152,11 +152,81 @@ queststatus(708) = 5, item(2738, all) < 5, town = Galmair, "quest", "mission", "
 queststatus(708) = 5, item(1858, all) < 5, english, town = Galmair, "task", "adventure", "order" -> "You haven't solved the task yet. Please come back again if you have five pins and fünf goblets for me."
 queststatus(708) = 5, item(1858, all) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bring mir fünf Nägel und fünf Kelche."
 
+-- skill reward system starts here ( Title reward inform needs to have -- removed and title reward trigger needs to be added when title system arrives) ( German translations needed, search for words "Need translation")
+-- level 20 reward                                  (5 sword handles and 15 iron ingots enough to make 5 swords at level 20 reward + apprentice blacksmith title when the title system arrives)
+
+queststatus(708) = 6, skill(smithing) >= 20, english, town = Galmair, "quest", "mission", "task", "adventure" -> item(2584, 5) , item (2535, 15), queststatus(708) = 7 , "Great job, apprentice smith. Come back to me when you have advanced even further." , inform("You receive materials to help you advance with your work") --, inform("You've been awarded the title of Apprentice Blacksmith.")
+queststatus(708) = 6, skill(smithing) >= 20, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" -> item(2584, 5) , item (2535, 15), queststatus(708) = 7 , "Need translation" , inform("Need translation")
+queststatus(708) = 6, skill(smithing) < 20, english, town = Galmair, "quest", "mission", "task", "adventure" -> "I have nothing for you right now. Come back when you have advanced further in your craft."
+queststatus(708) = 6, skill(smithing) < 20, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" -> "Need translation"
+
+-- level 30 reward                                  (3 axe handles and 15 ingots enough to make 3 axes at level 30 reward)
+
+queststatus(708) = 7, skill(smithing) >= 30, english, town = Galmair, "quest", "mission", "task", "adventure" -> item(2525, 3), item(2535, 15), queststatus(708)= 8, "Well done, apprentice smith. Remember to return when you feel more confident in your skill.", inform("You receive materials to help you advance with your work")
+queststatus(708) = 7, skill(smithing) >= 30, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" -> item(2525, 3), item(2535, 15), queststatus(708)= 8, "Need translation", inform("Need translation")
+queststatus(708) = 7, skill(smithing) < 30, english, town = Galmair, "quest", "mission", "task", "adventure" -> "I have nothing for you right now. Come back when you have advanced further in your craft."
+queststatus(708) = 7, skill(smithing) < 30, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" -> "Need translation"
+
+-- Level 40 reward                                  (50 iron and 10 copper, enough to make 10 helmets at level 40 + title reward of "Blacksmith" when the title system arrives.)
+
+queststatus(708) = 8, skill(smithing) >= 40, english, town = Galmair, "quest", "mission", "task", "adventure" -> item(2550, 10), item(2535, 50), queststatus(708)= 9, "Good job, you're really showing improvement, smith!", inform("You receive materials to help you advance with your work") --, inform("You've been awarded the title of Blacksmith")
+queststatus(708) = 8, skill(smithing) >= 40, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" ->item(2550, 10), item(2535, 50), queststatus(708)= 9, "Need translation", inform("Need translation") --, inform("Need translation")
+queststatus(708) = 8, skill(smithing) < 40, english, town = Galmair, "quest", "mission", "task", "adventure" -> "I have nothing for you right now. Come back when you have advanced further in your craft."
+queststatus(708) = 8, skill(smithing) < 40, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" ->"Need translation."
+
+-- Level 50 reward                                  (Enough leather and ingots to make 5 elven silversteel armor)
+
+queststatus(708) = 9, skill(smithing) >= 50, english, town = Galmair, "quest", "mission", "task", "adventure" -> item(2547, 10), item(2550, 15), item(2535, 35), queststatus(708)= 10, "An important milestone has been reached, smith! Congratulations!", inform("You receive materials to help you advance with your work")
+queststatus(708) = 9, skill(smithing) >= 50, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" -> item(2547, 10), item(2550, 15), item(2535, 35), queststatus(708)= 10, "Need translation", inform("Need translation")
+queststatus(708) = 9, skill(smithing) < 50, english, town = Galmair, "quest", "mission", "task", "adventure" ->"I have nothing for you right now. Come back when you have advanced further in your craft."
+queststatus(708) = 9, skill(smithing) < 50, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" ->"Need translation."
+
+-- Level 60 reward                                  ( "Journeyman Blacksmith" title and  1 pure earth and 30 iron ingots)
+
+queststatus(708) = 10, skill(smithing) >= 60, english, town = Galmair, "quest", "mission", "task", "adventure" -> item(2552, 1), item(2535, 30), queststatus(708)= 11, "I've got something special for you this time, Journeyman!", inform("You receive a bottle of pure earth, along with some more ingots.") --, inform("You've been awarded the title of Journeyman Blacksmith")
+queststatus(708) = 10, skill(smithing) >= 60, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" -> item(2552, 1), item(2535, 30), queststatus(708)= 11, "Need translation", inform("Need translation") --, inform("Need translation")
+queststatus(708) = 10, skill(smithing) < 60, english, town = Galmair, "quest", "mission", "task", "adventure" ->"I have nothing for you right now. Come back when you have advanced further in your craft."
+queststatus(708) = 10, skill(smithing) < 60, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" ->"Need translation."
+
+-- Level 70 reward                                  ( 2 merinium ingots + 20 iron ingots)
+
+queststatus(708) = 11, skill(smithing) >= 70, english, town = Galmair, "quest", "mission", "task", "adventure" -> item(2571, 2), item(2535, 20), queststatus(708)= 12, "You have come quite far, Journeyman. You'll be a master blacksmith in no time!", inform("You receive materials to help you advance with your work")
+queststatus(708) = 11, skill(smithing) >= 70, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" -> item(2571, 2), item(2535, 20), queststatus(708)= 12, "Need translation", inform("Need translation")
+queststatus(708) = 11, skill(smithing) < 70, english, town = Galmair, "quest", "mission", "task", "adventure" ->"I have nothing for you right now. Come back when you have advanced further in your craft."
+queststatus(708) = 11, skill(smithing) < 70, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" ->"Need translation."
+
+-- Level 80 reward                                  ( "Master Blacksmith" title and 1 pure fire + 5 merinium)
+
+queststatus(708) = 12, skill(smithing) >= 80, english, town = Galmair, "quest", "mission", "task", "adventure" ->item(2571, 5), item(2553, 1), queststatus(708)= 13, "I have something special for you, master smith.", inform("You receive a bottle of pure fire, along with some merinium ingots. You wonder how they got the fire into the bottle.") --, inform("You've been awarded the title of Master Blacksmith")
+queststatus(708) = 12, skill(smithing) >= 80, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" ->item(2571, 5), item(2553, 1), queststatus(708)= 13, "Need translation", inform("Need translation") --, inform("Need translation")
+queststatus(708) = 12, skill(smithing) < 80, english, town = Galmair, "quest", "mission", "task", "adventure" ->"I have nothing for you right now. Come back when you have advanced further in your craft."
+queststatus(708) = 12, skill(smithing) < 80, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" ->"Need translation."
+
+-- Level 90 reward                                  (1 pure water, 1 pure earth, 1 pure air.)
+
+queststatus(708) = 13, skill(smithing) >= 90, english, town = Galmair, "quest", "mission", "task", "adventure" -> item(2554, 1), item(2552, 1), item(2551, 1), queststatus(708)= 14, "I see you've made great progress, master smith!", inform("You receive materials to help you advance with your work")
+queststatus(708) = 13, skill(smithing) >= 90, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" -> item(2554, 1), item(2552, 1), item(2551, 1), queststatus(708)= 14, "Need translation", inform("Need translation")
+queststatus(708) = 13, skill(smithing) < 90, english, town = Galmair, "quest", "mission", "task", "adventure" ->"I have nothing for you right now. Come back when you have advanced further in your craft."
+queststatus(708) = 13, skill(smithing) < 90, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" ->"Need translation."
+
+-- Level 100 reward                                 ("Grandmaster Blacksmith" title and 1 of each element + 5 merinium ingots)
+
+queststatus(708) = 14, skill(smithing) >= 100, english, town = Galmair, "quest", "mission", "task", "adventure" -> item(2551, 1), item(2552, 1),item(2553, 1),item(2554, 1),item(2571, 5), queststatus(708)= 15, "Well done! You're the best of the best now, grandmaster smith!", inform("You receive materials to help you advance with your work") --, inform("You've been awarded the title of Grandmaster Blacksmith")
+queststatus(708) = 14, skill(smithing) >= 100, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" -> item(2551, 1), item(2552, 1),item(2553, 1), item(2554, 1),item(2571, 5), queststatus(708)= 15, "Need translation", inform("Need translation") --, inform("Need translation")
+queststatus(708) = 14, skill(smithing) < 100, english, town = Galmair, "quest", "mission", "task", "adventure" ->"I have nothing for you right now. Come back when you have advanced further in your craft."
+queststatus(708) = 14, skill(smithing) < 100, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe" ->"Need translation."
+
 -- Response after quest is done
-queststatus(708) = 6, english, town = Galmair, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(708) = 6, town = Galmair, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
-queststatus(708) = 6, town = Galmair, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(708) = 6, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+queststatus(708) = 15, english, town = Galmair, "quest", "mission" -> queststatus(708)= 16, "Congratulations, grandmaster smith! There is nothing more I can do to help you now."
+queststatus(708) = 15, town = Galmair, "quest", "mission" -> queststatus(708)= 16, "Need translation."
+queststatus(708) = 15, town = Galmair, "task", "adventure", "order" -> queststatus(708)= 16, "Congratulations, grandmaster smith! There is nothing more I can do to help you now."
+queststatus(708) = 15, town = Galmair, "Auftrag", "Aufgabe" -> queststatus(708)= 16, "Need translation."
+
+--Response after quest is done #2 , not mentioning grandmastermaster smith
+queststatus(708) = 16, english, town = Galmair, "quest", "mission" -> "There is nothing more I can do to help you now."
+queststatus(708) = 16, town = Galmair, "quest", "mission" -> "Need translation."
+queststatus(708) = 16, town = Galmair, "task", "adventure", "order" -> "There is nothing more I can do to help you now."
+queststatus(708) = 16, town = Galmair, "Auftrag", "Aufgabe" -> "Need translation."
 
 -- No quests for Non Galmairians
 english, "quest", "mission" -> "You are not a citizen of Galmair. I don't have anything for you to do."
