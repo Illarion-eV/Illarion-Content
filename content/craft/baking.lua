@@ -61,6 +61,11 @@ product:addIngredient(785) -- Step 2: banana juice
 product:addRemnant(790) -- Remnant: Empty JuiceBottle (2498) 1x
 -------------- BANANABREAD - DONE ----------------
 
+---------------- BAKED POTATO - 3568 ----------------------
+product = baking:addProduct(catId, 3568, 40, 60, 5, 8, 1)
+product:addIngredient(3567) -- add potato
+-------------- BAKED POTATO - DONE ----------------
+
 ---------------- MUFFIN - 454 ----------------------
 product = baking:addProduct(catId, 454, 45, 65, 64, 128, 2)
 product:addIngredient(2, 2) -- Step 1: Flour (2) 1x

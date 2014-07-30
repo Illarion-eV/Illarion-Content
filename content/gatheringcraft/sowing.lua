@@ -29,6 +29,7 @@ seedPlantList[2917] = 538; --tomatoes
 seedPlantList[728] = 729; --hop
 seedPlantList[773] = 774; --tobacco
 seedPlantList[779] = 780; --sugarcane
+seedPlantList[3566] = 3562; -- potatoes
 
 -- gets the free position for seeds
 function getFreeFieldPosition(User)
