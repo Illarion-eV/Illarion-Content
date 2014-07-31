@@ -169,7 +169,7 @@ function InitFarmingItems()
 	FarmingItems[2492] = 2493								-- greens -> carrots
 	FarmingItems[782] = 778									-- sugarcane plant -> sugarcane
 	FarmingItems[777] = 772									-- withered tobacco plant -> tabacco
-	FarmingItems[3564] = 3567                               -- Final stage potato plant -> Potatoes
+	FarmingItems[3565] = 3567                               -- Final stage potato plant -> Potatoes
 
 	-- TODO when bug in MoveItem functions is resolved, remove these
 	FarmingItems[779] = 779									-- sugarcane seeds
