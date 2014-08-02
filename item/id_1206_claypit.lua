@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 require("base.common")
 require("base.lookat")
+require("content.climbing")
 require("content.gatheringcraft.claydigging")
 
 module("item.id_1206_claypit", package.seeall)
@@ -28,9 +29,13 @@ holePosition = position(854, 414, 0);
 function UseItem(User, SourceItem, ltstate)
 
   if SourceItem.pos == holePosition then
-    base.common.InformNLS(User,
-      "Vielleicht kannst du mit einem Seil hinabklettern?",
-      "Maybe you can climb down with a rope?");
+  	if (User:countItemAt("all",2760)==0) then
+		base.common.HighInformNLS(User,
+		"Du brauchst ein Seil um hier hinab zu klettern.",
+		"You need a rope to climb down here.");
+		return;
+	end
+    content.climbing.climbDown(User);
     return;
   end
 
