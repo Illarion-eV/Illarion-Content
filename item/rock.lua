@@ -52,12 +52,11 @@ end
 function LookAtItem(User,Item)
     -- alchemy stuff
 	if Item.pos == position(75,651,0) or Item.pos == position(873,878,0) then
-		alchemy.base.teacher.LookAtItem(User, Item)
-		return
+		return alchemy.base.teacher.LookAtItem(User, Item)
 	end
 	-- alchemy end
 
 	-- tbd: custom loockat for minable rocks
     return base.lookat.GenerateLookAt(User, Item)
-	
+
 end
