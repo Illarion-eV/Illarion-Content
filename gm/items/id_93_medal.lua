@@ -43,7 +43,7 @@ function UseItemWithField(User, SourceItem, TargetPos)
 			User:inform("no valid function");
 		end
 	end
-	local sd = SelectionDialog("Pick a function of the medal.", "Wich do you want to use?", cbSetMode);
+	local sd = SelectionDialog("Pick a function of the medal.", "Which do you want to use?", cbSetMode);
 	for _, m in ipairs(modes) do
 		sd:addOption(0, m);
 	end
