@@ -104,15 +104,15 @@ queststatus(500) = 1, item(2529, all) > 9, ".+" -> inform("[Quest gelöst] Du erh
 
 -- Quest 2: kill 10 pigs for 1000cp (Quest was modified from kill 25, to preserve existing quest status the addition kill steps are now coded report back to Melanie.)
 queststatus(500) = 2, english, "quest", "mission" -> inform("[New quest] Elstree Ranger II"), queststatus(500) = 3, "The forest pigs are destroying the flowers! Please be a good ranger and reduce the population by ten Elstree Forest pigs."
-queststatus(500) = 2, "quest", "mission" -> inform("[Neue Quest] Elstree Waldläufer II"), queststatus(500) = 3, "Die Wildschweine machen die Blumen kaputt! Seid ein guter Wildhüter und reduziert den Bestand von Elstree Wildschweinen um zehn."
+queststatus(500) = 2, "quest", "mission" -> inform("[Neue Quest] Elstree Waldläufer II"), queststatus(500) = 3, "Die Wildschweine machen die Blumen kaputt! Seid ein guter Wildhüter und reduziert den Bestand von Wildschweinen im Elsbaumwald um zehn."
 queststatus(500) = 2, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger II"), queststatus(500) = 3, "The forest pigs are destroying the flowers! Please be a good ranger and reduce the population by ten Elstree Forest pigs."
-queststatus(500) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Elstree Waldläufer II"), queststatus(500) = 3, "Die Wildschweine machen die Blumen kaputt! Seid ein guter Wildhüter und reduziert den Bestand von Elstree Wildschweinen um zehn."
+queststatus(500) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Elstree Waldläufer II"), queststatus(500) = 3, "Die Wildschweine machen die Blumen kaputt! Seid ein guter Wildhüter und reduziert den Bestand von Wildschweinen im Elsbaumwald um zehn."
 queststatus(500) > 2, queststatus(500) < 12, english, "quest", "mission" -> "Have you reduced the forest pig population yet? We can't let them destroy all the flowers."
 queststatus(500) > 2, queststatus(500) < 12, "quest", "mission" -> "Habt ihr den Wildschweinbestand schon reduziert? Wir können sie nicht alle Blumen zerstören lassen."
 queststatus(500) > 2, queststatus(500) < 12, "task", "adventure", "order" -> "Have you reduced the forest pig population yet? We can't let them destroy all the flowers."
 queststatus(500) > 2, queststatus(500) < 12, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Habt ihr den Wildschweinbestand schon reduziert? Wir können sie nicht alle Blumen zerstören lassen."
 queststatus(500) > 12, queststatus(500) < 29, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, queststatus(500) = 29, "The flowers are safe now. You are rewarded ten silver coins."
-queststatus(500) > 12, queststatus(500) < 29, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, queststatus(500) = 29, "Die Blumen sind gerettet. Du erhälst zehn Silber als Belohnung."
+queststatus(500) > 12, queststatus(500) < 29, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, queststatus(500) = 29, "Die Blumen sind gerettet. Du erhälst zehn Silberstücke als Belohnung."
 
 -- Quest 3: visit Nargun's altar, for a cake
 queststatus(500) = 29, english, "quest", "mission" -> inform("[New quest] Elstree Ranger III"), queststatus(500) = 30, "There is a disturbance at the Altar of Nargun, please check it out."
