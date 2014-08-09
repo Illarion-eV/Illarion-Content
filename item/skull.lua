@@ -162,6 +162,7 @@ end
 function SpawnSpider(User, skullItem)
 
 	-- skip if already tripped in the last 5 minutes
+	local serverTime = world:getTime("unix");
 	local trippingTime = skullItem:getData("tripping_time");
 
 	if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
