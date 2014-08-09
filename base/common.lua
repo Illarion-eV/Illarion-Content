@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Generic Routine Collection
 module("base.common", package.seeall)
@@ -78,11 +78,11 @@ function Chance(Value, Base)
     if (Value <= 0) then
         return false;
     end;
-    
+
     if (Base ~= nil) and (Base ~= 1) then
         Value = Value / Base;
     end;
-    
+
     return (math.random() <= Value);
 end;
 
@@ -100,7 +100,7 @@ function IsLookingAt(User, Location)
     end
 
     local richtung = User:getFaceTo();
-	
+
     return (((richtung == Character.north) and (Location.y < User.pos.y)) or
             ((richtung == Character.northeast) and
                 ((Location.y < User.pos.y) and (Location.x > User.pos.x))) or
@@ -174,7 +174,7 @@ end;
 function GetFrontPosition(User, distance, dir)
     local direct = dir or User:getFaceTo();
     local d = distance or 1;
-	
+
     if (direct == Character.north) then
         return position(User.pos.x, User.pos.y - d, User.pos.z);
     elseif (direct == Character.northeast) then
@@ -235,7 +235,7 @@ function GetFrontCharacter(User)
     end;
 end;
 
---- Get the position right behind a character 
+--- Get the position right behind a character
 -- @param User The character the back position is wanted
 -- @param distance How far behind the char? Defaults to 1.
 -- @return The position behind the character
@@ -322,6 +322,34 @@ function GetInArea(User, Pos1, Pos2)
         return false;
     end
     return true;
+end
+
+--- Needed, but could need some rework
+function getFreePos(CenterPos, Rad)
+	local tarPos;
+	local countPos = 0;
+	while true do
+		tarPos = position(CenterPos.x+math.random(-Rad,Rad),CenterPos.y+math.random(-Rad,Rad),CenterPos.z);
+		if not world:isItemOnField( tarPos ) and not world:isCharacterOnField( tarPos ) then
+			tileID = world:getField( tarPos ):tile();
+			if tileID ~= 0 and tileID ~= 5 and tileID ~= 6 and tileID~=42 and tileID ~= 43 and tileID~= 34 then --no inpassable tiles
+				countPos = 0;
+				return tarPos;
+			else
+				countPos = countPos +1;
+				if countPos > 50 then
+					countPos = 0;
+					return CenterPos;
+				end
+			end
+		else
+			countPos = countPos +1;
+			if countPos > 50 then
+				countPos = 0;
+				return CenterPos;
+			end
+		end
+	end
 end
 
 --- Check if a ItemStruct is valid for a special character
@@ -424,29 +452,29 @@ function GetBonusFromTool(toolItem)
 end;
 
 function GatheringToolBreaks(user, item, workTime)
- 
+
   if not user or not item then
     return false;
   end;
 
   -- WorkTime is between 12-60 cycles depending on skill, +/-20% is the tool influence
   -- Reduce durability at 4-20%, meaning a tool will last 500-2500 actions.
-  
+
   if (math.random(1, 100) < (workTime/3)) then
 
     local durability = math.mod(item.quality, 100);
     local quality = (item.quality - durability) / 100;
-    
+
     if (durability == 0) then
       world:erase(item, 1);
       return true;
     end
-    
+
     durability = durability - 1;
     item.quality = quality * 100 + durability;
     world:changeItem(item);
-	
-    if (durability < 10) then 
+
+    if (durability < 10) then
       InformNLS(user,
       "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
       "The tool looks like it could break soon. You should try to get a new one.");
@@ -491,8 +519,8 @@ function ToolBreaks(user, item)
         durability = durability - 1
         item.quality = quality * 100 + durability
         world:changeItem(item)
-        
-        if durability < 10 then 
+
+        if durability < 10 then
             InformNLS(user,
                 "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
                 "The tool looks like it could break soon. You should try to get a new one.")
@@ -518,7 +546,7 @@ function ItemCooldown(User,Item, dataKey, cooldownDuration)
 		return true
 	else
         return false
-    end		
+    end
 end
 
 --- Get a timestamp based on the current server time. Resolution in RL seconds.
@@ -671,15 +699,15 @@ end;
 	Searches for an item with given properties in a stack and deletes it.
 	@param PositionStruct - Position of the stack
 	@param List - A list containing the properties of the item to be deleted
-	@return boolean 
+	@return boolean
 
 ]]
 function DeleteItemFromStack(stackPosition, itemProperties)
-	
+
 	if not world:isItemOnField(stackPosition) then
 		return false
 	end
-	
+
 	local theField = world:getField(stackPosition)
 	local counter = 1
 	local foundItem = false
@@ -689,7 +717,7 @@ function DeleteItemFromStack(stackPosition, itemProperties)
 			if itemProperties.data then
 				for i=1,#itemProperties.data do
 					if not checkItem:getData(itemProperties["data"][1]["dataKey"]) == itemProperties["data"][1]["dataValue"] then
-						break 
+						break
 					end
 				end
 			end
@@ -698,11 +726,11 @@ function DeleteItemFromStack(stackPosition, itemProperties)
 	    end
 		counter = counter + 1
 	end
-	
+
 	if not foundItem then
 		return false
 	end
-	
+
 	local deletedItems = {}
 	for i=1,counter do
 		local deleteItem = world:getItemOnField(stackPosition)
@@ -716,9 +744,9 @@ function DeleteItemFromStack(stackPosition, itemProperties)
 	for i=1,#deletedItems do
 		world:createItemFromItem(deletedItems[i],stackPosition,true)
 	end
-	
+
 	return true
-	
+
 end
 
 --[[
@@ -760,7 +788,7 @@ function GetItemInInventory(User, ItemID, DataValues)
   end
   for _, item in pairs(ItemList) do
     local dataOk = true;
-    for _,d in pairs(DataValues) do 
+    for _,d in pairs(DataValues) do
       if (item:getData(d[1]) ~= d[2]) then
         dataOk = false;
         break;
@@ -789,7 +817,7 @@ function GetStiffness(Character)
 
     local Equipmentposition = {1, 3, 4, 9, 10, 11};
     local counter;
-    
+
     for counter = 1, #Equipmentposition do
 				Item = Character:getItemAt(Equipmentposition[counter]);
 				if Item and (Item.id ~= 0 ) then
@@ -798,10 +826,10 @@ function GetStiffness(Character)
                 StiffnessVal = StiffnessVal + Armor.Stiffness
 						end;
 				end;
-    
+
     end
-    
-    
+
+
     --Old system
 --[[
     if not InventoryFieds then
@@ -1157,7 +1185,7 @@ end
     Encodes a position into a value that would fit into the data value of a item
     Use DataToPosition to get the PositionStruct again
     @param PositionStruct - The position that should be encoded
-    @return table - Table containing x,y,z positions 
+    @return table - Table containing x,y,z positions
 ]]
 function PositionToData(posi)
     return {["MapPosX"]=posi.x,["MapPosY"]=posi.y,["MapPosZ"]=posi.z}
@@ -1245,7 +1273,7 @@ end
     @param str - the string which should be splitted
     @return pat - the pattern around what the string should be splittet
     example = split("hello:my:split:world",":") returns {"hello","my","split","world"}
-	
+
 	In case the pattern is only one character it is better to use string.gmatch.
 ]]
 function split(str, pat)
@@ -1338,7 +1366,7 @@ end;
 function Month_To_String(month)
 
 	MonthNames = {"Elos", "Tanos", "Zhas", "Ushos", "Siros", "Ronas", "Bras", "Eldas", "Irmas", "Malas", "Findas", "Olos", "Adras", "Naras", "Chos", "Mas"}; --List of our abstruse months
-	
+
     if (month >= 1) and (month <= 16) then --only valid months
         return MonthNames[month]; --return the month as string
     else
@@ -1438,7 +1466,7 @@ function ExtgetPlayersInRangeOf(posi, radius)
 			plyList[i] = nil;
 	    end
 	end
-	
+
 	return plyList;
 
 end
@@ -1520,7 +1548,7 @@ function GetRealDateTimeString()
 			end
 			return ""..int;
 		end
-	return timeString(year) .."-".. timeString(month) .."-".. 
+	return timeString(year) .."-".. timeString(month) .."-"..
 	timeString(day) .." | ".. timeString(hour) ..":".. timeString(minute) ..":".. timeString(second);
 end
 
@@ -1561,12 +1589,12 @@ end
 -- @return second
 function GetRealDate()
 	local timestamp = world:getTime("unix");
-	
+
 	local year, month, day, hour, minute, second, tmp;
 	year = math.floor(timestamp / 31557600) -- (365.25*24*60*60)
 	local leapDays = math.floor( (year+1) / 4 ); -- without the current year
 	timestamp = timestamp - (year*365 + leapDays)*86400; -- 24*60*60
-	
+
 	local leapYear = 0;
 	if (year % 4) == 2 then
 		leapYear = 1; -- this year is a leap year
@@ -1636,23 +1664,23 @@ end
     \brief: transforms a number list into a number sequence which can be stored for example as quest status
     \usage: list = {5,2,7,9,1};
          ListToNumber(list) returns following number: 52791
-   
-   @param NumberList - the number list that shall be transformed into a number 
+
+   @param NumberList - the number list that shall be transformed into a number
     @return result - the list as number
-   
+
     \attention: Only Lists holding elements greater 1 are allowed!
 ]]
 function ListToNumber(NumberList)
-   
+
    local result=NumberList[1];
 
    for i = 2, table.getn(NumberList) do
 
       result = result ..NumberList[i];
-      
+
 
    end
-   result = tonumber(result);    --convert the string result   into a number   
+   result = tonumber(result);    --convert the string result   into a number
    return result;
 
 end
@@ -1662,7 +1690,7 @@ end
     \brief: Shuffles the elements of a list (with consecutively number indices, no key strings!) using the modern Fisher-Yates algorithm.
     \usage: list = {5,2,7,9,1};
          list = Shuffle(list) shuffles the list and could return: list ={1,7,5,9,2}
-   
+
    @param List The list that shall be shuffled
     @return The shuffled list
 ]]
@@ -1678,8 +1706,8 @@ function Shuffle(List)
 	for i = maxIndex, minIndex+1, -1 do -- shuffle all elements
 		j = math.random(minIndex, i);
 		temp = List[i];
-		List[i] = List[j];   
-		List[j] = temp;   
+		List[i] = List[j];
+		List[j] = temp;
 	end
 	return List;
 end
@@ -1689,37 +1717,37 @@ end
     \brief: creates a random number list with AmntElements elements
     \usage: list = CreateRandomNumberList(6, 1, 4);
          returned list could hold: list = {3,1,4,2,2,4}
-   
+
    @param AmntElements - the amount of elements the list shall have
    @param minval       - the smallest value an element can have
    @param maxval       - the highest value an element can have
     @return reslist       - a list holding AmntElements elements with values between minval and maxval
 ]]
 function CreateRandomNumberList(AmntElements, minval, maxval)
-   
+
    local reslist = {};
-   
+
    for i = 1, AmntElements do
-		
+
 		reslist[i] = math.random(minval, maxval);
-   
+
 		if (reslist[i] == reslist[i-1]) then -- same number like before, try getting a new number
         reslist[i] = math.random(minval, maxval);
       end
-   
+
    end
-   
+
    return reslist;
 end
 
---[[Searches the Online List for a Player by name 
+--[[Searches the Online List for a Player by name
 	if a player was found it returns: true, Char Struct
 -- 	if not, nil]]
 
 function CheckIfOnline(playername)
 	playerlist = world:getPlayersOnline();
-		   
-	for i = 1, #(playerlist) do 
+
+	for i = 1, #(playerlist) do
 		if playerlist[i].name == playername then
 		return playerlist[i]
 		end
@@ -1734,9 +1762,9 @@ end
 function GetLeadAttributeName(Skill)
 
   if leadAttribTable==nil then
-  
+
     leadAttribTable={};
-	
+
 	--Dexterity: All crafting skills for final products and instruments (please remove these skills in future)
 	leadAttribTable[Character.tailoring]="dexterity"
 	leadAttribTable[Character.smithing]="dexterity"
@@ -1749,7 +1777,7 @@ function GetLeadAttributeName(Skill)
 	leadAttribTable[Character.horn]="dexterity"
 	leadAttribTable[Character.flute]="dexterity"
 	leadAttribTable[Character.lute]="dexterity"
-	
+
 	--Constitution: All gathering skills
 	leadAttribTable[Character.herblore]="constitution"
 	leadAttribTable[Character.mining]="constitution"
@@ -1757,16 +1785,16 @@ function GetLeadAttributeName(Skill)
 	leadAttribTable[Character.firingBricks]="constitution"
 	leadAttribTable[Character.farming]="constitution"
 	leadAttribTable[Character.woodcutting]="constitution"
-		
+
 	--Agility: Defensive fighting skills
 	leadAttribTable[Character.parry]="agility"
 	leadAttribTable[Character.heavyArmour]="agility"
 	leadAttribTable[Character.mediumArmour]="agility"
 	leadAttribTable[Character.lightArmour]="agility"
-			
+
 	--Perception: Archery
 	leadAttribTable[Character.distanceWeapons]="perception"
-		
+
 	--Strength: Offensive fighting skills
 	leadAttribTable[Character.slashingWeapons]="strength"
 	leadAttribTable[Character.wrestling]="strength"
@@ -1775,23 +1803,23 @@ function GetLeadAttributeName(Skill)
 
 	--Essence: Alchemy
 	leadAttribTable[Character.alchemy]="essence"
-		
+
 	--Intelligence: Magic
 	--No skills yet
-		
+
 	--Willpower: Priests
 	--No skills yet
-		
-	--Deactivated skills	
+
+	--Deactivated skills
 	--leadAttribTable[Character.dodge]="agility" --deactivated
 	--leadAttribTable[Character.tactics]="perception" --deactivated
 	--leadAttribTable[Character.magicResistance]="wilpower" --please reconsider once you work on magic
 	--leadAttribTable[Character.poisoning]="perception" --deactivated
-	
+
   end
-  
+
   return leadAttribTable[Skill]
-  
+
 end
 
 --- Searches in an area for an item id.
@@ -1812,14 +1840,14 @@ function GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
     OnlyWriteable = false;
   end
   for x=-Radius,Radius do
-    for y=-Radius,Radius do 
+    for y=-Radius,Radius do
       local field = world:getField(position(CenterPos.x + x, CenterPos.y + y, CenterPos.z));
       local itemCount = field:countItems();
       if (itemCount > 0) then
         if (OnlyWriteable) then
           itemCount = 1;
         end
-        for i=0,itemCount-1 do 
+        for i=0,itemCount-1 do
           local item = field:getStackItem(i);
           if (item.id == ItemId) then
 			item.pos.x = CenterPos.x + x;

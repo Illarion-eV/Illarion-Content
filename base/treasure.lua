@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Basic functions for treasure maps
 -- Useable for creating maps and finding treasures
@@ -278,7 +278,7 @@ module("base.treasure", package.seeall)
         local showMsgs = {};
         local mon;
         for i, monID in pairs(monList) do
-            newPos=getFreePos( TargetPos, 5 );
+            newPos = base.common.getFreePos( TargetPos, 5 );
 
             world:gfx(31,newPos);
             mon = world:createMonster(monID, newPos, 10);
@@ -350,19 +350,6 @@ module("base.treasure", package.seeall)
         treasureMonsters[User.id] = nil;
 
         return true;
-    end
-
-    function getFreePos( CenterPos, Rad )
-        local tarPos;
-        while true do
-            tarPos = position(CenterPos.x+math.random(-Rad,Rad),CenterPos.y+math.random(-Rad,Rad),CenterPos.z);
-            if not world:isItemOnField( tarPos ) and not world:isCharacterOnField( tarPos ) then
-                tileID = world:getField( tarPos ):tile();
-                if tileID ~= 0 and tileID ~= 5 and tileID ~= 6 and tileID~=42 and tileID ~= 43 and tileID~= 34 then --no inpassable tiles
-                    return tarPos;
-                end
-            end
-        end
     end
 
     function SpawnTreasure( level, posi )

@@ -103,7 +103,7 @@ function monster(User, SourceItem, TargetPos)
 		end
 
 		for i = 1, ammount do
-			monPos = getFreePos( TargetPos, radius );
+			monPos = base.common.getFreePos( TargetPos, radius );
 			local monster = world:createMonster(number, monPos, 20);
 			if gfxId ~= 0 then
 				world:gfx(gfxId, monPos);
@@ -247,31 +247,4 @@ function LookAtItem(User, Item)
 	base.lookat.SetSpecialDescription(Item, "Verwende die Medallie zum aufrufen der Funktionen.", "Use the medal to pick a function.");
 	base.lookat.SetSpecialName(Item, "Medaille", "Medal");
 	return base.lookat.GenerateLookAt(User, Item, base.lookat.METAL)
-end
-
-function getFreePos(CenterPos, Rad)
-	local tarPos;
-	local countPos = 0;
-	while true do
-		tarPos = position(CenterPos.x+math.random(-Rad,Rad),CenterPos.y+math.random(-Rad,Rad),CenterPos.z);
-		if not world:isItemOnField( tarPos ) and not world:isCharacterOnField( tarPos ) then
-			tileID = world:getField( tarPos ):tile();
-			if tileID ~= 0 and tileID ~= 5 and tileID ~= 6 and tileID~=42 and tileID ~= 43 and tileID~= 34 then --no inpassable tiles
-				countPos = 0;
-				return tarPos;
-			else
-				countPos = countPos +1;
-				if countPos > 50 then
-					countPos = 0;
-					return CenterPos;
-				end
-			end
-		else
-			countPos = countPos +1;
-			if countPos > 50 then
-				countPos = 0;
-				return CenterPos;
-			end
-		end
-	end
 end

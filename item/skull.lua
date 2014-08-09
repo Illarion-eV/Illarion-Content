@@ -94,7 +94,7 @@ function UseItem(User, SourceItem)
 	elseif questStep == 8 and SourceItem.pos == position(845, 464, -6) then
 		User:inform("Eine Spinne huscht aus dem Sch‰del heraus und greift dich an, nachdem sie einen groﬂen, rot gl‰nzenden Stein in dem Totensch‰del versteckt.",
 					"A spider scurries out of the skull and attacks you after pushing a bright stone that flashes red back into the skull for safekeeping.");
-		local monPos = getFreePos(SourceItem.pos, 3 ); -- radius 3 around skull
+		local monPos = base.common.getFreePos(SourceItem.pos, 3 ); -- radius 3 around skull
 		world:createMonster(223, monPos, 0); -- Giant Enforcer Spider
 		world:gfx(41, monPos); -- swirly
 		User:setQuestProgress(521, 9);
@@ -173,7 +173,7 @@ function SpawnSpider(User, skullItem)
 	local monList = {191, 192, 193, 211, 222, 262} -- Rekrap Retep, Pitservant, Tarantula, Firespider, Juvenile Gynk Spider, Soulpain
 	local monID = monList[math.random(1, #monList)];
 	for i = 1, math.random(1,2) do -- random count
-		local monPos = getFreePos(skullItem.pos, 2); -- radius 2 around skull
+		local monPos = base.common.getFreePos(skullItem.pos, 2); -- radius 2 around skull
 		world:createMonster(monID, monPos, 0);
 		world:gfx(41, monPos); -- swirly
 	end
