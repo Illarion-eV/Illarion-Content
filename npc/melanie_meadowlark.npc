@@ -91,21 +91,21 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Look at the wonderful world
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Melanie Meadowlark.", "Ich bin eine Waldläuferin namens Melanie.", "Ihr könnt mich Mel nennen, Beschützerin der Feen."
 
 -- Quest 1: gather 10 honeycombs for 500cp
-queststatus(500) = 0, english, "quest", "mission" -> inform("[New quest] Elstree Ranger I"), queststatus(500) = 1, "Help!! We need assistance in the fairy bakery.  We are short of honey, please bring me ten honeycombs."
+queststatus(500) = 0, english, "quest", "mission" -> inform("[New quest] Elstree Ranger I"), queststatus(500) = 1, "Help! We need assistance in the fairy bakery. We are short of honey, please bring me ten honeycombs."
 queststatus(500) = 0, "quest", "mission" -> inform("[Neue Quest] Elstree Waldläufer I"), queststatus(500) = 1, "Helft uns! Wir brauchen Unterstützung in der Feenbäckerei. Honig ist knapp. So bringt mir bitte zehn Honigwaben."
-queststatus(500) = 0, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger I"), queststatus(500) = 1, "Help!! We need assistance in the fairy bakery.  We are short of honey, please bring me ten honeycombs."
+queststatus(500) = 0, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger I"), queststatus(500) = 1, "Help! We need assistance in the fairy bakery. We are short of honey, please bring me ten honeycombs."
 queststatus(500) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Elstree Waldläufer I"), queststatus(500) = 1, "Helft uns! Wir brauchen Unterstützung in der Feenbäckerei. Honig ist knapp. So bringt mir bitte zehn Honigwaben."
 queststatus(500) = 1, item(2529, all) < 10, english, "quest", "mission" -> "Do you have the honeycombs yet? Without it the baking stalls, which would be horrible."
 queststatus(500) = 1, item(2529, all) < 10, "quest", "mission" -> "Habt ihr die Honigwaben schon? Ohne diese ist das Kuchenbacken unmöglich. Das wäre schrecklich."
 queststatus(500) = 1, item(2529, all) < 10, "task", "adventure", "order" -> "Do you have the honeycombs yet? Without it the baking stalls, which would be horrible."
 queststatus(500) = 1, item(2529, all) < 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Habt ihr die Honigwaben schon? Ohne diese ist das Kuchenbacken unmöglich. Das wäre schrecklich."
-queststatus(500) = 1, item(2529, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(2529, 10), queststatus(500) = 2, "Great! Now the cake baking can go ahead as scheduled.  You are rewarded five silver coins."
+queststatus(500) = 1, item(2529, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(2529, 10), queststatus(500) = 2, "Great! Now the cake baking can go ahead as scheduled. You are rewarded five silver coins."
 queststatus(500) = 1, item(2529, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(2529, 10), queststatus(500) = 2, "Großartig! Das Kuchenbacken kann jetzt weitergehen wie geplant. Du erhälst fünf Silber als Belohnung."
 
 -- Quest 2: kill 10 pigs for 1000cp (Quest was modified from kill 25, to preserve existing quest status the addition kill steps are now coded report back to Melanie.)
-queststatus(500) = 2, english, "quest", "mission" -> inform("[New quest] Elstree Ranger II"), queststatus(500) = 3, "The forest pigs are destroying the flowers!  Please be a good ranger and reduce the population by ten Elstree Forest pigs."
+queststatus(500) = 2, english, "quest", "mission" -> inform("[New quest] Elstree Ranger II"), queststatus(500) = 3, "The forest pigs are destroying the flowers! Please be a good ranger and reduce the population by ten Elstree Forest pigs."
 queststatus(500) = 2, "quest", "mission" -> inform("[Neue Quest] Elstree Waldläufer II"), queststatus(500) = 3, "Die Wildschweine machen die Blumen kaputt! Seid ein guter Wildhüter und reduziert den Bestand von Elstree Wildschweinen um zehn."
-queststatus(500) = 2, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger II"), queststatus(500) = 3, "The forest pigs are destroying the flowers!  Please be a good ranger and reduce the population by ten Elstree Forest pigs."
+queststatus(500) = 2, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger II"), queststatus(500) = 3, "The forest pigs are destroying the flowers! Please be a good ranger and reduce the population by ten Elstree Forest pigs."
 queststatus(500) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Elstree Waldläufer II"), queststatus(500) = 3, "Die Wildschweine machen die Blumen kaputt! Seid ein guter Wildhüter und reduziert den Bestand von Elstree Wildschweinen um zehn."
 queststatus(500) > 2, queststatus(500) < 12, english, "quest", "mission" -> "Have you reduced the forest pig population yet? We can't let them destroy all the flowers."
 queststatus(500) > 2, queststatus(500) < 12, "quest", "mission" -> "Habt ihr den Wildschweinbestand schon reduziert? Wir können sie nicht alle Blumen zerstören lassen."
@@ -125,13 +125,13 @@ queststatus(500) = 30, "task", "adventure", "order" -> "Have you looked over the
 queststatus(500) = 30, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Habt ihr den Altar schon kontrolliert? Etwas Seltsames geht dort vor."
 
 -- status (31) set by triggerfield
-queststatus(500) = 31, english, ".+" -> inform("[Quest solved] You are awarded an apple pie."), item(353, 1, 333), queststatus(500) = 32, "#me giggles lightly.  'Oh it seems Nargun was just playing some jokes. Thank you for checking it out.'"
+queststatus(500) = 31, english, ".+" -> inform("[Quest solved] You are awarded an apple pie."), item(353, 1, 333), queststatus(500) = 32, "#me giggles lightly. 'Oh it seems Nargun was just playing some jokes. Thank you for checking it out.'"
 queststatus(500) = 31, ".+" -> inform("[Quest gelöst] Du erhältst einen Apfelkuchen."), item(353, 1, 333), queststatus(500) = 32, "#me kichert leise. 'Oh es scheint als ob Nargun nur einen Streich im Sinne hatte. Danke dafür, dass ihr es euch angesehen habt.'"
 
 -- Quest 4: gather 20 flamegoblet blossoms for 2000cp
-queststatus(500) = 32, english, "quest", "mission" -> inform("[New quest] Elstree Ranger IV"), queststatus(500) = 33, "Oh great, you're here.  We need some flowers for the arrangements.  Please bring me twenty flamegoblet blossoms."
+queststatus(500) = 32, english, "quest", "mission" -> inform("[New quest] Elstree Ranger IV"), queststatus(500) = 33, "Oh great, you're here. We need some flowers for the arrangements. Please bring me twenty flamegoblet blossoms."
 queststatus(500) = 32, "quest", "mission" -> inform("[Neue Quest] Elstree Waldläufer IV"), queststatus(500) = 33, "Oh, gut, dass Ihr da seid! Wir brauchen Blumen für den Tischschmuck. Bitte bringt mir 20 Flammenkelchblüten."
-queststatus(500) = 32, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger IV"), queststatus(500) = 33, "Oh great, you're here.  We need some flowers for the arrangements.  Please bring me twenty flamegoblet blossoms."
+queststatus(500) = 32, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger IV"), queststatus(500) = 33, "Oh great, you're here. We need some flowers for the arrangements. Please bring me twenty flamegoblet blossoms."
 queststatus(500) = 32, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Elstree Waldläufer IV"), queststatus(500) = 33, "Oh, gut, dass Ihr da seid! Wir brauchen Blumen für den Tischschmuck. Bitte bringt mir 20 Flammenkelchblüten."
 queststatus(500) = 33, item(137, all) < 20, english, "quest", "mission" -> "Have you found enough flowers yet? We need them urgently."
 queststatus(500) = 33, item(137, all) < 20, "quest", "mission" -> "Habt Ihr schon genung Blumen gefunden? Wir brauchen sie dringend."
@@ -160,7 +160,7 @@ english, "Gobaith", "Gobiath" -> "Gobaith needed more Rangers."
 "Ranger" -> "My job is to protect the forest and its inhabitants.", "All of Ushara's creatures are under my protection.", "My job is important to the life of the forest."
 "Waldläufer" -> "Meine Aufgabe ist es, den Wald und seine Bewohner zu schützen.", "Alle Geschöpfe Usharas stehen unter meinem Schutz.", "Meine Aufgabe ist wichtig für das Leben des Waldes."
 english, "Elstree" -> "Elstree Forest is the home of the fairies.", "Many plants and animals are at home here.", "I find peace in the Elstree Forest."
-"Elstree" -> "Der Elstree Wald ist die Heimat der Feen.", "Viele Pflanzen und Tiere sind hier zu Hause.", "Ich finde Frieden im Elstree Wald."
+"Elstree" -> "Der Elsbaumwald ist die Heimat der Feen.", "Viele Pflanzen und Tiere sind hier zu Hause.", "Ich finde Frieden im Elsbaumwald."
 english, "Fairies" -> "Fairies are delightfully fun creatures."
 "Fee" -> "Feen sind herrlich lustige Kreaturen."
 english, "Flower" -> "The forest is filled with flowers that are not only pretty but useful."
