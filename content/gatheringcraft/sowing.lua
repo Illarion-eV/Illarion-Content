@@ -60,17 +60,11 @@ function StartGathering(User, SourceItem, ltstate)
 
 	content.gathering.InitGathering();
 	local farming = content.gathering.farming;
-
-	local seed = User:getItemAt(5);
-    if ( seedPlantList[seed.id] == nil ) then
-		seed = User:getItemAt(6);
-		if ( seedPlantList[seed.id] == nil ) then
-			base.common.HighInformNLS( User,
-				"Du musst das Saatgut in der Hand haben!",
-				"You have to hold the seeds in your hand!" );
-			return;
-		end
-    end
+	local seed = SourceItem
+	if seed.number < 1 then
+		User:inform("Du hast das Saatgut aufgebraucht.","You used all the seeds.")
+		return
+	end
 
 	local TargetPos = getFreeFieldPosition(User);
 	if TargetPos == nil then
@@ -150,4 +144,7 @@ function StartGathering(User, SourceItem, ltstate)
   end
 	world:createItemFromId( seedPlantList[seed.id], 1, TargetPos, true, 333 ,{["amount"] = "" .. amount});
 	world:erase( seed, 1 ); -- erase the seed
+	seed.number = seed.number - 1
+	User:changeSource(seed)
 end
+

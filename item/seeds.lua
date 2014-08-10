@@ -67,7 +67,7 @@ module("item.seeds", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
 
-	content.gatheringcraft.sowing.StartGathering(User, nil, ltstate);
+	content.gatheringcraft.sowing.StartGathering(User, SourceItem, ltstate);
 end
 
 
