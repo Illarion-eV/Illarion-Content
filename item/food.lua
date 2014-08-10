@@ -96,6 +96,7 @@ FoodList:add(2493,	 VALUE_LARGE,	   0); -- carrots
 FoodList:add(1149,	 VALUE_SMALL,	   0); -- brown egg
 FoodList:add(1150,	 VALUE_SMALL,	   0); -- white egg
 FoodList:add(1207,	 VALUE_LARGE,	   0); -- orange
+FoodList:add(3567,	 VALUE_MEDIUM,	   0); -- potato
 
 -- Racial Food
 FoodList:add(  73,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,true,false,true,true,true,true}); -- trout (lizard)
@@ -105,7 +106,8 @@ FoodList:add( 552,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true
 FoodList:add( 553,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- rabbit meat (orc)
 FoodList:add(2934,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- lamb meat (orc)
 FoodList:add(1151,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- chicken meat (orc)
-
+FoodList:add(1209,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,true,false,true,true,true,true}); -- horse mackerel (lizard)
+FoodList:add(1210,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,true,false,true,true,true,true}); -- rose fish (lizard)
 -- Simple Food
 FoodList:add( 306,	 VALUE_XLARGE,	   0); -- ham
 FoodList:add( 455,	 VALUE_XLARGE,	   0); -- smoked fish
@@ -136,6 +138,7 @@ FoodList:add(1152,	nil,	2935,	 2,	{1,1,1,1,0.5,1,1,1,1,1}); -- chicken soup
 FoodList:add(1153,	nil,	   0,	 3,	{1,1,2,1,0.5,0.5,1,2,1,1}); -- custard pie
 FoodList:add(1154,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- egg dish
 FoodList:add(1155,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- chicken dish
+FoodList:add( 3568,	nil,	   0,	 1,	{1,1,1,1,1,1,1,1,1,1}); -- Baked potato
 
 -- Poisoned Food
 FoodList:add( 162,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 600); -- birth mushroom
@@ -178,7 +181,7 @@ function UseItem(User, SourceItem, ltstate)
 	    alchemy.base.herbs.UseItem(User, SourceItem, ltstate)
 		return
 	end
-	
+
 	--check for special eggs
 	if content.specialeggs.checkSpecialEgg(SourceItem, User) then
 		return

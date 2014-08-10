@@ -124,9 +124,10 @@ function onDeath(Monster)
 
     if (MonID==241 or MonID==251 or MonID==252 or MonID==253) then --pig
 
+        monster.base.drop.AddDropItem(69,1,100,333,0,1); --leather
         monster.base.drop.AddDropItem(63,1,50,333,0,2); --entrails
         monster.base.drop.AddDropItem(307,1,50,333,0,3); --pork
-        monster.base.drop.AddDropItem(69,1,100,333,0,1); --leather
+
 
     end
     monster.base.drop.Dropping(Monster);

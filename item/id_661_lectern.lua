@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
 require("base.lookat")
@@ -32,5 +32,5 @@ function LookAtItem(User, Item)
 	if Item.pos == position(138, 551, 0) or Item.pos == position(358, 217, 0) or Item.pos == position(896, 761, 1) then
 		base.lookat.SetSpecialDescription(Item, "Rangliste der Entdeckergilde.", "Ranklist of the explorer guild");
 	end
-	return lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end

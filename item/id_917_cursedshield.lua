@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script = 'item.id_917_cursedshield' WHERE com_itemid = 917;
 
@@ -24,52 +24,34 @@ require("item.general.checks")
 module("item.id_917_cursedshield", package.seeall, package.seeall(item.general.metal))
 
 
-
-function MoveItemBeforeMove(User,SourceItem,TargetItem)
-
-	if TargetItem:getType() == 4 then --inventory, not belt
-	
-		return item.general.checks.checkLevel(User,SourceItem);
-		
-	else
-	
-		return true;
-		
-	end
-	
-	return true; --just in case
-end
-
-
-
 function MoveItemBeforeMove( User, SourceItem, TargetItem )
 
 	if TargetItem:getType() == 4 then --inventory, not belt
-	
+
 		return item.general.checks.checkLevel(User,SourceItem);
-		
+
 	else
-	
+
 		-- if shield was purified, then no possibility of curse
 		if ( tonumber(SourceItem:getData("cursedShield")) == 1 ) then return true; end;
-    
+
 		-- if the shield is cursed, make it impossible to unequip
 		if ( tonumber(SourceItem:getData("cursedShield")) == 2 ) and ( ( SourceItem.itempos == 5 ) or ( SourceItem.itempos == 6 ) ) then
-	
+
 			-- if successfully removed
 			if ( math.random( 2000 ) <= User:increaseAttrib( "willpower", 0 ) * 4 ) then
 				base.common.InformNLS( User, "Mit deinem starken Willen und Ausdauer schaffst du es, das verfluchte Schild von deiner Hand zu lösen.", "With a strong will and perseverance, you manage to detach the cursed shield from your hand." )
 				return true;
 			end;
-		
+
 			-- else unable to remove shield
-		
+
 			base.common.InformNLS( User, "Eine dunkle Energie scheint dich daran zu hindern das Schild loszulassen.", "Some kind of dark energy seems to prohibit you from releasing the shield." );
 			return false;
 		end;
-		
+
     end;
-    
+
     return true;
 end;
 
@@ -80,7 +62,7 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
         local curseChance = math.random( 5 + User:increaseAttrib( "essence", 0 ) + math.floor( User:getSkill(Character.magicResistance) / 5 ) );
         -- if shield curse had already been effected, but user managed to remove it
         if ( tonumber(SourceItem:getData("cursedShield")) == 2 ) then curseChance = 1; end;
-        
+
         if ( curseChance == 1 ) then
             TargetItem:setData("cursedShield",2);
             world:changeItem( TargetItem );
@@ -88,10 +70,10 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
             return true;
         end;
     end;
-    
+
     return true;
 end;
 
 function LookAtItem(User,Item)
-    item.general.metal.LookAtItem(User,Item)
+    return item.general.metal.LookAtItem(User,Item)
 end

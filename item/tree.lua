@@ -51,8 +51,8 @@ end
 function LookAtItem(User,Item)
     -- alchemy stuff
 	if Item.pos == position(432,238,0) then
-		alchemy.base.teacher.LookAtItem(User, Item)
-		return
+		return alchemy.base.teacher.LookAtItem(User, Item)
+
 	end
 	-- alchemy end
 

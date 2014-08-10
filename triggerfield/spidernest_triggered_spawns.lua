@@ -184,7 +184,7 @@ function MoveToField(User)
             base.common.InformNLS(User,messageG[1],messageE[1]); --sending a message
 
 			for i = 1, math.random(3,9) do -- random count
-				local monPos = getFreePos( waypoint[theWaypoint], 3 ); -- radius 3 around triggerfile
+				local monPos = base.common.getFreePos( waypoint[theWaypoint], 3 ); -- radius 3 around triggerfile
 				world:createMonster(196, monPos, 0); -- small spider
 				world:gfx(41, monPos); -- swirly
 			end
@@ -194,7 +194,7 @@ function MoveToField(User)
             base.common.InformNLS(User,messageG[2],messageE[2]); --sending a message
 
 			local monList = {191,192,262,231} -- Rekrap, Pitservant, Soulpain, Kingsfright
-			local monPos = getFreePos( waypoint[theWaypoint], 2 ); -- radius 2 around triggerfield
+			local monPos = base.common.getFreePos( waypoint[theWaypoint], 2 ); -- radius 2 around triggerfield
 			world:createMonster(monList[math.random(1, #monList)], monPos, 0); -- 1 random spider of our list
 			world:gfx(41, monPos); -- swirly
 
@@ -211,32 +211,4 @@ function MoveToField(User)
 
 end --function
 
-
-
-function getFreePos(CenterPos, Rad)
-	local tarPos;
-	local countPos = 0;
-	while true do
-		tarPos = position(CenterPos.x+math.random(-Rad,Rad),CenterPos.y+math.random(-Rad,Rad),CenterPos.z);
-		if not world:isItemOnField( tarPos ) and not world:isCharacterOnField( tarPos ) then
-			tileID = world:getField( tarPos ):tile();
-			if tileID ~= 0 and tileID ~= 5 and tileID ~= 6 and tileID~=42 and tileID ~= 43 and tileID~= 34 then --no inpassable tiles
-				countPos = 0;
-				return tarPos;
-			else
-				countPos = countPos +1;
-				if countPos > 50 then
-					countPos = 0;
-					return CenterPos;
-				end
-			end
-		else
-			countPos = countPos +1;
-			if countPos > 50 then
-				countPos = 0;
-				return CenterPos;
-			end
-		end
-	end
-end
 

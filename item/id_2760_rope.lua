@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE common SET com_script='item.id_2760_rope' WHERE com_itemid=2760;
 
 require("base.common")
+require("content.climbing")
 require("item.general.cloth")
 require("lte.tying_capturer")
 
@@ -52,37 +53,8 @@ function UseItem(User, SourceItem, ltstate)
 		return;
 	end
 
-	-- noone infront... perhaps climb down a well then.
-	local TargetItem = base.common.GetFrontItem(User);
-
-	if TargetItem ~= nil and ( TargetItem.id == 2207 ) then
-
-		if (TargetItem.pos == position(528, 555, 0)) then --maze
-			User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
-			User:warp(position(518, 559, -3));
-		elseif (TargetItem.pos == position(105, 600, 0)) then --Cadomyr
-			User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
-			User:warp(position(106, 582, -6));
-		elseif (TargetItem.pos == position(359, 273, 0)) then --Galmair
-			User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
-			User:warp(position(359, 481, -6));
-		elseif (TargetItem.pos == position(849, 841, 0)) then --Runewick
-			User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
-			User:warp(position(838, 823, -3));
-		else
-			base.common.InformNLS( User,
-				"Das Wasser steht recht hoch im Brunnen. Hier hinein zu klettern bringt nichts.",
-				"The water is rather high in the well. To climb in here is useless.");
-		end
-	end
-
-	-- ... or perhaps climb down a hole.
-	if TargetItem ~= nil and ( TargetItem.id == 1206 ) then
-		if (TargetItem.pos == position(854, 414, 0)) then
-			User:talk(Character.say, "#me klettert an einem Seil in das dunkle Loch hinab.", "#me climbs down into the dark hole on a rope.")
-			User:warp(position(925, 518, -6));
-		end
-	end
+	-- noone infront ... perhaps climb down a well then or perhaps climb down a hole.
+	content.climbing.climbDown(User);
 end
 
 function MoveItemBeforeMove( User, SourceItem, TargetItem )
