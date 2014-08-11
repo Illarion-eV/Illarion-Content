@@ -139,8 +139,8 @@ function GatheringCraft:FindRandomItem(User)
 	if (table.getn(self.Monsters) > 0) then
 		local ra = math.random(table.getn(self.Monsters));
 		local pa = math.random();
-		if(pa < self.Monsters[ra].Probability*self.FastActionFactor) then
-			local TargetPos = base.common.GetFrontPosition(User);
+		if--[[(pa < self.Monsters[ra].Probability*self.FastActionFactor)]] true == true then
+			local TargetPos = getSpawnPosition(User)
 			world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
 			if ( self.Monsters[ra].GFX ~= nil ) then
 				world:gfx(self.Monsters[ra].GFX, TargetPos);
@@ -184,6 +184,24 @@ function GatheringCraft:FindRandomItem(User)
 
 	end
 	return false;
+end
+
+function getSpawnPosition(User)
+
+	local TargetPos = base.common.GetFrontPosition(User);
+	local theField = world:getField(TargetPos)
+	if theField:isPassable() == false or world:isCharacterOnField(TargetPos) == true then
+		for i=-1,1 do
+			for j=-1,1 do
+				local checkPosition = position(TargetPos.x+i,TargetPos.y+j,TargetPos.z)
+				local theField = world:getField(checkPosition)
+				if theField:isPassable() == true or world:isCharacterOnField(TargetPos) == false then
+					return checkPosition
+				end
+			end
+		end
+	end
+	return TargetPos
 end
 
 -- Generate working time for gathering actions
