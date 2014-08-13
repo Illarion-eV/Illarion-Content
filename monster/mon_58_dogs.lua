@@ -24,6 +24,7 @@ require("monster.base.kills")
 require("monster.base.lookat")
 require("monster.base.monstermagic")
 require("monster.base.quests")
+require("alchemy.teaching.transformation_dog")
 
 module("monster.mon_58_dogs", package.seeall)
 
@@ -39,6 +40,14 @@ function ini(Monster)
     msgs:addMessage("#me bellt.", "#me barks.");
     msgs:addMessage("#me fletscht die Zähne.", "#me bares its teeth.");
     msgs:addMessage("#me knurrt.", "#me growls.");
+end
+
+function abortRoute(dog)
+
+	local MonType = dog:getMonsterType();
+	if MonType == 584 and alchemy.teaching.transformation_dog.DOG_ID == dog.id then
+		alchemy.teaching.transformation_dog.DogTransformationAbortRoute(dog)
+	end
 end
 
 function onSpawn(Monster)
@@ -119,6 +128,10 @@ function onDeath(Monster)
 
         end
     end
+	
+	if monster.base.base.checkNoDrop(Monster) then
+		return
+	end
 
     monster.base.drop.ClearDropping();
     local MonID = Monster:getMonsterType();

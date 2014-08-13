@@ -72,7 +72,7 @@ ListHairFemale[4] = {1,7,8}
 ListHairFemale[5] = {1,2,3,4,5,6}
 
 function DrinkPotion(User,SourceItem)
-    User:inform("drinkPotion")
+    
     potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
     
 	if potionEffectId == 0 or potionEffectId == nil  then -- no effect	
@@ -81,13 +81,13 @@ function DrinkPotion(User,SourceItem)
 	    return
     
 	elseif (potionEffectId >= 500)--[[(potionEffectId > 0)]] and (potionEffectId < 599) then -- transformation potion
-	    -- MONSTER DEACTIVATED!!! no runnig graphics = no shape shifter potions
+	    
+		if potionEffectId == 560 then
+			dogTransformation(User,SourceItem)
+			return
+		end
 		
-		--[[if (potionEffectId < 200) then -- monsters, everything which is not a playable race
-		    -- new apperance
-			newRace = potionEffectId -- the potionEffectId is the race id, there fore we can use this one
-			isMonster = 1]]
-		
+		local duration = math.floor(SourceItem.quality/100)*10 -- effect is called every minute. quality 1 = 10 minutes; quality 9 = 90
 		-- new apperance
 		local newSex = potionEffectId - ((math.floor(potionEffectId/10))*10) -- example 551: race id 5 (lizard), sex 1 (female)
 		local newRace = math.floor(((potionEffectId - newSex - 500)/10))
@@ -100,18 +100,15 @@ function DrinkPotion(User,SourceItem)
 	    local oldHair = User:getHair()
 	    local oldBeard = User:getBeard()
 	    local oldHeight = User:increaseAttrib("body_height",0)
-		User:inform("check 1")
 		-- check if there is already a an effect
 		local  find, myEffect = User.effects:find(329)
 		local findOldRace, findOldHeight
 		if find then
-		    User:inform("check 2")
-			local  findNewRace, LteNewRace = myEffect:findValue("newRace")
+		    local  findNewRace, LteNewRace = myEffect:findValue("newRace")
 			local findCounter,counterBlack = myEffect:findValue("counterBlack")
 			if findNewRace then
 				if LteNewRace == newRace then
 					User:inform("LteNewRace == newRace")
-					local duration = 3 -- to be replaced with a formula with the potion's quality being the changeabale varibale
 					if duration > counterBlack then -- same transformation, but the new potion will last longer
 						myEffect:addValue("counterBlack",duration)
 					    return
@@ -214,13 +211,98 @@ function DrinkPotion(User,SourceItem)
 		  User:increaseAttrib("hitpoints",10)
 
 		  -- duration depends on the potion's quality
-		 local duration = math.floor(SourceItem.quality/100)*10 -- effect is called every minute. quality 1 = 10 minutes; quality 9 = 90
-		  myEffect:addValue("counterBlack",duration)
+		 myEffect:addValue("counterBlack",duration)
 		  User.effects:addEffect(myEffect)
         end
 	end
 end
 
+function dogTransformation(User,SourceItem)
+
+	local oldRace = User:getRace()
+	local oldSkincolor1,oldSkincolor2,oldSkincolor3 = User:getSkinColor()
+	local oldHaircolor1,oldHaircolor2,oldHaircolor3 = User:getHairColor()
+	local oldSex = User:increaseAttrib("sex",0)
+	local oldHair = User:getHair()
+	local oldBeard = User:getBeard()
+	local oldHeight = User:increaseAttrib("body_height",0)
+	
+	local duration = math.floor(SourceItem.quality/100)*10 -- effect is called every minute. quality 1 = 10 minutes; quality 9 = 90
+	
+	-- check if there is already a an effect
+	local  find, myEffect = User.effects:find(329)
+	local findOldRace, findOldHeight
+	if find then
+		local  findNewRace, LteNewRace = myEffect:findValue("newRace")
+		local findCounter,counterBlack = myEffect:findValue("counterBlack")
+		if findNewRace then
+			if LteNewRace == newRace then
+				User:inform("LteNewRace == newRace")
+				if duration > counterBlack then -- same transformation, but the new potion will last longer
+					myEffect:addValue("counterBlack",duration)
+					return
+				end
+			else -- not the same transformation; we need to get the old apperance values from the LTE
+				findOldSkincolor1, oldSkincolor1 = myEffect:findValue("oldSkincolor1")
+				findOldSkincolor2, oldSkincolor2 = myEffect:findValue("oldSkincolor2")
+				findOldSkincolor3, oldSkincolor3 = myEffect:findValue("oldSkincolor3")
+				findOldHaircolor1, oldHaircolor1 = myEffect:findValue("oldHaircolor1")
+				findOldHaircolor2, oldHaircolor2 = myEffect:findValue("oldHaircolor2")
+				findOldHaircolor3, oldHaircolor3 = myEffect:findValue("oldHaircolor3")
+				findOldHair, oldHair = myEffect:findValue("oldHair")
+				findOldBeard, oldBeard = myEffect:findValue("oldBeard")
+				findOldSex, oldSex = myEffect:findValue("oldSex")
+				
+				findOldRace, oldRace = myEffect:findValue("oldRace")
+				findOldHeight, oldHeight = myEffect:findValue("oldHeight")
+				-- and remove the old effect
+				local effectRemoved = User.effects:removeEffect(329)
+				if not effectRemoved then
+					base.common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. black bottle script", "Error: inform dev. Lte not removed. black bottle script.")
+					return
+				end	
+			end
+		end
+	end
+	
+	local newRace = 58
+	local newHeight = Random.uniform(80,120)
+	local newSkincolor1 = 102
+	local newSkincolor2 = 51
+	local newSkincolor3 = 0
+	
+	-- LTE and transformation
+	local find, myEffect = User.effects:find(329)
+	if not find then
+		local myEffect = LongTimeEffect(329,1)
+		myEffect:addValue("oldSex",oldSex)
+		myEffect:addValue("oldHair",oldHair)
+		myEffect:addValue("oldBeard",oldBeard)
+		myEffect:addValue("oldSkincolor1",oldSkincolor1)
+		myEffect:addValue("oldSkincolor2",oldSkincolor2)
+		myEffect:addValue("oldSkincolor3",oldSkincolor3)
+		myEffect:addValue("oldHaircolor1",oldHaircolor1)
+		myEffect:addValue("oldHaircolor2",oldHaircolor2)
+		myEffect:addValue("oldHaircolor3",oldHaircolor3)
+		myEffect:addValue("oldRace",oldRace)
+		myEffect:addValue("oldHeight",oldHeight)
+		myEffect:addValue("newRace",newRace)
+		myEffect:addValue("newHeight",newHeight)
+		myEffect:addValue("newSkincolor1",newSkincolor1)
+		myEffect:addValue("newSkincolor2",newSkincolor2)
+		myEffect:addValue("newSkincolor3",newSkincolor3)
+		
+		User:setSkinColor(newSkincolor1,newSkincolor2,newSkincolor3)
+		User:setRace(newRace)
+		User:setAttrib("body_height",newHeight)
+	  
+		-- duration depends on the potion's quality
+		myEffect:addValue("counterBlack",duration)
+		User.effects:addEffect(myEffect)
+	end
+
+
+end
 
 function UseItem(User, SourceItem, ltstate)
     -- repair potion in case it's broken

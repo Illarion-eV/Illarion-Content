@@ -43,6 +43,7 @@ require("base.common")
 require("base.treasure")
 require("content.gatheringcraft.mining")
 require("item.general.metal")
+require("alchemy.teaching.transformation_dog")
 
 module("item.id_2763_pickaxe", package.seeall)
 
@@ -62,6 +63,11 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+	
+	-- check for alchemy scroll
+	if alchemy.teaching.transformation_dog.DigForTeachingScroll(User) then
 		return
 	end
 

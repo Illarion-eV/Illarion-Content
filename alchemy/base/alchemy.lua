@@ -203,6 +203,8 @@ function InitPotions()
 	setPotion(550, 449, 23417592, 766, 161, 760, 767, false, false, false, false)
 	potionName[551] = {"Shape Shifter Female Echsenmensch","Verwandler Weiblicher Echsenmensch"}
 	setPotion(551, 449, 23417592, 766, 162, 760, 767, false, false, false, false)
+	potionName[560] = {"Shape Shifter Dog","Verwandler Hund"}
+	setPotion(560, 449, 31397191, 766, 152, 81, 81, 762, false, false, false)
 -- transformation potions end
 
 --language potions

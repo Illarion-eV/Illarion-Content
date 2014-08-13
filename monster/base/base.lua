@@ -33,3 +33,55 @@ function isMonsterInRange(monster, target)
 
 	return false;
 end
+
+noDropList = {}
+-- Saves a monster as one that should not drop
+function setNoDrop(theMonster)
+
+	noDropList[theMonster.id] = true
+
+end
+
+-- Check if the the monster is in the noDropList
+-- set keepInList to true in case it should stay in the list (e.g. if it hasn't died yet)
+function checkNoDrop(theMonster, keepInList)
+	
+	if noDropList[theMonster.id] then
+		if not keepInList then
+			noDropList[theMonster.id] = nil
+		end
+		return true
+	end
+	return false
+end
+
+unattackableList = {}
+function setUnattackability(theMonster,messageGerman, messageEnglish)
+	
+	unattackableList[theMonster.id] = {}
+	unattackableList[theMonster.id]["messageGerman"] = messageGerman
+	unattackableList[theMonster.id]["messageEnglish"] = messageEnglish
+
+end
+
+function checkUnattackability(theMonster, attacker)
+	
+	if unattackableList[theMonster.id] then
+		if attacker and unattackableList[theMonster.id]["messageGerman"] and unattackableList[theMonster.id]["messageEnglish"] then
+			local currentTime = world:getTime("unix")
+			if (not unattackableList[theMonster.id][attacker.id]) or currentTime - unattackableList[theMonster.id][attacker.id] > 9 then
+				attacker:inform(unattackableList[theMonster.id]["messageGerman"],unattackableList[theMonster.id]["messageEnglish"])
+				unattackableList[theMonster.id][attacker.id] = currentTime
+			end
+		end
+		return true
+	end
+	return false
+end
+
+-- That function should awalys be called when an unattackable monster dies, in order to clean up the list
+function removeUnattackability(theMonster)
+
+	unattackableList[theMonster.id] = nil
+
+end

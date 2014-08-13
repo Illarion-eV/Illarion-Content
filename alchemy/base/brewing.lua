@@ -23,6 +23,7 @@ require("base.common")
 require("alchemy.base.alchemy")
 require("alchemy.base.herbs")
 require("alchemy.base.gemdust")
+require("alchemy.teaching.transformation_dog")
 
 module("alchemy.base.brewing", package.seeall)
 
@@ -38,4 +39,12 @@ function UseItem(User, SourceItem, ltstate)
 	elseif isGemDust then
 	    alchemy.base.gemdust.UseItem(User, SourceItem, ltstate)
 	end
-end	
+end
+
+function LookAtItem(User, Item)
+
+	if Item.id == 140 and Item:getData("teachDogTransformationPotion") ~= "" then
+		return alchemy.teaching.transformation_dog.LookAtDonfbladeMap(User, Item)
+	end
+	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+end
