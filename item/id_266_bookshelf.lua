@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='item.id_266_bookshelf' WHERE com_itemid IN (266, 267);
 
@@ -180,7 +180,7 @@ addBook(H_EVERGREEN, "Geschichte der Evergreen Halflings", "History of the Everg
 addBook(REIGN_AKALTUT, "Die Herrschaft Akaltuts: Tagebuch eines ahnungslosen Lehrlings", "The Reign of Akaltut: Diary of a Naive Apprentice", 2604)
 addBook(SLIMES, "Schleim: Ein kurzer Abriss", "Slimes: A brief history", 115)
 addBook(FRIEND_NEED, "Ein Freund in Not", "A Friend in Need", 3110)
-addBook(ABOMINATION_RUNS_HIDES, "Eine Scheußlichkeit rennt und versteckt sich", "An Abomination Runs and Hides". 3110)
+addBook(ABOMINATION_RUNS_HIDES, "Eine Scheußlichkeit rennt und versteckt sich", "An Abomination Runs and Hides", 3110)
 addBook(C_ORDER_1, "Befehl 04. Findos 38 n.VdH", "Order 04. Findos 38 AW", 3114)
 addBook(C_SPEECH_321105, "Rede 05. Findos 38 n.VdH", "Speech 04. Findos 38 AW", 3114)
 addBook(PARCH_LONGO, "Eine Nachricht", "A note", 3115)
@@ -292,8 +292,8 @@ addBookshelf(position(237, 109, 0), {C_ORDER_1, C_SPEECH_321105, PARCH_LONGO, TR
 
 function LookAtItem(user, item)
     local lookAt = base.lookat.GenerateLookAt(user, item)
-    
-    if item:getType() == scriptItem.field then 
+
+    if item:getType() == scriptItem.field then
         local pos = item.pos
         local bookshelf = getBookshelf(pos)
 
@@ -304,10 +304,10 @@ function LookAtItem(user, item)
                 lookAt.description = base.common.GetNLS(user, "Dieses Regal ist leer.", "This bookshelf is empty.")
             elseif bookCount == 1 then
                 lookAt.description = base.common.GetNLS(user, "Hier steht ein einzelnes Buch:", "There is one single book:")
-                lookAt.description = lookAt.description .. "\n" .. base.common.GetNLS(user, books[bookshelf[1]].german, books[bookshelf[1]].english) 
+                lookAt.description = lookAt.description .. "\n" .. base.common.GetNLS(user, books[bookshelf[1]].german, books[bookshelf[1]].english)
             else
                 lookAt.description = base.common.GetNLS(user, "Hier stehen " .. bookCount .. " Bücher:", "There are " .. bookCount .. " books here:")
-                
+
                 for i=1, bookCount do
                     lookAt.description = lookAt.description .. "\n" .. base.common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english)
                 end
@@ -330,7 +330,7 @@ function UseItem(user, item, target, counter, param, ltstate)
 
     if bookshelf then
         local bookCount = #bookshelf
-        
+
         if bookCount == 1 then
             user:sendBook(bookshelf[1])
         elseif bookCount > 1 then
@@ -342,15 +342,15 @@ function UseItem(user, item, target, counter, param, ltstate)
                     user:sendBook(bookshelf[selected])
                 end
             end
-            
+
             local title = base.common.GetNLS(user, "Bücherregal", "Bookshelf")
             local description = base.common.GetNLS(user, "Welches Buch möchtest du lesen?", "Which book do you want to read?")
             local dialog = SelectionDialog(title, description, callback)
-            
+
             for i=1, bookCount do
                 dialog:addOption(books[bookshelf[i]].graphic, base.common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english))
             end
-            
+
             user:requestSelectionDialog(dialog)
         end
     end
