@@ -79,6 +79,10 @@ TALES_TRAVELLER = 327
 TIHGARACS_COMBAT = 328
 EPOS_IGNIS = 329
 H_EVERGREEN = 330
+REIGN_AKALTUT = 331
+SLIMES = 332
+FRIEND_NEED = 333
+ABOMINATION_RUNS_HIDES = 334
 C_ORDER_1 = 501
 C_SPEECH_321105 = 502
 PARCH_LONGO = 503
@@ -173,6 +177,10 @@ addBook(TALES_TRAVELLER, "Geschichten eines Reisenden", "Tales of a traveller", 
 addBook(TIHGARACS_COMBAT, "Buch der Kampfeskunst", "Book of Combat", 110)
 addBook(EPOS_IGNIS, "Epos Ignis", "Epos Ignis", 2605)
 addBook(H_EVERGREEN, "Geschichte der Evergreen Halflings", "History of the Evergreen Halflings", 2608)
+addBook(REIGN_AKALTUT, "Die Herrschaft Akaltuts: Tagebuch eines ahnungslosen Lehrlings", "The Reign of Akaltut: Diary of a Naive Apprentice", 2604)
+addBook(SLIMES, "Schleim: Ein kurzer Abriss", "Slimes: A brief history", 115)
+addBook(FRIEND_NEED, "Ein Freund in Not", "A Friend in Need", 3110)
+addBook(ABOMINATION_RUNS_HIDES, "Eine Scheuﬂlichkeit rennt und versteckt sich", "An Abomination Runs and Hides". 3110)
 addBook(C_ORDER_1, "Befehl 04. Findos 38 n.VdH", "Order 04. Findos 38 AW", 3114)
 addBook(C_SPEECH_321105, "Rede 05. Findos 38 n.VdH", "Speech 04. Findos 38 AW", 3114)
 addBook(PARCH_LONGO, "Eine Nachricht", "A note", 3115)
@@ -221,7 +229,7 @@ addBookshelf(position(390, 238, 0), {GALMAIR_ON_G})
 addBookshelf(position(390, 236, 0), {GALMAIR_ON_R})
 addBookshelf(position(403, 259, 0), {GODS2, CHRONICLES_GALMAIR})
 addBookshelf(position(405, 259, 0), {ALCHEMY, GLORI_IRMOROM})
-addBookshelf(position(407, 259, 0), {GALMAIR_ON_C, GALMAIR_ON_G, GALMAIR_ON_R, C_DWARF})
+addBookshelf(position(407, 259, 0), {GALMAIR_ON_C, GALMAIR_ON_G, GALMAIR_ON_R, C_DWARF,SLIMES})
 addBookshelf(position(412, 289, 0), {GALMAIR_ON_G, GALMAIR_ON_C})
 addBookshelf(position(698, 311, 0), {CALENDAR, BLUMFUSSENS})
 addBookshelf(position(698, 319, 0), {JOKES, ALCHEMY, WALLERY_BANK})
