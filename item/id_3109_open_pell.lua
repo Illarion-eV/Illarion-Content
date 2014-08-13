@@ -343,6 +343,11 @@ function RecipeInform( User, SourceItem)
 end
 
 function UseItem(User, SourceItem, ltstate)
+
+	if SourceItem:getData("teachDogTransformationPotion") == "true" then
+		dogScroll(User, SourceItem)
+		return
+	end
     
 	if (SourceItem:getType()~=3) then -- no map item
 	    return
@@ -355,6 +360,55 @@ function UseItem(User, SourceItem, ltstate)
 	    RecipeInform( User, SourceItem)
 	end	
 	
+end
+
+function dogScroll(User, SourceItem)
+
+	if not alchemy.base.alchemy.CheckIfAlchemist(User) or tonumber(SourceItem:getData("learnerId")) ~= User.id then
+		User:inform("Du kannst den Inhalt nicht entziffern. Es sind nur unverständliche Symbole.","You cannot read the scroll. There are only some symbols you don't understand.")
+		return
+	end
+
+	TellRecipe(User, 560)
+end
+
+function TellRecipe(User, effectId)
+    local ingredientList = alchemy.base.alchemy.getIngredients(effectId)
+	local recipeEN = "Potion: "..alchemy.base.alchemy.potionName[effectId][1].."\n\nComponents:\nStock:\n"
+	local recipeDE = "Trank: "..alchemy.base.alchemy.potionName[effectId][2].."\n\nKomponenten:\nSud:\n"
+	local dataZList = alchemy.base.alchemy.SplitData(User,ingredientList[2])
+	for i=1,8 do
+	    recipeEN = recipeEN..alchemy.base.alchemy.wirkung_en[dataZList[i]].." "..alchemy.base.alchemy.wirkstoff[i].."\n"
+		recipeDE = recipeDE..alchemy.base.alchemy.wirkung_de[dataZList[i]].." "..alchemy.base.alchemy.wirkstoff[i].."\n"
+	end
+	recipeEN = recipeEN.."\nEssence brew based on "..world:getItemName(ingredientList[1],Player.english)..":\n"
+	recipeDE = recipeDE.."\nEssenzgebräu auf "..world:getItemName(ingredientList[1],Player.german).."basis:\n"
+    local success = false
+	for i=3,10 do
+	    if ingredientList[i] == false then
+		    break
+		else
+            success = true
+            recipeEN = recipeEN..world:getItemName(ingredientList[i],Player.english).."\n"
+ 			recipeDE = recipeDE..world:getItemName(ingredientList[i],Player.german).."\n"
+		end
+	end
+    if not success then
+        recipeEN = recipeEN.."No essecned herbs" 
+        recipeDE = recipeDE.."Keine essenzierten Kräuter"
+    end
+
+    if recipeDE and recipeEN then 
+		-- message box for the results
+		local callback = function(dialog) end
+		if User:getPlayerLanguage() == 0 then
+			dialog = MessageDialog("Erlerntes Rezept", recipeDE, callback)
+		else
+			dialog = MessageDialog("Learned Recipe" , recipeEN, callback)
+		end
+		User:requestMessageDialog(dialog)
+	end	
+	    
 end
 
 function LookAtItem(User, Item)

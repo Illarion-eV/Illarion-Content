@@ -14,8 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-
+-- Tree Script
+-- Envi
 require("base.common")
+require("alchemy.teaching.transformation_dog")
 
 module("item.grave", package.seeall)
 
@@ -25,6 +27,11 @@ module("item.grave", package.seeall)
 graveItemNumbers={337,519,520,521}
 
 function LookAtItem(User, Item)
+	
+	if Item:getData("teachDogTransformationPotion") == "true" then
+		return alchemy.teaching.transformation_dog.LookAtGrave(User,Item)
+	end
+	
     return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end
 
@@ -42,6 +49,11 @@ gemsAlreadyFound[2]={284,329,481,526}
 gemsAlreadyFound[3]={45,242,329,526}
 
 function UseItem(User, SourceItem)
+
+	if SourceItem:getData("teachDogTransformationPotion") == "true" then
+		alchemy.teaching.transformation_dog.UseGrave(User, SourceItem)
+		return
+	end
 
 	local foundSource
 	-- check for grave
@@ -79,5 +91,3 @@ function UseItem(User, SourceItem)
 		end
 	end
 end
-
-

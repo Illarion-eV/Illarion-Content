@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 require("base.common")
 require("base.treasure")
+require("alchemy.teaching.transformation_dog")
 require("content.gatheringcraft.claydigging")
 require("content.gatheringcraft.sanddigging")
 require("item.general.metal")
@@ -60,6 +61,11 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+	
+	-- check for alchemy scroll
+	if alchemy.teaching.transformation_dog.DigForTeachingScroll(User) then
 		return
 	end
 

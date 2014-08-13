@@ -69,6 +69,9 @@ require("lte.chr_reg");
 -- for gem bonus
 require("base.gems")
 
+-- for checking for unattackable monsters
+require("monster.base.base")
+
 module("server.standardfighting", package.seeall)
 
 firstTimeList = {}
@@ -167,6 +170,9 @@ function onAttack(Attacker, Defender)
 
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
+	
+	-- unattackable monsters shall not be attacked
+	if monster.base.base.checkUnattackability(Defender.Char, Attacker.Char) then return false end
 
     -- Load the weapons of the attacker
     LoadWeapons(Attacker);

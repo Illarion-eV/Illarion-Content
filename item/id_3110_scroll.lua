@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
 require("base.factions")
+require("alchemy.teaching.transformation_dog")
 
 module("item.id_3110_scroll", package.seeall)
 
@@ -28,6 +29,11 @@ function LookAtItem(User,Item)
 end
 
 function UseItem(User, SourceItem, ltstate)
+
+	if SourceItem:getData("teachDogTransformationPotion") == "true" then
+		alchemy.teaching.transformation_dog.UseSealedScroll(User, SourceItem)
+		return
+	end
 
 	-- teleport character on use
 		local destCoordX = tonumber(SourceItem:getData("destinationCoordsX"))
