@@ -30,6 +30,7 @@ Title[ENGLISH] = "The smithing craft"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
+-- Smithing tutorial
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
@@ -43,8 +44,32 @@ Description[GERMAN][4] = "Geh zu Thorgrem Silverbeard in der Werkstatt von Galma
 Description[ENGLISH][4] = "Go to Thorgrem Silverbeard at the workshop in Galmair, he is sure to have another task for you."
 Description[GERMAN][5] = "Schmiede fünf Nägel und fünf Kelche für Thorgrem Silverbeard bei der Werkstatt von Galmair. Für die Nägel musst du den Hammer mit dem gelben Griff benutzen. Für die Kelche nimmst du den Feinschmiedehammer mit dem roten Griff."
 Description[ENGLISH][5] = "Smith five pins and five goblets for Thorgrem Silverbeard at the workshop of Galmair. To smith you need to stand facing the anvil. For the pins you have to use the hammer with the yellow handle, for the goblets use the finesmithing hammer with the red handle."
-Description[GERMAN][6] = "Du hast alle Aufgaben von Thorgrem Silverbeard erfüllt."
-Description[ENGLISH][6] = "You have fulfilled all the tasks for Thorgrem Silverbeard."
+--Smithing reward system (Needs german translation)
+Description[GERMAN][6] = "Need translation"
+Description[ENGLISH][6] = "Return to Thorgrem Silverbeard at the workshop in Galmair, when you've reached level 20 in smithing, to receive your first reward."
+Description[GERMAN][7] = "Need translation"
+Description[ENGLISH][7] = "Congratulations! You've received your first reward! Return to Thorgrem Silverbeard at the workshop in Galmair, once you reach level 30 in smithing, to receive your next one!"
+Description[GERMAN][8] = "Need translation"
+Description[ENGLISH][8] = "Return to Thorgrem Silverbeard at the workshop in Galmair, once you reach level 40 in smithing, to receive your next reward."
+Description[GERMAN][9] = "Need translation"
+Description[ENGLISH][9] = "Return to Thorgrem Silverbeard at the workshop in Galmair, once you reach level 50 in smithing, to receive your next reward."
+Description[GERMAN][10] = "Need translation"
+Description[ENGLISH][10] = "Return to Thorgrem Silverbeard at the workshop in Galmair, once you reach level 60 in smithing, to receive your next reward."
+Description[GERMAN][11] = "Need translation"
+Description[ENGLISH][11] = "Return to Thorgrem Silverbeard at the workshop in Galmair, once you reach level 70 in smithing, to receive your next reward."
+Description[GERMAN][12] = "Need translation"
+Description[ENGLISH][12] = "Return to Thorgrem Silverbeard at the workshop in Galmair, once you reach level 80 in smithing, to receive your next reward."
+Description[GERMAN][13] = "Need translation"
+Description[ENGLISH][13] = "Return to Thorgrem Silverbeard at the workshop in Galmair, once you reach level 90 in smithing, to receive your next reward."
+Description[GERMAN][14] = "Need translation"
+Description[ENGLISH][14] = "Return to Thorgrem Silverbeard at the workshop in Galmair, once you reach level 100 in smithing, to receive your next reward."
+Description[GERMAN][15] = "Need translation"
+Description[ENGLISH][15] = "You have mastered smithing and received all rewards available."
+Description[GERMAN][16] = "Need translation"
+Description[ENGLISH][16] = "You have mastered smithing and received all rewards available."
+
+
+
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
@@ -59,9 +84,19 @@ QuestTarget[3] = {position(387, 273, 0), position(387, 272, 0)} -- Furnace
 QuestTarget[4] = {position(387, 273, 0)} 
 QuestTarget[5] = {position(387, 273, 0), position(383, 272, 0)} -- anvil
 QuestTarget[6] = {position(387, 273, 0)} 
+QuestTarget[7] = {position(387, 273, 0)} 
+QuestTarget[8] = {position(387, 273, 0)} 
+QuestTarget[9] = {position(387, 273, 0)} 
+QuestTarget[10] = {position(387, 273, 0)} 
+QuestTarget[11] = {position(387, 273, 0)} 
+QuestTarget[12] = {position(387, 273, 0)} 
+QuestTarget[13] = {position(387, 273, 0)} 
+QuestTarget[14] = {position(387, 273, 0)}
+QuestTarget[15] = {position(387, 273, 0)} 
+QuestTarget[16] = {position(387, 273, 0)}  
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 6
+FINAL_QUEST_STATUS = 16
 
 
 function QuestTitle(user)

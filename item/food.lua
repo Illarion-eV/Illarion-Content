@@ -105,7 +105,8 @@ FoodList:add( 552,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true
 FoodList:add( 553,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- rabbit meat (orc)
 FoodList:add(2934,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- lamb meat (orc)
 FoodList:add(1151,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- chicken meat (orc)
-
+FoodList:add(1209,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,true,false,true,true,true,true}); -- horse mackerel (lizard)
+FoodList:add(1210,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,true,false,true,true,true,true}); -- rose fish (lizard)
 -- Simple Food
 FoodList:add( 306,	 VALUE_XLARGE,	   0); -- ham
 FoodList:add( 455,	 VALUE_XLARGE,	   0); -- smoked fish
@@ -136,6 +137,8 @@ FoodList:add(1152,	nil,	2935,	 2,	{1,1,1,1,0.5,1,1,1,1,1}); -- chicken soup
 FoodList:add(1153,	nil,	   0,	 3,	{1,1,2,1,0.5,0.5,1,2,1,1}); -- custard pie
 FoodList:add(1154,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- egg dish
 FoodList:add(1155,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- chicken dish
+FoodList:add( 3568,	nil,	   0,	 1,	{2,2,2,1,1,1,1,1,1,1}); -- Baked potato
+FoodList:add( 3569, nil,    2935,    1, {2,2,2,1,1,1,1,1,1,1}); -- Potato soup
 
 -- Poisoned Food
 FoodList:add( 162,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 600); -- birth mushroom
@@ -210,7 +213,7 @@ function UseItem(User, SourceItem, ltstate)
 	-- user should not fight
 	if User.attackmode then
     base.common.HighInformNLS( User,
-    "Du kannst nicht während eines Kampfes essen.",
+    "Du kannst nicht wï¿½hrend eines Kampfes essen.",
     "You cannot eat during a fight.");
     return;
   end
@@ -220,7 +223,7 @@ function UseItem(User, SourceItem, ltstate)
     if (math.random(1,100)==1) then
       local deText, enText = content.furtunecookies.cookie();
       base.common.InformNLS( User,
-      "Du findest ein Stück Papier in dem Keks: \""..deText.."\"",
+      "Du findest ein Stï¿½ck Papier in dem Keks: \""..deText.."\"",
       "You find a piece of paper inside the cookie: \""..enText.."\"");
     end
   end
@@ -247,7 +250,7 @@ function UseItem(User, SourceItem, ltstate)
 		if ( notCreated > 0 ) then
 			world:createItemFromId( foodItem.leftover, notCreated, User.pos, true, 333, nil );
 			base.common.HighInformNLS(User,
-			"Du kannst nichts mehr halten und lässt das Geschirr zu Boden fallen.",
+			"Du kannst nichts mehr halten und lï¿½sst das Geschirr zu Boden fallen.",
 			"You can't carry any more and let the dishes drop to the ground.");
 		end
     end
@@ -258,7 +261,7 @@ function UseItem(User, SourceItem, ltstate)
   if (poison ~= nil) then
     User:setPoisonValue( base.common.Limit( (User:getPoisonValue() + poison) , 0, 10000) );
     base.common.HighInformNLS(User,
-    "Du fühlst dich krank und etwas benommen.",
+    "Du fï¿½hlst dich krank und etwas benommen.",
     "You feel sick and a little dizzy.");
     SetNewFoodLevel(User, foodLevel-foodVal);
     return;
@@ -283,7 +286,7 @@ function UseItem(User, SourceItem, ltstate)
   -- inform the player about the food level. Avoid spam.
   if  (foodLevel > 55000) and ((foodLevel-foodVal) <= 55000) then
     base.common.InformNLS( User,
-    "Nur mit Mühe kannst du dir noch etwas hinunter zwingen.",
+    "Nur mit Mï¿½he kannst du dir noch etwas hinunter zwingen.",
     "You hardly manage to eat something more.");
   elseif  (foodLevel > 50000) and ((foodLevel-foodVal) <= 50000) then
     base.common.InformNLS( User,
@@ -295,7 +298,7 @@ function UseItem(User, SourceItem, ltstate)
     "You are stuffed.");
   elseif  (foodLevel > 30000) and ((foodLevel-foodVal) <= 30000) then
     base.common.InformNLS( User,
-    "Du fühlst dich noch etwas hungrig.",
+    "Du fï¿½hlst dich noch etwas hungrig.",
     "You still feel a little hungry.");
   elseif  (foodLevel > 20000) and ((foodLevel-foodVal) <= 20000) then
     base.common.InformNLS( User,

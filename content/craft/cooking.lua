@@ -36,6 +36,7 @@ cooking:addTool(2488) -- kettle
 --------------------------------------------------------------------------------------------
 local catId = cooking:addCategory("Soups", "Suppen") -- Suppenschüssel ( Suppen )
 
+
 ---------------- CHICKEN SOUP - 1152 ----------------------
 product = cooking:addProduct(catId, 1152, 55, 75, 75, 150)
 product:addIngredient(2935) -- Step 1: Soup Bowl (2935) 1x
@@ -59,6 +60,14 @@ product:addIngredient(201) -- Step 3: Onion (201) 1x
 product:addIngredient(2493) -- Step 4: Carrots(2493) 1x
 product:addIngredient(200) -- Step 5: Tomatoe(200) 1x
 ---------------------Mulligan Done--------------------------
+---------------- POTATO SOUP- 3569 ----------------------
+product = cooking:addProduct(catId, 3569, 35, 55, 60, 120)
+product:addIngredient(2935) -- Step 1: Soup Bowl (2935) 1x
+product:addIngredient(52) -- Step 2: Bucket with water (52) 1x
+product:addRemnant(51) -- Remnant: Empty bucket (51) 1x
+product:addIngredient(3567, 3) -- Step 3: Potatoes (201) 3x
+product:addIngredient(201, 2) -- Step 4: Onions (201) 2x
+---------------------Potato soup Done--------------------------
 
 ---------------- CABBAGE STEW - 2278 ----------------------
 product = cooking:addProduct(catId, 2278, 30, 50, 36, 72)
