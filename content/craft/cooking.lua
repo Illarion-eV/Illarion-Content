@@ -36,13 +36,36 @@ cooking:addTool(2488) -- kettle
 --------------------------------------------------------------------------------------------
 local catId = cooking:addCategory("Soups", "Suppen") -- Suppenschüssel ( Suppen )
 
+---------------- FISH SOUP - 3572 ----------------------
+product = cooking:addProduct(catId, 3572, 75, 95, 8, 160)
+product:addIngredient(2935) -- Step 1: Soup Bowl (2935) 1x
+product:addIngredient(52) -- Step 2: Bucket with water (52) 1x
+product:addRemnant(51) -- Remnant: Empty bucket (51) 1x
+product:addIngredient(1209) -- Step 3: Horse Mackerel (1209) 1x
+product:addIngredient(355) -- Step 4: Salmon (355) 1x
+product:addIngredient(3567) -- Step 5: Potato(3568) 1x
+product:addIngredient(290) -- Step 6: Cabbage (290) 1x
+product:addIngredient(2502) -- Step 6: Milk (2502) 1x
+product:addRemnant(2498) -- Remnant: Empty Bottle (2498) 1x
+---------------------FISH SOUP DONE--------------------
+
+---------------- EGG SALAD - 3570 ----------------------
+product = cooking:addProduct(catId, 3570, 65, 85, 75, 150)
+product:addIngredient(2935) -- Step 1: Soup Bowl (2935) 1x
+product:addIngredient(52) -- Step 2: Bucket with water (52) 1x
+product:addRemnant(51) -- Remnant: Empty bucket (51) 1x
+product:addIngredient(1150, 2) -- Step 3: Eggs (1150) 2x
+product:addIngredient(2493) -- Step 4: Carrot(2493) 1x
+product:addIngredient(201) -- Step 5: Onion(201) 1x
+product:addIngredient(3573) -- Step 6: Cheese (3573) 1x
+---------------------EGG SALAD DONE--------------------
 
 ---------------- CHICKEN SOUP - 1152 ----------------------
 product = cooking:addProduct(catId, 1152, 55, 75, 75, 150)
 product:addIngredient(2935) -- Step 1: Soup Bowl (2935) 1x
-product:addIngredient(52)
-product:addRemnant(51) -- Step 2: Bucket with water (52) 1x
-product:addIngredient(1151) -- Step 3: Chicken Meat (201) 1x
+product:addIngredient(52) -- Step 2: Bucket with water (52) 1x
+product:addRemnant(51) -- Remnant: Empty bucket (51) 1x
+product:addIngredient(1151) -- Step 3: Chicken Meat (1151) 1x
 product:addIngredient(2) -- Step 4: Flour(2) 1x
 product:addIngredient(2493) -- Step 5: Carrot(2493) 1x
 product:addIngredient(2502) -- Step 6: Milk (2502) 1x
@@ -54,12 +77,13 @@ product:addRemnant(790) -- Remnant: Empty Juice Bottle (790) 1x
 ---------------- MULLIGAN - 2276 ----------------------
 product = cooking:addProduct(catId, 2276, 40, 60, 75, 150)
 product:addIngredient(2935) -- Step 1: Soup Bowl (2935) 1x
-product:addIngredient(52)
-product:addRemnant(51) -- Step 2: Bucket with water (52) 1x
+product:addIngredient(52) -- Step 2: Bucket with water (52) 1x
+product:addRemnant(51) -- Remnant: Empty bucket (51) 1x
 product:addIngredient(201) -- Step 3: Onion (201) 1x
 product:addIngredient(2493) -- Step 4: Carrots(2493) 1x
 product:addIngredient(200) -- Step 5: Tomatoe(200) 1x
 ---------------------Mulligan Done--------------------------
+
 ---------------- POTATO SOUP- 3569 ----------------------
 product = cooking:addProduct(catId, 3569, 35, 55, 60, 120)
 product:addIngredient(2935) -- Step 1: Soup Bowl (2935) 1x
@@ -185,6 +209,12 @@ product:addIngredient(73) -- Step 2: Trout(73) 1x
 product:addIngredient(290) -- Step 3: Cabbage (290) 1x
 product:addIngredient(200) -- Step 4: Tomatoe(200) 1x
 -------------- FISH FILET - DONE ----------------
+
+---------------- CHEESE - 3573 ----------------------
+product = cooking:addProduct(catId, 3573, 10, 30, 12, 24)
+product:addIngredient(2502, 2) -- Step 1: Milk (2502) 2x
+product:addRemnant(2498, 2) -- Remnant: Empty Bottle (2498) 2x
+-------------- CHEESE - DONE ----------------
 
 ---------------- STEAK - 2940 ----------------------
 product = cooking:addProduct(catId, 2940, 5, 25, 6, 12)

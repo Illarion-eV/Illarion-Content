@@ -85,6 +85,15 @@ product:addRemnant(51) -- Step 4: Bucket with water (52) 1x
 
 -------------- APPLE PIE - DONE ----------------
 
+---------------- EGG SALAD SANDWICH- 3571 ----------------------
+product = baking:addProduct(catId, 3571, 65, 85, 95, 190)
+product:addIngredient(2, 3) -- Step 1: Flour (2) 1x
+product:addIngredient(52)
+product:addRemnant(51) -- Step 2: Bucket with water (52) 1x
+product:addIngredient(3570) -- Step 3: Egg Salad (3570) 1x
+product:addRemnant(2935) -- Step 4: Empty Bowl (2935) 1x
+-------------- EGG SALAD SANDWICH - DONE ----------------
+
 ---------------- CHERRY CAKE - 303 ----------------------
 product = baking:addProduct(catId, 303, 70, 90, 132, 264)
 product:addIngredient(2, 3) -- Step 1: Flour (2) 1x
