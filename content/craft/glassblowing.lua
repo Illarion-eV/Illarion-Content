@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("item.base.crafts")
 
@@ -28,12 +28,13 @@ glassblowing = item.base.crafts.Craft:new{
 
 glassblowing:addTool(313) -- glass melting oven
 
-catId = glassblowing:addCategory("Bottles", "Flaschen")
+
+local catId = glassblowing:addCategory("Bottles", "Flaschen")
 
 -- glassblowing:addProduct(category, item, difficulty, learnLimit, minTime, maxTime, quantity=1, data={})
 
 --Empty Bottle
-product = glassblowing:addProduct(catId, 164, 40, 60, 12, 24)
+local product = glassblowing:addProduct(catId, 164, 40, 60, 12, 24)
 product:addIngredient(41, 3) -- Glass Ingot: 3x
 
 --Empty Round Body Bottle(518) (Rum)
@@ -84,4 +85,3 @@ product:addIngredient(41, 2) -- Glass Ingot: 2x
 product = glassblowing:addProduct(catId, 393, 27, 67, 36, 72)
 product:addIngredient(2550, 1) -- Copper Ingot: 1x1
 product:addIngredient(41, 3) -- Glass Ingot: 3x1
-

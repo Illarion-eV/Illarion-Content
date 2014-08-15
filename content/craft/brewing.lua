@@ -65,6 +65,7 @@ product:addIngredient(52)
 product:addRemnant(51) -- Schritt 4: Eimer mit Wasser(52) 1x
 ------------------ FLASCHE MIT WEIN - FERTIG --------------------------
 
+
 catId = brewing:addCategory("Strong alcohol", "Harter Alkohol") -- Das harte Zeug
 
 ------------------- FLASCHE MIT RUM - 517 ---------------------------
@@ -111,6 +112,7 @@ product:addIngredient(2529, 2) -- Schritt 4: Honig(2529) x2
 product:addIngredient(52) -- Schritt 5: Eimer mit Wasser(52) 1x
 product:addRemnant(51)
 ------------------- FLASCHE MIT ELBENWEIN - FERTIG ---------------------------
+
 
 catId = brewing:addCategory("Juices", "Säfte") -- Tee, Smoothies, Saft :p
 
