@@ -87,7 +87,7 @@ product:addRemnant(51) -- Step 4: Bucket with water (52) 1x
 
 ---------------- EGG SALAD SANDWICH- 3571 ----------------------
 product = baking:addProduct(catId, 3571, 65, 85, 95, 190)
-product:addIngredient(2, 3) -- Step 1: Flour (2) 1x
+product:addIngredient(2, 2) -- Step 1: Flour (2) 1x
 product:addIngredient(52)
 product:addRemnant(51) -- Step 2: Bucket with water (52) 1x
 product:addIngredient(3570) -- Step 3: Egg Salad (3570) 1x
