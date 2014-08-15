@@ -29,7 +29,6 @@ baking:addTool( 119 ); -- baking oven
 baking:addTool( 120 ); -- baking oven
 
 --------------------------------------------------------------------------------------------
-
 local catId = baking:addCategory("Baked goods", "Backwaren")
 
 ---------------- BREAD ROLL - 191 ----------------------
@@ -82,12 +81,11 @@ product:addIngredient(2529, 2) -- Step 2: Honey(2529) 2x
 product:addIngredient(15, 10) -- Step 3: Apple(15) 5x
 product:addIngredient(52)
 product:addRemnant(51) -- Step 4: Bucket with water (52) 1x
-
 -------------- APPLE PIE - DONE ----------------
 
 ---------------- EGG SALAD SANDWICH- 3571 ----------------------
 product = baking:addProduct(catId, 3571, 65, 85, 95, 190)
-product:addIngredient(2, 2) -- Step 1: Flour (2) 1x
+product:addIngredient(2, 2) -- Step 1: Flour (2) 2x
 product:addIngredient(52)
 product:addRemnant(51) -- Step 2: Bucket with water (52) 1x
 product:addIngredient(3570) -- Step 3: Egg Salad (3570) 1x
@@ -122,5 +120,4 @@ product:addIngredient(517) -- Step 5: Rum (517) 1x
 product:addRemnant(518) -- Remnant: Empty Rum Bottle (518) 1x
 product:addIngredient(2502) -- Step 6: Milk (2502) 1x
 product:addRemnant(2498) -- Remnant: Empty Bottle (2498) 1x
--- notyet: White Eggs (as alternative to brown eggs)
 -------------- CUSTARD PIE - DONE ----------------

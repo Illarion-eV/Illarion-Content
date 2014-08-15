@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("item.base.crafts")
 require("content.craft.brewing")
@@ -118,8 +118,6 @@ product:addIngredient(163, 5) -- Step 3: Champignon(163) 5x
 --------------  MUSHROOM SOUP - DONE ----------------
 
 
-
-
 --------------------------------------------------------------------------------------------
 catId = cooking:addCategory("Dishes", "Gerichte") -- Teller ( Tellergerichte )
 
@@ -191,7 +189,6 @@ product = cooking:addProduct(catId, 1154, 45, 65, 60, 120)
 product:addIngredient(2952) -- Step 1: Plate(2952) 1x
 product:addIngredient(3051) -- Step 2: Sausage(3051) 1x
 product:addIngredient(1150, 2) -- Step 3: White Egg (50) 2x
-
 -------------- FRIED EGGS - DONE ----------------
 
 ---------------- SALMON DISH - 556 ----------------------
@@ -226,8 +223,3 @@ product = cooking:addProduct(catId, 3051, 0, 20, 10, 20, 2)
 product:addIngredient(307) -- Step 1: Pork(307) 1x
 product:addIngredient(63) -- Step 2: Insides(63) 1x
 -------------- SAUSAGE - DONE ----------------
-
-
-
-
-
