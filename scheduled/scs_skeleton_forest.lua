@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Skeleton Forest
 -- Skeleton Spawn Script
@@ -23,7 +23,7 @@ module("scheduled.scs_skeleton_forest", package.seeall)
 
 function ForestSkells()
     local Charakters = world:getPlayersInRangeOf(position(780,50,0),30);
-	for i,Char in pairs(Charakters) do    
+	for _,Char in pairs(Charakters) do
         RndTry = math.random(1,2)
         if (RndTry == 1) then
             if SpawnSkeleton(Char) then
@@ -37,15 +37,15 @@ end
 
 function SpawnSkeleton(Charakter)
     local Monsters = world:getMonstersInRangeOf(Charakter.pos,7);
-    
+
     if (table.getn(Monsters) > 0) then
-        for i, Monster in Monsters do
+        for _, Monster in pairs(Monsters) do
             MonType = Monster:getMonsterType();
             if ((MonType>110) and (MonType<121)) then -- Skeletons
                 return false;
             end
         end
-    end  
+    end
 
 	base.common.InformNLS(Charakter,"Um dich herum raschelt der Wald und du hört das Klappern von Knochen.","Around you the forest rustles and you hear the clacking of bones.");
 
@@ -60,14 +60,14 @@ function SpawnSkeletonCycle(CenterPos,Radius,Anzahl)
     local y;
     local map = {} ;
     local divid = math.ceil((2 * math.pi * irad) / Anzahl);
-    
+
     for x = -irad-1, irad do
         map[x] = {};
         for y = -irad-1, irad do
             map[x][y] = (x+0.5)*(x+0.5)+(y+0.5)*(y+0.5)-irad*irad > 0
         end;
     end;
-    
+
     local count = 0;
     for x = -irad, irad do
         for y = -irad, irad do
