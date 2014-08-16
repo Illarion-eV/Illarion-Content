@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 require("base.common")
+require("base.character")
 require("alchemy.base.alchemy")
 require("monster.base.base")
 require("triggerfield.potionToTeacher")
@@ -24,11 +25,8 @@ module("alchemy.teaching.transformation_dog", package.seeall)
 
 -- This script handles the teaching of the dog transformation potion.
 
-TO_GRAVE = "TO_GRAVE"
-GO_BACK = "GO_BACK"
 
 DOG_STATUS = false
-DOG_ID = false
 
 function LookAtGrave(User,Item)
 	local graveInscription = base.common.GetNLS(User, "~Hier ruht Tavalion. Weiser Druide und größter Freund der Tiere.~", "~Here rests Tavalion. A wise druid and the greatest friend of the dogs.~")
@@ -51,9 +49,6 @@ end
 LAST_TIME = 0
 
 function UseGrave(User, SourceItem)
-	if not alchemy.base.alchemy.CheckIfAlchemist(User) then
-		User:setMagicType(3)
-	end
 	
 	if alchemy.base.alchemy.CheckIfAlchemist(User) then
 		if DOG_STATUS ~= false or User:getQuestProgress(862) ~= 0 or world:getTime("unix") - LAST_TIME < 120 then 
@@ -169,74 +164,45 @@ LEARNER_ID = false
 
 function ApperanceOfDog(User)
 
-	User:inform("Als du die Pfote berührst, hörst du ein Rascheln und Bellen.","As you touch the paw, you hear a rustling and a bark.")
-	local theDog = world:createMonster(584,position(931,933,0),0)
-	theDog:talk(Character.say, "#me kommt aus dem Unterholz getrottet. In seiner Schnauze hält er ein großes Donfblatt. Langsam tapst her zum Grab herüber.",
-	"#me ambles slowly out from the brushwood. It carries a donf blade in its muzzle. Slowly, it walks towards the grave.")
-	theDog.movepoints = theDog.movepoints - 50
-	theDog.waypoints:addWaypoint(position(925,941,0))
-	DOG_STATUS = TO_GRAVE
-	DOG_ID = theDog.id
-	LEARNER_ID = User.id
-	monster.base.base.setUnattackability(theDog,"Du kannst dich nicht überwinden den Hund anzugreifen. Irgendwas lässt deine Hände im letzten Moment erstarren.", "You cannot convince yourself to attack the dog. In the last moment, your hands stop listen to you.")
-	monster.base.base.setNoDrop(theDog)
-	User:setQuestProgress(862,1)
-	theDog:setOnRoute(true)
-	
-end
-
-function DogTransformationAbortRoute(dog)
-
-	if DOG_STATUS == TO_GRAVE then
-		dog:talk(Character.say, "#me legt ein großes Donfblatt vor dem Grab ab. Kurz bellt er, bevor er wieder davon geht.",
-		"#me drops a big donf blade infront of the grave. He woofs shortly before he walks back.")
-		
-		local positionX, positionY
-		while not positionX do
-			local checkPosition = position(Random.uniform(822,873),Random.uniform(765,799),0)
-			if (not world:isItemOnField(checkPosition)) and (not world:isCharacterOnField(checkPosition)) then
-				positionX = checkPosition.x
-				positionY = checkPosition.y
-				break
-			end
-		end
-		
-		local donfblade = world:createItemFromId(140, 1, position(924,940,0), true, 333, {teachDogTransformationPotion="true",learnerId=LEARNER_ID, MapPosX=positionX,MapPosY=positionY,MapPosZ=0,nameEn="Big donf blade",nameDe="Großes Donfblatt"})
-		donfblade.wear = 200
-		world:changeItem(donfblade)
-		if dog.pos ~= position(925,941,0) then
-			WARP = position(dog.pos.x,dog.pos.y,dog.pos.z)
-			dog.waypoints:addWaypoint(position(925,941,0))
-			dog:forceWarp(position(925,941,0))
-			dog:setOnRoute(true)
-		else
-			dog.waypoints:addWaypoint(position(931,933,0))
-			dog.movepoints = -50
-			LEARNER_ID = false
-			dog:setOnRoute(true)
-		end
-		DOG_STATUS = GO_BACK
-		
-	elseif DOG_STATUS == GO_BACK then
-	
-		if WARP then
-			dog:forceWarp(WARP)
-			dog.movepoints = -50
-			dog.waypoints:addWaypoint(position(931,933,0))
-			LEARNER_ID = false
-			dog:setOnRoute(true)
-		else
-			dog:talk(Character.say, "#me verschwindet im Unterholz.",
-			"#me disappears in the brushwood.")
-			dog:increaseAttrib("hitpoints", -10000)
-			DOG_STATUS = false
-			OLD_POSITION = false
-			DOG_ID = false
-			LAST_TIME = 0
-		end
-		WARP = nil
+	local apperancePosition = position(925,941,0)
+	if world:isCharacterOnField(apperancePosition) then
+		local warpChar = world:getCharacterOnField(apperancePosition)
+		User:talk(Character.say, "#me wird zurückgeworfen.","#me is thrown back.")
+		User:warp(base.common.GetBehindPosition(User, 3))
 	end
 	
+	local theDog = world:createMonster(584,position(925,941,0),-200)
+	theDog:talk(Character.say, "#me erscheint in einem Wirbel von Laubblättern. In der Schnauze hält er ein großes Donfblatt.",
+	"#me appears in a swirl of maple leaves. It holds a big donf blade in its muzzle.")
+	monster.base.base.setNoDrop(theDog)
+	base.character.DeathAfterTime(theDog,70,7,nil,nil)
+	local find, Effect = mon.effects:find(36)
+	Effect:addValue("transfomationDog",1)
+	LEARNER_ID = User.id
+	User:setQuestProgress(862,1)
+
+end
+
+function dropDonfblade(dog)
+
+	dog:talk(Character.say, "#me legt ein großes Donfblatt vor dem Grab ab. Kurz bellt er, bevor er wieder davon geht.",
+	"#me drops a big donf blade infront of the grave. He woofs shortly before he walks back.")
+	
+	local positionX, positionY
+	while not positionX do
+		local checkPosition = position(Random.uniform(822,873),Random.uniform(765,799),0)
+		if (not world:isItemOnField(checkPosition)) and (not world:isCharacterOnField(checkPosition)) then
+			positionX = checkPosition.x
+			positionY = checkPosition.y
+			break
+		end
+	end
+	
+	local donfblade = world:createItemFromId(140, 1, position(924,940,0), true, 333, {teachDogTransformationPotion="true",learnerId=LEARNER_ID, MapPosX=positionX,MapPosY=positionY,MapPosZ=0,nameEn="Big donf blade",nameDe="Großes Donfblatt"})
+	donfblade.wear = 200
+	world:changeItem(donfblade)
+	
+	-- Dog is killed by the death lte.
 end
 
 function LookAtDonfbladeMap(User, Item)

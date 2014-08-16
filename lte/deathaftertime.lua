@@ -19,10 +19,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- see base.character.DeathAfterTime(Character,deathAfter,deathGfx,deathSound)
 
 require("base.common")
+require("alchemy.teaching.transformation_dog")
 require("scheduled.showGFX")
 module("lte.deathaftertime", package.seeall)
 
-function addEffect(Effect, Character)               				
+function addEffect(Effect, Character)
 
 end
 
@@ -62,6 +63,13 @@ function callEffect(Effect, Character)
 		TheGlutinousSeedling(slimeNumber)
 	end
 	-- Glutinous Seedling end
+	
+	-- Dog Transformation Quest check
+	local find, value = Effect:findValue("transfomationDog")
+	if find and value then
+		alchemy.teaching.transformation_dog.dropDonfblade(Character)
+	end
+	-- Dog Transformation Quest check end
 	
    Character:increaseAttrib("hitpoints",-10000) -- die!
    return false

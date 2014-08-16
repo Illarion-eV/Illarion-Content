@@ -42,14 +42,6 @@ function ini(Monster)
     msgs:addMessage("#me knurrt.", "#me growls.");
 end
 
-function abortRoute(dog)
-
-	local MonType = dog:getMonsterType();
-	if MonType == 584 and alchemy.teaching.transformation_dog.DOG_ID == dog.id then
-		alchemy.teaching.transformation_dog.DogTransformationAbortRoute(dog)
-	end
-end
-
 function onSpawn(Monster)
 
     local var = 60;

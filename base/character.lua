@@ -90,7 +90,7 @@ end;
 -- @param deathSound The sound played on characters' death, nil for no sound
 -- @param blood Boolean determining if blood is dropped or not
 function DeathAfterTime(Character,deathAfter,deathGfx,deathSound,blood)
-    find, myEffect = Character.effects:find(36)
+    local find, myEffect = Character.effects:find(36)
 	if find then 
 	    return
 	else
