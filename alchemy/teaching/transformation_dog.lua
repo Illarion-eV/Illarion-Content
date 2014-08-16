@@ -176,7 +176,7 @@ function ApperanceOfDog(User)
 	"#me appears in a swirl of maple leaves. It holds a big donf blade in its muzzle.")
 	monster.base.base.setNoDrop(theDog)
 	base.character.DeathAfterTime(theDog,70,7,nil,nil)
-	local find, Effect = mon.effects:find(36)
+	local find, Effect = dog.effects:find(36)
 	Effect:addValue("transfomationDog",1)
 	LEARNER_ID = User.id
 	User:setQuestProgress(862,1)
