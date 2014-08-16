@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("item.base.crafts")
 
@@ -28,14 +28,14 @@ dyemaking = item.base.crafts.Craft:new{
 
 dyemaking:addTool(12) -- camp fire
 
-local catId = dyemaking:addCategory("Dyes", "Farbstoffe")
 
+local catId = dyemaking:addCategory("Dyes", "Farbstoffe")
 
 --White Dye
 local product = dyemaking:addProduct(catId, 2683, 0, 20, 20, 40)
 product:addIngredient(161 , 3) -- herder's mushroom: 3x1
-product:addIngredient(52) -- Water bucket: 1x1 
-        
+product:addIngredient(52) -- Water bucket: 1x1
+
 --Red Dye
 product = dyemaking:addProduct(catId, 2681, 0, 20, 20, 40)
 product:addIngredient(302, 3) -- Cherries: 3x1
@@ -59,5 +59,4 @@ product:addIngredient(52) -- Water bucket: 1x1
 --Blue Dye
 product = dyemaking:addProduct(catId, 2680, 20, 40, 40, 80)
 product:addIngredient(753, 3) -- Blue Bird's Berry: 3x1
-product:addIngredient(52) -- Water bucket: 1x1 
-
+product:addIngredient(52) -- Water bucket: 1x1
