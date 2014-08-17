@@ -12,26 +12,44 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
 require("base.factions")
 require("alchemy.teaching.transformation_dog")
+require("item.id_266_bookshelf")
 
 module("item.id_3110_scroll", package.seeall)
 
 -- UPDATE common SET com_script = 'item.id_3110_scroll' WHERE com_itemid = 3110;
 
 function LookAtItem(User,Item)
-
+    if Item:getData("bookId") ~= "" then
+		local bookId = tonumber(Item:getData("bookId"))
+		if bookId ~= nil then
+			if item.id_266_bookshelf.books[bookId] ~= nil then
+				base.lookat.SetSpecialName(Item, item.id_266_bookshelf.books[bookId].german, item.id_266_bookshelf.books[bookId].english)
+			end
+		end
+	end
 	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
-	
 end
 
 function UseItem(User, SourceItem, ltstate)
 
 	if SourceItem:getData("teachDogTransformationPotion") == "true" then
 		alchemy.teaching.transformation_dog.UseSealedScroll(User, SourceItem)
+		return
+	end
+
+	if SourceItem:getData("bookId") ~= "" then
+		local bookId = tonumber(SourceItem:getData("bookId"))
+		if bookId == nil then
+			return
+		end
+		if item.id_266_bookshelf.books[bookId] ~= nil then
+			User:sendBook(bookId)
+		end
 		return
 	end
 
@@ -48,5 +66,4 @@ function UseItem(User, SourceItem, ltstate)
 			world:erase(SourceItem,1)
 			return
 		end
-
 end
